@@ -10,7 +10,7 @@ import {
 } from './data/examples'
 import { downloadBlob, downloadText, slugifyTitle } from './lib/download'
 import { estimateSeconds, formatDuration } from './lib/stats'
-import { speakLux, stripForSpeech } from './lib/tts'
+import { edgeToastLabel, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
 
 type MobileTab = 'script' | 'stem' | 'projecten'
 
@@ -100,6 +100,8 @@ export default function App() {
 
       const secs = estimateSeconds(previewText, rate) || 4
       const myId = ++genIdRef.current
+      // Sync with tap: unlock iOS audio before any await (network TTS).
+      unlockAudioForPlayback()
       setBusy(true)
       setProgress(0)
       setElapsed(0)
@@ -115,11 +117,12 @@ export default function App() {
             if (myId !== genIdRef.current) return
             setAudioBlob(blob)
           },
-          onStart: () => {
+          onStart: (meta) => {
             if (myId !== genIdRef.current) return
             clearTicker()
             setBusy(false)
             setSpeaking(true)
+            showToast(meta?.label ?? edgeToastLabel(lang))
           },
           onProgress: (fraction, elapsedSec) => {
             if (myId !== genIdRef.current) return

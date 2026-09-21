@@ -43,7 +43,8 @@ npm run preview
 2. Lokaal / `vite preview`: Vite-plugin `plugins/edge-tts-middleware.ts` op `/api/tts` (praat server-side met Edge Read Aloud)
 3. **GitHub Pages (static)**: browser kan Edge-WebSocket-headers niet zetten → client valt terug op een CORS Edge-relay (`https://tts.reincarnatey.net/v1/audio/speech`), override met `VITE_EDGE_TTS_URL`
 4. Optioneel: deploy `workers/edge-tts-worker.js` op Cloudflare Workers en zet `VITE_EDGE_TTS_URL=https://jouw-worker.workers.dev/v1/audio/speech`
-5. Als Edge faalt → Web Speech API als laatste fallback (geen MP3)
+5. Als Edge of `audio.play()` faalt → **geen** Web Speech-fallback; duidelijke fouttoast ("Edge-stem mislukt — geen robot-fallback"). iOS: audio-unlock bij eerste tap vóór network-TTS.
+6. Stemkeuze EN: `en-US-ChristopherNeural` (default, kalm/documentaire). `en-US-GuyNeural` is dieper maar punchier — niet default.
 
 **CORS op Pages:** de default-relay stuurt `Access-Control-Allow-Origin: *`. Eigen worker moet dat ook doen. Direct `speech.platform.bing.com` vanuit Chrome/Safari/iPhone faalt (custom WS-headers).
 
@@ -66,7 +67,7 @@ curl -X POST http://localhost:5173/vox-lux/api/tts \
 
 ## English
 
-Lux-only VOX studio. Edge neural TTS (`en-US-ChristopherNeural`) → real MP3 play/download. Vite middleware locally; static Pages uses a CORS Edge relay (or your `VITE_EDGE_TTS_URL` worker). Web Speech is fallback only.
+Lux-only VOX studio. Edge neural TTS (`en-US-ChristopherNeural`) → real MP3 play/download. Vite middleware locally; static Pages uses a CORS Edge relay (or your `VITE_EDGE_TTS_URL` worker). No automatic Web Speech fallback (avoids robotic iOS voices).
 
 ## Stack
 

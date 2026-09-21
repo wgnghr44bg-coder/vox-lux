@@ -1,8 +1,16 @@
-/** Edge neural TTS (Lux stand-in) with Web Speech fallback */
+/** Edge neural TTS (Lux stand-in). No automatic Web Speech fallback. */
 
 export const LUX_EDGE_VOICE_EN = 'en-US-ChristopherNeural'
 export const LUX_EDGE_VOICE_NL = 'nl-NL-MaartenNeural'
 export const LUX_EDGE_VOICE_LABEL = 'Christopher (Edge)'
+
+/**
+ * Voice choice: Christopher (default) over Guy.
+ * Christopher is calmer / more documentary; Guy is deeper but punchier.
+ * Keep Christopher unless Guy is clearly preferred after A/B.
+ */
+export const LUX_EDGE_VOICE_NOTE =
+  'Default en-US-ChristopherNeural (calm documentary). en-US-GuyNeural is deeper but punchier — not default.'
 
 const FALLBACK_VOICES: Record<string, string> = {
   'en-US': LUX_EDGE_VOICE_EN,
@@ -54,6 +62,15 @@ export function resolveEdgeVoice(lang: string): string {
   return hit?.[1] ?? LUX_EDGE_VOICE_EN
 }
 
+/** Short toast label when Edge MP3 starts playing. */
+export function edgeToastLabel(lang: string): string {
+  const voice = resolveEdgeVoice(lang)
+  if (voice === LUX_EDGE_VOICE_EN) return 'Edge: Christopher'
+  if (voice === LUX_EDGE_VOICE_NL) return 'Edge: Maarten'
+  const short = voice.replace(/Neural$/, '').split('-').pop() || voice
+  return `Edge: ${short}`
+}
+
 /** Strip / transform speech tags for Edge (XML is escaped by the service). */
 export function stripForSpeech(script: string): string {
   return script
@@ -100,12 +117,17 @@ export function isSpeechSupported(): boolean {
   return typeof window !== 'undefined' && 'speechSynthesis' in window
 }
 
+export type SpeakStartMeta = {
+  engine: 'edge'
+  label: string
+}
+
 export type SpeakOptions = {
   text: string
   lang: string
   rate: number
   pitch?: number
-  onStart?: () => void
+  onStart?: (meta?: SpeakStartMeta) => void
   onEnd?: () => void
   onError?: (err: string) => void
   onAudio?: (blob: Blob) => void
@@ -282,13 +304,91 @@ export type SpeakHandle = {
   audioBlob?: Blob
 }
 
-/** Play Edge TTS audio; falls back to Web Speech on failure. */
+// --- iOS / Safari audio unlock ---------------------------------------------
+
+type WebkitWindow = Window & {
+  webkitAudioContext?: typeof AudioContext
+}
+
+let sharedAudioCtx: AudioContext | null = null
+let unlockPrimed = false
+
+/** Tiny silent WAV (data URI) — starts under user gesture so later play() works. */
+const SILENT_WAV =
+  'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA'
+
+/**
+ * Call synchronously from a click/tap handler (Sample / Voorproef / Full)
+ * before any await. Resumes AudioContext and primes an HTMLAudioElement so
+ * iOS still allows play() after the network TTS round-trip.
+ */
+export function unlockAudioForPlayback(): void {
+  if (typeof window === 'undefined') return
+
+  try {
+    const W = window as WebkitWindow
+    const AC = window.AudioContext || W.webkitAudioContext
+    if (AC) {
+      if (!sharedAudioCtx) sharedAudioCtx = new AC()
+      if (sharedAudioCtx.state === 'suspended') {
+        void sharedAudioCtx.resume()
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+
+  if (unlockPrimed) return
+  try {
+    const a = new Audio(SILENT_WAV)
+    a.muted = true
+    a.setAttribute('playsinline', 'true')
+    ;(a as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
+    const p = a.play()
+    if (p && typeof p.then === 'function') {
+      void p
+        .then(() => {
+          a.pause()
+          a.src = ''
+          unlockPrimed = true
+        })
+        .catch(() => {
+          /* still try later play on real blob */
+        })
+    } else {
+      unlockPrimed = true
+    }
+  } catch {
+    /* ignore */
+  }
+}
+
+function armPlaybackElement(): HTMLAudioElement {
+  const el = new Audio()
+  el.preload = 'auto'
+  el.setAttribute('playsinline', 'true')
+  ;(el as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
+  // Start muted silent clip inside the gesture stack so Safari "unlocks" this element.
+  el.muted = true
+  el.src = SILENT_WAV
+  try {
+    void el.play().catch(() => {})
+  } catch {
+    /* ignore */
+  }
+  return el
+}
+
+/** Play Edge TTS audio. On failure: onError + onEnd — never Web Speech. */
 export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
   let stopped = false
   let audioEl: HTMLAudioElement | null = null
   let objectUrl: string | null = null
   let abort: AbortController | null = new AbortController()
-  let fallbackStop: (() => void) | null = null
+
+  // Must run before any await — keeps (or re-establishes) iOS user-gesture unlock.
+  unlockAudioForPlayback()
+  audioEl = armPlaybackElement()
 
   const cleanupAudio = () => {
     if (audioEl) {
@@ -297,7 +397,8 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
       audioEl.onerror = null
       audioEl.ontimeupdate = null
       audioEl.pause()
-      audioEl.src = ''
+      audioEl.removeAttribute('src')
+      audioEl.load()
       audioEl = null
     }
     if (objectUrl) {
@@ -310,9 +411,12 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     stopped = true
     abort?.abort()
     abort = null
-    fallbackStop?.()
-    fallbackStop = null
     cleanupAudio()
+  }
+
+  const fail = (msg: string) => {
+    opts.onError?.(msg)
+    opts.onEnd?.()
   }
 
   try {
@@ -327,29 +431,50 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     opts.onAudio?.(blob)
 
     objectUrl = URL.createObjectURL(blob)
-    audioEl = new Audio(objectUrl)
-    audioEl.preload = 'auto'
+    const el = audioEl ?? new Audio()
+    audioEl = el
+    try {
+      el.pause()
+    } catch {
+      /* ignore */
+    }
+    el.setAttribute('playsinline', 'true')
+    ;(el as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
+    el.muted = false
+    el.src = objectUrl
+    el.load()
 
-    audioEl.onplay = () => opts.onStart?.()
-    audioEl.ontimeupdate = () => {
+    const label = edgeToastLabel(opts.lang)
+
+    el.onplay = () => opts.onStart?.({ engine: 'edge', label })
+    el.ontimeupdate = () => {
       if (!audioEl?.duration || !Number.isFinite(audioEl.duration)) return
       opts.onProgress?.(
         Math.min(1, audioEl.currentTime / audioEl.duration),
         audioEl.currentTime,
       )
     }
-    audioEl.onended = () => {
+    el.onended = () => {
       if (audioEl?.duration) {
         opts.onProgress?.(1, audioEl.duration)
       }
       opts.onEnd?.()
     }
-    audioEl.onerror = () => {
-      opts.onError?.('Afspelen van Edge-audio mislukt')
-      opts.onEnd?.()
+    el.onerror = () => {
+      fail('Edge-stem mislukt — geen robot-fallback')
     }
 
-    await audioEl.play()
+    try {
+      await el.play()
+    } catch (playErr) {
+      const detail =
+        playErr instanceof Error ? playErr.message : String(playErr)
+      console.warn('[vox-lux] Edge audio play() failed:', detail)
+      fail('Edge-stem mislukt — geen robot-fallback')
+      cleanupAudio()
+      return { stop, audioBlob: blob }
+    }
+
     return { stop, audioBlob: blob }
   } catch (err) {
     if (stopped || (err instanceof DOMException && err.name === 'AbortError')) {
@@ -357,16 +482,17 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     }
 
     const msg = err instanceof Error ? err.message : String(err)
-    console.warn('[vox-lux] Edge TTS failed, falling back to Web Speech:', msg)
-
-    fallbackStop = speakWithWebSpeech({
-      ...opts,
-      onError: (e) => opts.onError?.(e || msg),
-    })
+    console.warn('[vox-lux] Edge TTS failed (no Web Speech fallback):', msg)
+    fail('Edge-stem mislukt — geen robot-fallback')
+    cleanupAudio()
     return { stop }
   }
 }
 
+/**
+ * Manual Web Speech helper — NOT used by speakLux.
+ * Kept for diagnostics only; do not wire as automatic fallback.
+ */
 export function speakWithWebSpeech(opts: SpeakOptions): () => void {
   if (typeof window === 'undefined' || !window.speechSynthesis) {
     opts.onError?.('Web Speech API niet beschikbaar in deze browser.')
