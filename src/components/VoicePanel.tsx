@@ -149,7 +149,7 @@ export function VoicePanel({
           Volledige voice-over
         </button>
         <p className="text-center text-xs text-subtle">
-          Gratis Edge-stem (Lux-achtig) — niet de officiële Grok Lux.
+          Closer-to-Lux tuning (Edge Guy, pitch/rate A/B) — niet de officiële Grok Lux.
         </p>
       </div>
     </aside>

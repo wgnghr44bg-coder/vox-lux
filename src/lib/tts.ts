@@ -1,16 +1,19 @@
 /** Edge neural TTS (Lux stand-in). No automatic Web Speech fallback. */
 
-export const LUX_EDGE_VOICE_EN = 'en-US-ChristopherNeural'
+/** Closer-to-Lux after A/B vs real-lux.mp3 — Guy +8% / -22Hz. Alt: en-US-ChristopherNeural */
+export const LUX_EDGE_VOICE_EN = 'en-US-GuyNeural'
 export const LUX_EDGE_VOICE_NL = 'nl-NL-MaartenNeural'
-export const LUX_EDGE_VOICE_LABEL = 'Christopher (Edge)'
+export const LUX_EDGE_VOICE_LABEL = 'Edge: Guy'
+/** Default Edge pitch for older/deeper Lux character (A/B vs authentic Lux). */
+export const LUX_EDGE_PITCH = '-22Hz'
 
 /**
- * Voice choice: Christopher (default) over Guy.
- * Christopher is calmer / more documentary; Guy is deeper but punchier.
- * Keep Christopher unless Guy is clearly preferred after A/B.
+ * Voice choice: Guy (default) over Christopher.
+ * Guy + rate remap + -22Hz matched Colosseum timing (~51.5s vs real Lux ~52.2s).
+ * Christopher remains a calmer alt if preferred later.
  */
 export const LUX_EDGE_VOICE_NOTE =
-  'Default en-US-ChristopherNeural (calm documentary). en-US-GuyNeural is deeper but punchier — not default.'
+  'Default en-US-GuyNeural (closer-to-Lux A/B). Alt: en-US-ChristopherNeural.'
 
 const FALLBACK_VOICES: Record<string, string> = {
   'en-US': LUX_EDGE_VOICE_EN,
@@ -46,9 +49,25 @@ const PREFERRED_NAME_PARTS = [
   'xander',
 ]
 
-/** Convert UI rate (0.7–1.5) to Edge prosody rate string */
+/**
+ * Map UI tempo (0.7–1.5) → Edge playback speed.
+ * Featured Lux sleep slider 0.7 must stay calm in the UI but not molasses on Edge:
+ * UI 0.7 → Edge ~1.08 (+8%, Colosseum ≈ real Lux ~52s); UI 1.5 → Edge 1.50.
+ * Linear: edge = 1.08 + (ui - 0.7) * (1.50 - 1.08) / (1.5 - 0.7)
+ */
+export function uiRateToEdgeSpeed(uiRate: number): number {
+  const lo = 0.7
+  const hi = 1.5
+  const edgeLo = 1.08
+  const edgeHi = 1.5
+  const t = (Math.min(hi, Math.max(lo, uiRate)) - lo) / (hi - lo)
+  return edgeLo + t * (edgeHi - edgeLo)
+}
+
+/** Convert UI rate (0.7–1.5) to Edge prosody rate string (after Lux timing remap). */
 export function rateToEdgePercent(rate: number): string {
-  const pct = Math.round((rate - 1) * 100)
+  const edge = uiRateToEdgeSpeed(rate)
+  const pct = Math.round((edge - 1) * 100)
   return pct >= 0 ? `+${pct}%` : `${pct}%`
 }
 
@@ -65,7 +84,7 @@ export function resolveEdgeVoice(lang: string): string {
 /** Short toast label when Edge MP3 starts playing. */
 export function edgeToastLabel(lang: string): string {
   const voice = resolveEdgeVoice(lang)
-  if (voice === LUX_EDGE_VOICE_EN) return 'Edge: Christopher'
+  if (voice === LUX_EDGE_VOICE_EN) return 'Edge: Guy'
   if (voice === LUX_EDGE_VOICE_NL) return 'Edge: Maarten'
   const short = voice.replace(/Neural$/, '').split('-').pop() || voice
   return `Edge: ${short}`
@@ -74,8 +93,9 @@ export function edgeToastLabel(lang: string): string {
 /** Strip / transform speech tags for Edge (XML is escaped by the service). */
 export function stripForSpeech(script: string): string {
   return script
-    .replace(/\[long pause\]/gi, '... ... ...')
-    .replace(/\[pause\]/gi, '... ')
+    // Prefer short breath over heavy ellipsis — triple pauses dragged vs real Lux.
+    .replace(/\[long[- ]pause\]/gi, '... ')
+    .replace(/\[pause\]/gi, ', ')
     .replace(/\[laugh\]/gi, ' ha. ')
     .replace(/<\/?(?:emphasis|whisper|slow|fast|soft)>/gi, '')
     .replace(/\s+/g, ' ')
@@ -237,11 +257,11 @@ async function fetchEdgeMp3Chunk(opts: {
       model: 'tts-1',
       input: opts.text,
       voice: opts.voice,
-      speed: opts.rate,
+      speed: uiRateToEdgeSpeed(opts.rate),
       // also accepted by our Vite middleware / DIY-style workers
       text: opts.text,
       rate: rateToEdgePercent(opts.rate),
-      pitch: '-8Hz',
+      pitch: LUX_EDGE_PITCH,
     }),
   })
 
