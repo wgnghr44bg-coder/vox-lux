@@ -8,13 +8,9 @@ import {
   DEFAULT_SCRIPT,
   type ExampleScript,
 } from './data/examples'
-import { downloadText, slugifyTitle } from './lib/download'
+import { downloadBlob, downloadText, slugifyTitle } from './lib/download'
 import { estimateSeconds, formatDuration } from './lib/stats'
-import {
-  isSpeechSupported,
-  speakWithWebSpeech,
-  stripForSpeech,
-} from './lib/tts'
+import { speakLux, stripForSpeech } from './lib/tts'
 
 type MobileTab = 'script' | 'stem' | 'projecten'
 
@@ -23,9 +19,10 @@ const SAMPLE_LINE =
 
 export default function App() {
   const [script, setScript] = useState(DEFAULT_SCRIPT)
-  const [lang, setLang] = useState('nl-NL')
-  const [rate, setRate] = useState(1)
+  const [lang, setLang] = useState('en-US')
+  const [rate, setRate] = useState(0.7)
   const [speaking, setSpeaking] = useState(false)
+  const [busy, setBusy] = useState(false)
   const [progress, setProgress] = useState(0)
   const [elapsed, setElapsed] = useState(0)
   const [activeLabel, setActiveLabel] = useState('Voorbeeld')
@@ -36,6 +33,7 @@ export default function App() {
   const stopRef = useRef<(() => void) | null>(null)
   const tickRef = useRef<number | null>(null)
   const durationRef = useRef(0)
+  const genIdRef = useRef(0)
 
   const totalSeconds = useMemo(
     () => estimateSeconds(script, rate),
@@ -56,10 +54,12 @@ export default function App() {
   }
 
   const stopSpeech = useCallback(() => {
+    genIdRef.current += 1
     stopRef.current?.()
     stopRef.current = null
     clearTicker()
     setSpeaking(false)
+    setBusy(false)
     setProgress(0)
     setElapsed(0)
   }, [])
@@ -78,13 +78,13 @@ export default function App() {
     tickRef.current = window.setInterval(() => {
       const t = (performance.now() - start) / 1000
       setElapsed(t)
-      setProgress(Math.min(1, t / durationRef.current))
+      setProgress(Math.min(0.95, t / durationRef.current))
     }, 80)
   }
 
   const speak = useCallback(
-    (text: string, full = false) => {
-      if (speaking) {
+    async (text: string, full = false) => {
+      if (speaking || busy) {
         stopSpeech()
         return
       }
@@ -94,48 +94,70 @@ export default function App() {
         return
       }
 
-      if (!isSpeechSupported()) {
-        showToast('Web Speech API niet beschikbaar — mock preview.')
-        setSpeaking(true)
-        const secs = Math.min(
-          full ? estimateSeconds(text, rate) : 8,
-          full ? 120 : 12,
-        )
-        startTicker(secs)
-        window.setTimeout(() => {
-          setSpeaking(false)
-          clearTicker()
-          setProgress(1)
-          setElapsed(secs)
-        }, secs * 1000)
-        return
-      }
-
       const previewText = full
         ? text
         : text.split(/\n\n+/)[0]?.slice(0, 420) || text.slice(0, 420)
 
       const secs = estimateSeconds(previewText, rate) || 4
+      const myId = ++genIdRef.current
+      setBusy(true)
+      setProgress(0)
+      setElapsed(0)
       startTicker(secs)
+      showToast('Edge-stem genereren…')
 
-      stopRef.current = speakWithWebSpeech({
-        text: previewText,
-        lang,
-        rate,
-        onStart: () => setSpeaking(true),
-        onEnd: () => {
-          clearTicker()
-          setSpeaking(false)
-          setProgress(1)
-        },
-        onError: (err) => {
-          showToast(`Spraak: ${err}`)
-          stopSpeech()
-        },
-      })
-      setSpeaking(true)
+      try {
+        const handle = await speakLux({
+          text: previewText,
+          lang,
+          rate,
+          onAudio: (blob) => {
+            if (myId !== genIdRef.current) return
+            setAudioBlob(blob)
+          },
+          onStart: () => {
+            if (myId !== genIdRef.current) return
+            clearTicker()
+            setBusy(false)
+            setSpeaking(true)
+          },
+          onProgress: (fraction, elapsedSec) => {
+            if (myId !== genIdRef.current) return
+            setProgress(fraction)
+            setElapsed(elapsedSec)
+          },
+          onEnd: () => {
+            if (myId !== genIdRef.current) return
+            clearTicker()
+            setSpeaking(false)
+            setBusy(false)
+            setProgress(1)
+            stopRef.current = null
+          },
+          onError: (err) => {
+            if (myId !== genIdRef.current) return
+            showToast(`Spraak: ${err}`)
+            stopSpeech()
+          },
+        })
+
+        if (myId !== genIdRef.current) {
+          handle.stop()
+          return
+        }
+        stopRef.current = handle.stop
+        if (handle.audioBlob) setAudioBlob(handle.audioBlob)
+      } catch (err) {
+        if (myId !== genIdRef.current) return
+        clearTicker()
+        setBusy(false)
+        setSpeaking(false)
+        showToast(
+          `Audio genereren mislukt: ${err instanceof Error ? err.message : String(err)}`,
+        )
+      }
     },
-    [speaking, stopSpeech, rate, lang],
+    [speaking, busy, stopSpeech, rate, lang],
   )
 
   const onNew = () => {
@@ -159,7 +181,6 @@ export default function App() {
   }
 
   const onPrepareSpeech = () => {
-    // Light cleanup: ensure blank lines between paragraphs, keep tags
     const cleaned = script
       .replace(/[ \t]+\n/g, '\n')
       .replace(/\n{3,}/g, '\n\n')
@@ -176,21 +197,15 @@ export default function App() {
 
   const onDownloadAudio = () => {
     if (!audioBlob) {
-      showToast(
-        'Geen audio-bestand. Web Speech kan geen MP3 exporteren — download wel je script.',
-      )
+      showToast('Genereer eerst een sample, voorproef of volle voice-over.')
       return
     }
-    const url = URL.createObjectURL(audioBlob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${slugifyTitle(script) || 'vox-lux'}.webm`
-    a.click()
-    URL.revokeObjectURL(url)
+    const ext = audioBlob.type.includes('mpeg') ? 'mp3' : 'audio'
+    const name = `${slugifyTitle(script) || 'vox-lux'}.${ext}`
+    downloadBlob(name, audioBlob)
+    showToast(`Audio gedownload: ${name}`)
   }
 
-  // Attempt MediaRecorder capture of system/mic is out of scope;
-  // keep audioBlob null so Download MP3 stays clearly disabled unless set.
   useEffect(() => {
     setAudioBlob(null)
   }, [script, lang, rate])
@@ -230,21 +245,21 @@ export default function App() {
           rate={rate}
           onLang={setLang}
           onRate={setRate}
-          onSample={() => speak(SAMPLE_LINE, true)}
-          onPreview={() => speak(script, false)}
-          onFull={() => speak(script, true)}
-          speaking={speaking}
+          onSample={() => void speak(SAMPLE_LINE, true)}
+          onPreview={() => void speak(script, false)}
+          onFull={() => void speak(script, true)}
+          speaking={speaking || busy}
         />
       </div>
 
       <div className="md:col-span-3">
         <Transport
-          playing={speaking}
+          playing={speaking || busy}
           hasAudio={!!audioBlob}
           progress={progress}
           currentLabel={formatDuration(elapsed)}
           totalLabel={formatDuration(totalSeconds)}
-          onPlayPause={() => speak(script, true)}
+          onPlayPause={() => void speak(script, true)}
           onStop={stopSpeech}
           onDownloadScript={onDownloadScript}
           onDownloadAudio={onDownloadAudio}

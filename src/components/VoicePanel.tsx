@@ -149,7 +149,7 @@ export function VoicePanel({
           Volledige voice-over
         </button>
         <p className="text-center text-xs text-subtle">
-          Browser TTS (Web Speech) · script-download altijd beschikbaar.
+          Gratis Edge-stem (Lux-achtig) — niet de officiële Grok Lux.
         </p>
       </div>
     </aside>

@@ -109,8 +109,8 @@ export function Transport({
             className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-accent px-4 text-sm font-medium text-accent-fg transition-[opacity,transform] duration-150 hover:opacity-90 active:scale-[0.96] disabled:pointer-events-none disabled:opacity-40"
             title={
               hasAudio
-                ? 'Download opgenomen audio'
-                : 'Audio-download vereist een gegenereerde opname (niet beschikbaar via Web Speech alleen)'
+                ? 'Download MP3 (Edge TTS)'
+                : 'Genereer eerst sample / voorproef / volle voice-over'
             }
           >
             <Download className="size-4" aria-hidden />
