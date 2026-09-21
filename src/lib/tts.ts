@@ -51,15 +51,14 @@ const PREFERRED_NAME_PARTS = [
 
 /**
  * Map UI tempo (0.7–1.5) → Edge playback speed.
- * Featured Lux sleep slider 0.7 must stay calm in the UI but not molasses on Edge:
- * UI 0.7 → Edge ~1.08 (+8%, Colosseum ≈ real Lux ~52s); UI 1.5 → Edge 1.50.
- * Linear: edge = 1.08 + (ui - 0.7) * (1.50 - 1.08) / (1.5 - 0.7)
+ * User feedback: +8% felt much too fast. Sleep/default 0.7 → Edge 0.78 (slow,
+ * documentary). UI 1.5 → Edge 1.35. Linear between those anchors.
  */
 export function uiRateToEdgeSpeed(uiRate: number): number {
   const lo = 0.7
   const hi = 1.5
-  const edgeLo = 1.08
-  const edgeHi = 1.5
+  const edgeLo = 0.78
+  const edgeHi = 1.35
   const t = (Math.min(hi, Math.max(lo, uiRate)) - lo) / (hi - lo)
   return edgeLo + t * (edgeHi - edgeLo)
 }
@@ -93,9 +92,9 @@ export function edgeToastLabel(lang: string): string {
 /** Strip / transform speech tags for Edge (XML is escaped by the service). */
 export function stripForSpeech(script: string): string {
   return script
-    // Prefer short breath over heavy ellipsis — triple pauses dragged vs real Lux.
-    .replace(/\[long[- ]pause\]/gi, '... ')
-    .replace(/\[pause\]/gi, ', ')
+    // Slower Lux pacing: keep audible gaps without molasses.
+    .replace(/\[long[- ]pause\]/gi, '... ... ')
+    .replace(/\[pause\]/gi, '... ')
     .replace(/\[laugh\]/gi, ' ha. ')
     .replace(/<\/?(?:emphasis|whisper|slow|fast|soft)>/gi, '')
     .replace(/\s+/g, ' ')
