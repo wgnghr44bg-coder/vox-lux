@@ -466,39 +466,135 @@ function armPlaybackElement(): HTMLAudioElement {
   return el
 }
 
+function getSharedAudioContext(): AudioContext | null {
+  if (typeof window === 'undefined') return null
+  try {
+    const W = window as WebkitWindow
+    const AC = window.AudioContext || W.webkitAudioContext
+    if (!AC) return null
+    if (!sharedAudioCtx) sharedAudioCtx = new AC()
+    return sharedAudioCtx
+  } catch {
+    return null
+  }
+}
+
+/** Play an MP3 blob via Web Audio (best after iOS unlock) or HTMLAudio fallback. */
+export async function playAudioBlob(
+  blob: Blob,
+  opts: {
+    signal?: AbortSignal
+    onStart?: () => void
+    onEnd?: () => void
+    onProgress?: (fraction: number, elapsedSec: number) => void
+    onError?: (msg: string) => void
+  } = {},
+): Promise<() => void> {
+  const ctx = getSharedAudioContext()
+  if (ctx) {
+    try {
+      if (ctx.state === 'suspended') await ctx.resume()
+      const raw = await blob.arrayBuffer()
+      if (opts.signal?.aborted) return () => {}
+      const buffer = await ctx.decodeAudioData(raw.slice(0))
+      if (opts.signal?.aborted) return () => {}
+
+      const source = ctx.createBufferSource()
+      source.buffer = buffer
+      source.connect(ctx.destination)
+
+      let raf = 0
+      const startedAt = ctx.currentTime
+      const tick = () => {
+        const t = Math.max(0, ctx.currentTime - startedAt)
+        const dur = buffer.duration || 1
+        opts.onProgress?.(Math.min(1, t / dur), t)
+        if (t < dur) raf = window.requestAnimationFrame(tick)
+      }
+
+      source.onended = () => {
+        window.cancelAnimationFrame(raf)
+        opts.onProgress?.(1, buffer.duration)
+        opts.onEnd?.()
+      }
+
+      source.start(0)
+      opts.onStart?.()
+      raf = window.requestAnimationFrame(tick)
+
+      return () => {
+        window.cancelAnimationFrame(raf)
+        try {
+          source.stop()
+        } catch {
+          /* already stopped */
+        }
+        try {
+          source.disconnect()
+        } catch {
+          /* ignore */
+        }
+      }
+    } catch (err) {
+      console.warn('[vox-lux] Web Audio play failed, trying HTMLAudio:', err)
+    }
+  }
+
+  // HTMLAudio fallback
+  const el = new Audio()
+  el.preload = 'auto'
+  el.setAttribute('playsinline', 'true')
+  ;(el as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
+  const url = URL.createObjectURL(blob)
+  el.src = url
+  el.onplay = () => opts.onStart?.()
+  el.ontimeupdate = () => {
+    if (!el.duration || !Number.isFinite(el.duration)) return
+    opts.onProgress?.(Math.min(1, el.currentTime / el.duration), el.currentTime)
+  }
+  el.onended = () => {
+    opts.onProgress?.(1, el.duration || 0)
+    opts.onEnd?.()
+    URL.revokeObjectURL(url)
+  }
+  el.onerror = () => {
+    opts.onError?.('Afspelen mislukt')
+    opts.onEnd?.()
+    URL.revokeObjectURL(url)
+  }
+  try {
+    await el.play()
+  } catch (playErr) {
+    URL.revokeObjectURL(url)
+    const detail = playErr instanceof Error ? playErr.message : String(playErr)
+    opts.onError?.(`Afspelen geblokkeerd (${detail})`)
+    opts.onEnd?.()
+    return () => {}
+  }
+  return () => {
+    el.pause()
+    el.removeAttribute('src')
+    el.load()
+    URL.revokeObjectURL(url)
+  }
+}
+
 /** Play Lux (xAI) audio. On failure: onError + onEnd — never Web Speech. */
 export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
   let stopped = false
-  let audioEl: HTMLAudioElement | null = null
-  let objectUrl: string | null = null
   let abort: AbortController | null = new AbortController()
+  let stopPlayback: (() => void) | null = null
 
   // Must run before any await — keeps (or re-establishes) iOS user-gesture unlock.
   unlockAudioForPlayback()
-  audioEl = armPlaybackElement()
-
-  const cleanupAudio = () => {
-    if (audioEl) {
-      audioEl.onplay = null
-      audioEl.onended = null
-      audioEl.onerror = null
-      audioEl.ontimeupdate = null
-      audioEl.pause()
-      audioEl.removeAttribute('src')
-      audioEl.load()
-      audioEl = null
-    }
-    if (objectUrl) {
-      URL.revokeObjectURL(objectUrl)
-      objectUrl = null
-    }
-  }
+  armPlaybackElement()
 
   const stop = () => {
     stopped = true
     abort?.abort()
     abort = null
-    cleanupAudio()
+    stopPlayback?.()
+    stopPlayback = null
   }
 
   const fail = (msg: string) => {
@@ -511,56 +607,37 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
       text: opts.text,
       lang: opts.lang,
       rate: opts.rate,
-      signal: abort.signal,
+      signal: abort?.signal,
     })
     if (stopped) return { stop, audioBlob: blob }
 
     opts.onAudio?.(blob)
 
-    objectUrl = URL.createObjectURL(blob)
-    const el = audioEl ?? new Audio()
-    audioEl = el
-    try {
-      el.pause()
-    } catch {
-      /* ignore */
-    }
-    el.setAttribute('playsinline', 'true')
-    ;(el as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
-    el.muted = false
-    el.src = objectUrl
-    el.load()
-
     const label = luxToastLabel(opts.lang)
+    let playFailed = false
 
-    el.onplay = () => opts.onStart?.({ engine, label })
-    el.ontimeupdate = () => {
-      if (!audioEl?.duration || !Number.isFinite(audioEl.duration)) return
-      opts.onProgress?.(
-        Math.min(1, audioEl.currentTime / audioEl.duration),
-        audioEl.currentTime,
-      )
-    }
-    el.onended = () => {
-      if (audioEl?.duration) {
-        opts.onProgress?.(1, audioEl.duration)
-      }
-      opts.onEnd?.()
-    }
-    el.onerror = () => {
-      fail('Lux-stem mislukt — geen robot-fallback')
-    }
+    stopPlayback = await playAudioBlob(blob, {
+      signal: abort?.signal,
+      onStart: () => opts.onStart?.({ engine, label }),
+      onProgress: opts.onProgress,
+      onEnd: () => opts.onEnd?.(),
+      onError: (msg) => {
+        playFailed = true
+        // Blob is still valid for Download MP3 / transport replay.
+        opts.onError?.(
+          `${msg}. Audio staat klaar — tik ▶ of Download MP3.`,
+        )
+        opts.onEnd?.()
+      },
+    })
 
-    try {
-      await el.play()
-    } catch (playErr) {
-      const detail =
-        playErr instanceof Error ? playErr.message : String(playErr)
-      console.warn('[vox-lux] Lux audio play() failed:', detail)
-      fail('Lux-stem mislukt — geen robot-fallback')
-      cleanupAudio()
+    if (stopped) {
+      stopPlayback?.()
       return { stop, audioBlob: blob }
     }
+
+    // If HTML/WebAudio path reported error via onError, still return blob.
+    if (playFailed) return { stop, audioBlob: blob }
 
     return { stop, audioBlob: blob }
   } catch (err) {
@@ -570,8 +647,13 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
 
     const msg = err instanceof Error ? err.message : String(err)
     console.warn('[vox-lux] Lux TTS failed (no Web Speech fallback):', msg)
-    fail(msg.includes('Lux-server offline') ? 'Lux-server offline' : 'Lux-stem mislukt — geen robot-fallback')
-    cleanupAudio()
+    fail(
+      msg.includes('Lux-server offline')
+        ? 'Lux-server offline'
+        : msg.startsWith('Lux TTS HTTP')
+          ? msg
+          : 'Lux-stem mislukt — geen robot-fallback',
+    )
     return { stop }
   }
 }

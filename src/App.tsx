@@ -10,7 +10,7 @@ import {
 } from './data/examples'
 import { downloadBlob, downloadText, slugifyTitle } from './lib/download'
 import { estimateSeconds, formatDuration } from './lib/stats'
-import { luxToastLabel, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
+import { luxToastLabel, playAudioBlob, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
 
 type MobileTab = 'script' | 'stem' | 'projecten'
 
@@ -19,7 +19,7 @@ const SAMPLE_LINE =
 
 export default function App() {
   const [script, setScript] = useState(DEFAULT_SCRIPT)
-  const [lang, setLang] = useState('en-US')
+  const [lang, setLang] = useState('nl-NL')
   const [rate, setRate] = useState(0.7)
   const [speaking, setSpeaking] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -192,6 +192,47 @@ export default function App() {
     showToast('Script opgeschoond voor spraak.')
   }
 
+  const replayBlob = useCallback(
+    async (blob: Blob) => {
+      if (speaking || busy) {
+        stopSpeech()
+        return
+      }
+      const myId = ++genIdRef.current
+      unlockAudioForPlayback()
+      setBusy(false)
+      setSpeaking(true)
+      setProgress(0)
+      setElapsed(0)
+      showToast(luxToastLabel(lang))
+      const stop = await playAudioBlob(blob, {
+        onProgress: (fraction, elapsedSec) => {
+          if (myId !== genIdRef.current) return
+          setProgress(fraction)
+          setElapsed(elapsedSec)
+        },
+        onEnd: () => {
+          if (myId !== genIdRef.current) return
+          setSpeaking(false)
+          setProgress(1)
+          stopRef.current = null
+        },
+        onError: (msg) => {
+          if (myId !== genIdRef.current) return
+          showToast(msg)
+          setSpeaking(false)
+          stopRef.current = null
+        },
+      })
+      if (myId !== genIdRef.current) {
+        stop()
+        return
+      }
+      stopRef.current = stop
+    },
+    [speaking, busy, stopSpeech, lang],
+  )
+
   const onDownloadScript = () => {
     const name = `${slugifyTitle(script) || 'vox-script'}.txt`
     downloadText(name, script)
@@ -262,7 +303,17 @@ export default function App() {
           progress={progress}
           currentLabel={formatDuration(elapsed)}
           totalLabel={formatDuration(totalSeconds)}
-          onPlayPause={() => void speak(script, true)}
+          onPlayPause={() => {
+            if (speaking || busy) {
+              stopSpeech()
+              return
+            }
+            if (audioBlob) {
+              void replayBlob(audioBlob)
+              return
+            }
+            void speak(script, true)
+          }}
           onStop={stopSpeech}
           onDownloadScript={onDownloadScript}
           onDownloadAudio={onDownloadAudio}
