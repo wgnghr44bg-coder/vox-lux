@@ -226,7 +226,7 @@ function envTtsUrl(): string {
   )
 }
 
-/** Prefer same-origin Lux server; optional VITE_TTS_URL tunnel for GitHub Pages. */
+/** Prefer VITE_TTS_URL (Cloudflare Worker) on Pages; same-origin only when it is really our Lux API. */
 export async function resolveTtsEndpoint(): Promise<{
   url: string
   xai: boolean
@@ -234,9 +234,17 @@ export async function resolveTtsEndpoint(): Promise<{
   if (cachedEndpoint) return { url: cachedEndpoint, xai: cachedIsXai }
 
   const local = joinBase('api/tts')
-  const tunnel = envTtsUrl()
+  const remote = envTtsUrl()
 
-  // Always try same-origin Lux server first (dev middleware or `npm start`).
+  // GitHub Pages answers OPTIONS /api/tts with bare 405 — that is NOT our Lux server.
+  // When a permanent Worker URL is baked in, use it first.
+  if (remote) {
+    cachedEndpoint = remote
+    cachedIsXai = true
+    return { url: remote, xai: true }
+  }
+
+  // Local `npm start` / Vite middleware: require CORS headers from our proxy.
   try {
     const ctrl = new AbortController()
     const timer = window.setTimeout(() => ctrl.abort(), 1200)
@@ -245,19 +253,19 @@ export async function resolveTtsEndpoint(): Promise<{
       signal: ctrl.signal,
     })
     window.clearTimeout(timer)
-    if (res.ok || res.status === 204 || res.status === 405) {
+    const acao = res.headers.get('access-control-allow-origin')
+    const methods = (res.headers.get('access-control-allow-methods') || '').toUpperCase()
+    const looksLikeLuxProxy =
+      Boolean(acao) &&
+      methods.includes('POST') &&
+      (res.ok || res.status === 204 || res.status === 405)
+    if (looksLikeLuxProxy) {
       cachedEndpoint = local
       cachedIsXai = true
       return { url: local, xai: true }
     }
   } catch {
     /* same-origin Lux server offline */
-  }
-
-  if (tunnel) {
-    cachedEndpoint = tunnel
-    cachedIsXai = true
-    return { url: tunnel, xai: true }
   }
 
   if (forceXaiOnly() || import.meta.env.PROD) {
