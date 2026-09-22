@@ -100,8 +100,8 @@ export default function App() {
 
       const secs = estimateSeconds(previewText, rate) || 4
       const myId = ++genIdRef.current
-      // Sync with tap: unlock iOS audio before any await (network TTS).
-      unlockAudioForPlayback()
+      // Kick audio unlock before network TTS (real play happens on ▶).
+      void unlockAudioForPlayback()
       setBusy(true)
       setProgress(0)
       setElapsed(0)
@@ -116,7 +116,6 @@ export default function App() {
           onAudio: (blob) => {
             if (myId !== genIdRef.current) return
             setAudioBlob(blob)
-            showToast('MP3 klaar — Download MP3 of tik ▶')
           },
           onStart: (meta) => {
             if (myId !== genIdRef.current) return
@@ -149,8 +148,17 @@ export default function App() {
           handle.stop()
           return
         }
-        stopRef.current = handle.stop
         if (handle.audioBlob) setAudioBlob(handle.audioBlob)
+        if (!handle.played) {
+          clearTicker()
+          setBusy(false)
+          setSpeaking(false)
+          setProgress(1)
+          stopRef.current = null
+          showToast('MP3 klaar — tik ▶ om te beluisteren (of Download MP3)')
+        } else {
+          stopRef.current = handle.stop
+        }
       } catch (err) {
         if (myId !== genIdRef.current) return
         clearTicker()
@@ -200,7 +208,7 @@ export default function App() {
         return
       }
       const myId = ++genIdRef.current
-      unlockAudioForPlayback()
+      await unlockAudioForPlayback()
       setBusy(false)
       setSpeaking(true)
       setProgress(0)

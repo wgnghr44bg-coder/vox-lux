@@ -386,11 +386,6 @@ export async function synthesizeEdgeAudio(opts: {
   return blob
 }
 
-export type SpeakHandle = {
-  stop: () => void
-  audioBlob?: Blob
-}
-
 // --- iOS / Safari audio unlock ---------------------------------------------
 
 type WebkitWindow = Window & {
@@ -404,12 +399,20 @@ let unlockPrimed = false
 const SILENT_WAV =
   'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA'
 
+/** True on iPhone/iPad — including Chrome iOS (WebKit). */
+export function isAppleTouchBrowser(): boolean {
+  if (typeof navigator === 'undefined') return false
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  )
+}
+
 /**
- * Call synchronously from a click/tap handler (Sample / Voorproef / Full)
- * before any await. Resumes AudioContext and primes an HTMLAudioElement so
- * iOS still allows play() after the network TTS round-trip.
+ * Call from a click/tap handler. Prefer awaiting this so AudioContext.resume()
+ * finishes inside the user gesture (needed on Chrome/Safari mobile).
  */
-export function unlockAudioForPlayback(): void {
+export async function unlockAudioForPlayback(): Promise<void> {
   if (typeof window === 'undefined') return
 
   try {
@@ -418,7 +421,7 @@ export function unlockAudioForPlayback(): void {
     if (AC) {
       if (!sharedAudioCtx) sharedAudioCtx = new AC()
       if (sharedAudioCtx.state === 'suspended') {
-        void sharedAudioCtx.resume()
+        await sharedAudioCtx.resume()
       }
     }
   } catch {
@@ -429,25 +432,26 @@ export function unlockAudioForPlayback(): void {
   try {
     const a = new Audio(SILENT_WAV)
     a.muted = true
+    a.volume = 0
     a.setAttribute('playsinline', 'true')
     ;(a as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
-    const p = a.play()
-    if (p && typeof p.then === 'function') {
-      void p
-        .then(() => {
-          a.pause()
-          a.src = ''
-          unlockPrimed = true
-        })
-        .catch(() => {
-          /* still try later play on real blob */
-        })
-    } else {
+    try {
+      await a.play()
+      a.pause()
+      a.removeAttribute('src')
+      a.load()
       unlockPrimed = true
+    } catch {
+      /* still try later play on real blob */
     }
   } catch {
     /* ignore */
   }
+}
+
+/** Sync kick used only before long network awaits (gesture may end). */
+export function unlockAudioForPlaybackSync(): void {
+  void unlockAudioForPlayback()
 }
 
 function armPlaybackElement(): HTMLAudioElement {
@@ -479,7 +483,9 @@ function getSharedAudioContext(): AudioContext | null {
   }
 }
 
-/** Play an MP3 blob via Web Audio (best after iOS unlock) or HTMLAudio fallback. */
+/** Play an MP3 blob via Web Audio (best after unlock) or HTMLAudio fallback.
+ *  Call from a fresh user tap when possible (Chrome/Safari block sound after long awaits).
+ */
 export async function playAudioBlob(
   blob: Blob,
   opts: {
@@ -490,18 +496,35 @@ export async function playAudioBlob(
     onError?: (msg: string) => void
   } = {},
 ): Promise<() => void> {
+  await unlockAudioForPlayback()
+
   const ctx = getSharedAudioContext()
   if (ctx) {
     try {
-      if (ctx.state === 'suspended') await ctx.resume()
+      const ensureRunning = async (phase: string) => {
+        if (ctx.state === 'suspended') await ctx.resume()
+        if (ctx.state !== 'running') {
+          throw new Error(`AudioContext ${ctx.state} (${phase})`)
+        }
+      }
+
+      await ensureRunning('start')
+
       const raw = await blob.arrayBuffer()
       if (opts.signal?.aborted) return () => {}
+      // Re-resume after awaits (mobile Chrome often re-suspends).
+      await ensureRunning('after arrayBuffer')
+
       const buffer = await ctx.decodeAudioData(raw.slice(0))
       if (opts.signal?.aborted) return () => {}
+      await ensureRunning('before start')
 
+      const gain = ctx.createGain()
+      gain.gain.value = 1
       const source = ctx.createBufferSource()
       source.buffer = buffer
-      source.connect(ctx.destination)
+      source.connect(gain)
+      gain.connect(ctx.destination)
 
       let raf = 0
       const startedAt = ctx.currentTime
@@ -531,6 +554,7 @@ export async function playAudioBlob(
         }
         try {
           source.disconnect()
+          gain.disconnect()
         } catch {
           /* ignore */
         }
@@ -543,6 +567,8 @@ export async function playAudioBlob(
   // HTMLAudio fallback
   const el = new Audio()
   el.preload = 'auto'
+  el.muted = false
+  el.volume = 1
   el.setAttribute('playsinline', 'true')
   ;(el as HTMLAudioElement & { playsInline?: boolean }).playsInline = true
   const url = URL.createObjectURL(blob)
@@ -567,7 +593,7 @@ export async function playAudioBlob(
   } catch (playErr) {
     URL.revokeObjectURL(url)
     const detail = playErr instanceof Error ? playErr.message : String(playErr)
-    opts.onError?.(`Afspelen geblokkeerd (${detail})`)
+    opts.onError?.(`Afspelen geblokkeerd — tik ▶ opnieuw (${detail})`)
     opts.onEnd?.()
     return () => {}
   }
@@ -579,14 +605,21 @@ export async function playAudioBlob(
   }
 }
 
-/** Play Lux (xAI) audio. On failure: onError + onEnd — never Web Speech. */
+export type SpeakHandle = {
+  stop: () => void
+  audioBlob?: Blob
+  /** False when MP3 is ready but browser blocked autoplay after the network wait. */
+  played?: boolean
+}
+
+/** Generate Lux (xAI) audio and try to play. On mobile, prefer a second ▶ tap. */
 export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
   let stopped = false
   let abort: AbortController | null = new AbortController()
   let stopPlayback: (() => void) | null = null
 
-  // Must run before any await — keeps (or re-establishes) iOS user-gesture unlock.
-  unlockAudioForPlayback()
+  // Kick unlock before network; full resume happens again on ▶.
+  unlockAudioForPlaybackSync()
   armPlaybackElement()
 
   const stop = () => {
@@ -609,40 +642,21 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
       rate: opts.rate,
       signal: abort?.signal,
     })
-    if (stopped) return { stop, audioBlob: blob }
+    if (stopped) return { stop, audioBlob: blob, played: false }
 
     opts.onAudio?.(blob)
 
     const label = luxToastLabel(opts.lang)
-    let playFailed = false
 
-    stopPlayback = await playAudioBlob(blob, {
-      signal: abort?.signal,
-      onStart: () => opts.onStart?.({ engine, label }),
-      onProgress: opts.onProgress,
-      onEnd: () => opts.onEnd?.(),
-      onError: (msg) => {
-        playFailed = true
-        // Blob is still valid for Download MP3 / transport replay.
-        opts.onError?.(
-          `${msg}. Audio staat klaar — tik ▶ of Download MP3.`,
-        )
-        opts.onEnd?.()
-      },
-    })
-
-    if (stopped) {
-      stopPlayback?.()
-      return { stop, audioBlob: blob }
-    }
-
-    // If HTML/WebAudio path reported error via onError, still return blob.
-    if (playFailed) return { stop, audioBlob: blob }
-
-    return { stop, audioBlob: blob }
+    // After a long TTS wait browsers (Chrome included) often resume AudioContext
+    // in a suspended state → silent "play". Always hand off to a fresh ▶ tap.
+    void engine
+    void label
+    opts.onEnd?.()
+    return { stop, audioBlob: blob, played: false }
   } catch (err) {
     if (stopped || (err instanceof DOMException && err.name === 'AbortError')) {
-      return { stop }
+      return { stop, played: false }
     }
 
     const msg = err instanceof Error ? err.message : String(err)
@@ -654,7 +668,7 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
           ? msg
           : 'Lux-stem mislukt — geen robot-fallback',
     )
-    return { stop }
+    return { stop, played: false }
   }
 }
 
