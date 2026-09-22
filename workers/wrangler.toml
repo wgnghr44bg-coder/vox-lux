@@ -1,0 +1,8 @@
+name = "vox-lux-tts"
+main = "xai-lux-tts.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+# XAI_API_KEY is a secret — set with: wrangler secret put XAI_API_KEY
+
+account_id = "dfb4e312ea661bf3cb1565cf65da9053"
