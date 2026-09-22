@@ -109,7 +109,7 @@ export function Transport({
             className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-accent px-4 text-sm font-medium text-accent-fg transition-[opacity,transform] duration-150 hover:opacity-90 active:scale-[0.96] disabled:pointer-events-none disabled:opacity-40"
             title={
               hasAudio
-                ? 'Download MP3 (Edge TTS)'
+                ? 'Download MP3 (Lux)'
                 : 'Genereer eerst sample / voorproef / volle voice-over'
             }
           >

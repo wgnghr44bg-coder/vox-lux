@@ -8,7 +8,7 @@ import {
   DEFAULT_SCRIPT,
   type ExampleScript,
 } from './data/examples'
-import { downloadBlob, downloadText, slugifyTitle } from './lib/download'
+import { downloadText, slugifyTitle, triggerDownload } from './lib/download'
 import { estimateSeconds, formatDuration } from './lib/stats'
 import { luxToastLabel, playAudioBlob, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
 
@@ -116,6 +116,7 @@ export default function App() {
           onAudio: (blob) => {
             if (myId !== genIdRef.current) return
             setAudioBlob(blob)
+            showToast('MP3 klaar — Download MP3 of tik ▶')
           },
           onStart: (meta) => {
             if (myId !== genIdRef.current) return
@@ -239,15 +240,17 @@ export default function App() {
     showToast(`Script gedownload: ${name}`)
   }
 
-  const onDownloadAudio = () => {
+  const onDownloadAudio = async () => {
     if (!audioBlob) {
       showToast('Genereer eerst een sample, voorproef of volle voice-over.')
       return
     }
     const ext = audioBlob.type.includes('mpeg') ? 'mp3' : 'audio'
     const name = `${slugifyTitle(script) || 'vox-lux'}.${ext}`
-    downloadBlob(name, audioBlob)
-    showToast(`Audio gedownload: ${name}`)
+    const how = await triggerDownload(name, audioBlob)
+    if (how === 'shared') showToast(`Deel/bewaar: ${name}`)
+    else if (how === 'opened') showToast(`MP3 geopend — Deel → Bewaar in Bestanden`)
+    else showToast(`Audio gedownload: ${name}`)
   }
 
   useEffect(() => {
