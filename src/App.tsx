@@ -10,7 +10,7 @@ import {
 } from './data/examples'
 import { downloadBlob, downloadText, slugifyTitle } from './lib/download'
 import { estimateSeconds, formatDuration } from './lib/stats'
-import { edgeToastLabel, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
+import { luxToastLabel, speakLux, stripForSpeech, unlockAudioForPlayback } from './lib/tts'
 
 type MobileTab = 'script' | 'stem' | 'projecten'
 
@@ -106,7 +106,7 @@ export default function App() {
       setProgress(0)
       setElapsed(0)
       startTicker(secs)
-      showToast('Edge-stem genereren…')
+      showToast('Lux-stem genereren…')
 
       try {
         const handle = await speakLux({
@@ -122,7 +122,7 @@ export default function App() {
             clearTicker()
             setBusy(false)
             setSpeaking(true)
-            showToast(meta?.label ?? edgeToastLabel(lang))
+            showToast(meta?.label ?? luxToastLabel(lang))
           },
           onProgress: (fraction, elapsedSec) => {
             if (myId !== genIdRef.current) return

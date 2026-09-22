@@ -1,6 +1,6 @@
-/** Edge neural TTS (Lux stand-in). No automatic Web Speech fallback. */
+/** Official Grok Lux TTS via local/xAI proxy. No automatic Web Speech fallback. */
 
-/** Soft old narrator (Morgan Freeman–like character, not a clone): Roger, deep + slow. */
+/** Soft old narrator Edge fallbacks (only when Lux server is unavailable). */
 export const LUX_EDGE_VOICE_EN = 'en-US-RogerNeural'
 export const LUX_EDGE_VOICE_NL = 'nl-NL-MaartenNeural'
 export const LUX_EDGE_VOICE_LABEL = 'Edge: Roger'
@@ -78,13 +78,41 @@ export function resolveEdgeVoice(lang: string): string {
   return hit?.[1] ?? LUX_EDGE_VOICE_EN
 }
 
-/** Short toast label when Edge MP3 starts playing. */
+/** Map UI language codes to xAI TTS language values. */
+export function mapLanguageForXai(lang: string): string {
+  const value = (lang || '').toLowerCase()
+  if (value === 'nl' || value === 'nl-nl' || value.startsWith('nl')) return 'nl'
+  if (value === 'auto') return 'auto'
+  if (value === 'en' || value === 'en-us' || value === 'en-gb' || value.startsWith('en')) {
+    return 'en'
+  }
+  return 'en'
+}
+
+export function clampLuxSpeed(rate: number): number {
+  return Math.min(1.5, Math.max(0.7, Number.isFinite(rate) ? rate : 0.7))
+}
+
+/** Short toast label when Lux MP3 starts playing. */
+export function luxToastLabel(_lang?: string): string {
+  return 'Lux (xAI)'
+}
+
+/** @deprecated Prefer luxToastLabel — kept for older imports. */
 export function edgeToastLabel(lang: string): string {
-  const voice = resolveEdgeVoice(lang)
-  if (voice === LUX_EDGE_VOICE_EN) return 'Edge: Guy'
-  if (voice === LUX_EDGE_VOICE_NL) return 'Edge: Maarten'
-  const short = voice.replace(/Neural$/, '').split('-').pop() || voice
-  return `Edge: ${short}`
+  return luxToastLabel(lang)
+}
+
+/**
+ * Prepare script for official xAI Lux — keep speech tags and pause markers.
+ * xAI understands <slow>, <soft>, [pause], [long-pause], etc.
+ */
+export function prepareForXaiSpeech(script: string): string {
+  return script
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
 }
 
 /** Strip / transform speech tags for Edge (XML is escaped by the service). */
@@ -135,7 +163,7 @@ export function isSpeechSupported(): boolean {
 }
 
 export type SpeakStartMeta = {
-  engine: 'edge'
+  engine: 'xai' | 'edge'
   label: string
 }
 
@@ -184,136 +212,170 @@ function joinBase(path: string): string {
 }
 
 let cachedEndpoint: string | null = null
+let cachedIsXai = true
 
-/** Public Edge TTS relay (OpenAI-compatible, CORS *) used when no local /api/tts. */
-export const DEFAULT_EDGE_TTS_PROXY =
-  'https://tts.reincarnatey.net/v1/audio/speech'
+function forceXaiOnly(): boolean {
+  return String(import.meta.env.VITE_FORCE_XAI || '') === '1'
+}
 
-async function resolveTtsEndpoint(): Promise<string> {
-  if (cachedEndpoint) return cachedEndpoint
+function envTtsUrl(): string {
+  return (
+    (import.meta.env.VITE_TTS_URL as string | undefined)?.trim() ||
+    (import.meta.env.VITE_EDGE_TTS_URL as string | undefined)?.trim() ||
+    ''
+  )
+}
 
-  const envUrl = (import.meta.env.VITE_EDGE_TTS_URL as string | undefined)?.trim()
-  if (envUrl) {
-    cachedEndpoint = envUrl
-    return envUrl
-  }
+/** Prefer same-origin Lux server; optional VITE_TTS_URL tunnel for GitHub Pages. */
+export async function resolveTtsEndpoint(): Promise<{
+  url: string
+  xai: boolean
+}> {
+  if (cachedEndpoint) return { url: cachedEndpoint, xai: cachedIsXai }
 
-  // Vite dev server always mounts the Edge middleware.
-  if (import.meta.env.DEV) {
-    cachedEndpoint = joinBase('api/tts')
-    return cachedEndpoint
-  }
-
-  // Production static hosts (GitHub Pages): no /api/tts — use CORS relay.
-  // Override with VITE_EDGE_TTS_URL (e.g. your Cloudflare Worker).
-  if (import.meta.env.PROD) {
-    cachedEndpoint = DEFAULT_EDGE_TTS_PROXY
-    return cachedEndpoint
-  }
-
-  // vite preview / other: prefer local middleware if present
   const local = joinBase('api/tts')
+  const tunnel = envTtsUrl()
+
+  // Always try same-origin Lux server first (dev middleware or `npm start`).
   try {
     const ctrl = new AbortController()
-    const timer = window.setTimeout(() => ctrl.abort(), 900)
+    const timer = window.setTimeout(() => ctrl.abort(), 1200)
     const res = await fetch(local, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'tts-1',
-        input: 'ok',
-        voice: LUX_EDGE_VOICE_EN,
-        speed: 1,
-      }),
+      method: 'OPTIONS',
       signal: ctrl.signal,
     })
     window.clearTimeout(timer)
-    const ct = res.headers.get('content-type') || ''
-    if (res.ok && ct.includes('audio')) {
+    if (res.ok || res.status === 204 || res.status === 405) {
       cachedEndpoint = local
-      return local
+      cachedIsXai = true
+      return { url: local, xai: true }
     }
   } catch {
-    /* no local middleware */
+    /* same-origin Lux server offline */
   }
 
-  cachedEndpoint = DEFAULT_EDGE_TTS_PROXY
-  return cachedEndpoint
+  if (tunnel) {
+    cachedEndpoint = tunnel
+    cachedIsXai = true
+    return { url: tunnel, xai: true }
+  }
+
+  if (forceXaiOnly() || import.meta.env.PROD) {
+    throw new Error('Lux-server offline')
+  }
+
+  // Dev-only last resort: Vite middleware may still serve Edge without a key.
+  cachedEndpoint = local
+  cachedIsXai = false
+  return { url: local, xai: false }
 }
 
-async function fetchEdgeMp3Chunk(opts: {
+function looksLikeMp3(buf: ArrayBuffer): boolean {
+  const u8 = new Uint8Array(buf)
+  return (
+    (u8[0] === 0xff && (u8[1] & 0xe0) === 0xe0) ||
+    (u8[0] === 0x49 && u8[1] === 0x44 && u8[2] === 0x33)
+  )
+}
+
+async function fetchLuxMp3Chunk(opts: {
   text: string
-  voice: string
+  lang: string
   rate: number
   endpoint: string
+  xai: boolean
 }): Promise<Blob> {
+  const body = opts.xai
+    ? {
+        text: opts.text,
+        voice_id: 'lux',
+        language: mapLanguageForXai(opts.lang),
+        speed: clampLuxSpeed(opts.rate),
+      }
+    : {
+        model: 'tts-1',
+        input: stripForSpeech(opts.text),
+        voice: resolveEdgeVoice(opts.lang),
+        speed: uiRateToEdgeSpeed(opts.rate),
+        text: stripForSpeech(opts.text),
+        rate: rateToEdgePercent(opts.rate),
+        pitch: LUX_EDGE_PITCH,
+      }
+
   const res = await fetch(opts.endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'tts-1',
-      input: opts.text,
-      voice: opts.voice,
-      speed: uiRateToEdgeSpeed(opts.rate),
-      // also accepted by our Vite middleware / DIY-style workers
-      text: opts.text,
-      rate: rateToEdgePercent(opts.rate),
-      pitch: LUX_EDGE_PITCH,
-    }),
+    body: JSON.stringify(body),
   })
 
   if (!res.ok) {
     const detail = await res.text().catch(() => '')
+    if (res.status === 404) throw new Error('Lux-server offline')
     throw new Error(
-      `Edge TTS HTTP ${res.status}${detail ? `: ${detail.slice(0, 120)}` : ''}`,
+      `Lux TTS HTTP ${res.status}${detail ? `: ${detail.slice(0, 120)}` : ''}`,
     )
   }
 
   const ct = res.headers.get('content-type') || ''
   const buf = await res.arrayBuffer()
-  if (!buf.byteLength) throw new Error('Lege audio-respons van Edge TTS')
+  if (!buf.byteLength) throw new Error('Lege audio-respons van Lux TTS')
 
   if (ct.includes('audio')) {
     return new Blob([buf], { type: ct.includes('mpeg') ? 'audio/mpeg' : ct })
   }
-  // Some relays omit content-type; sniff MPEG frame sync
-  const u8 = new Uint8Array(buf)
-  const looksMp3 =
-    (u8[0] === 0xff && (u8[1] & 0xe0) === 0xe0) ||
-    (u8[0] === 0x49 && u8[1] === 0x44 && u8[2] === 0x33) // ID3
-  if (looksMp3) return new Blob([buf], { type: 'audio/mpeg' })
-  throw new Error('Antwoord was geen audio (CORS/proxy?)')
+  if (looksLikeMp3(buf)) return new Blob([buf], { type: 'audio/mpeg' })
+  throw new Error('Antwoord was geen audio (Lux-server?)')
 }
 
-/** Synthesize full script to a single MP3-like Blob via Edge TTS. */
+/** Synthesize full script to a single MP3-like Blob via Lux (xAI) server. */
+export async function synthesizeLuxAudio(opts: {
+  text: string
+  lang: string
+  rate: number
+  signal?: AbortSignal
+}): Promise<{ blob: Blob; engine: 'xai' | 'edge' }> {
+  const prepared = prepareForXaiSpeech(opts.text)
+  if (!prepared) throw new Error('Geen tekst om voor te lezen.')
+
+  let endpoint: string
+  let xai: boolean
+  try {
+    ;({ url: endpoint, xai } = await resolveTtsEndpoint())
+  } catch (err) {
+    throw err instanceof Error ? err : new Error('Lux-server offline')
+  }
+
+  const source = xai ? prepared : stripForSpeech(prepared)
+  const chunks = chunkText(source)
+  const blobs: Blob[] = []
+
+  for (const chunk of chunks) {
+    if (opts.signal?.aborted) throw new DOMException('Aborted', 'AbortError')
+    blobs.push(
+      await fetchLuxMp3Chunk({
+        text: chunk,
+        lang: opts.lang,
+        rate: opts.rate,
+        endpoint,
+        xai,
+      }),
+    )
+  }
+
+  const blob =
+    blobs.length === 1 ? blobs[0] : new Blob(blobs, { type: 'audio/mpeg' })
+  return { blob, engine: xai ? 'xai' : 'edge' }
+}
+
+/** @deprecated Prefer synthesizeLuxAudio. */
 export async function synthesizeEdgeAudio(opts: {
   text: string
   lang: string
   rate: number
   signal?: AbortSignal
 }): Promise<Blob> {
-  const plain = stripForSpeech(opts.text)
-  if (!plain) throw new Error('Geen tekst om voor te lezen.')
-
-  const voice = resolveEdgeVoice(opts.lang)
-  const endpoint = await resolveTtsEndpoint()
-  const chunks = chunkText(plain)
-  const blobs: Blob[] = []
-
-  for (const chunk of chunks) {
-    if (opts.signal?.aborted) throw new DOMException('Aborted', 'AbortError')
-    blobs.push(
-      await fetchEdgeMp3Chunk({
-        text: chunk,
-        voice,
-        rate: opts.rate,
-        endpoint,
-      }),
-    )
-  }
-
-  if (blobs.length === 1) return blobs[0]
-  return new Blob(blobs, { type: 'audio/mpeg' })
+  const { blob } = await synthesizeLuxAudio(opts)
+  return blob
 }
 
 export type SpeakHandle = {
@@ -396,7 +458,7 @@ function armPlaybackElement(): HTMLAudioElement {
   return el
 }
 
-/** Play Edge TTS audio. On failure: onError + onEnd — never Web Speech. */
+/** Play Lux (xAI) audio. On failure: onError + onEnd — never Web Speech. */
 export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
   let stopped = false
   let audioEl: HTMLAudioElement | null = null
@@ -437,7 +499,7 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
   }
 
   try {
-    const blob = await synthesizeEdgeAudio({
+    const { blob, engine } = await synthesizeLuxAudio({
       text: opts.text,
       lang: opts.lang,
       rate: opts.rate,
@@ -461,9 +523,9 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     el.src = objectUrl
     el.load()
 
-    const label = edgeToastLabel(opts.lang)
+    const label = luxToastLabel(opts.lang)
 
-    el.onplay = () => opts.onStart?.({ engine: 'edge', label })
+    el.onplay = () => opts.onStart?.({ engine, label })
     el.ontimeupdate = () => {
       if (!audioEl?.duration || !Number.isFinite(audioEl.duration)) return
       opts.onProgress?.(
@@ -478,7 +540,7 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
       opts.onEnd?.()
     }
     el.onerror = () => {
-      fail('Edge-stem mislukt — geen robot-fallback')
+      fail('Lux-stem mislukt — geen robot-fallback')
     }
 
     try {
@@ -486,8 +548,8 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     } catch (playErr) {
       const detail =
         playErr instanceof Error ? playErr.message : String(playErr)
-      console.warn('[vox-lux] Edge audio play() failed:', detail)
-      fail('Edge-stem mislukt — geen robot-fallback')
+      console.warn('[vox-lux] Lux audio play() failed:', detail)
+      fail('Lux-stem mislukt — geen robot-fallback')
       cleanupAudio()
       return { stop, audioBlob: blob }
     }
@@ -499,8 +561,8 @@ export async function speakLux(opts: SpeakOptions): Promise<SpeakHandle> {
     }
 
     const msg = err instanceof Error ? err.message : String(err)
-    console.warn('[vox-lux] Edge TTS failed (no Web Speech fallback):', msg)
-    fail('Edge-stem mislukt — geen robot-fallback')
+    console.warn('[vox-lux] Lux TTS failed (no Web Speech fallback):', msg)
+    fail(msg.includes('Lux-server offline') ? 'Lux-server offline' : 'Lux-stem mislukt — geen robot-fallback')
     cleanupAudio()
     return { stop }
   }

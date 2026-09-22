@@ -149,7 +149,7 @@ export function VoicePanel({
           Volledige voice-over
         </button>
         <p className="text-center text-xs text-subtle">
-          Zachte oude verteller (Edge Roger, diep & langzaam) — Morgan Freeman–achtig karakter, niet Grok Lux.
+          Officiële Grok Lux via xAI API (credits).
         </p>
       </div>
     </aside>

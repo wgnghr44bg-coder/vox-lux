@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server/vox-server.mjs"
   },
   "dependencies": {
     "edge-tts-universal": "^1.4.0",
@@ -26,5 +27,5 @@
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
   },
-  "description": "VOX YouTube voice studio — Lux only (Dutch UI)"
+  "description": "VOX YouTube voice studio \u2014 Lux only (Dutch UI)"
 }
