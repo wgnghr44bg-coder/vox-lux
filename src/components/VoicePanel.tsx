@@ -149,7 +149,7 @@ export function VoicePanel({
           Volledige voice-over
         </button>
         <p className="text-center text-xs text-subtle">
-          Closer-to-Lux tuning (Edge Guy, pitch/rate A/B) — niet de officiële Grok Lux.
+          Zachte oude verteller (Edge Roger, diep & langzaam) — Morgan Freeman–achtig karakter, niet Grok Lux.
         </p>
       </div>
     </aside>

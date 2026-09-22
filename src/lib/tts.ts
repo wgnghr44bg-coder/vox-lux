@@ -1,19 +1,18 @@
 /** Edge neural TTS (Lux stand-in). No automatic Web Speech fallback. */
 
-/** Closer-to-Lux after A/B vs real-lux.mp3 — Guy +8% / -22Hz. Alt: en-US-ChristopherNeural */
-export const LUX_EDGE_VOICE_EN = 'en-US-GuyNeural'
+/** Soft old narrator (Morgan Freeman–like character, not a clone): Roger, deep + slow. */
+export const LUX_EDGE_VOICE_EN = 'en-US-RogerNeural'
 export const LUX_EDGE_VOICE_NL = 'nl-NL-MaartenNeural'
-export const LUX_EDGE_VOICE_LABEL = 'Edge: Guy'
-/** Default Edge pitch for older/deeper Lux character (A/B vs authentic Lux). */
-export const LUX_EDGE_PITCH = '-22Hz'
+export const LUX_EDGE_VOICE_LABEL = 'Edge: Roger'
+/** Deep pitch for warm elderly narrator. */
+export const LUX_EDGE_PITCH = '-40Hz'
 
 /**
- * Voice choice: Guy (default) over Christopher.
- * Guy + rate remap + -22Hz matched Colosseum timing (~51.5s vs real Lux ~52.2s).
- * Christopher remains a calmer alt if preferred later.
+ * Roger is the warmest free Edge US male for “old soft documentary” delivery.
+ * Not Grok Lux and not a celebrity clone — best free approximation.
  */
 export const LUX_EDGE_VOICE_NOTE =
-  'Default en-US-GuyNeural (closer-to-Lux A/B). Alt: en-US-ChristopherNeural.'
+  'Default en-US-RogerNeural (soft old narrator). Alts: Steffan, Guy, Christopher.'
 
 const FALLBACK_VOICES: Record<string, string> = {
   'en-US': LUX_EDGE_VOICE_EN,
@@ -51,14 +50,13 @@ const PREFERRED_NAME_PARTS = [
 
 /**
  * Map UI tempo (0.7–1.5) → Edge playback speed.
- * User feedback: +8% felt much too fast. Sleep/default 0.7 → Edge 0.78 (slow,
- * documentary). UI 1.5 → Edge 1.35. Linear between those anchors.
+ * Soft old-narrator pacing: UI 0.7 → Edge 0.72; UI 1.5 → Edge 1.25.
  */
 export function uiRateToEdgeSpeed(uiRate: number): number {
   const lo = 0.7
   const hi = 1.5
-  const edgeLo = 0.78
-  const edgeHi = 1.35
+  const edgeLo = 0.72
+  const edgeHi = 1.25
   const t = (Math.min(hi, Math.max(lo, uiRate)) - lo) / (hi - lo)
   return edgeLo + t * (edgeHi - edgeLo)
 }
