@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 stories/*/video/
+__pycache__/
