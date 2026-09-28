@@ -21,7 +21,8 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    een zachte brom die in ± 50 s langzaam op en neer gaat, en af en toe een rustige
    melodie. **Geen piano, geen scherpe geluiden.** Nooit muziek uit CapCut,
    TikTok of andere nummers gebruiken (auteursrecht).
-4. **Video** — ```
+4. **Video**
+   ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
        --audio stories/<verhaal>/video/stem-met-pauzes.wav \
        --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -17
