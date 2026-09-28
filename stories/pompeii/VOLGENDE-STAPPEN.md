@@ -50,3 +50,11 @@
 - Versie 2 (langere pauzes + 432 Hz-muziek, 2:11:29): https://youtu.be/vgRDl6UwYlo
   (privé geüpload 29-09-2026 01:48 NL-tijd). De eigenaar zet hem op Openbaar en
   verwijdert daarna de eerste versie (WHiBn7Fi05c).
+
+## Shorts (28-09-2026)
+- 4 Shorts gemaakt (`shorts.tsv`, gesproken "Did you know?" in `shorts-intro/`).
+- De eigenaar wilde alleen **nummer 1 (de wolk)** gebruiken. Geüpload (privé):
+  https://youtu.be/Ges1LKW9AR8 — titel "The eruption that was named after a boy | Pompeii #Shorts".
+- Google Drive: map "TikTok – Pompeii" met het bijschrift; de video zelf ging via de chat.
+- Nummers 2–4 zijn niet geüpload; opnieuw maken met
+  `python3 tools/make_short.py stories/pompeii --lijst shorts.tsv --alleen <naam>`.
