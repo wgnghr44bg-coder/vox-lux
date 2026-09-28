@@ -10,6 +10,8 @@ Usage:
     python3 tools/xai_voiceover.py colosseum-script.txt --lines 15 -o test.mp3
     python3 tools/xai_voiceover.py colosseum-script.txt -o narration.mp3
     python3 tools/xai_voiceover.py colosseum-script.txt --dry-run   # no API calls
+    python3 tools/xai_voiceover.py colosseum-script.txt --lines 15 -o test.mp3 \
+        --speed 1.05 --pause-ms 600 --long-pause-ms 1100            # tune pacing
 
 Requires: Python 3.9+, `requests`, and ffmpeg (on PATH, via $FFMPEG, or the
 `imageio-ffmpeg` pip package).
@@ -45,11 +47,16 @@ WRAP_SLOW_SOFT = False
 # around 2,200. Longer pieces are split at sentence ends (no silence added).
 MAX_CHARS_PER_REQUEST = 2000
 
+# Normalize the finished file to this loudness (YouTube-style ~-16 LUFS).
+# Set to None to keep xAI's original levels.
+LOUDNESS_LUFS: float | None = -16.0
+
 API_URL = "https://api.x.ai/v1/tts"
 SAMPLE_RATE = 44100  # output sample rate after joining
 
 # ----------------------------------------------------------------------------
 
+TAG_RE = re.compile(r"<[^>]+>|\[[^\]]+\]")
 MARKER_RE = re.compile(r"\[\s*(long[\s-]*pause|pause)\s*\]", re.IGNORECASE)
 
 
@@ -154,18 +161,31 @@ def join_with_silence(ffmpeg: str, parts: list[tuple[Path, int]], output: Path) 
                 f"anullsrc=r={SAMPLE_RATE}:cl=mono,atrim=duration={silence_ms / 1000},{fmt}[s{i}]"
             )
             labels.append(f"[s{i}]")
-    filters.append(f"{''.join(labels)}concat=n={len(labels)}:v=0:a=1[out]")
+    concat = f"{''.join(labels)}concat=n={len(labels)}:v=0:a=1"
+    if LOUDNESS_LUFS is not None:
+        concat += f",loudnorm=I={LOUDNESS_LUFS}:TP=-1.5:LRA=11"
+    filters.append(f"{concat}[out]")
 
     args += [
         "-filter_complex", ";".join(filters),
         "-map", "[out]",
+        "-ar", str(SAMPLE_RATE),
         "-c:a", "libmp3lame", "-b:a", "192k",
         str(output),
     ]
     subprocess.run(args, check=True)
 
 
+def audio_seconds(ffmpeg: str, path: Path) -> float:
+    info = subprocess.run([ffmpeg, "-hide_banner", "-i", str(path)],
+                          capture_output=True, text=True).stderr
+    m = re.search(r"Duration: (\d+):(\d+):([\d.]+)", info)
+    return int(m[1]) * 3600 + int(m[2]) * 60 + float(m[3]) if m else 0.0
+
+
 def main() -> None:
+    global PAUSE_MS, LONG_PAUSE_MS, SPEED, VOICE_ID
+
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("script", type=Path, help="voice script text file")
     parser.add_argument("-o", "--output", type=Path, default=Path("narration.mp3"))
@@ -174,9 +194,21 @@ def main() -> None:
     wrap.add_argument("--slow-soft", dest="wrap", action="store_true", default=None,
                       help="wrap each piece in <slow><soft>...</soft></slow>")
     wrap.add_argument("--no-slow-soft", dest="wrap", action="store_false")
+    parser.add_argument("--speed", type=float, default=SPEED,
+                        help=f"Tempo 0.7-1.5 (default {SPEED})")
+    parser.add_argument("--pause-ms", type=int, default=PAUSE_MS,
+                        help=f"silence for [pause] (default {PAUSE_MS})")
+    parser.add_argument("--long-pause-ms", type=int, default=LONG_PAUSE_MS,
+                        help=f"silence for [long-pause] (default {LONG_PAUSE_MS})")
+    parser.add_argument("--voice", default=VOICE_ID, help=f"xAI voice_id (default {VOICE_ID})")
     parser.add_argument("--dry-run", action="store_true",
                         help="show the pieces and character count; no API calls")
     args = parser.parse_args()
+
+    if not 0.7 <= args.speed <= 1.5:
+        parser.error("--speed must be between 0.7 and 1.5")
+    PAUSE_MS, LONG_PAUSE_MS = args.pause_ms, args.long_pause_ms
+    SPEED, VOICE_ID = args.speed, args.voice
 
     use_wrap = WRAP_SLOW_SOFT if args.wrap is None else args.wrap
     lines = args.script.read_text(encoding="utf-8").splitlines()
@@ -207,7 +239,14 @@ def main() -> None:
             print(f"Generating {i}/{len(pieces)}…", flush=True)
             synthesize(p.text, api_key, path)
             parts.append((path, p.silence_after_ms))
+        speech_sec = sum(audio_seconds(ffmpeg, path) for path, _ in parts)
         join_with_silence(ffmpeg, parts, args.output)
+
+    words = sum(len(TAG_RE.sub(" ", p.text).split()) for p in pieces)
+    total_sec = speech_sec + sum(p.silence_after_ms for p in pieces) / 1000
+    if speech_sec:
+        print(f"Pace: {words / speech_sec * 60:.0f} words/min while speaking, "
+              f"{words / total_sec * 60:.0f} words/min including pauses")
     print(f"Saved {args.output}")
 
 
