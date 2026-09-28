@@ -1,7 +1,8 @@
 """Rustige achtergrondmuziek in 432 Hz-stemming (A4 = 432 Hz), zelf gesynthetiseerd.
 
 Zachte akkoordenpads die langzaam wisselen, een lage grondtoon en losse
-klokjes/piano-achtige noten die af en toe opklinken. Elke run met hetzelfde
+zwevende tonen die heel langzaam aanzwellen en weer wegebben. Geen aanslagen
+of scherpe geluiden: bedoeld om slaperig bij weg te dromen. Elke run met hetzelfde
 zaadje (--seed) geeft precies hetzelfde resultaat.
 
 Gebruik: python3 tools/ambient_432.py uit.wav --duur 120 [--seed 7]
@@ -13,8 +14,8 @@ import numpy as np
 
 SR = 32000
 A4 = 432.0
-CHORD_LEN = 16.0   # seconden per akkoord
-FADE = 5.0         # overlap tussen akkoorden
+CHORD_LEN = 24.0   # seconden per akkoord
+FADE = 9.0         # overlap tussen akkoorden
 
 # midi-noten (A-mineur / C-majeur), wisselende volgorde voor variatie
 CHORDS = {
@@ -42,13 +43,13 @@ def pad_note(f, n, t, rng):
     return out / 3.25
 
 
-def bell(f, dur):
-    """Zachte klok/piano-toon met snelle aanslag en lange uitsterving."""
+def swell(f, dur):
+    """Zwevende toon die langzaam aanzwelt en wegebt (geen aanslag)."""
     t = np.arange(int(dur * SR)) / SR
-    env = (1 - np.exp(-t / 0.01)) * np.exp(-t / 1.6)
-    tone = (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t / 0.6)
-            + 0.1 * np.sin(2 * np.pi * 3 * f * t) * np.exp(-t / 0.3))
-    return tone * env
+    env = np.sin(np.pi * t / dur) ** 2
+    tone = np.sin(2 * np.pi * f * t) + 0.5 * np.sin(2 * np.pi * (f + 0.15) * t) \
+        + 0.12 * np.sin(2 * np.pi * 2 * f * t)
+    return tone * env / 1.6
 
 
 def render(duration, seed):
@@ -80,23 +81,23 @@ def render(duration, seed):
         left[start:end] += sig
         right[start:end] += sig
 
-    # 2. losse noten: af en toe één, soms een klein motiefje van 2-3 noten
-    pos = rng.uniform(3, 6)
+    # 2. zwevende tonen: af en toe één of twee, die traag op- en wegkomen
+    pos = rng.uniform(6, 12)
     while pos < duration - 1:
         chord = CHORDS[chords[int(pos // CHORD_LEN)]]
         pitch_class = {m % 12 for m in chord}
         choices = [m for m in PENTA if m % 12 in pitch_class] or PENTA
-        for k in range(rng.integers(1, 4)):
-            p = choices[rng.integers(len(choices))] + (12 if rng.random() < 0.3 else 0)
-            b = bell(hz(p), 6.0) * rng.uniform(0.18, 0.3)
-            s = int((pos + k * rng.uniform(0.6, 1.2)) * SR)
+        for k in range(rng.integers(1, 3)):
+            p = choices[rng.integers(len(choices))]
+            b = swell(hz(p), rng.uniform(7, 12)) * rng.uniform(0.18, 0.28)
+            s = int((pos + k * rng.uniform(2.5, 4.5)) * SR)
             e = min(s + len(b), n)
             if s >= n:
                 break
             pan = rng.uniform(0.25, 0.75)
             left[s:e] += b[: e - s] * (1 - pan) * 2
             right[s:e] += b[: e - s] * pan * 2
-        pos += rng.uniform(3.5, 9.0)
+        pos += rng.uniform(7, 14)
 
     stereo = np.stack([left, right], axis=1)
     return stereo / np.abs(stereo).max() * 0.7
@@ -115,7 +116,7 @@ def main():
     # galm en een zachte fade-in/uit
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
                     "-i", raw, "-af",
-                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f=4500,"
+                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f=2200,"
                     f"afade=t=in:d=6,afade=t=out:st={max(a.duur - 8, 0)}:d=8",
                     "-ar", "44100", a.out], check=True)
     import os; os.remove(raw)
