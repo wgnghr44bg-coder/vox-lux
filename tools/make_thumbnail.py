@@ -84,7 +84,7 @@ def split_title(title: str) -> tuple[str, str]:
     return title.strip(), ""
 
 
-def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
+def make(scene: Path, out: Path, title: str, subtitle: str, glow: bool = True) -> None:
     base = cover(Image.open(scene).convert("RGB"))
     base = ImageEnhance.Color(base).enhance(1.25)
     base = ImageEnhance.Contrast(base).enhance(1.08)
@@ -116,7 +116,7 @@ def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
     if sub:
         sub_font = fit_font(d, sub, TITLE_FONT, int(W * 0.75), 70)
         heavy_text(base, (x + 8, main_top - sub_font.getbbox(sub)[3] + 2), sub, sub_font)
-    heavy_text(base, (x, main_top), main, main_font, night_glow=True)
+    heavy_text(base, (x, main_top), main, main_font, night_glow=glow)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     base.save(out, quality=92)
@@ -128,8 +128,9 @@ def main() -> None:
     parser.add_argument("out", type=Path)
     parser.add_argument("--title", required=True, help="the topic, e.g. 'Pompeii: The Last Day'")
     parser.add_argument("--subtitle", default="", help="optional, appended to the title")
+    parser.add_argument("--no-glow", action="store_true", help="leave out the moonlight glow")
     args = parser.parse_args()
-    make(args.scene, args.out, args.title, args.subtitle)
+    make(args.scene, args.out, args.title, args.subtitle, glow=not args.no_glow)
     print(f"Saved {args.out}")
 
 
