@@ -52,6 +52,15 @@ def swell(f, dur):
     return tone * env / 1.6
 
 
+def flute(f, dur):
+    """Zachte fluitachtige toon: trage inzet (0,6 s), lichte vibrato, zacht uitlopend."""
+    t = np.arange(int(dur * SR)) / SR
+    env = np.minimum(1, t / 0.6) * np.minimum(1, (dur - t) / 1.2).clip(0)
+    vib = 1 + 0.003 * np.sin(2 * np.pi * 4.5 * t) * np.minimum(1, t / 1.5)
+    ph = 2 * np.pi * f * np.cumsum(vib) / SR
+    return (np.sin(ph) + 0.25 * np.sin(2 * ph) + 0.08 * np.sin(3 * ph)) * env / 1.33
+
+
 def render(duration, seed):
     rng = np.random.default_rng(seed)
     n = int(duration * SR)
@@ -98,6 +107,23 @@ def render(duration, seed):
             left[s:e] += b[: e - s] * (1 - pan) * 2
             right[s:e] += b[: e - s] * pan * 2
         pos += rng.uniform(7, 14)
+
+    # 3. zachte melodie: korte frasen van glijdende noten (fluitachtig, zachte inzet)
+    pos = rng.uniform(4, 8)
+    idx = 5
+    while pos < duration - 4:
+        for _ in range(rng.integers(4, 8)):
+            idx = int(np.clip(idx + rng.choice([-2, -1, -1, 1, 1, 2]), 3, len(PENTA) - 1))
+            dur = rng.uniform(1.8, 3.5)
+            b = flute(hz(PENTA[idx]), dur + 1.2) * 0.2
+            s = int(pos * SR)
+            e = min(s + len(b), n)
+            if s >= n:
+                break
+            left[s:e] += b[: e - s] * 1.1
+            right[s:e] += b[: e - s] * 0.9
+            pos += dur
+        pos += rng.uniform(4, 10)
 
     stereo = np.stack([left, right], axis=1)
     return stereo / np.abs(stereo).max() * 0.7
