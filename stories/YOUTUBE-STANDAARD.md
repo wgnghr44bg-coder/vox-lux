@@ -6,8 +6,10 @@ vergrendelt uploads van niet-geauditeerde API-projecten op privé); de eigenaar
 zet de video zelf op openbaar in YouTube Studio.
 
 ## Titel
-`<Onderwerp> | Sleep Documentary`  (max. 100 tekens)
-Voorbeeld: `Pompeii: The Last Day | Sleep Documentary`
+Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
+erachter. Niets aan het onderwerp veranderen of zelf verzinnen. Staat
+"Sleep Documentary" er al in, dan niet dubbel toevoegen. (Max. 100 tekens.)
+Voorbeeld: onderwerp `Pompeii: The Last Day` → `Pompeii: The Last Day | Sleep Documentary`
 
 ## Beschrijving (Engels, rustige toon)
 ```
