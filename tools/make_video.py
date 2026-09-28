@@ -54,9 +54,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story", type=Path)
     ap.add_argument("--tot", type=float, help="alleen de eerste zoveel seconden")
+    ap.add_argument("--tijden", default="afbeeldingen-tijden.tsv", help="bestand in de verhaalmap")
+    ap.add_argument("--audio", type=Path, help="stem-bestand (standaard: audio/*-deel*.mp3 aan elkaar)")
+    ap.add_argument("--muziek", type=Path, help="achtergrondmuziek (bv. van tools/ambient_432.py)")
+    ap.add_argument("--muziek-db", type=float, default=-17, help="volume van de muziek in dB")
+    ap.add_argument("--naam", help="naam van de eindvideo (zonder .mp4)")
     a = ap.parse_args()
     story = a.story
-    rows = list(csv.DictReader(open(story / "afbeeldingen-tijden.tsv"), delimiter="\t"))
+    rows = list(csv.DictReader(open(story / a.tijden), delimiter="\t"))
     if a.tot:
         rows = [r for r in rows if float(r["start"]) < a.tot]
         rows[-1]["end"] = str(min(float(rows[-1]["end"]), a.tot))
@@ -95,14 +100,24 @@ def main():
     graph.append(f"{last}format=gbrp[img]")
     graph.append(f"[img][fog]blend=all_mode=screen:all_opacity={FOG_OPACITY},format=yuv420p[v]")
 
-    parts = sorted((story / "audio").glob("*-deel*.mp3"))
-    concat = out_dir / "audio.txt"
-    concat.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
-    inputs += ["-f", "concat", "-safe", "0", "-i", str(concat)]
+    if a.audio:
+        inputs += ["-i", str(a.audio)]
+    else:
+        parts = sorted((story / "audio").glob("*-deel*.mp3"))
+        concat = out_dir / "audio.txt"
+        concat.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
+        inputs += ["-f", "concat", "-safe", "0", "-i", str(concat)]
+    audio_out = f"{n + 1}:a"
+    if a.muziek:
+        inputs += ["-i", str(a.muziek)]
+        graph.append(f"[{n + 2}:a]volume={a.muziek_db}dB[m];"
+                     f"[{n + 1}:a][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.9[a]")
+        audio_out = "[a]"
 
-    final = out_dir / f"{story.name}{'-test' if a.tot else ''}.mp4"
+    name = a.naam or story.name
+    final = out_dir / f"{name}{'-test' if a.tot else ''}.mp4"
     print(f"eindvideo {final} ({total / 60:.1f} min)", flush=True)
-    run([*inputs, "-filter_complex", ";".join(graph), "-map", "[v]", "-map", f"{n + 1}:a",
+    run([*inputs, "-filter_complex", ";".join(graph), "-map", "[v]", "-map", audio_out,
          "-t", f"{total:.2f}", "-c:v", "libx264", "-preset", "medium", "-crf", "26",
          "-tune", "stillimage", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
          str(final)])
