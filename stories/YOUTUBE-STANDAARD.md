@@ -91,3 +91,24 @@ sleep story, 432hz` + 4–6 onderwerp-tags.
 Meld de eigenaar de link en wat nog in YouTube Studio moet: nalopen, AI-melding
 controleren, Visibility → Public. Herinner eraan dat de refresh token 7 dagen
 geldig is (zie `stories/pompeii/VOLGENDE-STAPPEN.md`).
+
+## Shorts (sinds Pompeii)
+Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
+1. Kies stukjes van 45–60 s (begin en eind op een zinsgrens) en zet ze in
+   `stories/<verhaal>/shorts.tsv` (kolommen `naam`, `van`, `tot` = zinsnummers uit
+   `tijdlijn-pauzes.tsv`). Eerst `tools/add_pauses.py` draaien als `video/stem-met-pauzes.wav` ontbreekt.
+2. **Gesproken begin**: de eigenaar wil dat de stem begint met "Did you know? [pause] <weetje>",
+   simpel Engels, nieuwsgierig makend, en het weetje moet in het stukje verteld worden.
+   Tekst in `shorts-intro/<naam>.txt`, inspreken (eerst akkoord vragen, kost geld):
+   `python3 tools/xai_voiceover.py stories/<verhaal>/shorts-intro/<naam>.txt --proxy-auth -o stories/<verhaal>/shorts-intro/<naam>.mp3`
+   Tekst en mp3 in git houden (klein), dan hoeft het nooit opnieuw betaald te worden.
+3. `python3 tools/make_short.py stories/<verhaal> --lijst shorts.tsv [--alleen <naam>]`
+   → `video/shorts/<naam>.mp4` (1080x1920, schuivend beeld, mist, grote ondertitels,
+   432 Hz-muziek op -17 dB). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
+   "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
+4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
+5. YouTube: privé, Education, niet voor kinderen, AI gemarkeerd. Titel: korte rustige zin +
+   ` | <korte naam> #Shorts`. Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
+   `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
+6. TikTok: map "TikTok – <korte naam>" in Google Drive met een bijschrift per video. De video's
+   zelf (± 10 MB) zijn te groot voor de Drive-koppeling: stuur ze in de chat.

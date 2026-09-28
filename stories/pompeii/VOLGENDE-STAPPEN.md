@@ -47,3 +47,11 @@
 - Video gemaakt met `tools/make_video.py` (Ken Burns, overgangen, zachte mist).
 - Geüpload: https://youtu.be/WHiBn7Fi05c — de eigenaar kon hem zelf op
   **Openbaar** zetten; de upload via de API werd dus niet op privé vergrendeld.
+
+## Shorts (28-09-2026)
+- 4 Shorts gemaakt (`shorts.tsv`, gesproken "Did you know?" in `shorts-intro/`).
+- De eigenaar wilde alleen **nummer 1 (de wolk)** gebruiken. Geüpload (privé):
+  https://youtu.be/Ges1LKW9AR8 — titel "The eruption that was named after a boy | Pompeii #Shorts".
+- Google Drive: map "TikTok – Pompeii" met het bijschrift; de video zelf ging via de chat.
+- Nummers 2–4 zijn niet geüpload; opnieuw maken met
+  `python3 tools/make_short.py stories/pompeii --lijst shorts.tsv --alleen <naam>`.
