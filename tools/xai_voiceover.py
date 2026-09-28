@@ -41,6 +41,9 @@ PAUSE_MS = 900  # silence inserted for [pause]
 LONG_PAUSE_MS = 1600  # silence inserted for [long-pause] / [long pause]
 # Short silence after every sentence (. ! ?) that has no marker. 0 = off.
 SENTENCE_PAUSE_MS = 300
+# xAI only: add its own [pause] tag after every comma, so the voice breathes
+# there without breaking the sentence melody. Also --comma-pause / --no-comma-pause.
+COMMA_PAUSE = False
 
 VOICE_ID = "lux"  # same voice as the VOX project
 SPEED = 1.0  # Tempo (xAI accepts 0.7-1.5)
@@ -146,12 +149,14 @@ def chunk_text(text: str, limit: int) -> list[str]:
     return chunks
 
 
-def to_requests(pieces: list[Piece], limit: int, wrap: bool) -> list[Piece]:
+def to_requests(pieces: list[Piece], limit: int, wrap: bool,
+                comma_pause: bool = False) -> list[Piece]:
     """Expand pieces into API-sized requests, optionally wrapping in tags."""
     overhead = len("<slow><soft></soft></slow>") if wrap else 0
     out: list[Piece] = []
     for piece in pieces:
-        chunks = chunk_text(piece.text, limit - overhead)
+        text = re.sub(r",\s+", ", [pause] ", piece.text) if comma_pause else piece.text
+        chunks = chunk_text(text, limit - overhead)
         for i, chunk in enumerate(chunks):
             text = f"<slow><soft>{chunk}</soft></slow>" if wrap else chunk
             last = i == len(chunks) - 1
@@ -307,6 +312,10 @@ def main() -> None:
                         help=f"silence for [pause] (default {PAUSE_MS})")
     parser.add_argument("--long-pause-ms", type=int, default=LONG_PAUSE_MS,
                         help=f"silence for [long-pause] (default {LONG_PAUSE_MS})")
+    comma = parser.add_mutually_exclusive_group()
+    comma.add_argument("--comma-pause", dest="comma", action="store_true", default=None,
+                       help="xAI: add a natural [pause] after every comma")
+    comma.add_argument("--no-comma-pause", dest="comma", action="store_false")
     parser.add_argument("--sentence-pause-ms", type=int, default=SENTENCE_PAUSE_MS,
                         help=f"silence after each sentence without a marker "
                              f"(default {SENTENCE_PAUSE_MS}, 0 = off)")
@@ -359,7 +368,10 @@ def main() -> None:
     text = "\n".join(lines)
     if eleven:  # ElevenLabs would read xAI tags like [breath] or <slow> aloud
         text = TAG_RE.sub(lambda m: m[0] if MARKER_RE.fullmatch(m[0]) else " ", text)
-    pieces = to_requests(split_script(text), MAX_CHARS_PER_REQUEST, use_wrap)
+    use_comma = COMMA_PAUSE if args.comma is None else args.comma
+    if eleven and use_comma:
+        parser.error("--comma-pause uses an xAI tag; it is not available for ElevenLabs")
+    pieces = to_requests(split_script(text), MAX_CHARS_PER_REQUEST, use_wrap, use_comma)
     if not pieces:
         sys.exit("No text to speak.")
 
