@@ -13,6 +13,13 @@ Gebruik:
 shorts.tsv (in de verhaalmap) heeft de kolommen naam, van, tot en weetje (plus eventueel meer).
 Een weetje (--weetje) komt bovenin als "DID YOU KNOW?" + één zin die in het stukje verteld wordt.
 
+Gesproken begin ("Did you know? ..."): zet de tekst in <map>/shorts-intro/<naam>.txt en laat
+hem inspreken (kost een fractie van een cent bij xAI, dus eerst akkoord vragen):
+  python3 tools/xai_voiceover.py <map>/shorts-intro/<naam>.txt --proxy-auth \
+      -o <map>/shorts-intro/<naam>.mp3
+Bestaan shorts-intro/<naam>.txt en .mp3 (klein, wel in git), dan begint de Short daarmee (met ondertitels) en
+volgt daarna het stukje uit de lange video.
+
 Nodig: eerst `python3 tools/add_pauses.py stories/<verhaal>` (maakt video/stem-met-pauzes.wav,
 tijdlijn-pauzes.tsv en afbeeldingen-tijden-pauzes.tsv) en <map>/afbeeldingen/NNN.jpg.
 Uitvoer: <map>/video/shorts/<naam>.mp4
@@ -35,6 +42,7 @@ FOG_SPEED = 36       # pixels per seconde (mist, op 1920 hoog)
 FOG_OPACITY = 0.4
 LEAD = 0.4           # stilte voor de eerste zin
 OUTRO = 3.0          # laatste seconden: verwijzing naar de lange video (--eindtekst)
+INTRO_GAP = 0.8      # stilte tussen het gesproken begin en het verhaal
 TAIL = 0.8           # zonder eindtekst: zoveel rust na de laatste zin
 OUTRO_GAP = 0.6      # stilte tussen de laatste zin en de eindtekst
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
@@ -114,12 +122,38 @@ class Pan:
         return np.asarray(f).astype(np.float32) / 255
 
 
+def intro_parts(audio, text):
+    """Lengte van het gesproken begin en de ondertitels: splitst op [pause] en zoekt de stilte."""
+    pcm = subprocess.run([FFMPEG, "-hide_banner", "-loglevel", "error", "-i", str(audio),
+                          "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.abs(np.frombuffer(pcm, dtype="<i2").astype(np.float32))
+    dur = len(x) / 8000
+    pieces = [p.strip() for p in text.replace("[long pause]", "[pause]").split("[pause]") if p.strip()]
+    if len(pieces) < 2:
+        return dur, [(0.0, dur, " ".join(pieces))]
+    # stilste stuk van 0,2 s tussen 15 % en 60 % van het begin = de pauze
+    win = 1600
+    env = np.convolve(x, np.ones(win) / win, mode="valid")
+    lo, hi = int(0.15 * len(env)), int(0.6 * len(env))
+    split = (lo + int(np.argmin(env[lo:hi])) + win / 2) / 8000
+    return dur, [(0.0, split, pieces[0]), (split, dur, " ".join(pieces[1:]))]
+
+
 def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     tl = {int(r[0]): r for r in (l.split("\t") for l in
           open(story / "tijdlijn-pauzes.tsv").read().splitlines()[1:] if l.strip())}
     sents = [(sec(tl[i][1]), sec(tl[i][2]), tl[i][4].strip()) for i in range(van, tot + 1)]
     t0 = sents[0][0] - LEAD
-    speech_end = sents[-1][1] - t0
+    intro_audio = story / "shorts-intro" / f"{naam}.mp3"
+    intro_txt = story / "shorts-intro" / f"{naam}.txt"
+    intro_subs, off = [], 0.0
+    if intro_audio.exists() and intro_txt.exists():
+        intro_len, intro_subs = intro_parts(intro_audio, intro_txt.read_text())
+        off = LEAD + intro_len + INTRO_GAP
+        intro_subs = [(a + LEAD, b + LEAD, txt) for a, b, txt in intro_subs]
+    base = t0 - off   # tijd in de lange video die bij 0 s in de Short hoort
+    speech_end = sents[-1][1] - base
     outro_at = speech_end + OUTRO_GAP
     total = outro_at + (OUTRO if eindtekst else TAIL)
     print(f"{naam}: zinnen {van}-{tot}, {total:.1f} s", flush=True)
@@ -130,7 +164,7 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     imgs = list(csv.DictReader(open(story / "afbeeldingen-tijden-pauzes.tsv"), delimiter="\t"))
     pans = []
     for i, r in enumerate(imgs):
-        s, e = float(r["start"]) - t0, float(r["end"]) - t0
+        s, e = float(r["start"]) - base, float(r["end"]) - base
         if e + XFADE <= 0 or s >= total:
             continue
         t_in, t_out = max(s, 0), min(e + XFADE, total)
@@ -147,9 +181,10 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     fog_period = 7680 * H / 1080
 
     subs = []
-    for k, (s, e, text) in enumerate(sents):
-        a = s - t0 - 0.1
-        b = min(e - t0 + 0.5, (sents[k + 1][0] - t0 - 0.15) if k + 1 < len(sents) else outro_at)
+    timed = intro_subs + [(s - base, e - base, text) for s, e, text in sents]
+    for k, (s, e, text) in enumerate(timed):
+        a = s - 0.1
+        b = min(e + 0.5, (timed[k + 1][0] - 0.15) if k + 1 < len(timed) else outro_at)
         rgb, alpha = text_layer(text, SUB_FONT, SUB_SIZE, 6)
         subs.append((a, b, rgb, alpha, SUB_Y - rgb.shape[0] // 2))
     o_rgb, o_alpha = text_layer("", OUTRO_FONT, 62, 5, lines=OUTRO_TEXT.split("\n"))
@@ -166,17 +201,24 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     music = out_dir / f"{naam}-muziek.wav"
     subprocess.run([sys.executable, str(Path(__file__).parent / "ambient_432.py"), str(music),
                     "--duur", f"{total + 2:.1f}", "--seed", str(seed)], check=True)
-    voice_len = speech_end + 0.3
+    voice_len = speech_end - off + 0.3
     final = out_dir / f"{naam}.mp4"
     graph = (f"[1:a]atrim=start={t0:.3f}:duration={voice_len:.3f},asetpts=PTS-STARTPTS,"
              f"afade=t=in:d=0.05,afade=t=out:st={voice_len - 0.3:.3f}:d=0.3,"
-             f"aformat=channel_layouts=stereo,apad[v];"
-             f"[2:a]volume=-17dB[m];[v][m]amix=inputs=2:duration=shortest:normalize=0,"
-             f"alimiter=limit=0.9,afade=t=out:st={total - 1.5:.3f}:d=1.5[a]")
+             f"aformat=sample_rates=44100:channel_layouts=stereo,"
+             f"adelay={off * 1000:.0f}:all=1,apad[v];"
+             f"[2:a]volume=-17dB[m];")
+    extra = []
+    if intro_subs:
+        extra = ["-i", str(intro_audio)]
+        graph += (f"[3:a]aformat=sample_rates=44100:channel_layouts=stereo,"
+                  f"adelay={LEAD * 1000:.0f}:all=1,apad[i];[v][i]amix=inputs=2:normalize=0[v2];")
+    graph += (f"[{'v2' if intro_subs else 'v'}][m]amix=inputs=2:duration=shortest:normalize=0,"
+              f"alimiter=limit=0.9,afade=t=out:st={total - 1.5:.3f}:d=1.5[a]")
     enc = subprocess.Popen(
         [FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
          "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-         "-i", str(story / "video" / "stem-met-pauzes.wav"), "-i", str(music),
+         "-i", str(story / "video" / "stem-met-pauzes.wav"), "-i", str(music), *extra,
          "-filter_complex", graph, "-map", "0:v", "-map", "[a]", "-t", f"{total:.3f}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(final)],
