@@ -15,6 +15,9 @@ import numpy as np
 SR = 32000
 A4 = 432.0
 CHORD_LEN = 24.0   # seconden per akkoord
+DRONE = 0.5       # sterkte van de brom (akkoorden + grondtoon)
+DRONE_WAVE = 50.0 # seconden per op-en-neer-golf van de brom
+GAIN = 0.6        # vaste versterking (zelfde niveau als proef 5-7)
 FADE = 9.0         # overlap tussen akkoorden
 
 # midi-noten (A-mineur / C-majeur), wisselende volgorde voor variatie
@@ -86,7 +89,8 @@ def render(duration, seed):
         t = t_all[start:end]
         sig = sum(pad_note(hz(m), end - start, t, rng) for m in CHORDS[name]) / 4
         sig += 0.35 * np.sin(2 * np.pi * hz(CHORDS[name][0] - 12) * t)  # grondtoon
-        sig *= env[: end - start]
+        # de brom zacht op de achtergrond, langzaam aanzwellend en wegzakkend (golf van ~50 s)
+        sig *= env[: end - start] * DRONE * (0.55 + 0.45 * np.sin(2 * np.pi * t / DRONE_WAVE))
         left[start:end] += sig
         right[start:end] += sig
 
@@ -126,7 +130,7 @@ def render(duration, seed):
         pos += rng.uniform(4, 10)
 
     stereo = np.stack([left, right], axis=1)
-    return stereo / np.abs(stereo).max() * 0.7
+    return stereo * GAIN
 
 
 def main():
