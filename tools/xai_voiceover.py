@@ -156,10 +156,12 @@ def eleven_voices(api_key: str) -> list[dict]:
     return res.json()["voices"]
 
 
-# Premade voices, so names work even when the key lacks "voices_read".
+# Known voices, so names work even when the key lacks "voices_read".
 ELEVEN_PREMADE = {
     "daniel": "onwK4e9ZLuTAKqWW03F9",  # British, deep, news presenter
     "george": "JBFqnCBsd6RMkjVDRZzb",  # British, warm, storyteller
+    # Voice Library (needs a paid ElevenLabs plan for API use):
+    "nathaniel": "pFQStpMdprGFILRDrWR2",  # British, deep, meditative
 }
 
 
