@@ -41,27 +41,23 @@ def pad_note(f, n, t, rng):
     for det in (-0.25, 0.0, 0.25):
         ph = rng.uniform(0, 2 * np.pi)
         out += np.sin(2 * np.pi * (f + det) * t + ph)
-    out += 0.25 * np.sin(2 * np.pi * 2 * f * t)
     out *= 0.8 + 0.2 * np.sin(2 * np.pi * t / rng.uniform(6, 11) + rng.uniform(0, 6))
-    return out / 3.25
+    return out / 3.0
 
 
 def swell(f, dur):
     """Zwevende toon die langzaam aanzwelt en wegebt (geen aanslag)."""
     t = np.arange(int(dur * SR)) / SR
     env = np.sin(np.pi * t / dur) ** 2
-    tone = np.sin(2 * np.pi * f * t) + 0.5 * np.sin(2 * np.pi * (f + 0.15) * t) \
-        + 0.12 * np.sin(2 * np.pi * 2 * f * t)
-    return tone * env / 1.6
+    tone = np.sin(2 * np.pi * f * t) + 0.5 * np.sin(2 * np.pi * (f + 0.15) * t)
+    return tone * env / 1.5
 
 
 def flute(f, dur):
-    """Zachte fluitachtige toon: trage inzet (0,6 s), lichte vibrato, zacht uitlopend."""
+    """Zuivere, zachte toon: heel trage inzet (1,6 s) en lang uitlopend."""
     t = np.arange(int(dur * SR)) / SR
-    env = np.minimum(1, t / 0.6) * np.minimum(1, (dur - t) / 1.2).clip(0)
-    vib = 1 + 0.003 * np.sin(2 * np.pi * 4.5 * t) * np.minimum(1, t / 1.5)
-    ph = 2 * np.pi * f * np.cumsum(vib) / SR
-    return (np.sin(ph) + 0.25 * np.sin(2 * ph) + 0.08 * np.sin(3 * ph)) * env / 1.33
+    env = np.sin(np.pi * np.clip(t / 1.6, 0, 0.5)) ** 2 * np.clip((dur - t) / 1.6, 0, 1) ** 2
+    return np.sin(2 * np.pi * f * t) * env
 
 
 def render(duration, seed):
@@ -101,7 +97,7 @@ def render(duration, seed):
         pitch_class = {m % 12 for m in chord}
         choices = [m for m in PENTA if m % 12 in pitch_class] or PENTA
         for k in range(rng.integers(1, 3)):
-            p = choices[rng.integers(len(choices))]
+            p = choices[rng.integers(len(choices))] - 12
             b = swell(hz(p), rng.uniform(7, 12)) * rng.uniform(0.18, 0.28)
             s = int((pos + k * rng.uniform(2.5, 4.5)) * SR)
             e = min(s + len(b), n)
@@ -119,7 +115,7 @@ def render(duration, seed):
         for _ in range(rng.integers(4, 8)):
             idx = int(np.clip(idx + rng.choice([-2, -1, -1, 1, 1, 2]), 3, len(PENTA) - 1))
             dur = rng.uniform(1.8, 3.5)
-            b = flute(hz(PENTA[idx]), dur + 1.2) * 0.2
+            b = flute(hz(PENTA[idx] - 12), dur + 1.6) * 0.22
             s = int(pos * SR)
             e = min(s + len(b), n)
             if s >= n:
@@ -146,7 +142,7 @@ def main():
     # galm en een zachte fade-in/uit
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
                     "-i", raw, "-af",
-                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f=2200,"
+                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f=1100,"
                     f"afade=t=in:d=6,afade=t=out:st={max(a.duur - 8, 0)}:d=8",
                     "-ar", "44100", a.out], check=True)
     import os; os.remove(raw)
