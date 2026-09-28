@@ -26,6 +26,7 @@ import requests
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
+THUMB_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
 CHUNK = 16 * 1024 * 1024  # 16 MB, a multiple of 256 KB as the API requires
 
 
@@ -87,6 +88,17 @@ def upload(path: Path, metadata: dict, token: str) -> str:
     sys.exit("Upload ended without a video id.")
 
 
+def set_thumbnail(video_id: str, path: Path, token: str) -> None:
+    ctype = "image/png" if path.suffix.lower() == ".png" else "image/jpeg"
+    res = requests.post(THUMB_URL, params={"videoId": video_id, "uploadType": "media"},
+                        headers={"Authorization": f"Bearer {token}", "Content-Type": ctype},
+                        data=path.read_bytes(), timeout=120)
+    if res.ok:
+        print("Thumbnail set.")
+    else:  # the video itself is fine; set the thumbnail in YouTube Studio instead
+        print(f"Thumbnail failed ({res.status_code}): {res.text[:300]}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("video", type=Path)
@@ -95,6 +107,9 @@ def main() -> None:
     parser.add_argument("--tags", default="", help="comma-separated")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
     parser.add_argument("--category", default="27", help="YouTube category id (27 = Education)")
+    parser.add_argument("--thumbnail", type=Path, help="JPG/PNG, max 2 MB (channel must be verified)")
+    parser.add_argument("--synthetic", action="store_true",
+                        help="declare altered or synthetic (AI) content")
     args = parser.parse_args()
 
     metadata = {
@@ -107,8 +122,13 @@ def main() -> None:
         },
         "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False},
     }
-    video_id = upload(args.video, metadata, access_token())
+    if args.synthetic:
+        metadata["status"]["containsSyntheticMedia"] = True
+    token = access_token()
+    video_id = upload(args.video, metadata, token)
     print(f"Done: https://youtu.be/{video_id} ({args.privacy})")
+    if args.thumbnail:
+        set_thumbnail(video_id, args.thumbnail, access_token())
 
 
 if __name__ == "__main__":
