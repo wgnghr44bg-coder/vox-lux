@@ -9,7 +9,8 @@ Usage:
     python3 tools/youtube_upload.py video.mp4 --title "Pompeii: The Last Day | Sleep Documentary" \
         --description-file description.txt --tags "sleep,history,pompeii"
 
-Videos are uploaded as private by default. Note: YouTube keeps videos from
+Videos are uploaded as private, not made for kids, and marked as containing
+AI-generated content by default (see stories/YOUTUBE-STANDAARD.md). Note: YouTube keeps videos from
 unaudited API projects private anyway; publish them in YouTube Studio.
 """
 
@@ -48,14 +49,22 @@ def access_token() -> str:
 
 def upload(path: Path, metadata: dict, token: str) -> str:
     size = path.stat().st_size
-    init = requests.post(
-        UPLOAD_URL,
-        params={"uploadType": "resumable", "part": "snippet,status"},
-        headers={"Authorization": f"Bearer {token}",
-                 "Content-Type": "application/json; charset=UTF-8",
-                 "X-Upload-Content-Type": "video/*",
-                 "X-Upload-Content-Length": str(size)},
-        data=json.dumps(metadata), timeout=60)
+
+    def start(meta: dict) -> requests.Response:
+        return requests.post(
+            UPLOAD_URL,
+            params={"uploadType": "resumable", "part": "snippet,status"},
+            headers={"Authorization": f"Bearer {token}",
+                     "Content-Type": "application/json; charset=UTF-8",
+                     "X-Upload-Content-Type": "video/*",
+                     "X-Upload-Content-Length": str(size)},
+            data=json.dumps(meta), timeout=60)
+
+    init = start(metadata)
+    if init.status_code == 400 and "containsSyntheticMedia" in init.text:
+        print("Note: API rejected containsSyntheticMedia; set the AI label in YouTube Studio.")
+        metadata["status"].pop("containsSyntheticMedia", None)
+        init = start(metadata)
     if not init.ok:
         sys.exit(f"Could not start upload ({init.status_code}): {init.text[:300]}")
     session_url = init.headers["Location"]
@@ -107,9 +116,10 @@ def main() -> None:
     parser.add_argument("--tags", default="", help="comma-separated")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
     parser.add_argument("--category", default="27", help="YouTube category id (27 = Education)")
-    parser.add_argument("--thumbnail", type=Path, help="JPG/PNG, max 2 MB (channel must be verified)")
-    parser.add_argument("--synthetic", action="store_true",
-                        help="declare altered or synthetic (AI) content")
+    parser.add_argument("--no-synthetic", action="store_true",
+                        help="do not mark the video as containing AI-generated content")
+    parser.add_argument("--thumbnail", type=Path,
+                        help="JPG/PNG up to 2 MB, set after upload (channel must be verified)")
     args = parser.parse_args()
 
     metadata = {
@@ -120,12 +130,10 @@ def main() -> None:
             "tags": [t.strip() for t in args.tags.split(",") if t.strip()],
             "categoryId": args.category,
         },
-        "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False},
+        "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False,
+                   "containsSyntheticMedia": not args.no_synthetic},
     }
-    if args.synthetic:
-        metadata["status"]["containsSyntheticMedia"] = True
-    token = access_token()
-    video_id = upload(args.video, metadata, token)
+    video_id = upload(args.video, metadata, access_token())
     print(f"Done: https://youtu.be/{video_id} ({args.privacy})")
     if args.thumbnail:
         set_thumbnail(video_id, args.thumbnail, access_token())
