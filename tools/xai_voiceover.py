@@ -132,7 +132,9 @@ def synthesize(text: str, api_key: str, out_path: Path, retries: int = 3) -> Non
     import requests
 
     body = {"text": text, "voice_id": VOICE_ID, "language": LANGUAGE, "speed": SPEED}
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    headers = {"Content-Type": "application/json"}
+    if api_key:  # empty with --proxy-auth: a credential proxy adds the header
+        headers["Authorization"] = f"Bearer {api_key}"
     for attempt in range(retries + 1):
         res = requests.post(API_URL, json=body, headers=headers, timeout=120)
         if res.ok and res.content:
@@ -201,6 +203,9 @@ def main() -> None:
     parser.add_argument("--long-pause-ms", type=int, default=LONG_PAUSE_MS,
                         help=f"silence for [long-pause] (default {LONG_PAUSE_MS})")
     parser.add_argument("--voice", default=VOICE_ID, help=f"xAI voice_id (default {VOICE_ID})")
+    parser.add_argument("--proxy-auth", action="store_true",
+                        help="send no Authorization header; a credential proxy "
+                             "(e.g. Claude Code cloud credentials) adds it")
     parser.add_argument("--dry-run", action="store_true",
                         help="show the pieces and character count; no API calls")
     args = parser.parse_args()
@@ -228,8 +233,8 @@ def main() -> None:
         return
 
     api_key = os.environ.get("XAI_API_KEY", "").strip()
-    if not api_key:
-        sys.exit("Set the XAI_API_KEY environment variable first.")
+    if not api_key and not args.proxy_auth:
+        sys.exit("Set the XAI_API_KEY environment variable first (or use --proxy-auth).")
     ffmpeg = find_ffmpeg()
 
     with tempfile.TemporaryDirectory() as tmp:
