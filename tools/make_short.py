@@ -3,7 +3,8 @@
 Het beeld is de 16:9-afbeelding die het hele scherm vult en langzaam van links naar rechts
 (of andersom) schuift, met zachte overgangen en drijvende mist zoals in de lange video.
 Grote ondertitels per zin (Pillow; de ffmpeg-build heeft geen drawtext), 432 Hz-muziek
-op -17 dB en in de laatste 3 seconden "Full sleep documentary on the channel".
+op -17 dB. Met --eindtekst komt er in de laatste 3 seconden "Full sleep documentary on
+the channel" (standaard uit: de eigenaar wil het simpel houden).
 
 Gebruik:
   python3 tools/make_short.py stories/pompeii --van 509 --tot 516 --naam 1-wolk
@@ -33,7 +34,8 @@ PAN_SPEED = 28       # pixels per seconde dat het beeld opschuift
 FOG_SPEED = 36       # pixels per seconde (mist, op 1920 hoog)
 FOG_OPACITY = 0.4
 LEAD = 0.4           # stilte voor de eerste zin
-OUTRO = 3.0          # laatste seconden: verwijzing naar de lange video
+OUTRO = 3.0          # laatste seconden: verwijzing naar de lange video (--eindtekst)
+TAIL = 0.8           # zonder eindtekst: zoveel rust na de laatste zin
 OUTRO_GAP = 0.6      # stilte tussen de laatste zin en de eindtekst
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 SUB_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
@@ -112,14 +114,14 @@ class Pan:
         return np.asarray(f).astype(np.float32) / 255
 
 
-def make_short(story, van, tot, naam, seed, weetje=""):
+def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     tl = {int(r[0]): r for r in (l.split("\t") for l in
           open(story / "tijdlijn-pauzes.tsv").read().splitlines()[1:] if l.strip())}
     sents = [(sec(tl[i][1]), sec(tl[i][2]), tl[i][4].strip()) for i in range(van, tot + 1)]
     t0 = sents[0][0] - LEAD
     speech_end = sents[-1][1] - t0
     outro_at = speech_end + OUTRO_GAP
-    total = outro_at + OUTRO
+    total = outro_at + (OUTRO if eindtekst else TAIL)
     print(f"{naam}: zinnen {van}-{tot}, {total:.1f} s", flush=True)
     if not 40 <= total <= 62:
         print(f"  let op: {total:.1f} s valt buiten 45-60 s")
@@ -194,14 +196,14 @@ def make_short(story, van, tot, naam, seed, weetje=""):
         fg = fog[:, x:x + W]
         frame = frame + ((1 - (1 - frame) * (1 - fg)) - frame) * FOG_OPACITY
         # eindtekst: beeld iets donkerder, tekst fadet in
-        if t >= outro_at:
+        if eindtekst and t >= outro_at:
             k = ramp(t, outro_at, total + 10, 0.8)
             frame *= 1 - 0.35 * k
             region = frame[o_y:o_y + o_rgb.shape[0]]
             region += (o_rgb - region) * o_alpha * k
         # weetje bovenin, tot de eindtekst
         if facts:
-            k = ramp(t, 0.2, outro_at, 0.6)
+            k = ramp(t, 0.2, outro_at if eindtekst else total + 10, 0.6)
             for rgb, alpha, y in facts:
                 region = frame[y:y + rgb.shape[0]]
                 region += (rgb - region) * alpha * k
@@ -232,6 +234,7 @@ def main():
     ap.add_argument("--weetje", default="", help='zin bovenin onder "DID YOU KNOW?"')
     ap.add_argument("--lijst", help="tsv in de verhaalmap met kolommen naam, van, tot")
     ap.add_argument("--alleen", help="alleen deze naam uit de lijst")
+    ap.add_argument("--eindtekst", action="store_true", help='"Full sleep documentary on the channel" aan het eind')
     ap.add_argument("--seed", type=int, default=7, help="muziek-zaadje")
     a = ap.parse_args()
     if a.lijst:
@@ -239,9 +242,9 @@ def main():
         for r in rows:
             if not a.alleen or r["naam"] == a.alleen:
                 make_short(a.story, int(r["van"]), int(r["tot"]), r["naam"], a.seed,
-                           r.get("weetje") or "")
+                           r.get("weetje") or "", a.eindtekst)
     elif a.van and a.tot:
-        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed, a.weetje)
+        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed, a.weetje, a.eindtekst)
     else:
         ap.error("geef --van en --tot, of --lijst")
 
