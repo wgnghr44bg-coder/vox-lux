@@ -1,9 +1,34 @@
 # YouTube-standaard voor alle sleep documentaries
 
 Gebruik deze instellingen bij **elke** upload met `tools/youtube_upload.py`,
-tenzij de eigenaar iets anders vraagt. Alles wordt privé geüpload (Google
-vergrendelt uploads van niet-geauditeerde API-projecten op privé); de eigenaar
-zet de video zelf op openbaar in YouTube Studio.
+tenzij de eigenaar iets anders vraagt. Alles wordt privé geüpload; de eigenaar
+zet de video zelf op openbaar in YouTube Studio (dat werkt: bij Pompeii werd de
+upload niet op privé vergrendeld).
+
+## Video maken (standaard sinds Pompeii)
+Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest is gratis.
+1. **Afbeeldingen** — `python3 tools/xai_images.py stories/<verhaal> all`
+   (Grok Imagine quality, 16:9, uit `afbeeldingen-prompts.md`). Eerst 3 proefbeelden
+   tonen en akkoord vragen, want het kost geld.
+2. **Langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal>`
+   Na elke zin extra stilte: 0,7 s + 0,1 s per seconde zinslengte (max. 2,2 s),
+   bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
+   `video/stem-met-pauzes.wav`, `tijdlijn-pauzes.tsv` en `afbeeldingen-tijden-pauzes.tsv`.
+   De video wordt ± 22 % langer (Pompeii: 1:47 → 2:11).
+3. **Achtergrondmuziek** — `python3 tools/ambient_432.py stories/<verhaal>/video/muziek432.wav --duur <lengte in s + 2>`
+   Zelfgemaakt, 432 Hz-stemming, rechtenvrij. Zachte, ronde tonen (zuivere
+   sinussen, niets boven ± 700 Hz, trage inzet), traag wisselende akkoorden,
+   een zachte brom die in ± 50 s langzaam op en neer gaat, en af en toe een rustige
+   melodie. **Geen piano, geen scherpe geluiden.** Nooit muziek uit CapCut,
+   TikTok of andere nummers gebruiken (auteursrecht).
+4. **Video** — ```
+   python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
+       --audio stories/<verhaal>/video/stem-met-pauzes.wav \
+       --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -17
+   ```
+   1080p25, langzame zoom per afbeelding, zachte overgangen (1,5 s), drijvende mist.
+   Muziek op -17 dB: duidelijk zachter dan de stem, vooral hoorbaar in de stiltes.
+   Duurt ± 1,6× de videolengte (4 cores). Test eerst met `--tot 100`.
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
@@ -17,11 +42,12 @@ Drift off to the story of <onderwerp in één zin: wat, waar, wanneer>.
 <2 zinnen over wat de kijker meemaakt in het verhaal.>
 
 A calm, slow-paced history documentary for sleep and relaxation. No loud
-sounds, no jump scares, just a gentle voice and softly changing images.
+sounds, no jump scares, just a gentle voice, soft 432 Hz background music
+and softly changing images.
 
 Chapters
 0:00:00 <eerste hoofdstuk>
-<tijd> <hoofdstuk>   ← uit de tijdlijn (tijdlijn.tsv) van de video, 10–15 stuks
+<tijd> <hoofdstuk>   ← uit tijdlijn-pauzes.tsv (de tijden mét extra pauzes!), 10–15 stuks
 
 Narration and images were created with the help of AI. The story is based on
 historical sources<, noem de belangrijkste bron>.
@@ -32,7 +58,7 @@ historical sources<, noem de belangrijkste bron>.
 
 ## Tags
 Altijd: `sleep documentary, history for sleep, bedtime story, relaxing history,
-sleep story` + 4–6 onderwerp-tags.
+sleep story, 432hz` + 4–6 onderwerp-tags.
 
 ## Instellingen
 - Categorie: Education (`--category 27`)
