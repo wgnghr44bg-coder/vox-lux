@@ -156,9 +156,22 @@ def eleven_voices(api_key: str) -> list[dict]:
     return res.json()["voices"]
 
 
+# Premade voices, so names work even when the key lacks "voices_read".
+ELEVEN_PREMADE = {
+    "daniel": "onwK4e9ZLuTAKqWW03F9",  # British, deep, news presenter
+    "george": "JBFqnCBsd6RMkjVDRZzb",  # British, warm, storyteller
+}
+
+
 def resolve_eleven_voice(name_or_id: str, api_key: str) -> str:
     """Accept a voice name ("Daniel") or a raw voice_id."""
-    for v in eleven_voices(api_key):
+    if name_or_id.lower() in ELEVEN_PREMADE:
+        return ELEVEN_PREMADE[name_or_id.lower()]
+    try:
+        voices = eleven_voices(api_key)
+    except RuntimeError:
+        return name_or_id  # e.g. key without "voices_read": treat as voice_id
+    for v in voices:
         if name_or_id in (v["voice_id"], v["name"]) or v["name"].lower().startswith(
             name_or_id.lower() + " "
         ):
