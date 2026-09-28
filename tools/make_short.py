@@ -9,7 +9,8 @@ Gebruik:
   python3 tools/make_short.py stories/pompeii --van 509 --tot 516 --naam 1-wolk
   python3 tools/make_short.py stories/pompeii --lijst shorts.tsv [--alleen 1-wolk]
 --van/--tot zijn zinsnummers (kolom # in tijdlijn-pauzes.tsv), allebei inclusief.
-shorts.tsv (in de verhaalmap) heeft de kolommen naam, van, tot (en eventueel meer).
+shorts.tsv (in de verhaalmap) heeft de kolommen naam, van, tot en weetje (plus eventueel meer).
+Een weetje (--weetje) komt bovenin als "DID YOU KNOW?" + één zin die in het stukje verteld wordt.
 
 Nodig: eerst `python3 tools/add_pauses.py stories/<verhaal>` (maakt video/stem-met-pauzes.wav,
 tijdlijn-pauzes.tsv en afbeeldingen-tijden-pauzes.tsv) en <map>/afbeeldingen/NNN.jpg.
@@ -37,6 +38,9 @@ OUTRO_GAP = 0.6      # stilte tussen de laatste zin en de eindtekst
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 SUB_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
 OUTRO_FONT = FONT_DIR / "DejaVuSerif.ttf"
+LABEL_FONT = FONT_DIR / "DejaVuSans-Bold.ttf"
+FACT_SIZE, FACT_Y = 56, 250                   # FACT_Y = bovenkant van het weetje-blok
+LABEL_COLOR = (242, 204, 128, 255)            # warm goud
 SUB_SIZE, SUB_MAX_W, SUB_Y = 68, 920, 1330   # SUB_Y = midden van het ondertitelblok
 OUTRO_TEXT = "Full sleep documentary\non the channel"
 
@@ -58,7 +62,7 @@ def wrap(draw, text, font, max_w):
     return lines + [cur]
 
 
-def text_layer(text, font_path, size, stroke, lines=None):
+def text_layer(text, font_path, size, stroke, lines=None, fill=(255, 255, 255, 255)):
     """Witte tekst met donkere rand en zachte schaduw, als RGBA-plaatje (W breed)."""
     font = ImageFont.truetype(str(font_path), size)
     probe = ImageDraw.Draw(Image.new("L", (1, 1)))
@@ -72,7 +76,7 @@ def text_layer(text, font_path, size, stroke, lines=None):
         y = 20 + stroke + i * lh
         sd.text((W / 2, y + 4), line, font=font, anchor="ma", fill=200,
                 stroke_width=stroke + 6, stroke_fill=200)
-        d.text((W / 2, y), line, font=font, anchor="ma", fill=(255, 255, 255, 255),
+        d.text((W / 2, y), line, font=font, anchor="ma", fill=fill,
                stroke_width=stroke, stroke_fill=(18, 14, 12, 255))
     shadow = shadow.filter(ImageFilter.GaussianBlur(10))
     out = Image.new("RGBA", (W, h), (0, 0, 0, 0))
@@ -108,7 +112,7 @@ class Pan:
         return np.asarray(f).astype(np.float32) / 255
 
 
-def make_short(story, van, tot, naam, seed):
+def make_short(story, van, tot, naam, seed, weetje=""):
     tl = {int(r[0]): r for r in (l.split("\t") for l in
           open(story / "tijdlijn-pauzes.tsv").read().splitlines()[1:] if l.strip())}
     sents = [(sec(tl[i][1]), sec(tl[i][2]), tl[i][4].strip()) for i in range(van, tot + 1)]
@@ -148,6 +152,11 @@ def make_short(story, van, tot, naam, seed):
         subs.append((a, b, rgb, alpha, SUB_Y - rgb.shape[0] // 2))
     o_rgb, o_alpha = text_layer("", OUTRO_FONT, 62, 5, lines=OUTRO_TEXT.split("\n"))
     o_y = H // 2 - o_rgb.shape[0] // 2
+    facts = []
+    if weetje:
+        l_rgb, l_alpha = text_layer("", LABEL_FONT, 44, 5, lines=["DID YOU KNOW?"], fill=LABEL_COLOR)
+        f_rgb, f_alpha = text_layer(weetje, SUB_FONT, FACT_SIZE, 6)
+        facts = [(l_rgb, l_alpha, FACT_Y), (f_rgb, f_alpha, FACT_Y + l_rgb.shape[0] - 30)]
 
     # audio: stem-stuk + muziek
     out_dir = story / "video" / "shorts"
@@ -190,6 +199,12 @@ def make_short(story, van, tot, naam, seed):
             frame *= 1 - 0.35 * k
             region = frame[o_y:o_y + o_rgb.shape[0]]
             region += (o_rgb - region) * o_alpha * k
+        # weetje bovenin, tot de eindtekst
+        if facts:
+            k = ramp(t, 0.2, outro_at, 0.6)
+            for rgb, alpha, y in facts:
+                region = frame[y:y + rgb.shape[0]]
+                region += (rgb - region) * alpha * k
         # ondertitels
         for a, b, rgb, alpha, y in subs:
             if a <= t <= b:
@@ -214,6 +229,7 @@ def main():
     ap.add_argument("--van", type=int)
     ap.add_argument("--tot", type=int)
     ap.add_argument("--naam")
+    ap.add_argument("--weetje", default="", help='zin bovenin onder "DID YOU KNOW?"')
     ap.add_argument("--lijst", help="tsv in de verhaalmap met kolommen naam, van, tot")
     ap.add_argument("--alleen", help="alleen deze naam uit de lijst")
     ap.add_argument("--seed", type=int, default=7, help="muziek-zaadje")
@@ -222,9 +238,10 @@ def main():
         rows = list(csv.DictReader(open(a.story / a.lijst), delimiter="\t"))
         for r in rows:
             if not a.alleen or r["naam"] == a.alleen:
-                make_short(a.story, int(r["van"]), int(r["tot"]), r["naam"], a.seed)
+                make_short(a.story, int(r["van"]), int(r["tot"]), r["naam"], a.seed,
+                           r.get("weetje") or "")
     elif a.van and a.tot:
-        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed)
+        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed, a.weetje)
     else:
         ap.error("geef --van en --tot, of --lijst")
 
