@@ -45,7 +45,7 @@ sleep story` + 4–6 onderwerp-tags.
   python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<ONDERWERP>" --subtitle "<ondertitel>"
   ```
   - Ontwerp: rustig beeld uit de video, donker verloop links, label
-    "SLEEP DOCUMENTARY" (amber), grote titel (crème, schreefletter), amber
+    "SLEEP DOCUMENTARY" (amber), grote titel (wit, schreefletter), amber
     streepje, ondertitel (amber).
   - `--title`: 1–2 woorden uit het onderwerp (bv. `Pompeii`, `London 1888`);
     `--subtitle`: de rest (bv. `The Last Day`).
