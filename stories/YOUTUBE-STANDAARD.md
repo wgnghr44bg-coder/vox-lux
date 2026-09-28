@@ -42,15 +42,15 @@ sleep story` + 4–6 onderwerp-tags.
 - Thumbnail: **altijd in hetzelfde ontwerp**, zodat kijkers de serie herkennen.
   Maak hem met `tools/make_thumbnail.py` (niet zelf een ander ontwerp maken):
   ```
-  python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<ONDERWERP>" --subtitle "<ondertitel>"
+  python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<onderwerp>"
   ```
-  - Ontwerp: rustig beeld uit de video, donker verloop links, label
-    "SLEEP DOCUMENTARY" (amber), grote titel (wit, schreefletter), amber
-    streepje, ondertitel (amber).
-  - `--title`: 1–2 woorden uit het onderwerp (bv. `Pompeii`, `London 1888`);
-    `--subtitle`: de rest (bv. `The Last Day`).
-  - Beeld: een rustig, herkenbaar beeld uit de video met ruimte links voor de
-    tekst. Afspraken van de eigenaar over wélk beeld gaan voor.
+  - Ontwerp: beeld uit de video, grote witte schreeftitel gecentreerd bovenaan
+    met donkere gloed (lange titels over twee regels), en het vaste serielabel
+    "SLEEP DOCUMENTARY" wit en gecentreerd onderaan.
+  - `--title`: het onderwerp zoals de eigenaar het stuurt (zonder
+    "| Sleep Documentary"), bv. `Pompeii: The Last Day`.
+  - Beeld: een sprekend beeld uit de video met een rustig midden. Afspraken van
+    de eigenaar over wélk beeld gaan voor.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
 
 ## Na de upload

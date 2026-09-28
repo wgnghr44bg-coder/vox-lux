@@ -2,8 +2,8 @@
 """Make a YouTube thumbnail in the channel's fixed sleep-documentary style.
 
 Every video gets the same layout so viewers recognise the series:
-a calm scene image, a dark gradient on the left, a large white title,
-an amber subtitle, an amber rule and the label "SLEEP DOCUMENTARY".
+a scene image, a big white serif title centred at the top with a dark glow,
+and the series label "SLEEP DOCUMENTARY" centred at the bottom.
 
 Usage:
     python3 tools/make_thumbnail.py scene.jpg thumb.jpg --title "POMPEII" --subtitle "The Last Day"
@@ -20,6 +20,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1280, 720
 TITLE_COLOR = (255, 255, 255)
+LABEL = "SLEEP DOCUMENTARY"  # fixed series label at the bottom of every thumbnail
 AMBER = (224, 164, 88)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 TITLE_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
@@ -45,43 +46,63 @@ def fit_font(draw: ImageDraw.ImageDraw, text: str, path: Path, max_w: int, start
     return ImageFont.truetype(str(path), size)
 
 
+def glow_text(base: Image.Image, xy: tuple[int, int], text: str,
+              font: ImageFont.FreeTypeFont, fill: tuple[int, int, int]) -> None:
+    """Draw text with a soft dark glow behind it, so it reads on any image."""
+    layer = Image.new("L", base.size, 0)
+    ImageDraw.Draw(layer).text(xy, text, font=font, fill=255,
+                               stroke_width=10, stroke_fill=255)
+    layer = layer.filter(ImageFilter.GaussianBlur(14))
+    base.paste(Image.new("RGB", base.size, (0, 0, 0)), (0, 0),
+               layer.point(lambda v: int(v * 0.9)))
+    ImageDraw.Draw(base).text(xy, text, font=font, fill=fill,
+                              stroke_width=3, stroke_fill=(20, 12, 6))
+
+
+def wrap(draw: ImageDraw.ImageDraw, text: str, path: Path, max_w: int) -> tuple[list[str], ImageFont.FreeTypeFont]:
+    """One line if it fits at a big size, otherwise two balanced lines."""
+    font = fit_font(draw, text, path, max_w, 150)
+    if font.size >= 104 or " " not in text:
+        return [text], font
+    words = text.split()
+    best = min(range(1, len(words)), key=lambda i: abs(
+        draw.textlength(" ".join(words[:i]), font=font) - draw.textlength(" ".join(words[i:]), font=font)))
+    lines = [" ".join(words[:best]), " ".join(words[best:])]
+    longest = max(lines, key=lambda l: draw.textlength(l, font=font))
+    return lines, fit_font(draw, longest, path, int(max_w * 0.85), 104)
+
+
 def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
     base = cover(Image.open(scene).convert("RGB"))
 
-    # Dark gradient from the left so the text always reads, same on every video.
+    # Darken the top and bottom bands where the text sits, plus a soft vignette.
     shade = Image.new("L", (W, H))
     px = shade.load()
-    for x in range(W):
-        a = int(215 * max(0.0, 1 - x / (W * 0.62)) ** 1.4)
-        for y in range(H):
+    for y in range(H):
+        t = min(y, H - y) / (H * 0.5)
+        a = int(170 * max(0.0, 1 - t / 0.55) ** 1.3)
+        for x in range(W):
             px[x, y] = a
-    base = Image.composite(Image.new("RGB", (W, H), (8, 8, 14)), base, shade)
-    # Soft vignette.
+    base = Image.composite(Image.new("RGB", (W, H), (6, 6, 10)), base, shade)
     vig = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(vig).ellipse((-W * 0.25, -H * 0.35, W * 1.25, H * 1.35), fill=255)
-    vig = vig.filter(ImageFilter.GaussianBlur(120))
+    ImageDraw.Draw(vig).ellipse((-W * 0.2, -H * 0.3, W * 1.2, H * 1.3), fill=255)
+    vig = vig.filter(ImageFilter.GaussianBlur(110))
     base = Image.composite(base, Image.new("RGB", (W, H), (0, 0, 0)), vig)
 
     d = ImageDraw.Draw(base)
-    x = 70
-    label_font = ImageFont.truetype(str(LABEL_FONT), 30)
-    title_font = fit_font(d, title, TITLE_FONT, int(W * 0.52), 150)
-    sub_font = fit_font(d, subtitle, SUB_FONT, int(W * 0.50), 58) if subtitle else None
+    text = f"{title} {subtitle}".strip() if subtitle else title
+    lines, font = wrap(d, text, TITLE_FONT, int(W * 0.9))
+    line_h = font.getbbox("Hg")[3] + 6
+    y = 30
+    for line in lines:
+        x = (W - d.textlength(line, font=font)) // 2
+        glow_text(base, (int(x), y), line, font, TITLE_COLOR)
+        y += line_h
 
-    title_h = title_font.getbbox(title)[3]
-    sub_h = sub_font.getbbox(subtitle)[3] if sub_font else 0
-    block = 30 + 26 + title_h + (18 + sub_h if sub_font else 0)
-    y = (H - block) // 2
-
-    d.text((x, y), "SLEEP DOCUMENTARY", font=label_font, fill=AMBER)
-    y += 30 + 26
-    for dx, dy in ((3, 3), (0, 0)):  # subtle shadow, then text
-        d.text((x + dx, y + dy), title, font=title_font,
-               fill=(0, 0, 0) if dx else TITLE_COLOR)
-    y += title_h + 22
-    d.rectangle((x, y, x + 120, y + 4), fill=AMBER)
-    if sub_font:
-        d.text((x, y + 18), subtitle, font=sub_font, fill=AMBER)
+    label_font = fit_font(d, LABEL, TITLE_FONT, int(W * 0.72), 100)
+    lx = (W - d.textlength(LABEL, font=label_font)) // 2
+    ly = H - label_font.getbbox(LABEL)[3] - 40
+    glow_text(base, (int(lx), ly), LABEL, label_font, TITLE_COLOR)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     base.save(out, quality=92)
@@ -91,10 +112,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("scene", type=Path, help="calm scene image from the video")
     parser.add_argument("out", type=Path)
-    parser.add_argument("--title", required=True, help="1-2 words, e.g. POMPEII")
-    parser.add_argument("--subtitle", default="", help="short line, e.g. The Last Day")
+    parser.add_argument("--title", required=True, help="the topic, e.g. 'Pompeii: The Last Day'")
+    parser.add_argument("--subtitle", default="", help="optional, appended to the title")
     args = parser.parse_args()
-    make(args.scene, args.out, args.title.upper(), args.subtitle)
+    make(args.scene, args.out, args.title, args.subtitle)
     print(f"Saved {args.out}")
 
 
