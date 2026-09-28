@@ -14,6 +14,10 @@ Usage:
     python3 tools/xai_voiceover.py colosseum-script.txt --lines 15 -o test.mp3 \
         --speed 1.05 --pause-ms 600 --long-pause-ms 1100            # tune pacing
 
+Defaults (voice lux, speed 1.0, pauses 500/1000 ms, 300 ms after sentences,
+natural pause after commas, edge silence trimmed) match the pacing of the
+reference narration this was tuned against.
+
     export ELEVENLABS_API_KEY=...
     python3 tools/xai_voiceover.py --engine elevenlabs --list-voices   # British voices
     python3 tools/xai_voiceover.py script.txt --engine elevenlabs --voice Daniel -o out.mp3
@@ -37,13 +41,13 @@ from pathlib import Path
 
 # --- Settings ---------------------------------------------------------------
 
-PAUSE_MS = 900  # silence inserted for [pause]
-LONG_PAUSE_MS = 1600  # silence inserted for [long-pause] / [long pause]
+PAUSE_MS = 500  # silence inserted for [pause]
+LONG_PAUSE_MS = 1000  # silence inserted for [long-pause] / [long pause]
 # Short silence after every sentence (. ! ?) that has no marker. 0 = off.
 SENTENCE_PAUSE_MS = 300
 # xAI only: add its own [pause] tag after every comma, so the voice breathes
 # there without breaking the sentence melody. Also --comma-pause / --no-comma-pause.
-COMMA_PAUSE = False
+COMMA_PAUSE = True
 
 VOICE_ID = "lux"  # same voice as the VOX project
 SPEED = 1.0  # Tempo (xAI accepts 0.7-1.5)
