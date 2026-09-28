@@ -39,6 +39,8 @@ from pathlib import Path
 
 PAUSE_MS = 900  # silence inserted for [pause]
 LONG_PAUSE_MS = 1600  # silence inserted for [long-pause] / [long pause]
+# Short silence after every sentence (. ! ?) that has no marker. 0 = off.
+SENTENCE_PAUSE_MS = 300
 
 VOICE_ID = "lux"  # same voice as the VOX project
 SPEED = 1.0  # Tempo (xAI accepts 0.7-1.5)
@@ -72,6 +74,9 @@ SAMPLE_RATE = 44100  # output sample rate after joining
 # ----------------------------------------------------------------------------
 
 TAG_RE = re.compile(r"<[^>]+>|\[[^\]]+\]")
+# Sentence end: . ! or ? (not "..."), optional closing quote, then whitespace.
+SENTENCE_END_RE = re.compile(r"(?<!\.)[.!?][\"'’”)]*(?=\s)")
+ABBREVIATIONS = {"mr", "mrs", "ms", "dr", "st", "prof", "sr", "jr", "vs", "etc", "no"}
 MARKER_RE = re.compile(r"\[\s*(long[\s-]*pause|pause)\s*\]", re.IGNORECASE)
 
 
@@ -79,6 +84,26 @@ MARKER_RE = re.compile(r"\[\s*(long[\s-]*pause|pause)\s*\]", re.IGNORECASE)
 class Piece:
     text: str
     silence_after_ms: int  # 0 for the last piece or sub-chunks of a long piece
+
+
+def split_sentences(text: str) -> list[str]:
+    """Split at sentence ends, skipping abbreviations and open <tags>."""
+    out: list[str] = []
+    start = 0
+    for m in SENTENCE_END_RE.finditer(text):
+        word = re.findall(r"(\w+)\W*$", text[start:m.end()])
+        if text[m.start()] == "." and word and word[0].lower() in ABBREVIATIONS:
+            continue
+        if re.match(r"\s+[a-z]", text[m.end():]):
+            continue  # '"Stop!" he said.' continues the same sentence
+        head = text[:m.end()]
+        if len(re.findall(r"<[^/>]+>", head)) != len(re.findall(r"</[^>]+>", head)):
+            continue  # inside a <slow>...</slow> span: keep it in one request
+        out.append(text[start:m.end()].strip())
+        start = m.end()
+    if text[start:].strip():
+        out.append(text[start:].strip())
+    return out
 
 
 def split_script(script: str) -> list[Piece]:
@@ -92,7 +117,10 @@ def split_script(script: str) -> list[Piece]:
         if text:
             if pieces:
                 pieces[-1].silence_after_ms += pending_silence
-            pieces.append(Piece(text, 0))
+            sentences = split_sentences(text) if SENTENCE_PAUSE_MS > 0 else [text]
+            for i, sentence in enumerate(sentences):
+                last = i == len(sentences) - 1
+                pieces.append(Piece(sentence, 0 if last else SENTENCE_PAUSE_MS))
             pending_silence = 0
         if m:
             is_long = m.group(1).lower().startswith("long")
@@ -260,7 +288,7 @@ def audio_seconds(ffmpeg: str, path: Path) -> float:
 
 
 def main() -> None:
-    global PAUSE_MS, LONG_PAUSE_MS, SPEED, VOICE_ID, ENGINE
+    global PAUSE_MS, LONG_PAUSE_MS, SENTENCE_PAUSE_MS, SPEED, VOICE_ID, ENGINE
 
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("script", type=Path, nargs="?", help="voice script text file")
@@ -279,6 +307,9 @@ def main() -> None:
                         help=f"silence for [pause] (default {PAUSE_MS})")
     parser.add_argument("--long-pause-ms", type=int, default=LONG_PAUSE_MS,
                         help=f"silence for [long-pause] (default {LONG_PAUSE_MS})")
+    parser.add_argument("--sentence-pause-ms", type=int, default=SENTENCE_PAUSE_MS,
+                        help=f"silence after each sentence without a marker "
+                             f"(default {SENTENCE_PAUSE_MS}, 0 = off)")
     parser.add_argument("--voice", help=f"voice (default {VOICE_ID} for xAI, "
                                         f"{ELEVEN_VOICE} for ElevenLabs)")
     parser.add_argument("--no-trim", action="store_true",
@@ -315,6 +346,7 @@ def main() -> None:
     if not 0.7 <= args.speed <= max_speed:
         parser.error(f"--speed must be between 0.7 and {max_speed} for {ENGINE}")
     PAUSE_MS, LONG_PAUSE_MS = args.pause_ms, args.long_pause_ms
+    SENTENCE_PAUSE_MS = args.sentence_pause_ms
     SPEED = args.speed
     VOICE_ID = args.voice or (ELEVEN_VOICE if eleven else VOICE_ID)
 
