@@ -39,8 +39,10 @@ sleep story` + 4–6 onderwerp-tags.
 - Niet voor kinderen (`selfDeclaredMadeForKids: false`)
 - AI-inhoud gemarkeerd (`containsSyntheticMedia: true`, standaard in het script)
 - Privé
-- Thumbnail: het mooiste rustige beeld uit de video (bv. een lamp/kaars of een
-  landschap bij zonsondergang), als het kanaal geverifieerd is.
+- Thumbnail: volg de thumbnail-afspraken die de eigenaar in de sessie geeft.
+  Zijn die er niet, kies dan het mooiste rustige beeld uit de video (bv. een
+  lamp/kaars of een landschap bij zonsondergang). Werkt alleen als het kanaal
+  geverifieerd is.
 
 ## Na de upload
 Meld de eigenaar de link en wat nog in YouTube Studio moet: nalopen, AI-melding
