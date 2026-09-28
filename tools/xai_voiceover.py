@@ -22,6 +22,10 @@ reference narration this was tuned against.
     python3 tools/xai_voiceover.py --engine elevenlabs --list-voices   # British voices
     python3 tools/xai_voiceover.py script.txt --engine elevenlabs --voice Daniel -o out.mp3
 
+Long productions: put {img:ID} on its own line where an image should start,
+then use --timeline times.tsv (image start times), --cache-dir DIR (resume
+without paying twice) and --bitrate 128k.
+
 Requires: Python 3.9+, `requests`, and ffmpeg (on PATH, via $FFMPEG, or the
 `imageio-ffmpeg` pip package).
 """
@@ -29,6 +33,7 @@ Requires: Python 3.9+, `requests`, and ffmpeg (on PATH, via $FFMPEG, or the
 from __future__ import annotations
 
 import argparse
+import hashlib
 import os
 import re
 import shutil
@@ -36,6 +41,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -77,6 +83,8 @@ ELEVEN_MODEL = "eleven_multilingual_v2"
 ELEVEN_STABILITY = 0.5  # higher = calmer, more even delivery
 ELEVEN_URL = "https://api.elevenlabs.io/v1"
 SAMPLE_RATE = 44100  # output sample rate after joining
+OUTPUT_BITRATE = "192k"  # MP3 bitrate (--bitrate); 128k is plenty for speech
+WORKERS = 4  # parallel TTS requests (--workers)
 
 # ----------------------------------------------------------------------------
 
@@ -85,12 +93,16 @@ TAG_RE = re.compile(r"<[^>]+>|\[[^\]]+\]")
 SENTENCE_END_RE = re.compile(r"(?<!\.)[.!?][\"'’”)]*(?=\s)")
 ABBREVIATIONS = {"mr", "mrs", "ms", "dr", "st", "prof", "sr", "jr", "vs", "etc", "no"}
 MARKER_RE = re.compile(r"\[\s*(long[\s-]*pause|pause)\s*\]", re.IGNORECASE)
+# {img:ID} lines mark where an image starts; never spoken, recorded in --timeline.
+CUE_RE = re.compile(r"\{img:\s*([^}]+)\}", re.IGNORECASE)
+TOKEN_RE = re.compile(f"{MARKER_RE.pattern}|{CUE_RE.pattern}", re.IGNORECASE)
 
 
 @dataclass
 class Piece:
     text: str
     silence_after_ms: int  # 0 for the last piece or sub-chunks of a long piece
+    cue: str = ""  # image cue ({img:ID} in the script) starting at this piece
 
 
 def split_sentences(text: str) -> list[str]:
@@ -117,8 +129,9 @@ def split_script(script: str) -> list[Piece]:
     """Split at pause markers; consecutive markers add their silences up."""
     pieces: list[Piece] = []
     pending_silence = 0
+    pending_cue = ""
     pos = 0
-    for m in list(MARKER_RE.finditer(script)) + [None]:
+    for m in list(TOKEN_RE.finditer(script)) + [None]:
         end = m.start() if m else len(script)
         text = " ".join(script[pos:end].split())
         if text:
@@ -127,9 +140,14 @@ def split_script(script: str) -> list[Piece]:
             sentences = split_sentences(text) if SENTENCE_PAUSE_MS > 0 else [text]
             for i, sentence in enumerate(sentences):
                 last = i == len(sentences) - 1
-                pieces.append(Piece(sentence, 0 if last else SENTENCE_PAUSE_MS))
+                pieces.append(Piece(sentence, 0 if last else SENTENCE_PAUSE_MS,
+                                    pending_cue if i == 0 else ""))
             pending_silence = 0
-        if m:
+            pending_cue = ""
+        if m and m.group(2):
+            pending_cue = m.group(2).strip()
+            pos = m.end()
+        elif m:
             is_long = m.group(1).lower().startswith("long")
             pending_silence += LONG_PAUSE_MS if is_long else PAUSE_MS
             pos = m.end()
@@ -164,7 +182,8 @@ def to_requests(pieces: list[Piece], limit: int, wrap: bool,
         for i, chunk in enumerate(chunks):
             text = f"<slow><soft>{chunk}</soft></slow>" if wrap else chunk
             last = i == len(chunks) - 1
-            out.append(Piece(text, piece.silence_after_ms if last else 0))
+            out.append(Piece(text, piece.silence_after_ms if last else 0,
+                             piece.cue if i == 0 else ""))
     return out
 
 
@@ -251,42 +270,58 @@ def synthesize(text: str, api_key: str, out_path: Path, retries: int = 3) -> Non
         time.sleep(2 ** (attempt + 1))
 
 
+def prepare_piece(ffmpeg: str, src: Path, dst: Path, trim: bool) -> float:
+    """Decode to mono 16-bit WAV (edge silence trimmed); return its duration."""
+    af = f"aresample={SAMPLE_RATE}"
+    if trim:
+        edge = "silenceremove=start_periods=1:start_threshold=-50dB"
+        af = f"{edge},areverse,{edge},areverse,{af}"
+    subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(src),
+                    "-af", af, "-ac", "1", "-c:a", "pcm_s16le", str(dst)], check=True)
+    return (dst.stat().st_size - 44) / 2 / SAMPLE_RATE
+
+
 def join_with_silence(ffmpeg: str, parts: list[tuple[Path, int]], output: Path,
-                      trim: bool = False) -> None:
-    """Concatenate audio files, inserting `ms` of silence after each one."""
-    args = [ffmpeg, "-hide_banner", "-loglevel", "error", "-y"]
-    for path, _ in parts:
-        args += ["-i", str(path)]
+                      trim: bool = False, workdir: Path | None = None) -> list[float]:
+    """Concatenate audio files, inserting `ms` of silence after each one.
 
-    fmt = f"aresample={SAMPLE_RATE},aformat=sample_fmts=fltp:channel_layouts=mono"
-    filters: list[str] = []
-    labels: list[str] = []
-    for i, (_, silence_ms) in enumerate(parts):
-        trim_edges = (
-            "silenceremove=start_periods=1:start_threshold=-50dB,areverse,"
-            "silenceremove=start_periods=1:start_threshold=-50dB,areverse,"
-            if trim else ""
-        )
-        filters.append(f"[{i}:a]{trim_edges}{fmt}[a{i}]")
-        labels.append(f"[a{i}]")
-        if silence_ms > 0:
-            filters.append(
-                f"anullsrc=r={SAMPLE_RATE}:cl=mono,atrim=duration={silence_ms / 1000},{fmt}[s{i}]"
-            )
-            labels.append(f"[s{i}]")
-    concat = f"{''.join(labels)}concat=n={len(labels)}:v=0:a=1"
-    if LOUDNESS_LUFS is not None:
-        concat += f",loudnorm=I={LOUDNESS_LUFS}:TP=-1.5:LRA=11"
-    filters.append(f"{concat}[out]")
+    Returns each part's duration in seconds after trimming, so callers can
+    build a timeline. Uses the concat demuxer, so hours of audio work too.
+    """
+    with tempfile.TemporaryDirectory(dir=workdir) as tmp:
+        tmp_dir = Path(tmp)
+        lines: list[str] = []
+        durations: list[float] = []
+        silences: dict[int, Path] = {}
+        for i, (path, silence_ms) in enumerate(parts):
+            wav = tmp_dir / f"p{i:05d}.wav"
+            durations.append(prepare_piece(ffmpeg, path, wav, trim))
+            lines.append(f"file '{wav}'")
+            if silence_ms > 0:
+                if silence_ms not in silences:
+                    silences[silence_ms] = tmp_dir / f"silence_{silence_ms}.wav"
+                    subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y",
+                                    "-f", "lavfi", "-i", f"anullsrc=r={SAMPLE_RATE}:cl=mono",
+                                    "-t", str(silence_ms / 1000), "-c:a", "pcm_s16le",
+                                    str(silences[silence_ms])], check=True)
+                lines.append(f"file '{silences[silence_ms]}'")
+        playlist = tmp_dir / "list.txt"
+        playlist.write_text("\n".join(lines) + "\n")
 
-    args += [
-        "-filter_complex", ";".join(filters),
-        "-map", "[out]",
-        "-ar", str(SAMPLE_RATE),
-        "-c:a", "libmp3lame", "-b:a", "192k",
-        str(output),
-    ]
-    subprocess.run(args, check=True)
+        args = [ffmpeg, "-hide_banner", "-loglevel", "error", "-y",
+                "-f", "concat", "-safe", "0", "-i", str(playlist)]
+        if LOUDNESS_LUFS is not None:
+            args += ["-af", f"loudnorm=I={LOUDNESS_LUFS}:TP=-1.5:LRA=11"]
+        args += ["-ar", str(SAMPLE_RATE), "-ac", "1",
+                 "-c:a", "libmp3lame", "-b:a", OUTPUT_BITRATE, str(output)]
+        subprocess.run(args, check=True)
+    return durations
+
+
+def fmt_time(sec: float) -> str:
+    h, rem = divmod(sec, 3600)
+    m, s = divmod(rem, 60)
+    return f"{int(h)}:{int(m):02d}:{s:04.1f}"
 
 
 def audio_seconds(ffmpeg: str, path: Path) -> float:
@@ -297,7 +332,7 @@ def audio_seconds(ffmpeg: str, path: Path) -> float:
 
 
 def main() -> None:
-    global PAUSE_MS, LONG_PAUSE_MS, SENTENCE_PAUSE_MS, SPEED, VOICE_ID, ENGINE
+    global PAUSE_MS, LONG_PAUSE_MS, SENTENCE_PAUSE_MS, SPEED, VOICE_ID, ENGINE, OUTPUT_BITRATE
 
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("script", type=Path, nargs="?", help="voice script text file")
@@ -327,6 +362,14 @@ def main() -> None:
                                         f"{ELEVEN_VOICE} for ElevenLabs)")
     parser.add_argument("--no-trim", action="store_true",
                         help="keep the service's own silence around each piece")
+    parser.add_argument("--timeline", type=Path,
+                        help="write a TSV with start/end time, image cue and text per piece")
+    parser.add_argument("--cache-dir", type=Path,
+                        help="keep generated pieces here; reruns reuse them (no double billing)")
+    parser.add_argument("--workers", type=int, default=WORKERS,
+                        help=f"parallel TTS requests (default {WORKERS})")
+    parser.add_argument("--bitrate", default=OUTPUT_BITRATE,
+                        help=f"MP3 bitrate (default {OUTPUT_BITRATE})")
     parser.add_argument("--proxy-auth", action="store_true",
                         help="send no API key header; a credential proxy "
                              "(e.g. Claude Code cloud credentials) adds it")
@@ -360,6 +403,7 @@ def main() -> None:
         parser.error(f"--speed must be between 0.7 and {max_speed} for {ENGINE}")
     PAUSE_MS, LONG_PAUSE_MS = args.pause_ms, args.long_pause_ms
     SENTENCE_PAUSE_MS = args.sentence_pause_ms
+    OUTPUT_BITRATE = args.bitrate
     SPEED = args.speed
     VOICE_ID = args.voice or (ELEVEN_VOICE if eleven else VOICE_ID)
 
@@ -395,15 +439,46 @@ def main() -> None:
         VOICE_ID = resolve_eleven_voice(VOICE_ID, api_key)
 
     with tempfile.TemporaryDirectory() as tmp:
-        parts: list[tuple[Path, int]] = []
-        for i, p in enumerate(pieces, 1):
-            path = Path(tmp) / f"piece_{i:03d}.mp3"
-            print(f"Generating {i}/{len(pieces)}…", flush=True)
-            synthesize(p.text, api_key, path)
-            parts.append((path, p.silence_after_ms))
-        speech_sec = sum(audio_seconds(ffmpeg, path) for path, _ in parts)
-        join_with_silence(ffmpeg, parts, args.output,
-                          trim=TRIM_EDGE_SILENCE and not args.no_trim)
+        cache = args.cache_dir or Path(tmp)
+        cache.mkdir(parents=True, exist_ok=True)
+        settings = f"{ENGINE}|{VOICE_ID}|{SPEED}|{LANGUAGE}|{ELEVEN_MODEL if eleven else ''}"
+
+        def piece_path(p: Piece) -> Path:
+            digest = hashlib.sha1(f"{settings}|{p.text}".encode()).hexdigest()[:16]
+            return cache / f"{digest}.mp3"
+
+        todo = [p for p in pieces if not piece_path(p).exists()]
+        if len(todo) < len(pieces):
+            print(f"Reusing {len(pieces) - len(todo)} cached pieces")
+        done = 0
+
+        def generate(p: Piece) -> None:
+            nonlocal done
+            part = piece_path(p).with_suffix(".part")
+            synthesize(p.text, api_key, part)
+            part.rename(piece_path(p))
+            done += 1
+            if done % 25 == 0 or done == len(todo):
+                print(f"Generated {done}/{len(todo)}", flush=True)
+
+        with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+            list(pool.map(generate, todo))
+
+        parts = [(piece_path(p), p.silence_after_ms) for p in pieces]
+        print("Joining…", flush=True)
+        durations = join_with_silence(ffmpeg, parts, args.output,
+                                      trim=TRIM_EDGE_SILENCE and not args.no_trim,
+                                      workdir=cache)
+        speech_sec = sum(durations)
+
+    if args.timeline:
+        t = 0.0
+        rows = ["#\tstart\tend\timage\ttext"]
+        for i, (p, d) in enumerate(zip(pieces, durations), 1):
+            rows.append(f"{i}\t{fmt_time(t)}\t{fmt_time(t + d)}\t{p.cue}\t{' '.join(TAG_RE.sub('', p.text).split())}")
+            t += d + p.silence_after_ms / 1000
+        args.timeline.write_text("\n".join(rows) + "\n", encoding="utf-8")
+        print(f"Timeline: {args.timeline}")
 
     words = sum(len(TAG_RE.sub(" ", p.text).split()) for p in pieces)
     total_sec = speech_sec + sum(p.silence_after_ms for p in pieces) / 1000
