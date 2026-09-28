@@ -1,6 +1,6 @@
 Onderwerp: Pompeii: The Last Day
 Map: stories/pompeii
-Link volledige video: <plak hier de YouTube-link>
+Link volledige video: https://youtu.be/vgRDl6UwYlo
 
 (Voor een andere video: verander alleen de drie regels hierboven.)
 

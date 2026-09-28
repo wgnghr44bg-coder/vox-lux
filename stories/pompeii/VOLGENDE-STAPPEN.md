@@ -47,3 +47,6 @@
 - Video gemaakt met `tools/make_video.py` (Ken Burns, overgangen, zachte mist).
 - Geüpload: https://youtu.be/WHiBn7Fi05c — de eigenaar kon hem zelf op
   **Openbaar** zetten; de upload via de API werd dus niet op privé vergrendeld.
+- Versie 2 (langere pauzes + 432 Hz-muziek, 2:11:29): https://youtu.be/vgRDl6UwYlo
+  (privé geüpload 29-09-2026 01:48 NL-tijd). De eigenaar zet hem op Openbaar en
+  verwijdert daarna de eerste versie (WHiBn7Fi05c).
