@@ -41,3 +41,9 @@
 - Communicatie in het Nederlands, eenvoudig, telefoon/laptop.
 - Nooit sleutels in de chat laten plakken.
 - Niets betaalds (xAI-audio) maken zonder akkoord.
+
+## Afgerond (28-09-2026)
+- 50 afbeeldingen gemaakt met xAI (`tools/xai_images.py`, grok-imagine-image-quality).
+- Video gemaakt met `tools/make_video.py` (Ken Burns, overgangen, zachte mist).
+- Geüpload: https://youtu.be/WHiBn7Fi05c — de eigenaar kon hem zelf op
+  **Openbaar** zetten; de upload via de API werd dus niet op privé vergrendeld.
