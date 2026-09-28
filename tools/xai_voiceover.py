@@ -56,6 +56,10 @@ MAX_CHARS_PER_REQUEST = 2000
 # Set to None to keep xAI's original levels.
 LOUDNESS_LUFS: float | None = -16.0
 
+# Cut the silence the TTS service leaves at the start/end of each piece, so
+# PAUSE_MS / LONG_PAUSE_MS are the real gap lengths. Also --no-trim.
+TRIM_EDGE_SILENCE = True
+
 API_URL = "https://api.x.ai/v1/tts"
 
 # ElevenLabs (--engine elevenlabs). --voice takes a voice name or voice_id.
@@ -210,7 +214,8 @@ def synthesize(text: str, api_key: str, out_path: Path, retries: int = 3) -> Non
         time.sleep(2 ** (attempt + 1))
 
 
-def join_with_silence(ffmpeg: str, parts: list[tuple[Path, int]], output: Path) -> None:
+def join_with_silence(ffmpeg: str, parts: list[tuple[Path, int]], output: Path,
+                      trim: bool = False) -> None:
     """Concatenate audio files, inserting `ms` of silence after each one."""
     args = [ffmpeg, "-hide_banner", "-loglevel", "error", "-y"]
     for path, _ in parts:
@@ -220,7 +225,12 @@ def join_with_silence(ffmpeg: str, parts: list[tuple[Path, int]], output: Path) 
     filters: list[str] = []
     labels: list[str] = []
     for i, (_, silence_ms) in enumerate(parts):
-        filters.append(f"[{i}:a]{fmt}[a{i}]")
+        trim_edges = (
+            "silenceremove=start_periods=1:start_threshold=-50dB,areverse,"
+            "silenceremove=start_periods=1:start_threshold=-50dB,areverse,"
+            if trim else ""
+        )
+        filters.append(f"[{i}:a]{trim_edges}{fmt}[a{i}]")
         labels.append(f"[a{i}]")
         if silence_ms > 0:
             filters.append(
@@ -271,6 +281,8 @@ def main() -> None:
                         help=f"silence for [long-pause] (default {LONG_PAUSE_MS})")
     parser.add_argument("--voice", help=f"voice (default {VOICE_ID} for xAI, "
                                         f"{ELEVEN_VOICE} for ElevenLabs)")
+    parser.add_argument("--no-trim", action="store_true",
+                        help="keep the service's own silence around each piece")
     parser.add_argument("--proxy-auth", action="store_true",
                         help="send no API key header; a credential proxy "
                              "(e.g. Claude Code cloud credentials) adds it")
@@ -342,7 +354,8 @@ def main() -> None:
             synthesize(p.text, api_key, path)
             parts.append((path, p.silence_after_ms))
         speech_sec = sum(audio_seconds(ffmpeg, path) for path, _ in parts)
-        join_with_silence(ffmpeg, parts, args.output)
+        join_with_silence(ffmpeg, parts, args.output,
+                          trim=TRIM_EDGE_SILENCE and not args.no_trim)
 
     words = sum(len(TAG_RE.sub(" ", p.text).split()) for p in pieces)
     total_sec = speech_sec + sum(p.silence_after_ms for p in pieces) / 1000
