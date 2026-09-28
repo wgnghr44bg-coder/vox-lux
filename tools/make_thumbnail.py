@@ -2,7 +2,7 @@
 """Make a YouTube thumbnail in the channel's fixed sleep-documentary style.
 
 Every video gets the same layout so viewers recognise the series:
-a calm scene image, a dark gradient on the left, a large cream title,
+a calm scene image, a dark gradient on the left, a large white title,
 an amber subtitle, an amber rule and the label "SLEEP DOCUMENTARY".
 
 Usage:
@@ -19,7 +19,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1280, 720
-CREAM = (243, 230, 200)
+TITLE_COLOR = (255, 255, 255)
 AMBER = (224, 164, 88)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 TITLE_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
@@ -77,7 +77,7 @@ def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
     y += 30 + 26
     for dx, dy in ((3, 3), (0, 0)):  # subtle shadow, then text
         d.text((x + dx, y + dy), title, font=title_font,
-               fill=(0, 0, 0) if dx else CREAM)
+               fill=(0, 0, 0) if dx else TITLE_COLOR)
     y += title_h + 22
     d.rectangle((x, y, x + 120, y + 4), fill=AMBER)
     if sub_font:
