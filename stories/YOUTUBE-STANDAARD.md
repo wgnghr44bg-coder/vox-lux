@@ -39,10 +39,19 @@ sleep story` + 4–6 onderwerp-tags.
 - Niet voor kinderen (`selfDeclaredMadeForKids: false`)
 - AI-inhoud gemarkeerd (`containsSyntheticMedia: true`, standaard in het script)
 - Privé
-- Thumbnail: volg de thumbnail-afspraken die de eigenaar in de sessie geeft.
-  Zijn die er niet, kies dan het mooiste rustige beeld uit de video (bv. een
-  lamp/kaars of een landschap bij zonsondergang). Werkt alleen als het kanaal
-  geverifieerd is.
+- Thumbnail: **altijd in hetzelfde ontwerp**, zodat kijkers de serie herkennen.
+  Maak hem met `tools/make_thumbnail.py` (niet zelf een ander ontwerp maken):
+  ```
+  python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<ONDERWERP>" --subtitle "<ondertitel>"
+  ```
+  - Ontwerp: rustig beeld uit de video, donker verloop links, label
+    "SLEEP DOCUMENTARY" (amber), grote titel (crème, schreefletter), amber
+    streepje, ondertitel (amber).
+  - `--title`: 1–2 woorden uit het onderwerp (bv. `Pompeii`, `London 1888`);
+    `--subtitle`: de rest (bv. `The Last Day`).
+  - Beeld: een rustig, herkenbaar beeld uit de video met ruimte links voor de
+    tekst. Afspraken van de eigenaar over wélk beeld gaan voor.
+  - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
 
 ## Na de upload
 Meld de eigenaar de link en wat nog in YouTube Studio moet: nalopen, AI-melding
