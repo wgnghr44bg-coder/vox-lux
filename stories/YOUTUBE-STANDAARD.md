@@ -44,9 +44,15 @@ sleep story` + 4–6 onderwerp-tags.
   ```
   python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<onderwerp>"
   ```
-  - Ontwerp: beeld uit de video, grote witte schreeftitel gecentreerd bovenaan
-    met donkere gloed (lange titels over twee regels), en het vaste serielabel
-    "SLEEP DOCUMENTARY" wit en gecentreerd onderaan.
+  - Ontwerp: grote witte schreeftitel gecentreerd bovenaan met donkere gloed
+    én een lichte, maanlichtachtige nachtgloed (valt meer op dan de rest; lange
+    titels over twee regels), en het vaste serielabel "SLEEP DOCUMENTARY" wit
+    en gecentreerd onderaan.
+  - Achtergrond: bij voorkeur een aparte thumbnail-afbeelding via xAI
+    (`grok-imagine-image`, $0,02): bovenaanzicht op donkere steen, één gloeiend
+    voorwerp in het midden dat bij het onderwerp past, met voorwerpen uit het
+    onderwerp in een cirkel eromheen, donkere ruimte boven en onder voor de
+    tekst, 16:9, geen tekst. Anders een beeld uit de video.
   - `--title`: het onderwerp zoals de eigenaar het stuurt (zonder
     "| Sleep Documentary"), bv. `Pompeii: The Last Day`.
   - Beeld: een sprekend beeld uit de video met een rustig midden. Afspraken van

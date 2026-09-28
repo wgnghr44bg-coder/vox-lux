@@ -20,6 +20,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1280, 720
 TITLE_COLOR = (255, 255, 255)
+NIGHT_GLOW = (190, 215, 255)  # pale moonlight halo around the title
 LABEL = "SLEEP DOCUMENTARY"  # fixed series label at the bottom of every thumbnail
 AMBER = (224, 164, 88)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
@@ -47,14 +48,27 @@ def fit_font(draw: ImageDraw.ImageDraw, text: str, path: Path, max_w: int, start
 
 
 def glow_text(base: Image.Image, xy: tuple[int, int], text: str,
-              font: ImageFont.FreeTypeFont, fill: tuple[int, int, int]) -> None:
-    """Draw text with a soft dark glow behind it, so it reads on any image."""
+              font: ImageFont.FreeTypeFont, fill: tuple[int, int, int],
+              night_glow: bool = False) -> None:
+    """Draw text with a soft dark glow behind it, so it reads on any image.
+
+    night_glow adds a pale, moonlight-like halo so the title stands out.
+    """
     layer = Image.new("L", base.size, 0)
     ImageDraw.Draw(layer).text(xy, text, font=font, fill=255,
                                stroke_width=10, stroke_fill=255)
     layer = layer.filter(ImageFilter.GaussianBlur(14))
     base.paste(Image.new("RGB", base.size, (0, 0, 0)), (0, 0),
                layer.point(lambda v: int(v * 0.9)))
+    if night_glow:
+        halo = Image.new("L", base.size, 0)
+        ImageDraw.Draw(halo).text(xy, text, font=font, fill=255,
+                                  stroke_width=6, stroke_fill=255)
+        for radius, strength in ((28, 0.55), (10, 0.6)):
+            soft = halo.filter(ImageFilter.GaussianBlur(radius))
+            glow = Image.new("RGB", base.size, NIGHT_GLOW)
+            base.paste(Image.blend(base, glow, 1.0), (0, 0),
+                       soft.point(lambda v, k=strength: int(v * k)))
     ImageDraw.Draw(base).text(xy, text, font=font, fill=fill,
                               stroke_width=3, stroke_fill=(20, 12, 6))
 
@@ -96,7 +110,7 @@ def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
     y = 30
     for line in lines:
         x = (W - d.textlength(line, font=font)) // 2
-        glow_text(base, (int(x), y), line, font, TITLE_COLOR)
+        glow_text(base, (int(x), y), line, font, TITLE_COLOR, night_glow=True)
         y += line_h
 
     label_font = fit_font(d, LABEL, TITLE_FONT, int(W * 0.72), 100)
