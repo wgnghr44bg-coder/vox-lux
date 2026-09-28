@@ -2,8 +2,9 @@
 """Make a YouTube thumbnail in the channel's fixed sleep-documentary style.
 
 Every video gets the same layout so viewers recognise the series:
-a scene image, a big white serif title centred at the top with a dark glow,
-and the series label "SLEEP DOCUMENTARY" centred at the bottom.
+a vivid scene image, the series label "SLEEP DOCUMENTARY" big across the top,
+and bottom-left a small line (the part after ":" in the topic) above the topic
+itself in huge extra-bold white letters with a moonlight glow.
 
 Usage:
     python3 tools/make_thumbnail.py scene.jpg thumb.jpg --title "POMPEII" --subtitle "The Last Day"
@@ -16,10 +17,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 W, H = 1280, 720
 TITLE_COLOR = (255, 255, 255)
+OUTLINE = (18, 12, 8)  # dark rim around all text
 NIGHT_GLOW = (190, 215, 255)  # pale moonlight halo around the title
 LABEL = "SLEEP DOCUMENTARY"  # fixed series label at the bottom of every thumbnail
 AMBER = (224, 164, 88)
@@ -47,76 +49,74 @@ def fit_font(draw: ImageDraw.ImageDraw, text: str, path: Path, max_w: int, start
     return ImageFont.truetype(str(path), size)
 
 
-def glow_text(base: Image.Image, xy: tuple[int, int], text: str,
-              font: ImageFont.FreeTypeFont, fill: tuple[int, int, int],
-              night_glow: bool = False) -> None:
-    """Draw text with a soft dark glow behind it, so it reads on any image.
+def heavy_text(base: Image.Image, xy: tuple[int, int], text: str,
+               font: ImageFont.FreeTypeFont, night_glow: bool = False) -> None:
+    """Big, extra-bold white text with a dark outline and glow (reads on any image).
 
-    night_glow adds a pale, moonlight-like halo so the title stands out.
+    The white stroke thickens the letters; night_glow adds a pale moonlight halo.
     """
-    layer = Image.new("L", base.size, 0)
-    ImageDraw.Draw(layer).text(xy, text, font=font, fill=255,
-                               stroke_width=10, stroke_fill=255)
-    layer = layer.filter(ImageFilter.GaussianBlur(14))
+    weight = max(2, font.size // 28)
+    outline = weight + max(3, font.size // 30)
+    shadow = Image.new("L", base.size, 0)
+    ImageDraw.Draw(shadow).text(xy, text, font=font, fill=255,
+                                stroke_width=outline + 8, stroke_fill=255)
+    shadow = shadow.filter(ImageFilter.GaussianBlur(16))
     base.paste(Image.new("RGB", base.size, (0, 0, 0)), (0, 0),
-               layer.point(lambda v: int(v * 0.9)))
+               shadow.point(lambda v: int(v * 0.85)))
     if night_glow:
         halo = Image.new("L", base.size, 0)
         ImageDraw.Draw(halo).text(xy, text, font=font, fill=255,
-                                  stroke_width=6, stroke_fill=255)
-        for radius, strength in ((28, 0.55), (10, 0.6)):
+                                  stroke_width=outline, stroke_fill=255)
+        for radius, strength in ((34, 0.5), (12, 0.45)):
             soft = halo.filter(ImageFilter.GaussianBlur(radius))
-            glow = Image.new("RGB", base.size, NIGHT_GLOW)
-            base.paste(Image.blend(base, glow, 1.0), (0, 0),
+            base.paste(Image.new("RGB", base.size, NIGHT_GLOW), (0, 0),
                        soft.point(lambda v, k=strength: int(v * k)))
-    ImageDraw.Draw(base).text(xy, text, font=font, fill=fill,
-                              stroke_width=3, stroke_fill=(20, 12, 6))
+    d = ImageDraw.Draw(base)
+    d.text(xy, text, font=font, fill=OUTLINE, stroke_width=outline, stroke_fill=OUTLINE)
+    d.text(xy, text, font=font, fill=TITLE_COLOR, stroke_width=weight, stroke_fill=TITLE_COLOR)
 
 
-def wrap(draw: ImageDraw.ImageDraw, text: str, path: Path, max_w: int) -> tuple[list[str], ImageFont.FreeTypeFont]:
-    """One line if it fits at a big size, otherwise two balanced lines."""
-    font = fit_font(draw, text, path, max_w, 150)
-    if font.size >= 104 or " " not in text:
-        return [text], font
-    words = text.split()
-    best = min(range(1, len(words)), key=lambda i: abs(
-        draw.textlength(" ".join(words[:i]), font=font) - draw.textlength(" ".join(words[i:]), font=font)))
-    lines = [" ".join(words[:best]), " ".join(words[best:])]
-    longest = max(lines, key=lambda l: draw.textlength(l, font=font))
-    return lines, fit_font(draw, longest, path, int(max_w * 0.85), 104)
+def split_title(title: str) -> tuple[str, str]:
+    """'Pompeii: The Last Day' -> ('Pompeii', 'The Last Day'); no colon -> (title, '')."""
+    if ":" in title:
+        main, sub = title.split(":", 1)
+        return main.strip(), sub.strip()
+    return title.strip(), ""
 
 
 def make(scene: Path, out: Path, title: str, subtitle: str) -> None:
     base = cover(Image.open(scene).convert("RGB"))
+    base = ImageEnhance.Color(base).enhance(1.25)
+    base = ImageEnhance.Contrast(base).enhance(1.08)
 
-    # Darken the top and bottom bands where the text sits, plus a soft vignette.
+    # Gently darken the top band and the bottom-left corner where the text sits.
     shade = Image.new("L", (W, H))
     px = shade.load()
     for y in range(H):
-        t = min(y, H - y) / (H * 0.5)
-        a = int(170 * max(0.0, 1 - t / 0.55) ** 1.3)
+        top = max(0.0, 1 - y / (H * 0.30))
         for x in range(W):
-            px[x, y] = a
-    base = Image.composite(Image.new("RGB", (W, H), (6, 6, 10)), base, shade)
-    vig = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(vig).ellipse((-W * 0.2, -H * 0.3, W * 1.2, H * 1.3), fill=255)
-    vig = vig.filter(ImageFilter.GaussianBlur(110))
-    base = Image.composite(base, Image.new("RGB", (W, H), (0, 0, 0)), vig)
+            bottom = max(0.0, 1 - ((W - x) / W * 0.4 + (H - y) / (H * 0.45)))
+            px[x, y] = int(150 * max(top, bottom) ** 1.2)
+    base = Image.composite(Image.new("RGB", (W, H), (5, 5, 10)), base, shade)
 
     d = ImageDraw.Draw(base)
-    text = f"{title} {subtitle}".strip() if subtitle else title
-    lines, font = wrap(d, text, TITLE_FONT, int(W * 0.9))
-    line_h = font.getbbox("Hg")[3] + 6
-    y = 30
-    for line in lines:
-        x = (W - d.textlength(line, font=font)) // 2
-        glow_text(base, (int(x), y), line, font, TITLE_COLOR, night_glow=True)
-        y += line_h
+    main, sub = split_title(title)
+    if subtitle:
+        sub = subtitle
 
-    label_font = fit_font(d, LABEL, TITLE_FONT, int(W * 0.72), 100)
+    # Top: fixed series label, same on every thumbnail.
+    label_font = fit_font(d, LABEL, TITLE_FONT, int(W * 0.86), 112)
     lx = (W - d.textlength(LABEL, font=label_font)) // 2
-    ly = H - label_font.getbbox(LABEL)[3] - 40
-    glow_text(base, (int(lx), ly), LABEL, label_font, TITLE_COLOR)
+    heavy_text(base, (int(lx), 18), LABEL, label_font)
+
+    # Bottom-left: small line, then the topic very big with the night glow.
+    x = 40
+    main_font = fit_font(d, main, TITLE_FONT, int(W * 0.9), 200)
+    main_top = H - main_font.getbbox(main)[3] - 34
+    if sub:
+        sub_font = fit_font(d, sub, TITLE_FONT, int(W * 0.75), 70)
+        heavy_text(base, (x + 8, main_top - sub_font.getbbox(sub)[3] + 2), sub, sub_font)
+    heavy_text(base, (x, main_top), main, main_font, night_glow=True)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     base.save(out, quality=92)
