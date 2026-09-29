@@ -115,6 +115,9 @@ def main() -> None:
     parser.add_argument("--description-file", type=Path)
     parser.add_argument("--tags", default="", help="comma-separated")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
+    parser.add_argument("--publish-at",
+                        help="schedule publication (RFC 3339, e.g. 2026-10-05T19:00:00Z); "
+                             "the video stays private until then")
     parser.add_argument("--category", default="27", help="YouTube category id (27 = Education)")
     parser.add_argument("--no-synthetic", action="store_true",
                         help="do not mark the video as containing AI-generated content")
@@ -133,8 +136,11 @@ def main() -> None:
         "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False,
                    "containsSyntheticMedia": not args.no_synthetic},
     }
+    if args.publish_at:  # YouTube only accepts publishAt on private videos
+        metadata["status"].update(privacyStatus="private", publishAt=args.publish_at)
     video_id = upload(args.video, metadata, access_token())
-    print(f"Done: https://youtu.be/{video_id} ({args.privacy})")
+    when = f", public at {args.publish_at}" if args.publish_at else ""
+    print(f"Done: https://youtu.be/{video_id} ({metadata['status']['privacyStatus']}{when})")
     if args.thumbnail:
         set_thumbnail(video_id, args.thumbnail, access_token())
 
