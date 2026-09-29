@@ -30,7 +30,10 @@
 ## YouTube-toegang
 - Omgevingsvariabelen: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`
   (scope youtube.upload). Netwerk: `oauth2.googleapis.com`, `www.googleapis.com`.
-- Google-app staat op **Testing**: de refresh token verloopt na 7 dagen.
+- Google-app staat sinds 29-09-2026 op **In production** (homepage en privacy via
+  GitHub Pages uit `docs/` op deze branch — laten staan). Een token die daarna is
+  gemaakt verloopt niet meer na 7 dagen (wel na 6 maanden zonder gebruik).
+  Vroeger (Testing) verliep de refresh token na 7 dagen.
   Nieuwe token: developers.google.com/oauthplayground → tandwiel → eigen
   credentials → scope `https://www.googleapis.com/auth/youtube.upload` →
   Authorize → Exchange → token in de omgeving vervangen, nieuwe sessie.
