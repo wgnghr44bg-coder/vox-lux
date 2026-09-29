@@ -30,6 +30,8 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    1080p25, langzame zoom per afbeelding, zachte overgangen (1,5 s), drijvende mist.
    Muziek op -17 dB: duidelijk zachter dan de stem, vooral hoorbaar in de stiltes.
    Duurt ± 1,6× de videolengte (4 cores). Test eerst met `--tot 100`.
+   Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
+   (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`

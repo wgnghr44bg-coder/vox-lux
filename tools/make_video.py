@@ -50,6 +50,26 @@ def make_clip(img, out, dur, n):
          str(out)])
 
 
+GROEP = 20      # max. aantal clips per ffmpeg-stap (geheugen)
+
+
+def chain_inputs(rows):
+    return [x for r in rows for x in ("-i", str(r["clip"]))]
+
+
+def chain_graph(rows):
+    """xfade-keten; een overgang begint op het moment dat de volgende afbeelding start."""
+    graph, last = [], "[0:v]"
+    for i in range(1, len(rows)):
+        offset = float(rows[i]["start"]) - float(rows[0]["start"])
+        graph.append(f"{last}[{i}:v]xfade=transition=fade:duration={XFADE}:offset={offset:.3f}[x{i}]")
+        last = f"[x{i}]"
+    if not graph:  # een enkele clip
+        graph.append("[0:v]null[x0]")
+        last = "[x0]"
+    return graph, last
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story", type=Path)
@@ -83,17 +103,27 @@ def main():
             make_clip(story / "afbeeldingen" / r["file"], out, dur, i)
         r["clip"] = out
 
+    # 1b. Veel afbeeldingen tegelijk openen kost te veel geheugen (75 clips: ffmpeg gestopt
+    #     door geheugentekort). Daarom eerst groepjes van GROEP clips aan elkaar zetten.
+    #     Elk groepje is net als een clip XFADE langer, zodat de overgangen gelijk blijven.
+    if len(rows) > GROEP:
+        groups = []
+        for g in range(0, len(rows), GROEP):
+            part = rows[g:g + GROEP]
+            out = clips / f"groep-{part[0]['clip'].stem}-{part[-1]['clip'].stem}.mp4"
+            if not out.exists():
+                print(f"groep {part[0]['file']} t/m {part[-1]['file']}", flush=True)
+                run([*chain_inputs(part), "-filter_complex", ";".join(chain_graph(part)[0]),
+                     "-map", chain_graph(part)[1], "-c:v", "libx264", "-preset", "veryfast",
+                     "-crf", "16", "-pix_fmt", "yuv420p", str(out)])
+            groups.append({"start": part[0]["start"], "clip": out})
+        rows_final = groups
+    else:
+        rows_final = rows
+
     # 2. Alles samen: overgangen, mist, audio.
-    inputs, graph = [], []
-    for r in rows:
-        inputs += ["-i", str(r["clip"])]
-    n = len(rows)
-    last = "[0:v]"
-    for i in range(1, n):
-        # overgang begint op het moment dat afbeelding i volgens de tijdlijn start
-        offset = float(rows[i]["start"]) - float(rows[0]["start"])
-        graph.append(f"{last}[{i}:v]xfade=transition=fade:duration={XFADE}:offset={offset:.3f}[x{i}]")
-        last = f"[x{i}]"
+    inputs, (graph, last) = chain_inputs(rows_final), chain_graph(rows_final)
+    n = len(rows_final)
     inputs += ["-loop", "1", "-framerate", str(FPS), "-i", str(fog)]
     graph.append(f"[{n}:v]format=gray,crop=1920:1080:x='mod(t*{FOG_SPEED},7680)':y=0,"
                  f"format=gbrp,colorchannelmixer=rr=1:gg=0.97:bb=0.92[fog]")
