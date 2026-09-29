@@ -119,8 +119,8 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
 5. YouTube: privé, Education, niet voor kinderen, AI gemarkeerd. Titel: korte rustige zin +
    ` | <korte naam>` (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
-6. TikTok: map "TikTok – <korte naam>" in Google Drive met een bijschrift per video. De video's
-   zelf (± 10 MB) zijn te groot voor de Drive-koppeling: stuur ze in de chat.
+6. TikTok: zet elke geplande Short met bijschrift op de TikTok-pagina (zie
+   "TikTok-overzicht" hieronder). Geen Google Drive.
 
 ## TikTok-overzicht (voor de eigenaar)
 Alle Shorts die op YouTube gepland staan, komen ook op één vaste pagina:
