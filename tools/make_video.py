@@ -79,6 +79,8 @@ def main():
     ap.add_argument("--muziek", type=Path, help="achtergrondmuziek (bv. van tools/ambient_432.py)")
     ap.add_argument("--muziek-db", type=float, default=-17, help="volume van de muziek in dB")
     ap.add_argument("--naam", help="naam van de eindvideo (zonder .mp4)")
+    ap.add_argument("--preset", default="medium",
+                    help="x264-preset van de eindvideo (veryfast: ± 3x sneller, iets groter bestand)")
     a = ap.parse_args()
     story = a.story
     rows = list(csv.DictReader(open(story / a.tijden), delimiter="\t"))
@@ -148,7 +150,7 @@ def main():
     final = out_dir / f"{name}{'-test' if a.tot else ''}.mp4"
     print(f"eindvideo {final} ({total / 60:.1f} min)", flush=True)
     run([*inputs, "-filter_complex", ";".join(graph), "-map", "[v]", "-map", audio_out,
-         "-t", f"{total:.2f}", "-c:v", "libx264", "-preset", "medium", "-crf", "26",
+         "-t", f"{total:.2f}", "-c:v", "libx264", "-preset", a.preset, "-crf", "26",
          "-tune", "stillimage", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
          str(final)])
     print("klaar:", final)
