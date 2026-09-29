@@ -19,7 +19,9 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    Zelfgemaakt, 432 Hz-stemming, rechtenvrij. Zachte, ronde tonen (zuivere
    sinussen, niets boven ± 700 Hz, trage inzet), traag wisselende akkoorden,
    een zachte brom die in ± 50 s langzaam op en neer gaat, en af en toe een rustige
-   melodie. **Geen piano, geen scherpe geluiden.** Nooit muziek uit CapCut,
+   melodie. **Geen piano, geen scherpe geluiden.** Boven ± 1 u 45 loopt het geheugen
+   vol: maak dan twee helften (`--seed 7` en `--seed 8`) en zet ze met een crossfade
+   van 14 s aan elkaar (zie `stories/titanic/VOLGENDE-STAPPEN.md`). Nooit muziek uit CapCut,
    TikTok of andere nummers gebruiken (auteursrecht).
 4. **Video**
    ```
