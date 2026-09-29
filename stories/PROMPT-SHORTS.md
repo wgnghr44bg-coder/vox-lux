@@ -49,5 +49,7 @@ Afspraken:
 - Nooit muziek van CapCut, TikTok of anderen gebruiken.
 - Test eerst alleen het verversen van de YouTube-token (de Google-app staat op
   "In production", de token blijft geldig). Werkt het niet, leg dan uit hoe ik een nieuwe token maak.
-- Als alles klaar is: geef de YouTube-links en zeg wat ik nog moet doen
-  (in YouTube Studio een publicatiedatum plannen, TikTok posten).
+- Als alles klaar is: geef de YouTube-links en zeg wat ik nog moet doen:
+  in YouTube Studio een publicatiedatum plannen, **bij elke Short de lange video
+  instellen als "Gerelateerde video"** (Content → Shorts → Short → Gerelateerde video),
+  en TikTok posten.
