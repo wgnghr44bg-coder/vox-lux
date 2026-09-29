@@ -70,8 +70,9 @@ Stappen:
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er 4 volgens stories/PROMPT-SHORTS.md (met de link van stap 7).
    Kies zelf de beste (2 of 3, zoveel als er Short-plekken in planning.txt staan)
-   en upload die privé en gepland op die plekken. Stuur alle 4 in de chat (elk < 30 MB) met een TikTok-bijschrift
-   per Short, zodat ik ze kan downloaden. Geen Google Drive.
+   en upload die privé en gepland op die plekken. Zet de geplande Shorts met hun
+   TikTok-bijschrift op de TikTok-pagina (zie "TikTok-overzicht" in
+   stories/YOUTUBE-STANDAARD.md). Geen Google Drive.
 9. Werk planning.txt bij met de YouTube-links. Verplaats het onderwerp in
    stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
    merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
@@ -81,7 +82,7 @@ Stappen:
     - wat het totaal gekost heeft (per onderdeel);
     - wat ik nog moet doen: in YouTube Studio controleren of alles "Gepland"
       staat, bij elke Short de lange video instellen als "Gerelateerde video",
-      en TikTok posten.
+      en de TikToks plaatsen vanaf de TikTok-pagina.
 
 Afspraken: praat Nederlands met mij, eenvoudig. Noem tijden in Nederlandse tijd.
 Sla alles op en push naar je branch.
