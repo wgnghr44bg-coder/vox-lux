@@ -118,6 +118,9 @@ def main() -> None:
     parser.add_argument("--category", default="27", help="YouTube category id (27 = Education)")
     parser.add_argument("--no-synthetic", action="store_true",
                         help="do not mark the video as containing AI-generated content")
+    parser.add_argument("--publish-at",
+                        help="schedule: RFC3339 UTC time, e.g. 2026-10-03T19:00:00Z "
+                             "(video stays private until then, then becomes public)")
     parser.add_argument("--thumbnail", type=Path,
                         help="JPG/PNG up to 2 MB, set after upload (channel must be verified)")
     args = parser.parse_args()
@@ -133,8 +136,13 @@ def main() -> None:
         "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False,
                    "containsSyntheticMedia": not args.no_synthetic},
     }
+    if args.publish_at:
+        if args.privacy != "private":
+            parser.error("--publish-at needs --privacy private")
+        metadata["status"]["publishAt"] = args.publish_at
     video_id = upload(args.video, metadata, access_token())
-    print(f"Done: https://youtu.be/{video_id} ({args.privacy})")
+    when = f", public at {args.publish_at}" if args.publish_at else ""
+    print(f"Done: https://youtu.be/{video_id} ({args.privacy}{when})")
     if args.thumbnail:
         set_thumbnail(video_id, args.thumbnail, access_token())
 
