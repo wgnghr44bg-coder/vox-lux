@@ -1,9 +1,9 @@
 # The San Francisco Earthquake of 1906 | Sleep Documentary
 
-Eén doorlopend verhaal (± 1u30–1u45 zonder extra pauzes, ± 2u met pauzes),
+Eén doorlopend verhaal (13.779 woorden, ± 1u30 stem, ± 1u50 met extra pauzes),
 Engels, rustig, stem xAI Lux. Zonder gruwelijke details: het verlies van levens
 wordt kort en zacht genoemd. `{img:...}`-regels markeren waar een afbeelding
-begint (± 50 beelden).
+begint (75 beelden, ± elke 1,5 min). Volledige tekst: `san-francisco-1906.txt`.
 
 ## Deel 1 — Een stad aan de baai
 - `01-baai.txt`: intro, de Golden Gate (nog zonder brug), mist die binnendrijft,
@@ -18,6 +18,9 @@ begint (± 50 beelden).
 ## Deel 2 — De ochtend van 18 april
 - `05-breuklijn.txt`: rustige uitleg over de San Andreas-breuklijn, 5:12 uur
   's ochtends, de aarde beweegt ongeveer een minuut.
+- `05b-langs-de-kust.txt`: de beving buiten de stad: boerderijen bij Point Reyes,
+  vuurtoren van Point Arena, Santa Rosa, Stanford (het standbeeld van Agassiz),
+  de missie van San Juan Bautista.
 - `06-ochtend.txt`: melkboeren en een agent die de straat zagen golven,
   Caruso in het Palace Hotel, mensen in nachtkleding op straat.
 - `07-branden.txt`: gebroken waterleidingen, de eerste branden (de
@@ -34,7 +37,9 @@ begint (± 50 beelden).
 
 ## Deel 4 — Opnieuw beginnen
 - `11-herbouw.txt`: aardbevingshuisjes, A.P. Giannini leent geld uit vanaf
-  een plank op de kade, de "paper sons" van Chinatown.
+  een plank op de kade.
+- `11b-chinatown.txt`: Chinatown blijft en wordt mooier herbouwd, de "paper sons",
+  Angel Island.
 - `12-expositie.txt`: de wereldtentoonstelling van 1915, het Palace of Fine Arts.
 - `13-wetenschap.txt`: het Lawson-rapport, Harry Fielding Reid en de
   "elastic rebound", seismografen, veiligere gebouwen, elk jaar op 18 april
