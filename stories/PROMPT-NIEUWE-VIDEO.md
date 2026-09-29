@@ -15,15 +15,20 @@ Planning (werkt ook als er meerdere sessies tegelijk lopen):
 A. Doe dit als allereerste, vóór het script:
    - `git fetch origin` en lees ALLE bestanden `stories/*/planning.txt` op origin/main
      én op alle branches origin/claude/* (bv. met `git ls-tree` + `git show`).
-   - Het schema: elke 2 dagen een lange video om 21:00 Nederlandse tijd; de dag
-     erna 2 Shorts van die video, om 12:00 en 18:00.
-   - Kies de eerste vrije datum voor de lange video: minstens 2 dagen na vandaag,
-     en precies 2 dagen na de laatste lange video die al in een planning.txt staat
-     (staat er nog niets, of ligt die datum in het verleden: over 2 dagen).
-   - Schrijf direct `stories/<map>/planning.txt` met de drie tijden, bv.:
-       lang   2026-10-03 21:00
-       short1 2026-10-04 12:00
-       short2 2026-10-04 18:00
+   - Het schema (vaste dagen, ook in het weekend):
+       lange video: maandag, woensdag en zaterdag om 21:00 Nederlandse tijd;
+       Shorts: elke dag 1 Short om 18:00. De Shorts van een lange video komen
+       op elke dag na die video tot en met de dag van de volgende lange video:
+       ma-video -> di + wo, wo-video -> do + vr + za, za-video -> zo + ma.
+   - Kies het eerste vrije moment voor de lange video: een maandag, woensdag of
+     zaterdag, minstens 2 dagen na vandaag, die nog niet in een planning.txt staat
+     (en na de laatste lange video die er al staat).
+   - Schrijf direct `stories/<map>/planning.txt` met alle tijden, bv. voor een
+     woensdag-video:
+       lang   2026-10-07 21:00
+       short1 2026-10-08 18:00
+       short2 2026-10-09 18:00
+       short3 2026-10-10 18:00
      commit en push dit meteen, zodat andere sessies deze datum zien.
 B. Upload alles privé én gepland (status.publishAt). Voeg zo nodig een
    --publish-at optie toe aan tools/youtube_upload.py. Reken de Nederlandse tijd
@@ -54,8 +59,8 @@ Stappen:
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er 4 volgens stories/PROMPT-SHORTS.md (met de link van stap 7).
-   Kies zelf de 2 beste en upload die privé en gepland (short1 en short2 uit
-   planning.txt). Stuur alle 4 in de chat (elk < 30 MB) met een TikTok-bijschrift
+   Kies zelf de beste (2 of 3, zoveel als er Short-plekken in planning.txt staan)
+   en upload die privé en gepland op die plekken. Stuur alle 4 in de chat (elk < 30 MB) met een TikTok-bijschrift
    per Short, zodat ik ze kan downloaden. Geen Google Drive.
 9. Werk planning.txt bij met de YouTube-links. Maak een pull request naar main.
    Heeft die een conflict met main, haal main binnen en los het zelf op.
