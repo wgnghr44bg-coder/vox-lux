@@ -7,6 +7,10 @@ Vraag mij tussendoor niets: werk alles af, controleer zelf de kwaliteit en plan 
 uploads volgens het schema hieronder. Stop alleen en vraag mij iets als:
 - de totale kosten (stem + afbeeldingen + thumbnail) boven $3 zouden komen, of
 - iets echt niet lukt (bv. de YouTube-token werkt niet).
+- xAI geeft een fout over tegoed/betaling (bv. 402, "insufficient credits",
+  "billing"): stop dan meteen en begin je laatste bericht met
+  "⚠️ ZET GELD OP xAI" en daaronder: ga naar console.x.ai → Billing → Add credits,
+  en start daarna een nieuwe sessie met deze prompt.
 
 Budget: maximaal $3 per video. Houd bij wat elke betaalde stap kost en tel het op.
 Maak een afbeelding hooguit 1 keer opnieuw; niets anders opnieuw laten genereren.
@@ -67,14 +71,15 @@ Stappen:
    en upload die privé en gepland op die plekken. Stuur alle 4 in de chat (elk < 30 MB) met een TikTok-bijschrift
    per Short, zodat ik ze kan downloaden. Geen Google Drive.
 9. Werk planning.txt bij met de YouTube-links. Verplaats het onderwerp in
-   stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main.
-   Heeft die een conflict met main, haal main binnen en los het zelf op.
+   stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
+   merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
+   binnen, los het op en merge daarna.
 10. Geef me tot slot een kort overzicht:
     - de YouTube-links met de geplande datums en tijden;
     - wat het totaal gekost heeft (per onderdeel);
     - wat ik nog moet doen: in YouTube Studio controleren of alles "Gepland"
       staat, bij elke Short de lange video instellen als "Gerelateerde video",
-      de pull request mergen, en TikTok posten.
+      en TikTok posten.
 
 Afspraken: praat Nederlands met mij, eenvoudig. Noem tijden in Nederlandse tijd.
 Sla alles op en push naar je branch.
