@@ -23,9 +23,9 @@ A. Doe dit als allereerste, vóór het script:
      én op alle branches origin/claude/* (bv. met `git ls-tree` + `git show`).
    - Het schema (vaste dagen, ook in het weekend):
        lange video: maandag, woensdag en zaterdag om 21:00 Nederlandse tijd;
-       Shorts: elke dag 1 Short om 18:00. De Shorts van een lange video komen
-       op elke dag na die video tot en met de dag van de volgende lange video:
-       ma-video -> di + wo, wo-video -> do + vr + za, za-video -> zo + ma.
+       Shorts: elke dag 2 Shorts, om 10:00 en 20:00, van de laatste lange video:
+       ma-video -> di + wo (4 Shorts), wo-video -> do + vr + za (6 Shorts),
+       za-video -> zo + ma (4 Shorts).
    - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
      `onderwerp` in een planning.txt staat (main of origin/claude/*).
@@ -36,9 +36,12 @@ A. Doe dit als allereerste, vóór het script:
      woensdag-video:
        onderwerp The Fall of Rome
        lang   2026-10-07 21:00
-       short1 2026-10-08 18:00
-       short2 2026-10-09 18:00
-       short3 2026-10-10 18:00
+       short1 2026-10-08 10:00
+       short2 2026-10-08 20:00
+       short3 2026-10-09 10:00
+       short4 2026-10-09 20:00
+       short5 2026-10-10 10:00
+       short6 2026-10-10 20:00
      commit en push dit meteen, zodat andere sessies deze datum zien.
 B. Upload alles privé én gepland (status.publishAt). Voeg zo nodig een
    --publish-at optie toe aan tools/youtube_upload.py. Reken de Nederlandse tijd
@@ -68,9 +71,11 @@ Stappen:
 6. Thumbnail met tools/make_thumbnail.py in dezelfde stijl.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
-8. Shorts: maak er 4 volgens stories/PROMPT-SHORTS.md (met de link van stap 7).
-   Kies zelf de beste (2 of 3, zoveel als er Short-plekken in planning.txt staan)
-   en upload die privé en gepland op die plekken. Zet de geplande Shorts met hun
+8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
+   een woensdag-video) volgens stories/PROMPT-SHORTS.md (met de link van stap 7).
+   Upload ze allemaal privé en gepland op de Short-plekken uit planning.txt (de
+   sterkste eerst). Met 7 uploads kan de daglimiet van YouTube bereikt worden:
+   upload dan de rest na 09:00 de volgende dag (zie C). Zet de geplande Shorts met hun
    TikTok-bijschrift op de TikTok-pagina (zie "TikTok-overzicht" in
    stories/YOUTUBE-STANDAARD.md). Geen Google Drive.
 9. Werk planning.txt bij met de YouTube-links. Verplaats het onderwerp in
