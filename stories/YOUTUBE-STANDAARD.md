@@ -88,9 +88,14 @@ sleep story, 432hz` + 4–6 onderwerp-tags.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
 
 ## Na de upload
-Meld de eigenaar de link en wat nog in YouTube Studio moet: nalopen, AI-melding
-controleren, Visibility → Public. Herinner eraan dat de refresh token 7 dagen
-geldig is (zie `stories/pompeii/VOLGENDE-STAPPEN.md`).
+Meld de eigenaar de link(s) en wat nog in YouTube Studio moet (altijd deze lijst):
+1. Nalopen: titel, beschrijving, thumbnail, AI-melding ("Altered content": Yes).
+2. Publicatie plannen: Zichtbaarheid → Planning (datum en tijd kiezen).
+3. **Bij elke Short de lange video koppelen**: Content → Shorts → Short openen →
+   **Gerelateerde video** → de lange video kiezen → Opslaan. Dit kan niet via de
+   API, alleen in Studio (kanaal is daarvoor geverifieerd).
+4. TikTok: de goedgekeurde Shorts uit de chat downloaden en posten met het bijschrift.
+De refresh token blijft geldig (app "In production"); test hem wel eerst.
 
 ## Shorts (sinds Pompeii)
 Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
