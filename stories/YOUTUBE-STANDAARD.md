@@ -117,7 +117,7 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
 5. YouTube: privé, Education, niet voor kinderen, AI gemarkeerd. Titel: korte rustige zin +
-   ` | <korte naam> #Shorts`. Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
+   ` | <korte naam>` (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
 6. TikTok: map "TikTok – <korte naam>" in Google Drive met een bijschrift per video. De video's
    zelf (± 10 MB) zijn te groot voor de Drive-koppeling: stuur ze in de chat.
@@ -131,7 +131,7 @@ Zet na de YouTube-upload elke geplande Short erop:
 2. Schrijf per Short één document met ArtifactData (`action: "set"`, `url` = de pagina,
    `collection: "tiktoks"`, `doc_id: "<map>-<shortnaam>"`), met deze velden:
    `onderwerp` (titel van de lange video zonder "| Sleep Documentary"), `titel`
-   (YouTube-titel van de Short zonder " | … #Shorts"), `datum` (publicatie in
+   (YouTube-titel van de Short zonder " | …"), `datum` (publicatie in
    Nederlandse tijd als "JJJJ-MM-DDTUU:MM"), `bijschrift` (TikTok-bijschrift),
    `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`
    (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short), `geplaatst: false`.
