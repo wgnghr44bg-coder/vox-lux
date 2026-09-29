@@ -33,7 +33,8 @@
 - Google-app staat sinds 29-09-2026 op **In production** (homepage en privacy via
   GitHub Pages uit `docs/` op deze branch — laten staan). Een token die daarna is
   gemaakt verloopt niet meer na 7 dagen (wel na 6 maanden zonder gebruik).
-  Vroeger (Testing) verliep de refresh token na 7 dagen.
+  Vroeger (Testing) verliep de refresh token na 7 dagen. Nieuwe client secret en
+  refresh token (29-09-2026) staan in de omgeving; verversen getest en werkt.
   Nieuwe token: developers.google.com/oauthplayground → tandwiel → eigen
   credentials → scope `https://www.googleapis.com/auth/youtube.upload` →
   Authorize → Exchange → token in de omgeving vervangen, nieuwe sessie.
