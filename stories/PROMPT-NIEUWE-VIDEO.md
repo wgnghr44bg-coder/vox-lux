@@ -1,4 +1,4 @@
-Onderwerp: <bv. The Titanic: The Night It Sank>
+Onderwerp: <leeg laten = volgende uit stories/ONDERWERPEN.md>
 
 Maak volledig zelfstandig een nieuwe sleep documentary over het onderwerp hierboven,
 volgens stories/YOUTUBE-STANDAARD.md op main. Kijk bij stories/pompeii hoe het de
@@ -20,11 +20,15 @@ A. Doe dit als allereerste, vóór het script:
        Shorts: elke dag 1 Short om 18:00. De Shorts van een lange video komen
        op elke dag na die video tot en met de dag van de volgende lange video:
        ma-video -> di + wo, wo-video -> do + vr + za, za-video -> zo + ma.
+   - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
+     "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
+     `onderwerp` in een planning.txt staat (main of origin/claude/*).
    - Kies het eerste vrije moment voor de lange video: een maandag, woensdag of
      zaterdag, minstens 2 dagen na vandaag, die nog niet in een planning.txt staat
      (en na de laatste lange video die er al staat).
    - Schrijf direct `stories/<map>/planning.txt` met alle tijden, bv. voor een
      woensdag-video:
+       onderwerp The Fall of Rome
        lang   2026-10-07 21:00
        short1 2026-10-08 18:00
        short2 2026-10-09 18:00
@@ -62,7 +66,8 @@ Stappen:
    Kies zelf de beste (2 of 3, zoveel als er Short-plekken in planning.txt staan)
    en upload die privé en gepland op die plekken. Stuur alle 4 in de chat (elk < 30 MB) met een TikTok-bijschrift
    per Short, zodat ik ze kan downloaden. Geen Google Drive.
-9. Werk planning.txt bij met de YouTube-links. Maak een pull request naar main.
+9. Werk planning.txt bij met de YouTube-links. Verplaats het onderwerp in
+   stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main.
    Heeft die een conflict met main, haal main binnen en los het zelf op.
 10. Geef me tot slot een kort overzicht:
     - de YouTube-links met de geplande datums en tijden;
