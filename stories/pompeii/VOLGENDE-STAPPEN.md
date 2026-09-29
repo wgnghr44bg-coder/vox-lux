@@ -31,7 +31,8 @@
 - Omgevingsvariabelen: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`
   (scope youtube.upload). Netwerk: `oauth2.googleapis.com`, `www.googleapis.com`.
 - Google-app staat sinds 29-09-2026 op **In production** (homepage en privacy via
-  GitHub Pages uit `docs/` op deze branch — laten staan). Een token die daarna is
+  GitHub Pages uit de map `docs/` — laten staan; na het samenvoegen in `main`
+  Pages op branch `main`, map `/docs` zetten). Een token die daarna is
   gemaakt verloopt niet meer na 7 dagen (wel na 6 maanden zonder gebruik).
   Vroeger (Testing) verliep de refresh token na 7 dagen. Nieuwe client secret en
   refresh token (29-09-2026) staan in de omgeving; verversen getest en werkt.

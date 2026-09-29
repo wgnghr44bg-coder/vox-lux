@@ -6,7 +6,7 @@ Link volledige video: https://youtu.be/vgRDl6UwYlo
 
 Maak Shorts van mijn sleep documentary met het onderwerp hierboven. Upload ze naar YouTube en zet ze in mijn Google Drive voor TikTok.
 
-Werk op branch `claude/zen-dirac-ywl398` van wgnghr44bg-coder/vox-lux. Lees eerst:
+Alles staat op de hoofdbranch `main` van wgnghr44bg-coder/vox-lux. Lees eerst:
 - `stories/YOUTUBE-STANDAARD.md` (stijl, muziek, instellingen, uploadregels)
 - `stories/pompeii/VOLGENDE-STAPPEN.md` (overdracht en YouTube-token) en, als die er is,
   de `VOLGENDE-STAPPEN.md` in de map hierboven
