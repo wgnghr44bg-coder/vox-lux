@@ -9,8 +9,10 @@ uploads volgens het schema hieronder. Stop alleen en vraag mij iets als:
 - iets echt niet lukt (bv. de YouTube-token werkt niet).
 - xAI geeft een fout over tegoed/betaling (bv. 402, "insufficient credits",
   "billing"): stop dan meteen en begin je laatste bericht met
-  "⚠️ ZET GELD OP xAI" en daaronder: ga naar console.x.ai → Billing → Add credits,
-  en start daarna een nieuwe sessie met deze prompt.
+  "⚠️ ZET GELD OP xAI" en daaronder: ga naar console.x.ai → Billing → Add credits.
+  Geef je plek vrij: verwijder je stories/<map>/planning.txt, commit en push
+  (en merge dat naar main), zodat de volgende sessie hetzelfde onderwerp en
+  dezelfde datum weer kan pakken. Er is dan nog niets geüpload.
 
 Budget: maximaal $3 per video. Houd bij wat elke betaalde stap kost en tel het op.
 Maak een afbeelding hooguit 1 keer opnieuw; niets anders opnieuw laten genereren.
