@@ -1,0 +1,20 @@
+Planning YouTube — The San Francisco Earthquake of 1906 | Sleep Documentary
+
+Alles wordt privé geüpload met publishAt: YouTube zet de video zelf op
+Openbaar op het geplande moment. (Nederlandse tijd = zomertijd, UTC+2.)
+
+za 3 okt 2026 21:00  lange video      The San Francisco Earthquake of 1906 | Sleep Documentary
+                                     publishAt 2026-10-03T19:00:00Z
+zo 4 okt 2026 18:00  Short 1 (wijn)   The families who fought a fire with red wine | San Francisco 1906 #Shorts
+                                     publishAt 2026-10-04T16:00:00Z
+ma 5 okt 2026 18:00  Short 3 (Caruso) Caruso, the earthquake and the President's photo | San Francisco 1906 #Shorts
+                                     publishAt 2026-10-05T16:00:00Z
+
+Waarom deze 2 Shorts: de wijn heeft de sterkste openingszin ("saved their homes
+with red wine") en Caruso heeft een beroemde naam; allebei door de eigenaar gekozen.
+Niet geüpload: 2-zuurdesem, 4-hydrant (opnieuw maken met tools/make_short.py).
+
+Links (worden ingevuld na de upload):
+lange video: https://youtu.be/TRcttN943sA
+Short 1: https://youtu.be/KaB4T_to8a8
+Short 3: https://youtu.be/vfsBvOUu63k
