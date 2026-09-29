@@ -30,6 +30,8 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    1080p25, langzame zoom per afbeelding, zachte overgangen (1,5 s), drijvende mist.
    Muziek op -17 dB: duidelijk zachter dan de stem, vooral hoorbaar in de stiltes.
    Duurt ± 1,6× de videolengte (4 cores). Test eerst met `--tot 100`.
+   Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
+   (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
@@ -88,9 +90,14 @@ sleep story, 432hz` + 4–6 onderwerp-tags.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
 
 ## Na de upload
-Meld de eigenaar de link en wat nog in YouTube Studio moet: nalopen, AI-melding
-controleren, Visibility → Public. Herinner eraan dat de refresh token 7 dagen
-geldig is (zie `stories/pompeii/VOLGENDE-STAPPEN.md`).
+Meld de eigenaar de link(s) en wat nog in YouTube Studio moet (altijd deze lijst):
+1. Nalopen: titel, beschrijving, thumbnail, AI-melding ("Altered content": Yes).
+2. Publicatie plannen: Zichtbaarheid → Planning (datum en tijd kiezen).
+3. **Bij elke Short de lange video koppelen**: Content → Shorts → Short openen →
+   **Gerelateerde video** → de lange video kiezen → Opslaan. Dit kan niet via de
+   API, alleen in Studio (kanaal is daarvoor geverifieerd).
+4. TikTok: de goedgekeurde Shorts uit de chat downloaden en posten met het bijschrift.
+De refresh token blijft geldig (app "In production"); test hem wel eerst.
 
 ## Shorts (sinds Pompeii)
 Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
@@ -112,3 +119,18 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
 6. TikTok: map "TikTok – <korte naam>" in Google Drive met een bijschrift per video. De video's
    zelf (± 10 MB) zijn te groot voor de Drive-koppeling: stuur ze in de chat.
+
+## TikTok-overzicht (voor de eigenaar)
+Alle Shorts die op YouTube gepland staan, komen ook op één vaste pagina:
+https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (Artifact "Sleep Archives TikToks"; database-collectie `tiktoks`).
+Zet na de YouTube-upload elke geplande Short erop:
+1. Upload het mp4-bestand als asset: Artifact-tool, `url` = de pagina hierboven,
+   `asset: true`, `file_path(s)` = de Short(s). Bewaar het teruggegeven id en url.
+2. Schrijf per Short één document met ArtifactData (`action: "set"`, `url` = de pagina,
+   `collection: "tiktoks"`, `doc_id: "<map>-<shortnaam>"`), met deze velden:
+   `onderwerp` (titel van de lange video zonder "| Sleep Documentary"), `titel`
+   (YouTube-titel van de Short zonder " | … #Shorts"), `datum` (publicatie in
+   Nederlandse tijd als "JJJJ-MM-DDTUU:MM"), `bijschrift` (TikTok-bijschrift),
+   `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`
+   (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short), `geplaatst: false`.
+Lukt dit niet, stuur de Shorts dan in de chat zoals voorheen.
