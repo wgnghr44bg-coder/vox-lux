@@ -1,6 +1,6 @@
 # The San Francisco Earthquake of 1906 | Sleep Documentary
 
-Eén doorlopend verhaal (13.779 woorden, ± 1u30 stem, ± 1u50 met extra pauzes),
+Eén doorlopend verhaal (14.987 woorden, ± 1u37 stem, ± 2u met extra pauzes),
 Engels, rustig, stem xAI Lux. Zonder gruwelijke details: het verlies van levens
 wordt kort en zacht genoemd. `{img:...}`-regels markeren waar een afbeelding
 begint (75 beelden, ± elke 1,5 min). Volledige tekst: `san-francisco-1906.txt`.
@@ -12,6 +12,8 @@ begint (75 beelden, ± elke 1,5 min). Volledige tekst: `san-francisco-1906.txt`.
   groeit razendsnel over de heuvels en zandduinen.
 - `03-stad-1906.txt`: San Francisco in 1906: kabeltrams, Market Street, het
   Ferry Building, het Palace Hotel, Chinatown, Nob Hill, Golden Gate Park.
+- `03b-dag-aan-zee.txt`: een gewone dag: Italiaanse vissers en krabben op de kade,
+  het zuurdesembrood van Boudin, de Cliff House, Seal Rocks, de Sutro Baths.
 - `04-avond.txt`: de avond van 17 april: Enrico Caruso zingt Carmen in het
   Grand Opera House, de stad gaat slapen.
 
@@ -29,7 +31,7 @@ begint (75 beelden, ± elke 1,5 min). Volledige tekst: `san-francisco-1906.txt`.
 ## Deel 3 — Drie dagen vuur
 - `08-redders.txt`: brandweer zonder water, het Munthuis gered door zijn
   medewerkers, Italianen op Telegraph Hill die hun huizen redden met
-  wijn-natte dekens.
+  wijn-natte dekens, Louise Boudin redt het zuurdesem in een emmer.
 - `09-van-ness.txt`: de brandgang bij Van Ness Avenue, het vuur stopt,
   veerboten brengen mensen naar Oakland.
 - `10-samen.txt`: koken op straat, tentenkampen in Golden Gate Park en het
