@@ -4,7 +4,7 @@ Link volledige video: https://youtu.be/vgRDl6UwYlo
 
 (Voor een andere video: verander alleen de drie regels hierboven.)
 
-Maak Shorts van mijn sleep documentary met het onderwerp hierboven. Upload ze naar YouTube en zet ze in mijn Google Drive voor TikTok.
+Maak Shorts van mijn sleep documentary met het onderwerp hierboven. Upload ze naar YouTube en stuur ze in de chat, zodat ik ze voor TikTok kan downloaden.
 
 Alles staat op de hoofdbranch `main` van wgnghr44bg-coder/vox-lux. Lees eerst:
 - `stories/YOUTUBE-STANDAARD.md` (stijl, muziek, instellingen, uploadregels)
@@ -36,11 +36,9 @@ Wat ik wil:
    ` | <korte naam van het onderwerp> #Shorts` (max. 100 tekens). Beschrijving: 1–2 zinnen, een link naar de
    volledige video (link hierboven), de AI-regel en `#shorts #sleepdocumentary #<onderwerp> #history`.
    Tags zoals in de standaard. Geen aparte thumbnail nodig.
-5. **Google Drive voor TikTok**: zet de 4 video's in een map "TikTok – <korte naam>" in mijn
-   Google Drive, met een tekstbestand met per video een TikTok-bijschrift (kort, rustig,
-   3–5 hashtags zoals #sleepstory #<onderwerp> #history #432hz). Ik post ze zelf op TikTok.
-   Lukt uploaden naar Drive niet (bestand te groot voor de koppeling), stuur de video's
-   dan hier in de chat zodat ik ze op mijn telefoon kan bewaren.
+5. **TikTok**: stuur de 4 video's hier in de chat (elk < 30 MB), zodat ik ze kan downloaden.
+   Zet er per video een TikTok-bijschrift bij (kort, rustig, 3–5 hashtags zoals
+   #sleepstory #<onderwerp> #history #432hz). Ik post ze zelf op TikTok. Geen Google Drive.
 6. Sla alles op en push naar de branch (de video's zelf niet in git, die zijn te groot).
 
 Afspraken:
