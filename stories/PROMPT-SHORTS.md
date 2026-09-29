@@ -46,7 +46,7 @@ Afspraken:
 - Alles hierboven is gratis. Vraag altijd eerst als iets geld kost (xAI, ElevenLabs).
 - Noem tijden in Nederlandse tijd.
 - Nooit muziek van CapCut, TikTok of anderen gebruiken.
-- De YouTube-token verloopt 7 dagen nadat hij is aangemaakt. Test eerst alleen het
-  verversen. Werkt het niet, leg dan uit hoe ik een nieuwe token maak.
+- Test eerst alleen het verversen van de YouTube-token (de Google-app staat op
+  "In production", de token blijft geldig). Werkt het niet, leg dan uit hoe ik een nieuwe token maak.
 - Als alles klaar is: geef de YouTube-links en zeg wat ik nog moet doen
-  (op Openbaar zetten, TikTok posten).
+  (in YouTube Studio een publicatiedatum plannen, TikTok posten).
