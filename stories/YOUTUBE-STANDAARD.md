@@ -119,3 +119,18 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
 6. TikTok: map "TikTok – <korte naam>" in Google Drive met een bijschrift per video. De video's
    zelf (± 10 MB) zijn te groot voor de Drive-koppeling: stuur ze in de chat.
+
+## TikTok-overzicht (voor de eigenaar)
+Alle Shorts die op YouTube gepland staan, komen ook op één vaste pagina:
+https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (Artifact "Sleep Archives TikToks"; database-collectie `tiktoks`).
+Zet na de YouTube-upload elke geplande Short erop:
+1. Upload het mp4-bestand als asset: Artifact-tool, `url` = de pagina hierboven,
+   `asset: true`, `file_path(s)` = de Short(s). Bewaar het teruggegeven id en url.
+2. Schrijf per Short één document met ArtifactData (`action: "set"`, `url` = de pagina,
+   `collection: "tiktoks"`, `doc_id: "<map>-<shortnaam>"`), met deze velden:
+   `onderwerp` (titel van de lange video zonder "| Sleep Documentary"), `titel`
+   (YouTube-titel van de Short zonder " | … #Shorts"), `datum` (publicatie in
+   Nederlandse tijd als "JJJJ-MM-DDTUU:MM"), `bijschrift` (TikTok-bijschrift),
+   `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`
+   (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short), `geplaatst: false`.
+Lukt dit niet, stuur de Shorts dan in de chat zoals voorheen.
