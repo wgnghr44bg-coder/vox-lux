@@ -7,9 +7,13 @@ zelf op Openbaar op het geplande moment). Tijden in Nederlandse tijd
 
 Lange video   ma 5 okt 2026 21:00   (publishAt 2026-10-05T19:00:00Z)
   The Titanic: The Night It Sank | Sleep Documentary
+  https://youtu.be/aqbjvsBIQAE
 Short 1       di 6 okt 2026 18:00   (publishAt 2026-10-06T16:00:00Z)
-  de beste van de 4 Shorts (keuze volgt)
+  The lookouts who had no binoculars | Titanic #Shorts   (1-verrekijker)
+  https://youtu.be/ytten26TTJ4
 Short 2       wo 7 okt 2026 18:00   (publishAt 2026-10-07T16:00:00Z)
-  de op één na beste van de 4 Shorts (keuze volgt)
+  The telegram that said: get off that ship | Titanic #Shorts   (4-foto)
+  https://youtu.be/Jl75PNbdcWs
 
-YouTube-links: volgen na de upload.
+Beide Shorts staan ook op de TikTok-pagina (Sleep Archives TikToks).
+Niet geüpload: 2-sos en 3-straus (opnieuw maken met tools/make_short.py --alleen <naam>).
