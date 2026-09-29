@@ -6,7 +6,7 @@ Slaat op als <map>/afbeeldingen/001.jpg enz.; bestaande bestanden worden overges
 import json, re, sys, time, urllib.request, base64
 from pathlib import Path
 
-MODEL = "grok-imagine-image-quality"
+MODEL = "grok-imagine-image"  # $0,02 per beeld (quality-model: grok-imagine-image-quality)
 
 def prompts(story):
     text = (story / "afbeeldingen-prompts.md").read_text()
