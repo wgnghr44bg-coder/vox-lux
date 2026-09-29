@@ -14,7 +14,6 @@ zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
 - The Tunguska Event
 - The Black Death: Europe's Darkest Years
 - The Somerton Man Mystery
-- The Dutch Hunger Winter
 - The Tower of London: Centuries of Secrets
 - The Sinking of the Lusitania
 - The Fall of the Roman Empire
@@ -99,7 +98,6 @@ zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
 - The Whitechapel Murders
 - The Easter Island Mystery
 - The Execution of Marie Antoinette
-- The Darkest Punishments of Medieval Europe
 - Medieval Torture Devices Explained
 - The Zodiac Killer's Unsolved Case
 - H.H. Holmes: America's First Serial Killer
@@ -108,6 +106,9 @@ zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
 - The Cleveland Torso Murderer
 
 ## Al gemaakt
+- The Dutch Hunger Winter (op YouTube als "The Winter That Came Before Freedom")
+- The Darkest Punishments of Medieval Europe
+- How Did Humans Survive Without Fire?
 - Pompeii: The Last Day
 - Chernobyl 1986
 - The San Francisco Earthquake of 1906
