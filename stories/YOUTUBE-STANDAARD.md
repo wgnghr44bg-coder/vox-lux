@@ -34,6 +34,19 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    Duurt ± 1,6× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
+5. **Zachte effecten** — `tools/effects.py` (gratis, geen xAI).
+   Schrijf `stories/<verhaal>/effecten.tsv` (kolommen `van	tot	effect	sterkte`, tijden in
+   seconden uit `afbeeldingen-tijden-pauzes.tsv`) en draai daarna:
+   `python3 tools/effects.py video/<naam>.mp4 video/<naam>-fx.mp4 --lijst effecten.tsv`
+   en upload het `-fx`-bestand. Regels:
+   - Alleen op scènes waar het echt past: `as` (uitbarsting, brand, as, puin),
+     `sneeuw` (winter, kou), `vonken` (vuur, kaarsen, lantaarns, fakkels),
+     `sterren` (buiten bij nacht). Eén effect tegelijk; sterkte 0.6–1.0.
+   - Hooguit ± 30 % van de video; de rest blijft zonder effect.
+   - Kijk zelf een paar beelden na; te druk → lagere sterkte.
+   - Kost ± 1 extra renderronde (± 1× de videolengte + ± 3× de effectduur).
+   - **Shorts**: valt het stukje van een Short (deels) in een effect-stuk, geef de Short
+     hetzelfde effect: `python3 tools/effects.py short.mp4 short-fx.mp4 --effect <effect>`.
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`

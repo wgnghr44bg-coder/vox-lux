@@ -5,6 +5,9 @@ de beelden, tekent de deeltjes erover en schrijft een nieuw bestand (geluid blij
 
 Gebruik:
   python3 tools/effects.py in.mp4 uit.mp4 --effect as [--van 3726 --tot 3816] [--sterkte 1.0]
+  python3 tools/effects.py in.mp4 uit.mp4 --lijst stories/<map>/effecten.tsv
+     (tsv met kolommen: van, tot, effect[, sterkte] — tijden in seconden; meerdere
+      stukken in één keer)
 Effecten: as, sneeuw, vonken, sterren. Zonder --van/--tot: de hele video.
 Alleen het stuk tussen --van en --tot krijgt het effect (met 3 s in- en uitfaden);
 de rest wordt ongewijzigd doorgegeven.
@@ -90,7 +93,8 @@ class Particles:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("inp"); ap.add_argument("out")
-    ap.add_argument("--effect", required=True, choices=PRESETS)
+    ap.add_argument("--effect", choices=PRESETS)
+    ap.add_argument("--lijst", help="tsv: van, tot, effect[, sterkte]")
     ap.add_argument("--van", type=float, default=0.0)
     ap.add_argument("--tot", type=float, default=None)
     ap.add_argument("--sterkte", type=float, default=1.0)
@@ -98,10 +102,20 @@ def main():
     a = ap.parse_args()
 
     w, h, fps = probe(a.inp)
-    p = dict(PRESETS[a.effect]); p["n"] = int(p["n"] * a.sterkte)
-    parts = Particles(p, w, h, np.random.default_rng(a.seed))
-    col = np.array(p["color"], dtype=np.float32) / 255
-
+    segs = []
+    if a.lijst:
+        import csv
+        for r in csv.DictReader(open(a.lijst), delimiter="\t"):
+            segs.append((float(r["van"]), float(r["tot"]), r["effect"].strip(), float(r.get("sterkte") or 1)))
+    elif a.effect:
+        segs.append((a.van, a.tot if a.tot is not None else float("inf"), a.effect, a.sterkte))
+    else:
+        ap.error("geef --effect of --lijst")
+    rng = np.random.default_rng(a.seed)
+    systems = []
+    for van, tot, eff, sterkte in segs:
+        p = dict(PRESETS[eff]); p["n"] = max(1, int(p["n"] * sterkte))
+        systems.append((van, tot, Particles(p, w, h, rng), np.array(p["color"], dtype=np.float32) / 255))
     dec = subprocess.Popen([FF, "-v", "error", "-i", a.inp, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
                            stdout=subprocess.PIPE)
     enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -117,20 +131,21 @@ def main():
         if len(buf) < fb:
             break
         t = i * dt
-        end = a.tot if a.tot is not None else float("inf")
-        if a.van <= t <= end:
-            parts.step(dt, t)
-            g = min(1, (t - a.van) / fade, (end - t) / fade if end != float("inf") else 1)
-            layer = np.zeros((h, w), np.float32)
-            parts.draw(layer, t)
+        active = [x for x in systems if x[0] <= t <= x[1]]
+        if active:
             frame = np.frombuffer(buf, np.uint8).reshape(h, w, 3).astype(np.float32) / 255
-            m = (layer * g)[..., None]
-            frame = frame * (1 - m) + col * m          # zachte "over"-menging
+            for van, tot, parts, col in active:
+                parts.step(dt, t)
+                g = min(1, (t - van) / fade, (tot - t) / fade)
+                layer = np.zeros((h, w), np.float32)
+                parts.draw(layer, t)
+                m = (layer * g)[..., None]
+                frame = frame * (1 - m) + col * m          # zachte "over"-menging
             buf = (np.clip(frame, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes()
         enc.stdin.write(buf)
         i += 1
     enc.stdin.close(); enc.wait(); dec.wait()
-    print(json.dumps({"frames": i, "effect": a.effect, "out": a.out}))
+    print(json.dumps({"frames": i, "stukken": len(segs), "out": a.out}))
 
 
 if __name__ == "__main__":
