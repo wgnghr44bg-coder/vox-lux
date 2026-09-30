@@ -197,7 +197,7 @@ class Sky:
 
 
 class Intro:
-    def __init__(self, c, sky, onderwerp):
+    def __init__(self, c, sky, onderwerp, duur=INTRO):
         self.sky = sky
         W, U = c.W, c.U
         ty = sky.y + int(250 * U)
@@ -205,14 +205,15 @@ class Intro:
         fs = c.font(FR, 46, onderwerp, W * 0.86)
         self.name = c.text(lambda d: d.text((W / 2, ty), "SLEEP ARCHIVES", font=fn, fill=255, anchor="mm"), glow=18 * U)
         self.sub = c.text(lambda d: d.text((W / 2, ty + 120 * U), onderwerp, font=fs, fill=255, anchor="mm"))
-        self.a, self.b = 0.0, INTRO
+        self.a, self.b = 0.0, duur
+        self.duur = duur
 
     def draw(self, frame, t):
         sky = self.sky.stars_frame(t)
         sky = self.sky.moon_on(sky, ease((t - 1.0) / 2))
         sky = put_text(sky, self.name, ease((t - 2.4) / 1.8))
         sky = put_text(sky, self.sub, ease((t - 4.0) / 1.5), glow_a=0)
-        k = ease((INTRO - t) / 2.0)          # laatste 2 s: sterren wijken voor het eerste beeld
+        k = ease((self.duur - t) / 2.0)          # laatste 2 s: sterren wijken voor het eerste beeld
         return frame * (1 - k) + sky * k
 
 
@@ -504,7 +505,7 @@ def build(plan, c, einde, rng):
     parts = []
     sky = Sky(c, rng) if plan.get("intro") or plan.get("slot") else None
     if plan.get("intro"):
-        parts.append(Intro(c, sky, plan.get("onderwerp", "")))
+        parts.append(Intro(c, sky, plan.get("onderwerp", ""), plan.get("intro_duur", INTRO)))
     for it in plan.get("items", []):
         s = it["soort"]
         parts.append({"hoofdstuk": lambda: Hoofdstuk(c, it), "datum": lambda: Datum(c, it),
