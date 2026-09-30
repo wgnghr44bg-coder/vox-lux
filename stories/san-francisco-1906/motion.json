@@ -101,14 +101,14 @@
     {
      "naam": "Golden Gate",
      "lon": -122.478,
-     "lat": 37.818,
+     "lat": 37.812,
      "kant": "boven"
     },
     {
      "naam": "Presidio",
      "lon": -122.466,
      "lat": 37.797,
-     "kant": "onder"
+     "kant": "links"
     },
     {
      "naam": "Golden Gate Park",
@@ -120,7 +120,7 @@
      "naam": "Van Ness Avenue",
      "lon": -122.4235,
      "lat": 37.785,
-     "kant": "links"
+     "kant": "onder"
     },
     {
      "naam": "Telegraph Hill",
