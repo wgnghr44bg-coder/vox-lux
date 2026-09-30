@@ -19,6 +19,8 @@
   - Short 1-wijn: https://youtu.be/KaB4T_to8a8 — zo 4 okt 18:00
   - Short 3-caruso: https://youtu.be/vfsBvOUu63k — ma 5 okt 18:00
 - Upload en planning: `upload.sh`, `planning.txt` (met links).
+- 30-09-2026: nieuwe versie v2 (motion graphics + effecten, `motion.json`, `effecten.tsv`):
+  https://youtu.be/6FIgJoXzr3Q — openbaar za 3 okt 21:00; oude TRcttN943sA verwijderen.
 
 ## Lessen
 - 75 clips in één ffmpeg-stap → geheugentekort. `tools/make_video.py` zet nu eerst

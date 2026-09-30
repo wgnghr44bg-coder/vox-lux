@@ -1,0 +1,266 @@
+{
+ "onderwerp": "The Titanic: The Night It Sank",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "Belfast and the Shipyard"
+  },
+  {
+   "soort": "datum",
+   "tijd": 516,
+   "regel1": "31 May 1911",
+   "regel2": "Harland and Wolff, Belfast"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 655.9,
+   "nummer": 2,
+   "titel": "Inside the Great Ship"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1258.6,
+   "nummer": 3,
+   "titel": "Leaving Southampton"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1432,
+   "regel1": "10 April 1912  ·  Morning",
+   "regel2": "Southampton"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1879.5,
+   "nummer": 4,
+   "titel": "Life in First Class"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 1900,
+   "titel": "The Maiden Voyage, April 1912",
+   "gebied": [
+    -76,
+    3,
+    38.5,
+    56
+   ],
+   "plaatsen": [
+    {
+     "naam": "Belfast",
+     "lon": -5.93,
+     "lat": 54.6,
+     "kant": "boven"
+    },
+    {
+     "naam": "Southampton",
+     "lon": -1.4,
+     "lat": 50.9,
+     "kant": "boven"
+    },
+    {
+     "naam": "Cherbourg",
+     "lon": -1.62,
+     "lat": 49.64,
+     "kant": "onder"
+    },
+    {
+     "naam": "Queenstown",
+     "lon": -8.29,
+     "lat": 51.85,
+     "kant": "links"
+    },
+    {
+     "naam": "Where Titanic was lost",
+     "lon": -49.95,
+     "lat": 41.73,
+     "kant": "onder"
+    },
+    {
+     "naam": "New York",
+     "lon": -74.0,
+     "lat": 40.7,
+     "kant": "onder"
+    }
+   ],
+   "route": [
+    [
+     -1.4,
+     50.85
+    ],
+    [
+     -1.25,
+     50.7
+    ],
+    [
+     -1.62,
+     49.7
+    ],
+    [
+     -3.5,
+     49.7
+    ],
+    [
+     -5.9,
+     49.9
+    ],
+    [
+     -8.29,
+     51.8
+    ],
+    [
+     -10.5,
+     51.3
+    ],
+    [
+     -20,
+     49.6
+    ],
+    [
+     -30,
+     46.8
+    ],
+    [
+     -40,
+     44.0
+    ],
+    [
+     -47,
+     42.1
+    ],
+    [
+     -49.95,
+     41.73
+    ],
+    [
+     -58,
+     41.0
+    ],
+    [
+     -66,
+     40.6
+    ],
+    [
+     -74.0,
+     40.6
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2428.9,
+   "nummer": 5,
+   "titel": "Second and Third Class"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3005.9,
+   "nummer": 6,
+   "titel": "The Crew"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3574.5,
+   "nummer": 7,
+   "titel": "Sunday, 14 April 1912"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4087.5,
+   "nummer": 8,
+   "titel": "The Iceberg"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4097,
+   "regel1": "14 April 1912  ·  23:40",
+   "regel2": "North Atlantic"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 4130,
+   "tekst": "Iceberg, right ahead.",
+   "bron": "Frederick Fleet, lookout, U.S. Senate Inquiry, 1912"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4588.5,
+   "nummer": 9,
+   "titel": "Calls for Help"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5132.8,
+   "nummer": 10,
+   "titel": "The Lifeboats"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5681.2,
+   "nummer": 11,
+   "titel": "The Last Hour"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6122.5,
+   "nummer": 12,
+   "titel": "The Carpathia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6140,
+   "regel1": "15 April 1912  ·  Before dawn",
+   "regel2": "North Atlantic"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6646.4,
+   "nummer": 13,
+   "titel": "After the Night"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7201.9,
+   "nummer": 14,
+   "titel": "Finding the Wreck"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7381,
+   "regel1": "1 September 1985",
+   "regel2": "North Atlantic"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7690.4,
+   "nummer": 15,
+   "titel": "Goodnight, Titanic"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 7712,
+   "punten": [
+    [
+     "1911",
+     "Launched in Belfast"
+    ],
+    [
+     "1912",
+     "Her first and only voyage"
+    ],
+    [
+     "1985",
+     "The wreck is found"
+    ],
+    [
+     "Today",
+     "Remembered every 15 April"
+    ]
+   ]
+  }
+ ]
+}
