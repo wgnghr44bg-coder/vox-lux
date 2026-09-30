@@ -20,6 +20,6 @@ Niet geüpload: 2-sos en 3-straus (opnieuw maken met tools/make_short.py --allee
 
 Update 30 sep 2026: beide Shorts opnieuw gemaakt (nieuw gesproken begin in 3 stukjes,
 ondertitels woord voor woord uitgelijnd, datumkaartje, effecten) en opnieuw gepland op dezelfde tijden:
-  Short 1  di 6 okt 18:00  The lookouts who had no binoculars | Titanic          https://youtu.be/HMuw3eS5yOI
-  Short 2  wo 7 okt 18:00  The telegram that said: get off that ship | Titanic   https://youtu.be/ROGwSqnRhIk
-De oude versies (ytten26TTJ4, Jl75PNbdcWs, 5oQMT9218jk, rkOM8U5IVts, ic3indg2xpU, gIHWTrQ9cRM) verwijdert de eigenaar in YouTube Studio.
+  Short 1  di 6 okt 18:00  The lookouts who had no binoculars | Titanic          https://youtu.be/1HghOMqmILo
+  Short 2  wo 7 okt 18:00  The telegram that said: get off that ship | Titanic   https://youtu.be/0iOdbDQx7y4
+De oude versies (ytten26TTJ4, Jl75PNbdcWs, 5oQMT9218jk, rkOM8U5IVts, ic3indg2xpU, gIHWTrQ9cRM, HMuw3eS5yOI, ROGwSqnRhIk; per ongeluk al verwijderd en opnieuw geüpload) verwijdert de eigenaar in YouTube Studio.
