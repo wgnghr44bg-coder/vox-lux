@@ -63,3 +63,12 @@
 - Google Drive: map "TikTok – Pompeii" met het bijschrift; de video zelf ging via de chat.
 - Nummers 2–4 zijn niet geüpload; opnieuw maken met
   `python3 tools/make_short.py stories/pompeii --lijst shorts.tsv --alleen <naam>`.
+
+## Versie 3 (30-09-2026)
+- Langere pauzes + 432 Hz-muziek (twee helften, seed 7 en 8, crossfade 14 s),
+  nieuwe beweging (`make_video.py --naam pompeii-v3`), motion graphics
+  (`motion.json`) en effecten (`effecten.tsv`, ± 48 % van de video).
+- Geüpload (privé, gepland): https://youtu.be/VuTN5ReMzLk — openbaar
+  vr 2 okt 2026 21:00 NL-tijd (zie `planning.txt`). Geen Shorts.
+- De oudere versies (WHiBn7Fi05c, vgRDl6UwYlo) kan de eigenaar verwijderen of privé laten.
+- Let op: renderen duurde hier langer dan de standaard zegt (video ± 5 u, motion ± 3,5 u).
