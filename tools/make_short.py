@@ -24,7 +24,7 @@ Nodig: eerst `python3 tools/add_pauses.py stories/<verhaal>` (maakt video/stem-m
 tijdlijn-pauzes.tsv en afbeeldingen-tijden-pauzes.tsv) en <map>/afbeeldingen/NNN.jpg.
 Uitvoer: <map>/video/shorts/<naam>.mp4
 """
-import argparse, csv, subprocess, sys
+import argparse, csv, re, subprocess, sys
 from pathlib import Path
 
 import imageio_ffmpeg
@@ -122,22 +122,113 @@ class Pan:
         return np.asarray(f).astype(np.float32) / 255
 
 
-def intro_parts(audio, text):
-    """Lengte van het gesproken begin en de ondertitels: splitst op [pause] en zoekt de stilte."""
-    pcm = subprocess.run([FFMPEG, "-hide_banner", "-loglevel", "error", "-i", str(audio),
-                          "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
+ENV_RATE = 100      # omhullende van de stem: 100 waarden per seconde
+CHUNK_WORDS = 7     # ondertitels in stukjes van hooguit zoveel woorden
+# knip liefst vóór deze woorden, en nooit direct na een lidwoord of voorzetsel
+SPLIT_BEFORE = {"and", "but", "or", "in", "on", "at", "with", "of", "to", "from", "for", "into", "who",
+                "which", "that", "as", "when", "while", "because", "so", "then", "where", "until", "had", "was",
+                "above", "below", "over", "under", "across", "through", "after", "before", "behind", "toward", "towards"}
+NO_END = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "from", "with", "into", "and", "his", "her", "their", "its", "my"}
+
+
+def envelope(audio, start=0.0, dur=None):
+    """Geluidssterkte van (een stuk van) een audiobestand, ENV_RATE waarden per seconde."""
+    args = [FFMPEG, "-hide_banner", "-loglevel", "error", "-ss", f"{start:.3f}"]
+    if dur:
+        args += ["-t", f"{dur:.3f}"]
+    pcm = subprocess.run([*args, "-i", str(audio), "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
                          capture_output=True, check=True).stdout
     x = np.abs(np.frombuffer(pcm, dtype="<i2").astype(np.float32))
-    dur = len(x) / 8000
+    n = len(x) // (8000 // ENV_RATE)
+    return x[:n * (8000 // ENV_RATE)].reshape(n, -1).mean(1)
+
+
+def gaps(env, s, e, min_len=0.12):
+    """Stiltes (midden, lengte) binnen [s, e] seconden."""
+    a, b = max(int(s * ENV_RATE), 0), min(int(e * ENV_RATE), len(env))
+    seg = env[a:b]
+    if len(seg) < 5:
+        return []
+    quiet = seg < 0.12 * np.percentile(seg, 90)
+    out, k = [], 0
+    while k < len(seg):
+        if quiet[k]:
+            m = k
+            while m < len(seg) and quiet[m]:
+                m += 1
+            if k > 0 and m < len(seg) and (m - k) / ENV_RATE >= min_len:
+                out.append(((a + (k + m) / 2) / ENV_RATE, (m - k) / ENV_RATE))
+            k = m
+        else:
+            k += 1
+    return out
+
+
+def chunks(text):
+    """Knip een zin in korte ondertitelstukjes: eerst bij komma's e.d., lange stukken in gelijke delen."""
+    parts = [p.strip() for p in re.split(r"(?<=[,;:\u2014\u2013])\s+", text.strip()) if p.strip()]
+    out = []
+    for p in parts:
+        w = p.split()
+        n = max(1, -(-len(w) // CHUNK_WORDS))
+        start = 0
+        for c in range(n - 1, 0, -1):      # nog c knippen te gaan
+            ideal = start + (len(w) - start) / (c + 1)
+            best = min(range(start + 2, len(w) - 1), key=lambda k: abs(k - ideal)
+                       + (0 if w[k].lower() in SPLIT_BEFORE else 1.5)
+                       + (3 if w[k - 1].lower() in NO_END else 0), default=None)
+            if best is None:
+                break
+            out.append(" ".join(w[start:best]))
+            start = best
+        out.append(" ".join(w[start:]))
+    # geen losse stukjes van één woord: plak aan het vorige
+    merged = []
+    for c in out:
+        if merged and len(c.split()) == 1 and len(merged[-1].split()) < CHUNK_WORDS + 2:
+            merged[-1] += " " + c
+        else:
+            merged.append(c)
+    return merged
+
+
+def align(env, s, e, pieces):
+    """Tijden voor de stukjes van één zin: evenredig met het aantal letters, en elke grens
+    naar de dichtstbijzijnde stilte in de stem geschoven (zo loopt de tekst gelijk op)."""
+    if len(pieces) == 1:
+        return [(s, e, pieces[0])]
+    cand = gaps(env, s, e)
+    lens = np.array([len(p) + 2 for p in pieces], float)
+    ideal = s + (e - s) * np.cumsum(lens)[:-1] / lens.sum()
+    cuts, used, last = [], set(), s
+    for t in ideal:
+        best = min(((abs(m - t), m) for m, _ in cand if m not in used and m > last + 0.3), default=None)
+        c = best[1] if best and best[0] < 0.8 else t
+        c = max(c, last + 0.3)
+        used.add(c)
+        cuts.append(c)
+        last = c
+    bounds = [s] + cuts + [e]
+    return [(bounds[k], bounds[k + 1], p) for k, p in enumerate(pieces)]
+
+
+def intro_parts(audio, text):
+    """Lengte van het gesproken begin en de ondertitels. De [pause]-stukken ("Did you know?",
+    de zin over het onderwerp, het weetje) vallen op de langste stiltes; lange stukken
+    worden daarbinnen in kortere ondertitels geknipt."""
+    env = envelope(audio)
+    dur = len(env) / ENV_RATE
     pieces = [p.strip() for p in text.replace("[long pause]", "[pause]").split("[pause]") if p.strip()]
-    if len(pieces) < 2:
-        return dur, [(0.0, dur, " ".join(pieces))]
-    # stilste stuk van 0,2 s tussen 15 % en 60 % van het begin = de pauze
-    win = 1600
-    env = np.convolve(x, np.ones(win) / win, mode="valid")
-    lo, hi = int(0.15 * len(env)), int(0.6 * len(env))
-    split = (lo + int(np.argmin(env[lo:hi])) + win / 2) / 8000
-    return dur, [(0.0, split, pieces[0]), (split, dur, " ".join(pieces[1:]))]
+    g = sorted(gaps(env, 0, dur, 0.2), key=lambda x: -x[1])[:len(pieces) - 1]
+    cuts = sorted(m for m, _ in g)
+    if len(cuts) < len(pieces) - 1:     # te weinig stiltes gevonden: evenredig verdelen
+        lens = np.array([len(p) for p in pieces], float)
+        cuts = list(dur * np.cumsum(lens)[:-1] / lens.sum())
+    bounds = [0.0] + cuts + [dur]
+    subs = []
+    for k, p in enumerate(pieces):
+        subs += align(env, bounds[k], bounds[k + 1], chunks(p))
+    return dur, subs
 
 
 def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
@@ -180,11 +271,16 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     fog = np.asarray(fog_img).astype(np.float32)[..., None] / 255 * np.array([1, 0.97, 0.92], np.float32)
     fog_period = 7680 * H / 1080
 
+    # ondertitels: korte stukjes die op de stiltes in de stem wisselen
+    env = envelope(story / "video" / "stem-met-pauzes.wav", t0, sents[-1][1] - t0 + 0.5)
+    timed = list(intro_subs)
+    for s, e, text in sents:
+        timed += [(a + t0 - base, b + t0 - base, c) for a, b, c in align(env, s - t0, e - t0, chunks(text))]
     subs = []
-    timed = intro_subs + [(s - base, e - base, text) for s, e, text in sents]
     for k, (s, e, text) in enumerate(timed):
-        a = s - 0.1
-        b = min(e + 0.5, (timed[k + 1][0] - 0.15) if k + 1 < len(timed) else outro_at)
+        a = s - 0.05
+        nxt = timed[k + 1][0] if k + 1 < len(timed) else outro_at + 0.15
+        b = nxt - 0.05 if nxt - e < 0.25 else min(e + 0.4, nxt - 0.15)
         rgb, alpha = text_layer(text, SUB_FONT, SUB_SIZE, 6)
         subs.append((a, b, rgb, alpha, SUB_Y - rgb.shape[0] // 2))
     o_rgb, o_alpha = text_layer("", OUTRO_FONT, 62, 5, lines=OUTRO_TEXT.split("\n"))
@@ -252,7 +348,7 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
         # ondertitels
         for a, b, rgb, alpha, y in subs:
             if a <= t <= b:
-                k = ramp(t, a, b, 0.2)
+                k = ramp(t, a, b, 0.08)
                 region = frame[y:y + rgb.shape[0]]
                 region += (rgb - region) * alpha * k
         if t < 0.3:
