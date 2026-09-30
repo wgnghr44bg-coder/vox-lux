@@ -66,15 +66,19 @@ Stappen:
    - Model grok-imagine-image ($0,02; pas MODEL aan in tools/xai_images.py).
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
-5. Video met extra pauzes, 432 Hz-muziek, mist en zachte effecten op passende
-   scènes (as, sneeuw, vonken, sterren), zoals de standaard. Controleer zelf een
-   paar beelden uit de video (ook met effect) en het geluid tot het eind.
+5. Video met extra pauzes, 432 Hz-muziek, mist en rustig bewegend beeld; daarna in
+   één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
+   citaat, tijdlijn, afsluiting) en de zachte effecten op passende scènes (as, sneeuw,
+   vonken, sterren) met tools/motion.py, precies zoals stap 4 en 5 van de standaard.
+   Controleer zelf proefbeelden van elk onderdeel (--proef), een paar beelden uit de
+   eindvideo en het geluid tot het eind. Upload het -motion-bestand.
 6. Thumbnail met tools/make_thumbnail.py in dezelfde stijl.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
    een woensdag-video) volgens stories/PROMPT-SHORTS.md (met de link van stap 7),
-   met hetzelfde zachte effect als de lange video op die plek (zie de standaard).
+   met hetzelfde zachte effect als de lange video op die plek (zie de standaard),
+   zonder intro, outro of andere motion graphics.
    Upload ze allemaal privé en gepland op de Short-plekken uit planning.txt (de
    sterkste eerst). Met 7 uploads kan de daglimiet van YouTube bereikt worden:
    upload dan de rest na 09:00 de volgende dag (zie C). Zet de geplande Shorts met hun
