@@ -10,7 +10,10 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
 1. **Afbeeldingen** — `python3 tools/xai_images.py stories/<verhaal> all`
    (Grok Imagine quality, 16:9, uit `afbeeldingen-prompts.md`). Eerst 3 proefbeelden
    tonen en akkoord vragen, want het kost geld.
-2. **Langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal>`
+2. **Welkomst + langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal> --welkom`
+   De stem begint met "Welcome back to Sleep Archives." (`branding/welkom.mp3`, gewone stem,
+   één keer ingesproken, nooit opnieuw laten maken), tijdens de intro met sterren en maan;
+   daarna begint het verhaal. Alle tijden schuiven vanzelf mee. (Voor Shorts niet van belang.)
    Na elke zin extra stilte: 0,7 s + 0,1 s per seconde zinslengte (max. 2,2 s),
    bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
    `video/stem-met-pauzes.wav`, `tijdlijn-pauzes.tsv` en `afbeeldingen-tijden-pauzes.tsv`.
