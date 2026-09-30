@@ -267,6 +267,128 @@ def align(env, s, e, pieces):
     return [(bounds[k], bounds[k + 1], p) for k, p in enumerate(pieces)]
 
 
+# ---- woord-voor-woord uitlijnen (pocketsphinx, gratis en offline) ----
+_DEC = None
+STATS = {"exact": 0, "geschat": 0}   # hoeveel zinnen woord voor woord gelukt zijn
+ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
+TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def _num_words(n):
+    """Getal als Engelse woorden (jaartallen zoals ze uitgesproken worden)."""
+    if n < 20:
+        return [ONES[n]]
+    if n < 100:
+        return [TENS[n // 10]] + ([ONES[n % 10]] if n % 10 else [])
+    if 1100 <= n < 2000 or 2010 <= n < 2100:          # 1912 -> nineteen twelve
+        hi, lo = divmod(n, 100)
+        return _num_words(hi) + (["hundred"] if lo == 0 else ["oh", ONES[lo]] if lo < 10 else _num_words(lo))
+    if n < 1000:
+        h, r = divmod(n, 100)
+        return [ONES[h], "hundred"] + (_num_words(r) if r else [])
+    t, r = divmod(n, 1000)
+    return _num_words(t) + ["thousand"] + (_num_words(r) if r else [])
+
+
+def _decoder():
+    global _DEC
+    if _DEC is None:
+        try:
+            from pocketsphinx import Decoder
+        except ImportError:
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "pocketsphinx"], check=True)
+            from pocketsphinx import Decoder
+        _DEC = Decoder(samprate=16000, loglevel="FATAL")
+    return _DEC
+
+
+def word_starts(audio, s, e, text):
+    """Begintijd (s, in het audiobestand) van elk woord van text (text.split()), gevonden door
+    de tekst op de stem te leggen. Woorden die het woordenboek niet kent krijgen een tijd
+    tussen hun buren in. None als het uitlijnen mislukt."""
+    dec = _decoder()
+    words = text.split()
+    toks = []                       # per zichtbaar woord: de woorden zoals ze gesproken worden
+    for w in words:
+        parts = []
+        for piece in re.split(r"[-\u2013\u2014/]", w.lower()):
+            core = re.sub(r"[^a-z0-9']", "", piece.replace("\u2019", "'")).strip("'")
+            if core.isdigit():
+                parts += _num_words(int(core)) if int(core) < 10000 else []
+            elif core:
+                parts.append(core)
+        toks.append([t for t in parts if dec.lookup_word(t)])
+    flat = [t for ts in toks for t in ts]
+    if not flat:
+        return None
+    pad = 0.3
+    raw = subprocess.run([FFMPEG, "-hide_banner", "-loglevel", "error", "-ss", f"{max(s - pad, 0):.3f}",
+                          "-t", f"{e - s + 2 * pad:.3f}", "-i", str(audio), "-ac", "1", "-ar", "16000",
+                          "-f", "s16le", "-"], capture_output=True).stdout
+    try:
+        dec.set_align_text(" ".join(flat))
+        dec.start_utt(); dec.process_raw(raw, full_utt=True); dec.end_utt()
+        segs = [(re.sub(r"\(\d+\)$", "", g.word), g.start_frame / 100) for g in dec.seg()
+                if g.word not in ("<s>", "</s>", "<sil>", "(NULL)", "[NOISE]")]
+    except Exception:
+        return None
+    if len(segs) != len(flat):
+        return None
+    base, k, starts = max(s - pad, 0), 0, []
+    for ts in toks:
+        starts.append(base + segs[k][1] if ts else None)
+        k += len(ts)
+    # onbekende woorden: tussen de buren in
+    known = [i for i, t in enumerate(starts) if t is not None]
+    for i, t in enumerate(starts):
+        if t is None:
+            lo = max((j for j in known if j < i), default=None)
+            hi = min((j for j in known if j > i), default=None)
+            if lo is not None and hi is not None:
+                starts[i] = starts[lo] + (starts[hi] - starts[lo]) * (i - lo) / (hi - lo)
+            elif lo is not None:
+                starts[i] = starts[lo] + 0.3 * (i - lo)
+            elif hi is not None:
+                starts[i] = max(s, starts[hi] - 0.3 * (hi - i))
+    return starts
+
+
+def timed_chunks_rel(audio, env, t0, s, e, text):
+    """Zoals timed_chunks, maar env begint op t0 in het audiobestand; tijden relatief aan t0."""
+    pieces = chunks(text)
+    starts = word_starts(audio, s, e, text)
+    STATS["exact" if starts is not None else "geschat"] += 1
+    if starts is None:
+        return align(env, s - t0, e - t0, pieces)
+    res, w = [], 0
+    marks = []
+    for p in pieces:
+        marks.append((starts[w] - t0, p))
+        w += len(p.split())
+    for k, (t, p) in enumerate(marks):
+        nxt = marks[k + 1][0] if k + 1 < len(marks) else e - t0
+        res.append((t, max(nxt, t + 0.3), p))
+    return res
+
+
+def timed_chunks(audio, env, s, e, text):
+    """Ondertitelstukjes van één zin met hun tijden: woord voor woord uitgelijnd;
+    lukt dat niet, dan de schatting op de stiltes (align)."""
+    pieces = chunks(text)
+    starts = word_starts(audio, s, e, text)
+    if starts is None:
+        return align(env, s, e, pieces)
+    out, w = [], 0
+    for p in pieces:
+        out.append([starts[w], p])
+        w += len(p.split())
+    res = []
+    for k, (t, p) in enumerate(out):
+        nxt = out[k + 1][0] if k + 1 < len(out) else e
+        res.append((t, max(nxt, t + 0.3), p))
+    return res
+
+
 def intro_parts(audio, text):
     """Lengte van het gesproken begin en de ondertitels. De [pause]-stukken ("Did you know?",
     de zin over het onderwerp, het weetje) vallen op de langste stiltes; lange stukken
@@ -274,6 +396,17 @@ def intro_parts(audio, text):
     env = envelope(audio)
     dur = len(env) / ENV_RATE
     pieces = [p.strip() for p in text.replace("[long pause]", "[pause]").split("[pause]") if p.strip()]
+    # eerst: de hele tekst woord voor woord op de stem leggen
+    starts = word_starts(audio, 0.0, dur, " ".join(pieces))
+    if starts is not None:
+        marks, w = [], 0
+        for p in pieces:
+            for c in chunks(p):
+                marks.append((starts[w], c))
+                w += len(c.split())
+        subs = [(t, max(marks[k + 1][0] if k + 1 < len(marks) else dur, t + 0.3), c)
+                for k, (t, c) in enumerate(marks)]
+        return dur, subs
     g = sorted(gaps(env, 0, dur, 0.2), key=lambda x: -x[1])[:len(pieces) - 1]
     cuts = sorted(m for m, _ in g)
     if len(cuts) < len(pieces) - 1:     # te weinig stiltes gevonden: evenredig verdelen
@@ -284,7 +417,7 @@ def intro_parts(audio, text):
     bounds = [0.0] + starts + [dur]
     subs = []
     for k, p in enumerate(pieces):
-        subs += align(env, bounds[k], bounds[k + 1], chunks(p))
+        subs += timed_chunks(audio, env, bounds[k], bounds[k + 1], p)
     return dur, subs
 
 
@@ -331,8 +464,10 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     # ondertitels: korte stukjes die op de stiltes in de stem wisselen
     env = envelope(story / "video" / "stem-met-pauzes.wav", t0, sents[-1][1] - t0 + 0.5)
     timed = list(intro_subs)
+    stem = story / "video" / "stem-met-pauzes.wav"
     for s, e, text in sents:
-        timed += [(a + t0 - base, b + t0 - base, c) for a, b, c in align(env, s - t0, e - t0, chunks(text))]
+        timed += [(a - base, b - base, c) for a, b, c in
+                  ((a + t0, b + t0, c) for a, b, c in timed_chunks_rel(stem, env, t0, s, e, text))]
     subs = []
     for k, (s, e, text) in enumerate(timed):
         a = s - 0.05
@@ -418,6 +553,10 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
         sys.exit("ffmpeg gaf een fout")
     music.unlink()
     print(f"klaar: {final} ({final.stat().st_size / 1e6:.1f} MB)")
+    n = STATS["exact"] + STATS["geschat"]
+    print(f"ondertitels: {STATS['exact']} van {n} zinnen woord voor woord gelijk met de stem"
+          + ("" if not STATS["geschat"] else f" ({STATS['geschat']} geschat op de stiltes)"))
+    STATS.update(exact=0, geschat=0)
 
 
 def main():

@@ -185,7 +185,9 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
    Tekst en mp3 in git houden (klein), dan hoeft het nooit opnieuw betaald te worden.
 3. `python3 tools/make_short.py stories/<verhaal> --lijst shorts.tsv [--alleen <naam>]`
    → `video/shorts/<naam>.mp4` (1080x1920, schuivend beeld, mist, grote ondertitels in korte
-   stukjes van ± 7 woorden die op de stiltes in de stem wisselen (loopt gelijk met de stem),
+   stukjes (tot 9 woorden) die woord voor woord op de stem zijn gelegd (pocketsphinx, gratis,
+   wordt vanzelf geïnstalleerd; het script meldt "ondertitels: X van Y zinnen woord voor
+   woord gelijk" — lukt een zin niet, dan schat het op de stiltes),
    432 Hz-muziek op -17 dB). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
