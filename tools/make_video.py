@@ -1,4 +1,4 @@
-"""Maak de slaapvideo: Ken Burns per afbeelding, zachte overgangen, drijvende mist.
+"""Maak de slaapvideo: rustig bewegend beeld (zoom + schuiven), zachte overgangen, drijvende mist.
 
 Gebruik: python3 tools/make_video.py stories/pompeii [--tot SECONDEN]
 Nodig: <map>/afbeeldingen/NNN.jpg, <map>/afbeeldingen-tijden.tsv, <map>/audio/*-deel*.mp3.
@@ -9,11 +9,12 @@ import argparse, csv, subprocess, sys
 from pathlib import Path
 
 import imageio_ffmpeg
+from PIL import Image
+from concurrent.futures import ThreadPoolExecutor
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 FPS = 25
 XFADE = 1.5      # seconden overgang tussen afbeeldingen
-ZOOM = 0.07      # hoeveel er per afbeelding in- of uitgezoomd wordt
 FOG_SPEED = 20   # pixels per seconde
 FOG_OPACITY = 0.4
 
@@ -35,19 +36,45 @@ def make_fog(path):
          "-frames:v", "1", str(path)])
 
 
+# Beweging: elke BEWEGING seconden schuift het beeld rustig naar de volgende stand
+# (inzoomen, opzij, uitzoomen, andere kant op), met zachte start en stop. Zo staat het
+# beeld nooit stil, ook niet bij afbeeldingen van 1,5 minuut. (zoom, x, y); x/y = 0..1 van de marge.
+BEWEGING = 18
+STANDEN = [(1.04, 0.50, 0.50), (1.18, 0.50, 0.38), (1.18, 0.12, 0.45), (1.10, 0.88, 0.58)]
+
+
 def make_clip(img, out, dur, n):
-    """Een afbeelding met langzame zoom; afwisselend in/uit en een kleine zijwaartse beweging."""
+    """Een afbeelding met langzame, steeds wisselende zoom- en schuifbewegingen."""
     frames = round(dur * FPS)
-    p = f"(on/{frames})"
-    zoom = f"1+{ZOOM}*{p}" if n % 2 else f"1+{ZOOM}*(1-{p})"
-    drift = [0.5, 0.35, 0.65][n % 3]           # waar de zoom naartoe beweegt
-    x = f"(iw-iw/zoom)*(0.5+({drift}-0.5)*{p})"
-    y = "(ih-ih/zoom)/2"
-    run(["-loop", "1", "-framerate", str(FPS), "-i", str(img), "-filter_complex",
-         f"[0]scale=2880:1620:force_original_aspect_ratio=increase,crop=2880:1620,"
-         f"zoompan=z='{zoom}':x='{x}':y='{y}':d=1:s=1920x1080:fps={FPS},format=yuv420p",
+    segf = BEWEGING * FPS
+    k = f"mod(floor(on/{segf})+{n},{len(STANDEN)})"
+    k1 = f"mod(floor(on/{segf})+{n + 1},{len(STANDEN)})"
+    p = f"((on-floor(on/{segf})*{segf})/{segf})"
+    e = f"({p}*{p}*(3-2*{p}))"
+
+    def sel(idx, i):
+        v = [s[i] for s in STANDEN]
+        expr = str(v[-1])
+        for j in range(len(v) - 2, -1, -1):
+            expr = f"if(eq({idx},{j}),{v[j]},{expr})"
+        return expr
+
+    def lerp(i):
+        return f"({sel(k, i)}+({sel(k1, i)}-{sel(k, i)})*{e})"
+    zoom, x, y = lerp(0), f"(iw-iw/zoom)*{lerp(1)}", f"(ih-ih/zoom)*{lerp(2)}"
+    # Groot (4K) en in RGB, anders verspringt het beeld zichtbaar (zoompan schuift in hele
+    # pixels, in YUV zelfs per 2). Het vergroten gebeurt één keer met Pillow, niet per beeldje.
+    big = Path(out).with_suffix(".png")
+    im = Image.open(img).convert("RGB")
+    s = max(3840 / im.width, 2160 / im.height)
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    l, t = (im.width - 3840) // 2, (im.height - 2160) // 2
+    im.crop((l, t, l + 3840, t + 2160)).save(big)
+    run(["-loop", "1", "-framerate", str(FPS), "-i", str(big), "-filter_complex",
+         f"[0]format=rgb24,zoompan=z='{zoom}':x='{x}':y='{y}':d=1:s=1920x1080:fps={FPS},format=yuv420p",
          "-frames:v", str(frames), "-c:v", "libx264", "-preset", "veryfast", "-crf", "16",
          str(out)])
+    big.unlink()
 
 
 GROEP = 20      # max. aantal clips per ffmpeg-stap (geheugen)
@@ -97,13 +124,24 @@ def main():
         make_fog(fog)
 
     # 1. Clips per afbeelding. Elke clip (behalve de laatste) is XFADE langer, voor de overgang.
+    #    4 tegelijk (4 cores). Eerst naar een tijdelijke naam, zodat een afgebroken clip
+    #    de volgende keer opnieuw gemaakt wordt.
+    todo = []
     for i, r in enumerate(rows):
         dur = float(r["end"]) - float(r["start"]) + (XFADE if i < len(rows) - 1 else 0)
-        out = clips / f"{Path(r['file']).stem}-{dur:.2f}.mp4"
+        out = clips / f"{Path(r['file']).stem}-{dur:.2f}-b2.mp4"   # b2 = nieuwe beweging
         if not out.exists():
-            print(f"clip {r['file']} ({dur:.0f} s)", flush=True)
-            make_clip(story / "afbeeldingen" / r["file"], out, dur, i)
+            todo.append((story / "afbeeldingen" / r["file"], out, dur, i))
         r["clip"] = out
+
+    def one(job):
+        img, out, dur, i = job
+        print(f"clip {img.name} ({dur:.0f} s)", flush=True)
+        tmp = out.with_name("tmp-" + out.name)
+        make_clip(img, tmp, dur, i)
+        tmp.replace(out)
+    with ThreadPoolExecutor(4) as ex:
+        list(ex.map(one, todo))
 
     # 1b. Veel afbeeldingen tegelijk openen kost te veel geheugen (75 clips: ffmpeg gestopt
     #     door geheugentekort). Daarom eerst groepjes van GROEP clips aan elkaar zetten.

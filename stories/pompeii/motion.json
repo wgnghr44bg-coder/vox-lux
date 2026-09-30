@@ -1,0 +1,229 @@
+{
+ "onderwerp": "Pompeii: The Last Day",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "A Town Beneath the Mountain"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 790,
+   "nummer": 2,
+   "titel": "Painted Houses and Gardens"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1402,
+   "nummer": 3,
+   "titel": "Around the Bay"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1993,
+   "nummer": 4,
+   "titel": "The Last Morning"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2010,
+   "regel1": "24 August, 79 AD  ·  Morning",
+   "regel2": "Pompeii"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2624,
+   "nummer": 5,
+   "titel": "Baths, Work and Games"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3242,
+   "nummer": 6,
+   "titel": "The Cloud"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3259,
+   "regel1": "24 August, 79 AD  ·  Early afternoon",
+   "regel2": "Misenum, across the bay"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 3284,
+   "tekst": "A cloud of very unusual size and appearance.",
+   "bron": "Pliny the Younger, Letters 6.16"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 3329,
+   "titel": "The Bay of Naples, 79 AD",
+   "gebied": [
+    13.95,
+    14.6,
+    40.52,
+    40.9
+   ],
+   "plaatsen": [
+    {
+     "naam": "Misenum",
+     "lon": 14.085,
+     "lat": 40.785,
+     "kant": "links"
+    },
+    {
+     "naam": "Neapolis",
+     "lon": 14.255,
+     "lat": 40.842,
+     "kant": "boven"
+    },
+    {
+     "naam": "Herculaneum",
+     "lon": 14.347,
+     "lat": 40.806,
+     "kant": "links"
+    },
+    {
+     "naam": "Vesuvius",
+     "lon": 14.426,
+     "lat": 40.821,
+     "berg": true,
+     "rook": true
+    },
+    {
+     "naam": "Pompeii",
+     "lon": 14.485,
+     "lat": 40.749
+    },
+    {
+     "naam": "Stabiae",
+     "lon": 14.48,
+     "lat": 40.703
+    },
+    {
+     "naam": "Capri",
+     "lon": 14.24,
+     "lat": 40.55,
+     "kant": "onder"
+    }
+   ],
+   "route": [
+    [
+     14.09,
+     40.775
+    ],
+    [
+     14.15,
+     40.76
+    ],
+    [
+     14.22,
+     40.74
+    ],
+    [
+     14.3,
+     40.725
+    ],
+    [
+     14.38,
+     40.715
+    ],
+    [
+     14.44,
+     40.708
+    ],
+    [
+     14.47,
+     40.703
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3729,
+   "nummer": 7,
+   "titel": "Leaving the Town"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4236,
+   "nummer": 8,
+   "titel": "A Night at Stabiae"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4253,
+   "regel1": "Night of 24 August, 79 AD",
+   "regel2": "Stabiae"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4747,
+   "nummer": 9,
+   "titel": "The Second Morning"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5304,
+   "nummer": 10,
+   "titel": "After the Ash"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5721,
+   "nummer": 11,
+   "titel": "Pompeii Rediscovered"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5738,
+   "regel1": "1748",
+   "regel2": "Pompeii, Kingdom of Naples"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6246,
+   "nummer": 12,
+   "titel": "Pompeii Today"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6273,
+   "punten": [
+    [
+     "79 AD",
+     "Buried by Vesuvius"
+    ],
+    [
+     "1748",
+     "Rediscovered"
+    ],
+    [
+     "Today",
+     "Walking the streets again"
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6732,
+   "nummer": 13,
+   "titel": "The Villas Around Vesuvius"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7045,
+   "nummer": 14,
+   "titel": "The People of Pompeii"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7448,
+   "nummer": 15,
+   "titel": "Goodnight, Pompeii"
+  }
+ ]
+}

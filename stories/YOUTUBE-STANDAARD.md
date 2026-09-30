@@ -29,24 +29,55 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
        --audio stories/<verhaal>/video/stem-met-pauzes.wav \
        --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -17
    ```
-   1080p25, langzame zoom per afbeelding, zachte overgangen (1,5 s), drijvende mist.
+   1080p25, zachte overgangen (1,5 s), drijvende mist. Het beeld beweegt steeds rustig:
+   elke 18 s een nieuwe beweging (inzoomen, opzij schuiven, uitzoomen, andere kant op),
+   zodat het ook bij afbeeldingen van 1,5 minuut nooit stilstaat (eigenaar: "mag iets meer
+   bewegen"). De clips worden in 4K/RGB gemaakt (vloeiend) en 4 tegelijk.
    Muziek op -17 dB: duidelijk zachter dan de stem, vooral hoorbaar in de stiltes.
-   Duurt ± 1,6× de videolengte (4 cores). Test eerst met `--tot 100`.
+   Duurt ± 1× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
-5. **Zachte effecten** — `tools/effects.py` (gratis, geen xAI).
-   Schrijf `stories/<verhaal>/effecten.tsv` (kolommen `van	tot	effect	sterkte`, tijden in
-   seconden uit `afbeeldingen-tijden-pauzes.tsv`) en draai daarna:
-   `python3 tools/effects.py video/<naam>.mp4 video/<naam>-fx.mp4 --lijst effecten.tsv`
-   en upload het `-fx`-bestand. Regels:
+5. **Motion graphics + zachte effecten** — `tools/motion.py` (gratis, geen xAI), in één ronde
+   over de video uit stap 4. Upload daarna het `-motion`-bestand.
+   ```
+   python3 tools/motion.py stories/<verhaal>/video/<naam>.mp4 stories/<verhaal>/video/<naam>-motion.mp4 \
+       --plan stories/<verhaal>/motion.json --effecten stories/<verhaal>/effecten.tsv
+   ```
+   Duurt ± 0,65× de videolengte (± 80 min bij 2 uur). Voorbeeld: `stories/pompeii/motion.json`;
+   alle velden staan bovenin `tools/motion.py`. Tijden in seconden **mét** de extra pauzes
+   (uit `tijdlijn-pauzes.tsv`, dezelfde als de hoofdstukken in de beschrijving).
+   **motion.json** — altijd:
+   - `"intro": true` (eerste 9 s: sterren, maan, SLEEP ARCHIVES + onderwerp) en
+     `"slot": true` (laatste 14 s: Goodnight · Sleep well · Subscribe), `"onderwerp"` = titel zonder
+     " | Sleep Documentary".
+   - **Hoofdstuktitel** bij elk hoofdstuk uit de beschrijving: `tijd` = begin hoofdstuk + 3 s
+     (het eerste hoofdstuk op 10 s, na de intro), `nummer` 1, 2, 3…, titel in Title Case.
+   - **Datumkaartjes** (3–5): op belangrijke momenten, ± 20 s na het begin van dat stuk:
+     `regel1` = datum/tijd (bv. "14 April 1912  ·  23:40"), `regel2` = plaats. Alleen
+     feiten die in het script staan.
+   - **Oude kaart** (1, als het onderwerp over plekken of een reis gaat): `gebied`
+     (lon/lat, niet te groot: de plaatsen moeten leesbaar zijn), 4–8 `plaatsen` met juiste
+     coördinaten (`berg`/`rook` voor een vulkaan), en een `route` als er een reis is.
+     Kustlijnen komen vanzelf (Natural Earth, wordt 1× gedownload).
+   - **Citaat** (0–2): alleen een **echt, bekend** citaat uit een historische bron (brief,
+     dagboek, krant, oude vertaling), woordelijk en met `bron`. Twijfel je, laat het weg;
+     nooit zelf een citaat verzinnen.
+   - **Tijdlijn** (1, meestal in het laatste deel): 3–4 punten, `[jaartal, korte tekst]`.
+   - Nooit twee onderdelen tegelijk (het script waarschuwt bij overlap); ± 7 s hoofdstuk,
+     8 s datum, 16 s kaart, ± 10 s citaat, 9 s tijdlijn.
+   - Controleer elk onderdeel met een proefbeeld (seconden, bv. midden in de kaart):
+     `python3 tools/motion.py <video>.mp4 proef.jpg --plan ... --proef 3345` en bekijk het.
+   **effecten.tsv** — kolommen `van	tot	effect	sterkte`, tijden in seconden uit
+   `afbeeldingen-tijden-pauzes.tsv`. Regels:
    - Alleen op scènes waar het echt past: `as` (uitbarsting, brand, as, puin),
      `sneeuw` (winter, kou), `vonken` (vuur, kaarsen, lantaarns, fakkels),
      `sterren` (buiten bij nacht). Eén effect tegelijk; sterkte 0.6–1.0.
    - Hooguit ± 30 % van de video; de rest blijft zonder effect.
    - Kijk zelf een paar beelden na; te druk → lagere sterkte.
-   - Kost ± 1 extra renderronde (± 1× de videolengte + ± 3× de effectduur).
-   - **Shorts**: valt het stukje van een Short (deels) in een effect-stuk, geef de Short
-     hetzelfde effect: `python3 tools/effects.py short.mp4 short-fx.mp4 --effect <effect>`.
+   **Shorts** krijgen géén intro, outro of andere motion graphics (eigenaar): ze blijven
+   zoals ze zijn (schuivend beeld, mist, ondertitels, muziek). Valt het stukje van een Short
+   (deels) in een effect-stuk, geef de Short hetzelfde effect:
+   `python3 tools/effects.py short.mp4 short-fx.mp4 --effect <effect>`.
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
