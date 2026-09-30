@@ -86,7 +86,10 @@ Stappen:
    upload dan de rest na 09:00 de volgende dag (zie C). Zet de geplande Shorts met hun
    TikTok-bijschrift op de TikTok-pagina (zie "TikTok-overzicht" in
    stories/YOUTUBE-STANDAARD.md). Geen Google Drive.
-9. Werk planning.txt bij met de YouTube-links. Verplaats het onderwerp in
+9. Werk planning.txt bij met de YouTube-links en een blok "Kosten" met wat elk
+   betaald onderdeel echt gekost heeft (stem, afbeeldingen incl. opnieuw gemaakte,
+   thumbnail, gesproken begin van de Shorts) en het totaal in dollars; noem ook hoeveel
+   tekens de stem had en hoeveel afbeeldingen er gemaakt zijn. Verplaats het onderwerp in
    stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
    merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
    binnen, los het op en merge daarna.
