@@ -1,0 +1,241 @@
+{
+ "onderwerp": "The San Francisco Earthquake of 1906",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "A City by the Bay"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 377.3,
+   "nummer": 2,
+   "titel": "The Gold Rush"
+  },
+  {
+   "soort": "datum",
+   "tijd": 394,
+   "regel1": "January 1848",
+   "regel2": "Sierra Nevada foothills"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 811.0,
+   "nummer": 3,
+   "titel": "San Francisco in 1906"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1345.3,
+   "nummer": 4,
+   "titel": "A Day by the Sea"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1828.1,
+   "nummer": 5,
+   "titel": "The Last Evening"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1845,
+   "regel1": "17 April 1906  ·  Evening",
+   "regel2": "Grand Opera House, San Francisco"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2200.6,
+   "nummer": 6,
+   "titel": "The Fault Beneath California"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2440,
+   "regel1": "18 April 1906  ·  5:12 am",
+   "regel2": "San Francisco"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2993.1,
+   "nummer": 7,
+   "titel": "The Morning of April 18"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3404.6,
+   "nummer": 8,
+   "titel": "The Fires Begin"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3746.9,
+   "nummer": 9,
+   "titel": "The Rescuers"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4186.7,
+   "nummer": 10,
+   "titel": "The Line at Van Ness Avenue"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4369,
+   "regel1": "21 April 1906  ·  Morning",
+   "regel2": "Van Ness Avenue"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 4410,
+   "titel": "San Francisco Bay, 1906",
+   "gebied": [
+    -122.53,
+    -122.24,
+    37.73,
+    37.88
+   ],
+   "plaatsen": [
+    {
+     "naam": "Golden Gate",
+     "lon": -122.478,
+     "lat": 37.818,
+     "kant": "boven"
+    },
+    {
+     "naam": "Presidio",
+     "lon": -122.466,
+     "lat": 37.797,
+     "kant": "onder"
+    },
+    {
+     "naam": "Golden Gate Park",
+     "lon": -122.483,
+     "lat": 37.769,
+     "kant": "onder"
+    },
+    {
+     "naam": "Van Ness Avenue",
+     "lon": -122.4235,
+     "lat": 37.785,
+     "kant": "links"
+    },
+    {
+     "naam": "Telegraph Hill",
+     "lon": -122.4058,
+     "lat": 37.8024,
+     "kant": "boven"
+    },
+    {
+     "naam": "Ferry Building",
+     "lon": -122.3937,
+     "lat": 37.7955,
+     "kant": "onder"
+    },
+    {
+     "naam": "Angel Island",
+     "lon": -122.43,
+     "lat": 37.861
+    },
+    {
+     "naam": "Oakland",
+     "lon": -122.2711,
+     "lat": 37.8044,
+     "kant": "onder"
+    }
+   ],
+   "route": [
+    [
+     -122.392,
+     37.796
+    ],
+    [
+     -122.37,
+     37.799
+    ],
+    [
+     -122.35,
+     37.803
+    ],
+    [
+     -122.325,
+     37.806
+    ],
+    [
+     -122.3,
+     37.806
+    ],
+    [
+     -122.28,
+     37.805
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4563.0,
+   "nummer": 11,
+   "titel": "Together in the Tents"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 4866,
+   "tekst": "Never in all San Francisco's history, were her people so kind and courteous as on this night of terror.",
+   "bron": "Jack London, “The Story of an Eye-Witness”, Collier's, 5 May 1906"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4969.4,
+   "nummer": 12,
+   "titel": "Rebuilding the City"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5693.6,
+   "nummer": 13,
+   "titel": "The World's Fair of 1915"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5711,
+   "regel1": "1915",
+   "regel2": "Panama-Pacific International Exposition"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6038.4,
+   "nummer": 14,
+   "titel": "What the Scientists Learned"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6469.4,
+   "nummer": 15,
+   "titel": "Goodnight, San Francisco"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6490,
+   "punten": [
+    [
+     "1848",
+     "Gold in the Sierra"
+    ],
+    [
+     "1906",
+     "Earthquake and fire"
+    ],
+    [
+     "1915",
+     "The world's fair"
+    ],
+    [
+     "Today",
+     "Remembered every 18 April"
+    ]
+   ]
+  }
+ ]
+}
