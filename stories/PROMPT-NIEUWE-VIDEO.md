@@ -68,8 +68,9 @@ Stappen:
      bevat, vervormd is of niet bij de scène past.
 5. Video met extra pauzes, 432 Hz-muziek, mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
-   citaat, tijdlijn, afsluiting) en de zachte effecten op passende scènes (as, sneeuw,
-   vonken, sterren) met tools/motion.py, precies zoals stap 4 en 5 van de standaard.
+   citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
+   sneeuw, regen, mist, vonken, vuur, kaarslicht, lichtstralen, stof, vuurvliegjes,
+   sterren) met tools/motion.py, precies zoals stap 4 en 5 van de standaard.
    Controleer zelf proefbeelden van elk onderdeel (--proef), een paar beelden uit de
    eindvideo en het geluid tot het eind. Upload het -motion-bestand.
 6. Thumbnail met tools/make_thumbnail.py in dezelfde stijl.
