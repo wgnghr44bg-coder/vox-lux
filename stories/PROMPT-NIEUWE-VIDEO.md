@@ -78,8 +78,9 @@ Stappen:
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
    een woensdag-video) volgens stories/PROMPT-SHORTS.md (met de link van stap 7),
-   met hetzelfde zachte effect als de lange video op die plek (zie de standaard),
-   zonder intro, outro of andere motion graphics.
+   met het gesproken begin in drie stukjes ("Did you know? [pause] <onderwerp + jaar>.
+   [pause] <weetje>."), synchrone ondertitels, een datumkaartje bovenin en passende
+   effecten via motion.py (zie "Shorts" in de standaard), zonder intro of outro.
    Upload ze allemaal privé en gepland op de Short-plekken uit planning.txt (de
    sterkste eerst). Met 7 uploads kan de daglimiet van YouTube bereikt worden:
    upload dan de rest na 09:00 de volgende dag (zie C). Zet de geplande Shorts met hun

@@ -39,7 +39,7 @@ video { width: 150px; aspect-ratio: 9 / 16; max-width: 100%; border-radius: 10px
 .tag.today { color: var(--warn); } .tag.done { color: var(--ok); } .tag.soon { color: var(--muted); }
 .title { font: 700 21px/1.2 var(--display); margin: 0; text-wrap: balance; }
 .topic { color: var(--muted); font-size: 13px; }
-.caption { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; user-select: all; }
+.caption { display: block; width: 100%; box-sizing: border-box; resize: none; overflow: hidden; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.5 var(--body); -webkit-user-select: text; user-select: text; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .actions button, .actions a { font: 600 14px var(--body); border-radius: 10px; padding: 9px 14px; cursor: pointer; border: 1px solid var(--line); background: transparent; color: var(--fg); text-decoration: none; }
 .actions .primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
@@ -119,23 +119,46 @@ function card(r, today) {
   meta.innerHTML = `
     <div class="when"><span class="date"></span><span class="tag ${tag[0]}"></span></div>
     <div><h2 class="title"></h2><div class="topic"></div></div>
-    <div class="caption"></div>
+    <textarea class="caption" readonly inputmode="none" aria-label="Bijschrift"></textarea>
     <div class="actions"></div>
     <div class="status" role="status"></div>`;
   meta.querySelector(".date").textContent = fmtDate(r.datum);
   meta.querySelector(".tag").textContent = tag[1];
   meta.querySelector(".title").textContent = r.titel || "Short";
   meta.querySelector(".topic").textContent = r.onderwerp || "";
-  const cap = meta.querySelector(".caption"); cap.textContent = r.bijschrift || "";
+  const text = r.bijschrift || "";
+  const cap = meta.querySelector(".caption"); cap.value = text;
+  requestAnimationFrame(() => { cap.style.height = "auto"; cap.style.height = cap.scrollHeight + 2 + "px"; });
+  cap.onfocus = () => cap.select();
   const status = meta.querySelector(".status");
   const acts = meta.querySelector(".actions");
 
+  // Kopiëren: eerst de oude manier (werkt ook in de app op de iPhone), dan de nieuwe,
+  // en anders de tekst selecteren zodat je zelf op Kopiëren kunt tikken.
   const copy = btn("Bijschrift kopiëren", "primary");
-  copy.onclick = async () => {
-    try { await navigator.clipboard.writeText(r.bijschrift || ""); status.textContent = "Bijschrift gekopieerd."; }
-    catch (e) { const s = getSelection(); s.removeAllRanges(); const rg = document.createRange(); rg.selectNodeContents(cap); s.addRange(rg); status.textContent = "Tekst geselecteerd: kies Kopiëren."; }
+  const copied = () => { status.textContent = "Bijschrift gekopieerd. Plak het in TikTok."; };
+  const manual = () => { cap.focus(); cap.select(); status.textContent = "Tik op de tekst hierboven, kies Alles selecteren en dan Kopiëren."; };
+  copy.onclick = () => {
+    let ok = false;
+    try {
+      cap.readOnly = false; cap.focus({ preventScroll: true }); cap.select(); cap.setSelectionRange(0, text.length);
+      ok = document.execCommand("copy");
+    } catch (e) {}
+    cap.readOnly = true; cap.blur();
+    if (ok) { copied(); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      Promise.race([navigator.clipboard.writeText(text), new Promise((_, no) => setTimeout(no, 1500))]).then(copied, manual);
+    } else manual();
   };
   acts.append(copy);
+  if (navigator.share) {
+    const share = btn("Delen");
+    share.onclick = async () => {
+      try { await navigator.share({ text }); status.textContent = "Kies Kopieer of TikTok in het deelmenu."; }
+      catch (e) { if (!e || e.name !== "AbortError") manual(); }
+    };
+    acts.append(share);
+  }
 
   if (src) {
     const dl = btn("Video downloaden");

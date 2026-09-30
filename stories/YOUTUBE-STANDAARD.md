@@ -89,10 +89,17 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    - Samen ± 40–50 % van de video; niet op scènes waar niets past (geen regen in de woestijn).
    - Controleer elk effect met `--proef` op een tijd midden in het stuk; te druk → lagere sterkte,
      niet te zien → 1.0 of een ander beeld.
-   **Shorts** krijgen géén intro, outro of andere motion graphics (eigenaar): ze blijven
-   zoals ze zijn (schuivend beeld, mist, ondertitels, muziek). Valt het stukje van een Short
-   (deels) in een effect-stuk, geef de Short hetzelfde effect:
-   `python3 tools/effects.py short.mp4 short-fx.mp4 --effect <effect>`.
+   **Shorts** krijgen géén intro of outro (eigenaar), wél na `make_short.py` één ronde
+   `motion.py` met een **datumkaartje** bovenin (eerste 9 s: datum/tijd + plaats van dat
+   stukje) en de **passende effecten** (zelfde tabel; kies wat bij de beelden van de Short
+   past, bv. sterren + mist bij nacht op zee, stof bij een ochtend na een aardbeving):
+   ```
+   echo '{"items": [{"soort": "datum", "tijd": 0.8, "duur": 9, "regel1": "14 April 1912  ·  Night", "regel2": "North Atlantic"}]}' > video/shorts/<naam>-motion.json
+   printf 'van\ttot\teffect\tsterkte\n0\t70\tsterren\t1.0\n0\t70\tmist\t0.6\n' > video/shorts/<naam>-effecten.tsv
+   python3 tools/motion.py video/shorts/<naam>.mp4 video/shorts/<naam>-fx.mp4 \
+       --plan video/shorts/<naam>-motion.json --effecten video/shorts/<naam>-effecten.tsv
+   ```
+   Upload en plaats op de TikTok-pagina het `-fx`-bestand. ± 4 min per Short.
 
 ## Titel
 Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
