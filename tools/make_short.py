@@ -123,7 +123,7 @@ class Pan:
 
 
 ENV_RATE = 100      # omhullende van de stem: 100 waarden per seconde
-CHUNK_WORDS = 7     # ondertitels in stukjes van hooguit zoveel woorden
+CHUNK_WORDS = 9     # ondertitels in stukjes van hooguit zoveel woorden
 # knip liefst vóór deze woorden, en nooit direct na een lidwoord of voorzetsel
 SPLIT_BEFORE = {"and", "but", "or", "in", "on", "at", "with", "of", "to", "from", "for", "into", "who",
                 "which", "that", "as", "when", "while", "because", "so", "then", "where", "until", "had", "was",
@@ -192,20 +192,75 @@ def chunks(text):
     return merged
 
 
+def syllables(word):
+    """Ruwe schatting van het aantal lettergrepen (voor de spreektijd van een woord)."""
+    w = word.lower()
+    digits = sum(ch.isdigit() for ch in w)
+    groups = len(re.findall(r"[aeiouy]+", re.sub(r"[^a-z]", "", w)))
+    if w.rstrip(".,;:!?'\u2019\u201d").endswith("e") and groups > 1:
+        groups -= 1                      # stomme e (make, stone)
+    return max(1, groups) + 0.6 * digits
+
+
+def voiced_onset(env, t, before=0.3, after=0.5):
+    """Moment waarop de stem rond t begint (de tijdlijn kan ± 0,2 s afwijken): het eerste
+    luide stukje in [t - before, t + after] dat na minstens 0,1 s stilte komt."""
+    a, b = max(int((t - before) * ENV_RATE), 0), min(int((t + after) * ENV_RATE), len(env))
+    thr = 0.12 * np.percentile(env, 90)
+    q = int(0.1 * ENV_RATE)
+    for k in range(a, b):
+        if env[k] > thr and (k < q or (env[k - q:k] <= thr).all()):
+            return k / ENV_RATE
+    return t
+
+
 def align(env, s, e, pieces):
-    """Tijden voor de stukjes van één zin: evenredig met het aantal letters, en elke grens
-    naar de dichtstbijzijnde stilte in de stem geschoven (zo loopt de tekst gelijk op)."""
+    """Tijden voor de ondertitelstukjes van één zin.
+    De lettergrepen worden verdeeld over de tijd dat er echt gesproken wordt (stiltes tellen
+    niet mee), zo komt elke grens op de juiste plek. Eindigt een stukje met een komma, dan
+    valt de grens op de stilte die daar het best bij past; de nieuwe tekst verschijnt vlak
+    voordat de stem weer begint."""
+    s = voiced_onset(env, s)
     if len(pieces) == 1:
         return [(s, e, pieces[0])]
+    a, b = int(s * ENV_RATE), max(int(e * ENV_RATE), int(s * ENV_RATE) + 1)
+    seg = env[a:b]
+    thr = 0.12 * np.percentile(seg, 90) if len(seg) > 4 else 0
+    voiced = np.cumsum(seg > thr)
+    total = max(voiced[-1], 1)
+    syl = [sum(syllables(w) for w in p.split()) for p in pieces]
+    frac = np.cumsum(syl)[:-1] / sum(syl)
     cand = gaps(env, s, e)
-    lens = np.array([len(p) + 2 for p in pieces], float)
-    ideal = s + (e - s) * np.cumsum(lens)[:-1] / lens.sum()
-    cuts, used, last = [], set(), s
-    for t in ideal:
-        best = min(((abs(m - t), m) for m, _ in cand if m not in used and m > last + 0.3), default=None)
-        c = best[1] if best and best[0] < 0.8 else t
+    cuts, last = [], s
+    for k, f in enumerate(frac):
+        # moment waarop dit deel van de spreektijd voorbij is
+        idx = int(np.searchsorted(voiced, f * total))
+        t = (a + min(idx, len(seg) - 1)) / ENV_RATE
+        comma = pieces[k].rstrip()[-1:] in ",;:\u2014\u2013"
+        best = None
+        for m, ln in cand:
+            if m <= last + 0.3:
+                continue
+            gi = int(m * ENV_RATE) - a
+            gf = voiced[min(max(gi, 0), len(voiced) - 1)] / total
+            if comma:
+                # na een komma zegt de stem [pause]: dat is een lange stilte (>= 0,35 s)
+                ok = ln >= 0.35 and abs(gf - f) < 0.25
+                score = abs(gf - f)
+            else:
+                ok = abs(m - t) < 0.3 or (ln >= 0.25 and abs(m - t) < 0.6)
+                score = abs(m - t) - 0.5 * ln
+            if ok and (best is None or score < best[0]):
+                best = (score, m, ln)
+        if best is None and comma:          # geen lange stilte gevonden: dichtstbijzijnde kleine
+            for m, ln in cand:
+                if m > last + 0.3 and abs(m - t) < 0.4 and (best is None or abs(m - t) < best[0]):
+                    best = (abs(m - t), m, ln)
+        if best:
+            c = max(best[1], best[1] + best[2] / 2 - 0.15)   # vlak voor de stem weer begint
+        else:
+            c = t - 0.05
         c = max(c, last + 0.3)
-        used.add(c)
         cuts.append(c)
         last = c
     bounds = [s] + cuts + [e]
@@ -224,7 +279,9 @@ def intro_parts(audio, text):
     if len(cuts) < len(pieces) - 1:     # te weinig stiltes gevonden: evenredig verdelen
         lens = np.array([len(p) for p in pieces], float)
         cuts = list(dur * np.cumsum(lens)[:-1] / lens.sum())
-    bounds = [0.0] + cuts + [dur]
+    # elk stuk begint waar de stem na de pauze weer begint
+    starts = [voiced_onset(env, c, before=0.0, after=1.5) for c in cuts]
+    bounds = [0.0] + starts + [dur]
     subs = []
     for k, p in enumerate(pieces):
         subs += align(env, bounds[k], bounds[k + 1], chunks(p))
