@@ -67,13 +67,28 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
      8 s datum, 16 s kaart, ± 10 s citaat, 9 s tijdlijn.
    - Controleer elk onderdeel met een proefbeeld (seconden, bv. midden in de kaart):
      `python3 tools/motion.py <video>.mp4 proef.jpg --plan ... --proef 3345` en bekijk het.
-   **effecten.tsv** — kolommen `van	tot	effect	sterkte`, tijden in seconden uit
-   `afbeeldingen-tijden-pauzes.tsv`. Regels:
-   - Alleen op scènes waar het echt past: `as` (uitbarsting, brand, as, puin),
-     `sneeuw` (winter, kou), `vonken` (vuur, kaarsen, lantaarns, fakkels),
-     `sterren` (buiten bij nacht). Eén effect tegelijk; sterkte 0.6–1.0.
-   - Hooguit ± 30 % van de video; de rest blijft zonder effect.
-   - Kijk zelf een paar beelden na; te druk → lagere sterkte.
+   **effecten.tsv** — kolommen `van	tot	effect	sterkte	x	y`, tijden in seconden uit
+   `afbeeldingen-tijden-pauzes.tsv` (x/y alleen voor kaarslicht/vuur: plek van de vlam,
+   0..1 van breedte/hoogte; leeg = standaard). De eigenaar wil ze **allemaal gebruiken
+   waar ze passen** (alle soorten die bij het onderwerp horen, verspreid over de video):
+   | effect | waar |
+   |---|---|
+   | `as` | uitbarsting, brand, as, puin |
+   | `sneeuw` | winter, kou, bergen |
+   | `regen` | regen, storm (rustig), grijze dagen, zee bij slecht weer |
+   | `mist` | ochtend, water, moeras, spookachtige/stille plekken, rook in de verte |
+   | `vonken` | vuur, fakkels, smidse, lantaarns |
+   | `vuur` | kampvuur, haard, brand in beeld (warme gloed van onderen + vonkjes) |
+   | `kaarslicht` | kaars, olielamp, lantaarn in een kamer (zet x/y op de vlam) |
+   | `lichtstralen` | zon of maan door ramen, bomen, wolken; kerken, zalen (beste op donkere beelden) |
+   | `stof` | binnen in zonlicht, oude zalen, bibliotheken, ruïnes |
+   | `vuurvliegjes` | zomeravond, tuinen, velden, bos bij schemer |
+   | `sterren` | buiten bij nacht, heldere hemel |
+   - Eén effect tegelijk, behalve rustige combinaties: `mist` + `sterren`, `mist` + `regen`,
+     `stof` + `lichtstralen`, `kaarslicht` + `stof`. Sterkte 0.6–1.0.
+   - Samen ± 40–50 % van de video; niet op scènes waar niets past (geen regen in de woestijn).
+   - Controleer elk effect met `--proef` op een tijd midden in het stuk; te druk → lagere sterkte,
+     niet te zien → 1.0 of een ander beeld.
    **Shorts** krijgen géén intro, outro of andere motion graphics (eigenaar): ze blijven
    zoals ze zijn (schuivend beeld, mist, ondertitels, muziek). Valt het stukje van een Short
    (deels) in een effect-stuk, geef de Short hetzelfde effect:
