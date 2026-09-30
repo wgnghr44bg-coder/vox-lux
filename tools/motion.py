@@ -33,7 +33,7 @@ Duur: hoofdstuk 7 s, datum 8 s, kaart 16 s, citaat ± 9-12 s, tijdlijn 9 s.
 De kustlijnen komen uit Natural Earth (publiek domein); de eerste keer wordt
 ne_10m_land.geojson (10 MB) gedownload naar tools/.cache/.
 """
-import argparse, csv, json, math, re, subprocess, sys, urllib.request
+import argparse, json, math, re, subprocess, sys, urllib.request
 from pathlib import Path
 
 import imageio_ffmpeg
@@ -41,7 +41,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 sys.path.insert(0, str(Path(__file__).parent))
-from effects import PRESETS, Particles  # noqa: E402
+from effects import apply_all, read_list  # noqa: E402
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 ROOT = Path(__file__).resolve().parent.parent
@@ -522,7 +522,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("inp"); ap.add_argument("out")
     ap.add_argument("--plan", help="motion.json")
-    ap.add_argument("--effecten", help="effecten.tsv (van, tot, effect[, sterkte]) — zelfde als tools/effects.py")
+    ap.add_argument("--effecten", help="effecten.tsv (van, tot, effect[, sterkte[, x, y]]) — zie tools/effects.py")
     ap.add_argument("--proef", type=float, help="alleen het beeld op deze tijd opslaan (out = .png/.jpg)")
     ap.add_argument("--seed", type=int, default=3)
     a = ap.parse_args()
@@ -532,25 +532,14 @@ def main():
     rng = np.random.default_rng(a.seed)
     plan = json.load(open(a.plan)) if a.plan else {}
     parts = build(plan, c, dur, rng)
-    systems = []
-    if a.effecten:
-        for r in csv.DictReader(open(a.effecten), delimiter="\t"):
-            p = dict(PRESETS[r["effect"].strip()])
-            p["n"] = max(1, int(p["n"] * float(r.get("sterkte") or 1)))
-            systems.append((float(r["van"]), float(r["tot"]), Particles(p, w, h, rng), np.array(p["color"], np.float32) / 255))
+    systems = read_list(a.effecten, w, h, rng) if a.effecten else []
 
     def render(buf, t, dt):
         act_p = [p for p in parts if p.a <= t < p.b]
-        act_s = [s for s in systems if s[0] <= t <= s[1]]
-        if not act_p and not act_s:
+        if not act_p and not any(s[0] <= t <= s[1] for s in systems):
             return buf
         frame = np.frombuffer(buf, np.uint8).reshape(h, w, 3).astype(np.float32) / 255
-        for van, tot, ps, col in act_s:
-            ps.step(dt, t)
-            g = min(1, (t - van) / 3.0, (tot - t) / 3.0)
-            layer = np.zeros((h, w), np.float32)
-            ps.draw(layer, t)
-            frame = over(frame, layer, col, g)
+        frame, _ = apply_all(frame, systems, t, dt)
         for p in act_p:
             frame = p.draw(frame, t - p.a)
         return (np.clip(frame, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes()
