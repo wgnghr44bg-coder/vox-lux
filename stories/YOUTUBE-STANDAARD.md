@@ -165,9 +165,16 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
 1. Kies stukjes van 45–60 s (begin en eind op een zinsgrens) en zet ze in
    `stories/<verhaal>/shorts.tsv` (kolommen `naam`, `van`, `tot` = zinsnummers uit
    `tijdlijn-pauzes.tsv`). Eerst `tools/add_pauses.py` draaien als `video/stem-met-pauzes.wav` ontbreekt.
-2. **Gesproken begin**: de eigenaar wil dat de stem begint met "Did you know? [pause] <weetje>",
-   simpel Engels, nieuwsgierig makend, en het weetje moet in het stukje verteld worden.
-   Tekst in `shorts-intro/<naam>.txt`, inspreken (eerst akkoord vragen, kost geld):
+2. **Gesproken begin**: de stem begint met "Did you know? [pause] <weetje>", simpel Engels,
+   nieuwsgierig makend, en het weetje moet in het stukje verteld worden.
+   **De weetje-zin zegt meteen waar het verhaal over gaat**: noem de gebeurtenis of plek
+   en het jaar, zodat een kijker die niets weet het direct snapt (eigenaar). Dus niet
+   "The lookouts who spotted the iceberg had no binoculars.", maar:
+   "Did you know? [pause] On the night the Titanic sank in April 1912, the two lookouts
+   high in the mast had no binoculars." Of: "Did you know? [pause] When Vesuvius buried the
+   Roman town of Pompeii in 79 AD, a famous admiral simply went to sleep." Eén zin, ± 25 woorden.
+   Tekst in `shorts-intro/<naam>.txt`, inspreken (kost < 1 cent; de routine mag dit binnen
+   haar budget, een losse sessie vraagt eerst akkoord):
    `python3 tools/xai_voiceover.py stories/<verhaal>/shorts-intro/<naam>.txt --proxy-auth -o stories/<verhaal>/shorts-intro/<naam>.mp3`
    Tekst en mp3 in git houden (klein), dan hoeft het nooit opnieuw betaald te worden.
 3. `python3 tools/make_short.py stories/<verhaal> --lijst shorts.tsv [--alleen <naam>]`
