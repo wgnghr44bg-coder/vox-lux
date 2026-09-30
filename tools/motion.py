@@ -52,6 +52,7 @@ INK = (0.30, 0.20, 0.12)
 LAND_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson"
 DUUR = {"hoofdstuk": 7.0, "datum": 8.0, "kaart": 16.0, "tijdlijn": 9.0}
 INTRO, SLOT = 9.0, 14.0
+PRESET = "veryfast"   # x264: de basisvideo is al goed gecomprimeerd; medium kost ± 3x zoveel tijd
 
 
 def ease(x):
@@ -71,11 +72,42 @@ def roman(n):
     return out
 
 
+class Mask(np.ndarray):
+    """Masker (0..1, beeldgrootte) dat onthoudt waar het niet leeg is (box = y0, y1, x0, x1).
+    over() werkt dan alleen in dat stukje: een klein datumkaartje kost zo veel minder tijd.
+    Rekenen met een masker (m * iets, clip) houdt de box; alleen gebruiken als de uitkomst
+    nergens buiten het oude masker komt (dus niet voor 1 - m)."""
+
+    def __array_finalize__(self, obj):
+        self.box = getattr(obj, "box", None)
+
+
+def make_mask(arr, pad=32):
+    m = arr.view(Mask)
+    rows, cols = np.where(arr.max(1) > 0.002)[0], np.where(arr.max(0) > 0.002)[0]
+    if len(rows) == 0:
+        m.box = (0, 0, 0, 0)
+    else:
+        h, w = arr.shape
+        m.box = (max(rows[0] - pad, 0), min(rows[-1] + 1 + pad, h), max(cols[0] - pad, 0), min(cols[-1] + 1 + pad, w))
+    return m
+
+
 def over(frame, m, col, a):
+    """Legt kleur col met dekking m*a over frame (in het beeld zelf als m een box heeft)."""
     if a <= 0.002:
         return frame
-    mm = (m * a)[..., None]
-    return frame * (1 - mm) + np.asarray(col, np.float32) * mm
+    box = getattr(m, "box", None)
+    col = np.asarray(col, np.float32)
+    if box is None:
+        mm = (np.asarray(m) * a)[..., None]
+        return frame * (1 - mm) + col * mm
+    y0, y1, x0, x1 = box
+    if y1 <= y0 or x1 <= x0:
+        return frame
+    mm = (np.asarray(m[y0:y1, x0:x1]) * a)[..., None]
+    frame[y0:y1, x0:x1] = frame[y0:y1, x0:x1] * (1 - mm) + col * mm
+    return frame
 
 
 class Canvas:
@@ -99,7 +131,7 @@ class Canvas:
         fn(ImageDraw.Draw(m))
         if blur:
             m = m.filter(ImageFilter.GaussianBlur(blur))
-        return np.asarray(m, np.float32) / 255
+        return make_mask(np.asarray(m, np.float32) / 255)
 
     def text(self, fn, glow=0, shadow=0):
         return (self.mask(fn), self.mask(fn, glow) if glow else None, self.mask(fn, shadow) if shadow else None)
@@ -533,7 +565,7 @@ def main():
 
     dec = subprocess.Popen([FF, "-v", "error", "-i", a.inp, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
     enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", str(fps),
-                            "-i", "-", "-i", a.inp, "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-preset", "medium",
+                            "-i", "-", "-i", a.inp, "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-preset", PRESET,
                             "-crf", "22", "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart", a.out],
                            stdin=subprocess.PIPE)
     fb, dt, i = w * h * 3, 1 / fps, 0
