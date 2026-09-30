@@ -4,7 +4,9 @@ Na een zin komt  PAUZE_BASIS + PAUZE_PER_SEC * (zinslengte in s)  seconden extra
 zodat lange zinnen meer ademruimte krijgen. De stilte gaat midden in de bestaande pauze.
 Alle tijden (tijdlijn en afbeeldingen) worden mee verschoven.
 
-Gebruik: python3 tools/add_pauses.py stories/pompeii
+Gebruik: python3 tools/add_pauses.py stories/pompeii [--welkom]
+Met --welkom begint de stem met branding/welkom.mp3 ("Welcome back to Sleep Archives.",
+één keer ingesproken, voor elke video hetzelfde); alle tijden schuiven dan mee.
 Uitvoer: <map>/video/stem-met-pauzes.wav, <map>/tijdlijn-pauzes.tsv,
          <map>/afbeeldingen-tijden-pauzes.tsv
 """
@@ -18,6 +20,8 @@ SR = 44100
 PAUZE_BASIS = 0.7
 PAUZE_PER_SEC = 0.1
 PAUZE_MAX = 2.2
+WELKOM = Path(__file__).resolve().parent.parent / "branding" / "welkom.mp3"
+WELKOM_VOOR, WELKOM_NA = 0.8, 1.5     # stilte voor en na de welkomst (s)
 
 
 def sec(x):
@@ -34,7 +38,9 @@ def hms(x):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story", type=Path)
-    story = ap.parse_args().story
+    ap.add_argument("--welkom", action="store_true", help="begin met branding/welkom.mp3")
+    a = ap.parse_args()
+    story = a.story
 
     lines = open(story / "tijdlijn.tsv").read().splitlines()
     header, rows = lines[0], [l.split("\t") for l in lines[1:] if l.strip()]
@@ -48,8 +54,17 @@ def main():
     cut_t = [c[0] for c in cuts]
     cum = np.concatenate([[0], np.cumsum([c[1] for c in cuts])])
 
+    lead = np.zeros(0, dtype="<i2")
+    if a.welkom:
+        w = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error",
+                            "-i", str(WELKOM), "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
+                           capture_output=True, check=True).stdout
+        lead = np.concatenate([np.zeros(int(WELKOM_VOOR * SR), dtype="<i2"), np.frombuffer(w, dtype="<i2"),
+                               np.zeros(int(WELKOM_NA * SR), dtype="<i2")])
+    offset = len(lead) / SR
+
     def shift(t):
-        return t + cum[bisect.bisect_right(cut_t, t)]
+        return t + cum[bisect.bisect_right(cut_t, t)] + offset
 
     # 1. audio: delen aan elkaar, stilte invoegen
     parts = sorted((story / "audio").glob("*-deel*.mp3"))
@@ -58,7 +73,7 @@ def main():
                           "-i", f"concat:{concat}", "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
                          capture_output=True, check=True).stdout
     audio = np.frombuffer(pcm, dtype="<i2")
-    pieces, prev = [], 0
+    pieces, prev = [lead], 0
     for t, extra in cuts:
         k = int(round(t * SR))
         pieces += [audio[prev:k], np.zeros(int(round(extra * SR)), dtype="<i2")]
@@ -81,7 +96,7 @@ def main():
     with open(story / "afbeeldingen-tijden-pauzes.tsv", "w") as f:
         f.write("file\tstart\tend\tslug\n")
         for i, r in enumerate(imgs):
-            s = shift(float(r["start"]))
+            s = 0.0 if i == 0 else shift(float(r["start"]))
             e = total if i == len(imgs) - 1 else shift(float(imgs[i + 1]["start"]))
             f.write(f"{r['file']}\t{s:.2f}\t{e:.2f}\t{r['slug']}\n")
 
