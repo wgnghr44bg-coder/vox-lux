@@ -262,12 +262,13 @@ class Datum:
     def __init__(self, c, it):
         W, H, U = c.W, c.H, c.U
         r1, r2 = it["regel1"], it.get("regel2", "")
-        f1 = c.font(FI, 46, r1, W * 0.8)
-        f2 = c.font(FR, 38, r2, W * 0.8)
-        x, y = (W * 0.0625, H * 0.815) if not c.vert else (W * 0.08, H * 0.70)
-        self.l = c.text(lambda d: (d.line((x, y - 10 * U, x, y + (90 if r2 else 50) * U), fill=220, width=max(3, int(3 * U))),
+        k = 1.35 if c.vert else 1.0      # Shorts: groter, goed leesbaar op de telefoon
+        f1 = c.font(FI, 46 * k, r1, W * 0.84)
+        f2 = c.font(FR, 38 * k, r2, W * 0.84)
+        x, y = (W * 0.0625, H * 0.815) if not c.vert else (W * 0.08, H * 0.12)   # Shorts: bovenin (onder de TikTok-balk), weg van de ondertitels
+        self.l = c.text(lambda d: (d.line((x, y - 10 * U, x, y + (90 if r2 else 50) * k * U), fill=220, width=max(3, int(3 * U))),
                                    d.text((x + 30 * U, y), r1, font=f1, fill=255),
-                                   d.text((x + 30 * U, y + 52 * U), r2, font=f2, fill=205)), shadow=6 * U)
+                                   d.text((x + 30 * U, y + 52 * k * U), r2, font=f2, fill=205)), shadow=6 * U)
         self.a, self.b = it["tijd"], it["tijd"] + it.get("duur", DUUR["datum"])
 
     def draw(self, frame, t):
