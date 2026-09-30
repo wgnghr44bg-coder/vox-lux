@@ -24,3 +24,13 @@ ondertitels woord voor woord uitgelijnd, datumkaartje, effecten) en opnieuw gepl
   Short 1  zo 4 okt 18:00  The families who fought a fire with red wine | San Francisco 1906       https://youtu.be/g9IrntwGDuw
   Short 3  ma 5 okt 18:00  Caruso, the earthquake and the President's photo | San Francisco 1906  https://youtu.be/7CoI1PwR-0E
 De oude versies (KaB4T_to8a8, vfsBvOUu63k, 7lRXBzQl1P0, q_EJN2ke_Qo, RxpME6CEJdI, C6J4vWE7S4w, kcBTVE1D-Ms, iGkWLG-wT5k; per ongeluk al verwijderd en opnieuw geüpload) verwijdert de eigenaar in YouTube Studio.
+
+Update 30 sep 2026: nieuwe versie van de lange video (v2) met de nieuwe beweging,
+motion graphics (intro, hoofdstuktitels, datumkaartjes, kaart van de baai, citaat van
+Jack London, tijdlijn, slot) en zachte effecten (effecten.tsv). Zelfde titel,
+beschrijving, tags en thumbnail; opnieuw gepland op dezelfde tijd:
+  lange video  za 3 okt 21:00  The San Francisco Earthquake of 1906 | Sleep Documentary
+               publishAt 2026-10-03T19:00:00Z   NIEUW: https://youtu.be/6FIgJoXzr3Q
+VERWIJDEREN in YouTube Studio: de oude lange video https://youtu.be/TRcttN943sA
+Let op: de beschrijvingen van de Shorts (g9IrntwGDuw, 7CoI1PwR-0E) linken nog naar de
+oude video; zet daar de nieuwe link in en kies bij "Gerelateerde video" de nieuwe video.
