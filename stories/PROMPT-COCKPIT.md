@@ -55,6 +55,11 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    `door` "jij"|"claude", `klaar`, `titel`, `tekst`): voeg nieuwe concrete punten toe die
    uit de cijfers volgen (max. 5 open tegelijk), en verwijder punten die al 14 dagen
    `klaar` zijn. Verander nooit `klaar` (dat doet de eigenaar).
-7. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
+7. Stijlcontrole van geplande lange video's (uit `youtube_schedule` in /tmp/dash.json):
+   eindigt de titel niet op "| History for Sleep", staat er "Sleep Documentary" in, of
+   ontbreekt `stories/<map>/thumbnail-v2.jpg` (main en origin/claude/*) voor dat
+   onderwerp, maak dan een "actie"-advies en begin je laatste bericht met "⚠️" zodat de
+   eigenaar het in de centrale sessie laat rechtzetten. Zelf niets op YouTube veranderen.
+8. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
    verlopen, video niet gepland), begin je laatste bericht dan met "⚠️" en zeg wat er moet
    gebeuren.
