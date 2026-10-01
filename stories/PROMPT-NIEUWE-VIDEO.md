@@ -106,9 +106,7 @@ Stappen:
    betaald onderdeel echt gekost heeft (stem, afbeeldingen incl. opnieuw gemaakte,
    thumbnail, gesproken begin van de Shorts) en het totaal in dollars; noem ook hoeveel
    tekens de stem had en hoeveel afbeeldingen er gemaakt zijn. Verplaats het onderwerp in
-   stories/ONDERWERPEN.md naar "Al gemaakt". Maak `stories/<map>/ondertitels.txt` (kolom tekst
-   uit tijdlijn-pauzes.tsv, één zin per regel) en schrijf één community-post (3 korte
-   Engelse regels) onderaan stories/community-posts.md. Maak een pull request naar main en
+   stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
    merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
    binnen, los het op en merge daarna.
 10. Geef me tot slot een kort overzicht:
