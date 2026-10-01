@@ -1,3 +1,5 @@
+> **Let op (okt 2026):** alleen de sterkste Short gaat naar YouTube, de rest alleen naar TikTok; begin meteen spannend, zonder "Did you know? [pause]". Zie "Shorts" in `stories/YOUTUBE-STANDAARD.md`, die gaat voor.
+
 Onderwerp: Pompeii: The Last Day
 Map: stories/pompeii
 Link volledige video: https://youtu.be/vgRDl6UwYlo
