@@ -16,7 +16,8 @@
 - 4 Shorts (`shorts.tsv`, `shorts-intro/`), teksten in `shorts-teksten/`.
 
 ## Geüpload (privé, gepland; zie `planning.txt`)
-- Lange video: https://youtu.be/aqbjvsBIQAE — openbaar ma 5 okt 2026 21:00
+- Lange video (v2, motion graphics + effecten, 1-10-2026): https://youtu.be/2CY3BfnZ1rY — openbaar ma 5 okt 2026 21:00
+  (oude versie aqbjvsBIQAE verwijderen)
 - Short 1-verrekijker: https://youtu.be/ytten26TTJ4 — di 6 okt 2026 18:00
 - Short 4-foto: https://youtu.be/Jl75PNbdcWs — wo 7 okt 2026 18:00
 - Beide Shorts op de TikTok-pagina (collectie `tiktoks`, `titanic-1-verrekijker`,
