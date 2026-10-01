@@ -57,16 +57,21 @@ C. YouTube staat ongeveer 6 uploads per dag toe (alle sessies samen). Krijg je
 
 Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
-2. Schrijf een rustig Engels script, zonder gruwelijke details. **Eigen begin per video**
-   (eigenaar, okt 2026): pompeii is alleen een voorbeeld voor opbouw en toon, NIET om
-   zinnen over te nemen. Na de vaste welkomst (add_pauses --welkom) mag hooguit "Close your
-   eyes if you'd like." vast zijn; daarna begint het script meteen met een concreet,
-   eigen beeld uit dít verhaal (plek, weer, geluid, een mens). Nooit overnemen: "Tonight,
-   we are travelling back…", "We are not here to be frightened", "We are here to walk
-   slowly…", "You don't need to remember any of this", "Just let the story drift past
-   you". Ook verder geen vaste zinnen die in elke video terugkomen (YouTube kan dat als
-   herhalende inhoud zien). Vergelijk de eerste 15 zinnen met die van de vorige video's;
-   lijken ze op elkaar, herschrijf ze. De uiteindelijke
+2. Schrijf een rustig Engels script, zonder gruwelijke details. **Begin: zelfde opbouw, andere woorden**
+   (eigenaar, okt 2026). De eigenaar wil de rustige opbouw van het oude begin houden:
+   (1) uitnodigen, ogen dicht, terug in de tijd naar <plek/jaar>; (2) de plek kort
+   schetsen; (3) geruststellen dat het niet eng wordt; (4) je hoeft niets te onthouden,
+   laat het verhaal langs je heen gaan; (5) ontspannen (ademhaling, schouders, zwaar
+   worden); (6) dan het verhaal. Maar formuleer elke stap ELKE video opnieuw, met beelden
+   uit dít onderwerp. Na de vaste welkomst (add_pauses --welkom) is niets letterlijk vast.
+   Nooit woordelijk overnemen uit eerdere scripts, o.a.: "Close your eyes if you'd like",
+   "Tonight, we are travelling back", "We are not here to be frightened", "We are here to
+   walk slowly", "You don't need to remember any of this", "You don't need to follow every
+   …", "Just let the story drift past you", "Let your shoulders soften". Vergelijk de eerste
+   20 zinnen met die van stories/pompeii, san-francisco-1906, titanic en de vorige video;
+   staat er een zin (of bijna dezelfde zin) al in, herschrijf hem. Ook verder in het script
+   geen vaste zinnen die in elke video terugkomen (YouTube kan dat als herhalende inhoud
+   zien). De uiteindelijke
    video (met de extra pauzes) moet minimaal 2 uur zijn, dus de stem zelf minstens
    1 uur 40 (± 110.000 tekens). Houd het op ± 2 uur
    (eigenaar): niet bewust langer maken.
