@@ -29,6 +29,8 @@ NIGHT_GLOW = (190, 215, 255)  # pale moonlight halo around the title
 LABEL = "SLEEP DOCUMENTARY"  # fixed series label at the bottom of every thumbnail
 AMBER = (246, 178, 92)
 MOON = (250, 236, 200)
+# v2 text stays in the left two thirds: YouTube puts the duration label bottom-right.
+HOOK_W = int(1280 * 0.64)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 TITLE_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
 SUB_FONT = FONT_DIR / "DejaVuSerif.ttf"
@@ -180,14 +182,14 @@ def make_v2(scene: Path, out: Path, hook: str, topic: str, glow: bool = True) ->
     d = ImageDraw.Draw(base)
     moon_logo(base, 34, 26)
 
-    lines = split_hook(d, hook.upper(), int(W * 0.88))
+    lines = split_hook(d, hook.upper(), HOOK_W)
     size = 170 if len(lines) == 1 else 116
-    font = min((fit_font(d, ln, TITLE_FONT, int(W * 0.9), size) for ln in lines),
+    font = min((fit_font(d, ln, TITLE_FONT, HOOK_W, size) for ln in lines),
                key=lambda f: f.size)
     line_h = font.getbbox("HG")[3] + 6
     y = H - 36 - line_h * len(lines)
     if topic:
-        tf = fit_font(d, topic.upper(), LABEL_FONT, int(W * 0.8), 50)
+        tf = fit_font(d, topic.upper(), LABEL_FONT, HOOK_W, 50)
         ty = y - tf.getbbox("HG")[3] - 4
         shadow = Image.new("L", base.size, 0)
         ImageDraw.Draw(shadow).text((50, ty), topic.upper(), font=tf, fill=255,
