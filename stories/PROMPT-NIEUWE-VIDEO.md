@@ -57,7 +57,16 @@ C. YouTube staat ongeveer 6 uploads per dag toe (alle sessies samen). Krijg je
 
 Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
-2. Schrijf een rustig Engels script, zonder gruwelijke details. De uiteindelijke
+2. Schrijf een rustig Engels script, zonder gruwelijke details. **Eigen begin per video**
+   (eigenaar, okt 2026): pompeii is alleen een voorbeeld voor opbouw en toon, NIET om
+   zinnen over te nemen. Na de vaste welkomst (add_pauses --welkom) mag hooguit "Close your
+   eyes if you'd like." vast zijn; daarna begint het script meteen met een concreet,
+   eigen beeld uit dít verhaal (plek, weer, geluid, een mens). Nooit overnemen: "Tonight,
+   we are travelling back…", "We are not here to be frightened", "We are here to walk
+   slowly…", "You don't need to remember any of this", "Just let the story drift past
+   you". Ook verder geen vaste zinnen die in elke video terugkomen (YouTube kan dat als
+   herhalende inhoud zien). Vergelijk de eerste 15 zinnen met die van de vorige video's;
+   lijken ze op elkaar, herschrijf ze. De uiteindelijke
    video (met de extra pauzes) moet minimaal 2 uur zijn, dus de stem zelf minstens
    1 uur 40 (± 110.000 tekens). Houd het op ± 2 uur
    (eigenaar): niet bewust langer maken.
