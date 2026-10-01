@@ -6,3 +6,25 @@ short3 2026-10-09 10:00
 short4 2026-10-09 20:00
 short5 2026-10-10 10:00
 short6 2026-10-10 20:00
+
+Uploadschema (alles privé geüpload met publishAt; tijden in Nederlandse tijd, CEST = UTC+2)
+
+Lange video   wo 7 okt 2026 21:00   (publishAt 2026-10-07T19:00:00Z)
+  The Tunguska Event | Sleep Documentary
+  https://youtu.be/1sqbDvecS3E
+Short 1 (1-hemd)       do 8 okt 10:00   https://youtu.be/iEUIhvDWix8
+Short 2 (2-krant)      do 8 okt 20:00   https://youtu.be/tIXwN-an_2o
+Short 3 (3-bomen)      vr 9 okt 10:00   https://youtu.be/pAuGF7P0e2g
+Short 4 (4-apophis)    vr 9 okt 20:00   https://youtu.be/6TsCTphgvlU
+Short 5 (5-heuvelrug)  za 10 okt 10:00  https://youtu.be/WcnqTvwnUx4
+Short 6 (6-barograph)  za 10 okt 20:00  https://youtu.be/qbdg4pUyYzU
+
+TikTok-pagina: NIET gedaan (upload van de mp4-bestanden naar de Artifact-pagina werd geweigerd).
+Bijschriften staan in shorts-teksten/tiktok-bijschriften.txt.
+
+Kosten (xAI)
+  Stem: 109.231 tekens x $4,20 per miljoen      $0,46
+  Afbeeldingen: 76 (75 + 1 opnieuw: 023)        $1,52
+  Thumbnail-achtergrond                         $0,02
+  Gesproken begin Shorts (6, ± 850 tekens)      $0,01
+  Totaal                                        ± $2,01
