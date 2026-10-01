@@ -11,7 +11,6 @@ het kanaal gevarieerd blijft. Onderwerpen waarbij YouTube vaker minder advertent
 zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
 
 ## Nog te maken
-- The Tunguska Event
 - The Black Death: Europe's Darkest Years
 - The Somerton Man Mystery
 - The Tower of London: Centuries of Secrets
@@ -106,6 +105,7 @@ zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
 - The Cleveland Torso Murderer
 
 ## Al gemaakt
+- The Tunguska Event
 - The Dutch Hunger Winter (op YouTube als "The Winter That Came Before Freedom")
 - The Darkest Punishments of Medieval Europe
 - How Did Humans Survive Without Fire?
