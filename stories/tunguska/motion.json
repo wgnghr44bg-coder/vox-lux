@@ -1,0 +1,220 @@
+{
+ "onderwerp": "The Tunguska Event",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "Into the Great Forest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 473.3,
+   "nummer": 2,
+   "titel": "The People of the Taiga"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1063.0,
+   "nummer": 3,
+   "titel": "Russia and the World in 1908"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2040.5,
+   "nummer": 4,
+   "titel": "Visitors from Space"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2633.6,
+   "nummer": 5,
+   "titel": "The Morning of 30 June"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3281.8,
+   "nummer": 6,
+   "titel": "The Sky Glows Over Europe"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4126.7,
+   "nummer": 7,
+   "titel": "Years of Silence"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4449.9,
+   "nummer": 8,
+   "titel": "Leonid Kulik"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4913.3,
+   "nummer": 9,
+   "titel": "The Flattened Forest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5412.0,
+   "nummer": 10,
+   "titel": "Voices from the Forest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5892.7,
+   "nummer": 11,
+   "titel": "Clues in the Soil"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6253.1,
+   "nummer": 12,
+   "titel": "What Was It?"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6680.4,
+   "nummer": 13,
+   "titel": "Computers and Other Visitors"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7402.5,
+   "nummer": 14,
+   "titel": "Watching the Sky"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7888.4,
+   "nummer": 15,
+   "titel": "The Forest Today"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2652,
+   "regel1": "30 June 1908  \u00b7  About 07:15",
+   "regel2": "Near Vanavara, Siberia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3714,
+   "regel1": "Night of 30 June 1908",
+   "regel2": "London, England"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 4688,
+   "titel": "Siberia, 1927",
+   "gebied": [
+    88,
+    112,
+    52,
+    63
+   ],
+   "plaatsen": [
+    {
+     "naam": "Krasnoyarsk",
+     "lon": 92.87,
+     "lat": 56.02,
+     "kant": "onder"
+    },
+    {
+     "naam": "Taishet",
+     "lon": 97.98,
+     "lat": 56.14,
+     "kant": "onder"
+    },
+    {
+     "naam": "Irkutsk",
+     "lon": 104.28,
+     "lat": 52.29,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Vanavara",
+     "lon": 102.27,
+     "lat": 60.34,
+     "kant": "rechts"
+    },
+    {
+     "naam": "The Fallen Forest",
+     "lon": 101.9,
+     "lat": 60.89,
+     "kant": "boven"
+    }
+   ],
+   "route": [
+    [
+     97.98,
+     56.14
+    ],
+    [
+     99.5,
+     57.6
+    ],
+    [
+     101.0,
+     59.0
+    ],
+    [
+     102.27,
+     60.34
+    ],
+    [
+     101.9,
+     60.89
+    ]
+   ]
+  },
+  {
+   "soort": "datum",
+   "tijd": 4815,
+   "regel1": "1927",
+   "regel2": "Makirta Ridge, Siberia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5912,
+   "regel1": "1958",
+   "regel2": "The Tunguska forest, Siberia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7163,
+   "regel1": "15 February 2013",
+   "regel2": "Chelyabinsk, Russia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7730,
+   "regel1": "13 April 2029  \u00b7  Evening",
+   "regel2": "Asteroid Apophis passes Earth"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 8330,
+   "punten": [
+    [
+     "1908",
+     "The sky over Siberia flashes"
+    ],
+    [
+     "1927",
+     "Kulik reaches the fallen forest"
+    ],
+    [
+     "2022",
+     "A spacecraft nudges an asteroid"
+    ],
+    [
+     "2029",
+     "Apophis passes safely by"
+    ]
+   ]
+  }
+ ]
+}
