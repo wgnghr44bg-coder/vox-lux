@@ -220,7 +220,11 @@ bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
    (zoals de best lopende Shorts), + ` | <korte naam + jaar>`, bv.
    "His Shirt Caught Fire 60 km From the Blast 🔥 | Tunguska 1908" (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
-6. TikTok: zet ALLE Shorts met bijschrift op de TikTok-pagina (zie
+6. TikTok-bijschrift: begint net als de Short meteen met het spannendste (geen "Did you
+   know?"), max. ± 100 tekens + 4-5 hashtags, bv. "60 km from the blast, his shirt caught
+   fire 🔥 #history #darkhistory #historytok #tunguska #sleepstory". Kies #mystery of
+   #unsolved bij mysteries.
+   Zet ALLE Shorts met bijschrift op de TikTok-pagina (zie
    "TikTok-overzicht" hieronder). Geen Google Drive.
 
 ## TikTok-overzicht (voor de eigenaar)
