@@ -29,8 +29,8 @@ NIGHT_GLOW = (190, 215, 255)  # pale moonlight halo around the title
 LABEL = "SLEEP DOCUMENTARY"  # fixed series label at the bottom of every thumbnail
 AMBER = (246, 178, 92)
 MOON = (250, 236, 200)
-# v2 text stays in the left two thirds: YouTube puts the duration label bottom-right.
-HOOK_W = int(1280 * 0.64)
+# v2 text stays in the left half: YouTube (and Studio, much bigger) puts the duration label bottom-right.
+HOOK_W = int(1280 * 0.54)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 TITLE_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
 SUB_FONT = FONT_DIR / "DejaVuSerif.ttf"
