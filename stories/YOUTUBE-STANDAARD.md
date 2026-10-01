@@ -162,6 +162,12 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
     amberkleurige regel (plaats · jaar) en daaronder de **hook** heel groot, wit, extra dik.
     Geen grote "SLEEP DOCUMENTARY"-balk meer: die ruimte is voor het beeld. De tekst blijft
     in de linker ± helft, want rechtsonder zet YouTube de videolengte (in de Studio-app heel groot).
+  - **Altijd rustig** (eigenaar, okt 2026): toon het moment **vóór** de gebeurtenis, warm en
+    knus; de ramp of het mysterie hooguit als kleine hint in de verte (een lichtje in de lucht,
+    rook ver weg). Nooit ontploffingen, vuurballen groot in beeld, angstige gezichten of
+    woorden als "Exploded", "Death", "Horror" in de hook: slaapkijkers zoeken rust.
+    Voorbeeld: Tunguska = oma en kleindochter bij de samovar, klein lichtspoor, hook
+    "The Last Quiet Morning" (`stories/tunguska/thumbnail-v2.jpg`).
   - **Hook**: 2–4 woorden die een gevoel of beleving geven, niet de hele titel. Bv.
     "Before the Ash", "The Last Quiet Night", "Old San Francisco", "Winter in a Viking Hut".
   - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
