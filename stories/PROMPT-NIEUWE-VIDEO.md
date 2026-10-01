@@ -23,9 +23,12 @@ A. Doe dit als allereerste, vóór het script:
      én op alle branches origin/claude/* (bv. met `git ls-tree` + `git show`).
    - Het schema (vaste dagen, ook in het weekend):
        lange video: maandag, woensdag en zaterdag om 21:00 Nederlandse tijd;
-       Shorts: elke dag 2 Shorts, om 10:00 en 20:00, van de laatste lange video:
+       Shorts (TikTok): elke dag 2, om 10:00 en 20:00, van de laatste lange video:
        ma-video -> di + wo (4 Shorts), wo-video -> do + vr + za (6 Shorts),
-       za-video -> zo + ma (4 Shorts).
+       za-video -> zo + ma (4 Shorts). De eigenaar post ze zelf op TikTok.
+       YouTube-Short: alleen de sterkste (short1), de dag na de lange video om 20:00
+       (regel `yt-short`). De rest gaat NIET naar YouTube (eigenaar, okt 2026: de
+       groei komt van lange video's; Shorts-kijkers kijken zelden lang).
    - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
      `onderwerp` in een planning.txt staat (main of origin/claude/*).
@@ -36,6 +39,7 @@ A. Doe dit als allereerste, vóór het script:
      woensdag-video:
        onderwerp The Fall of Rome
        lang   2026-10-07 21:00
+       yt-short 2026-10-08 20:00
        short1 2026-10-08 10:00
        short2 2026-10-08 20:00
        short3 2026-10-09 10:00
@@ -86,18 +90,15 @@ Stappen:
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
-   een woensdag-video) volgens stories/PROMPT-SHORTS.md (met de link van stap 7),
-   met het gesproken begin in drie stukjes ("Did you know? [pause] <onderwerp + jaar>.
-   [pause] <weetje>."), synchrone ondertitels, een datumkaartje bovenin en passende
-   effecten via motion.py (zie "Shorts" in de standaard), zonder intro of outro.
-   Upload ze allemaal privé en gepland op de Short-plekken uit planning.txt (de
-   sterkste eerst). Met 7 uploads kan de daglimiet van YouTube bereikt worden:
-   upload dan de rest na 09:00 de volgende dag (zie C). Zet de geplande Shorts met hun
-   TikTok-bijschrift op de TikTok-pagina (zie "TikTok-overzicht" in
-   stories/YOUTUBE-STANDAARD.md). Geen Google Drive.
+   een woensdag-video) volgens "Shorts" in stories/YOUTUBE-STANDAARD.md (met de link
+   van stap 7): meteen een spannend begin zonder pauzes, 35-45 s, synchrone
+   ondertitels, een datumkaartje bovenin en passende effecten via motion.py, zonder
+   intro of outro. Zet ze ALLEMAAL met hun TikTok-bijschrift en TikTok-datum (short1..N)
+   op de TikTok-pagina (zie "TikTok-overzicht" in de standaard). Geen Google Drive.
+   Upload alleen short1 (de sterkste) naar YouTube: privé, gepland op `yt-short`.
 8b. Playlists: zet de lange video en alle Shorts in de playlists (mag terwijl ze nog
    gepland/privé staan):
-   python3 tools/youtube_playlist.py --soort <soort> <lang-id> <short-ids...>
+   python3 tools/youtube_playlist.py --soort <soort> <lang-id> <yt-short-id>
    Soort: ramp, oudheid, middeleeuwen, mysterie, oorlog of verlaten (uitleg bovenin het
    script). Kies de soort die het best past; maak nooit een playlist per onderwerp.
    Noem de playlists in het overzicht van stap 10.
@@ -112,7 +113,7 @@ Stappen:
     - de YouTube-links met de geplande datums en tijden;
     - wat het totaal gekost heeft (per onderdeel);
     - wat ik nog moet doen: in YouTube Studio controleren of alles "Gepland"
-      staat, bij elke Short de lange video instellen als "Gerelateerde video",
+      staat, bij de YouTube-Short de lange video instellen als "Gerelateerde video",
       en de TikToks plaatsen vanaf de TikTok-pagina.
 
 Afspraken: praat Nederlands met mij, eenvoudig. Noem tijden in Nederlandse tijd.
