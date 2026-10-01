@@ -1,0 +1,8 @@
+onderwerp The Tunguska Event
+lang   2026-10-07 21:00
+short1 2026-10-08 10:00
+short2 2026-10-08 20:00
+short3 2026-10-09 10:00
+short4 2026-10-09 20:00
+short5 2026-10-10 10:00
+short6 2026-10-10 20:00
