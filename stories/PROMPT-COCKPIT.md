@@ -36,6 +36,24 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    - wat een mislukte run of een fout van de eigenaar vraagt (bv. token vernieuwen).
    Verwijder taken die `klaar: true` zijn en ouder dan 7 dagen. Verander nooit
    `klaar` van een taak (dat doet de eigenaar met het vinkje).
-5. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
+5. Kosten in collection `kosten` (doc_id `xai-<map>` of `claude-<session-id>`; velden
+   `soort` "xai"|"claude", `datum` JJJJ-MM-DD, `wat`, `bedrag` in dollars, `geschat`
+   true/false, bij xAI ook `video` = map). Bestaat het document al, werk het bij
+   (`update` met `if_version`).
+   - xAI: per video het blok "Kosten" uit `stories/<map>/planning.txt` of
+     `VOLGENDE-STAPPEN.md` (main en origin/claude/*). Neem het totaal; staat er "±" of
+     "≈", zet `geschat: true`. Een xAI-API voor het echte saldo is er niet; het exacte
+     bedrag staat op console.x.ai → Usage.
+   - Claude: `list_sessions` (mine, limit 100) en de laatste runs van de routines
+     (`list_triggers` → `last_run.session_id` → `get_session`): per sessie over
+     vox-lux `usage.cost_usd` (afgerond op 2 decimalen) en de titel. Dit is de waarde in
+     API-prijzen; met het abonnement betaalt de eigenaar dit niet apart. Zie je in
+     `rate_limit_info` dat `isUsingOverage` true is, maak dan een "actie"-advies.
+     Zijn deze tools er niet, sla dit over.
+6. Verbeterpunten in collection `verbeterpunten` (velden `impact` hoog|middel|laag,
+   `door` "jij"|"claude", `klaar`, `titel`, `tekst`): voeg nieuwe concrete punten toe die
+   uit de cijfers volgen (max. 8 open tegelijk), en verwijder punten die al 14 dagen
+   `klaar` zijn. Verander nooit `klaar` (dat doet de eigenaar).
+7. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
    verlopen, video niet gepland), begin je laatste bericht dan met "⚠️" en zeg wat er moet
    gebeuren.
