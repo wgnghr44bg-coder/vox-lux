@@ -15,7 +15,7 @@ ze hier bij.
 
 ## Nog te maken
 - How Vikings Survived the Long Dark Winter
-- The Tunguska Event   (al bezig op een andere branch: naam niet veranderen)
+- The Tunguska Event
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
 - A Day in the Baths of Ancient Rome
