@@ -64,6 +64,14 @@ Stappen:
    laat het verhaal langs je heen gaan; (5) ontspannen (ademhaling, schouders, zwaar
    worden); (6) dan het verhaal. Maar formuleer elke stap ELKE video opnieuw, met beelden
    uit dít onderwerp. Na de vaste welkomst (add_pauses --welkom) is niets letterlijk vast.
+   **KORT**: stap 1-5 samen hooguit 4-5 korte zinnen, ± 45-60 woorden, ± 25 seconden;
+   stap 3 en 4 mogen in één zin. Goedgekeurde voorbeelden (eigenaar, niet letterlijk
+   hergebruiken): "Let your eyes grow heavy. / Tonight we drift north, a thousand years
+   back, to the snowy fjords of Norway. / Nothing frightening waits for us there, and
+   there is nothing you need to remember. / Just breathe slowly, and listen." en
+   "Close your eyes, and let the day slip away. / We are travelling to the winter of 1959,
+   to the quiet white mountains of the Ural. / This is a mystery, but a gentle one, and
+   you can let go of every detail. / Settle in, and rest."
    Nooit woordelijk overnemen uit eerdere scripts, o.a.: "Close your eyes if you'd like",
    "Tonight, we are travelling back", "We are not here to be frightened", "We are here to
    walk slowly", "You don't need to remember any of this", "You don't need to follow every
