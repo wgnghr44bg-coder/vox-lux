@@ -51,16 +51,10 @@
    ],
    "plaatsen": [
     {
-     "naam": "Belfast",
-     "lon": -5.93,
-     "lat": 54.6,
-     "kant": "boven"
-    },
-    {
      "naam": "Southampton",
      "lon": -1.4,
      "lat": 50.9,
-     "kant": "boven"
+     "kant": "rechts"
     },
     {
      "naam": "Cherbourg",
@@ -72,7 +66,7 @@
      "naam": "Queenstown",
      "lon": -8.29,
      "lat": 51.85,
-     "kant": "links"
+     "kant": "boven"
     },
     {
      "naam": "Where Titanic was lost",
