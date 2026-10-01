@@ -161,7 +161,7 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
   - Ontwerp: linksboven klein het logo (maantje + SLEEP ARCHIVES); linksonder een kleine
     amberkleurige regel (plaats · jaar) en daaronder de **hook** heel groot, wit, extra dik.
     Geen grote "SLEEP DOCUMENTARY"-balk meer: die ruimte is voor het beeld. De tekst blijft
-    in de linker ± 2/3, want rechtsonder zet YouTube de videolengte.
+    in de linker ± helft, want rechtsonder zet YouTube de videolengte (in de Studio-app heel groot).
   - **Hook**: 2–4 woorden die een gevoel of beleving geven, niet de hele titel. Bv.
     "Before the Ash", "The Last Quiet Night", "Old San Francisco", "Winter in a Viking Hut".
   - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
