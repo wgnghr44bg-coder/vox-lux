@@ -55,8 +55,8 @@ Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
 2. Schrijf een rustig Engels script, zonder gruwelijke details. De uiteindelijke
    video (met de extra pauzes) moet minimaal 2 uur zijn, dus de stem zelf minstens
-   1 uur 40 (± 110.000 tekens). Liefst 2,5–3 uur (± 140.000–165.000 tekens) als dat
-   binnen het budget past: grote slaapkanalen maken 2–4 uur.
+   1 uur 40 (± 110.000 tekens). Houd het op ± 2 uur
+   (eigenaar): niet bewust langer maken.
    Vertel rustig en vanuit het **dagelijks leven** (wonen, eten, werk, slapen, het weer):
    ook bij een ramp gaat het grootste deel over het gewone leven ervoor en erna.
 3. Stem: xAI, stem Lux. Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
