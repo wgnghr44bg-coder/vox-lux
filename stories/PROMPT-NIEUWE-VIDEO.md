@@ -85,10 +85,19 @@ Stappen:
    sterren) met tools/motion.py, precies zoals stap 4 en 5 van de standaard.
    Controleer zelf proefbeelden van elk onderdeel (--proef), een paar beelden uit de
    eindvideo en het geluid tot het eind. Upload het -motion-bestand.
-6. Thumbnail met tools/make_thumbnail.py in het v2-ontwerp (hook van 2-4 woorden, warm
-   beeld met mensen rechts/midden; zie "Thumbnail" in de standaard). Bekijk hem zelf.
+6. Thumbnail met tools/make_thumbnail.py in het v2-ontwerp (NOOIT `--stijl v1`): hook van
+   2-4 woorden, warm beeld met mensen rechts/midden; zie "Thumbnail" in de standaard.
+   Altijd **rustig**: het moment vóór de gebeurtenis, de ramp hooguit als klein lichtje of
+   rook in de verte; geen ontploffingen, angstige gezichten of woorden als "Exploded".
+   Past geen beeld uit de video, maak er één met xAI ($0,02). Sla hem op als
+   `stories/<map>/thumbnail-v2.jpg` en bekijk hem zelf naast
+   `stories/pompeii/thumbnail-v2.jpg`, `stories/titanic/thumbnail-v2.jpg` en
+   `stories/tunguska/thumbnail-v2.jpg`: zelfde stijl en sfeer? Zo niet, opnieuw.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
-   beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
+   beschrijving, hoofdstukken, tags en thumbnail volgens de standaard. Controle vóór
+   de upload: titel = belevingstitel + " | History for Sleep" (nooit "| Sleep
+   Documentary", nooit een kale onderwerpnaam; is het onderwerp uit ONDERWERPEN.md toch
+   kaal, maak er dan zelf een rustige belevingstitel van), ≤ 70 tekens.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
    een woensdag-video) volgens "Shorts" in stories/YOUTUBE-STANDAARD.md (met de link
    van stap 7): meteen een spannend begin zonder pauzes, 35-45 s, synchrone
