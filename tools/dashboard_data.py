@@ -8,7 +8,7 @@ Reads the YouTube Data and Analytics APIs (same token as youtube_upload.py) and 
 Usage:
     python3 tools/dashboard_data.py > /tmp/dashboard.json
 
-Output keys: watch_hours_12m, updated, channel, period, daily, top, traffic, youtube_schedule,
+Output keys: growth, watch_hours_12m, updated, channel, period, daily, top, traffic, youtube_schedule,
 planning, playlists. Times are Dutch local time ("YYYY-MM-DD HH:MM").
 """
 
@@ -128,7 +128,12 @@ def main() -> None:
     long_minutes = sum(r["estimatedMinutesWatched"] for r in year
                        if r["creatorContentType"] != "shorts")
 
+    first = min(dt.date.fromisoformat(v["snippet"]["publishedAt"][:10]) for v in videos)
+    growth = report(token, first, end, dimensions="day", sort="day",
+                    metrics="views,estimatedMinutesWatched,subscribersGained,subscribersLost")
+
     out = {
+        "growth": growth,  # every day since the first upload, for the growth chart
         "watch_hours_12m": round(long_minutes / 60, 1),  # Partner Programme: Shorts don't count
         "updated": dt.datetime.now(NL).strftime("%Y-%m-%d %H:%M"),
         "channel": {"title": ch["snippet"]["title"], "handle": ch["snippet"].get("customUrl"),
