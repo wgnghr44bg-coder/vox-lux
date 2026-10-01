@@ -4,106 +4,86 @@ Een nieuwe sessie zonder eigen onderwerp pakt het **eerste onderwerp uit "Nog te
 dat nog niet gebruikt is**. Gebruikt = het staat onder "Al gemaakt", of het staat al als
 `onderwerp` in een `stories/*/planning.txt` op main of op een branch origin/claude/*.
 
-Onderwerpen staan zoals de titel moet worden (zonder "| Sleep Documentary"). De volgorde
-wisselt de categorieën af (ramp, middeleeuwen, mysterie, verlaten plek, oorlog, ...) zodat
-het kanaal gevarieerd blijft. Onderwerpen waarbij YouTube vaker minder advertenties toont
-(martelingen, executies, recente moordzaken) staan achteraan. Is de lijst op, verzin dan
-zelf een nieuw onderwerp in dezelfde sfeer en zet het hier bij.
+Onderwerpen staan zoals de titel moet worden (zonder " | History for Sleep"): als
+**beleving** ("How…", "What Life Was Like…", "A Night in…"), want daar klikken slaapkijkers
+op. De lijst wisselt af: om en om een **dagelijks-leven**-onderwerp (rustig, knus, werkt
+het best in deze niche) en een bekend verhaal (ramp, mysterie, oorlog, beroemd persoon),
+dat dan ook vooral vanuit het gewone leven verteld wordt. Onderwerpen waarbij YouTube
+vaker minder advertenties toont (martelingen, executies, moordzaken) staan achteraan.
+Is de lijst op, verzin dan zelf nieuwe in dezelfde sfeer (vooral dagelijks leven) en zet
+ze hier bij.
 
 ## Nog te maken
-- The Tunguska Event
-- The Black Death: Europe's Darkest Years
-- The Somerton Man Mystery
+- How Vikings Survived the Long Dark Winter
+- The Tunguska Event   (al bezig op een andere branch: naam niet veranderen)
+- What Medieval Monks Did All Day
+- Life in Europe During the Black Death
+- A Day in the Baths of Ancient Rome
+- The Sinking of the Lusitania: The Last Crossing
+- How People Lived Along the Nile in Ancient Egypt
 - The Tower of London: Centuries of Secrets
-- The Sinking of the Lusitania
-- The Fall of the Roman Empire
-- Ivan the Terrible: Russia's Darkest Tsar
-- The Lindbergh Baby Kidnapping
-- Witch Trials of Medieval Europe
-- The Dyatlov Pass Incident
-- The Abandoned Island of Hashima
-- The Siege of Leningrad
-- The Bhopal Gas Disaster
-- The USS Indianapolis Disaster
-- The Mystery of Stonehenge
-- Rasputin: The Mad Monk
-- The Villisca Axe Murders
-- The Great Fire of London
-- The Spanish Inquisition
+- How Sailors Lived and Slept on 1700s Sailing Ships
+- The Last Days of the Roman Empire
+- A Winter in a Medieval Village
 - The Lost Colony of Roanoke
-- Centralia: The Town on Fire
-- D-Day: The Longest Night
-- Three Mile Island
-- The Curse of the Hope Diamond
-- The Edmund Fitzgerald Sinking
-- The Lost City of Atlantis
-- Caligula: Rome's Maddest Emperor
-- The Amityville Horror: The True Story
-- The Ghost Towns of the American West
-- The Battle of Stalingrad
-- The Bikini Atoll Nuclear Tests
-- Henry VIII's Six Wives
-- The Andrea Doria Collision
+- How Lighthouse Keepers Lived Alone at Sea
+- The Great Fire of London: Life in the City Before the Flames
+- A Day in a Medieval Castle
+- The Mystery of Stonehenge: Who Built It and Why
+- How Samurai Lived in Old Japan
+- The Dyatlov Pass Mystery
+- Life in a Victorian London Home
+- The Mary Celeste: The Ship Found Empty
+- How Pioneers Survived Winter on the American Frontier
+- The Abandoned Island of Hashima
+- What Life Was Like in Ancient Athens
 - The Curse of Tutankhamun's Tomb
-- The Reign of Terror: France's Bloody Revolution
-- The Plague Doctors of Europe
-- The Mary Celeste: Ghost Ship Mystery
-- The Abandoned Asylums of America
-- The Fall of Berlin 1945
-- Windscale: Britain's Nuclear Disaster
-- The Salem Witch Trials
-- The Flying Dutchman Legend
-- Pripyat: The City Time Forgot
-- Elizabeth Báthory: The Blood Countess
-- The Boston Strangler Case
+- A Year on a Medieval Farm
+- The Somerton Man Mystery
+- How Ancient Romans Ate, Slept and Kept Warm
 - The Johnstown Flood
+- Life Inside a Medieval Monastery Library
+- The Lost City of Atlantis
+- How People Kept Warm Before Central Heating
+- The Edmund Fitzgerald: The Last Voyage
+- A Night in an 1800s Coaching Inn
+- Rasputin: The Mad Monk
+- How Inuit Families Lived Through the Arctic Winter
+- Pripyat: The City Time Forgot
+- Life in a Japanese Village During the Edo Period
+- The Flying Dutchman Legend
+- How Medieval Peasants Slept
+- The Ghost Towns of the American West
+- What Life Was Like on the Silk Road
+- The Andrea Doria Collision
+- A Winter in Old Amsterdam
+- The Curse of the Hope Diamond
+- How Shepherds Lived in the Scottish Highlands
+- Henry VIII's Six Wives
+- Centralia: The Town on Fire
+- The Bikini Atoll Nuclear Tests
+- D-Day: The Longest Night
+- The Siege of Leningrad
+- The Battle of Stalingrad
+- The Fall of Berlin 1945
+- The USS Indianapolis Disaster
+- The Bhopal Gas Disaster
+- Three Mile Island
+- Windscale: Britain's Nuclear Disaster
+- Ivan the Terrible: Russia's Darkest Tsar
+- Caligula: Rome's Maddest Emperor
+- The Reign of Terror: France's Bloody Revolution
+- The Spanish Inquisition
+- The Plague Doctors of Europe
+- Witch Trials of Medieval Europe
+- The Salem Witch Trials
+- The Abandoned Asylums of America
+- The Amityville Horror: The True Story
+- Elizabeth Báthory: The Blood Countess
 - Life and Death in a Medieval Dungeon
-- The Voynich Manuscript Mystery
-- The Forgotten Ruins of Angkor
-- The Trench Warfare of WWI
-- The Execution of Anne Boleyn
-- The Mystery of the Nazca Lines
-- The Borgias: A Family of Poison
-- The Disappearance of Amelia Earhart
-- Fukushima: 2011
-- The Bubonic Plague in London
-- The Bermuda Triangle Disappearances
-- The Maunsell Sea Forts
-- The Bombing of Dresden
-- The Gunpowder Plot
-- The Collapse of the Maya Civilization
-- Nero: The Emperor Who Burned Rome
-- The Hindenburg Disaster
-- The Man in the Iron Mask
-- The Ryugyong Hotel: North Korea's Ghost Tower
-- The Evacuation of Dunkirk
-- The Highland Clearances
-- The Antikythera Mechanism Mystery
-- The Romanov Family's Final Days
-- The Axeman of New Orleans
-- The Great Molasses Flood
-- The Siege of Constantinople
-- Jack the Ripper: The Unsolved Case
-- The Abandoned Subway Stations of New York
-- Anne Frank: Life in Hiding
-- The Irish Potato Famine
-- The Library of Alexandria: What Was Lost
-- Genghis Khan: Rise of an Empire
-- The Hinterkaifeck Murders
-- The Peshtigo Fire: America's Forgotten Disaster
-- Vlad the Impaler: The True Story
-- The Princes in the Tower Mystery
-- Varosha: The Forbidden Resort Town
-- The Christmas Truce of 1914
-- The Whitechapel Murders
-- The Easter Island Mystery
-- The Execution of Marie Antoinette
-- Medieval Torture Devices Explained
-- The Zodiac Killer's Unsolved Case
-- H.H. Holmes: America's First Serial Killer
-- The Black Dahlia Murder
-- Public Executions of Old Europe
-- The Cleveland Torso Murderer
+- The Lindbergh Baby Kidnapping
+- The Boston Strangler Case
+- The Villisca Axe Murders
 
 ## Al gemaakt
 - The Dutch Hunger Winter (op YouTube als "The Winter That Came Before Freedom")
