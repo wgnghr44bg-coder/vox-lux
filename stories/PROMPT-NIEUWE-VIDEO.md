@@ -97,9 +97,10 @@ Stappen:
    stories/YOUTUBE-STANDAARD.md). Geen Google Drive.
 8b. Playlists: zet de lange video en alle Shorts in de playlists (mag terwijl ze nog
    gepland/privé staan):
-   python3 tools/youtube_playlist.py --playlist "<korte naam + jaar>" <lang-id> <short-ids...>
-   (bv. "Tunguska 1908"). Voeg --mystery toe als het onderwerp een mysterie of
-   duistere geschiedenis is. Noem de playlists in het overzicht van stap 10.
+   python3 tools/youtube_playlist.py --soort <soort> <lang-id> <short-ids...>
+   Soort: ramp, oudheid, middeleeuwen, mysterie, oorlog of verlaten (uitleg bovenin het
+   script). Kies de soort die het best past; maak nooit een playlist per onderwerp.
+   Noem de playlists in het overzicht van stap 10.
 9. Werk planning.txt bij met de YouTube-links en een blok "Kosten" met wat elk
    betaald onderdeel echt gekost heeft (stem, afbeeldingen incl. opnieuw gemaakte,
    thumbnail, gesproken begin van de Shorts) en het totaal in dollars; noem ook hoeveel

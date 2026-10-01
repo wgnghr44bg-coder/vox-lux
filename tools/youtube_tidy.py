@@ -63,16 +63,12 @@ PLAYLISTS = [
      "Long, calm history documentaries to fall asleep to. Let them play one after another.",
      ["2CY3BfnZ1rY", "VuTN5ReMzLk", "6FIgJoXzr3Q", "QrAyJC0RrHY", "JG5ad1Y3K44",
       "CZaQsA93coI", "Wod4U-a2YM8"]),
-    ("Titanic", "The Titanic for sleep: the full documentary and short stories from 1912.",
-     ["2CY3BfnZ1rY", "1HghOMqmILo", "0iOdbDQx7y4"]),
-    ("Pompeii", "Pompeii before Vesuvius: the full sleep documentary and short stories.",
-     ["VuTN5ReMzLk", "Ges1LKW9AR8"]),
-    ("San Francisco 1906", "Old San Francisco and the 1906 earthquake: the full sleep "
-     "documentary and short stories.", ["6FIgJoXzr3Q", "g9IrntwGDuw", "7CoI1PwR-0E"]),
     ("Dark History & Mysteries", "Unsolved mysteries and the darker side of history.",
      ["JG5ad1Y3K44", "1O5hspxIYoI", "cETEZwKusWw", "OzYxgUQ7mQE", "3shZWi_N7fw",
       "AQFodxgd2K0", "phK3ZXsEXXY"]),
 ]
+# The kind playlists (Disasters & Catastrophes, Ancient World, ...) are filled by
+# tools/youtube_playlist.py; there is no playlist per topic.
 
 
 def call(method: str, path: str, token: str, **kw) -> dict:
