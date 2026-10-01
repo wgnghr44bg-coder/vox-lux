@@ -33,7 +33,9 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
      (Gerelateerde video in Studio) voor elke YouTube-Short van dat onderwerp;
    - TikTok-dagen uit planning.txt (`short1..N`): "TikTok: post <onderwerp> Short <n>
      (<tijd>)" met link naar https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ;
-   - wat een mislukte run of een fout van de eigenaar vraagt (bv. token vernieuwen).
+   - wat een mislukte run of een fout van de eigenaar vraagt (bv. token vernieuwen);
+   - open verbeterpunten met hoog effect die de eigenaar zelf moet doen.
+   Geen taken voor kleine dingen (ondertitels, community-posts e.d.).
    Verwijder taken die `klaar: true` zijn en ouder dan 7 dagen. Verander nooit
    `klaar` van een taak (dat doet de eigenaar met het vinkje).
 5. Kosten in collection `kosten` (doc_id `xai-<map>` of `claude-<session-id>`; velden
@@ -50,9 +52,10 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
      API-prijzen; met het abonnement betaalt de eigenaar dit niet apart. Zie je in
      `rate_limit_info` dat `isUsingOverage` true is, maak dan een "actie"-advies.
      Zijn deze tools er niet, sla dit over.
-6. Verbeterpunten in collection `verbeterpunten` (velden `impact` hoog|middel|laag,
+6. Verbeterpunten in collection `verbeterpunten` — ALLEEN punten met hoog effect (de
+   eigenaar wil geen kleine dingen; middel/laag niet tonen, ook niet als taak). Velden `impact` "hoog",
    `door` "jij"|"claude", `klaar`, `titel`, `tekst`): voeg nieuwe concrete punten toe die
-   uit de cijfers volgen (max. 8 open tegelijk), en verwijder punten die al 14 dagen
+   uit de cijfers volgen (max. 5 open tegelijk), en verwijder punten die al 14 dagen
    `klaar` zijn. Verander nooit `klaar` (dat doet de eigenaar).
 7. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
    verlopen, video niet gepland), begin je laatste bericht dan met "⚠️" en zeg wat er moet
