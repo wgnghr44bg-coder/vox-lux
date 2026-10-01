@@ -52,7 +52,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    **motion.json** — altijd:
    - `"intro": true` (eerste 9 s: sterren, maan, SLEEP ARCHIVES + onderwerp) en
      `"slot": true` (laatste 14 s: Goodnight · Sleep well · Subscribe), `"onderwerp"` = titel zonder
-     " | Sleep Documentary".
+     " | History for Sleep".
    - **Hoofdstuktitel** bij elk hoofdstuk uit de beschrijving: `tijd` = begin hoofdstuk + 3 s
      (het eerste hoofdstuk op 10 s, na de intro), `nummer` 1, 2, 3…, titel in Title Case.
    - **Datumkaartjes** (3–5): op belangrijke momenten, ± 20 s na het begin van dat stuk:
@@ -104,15 +104,27 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    ```
    Upload en plaats op de TikTok-pagina het `-fx`-bestand. ± 4 min per Short.
 
-## Titel
-Altijd **precies het onderwerp dat de eigenaar stuurt**, met ` | Sleep Documentary`
-erachter. Niets aan het onderwerp veranderen of zelf verzinnen. Staat
-"Sleep Documentary" er al in, dan niet dubbel toevoegen. (Max. 100 tekens.)
-Voorbeeld: onderwerp `Pompeii: The Last Day` → `Pompeii: The Last Day | Sleep Documentary`
+## Titel (sinds okt 2026)
+Mensen zoeken in deze niche op **"History for Sleep"** en klikken op titels die een
+**beleving** beloven (hoe leefden ze, wat deden ze de hele dag, de laatste rustige
+nacht), niet op een kale onderwerpnaam. Grote kanalen: "How Medieval Peasants Survived
+the Coldest Nights", "What Did Medieval Peasants Do All Day".
+- Titel = **het onderwerp uit `ONDERWERPEN.md`** (die staan er al als belevingstitel
+  in) + ` | History for Sleep`. Bijvoorbeeld
+  `What Life Was Like in Pompeii Before Vesuvius | History for Sleep`.
+- Stuurt de eigenaar zelf een onderwerp, gebruik dat precies zoals gestuurd (niets
+  aan veranderen) met ` | History for Sleep` erachter.
+- Kort houden: liefst ≤ 70 tekens in totaal (op een telefoon wordt de rest afgeknipt).
+  Max. 100 tekens.
+- "Sleep documentary" staat dan in de beschrijving en de tags, niet meer in de titel.
+- Een video die eenmaal openbaar is: titel/thumbnail aanpassen in Studio, **niet**
+  verwijderen en opnieuw uploaden (dan begint hij weer bij nul).
 
 ## Beschrijving (Engels, rustige toon)
 ```
 Drift off to the story of <onderwerp in één zin: wat, waar, wanneer>.
+(Eerste regel = wat je in de zoekresultaten ziet: laat "history for sleep" of
+"sleep documentary" er liefst in terugkomen.)
 <2 zinnen over wat de kijker meemaakt in het verhaal.>
 
 A calm, slow-paced history documentary for sleep and relaxation. No loud
@@ -131,33 +143,39 @@ historical sources<, noem de belangrijkste bron>.
 - Eerste hoofdstuk altijd op 0:00:00, minstens 3 hoofdstukken, elk ≥ 10 s.
 
 ## Tags
-Altijd: `sleep documentary, history for sleep, bedtime story, relaxing history,
-sleep story, 432hz` + 4–6 onderwerp-tags.
+Altijd: `history for sleep, boring history for sleep, sleep documentary, bedtime story,
+relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
 
 ## Instellingen
 - Categorie: Education (`--category 27`)
 - Niet voor kinderen (`selfDeclaredMadeForKids: false`)
 - AI-inhoud gemarkeerd (`containsSyntheticMedia: true`, standaard in het script)
 - Privé
-- Thumbnail: **altijd in hetzelfde ontwerp**, zodat kijkers de serie herkennen.
-  Maak hem met `tools/make_thumbnail.py` (niet zelf een ander ontwerp maken):
+- Thumbnail: **altijd in hetzelfde ontwerp (v2, sinds okt 2026)**, zodat kijkers de serie
+  herkennen. Maak hem met `tools/make_thumbnail.py` (niet zelf een ander ontwerp maken):
   ```
-  python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --title "<onderwerp>"
+  python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --hook "<2-4 woorden>" --title "<plaats>  ·  <jaar>"
   ```
-  - Ontwerp (zoals populaire slaapgeschiedenis-kanalen, met eigen tekst):
-    helder, kleurrijk beeld; bovenaan groot "SLEEP DOCUMENTARY"; linksonder een
-    kleine regel (het deel na de ":" in het onderwerp) en daaronder het
-    onderwerp enorm groot. Alle tekst extra dik, wit, met donkere rand en gloed;
-    het onderwerp krijgt een lichte maanlichtgloed.
-  - Achtergrond: aparte thumbnail-afbeelding via xAI (`grok-imagine-image`,
-    $0,02): filmisch, verzadigde kleuren, een duidelijk onderwerp (plek,
-    gebouw, landschap of mensen op afstand), contrast tussen warm lamplicht en
-    een koele blauwe nacht, donkerder bovenaan en linksonder voor de tekst,
-    16:9, geen tekst. Anders een kleurrijk beeld uit de video.
-  - `--title`: het onderwerp zoals de eigenaar het stuurt (zonder
-    "| Sleep Documentary"), bv. `Pompeii: The Last Day`.
-  - Beeld: een sprekend beeld uit de video met een rustig midden. Afspraken van
-    de eigenaar over wélk beeld gaan voor.
+  Voorbeelden: `stories/pompeii/thumbnail-v2.jpg` (`--hook "Before the Ash" --title "Pompeii  ·  79 AD"`),
+  `stories/titanic/thumbnail-v2.jpg`, `stories/san-francisco-1906/thumbnail-v2.jpg`.
+  - Ontwerp: linksboven klein het logo (maantje + SLEEP ARCHIVES); linksonder een kleine
+    amberkleurige regel (plaats · jaar) en daaronder de **hook** heel groot, wit, extra dik.
+    Geen grote "SLEEP DOCUMENTARY"-balk meer: die ruimte is voor het beeld. De tekst blijft
+    in de linker ± helft, want rechtsonder zet YouTube de videolengte (in de Studio-app heel groot).
+  - **Hook**: 2–4 woorden die een gevoel of beleving geven, niet de hele titel. Bv.
+    "Before the Ash", "The Last Quiet Night", "Old San Francisco", "Winter in a Viking Hut".
+  - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
+    kaars), warm oranje licht tegen een koele blauwe/paarse avond. De mensen en hun
+    gezichten staan **rechts of in het midden**, links onderin moet rustig zijn voor de
+    tekst. Bekijk het resultaat: staat de tekst over een gezicht, kies een ander beeld.
+  - Kies eerst een passend beeld uit de video (gratis). Is er geen goed beeld met mensen,
+    maak dan één aparte thumbnail-afbeelding via xAI (`grok-imagine-image`, $0,02):
+    filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en
+    donkerder, 16:9, geen tekst.
+  - Na publicatie: test in Studio met **Test & Compare** twee varianten (andere hook
+    of ander beeld); YouTube kiest zelf de winnaar.
+  - Oud ontwerp (v1) kan nog met `--stijl v1 --title "<onderwerp>"`, niet meer gebruiken
+    voor nieuwe video's.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
 
 ## Na de upload
@@ -208,7 +226,7 @@ Zet na de YouTube-upload elke geplande Short erop:
    `asset: true`, `file_path(s)` = de Short(s). Bewaar het teruggegeven id en url.
 2. Schrijf per Short één document met ArtifactData (`action: "set"`, `url` = de pagina,
    `collection: "tiktoks"`, `doc_id: "<map>-<shortnaam>"`), met deze velden:
-   `onderwerp` (titel van de lange video zonder "| Sleep Documentary"), `titel`
+   `onderwerp` (titel van de lange video zonder "| History for Sleep" of "| Sleep Documentary"), `titel`
    (YouTube-titel van de Short zonder " | …"), `datum` (publicatie in
    Nederlandse tijd als "JJJJ-MM-DDTUU:MM"), `bijschrift` (TikTok-bijschrift),
    `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`

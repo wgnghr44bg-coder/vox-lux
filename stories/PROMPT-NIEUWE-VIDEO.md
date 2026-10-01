@@ -55,7 +55,14 @@ Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
 2. Schrijf een rustig Engels script, zonder gruwelijke details. De uiteindelijke
    video (met de extra pauzes) moet minimaal 2 uur zijn, dus de stem zelf minstens
-   1 uur 40 (± 110.000 tekens).
+   1 uur 40 (± 110.000 tekens). Houd het op ± 2 uur
+   (eigenaar): niet bewust langer maken.
+   Vertel rustig. Begin bij het **dagelijks leven** (wonen, eten, werk, het weer), zodat de
+   kijker de plek en de mensen leert kennen. Vertel daarna de **gebeurtenis of het mysterie
+   zelf** volledig en duidelijk, kalm en zonder gruwelijke details: dit is de kern en krijgt
+   minstens een derde van de video. Sluit af met wat er daarna gebeurde en wat er vandaag
+   nog van over is. (Richtlijn, geen vaste verdeling: bij een mysterie is het mysterie het
+   grootste deel; bij een dagelijks-leven-onderwerp is er vaak geen gebeurtenis.)
 3. Stem: xAI, stem Lux. Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
 4. Afbeeldingen: 75 stuks, verdeeld over de hele video (± elke 1,5 min).
    - Elk beeld laat de scène zien die op dat moment verteld wordt: de plek, de
@@ -74,7 +81,8 @@ Stappen:
    sterren) met tools/motion.py, precies zoals stap 4 en 5 van de standaard.
    Controleer zelf proefbeelden van elk onderdeel (--proef), een paar beelden uit de
    eindvideo en het geluid tot het eind. Upload het -motion-bestand.
-6. Thumbnail met tools/make_thumbnail.py in dezelfde stijl.
+6. Thumbnail met tools/make_thumbnail.py in het v2-ontwerp (hook van 2-4 woorden, warm
+   beeld met mensen rechts/midden; zie "Thumbnail" in de standaard). Bekijk hem zelf.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
