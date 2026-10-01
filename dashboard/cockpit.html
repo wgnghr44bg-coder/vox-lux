@@ -1,0 +1,307 @@
+<title>Sleep Archives Cockpit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm column at night; day strip on top, then numbers, schedule, advice. */
+:root{
+  --bg:#eef0f7; --surface:#ffffff; --raised:#f6f7fb; --line:#d9dcea;
+  --fg:#1b1d33; --muted:#5d6183; --moon:#a66a12; --moon-soft:#f6e7c8;
+  --good:#1f7a4f; --warn:#b35f00; --act:#b3261e; --tiktok:#0f7d86; --yt:#c0262d;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1024; --surface:#171a35; --raised:#1e2242; --line:#2c3158;
+  --fg:#ecebf5; --muted:#a3a6c8; --moon:#f3dfae; --moon-soft:#3a3420;
+  --good:#5fd39a; --warn:#f2b45c; --act:#ff8a80; --tiktok:#5fd6de; --yt:#ff7b7f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1024; --surface:#171a35; --raised:#1e2242; --line:#2c3158;
+  --fg:#ecebf5; --muted:#a3a6c8; --moon:#f3dfae; --moon-soft:#3a3420;
+  --good:#5fd39a; --warn:#f2b45c; --act:#ff8a80; --tiktok:#5fd6de; --yt:#ff7b7f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body);margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:grid;gap:28px}
+h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:1.9rem;line-height:1.15}
+h2{font-size:1.3rem;display:flex;align-items:baseline;gap:10px}
+h2 small{font:500 .78rem var(--body);color:var(--muted);letter-spacing:.02em}
+.muted{color:var(--muted)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{display:flex;gap:14px;align-items:center}
+.moon{width:46px;height:46px;flex:none}
+header p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.summary{font-family:var(--display);font-size:1.15rem;line-height:1.45;margin:0;padding:14px 16px;border-radius:var(--r);background:var(--moon-soft);color:var(--fg)}
+nav{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;z-index:2}
+nav a{font-size:.85rem;color:var(--fg);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--surface)}
+nav a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--moon);outline-offset:2px}
+section{display:grid;gap:12px;scroll-margin-top:60px}
+
+/* tasks */
+.tasks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.task{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.task input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--good)}
+.task label{min-width:0;cursor:pointer}
+.task strong{font-weight:600;display:block}
+.task .why{color:var(--muted);font-size:.88rem}
+.task a{color:var(--moon)}
+.task.done strong{text-decoration:line-through;color:var(--muted)}
+.when{font:500 .72rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--warn)}
+.empty{color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:14px}
+details summary{cursor:pointer;color:var(--muted);font-size:.9rem}
+
+/* production */
+.make{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:10px}
+.steps{display:flex;flex-wrap:wrap;gap:6px}
+.step{font-size:.78rem;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.step.ok{color:var(--good);border-color:currentColor}
+.step.now{color:var(--bg);background:var(--moon);border-color:var(--moon);font-weight:600}
+
+/* numbers */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
+.tile .k{font-size:.78rem;color:var(--muted);letter-spacing:.03em}
+.tile .v{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.3}
+.tile .d{font-size:.8rem}
+.up{color:var(--good)} .down{color:var(--act)}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px 6px}
+.chart svg{width:100%;height:auto;display:block}
+.goal{display:grid;gap:4px}
+.bar{height:8px;border-radius:999px;background:var(--raised);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--moon);border-radius:inherit}
+.goals{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:grid;gap:12px}
+
+/* schedule */
+.days{display:grid;gap:10px}
+.day{display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:start}
+.day h3{margin:0;font:600 .9rem var(--body)}
+.day h3 span{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+.slots{display:grid;gap:6px;min-width:0}
+.slot{display:grid;grid-template-columns:48px auto 1fr;gap:8px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0}
+.slot .t{font-family:var(--mono);font-size:.85rem}
+.slot .title{min-width:0;overflow-wrap:anywhere;font-size:.9rem}
+.chip{font:600 .68rem var(--body);letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.chip.yt{color:var(--yt)} .chip.tt{color:var(--tiktok)} .chip.long{color:var(--moon)}
+.state{font-size:.75rem;color:var(--muted)}
+.state.make{color:var(--warn)}
+
+/* advice */
+.advice{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.advice li{display:grid;grid-template-columns:auto 1fr;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:7px}
+.dot.goed{background:var(--good)} .dot.let-op{background:var(--warn)} .dot.actie{background:var(--act)}
+.advice strong{display:block}
+.advice p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+
+/* tables */
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase}
+td.r,th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.src{display:grid;grid-template-columns:minmax(0,1fr) 2fr auto;gap:8px 10px;align-items:center;font-size:.88rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.src .bar{height:10px}
+.notice{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+@media (max-width:520px){.day{grid-template-columns:1fr}.slot{grid-template-columns:44px auto 1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="var(--raised)"/><path d="M30 10a15 15 0 1 0 8 25A13 13 0 0 1 30 10z" fill="var(--moon)"/></svg>
+    <div>
+      <h1>Sleep Archives Cockpit</h1>
+      <p id="updated">Gegevens worden geladen…</p>
+    </div>
+  </header>
+
+  <p class="summary" id="summary">Hier staat elke ochtend in één zin hoe je kanaal ervoor staat.</p>
+
+  <nav aria-label="Onderdelen">
+    <a href="#vandaag">Vandaag</a><a href="#maak">In de maak</a><a href="#cijfers">Cijfers</a><a href="#schema">Schema</a><a href="#advies">Advies</a><a href="#videos">Video's</a>
+  </nav>
+
+  <section id="vandaag">
+    <h2>Niet vergeten <small id="todaylabel"></small></h2>
+    <ul class="tasks" id="tasks"><li class="empty">Je taken voor vandaag verschijnen hier na de ochtendcheck.</li></ul>
+    <details id="laterbox" hidden><summary id="latersum">Later deze week</summary><ul class="tasks" id="later" style="margin-top:8px"></ul></details>
+  </section>
+
+  <section id="maak">
+    <h2>In de maak</h2>
+    <div class="make" id="make"><span class="muted">Nog geen gegevens.</span></div>
+  </section>
+
+  <section id="cijfers">
+    <h2>Cijfers <small id="periodlabel">laatste 28 dagen</small></h2>
+    <div class="tiles" id="tiles"></div>
+    <div class="chart"><div class="muted" style="font-size:.8rem">Weergaven per dag</div><svg id="chart" viewBox="0 0 600 170" role="img" aria-label="Weergaven per dag"></svg></div>
+    <div class="goals" id="goals"></div>
+  </section>
+
+  <section id="schema">
+    <h2>Schema <small>komende 10 dagen, Nederlandse tijd</small></h2>
+    <div class="days" id="days"><div class="empty">Het schema verschijnt na de ochtendcheck.</div></div>
+  </section>
+
+  <section id="advies">
+    <h2>Advies</h2>
+    <ul class="advice" id="advice"><li><span class="dot let-op"></span><div><strong>Nog geen advies</strong><p>Na de ochtendcheck staat hier wat je kunt verbeteren.</p></div></li></ul>
+  </section>
+
+  <section id="videos">
+    <h2>Video's <small>beste van de laatste 28 dagen</small></h2>
+    <div class="tablebox"><table><thead><tr><th>Video</th><th class="r">Weergaven</th><th class="r">Kijktijd</th><th class="r">Bekeken</th></tr></thead><tbody id="top"><tr><td colspan="4" class="muted">Nog geen gegevens.</td></tr></tbody></table></div>
+    <h2 style="font-size:1.05rem;margin-top:6px">Waar kijkers vandaan komen</h2>
+    <div class="src" id="traffic"><span class="muted">Nog geen gegevens.</span></div>
+  </section>
+
+  <p class="muted" style="font-size:.8rem;margin:0">Elke ochtend bijgewerkt door je vaste taak "Sleep Archives cockpit". Vinkjes worden bewaard.</p>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nf = n => Number(n || 0).toLocaleString("nl-NL");
+const DAYS = ["zo","ma","di","wo","do","vr","za"];
+const MONTHS = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const pad = n => String(n).padStart(2, "0");
+const todayStr = () => { const d = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Amsterdam"})); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+const dayLabel = ymd => { const [y,m,d] = ymd.split("-").map(Number); const dt = new Date(y, m-1, d); return `${DAYS[dt.getDay()]} ${d} ${MONTHS[m-1]}`; };
+const addDays = (ymd, n) => { const [y,m,d] = ymd.split("-").map(Number); const dt = new Date(y, m-1, d + n); return `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())}`; };
+
+let db = null, tasks = [];
+
+function renderTasks() {
+  const today = todayStr();
+  $("todaylabel").textContent = dayLabel(today);
+  const now = tasks.filter(t => (t.datum || today) <= today && !(t.klaar && (t.datum || today) < today));
+  const later = tasks.filter(t => (t.datum || today) > today);
+  const row = t => `<li class="task${t.klaar ? " done" : ""}">
+      <input type="checkbox" id="t-${esc(t.id)}" data-id="${esc(t.id)}" ${t.klaar ? "checked" : ""} ${db ? "" : "disabled"}>
+      <label for="t-${esc(t.id)}">${(t.datum || today) < today ? `<span class="when">Blijven liggen sinds ${esc(dayLabel(t.datum))}</span>` : (t.datum > today ? `<span class="when" style="color:var(--muted)">${esc(dayLabel(t.datum))}</span>` : "")}
+        <strong>${esc(t.tekst)}</strong>${t.uitleg ? `<span class="why">${esc(t.uitleg)}</span>` : ""}${t.link ? ` <a href="${esc(t.link)}" target="_blank" rel="noopener">openen</a>` : ""}</label></li>`;
+  $("tasks").innerHTML = now.length ? now.map(row).join("") : `<li class="empty">Niets te doen vandaag. Alles loopt vanzelf.</li>`;
+  $("laterbox").hidden = !later.length;
+  $("latersum").textContent = `Later deze week (${later.length})`;
+  $("later").innerHTML = later.map(row).join("");
+}
+
+document.addEventListener("change", async e => {
+  const id = e.target?.dataset?.id;
+  if (!id || !db) return;
+  const klaar = e.target.checked;
+  const t = tasks.find(x => x.id === id); if (t) t.klaar = klaar;
+  renderTasks();
+  try { await db.doc("taken/" + id).update({klaar}); }
+  catch { if (t) t.klaar = !klaar; renderTasks(); }
+});
+
+const STEPS = ["Script","Stem","Afbeeldingen","Video","Effecten","Upload","Shorts","Klaar"];
+function renderMake(m) {
+  if (!m || !m.onderwerp) { $("make").innerHTML = `<span class="muted">Er wordt nu geen video gemaakt. De volgende start ${esc(m?.volgende || "bij de volgende vaste taak")}.</span>`; return; }
+  const i = Math.max(0, STEPS.indexOf(m.stap));
+  $("make").innerHTML = `<div><strong style="font-family:var(--display);font-size:1.15rem">${esc(m.onderwerp)}</strong>
+    <div class="muted" style="font-size:.88rem">${esc(m.toelichting || "")}</div></div>
+    <div class="steps">${STEPS.map((s, k) => `<span class="step ${k < i ? "ok" : k === i ? "now" : ""}">${k < i ? "✓ " : ""}${s}</span>`).join("")}</div>
+    ${m.live ? `<div class="muted" style="font-size:.85rem">Gaat live: <span class="num">${esc(m.live)}</span></div>` : ""}`;
+}
+
+function delta(now, before, unit = "") {
+  if (!before) return `<span class="muted">eerste periode</span>`;
+  const p = Math.round((now - before) / before * 100);
+  return `<span class="${p >= 0 ? "up" : "down"}">${p >= 0 ? "▲" : "▼"} ${Math.abs(p)}%</span> <span class="muted">vs. vorige 28 d</span>`;
+}
+
+function renderNumbers(s) {
+  const n = s.period?.now || {}, b = s.period?.before || {};
+  const hours = (n.estimatedMinutesWatched || 0) / 60;
+  $("periodlabel").textContent = s.period ? `${dayLabel(s.period.start)} – ${dayLabel(s.period.end)}` : "";
+  $("tiles").innerHTML = [
+    ["Abonnees", nf(s.channel?.subscriberCount), `<span class="up">+${nf(n.subscribersGained)}</span> <span class="muted">deze periode</span>`],
+    ["Weergaven", nf(n.views), delta(n.views, b.views)],
+    ["Kijktijd", `${nf(Math.round(hours))} u`, delta(n.estimatedMinutesWatched, b.estimatedMinutesWatched)],
+    ["Openbare video's", nf(s.channel?.videoCount), `<span class="muted">${nf(s.channel?.viewCount)} weergaven totaal</span>`],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
+
+  const subs = s.channel?.subscriberCount || 0, yearHours = s.watch_hours_12m ?? null;
+  $("goals").innerHTML = `<div class="muted" style="font-size:.8rem">Op weg naar geld verdienen (YouTube Partner Programma)</div>
+    <div class="goal"><div style="display:flex;justify-content:space-between;font-size:.88rem"><span>Abonnees</span><span class="num">${nf(subs)} / 1.000</span></div><div class="bar"><i style="width:${Math.min(100, subs / 10)}%"></i></div></div>
+    <div class="goal"><div style="display:flex;justify-content:space-between;font-size:.88rem"><span>Kijkuren (12 maanden)</span><span class="num">${yearHours == null ? "–" : nf(Math.round(yearHours))} / 4.000</span></div><div class="bar"><i style="width:${yearHours == null ? 0 : Math.min(100, yearHours / 40)}%"></i></div></div>`;
+
+  const d = s.daily || [], W = 600, H = 170, L = 34, R = 10, T = 12, B = 26;
+  if (!d.length) { $("chart").innerHTML = ""; return; }
+  const max = Math.max(10, ...d.map(x => x.views));
+  const step = Math.pow(10, Math.floor(Math.log10(max))); const top = Math.ceil(max / step) * step;
+  const x = i => L + (W - L - R) * (d.length === 1 ? 0.5 : i / (d.length - 1));
+  const y = v => T + (H - T - B) * (1 - v / top);
+  const pts = d.map((p, i) => `${x(i).toFixed(1)},${y(p.views).toFixed(1)}`);
+  const grid = [0, top / 2, top].map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${nf(v)}</text>`).join("");
+  const ticks = [0, Math.floor((d.length - 1) / 2), d.length - 1].map(i => `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 ? "start" : i === d.length - 1 ? "end" : "middle"}" font-size="11" fill="var(--muted)">${dayLabel(d[i].day)}</text>`).join("");
+  const last = d[d.length - 1];
+  $("chart").innerHTML = `${grid}<polygon points="${x(0)},${y(0)} ${pts.join(" ")} ${x(d.length - 1)},${y(0)}" fill="var(--moon)" opacity=".16"/>
+    <polyline points="${pts.join(" ")}" fill="none" stroke="var(--moon)" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="${x(d.length - 1)}" cy="${y(last.views)}" r="4" fill="var(--moon)"/>${ticks}`;
+}
+
+function renderSchedule(s) {
+  const today = todayStr(), end = addDays(today, 10), items = [];
+  for (const v of s.youtube_schedule || []) {
+    const day = (v.when || "").slice(0, 10);
+    if (v.status === "gepland" && day >= today && day < end)
+      items.push({day, t: v.when.slice(11), kind: v.short ? "short" : "long", plat: "yt", title: v.title, state: "Gepland"});
+  }
+  const ytTimes = new Set(items.map(i => i.day + " " + i.t));
+  for (const p of s.planning || []) for (const [k, when] of Object.entries(p.slots || {})) {
+    const day = when.slice(0, 10); if (day < today || day >= end) continue;
+    if (k === "lang" || k === "yt-short") {
+      if (ytTimes.has(when)) continue;
+      items.push({day, t: when.slice(11), kind: k === "lang" ? "long" : "short", plat: "yt", title: p.onderwerp, state: "In de maak"});
+    } else items.push({day, t: when.slice(11), kind: "short", plat: "tt", title: `${p.onderwerp} · ${k.replace("short", "Short ")}`, state: "TikTok, zelf posten"});
+  }
+  items.sort((a, b) => (a.day + a.t).localeCompare(b.day + b.t));
+  const days = [...new Set(items.map(i => i.day))];
+  $("days").innerHTML = days.length ? days.map(day => `<div class="day"><h3>${dayLabel(day).split(" ")[0]}<span>${dayLabel(day).split(" ").slice(1).join(" ")}${day === today ? " · vandaag" : ""}</span></h3><div class="slots">${
+    items.filter(i => i.day === day).map(i => `<div class="slot"><span class="t">${esc(i.t)}</span>
+      <span class="chip ${i.plat === "tt" ? "tt" : i.kind === "long" ? "long" : "yt"}">${i.plat === "tt" ? "TikTok" : i.kind === "long" ? "Lange video" : "YT Short"}</span>
+      <span class="title">${esc(i.title)} <span class="state ${i.state === "In de maak" ? "make" : ""}">· ${esc(i.state)}</span></span></div>`).join("")
+  }</div></div>`).join("") : `<div class="empty">Niets gepland in de komende 10 dagen.</div>`;
+}
+
+const SOURCES = {SHORTS:"Shorts-feed", YT_SEARCH:"Zoeken op YouTube", RELATED_VIDEO:"Aanbevolen naast video's", SUBSCRIBER:"Abonnees", YT_OTHER_PAGE:"Andere YouTube-pagina's", YT_CHANNEL:"Je kanaalpagina", NO_LINK_OTHER:"Direct / onbekend", EXT_URL:"Andere websites", PLAYLIST:"Playlists", BROWSE:"Startpagina", SOUND_PAGE:"Geluidspagina", NOTIFICATION:"Meldingen", END_SCREEN:"Eindscherm"};
+function renderVideos(s) {
+  const top = s.top || [];
+  $("top").innerHTML = top.length ? top.map(v => `<tr><td>${esc(v.title)}</td><td class="r">${nf(v.views)}</td><td class="r">${nf(Math.round(v.estimatedMinutesWatched / 60 * 10) / 10)} u</td><td class="r">${Math.round(v.averageViewPercentage)}%</td></tr>`).join("") : `<tr><td colspan="4" class="muted">Nog geen gegevens.</td></tr>`;
+  const tr = s.traffic || [], mx = Math.max(1, ...tr.map(t => t.estimatedMinutesWatched));
+  $("traffic").innerHTML = tr.length ? `<span class="muted" style="font-size:.75rem">Bron</span><span class="muted" style="font-size:.75rem">Kijktijd</span><span class="muted" style="font-size:.75rem;text-align:right">Weergaven</span>` +
+    tr.slice(0, 7).map(t => `<span style="min-width:0">${esc(SOURCES[t.insightTrafficSourceType] || t.insightTrafficSourceType)}</span><div class="bar"><i style="width:${t.estimatedMinutesWatched / mx * 100}%"></i></div><span class="num" style="text-align:right">${nf(t.views)}</span>`).join("") : `<span class="muted">Nog geen gegevens.</span>`;
+}
+
+function renderStand(s) {
+  if (!s) return;
+  $("updated").textContent = `Bijgewerkt ${s.updated ? dayLabel(s.updated.slice(0, 10)) + " om " + s.updated.slice(11) : ""} · ${s.channel?.handle || ""}`;
+  if (s.samenvatting) $("summary").textContent = s.samenvatting;
+  renderMake(s.in_de_maak);
+  renderNumbers(s);
+  renderSchedule(s);
+  renderVideos(s);
+  const adv = s.advies || [];
+  if (adv.length) $("advice").innerHTML = adv.map(a => `<li><span class="dot ${esc(a.niveau)}"></span><div><strong>${esc(a.titel)}</strong><p>${esc(a.tekst)}</p></div></li>`).join("");
+}
+
+(async () => {
+  renderTasks();
+  db = await window.claude?.use?.("db");
+  if (!db) { $("updated").textContent = "Open deze pagina in claude.ai (ingelogd) om je gegevens te zien."; return; }
+  db.doc("cockpit/stand").onSnapshot(snap => renderStand(snap?.data?.() ?? snap?.data ?? null));
+  db.collection("taken").onSnapshot(snap => {
+    const docs = snap?.docs || [];
+    tasks = docs.map(d => ({id: d.id, ...(typeof d.data === "function" ? d.data() : d.data)}))
+      .sort((a, b) => (a.datum || "").localeCompare(b.datum || "") || (a.volgorde ?? 0) - (b.volgorde ?? 0));
+    renderTasks();
+  });
+})();
+</script>
