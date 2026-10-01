@@ -29,7 +29,7 @@
 
 ## YouTube-toegang
 - Omgevingsvariabelen: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`
-  (scope youtube.upload). Netwerk: `oauth2.googleapis.com`, `www.googleapis.com`.
+  (scopes youtube.upload, youtube.readonly, yt-analytics.readonly). Netwerk: `oauth2.googleapis.com`, `www.googleapis.com`.
 - Google-app staat sinds 29-09-2026 op **In production** (homepage en privacy via
   GitHub Pages uit de map `docs/` — laten staan; na het samenvoegen in `main`
   Pages op branch `main`, map `/docs` zetten). Een token die daarna is
@@ -37,8 +37,10 @@
   Vroeger (Testing) verliep de refresh token na 7 dagen. Nieuwe client secret en
   refresh token (29-09-2026) staan in de omgeving; verversen getest en werkt.
   Nieuwe token: developers.google.com/oauthplayground → tandwiel → eigen
-  credentials → scope `https://www.googleapis.com/auth/youtube.upload` →
-  Authorize → Exchange → token in de omgeving vervangen, nieuwe sessie.
+  credentials → scopes `https://www.googleapis.com/auth/youtube` en
+  `https://www.googleapis.com/auth/yt-analytics.readonly` → Authorize → Exchange →
+  token in de omgeving vervangen, nieuwe sessie. (`auth/youtube` dekt uploaden,
+  lezen én bewerken; nodig voor `tools/youtube_tidy.py`: playlists, titels, tags.)
 - Videos via een niet-geauditeerd API-project blijven privé; eigenaar publiceert.
 - Test eerst alleen de token-verversing (geen upload) om te zien of het werkt.
 
