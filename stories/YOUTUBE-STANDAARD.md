@@ -188,18 +188,21 @@ Meld de eigenaar de link(s) en wat nog in YouTube Studio moet (altijd deze lijst
 4. TikTok: de goedgekeurde Shorts uit de chat downloaden en posten met het bijschrift.
 De refresh token blijft geldig (app "In production"); test hem wel eerst.
 
-## Shorts (sinds Pompeii)
+## Shorts (sinds Pompeii; vernieuwd okt 2026)
 Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
-1. Kies stukjes van 45–60 s (begin en eind op een zinsgrens) en zet ze in
+**Alle Shorts gaan naar TikTok; alleen de sterkste (short1) ook naar YouTube**, de dag na de
+lange video om 20:00. Reden (cijfers sept 2026): Shorts gaven veel weergaven maar bijna geen
+abonnees, de groei in deze niche komt van lange video's, en zo blijven er uploads over.
+Shorts met een rustig "Did you know? [pause] …"-begin werden het snelst weggeswiped (± 37%
+bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
+1. Kies stukjes van 35–45 s (begin en eind op een zinsgrens) en zet ze in
    `stories/<verhaal>/shorts.tsv` (kolommen `naam`, `van`, `tot` = zinsnummers uit
    `tijdlijn-pauzes.tsv`). Eerst `tools/add_pauses.py` draaien als `video/stem-met-pauzes.wav` ontbreekt.
-2. **Gesproken begin**, altijd in drie stukjes met `[pause]` ertussen (eigenaar):
-   `Did you know? [pause] <waar het over gaat + jaar>. [pause] <het weetje>.`
-   Voorbeeld: "Did you know? [pause] The Titanic sank in April 1912. [pause] The two lookouts
-   high in the mast had no binoculars." Of: "Did you know? [pause] Vesuvius buried Pompeii in
-   79 AD. [pause] A famous Roman admiral simply went to sleep." Het middelste stuk zegt kort
-   de gebeurtenis/plek en het jaar, zodat een kijker die niets weet het meteen snapt; het
-   weetje wordt in het stukje verteld. Simpel Engels, samen ± 25 woorden.
+2. **Gesproken begin**: één of twee korte zinnen die **meteen** het spannendste zeggen, zonder
+   "Did you know?" en zonder `[pause]` (de eerste 2 seconden beslissen of iemand blijft).
+   Noem plek en jaar kort, zodat een kijker die niets weet het snapt. Simpel Engels, ± 15-20
+   woorden. Voorbeelden: "Sixty kilometres from the blast, a farmer felt his shirt catch fire.
+   Siberia, 1908." / "The two men watching for icebergs had no binoculars. Titanic, 1912."
    Tekst in `shorts-intro/<naam>.txt`, inspreken (kost < 1 cent; de routine mag dit binnen
    haar budget, een losse sessie vraagt eerst akkoord):
    `python3 tools/xai_voiceover.py stories/<verhaal>/shorts-intro/<naam>.txt --proxy-auth -o stories/<verhaal>/shorts-intro/<naam>.mp3`
@@ -212,16 +215,18 @@ Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (x
    432 Hz-muziek op -17 dB). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
-5. YouTube: privé, Education, niet voor kinderen, AI gemarkeerd. Titel: korte rustige zin +
-   ` | <korte naam>` (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
+5. YouTube (alleen short1): privé, Education, niet voor kinderen, AI gemarkeerd. Titel:
+   spannend en nieuwsgierig makend, met hoofdletters per woord en eventueel één emoji
+   (zoals de best lopende Shorts), + ` | <korte naam + jaar>`, bv.
+   "His Shirt Caught Fire 60 km From the Blast 🔥 | Tunguska 1908" (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
-6. TikTok: zet elke geplande Short met bijschrift op de TikTok-pagina (zie
+6. TikTok: zet ALLE Shorts met bijschrift op de TikTok-pagina (zie
    "TikTok-overzicht" hieronder). Geen Google Drive.
 
 ## TikTok-overzicht (voor de eigenaar)
-Alle Shorts die op YouTube gepland staan, komen ook op één vaste pagina:
+Alle Shorts (ook die niet naar YouTube gaan) komen op één vaste pagina:
 https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (Artifact "Sleep Archives TikToks"; database-collectie `tiktoks`).
-Zet na de YouTube-upload elke geplande Short erop:
+Zet elke Short erop (`datum` = de TikTok-datum uit planning.txt, short1..N):
 1. Upload het mp4-bestand als asset: Artifact-tool, `url` = de pagina hierboven,
    `asset: true`, `file_path(s)` = de Short(s). Bewaar het teruggegeven id en url.
 2. Schrijf per Short één document met ArtifactData (`action: "set"`, `url` = de pagina,
@@ -230,5 +235,6 @@ Zet na de YouTube-upload elke geplande Short erop:
    (YouTube-titel van de Short zonder " | …"), `datum` (publicatie in
    Nederlandse tijd als "JJJJ-MM-DDTUU:MM"), `bijschrift` (TikTok-bijschrift),
    `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`
-   (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short), `geplaatst: false`.
+   (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short, of "" als hij niet op YouTube
+   staat), `geplaatst: false`.
 Lukt dit niet, stuur de Shorts dan in de chat zoals voorheen.
