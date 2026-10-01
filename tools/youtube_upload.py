@@ -3,7 +3,8 @@
 
 Credentials come from environment variables (never hardcode or commit them):
     YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
-The refresh token needs the https://www.googleapis.com/auth/youtube.upload scope.
+The refresh token needs the https://www.googleapis.com/auth/youtube.upload scope
+(or the broader .../auth/youtube scope, which tools/youtube_tidy.py also needs).
 
 Usage:
     python3 tools/youtube_upload.py video.mp4 --title "Pompeii: The Last Day | Sleep Documentary" \
@@ -116,6 +117,8 @@ def main() -> None:
     parser.add_argument("--tags", default="", help="comma-separated")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
     parser.add_argument("--category", default="27", help="YouTube category id (27 = Education)")
+    parser.add_argument("--language", default="en",
+                        help="title/description and spoken language (default: en)")
     parser.add_argument("--no-synthetic", action="store_true",
                         help="do not mark the video as containing AI-generated content")
     parser.add_argument("--publish-at",
@@ -132,6 +135,8 @@ def main() -> None:
             if args.description_file else "",
             "tags": [t.strip() for t in args.tags.split(",") if t.strip()],
             "categoryId": args.category,
+            "defaultLanguage": args.language,
+            "defaultAudioLanguage": args.language,
         },
         "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False,
                    "containsSyntheticMedia": not args.no_synthetic},
