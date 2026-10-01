@@ -172,8 +172,8 @@ tr:last-child td{border-bottom:0}
   <section id="kosten">
     <h2>Kosten &amp; verbruik <small id="kostenmaand"></small></h2>
     <div class="tiles" id="kostentiles"></div>
-    <div class="tablebox"><table><thead><tr><th>Datum</th><th>Waarvoor</th><th class="r">Bedrag</th></tr></thead><tbody id="kostenrows"><tr><td colspan="3" class="muted">Nog geen kosten bijgehouden.</td></tr></tbody></table></div>
-    <p class="muted" style="margin:0;font-size:.82rem" id="kostennote">xAI: bedragen uit de notities van elke video (± = geschat); het exacte bedrag staat op console.x.ai onder Usage. Claude: de waarde van het gebruik in API-prijzen. Met je abonnement betaal je dit niet apart, zolang je binnen je limiet blijft.</p>
+    <div class="tablebox"><table><thead><tr><th>Datum</th><th>xAI per video</th><th class="r">Bedrag</th></tr></thead><tbody id="kostenrows"><tr><td colspan="3" class="muted">Nog geen kosten bijgehouden.</td></tr></tbody></table></div>
+    <p class="muted" style="margin:0;font-size:.82rem" id="kostennote">Het tegoed gaat uit van de laatste stand op console.x.ai, min de kosten van elke video die daarna gemaakt is. Stuur af en toe een nieuwe screenshot van console.x.ai, dan wordt het weer precies.</p>
   </section>
 
   <section id="videos">
@@ -337,23 +337,26 @@ document.addEventListener("change", async e => {
   try { await db.doc("verbeterpunten/" + id).update({klaar}); } catch { if (t) t.klaar = !klaar; renderBeter(); }
 });
 
+let kstand = null;
 function renderKosten() {
-  const month = todayStr().slice(0, 7);
-  const [y, m] = month.split("-").map(Number);
-  $("kostenmaand").textContent = `${MONTHS[m - 1]} ${y} en eerder`;
-  const sum = (list) => list.reduce((a, k) => a + (Number(k.bedrag) || 0), 0);
-  const xai = kosten.filter(k => k.soort === "xai"), cl = kosten.filter(k => k.soort === "claude");
-  const xm = xai.filter(k => (k.datum || "").startsWith(month)), cm = cl.filter(k => (k.datum || "").startsWith(month));
   const usd = v => "$" + v.toLocaleString("nl-NL", {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  const videos = new Set(xai.filter(k => k.video).map(k => k.video)).size;
+  const k = kstand || {};
+  const since = k.bijgewerkt || "0000-00-00";
+  const xai = kosten.filter(x => x.soort === "xai");
+  const after = xai.filter(x => (x.datum || "") > since);
+  const spentAfter = after.reduce((a, x) => a + (Number(x.bedrag) || 0), 0);
+  const saldo = k.xai_saldo != null ? k.xai_saldo - spentAfter : null;
+  const perVideo = after.filter(x => x.video).length ? spentAfter / after.filter(x => x.video).length : (k.xai_per_video ?? null);
+  const videosLeft = saldo != null && perVideo ? Math.floor(saldo / perVideo) : null;
+  $("kostenmaand").textContent = k.bijgewerkt ? `saldo van console.x.ai op ${dayLabel(k.bijgewerkt)}` : "";
   $("kostentiles").innerHTML = [
-    ["xAI deze maand", usd(sum(xm)), `<span class="muted">${usd(sum(xai))} totaal</span>`],
-    ["xAI per video", videos ? usd(sum(xai.filter(k => k.video)) / videos) : "–", `<span class="muted">gemiddeld over ${videos} video's</span>`],
-    ["Claude deze maand", usd(sum(cm)), `<span class="muted">waarde in API-prijzen</span>`],
-    ["Claude totaal", usd(sum(cl)), `<span class="muted">${cl.length} sessies</span>`],
-  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
-  const rows = [...kosten].sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 25);
-  if (rows.length) $("kostenrows").innerHTML = rows.map(k => `<tr><td class="num" style="white-space:nowrap">${esc(k.datum ? dayLabel(k.datum) : "")}</td><td><span class="chip ${k.soort === "xai" ? "tt" : "long"}">${k.soort === "xai" ? "xAI" : "Claude"}</span> ${esc(k.wat)}</td><td class="r">${k.geschat ? "± " : ""}${usd(Number(k.bedrag) || 0)}</td></tr>`).join("");
+    ["xAI-tegoed over", saldo == null ? "–" : usd(saldo), videosLeft == null ? "" : `<span class="${videosLeft <= 3 ? "down" : "muted"}">± ${videosLeft} video's</span>`],
+    ["xAI verbruikt", k.xai_30d == null ? "–" : usd(k.xai_30d + spentAfter), `<span class="muted">laatste 30 dagen + nieuwe video's</span>`],
+    ["xAI per video", perVideo == null ? "–" : "± " + usd(perVideo), `<span class="muted">stem + afbeeldingen</span>`],
+    ["Claude", k.claude_eur ? "€" + k.claude_eur : "–", `<span class="muted">vast per maand, alles inbegrepen</span>`],
+  ].map(([t, v, d]) => `<div class="tile"><div class="k">${t}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
+  const rows = [...xai].sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 25);
+  $("kostenrows").innerHTML = rows.length ? rows.map(x => `<tr><td class="num" style="white-space:nowrap">${esc(x.datum ? dayLabel(x.datum) : "")}</td><td>${esc(x.wat)}</td><td class="r">${x.geschat ? "± " : ""}${usd(Number(x.bedrag) || 0)}</td></tr>`).join("") : `<tr><td colspan="3" class="muted">Nog geen nieuwe video's na de laatste saldo-stand.</td></tr>`;
 }
 
 const SOURCES = {SHORTS:"Shorts-feed", YT_SEARCH:"Zoeken op YouTube", RELATED_VIDEO:"Aanbevolen naast video's", SUBSCRIBER:"Abonnees", YT_OTHER_PAGE:"Andere YouTube-pagina's", YT_CHANNEL:"Je kanaalpagina", NO_LINK_OTHER:"Direct / onbekend", EXT_URL:"Andere websites", PLAYLIST:"Playlists", BROWSE:"Startpagina", SOUND_PAGE:"Geluidspagina", NOTIFICATION:"Meldingen", END_SCREEN:"Eindscherm"};
@@ -392,5 +395,6 @@ function renderStand(s) {
   const rows = snap => (snap?.docs || []).map(d => ({id: d.id, ...(typeof d.data === "function" ? d.data() : d.data)}));
   db.collection("verbeterpunten").onSnapshot(snap => { beter = rows(snap); renderBeter(); });
   db.collection("kosten").onSnapshot(snap => { kosten = rows(snap); renderKosten(); });
+  db.doc("cockpit/kosten").onSnapshot(snap => { kstand = snap?.exists ? snap.data() : null; renderKosten(); });
 })();
 </script>
