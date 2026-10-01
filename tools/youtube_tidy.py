@@ -92,7 +92,9 @@ def tidy_videos(token: str, apply: bool) -> None:
         new = {"title": title or s["title"], "description": s["description"],
                "tags": tags or s.get("tags", []), "categoryId": EDUCATION,
                "defaultLanguage": LANGUAGE, "defaultAudioLanguage": LANGUAGE}
-        changes = [k for k in new if new[k] != s.get(k, [] if k == "tags" else None)]
+        # YouTube stores tags sorted, so compare them regardless of order.
+        changes = [k for k in new if (sorted(new[k]) != sorted(s.get(k, [])) if k == "tags"
+                                      else new[k] != s.get(k))]
         if not changes:
             print(f"ok       {s['title']}")
             continue
