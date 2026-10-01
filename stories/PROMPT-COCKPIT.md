@@ -38,20 +38,18 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    Geen taken voor kleine dingen (ondertitels, community-posts e.d.).
    Verwijder taken die `klaar: true` zijn en ouder dan 7 dagen. Verander nooit
    `klaar` van een taak (dat doet de eigenaar met het vinkje).
-5. Kosten in collection `kosten` (doc_id `xai-<map>` of `claude-<session-id>`; velden
-   `soort` "xai"|"claude", `datum` JJJJ-MM-DD, `wat`, `bedrag` in dollars, `geschat`
-   true/false, bij xAI ook `video` = map). Bestaat het document al, werk het bij
-   (`update` met `if_version`).
-   - xAI: per video het blok "Kosten" uit `stories/<map>/planning.txt` of
-     `VOLGENDE-STAPPEN.md` (main en origin/claude/*). Neem het totaal; staat er "±" of
-     "≈", zet `geschat: true`. Een xAI-API voor het echte saldo is er niet; het exacte
-     bedrag staat op console.x.ai → Usage.
-   - Claude: `list_sessions` (mine, limit 100) en de laatste runs van de routines
-     (`list_triggers` → `last_run.session_id` → `get_session`): per sessie over
-     vox-lux `usage.cost_usd` (afgerond op 2 decimalen) en de titel. Dit is de waarde in
-     API-prijzen; met het abonnement betaalt de eigenaar dit niet apart. Zie je in
-     `rate_limit_info` dat `isUsingOverage` true is, maak dan een "actie"-advies.
-     Zijn deze tools er niet, sla dit over.
+5. Kosten. `cockpit/kosten` bevat de laatste echte stand van console.x.ai
+   (`bijgewerkt`, `xai_saldo`, `xai_30d`, `xai_per_video`) en het Claude-abonnement
+   (`claude_eur`, vast €22 per maand; Claude-gebruik NIET als kosten tonen). Zet alleen
+   voor video's die NA `bijgewerkt` gemaakt zijn een document in collection `kosten`
+   (doc_id `xai-<map>`; velden `soort` "xai", `datum` JJJJ-MM-DD, `wat`, `bedrag` in
+   dollars, `geschat` true/false, `video` = map), met het totaal uit het blok "Kosten"
+   van die video (planning.txt of VOLGENDE-STAPPEN.md, main en origin/claude/*). De
+   pagina rekent zelf het resterende tegoed uit. Is dat geschatte tegoed lager dan
+   3 × `xai_per_video`, maak dan een verbeterpunt (hoog) en een taak "xAI-tegoed
+   aanvullen" en begin je laatste bericht met "⚠️". Een xAI-API voor het saldo is er
+   niet; vraag de eigenaar in het advies af en toe om een nieuwe screenshot van
+   console.x.ai als `bijgewerkt` ouder is dan 14 dagen.
 6. Verbeterpunten in collection `verbeterpunten` — ALLEEN punten met hoog effect (de
    eigenaar wil geen kleine dingen; middel/laag niet tonen, ook niet als taak). Velden `impact` "hoog",
    `door` "jij"|"claude", `klaar`, `titel`, `tekst`): voeg nieuwe concrete punten toe die
