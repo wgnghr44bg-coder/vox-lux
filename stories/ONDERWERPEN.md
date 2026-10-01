@@ -9,7 +9,7 @@ Onderwerpen staan zoals de titel moet worden (zonder " | History for Sleep"): al
 op. De lijst wisselt af: om en om een **dagelijks-leven**-onderwerp (rustig, knus, werkt
 het best in deze niche) en een bekend verhaal, liefst een **mysterie** (tot nu toe de best
 bekeken video's: Somerton Man, Iron Mask, Colosseum), of een ramp, oorlog of beroemd persoon,
-dat dan ook vooral vanuit het gewone leven verteld wordt. Onderwerpen waarbij YouTube
+dat begint bij het gewone leven en daarna de gebeurtenis zelf volledig vertelt. Onderwerpen waarbij YouTube
 vaker minder advertenties toont (martelingen, executies, moordzaken) staan achteraan.
 Is de lijst op, verzin dan zelf nieuwe in dezelfde sfeer (vooral dagelijks leven) en zet
 ze hier bij.
