@@ -7,7 +7,8 @@ dat nog niet gebruikt is**. Gebruikt = het staat onder "Al gemaakt", of het staa
 Onderwerpen staan zoals de titel moet worden (zonder " | History for Sleep"): als
 **beleving** ("How…", "What Life Was Like…", "A Night in…"), want daar klikken slaapkijkers
 op. De lijst wisselt af: om en om een **dagelijks-leven**-onderwerp (rustig, knus, werkt
-het best in deze niche) en een bekend verhaal (ramp, mysterie, oorlog, beroemd persoon),
+het best in deze niche) en een bekend verhaal, liefst een **mysterie** (tot nu toe de best
+bekeken video's: Somerton Man, Iron Mask, Colosseum), of een ramp, oorlog of beroemd persoon,
 dat dan ook vooral vanuit het gewone leven verteld wordt. Onderwerpen waarbij YouTube
 vaker minder advertenties toont (martelingen, executies, moordzaken) staan achteraan.
 Is de lijst op, verzin dan zelf nieuwe in dezelfde sfeer (vooral dagelijks leven) en zet
@@ -16,30 +17,27 @@ ze hier bij.
 ## Nog te maken
 - How Vikings Survived the Long Dark Winter
 - The Tunguska Event
+- The Dyatlov Pass Mystery
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
+- The Lost Colony of Roanoke
 - A Day in the Baths of Ancient Rome
 - The Sinking of the Lusitania: The Last Crossing
 - How People Lived Along the Nile in Ancient Egypt
-- The Tower of London: Centuries of Secrets
 - How Sailors Lived and Slept on 1700s Sailing Ships
 - The Last Days of the Roman Empire
 - A Winter in a Medieval Village
-- The Lost Colony of Roanoke
 - How Lighthouse Keepers Lived Alone at Sea
 - The Great Fire of London: Life in the City Before the Flames
 - A Day in a Medieval Castle
 - The Mystery of Stonehenge: Who Built It and Why
 - How Samurai Lived in Old Japan
-- The Dyatlov Pass Mystery
 - Life in a Victorian London Home
-- The Mary Celeste: The Ship Found Empty
 - How Pioneers Survived Winter on the American Frontier
 - The Abandoned Island of Hashima
 - What Life Was Like in Ancient Athens
 - The Curse of Tutankhamun's Tomb
 - A Year on a Medieval Farm
-- The Somerton Man Mystery
 - How Ancient Romans Ate, Slept and Kept Warm
 - The Johnstown Flood
 - Life Inside a Medieval Monastery Library
@@ -86,6 +84,12 @@ ze hier bij.
 - The Villisca Axe Murders
 
 ## Al gemaakt
+- The Somerton Man Mystery
+- The Man in the Iron Mask
+- Dark History of the Roman Colosseum
+- The Tower of London (Guy Fawkes)
+- The Dancing Plague
+- The Mary Celeste
 - The Dutch Hunger Winter (op YouTube als "The Winter That Came Before Freedom")
 - The Darkest Punishments of Medieval Europe
 - How Did Humans Survive Without Fire?
