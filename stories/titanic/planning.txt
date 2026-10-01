@@ -23,3 +23,18 @@ ondertitels woord voor woord uitgelijnd, datumkaartje, effecten) en opnieuw gepl
   Short 1  di 6 okt 18:00  The lookouts who had no binoculars | Titanic          https://youtu.be/1HghOMqmILo
   Short 2  wo 7 okt 18:00  The telegram that said: get off that ship | Titanic   https://youtu.be/0iOdbDQx7y4
 De oude versies (ytten26TTJ4, Jl75PNbdcWs, 5oQMT9218jk, rkOM8U5IVts, ic3indg2xpU, gIHWTrQ9cRM, HMuw3eS5yOI, ROGwSqnRhIk; per ongeluk al verwijderd en opnieuw geüpload) verwijdert de eigenaar in YouTube Studio.
+
+Update 1 okt 2026: nieuwe versie van de lange video (v2) met de nieuwe beweging,
+motion graphics (intro, hoofdstuktitels, datumkaartjes, kaart van de reis Southampton -
+Cherbourg - Queenstown - plek van de ramp - New York, citaat van Frederick Fleet,
+tijdlijn, slot) en zachte effecten (effecten.tsv). Zelfde titel, beschrijving en
+thumbnail; tags volgens de standaard (de oude tags stonden nergens vastgelegd):
+  sleep documentary, history for sleep, bedtime story, relaxing history, sleep story, 432hz,
+  titanic, rms titanic, titanic 1912, titanic history, ocean liner, maritime history
+Opnieuw gepland op dezelfde tijd:
+  Lange video  ma 5 okt 2026 21:00   (publishAt 2026-10-05T19:00:00Z)
+  The Titanic: The Night It Sank | Sleep Documentary
+  NIEUW: https://youtu.be/2CY3BfnZ1rY
+VERWIJDEREN in YouTube Studio: de oude lange video https://youtu.be/aqbjvsBIQAE
+Let op: de beschrijvingen van de Shorts (1HghOMqmILo, 0iOdbDQx7y4) linken nog naar de
+oude video; zet daar de nieuwe link in en kies bij "Gerelateerde video" de nieuwe video.
