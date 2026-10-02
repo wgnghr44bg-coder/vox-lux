@@ -13,14 +13,14 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    "Sleep Archives video" (list_triggers → last_run.session_id → get_session en
    list_events met kinds ["assistant"]) en de commits op die branch. Vat samen in
    `in_de_maak`: `onderwerp`, `stap` (precies één van: Script, Stem, Afbeeldingen, Video,
-   Effecten, Upload, Shorts, Klaar), `toelichting` (1 zin), `live` (bv. "wo 7 okt 21:00"),
+   Effecten, Upload, Klaar), `toelichting` (1 zin), `live` (bv. "wo 7 okt 21:00"),
    `volgende` (wanneer de volgende video-run start + onderwerp). Loopt er niets: alleen
    `volgende`. Mislukt een run: zeg dat in `toelichting` en maak er een taak van.
 3. Schrijf in `/tmp/dash.json` erbij (Nederlands, eenvoudig, korte zinnen):
    - `samenvatting`: één of twee zinnen hoe het kanaal ervoor staat.
    - `advies`: 3-6 punten `{niveau: "goed"|"let-op"|"actie", titel, tekst}` op basis van
      de cijfers (weergaven en kijktijd vs. vorige periode, beste/slechtste video's,
-     verkeersbronnen, hoe de nieuwe Shorts-stijl het doet, afwisseling van onderwerpen
+     verkeersbronnen, afwisseling van onderwerpen
      in het schema, groei richting 1.000 abonnees / 4.000 kijkuren). Alleen dingen die
      echt in de cijfers staan; geen verzonnen getallen.
    Schrijf het weg met ArtifactData `set`, collection `cockpit`, doc_id `stand`,
@@ -29,11 +29,6 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    `volgorde`, `tekst`, `uitleg`, `link` (optioneel), `klaar: false`). Lees eerst de
    bestaande taken (`list`). Maak alleen taken die de eigenaar zelf moet doen, voor
    vandaag en de komende 7 dagen, en alleen als ze er nog niet staan:
-   - de `yt-short`-dag uit planning.txt: "YouTube: upload Short <titel> (<tijd>)" met link
-     naar https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (kaart "Voor YouTube"; de eigenaar
-     uploadt die zelf, met de lange video als Gerelateerde video);
-   - TikTok-dagen uit planning.txt (`short1..N`): "TikTok: post <onderwerp> Short <n>
-     (<tijd>)" met link naar https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ;
    - wat een mislukte run of een fout van de eigenaar vraagt (bv. token vernieuwen);
    - open verbeterpunten met hoog effect die de eigenaar zelf moet doen.
    Geen taken voor kleine dingen (ondertitels, community-posts e.d.).
@@ -61,10 +56,7 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    ontbreekt `stories/<map>/thumbnail-v2.jpg` (main en origin/claude/*) voor dat
    onderwerp, maak dan een "actie"-advies en begin je laatste bericht met "⚠️" zodat de
    eigenaar het in de centrale sessie laat rechtzetten. Zelf niets op YouTube veranderen.
-8. TikTok-controle: staan er in planning.txt `shortN`-regels (TikTok-datums) voor de
-   komende 7 dagen waarvoor op https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (ArtifactData
-   `list`, collection `tiktoks`) geen document met die datum en een `video_url` staat? Maak
-   dan een "actie"-advies en begin je laatste bericht met "⚠️ TikToks ontbreken".
+8. Geen Shorts of TikToks meer (eigenaar, okt 2026): daar geen taken of advies over.
 9. Geen bericht nodig als alles normaal is. Is er iets dringends (run mislukt, token
    verlopen, video niet gepland), begin je laatste bericht dan met "⚠️" en zeg wat er moet
    gebeuren.
