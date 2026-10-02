@@ -229,7 +229,7 @@ bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
    stukjes (tot 9 woorden) die woord voor woord op de stem zijn gelegd (pocketsphinx, gratis,
    wordt vanzelf geïnstalleerd; het script meldt "ondertitels: X van Y zinnen woord voor
    woord gelijk" — lukt een zin niet, dan schat het op de stiltes),
-   432 Hz-muziek op -17 dB). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
+   432 Hz-muziek op -13 dB, zelfde als de lange video; geen natuurgeluiden). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
 5. YouTube (alleen short1): privé, Education, niet voor kinderen, AI gemarkeerd. Titel:
