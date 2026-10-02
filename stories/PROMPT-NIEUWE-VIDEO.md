@@ -23,29 +23,16 @@ A. Doe dit als allereerste, vóór het script:
      én op alle branches origin/claude/* (bv. met `git ls-tree` + `git show`).
    - Het schema (vaste dagen, ook in het weekend):
        lange video: maandag, woensdag en zaterdag om 21:00 Nederlandse tijd;
-       Shorts (TikTok): elke dag 2, om 10:00 en 20:00, van de laatste lange video:
-       ma-video -> di + wo (4 Shorts), wo-video -> do + vr + za (6 Shorts),
-       za-video -> zo + ma (4 Shorts). De eigenaar post ze zelf op TikTok.
-       YouTube-Short: alleen de sterkste (short1), de dag na de lange video om 20:00
-       (regel `yt-short`). De rest gaat NIET naar YouTube (eigenaar, okt 2026: de
-       groei komt van lange video's; Shorts-kijkers kijken zelden lang).
+       GEEN Shorts meer (eigenaar, okt 2026): niet maken, niet uploaden, niet op TikTok.
    - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
      `onderwerp` in een planning.txt staat (main of origin/claude/*).
    - Kies het eerste vrije moment voor de lange video: een maandag, woensdag of
      zaterdag, minstens 2 dagen na vandaag, die nog niet in een planning.txt staat
      (en na de laatste lange video die er al staat).
-   - Schrijf direct `stories/<map>/planning.txt` met alle tijden, bv. voor een
-     woensdag-video:
+   - Schrijf direct `stories/<map>/planning.txt` met de tijd, bv. voor een woensdag-video:
        onderwerp The Fall of Rome
        lang   2026-10-07 21:00
-       yt-short 2026-10-08 20:00
-       short1 2026-10-08 10:00
-       short2 2026-10-08 20:00
-       short3 2026-10-09 10:00
-       short4 2026-10-09 20:00
-       short5 2026-10-10 10:00
-       short6 2026-10-10 20:00
      commit en push dit meteen, zodat andere sessies deze datum zien.
 B. Upload alles privé én gepland (status.publishAt). Voeg zo nodig een
    --publish-at optie toe aan tools/youtube_upload.py. Reken de Nederlandse tijd
@@ -115,31 +102,15 @@ Stappen:
    de upload: titel = belevingstitel + " | History for Sleep" (nooit "| Sleep
    Documentary", nooit een kale onderwerpnaam; is het onderwerp uit ONDERWERPEN.md toch
    kaal, maak er dan zelf een rustige belevingstitel van), ≤ 70 tekens.
-8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
-   een woensdag-video) volgens "Shorts" in stories/YOUTUBE-STANDAARD.md (met de link
-   van stap 7): meteen een spannend begin zonder pauzes, 35-45 s, GEEN ondertitels
-   (eigenaar, okt 2026), een datumkaartje bovenin en passende effecten via motion.py, zonder
-   intro of outro. Zet ze ALLEMAAL met hun TikTok-bijschrift en TikTok-datum (short1..N)
-   op de TikTok-pagina (zie "TikTok-overzicht" in de standaard). Geen Google Drive.
-   **Verplicht, meteen zodra de Shorts klaar zijn** (eigenaar, okt 2026): controleer
-   daarna met ArtifactData `list` (collection `tiktoks`) dat er voor ELKE Short een
-   document met `video_url` staat. Lukt het uploaden niet, commit dan de `-fx.mp4`
-   bestanden naar je branch in `stories/<map>/tiktok/` (zodat de centrale sessie ze
-   kan plaatsen) en begin je laatste bericht met "⚠️ TikToks niet op de pagina".
-   YouTube-Short: upload NIETS zelf naar YouTube (eigenaar, okt 2026: de eigenaar uploadt die zelf).
-   Zet short1 (de sterkste) een tweede keer op de TikTok-pagina als YouTube-kaart:
-   doc_id `<map>-yt`, `platform: "youtube"`, `datum` = `yt-short` uit planning.txt,
-   `titel` = de YouTube-titel van de Short (met " | <naam jaar>"), `beschrijving` = de
-   YouTube-beschrijving (link naar de lange video, AI-regel, hashtags), zelfde video_url.
-8b. Playlists: zet de lange video in de playlists (mag terwijl ze nog
-   gepland/privé staan):
+8. Geen Shorts (eigenaar, okt 2026): sla dit over, ook niet voor TikTok.
+8b. Playlists: zet de lange video in de playlists (mag terwijl hij nog gepland/privé staat):
    python3 tools/youtube_playlist.py --soort <soort> <lang-id>
    Soort: ramp, oudheid, middeleeuwen, mysterie, oorlog of verlaten (uitleg bovenin het
    script). Kies de soort die het best past; maak nooit een playlist per onderwerp.
    Noem de playlists in het overzicht van stap 10.
 9. Werk planning.txt bij met de YouTube-links en een blok "Kosten" met wat elk
    betaald onderdeel echt gekost heeft (stem, afbeeldingen incl. opnieuw gemaakte,
-   thumbnail, gesproken begin van de Shorts) en het totaal in dollars; noem ook hoeveel
+   thumbnail) en het totaal in dollars; noem ook hoeveel
    tekens de stem had en hoeveel afbeeldingen er gemaakt zijn. Verplaats het onderwerp in
    stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
    merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
@@ -148,8 +119,7 @@ Stappen:
     - de YouTube-links met de geplande datums en tijden;
     - wat het totaal gekost heeft (per onderdeel);
     - wat ik nog moet doen: in YouTube Studio controleren of alles "Gepland"
-      staat, de YouTube-Short zelf uploaden vanaf de pagina (kaart "Voor YouTube",
-      met de lange video als "Gerelateerde video"), en de TikToks plaatsen vanaf de pagina.
+      staat.
 
 Afspraken: praat Nederlands met mij, eenvoudig. Noem tijden in Nederlandse tijd.
 Sla alles op en push naar je branch.

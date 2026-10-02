@@ -103,7 +103,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    - Samen ± 40–50 % van de video; niet op scènes waar niets past (geen regen in de woestijn).
    - Controleer elk effect met `--proef` op een tijd midden in het stuk; te druk → lagere sterkte,
      niet te zien → 1.0 of een ander beeld.
-   **Shorts** krijgen géén intro of outro (eigenaar), wél na `make_short.py` één ronde
+   (Shorts zijn gestopt, okt 2026.) **Shorts** kregen géén intro of outro (eigenaar), wél na `make_short.py` één ronde
    `motion.py` met een **datumkaartje** bovenin (eerste 9 s: datum/tijd + plaats van dat
    stukje) en de **passende effecten** (zelfde tabel; kies wat bij de beelden van de Short
    past, bv. sterren + mist bij nacht op zee, stof bij een ochtend na een aardbeving):
@@ -205,7 +205,7 @@ Meld de eigenaar de link(s) en wat nog in YouTube Studio moet (altijd deze lijst
 4. TikTok: de goedgekeurde Shorts uit de chat downloaden en posten met het bijschrift.
 De refresh token blijft geldig (app "In production"); test hem wel eerst.
 
-## Shorts (sinds Pompeii; vernieuwd okt 2026)
+## Shorts (GESTOPT okt 2026 — eigenaar: geen Shorts meer maken; hieronder alleen ter info)
 Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
 **Alle Shorts gaan naar TikTok; alleen de sterkste (short1) ook naar YouTube**, de dag na de
 lange video om 20:00 (de eigenaar uploadt die zelf vanaf de pagina, sinds okt 2026). Reden (cijfers sept 2026): Shorts gaven veel weergaven maar bijna geen
