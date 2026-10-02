@@ -117,8 +117,8 @@ Stappen:
    kaal, maak er dan zelf een rustige belevingstitel van), ≤ 70 tekens.
 8. Shorts: maak er zoveel als er Short-plekken in planning.txt staan (4, of 6 bij
    een woensdag-video) volgens "Shorts" in stories/YOUTUBE-STANDAARD.md (met de link
-   van stap 7): meteen een spannend begin zonder pauzes, 35-45 s, synchrone
-   ondertitels, een datumkaartje bovenin en passende effecten via motion.py, zonder
+   van stap 7): meteen een spannend begin zonder pauzes, 35-45 s, GEEN ondertitels
+   (eigenaar, okt 2026), een datumkaartje bovenin en passende effecten via motion.py, zonder
    intro of outro. Zet ze ALLEMAAL met hun TikTok-bijschrift en TikTok-datum (short1..N)
    op de TikTok-pagina (zie "TikTok-overzicht" in de standaard). Geen Google Drive.
    **Verplicht, meteen zodra de Shorts klaar zijn** (eigenaar, okt 2026): controleer
@@ -126,10 +126,14 @@ Stappen:
    document met `video_url` staat. Lukt het uploaden niet, commit dan de `-fx.mp4`
    bestanden naar je branch in `stories/<map>/tiktok/` (zodat de centrale sessie ze
    kan plaatsen) en begin je laatste bericht met "⚠️ TikToks niet op de pagina".
-   Upload alleen short1 (de sterkste) naar YouTube: privé, gepland op `yt-short`.
-8b. Playlists: zet de lange video en alle Shorts in de playlists (mag terwijl ze nog
+   YouTube-Short: upload NIETS zelf naar YouTube (eigenaar, okt 2026: de eigenaar uploadt die zelf).
+   Zet short1 (de sterkste) een tweede keer op de TikTok-pagina als YouTube-kaart:
+   doc_id `<map>-yt`, `platform: "youtube"`, `datum` = `yt-short` uit planning.txt,
+   `titel` = de YouTube-titel van de Short (met " | <naam jaar>"), `beschrijving` = de
+   YouTube-beschrijving (link naar de lange video, AI-regel, hashtags), zelfde video_url.
+8b. Playlists: zet de lange video in de playlists (mag terwijl ze nog
    gepland/privé staan):
-   python3 tools/youtube_playlist.py --soort <soort> <lang-id> <yt-short-id>
+   python3 tools/youtube_playlist.py --soort <soort> <lang-id>
    Soort: ramp, oudheid, middeleeuwen, mysterie, oorlog of verlaten (uitleg bovenin het
    script). Kies de soort die het best past; maak nooit een playlist per onderwerp.
    Noem de playlists in het overzicht van stap 10.
@@ -144,8 +148,8 @@ Stappen:
     - de YouTube-links met de geplande datums en tijden;
     - wat het totaal gekost heeft (per onderdeel);
     - wat ik nog moet doen: in YouTube Studio controleren of alles "Gepland"
-      staat, bij de YouTube-Short de lange video instellen als "Gerelateerde video",
-      en de TikToks plaatsen vanaf de TikTok-pagina.
+      staat, de YouTube-Short zelf uploaden vanaf de pagina (kaart "Voor YouTube",
+      met de lange video als "Gerelateerde video"), en de TikToks plaatsen vanaf de pagina.
 
 Afspraken: praat Nederlands met mij, eenvoudig. Noem tijden in Nederlandse tijd.
 Sla alles op en push naar je branch.
