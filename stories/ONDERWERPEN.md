@@ -14,19 +14,22 @@ vaker minder advertenties toont (martelingen, executies, moordzaken) staan achte
 Is de lijst op, verzin dan zelf nieuwe in dezelfde sfeer (vooral dagelijks leven) en zet
 ze hier bij.
 
+Achter een onderwerp kan "(facts)" staan: dan wordt het een Sleepy Facts-video (losse
+feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op de 3 video's.
+
 ## Nog te maken
-- How Vikings Survived the Long Dark Winter
+- How Vikings Survived the Long Dark Winter (facts)
 - The Tunguska Event
 - The Dyatlov Pass Mystery
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
 - The Lost Colony of Roanoke
-- A Day in the Baths of Ancient Rome
+- A Day in the Baths of Ancient Rome (facts)
 - The Sinking of the Lusitania: The Last Crossing
 - How People Lived Along the Nile in Ancient Egypt
-- How Sailors Lived and Slept on 1700s Sailing Ships
+- How Sailors Lived and Slept on 1700s Sailing Ships (facts)
 - The Last Days of the Roman Empire
-- A Winter in a Medieval Village
+- A Winter in a Medieval Village (facts)
 - How Lighthouse Keepers Lived Alone at Sea
 - The Great Fire of London: Life in the City Before the Flames
 - A Day in a Medieval Castle
