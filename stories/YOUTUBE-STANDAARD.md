@@ -26,17 +26,28 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    vol: maak dan twee helften (`--seed 7` en `--seed 8`) en zet ze met een crossfade
    van 14 s aan elkaar (zie `stories/titanic/VOLGENDE-STAPPEN.md`). Nooit muziek uit CapCut,
    TikTok of andere nummers gebruiken (auteursrecht).
+3b. **Natuurgeluiden per scène** (eigenaar, okt 2026) — maak `stories/<verhaal>/geluiden.tsv`
+   (kolommen `van`, `tot`, `geluid`; tijden uit `afbeeldingen-tijden-pauzes.tsv`) met per
+   scène hooguit één geluid dat bij het beeld en de tekst past: `regen` (regen, grijze
+   dagen), `vuur` (haard, kampvuur, kaarsen binnen), `golven` (zee, schip, kust, haven),
+   `wind` (sneeuw, bergen, koude nacht buiten, steppe). Rustige binnenscènes zonder passend
+   geluid: geen regel (dan alleen stem + muziek). Samen ± 40-60 % van de video, liefst
+   aaneengesloten stukken van minstens 1 minuut (niet om de 20 s wisselen). Daarna:
+   `python3 tools/ambient_sfx.py stories/<verhaal>/geluiden.tsv stories/<verhaal>/video/geluiden.wav --duur <lengte in s + 2>`
+   (zelfgemaakt, rechtenvrij, gratis; zacht onder de stem, 3 s in- en uitfaden).
 4. **Video**
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
        --audio stories/<verhaal>/video/stem-met-pauzes.wav \
-       --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -17
+       --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -13 \
+       --geluid stories/<verhaal>/video/geluiden.wav
    ```
    1080p25, zachte overgangen (1,5 s), drijvende mist. Het beeld beweegt steeds rustig:
    elke 18 s een nieuwe beweging (inzoomen, opzij schuiven, uitzoomen, andere kant op),
    zodat het ook bij afbeeldingen van 1,5 minuut nooit stilstaat (eigenaar: "mag iets meer
    bewegen"). De clips worden in 4K/RGB gemaakt (vloeiend) en 4 tegelijk.
-   Muziek op -17 dB: duidelijk zachter dan de stem, vooral hoorbaar in de stiltes.
+   Muziek op -13 dB (eigenaar, okt 2026: iets harder dan eerst, -17): hoorbaar onder de
+   stem en duidelijk in de stiltes; de natuurgeluiden zitten daar nog zachter onder.
    Duurt ± 1× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
