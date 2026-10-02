@@ -3,7 +3,7 @@
 Het beeld is de 16:9-afbeelding die het hele scherm vult en langzaam van links naar rechts
 (of andersom) schuift, met zachte overgangen en drijvende mist zoals in de lange video.
 Grote ondertitels per zin (Pillow; de ffmpeg-build heeft geen drawtext), 432 Hz-muziek
-op -17 dB. Met --eindtekst komt er in de laatste 3 seconden "Full sleep documentary on
+op -13 dB (zelfde als de lange video). Met --eindtekst komt er in de laatste 3 seconden "Full sleep documentary on
 the channel" (standaard uit: de eigenaar wil het simpel houden).
 
 Gebruik:
@@ -495,7 +495,7 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
              f"afade=t=in:d=0.05,afade=t=out:st={voice_len - 0.3:.3f}:d=0.3,"
              f"aformat=sample_rates=44100:channel_layouts=stereo,"
              f"adelay={off * 1000:.0f}:all=1,apad[v];"
-             f"[2:a]volume=-17dB[m];")
+             f"[2:a]volume=-13dB[m];")
     extra = []
     if intro_subs:
         extra = ["-i", str(intro_audio)]
