@@ -155,7 +155,7 @@ tr:last-child td{border-bottom:0}
   </section>
 
   <section id="schema">
-    <h2>Schema <small>komende 10 dagen, Nederlandse tijd</small></h2>
+    <h2>Schema <small>komende 5 weken, Nederlandse tijd</small></h2>
     <div class="days" id="days"><div class="empty">Het schema verschijnt na de ochtendcheck.</div></div>
   </section>
 
@@ -272,27 +272,26 @@ function renderNumbers(s) {
 }
 
 function renderSchedule(s) {
-  const today = todayStr(), end = addDays(today, 10), items = [];
-  for (const v of s.youtube_schedule || []) {
-    const day = (v.when || "").slice(0, 10);
-    if (v.status === "gepland" && day >= today && day < end)
-      items.push({day, t: v.when.slice(11), kind: v.short ? "short" : "long", plat: "yt", title: v.title, state: "Gepland"});
-  }
-  const ytTimes = new Set(items.map(i => i.day + " " + i.t));
-  for (const p of s.planning || []) for (const [k, when] of Object.entries(p.slots || {})) {
-    const day = when.slice(0, 10); if (day < today || day >= end) continue;
-    if (k === "lang" || k === "yt-short") {
-      if (ytTimes.has(when)) continue;
-      items.push({day, t: when.slice(11), kind: k === "lang" ? "long" : "short", plat: "yt", title: p.onderwerp, state: "In de maak"});
-    } else items.push({day, t: when.slice(11), kind: "short", plat: "tt", title: `${p.onderwerp} · ${k.replace("short", "Short ")}`, state: "TikTok, zelf posten"});
+  const today = todayStr(), items = [];
+  if (s.vooruit) {
+    for (const v of s.vooruit) {
+      const day = v.live.slice(0, 10); if (day < today) continue;
+      const state = v.status === "gepland" ? "Gepland op YouTube" : v.status === "in de maak" ? "In de maak"
+        : `Wordt gemaakt op ${dayLabel(v.maken)}`;
+      items.push({day, t: v.live.slice(11), title: v.onderwerp, state, make: v.status !== "gepland"});
+    }
+  } else {   // oude gegevens (vóór de vooruitblik): alleen wat op YouTube gepland staat
+    for (const v of s.youtube_schedule || []) {
+      const day = (v.when || "").slice(0, 10);
+      if (v.status === "gepland" && !v.short && day >= today)
+        items.push({day, t: v.when.slice(11), title: v.title, state: "Gepland op YouTube"});
+    }
   }
   items.sort((a, b) => (a.day + a.t).localeCompare(b.day + b.t));
-  const days = [...new Set(items.map(i => i.day))];
-  $("days").innerHTML = days.length ? days.map(day => `<div class="day"><h3>${dayLabel(day).split(" ")[0]}<span>${dayLabel(day).split(" ").slice(1).join(" ")}${day === today ? " · vandaag" : ""}</span></h3><div class="slots">${
-    items.filter(i => i.day === day).map(i => `<div class="slot"><span class="t">${esc(i.t)}</span>
-      <span class="chip ${i.plat === "tt" ? "tt" : i.kind === "long" ? "long" : "yt"}">${i.plat === "tt" ? "TikTok" : i.kind === "long" ? "Lange video" : "YT Short"}</span>
-      <span class="title">${esc(i.title)} <span class="state ${i.state === "In de maak" ? "make" : ""}">· ${esc(i.state)}</span></span></div>`).join("")
-  }</div></div>`).join("") : `<div class="empty">Niets gepland in de komende 10 dagen.</div>`;
+  $("days").innerHTML = items.length ? items.map(i => `<div class="day"><h3>${dayLabel(i.day).split(" ")[0]}<span>${dayLabel(i.day).split(" ").slice(1).join(" ")}${i.day === today ? " · vandaag" : ""}</span></h3><div class="slots">
+    <div class="slot"><span class="t">${esc(i.t)}</span><span class="chip long">Lange video</span>
+    <span class="title">${esc(i.title)} <span class="state ${i.make ? "make" : ""}">· ${esc(i.state)}</span></span></div></div></div>`).join("")
+    : `<div class="empty">Het schema verschijnt na de ochtendcheck.</div>`;
 }
 
 function lineChart(el, labels, values, fmt) {
