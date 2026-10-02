@@ -22,6 +22,10 @@ PAUZE_PER_SEC = 0.1
 PAUZE_MAX = 2.2
 WELKOM = Path(__file__).resolve().parent.parent / "branding" / "welkom.mp3"
 WELKOM_VOOR, WELKOM_NA = 0.8, 1.5     # stilte voor en na de welkomst (s)
+# Stem een klein beetje zwaarder en warmer (eigenaar, okt 2026): ± 1 halve toon lager,
+# zelfde lengte (atempo maakt het tempo weer gelijk), iets meer laag, iets minder scherp.
+ZWAARDER = ("asetrate=44100*0.95,aresample=44100,atempo=1.0526316,"
+            "lowshelf=g=3:f=200,highshelf=g=-2:f=7500,deesser=i=0.3,volume=-2dB")
 
 
 def sec(x):
@@ -39,6 +43,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story", type=Path)
     ap.add_argument("--welkom", action="store_true", help="begin met branding/welkom.mp3")
+    ap.add_argument("--niet-zwaarder", action="store_true", help="stem niet zwaarder maken")
     a = ap.parse_args()
     story = a.story
 
@@ -80,6 +85,13 @@ def main():
         prev = k
     pieces.append(audio[prev:])
     out = np.concatenate(pieces)
+    if not a.niet_zwaarder:
+        z = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error",
+                            "-f", "s16le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", ZWAARDER,
+                            "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
+                           input=out.tobytes(), capture_output=True, check=True).stdout
+        z = np.frombuffer(z, dtype="<i2")
+        out = np.pad(z, (0, max(0, len(out) - len(z))))[:len(out)]   # exact even lang houden
     (story / "video").mkdir(exist_ok=True)
     with wave.open(str(story / "video" / "stem-met-pauzes.wav"), "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(out.tobytes())

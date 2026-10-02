@@ -14,7 +14,7 @@ Usage:
     python3 tools/xai_voiceover.py colosseum-script.txt --lines 15 -o test.mp3 \
         --speed 1.05 --pause-ms 600 --long-pause-ms 1100            # tune pacing
 
-Defaults (voice lux, speed 1.0, pauses 500/1000 ms, 300 ms after sentences,
+Defaults (voice lux, speed 0.9, pauses 500/1000 ms, 300 ms after sentences,
 natural pause after commas, edge silence trimmed) match the pacing of the
 reference narration this was tuned against.
 
@@ -56,7 +56,7 @@ SENTENCE_PAUSE_MS = 300
 COMMA_PAUSE = True
 
 VOICE_ID = "lux"  # same voice as the VOX project
-SPEED = 1.0  # Tempo (xAI accepts 0.7-1.5)
+SPEED = 0.9  # Tempo (xAI accepts 0.7-1.5); 0.9 = rustiger (eigenaar, okt 2026)
 LANGUAGE = "en"  # "en", "nl" or "auto"
 
 # Wrap every piece in <slow><soft>...</soft></slow>. Also toggled with
