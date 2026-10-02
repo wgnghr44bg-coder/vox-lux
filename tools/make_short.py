@@ -45,6 +45,8 @@ OUTRO = 3.0          # laatste seconden: verwijzing naar de lange video (--eindt
 INTRO_GAP = 0.8      # stilte tussen het gesproken begin en het verhaal
 TAIL = 0.8           # zonder eindtekst: zoveel rust na de laatste zin
 OUTRO_GAP = 0.6      # stilte tussen de laatste zin en de eindtekst
+MAX_GAP = 0.6        # langere stiltes in de stem (slaappauzes) worden ingekort tot KEEP_GAP,
+KEEP_GAP = 0.4       # anders lijkt de Short stil te staan (geen tekst, geen stem)
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 SUB_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
 OUTRO_FONT = FONT_DIR / "DejaVuSerif.ttf"
@@ -182,14 +184,52 @@ def chunks(text):
             out.append(" ".join(w[start:best]))
             start = best
         out.append(" ".join(w[start:]))
-    # geen losse stukjes van één woord: plak aan het vorige
+    # geen losse stukjes van één woord: plak aan het vorige; korte kommastukjes ("a small,")
+    # samen met het volgende stuk, anders flitsen de ondertitels te snel voorbij
     merged = []
     for c in out:
-        if merged and len(c.split()) == 1 and len(merged[-1].split()) < CHUNK_WORDS + 2:
+        n, prev = len(c.split()), len(merged[-1].split()) if merged else 0
+        if merged and ((n == 1 and prev < CHUNK_WORDS + 2) or (prev < 5 and prev + n <= CHUNK_WORDS)):
             merged[-1] += " " + c
         else:
             merged.append(c)
     return merged
+
+
+def squeeze(env, start, end):
+    """Stukken [a, b) (s, relatief aan het begin van env) die blijven als stiltes langer dan
+    MAX_GAP tussen start en end ingekort worden tot KEEP_GAP."""
+    a, b = int(start * ENV_RATE), min(int(end * ENV_RATE), len(env))
+    quiet = env[a:b] < 0.12 * np.percentile(env[a:b], 90)
+    keep, last, k = [], start, 0
+    while k < len(quiet):
+        if quiet[k]:
+            m = k
+            while m < len(quiet) and quiet[m]:
+                m += 1
+            if k > 0 and m < len(quiet) and (m - k) / ENV_RATE > MAX_GAP:
+                g0, g1 = (a + k) / ENV_RATE, (a + m) / ENV_RATE
+                keep.append((last, g0 + KEEP_GAP / 2))
+                last = g1 - KEEP_GAP / 2
+            k = m
+        else:
+            k += 1
+    keep.append((last, end))
+    return keep
+
+
+def warp_fn(keep, shift):
+    """Tijd in de Short zonder inkorten -> tijd na het inkorten (keep is relatief aan shift).
+    Een tijd in een weggeknipt stuk stilte komt op het knippunt."""
+    def f(u):
+        r, removed = u - shift, 0.0
+        for k in range(1, len(keep)):
+            gap_a, gap_b = keep[k - 1][1], keep[k][0]
+            if r <= gap_a:
+                break
+            removed += min(r, gap_b) - gap_a
+        return u - removed
+    return f
 
 
 def syllables(word):
@@ -434,10 +474,17 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
         off = LEAD + intro_len + INTRO_GAP
         intro_subs = [(a + LEAD, b + LEAD, txt) for a, b, txt in intro_subs]
     base = t0 - off   # tijd in de lange video die bij 0 s in de Short hoort
-    speech_end = sents[-1][1] - base
+    # lange slaappauzes inkorten: keep = stukken stem (relatief aan t0) die blijven
+    stem = story / "video" / "stem-met-pauzes.wav"
+    env = envelope(stem, t0, sents[-1][1] - t0 + 0.5)
+    keep = squeeze(env, 0.0, sents[-1][1] - t0 + 0.3)
+    warp = warp_fn(keep, off)
+    speech_end = warp(sents[-1][1] - base)
     outro_at = speech_end + OUTRO_GAP
     total = outro_at + (OUTRO if eindtekst else TAIL)
-    print(f"{naam}: zinnen {van}-{tot}, {total:.1f} s", flush=True)
+    print(f"{naam}: zinnen {van}-{tot}, {total:.1f} s "
+          f"({sum(b - a for a, b in zip([k[1] for k in keep], [k[0] for k in keep[1:]])):.1f} s stilte eruit)",
+          flush=True)
     if not 40 <= total <= 62:
         print(f"  let op: {total:.1f} s valt buiten 45-60 s")
 
@@ -446,6 +493,7 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     pans = []
     for i, r in enumerate(imgs):
         s, e = float(r["start"]) - base, float(r["end"]) - base
+        s, e = (warp(s) if s > off else s), warp(e)
         if e + XFADE <= 0 or s >= total:
             continue
         t_in, t_out = max(s, 0), min(e + XFADE, total)
@@ -462,11 +510,9 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     fog_period = 7680 * H / 1080
 
     # ondertitels: korte stukjes die op de stiltes in de stem wisselen
-    env = envelope(story / "video" / "stem-met-pauzes.wav", t0, sents[-1][1] - t0 + 0.5)
     timed = list(intro_subs)
-    stem = story / "video" / "stem-met-pauzes.wav"
     for s, e, text in sents:
-        timed += [(a - base, b - base, c) for a, b, c in
+        timed += [(warp(a - base), warp(b - base), c) for a, b, c in
                   ((a + t0, b + t0, c) for a, b, c in timed_chunks_rel(stem, env, t0, s, e, text))]
     subs = []
     for k, (s, e, text) in enumerate(timed):
@@ -491,7 +537,10 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
                     "--duur", f"{total + 2:.1f}", "--seed", str(seed)], check=True)
     voice_len = speech_end - off + 0.3
     final = out_dir / f"{naam}.mp4"
-    graph = (f"[1:a]atrim=start={t0:.3f}:duration={voice_len:.3f},asetpts=PTS-STARTPTS,"
+    cuts = "".join(f"[1:a]atrim=start={t0 + a:.3f}:end={t0 + b:.3f},asetpts=PTS-STARTPTS[k{i}];"
+                   for i, (a, b) in enumerate(keep))
+    graph = (cuts + "".join(f"[k{i}]" for i in range(len(keep))) + f"concat=n={len(keep)}:v=0:a=1,"
+             f"atrim=duration={voice_len:.3f},"
              f"afade=t=in:d=0.05,afade=t=out:st={voice_len - 0.3:.3f}:d=0.3,"
              f"aformat=sample_rates=44100:channel_layouts=stereo,"
              f"adelay={off * 1000:.0f}:all=1,apad[v];"
@@ -506,7 +555,7 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     enc = subprocess.Popen(
         [FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
          "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-         "-i", str(story / "video" / "stem-met-pauzes.wav"), "-i", str(music), *extra,
+         "-i", str(stem), "-i", str(music), *extra,
          "-filter_complex", graph, "-map", "0:v", "-map", "[a]", "-t", f"{total:.3f}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(final)],
