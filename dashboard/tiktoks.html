@@ -201,7 +201,7 @@ function card(r, today) {
     acts.append(dl);
   }
   if (r.youtube) {
-    const a = document.createElement("a"); a.href = r.youtube; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Lange video";
+    const a = document.createElement("a"); a.href = r.youtube; a.target = "_blank"; a.rel = "noopener"; a.textContent = yt ? "Lange video" : "YouTube";
     acts.append(a);
   }
   const mark = btn(r.geplaatst ? "Terugzetten" : yt ? "Geplaatst op YouTube" : "Geplaatst op TikTok", r.geplaatst ? "" : "ok");
