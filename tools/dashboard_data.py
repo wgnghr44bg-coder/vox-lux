@@ -97,9 +97,11 @@ def vooruit(plan: list[dict], today: dt.date, schedule: list[dict] = (), weeks: 
     text = git("show", "origin/main:stories/ONDERWERPEN.md")
     todo = re.search(r"## Nog te maken\n(.*?)(?:\n## |\Z)", text, re.S)
     done = re.search(r"## Al gemaakt\n(.*?)(?:\n## |\Z)", text, re.S)
-    items = lambda m: [l[2:].strip() for l in (m.group(1) if m else "").splitlines() if l.startswith("- ")]
+    items = lambda m: [l[2:].replace("(facts)", "").strip() for l in (m.group(1) if m else "").splitlines() if l.startswith("- ")]
     used = {e["onderwerp"].lower() for e in plan} | {t.lower() for t in items(done)}
     free = [t for t in items(todo) if t.lower() not in used]
+    facts = {l[2:].replace("(facts)", "").strip() for l in (todo.group(1) if todo else "").splitlines()
+             if l.startswith("- ") and "(facts)" in l}
 
     out, taken = [], set()
     for e in plan:
@@ -122,7 +124,8 @@ def vooruit(plan: list[dict], today: dt.date, schedule: list[dict] = (), weeks: 
             while slot.weekday() not in LONG_DAYS:
                 slot += dt.timedelta(days=1)
             last = slot
-            out.append({"live": f"{slot.isoformat()} 21:00", "onderwerp": free.pop(0),
+            t = free.pop(0)
+            out.append({"live": f"{slot.isoformat()} 21:00", "onderwerp": t, "facts": t in facts,
                         "status": "wordt gemaakt", "maken": run.isoformat()})
         run += dt.timedelta(days=1)
     return sorted(out, key=lambda x: x["live"])
