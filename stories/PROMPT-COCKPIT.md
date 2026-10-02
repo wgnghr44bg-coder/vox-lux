@@ -29,8 +29,9 @@ YouTube; alleen kijken, uitrekenen en de cockpit vullen. Niets betaalds.
    `volgorde`, `tekst`, `uitleg`, `link` (optioneel), `klaar: false`). Lees eerst de
    bestaande taken (`list`). Maak alleen taken die de eigenaar zelf moet doen, voor
    vandaag en de komende 7 dagen, en alleen als ze er nog niet staan:
-   - de dag dat een lange video live gaat: "Na <tijd>: <Short(s)> koppelen aan <video>"
-     (Gerelateerde video in Studio) voor elke YouTube-Short van dat onderwerp;
+   - de `yt-short`-dag uit planning.txt: "YouTube: upload Short <titel> (<tijd>)" met link
+     naar https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ (kaart "Voor YouTube"; de eigenaar
+     uploadt die zelf, met de lange video als Gerelateerde video);
    - TikTok-dagen uit planning.txt (`short1..N`): "TikTok: post <onderwerp> Short <n>
      (<tijd>)" met link naar https://claude.ai/artifact/G4rD4rSmPFCxjZiA5PueXQ;
    - wat een mislukte run of een fout van de eigenaar vraagt (bv. token vernieuwen);
