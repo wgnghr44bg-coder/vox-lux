@@ -104,7 +104,7 @@ def main():
     ap.add_argument("--tijden", default="afbeeldingen-tijden.tsv", help="bestand in de verhaalmap")
     ap.add_argument("--audio", type=Path, help="stem-bestand (standaard: audio/*-deel*.mp3 aan elkaar)")
     ap.add_argument("--muziek", type=Path, help="achtergrondmuziek (bv. van tools/ambient_432.py)")
-    ap.add_argument("--muziek-db", type=float, default=-13, help="volume van de muziek in dB")
+    ap.add_argument("--muziek-db", type=float, default=-21, help="volume van de muziek in dB")
     ap.add_argument("--geluid", type=Path,
                     help="natuurgeluiden per scène (van tools/ambient_sfx.py, al op het goede niveau)")
     ap.add_argument("--naam", help="naam van de eindvideo (zonder .mp4)")
