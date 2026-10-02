@@ -30,9 +30,9 @@ from pathlib import Path
 import numpy as np
 
 SR = 44100
-LOOP = 60            # seconds per synthesised loop
+LOOP = 240           # seconds per synthesised loop (long, so the crackle never sounds repeated)
 FADE = 3.0           # seconds fade in/out per scene
-GAIN_DB = {"regen": -22, "golven": -21, "vuur": -21, "wind": -23}
+GAIN_DB = {"regen": -26, "golven": -25, "vuur": -25, "wind": -27}   # eigenaar: zacht
 FROM_EFFECT = {"regen": "regen", "vuur": "vuur", "sneeuw": "wind"}
 
 
