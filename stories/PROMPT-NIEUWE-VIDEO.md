@@ -121,6 +121,11 @@ Stappen:
    ondertitels, een datumkaartje bovenin en passende effecten via motion.py, zonder
    intro of outro. Zet ze ALLEMAAL met hun TikTok-bijschrift en TikTok-datum (short1..N)
    op de TikTok-pagina (zie "TikTok-overzicht" in de standaard). Geen Google Drive.
+   **Verplicht, meteen zodra de Shorts klaar zijn** (eigenaar, okt 2026): controleer
+   daarna met ArtifactData `list` (collection `tiktoks`) dat er voor ELKE Short een
+   document met `video_url` staat. Lukt het uploaden niet, commit dan de `-fx.mp4`
+   bestanden naar je branch in `stories/<map>/tiktok/` (zodat de centrale sessie ze
+   kan plaatsen) en begin je laatste bericht met "⚠️ TikToks niet op de pagina".
    Upload alleen short1 (de sterkste) naar YouTube: privé, gepland op `yt-short`.
 8b. Playlists: zet de lange video en alle Shorts in de playlists (mag terwijl ze nog
    gepland/privé staan):
