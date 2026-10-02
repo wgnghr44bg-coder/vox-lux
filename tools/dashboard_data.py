@@ -9,7 +9,7 @@ Usage:
     python3 tools/dashboard_data.py > /tmp/dashboard.json
 
 Output keys: growth, watch_hours_12m, updated, channel, period, daily, top, traffic, youtube_schedule,
-planning, playlists. Times are Dutch local time ("YYYY-MM-DD HH:MM").
+planning, vooruit, playlists. Times are Dutch local time ("YYYY-MM-DD HH:MM").
 """
 
 from __future__ import annotations
@@ -86,6 +86,48 @@ def planning() -> list[dict]:
     return sorted(found.values(), key=lambda e: e["slots"].get("lang", ""))
 
 
+LONG_DAYS = {0, 2, 5}       # lange video: ma, wo, za 21:00
+RUN_DAYS = {6, 1, 3}        # routine "Sleep Archives video": zo, di, do 08:54
+
+
+def vooruit(plan: list[dict], today: dt.date, schedule: list[dict] = (), weeks: int = 5) -> list[dict]:
+    """Welke video's er de komende weken gemaakt worden: wat al gepland/in de maak is, en
+    daarna per routine-run het volgende vrije onderwerp uit ONDERWERPEN.md op het eerste
+    vrije moment (zelfde regels als PROMPT-NIEUWE-VIDEO.md)."""
+    text = git("show", "origin/main:stories/ONDERWERPEN.md")
+    todo = re.search(r"## Nog te maken\n(.*?)(?:\n## |\Z)", text, re.S)
+    done = re.search(r"## Al gemaakt\n(.*?)(?:\n## |\Z)", text, re.S)
+    items = lambda m: [l[2:].strip() for l in (m.group(1) if m else "").splitlines() if l.startswith("- ")]
+    used = {e["onderwerp"].lower() for e in plan} | {t.lower() for t in items(done)}
+    free = [t for t in items(todo) if t.lower() not in used]
+
+    out, taken = [], set()
+    for e in plan:
+        lang = e["slots"].get("lang", "")
+        if lang[:10] >= today.isoformat():
+            taken.add(lang[:10])
+            out.append({"live": lang, "onderwerp": e["onderwerp"],
+                        "status": "gepland" if e["links"] else "in de maak"})
+    for v in schedule:      # al op YouTube gepland (ook oudere video's zonder planning.txt)
+        if not v["short"] and v["status"] == "gepland" and v["when"][:10] not in taken:
+            taken.add(v["when"][:10])
+            out.append({"live": v["when"], "onderwerp": v["title"].split(" | ")[0], "status": "gepland"})
+    last = max([dt.date.fromisoformat(d) for d in taken] or [today])
+    now = dt.datetime.now(NL)
+    run = today if now.hour < 9 else today + dt.timedelta(days=1)
+    end = today + dt.timedelta(weeks=weeks)
+    while run <= end and free:
+        if run.weekday() in RUN_DAYS:
+            slot = max(run + dt.timedelta(days=2), last + dt.timedelta(days=1))
+            while slot.weekday() not in LONG_DAYS:
+                slot += dt.timedelta(days=1)
+            last = slot
+            out.append({"live": f"{slot.isoformat()} 21:00", "onderwerp": free.pop(0),
+                        "status": "wordt gemaakt", "maken": run.isoformat()})
+        run += dt.timedelta(days=1)
+    return sorted(out, key=lambda x: x["live"])
+
+
 def main() -> None:
     token = access_token()
     today = dt.datetime.now(NL).date()
@@ -147,7 +189,8 @@ def main() -> None:
         "traffic": report(token, start, end, dimensions="insightTrafficSourceType",
                           sort="-views", metrics="views,estimatedMinutesWatched"),
         "youtube_schedule": schedule,
-        "planning": planning(),
+        "planning": (plan := planning()),
+        "vooruit": vooruit(plan, today, schedule),
         "playlists": [{"title": p["snippet"]["title"],
                        "count": p["contentDetails"]["itemCount"]} for p in playlists],
     }
