@@ -100,9 +100,8 @@ Stappen:
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
 5. Video met de vaste welkomst ("Welcome back to Sleep Archives.", add_pauses.py --welkom),
-   extra pauzes, 432 Hz-muziek op -13 dB, natuurgeluiden per scène (geluiden.tsv +
-   tools/ambient_sfx.py, zie 3b in de standaard: regen, vuur, golven of wind waar het
-   past; de muziek speelt alleen waar geen geluid klinkt, via --muziek/--muziek-uit), mist en rustig bewegend beeld; daarna in
+   extra pauzes, alleen 432 Hz-muziek op -13 dB onder de hele video (GEEN natuurgeluiden
+   zoals regen, wind, vuur of golven; eigenaar, okt 2026), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
    citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
    sneeuw, regen, mist, vonken, vuur, kaarslicht, lichtstralen, stof, vuurvliegjes,
