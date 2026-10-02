@@ -5,6 +5,11 @@ tenzij de eigenaar iets anders vraagt. Alles wordt privé geüpload; de eigenaar
 zet de video zelf op openbaar in YouTube Studio (dat werkt: bij Pompeii werd de
 upload niet op privé vergrendeld).
 
+**Nooit een video opnieuw uploaden die al eens openbaar is geweest** (eigenaar, okt 2026:
+Pompeii is 3 keer geüpload en kreeg na de eerste keer bijna geen vertoningen meer; YouTube
+ziet een kopie als herhaalde inhoud en laat hem nauwelijks zien). Wil je iets verbeteren,
+pas dan bij de bestaande video de titel, thumbnail of beschrijving aan.
+
 ## Video maken (standaard sinds Pompeii)
 Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest is gratis.
 1. **Afbeeldingen** — `python3 tools/xai_images.py stories/<verhaal> all`
