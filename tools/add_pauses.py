@@ -22,10 +22,10 @@ PAUZE_PER_SEC = 0.1
 PAUZE_MAX = 2.2
 WELKOM = Path(__file__).resolve().parent.parent / "branding" / "welkom.mp3"
 WELKOM_VOOR, WELKOM_NA = 0.8, 1.5     # stilte voor en na de welkomst (s)
-# Stem een klein beetje zwaarder en warmer (eigenaar, okt 2026): ± 1 halve toon lager,
+# Stem zwaarder en warmer (eigenaar, okt 2026): ± 1,5 halve toon lager,
 # zelfde lengte (atempo maakt het tempo weer gelijk), iets meer laag, iets minder scherp.
-ZWAARDER = ("asetrate=44100*0.95,aresample=44100,atempo=1.0526316,"
-            "lowshelf=g=3:f=200,highshelf=g=-2:f=7500,deesser=i=0.3,volume=-2dB")
+ZWAARDER = ("asetrate=44100*0.92,aresample=44100,atempo=1.0869565,"
+            "lowshelf=g=4:f=200,highshelf=g=-2:f=7500,deesser=i=0.3,volume=-2dB")
 
 
 def sec(x):
