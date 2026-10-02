@@ -104,7 +104,9 @@ def main():
     ap.add_argument("--tijden", default="afbeeldingen-tijden.tsv", help="bestand in de verhaalmap")
     ap.add_argument("--audio", type=Path, help="stem-bestand (standaard: audio/*-deel*.mp3 aan elkaar)")
     ap.add_argument("--muziek", type=Path, help="achtergrondmuziek (bv. van tools/ambient_432.py)")
-    ap.add_argument("--muziek-db", type=float, default=-17, help="volume van de muziek in dB")
+    ap.add_argument("--muziek-db", type=float, default=-13, help="volume van de muziek in dB")
+    ap.add_argument("--geluid", type=Path,
+                    help="natuurgeluiden per scène (van tools/ambient_sfx.py, al op het goede niveau)")
     ap.add_argument("--naam", help="naam van de eindvideo (zonder .mp4)")
     ap.add_argument("--preset", default="medium",
                     help="x264-preset van de eindvideo (veryfast: ± 3x sneller, iets groter bestand)")
@@ -178,10 +180,18 @@ def main():
         concat.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
         inputs += ["-f", "concat", "-safe", "0", "-i", str(concat)]
     audio_out = f"{n + 1}:a"
+    beds = []
     if a.muziek:
         inputs += ["-i", str(a.muziek)]
-        graph.append(f"[{n + 2}:a]volume={a.muziek_db}dB[m];"
-                     f"[{n + 1}:a][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.9[a]")
+        graph.append(f"[{n + 1 + len(beds) + 1}:a]volume={a.muziek_db}dB[m]")
+        beds.append("[m]")
+    if a.geluid:
+        inputs += ["-i", str(a.geluid)]
+        graph.append(f"[{n + 1 + len(beds) + 1}:a]anull[g]")
+        beds.append("[g]")
+    if beds:
+        graph.append(f"[{n + 1}:a]{''.join(beds)}amix=inputs={len(beds) + 1}:duration=first:"
+                     f"normalize=0,alimiter=limit=0.9[a]")
         audio_out = "[a]"
 
     name = a.naam or story.name
