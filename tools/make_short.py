@@ -2,7 +2,7 @@
 
 Het beeld is de 16:9-afbeelding die het hele scherm vult en langzaam van links naar rechts
 (of andersom) schuift, met zachte overgangen en drijvende mist zoals in de lange video.
-Grote ondertitels per zin (Pillow; de ffmpeg-build heeft geen drawtext), 432 Hz-muziek
+Ondertitels alleen met --ondertitels (standaard uit), 432 Hz-muziek
 op -13 dB (zelfde als de lange video). Met --eindtekst komt er in de laatste 3 seconden "Full sleep documentary on
 the channel" (standaard uit: de eigenaar wil het simpel houden).
 
@@ -35,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from make_video import make_fog  # noqa: E402
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
-W, H, FPS = 1080, 1920, 25
+W, H, FPS = 1080, 1920, 30
 XFADE = 1.5          # seconden overgang tussen afbeeldingen
 PAN_SPEED = 28       # pixels per seconde dat het beeld opschuift
 FOG_SPEED = 36       # pixels per seconde (mist, op 1920 hoog)
@@ -461,7 +461,7 @@ def intro_parts(audio, text):
     return dur, subs
 
 
-def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
+def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False, ondertitels=False):
     tl = {int(r[0]): r for r in (l.split("\t") for l in
           open(story / "tijdlijn-pauzes.tsv").read().splitlines()[1:] if l.strip())}
     sents = [(sec(tl[i][1]), sec(tl[i][2]), tl[i][4].strip()) for i in range(van, tot + 1)]
@@ -510,8 +510,8 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     fog_period = 7680 * H / 1080
 
     # ondertitels: korte stukjes die op de stiltes in de stem wisselen
-    timed = list(intro_subs)
-    for s, e, text in sents:
+    timed = list(intro_subs) if ondertitels else []
+    for s, e, text in (sents if ondertitels else []):
         timed += [(warp(a - base), warp(b - base), c) for a, b, c in
                   ((a + t0, b + t0, c) for a, b, c in timed_chunks_rel(stem, env, t0, s, e, text))]
     subs = []
@@ -571,8 +571,9 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
             w = np.clip((t - s) / XFADE, 0, 1) if s > 0 else 1.0
             frame = frame * (1 - w) + p.frame(t) * w if w < 1 else p.frame(t)
         # mist (screen-blend)
-        x = int(t * FOG_SPEED) % int(fog_period)
-        fg = fog[:, x:x + W]
+        x = (t * FOG_SPEED) % fog_period
+        i, fr = int(x), x - int(x)      # tussen twee pixels in mengen, anders schokt de mist
+        fg = fog[:, i:i + W] * (1 - fr) + fog[:, i + 1:i + 1 + W] * fr
         frame = frame + ((1 - (1 - frame) * (1 - fg)) - frame) * FOG_OPACITY
         # eindtekst: beeld iets donkerder, tekst fadet in
         if eindtekst and t >= outro_at:
@@ -603,8 +604,9 @@ def make_short(story, van, tot, naam, seed, weetje="", eindtekst=False):
     music.unlink()
     print(f"klaar: {final} ({final.stat().st_size / 1e6:.1f} MB)")
     n = STATS["exact"] + STATS["geschat"]
-    print(f"ondertitels: {STATS['exact']} van {n} zinnen woord voor woord gelijk met de stem"
-          + ("" if not STATS["geschat"] else f" ({STATS['geschat']} geschat op de stiltes)"))
+    if n:
+        print(f"ondertitels: {STATS['exact']} van {n} zinnen woord voor woord gelijk met de stem"
+              + ("" if not STATS["geschat"] else f" ({STATS['geschat']} geschat op de stiltes)"))
     STATS.update(exact=0, geschat=0)
 
 
@@ -619,15 +621,18 @@ def main():
     ap.add_argument("--alleen", help="alleen deze naam uit de lijst")
     ap.add_argument("--eindtekst", action="store_true", help='"Full sleep documentary on the channel" aan het eind')
     ap.add_argument("--seed", type=int, default=7, help="muziek-zaadje")
+    ap.add_argument("--ondertitels", action="store_true",
+                    help="ondertitels in beeld (standaard uit: de eigenaar wil ze niet, okt 2026)")
     a = ap.parse_args()
     if a.lijst:
         rows = list(csv.DictReader(open(a.story / a.lijst), delimiter="\t"))
         for r in rows:
             if not a.alleen or r["naam"] == a.alleen:
                 make_short(a.story, int(r["van"]), int(r["tot"]), r["naam"], a.seed,
-                           r.get("weetje") or "", a.eindtekst)
+                           r.get("weetje") or "", a.eindtekst, a.ondertitels)
     elif a.van and a.tot:
-        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed, a.weetje, a.eindtekst)
+        make_short(a.story, a.van, a.tot, a.naam or f"short-{a.van}", a.seed, a.weetje, a.eindtekst,
+                   a.ondertitels)
     else:
         ap.error("geef --van en --tot, of --lijst")
 
