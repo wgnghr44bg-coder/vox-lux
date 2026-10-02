@@ -278,7 +278,7 @@ function renderSchedule(s) {
       const day = v.live.slice(0, 10); if (day < today) continue;
       const state = v.status === "gepland" ? "Gepland op YouTube" : v.status === "in de maak" ? "In de maak"
         : `Wordt gemaakt op ${dayLabel(v.maken)}`;
-      items.push({day, t: v.live.slice(11), title: v.onderwerp, state, make: v.status !== "gepland"});
+      items.push({day, t: v.live.slice(11), title: v.onderwerp, state, make: v.status !== "gepland", facts: v.facts});
     }
   } else {   // oude gegevens (vóór de vooruitblik): alleen wat op YouTube gepland staat
     for (const v of s.youtube_schedule || []) {
@@ -289,7 +289,7 @@ function renderSchedule(s) {
   }
   items.sort((a, b) => (a.day + a.t).localeCompare(b.day + b.t));
   $("days").innerHTML = items.length ? items.map(i => `<div class="day"><h3>${dayLabel(i.day).split(" ")[0]}<span>${dayLabel(i.day).split(" ").slice(1).join(" ")}${i.day === today ? " · vandaag" : ""}</span></h3><div class="slots">
-    <div class="slot"><span class="t">${esc(i.t)}</span><span class="chip long">Lange video</span>
+    <div class="slot"><span class="t">${esc(i.t)}</span><span class="chip long">${i.facts ? "Sleepy Facts" : "Lange video"}</span>
     <span class="title">${esc(i.title)} <span class="state ${i.make ? "make" : ""}">· ${esc(i.state)}</span></span></div></div></div>`).join("")
     : `<div class="empty">Het schema verschijnt na de ochtendcheck.</div>`;
 }

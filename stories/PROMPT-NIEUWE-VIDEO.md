@@ -26,7 +26,8 @@ A. Doe dit als allereerste, vóór het script:
        GEEN Shorts meer (eigenaar, okt 2026): niet maken, niet uploaden, niet op TikTok.
    - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
-     `onderwerp` in een planning.txt staat (main of origin/claude/*).
+     `onderwerp` in een planning.txt staat (main of origin/claude/*). Schrijf het
+     onderwerp in planning.txt zonder " (facts)".
    - Kies het eerste vrije moment voor de lange video: een maandag, woensdag of
      zaterdag, minstens 2 dagen na vandaag, die nog niet in een planning.txt staat
      (en na de laatste lange video die er al staat).
@@ -47,10 +48,19 @@ Stappen:
 2. Schrijf een rustig Engels script, zonder gruwelijke details. **Begin (eigenaar, okt 2026, definitief)**: na de vaste
    welkomst ("Welcome back to Sleep Archives.", via add_pauses --welkom) komt precies
    ÉÉN zin die de luisteraar naar plek en tijd brengt, elke video in andere woorden;
-   daarna [long-pause] en meteen het verhaal met een concreet beeld. Verder niets: geen
+   daarna [long-pause] ÉÉN rustige, nieuwsgierig makende vraag waar de video antwoord op
+   geeft (bv. "How did ordinary families live through months of snow and darkness, with
+   only a fire, a few animals, and each other?"), [long-pause], dan één korte vraag om te
+   abonneren in eigen woorden (bv. "If you enjoy these quiet journeys, you are welcome to
+   subscribe. It helps other sleepy listeners find their way here."), [long-pause] en
+   meteen het verhaal met een concreet beeld. **Einde**: een korte afronding, nog één keer
+   vragen om te abonneren, een zin dat er een volgende video op het scherm staat ("There
+   should be another quiet story waiting on the screen now, if you are still awake.") en
+   als laatste "Sleep well, and good night." (eigenaar, okt 2026, naar een groot
+   slaapkanaal; goedgekeurd voorbeeld: stories/VOORBEELD-SLEEPY-FACTS.txt). Verder niets: geen
    "close your eyes", geen geruststelling ("not frightening"), geen "nothing to remember",
    geen "breathe / listen / settle in / rest", geen ontspanningszinnen. Het verhaal begint
-   zo ± 12 seconden na de start. Goedgekeurde voorbeelden (niet letterlijk hergebruiken):
+   zo ± 40 seconden na de start. Goedgekeurde voorbeelden (niet letterlijk hergebruiken):
    "Tonight we drift north, a thousand years back, to the snowy fjords of Norway.
    [long-pause] Somewhere in the west of Norway, the snow begins to fall." en
    "We are travelling to the winter of 1959, to the quiet white mountains of the Ural.
@@ -69,6 +79,16 @@ Stappen:
    minstens een derde van de video. Sluit af met wat er daarna gebeurde en wat er vandaag
    nog van over is. (Richtlijn, geen vaste verdeling: bij een mysterie is het mysterie het
    grootste deel; bij een dagelijks-leven-onderwerp is er vaak geen gebeurtenis.)
+   **Sleepy Facts (proef, eigenaar okt 2026)**: staat er achter het onderwerp in
+   ONDERWERPEN.md "(facts)", schrijf het script dan niet als één doorlopend verhaal maar
+   als ± 70-90 losse feitjes over het onderwerp, elk ± 200-250 woorden (± 1,5 min): een
+   korte kopzin die het feitje noemt ("A Viking longhouse had no chimney at all."),
+   [pause], dan rustig uitleggen met concrete beelden, en eindigen met een kalme,
+   beschouwende zin. Na elk feitje [long-pause]. Zelfde begin en einde als hierboven;
+   houd een logische volgorde aan (bv. van herfst naar winter naar voorjaar). Titel:
+   "Sleepy Facts About <onderwerp> | History for Sleep" (≤ 70 tekens), thumbnail-hook
+   bv. "SLEEPY FACTS". Zet in planning.txt een regel `vorm facts`, zodat de cockpit later
+   kan vergelijken hoe feitjes- en verhaalvideo's het doen.
 3. Stem: xAI, stem Lux. Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
 4. Afbeeldingen: 75 stuks, verdeeld over de hele video (± elke 1,5 min).
    - Elk beeld laat de scène zien die op dat moment verteld wordt: de plek, de
@@ -82,7 +102,7 @@ Stappen:
 5. Video met de vaste welkomst ("Welcome back to Sleep Archives.", add_pauses.py --welkom),
    extra pauzes, 432 Hz-muziek op -13 dB, natuurgeluiden per scène (geluiden.tsv +
    tools/ambient_sfx.py, zie 3b in de standaard: regen, vuur, golven of wind waar het
-   past), mist en rustig bewegend beeld; daarna in
+   past; de muziek speelt alleen waar geen geluid klinkt, via --muziek/--muziek-uit), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
    citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
    sneeuw, regen, mist, vonken, vuur, kaarslicht, lichtstralen, stof, vuurvliegjes,

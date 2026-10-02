@@ -9,6 +9,11 @@ right level under the voice (mix it at 0 dB, e.g. make_video.py --geluid).
 Usage:
     python3 tools/ambient_sfx.py stories/<map>/geluiden.tsv out.wav --duur 7900
     python3 tools/ambient_sfx.py --uit-effecten stories/<map>/effecten-pauzes.tsv out.wav --duur 7900
+    ... --muziek video/muziek432.wav --muziek-uit video/muziek432-wissel.wav
+
+--muziek: maakt ook een kopie van de 432 Hz-muziek die stil is zolang er een natuurgeluid
+klinkt (muziek en geluid vloeien in 3 s in elkaar over; eigenaar, okt 2026). Gebruik die
+kopie als --muziek bij make_video.py.
 
 geluiden.tsv: columns van, tot (seconds, same times as effecten.tsv) and geluid
 (regen, vuur, golven or wind). --uit-effecten derives it from the visual effects
@@ -119,7 +124,11 @@ def main() -> None:
     ap.add_argument("out", type=Path)
     ap.add_argument("--duur", type=float, required=True, help="length of the video in seconds")
     ap.add_argument("--uit-effecten", action="store_true", help="derive sounds from effecten.tsv")
+    ap.add_argument("--muziek", type=Path, help="432 Hz-muziek (wav) om te laten wisselen met de geluiden")
+    ap.add_argument("--muziek-uit", type=Path, help="waar de wisselende muziek komt")
     a = ap.parse_args()
+    if bool(a.muziek) != bool(a.muziek_uit):
+        ap.error("--muziek en --muziek-uit horen bij elkaar")
 
     scenes = read_scenes(a.scenes, a.uit_effecten)
     loops = {k: seamless_loop(k) * 10 ** (GAIN_DB[k] / 20) for k in {s[2] for s in scenes}}
@@ -142,6 +151,36 @@ def main() -> None:
                 mix += loop[idx % len(loop)] * np.sqrt(env)
             w.writeframes((np.clip(mix, -1, 1) * 32767).astype(np.int16).tobytes())
     print(f"geluiden: {len(scenes)} scènes ({', '.join(sorted(loops))}) -> {a.out}")
+    if a.muziek:
+        duck_music(a.muziek, a.muziek_uit, scenes)
+        print(f"muziek stil tijdens de geluiden -> {a.muziek_uit}")
+
+
+def scene_level(tt: np.ndarray, scenes) -> np.ndarray:
+    """0..1: hoe hard de natuurgeluiden op tijd tt klinken (zelfde fades als hierboven)."""
+    level = np.zeros(len(tt))
+    for van, tot, _ in scenes:
+        level = np.maximum(level, np.clip((tt - (van - FADE / 2)) / FADE, 0, 1)
+                           * np.clip(((tot + FADE / 2) - tt) / FADE, 0, 1))
+    return level
+
+
+def duck_music(src: Path, dst: Path, scenes) -> None:
+    """Kopie van de muziek die wegfadet zolang er een natuurgeluid klinkt."""
+    with wave.open(str(src), "rb") as r, wave.open(str(dst), "wb") as w:
+        ch, sr = r.getnchannels(), r.getframerate()
+        w.setnchannels(ch)
+        w.setsampwidth(2)
+        w.setframerate(sr)
+        pos, block = 0, 10 * sr
+        while True:
+            raw = r.readframes(block)
+            if not raw:
+                break
+            x = np.frombuffer(raw, "<i2").reshape(-1, ch).astype(np.float32)
+            gain = 1 - scene_level((pos + np.arange(len(x))) / sr, scenes)
+            w.writeframes((x * gain[:, None]).astype("<i2").tobytes())
+            pos += len(x)
 
 
 if __name__ == "__main__":
