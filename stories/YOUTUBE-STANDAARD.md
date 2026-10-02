@@ -208,7 +208,7 @@ De refresh token blijft geldig (app "In production"); test hem wel eerst.
 ## Shorts (sinds Pompeii; vernieuwd okt 2026)
 Uit een bestaande sleep documentary, alles gratis behalve het gesproken begin (xAI, < 1 cent).
 **Alle Shorts gaan naar TikTok; alleen de sterkste (short1) ook naar YouTube**, de dag na de
-lange video om 20:00. Reden (cijfers sept 2026): Shorts gaven veel weergaven maar bijna geen
+lange video om 20:00 (de eigenaar uploadt die zelf vanaf de pagina, sinds okt 2026). Reden (cijfers sept 2026): Shorts gaven veel weergaven maar bijna geen
 abonnees, de groei in deze niche komt van lange video's, en zo blijven er uploads over.
 Shorts met een rustig "Did you know? [pause] …"-begin werden het snelst weggeswiped (± 37%
 bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
@@ -225,14 +225,15 @@ bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
    `python3 tools/xai_voiceover.py stories/<verhaal>/shorts-intro/<naam>.txt --proxy-auth -o stories/<verhaal>/shorts-intro/<naam>.mp3`
    Tekst en mp3 in git houden (klein), dan hoeft het nooit opnieuw betaald te worden.
 3. `python3 tools/make_short.py stories/<verhaal> --lijst shorts.tsv [--alleen <naam>]`
-   → `video/shorts/<naam>.mp4` (1080x1920, schuivend beeld, mist, grote ondertitels in korte
-   stukjes (tot 9 woorden) die woord voor woord op de stem zijn gelegd (pocketsphinx, gratis,
-   wordt vanzelf geïnstalleerd; het script meldt "ondertitels: X van Y zinnen woord voor
-   woord gelijk" — lukt een zin niet, dan schat het op de stiltes),
+   → `video/shorts/<naam>.mp4` (1080x1920, 30 beelden/s, schuivend beeld, mist, GEEN
+   ondertitels (eigenaar, okt 2026; `--ondertitels` zet ze toch aan), lange slaappauzes
+   automatisch ingekort tot 0,4 s,
    432 Hz-muziek op -13 dB, zelfde als de lange video; geen natuurgeluiden). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
-5. YouTube (alleen short1): privé, Education, niet voor kinderen, AI gemarkeerd. Titel:
+5. YouTube (alleen short1): NIET zelf uploaden — de eigenaar doet dat zelf vanaf de
+   pagina (YouTube-kaart, zie "TikTok-overzicht"). Bij het uploaden: Education, niet voor
+   kinderen, AI gemarkeerd. Titel:
    spannend en nieuwsgierig makend, met hoofdletters per woord en eventueel één emoji
    (zoals de best lopende Shorts), + ` | <korte naam + jaar>`, bv.
    "His Shirt Caught Fire 60 km From the Blast 🔥 | Tunguska 1908" (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
@@ -258,4 +259,8 @@ Zet elke Short erop (`datum` = de TikTok-datum uit planning.txt, short1..N):
    `video_id`, `video_url` (de url uit stap 1, bv. "/_blob/<id>"), `bestand`
    (bv. "<map>-<naam>.mp4"), `youtube` (link van de Short, of "" als hij niet op YouTube
    staat), `geplaatst: false`.
+3. De YouTube-Short (short1) komt er een tweede keer op als YouTube-kaart: doc_id
+   `<map>-yt`, zelfde video, plus `platform: "youtube"`, `datum` = `yt-short` uit
+   planning.txt, `titel` = volledige YouTube-titel, `beschrijving` = YouTube-beschrijving.
+   De pagina toont die met een rode rand en "Voor YouTube"; de eigenaar uploadt hem zelf.
 Lukt dit niet, stuur de Shorts dan in de chat zoals voorheen.

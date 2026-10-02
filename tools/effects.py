@@ -64,6 +64,15 @@ def flicker(t, seed):
             + 0.05 * math.sin(t * 17.7 + 3 * seed) + 0.03 * math.sin(t * 29.3 + seed))
 
 
+def subpixel_crop(tex, x, w, wrap=True):
+    """Strook van w breed vanaf x (mag een kommagetal zijn): mengt de twee dichtstbijzijnde
+    hele pixels, anders schokt een langzame beweging (afwisselend 1 en 2 pixels per beeld)."""
+    n = tex.shape[1] - w - 1
+    x = x % n if wrap else min(max(x, 0), n)
+    i, f = int(x), x - int(x)
+    return tex[:, i:i + w] * (1 - f) + tex[:, i + 1:i + 1 + w] * f
+
+
 class Particles:
     def __init__(self, p, w, h, rng):
         self.p, self.w, self.h, self.rng = p, w, h, rng
@@ -175,8 +184,7 @@ class Mistbank:
         self.col = np.array([0.88, 0.88, 0.90], np.float32)
 
     def apply(self, frame, t, dt, g):
-        x = int(t * 14 * self.w / 1920) % (self.tex.shape[1] - self.w)
-        return mix(frame, self.tex[:, x:x + self.w], self.col, g * self.alpha)
+        return mix(frame, subpixel_crop(self.tex, t * 14 * self.w / 1920, self.w), self.col, g * self.alpha)
 
 
 class Gloed:
@@ -227,10 +235,10 @@ class Lichtstralen:
 
     def apply(self, frame, t, dt, g):
         span = self.pad
-        off = int((t * 18 * self.u) % (2 * span))
+        off = (t * 18 * self.u) % (2 * span)
         off = off if off < span else 2 * span - off                     # heen en weer
         a = self.alpha * g * (0.8 + 0.2 * math.sin(t * 0.7))
-        return mix(frame, self.rays[:, off:off + self.w], self.col, a)
+        return mix(frame, subpixel_crop(self.rays, off, self.w, wrap=False), self.col, a)
 
 
 def make_effect(name, w, h, rng, sterkte=1.0, x=None, y=None):
