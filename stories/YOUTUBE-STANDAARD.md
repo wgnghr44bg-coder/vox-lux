@@ -37,14 +37,14 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
        --audio stories/<verhaal>/video/stem-met-pauzes.wav \
-       --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -13
+       --muziek stories/<verhaal>/video/muziek432.wav --muziek-db -21
    ```
    1080p25, zachte overgangen (1,5 s), drijvende mist. Het beeld beweegt steeds rustig:
    elke 18 s een nieuwe beweging (inzoomen, opzij schuiven, uitzoomen, andere kant op),
    zodat het ook bij afbeeldingen van 1,5 minuut nooit stilstaat (eigenaar: "mag iets meer
    bewegen"). De clips worden in 4K/RGB gemaakt (vloeiend) en 4 tegelijk.
-   Muziek op -13 dB (eigenaar, okt 2026: iets harder dan eerst, -17): hoorbaar onder de
-   stem en duidelijk in de stiltes.
+   Muziek op -21 dB (eigenaar, okt 2026: na proefjes zachter dan -13): zacht op de
+   achtergrond, vooral hoorbaar in de stiltes.
    Duurt ± 1× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
@@ -225,7 +225,7 @@ bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
    → `video/shorts/<naam>.mp4` (1080x1920, 30 beelden/s, schuivend beeld, mist, GEEN
    ondertitels (eigenaar, okt 2026; `--ondertitels` zet ze toch aan), lange slaappauzes
    automatisch ingekort tot 0,4 s,
-   432 Hz-muziek op -13 dB, zelfde als de lange video; geen natuurgeluiden). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
+   432 Hz-muziek op -21 dB, zelfde als de lange video; geen natuurgeluiden). Geen eindtekst (de eigenaar wil het simpel; `--eindtekst` zet
    "Full sleep documentary on the channel" er toch in). ± 3 min per Short.
 4. Eerst 1 proef in de chat (< 30 MB), pas na akkoord de rest.
 5. YouTube (alleen short1): NIET zelf uploaden — de eigenaar doet dat zelf vanaf de
