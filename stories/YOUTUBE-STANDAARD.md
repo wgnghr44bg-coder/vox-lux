@@ -5,6 +5,10 @@ tenzij de eigenaar iets anders vraagt. Alles wordt privé geüpload; de eigenaar
 zet de video zelf op openbaar in YouTube Studio (dat werkt: bij Pompeii werd de
 upload niet op privé vergrendeld).
 
+**Eerst controleren, dan pas uploaden:** `tools/check_video.py` (stem hapert/blijft niet hangen,
+geen decodeerfouten, geluid van de video gelijk aan de bron, beeld loopt niet vast). Alleen
+bij "CONTROLE GOED" uploaden (eigenaar, okt 2026).
+
 **Nooit een video opnieuw uploaden die al eens openbaar is geweest** (eigenaar, okt 2026:
 Pompeii is 3 keer geüpload en kreeg na de eerste keer bijna geen vertoningen meer; YouTube
 ziet een kopie als herhaalde inhoud en laat hem nauwelijks zien). Wil je iets verbeteren,

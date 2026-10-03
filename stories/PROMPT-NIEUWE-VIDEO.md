@@ -122,6 +122,12 @@ Stappen:
    `stories/<map>/thumbnail-v2.jpg` en bekijk hem zelf naast
    `stories/pompeii/thumbnail-v2.jpg`, `stories/titanic/thumbnail-v2.jpg` en
    `stories/tunguska/thumbnail-v2.jpg`: zelfde stijl en sfeer? Zo niet, opnieuw.
+6b. **Eindcontrole, verplicht vóór elke upload** (eigenaar, okt 2026: "alles moet vloeiend
+   lopen, geen haperende of vastlopende stem; eerst controleren, dan pas plaatsen"):
+   `python3 tools/check_video.py stories/<map> video/<naam>-motion.mp4`
+   Alleen bij "CONTROLE GOED" uploaden. Bij "CONTROLE FOUT": niet uploaden, de oorzaak
+   oplossen (meestal opnieuw add_pauses.py / make_video.py) en opnieuw controleren; lukt dat
+   niet, begin je laatste bericht met "⚠️ Video niet geüpload: controle fout" en de reden.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard. Controle vóór
    de upload: titel = belevingstitel + " | History for Sleep" (nooit "| Sleep
