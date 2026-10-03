@@ -15,10 +15,9 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
 1. **Afbeeldingen** — `python3 tools/xai_images.py stories/<verhaal> all`
    (Grok Imagine quality, 16:9, uit `afbeeldingen-prompts.md`). Eerst 3 proefbeelden
    tonen en akkoord vragen, want het kost geld.
-2. **Welkomst + langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal> --welkom`
-   De stem begint met "Welcome back to Sleep Archives." (`branding/welkom.mp3`, gewone stem,
-   één keer ingesproken, nooit opnieuw laten maken), tijdens de intro met sterren en maan;
-   daarna begint het verhaal. Alle tijden schuiven vanzelf mee. (Voor Shorts niet van belang.)
+2. **Langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal>` (ZONDER --welkom: sinds
+   3 okt 2026 begint het script zelf met "Hi, and welcome back. Tonight we are going ... years
+   back, to ...", zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Alle tijden schuiven vanzelf mee. (Voor Shorts niet van belang.)
    Na elke zin extra stilte: 0,7 s + 0,1 s per seconde zinslengte (max. 2,2 s),
    bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
    `video/stem-met-pauzes.wav`, `tijdlijn-pauzes.tsv` en `afbeeldingen-tijden-pauzes.tsv`.
@@ -30,7 +29,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    **Stem** (eigenaar, okt 2026, na veel proefjes): xAI-stem **Lux**, snelheid 0.9 (10% langzamer);
    `add_pauses.py` maakt hem daarna net iets zwaarder en warmer, zet na elke zin een pauze
    en bij elke komma/adempauze een kleine extra pauze (0,25 s). Dit zijn de standaardwaarden
-   van de tools; `branding/welkom.mp3` is ook met Lux op 0.9 ingesproken.
+   van de tools.
 4. **Video**
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \

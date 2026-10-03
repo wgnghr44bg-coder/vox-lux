@@ -48,22 +48,20 @@ C. YouTube staat ongeveer 6 uploads per dag toe (alle sessies samen). Krijg je
 
 Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
-2. Schrijf een rustig Engels script, zonder gruwelijke details. **Begin (eigenaar, okt 2026, definitief)**: na de vaste
-   welkomst ("Welcome back to Sleep Archives.", via add_pauses --welkom) komt precies
-   ÉÉN zin die de luisteraar naar plek en tijd brengt, elke video in andere woorden;
-   daarna [long-pause] ÉÉN rustige, nieuwsgierig makende vraag waar de video antwoord op
-   geeft (bv. "How did ordinary families live through months of snow and darkness, with
-   only a fire, a few animals, and each other?"), [long-pause], dan één korte vraag om te
-   abonneren in eigen woorden (bv. "If you enjoy these quiet journeys, you are welcome to
-   subscribe. It helps other sleepy listeners find their way here."), [long-pause] en
-   meteen het verhaal met een concreet beeld. **Einde**: een korte afronding, nog één keer
+2. Schrijf een rustig Engels script, zonder gruwelijke details. **Begin (eigenaar, 3 okt 2026, definitief; vervangt alle eerdere afspraken)**:
+   het script begint ZELF met precies: "Hi, and welcome back." [pause] en dan ÉÉN zin in de
+   vorm "Tonight we are going <hoeveel> years back, to <plek>." (bv. "Tonight we are going
+   about a hundred and twenty years back, to San Francisco, a city of steep hills and soft
+   grey fog by the Pacific Ocean."), dan [long-pause] en meteen het verhaal met een concreet
+   beeld. GEEN vraag en GEEN abonneren aan het begin. add_pauses.py zonder --welkom (de
+   welkomst zit al in het script). Bij Sleepy Facts precies hetzelfde begin. **Einde**: een korte afronding, nog één keer
    vragen om te abonneren, een zin dat er een volgende video op het scherm staat ("There
    should be another quiet story waiting on the screen now, if you are still awake.") en
    als laatste "Sleep well, and good night." (eigenaar, okt 2026, naar een groot
-   slaapkanaal; goedgekeurd voorbeeld: stories/VOORBEELD-SLEEPY-FACTS.txt). Verder niets: geen
+   slaapkanaal). Verder niets: geen
    "close your eyes", geen geruststelling ("not frightening"), geen "nothing to remember",
    geen "breathe / listen / settle in / rest", geen ontspanningszinnen. Het verhaal begint
-   zo ± 40 seconden na de start. Goedgekeurde voorbeelden (niet letterlijk hergebruiken):
+   zo ± 15 seconden na de start. Goedgekeurde voorbeelden (niet letterlijk hergebruiken):
    "Tonight we drift north, a thousand years back, to the snowy fjords of Norway.
    [long-pause] Somewhere in the west of Norway, the snow begins to fall." en
    "We are travelling to the winter of 1959, to the quiet white mountains of the Ural.
@@ -107,7 +105,7 @@ Stappen:
    - Model grok-imagine-image ($0,02; pas MODEL aan in tools/xai_images.py).
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
-5. Video met de vaste welkomst ("Welcome back to Sleep Archives.", add_pauses.py --welkom),
+5. Video (add_pauses.py ZONDER --welkom; de welkomst zit in het script),
    extra pauzes, alleen zachte 432 Hz-muziek (-26 dB) onder de hele video (geen vuur, regen
    of andere geluiden; eigenaar, okt 2026, definitief; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
