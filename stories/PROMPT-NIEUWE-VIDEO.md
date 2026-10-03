@@ -90,7 +90,11 @@ Stappen:
    "Sleepy Facts About <onderwerp> | History for Sleep" (≤ 70 tekens), thumbnail-hook
    bv. "SLEEPY FACTS". Zet in planning.txt een regel `vorm facts`, zodat de cockpit later
    kan vergelijken hoe feitjes- en verhaalvideo's het doen.
-3. Stem: xAI, stem Lux op snelheid 0.9 (standaard in tools/xai_voiceover.py; niet aanpassen). Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
+3. Stem: xAI, stem Lux op snelheid 0.9 (standaard in tools/xai_voiceover.py; niet aanpassen).
+   Controle (eigenaar, okt 2026: bij San Francisco haperde en kraakte de stem): de stem moet
+   in één stuk gemaakt zijn en `ffmpeg -v error -i <stem.mp3> -f null -` mag GEEN fouten geven
+   (geen "Header missing"); deel het bestand nooit in stukken op bytegrootte. Geeft hij wel
+   fouten, maak de stem dan opnieuw met dezelfde --cache-dir (alleen kapotte stukken kosten geld). Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
 4. Afbeeldingen: 75 stuks, verdeeld over de hele video (± elke 1,5 min).
    - Elk beeld laat de scène zien die op dat moment verteld wordt: de plek, de
      mensen, het moment of de gebeurtenis uit dat stuk tekst. Zet de
@@ -101,8 +105,8 @@ Stappen:
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
 5. Video met de vaste welkomst ("Welcome back to Sleep Archives.", add_pauses.py --welkom),
-   extra pauzes, haardvuur met zachte regen onder de hele video (GEEN 432 Hz-muziek;
-   eigenaar, okt 2026; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
+   extra pauzes, alleen zachte 432 Hz-muziek (-26 dB) onder de hele video (geen vuur, regen
+   of andere geluiden; eigenaar, okt 2026, definitief; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
    citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
    sneeuw, regen, mist, vonken, vuur, kaarslicht, lichtstralen, stof, vuurvliegjes,
