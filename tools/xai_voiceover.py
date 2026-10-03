@@ -55,9 +55,9 @@ SENTENCE_PAUSE_MS = 300
 # there without breaking the sentence melody. Also --comma-pause / --no-comma-pause.
 COMMA_PAUSE = True
 
-VOICE_ID = "lux"  # same voice as the VOX project
+VOICE_ID = "lux"  # eigenaar, okt 2026: na proefjes met Leo e.a. toch Lux
 SPEED = 0.9  # Tempo (xAI accepts 0.7-1.5); 0.9 = rustiger (eigenaar, okt 2026)
-LANGUAGE = "en"  # "en", "nl" or "auto"
+LANGUAGE = "en"  # "en", "en-GB", "nl" or "auto"
 
 # Wrap every piece in <slow><soft>...</soft></slow>. Also toggled with
 # --slow-soft / --no-slow-soft on the command line.
