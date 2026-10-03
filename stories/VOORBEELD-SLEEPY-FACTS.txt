@@ -1,6 +1,6 @@
 # Goedgekeurd voorbeeld (eigenaar, okt 2026): begin, 2 feitjes en einde van een Sleepy Facts-video.
 # Niet letterlijk hergebruiken; alleen vorm en toon. LET OP: het begin is sinds 3 okt anders
-# ("Hi, and welcome back. Tonight we are going ... years back, to ...", geen vraag/abonneren).
+# ("Welcome. Tonight we are going ... years back, to ...", geen vraag/abonneren).
 
 Tonight we drift north, a thousand years back, to the long dark winters of the Viking lands.
 
