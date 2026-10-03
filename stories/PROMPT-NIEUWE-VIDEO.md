@@ -101,8 +101,8 @@ Stappen:
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
 5. Video met de vaste welkomst ("Welcome back to Sleep Archives.", add_pauses.py --welkom),
-   extra pauzes, haardvuur met zachte regen onder de hele video (GEEN 432 Hz-muziek;
-   eigenaar, okt 2026; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
+   extra pauzes, alleen zachte 432 Hz-muziek (-26 dB) onder de hele video (geen vuur, regen
+   of andere geluiden; eigenaar, okt 2026, definitief; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
    citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
    sneeuw, regen, mist, vonken, vuur, kaarslicht, lichtstralen, stof, vuurvliegjes,
