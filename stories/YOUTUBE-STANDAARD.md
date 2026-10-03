@@ -50,6 +50,8 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    python3 tools/motion.py stories/<verhaal>/video/<naam>.mp4 stories/<verhaal>/video/<naam>-motion.mp4 \
        --plan stories/<verhaal>/motion.json --effecten stories/<verhaal>/effecten.tsv
    ```
+   Hoofdstuk 1 en andere onderdelen nooit tijdens de intro (eerste 9 s) of over elkaar heen:
+   motion.py schuift ze zelf op als dat nodig is (eigenaar, okt 2026: titel en chapter liepen door elkaar).
    Duurt ± 0,65× de videolengte (± 80 min bij 2 uur). Voorbeeld: `stories/pompeii/motion.json`;
    alle velden staan bovenin `tools/motion.py`. Tijden in seconden **mét** de extra pauzes
    (uit `tijdlijn-pauzes.tsv`, dezelfde als de hoofdstukken in de beschrijving).
