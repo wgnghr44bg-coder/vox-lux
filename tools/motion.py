@@ -506,6 +506,14 @@ def build(plan, c, einde, rng):
     sky = Sky(c, rng) if plan.get("intro") or plan.get("slot") else None
     if plan.get("intro"):
         parts.append(Intro(c, sky, plan.get("onderwerp", ""), plan.get("intro_duur", INTRO)))
+    # nooit over elkaar heen (eigenaar, okt 2026): niets tijdens de intro, en elk onderdeel pas
+    # na het vorige (schuift zo nodig een paar seconden op)
+    eind = plan.get("intro_duur", INTRO) + 2 if plan.get("intro") else 0.0
+    for it in sorted(plan.get("items", []), key=lambda i: i["tijd"]):
+        if it["tijd"] < eind:
+            print(f"let op: {it['soort']} op {it['tijd']:.1f} s verschoven naar {eind:.1f} s (overlap)")
+            it["tijd"] = eind
+        eind = it["tijd"] + it.get("duur", DUUR.get(it["soort"], 12.0)) + 1.0
     for it in plan.get("items", []):
         s = it["soort"]
         parts.append({"hoofdstuk": lambda: Hoofdstuk(c, it), "datum": lambda: Datum(c, it),
