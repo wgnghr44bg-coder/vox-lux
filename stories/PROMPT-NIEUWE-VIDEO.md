@@ -122,12 +122,14 @@ Stappen:
    `stories/<map>/thumbnail-v2.jpg` en bekijk hem zelf naast
    `stories/pompeii/thumbnail-v2.jpg`, `stories/titanic/thumbnail-v2.jpg` en
    `stories/tunguska/thumbnail-v2.jpg`: zelfde stijl en sfeer? Zo niet, opnieuw.
-6b. **Eindcontrole, verplicht vóór elke upload** — loop stories/CONTROLELIJST.md helemaal na (eigenaar, okt 2026: "alles moet vloeiend
-   lopen, geen haperende of vastlopende stem; eerst controleren, dan pas plaatsen"):
-   `python3 tools/check_video.py stories/<map> video/<naam>-motion.mp4`
-   Alleen bij "CONTROLE GOED" uploaden. Bij "CONTROLE FOUT": niet uploaden, de oorzaak
-   oplossen (meestal opnieuw add_pauses.py / make_video.py) en opnieuw controleren; lukt dat
-   niet, begin je laatste bericht met "⚠️ Video niet geüpload: controle fout" en de reden.
+6b. **QC vóór elke upload (eigenaar, okt 2026, verplicht)**: volg stories/QC-CHECKLIST.md.
+   Draai `python3 tools/qc_video.py stories/<map> video/<naam>-motion.mp4 --titel "<titel>"
+   --thumbnail stories/<map>/thumbnail-v2.jpg --beschrijving <beschrijving.txt>`, bekijk zelf de
+   platen in video/qc/ (alle afbeeldingen + elk beeld met titel/kaartje/kaart) en de lijst met
+   teksten, en draai opnieuw met --beelden/--teksten/--historisch/--kijker "ok" of "fout: ...".
+   ALLEEN bij "✅ VIDEO APPROVED — READY FOR UPLOAD" uploaden. Anders: oorzaak oplossen en
+   opnieuw; lukt dat niet, NIETS uploaden en je laatste bericht beginnen met
+   "❌ Video niet geüpload" + het QC-rapport. Zet het QC-rapport altijd in je eindbericht.
 7. Upload de lange video privé en gepland (datum uit planning.txt) met titel,
    beschrijving, hoofdstukken, tags en thumbnail volgens de standaard. Controle vóór
    de upload: titel = belevingstitel + " | History for Sleep" (nooit "| Sleep
