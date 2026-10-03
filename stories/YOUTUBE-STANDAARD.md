@@ -23,14 +23,10 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
    `video/stem-met-pauzes.wav`, `tijdlijn-pauzes.tsv` en `afbeeldingen-tijden-pauzes.tsv`.
    De video wordt ± 22 % langer (Pompeii: 1:47 → 2:11).
-3. **Achtergrond: haardvuur en zachte regen** (eigenaar, okt 2026: geen 432 Hz-muziek meer).
-   Knetterend haardvuur met zachte regen erbij, allebei onder de hele video, zelfgemaakt en
-   rechtenvrij (de volumes staan goed in `tools/ambient_sfx.py`):
-   ```
-   printf 'van\ttot\tgeluid\n0\t<lengte in s + 2>\tvuur\n0\t<lengte in s + 2>\tregen\n' > stories/<verhaal>/geluiden.tsv
-   python3 tools/ambient_sfx.py stories/<verhaal>/geluiden.tsv stories/<verhaal>/video/haardvuur.wav --duur <lengte in s + 2>
-   ```
-   (`tools/ambient_432.py` blijft bestaan, maar wordt niet meer gebruikt.)
+3. **Achtergrond: alleen 432 Hz-muziek, zacht** (eigenaar, okt 2026, definitief: geen vuur,
+   regen of andere geluiden). `python3 tools/ambient_432.py stories/<verhaal>/video/muziek432.wav --duur <lengte in s + 2>`
+   (boven ± 1 u 45: twee helften met `--seed 7` en `--seed 8`, met 14 s crossfade aan elkaar;
+   zie `stories/titanic/VOLGENDE-STAPPEN.md`). Op -26 dB onder de stem (standaard in make_video.py).
    **Stem** (eigenaar, okt 2026, na veel proefjes): xAI-stem **Lux**, snelheid 0.9 (10% langzamer);
    `add_pauses.py` maakt hem daarna net iets zwaarder en warmer, zet na elke zin een pauze
    en bij elke komma/adempauze een kleine extra pauze (0,25 s). Dit zijn de standaardwaarden
@@ -39,13 +35,13 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
        --audio stories/<verhaal>/video/stem-met-pauzes.wav \
-       --geluid stories/<verhaal>/video/haardvuur.wav
+       --muziek stories/<verhaal>/video/muziek432.wav
    ```
    1080p25, zachte overgangen (1,5 s), drijvende mist. Het beeld beweegt steeds rustig:
    elke 18 s een nieuwe beweging (inzoomen, opzij schuiven, uitzoomen, andere kant op),
    zodat het ook bij afbeeldingen van 1,5 minuut nooit stilstaat (eigenaar: "mag iets meer
    bewegen"). De clips worden in 4K/RGB gemaakt (vloeiend) en 4 tegelijk.
-   Geen --muziek: alleen de stem en het zachte haardvuur.
+   Muziek op -26 dB: zacht op de achtergrond.
    Duurt ± 1× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
@@ -137,7 +133,7 @@ Drift off to the story of <onderwerp in één zin: wat, waar, wanneer>.
 <2 zinnen over wat de kijker meemaakt in het verhaal.>
 
 A calm, slow-paced history documentary for sleep and relaxation. No loud
-sounds, no jump scares, just a gentle voice, a crackling fireplace, soft rain
+sounds, no jump scares, just a gentle voice, soft 432 Hz background music
 and softly changing images.
 
 Chapters
@@ -153,7 +149,7 @@ historical sources<, noem de belangrijkste bron>.
 
 ## Tags
 Altijd: `history for sleep, boring history for sleep, sleep documentary, bedtime story,
-relaxing history, sleep story, fireplace sounds, rain sounds` + 4–6 onderwerp-tags.
+relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
 
 ## Instellingen
 - Categorie: Education (`--category 27`)
