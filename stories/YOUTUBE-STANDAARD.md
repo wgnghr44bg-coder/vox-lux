@@ -25,7 +25,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
 3. **Achtergrond: alleen 432 Hz-muziek, zacht** (eigenaar, okt 2026, definitief: geen vuur,
    regen of andere geluiden). `python3 tools/ambient_432.py stories/<verhaal>/video/muziek432.wav --duur <lengte in s + 2>`
    (boven ± 1 u 45: twee helften met `--seed 7` en `--seed 8`, met 14 s crossfade aan elkaar;
-   zie `stories/titanic/VOLGENDE-STAPPEN.md`). Op -26 dB onder de stem (standaard in make_video.py).
+   zie `stories/titanic/VOLGENDE-STAPPEN.md`). Op -20 dB onder de stem (standaard in make_video.py; eigenaar 3 okt).
    **Stem** (eigenaar, okt 2026, na veel proefjes): xAI-stem **Lux**, snelheid 0.9 (10% langzamer);
    `add_pauses.py` maakt hem daarna net iets zwaarder en warmer, zet na elke zin een pauze
    en bij elke komma/adempauze een kleine extra pauze (0,25 s). Dit zijn de standaardwaarden
@@ -40,7 +40,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    elke 18 s een nieuwe beweging (inzoomen, opzij schuiven, uitzoomen, andere kant op),
    zodat het ook bij afbeeldingen van 1,5 minuut nooit stilstaat (eigenaar: "mag iets meer
    bewegen"). De clips worden in 4K/RGB gemaakt (vloeiend) en 4 tegelijk.
-   Muziek op -26 dB: zacht op de achtergrond.
+   Muziek op -20 dB: zacht op de achtergrond.
    Duurt ± 1× de videolengte (4 cores). Test eerst met `--tot 100`.
    Bij meer dan 20 afbeeldingen zet het script eerst groepjes van 20 clips aan elkaar
    (anders te weinig geheugen: 75 clips in één keer ging mis bij San Francisco 1906).
