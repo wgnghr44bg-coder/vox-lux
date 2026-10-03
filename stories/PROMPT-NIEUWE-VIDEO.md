@@ -122,7 +122,7 @@ Stappen:
    `stories/<map>/thumbnail-v2.jpg` en bekijk hem zelf naast
    `stories/pompeii/thumbnail-v2.jpg`, `stories/titanic/thumbnail-v2.jpg` en
    `stories/tunguska/thumbnail-v2.jpg`: zelfde stijl en sfeer? Zo niet, opnieuw.
-6b. **Eindcontrole, verplicht vóór elke upload** (eigenaar, okt 2026: "alles moet vloeiend
+6b. **Eindcontrole, verplicht vóór elke upload** — loop stories/CONTROLELIJST.md helemaal na (eigenaar, okt 2026: "alles moet vloeiend
    lopen, geen haperende of vastlopende stem; eerst controleren, dan pas plaatsen"):
    `python3 tools/check_video.py stories/<map> video/<naam>-motion.mp4`
    Alleen bij "CONTROLE GOED" uploaden. Bij "CONTROLE FOUT": niet uploaden, de oorzaak
