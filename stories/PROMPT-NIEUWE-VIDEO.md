@@ -15,6 +15,9 @@ uploads volgens het schema hieronder. Stop alleen en vraag mij iets als:
   dezelfde datum weer kan pakken. Er is dan nog niets geüpload.
 
 Budget: maximaal $3 per video. Houd bij wat elke betaalde stap kost en tel het op.
+Echte prijzen (console.x.ai, 3 okt 2026): stem ± $15 per miljoen tekens (90.000 tekens ≈ $1,35;
+NIET $4,20 zoals eerder gedacht), afbeelding $0,02. Een video kost dus ± $3: houd het script
+op ± 90.000 tekens en maak hooguit een paar afbeeldingen opnieuw.
 Maak een afbeelding hooguit 1 keer opnieuw; niets anders opnieuw laten genereren.
 
 Planning (werkt ook als er meerdere sessies tegelijk lopen):
