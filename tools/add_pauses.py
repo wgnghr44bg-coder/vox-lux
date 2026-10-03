@@ -10,7 +10,7 @@ Met --welkom begint de stem met branding/welkom.mp3 ("Welcome back to Sleep Arch
 Uitvoer: <map>/video/stem-met-pauzes.wav, <map>/tijdlijn-pauzes.tsv,
          <map>/afbeeldingen-tijden-pauzes.tsv
 """
-import argparse, bisect, csv, subprocess, wave
+import argparse, bisect, csv, re, subprocess, wave
 from pathlib import Path
 
 import imageio_ffmpeg
@@ -109,23 +109,29 @@ def main():
         r[1], r[2] = hms_precies(echt(sec(r[1]))), hms_precies(echt(sec(r[2])))
 
     # kleine pauze bij elke adempauze binnen een zin (komma's): stiltes in de stem zelf
+    # Alleen waar in de tekst echt een komma (of ; : —) staat, en hooguit zoveel als er komma's
+    # zijn: de langste stiltes in de zin. Een stilte zonder komma (bv. voor een 'k' of 't')
+    # krijgt GEEN extra pauze, anders klinkt het als een hapering (eigenaar, okt 2026).
     for r in rows:
+        n_komma = len(re.findall(r"[,;:\u2014\u2013]", r[4]))
         a0, a1 = int(sec(r[1]) * 100) + 5, int(sec(r[2]) * 100) - 5
         seg = env[a0:a1]
-        if len(seg) < 20:
+        if len(seg) < 20 or not n_komma:
             continue
         quiet = seg < 0.08 * np.percentile(seg, 90)
-        k = 0
+        kandidaten, k = [], 0
         while k < len(seg):
             if quiet[k]:
                 m = k
                 while m < len(seg) and quiet[m]:
                     m += 1
                 if k > 0 and m < len(seg) and (m - k) / 100 >= KOMMA_MIN:
-                    cuts.append(((a0 + (k + m) / 2) / 100, KOMMA_PAUZE))
+                    kandidaten.append((m - k, (a0 + (k + m) / 2) / 100))
                 k = m
             else:
                 k += 1
+        for _, t in sorted(kandidaten, reverse=True)[:n_komma]:
+            cuts.append((t, KOMMA_PAUZE))
     cuts.sort()
     cut_t = [c[0] for c in cuts]
     cum = np.concatenate([[0], np.cumsum([c[1] for c in cuts])])
