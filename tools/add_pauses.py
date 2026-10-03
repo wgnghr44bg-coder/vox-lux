@@ -35,6 +35,12 @@ def sec(x):
     return int(h) * 3600 + int(m) * 60 + float(s)
 
 
+def hms_precies(x):
+    h, rest = divmod(max(x, 0), 3600)
+    m, s = divmod(rest, 60)
+    return f"{int(h)}:{int(m):02d}:{s:06.3f}"
+
+
 def hms(x):
     h, rest = divmod(x, 3600)
     m, s = divmod(rest, 60)
@@ -52,13 +58,7 @@ def main():
     lines = open(story / "tijdlijn.tsv").read().splitlines()
     header, rows = lines[0], [l.split("\t") for l in lines[1:] if l.strip()]
 
-    # waar komt stilte bij (midden van de pauze na elke zin) en hoeveel
-    cuts = []  # (tijd, extra)
-    for i in range(len(rows) - 1):
-        start, end, nxt = sec(rows[i][1]), sec(rows[i][2]), sec(rows[i + 1][1])
-        extra = min(PAUZE_MAX, PAUZE_BASIS + PAUZE_PER_SEC * (end - start))
-        cuts.append(((end + nxt) / 2, extra))
-    # kleine pauze bij elke adempauze binnen een zin (komma's): stiltes in de stem zelf
+    # de stem inlezen (nodig om de pauzes precies in echte stiltes te zetten)
     parts = sorted((story / "audio").glob("*-deel*.mp3"))
     pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error",
                           "-i", "concat:" + "|".join(str(p) for p in parts), "-ac", "1", "-ar", str(SR),
@@ -66,6 +66,49 @@ def main():
     audio = np.frombuffer(pcm, dtype="<i2")
     hop = SR // 100
     env = np.abs(audio[:len(audio) // hop * hop].astype(np.float32)).reshape(-1, hop).mean(1)
+    stil = env < 0.03 * np.percentile(env, 90)
+
+    def stilte_bij(t, zoek=2.5, min_len=0.15):
+        """Midden van de echte stilte die het dichtst bij t ligt. De tijden in tijdlijn.tsv lopen
+        bij lange opnames tot een paar seconden uit de pas met het geluid (eigenaar, okt 2026:
+        "de stem blijft hangen" = pauze midden in een woord); daarom altijd op de stilte zetten."""
+        a, b = max(int((t - zoek) * 100), 0), min(int((t + zoek) * 100), len(stil))
+        best, k = None, a
+        while k < b:
+            if stil[k]:
+                m = k
+                while m < len(stil) and stil[m]:
+                    m += 1
+                if (m - k) / 100 >= min_len:
+                    mid = (k + m) / 200
+                    if best is None or abs(mid - t) < abs(best - t):
+                        best = mid
+                k = m
+            else:
+                k += 1
+        return best
+
+    # waar komt stilte bij (in de echte pauze na elke zin) en hoeveel
+    cuts, drift_t, drift = [], [], []  # (tijd, extra); hoeveel de tijdlijn afwijkt van het geluid
+    for i in range(len(rows) - 1):
+        start, end, nxt = sec(rows[i][1]), sec(rows[i][2]), sec(rows[i + 1][1])
+        extra = min(PAUZE_MAX, PAUZE_BASIS + PAUZE_PER_SEC * (end - start))
+        t = stilte_bij((end + nxt) / 2)
+        if t is None:
+            print(f"let op: geen stilte gevonden na zin {rows[i][0]}, geen extra pauze")
+            continue
+        cuts.append((t, extra))
+        drift_t.append((end + nxt) / 2)
+        drift.append(t - (end + nxt) / 2)
+    print(f"tijdlijn wijkt tot {max(map(abs, drift), default=0):.2f} s af van het geluid (gecorrigeerd)")
+
+    def echt(t):
+        """Tijd uit tijdlijn.tsv -> tijd in het echte geluid."""
+        return t + float(np.interp(t, drift_t, drift)) if drift_t else t
+    for r in rows:
+        r[1], r[2] = hms_precies(echt(sec(r[1]))), hms_precies(echt(sec(r[2])))
+
+    # kleine pauze bij elke adempauze binnen een zin (komma's): stiltes in de stem zelf
     for r in rows:
         a0, a1 = int(sec(r[1]) * 100) + 5, int(sec(r[2]) * 100) - 5
         seg = env[a0:a1]
@@ -130,8 +173,8 @@ def main():
     with open(story / "afbeeldingen-tijden-pauzes.tsv", "w") as f:
         f.write("file\tstart\tend\tslug\n")
         for i, r in enumerate(imgs):
-            s = 0.0 if i == 0 else shift(float(r["start"]))
-            e = total if i == len(imgs) - 1 else shift(float(imgs[i + 1]["start"]))
+            s = 0.0 if i == 0 else shift(echt(float(r["start"])))
+            e = total if i == len(imgs) - 1 else shift(echt(float(imgs[i + 1]["start"])))
             f.write(f"{r['file']}\t{s:.2f}\t{e:.2f}\t{r['slug']}\n")
 
     print(f"oud {len(audio) / SR / 60:.1f} min -> nieuw {total / 60:.1f} min "
