@@ -31,9 +31,10 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    python3 tools/ambient_sfx.py stories/<verhaal>/geluiden.tsv stories/<verhaal>/video/haardvuur.wav --duur <lengte in s + 2>
    ```
    (`tools/ambient_432.py` blijft bestaan, maar wordt niet meer gebruikt.)
-   **Stem** (eigenaar, okt 2026): xAI-stem **Leo** met Britse instelling (en-GB), snelheid 0.9;
-   `add_pauses.py` maakt hem daarna wat zwaarder en warmer. Dit zijn de standaardwaarden van
-   de tools; `branding/welkom.mp3` is ook met Leo ingesproken (oude Lux-versie: welkom-lux.mp3).
+   **Stem** (eigenaar, okt 2026, na veel proefjes): xAI-stem **Lux**, snelheid 0.9 (10% langzamer);
+   `add_pauses.py` maakt hem daarna net iets zwaarder en warmer, zet na elke zin een pauze
+   en bij elke komma/adempauze een kleine extra pauze (0,25 s). Dit zijn de standaardwaarden
+   van de tools; `branding/welkom.mp3` is ook met Lux op 0.9 ingesproken.
 4. **Video**
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
