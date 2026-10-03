@@ -106,7 +106,7 @@ Stappen:
    - Bekijk zelf elk beeld. Maak een beeld (hooguit 1 keer) opnieuw als het tekst
      bevat, vervormd is of niet bij de scène past.
 5. Video (add_pauses.py ZONDER --welkom; de welkomst zit in het script),
-   extra pauzes, alleen zachte 432 Hz-muziek (-26 dB) onder de hele video (geen vuur, regen
+   extra pauzes, alleen zachte 432 Hz-muziek (-20 dB) onder de hele video (geen vuur, regen
    of andere geluiden; eigenaar, okt 2026, definitief; zie stap 3 van de standaard), mist en rustig bewegend beeld; daarna in
    één ronde de motion graphics (intro, hoofdstuktitels, datumkaartjes, oude kaart,
    citaat, tijdlijn, afsluiting) en de zachte effecten op alle passende scènes (as,
