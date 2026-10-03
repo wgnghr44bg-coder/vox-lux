@@ -16,7 +16,7 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    (Grok Imagine quality, 16:9, uit `afbeeldingen-prompts.md`). Eerst 3 proefbeelden
    tonen en akkoord vragen, want het kost geld.
 2. **Langere pauzes** — `python3 tools/add_pauses.py stories/<verhaal>` (ZONDER --welkom: sinds
-   3 okt 2026 begint het script zelf met "Hi, and welcome back. Tonight we are going ... years
+   3 okt 2026 begint het script zelf met "Welcome. Tonight we are going ... years
    back, to ...", zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Alle tijden schuiven vanzelf mee. (Voor Shorts niet van belang.)
    Na elke zin extra stilte: 0,7 s + 0,1 s per seconde zinslengte (max. 2,2 s),
    bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
