@@ -49,10 +49,10 @@ C. YouTube staat ongeveer 6 uploads per dag toe (alle sessies samen). Krijg je
 Stappen:
 1. Test of de YouTube-token werkt (niets uploaden). Doe daarna de planning (A).
 2. Schrijf een rustig Engels script, zonder gruwelijke details. **Begin (eigenaar, 3 okt 2026, definitief; vervangt alle eerdere afspraken)**:
-   het script begint ZELF met precies: "Hi, and welcome back." [pause] en dan ÉÉN zin in de
-   vorm "Tonight we are going <hoeveel> years back, to <plek>." (bv. "Tonight we are going
-   about a hundred and twenty years back, to San Francisco, a city of steep hills and soft
-   grey fog by the Pacific Ocean."), dan [long-pause] en meteen het verhaal met een concreet
+   het script begint ZELF met precies één regel: "Welcome. Tonight we are going <hoeveel>
+   years back, to <plek>." (bv. "Welcome. Tonight we are going about a hundred and twenty
+   years back, to San Francisco, a city of steep hills and soft grey fog by the Pacific
+   Ocean."), dan [long-pause] en meteen het verhaal met een concreet
    beeld. GEEN vraag en GEEN abonneren aan het begin. add_pauses.py zonder --welkom (de
    welkomst zit al in het script). Bij Sleepy Facts precies hetzelfde begin. **Einde**: een korte afronding, nog één keer
    vragen om te abonneren, een zin dat er een volgende video op het scherm staat ("There
