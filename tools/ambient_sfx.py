@@ -32,7 +32,7 @@ import numpy as np
 SR = 44100
 LOOP = 240           # seconds per synthesised loop (long, so the crackle never sounds repeated)
 FADE = 3.0           # seconds fade in/out per scene
-GAIN_DB = {"regen": -26, "golven": -25, "vuur": -25, "wind": -27}   # eigenaar: zacht
+GAIN_DB = {"regen": -30, "golven": -25, "vuur": -23, "wind": -27}   # vuur + regen samen (eigenaar, okt 2026)
 FROM_EFFECT = {"regen": "regen", "vuur": "vuur", "sneeuw": "wind"}
 
 

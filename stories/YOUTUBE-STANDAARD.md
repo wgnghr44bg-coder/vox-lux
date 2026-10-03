@@ -23,13 +23,18 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    bovenop de bestaande pauze. Lange zinnen krijgen zo meer rust. Maakt
    `video/stem-met-pauzes.wav`, `tijdlijn-pauzes.tsv` en `afbeeldingen-tijden-pauzes.tsv`.
    De video wordt ± 22 % langer (Pompeii: 1:47 → 2:11).
-3. **Achtergrond: alleen haardvuur** (eigenaar, okt 2026: geen 432 Hz-muziek en geen andere
-   geluiden meer). Zacht knetterend haardvuur onder de hele video, zelfgemaakt en rechtenvrij:
+3. **Achtergrond: haardvuur en zachte regen** (eigenaar, okt 2026: geen 432 Hz-muziek meer).
+   Knetterend haardvuur met zachte regen erbij, allebei onder de hele video, zelfgemaakt en
+   rechtenvrij (de volumes staan goed in `tools/ambient_sfx.py`):
    ```
-   printf 'van\ttot\tgeluid\n0\t<lengte in s + 2>\tvuur\n' > stories/<verhaal>/geluiden.tsv
+   printf 'van\ttot\tgeluid\n0\t<lengte in s + 2>\tvuur\n0\t<lengte in s + 2>\tregen\n' > stories/<verhaal>/geluiden.tsv
    python3 tools/ambient_sfx.py stories/<verhaal>/geluiden.tsv stories/<verhaal>/video/haardvuur.wav --duur <lengte in s + 2>
    ```
    (`tools/ambient_432.py` blijft bestaan, maar wordt niet meer gebruikt.)
+   **Stem** (eigenaar, okt 2026, na veel proefjes): xAI-stem **Lux**, snelheid 0.9 (10% langzamer);
+   `add_pauses.py` maakt hem daarna net iets zwaarder en warmer, zet na elke zin een pauze
+   en bij elke komma/adempauze een kleine extra pauze (0,25 s). Dit zijn de standaardwaarden
+   van de tools; `branding/welkom.mp3` is ook met Lux op 0.9 ingesproken.
 4. **Video**
    ```
    python3 tools/make_video.py stories/<verhaal> --tijden afbeeldingen-tijden-pauzes.tsv \
@@ -132,7 +137,7 @@ Drift off to the story of <onderwerp in één zin: wat, waar, wanneer>.
 <2 zinnen over wat de kijker meemaakt in het verhaal.>
 
 A calm, slow-paced history documentary for sleep and relaxation. No loud
-sounds, no jump scares, just a gentle voice, the soft crackle of a fireplace
+sounds, no jump scares, just a gentle voice, a crackling fireplace, soft rain
 and softly changing images.
 
 Chapters
@@ -148,7 +153,7 @@ historical sources<, noem de belangrijkste bron>.
 
 ## Tags
 Altijd: `history for sleep, boring history for sleep, sleep documentary, bedtime story,
-relaxing history, sleep story, fireplace sounds` + 4–6 onderwerp-tags.
+relaxing history, sleep story, fireplace sounds, rain sounds` + 4–6 onderwerp-tags.
 
 ## Instellingen
 - Categorie: Education (`--category 27`)
