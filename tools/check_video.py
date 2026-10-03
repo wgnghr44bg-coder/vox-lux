@@ -66,7 +66,7 @@ def main():
     # 1. stem blijft hangen (meer dan een paar = gewone korte woordjes tussen komma's)
     h = hang_plekken(stem)
     print(f"stem: {len(h)} losse korte geluidjes", [f"{int(t // 60)}:{t % 60:04.1f}" for t in h[:8]])
-    if len(h) > 6:
+    if len(h) > 2:   # streng (eigenaar: "geen haper, stotter of kraak, alles vloeiend")
         fout.append(f"stem blijft op {len(h)} plekken hangen")
 
     # 2. decodeerfouten
@@ -75,6 +75,13 @@ def main():
                              capture_output=True, text=True).stderr.strip()
         if err:
             fout.append(f"decodeerfouten in {p.name}: {err.splitlines()[0]}")
+
+    # 2b. vervorming/kraak: stem of video mag nergens tegen het maximum aan zitten
+    for p in (stem, f):
+        y = pcm(["-i", str(p)], 22050)
+        clip = int((np.abs(y) >= 32000).sum())
+        if clip > 10:
+            fout.append(f"vervorming (kraak) in {p.name}: {clip} samples op het maximum")
 
     # 3. geluid van de video tegen de bron
     got = pcm(["-i", str(f)], 8000)
