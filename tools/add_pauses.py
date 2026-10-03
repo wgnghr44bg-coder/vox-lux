@@ -17,15 +17,17 @@ import imageio_ffmpeg
 import numpy as np
 
 SR = 44100
-PAUZE_BASIS = 0.7
-PAUZE_PER_SEC = 0.1
-PAUZE_MAX = 2.2
+PAUZE_BASIS = 0.6     # eigenaar, okt 2026: iets kortere pauzes dan eerst (0.7 / 0.1 / 2.2)
+PAUZE_PER_SEC = 0.08
+PAUZE_MAX = 1.8
+KOMMA_PAUZE = 0.25    # kleine extra pauze bij elke adempauze binnen een zin (komma's)
+KOMMA_MIN = 0.22      # zo lang moet zo'n stilte binnen een zin al zijn (s)
 WELKOM = Path(__file__).resolve().parent.parent / "branding" / "welkom.mp3"
 WELKOM_VOOR, WELKOM_NA = 0.8, 1.5     # stilte voor en na de welkomst (s)
-# Stem zwaarder en warmer (eigenaar, okt 2026): ± 1,5 halve toon lager,
+# Stem net iets zwaarder en warmer (eigenaar, okt 2026): ± 0,4 halve toon lager,
 # zelfde lengte (atempo maakt het tempo weer gelijk), iets meer laag, iets minder scherp.
-ZWAARDER = ("asetrate=44100*0.92,aresample=44100,atempo=1.0869565,"
-            "lowshelf=g=4:f=200,highshelf=g=-2:f=7500,deesser=i=0.3,volume=-2dB")
+ZWAARDER = ("asetrate=44100*0.975,aresample=44100,atempo=1.0256410,"
+            "lowshelf=g=2:f=190,highshelf=g=-1:f=7500,deesser=i=0.3,volume=-1.5dB")
 
 
 def sec(x):
@@ -56,6 +58,32 @@ def main():
         start, end, nxt = sec(rows[i][1]), sec(rows[i][2]), sec(rows[i + 1][1])
         extra = min(PAUZE_MAX, PAUZE_BASIS + PAUZE_PER_SEC * (end - start))
         cuts.append(((end + nxt) / 2, extra))
+    # kleine pauze bij elke adempauze binnen een zin (komma's): stiltes in de stem zelf
+    parts = sorted((story / "audio").glob("*-deel*.mp3"))
+    pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error",
+                          "-i", "concat:" + "|".join(str(p) for p in parts), "-ac", "1", "-ar", str(SR),
+                          "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    audio = np.frombuffer(pcm, dtype="<i2")
+    hop = SR // 100
+    env = np.abs(audio[:len(audio) // hop * hop].astype(np.float32)).reshape(-1, hop).mean(1)
+    for r in rows:
+        a0, a1 = int(sec(r[1]) * 100) + 5, int(sec(r[2]) * 100) - 5
+        seg = env[a0:a1]
+        if len(seg) < 20:
+            continue
+        quiet = seg < 0.08 * np.percentile(seg, 90)
+        k = 0
+        while k < len(seg):
+            if quiet[k]:
+                m = k
+                while m < len(seg) and quiet[m]:
+                    m += 1
+                if k > 0 and m < len(seg) and (m - k) / 100 >= KOMMA_MIN:
+                    cuts.append(((a0 + (k + m) / 2) / 100, KOMMA_PAUZE))
+                k = m
+            else:
+                k += 1
+    cuts.sort()
     cut_t = [c[0] for c in cuts]
     cum = np.concatenate([[0], np.cumsum([c[1] for c in cuts])])
 
@@ -71,13 +99,7 @@ def main():
     def shift(t):
         return t + cum[bisect.bisect_right(cut_t, t)] + offset
 
-    # 1. audio: delen aan elkaar, stilte invoegen
-    parts = sorted((story / "audio").glob("*-deel*.mp3"))
-    concat = "|".join(str(p) for p in parts)
-    pcm = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error",
-                          "-i", f"concat:{concat}", "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
-                         capture_output=True, check=True).stdout
-    audio = np.frombuffer(pcm, dtype="<i2")
+    # 1. audio (hierboven al ingelezen): stilte invoegen
     pieces, prev = [lead], 0
     for t, extra in cuts:
         k = int(round(t * SR))

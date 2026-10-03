@@ -70,8 +70,9 @@ Stappen:
    video en herschrijf wat (bijna) gelijk is. Ook verder in het script
    geen vaste zinnen die in elke video terugkomen (YouTube kan dat als herhalende inhoud
    zien). De uiteindelijke
-   video (met de extra pauzes) moet minimaal 2 uur zijn, dus de stem zelf minstens
-   1 uur 40 (± 110.000 tekens). Houd het op ± 2 uur
+   video (met de extra pauzes) moet minimaal 2 uur zijn: met de rustigere stem (0.9) en de
+   pauzes is dat ± 90.000 tekens script (Tunguska: 113.000 tekens zou nu ± 2 u 40 worden).
+   Houd het op ± 2 uur
    (eigenaar): niet bewust langer maken.
    Vertel rustig. Begin bij het **dagelijks leven** (wonen, eten, werk, het weer), zodat de
    kijker de plek en de mensen leert kennen. Vertel daarna de **gebeurtenis of het mysterie
@@ -89,7 +90,7 @@ Stappen:
    "Sleepy Facts About <onderwerp> | History for Sleep" (≤ 70 tekens), thumbnail-hook
    bv. "SLEEPY FACTS". Zet in planning.txt een regel `vorm facts`, zodat de cockpit later
    kan vergelijken hoe feitjes- en verhaalvideo's het doen.
-3. Stem: xAI, stem Leo met Britse instelling (standaard in tools/xai_voiceover.py). Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
+3. Stem: xAI, stem Lux op snelheid 0.9 (standaard in tools/xai_voiceover.py; niet aanpassen). Controleer daarna dat de video met pauzes minimaal 2 uur wordt.
 4. Afbeeldingen: 75 stuks, verdeeld over de hele video (± elke 1,5 min).
    - Elk beeld laat de scène zien die op dat moment verteld wordt: de plek, de
      mensen, het moment of de gebeurtenis uit dat stuk tekst. Zet de
