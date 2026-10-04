@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """One command: topic number -> finished 'What if' video.
 
-    python3 whatif-demo/make_whatif.py 1            # everything (voice, render, sound, mp4, thumbnail, upload.json)
+    python3 whatif-demo/make_whatif.py 1            # everything (voice, render, sound, mp4, upload.json)
     python3 whatif-demo/make_whatif.py 1 --stills   # only 6 test frames -> topics/<slug>/stills/overzicht.jpg
     python3 whatif-demo/make_whatif.py 1 --from audio   # skip voice + render, redo sound and the final mp4
 
@@ -14,7 +14,7 @@ Writing that file is the creative step (see AUTOMATISCH.md); everything after it
   timing.json <- measured sentence times
   silent.mp4  <- engine/render.mjs (720x1280, 30 fps, 3 workers)
   mix.wav     <- make_audio.py (voice first, bed ducked 8 dB, -14 LUFS, peak -1 dB)
-  <slug>.mp4  <- scaled to 1080x1920 + mix;  thumbnail.jpg (title frame);  upload.json
+  <slug>.mp4  <- scaled to 1080x1920 + mix;  upload.json  (Shorts need no thumbnail)
 """
 from __future__ import annotations
 
@@ -183,13 +183,11 @@ def main():
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-i", audio,
          "-vf", "scale=1080:1920:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest", out])
-    tt = hook["dur"] * .5 if hook else tl["titleIn"] + 1.3
-    run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{tt:.2f}", "-i", out, "-frames:v", "1", "-q:v", "2", d / "thumbnail.jpg"])
     (d / "check-bron.txt").write_text(audio.name)
     up = dict(sc["upload"]); up["question"] = sc["topic"]["question"]; up["number"] = a.number; up["slug"] = slug
     (d / "upload.json").write_text(json.dumps(up, indent=1, ensure_ascii=False), encoding="utf-8")
     mb = out.stat().st_size / 1e6
-    print(f"ready: {out} ({mb:.1f} MB), {d / 'thumbnail.jpg'}, {d / 'upload.json'}")
+    print(f"ready: {out} ({mb:.1f} MB), {d / 'upload.json'}  (Shorts: no thumbnail needed)")
 
 
 if __name__ == "__main__":

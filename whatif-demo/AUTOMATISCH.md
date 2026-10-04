@@ -73,7 +73,7 @@ Pas zo nodig scenario/plek aan en draai `--stills` nog één keer (eigen tijden:
 ```bash
 python3 whatif-demo/make_whatif.py <nr> --from render     # stem bestaat al; ± 15 min
 ```
-Resultaat: `topics/<slug>/<slug>.mp4` (1080x1920, 30 fps), `thumbnail.jpg`, `upload.json`.
+Resultaat: `topics/<slug>/<slug>.mp4` (1080x1920, 30 fps) en `upload.json`. Shorts hebben geen thumbnail nodig.
 
 ## 5. Controleren en uploaden
 
@@ -84,7 +84,7 @@ python3 whatif-demo/publish_whatif.py <nr>
 - YouTube: kanaal `whatif` (`YT_WHATIF_REFRESH_TOKEN`), privé met publicatie de volgende dag
   18:00 Europe/Amsterdam, AI-label aan, als Short (verticaal, < 3 min, `#shorts`). Ontbreekt de token,
   dan wordt de upload overgeslagen en staat dat in de status – meld dat.
-- Zet de TikTok-map klaar: `whatif-demo/tiktok/<datum>-<slug>/` (mp4, thumbnail, tiktok.txt).
+- Zet de TikTok-map klaar: `whatif-demo/tiktok/<datum>-<slug>/` (mp4, tiktok.txt).
 - Werkt `onderwerpen.md` bij.
 
 Faalt de controle: lees de melding, repareer (meestal render opnieuw met `--from render` of geluid
@@ -92,14 +92,14 @@ met `--from audio`), en probeer nog één keer. Lukt het dan nog niet: niet uplo
 
 ## 6. Google Drive (TikTok)
 
-Zet met de Google Drive-connector de drie bestanden uit `whatif-demo/tiktok/<datum>-<slug>/` in de
+Zet met de Google Drive-connector de bestanden uit `whatif-demo/tiktok/<datum>-<slug>/` in de
 map "TikTok klaar" (maak die aan als hij niet bestaat; per video een submap `<datum>-<slug>`). Lukt dat
 niet (geen connector, geen rechten), meld het dan; de map in de repo blijft de bron.
 
 ## 7. Vastleggen
 
 Commit en push naar `claude/whatif-machine` (geen pull request): scenario.js, script.txt, voice.mp3,
-voice-times.tsv, timing.json, mp4, thumbnail.jpg, upload.json, tiktok.txt, onderwerpen.md en nieuwe
+voice-times.tsv, timing.json, mp4, upload.json, tiktok.txt, onderwerpen.md en nieuwe
 engine-onderdelen. Geen stills, geen wav's (staat in `.gitignore`).
 
 Meld kort: onderwerp, link (of waarom niet geüpload), publicatietijd, Drive gelukt ja/nee.
