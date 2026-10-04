@@ -51,7 +51,7 @@ export function coneTree(E, x, z, s, seed, o = {}) {
   const tr = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.15, .2, 1.6, 5), lam(0x5a4636))); tr.position.y = .8; piv.add(tr);
   const m = lam(o.color ?? 0x3f5634), tiers = [];
   for (let k = 0; k < 3; k++) { const c = shadowed(new THREE.Mesh(new THREE.ConeGeometry(1.5 - k * .35, 2.2, 7), m)); c.position.y = 2 + k * 1.1; piv.add(c); tiers.push(c); }
-  if (o.snow) for (const c of tiers) { const sn = new THREE.Mesh(new THREE.ConeGeometry(.75, .9, 7), lam(0xeef2f5)); sn.position.y = .7; c.add(sn); }
+  if (o.snow) for (const c of tiers) { const sn = new THREE.Mesh(new THREE.ConeGeometry(.75, .9, 7), lam(0xeef2f5)); sn.position.y = .7; c.add(sn); E.melt.push({ mesh: sn, to: 0 }); }
   E.frost.push(m);
   g.scale.setScalar(s); const ph = hash(seed, 3) * 6;
   E.bend.push({ pose(t, F) { const L = F.lateral(t), d = F.droop(t);
@@ -155,7 +155,7 @@ export function car(E, seed, o) {
   const c = shadowed(new THREE.Mesh(new THREE.BoxGeometry(1.6, .6, 2.2), lam(col))); c.position.set(0, .55, .2); shell.add(c);
   const gl = new THREE.Mesh(new THREE.BoxGeometry(1.62, .42, 2.0), lam(0x39444c)); gl.position.set(0, .56, .2); shell.add(gl);
   const roofSnow = o.snow ? new THREE.Mesh(new THREE.BoxGeometry(1.5, .12, 2.0), lam(0xeef2f5)) : null;
-  if (roofSnow) { roofSnow.position.set(0, .9, .2); shell.add(roofSnow); }
+  if (roofSnow) { roofSnow.position.set(0, .9, .2); shell.add(roofSnow); E.melt.push({ mesh: roofSnow, to: 0 }); }
   const brake = new THREE.Mesh(new THREE.BoxGeometry(1.5, .14, .05), new THREE.MeshBasicMaterial({ color: 0x5a2420 })); brake.position.set(0, .05, 2.16); shell.add(brake);
   const front = new THREE.Mesh(new THREE.BoxGeometry(1.5, .14, .05), new THREE.MeshBasicMaterial({ color: 0x55534c })); front.position.set(0, .05, -2.16); shell.add(front);
   for (const [x, z] of [[-.85, 1.35], [.85, 1.35], [-.85, -1.35], [.85, -1.35]]) { const w = new THREE.Mesh(wheelGeo, lam(0x1c1d1f)); w.position.set(x, -.43, z); g.add(w); }

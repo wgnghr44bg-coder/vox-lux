@@ -25,7 +25,7 @@ export function build(E, TL, F) {
   { const g = new THREE.PlaneGeometry(3000, 3000, 60, 60); g.rotateX(-Math.PI / 2); const p = g.attributes.position, R = rng(5);
     for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), d = Math.hypot(x, z);
       p.setY(i, inLake(x, z) ? -3 : (R() - .5) * .25 + Math.max(0, d - 260) * .12); }
-    g.computeVertexNormals(); const snow = new THREE.Mesh(g, lam(0xe9eef2)); snow.receiveShadow = true; scene.add(snow); }
+    g.computeVertexNormals(); const snow = new THREE.Mesh(g, lam(0xe9eef2)); snow.receiveShadow = true; scene.add(snow); E.melt.push({ mat: snow.material, bare: 0x7f7a58 }); }
   { const lake = new THREE.Mesh(new THREE.CircleGeometry(LAKE.r, 40), lam(0x46707c)); lake.rotation.x = -Math.PI / 2; lake.scale.y = 1 / 1.4;
     lake.position.set(LAKE.x, -.6, LAKE.z); scene.add(lake); E.floods.push({ mesh: lake, y: -.6 });
     const flood = new THREE.Mesh(new THREE.PlaneGeometry(3000, 3000), lam(0x4d7480)); flood.rotation.x = -Math.PI / 2; flood.position.set(0, -.9, 0); scene.add(flood);
@@ -36,7 +36,8 @@ export function build(E, TL, F) {
       const a = i / 16 * Math.PI * 2 + R() * .2, d = 520 + R() * 380, h = 260 + R() * 420, r = 260 + R() * 220;
       const x = Math.sin(a) * d, z = -Math.cos(a) * d - 80;
       const rock = shadowed(new THREE.Mesh(new THREE.ConeGeometry(r, h, 7 + Math.floor(R() * 3), 1), lam(0x6d6a66)), false); rock.position.set(x, h / 2 - 20, z); rock.rotation.y = R() * 6; scene.add(rock);
-      const cap = new THREE.Mesh(new THREE.ConeGeometry(r * .45, h * .45, rock.geometry.parameters.radialSegments, 1), lam(0xf1f4f6)); cap.position.set(x, h - 20 - h * .225 + 1, z); cap.rotation.y = rock.rotation.y; scene.add(cap);
+      const cap = new THREE.Mesh(new THREE.ConeGeometry(r * .45, h * .45, rock.geometry.parameters.radialSegments, 1), lam(0xf1f4f6)); cap.position.set(x, h - 20 - h * .225 + 1, z); cap.rotation.y = rock.rotation.y; scene.add(cap); E.melt.push({ mesh: cap, to: .45, late: true });
+      E.fireSpots ??= []; if (i % 3 === 1) { const fx = x * .55, fz = z * .55 - 30; E.fireSpots.push([fx, Math.max(0, Math.hypot(fx, fz) - 260) * .12 + 2, fz]); }
       E.frost.push(rock.material);
     }
   }
@@ -61,7 +62,7 @@ export function build(E, TL, F) {
     const nave = shadowed(new THREE.Mesh(E.facadeBox(12, 10, 22, 6, 5), E.facadeMats(0xe9e4d8, 'win'))); nave.position.y = 5; g.add(nave);
     const sh = new THREE.Shape(); sh.moveTo(-6.6, 0); sh.lineTo(6.6, 0); sh.lineTo(0, 6); sh.closePath();
     const rg = new THREE.ExtrudeGeometry(sh, { depth: 23, bevelEnabled: false }); rg.translate(0, 0, -11.5);
-    const roofM = lam(0xe9eef2); E.frost.push(roofM); const r = shadowed(new THREE.Mesh(rg, roofM)); r.position.y = 10; g.add(r);
+    const roofM = lam(0xe9eef2); E.frost.push(roofM); E.melt.push({ mat: roofM, bare: 0x4a5a5e }); const r = shadowed(new THREE.Mesh(rg, roofM)); r.position.y = 10; g.add(r);
     const st = new THREE.Group(); st.position.set(0, 0, 14); g.add(st);
     const tw = shadowed(new THREE.Mesh(E.facadeBox(6, 26, 6, 6, 6), E.facadeMats(0xe9e4d8, 'win'))); tw.position.y = 13; st.add(tw);
     const sp = shadowed(new THREE.Mesh(new THREE.ConeGeometry(4.4, 14, 4), lam(0x4a5a5e))); sp.position.y = 33; sp.rotation.y = Math.PI / 4; st.add(sp);
@@ -78,7 +79,7 @@ export function build(E, TL, F) {
   crowd(E, TL, { n: 14, axis: 'z', lane: [3, 21], range: [-110, 20], door: (along, acr) => acr > 12 ? 30 : -6, seed: 71, coats: [0x7b4a42, 0x3d4650, 0x56624a, 0x8a6b4e, 0x2f3236], hats: [0xb5543f, 0x2f5d46, 0xd9cdb4] });
 
   const sky = colorKeys(THREE, [[0, 0x5f8fbf, 0xd8e2ea]]);
-  E.sunOffset = new THREE.Vector3(-140, 120, 60);
+  E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [-140, 120, 60]));
   return {
     ambience: 'berg',
     look: t => ({ top: sky(t, 1), hor: sky(t, 2), fogNear: 160, fogFar: 1700, hemi: 1.35, hemiColor: new THREE.Color(0xe8eef6), groundColor: new THREE.Color(0x9aa0a8),

@@ -15,8 +15,8 @@ export function createHud(TL) {
       const v = counterAt(Math.min(t, B.stop));
       $('num').textContent = (H.prefix || '') + fmt(v) + (H.unit || '');
       if (H.second) {
-        const S = H.second, v2 = (S.offset ?? 0) + (S.scale ?? 1) * v;
-        $('second').textContent = `${S.label}  ${fmt(Math.max(0, v2), S.decimals ?? 0)}${S.unit || ''}`;
+        const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;
+        $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(0, v2), S.decimals ?? 0)}${S.unit || ''}`;
         $('second').style.opacity = smooth(S.showAt ?? 0, (S.showAt ?? 0) + 1.5, t) * .85;
       }
       $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t));

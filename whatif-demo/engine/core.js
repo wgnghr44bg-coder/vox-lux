@@ -18,12 +18,12 @@ export function createEngine() {
   const skyMat = new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false, fog: false,
     uniforms: { top: { value: new THREE.Color() }, hor: { value: new THREE.Color() },
-                sunDir: { value: new THREE.Vector3(0, 1, 0) }, sunCol: { value: new THREE.Color(0) }, stars: { value: 0 } },
+                sunDir: { value: new THREE.Vector3(0, 1, 0) }, sunCol: { value: new THREE.Color(0) }, stars: { value: 0 }, sunSize: { value: 1 } },
     vertexShader: `varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-    fragmentShader: `uniform vec3 top; uniform vec3 hor; uniform vec3 sunDir; uniform vec3 sunCol; uniform float stars; varying vec3 vP;
+    fragmentShader: `uniform vec3 top; uniform vec3 hor; uniform vec3 sunDir; uniform vec3 sunCol; uniform float stars; uniform float sunSize; varying vec3 vP;
       float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
       void main(){ float h = clamp(vP.y*2.0, 0., 1.); vec3 c = mix(hor, top, pow(h, .6));
-        float s = max(dot(vP, normalize(sunDir)), 0.); c += sunCol * (pow(s, 900.) * 2.5 + pow(s, 12.) * .25);
+        float s = max(dot(vP, normalize(sunDir)), 0.); float r = .018 * sunSize; c += sunCol * (smoothstep(cos(r * 1.15), cos(r), s) * 2.5 + pow(s, 12. / sunSize) * .25);
         if (stars > 0.) { vec2 g = floor(vec2(atan(vP.z, vP.x) * 260., vP.y * 420.)); float r = h21(g);
           c += vec3(.85, .88, .95) * step(.9965, r) * stars * smoothstep(.02, .25, vP.y); }
         gl_FragColor = vec4(c, 1.); }`
@@ -124,6 +124,7 @@ export function createEngine() {
     lights: [],          // { mat, on: color, off: color, at } lamps that light up in the dark
     windowMats,          // facade materials with glowing windows (emissiveIntensity follows the dark)
     frost,               // materials that frost over
+    melt: [],            // snow that melts in the heat: { mat, bare } (colour) or { mesh, to } (shrinks)
     people: [],          // { update(t, F) }
     updates: [],         // per-frame place callbacks (t, F)
     emitters: [],        // dust/snow/spray emitters (t, add, cam)

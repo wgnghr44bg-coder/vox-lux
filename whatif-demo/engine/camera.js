@@ -13,8 +13,8 @@ import * as THREE from 'three';
 import { clamp, hash, noise, smooth, lerp } from './util.js';
 
 const D2R = Math.PI / 180;
-const WEIGHT = { impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear: 1.6, glass: 1.4, crack: 1, sky: 3, look: 6, mover: 1.4 };
-const HOLD = { impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5 };
+const WEIGHT = { fire: 2.5, impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear: 1.6, glass: 1.4, crack: 1, sky: 3, look: 6, mover: 1.4 };
+const HOLD = { fire: 3, impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5 };
 
 export function createCamera(E, TL, P, F) {
   const FPS = E.FPS, STOP = TL.beats.stop, N = Math.ceil(TL.T_END * FPS) + 2, cam = E.camera;

@@ -38,3 +38,4 @@ alleen natuurkunde die klopt, verteld als "would".
 | 28 | Earth stopped spinning? | Stadsstraat aan zee | Wind van 1,037 mph | gemaakt (earth-stops), nog niet geüpload |
 | 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | proef bestaat, opnieuw maken in nieuwe stijl |
 | 30 | The air got twice as thick? | Bergweg met uitzichtpunt | Zware lucht, vogels en vliegtuigen anders | gepland |
+| 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | in de maak |
