@@ -23,7 +23,7 @@ export function createEngine() {
     fragmentShader: `uniform vec3 top; uniform vec3 hor; uniform vec3 sunDir; uniform vec3 sunCol; uniform float stars; uniform float sunSize; varying vec3 vP;
       float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
       void main(){ float h = clamp(vP.y*2.0, 0., 1.); vec3 c = mix(hor, top, pow(h, .6));
-        float s = max(dot(vP, normalize(sunDir)), 0.); float r = .018 * sunSize; c += sunCol * (smoothstep(cos(r * 1.15), cos(r), s) * 2.5 + pow(s, 12. / sunSize) * .25);
+        float s = max(dot(normalize(vP), normalize(sunDir)), 0.); float r = .018 * sunSize; c += vec3(1., .55, .2) * smoothstep(cos(r * 1.5), cos(r * 1.05), s) * min(1., (sunSize - 1.) / 2.) * .6; c += sunCol * (smoothstep(cos(r * 1.15), cos(r), s) * 2.5 + pow(s, 12. * sunSize) * .25 + pow(s, 2500. / (sunSize * sunSize)) * .5 * min(1., (sunSize - 1.) / 3.));
         if (stars > 0.) { vec2 g = floor(vec2(atan(vP.z, vP.x) * 260., vP.y * 420.)); float r = h21(g);
           c += vec3(.85, .88, .95) * step(.9965, r) * stars * smoothstep(.02, .25, vP.y); }
         gl_FragColor = vec4(c, 1.); }`

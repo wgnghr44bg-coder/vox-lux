@@ -126,7 +126,7 @@ export function bench(E, x, z, ry = 0) {
 // a walking person; behaviour comes from the place: (t) => { x, z, rot, moving, speed, visible, headUp, stoop }
 const SHIRTS = [0x8a6b4e, 0x5e6f80, 0xb9ae96, 0x7b4a42, 0x56624a, 0xd2cbb8, 0x3d4650, 0x9a8a5c];
 export function person(E, seed, o = {}) {
-  const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); E.scene.add(g);
+  const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); E.scene.add(g); g.rotation.order = 'YXZ';
   const upper = new THREE.Group(); upper.position.y = .82; g.add(upper);
   const body = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.2, .17, .75, 6), lam(o.coat ?? SHIRTS[Math.floor(R() * 8)]))); body.position.y = .38; upper.add(body);
   const head = shadowed(new THREE.Mesh(new THREE.IcosahedronGeometry(.13, 0), lam(0x6b5444))); head.position.y = .9; upper.add(head);
@@ -137,7 +137,7 @@ export function person(E, seed, o = {}) {
   const P = { g, R, ph, update(t, F) {
     const s = o.path(t, F, P);
     g.visible = s.visible !== false; if (!g.visible) return;
-    g.position.set(s.x, (o.y ?? .2) + (s.y ?? 0), s.z); g.rotation.y = s.rot;
+    g.position.set(s.x, (o.y ?? .2) + (s.y ?? 0), s.z); g.rotation.y = s.rot; g.rotation.x = s.lie ? -Math.PI / 2 : 0;
     head.rotation.x = -(s.headUp ?? 0); upper.rotation.x = s.stoop ?? 0;
     const sw = s.moving ? Math.sin(t * s.speed * 4.2 + ph) * (s.moving === 2 ? .9 : .45) * (1 - (s.stoop ?? 0)) : 0;
     legs[0].rotation.x = sw; legs[1].rotation.x = -sw;

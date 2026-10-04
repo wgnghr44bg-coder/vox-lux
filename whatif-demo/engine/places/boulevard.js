@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { rng, hash, smooth, clamp, colorKeys } from '../util.js';
 import { palm, lamp, bench, car } from '../props.js';
 import { block } from '../blocks.js';
-import { crowd } from '../crowd.js';
+import { crowd, sunbathers } from '../crowd.js';
 
 export function build(E, TL, F) {
   const { scene, lam, shadowed } = E, B = TL.beats;
@@ -51,8 +51,10 @@ export function build(E, TL, F) {
 
   // beach: umbrellas, beach huts, a lifeguard tower
   { const R = rng(12);
-    for (let i = 0; i < 40; i++) {
-      const x = -160 + R() * 320, z = 8 + R() * 22, y = groundAt(x, z), g = new THREE.Group(); g.position.set(x, y, z); scene.add(g);
+    for (let i = 0; i < 52; i++) {
+      const x = i < 12 ? -26 + R() * 52 : -160 + R() * 320, z = 8 + R() * 22, y = groundAt(x, z);
+      if ((TL.clear || []).some(([cx, cz]) => Math.hypot(x - cx, z - cz) < 7)) continue;
+      const g = new THREE.Group(); g.position.set(x, y, z); scene.add(g);
       const pole = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.04, .04, 2.4, 4), lam(0xe0dccf))); pole.position.y = 1.2; g.add(pole);
       const top = shadowed(new THREE.Mesh(new THREE.ConeGeometry(1.3, .5, 8), lam([0xb5543f, 0x2f6d86, 0xd9b44a, 0xe6e1d6][Math.floor(R() * 4)]))); top.position.y = 2.4; g.add(top);
       const ph = R() * 6;
@@ -97,9 +99,18 @@ export function build(E, TL, F) {
   }
   crowd(E, TL, { n: 26, axis: 'x', lane: [WALL + 2, WALL + 14], range: [-90, 90], door: () => 88, seed: 61, y: PROM + .2 });
   crowd(E, TL, { n: 12, axis: 'x', lane: [6, 30], range: [-80, 80], door: () => WALL + 8, seed: 62 });
+  sunbathers(E, TL, { n: TL.sunbathers ?? 18, area: { x: [-22, 22], z: [6, 30] }, exit: WALL - 1, seed: 63, wake: TL.wake }); 
+  if (F.kind === 'heat') E.emitters.push((tv, add, cam) => {      // the sea starts to steam
+    const lv = F.level(Math.min(tv, B.stop)); if (lv < .45) return;
+    const d = smooth(.45, 1, lv);
+    for (let k = 0; k < 160 * d; k++) {
+      const u = (tv * .12 + hash(k, 1)) % 1, x = cam.x + (hash(k, 2) - .5) * 160, z = -8 - hash(k, 3) * 150;
+      add(x + u * 6, .5 + u * (6 + hash(k, 4) * 10), z, 6 + u * 14, Math.sin(u * Math.PI) * (TL.steam ?? .22) * d, .96, .96, .95, hash(k, 5) * 6);
+    }
+  });
 
   const sky = colorKeys(THREE, [[0, 0x6ea6d3, 0xdfe7e6]]);
-  E.sunOffset = new THREE.Vector3(120, 160, -60);
+  E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [120, 160, -60]));
   return {
     ambience: 'zee',
     look: t => ({ top: sky(t, 1), hor: sky(t, 2), fogNear: 180, fogFar: 1600, hemi: 1.55, hemiColor: new THREE.Color(0xe8eef2), groundColor: new THREE.Color(0x7a705e),
@@ -110,6 +121,11 @@ export function build(E, TL, F) {
       boulevard: { pos: [-60, PROM + 1.9, 50], look: [20, PROM + 3, 46], drift: [3, 0, 0], fov: 60 },
       sea: { pos: [0, PROM + 10, 64], look: [0, 3, -100], drift: [0, 0, -2], fov: 58 },
       hotels: { pos: [10, 12, 14], look: [10, 16, 100], drift: [-2, 0, 0], fov: 58 },
+      // POV shots for a person standing on the beach (eye height above the sand)
+      'pov-sea': { pos: [3, groundAt(0, 33) + 1.65, 33], look: [-4, 3, -150], drift: [0, 0, -.6], fov: 62 },
+      'pov-beach': { pos: [-30, groundAt(0, 18) + 1.65, 18], look: [30, 1.2, 14], drift: [.8, 0, 0], fov: 60 },
+      'pov-back': { pos: [2, groundAt(0, 4) + 1.65, 4], look: [0, 4, 70], drift: [0, 0, .5], fov: 62 },
+      'pov-sky': { pos: [3, groundAt(0, 33) + 1.65, 33], look: [-15, 45, -200], drift: [0, 0, 0], fov: 64 },
     },
   };
 }
