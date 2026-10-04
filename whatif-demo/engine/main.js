@@ -87,8 +87,8 @@ function poseFalls(t) {
 // ---------- camera (handheld POV that looks at what happens: camera.js) ----------
 const camera = createCamera(E, TL, P, F);
 window.camTarget = tv => { const k = camera.targetAt(tv); return k < 0 ? null : E.lookTargets[k].kind; };
-function cameraAt(tv) {
-  const look = camera.apply(tv);
+function cameraAt(tv, fixed) {
+  const look = camera.apply(tv, fixed);
   if (E.sunOffset) {        // keep the shadow map around what the camera sees
     const c = E.camera.position, dx = look.x - c.x, dz = look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
     E.sun.target.position.set(c.x + dx / l * k2, 0, c.z + dz / l * k2);
@@ -117,20 +117,50 @@ function applyLook(t) {
   document.getElementById('haze').style.background = L.hazeColor || '#6e604f';
 }
 
-window.renderAt = function (tv) {
-  const t = Math.min(tv, STOP);
+function renderScene(tv, fixed) {
+  const ts = fixed ? fixed.t : tv, t = Math.min(ts, STOP);
   applyLook(t);
   E.poseAll(t);
-  for (const u of E.updates) u(t, F, tv);
+  for (const u of E.updates) u(t, F, ts);
   for (const p of E.people) p.update(t, F);
   poseBodies(E, t, F);
   poseFalls(t);
-  cameraAt(tv);
-  const n = dust.render(tv, E.camera.position);
-  hud.update(tv);
+  cameraAt(tv, fixed);
+  const n = dust.render(ts, E.camera.position);
   E.renderer.render(E.scene, E.camera);
   return n;
+}
+
+// motion blur: average a few subframes over half a frame (only where render.mjs asks for it)
+const blurCv = document.createElement('canvas'); blurCv.width = E.W; blurCv.height = E.H;
+blurCv.style.cssText = 'position:absolute;left:0;top:0;display:none';
+E.renderer.domElement.after(blurCv);
+const bctx = blurCv.getContext('2d');
+function renderBlur(n, at) {
+  for (let k = 0; k < n; k++) { at(k / (n - 1) - 1); bctx.globalAlpha = 1 / (k + 1); bctx.drawImage(E.renderer.domElement, 0, 0); }
+  blurCv.style.display = 'block';
+}
+
+// opening hook (?hook=1): a few seconds from later in the story, shown first (TL.hook = { at, dur, shot, text, slow })
+const HOOK = qs.get('hook') && TL.hook;
+window.renderAt = function (tv, n = 1) {
+  blurCv.style.display = 'none';
+  const sub = HOOK ? (dt => renderScene(tv + dt / FPS * .5, { shot: HOOK.shot, t: HOOK.at + (tv + dt / FPS * .5) * (HOOK.slow ?? .5) }))
+                   : (dt => renderScene(tv + dt / FPS * .5));
+  if (n > 1) renderBlur(n, sub); else sub(0);
+  if (HOOK) {
+    hud.update(HOOK.at + tv * (HOOK.slow ?? .5));
+    for (const id of ['title', 'end', 'fade', 'black']) document.getElementById(id).style.opacity = 0;
+    const c = document.getElementById('cap'); c.textContent = HOOK.text; c.style.opacity = smooth(.1, .5, tv) * (1 - smooth(HOOK.dur - .4, HOOK.dur, tv));
+  } else hud.update(tv);
+  return 0;
 };
-window.T_END = TL.T_END; window.TL = TL; window.EVENTS = E.EVENTS;
+// how many subframes this frame needs: fast camera turns, running, the climax
+window.blurAt = tv => {
+  if (HOOK) return 2;
+  const sp = camera.speedAt(tv), hot = tv > TL.beats.climax - 1 && tv < STOP;
+  return sp > 40 || hot || (camera.runningAt(tv) && sp > 12) ? 3 : sp > 20 || camera.runningAt(tv) ? 2 : 1;
+};
+window.T_END = HOOK ? HOOK.dur : TL.T_END; window.TL = TL; window.EVENTS = E.EVENTS;
 window.AUDIO = { place: TL.place, force: TL.force, ambience: P.ambience, level: Array.from({ length: Math.ceil(TL.T_END * 10) }, (_, i) => +F.level(Math.min(i / 10, STOP)).toFixed(3)) };
 document.fonts.ready.then(() => { window.ready = true; });

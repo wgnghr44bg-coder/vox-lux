@@ -47,6 +47,7 @@ export function sunbathers(E, TL, o) {
     const x = area.x[0] + R() * (area.x[1] - area.x[0]), z = area.z[0] + R() * (area.z[1] - area.z[0]);
     const lieRot = R() * Math.PI * 2, runs = R() < runFrac, w = wake[0] + R() * (wake[1] - wake[0]), v = 3 + R() * 1.4, ph = R() * 6;
     const towel = new E.THREE.Mesh(new E.THREE.PlaneGeometry(.9, 1.9), E.lam([0xd2cbb8, 0x5e6f80, 0xb5653f, 0xc9a94a, 0x6f9bb0][Math.floor(R() * 5)]));
+    E.burn.push({ mats: [towel.material], pos: [x - Math.sin(lieRot) * .9, E.groundAt(x, z) + .1, z - Math.cos(lieRot) * .9], size: .45, sun: 10 + R() * 3, charT: 3 });
     towel.rotation.x = -Math.PI / 2; towel.rotation.z = -lieRot; towel.position.set(x - Math.sin(lieRot) * .9, E.groundAt(x, z) + .03, z - Math.cos(lieRot) * .9); E.scene.add(towel);
     let tw = null;
     person(E, seed * 100 + i, { y: 0, coat: [0xd9b9a0, 0xb08a6e, 0x8a6b4e, 0xc9a08a][Math.floor(R() * 4)],

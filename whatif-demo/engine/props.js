@@ -33,6 +33,7 @@ export function palm(E, x, z, hgt, seed, o = {}) {
     if (R() < .8) E.breaks.push({ src: m, strength: { wind: .6 + R() * .8, gravity: 1.6 + R() }, k: .16, lift: .5, mu: .5, spin: 2.5, hx: .7, hy: .3, hz: 1.8 });
   }
   const ph = R() * 6, stiff = .8 + R() * .4;
+  g.userData.frondMats = fronds.map(f => f.m.material); g.userData.crown = hgt; g.userData.fronds = fronds.map(f => f.m);
   E.bend.push({ pose(t, F) {
     const L = F.lateral(t), d = F.droop(t);
     const bend = Math.min(1.05, Math.pow(L.a, 1.15) * .85) / stiff;

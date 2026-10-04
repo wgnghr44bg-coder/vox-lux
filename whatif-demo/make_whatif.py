@@ -167,11 +167,25 @@ def main():
     # 4. final mp4, thumbnail, upload.json
     tl = json.loads((d / "timeline.json").read_text())["TL"]
     out = d / f"{slug}.mp4"
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", d / "silent.mp4", "-i", d / "mix.wav",
+    video, audio = d / "silent.mp4", d / "mix.wav"
+    hook = tl.get("hook")
+    if hook:   # opening flash-forward: render it, put it in front, give it the sound of that moment
+        if stage <= 2 or not (d / "hook.mp4").exists():
+            run(["node", HERE / "engine" / "render.mjs", f"{slug}+hook", "video", d / "hook.mp4", a.workers])
+        (d / "concat.txt").write_text(f"file '{d / 'hook.mp4'}'\nfile '{d / 'silent.mp4'}'\n")
+        run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", d / "concat.txt", "-c", "copy", d / "with-hook.mp4"])
+        dur = hook["dur"]
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", d / "sfx-bed.wav", "-i", d / "mix.wav", "-filter_complex",
+             f"[0:a]atrim={hook['at']:.2f}:{hook['at'] + dur:.2f},asetpts=PTS-STARTPTS,aformat=sample_rates=44100:channel_layouts=stereo,volume=2.2,"
+             f"afade=t=in:d=0.15,afade=t=out:st={dur - .25:.2f}:d=0.25[h];[1:a]aformat=sample_rates=44100:channel_layouts=stereo[m];"
+             f"[h][m]concat=n=2:v=0:a=1,alimiter=limit=0.89:level=false[o]", "-map", "[o]", d / "final-mix.wav"])
+        video, audio = d / "with-hook.mp4", d / "final-mix.wav"
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-i", audio,
          "-vf", "scale=1080:1920:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest", out])
-    tt = tl["titleIn"] + 1.3
+    tt = hook["dur"] * .5 if hook else tl["titleIn"] + 1.3
     run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{tt:.2f}", "-i", out, "-frames:v", "1", "-q:v", "2", d / "thumbnail.jpg"])
+    (d / "check-bron.txt").write_text(audio.name)
     up = dict(sc["upload"]); up["question"] = sc["topic"]["question"]; up["number"] = a.number; up["slug"] = slug
     (d / "upload.json").write_text(json.dumps(up, indent=1, ensure_ascii=False), encoding="utf-8")
     mb = out.stat().st_size / 1e6
