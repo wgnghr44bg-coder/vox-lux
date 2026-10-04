@@ -383,13 +383,12 @@ def build(topic: Path):
     bed[i0:] *= 0
     bed[i0 - k:i0] *= np.linspace(1, 0, k)[:, None]
 
-    # 7. after the stop: distant wind, a few pieces settling, low tone, the glass crack
+    # 7. after the stop: distant wind, a few pieces settling, low tone
     after = np.zeros((n, 2))
     far = stereo(rng, lambda r: norm(lp(brown(r, n), 250) * lfo(r, n, .06, .5)), .8)
     after += far * (db(-32) * smooth(STOP, STOP + 1.5, t) * (1 - smooth(B["end"] + 3, B["fade"], t)))[:, None]
     for tc in (STOP + .9, STOP + 2.3, STOP + 4.1):
         place(after, lp(s_puin(rng), 1500), tc, db(-30), rng.uniform(-.6, .6))
-    place(after, lib["barst"], B["cracks"], db(-3), .1)
     bed += after
     bed *= (1 - smooth(B["fade"], T - .05, t))[:, None]
     return bed

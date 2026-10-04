@@ -1,6 +1,7 @@
 // node render.mjs stills 5 30 45 58 70 82      -> stills/still-<t>.jpg
 // node render.mjs timeline                     -> timeline.json (TL + physics events, used by make_audio.py)
-// node render.mjs video out.mp4 [workers]      -> silent mp4 (720x1280, 30 fps), frames split over workers
+// node render.mjs video out.mp4 [workers] [from] -> silent mp4 (720x1280, 30 fps), frames split over workers;
+//                                                 from = start second (re-render only the tail)
 import { createRequire } from 'module';
 import http from 'http';
 import fs from 'fs';
@@ -50,14 +51,14 @@ if (mode === 'stills') {
   console.log('events', data.EVENTS.length);
   await browser.close();
 } else {
-  const out = rest[0], workers = +(rest[1] || 2);
+  const out = rest[0], workers = +(rest[1] || 2), from = Math.round(+(rest[2] || 0) * FPS);
   const probe = await open();
   const tEnd = await probe.page.evaluate(() => window.T_END);
   await probe.browser.close();
-  const frames = Math.round(tEnd * FPS), per = Math.ceil(frames / workers), t0 = Date.now();
+  const frames = Math.round(tEnd * FPS), per = Math.ceil((frames - from) / workers), t0 = Date.now();
   const segs = [];
   await Promise.all(Array.from({ length: workers }, async (_, w) => {
-    const a = w * per, b = Math.min(frames, a + per), seg = `${out}.part${w}.mp4`; segs[w] = seg;
+    const a = from + w * per, b = Math.min(frames, a + per), seg = `${out}.part${w}.mp4`; segs[w] = seg;
     const { browser, page } = await open();
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
       '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', seg], { stdio: ['pipe', 'inherit', 'inherit'] });

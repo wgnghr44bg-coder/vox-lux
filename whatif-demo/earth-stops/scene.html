@@ -10,7 +10,6 @@ html, body { margin: 0; width: 720px; height: 1280px; overflow: hidden; backgrou
 canvas { display: block; }
 #haze { position: absolute; inset: 0; background: #6e604f; opacity: 0; }
 #black { position: absolute; inset: 0; background: #050505; opacity: 0; }
-#cracks { position: absolute; inset: 0; }
 #hud { position: absolute; left: 40px; top: 150px; color: #f3ede2; text-shadow: 0 2px 10px rgba(0,0,0,.6), 0 0 3px rgba(0,0,0,.5); }
 #lab { font: 600 24px CG, serif; letter-spacing: 6px; opacity: .85; }
 #num { font: 600 64px PF, serif; line-height: 1.05; }
@@ -29,7 +28,6 @@ canvas { display: block; }
 <body>
 <div id="haze"></div><div style="position:absolute;left:0;top:0;width:720px;height:520px;background:radial-gradient(ellipse 520px 320px at 120px 230px, rgba(0,0,0,.32), rgba(0,0,0,0))"></div>
 <div id="black"></div>
-<canvas id="cracks" width="720" height="1280"></canvas>
 <div id="hud"><div id="lab"></div><div id="num"></div><div id="sub"></div><div id="wind"></div></div>
 <div id="title"></div>
 <div id="cap"></div>
@@ -72,8 +70,7 @@ const TL = {
     climax: 67.6,            // voice falls silent
     towers: [68.4, 70.2, 71.9],
     stop: 73.8,              // everything stops
-    dark: 74.9,              // near-black
-    cracks: 75.0,            // glass cracks spread (sharp crack sound)
+    dark: 78.4,              // the frozen street has faded to near-black
     end: 80.6,               // end card
     fade: 88.8,              // fade to black
   },
@@ -643,7 +640,7 @@ function simulate() {
   EVENTS.push({ t: TL.beats.windows, kind: 'glass', e: .6 }, { t: TL.beats.walls, kind: 'crack', e: .6 });
   towers.filter(tw => tw.fall > 0).forEach(tw => EVENTS.push({ t: tw.fall, kind: 'collapse', e: 1, x: tw.cx, z: tw.cz }));
   bodies.filter(b => b.kind === 'floor').forEach(b => EVENTS.push({ t: b.tRelReal ?? b.tRel, kind: 'tear', e: .5 }));
-  EVENTS.push({ t: STOP, kind: 'stop', e: 0 }, { t: TL.beats.cracks, kind: 'cracks', e: 1 });
+  EVENTS.push({ t: STOP, kind: 'stop', e: 0 });
   EVENTS.sort((a, b) => a.t - b.t);
 }
 
@@ -745,47 +742,6 @@ function dust(t, camZ) {
   }
 }
 
-// ---------- glass cracks overlay ----------
-const crackCv = document.getElementById('cracks'), cx2 = crackCv.getContext('2d');
-const crackLines = [];
-{ const R = rng(303), ox = 410, oy = 690;
-  for (let i = 0; i < 17; i++) {
-    let a = i / 17 * 6.28 + (R() - .5) * .3, x = ox, y = oy; const pts = [[x, y]];
-    const len = 500 + R() * 600;
-    for (let d = 0; d < len; ) { const l = 18 + R() * 46; a += (R() - .5) * .45; x += Math.cos(a) * l; y += Math.sin(a) * l; d += l; pts.push([x, y]); }
-    crackLines.push({ pts, t0: R() * .4, dur: 1.2 + R() * 2.4, w: .8 + R() * 1.2 });
-  }
-  for (const [rad, t0] of [[55, .5], [130, 1.2], [240, 2.2], [380, 3.2]]) {
-    for (let i = 0; i < 17; i++) { if (R() < .3) continue;
-      const a1 = i / 17 * 6.28, a2 = (i + 1) / 17 * 6.28, r1 = rad * (.8 + R() * .4), r2 = rad * (.8 + R() * .4);
-      crackLines.push({ pts: [[ox + Math.cos(a1) * r1, oy + Math.sin(a1) * r1], [ox + Math.cos((a1 + a2) / 2) * rad * (.9 + R() * .3), oy + Math.sin((a1 + a2) / 2) * rad * (.9 + R() * .3)], [ox + Math.cos(a2) * r2, oy + Math.sin(a2) * r2]],
-        t0: t0 + R() * .8, dur: .5 + R(), w: .6 + R() * .6 }); }
-  }
-}
-function drawCracks(t) {
-  cx2.clearRect(0, 0, W, H);
-  const a = t - TL.beats.cracks; if (a < 0) return;
-  const fadeEnd = 1 - smooth(TL.beats.fade, TL.T_END, t);
-  for (const c of crackLines) {
-    const p = clamp((a - c.t0) / c.dur); if (p <= 0) continue;
-    let total = 0; const seg = []; for (let i = 1; i < c.pts.length; i++) { const l = Math.hypot(c.pts[i][0] - c.pts[i - 1][0], c.pts[i][1] - c.pts[i - 1][1]); seg.push(l); total += l; }
-    const target = total * (1 - Math.pow(1 - p, 2.2));
-    for (const [col, off, wm] of [['rgba(0,0,0,0.6)', 1.2, 1.6], ['rgba(225,230,232,0.62)', 0, 1]]) {
-      cx2.strokeStyle = col; cx2.lineWidth = c.w * wm; cx2.beginPath(); cx2.moveTo(c.pts[0][0] + off, c.pts[0][1] + off);
-      let acc = 0;
-      for (let i = 1; i < c.pts.length && acc < target; i++) {
-        const f = Math.min(1, (target - acc) / seg[i - 1]); acc += seg[i - 1];
-        cx2.lineTo(lerp(c.pts[i - 1][0], c.pts[i][0], f) + off, lerp(c.pts[i - 1][1], c.pts[i][1], f) + off);
-      }
-      cx2.stroke();
-    }
-  }
-  const g = cx2.createRadialGradient(410, 690, 0, 410, 690, 60);
-  g.addColorStop(0, 'rgba(230,235,238,0.35)'); g.addColorStop(1, 'rgba(230,235,238,0)');
-  cx2.fillStyle = g; cx2.globalAlpha = smooth(0, .1, a) * (1 - smooth(.1, 2, a) * .6); cx2.fillRect(300, 580, 220, 220); cx2.globalAlpha = 1;
-  crackCv.style.opacity = fadeEnd * (1 - .6 * smooth(TL.beats.end, TL.beats.end + 1.4, t));
-}
-
 // ---------- HUD ----------
 const $ = id => document.getElementById(id);
 const fmt = n => Math.round(n).toLocaleString('en-US');
@@ -797,14 +753,14 @@ function hud(t) {
   const w = windAt(t);
   $('wind').textContent = `${TL.hud.second}  ${fmt(w)}${TL.hud.unit}`;
   $('wind').style.opacity = smooth(25.5, 27, t) * .85;
-  $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(STOP + .6, TL.beats.dark + .4, t));
+  $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(STOP + .4, STOP + 1.6, t));
   $('title').style.opacity = smooth(TL.titleIn, TL.titleIn + 1, t) * (1 - smooth(TL.titleOut - 1.2, TL.titleOut, t));
   let ct = '', ca = 0;
   for (const [a, b, s] of TL.captions) if (t >= a - .1 && t <= b + .1) { ct = s; ca = smooth(a, a + .6, t) * (1 - smooth(b - .6, b, t)); }
   $('cap').textContent = ct; $('cap').style.opacity = ca;
   $('end').style.opacity = smooth(TL.beats.end, TL.beats.end + 1.4, t);
   $('fade').style.opacity = smooth(TL.beats.fade, TL.T_END - .15, t);
-  $('black').style.opacity = smooth(STOP + .1, TL.beats.dark, t) * .94 + smooth(TL.beats.end - 1, TL.beats.end + 1, t) * .05;
+  $('black').style.opacity = smooth(STOP + .3, TL.beats.dark, t) * .82 + smooth(TL.beats.end - 1, TL.beats.end + 1, t) * .16;
 }
 
 // ---------- frame ----------
@@ -892,7 +848,7 @@ window.renderAt = function (tVideo) {
   pGeo.setDrawRange(0, n);
   for (const k of ['position', 'color', 'size', 'alpha', 'rot']) pGeo.attributes[k].needsUpdate = true;
 
-  hud(tVideo); drawCracks(tVideo);
+  hud(tVideo);
   renderer.render(scene, camera);
   return n;
 };
