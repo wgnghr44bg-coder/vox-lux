@@ -1,0 +1,10 @@
+# generated per video (keep: scenario.js, script.txt, voice.mp3, voice-times.tsv, timing.json, <slug>.mp4, thumbnail.jpg, upload.json)
+topics/*/stills/
+topics/*/silent.mp4
+topics/*/*.wav
+topics/*/timeline.json
+topics/*/description.txt
+topics/*/.voice-cache/
+topics/*/.voice-hash
+engine/previews/
+tiktok/*/*.mp4

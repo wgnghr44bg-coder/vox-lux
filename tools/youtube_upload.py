@@ -2,7 +2,9 @@
 """Upload a video to YouTube with the YouTube Data API (resumable upload).
 
 Credentials come from environment variables (never hardcode or commit them):
-    YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
+    YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token of the channel:
+    YT_REFRESH_TOKEN (--channel main, the existing channel, default) or
+    YT_WHATIF_REFRESH_TOKEN (--channel whatif, the "What if" Shorts channel)
 The refresh token needs the https://www.googleapis.com/auth/youtube.upload scope
 (or the broader .../auth/youtube scope, which tools/youtube_tidy.py also needs).
 
@@ -32,15 +34,19 @@ THUMB_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
 CHUNK = 16 * 1024 * 1024  # 16 MB, a multiple of 256 KB as the API requires
 
 
+CHANNEL_TOKENS = {"main": "YT_REFRESH_TOKEN", "whatif": "YT_WHATIF_REFRESH_TOKEN"}
+TOKEN_VAR = CHANNEL_TOKENS["main"]
+
+
 def access_token() -> str:
-    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
+    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", TOKEN_VAR)
                if not os.environ.get(k)]
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
     res = requests.post(TOKEN_URL, data={
         "client_id": os.environ["YT_CLIENT_ID"],
         "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"],
+        "refresh_token": os.environ[TOKEN_VAR],
         "grant_type": "refresh_token",
     }, timeout=60)
     if not res.ok:
@@ -110,9 +116,14 @@ def set_thumbnail(video_id: str, path: Path, token: str) -> None:
 
 
 def main() -> None:
+    global TOKEN_VAR
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("video", type=Path)
-    parser.add_argument("--title", required=True)
+    parser.add_argument("video", type=Path, nargs="?")
+    parser.add_argument("--channel", choices=sorted(CHANNEL_TOKENS), default="main",
+                        help="main = YT_REFRESH_TOKEN, whatif = YT_WHATIF_REFRESH_TOKEN")
+    parser.add_argument("--status", metavar="VIDEO_ID",
+                        help="only print the video's status (privacy, upload/rejection state, publishAt)")
+    parser.add_argument("--title")
     parser.add_argument("--description-file", type=Path)
     parser.add_argument("--tags", default="", help="comma-separated")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"], default="private")
@@ -127,6 +138,16 @@ def main() -> None:
     parser.add_argument("--thumbnail", type=Path,
                         help="JPG/PNG up to 2 MB, set after upload (channel must be verified)")
     args = parser.parse_args()
+    TOKEN_VAR = CHANNEL_TOKENS[args.channel]
+    if args.status:
+        res = requests.get("https://www.googleapis.com/youtube/v3/videos",
+                           params={"part": "status,processingDetails", "id": args.status},
+                           headers={"Authorization": f"Bearer {access_token()}"}, timeout=60)
+        items = res.json().get("items", []) if res.ok else []
+        print(json.dumps(items[0] if items else res.text[:300], indent=1))
+        return
+    if not args.video or not args.title:
+        parser.error("video and --title are required for an upload")
 
     metadata = {
         "snippet": {
