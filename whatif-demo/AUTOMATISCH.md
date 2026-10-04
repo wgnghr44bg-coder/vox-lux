@@ -31,6 +31,8 @@ Script-regels:
 - Alleen natuurkunde die klopt, verteld als "would". Twijfel je aan een getal: weglaten.
 - Rustige opbouw → kracht groeit (teller loopt mee) → climax waarin de stem zwijgt (een getal als
   pauze, bijv. `6` = 6 s stilte) → laatste zinnen over het beeld.
+- Geen haak of flash-forward aan het begin (eigenaar, okt 2026): het verhaal begint gewoon bij het
+  begin en loopt op volgorde. Gebruik `hook` in scenario.js dus niet.
 - Netjes afsluiten (eigenaar, okt 2026): geen eindkaart en geen tekst aan het eind; de stem sluit af
   en het beeld vloeit uit (standaard naar zwart, `endStyle: 'white'` naar wit, bijv. als de zon het
   beeld wit brandt). Laat het laatste shot iets moois tonen (geen verkoold of leeg beeld).

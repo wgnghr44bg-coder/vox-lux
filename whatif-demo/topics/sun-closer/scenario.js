@@ -1,5 +1,5 @@
 // What if the Sun came closer to Earth?  (onderwerpen.md #31)
-// POV on a summer beach. Opens with a 2.4 s flash-forward of the giant Sun (hook). People get up,
+// POV on a summer beach, told in order from the start (no flash-forward). People get up,
 // some run, some stare; you run too; towels, parasols and palms catch fire (dry cloth and leaves
 // ignite at roughly 10-16x today's sunlight). No end card: the picture burns out to white.
 export const topic = {
@@ -33,7 +33,6 @@ export default function (at) {
     T_END: at('final').e + 2.2,
     titleOut: at('dist').e + .2,
     endStyle: 'white',
-    hook: { at: at('quarter').s + 3.4, dur: 2.4, shot: 'pov-glance', text: 'POV: the Sun at a quarter of the distance', slow: .5 },
     forceParams: { sunGrow: 1.3, wash: .15, haze: .35 }, steam: .12,
     clear: [[12, 27], [2, 4], [-30, 18], [3, 26], [2, 18], [2, 30]],
     sunOffset: [-15, 42, -200],
