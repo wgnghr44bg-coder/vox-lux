@@ -48,7 +48,7 @@ if (mode === 'stills') {
     const t0 = Date.now();
     const n = await page.evaluate(t => window.renderAt(+t), t);
     await page.screenshot({ path: path.join(OUT, 'stills', `still-${t}.jpg`), type: 'jpeg', quality: 88 });
-    console.log('still', t, 'particles', n, (Date.now() - t0) + 'ms');
+    console.log('still', t, 'particles', n, 'look', await page.evaluate(t => window.camTarget?.(+t), t), (Date.now() - t0) + 'ms');
   }
   await browser.close();
 } else if (mode === 'timeline') {
