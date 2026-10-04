@@ -34,6 +34,7 @@ const port = server.address().port;
 async function open(w = 720, h = 1280) {
   const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const page = await browser.newPage({ viewport: { width: w, height: h } });
+  page.setDefaultTimeout(600000);
   page.on('console', m => { if (!/GPU stall|WebGL/.test(m.text())) console.log('page:', m.text()); });
   page.on('pageerror', e => { console.log('ERR', e.message, e.stack?.split('\n')[1] || ''); if (!page.isReady) process.exit(1); });
   await page.goto(`http://localhost:${port}/engine/scene.html?${query}`);
