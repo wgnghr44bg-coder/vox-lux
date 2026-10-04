@@ -176,8 +176,9 @@ def main():
         if len(b2) < 30:
             continue
         rms5.append(20 * np.log10(np.sqrt((b2 ** 2).mean()) + 1))
-        X = np.abs(np.fft.rfft(b2[:60].ravel()))
-        fr = np.fft.rfftfreq(len(b2[:60].ravel()), 1 / sr)
+        # klankkleur over het hele blok (60 s gaf valse meldingen: hangt dan af van de woorden)
+        X = np.abs(np.fft.rfft(b2.ravel()))
+        fr = np.fft.rfftfreq(len(b2.ravel()), 1 / sr)
         cen5.append(float((X * fr).sum() / (X.sum() + 1e-9)))
     cons = []
     if rms5 and max(rms5) - min(rms5) > 4:
@@ -191,10 +192,15 @@ def main():
     for r in rows:
         d = sec(r[2]) - sec(r[1])
         if d > 1 and len(r[4].split()) >= 4:
-            tempo.setdefault(int(sec(r[1]) // blok), []).append(len(r[4].split()) / d)
-    tm = [np.median(v) for v in tempo.values() if len(v) > 10]
-    if tm and (max(tm) - min(tm)) / np.median(tm) > 0.2:
-        cons.append((0, "AUDIO", "Spreektempo verschilt meer dan 20% tussen delen.", "MEDIUM", "Nakijken."))
+            tempo.setdefault(int(sec(r[1]) // blok), []).append(len(r[4]) / d)
+    # tekens per seconde (woorden per seconde hangt te veel af van korte/lange woorden);
+    # het laatste blok (rustig slot) telt niet mee
+    tk = sorted(k for k, v in tempo.items() if len(v) > 10)[:-1]
+    tm = np.array([np.median(tempo[k]) for k in tk])
+    if len(tm):
+        afw = np.abs(tm - np.median(tm)) / np.median(tm)
+        if afw.max() > 0.15:
+            cons.append((tk[int(afw.argmax())] * blok, "AUDIO", "Spreektempo wijkt meer dan 15% af van de rest.", "MEDIUM", "Nakijken."))
     qc.set("consistency", FOUT if cons else OK, *cons)
 
     # muziek: geen pieken, nooit boven de stem
@@ -231,7 +237,10 @@ def main():
         if not zw or t - zw[-1] > 2:
             zw.append(t)
     qc.set("black", FOUT if zw else OK, *[(t, "VIDEO", "Onverwacht zwart/leeg beeld.", "HIGH", "Clip/afbeelding nakijken.") for t in zw[:10]])
-    flits = [i / 2 for i in range(1, len(lum) - 1) if abs(lum[i] - lum[i - 1]) > 35 and abs(lum[i + 1] - lum[i]) > 35]
+    # flits = heen en weer (licht-donker-licht); een snelle overgang van licht naar donker is geen flits
+    flits = [i / 2 for i in range(1, len(lum) - 1)
+             if abs(lum[i] - lum[i - 1]) > 35 and abs(lum[i + 1] - lum[i]) > 35
+             and (lum[i] - lum[i - 1]) * (lum[i + 1] - lum[i]) < 0]
     qc.set("transitions", FOUT if flits else OK, *[(t, "VIDEO", "Flits/flikkering (plotselinge helderheidssprong).", "MEDIUM", "Overgang nakijken.") for t in flits[:10]])
 
     # overzichtsplaten voor de eigen beoordeling
