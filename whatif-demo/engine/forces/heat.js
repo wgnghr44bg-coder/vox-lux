@@ -27,11 +27,11 @@ export function create(E, TL) {
       const s = sun(t), lv = F.level(t);
       L.sun *= Math.min(2.2, s); L.hemi *= 1 + (s - 1) * .25;
       L.sunColor.lerp(C(0xffffff), smooth(0, .5, lv));
-      L.sunDisc = (L.sunDisc || C(0x998877)).clone().lerp(C(0xfff6e0), smooth(0, .4, lv)).multiplyScalar(1 + lv);
-      L.sunSize = Math.sqrt(s) * (1 + lv * .35);       // the disc grows with 1/d (a little extra so it reads on a phone)
-      L.top.lerp(C(0x9fb6c8), smooth(.2, 1, lv) * .7);   // a washed-out, hazy sky
-      L.hor.lerp(C(0xe6dcc4), smooth(.2, 1, lv) * .8);
-      const haze = smooth(.3, 1, lv) * .6 + smooth(fireAt, 1, lv) * .3;
+      L.sunDisc = (L.sunDisc || C(0x998877)).clone().lerp(C(0xffe9b8), smooth(0, .4, lv)).multiplyScalar(1 + lv);
+      L.sunSize = Math.sqrt(s) * (1 + lv * (P.sunGrow ?? .35));       // the disc grows with 1/d (a little extra so it reads on a phone)
+      L.top.lerp(C(0x9fb6c8), smooth(.2, 1, lv) * (P.wash ?? .7));   // a washed-out, hazy sky
+      L.hor.lerp(C(0xe6dcc4), smooth(.2, 1, lv) * (P.wash ?? .7) * 1.1);
+      const haze = (smooth(.3, 1, lv) * .6 + smooth(fireAt, 1, lv) * .3) * (P.haze ?? 1);
       L.fogColor = L.hor.clone().lerp(C(0xb9a588), smooth(fireAt, 1, lv) * .6);
       L.fogNear = lerp(L.fogNear, 60, haze); L.fogFar = lerp(L.fogFar, 700, haze);
       L.haze = smooth(.4, 1, lv) * .08 + smooth(fireAt, 1, lv) * .1; L.hazeColor = '#c8a46e';

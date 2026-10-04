@@ -36,3 +36,31 @@ export function crowd(E, TL, o) {
       } });
   }
 }
+
+// Sunbathers on towels (beach). They lie still until the force reaches them (strength = level
+// at which they get up), then some run for the boulevard (they vanish at `exit`, a z value) and
+// the others stay standing, looking up. Uses ground height E.groundAt.
+export function sunbathers(E, TL, o) {
+  const { n, area, exit, seed = 81, runFrac = .55, wake = o.wake || [.25, .55] } = o;
+  const R = rng(seed);
+  for (let i = 0; i < n; i++) {
+    const x = area.x[0] + R() * (area.x[1] - area.x[0]), z = area.z[0] + R() * (area.z[1] - area.z[0]);
+    const lieRot = R() * Math.PI * 2, runs = R() < runFrac, w = wake[0] + R() * (wake[1] - wake[0]), v = 3 + R() * 1.4, ph = R() * 6;
+    const towel = new E.THREE.Mesh(new E.THREE.PlaneGeometry(.9, 1.9), E.lam([0xd2cbb8, 0x5e6f80, 0xb5653f, 0xc9a94a, 0x6f9bb0][Math.floor(R() * 5)]));
+    towel.rotation.x = -Math.PI / 2; towel.rotation.z = -lieRot; towel.position.set(x - Math.sin(lieRot) * .9, E.groundAt(x, z) + .03, z - Math.cos(lieRot) * .9); E.scene.add(towel);
+    let tw = null;
+    person(E, seed * 100 + i, { y: 0, coat: [0xd9b9a0, 0xb08a6e, 0x8a6b4e, 0xc9a08a][Math.floor(R() * 4)],
+      path(t, F) {
+        tw ??= F.timeOf(w);
+        const gy = E.groundAt(x, z);
+        if (t < tw) return { x, z, y: gy + .12, rot: lieRot, lie: true, moving: 0, speed: 0 };
+        const a = t - tw, up = Math.min(1, a / 1.2);
+        if (!runs || a < 1.2) {        // gets up, then stands and stares at the Sun
+          return { x, z, y: gy, rot: Math.PI + Math.sin(a * .7 + ph) * .3 * up, moving: 0, speed: 0, headUp: smooth(.5, 2, a) * .75, stoop: (1 - up) * .5 };
+        }
+        const zz = z + (a - 1.2) * v, xx = x + Math.sin(ph) * (a - 1.2) * .6;
+        if (zz > exit) return { visible: false };
+        return { x: xx, z: zz, y: E.groundAt(xx, zz), rot: 0, moving: 2, speed: v };
+      } });
+  }
+}

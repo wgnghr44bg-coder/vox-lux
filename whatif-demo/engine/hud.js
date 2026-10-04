@@ -24,9 +24,11 @@ export function createHud(TL) {
       let ct = '', ca = 0;
       for (const [a, b, s] of TL.captions) if (t >= a - .1 && t <= b + .1) { ct = s; ca = smooth(a, a + .6, t) * (1 - smooth(b - .6, b, t)); }
       $('cap').textContent = ct; $('cap').style.opacity = ca;
-      $('end').style.opacity = smooth(B.end, B.end + 1.4, t);
-      $('fade').style.opacity = smooth(B.fade, TL.T_END - .1, t);
-      $('black').style.opacity = smooth(B.stop + .3, B.dark ?? B.end, t) * (TL.dim ?? .6) + smooth(B.end - 1, B.end + 1, t) * .3;
+      const white = TL.endStyle === 'white';
+      $('end').style.opacity = white ? 0 : smooth(B.end, B.end + 1.4, t);
+      $('fade').style.background = white ? '#fffaf0' : '#000';
+      $('fade').style.opacity = smooth(B.fade, TL.T_END - (white ? .6 : .1), t);
+      $('black').style.opacity = white ? 0 : smooth(B.stop + .3, B.dark ?? B.end, t) * (TL.dim ?? .6) + smooth(B.end - 1, B.end + 1, t) * .3;
     },
   };
 }
