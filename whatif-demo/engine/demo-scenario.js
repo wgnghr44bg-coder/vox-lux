@@ -9,6 +9,7 @@ export default function (at, o) {
     shots: o.shots || [[0, 'wide']],
     beats: { stop: 44, climax: 38, end: 50, falls: [36, 38.5, 41], windows: 30, walls: 33, floors: 35, shelter: 20, carsStop: 22 },
     forceParams: { wind: v => v * 650, max: 650, rise: 7 },
+    skyObjects: [{ t0: 13, t1: 25, from: [-900, 700, -1500], to: [300, 40, -700], r: 22, ease: 1.6 }],
     end: { title: 'Preview', lines: `${o.place} / ${o.force}` },
   };
 }

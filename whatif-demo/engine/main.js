@@ -8,6 +8,8 @@ import { simulate, poseBodies } from './physics.js';
 import { createDust } from './dust.js';
 import { createHud } from './hud.js';
 import { buildTL } from './timeline.js';
+import { createCamera } from './camera.js';
+import { createSkyObjects } from './sky-objects.js';
 import { smooth, clamp, hash, lerp } from './util.js';
 
 const qs = new URLSearchParams(location.search);
@@ -27,6 +29,7 @@ const F = (await import(`./forces/${TL.force}.js`)).create(E, TL);
 const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 E.F = F; E.P = P;
 F.attach?.(P);
+createSkyObjects(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
 E.poseAll = t => { for (const b of E.bend) b.pose(t, F); E.scene.updateMatrixWorld(true); };
@@ -81,32 +84,13 @@ function poseFalls(t) {
   }
 }
 
-// ---------- camera ----------
-function shotAt(t) {
-  let cur = TL.shots[0], start = 0;
-  for (const [ts, name] of TL.shots) if (t >= ts) { cur = [ts, name]; start = ts; }
-  return { shot: P.shots[cur[1]], start, name: cur[1] };
-}
-const _look = new THREE.Vector3();
-function cameraAt(tv, t) {
-  const { shot, start } = shotAt(tv);
-  const u = tv - start, d = shot.drift || [0, 0, 0], k = u / 10;
-  let shake = (F.rumble ? F.rumble(t) : 0) * (shot.shake ?? 1);
-  for (const ev of E.EVENTS) {
-    if (ev.t > t || t - ev.t > 2 || ev.t > STOP) continue;
-    const a = t - ev.t, dist = ev.x == null ? 30 : Math.hypot(ev.x - shot.pos[0], ev.z - shot.pos[2]);
-    const amp = { impact: ev.e * .5, collapse: .5 * ev.e, splash: .15 * ev.e, snap: .1, crack: .05, glass: .04, tear: .06 }[ev.kind] || 0;
-    shake += amp * Math.exp(-a * 5) / (1 + Math.max(0, dist - 15) / 30);
-  }
-  shake = Math.min(shake, .4);
-  const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
-  E.camera.fov = shot.fov || 60; E.camera.updateProjectionMatrix();
-  E.camera.position.set(shot.pos[0] + d[0] * k + sx * shake * .3, shot.pos[1] + d[1] * k + sy * shake * .3, shot.pos[2] + d[2] * k);
-  const ld = shot.lookDrift || d;
-  _look.set(shot.look[0] + ld[0] * k + sx * shake, shot.look[1] + ld[1] * k + sy * shake, shot.look[2] + ld[2] * k);
-  E.camera.lookAt(_look);
+// ---------- camera (handheld POV that looks at what happens: camera.js) ----------
+const camera = createCamera(E, TL, P, F);
+window.camTarget = tv => { const k = camera.targetAt(tv); return k < 0 ? null : E.lookTargets[k].kind; };
+function cameraAt(tv) {
+  const look = camera.apply(tv);
   if (E.sunOffset) {        // keep the shadow map around what the camera sees
-    const c = E.camera.position, dx = _look.x - c.x, dz = _look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
+    const c = E.camera.position, dx = look.x - c.x, dz = look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
     E.sun.target.position.set(c.x + dx / l * k2, 0, c.z + dz / l * k2);
     E.sun.position.copy(E.sun.target.position).add(E.sunOffset);
   }
@@ -141,7 +125,7 @@ window.renderAt = function (tv) {
   for (const p of E.people) p.update(t, F);
   poseBodies(E, t, F);
   poseFalls(t);
-  cameraAt(tv, t);
+  cameraAt(tv);
   const n = dust.render(tv, E.camera.position);
   hud.update(tv);
   E.renderer.render(E.scene, E.camera);
