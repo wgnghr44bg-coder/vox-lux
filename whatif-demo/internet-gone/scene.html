@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<script type="importmap">{ "imports": { "three": "../node_modules/three/build/three.module.js" } }</script>
+<script type="module">
+import * as THREE from 'three';
+import { FPS, rng, hash, clamp, smooth, lerp, noise, C, monotone, keyframes, setup, lam, glow, shadowed,
+         PALETTE, TOWER_PAL, canvasTex, facadeTex, facadeMats, facadeBox, glowSprite } from '../lib/core.js';
+import { makeHud } from '../lib/hud.js';
+import { makeStreet, makePerson, posePerson, carMesh, setCarLights, CAR_COL, streetLamp, plane } from '../lib/street.js';
+
+// =====================================================================
+// TIMELINE — all times are VIDEO seconds = voice-times.tsv + VO_OFFSET.
+// =====================================================================
+const TL = {
+  T_END: 90,
+  VO_OFFSET: 0.8,
+  title: 'What if<br>the Internet<br>disappeared?', titleIn: 0.3, titleOut: 6.0,
+  hud: { label: 'GLOBAL INTERNET', sub: 'CONNECTIVITY', unit: '%', second: 'PEOPLE ONLINE' },
+  counter: [[0, 100], [26.5, 100], [34.7, 98], [37.5, 93], [39.2, 85], [41, 75], [44, 70], [47.7, 62], [50.2, 50],
+            [54, 42], [56.3, 33], [58.4, 25], [61, 18], [64.4, 10], [67.5, 4], [70.6, 0]],
+  counterMax: 100,
+  usersMax: 5.5,          // billion people online at 100%
+  captions: [[10.1, 13.9, '5.5 billion people online.'],
+             [14.4, 19.1, '340 billion emails a day.'],
+             [19.6, 24.8, '95% of it crosses oceans by cable.'],
+             [28.2, 33.7, 'No damage. No signal.'],
+             [49.3, 55.3, 'Offline.'],
+             [56.3, 60.0, 'No maps.'],
+             [64.4, 70.6, 'Nothing is broken.']],
+  beats: {
+    glitch: 34.7,           // "it looks like a glitch": all screens flicker
+    screen1: 38.2,          // "One screen goes black."
+    screen2: 40.3,          // "Then another."
+    stopWalk: 42.0,         // "People stop walking."
+    phones: 43.9,           // "They look at their phones."
+    eachOther: 45.6,        // "Then at each other."
+    queue: 46.0,            // people start queueing at the cash machine
+    atm: 49.3,              // "The cash machines go offline."
+    shutters: 51.5,         // "Shops lock their doors"
+    nav: 56.3,              // "Drivers lose their maps."
+    jam: 58.4,              // cars stop askew, traffic locks up
+    planes: 60.5,           // "the planes grow fewer"
+    dusk: 62.0,             // street lamps + headlights on
+    evening: 64.4,          // "By evening, most of the windows are dark."
+    climax: 70.8,           // voice silent: crowd + horns + siren
+    siren: 72.4,
+    quiet: 78.9,            // dip to black -> empty street
+    quietVO: 79.6,          // "Then, the street goes quiet."
+    end: 82.6,              // end card = last line
+    fade: 88.8,
+  },
+  end: { title: 'The world is still connected.<br>We just can\'t connect<br>to it anymore.',
+         lines: '5.5 billion people online. 340 billion emails a day.<br>95% of data between continents runs through undersea cables.' },
+};
+// =====================================================================
+const B = TL.beats, QUIET = B.quiet, T_END = TL.T_END, NF = Math.ceil(T_END * FPS) + 2;
+const counterAt = monotone(TL.counter);
+const EVENTS = [];                                   // for make_audio: screen, horn, siren, shutter, ping, atm
+const { renderer, scene, camera, skyMat, hemi, sun } = setup({ fog: [0xcfdce4, 150, 1100] });
+const ROAD = 10, WALK = 16, CAMX = 9.6, CAMZ = 44;
+makeStreet(scene, { road: ROAD, walk: WALK, z0: 70, z1: -620, zebra: -34 });
+
+// ---------- textures for screens ----------
+const AD_DRAW = [
+  (x, w, h) => { const g = x.createLinearGradient(0, 0, w, h); g.addColorStop(0, '#5a2bd8'); g.addColorStop(1, '#1f8ae0'); x.fillStyle = g; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#fff'; x.beginPath(); x.moveTo(w * .38, h * .3); x.lineTo(w * .66, h * .45); x.lineTo(w * .38, h * .6); x.fill();
+    x.font = `bold ${w * .16}px sans-serif`; x.textAlign = 'center'; x.fillText('STREAM', w / 2, h * .82); },
+  (x, w, h) => { x.fillStyle = '#0b1622'; x.fillRect(0, 0, w, h); x.strokeStyle = '#2fe07a'; x.lineWidth = w * .025; x.beginPath();
+    const R = rng(3); let y = h * .7; x.moveTo(0, y); for (let i = 1; i <= 20; i++) { y = clamp(y - (R() - .38) * h * .08, h * .25, h * .85); x.lineTo(i * w / 20, y); } x.stroke();
+    x.fillStyle = '#e8f3ee'; x.font = `bold ${w * .11}px sans-serif`; x.fillText('NASDAQ', w * .06, h * .16); x.fillStyle = '#2fe07a'; x.fillText('+1.24%', w * .06, h * .28); },
+  (x, w, h) => { x.fillStyle = '#ef6a2a'; x.fillRect(0, 0, w, h); x.fillStyle = '#fff'; x.font = `bold ${w * .3}px sans-serif`; x.textAlign = 'center';
+    x.fillText('50%', w / 2, h * .55); x.font = `bold ${w * .12}px sans-serif`; x.fillText('ONLINE SALE', w / 2, h * .75); },
+  (x, w, h) => { x.fillStyle = '#16181d'; x.fillRect(0, 0, w, h); x.fillStyle = '#d4232b'; x.fillRect(0, h * .08, w * .45, h * .12);
+    x.fillStyle = '#fff'; x.font = `bold ${w * .09}px sans-serif`; x.fillText('LIVE', w * .06, h * .17); x.font = `bold ${w * .12}px sans-serif`;
+    x.fillText('MARKETS', w * .06, h * .5); x.fillText('OPEN', w * .06, h * .64); x.fillStyle = '#3a6fd8'; x.fillRect(0, h * .85, w, h * .15); },
+  (x, w, h) => { x.fillStyle = '#f2f2f4'; x.fillRect(0, 0, w, h); const cols = ['#e14b4b', '#3ab07a', '#3a7be0', '#f2b134', '#8a4be0', '#25b5c8'];
+    for (let i = 0; i < 12; i++) { x.fillStyle = cols[i % 6]; const c = i % 3, r = Math.floor(i / 3); x.fillRect(w * (.1 + c * .3), h * (.1 + r * .21), w * .2, h * .14); } },
+  (x, w, h) => { const g = x.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#0e6e76'); g.addColorStop(1, '#13a3a0'); x.fillStyle = g; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#fff'; x.font = `bold ${w * .26}px sans-serif`; x.textAlign = 'center'; x.fillText('5G', w / 2, h * .5);
+    x.font = `bold ${w * .1}px sans-serif`; x.fillText('ALWAYS ON', w / 2, h * .7); },
+  (x, w, h) => { x.fillStyle = '#111'; x.fillRect(0, 0, w, h); x.fillStyle = '#f5c518'; x.beginPath(); x.arc(w / 2, h * .38, w * .2, Math.PI, 0); x.lineTo(w / 2, h * .7); x.fill();
+    x.fillStyle = '#111'; x.beginPath(); x.arc(w / 2, h * .38, w * .08, 0, 7); x.fill(); x.fillStyle = '#fff'; x.font = `bold ${w * .12}px sans-serif`; x.textAlign = 'center'; x.fillText('RIDE NOW', w / 2, h * .86); },
+];
+const adTex = (k, w, h) => canvasTex(w, h, (x, W2, H2) => AD_DRAW[k % AD_DRAW.length](x, W2, H2), false);
+const lostTex = canvasTex(256, 256, (x, w, h) => { x.fillStyle = '#1d2026'; x.fillRect(0, 0, w, h); x.fillStyle = '#c9ccd2'; x.font = 'bold 26px sans-serif'; x.textAlign = 'center';
+  x.fillText('NO CONNECTION', w / 2, h * .55); x.strokeStyle = '#c9ccd2'; x.lineWidth = 6; x.beginPath(); x.arc(w / 2, h * .38, 30, Math.PI * 1.15, Math.PI * 1.85); x.stroke(); }, false);
+const screenOff = lam(0x0d0f12), screenLost = glow(0xffffff); screenLost.map = lostTex;
+const screens = [];
+// screen facing direction `rotY` (0 = +z toward camera, PI/2 = +x, -PI/2 = -x)
+function screen(x, y, z, w, h, rotY, k, offT) {
+  const tex = adTex(k, 256, Math.round(256 * h / w));
+  const on = glow(0xffffff); on.map = tex;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), on); m.position.set(x, y, z); m.rotation.y = rotY; scene.add(m);
+  const frame = new THREE.Mesh(new THREE.BoxGeometry(w + .4, h + .4, .3), lam(0x2a2c30)); frame.position.copy(m.position); frame.rotation.y = rotY;
+  frame.translateZ(-.18); scene.add(frame);
+  const s = { m, on, offT, x, z, ph: hash(screens.length, 31) * 6 }; screens.push(s); return s;
+}
+function screenState(s, t) {
+  if (t >= s.offT) return screenOff;
+  if (t > s.offT - .9) return Math.floor(t * 17 + s.ph) % 3 === 0 ? screenOff : Math.floor(t * 11 + s.ph) % 2 ? screenLost : s.on;   // dying flicker
+  if (t > B.glitch && t < B.glitch + .8 && Math.floor(t * 13 + s.ph) % 4 === 0) return screenLost;                                   // first glitch
+  return s.on;
+}
+
+// ---------- buildings ----------
+const litTex = canvasTex(64, 64, x => { const R = rng(17); x.fillStyle = '#000'; x.fillRect(0, 0, 64, 64);
+  for (let i = 0; i < 8; i++) for (let j = 0; j < 8; j++) if (R() < .42) { x.fillStyle = R() < .5 ? '#fff2d2' : '#cfe4ff'; x.fillRect(i * 8 + 1, j * 8 + 2, 6, 5); } });
+litTex.repeat.set(1 / 8, 1 / 8);
+const towers = [];
+function tower(cx, cz, w, d, h, color, offT, nightLit) {
+  const m0 = lam(0xffffff, { map: facadeTex(color, 'glass'), emissive: 0xffffff, emissiveMap: litTex, emissiveIntensity: .25 });
+  const top = lam(new THREE.Color(color).multiplyScalar(.7));
+  const m = new THREE.Mesh(facadeBox(w, h, d, 4), [m0, m0, top, top, m0, m0]); m.position.set(cx, h / 2, cz); m.receiveShadow = true; m.castShadow = h < 120; scene.add(m);
+  towers.push({ m, mat: m0, offT, nightLit, ph: hash(towers.length, 41) }); return m;
+}
+const shops = [];
+let atm = null;
+{ const R = rng(5);
+  // right side: office blocks with shops on the ground floor (near the camera), then glass towers
+  let z = 70, lot = 0;
+  while (z > -600) {
+    const len = 16 + R() * 14; if (lot > 0 && lot % 3 === 0) z -= 18; lot++;
+    const cz = z - len / 2, near = cz > -90;
+    if (near) {
+      const depth = 18, cx = WALK + depth / 2, color = PALETTE[Math.floor(R() * PALETTE.length)], floors = 4 + Math.floor(R() * 5);
+      const gf = shadowed(new THREE.Mesh(facadeBox(depth, 4.2, len - .4), facadeMats(color, 'shop'))); gf.position.set(cx, 2.1, cz); scene.add(gf);
+      const up = shadowed(new THREE.Mesh(facadeBox(depth, floors * 3.5, len - .4), facadeMats(color, 'win'))); up.position.set(cx, 4.2 + floors * 1.75, cz); scene.add(up);
+      // lit shop window + shutter that rolls down
+      const win = new THREE.Mesh(new THREE.PlaneGeometry(len - 3, 3), lam(0x2a2620, { emissive: 0xffd7a0, emissiveIntensity: .55 }));
+      win.position.set(WALK - .02, 1.85, cz); win.rotation.y = -Math.PI / 2; scene.add(win);
+      const shut = new THREE.Mesh(new THREE.BoxGeometry(.12, 3.2, len - 2.8), lam(0x8d9094, { map: canvasTex(16, 16, x => { x.fillStyle = '#9a9da1'; x.fillRect(0, 0, 16, 16);
+        x.fillStyle = '#6e7176'; x.fillRect(0, 0, 16, 3); }) }));
+      shut.material.map.repeat.set(1, 14); shut.geometry.translate(0, -1.6, 0); shut.position.set(WALK - .1, 3.45, cz); scene.add(shut);
+      const open = new THREE.Mesh(new THREE.PlaneGeometry(1.2, .4), glow(0x6cf0a0)); open.position.set(WALK - .2, 3.6, cz - len / 2 + 2.5); open.rotation.y = -Math.PI / 2; scene.add(open);
+      if (cz < 40) shops.push({ win, shut, open, t0: B.shutters + shops.length * .9 + R() * .5, cz });
+      z -= len;
+    } else {
+      const w = 20 + R() * 12, h = 50 + R() * 120;
+      tower(WALK + w / 2 + R() * 4, cz, w, Math.min(len, 26), h, TOWER_PAL[Math.floor(R() * TOWER_PAL.length)], 40 + R() * 28, R() < .2);
+      z -= Math.max(len, 24);
+    }
+  }
+  // left side: glass towers from the start
+  z = 60;
+  while (z > -600) {
+    const w = 22 + R() * 14, len = 24 + R() * 16, h = 40 + R() * 140 + (z < -150 ? 60 : 0), cz = z - len / 2;
+    tower(-WALK - w / 2 - R() * 3, cz, w, len, h, TOWER_PAL[Math.floor(R() * TOWER_PAL.length)], 40 + R() * 28, R() < .2);
+    z -= len + (R() < .4 ? 16 : 2);
+  }
+  // skyline behind the street and the closing building at the end of the avenue
+  for (let i = 0; i < 26; i++) { const s = i % 2 ? 1 : -1, w = 26 + R() * 20, h = 90 + R() * 200;
+    tower(s * (60 + R() * 140), -200 - R() * 450, w, w, h, TOWER_PAL[Math.floor(R() * TOWER_PAL.length)], 40 + R() * 28, R() < .25); }
+  tower(0, -660, 120, 40, 150, 0xa9adb0, 66, true);
+}
+// cash machine on the right facade, near the camera
+{ const z = 8, g = new THREE.Group(); g.position.set(WALK, 0, z); scene.add(g);
+  const box = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.5, 2.2, 1.3), lam(0x3b4048))); box.position.set(-.2, 1.3, 0); g.add(box);
+  const sTex = canvasTex(128, 96, (x, w, h) => { x.fillStyle = '#1f5fbf'; x.fillRect(0, 0, w, h); x.fillStyle = '#fff'; x.font = 'bold 20px sans-serif'; x.textAlign = 'center';
+    x.fillText('WELCOME', w / 2, h * .42); x.font = '14px sans-serif'; x.fillText('insert card', w / 2, h * .7); }, false);
+  const oTex = canvasTex(128, 96, (x, w, h) => { x.fillStyle = '#140808'; x.fillRect(0, 0, w, h); x.fillStyle = '#ff3b30'; x.font = 'bold 28px sans-serif'; x.textAlign = 'center';
+    x.fillText('OFFLINE', w / 2, h * .6); }, false);
+  const scr = new THREE.Mesh(new THREE.PlaneGeometry(.9, .65), glow(0xffffff)); scr.material.map = sTex; scr.position.set(-.46, 1.7, 0); scr.rotation.y = -Math.PI / 2; g.add(scr);
+  const sign = new THREE.Mesh(new THREE.PlaneGeometry(1.2, .45), glow(0xffffff)); sign.material.map = canvasTex(128, 48, (x, w, h) => { x.fillStyle = '#0f7a4a'; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#fff'; x.font = 'bold 32px sans-serif'; x.textAlign = 'center'; x.fillText('ATM', w / 2, h * .78); }, false);
+  sign.position.set(-.46, 2.75, 0); sign.rotation.y = -Math.PI / 2; g.add(sign);
+  const halo = glowSprite(0x6aa8ff, 2.2, .5); halo.position.set(-.7, 1.7, 0); g.add(halo);
+  atm = { z, scr, sTex, oTex, halo, onMat: scr.material, offMat: Object.assign(glow(0xffffff), { map: oTex }) };
+}
+// screens: big billboards (first two near on the left), projecting blades, ticker, the giant one at the end of the avenue
+{ const R = rng(9);
+  const order = [];
+  order.push(screen(-WALK + .25, 13, -48, 22, 13, Math.PI / 2, 0, B.screen1));             // first: big wall screen, left
+  order.push(screen(12.6, 11, -22, 5.5, 9, 0, 3, B.screen2));                                // second: blade on the right, facing the camera
+  const spots = [[-13, 10, -75, 5, 8, 0], [-WALK + .25, 22, -110, 16, 24, Math.PI / 2], [12.6, 14, -95, 5, 9, 0], [-13, 16, -150, 6, 10, 0],
+                 [WALK - .25, 18, -170, 14, 20, -Math.PI / 2], [-WALK + .25, 30, -230, 20, 14, Math.PI / 2], [12.6, 20, -250, 6, 10, 0],
+                 [-30, 60, -330, 30, 18, 0], [34, 70, -360, 26, 30, 0], [-12.5, 9, -20, 4.5, 7, 0], [0, 95, -639, 70, 40, 0], [-WALK + .25, 9, -15, 10, 6, Math.PI / 2]];
+  spots.forEach((s, i) => order.push(screen(s[0], s[1], s[2], s[3], s[4], s[5], i + 1, 0)));
+  const rest = order.slice(2);
+  rest.forEach((s, i) => { s.offT = 41.2 + (i / (rest.length - 1)) ** 1.15 * 24 + R() * 1.2; });
+  rest.find(s => s.z === -639).offT = 66.5;                                                     // the giant one goes last
+}
+// stock ticker band on the left (scrolls, stops when payments fail)
+const ticker = (() => { const tex = canvasTex(1024, 48, (x, w, h) => { x.fillStyle = '#05080c'; x.fillRect(0, 0, w, h); x.font = 'bold 30px monospace';
+  const R = rng(4); let px = 10; for (const s of ['DOW', 'AAPL', 'MSFT', 'EUR/USD', 'BTC', 'TSLA', 'AMZN', 'GOLD', 'NVDA', 'S&P']) {
+    const up = R() < .6; x.fillStyle = '#e8eef4'; x.fillText(s, px, 36); px += x.measureText(s).width + 10; x.fillStyle = up ? '#2fe07a' : '#ff5a4f';
+    const v = (up ? '▲' : '▼') + (R() * 3).toFixed(2); x.fillText(v, px, 36); px += x.measureText(v).width + 30; } });
+  tex.wrapS = THREE.RepeatWrapping; tex.repeat.set(2, 1);
+  const on = glow(0xffffff); on.map = tex;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(70, 1.6), on); m.position.set(-WALK + .25, 6.2, -60); m.rotation.y = Math.PI / 2; scene.add(m);
+  return { m, on, tex, offT: B.atm - 1.6 }; })();
+
+// ---------- street furniture ----------
+const lamps = [];
+for (let z = 36, i = 0; z > -300; z -= 28, i++) for (const s of [-1, 1]) lamps.push({ L: streetLamp(scene, s * 10.8, z - (s > 0 ? 14 : 0), s), t0: B.dusk + hash(i, s + 5) * 2.2 });
+{ const tl = (x, z) => { const g = new THREE.Group(); g.position.set(x, .2, z); scene.add(g);
+    const pole = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.12, .14, 6, 6), lam(0x3f4245))); pole.position.y = 3; g.add(pole);
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(5, .14, .14), lam(0x3f4245)); arm.position.set(-Math.sign(x) * 2.5, 5.9, 0); g.add(arm);
+    const head = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.45, 1.3, .35), lam(0x2a2c2e))); head.position.set(-Math.sign(x) * 4.6, 5.2, 0); g.add(head);
+    const b = new THREE.Mesh(new THREE.CircleGeometry(.13, 10), glow(0x4fae6a)); b.position.set(-Math.sign(x) * 4.6, 4.8, .18); g.add(b); };
+  tl(10.6, -30); tl(-10.6, -38); }
+for (let z = 20, i = 0; z > -160; z -= 19, i++) for (const s of [-1, 1]) {     // small trees in pits
+  const g = new THREE.Group(); g.position.set(s * 11.6, .2, z - s * 6); scene.add(g);
+  const tr = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.12, .16, 2.4, 5), lam(0x5a4636))); tr.position.y = 1.2; g.add(tr);
+  const c = shadowed(new THREE.Mesh(new THREE.IcosahedronGeometry(1.4, 0), lam(0x4b6338))); c.position.y = 3.3; g.add(c); }
+
+// ---------- traffic: simulated once (lanes, following, confusion, jam) ----------
+const LANES = [[7.4, -1], [2.6, -1], [-2.6, 1], [-7.4, 1]];      // right-hand traffic: right lanes drive away
+const cars = [];
+{ const R = rng(44), PER = 22, SPAN = 500, ZA = 64, ZB = ZA - SPAN;
+  LANES.forEach(([x, dir], li) => {
+    for (let k = 0; k < PER; k++) cars.push({ lane: li, x, dir, z: ZB + (k + R() * .4) * SPAN / PER, v: 10 + R() * 2, v0: 10 + R() * 2.5,
+      col: CAR_COL[Math.floor(R() * CAR_COL.length)], taxi: R() < .12, stopT: 1e9, skew: 0, drift: R() * 6, hes: B.nav + R() * 3, hesD: .6 + R() * 1.6 });
+  });
+  // the cars that lock everything: two stop askew right in front of the camera (toward-camera lanes), one far down the away lanes
+  const pick = (li, zt) => cars.filter(c => c.lane === li).sort((a, b) => Math.abs(a.zAt - zt) - Math.abs(b.zAt - zt))[0];
+  // dry run to know where cars are at the jam time
+  const simulate = (blockers) => {
+    for (const c of cars) { c.z = c.z0 ?? c.z; c.z0 = c.z0 ?? c.z; c.v = c.v0; c.arr = new Float32Array(NF * 4); }
+    const dt = 1 / FPS;
+    for (let f = 0; f < NF; f++) {
+      const t = f * dt;
+      for (const c of cars) {
+        let vdes = c.v0;
+        if (t > B.nav - 3) vdes *= 1 - smooth(B.nav - 3, B.nav + 2, t) * .55;                          // traffic slows when maps fail
+        if (t > c.hes && t < c.hes + c.hesD) vdes *= .15;                                              // hesitation: which way?
+        if (blockers.has(c) && t > c.stopT) vdes = 0;
+        for (const o of cars) if (o !== c && o.lane === c.lane) {
+          const gap = (o.z - c.z) * c.dir - 4.9;
+          if (gap > -3 && gap < 30) vdes = Math.min(vdes, Math.max(0, (gap - 1.6) * .7));
+        }
+        const a = vdes > c.v ? 2.2 : -7; c.v = clamp(c.v + a * dt, Math.min(c.v, vdes), Math.max(c.v, vdes));
+        c.z += c.dir * c.v * dt;
+        if (c.dir < 0 && c.z < ZB) c.z += SPAN; if (c.dir > 0 && c.z > ZA) c.z -= SPAN;
+        const conf = smooth(B.nav, B.nav + 2, t);
+        const skew = blockers.has(c) ? smooth(c.stopT - 1.2, c.stopT, t) * c.skewTo : conf * .07 * Math.sin(t * .8 + c.drift) * (c.v > .5 ? 1 : 0);
+        c.skew = skew;
+        const xo = blockers.has(c) ? smooth(c.stopT - 1.2, c.stopT, t) * c.xTo : conf * .35 * Math.sin(t * .5 + c.drift);
+        c.arr.set([c.z, c.skew, xo, c.v], f * 4);
+      }
+    }
+  };
+  for (const c of cars) c.z0 = c.z;
+  simulate(new Set());
+  const at = (c, t) => c.arr[Math.round(t * FPS) * 4];
+  for (const c of cars) c.zAt = at(c, B.jam);
+  const blockers = new Set();
+  const addB = (li, zt, t, skew, xTo) => { const c = pick(li, zt); c.stopT = t; c.skewTo = skew; c.xTo = xTo; blockers.add(c); };
+  addB(2, 24, B.jam - .3, .5, .9); addB(3, 20, B.jam + .4, -.42, .7); addB(1, -150, B.jam - 1, .35, -.6); addB(0, -120, B.jam + .8, -.3, -.5);
+  simulate(blockers);
+  // police car: the toward-camera car that ends up around z -70 in the jam
+  const atC = c => at(c, B.siren);
+  const pol = cars.filter(c => c.lane === 2).sort((a, b) => Math.abs(atC(a) + 70) - Math.abs(atC(b) + 70))[0]; pol.police = true;
+  for (const c of cars) { c.mesh = carMesh(scene, c.col, { police: c.police, taxi: c.taxi && !c.police }); c.lightT = B.dusk - 1 + hash(cars.indexOf(c), 7) * 2.5; }
+  // horns: more and more once the traffic locks up
+  const HR = rng(91);
+  for (let t = B.nav + 1.5; t < QUIET - .3; t += .25 + 2.2 * (1 - smooth(B.nav, B.climax + 2, t)) * HR()) {
+    const c = cars[Math.floor(HR() * cars.length)], z = at(c, t);
+    if (z > CAMZ - 4 || z < -260) continue;
+    EVENTS.push({ t, kind: 'horn', x: c.x, z, len: .25 + HR() * (t > B.climax ? 1.4 : .7), pitch: HR() });
+  }
+}
+
+// ---------- people ----------
+const people = [];
+{ const R = rng(31);
+  // pavement walkers (both sides). Everyone has a phone; some already look at it while walking
+  for (let i = 0; i < 46; i++) {
+    const s = i < 26 ? 1 : -1, p = makePerson(scene, R, { phone: true });
+    Object.assign(p, { type: 'walk', x: s > 0 ? 10.8 + R() * 3.8 : -(10.8 + R() * 4.4), z0: CAMZ - 6 - R() * 190, dir: R() < .5 ? -1 : 1, v: 1.15 + R() * .4,
+      stopT: B.stopWalk + R() * 1.4, phoneT: B.phones + R() * .9, eachT: B.eachOther + R() * 1.2, phoneEarly: R() < .4, ph: R() * 6, look: (R() < .5 ? -1 : 1) * (.6 + R() * .7) });
+    people.push(p);
+  }
+  // queue at the cash machine
+  for (let k = 0; k < 9; k++) { const p = makePerson(scene, R, { phone: true });
+    Object.assign(p, { type: 'queue', slot: k, x: 15.25 - (k ? .1 + R() * .25 : 0), zs: atm.z - .9 - k * .95, t0: B.queue + k * .45 + R() * .3, v: 1.4, ph: R() * 6, look: (R() - .5) * 2 });
+    people.push(p); }
+  // climax: offices empty out, people fill the pavements and walk between the stuck cars
+  const strips = [0, 5, -5, 9.1, -9.1];
+  for (let i = 0; i < 95; i++) { const p = makePerson(scene, R, { phone: true });
+    const road = i < 50, x = road ? strips[i % strips.length] + (R() - .5) * .5 : (i % 2 ? 1 : -1) * (11 + R() * 4);
+    Object.assign(p, { type: 'crowd', x, z0: 30 - R() * 95, dir: R() < .55 ? 1 : -1, v: 1.5 + R() * .7,
+      t0: B.evening + 2 + R() * (B.climax + 2 - B.evening), ph: R() * 6, wave: R() < .25, look: (R() < .5 ? -1 : 1) });
+    people.push(p);
+  }
+}
+const ease = (t, ts, tau = .6) => t < ts ? t : ts + tau * (1 - Math.exp(-(t - ts) / tau));     // decelerate to a stop
+function personAt(p, t) {
+  if (t >= QUIET) { p.g.visible = false; return; }
+  let x = p.x, z, rot, walk = 0, stride = 0, headDown = 0, headYaw = 0, phoneUp = 0, wave = 0;
+  if (p.type === 'walk') {
+    const span = 200, a = CAMZ - 4 - span, wrap = v => a + ((v - a) % span + span) % span;
+    const te = ease(t, p.stopT);
+    z = wrap(p.z0 + p.dir * p.v * te); rot = p.dir > 0 ? 0 : Math.PI;
+    walk = te * p.v * 4.2 + p.ph; stride = .45 * (1 - smooth(p.stopT, p.stopT + .8, t));
+    phoneUp = Math.max(p.phoneEarly ? .55 : 0, smooth(p.phoneT, p.phoneT + .5, t)) * (1 - smooth(p.eachT, p.eachT + .6, t) * .55);
+    headDown = phoneUp * .55;
+    headYaw = smooth(p.eachT, p.eachT + .7, t) * p.look * (1 + .3 * Math.sin(t * .7 + p.ph));
+    rot += smooth(p.eachT + .5, p.eachT + 2, t) * p.look * .5;
+    p.g.visible = true;
+  } else if (p.type === 'queue') {
+    const arrived = t >= p.t0;                                         // walks up the pavement toward the camera to its place in the line
+    z = Math.min(p.zs, p.zs - (p.t0 - t) * p.v); rot = 0;
+    walk = t * p.v * 4.2 + p.ph; stride = arrived ? 0 : .45;
+    p.g.visible = true;
+    phoneUp = arrived ? .5 * (1 - smooth(B.atm, B.atm + 1, t)) : 0; headDown = phoneUp * .5;
+    headYaw = smooth(B.atm + .3 + p.slot * .15, B.atm + 1.2 + p.slot * .15, t) * p.look;
+    if (p.slot === 0 && arrived) rot = Math.PI / 2 + smooth(B.atm + .6, B.atm + 1.6, t) * 2.4;
+  } else {
+    const tt = t - p.t0; p.g.visible = tt > 0;
+    z = p.z0 + p.dir * p.v * Math.max(0, tt); rot = p.dir > 0 ? 0 : Math.PI;
+    walk = tt * p.v * 4.4 + p.ph; stride = .55;
+    headYaw = Math.sin(t * 1.3 + p.ph) * .6; phoneUp = p.wave ? 0 : .6 + .3 * Math.sin(t * .4 + p.ph); headDown = phoneUp * .3;
+    wave = p.wave ? smooth(p.t0 + 1, p.t0 + 2, t) * (.6 + .4 * Math.sin(t * 2 + p.ph)) : 0;
+    if (z > CAMZ - 3 || z < -200) p.g.visible = false;
+  }
+  if (p.type === 'walk' && z > CAMZ - 4.5 && Math.abs(x - CAMX) < 2.5) p.g.visible = false;
+  posePerson(p, { x, z, rot, walk, stride, headDown, headYaw, phoneUp, wave, t });
+}
+
+// ---------- planes ----------
+const flights = [];
+{ const R = rng(61);
+  for (const t0 of [-24, -16, -8, 0, 7, 14, 22, 30, 39, 50]) {
+    const s = R() < .5 ? -1 : 1, y = 300 + R() * 160, zz = -700 - R() * 600;
+    flights.push({ P: plane(scene, 70), a: new THREE.Vector3(-s * 1100, y, zz + (R() - .5) * 300), b: new THREE.Vector3(s * 1100, y + (R() - .5) * 80, zz + (R() - .5) * 300), t0, dur: 34 + R() * 10 });
+  }
+}
+
+// ---------- paper in the empty street ----------
+const papers = [];
+for (let i = 0; i < 7; i++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(.32, .42), new THREE.MeshLambertMaterial({ color: 0xe6e1d6, side: THREE.DoubleSide }));
+  m.castShadow = true; scene.add(m); papers.push({ m, x: (hash(i, 1) - .5) * 18, z: -5 - hash(i, 2) * 50, v: .8 + hash(i, 3) * 1.2, ph: hash(i, 4) * 6 }); }
+
+// ---------- audio events that depend only on the timeline ----------
+{ const R = rng(77);
+  for (let t = 1.5; t < 41; t += .5 + R() * (t < 30 ? 1.6 : 3.5)) EVENTS.push({ t, kind: 'ping', x: (R() - .5) * 2, pitch: R() });      // phones buzzing, fewer after the glitch
+  screens.forEach(s => EVENTS.push({ t: s.offT, kind: 'screen', x: clamp(s.x / 20, -1, 1), z: s.z }));
+  EVENTS.push({ t: ticker.offT, kind: 'screen', x: -.6, z: -60 }, { t: B.atm, kind: 'atm', x: .7 }, { t: B.glitch, kind: 'glitch', x: 0 });
+  shops.forEach(s => EVENTS.push({ t: s.t0, kind: 'shutter', x: .8, z: s.cz }));
+  EVENTS.push({ t: B.siren, kind: 'siren', x: -.2 }, { t: QUIET, kind: 'quiet', x: 0 });
+  EVENTS.sort((a, b) => a.t - b.t);
+}
+
+// ---------- frame ----------
+const SKY = keyframes([[0, C(0x7aa3cc), C(0xd3dde2)], [40, C(0x7f9fc0), C(0xd0d6d6)], [54, C(0x8a93ad), C(0xd8c6aa)], [60, C(0x5d6386), C(0xd99a6c)],
+                       [65, C(0x2c3352), C(0x8a6458)], [70, C(0x16203e), C(0x3a3f5c)], [90, C(0x131b36), C(0x323752)]]);
+const hud = makeHud(TL);
+const fmt1 = v => v.toFixed(1);
+window.renderAt = function (t) {
+  const quiet = t >= QUIET;
+  skyMat.uniforms.top.value.copy(SKY(t, 1)); skyMat.uniforms.hor.value.copy(SKY(t, 2));
+  scene.fog.color.copy(skyMat.uniforms.hor.value);
+  const night = smooth(56, 70, t);
+  sun.intensity = lerp(2.4, 0, smooth(52, 66, t)); sun.color.copy(C(0xffeedd).lerp(C(0xff9a5a), smooth(52, 62, t)));
+  sun.position.set(-90, lerp(110, 40, smooth(40, 66, t)), 120);
+  hemi.intensity = lerp(1.5, 1.05, night); hemi.color.copy(C(0xe3ecf4).lerp(C(0x8796c8), night)); hemi.groundColor.copy(C(0x5a5448).lerp(C(0x2a2a33), night));
+  scene.fog.near = lerp(150, 60, night); scene.fog.far = lerp(1100, 700, night);
+
+  // screens, ticker, windows, shops, cash machine, lamps
+  for (const s of screens) s.m.material = screenState(s, t);
+  ticker.m.material = t < ticker.offT ? ticker.on : screenOff; ticker.tex.offset.x = (Math.min(t, ticker.offT) * .03) % 1;
+  for (const tw of towers) {
+    const day = .25 * (1 - smooth(tw.offT, tw.offT + .4, t)) * (t > B.glitch && t < B.glitch + .8 && Math.floor(t * 9 + tw.ph * 5) % 3 === 0 ? .3 : 1);
+    tw.mat.emissiveIntensity = Math.max(day, tw.nightLit ? smooth(60, 66, t) * .85 : .02 + (1 - smooth(tw.offT, tw.offT + .4, t)) * night * .6);
+  }
+  for (const s of shops) { const k = smooth(s.t0, s.t0 + 2.2, t); s.shut.scale.y = Math.max(.001, k); s.open.visible = t < s.t0 - .3;
+    s.win.material.emissiveIntensity = .55 * (1 - smooth(s.t0 + 1.5, s.t0 + 3, t)); }
+  atm.scr.material = t < B.atm ? atm.onMat : (t < B.atm + .5 && Math.floor(t * 14) % 2) ? atm.onMat : atm.offMat;
+  atm.halo.material.color.setHex(t < B.atm ? 0x6aa8ff : 0xff4a3a);
+  for (const l of lamps) l.L.setOn(smooth(l.t0, l.t0 + .25, t));
+
+  // cars
+  const f = Math.min(NF - 1, Math.round(t * FPS));
+  for (const c of cars) {
+    const o = f * 4, z = c.arr[o], v = c.arr[o + 3];
+    c.mesh.g.visible = !quiet && z < CAMZ - 1.5;
+    c.mesh.g.position.set(c.x + c.arr[o + 2], .75, z); c.mesh.g.rotation.set(0, (c.dir > 0 ? Math.PI : 0) + c.arr[o + 1], 0);
+    setCarLights(c.mesh, smooth(c.lightT, c.lightT + .2, t), t > B.nav - 3 && v < 6, c.police && t > B.siren ? (t * 2.2) % 1 : -1);
+  }
+  for (const p of people) personAt(p, t);
+  for (const fl of flights) { const u = (t - fl.t0) / fl.dur; fl.P.fly(fl.a, fl.b, u, 700, 1 - night * .8); }
+  for (const p of papers) { const a = Math.max(0, t - QUIET); p.m.visible = quiet;
+    p.m.position.set(p.x + a * p.v * .6 + Math.sin(a * 1.3 + p.ph) * .6, .26 + Math.max(0, Math.sin(a * 2.1 + p.ph)) * .5, p.z + a * p.v);
+    p.m.rotation.set(-Math.PI / 2 + Math.sin(a * 3 + p.ph) * .6, a * .8 + p.ph, Math.sin(a * 2.4 + p.ph) * .4); }
+
+  // camera: eye height on the right pavement, slow push in, gentle hand-held sway; still in the quiet
+  const push = quiet ? 4 + smooth(QUIET, T_END, t) * 3 : smooth(0, QUIET, t) * 9;
+  const sway = quiet ? .3 : 1 + smooth(B.climax - 2, B.climax + 1, t) * 1.2;
+  const sx = noise(t * .35, 1) * .05 * sway, sy = noise(t * .3, 2) * .035 * sway;
+  camera.position.set(CAMX + sx, 2.3 + sy, CAMZ - push);
+  camera.lookAt(-3 + sx * 20, 24 + sy * 30, -200);
+
+  const pct = counterAt(t);
+  const black = smooth(QUIET - .9, QUIET - .1, t) - smooth(QUIET + .3, QUIET + 1.3, t) * .82 + smooth(B.end - 1, B.end + 1, t) * .3;
+  hud(t, { num: Math.round(pct) + TL.hud.unit, second: `${TL.hud.second}  ${fmt1(TL.usersMax * pct / 100)} billion`,
+           secondOpacity: smooth(9.6, 10.8, t) * .85, hudOpacity: smooth(.4, 1.4, t) * (1 - smooth(QUIET - .9, QUIET - .2, t)) + smooth(QUIET + 1, QUIET + 2.2, t) * (1 - smooth(B.end - .8, B.end, t)) * .8,
+           black, haze: 0 });
+  renderer.render(scene, camera);
+  return 0;
+};
+window.T_END = T_END; window.TL = TL; window.EVENTS = EVENTS;
+document.fonts.ready.then(() => { window.ready = true; });
+</script>
+</body>
+</html>

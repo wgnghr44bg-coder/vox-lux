@@ -2,6 +2,7 @@
 """Synthesised sound design for a 'What if' video (no recordings, $0).
 
     python3 whatif-demo/make_audio.py whatif-demo/earth-stops
+    python3 whatif-demo/make_audio.py whatif-demo/internet-gone   # uses internet-gone/sound.py (from make_audio import *)
 
 Reads <dir>/timeline.json (node render.mjs timeline: the TL object + physics events)
 and <dir>/voice.mp3, writes:
@@ -246,6 +247,75 @@ def s_tik(rng):
     return norm(np.sin(2 * np.pi * 1250 * t) * np.exp(-t * 120) + bp(rng.standard_normal(n), 1500, 4000) * np.exp(-t * 300) * .3)
 
 
+def s_ping(rng, pitch=.5):
+    """Phone notification: two short soft sine blips."""
+    n = int(.45 * SR); t = np.arange(n) / SR
+    f = 880 * 2 ** (round(pitch * 5) / 12)
+    x = np.sin(2 * np.pi * f * t) * env_ad(n, .003, .07)
+    k = int(.11 * SR); x[k:] += (np.sin(2 * np.pi * f * 1.5 * t) * env_ad(n, .003, .09))[:n - k] * .8
+    return norm(x)
+
+
+def s_toeter(rng, length=.5, pitch=.5):
+    """Car horn: two detuned square-ish tones, band-limited, a little uneven."""
+    n = int((length + .1) * SR); t = np.arange(n) / SR
+    f = 380 + pitch * 140
+    x = sum(np.tanh(3 * np.sin(2 * np.pi * f * k * t)) for k in (1, 1.26)) / 2
+    e = smooth(0, .02, t) * (1 - smooth(length, length + .08, t))
+    return norm(bp(x, 250, 3000) * e * (1 + .05 * np.sin(2 * np.pi * 6 * t)))
+
+
+def s_stemmen(rng, sec=20):
+    """Crowd murmur without words: band-passed noise with syllable-rate wobble, many layers."""
+    n = int(sec * SR)
+    def one(r):
+        x = np.zeros(n)
+        for _ in range(8):
+            f = r.uniform(300, 900)
+            am = np.clip(lfo(r, n, r.uniform(2.5, 5), 1.0), 0, None) * np.clip(lfo(r, n, .15, 1.0), 0, None)
+            x += bp(r.standard_normal(n), f * .7, f * 1.6) * am
+        return norm(x)
+    return norm(stereo(rng, one, .8))
+
+
+def s_sirene(rng, sec=10):
+    """Distant siren: slow up/down wail, low-passed with echo."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    f = 700 + 350 * (.5 - .5 * np.cos(2 * np.pi * t / 4.2))
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) + .3 * np.sin(2 * np.pi * np.cumsum(2 * f) / SR)
+    x = lp(x, 2500) * smooth(0, 1.5, t)
+    return norm(echo(np.stack([x, x * .8], 1), (.09, .21, .37), (.35, .25, .15)))
+
+
+def s_uitval(rng):
+    """Screen / power going out: soft electric click, short buzz, falling hum."""
+    n = int(1.2 * SR); t = np.arange(n) / SR
+    click = hp(rng.standard_normal(n), 2000) * env_ad(n, .0005, .006)
+    buzz = np.sign(np.sin(2 * np.pi * 100 * t)) * env_ad(n, .001, .05) * .15
+    hum = np.sin(2 * np.pi * np.cumsum(120 * np.exp(-t * 2.5) + 40) / SR) * env_ad(n, .01, .35) * .4
+    return norm(lp(click + buzz, 6000) + hum)
+
+
+def s_rolluik(rng, sec=2.4):
+    """Roller shutter coming down: fast metal rattle, then a thud."""
+    n = int((sec + .6) * SR); t = np.arange(n) / SR
+    x = np.zeros(n); rate = 26
+    for k in range(int(sec * rate)):
+        p = int((k / rate + rng.uniform(0, .01)) * SR); L = int(.02 * SR)
+        x[p:p + L] += bp(rng.standard_normal(L), 700, 5000) * np.exp(-np.arange(L) / (L / 5)) * rng.uniform(.3, 1)
+    x *= smooth(0, .2, t)
+    thud = np.sin(2 * np.pi * 70 * t) * env_ad(n, .002, .12); i = int(sec * SR)
+    x[i:] += (thud[:n - i] + lp(rng.standard_normal(n - i), 800) * env_ad(n - i, .001, .05))
+    return norm(x)
+
+
+def s_foutpiep(rng):
+    """Machine error: three short low beeps."""
+    n = int(.9 * SR); t = np.arange(n) / SR
+    g = sum(smooth(a, a + .01, t) * (1 - smooth(a + .14, a + .15, t)) for a in (0, .25, .5))
+    return norm(np.sign(np.sin(2 * np.pi * 440 * t)) * g * .5 + np.sin(2 * np.pi * 440 * t) * g)
+
+
 def library():
     SFX.mkdir(exist_ok=True)
     rng = np.random.default_rng(7)
@@ -254,6 +324,8 @@ def library():
         "klap": s_klap(rng), "glas": s_glas(rng), "metaal": s_metaal(rng), "kraak": s_kraak(rng),
         "puin": s_puin(rng), "rammel": s_rammel(rng), "barst": s_barst(rng), "tik": s_tik(rng),
         "auto": s_carpass(rng),
+        "ping": s_ping(rng), "toeter": s_toeter(rng), "stemmen": s_stemmen(rng), "sirene": s_sirene(rng),
+        "uitval": s_uitval(rng), "rolluik": s_rolluik(rng), "foutpiep": s_foutpiep(rng),
     }
     lib = {k: v if v.ndim == 2 else np.stack([v, v], 1) for k, v in lib.items()}
     for k, v in lib.items():
@@ -394,9 +466,8 @@ def build(topic: Path):
     return bed
 
 
-def main():
-    topic = Path(sys.argv[1]).resolve()
-    bed = build(topic)
+def mix(topic: Path, bed):
+    """Write <topic>/sfx-bed.wav and <topic>/mix.wav (voice on top, bed ducked, -14 LUFS)."""
     bed = bed / (np.max(np.abs(bed)) or 1) * .7
     write(topic / "sfx-bed.wav", bed)
     data = json.loads((topic / "timeline.json").read_text())
@@ -409,6 +480,19 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(topic / "sfx-bed.wav"), "-i", str(topic / "voice.mp3"),
                     "-filter_complex", fc, "-map", "[out]", "-t", str(T), str(topic / "mix.wav")], check=True)
     print("ok:", topic / "mix.wav")
+
+
+def main():
+    """A topic with its own sound.py (def build(topic) -> stereo bed) uses that; otherwise the earth-stops build()."""
+    topic = Path(sys.argv[1]).resolve()
+    own = topic / "sound.py"
+    if own.exists():
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("topic_sound", own); mod = importlib.util.module_from_spec(spec)
+        sys.path.insert(0, str(HERE)); spec.loader.exec_module(mod)
+        mix(topic, mod.build(topic))
+    else:
+        mix(topic, build(topic))
 
 
 if __name__ == "__main__":
