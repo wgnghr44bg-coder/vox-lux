@@ -19,7 +19,7 @@ if (slug.startsWith('preview:')) {
   const [, place, force, shots] = slug.split(':');
   query = `place=${place}&force=${force}` + (shots ? `&shots=${encodeURIComponent(shots)}` : '');
   OUT = path.join(ROOT, 'engine', 'previews', `${place}-${force}`);
-} else { query = `topic=${slug}`; OUT = path.join(ROOT, 'topics', slug); }
+} else { const [s, flag] = slug.split('+'); query = `topic=${s}` + (flag === 'hook' ? '&hook=1' : ''); OUT = path.join(ROOT, 'topics', s); }
 fs.mkdirSync(OUT, { recursive: true });
 
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2' };
@@ -46,7 +46,7 @@ if (mode === 'stills') {
   fs.mkdirSync(path.join(OUT, 'stills'), { recursive: true });
   for (const t of rest) {
     const t0 = Date.now();
-    const n = await page.evaluate(t => window.renderAt(+t), t);
+    const n = await page.evaluate(t => window.renderAt(+t, window.blurAt ? window.blurAt(+t) : 1), t);
     await page.screenshot({ path: path.join(OUT, 'stills', `still-${t}.jpg`), type: 'jpeg', quality: 88 });
     console.log('still', t, 'particles', n, 'look', await page.evaluate(t => window.camTarget?.(+t), t), (Date.now() - t0) + 'ms');
   }
@@ -70,7 +70,7 @@ if (mode === 'stills') {
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
       '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', seg], { stdio: ['pipe', 'inherit', 'inherit'] });
     for (let i = a; i < b; i++) {
-      await page.evaluate(t => window.renderAt(t), i / FPS);
+      await page.evaluate(t => window.renderAt(t, window.blurAt ? window.blurAt(t) : 1), i / FPS);
       const buf = await page.screenshot({ type: 'jpeg', quality: 93 });
       if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
       if ((i - a) % 150 === 0) console.log(`w${w} frame ${i - a}/${b - a}  ${((Date.now() - t0) / 1000).toFixed(0)}s`);

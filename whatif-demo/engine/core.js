@@ -125,6 +125,7 @@ export function createEngine() {
     windowMats,          // facade materials with glowing windows (emissiveIntensity follows the dark)
     frost,               // materials that frost over
     melt: [],            // snow that melts in the heat: { mat, bare } (colour) or { mesh, to } (shrinks)
+    burn: [],            // things that catch fire in strong sunlight: { mats, pos: [x,y,z], size, sun: × today's sunlight }
     people: [],          // { update(t, F) }
     updates: [],         // per-frame place callbacks (t, F)
     emitters: [],        // dust/snow/spray emitters (t, add, cam)

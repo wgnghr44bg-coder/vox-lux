@@ -46,7 +46,36 @@ export function create(E, TL) {
     }
   });
   // forest fires on the hills: tall columns of smoke, an orange glow at the base
-  F.attach = () => { (E.fireSpots || []).forEach((p, i) => { const t = F.timeOf(fireAt + i * .05); if (t < TL.beats.stop) E.EVENTS.push({ t, kind: 'fire', e: .8, x: p[0], y: p[1] + 30, z: p[2] }); }); };
+  // things that catch fire: dry cloth, palm leaves and wood ignite at roughly 10-16× today's sunlight
+  const timeOfSun = x => { for (let t = 0; t < TL.beats.stop; t += 1 / 30) if (sun(t) >= x) return t; return 1e9; };
+  const CHAR = C(0x1c1917);
+  E.updates.push((t, _F, tv) => {
+    for (const b of E.burn) {
+      b.t0 ??= timeOfSun(b.sun);
+      const a = Math.min(tv, TL.beats.stop + 30) - b.t0, k = smooth(0, b.charT ?? 5, a);
+      for (const m of b.mats) { m.userData.burnBase ??= m.color.clone(); m.color.copy(m.userData.burnBase).lerp(CHAR, k); }
+      if (b.shrink) for (const o of b.shrink) { o.userData.s0 ??= o.scale.clone(); const f = 1 - smooth(1, 7, a) * .7; o.scale.set(o.userData.s0.x * f, o.userData.s0.y * f, o.userData.s0.z * f); }
+    }
+  });
+  E.emitters.push((tv, add) => {
+    for (const [i, b] of E.burn.entries()) {
+      const t0 = b.t0 ?? 1e9, a = tv - t0; if (a < 0) continue;
+      const s = b.size ?? 1, grow = smooth(0, 1.2, a), out = 1 - smooth(9, 14, a);
+      for (let k = 0; k < 10; k++) {          // flames: flickering orange-yellow tongues
+        const u = (tv * 1.6 + hash(k, i)) % 1;
+        add(b.pos[0] + (hash(k, i + 2) - .5) * s * 1.4, b.pos[1] + u * s * 2.2, b.pos[2] + (hash(k, i + 4) - .5) * s * 1.4,
+          s * (1.6 - u) * 1.1, (1 - u) * .65 * grow * out, 1, .45 + u * .35, .12, hash(k, 9) * 6);
+      }
+      for (let k = 0; k < 14; k++) {          // smoke rising and drifting inland
+        const u = (tv * .22 + hash(k, i + 7)) % 1;
+        add(b.pos[0] + (hash(k, i + 8) - .5) * s + u * 3, b.pos[1] + s + u * (8 + s * 10), b.pos[2] + u * u * 10,
+          s * (1.5 + u * 6), (1 - u) * .38 * grow, .24, .22, .21, hash(k, 11) * 6);
+      }
+    }
+  });
+  F.timeOfSun = timeOfSun;
+  F.attach = () => {
+    for (const b of E.burn) { b.t0 = timeOfSun(b.sun); if (b.t0 < TL.beats.stop) E.EVENTS.push({ t: b.t0, kind: 'fire', e: Math.min(1, .4 + (b.size ?? 1) * .3), x: b.pos[0], y: b.pos[1], z: b.pos[2] }); } (E.fireSpots || []).forEach((p, i) => { const t = F.timeOf(fireAt + i * .05); if (t < TL.beats.stop) E.EVENTS.push({ t, kind: 'fire', e: .8, x: p[0], y: p[1] + 30, z: p[2] }); }); };
   E.emitters.push((tv, add) => {
     const t = Math.min(tv, TL.beats.stop);
     (E.fireSpots || []).forEach((p, i) => {

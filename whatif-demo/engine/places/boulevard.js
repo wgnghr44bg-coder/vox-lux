@@ -57,6 +57,7 @@ export function build(E, TL, F) {
       const g = new THREE.Group(); g.position.set(x, y, z); scene.add(g);
       const pole = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.04, .04, 2.4, 4), lam(0xe0dccf))); pole.position.y = 1.2; g.add(pole);
       const top = shadowed(new THREE.Mesh(new THREE.ConeGeometry(1.3, .5, 8), lam([0xb5543f, 0x2f6d86, 0xd9b44a, 0xe6e1d6][Math.floor(R() * 4)]))); top.position.y = 2.4; g.add(top);
+      E.burn.push({ mats: [top.material], pos: [x, y + 2.5, z], size: .8, sun: 9.5 + R() * 3.5, shrink: [top] });
       const ph = R() * 6;
       E.bend.push({ pose(t, F) { const L = F.lateral(t); g.rotation.x = smooth(.05, .4, L.a) * .4 * L.dz + Math.sin(t * 7 + ph) * L.a * .1; } });
       E.breaks.push({ src: top, strength: { wind: .15 + R() * .2, water: y + 1.6 }, k: .25, lift: .9, mu: .5, spin: 2, hx: 1.3, hy: .25, hz: 1.3, density: .3 });
@@ -66,6 +67,7 @@ export function build(E, TL, F) {
       const x = -130 + i * 19 + R() * 4, z = 33, y = groundAt(x, z), col = [0xe6e1d6, 0x6f9bb0, 0xd9b44a, 0xb5543f, 0x7d9a6a][i % 5];
       const g = new THREE.Group(); scene.add(g);
       const box = shadowed(new THREE.Mesh(new THREE.BoxGeometry(2.6, 2.4, 2.4), lam(col))); box.position.y = 1.2; g.add(box);
+      E.burn.push({ mats: [box.material], pos: [x, y + 1.6, z], size: 1.3, sun: 13 + R() * 3, charT: 8 });
       const roof = shadowed(new THREE.Mesh(new THREE.ConeGeometry(2.1, 1, 4), lam(0xe9e4d8))); roof.rotation.y = Math.PI / 4; roof.position.y = 2.9; g.add(roof);
       const door = new THREE.Mesh(new THREE.PlaneGeometry(1, 1.8), lam(0x4a3a2e)); door.position.set(0, 1, -1.21); door.rotation.y = Math.PI; g.add(door);
       E.body({ kind: 'hut', obj: g, p: [x, y + .02, z], r: [0, 0, 0], k: .05, lift: .2, mu: .7, spin: .3, hx: 1.3, hy: .02, hz: 1.2, density: .35, strength: { water: y + 1.2, wind: .75 + R() * .2 }, wob: .5 });
@@ -76,12 +78,13 @@ export function build(E, TL, F) {
       const r = shadowed(new THREE.Mesh(new THREE.BoxGeometry(3, .2, 3), lam(0xe9e4d8))); r.position.y = 5.9; g.add(r); }
   }
   // boulevard
+  const burnPalm = (g, i) => { if (Math.abs(g.position.x) < 160) E.burn.push({ mats: g.userData.frondMats, pos: [g.position.x, g.position.y + g.userData.crown, g.position.z], size: 1.7, sun: 11.5 + hash(i, 9) * 4, charT: 4, shrink: g.userData.fronds }); };
   for (let x = -300, i = 0; x < 300; x += 15, i++) {
-    palm(E, x, WALL + 6, 8 + hash(i, 1) * 3, 400 + i, { y: PROM });
+    burnPalm(palm(E, x, WALL + 6, 8 + hash(i, 1) * 3, 400 + i, { y: PROM }), i);
     if (i % 2) lamp(E, x + 7.5, WALL + 4, -1, { y: PROM });
     if (i % 3 === 0) bench(E, x + 4, WALL + 3, 0).position.y = PROM;
   }
-  for (let x = -300, i = 0; x < 300; x += 15, i++) palm(E, x + 7, 69.5, 7 + hash(i, 3) * 3, 500 + i, { y: PROM });
+  for (let x = -300, i = 0; x < 300; x += 15, i++) burnPalm(palm(E, x + 7, 69.5, 7 + hash(i, 3) * 3, 500 + i, { y: PROM }), i + 50);
   // cars on the boulevard road
   [[73, 1], [79, -1]].forEach(([z, dir], li) => [0, 1, 2, 3, 4].forEach(k => {
     car(E, 600 + li * 10 + k, { x0: -300 + k * 120 + li * 50, z0: z, dir, v: 9, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: (B.carsStop ?? 1e9) + k * .5 + li, F, ground: PROM });
@@ -122,10 +125,14 @@ export function build(E, TL, F) {
       sea: { pos: [0, PROM + 10, 64], look: [0, 3, -100], drift: [0, 0, -2], fov: 58 },
       hotels: { pos: [10, 12, 14], look: [10, 16, 100], drift: [-2, 0, 0], fov: 58 },
       // POV shots for a person standing on the beach (eye height above the sand)
-      'pov-sea': { pos: [3, groundAt(0, 33) + 1.65, 33], look: [-4, 3, -150], drift: [0, 0, -.6], fov: 62 },
+      'pov-sea': { pos: [12, groundAt(0, 27) + 1.65, 27], look: [-4, 3, -150], drift: [0, 0, -.6], fov: 62 },
       'pov-beach': { pos: [-30, groundAt(0, 18) + 1.65, 18], look: [30, 1.2, 14], drift: [.8, 0, 0], fov: 60 },
       'pov-back': { pos: [2, groundAt(0, 4) + 1.65, 4], look: [0, 4, 70], drift: [0, 0, .5], fov: 62 },
-      'pov-sky': { pos: [3, groundAt(0, 33) + 1.65, 33], look: [-15, 45, -200], drift: [0, 0, 0], fov: 64 },
+      'pov-lie': { pos: [3, groundAt(0, 26) + .55, 26], look: [-12, 30, -200], drift: [0, 0, 0], fov: 64 },
+      'pov-run': { pos: [2, groundAt(0, 12) + 1.6, 12], look: [-2, 3.5, 90], drift: [0, .9, 32], fov: 66, run: { amp: .08, freq: 1.4 } },
+      'pov-glance': { pos: [2, groundAt(0, 24) + 1.6, 24], look: [-10, 12, -160], drift: [0, .4, 12], fov: 66, run: { amp: .06, freq: 1.4 } },
+      'pov-prom': { pos: [-12, PROM + 1.65, 52], look: [60, 7, 46], drift: [6, 0, 0], fov: 64, run: { amp: .05, freq: 1.3 } },
+      'pov-sky': { pos: [12, groundAt(0, 27) + 1.65, 27], look: [-15, 45, -200], drift: [0, 0, 0], fov: 64 },
     },
   };
 }

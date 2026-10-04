@@ -59,7 +59,7 @@ def main():
     up = json.loads((d / "upload.json").read_text(encoding="utf-8"))
     today = dt.datetime.now(ZoneInfo("Europe/Amsterdam")).date().isoformat()
 
-    chk = subprocess.run([sys.executable, REPO / "tools" / "check_video.py", d, video.name, "--stem", "voice.mp3", "--bron", "mix.wav"],
+    chk = subprocess.run([sys.executable, REPO / "tools" / "check_video.py", d, video.name, "--stem", "voice.mp3", "--bron", (d / "check-bron.txt").read_text().strip() if (d / "check-bron.txt").exists() else "mix.wav"],
                          capture_output=True, text=True)
     print(chk.stdout.strip())
     if "CONTROLE GOED" not in chk.stdout:

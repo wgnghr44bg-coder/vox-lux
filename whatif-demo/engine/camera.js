@@ -92,10 +92,17 @@ export function createCamera(E, TL, P, F) {
   const _l = new THREE.Vector3();
   return {
     targetAt: tv => tgtA[Math.min(N - 1, Math.round(tv * FPS))],
-    apply(tv) {
-      const t = Math.min(tv, STOP), sh = shotAt(tv), pos = posAt(sh, tv);
+    // angular speed of the gaze in degrees per second (render.mjs adds motion blur when fast)
+    speedAt: tv => { const i = clamp(Math.round(tv * FPS), 1, N - 1); return Math.hypot(wrap(yawA[i] - yawA[i - 1]), pitchA[i] - pitchA[i - 1]) * FPS / D2R; },
+    runningAt: tv => !!shotAt(tv).shot.run,
+    // apply(tv) follows the simulated gaze; apply(tv, { shot, t }) frames a fixed shot (the opening hook)
+    apply(tv, fixed) {
+      const t = Math.min(fixed ? fixed.t : tv, STOP);
+      const sh = fixed ? { name: fixed.shot, start: fixed.t - tv, shot: P.shots[fixed.shot] } : shotAt(tv), pos = posAt(sh, fixed ? fixed.t : tv);
       const f = clamp(tv * FPS, 0, N - 2), i = Math.floor(f), fr = f - i;
-      let ya = yawA[i] + wrap(yawA[i + 1] - yawA[i]) * fr, pa = lerp(pitchA[i], pitchA[i + 1], fr);
+      let ya, pa;
+      if (fixed) { [ya, pa] = dirOf(pos, lookAtBase(sh, fixed.t)); }
+      else { ya = yawA[i] + wrap(yawA[i + 1] - yawA[i]) * fr; pa = lerp(pitchA[i], pitchA[i + 1], fr); }
       // shake grows with the disaster; hard jolts on big hits
       let shake = (F.rumble ? F.rumble(t) : 0) * (sh.shot.shake ?? 1) * 1.5;
       for (const ev of E.EVENTS) {
@@ -112,9 +119,15 @@ export function createCamera(E, TL, P, F) {
       const roll = (noise(tv * .13, 41) * 2.2 + noise(tv * .9, 3) * .3) * D2R * calm;
       const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
       ya += jy + sx * shake * .02; pa += breathe + jp + sy * shake * .02;
+      let rollRun = 0;
+      if (sh.shot.run) {            // running: steps bounce the camera, the body sways
+        const R = sh.shot.run, ph = tv * 2 * Math.PI * (R.freq ?? 2.6), amp = R.amp ?? .07;
+        pos[1] += Math.abs(Math.sin(ph)) * amp * 2 - amp; pos[0] += Math.sin(ph / 2) * amp * 1.4;
+        pa += Math.sin(ph) * 1.4 * D2R; ya += Math.sin(ph / 2) * 1.6 * D2R; rollRun = Math.sin(ph / 2) * 2.5 * D2R;
+      }
       cam.fov = sh.shot.fov || 60; cam.updateProjectionMatrix();
       cam.position.set(pos[0] + noise(tv * .5, 2) * .05 + sx * shake * .25, pos[1] + Math.sin(tv * 2 * Math.PI * .24) * .03 + sy * shake * .25, pos[2] + noise(tv * .5, 6) * .05);
-      cam.rotation.set(pa, ya, roll + sx * shake * .03);
+      cam.rotation.set(pa, ya, roll + rollRun + sx * shake * .03);
       // a point 60 m ahead (used to aim the sun's shadow map)
       _l.set(-Math.sin(ya) * Math.cos(pa), Math.sin(pa), -Math.cos(ya) * Math.cos(pa)).multiplyScalar(60).add(cam.position);
       return _l;

@@ -520,11 +520,39 @@ def build_engine(topic: Path):
         rush = layer(lambda r: norm(bp(r.standard_normal(n), 150, 2500) * lfo(r, n, .2, .4)), I ** 1.3)
         low = layer(lambda r: norm(lp(brown(r, n), 180) * lfo(r, n, .07, .5)), I)
         bed += (rush * db(-8) + low * db(-10)) * alive[:, None]
+    elif force == "heat":
+        drone = layer(lambda r: norm(lp(brown(r, n), 160) * lfo(r, n, .05, .4)), smooth(.05, 1, I))
+        sizzle = layer(lambda r: norm(hp(r.standard_normal(n), 3000) * np.clip(lfo(r, n, .7, .8), 0, None)), smooth(.3, 1, I) ** 2)
+        bed += (drone * db(-12) + sizzle * db(-24)) * alive[:, None]
     elif force == "cold":
         thin = layer(lambda r: norm(bp(r.standard_normal(n), 1500, 4000) * np.clip(lfo(r, n, .1, 1), 0, None)), I * .5)
         bed += thin * db(-16) * alive[:, None]
         for tc in np.sort(rng.uniform(STOP * .4, STOP, 10)):
             place(bed, s_ice(rng), tc, db(-18) * I[int(tc * SR)], rng.uniform(-.8, .8))
+
+    # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
+    AUD = TL.get("audio") or {}
+    if "heartbeat" in AUD:
+        a, b = AUD["heartbeat"]; tc = a
+        while tc < min(b, STOP):
+            bpm = 70 + 80 * (tc - a) / max(1, b - a); g = db(-14) + db(-8) * (tc - a) / max(1, b - a)
+            for dt_, gg in ((0, 1), (.28, .6)):
+                L = int(.25 * SR); tt = np.arange(L) / SR
+                thump = np.sin(2 * np.pi * 52 * tt) * np.exp(-tt * 18) + lp(rng.standard_normal(L), 120) * np.exp(-tt * 30) * .3
+                place(bed, np.stack([thump, thump], 1) * gg, tc + dt_, g)
+            tc += 60 / bpm
+    if "riser" in AUD:
+        a, b = AUD["riser"]; L = int((b - a) * SR); tt = np.arange(L) / SR; u = tt / tt[-1]
+        tone = sum(np.sin(2 * np.pi * np.cumsum(f0 * (1 + 1.5 * u ** 2)) / SR) / k for k, f0 in enumerate((55, 82.5, 110), 1))
+        rise = (tone * .6 + bp(rng.standard_normal(L), 400, 4000) * u ** 2) * u ** 1.5
+        rise[-int(.05 * SR):] *= np.linspace(1, 0, int(.05 * SR))
+        place(bed, np.stack([rise, rise], 1), a, db(-10))
+    if "breath" in AUD:
+        a, b = AUD["breath"]; tc = a
+        while tc < min(b, STOP):
+            L = int(.45 * SR); tt = np.arange(L) / SR
+            br = bp(rng.standard_normal(L), 300, 2500) * np.sin(np.pi * tt / tt[-1]) ** 2
+            place(bed, np.stack([br, br], 1), tc, db(-17)); tc += .55 + rng.uniform(0, .1)
 
     # 3. dark drone under everything
     dr = loop(lib["drone"], n)
@@ -545,6 +573,22 @@ def build_engine(topic: Path):
             for j in range(7):
                 place(bed, lp(s_klap(rng, 1.4), 1400), e["t"] + .3 + j * .4 + rng.uniform(0, .3), db(-11), rng.uniform(-.5, .5))
             place(bed, lp(s_puin(rng), 2500), e["t"] + 1.2, db(-10), p)
+        elif e["kind"] == "step":
+            L = int(.12 * SR); tt = np.arange(L) / SR
+            st = lp(rng.standard_normal(L), 400) * np.exp(-tt * 40) + bp(rng.standard_normal(L), 1500, 5000) * np.exp(-tt * 60) * .3
+            place(bed, np.stack([st, st], 1), e["t"], db(-16))
+        elif e["kind"] == "fire":
+            L = int(1.2 * SR); tt = np.arange(L) / SR
+            whoosh = bp(rng.standard_normal(L), 150, 1800) * smooth(0, .25, tt) * np.exp(-tt * 2.5)
+            place(bed, whoosh, e["t"], db(-10) * e["e"], p)
+            dur = max(0.0, min(STOP, T) - e["t"]); L = int(dur * SR)
+            if L > SR // 10:
+                cr = np.zeros(L)
+                for _ in range(int(dur * 25)):
+                    q = int(rng.uniform(0, dur) * SR); l = int(rng.uniform(.002, .012) * SR)
+                    if q + l < L: cr[q:q + l] += rng.standard_normal(l) * np.exp(-np.arange(l) / (l / 4)) * rng.uniform(.1, 1)
+                cr = bp(cr, 800, 7000) + lp(rng.standard_normal(L), 300) * .15
+                place(bed, cr * smooth(0, 1, np.arange(L) / SR)[:, None].ravel(), e["t"], db(-22) * e["e"], p)
         elif e["kind"] == "snap":
             place(bed, s_snap(rng), e["t"], db(-9), p)
         elif e["kind"] == "splash":
