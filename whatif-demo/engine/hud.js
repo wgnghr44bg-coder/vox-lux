@@ -19,7 +19,7 @@ export function createHud(TL) {
         $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(0, v2), S.decimals ?? 0)}${S.unit || ''}`;
         $('second').style.opacity = smooth(S.showAt ?? 0, (S.showAt ?? 0) + 1.5, t) * .85;
       }
-      $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t));
+      $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t)) * (TL.endStyle === 'card' ? 1 : 1 - smooth(B.fade - .5, B.fade + 1, t));
       $('title').style.opacity = smooth(TL.titleIn, TL.titleIn + 1, t) * (1 - smooth(TL.titleOut - 1.2, TL.titleOut, t));
       let ct = '', ca = 0;
       for (const [a, b, s] of TL.captions) if (t >= a - .1 && t <= b + .1 && (TL.endStyle === 'card' || a < B.fade - .5)) { ct = s; ca = smooth(a, a + .6, t) * (1 - smooth(b - .6, b, t)); }
