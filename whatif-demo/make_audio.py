@@ -2,6 +2,9 @@
 """Synthesised sound design for a 'What if' video (no recordings, $0).
 
     python3 whatif-demo/make_audio.py whatif-demo/earth-stops
+    python3 whatif-demo/make_audio.py whatif-demo/gravity-doubled
+
+The bed is picked from the timeline: TL.beats.double -> build_gravity(), else build() (earth stops).
 
 Reads <dir>/timeline.json (node render.mjs timeline: the TL object + physics events)
 and <dir>/voice.mp3, writes:
@@ -261,6 +264,57 @@ def library():
     return lib
 
 
+# ---------- extra sounds (gravity doubled) ----------
+def s_dreun(rng):
+    """One deep pressing boom: sub sine sliding down, soft-clipped, with a low noise body."""
+    n = int(4.5 * SR); t = np.arange(n) / SR
+    f = 24 + 22 * np.exp(-t * 2.2)
+    sub = np.sin(2 * np.pi * np.cumsum(f) / SR) * env_ad(n, .012, 1.4)
+    body = lp(brown(rng, n), 140, 4) * env_ad(n, .02, .9)
+    hit = lp(rng.standard_normal(n), 400) * env_ad(n, .002, .07)
+    x = np.tanh((sub * 1.0 + norm(body) * .6 + hit * .5) * 1.8)
+    return norm(echo(np.stack([x, x], 1), delays=(.07, .19, .37), gains=(.25, .15, .08)))
+
+
+def s_oorplop(rng):
+    """Ear pop: a dull click and a tiny low 'tock' (pressure equalising)."""
+    n = int(.35 * SR); t = np.arange(n) / SR
+    tock = np.sin(2 * np.pi * (210 - 90 * t / .35) * t) * np.exp(-t * 40)
+    click = bp(rng.standard_normal(n), 500, 2500) * np.exp(-t * 300) * .6
+    return norm(tock + click)
+
+
+def s_kabel(rng):
+    """Snapping cable: sharp crack, then a twang gliding down and a whip of air."""
+    n = int(2.2 * SR); t = np.arange(n) / SR
+    crack = hp(rng.standard_normal(n), 1200) * env_ad(n, .0005, .015) * 1.4
+    f = 300 + 700 * np.exp(-t * 3) + 25 * np.sin(2 * np.pi * 7 * t)
+    tw = sum(np.sin(2 * np.pi * np.cumsum(f * k) / SR) / k for k in (1, 2.03, 3.1)) * np.exp(-t * 2.2) * .5
+    whip = bp(rng.standard_normal(n), 900, 4000) * np.exp(-((t - .12) / .07) ** 2) * .4
+    return norm(crack + tw + whip)
+
+
+def s_vliegtuig(rng, sec=9):
+    """Airliner under strain: jet roar swelling, turbine whine gliding down, slow doppler-ish dip."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    env = smooth(0, sec * .35, t) * (1 - smooth(sec * .7, sec, t))
+    roar = bp(brown(rng, n), 120, 1500) * lfo(rng, n, .3, .3)
+    glide = 2600 - 900 * smooth(0, sec, t)
+    whine = np.sin(2 * np.pi * np.cumsum(glide) / SR) * .08 + np.sin(2 * np.pi * np.cumsum(glide * .5) / SR) * .05
+    low = np.sin(2 * np.pi * np.cumsum(70 - 20 * smooth(0, sec, t)) / SR) * .3
+    x = (norm(roar) + whine + low) * env
+    return norm(stereo(rng, lambda r: x + bp(r.standard_normal(n), 300, 900) * .05 * env, .4))
+
+
+def library_extra():
+    rng = np.random.default_rng(17)
+    lib = {"dreun": s_dreun(rng), "oorplop": s_oorplop(rng), "kabel": s_kabel(rng), "vliegtuig": s_vliegtuig(rng)}
+    lib = {k: v if v.ndim == 2 else np.stack([v, v], 1) for k, v in lib.items()}
+    for k, v in lib.items():
+        write(SFX / f"{k}.wav", v)
+    return lib
+
+
 # ---------- the bed for this video ----------
 def monotone(pts):
     xs = np.array([p[0] for p in pts], float); ys = np.array([p[1] for p in pts], float)
@@ -287,6 +341,7 @@ def place(bed, snd, t, gain, p=0.0):
     s = snd if snd.ndim == 2 else pan(snd, p)
     i = int(t * SR)
     if i >= len(bed) or i + len(s) < 0: return
+    if i < 0: s, i = s[-i:], 0
     s = s[: len(bed) - i] * gain
     bed[i:i + len(s)] += s
 
@@ -394,9 +449,103 @@ def build(topic: Path):
     return bed
 
 
+def build_gravity(topic: Path):
+    """What if gravity suddenly doubled: city -> one boom + muffled ears -> creaks -> falling things
+    -> collapsing towers -> near silence."""
+    data = json.loads((topic / "timeline.json").read_text())
+    TL, EV = data["TL"], data["EVENTS"]
+    B = TL["beats"]; T = TL["T_END"]; D = B["double"]; POP = B["earPop"]
+    cut2, cut3 = TL["shots"][1][0], TL["shots"][2][0]
+    n = int(T * SR); t = np.arange(n) / SR
+    lib = library(); lib.update(library_extra())
+    rng = np.random.default_rng(23)
+    bed = np.zeros((n, 2))
+    tile = lambda k, L: np.tile(lib[k], (int(T / L) + 2, 1))[:n]
+
+    # 1. the street: soft city bed + cars + crossing ticks; quieter once traffic stops
+    city = tile("stad", 30) * (db(-15) * (1 - smooth(D, D + 4, t)) + db(-25) * smooth(D, D + 4, t) * (1 - smooth(cut3 - .1, cut3, t)))[:, None]
+    for tc in (1.5, 6.5, 10.5, 13.8):
+        place(city, lib["auto"], tc - 2.5, db(-17))
+    for tk in np.arange(B["redLight"][0], B["redLight"][1], 1.0):
+        place(city, lib["tik"], tk, db(-31), .35)
+    jet = s_vliegtuig(rng, 14)
+    place(city, lp(jet, 700), 0, db(-30))
+    # pressure under it all from the doubling on
+    city += tile("drone", 30) * (db(-30) * smooth(D, D + 3, t) + db(-26) * smooth(cut2, cut3 + 4, t))[:, None]
+    # creaks: car springs, branches, buildings settling
+    for tc in np.sort(rng.uniform(D + .3, cut2 - .5, 12)):
+        place(city, s_kraak(rng), tc, db(-20), rng.uniform(-.7, .7))
+    for tc in (D + .25, D + .45, D + .8):
+        place(city, hp(s_metaal(rng), 400), tc, db(-22), rng.uniform(-.8, .8))
+    place(city, s_kraak(rng), B["trees"], db(-15), -.4)
+    place(city, s_kraak(rng), B["trees"] + .6, db(-17), .5)
+    hiss = np.zeros((n, 2)); hiss += stereo(rng, lambda r: hp(r.standard_normal(n), 2500), .8)
+    city += hiss * (db(-46) * smooth(B["tyres"], B["tyres"] + 1, t) * (1 - smooth(B["tyres"] + 2.5, B["tyres"] + 4, t)))[:, None]
+
+    # the doubling: ears muffled (lowpass) from the boom until the pop
+    muf = smooth(D, D + .12, t) * (1 - smooth(POP - .05, POP + .12, t))
+    city = city * (1 - muf)[:, None] + lp(city, 320, 4) * muf[:, None] * 1.3
+    bed += city
+    place(bed, lib["dreun"], D, db(-1))
+    place(bed, lib["oorplop"], POP - .15, db(-14))
+
+    # 2. escalation: rumble bed, falling things, glass, the crane
+    bed += tile("gerommel", 20) * (db(-24) * smooth(cut2 - .2, cut2 + 3, t) + db(-12) * smooth(B["towers"][0], B["towers"][0] + 2, t))[:, None]
+    last = -1
+    for e in EV:
+        k, te = e["kind"], e["t"]
+        if k == "impact":
+            if te - last < .1: continue
+            last = te
+            g = db(-8) * e["e"] ** .5 * (1.4 if e["heavy"] >= 2 else 1)
+            place(bed, s_klap(rng, .5 + e["heavy"] * .3), te, g, np.clip(e["x"] / 16, -.9, .9))
+            if e["heavy"] >= 2: place(bed, s_puin(rng), te + .08, g * .5, np.clip(e["x"] / 16, -.9, .9))
+        elif k == "crack":
+            place(bed, s_kraak(rng)[: int(1.2 * SR)], te - .5, db(-14), np.clip(e["x"] / 16, -.9, .9))
+        elif k == "tear":
+            place(bed, hp(s_metaal(rng), 600)[: int(1.5 * SR)], te - .3, db(-16), rng.uniform(-.6, .6))
+        elif k == "bend":
+            place(bed, s_metaal(rng), te - .1, db(-15), rng.uniform(-.6, .6))
+        elif k == "snap":
+            place(bed, lib["kabel"], te, db(-8), .1)
+        elif k == "glass":
+            for j in range(9):
+                place(bed, s_barst(rng) if j % 3 == 0 else s_glas(rng), te + j * .22 + rng.uniform(0, .15), db(-9 - j * .6), rng.uniform(-.8, .8))
+        elif k == "buckle":
+            place(bed, s_metaal(rng), te - .2, db(-7), .4); place(bed, s_kraak(rng), te, db(-8), .4)
+        elif k == "craneHit":
+            place(bed, s_klap(rng, 1.6), te, db(-3), .4); place(bed, s_puin(rng), te + .15, db(-8), .4)
+        elif k == "bridge":
+            place(bed, lp(s_metaal(rng), 700), te, db(-8) * e["e"], .1); place(bed, lp(s_kraak(rng), 400), te + .3, db(-8) * e["e"], -.1)
+        elif k == "collapse":
+            r = norm(lp(brown(rng, 9 * SR), 120)) * env_ad(9 * SR, 1.2, 3.5)
+            place(bed, np.stack([r, r], 1), te, db(-4), 0); place(bed, lp(s_kraak(rng), 500), te - .4, db(-6), 0)
+        elif k == "floor":
+            place(bed, lp(s_klap(rng, 1.2), 900), te, db(-15), np.clip(e["x"] / 120, -.7, .7))
+        elif k == "ground":
+            place(bed, lp(s_klap(rng, 2.0), 1200), te, db(-2), np.clip(e["x"] / 120, -.7, .7))
+            place(bed, lp(s_puin(rng), 2000), te + .2, db(-8), 0)
+            r = norm(lp(brown(rng, 8 * SR), 90)) * env_ad(8 * SR, .2, 2.5)
+            place(bed, np.stack([r, r], 1), te, db(-3), 0)
+        elif k == "plane":
+            place(bed, lib["vliegtuig"], te, db(-11))
+
+    # 3. near silence after the climax: everything sinks away, settling debris, far wind, low tone
+    S0 = B["settle"]
+    bed *= (1 - smooth(S0 - .2, S0 + 1.5, t) * .93)[:, None]
+    after = stereo(rng, lambda r: norm(lp(brown(r, n), 260) * lfo(r, n, .06, .5)), .8) * (db(-30) * smooth(S0, S0 + 2, t))[:, None]
+    after += tile("drone", 30) * (db(-27) * smooth(S0, S0 + 2, t))[:, None]
+    for tc in (S0 + .8, S0 + 2.1, S0 + 3.9, S0 + 6.3):
+        place(after, lp(s_puin(rng), 1500), tc, db(-28), rng.uniform(-.6, .6))
+    bed += after
+    bed *= (1 - smooth(B["fade"], T - .05, t))[:, None]
+    return bed
+
+
 def main():
     topic = Path(sys.argv[1]).resolve()
-    bed = build(topic)
+    tl = json.loads((topic / "timeline.json").read_text())["TL"]
+    bed = build_gravity(topic) if "double" in tl["beats"] else build(topic)
     bed = bed / (np.max(np.abs(bed)) or 1) * .7
     write(topic / "sfx-bed.wav", bed)
     data = json.loads((topic / "timeline.json").read_text())
@@ -405,7 +554,7 @@ def main():
     fc = (f"[1:a]adelay={off}|{off},apad,atrim=0:{T},aformat=channel_layouts=stereo,asplit=2[v][sc];"
           f"[0:a][sc]sidechaincompress=threshold=0.02:ratio=6:attack=40:release=450:makeup=1[d];"
           f"[d][v]amix=inputs=2:weights='1.9 1.6':normalize=0,"
-          f"loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.8:level=false,aresample=44100[out]")
+          f"loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.89:level=false,aresample=44100[out]")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(topic / "sfx-bed.wav"), "-i", str(topic / "voice.mp3"),
                     "-filter_complex", fc, "-map", "[out]", "-t", str(T), str(topic / "mix.wav")], check=True)
     print("ok:", topic / "mix.wav")
