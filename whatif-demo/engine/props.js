@@ -169,7 +169,7 @@ export function car(E, seed, o) {
   const wrap = q => a + ((q - a) % len + len) % len;
   const drive = t => {
     const d = s(t), sp = t < brakeT ? v : Math.max(0, v * (1 - (t - brakeT) / Tb));
-    if (axis === 'z') return { p: [x0, y, wrap(z0 + dir * d)], r: [0, dir > 0 ? 0 : Math.PI, 0], v: [0, 0, dir * sp] };
+    if (axis === 'z') return { p: [x0, y, wrap(z0 + dir * d)], r: [0, dir > 0 ? Math.PI : 0, 0], v: [0, 0, dir * sp] };   // front = local -z
     return { p: [wrap(x0 + dir * d), y, z0], r: [0, dir > 0 ? -Math.PI / 2 : Math.PI / 2, 0], v: [dir * sp, 0, 0] };
   };
   const body = E.body({ kind: 'car', obj: g, drive, k: .021, mu: .8, lift: .15, spin: .15, heavy: 2, hx: .9, hy: .75, hz: 2.15, density: .55,
