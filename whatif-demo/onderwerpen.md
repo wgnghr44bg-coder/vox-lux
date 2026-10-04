@@ -8,7 +8,7 @@ alleen natuurkunde die klopt, verteld als "would".
 
 | # | What if… | Plek | Kracht / beeld | Status |
 |---|---|---|---|---|
-| 1 | Gravity suddenly doubled? | Rivierstad met hangbrug | Zwaartekracht: brug zakt door, torens storten recht in | gepland |
+| 1 | Gravity suddenly doubled? | Rivierstad met hangbrug | Zwaartekracht: brug zakt door, torens storten recht in | geüpload 2026-10-04 https://youtu.be/DE61_VUIuCw (openbaar, straatversie van de eigenaar) |
 | 2 | The Moon disappeared? | Haven bij nacht | Getij valt weg, schepen op het droge, donkere nachten | gepland |
 | 3 | All the ice on Earth melted? | Strandboulevard | Zee stijgt meter voor meter | gepland |
 | 4 | The Sun went out? | Besneeuwd bergdorp | Steeds donkerder en kouder, alles bevriest | gepland |
@@ -38,4 +38,4 @@ alleen natuurkunde die klopt, verteld als "would".
 | 28 | Earth stopped spinning? | Stadsstraat aan zee | Wind van 1,037 mph | gemaakt (earth-stops), nog niet geüpload |
 | 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | proef bestaat, opnieuw maken in nieuwe stijl |
 | 30 | The air got twice as thick? | Bergweg met uitzichtpunt | Zware lucht, vogels en vliegtuigen anders | gepland |
-| 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | in de maak |
+| 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | geüpload 2026-10-04 https://youtu.be/i2pChBmzRDs (openbaar, ondertitelde versie van de eigenaar) |
