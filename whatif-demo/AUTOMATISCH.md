@@ -3,6 +3,14 @@
 Deze instructies volgt de dagelijkse sessie ("Maak en upload de volgende What if-video volgens
 whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 
+## Zuinig werken (eigenaar, okt 2026)
+
+- Gebruik bestaande plekken en krachten; bouw alleen iets nieuws als het onderwerp echt niet past.
+- Eén testronde per video: één testblad bekijken, één keer bijsturen, dan de volledige render.
+- Vraag de wensen vooraf in één keer; niet halverwege van richting veranderen.
+- Korte berichten: resultaat + video, geen lange uitleg.
+- Meerdere video's in één sessie maken als de eigenaar daarom vraagt (code maar één keer inlezen).
+
 ## 0. Klaarzetten
 
 ```bash
