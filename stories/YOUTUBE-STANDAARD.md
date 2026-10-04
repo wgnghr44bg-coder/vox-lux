@@ -56,7 +56,15 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    ```
    Hoofdstuk 1 en andere onderdelen nooit tijdens de intro (eerste 9 s) of over elkaar heen:
    motion.py schuift ze zelf op als dat nodig is (eigenaar, okt 2026: titel en chapter liepen door elkaar).
-   Duurt ± 0,65× de videolengte (± 80 min bij 2 uur). Voorbeeld: `stories/pompeii/motion.json`;
+   Duurt ± 0,65× de videolengte (± 80 min bij 2 uur).
+   **Lange video's: gebruik `tools/motion_blokken.py`** (zelfde argumenten als motion.py, plus de
+   repo-map vooraan: `python3 tools/motion_blokken.py . <in.mp4> <out.mp4> --plan ... --effecten ...`).
+   Rendert in blokken van 10 min; klare blokken blijven staan, dus na een container-herstart gaat
+   het verder. Start 3 werkers tegelijk (3× sneller op 4 cores); deeltjes worden exact
+   vooruitgespoeld, dus geen sprong op de naden (getest bij Tunguska, okt 2026).
+   **Container blijft alleen wakker zolang de sessie iets doet**: laat bij lang renderen altijd een
+   wachter meelopen (Bash met run_in_background die wacht tot het klaar is, max 2 u) en start die
+   opnieuw als hij stopt; anders wordt de container opgeruimd en stopt het renderen. Voorbeeld: `stories/pompeii/motion.json`;
    alle velden staan bovenin `tools/motion.py`. Tijden in seconden **mét** de extra pauzes
    (uit `tijdlijn-pauzes.tsv`, dezelfde als de hoofdstukken in de beschrijving).
    **motion.json** — altijd:
