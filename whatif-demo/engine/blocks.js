@@ -56,6 +56,15 @@ export function house(E, o) {
   const rg = new THREE.ExtrudeGeometry(shape, { depth: d + 1.2, bevelEnabled: false }); rg.translate(0, 0, -(d + 1.2) / 2);
   const rmat = lam(o.snow ? 0xe9eef2 : roof); E.frost.push(rmat);
   const r = shadowed(new THREE.Mesh(rg, rmat)); r.position.y = h; g.add(r);
+  if (o.snow) {     // snow on the roof: melts to the roof colour; a slab on each side can slide off in the heat
+    E.melt.push({ mat: rmat, bare: roof });
+    const pitch = Math.atan2(rh, w / 2 + .6), len = Math.hypot(rh, w / 2 + .6), sm = lam(0xeef2f5);
+    for (const sd of [-1, 1]) {
+      const slab = shadowed(new THREE.Mesh(new THREE.BoxGeometry(len * .8, .35, d + .8), sm));
+      slab.position.set(sd * (w / 4 + .3), h + rh / 2 + .25, 0); slab.rotation.z = -sd * pitch; g.add(slab);
+      E.breaks.push({ src: slab, strength: { heat: .18 + ((x * 7 + z * 3 + sd * 5) % 10 + 10) % 10 * .045 }, k: .01, lift: 0, mu: .4, spin: .4, hx: len * .4, hy: .2, hz: d / 2 + .4, heavy: 1, v0: [0, 0, 0] });
+    }
+  }
   if (o.chimney !== false) { const ch = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.8, 2, .8), lam(0x6d5a4a))); ch.position.set(w * .22, h + rh * .7, d * .2); g.add(ch);
     E.breaks.push({ src: ch, strength: { gravity: .55 + (x % 1 + 1) % 1 * .3, wind: .7 }, k: .02, lift: .1, mu: .7, spin: .4, hx: .4, hy: 1, hz: .4, heavy: 1 }); }
   maybeFall(E, g, o, h + rh, w, d);

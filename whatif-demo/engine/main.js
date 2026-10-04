@@ -103,7 +103,7 @@ function applyLook(t) {
   F.look?.(t, L);
   E.skyMat.uniforms.top.value.copy(L.top); E.skyMat.uniforms.hor.value.copy(L.hor);
   E.skyMat.uniforms.sunDir.value.copy(E.sun.position).normalize(); E.skyMat.uniforms.sunCol.value.copy(L.sunDisc || C(0));
-  E.skyMat.uniforms.stars.value = L.stars || 0;
+  E.skyMat.uniforms.stars.value = L.stars || 0; E.skyMat.uniforms.sunSize.value = L.sunSize || 1;
   E.scene.fog.color.copy(L.fogColor || L.hor); E.scene.fog.near = L.fogNear; E.scene.fog.far = L.fogFar;
   dust.mat.uniforms.fogColor.value.copy(E.scene.fog.color); dust.mat.uniforms.fogNear.value = L.fogNear; dust.mat.uniforms.fogFar.value = L.fogFar;
   dust.mat.uniforms.light.value = L.dustLight ?? 1;
