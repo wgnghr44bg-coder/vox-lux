@@ -123,10 +123,10 @@
      "kant": "rechts"
     },
     {
-     "naam": "Thingvellir, Iceland",
-     "lon": -21.1,
-     "lat": 64.26,
-     "kant": "onder"
+     "naam": "Iceland",
+     "lon": -19.0,
+     "lat": 64.9,
+     "kant": "boven"
     },
     {
      "naam": "Greenland",
@@ -141,12 +141,12 @@
      60.5
     ],
     [
-     -21.9,
-     64.1
+     -19.0,
+     64.9
     ],
     [
      -45.5,
-     61.0
+     61.2
     ]
    ]
   },
