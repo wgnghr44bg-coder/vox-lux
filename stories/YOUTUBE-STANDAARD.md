@@ -196,8 +196,14 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
     maak dan één aparte thumbnail-afbeelding via xAI (`grok-imagine-image`, $0,02):
     filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en
     donkerder, 16:9, geen tekst.
-  - Na publicatie: test in Studio met **Test & Compare** twee varianten (andere hook
-    of ander beeld); YouTube kiest zelf de winnaar.
+  - **A/B-test bij elke video (eigenaar, okt 2026)**: maak naast `thumbnail-v2.jpg` twee varianten
+    met **dezelfde hook en regel**, alleen een ander beeld, zodat de test één ding meet:
+    `thumbnail-test-b.jpg` = dichtbij, 1–2 mensen in warm lamplicht/vuur;
+    `thumbnail-test-c.jpg` = wijd, landschap of gebouw, geen mensen van dichtbij.
+    (xAI `grok-imagine-image`, ± $0,02 per beeld, daarna `tools/make_thumbnail.py`.) Controleer op
+    dingen uit de verkeerde tijd (bv. schoorsteen bij een Vikinghuis). De eigenaar zet op de dag van
+    publicatie in Studio **Testen en vergelijken** aan met de drie (kan niet via de API).
+    Uitslag (welke soort wint) hier noteren, zodat de standaard leert.
   - Oud ontwerp (v1) kan nog met `--stijl v1 --title "<onderwerp>"`, niet meer gebruiken
     voor nieuwe video's.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
