@@ -6,8 +6,8 @@
 
 1. tools/check_video.py must say "CONTROLE GOED", otherwise nothing is uploaded (exit 1).
 2. YouTube, channel "whatif" (YT_WHATIF_REFRESH_TOKEN): private, --publish-at the next day 18:00
-   Europe/Amsterdam, AI label on, thumbnail. Without the token the upload is skipped (and said so).
-3. TikTok: mp4 + thumbnail + tiktok.txt in whatif-demo/tiktok/<date>-<slug>/ (the session copies
+   Europe/Amsterdam, AI label on. Shorts get no custom thumbnail. Without the token the upload is skipped (and said so).
+3. TikTok: mp4 + tiktok.txt in whatif-demo/tiktok/<date>-<slug>/ (the session copies
    that folder to Google Drive "TikTok klaar", see AUTOMATISCH.md).
 4. onderwerpen.md: status -> "geüpload <date> <link>" (or "klaar <date>, niet geüpload: ...").
 """
@@ -55,7 +55,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     d = find_topic(a.number); slug = d.name
-    video, thumb = d / f"{slug}.mp4", d / "thumbnail.jpg"
+    video = d / f"{slug}.mp4"
     up = json.loads((d / "upload.json").read_text(encoding="utf-8"))
     today = dt.datetime.now(ZoneInfo("Europe/Amsterdam")).date().isoformat()
 
@@ -69,7 +69,7 @@ def main():
     # TikTok folder
     tk = HERE / "tiktok" / f"{today}-{slug}"
     tk.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(video, tk / video.name); shutil.copy2(thumb, tk / "thumbnail.jpg")
+    shutil.copy2(video, tk / video.name)
     (tk / "tiktok.txt").write_text(up["tiktok"] + "\n", encoding="utf-8")
     print("TikTok folder:", tk)
 
@@ -83,7 +83,7 @@ def main():
     when = publish_at()
     res = subprocess.run([sys.executable, REPO / "tools" / "youtube_upload.py", video, "--channel", "whatif",
                           "--title", up["title"], "--description-file", desc, "--tags", ",".join(up["tags"]),
-                          "--privacy", "private", "--publish-at", when, "--thumbnail", thumb],
+                          "--privacy", "private", "--publish-at", when],
                          capture_output=True, text=True)
     print(res.stdout.strip(), res.stderr.strip()[-500:])
     m = re.search(r"https://youtu\.be/[\w-]+", res.stdout)
