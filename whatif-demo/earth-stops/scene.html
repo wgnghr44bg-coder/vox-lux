@@ -510,25 +510,25 @@ trees.forEach((tr, i) => { if (hash(i, 65) < .7) part(tr.g, { k: .025, lift: .3,
     body({ kind: 'chunk', inst: { ...ch, sv: [sz * (1 + R()), sz * (.4 + R() * .6), sz * (.6 + R())] }, k: .05 / sz, lift: .3, mu: .7, spin: 1.2 / sz, heavy: sz > 1.2 ? 1 : 0,
       hx: sz * .7, hy: sz * .35, hz: sz * .6, p: [b.s * (WALK - sz * .4), y, z], r: [R(), R(), R()], v0: [-b.s * (1 + R() * 4), R() * 2, R() * 3], tRel: t0, hidden: true });
   }
-  // climax: angular pieces coming down the street, some past the camera (kept small so they never fill the frame)
-  for (let i = 0; i < 40; i++) {
-    const sz = .5 + R() * 1.2, t0 = TL.beats.climax - .8 + R() * (STOP - TL.beats.climax + .4);
+  // climax: big angular pieces coming down the street, some past the camera
+  for (let i = 0; i < 60; i++) {
+    const sz = 1.2 + R() * 2.8, t0 = TL.beats.climax - .8 + R() * (STOP - TL.beats.climax + .4);
     const col = [0x8e8e8a, 0xa79a84, 0x9c4a3a, 0xc9b896, 0x5f5a55, 0x7a5a44][Math.floor(R() * 6)];
     const ch = slot(IM.chunk, sz, col);
     body({ kind: 'chunk', inst: { ...ch, sv: [sz * (1 + R()), sz * (.3 + R() * .5), sz * (.8 + R())] }, k: .012, lift: .45, mu: .7, spin: .5, heavy: 2,
       hx: sz, hy: sz * .3, hz: sz * .8, p: [(R() - .5) * 22, 4 + R() * 26, -40 - R() * 70], r: [R(), R(), R()], v0: [(R() - .5) * 4, R() * 3, 22 + R() * 22], tRel: t0, hidden: true });
   }
-  // floors tear away: one short wave of top floors on "Whole floors tear away", away from the camera
+  // floors tear away: the top floors first, more and more toward the climax
   const sched = [];
-  nearB.filter(b => b.cz < -25).forEach(b => b.floors.forEach((m, f) => sched.push({ b, m, f, top: b.floors.length - 1 - f })));
+  nearB.forEach(b => b.floors.forEach((m, f) => sched.push({ b, m, f, top: b.floors.length - 1 - f })));
   sched.sort((a, c) => a.top - c.top || (c.b.cz - a.b.cz) * (hash(a.f, 3) - .5));
   let t0 = TL.beats.floors;
   sched.forEach((s, i) => {
-    if (s.top > 1 || i >= 10) return;
-    const at = t0 + i * .5 + hash(i, 9) * .3;
+    if (s.top > 3) return;
+    const at = t0 + (i < 3 ? i * .7 : 2 + Math.pow((i - 3) / sched.length, .8) * (STOP - t0 - 3)) + hash(i, 9) * .6;
     const L = s.b.len - .4, D = s.b.depth;
-    body({ kind: 'floor', obj: s.m, k: .0015, lift: 0, mu: 2.2, bounce: .12, spin: .12, heavy: 3, hx: D / 2, hy: 1.75, hz: L / 2,
-      p: [s.m.position.x, s.m.position.y, s.m.position.z], r: [0, 0, 0], v0: [-s.b.s * 4, 1, 2], tRel: at, floor: s });
+    body({ kind: 'floor', obj: s.m, k: .0032, lift: .5, mu: .6, bounce: .12, spin: .12, heavy: 3, hx: D / 2, hy: 1.75, hz: L / 2,
+      p: [s.m.position.x, s.m.position.y, s.m.position.z], r: [0, 0, 0], v0: [-s.b.s * 4.5, 2, 3], tRel: at, floor: s });
   });
 }
 
@@ -617,7 +617,7 @@ function simulate() {
         wv[1] += (noise(t * .7, b.hx * 13) * b.spin * vh * .05 - wv[1]) * dt;
         if (onG && vh < 2) { for (const i of [0, 2]) { wv[i] *= .9; const q = Math.round(r[i] / (Math.PI / 2)) * Math.PI / 2; r[i] += (q - r[i]) * .04; } }
         r[0] += wv[0] * dt; r[1] += wv[1] * dt; r[2] += wv[2] * dt;
-        if (p[2] > 70 || p[1] > 160 || b.kind === 'floor' && p[2] > 0) b.done = true;
+        if (p[2] > 70 || p[1] > 160) b.done = true;
       }
       // cars do not pass through each other
       for (let i = 0; i < cars.length; i++) for (let j = i + 1; j < cars.length; j++) {
