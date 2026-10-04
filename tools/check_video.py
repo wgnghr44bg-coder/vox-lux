@@ -13,6 +13,8 @@ Controleert:
 
 Gebruik:
     python3 tools/check_video.py stories/<map> video/<naam>-motion.mp4 [--muziek-db -20]
+    python3 tools/check_video.py whatif-demo/topics/<slug> <slug>.mp4 --stem voice.mp3 --bron mix.wav
+        (What if-video's: stem = losse voice-over, bron = de eindmix zelf als referentie)
 Exitcode 0 en "CONTROLE GOED" = mag geüpload worden; anders NIET uploaden.
 """
 import argparse, subprocess, sys
@@ -57,10 +59,14 @@ def main():
     ap.add_argument("story", type=Path)
     ap.add_argument("video", help="eindvideo, relatief aan de verhaalmap of een pad")
     ap.add_argument("--muziek-db", type=float, default=-20)
+    ap.add_argument("--stem", help="voice-over (default video/stem-met-pauzes.wav)")
+    ap.add_argument("--bron", help="reference audio for the whole video (default: stem + muziek)")
     a = ap.parse_args()
     st = a.story
     f = Path(a.video) if Path(a.video).exists() else st / a.video
     stem, muziek = st / "video" / "stem-met-pauzes.wav", st / "video" / "muziek432.wav"
+    if a.stem:
+        stem = st / a.stem
     fout = []
 
     # 1. stem blijft hangen (meer dan een paar = gewone korte woordjes tussen komma's)
@@ -86,7 +92,9 @@ def main():
     # 3. geluid van de video tegen de bron
     got = pcm(["-i", str(f)], 8000)
     ref_args = ["-i", str(stem)]
-    if muziek.exists():
+    if a.bron:
+        ref_args = ["-i", str(st / a.bron)]
+    elif muziek.exists():
         ref_args = ["-i", str(stem), "-i", str(muziek), "-filter_complex",
                     f"[1]volume={a.muziek_db}dB[m];[0][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.9"]
     ref = pcm(ref_args, 8000)

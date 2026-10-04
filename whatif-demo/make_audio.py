@@ -2,6 +2,8 @@
 """Synthesised sound design for a 'What if' video (no recordings, $0).
 
     python3 whatif-demo/make_audio.py whatif-demo/earth-stops
+    python3 whatif-demo/make_audio.py whatif-demo/topics/<slug>     (engine videos: place ambience,
+                                    force layer from AUDIO.level, sounds for every EVENT)
 
 Reads <dir>/timeline.json (node render.mjs timeline: the TL object + physics events)
 and <dir>/voice.mp3, writes:
@@ -394,8 +396,212 @@ def build(topic: Path):
     return bed
 
 
+# ---------- generic engine videos (engine/ + topics/<slug>/) ----------
+def s_water(rng, sec=30):
+    """River/harbour water lapping against a quay wall."""
+    n = int(sec * SR)
+    def one(r):
+        lap = bp(r.standard_normal(n), 250, 1600) * np.clip(lfo(r, n, .35, 1.0), 0, None) ** 2
+        return lap * .5 + lp(brown(r, n), 300) * .3
+    return norm(stereo(rng, one, .7))
+
+
+def s_waves(rng, sec=30):
+    """Sea waves: slow swells of surf every 6-9 s."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    env = np.zeros(n); p = 0.0
+    while p < sec:
+        env += np.exp(-((t - p - 1.2) / .9) ** 2) * (1 - np.exp(-np.maximum(0, t - p) * 2)) * rng.uniform(.6, 1)
+        env += np.exp(-np.maximum(0, t - p - 1.6) * .6) * (t > p + 1.6) * .35
+        p += rng.uniform(6, 9)
+    return norm(stereo(rng, lambda r: (bp(r.standard_normal(n), 200, 5000) * env + lp(brown(r, n), 200) * .2), .8))
+
+
+def s_berg(rng, sec=30):
+    """Mountain quiet: soft high wind, a far bird now and then."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    x = norm(stereo(rng, lambda r: bp(brown(r, n), 200, 1500) * lfo(r, n, .06, .8), .8), .4)
+    for _ in range(4):
+        L = int(.5 * SR); tt = np.arange(L) / SR; p = int(rng.uniform(0, sec - 1) * SR)
+        call = np.sin(2 * np.pi * np.cumsum(1900 * (1 - .25 * tt / tt[-1])) / SR) * np.sin(np.pi * tt / tt[-1]) * .04
+        x[p:p + L] += pan(call, rng.uniform(-.7, .7))
+    return x
+
+
+def s_snap(rng):
+    """A steel cable snapping: sharp crack and a falling twang."""
+    n = int(2.2 * SR); t = np.arange(n) / SR
+    crack = hp(rng.standard_normal(n), 1200) * env_ad(n, .0003, .01) * 1.4
+    f = 420 * np.exp(-t * 1.4) + 60
+    tw = sum(np.sin(2 * np.pi * np.cumsum(f * k) / SR) / k for k in (1, 2.76, 5.4)) * np.exp(-t * 2.2) * .5
+    return norm(crack + tw + lp(rng.standard_normal(n), 400) * env_ad(n, .001, .15) * .4)
+
+
+def s_splash(rng, size=1.0):
+    """Heavy object into water: thump, splash burst, falling drops."""
+    n = int(3 * SR); t = np.arange(n) / SR
+    thump = np.sin(2 * np.pi * np.cumsum(70 * np.exp(-t * 4) + 30) / SR) * env_ad(n, .004, .2 * size)
+    burst = bp(rng.standard_normal(n), 300, 6000) * env_ad(n, .01, .35 * size)
+    drops = np.zeros(n)
+    for _ in range(int(60 * size)):
+        p = int((.2 + rng.uniform(0, 1.8) ** 1.3) * SR); L = int(.04 * SR)
+        if p + L < n: drops[p:p + L] += bp(rng.standard_normal(L), 900, 5000) * np.exp(-np.arange(L) / (L / 5)) * rng.uniform(.05, .3)
+    return norm(thump + burst + drops)
+
+
+def s_ice(rng):
+    """Ice cracking: a ringing 'pew' plus crackle."""
+    n = int(2 * SR); t = np.arange(n) / SR
+    pew = np.sin(2 * np.pi * np.cumsum(2400 * np.exp(-t * 6) + 300) / SR) * np.exp(-t * 5) * .5
+    return norm(pew + hp(rng.standard_normal(n), 2000) * env_ad(n, .0005, .02) + lp(rng.standard_normal(n), 300) * env_ad(n, .001, .1) * .5)
+
+
+def s_groan(rng, sec=4.0):
+    """Very low structural groan (steel and concrete under load)."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    f0 = 38 + 10 * np.sin(2 * np.pi * .3 * t + rng.uniform(0, 6)) + rng.uniform(-5, 5)
+    saw = sum(np.sin(2 * np.pi * np.cumsum(f0 * k) / SR) / k for k in range(1, 12))
+    jit = np.clip(lfo(rng, n, 6, .9), 0, None)
+    x = lp(saw * jit, 600) + bp(rng.standard_normal(n), 60, 250) * .25
+    return norm(x * smooth(0, .8, t) * (1 - smooth(sec - 1.2, sec, t)))
+
+
+AMBIENCE = {"stad": "stad", "rivier": "rivier", "zee": "zee", "berg": "berg"}
+
+
+def loop(snd, n):
+    return np.tile(snd, (n // len(snd) + 2, 1))[:n]
+
+
+def build_engine(topic: Path):
+    data = json.loads((topic / "timeline.json").read_text())
+    TL, EV, AU = data["TL"], data["EVENTS"], data["AUDIO"]
+    B = TL["beats"]; T = TL["T_END"]; STOP = B["stop"]
+    n = int(T * SR); t = np.arange(n) / SR
+    lv = np.array(AU["level"], float)
+    I = np.interp(np.minimum(t, STOP), np.arange(len(lv)) / 10, lv)            # force intensity 0..1
+    lib = library()
+    rng = np.random.default_rng(11)
+    bed = np.zeros((n, 2))
+    k = int(.03 * SR); i0 = min(n, int(STOP * SR))
+    alive = (t < STOP).astype(float); alive[max(0, i0 - k):i0] = np.linspace(1, 0, i0 - max(0, i0 - k))
+    force, amb = AU["force"], AU.get("ambience") or "stad"
+
+    # 1. place ambience, fading as the force takes over
+    ambs = {"stad": lambda: lib["stad"], "rivier": lambda: lib["stad"] * .6 + s_water(rng) * .5,
+            "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng)}
+    A = loop(ambs.get(amb, ambs["stad"])(), n)
+    bed += A * (db(-14) * (1 - smooth(.25, .7, I)) * alive + db(-30) * alive)[:, None]
+
+    def layer(make, gain, width=.7):
+        return stereo(rng, make, width) * gain[:, None]
+
+    # 2. the force itself, following its intensity
+    if force == "wind":
+        roar = layer(lambda r: norm(bp(brown(r, n), 50, 420) * lfo(r, n, .11, .45)), I ** 1.1)
+        mid = layer(lambda r: norm(bp(r.standard_normal(n), 350, 1300) * lfo(r, n, .17, .6)), I ** 1.8 * .7)
+        hiss = layer(lambda r: norm(hp(r.standard_normal(n), 2500)), I ** 2.4 * .35)
+        bed += (roar + mid + hiss) * db(-6) * alive[:, None]
+    elif force == "gravity":
+        rum = loop(lib["gerommel"], n)
+        bed += rum * (db(-30) + db(-10) * smooth(.15, 1, I) ** 1.5)[:, None] * alive[:, None]
+        sub = np.sin(2 * np.pi * np.cumsum(28 + 6 * I) / SR) * smooth(.05, 1, I) * .5
+        bed += np.stack([sub, sub], 1) * db(-10) * alive[:, None]
+        tc = 0.0
+        while True:      # groans and creaks, more often as the load grows
+            nxt = np.argmax((t > tc + .5) & (I > .12))
+            if nxt == 0: break
+            tc = t[nxt] + rng.uniform(1.0, 3.0) * (1.4 - I[nxt])
+            if tc >= STOP - .5: break
+            place(bed, s_groan(rng, rng.uniform(2.5, 4.5)), tc, db(-9) * (.4 + I[min(n - 1, int(tc * SR))]), rng.uniform(-.6, .6))
+            if rng.random() < .5: place(bed, s_metaal(rng), tc + rng.uniform(0, 1), db(-17), rng.uniform(-.7, .7))
+            if rng.random() < .4: place(bed, s_kraak(rng), tc + rng.uniform(0, 1), db(-15), rng.uniform(-.7, .7))
+    elif force == "water":
+        rush = layer(lambda r: norm(bp(r.standard_normal(n), 150, 2500) * lfo(r, n, .2, .4)), I ** 1.3)
+        low = layer(lambda r: norm(lp(brown(r, n), 180) * lfo(r, n, .07, .5)), I)
+        bed += (rush * db(-8) + low * db(-10)) * alive[:, None]
+    elif force == "cold":
+        thin = layer(lambda r: norm(bp(r.standard_normal(n), 1500, 4000) * np.clip(lfo(r, n, .1, 1), 0, None)), I * .5)
+        bed += thin * db(-16) * alive[:, None]
+        for tc in np.sort(rng.uniform(STOP * .4, STOP, 10)):
+            place(bed, s_ice(rng), tc, db(-18) * I[int(tc * SR)], rng.uniform(-.8, .8))
+
+    # 3. dark drone under everything
+    dr = loop(lib["drone"], n)
+    bed += dr * (db(-34) + db(-24) * smooth(.2, 1, I) * alive + db(-28) * smooth(STOP, STOP + .5, t) * (1 - smooth(B["fade"], T, t)))[:, None]
+
+    # 4. events
+    last = -1
+    for e in EV:
+        if e["t"] >= STOP: continue
+        p = float(np.clip((e.get("x") or 0) / 60, -.8, .8))
+        if e["kind"] == "impact":
+            if e["t"] - last < .12: continue
+            last = e["t"]
+            place(bed, s_klap(rng, .6 + e.get("heavy", 1) * .3), e["t"], db(-8) * e["e"] ** .6, p)
+        elif e["kind"] == "collapse":
+            rumble = norm(lp(brown(rng, 7 * SR), 140)) * env_ad(7 * SR, .6, 2.8)
+            place(bed, np.stack([rumble, rumble], 1), e["t"], db(-4) * min(1.2, e.get("e", 1)))
+            for j in range(7):
+                place(bed, lp(s_klap(rng, 1.4), 1400), e["t"] + .3 + j * .4 + rng.uniform(0, .3), db(-11), rng.uniform(-.5, .5))
+            place(bed, lp(s_puin(rng), 2500), e["t"] + 1.2, db(-10), p)
+        elif e["kind"] == "snap":
+            place(bed, s_snap(rng), e["t"], db(-9), p)
+        elif e["kind"] == "splash":
+            place(bed, s_splash(rng, .6 + e["e"]), e["t"], db(-6) * e["e"] ** .5, p)
+        elif e["kind"] == "glass":
+            place(bed, s_glas(rng), e["t"], db(-6), p)
+        elif e["kind"] in ("crack", "tear"):
+            place(bed, s_kraak(rng), e["t"], db(-8), p)
+            place(bed, s_metaal(rng), e["t"] + .2, db(-14), -p)
+
+    # 5. hard stop, then a quiet aftermath
+    bed[i0:] *= 0
+    bed[max(0, i0 - k):i0] *= np.linspace(1, 0, i0 - max(0, i0 - k))[:, None]
+    after = stereo(rng, lambda r: norm(lp(brown(r, n), 250) * lfo(r, n, .06, .5)), .8)
+    bed += after * (db(-32) * smooth(STOP, STOP + 1.5, t) * (1 - smooth(B["end"] + 3, B["fade"], t)))[:, None]
+    for tc in (STOP + 1.1, STOP + 2.6):
+        place(bed, lp(s_puin(rng), 1500), tc, db(-32), rng.uniform(-.6, .6))
+    bed *= (1 - smooth(B["fade"], T - .05, t))[:, None]
+    return bed
+
+
+def read_audio(path: Path, T: float) -> np.ndarray:
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "2", "-ar", str(SR), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, "<f4").reshape(-1, 2).astype(np.float64)
+    out = np.zeros((int(T * SR), 2)); m = min(len(x), len(out)); out[:m] = x[:m]
+    return out
+
+
+def mix_engine(topic: Path):
+    """Voice first: the bed ducks 8 dB under the voice, then -14 LUFS and peaks at -1 dBTP."""
+    data = json.loads((topic / "timeline.json").read_text())
+    T, off = data["TL"]["T_END"], data["TL"]["VO_OFFSET"]
+    bed = build_engine(topic)
+    bed = bed / (np.max(np.abs(bed)) or 1) * .5
+    voice = read_audio(topic / "voice.mp3", T)
+    k = int(off * SR); voice = np.concatenate([np.zeros((k, 2)), voice])[:len(bed)]
+    # envelope follower (40 ms attack, 450 ms release) on the voice -> gain on the bed
+    lvl = np.abs(voice).max(1); hop = 441
+    blk = lvl[: len(lvl) // hop * hop].reshape(-1, hop).max(1)
+    on = (blk > .02).astype(float); env = np.zeros_like(on); a, r = 1 - np.exp(-1 / 4), 1 - np.exp(-1 / 45)
+    for i in range(1, len(on)): env[i] = env[i - 1] + (on[i] - env[i - 1]) * (a if on[i] > env[i - 1] else r)
+    g = np.repeat(1 - (1 - db(-8)) * env, hop); g = np.concatenate([g, np.full(len(bed) - len(g), g[-1] if len(g) else 1)])
+    mix = voice * db(-1) + bed * g[:, None]
+    write(topic / "sfx-bed.wav", bed)
+    write(topic / "premix.wav", mix / (np.max(np.abs(mix)) or 1) * .9)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(topic / "premix.wav"),
+                    "-af", "loudnorm=I=-14:TP=-1:LRA=11:linear=true,alimiter=limit=0.89:level=false,aresample=44100",
+                    "-t", str(T), str(topic / "mix.wav")], check=True)
+    (topic / "premix.wav").unlink()
+    print("ok:", topic / "mix.wav")
+
+
 def main():
     topic = Path(sys.argv[1]).resolve()
+    if "AUDIO" in json.loads((topic / "timeline.json").read_text()):
+        return mix_engine(topic)
     bed = build(topic)
     bed = bed / (np.max(np.abs(bed)) or 1) * .7
     write(topic / "sfx-bed.wav", bed)

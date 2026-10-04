@@ -1,10 +1,11 @@
 {
   "name": "whatif-demo",
   "private": true,
-  "description": "Gratis 'What if'-video: three.js-scène, gerenderd met Playwright/Chromium + ffmpeg. npm install && node render.mjs video silent.mp4",
+  "description": "Gratis 'What if'-video: three.js-sc\u00e8ne, gerenderd met Playwright/Chromium + ffmpeg. npm install && node render.mjs video silent.mp4",
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.0.0",
     "@fontsource/playfair-display": "^5.0.0",
     "three": "0.170.0"
-  }
+  },
+  "type": "module"
 }
