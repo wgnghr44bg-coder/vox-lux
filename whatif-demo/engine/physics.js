@@ -83,7 +83,8 @@ export function poseBodies(E, t, F) {
     const rx = lerp(A[o0 + 3], A[o1 + 3], fr), ry = lerp(A[o0 + 4], A[o1 + 4], fr), rz = lerp(A[o0 + 5], A[o1 + 5], fr);
     const visible = st === 1 || (st === 0 && !b.hidden);
     let wx = 0, wz = 0;
-    if (st === 0 && F.wobble) { const a = F.wobble(t) * (b.wob ?? 1); wx = a * Math.sin(t * 13 + b.hx * 40); wz = a * Math.sin(t * 9 + b.hz * 30); }
+    // buildings (floors, bridge deck) never wobble before they tear loose
+    if (st === 0 && F.wobble && b.kind !== 'floor' && b.kind !== 'deck') { const a = F.wobble(t) * (b.wob ?? 1); wx = a * Math.sin(t * 13 + b.hx * 40); wz = a * Math.sin(t * 9 + b.hz * 30); }
     if (b.kind === 'part') { b.src.visible = st === 0; b.obj.visible = st === 1; if (st === 1) { b.obj.position.set(px, py, pz); b.obj.rotation.set(rx, ry, rz); } continue; }
     if (b.obj) { b.obj.visible = visible; b.obj.position.set(px, py, pz); b.obj.rotation.set(rx + wx, ry, rz + wz); if (b.onPose) b.onPose(t, st, w); }
     else if (b.inst) {

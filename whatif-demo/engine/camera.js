@@ -104,7 +104,7 @@ export function createCamera(E, TL, P, F) {
       if (fixed) { [ya, pa] = dirOf(pos, lookAtBase(sh, fixed.t)); }
       else { ya = yawA[i] + wrap(yawA[i + 1] - yawA[i]) * fr; pa = lerp(pitchA[i], pitchA[i + 1], fr); }
       // shake grows with the disaster; hard jolts on big hits
-      let shake = (F.rumble ? F.rumble(t) : 0) * (sh.shot.shake ?? 1) * 1.5;
+      let shake = 0, rumble = (F.rumble ? F.rumble(t) : 0) * (sh.shot.shake ?? 1) * .6;
       for (const ev of E.EVENTS) {
         if (ev.t > t || t - ev.t > 2 || ev.t > STOP) continue;
         const a = t - ev.t, dist = ev.x == null ? 30 : Math.hypot(ev.x - pos[0], ev.z - pos[2]);
@@ -116,9 +116,11 @@ export function createCamera(E, TL, P, F) {
       // handheld: breathing, jitter, a little roll now and then
       const breathe = Math.sin(tv * 2 * Math.PI * .24) * .45 * D2R;
       const jy = (noise(tv * 1.7, 11) * .35 + noise(tv * 4.3, 5) * .12) * D2R * calm, jp = (noise(tv * 1.9, 21) * .3 + noise(tv * 4.9, 9) * .1) * D2R * calm;
-      const roll = (noise(tv * .13, 41) * 2.2 + noise(tv * .9, 3) * .3) * D2R * calm;
-      const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
-      ya += jy + sx * shake * .02; pa += breathe + jp + sy * shake * .02;
+      const roll = (noise(tv * .13, 41) * .9 + noise(tv * .9, 3) * .15) * D2R * calm;
+      // jolts (impacts) are short and quick; the steady rumble is a slow sway, so walls never seem to wobble
+      const sx = Math.sin(tv * 13.1) * .6 + Math.sin(tv * 8.3) * .4, sy = Math.sin(tv * 11.7) * .6 + Math.sin(tv * 7.9) * .4;
+      const rx = noise(tv * 1.1, 17) * rumble, ry = noise(tv * 1.3, 29) * rumble;
+      ya += jy + sx * shake * .02 + rx * .01; pa += breathe + jp + sy * shake * .02 + ry * .01;
       let rollRun = 0;
       if (sh.shot.run) {            // running: steps bounce the camera, the body sways
         const R = sh.shot.run, ph = tv * 2 * Math.PI * (R.freq ?? 2.6), amp = R.amp ?? .07;
