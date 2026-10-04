@@ -65,7 +65,7 @@ export const upload = {
   description: "POV: you're standing on a city street at the equator when Earth suddenly stops spinning. 🌍\n\n" +
     'The ground stops. The air keeps moving at 1,037 mph, faster than the speed of sound.\n\n' +
     'Where would you hide? 👇\n\n' +
-    'New what-ifs every week on IfScape3D.\nAnimated with code, AI voice.\n\n#whatif #earth #physics #shorts',
+    Animated with code, AI voice.\n\n#whatif #earth #physics #shorts',
   tags: ['what if', 'what if earth stopped spinning', 'earth', 'physics', 'science', 'wind', 'simulation', '3d animation', 'IfScape3D'],
   tiktok: "POV: Earth suddenly stops spinning 🌍 The air keeps moving at 1,037 mph. #whatif #earth #physics #fyp",
 };

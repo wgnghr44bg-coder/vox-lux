@@ -19,8 +19,7 @@ Stuurt de eigenaar een (ondertitelde) video in de chat met de vraag hem te plaat
    `python3 tools/youtube_upload.py <bestand> --channel whatif --title "What if …?" --description-file d.txt --tags "…" --privacy public`
    Openbaar, categorie Education (27), Engels, niet voor kinderen, AI-label aan, geen thumbnail.
 3. Korte, menselijke beschrijving:
-   POV-zin + emoji / één feit / een vraag aan de kijker + 👇 / "New what-ifs every week on IfScape3D." /
-   "Animated with code, AI voice." / 3-4 hashtags waarvan #whatif en #shorts.
+   POV-zin + emoji / één feit / een vraag aan de kijker + 👇 / "Animated with code, AI voice." / 3-4 hashtags waarvan #whatif en #shorts.
    Titel zonder #shorts. ±10 tags (what if, onderwerp, science, physics, simulation, 3d animation, IfScape3D).
 4. Zet de video in de playlist "What If".
 5. Werk onderwerpen.md bij (status "geüpload <datum> <link>") en meld de link.
