@@ -18,7 +18,11 @@ export function build(E, TL, F) {
   E.waterBase = -1.2;
   E.windArea = { x: 30, z0: -20, z1: -180 };
   E.groundAt = (x, z) => z < SEA ? -6 : 0;
-  E.collide = (p, v, b) => { if (Math.abs(p[0]) > WALK - .3 && p[1] < 30 && b.kind !== 'floor' && p[0] * v[0] > 0) { p[0] = Math.sign(p[0]) * (WALK - .3); v[0] = -v[0] * .3; } };
+  E.collide = (p, v, b) => {
+    if (Math.abs(p[0]) > WALK - .3 && p[1] < 30 && b.kind !== 'floor' && p[0] * v[0] > 0) { p[0] = Math.sign(p[0]) * (WALK - .3); v[0] = -v[0] * .3; }
+    // big pieces never reach the camera: they pile up before the crossing
+    if ((b.kind === 'floor' || b.heavy >= 2 && b.kind !== 'car') && p[2] > (TL.debrisStop ?? -15) && v[2] > 0) { p[2] = TL.debrisStop ?? -15; v[2] = -v[2] * .15; }
+  };
 
   { const g = new THREE.Mesh(new THREE.PlaneGeometry(400, 700), lam(0x3c3e41)); g.rotation.x = -Math.PI / 2; g.position.set(0, 0, -210); g.receiveShadow = true; scene.add(g); }
   for (const s of [-1, 1]) {

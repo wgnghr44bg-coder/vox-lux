@@ -62,7 +62,7 @@ export function createCamera(E, TL, P, F) {
       if (ts < c.t + c.delay || ts > c.until || t > STOP + .5) continue;
       const [ty, tp, dist] = dirOf(pos, c.pos(ts));
       const dy = wrap(ty - by);
-      if (Math.abs(dy) > 70 * D2R || tp < -35 * D2R || tp > 75 * D2R) continue;
+      if (Math.abs(dy) > 70 * D2R || tp < -35 * D2R || tp > 75 * D2R || dist < (c.kind === 'mover' ? 30 : 6)) continue;   // never stare at a big piece right in front of the lens
       const val = c.w / (1 + dist / 90) * (c === cur ? 1.15 : 1);
       if (val > bestVal) { best = c; bestVal = val; bestDir = [ty, tp]; }
     }

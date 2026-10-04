@@ -35,10 +35,13 @@ op de gemeten zinstijden), eindtekst (`end`) en uploadtekst (`upload`: title met
 description, tags, tiktok).
 
 Script-regels:
-- Engels, begint met "Imagine…" + `pause`, 170–210 woorden, tweede persoon ("you").
+- Engels, eerste zin "Imagine" + het onderwerp + `long`, 170–210 woorden, tweede persoon ("you").
 - Alleen natuurkunde die klopt, verteld als "would". Twijfel je aan een getal: weglaten.
 - Rustige opbouw → kracht groeit (teller loopt mee) → climax waarin de stem zwijgt (een getal als
   pauze, bijv. `6` = 6 s stilte) → laatste zinnen over het beeld.
+- Opening (eigenaar, okt 2026): geen titel in beeld. De eerste zin is altijd "Imagine" + het onderwerp,
+  bijv. "Imagine the Earth stopped spinning." Daarna rustig beginnen en de spanning steeds verder
+  opbouwen tot de climax (teller versnelt, `audio: { heartbeat, riser }` in scenario.js).
 - Geen haak of flash-forward aan het begin (eigenaar, okt 2026): het verhaal begint gewoon bij het
   begin en loopt op volgorde. Gebruik `hook` in scenario.js dus niet.
 - Netjes afsluiten (eigenaar, okt 2026): geen eindkaart en geen tekst aan het eind; de stem sluit af

@@ -161,6 +161,7 @@ window.blurAt = tv => {
   const sp = camera.speedAt(tv), hot = tv > TL.beats.climax - 1 && tv < STOP;
   return sp > 40 || hot || (camera.runningAt(tv) && sp > 12) ? 3 : sp > 20 || camera.runningAt(tv) ? 2 : 1;
 };
+window.E = E;
 window.T_END = HOOK ? HOOK.dur : TL.T_END; window.TL = TL; window.EVENTS = E.EVENTS;
 window.AUDIO = { place: TL.place, force: TL.force, ambience: P.ambience, level: Array.from({ length: Math.ceil(TL.T_END * 10) }, (_, i) => +F.level(Math.min(i / 10, STOP)).toFixed(3)) };
 document.fonts.ready.then(() => { window.ready = true; });

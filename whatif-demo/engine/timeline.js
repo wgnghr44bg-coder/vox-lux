@@ -33,6 +33,8 @@ export function buildTL(scen, timing, o = {}) {
   };
   // clean ending (default): no end card, no text; the picture fades out under the last lines
   TL.beats.fade = TL.beats.fade ?? (TL.endStyle === 'card' ? TL.T_END - 1.6 : (TL.beats.end ?? TL.T_END - 4) - .3);
+  TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
+  TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
   TL.estimated = !!timing.estimated;
   return TL;
 }
