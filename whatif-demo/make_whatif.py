@@ -151,7 +151,7 @@ def main():
             tl = json.loads((d / "timeline.json").read_text())["TL"]
             B = tl["beats"]
             times = [f"{x:.1f}" for x in (tl["titleIn"] + 1.5, (tl["titleOut"] + B["climax"]) / 2 - 8, (tl["titleOut"] + B["climax"]) / 2 + 4,
-                                          B["climax"] + 1.5, B["climax"] + 4.5, B["end"] + 2.5)]
+                                          B["climax"] + 1.5, B["climax"] + 4.5, B.get("fade", B["climax"] + 8) + 1)]
         run([*render, "stills", *times])
         contact_sheet(d, times)
         return

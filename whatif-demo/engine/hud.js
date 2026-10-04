@@ -20,7 +20,8 @@ export function createHud(TL) {
         $('second').style.opacity = smooth(S.showAt ?? 0, (S.showAt ?? 0) + 1.5, t) * .85;
       }
       $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t)) * (TL.endStyle === 'card' ? 1 : 1 - smooth(B.fade - .5, B.fade + 1, t));
-      $('title').style.opacity = smooth(TL.titleIn, TL.titleIn + 1, t) * (1 - smooth(TL.titleOut - 1.2, TL.titleOut, t));
+      // no title on screen by default: the voice opens with "Imagine …" (TL.showTitle to bring it back)
+      $('title').style.opacity = TL.showTitle ? smooth(TL.titleIn, TL.titleIn + 1, t) * (1 - smooth(TL.titleOut - 1.2, TL.titleOut, t)) : 0;
       let ct = '', ca = 0;
       for (const [a, b, s] of TL.captions) if (t >= a - .1 && t <= b + .1 && (TL.endStyle === 'card' || a < B.fade - .5)) { ct = s; ca = smooth(a, a + .6, t) * (1 - smooth(b - .6, b, t)); }
       $('cap').textContent = ct; $('cap').style.opacity = ca;
