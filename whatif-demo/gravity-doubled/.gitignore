@@ -1,0 +1,5 @@
+stills/
+*.wav
+silent.mp4
+*-small.mp4
+render.log
