@@ -1,0 +1,172 @@
+{
+ "onderwerp": "How Vikings Survived the Long Dark Winter",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "The Last Days of Autumn"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 692.5,
+   "nummer": 2,
+   "titel": "Preparing the Farm"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1387.6,
+   "nummer": 3,
+   "titel": "Inside the Longhouse"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2104.3,
+   "nummer": 4,
+   "titel": "Animals, Meals and Ale"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2816.4,
+   "nummer": 5,
+   "titel": "Wool, Cloth and Clothing"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3512.3,
+   "nummer": 6,
+   "titel": "Craft, Work and Winter Travel"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4221.5,
+   "nummer": 7,
+   "titel": "The Household by the Fire"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4944.2,
+   "nummer": 8,
+   "titel": "Poems, Runes and the Calendar"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5649.2,
+   "nummer": 9,
+   "titel": "Winter Nights and Yule"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6315.1,
+   "nummer": 10,
+   "titel": "Myths of the Winter Sky"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7008.5,
+   "nummer": 11,
+   "titel": "Iceland, Greenland and Hard Weeks"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7706.1,
+   "nummer": 12,
+   "titel": "Elders, Law and the Return of Spring"
+  },
+  {
+   "soort": "datum",
+   "tijd": 266.2,
+   "regel1": "Autumn  \u00b7  The Viking Age",
+   "regel2": "Scandinavia"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5889.8,
+   "regel1": "Midwinter  \u00b7  Yule",
+   "regel2": "A Viking farm in the north"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7030.5,
+   "regel1": "Around AD 870",
+   "regel2": "Iceland"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7153.1,
+   "regel1": "Around AD 985",
+   "regel2": "Southwest Greenland"
+  },
+  {
+   "soort": "datum",
+   "tijd": 8309.3,
+   "regel1": "Spring",
+   "regel2": "The thaw returns"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 7065.5,
+   "titel": "The Viking North",
+   "gebied": [
+    -52,
+    16,
+    57,
+    70.5
+   ],
+   "plaatsen": [
+    {
+     "naam": "Norway",
+     "lon": 8.5,
+     "lat": 62.0,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Iceland",
+     "lon": -19.0,
+     "lat": 64.9,
+     "kant": "boven"
+    },
+    {
+     "naam": "Greenland",
+     "lon": -45.5,
+     "lat": 61.2,
+     "kant": "rechts"
+    }
+   ],
+   "route": [
+    [
+     6.0,
+     60.5
+    ],
+    [
+     -19.0,
+     64.9
+    ],
+    [
+     -45.5,
+     61.2
+    ]
+   ]
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 7962.3,
+   "punten": [
+    [
+     "AD 870",
+     "Settlers arrive in Iceland"
+    ],
+    [
+     "AD 930",
+     "The Althing first meets"
+    ],
+    [
+     "AD 985",
+     "Settlers reach Greenland"
+    ]
+   ]
+  }
+ ]
+}

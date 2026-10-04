@@ -18,7 +18,6 @@ Achter een onderwerp kan "(facts)" staan: dan wordt het een Sleepy Facts-video (
 feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op de 3 video's.
 
 ## Nog te maken
-- How Vikings Survived the Long Dark Winter (facts)
 - The Tunguska Event
 - The Dyatlov Pass Mystery
 - What Medieval Monks Did All Day
@@ -101,3 +100,4 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The San Francisco Earthquake of 1906
 - The Titanic: The Night It Sank
 - The Fall of Pompeii (dubbel met Pompeii: The Last Day, overgeslagen)
+- How Vikings Survived the Long Dark Winter (facts)
