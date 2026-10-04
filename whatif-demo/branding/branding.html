@@ -1,0 +1,135 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: PF; font-weight: 600; src: url(../node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-normal.woff2); }
+@font-face { font-family: PFI; font-weight: 600; src: url(../node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-italic.woff2); }
+@font-face { font-family: CG; font-weight: 600; src: url(../node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2); }
+html, body { margin: 0; overflow: hidden; background: #0b1322; }
+canvas { display: block; }
+#txt { position: absolute; left: 0; right: 0; text-align: center; color: #f3ede2; }
+#name { font: 600 150px PF, serif; letter-spacing: 2px; text-shadow: 0 6px 30px rgba(0,0,0,.6); }
+#name span { color: #e9a85a; }
+#tag { font: 600 italic 54px PFI, serif; margin-top: 8px; opacity: .92; text-shadow: 0 4px 18px rgba(0,0,0,.7); }
+#sub { font: 600 34px CG, serif; letter-spacing: 12px; margin-top: 22px; opacity: .78; text-shadow: 0 3px 12px rgba(0,0,0,.7); }
+</style></head><body>
+<div id="txt"></div>
+<script type="importmap">{ "imports": { "three": "../node_modules/three/build/three.module.js" } }</script>
+<script type="module">
+import * as THREE from 'three';
+const mode = new URLSearchParams(location.search).get('mode') || 'banner';
+const W = mode === 'banner' ? 2560 : 800, H = mode === 'banner' ? 1440 : 800;
+document.body.style.width = W + 'px'; document.body.style.height = H + 'px';
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const R = rng(7);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const lam = (c, o = {}) => new THREE.MeshLambertMaterial({ color: c, flatShading: true, ...o });
+
+function sky(top, mid, hor) {
+  const m = new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false,
+    uniforms: { a: { value: new THREE.Color(top) }, b: { value: new THREE.Color(mid) }, c: { value: new THREE.Color(hor) } },
+    vertexShader: `varying vec3 p; void main(){ p = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `uniform vec3 a; uniform vec3 b; uniform vec3 c; varying vec3 p;
+      void main(){ float h = clamp(p.y*1.8+.05, 0., 1.); vec3 col = h < .25 ? mix(c, b, h/.25) : mix(b, a, (h-.25)/.75); gl_FragColor = vec4(col,1.); }` });
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(5000, 32, 16), m));
+}
+function stars(n, minY) {
+  const pos = [];
+  for (let i = 0; i < n; i++) { const th = R() * 6.28, y = minY + R() * (1 - minY), r = Math.sqrt(1 - y * y);
+    pos.push(Math.cos(th) * r * 4000, y * 4000, Math.sin(th) * r * 4000); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0xe8e6df, size: mode === 'banner' ? 3.2 : 2.2, sizeAttenuation: false, transparent: true, opacity: .8 })));
+}
+function lowPolyEarth(radius) {
+  const g = new THREE.IcosahedronGeometry(radius, 3).toNonIndexed();
+  const pos = g.attributes.position, col = [], c = new THREE.Color(), v = new THREE.Vector3();
+  const n = (x, y, z) => Math.sin(x * 2.1 + 1.3) * Math.cos(y * 2.7) + Math.sin(z * 1.9 + y * 1.2) * .8 + Math.sin(x * 4.3 - z * 3.1) * .35;
+  for (let i = 0; i < pos.count; i += 3) {
+    v.set(0, 0, 0); for (let k = 0; k < 3; k++) v.add(new THREE.Vector3().fromBufferAttribute(pos, i + k)); v.divideScalar(3).normalize();
+    const h = n(v.x, v.y, v.z);
+    if (Math.abs(v.y) > .86) c.set(0xe4e6e2); else if (h > .55) c.set(h > 1.1 ? 0x8c8463 : 0x5f7a45); else if (h > .4) c.set(0xc2b38a); else c.set(h < -.4 ? 0x1f4f63 : 0x2d6a77);
+    for (let k = 0; k < 3; k++) col.push(c.r, c.g, c.b);
+  }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); g.computeVertexNormals();
+  return new THREE.Mesh(g, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
+}
+function moon(radius) {
+  const g = new THREE.IcosahedronGeometry(radius, 2).toNonIndexed(); const pos = g.attributes.position, col = [], c = new THREE.Color();
+  for (let i = 0; i < pos.count; i += 3) { c.set(0xb9b4a8).multiplyScalar(.82 + R() * .25); for (let k = 0; k < 3; k++) col.push(c.r, c.g, c.b); }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); g.computeVertexNormals();
+  return new THREE.Mesh(g, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
+}
+function glowSprite(color, opacity) {
+  const cv = document.createElement('canvas'); cv.width = cv.height = 256; const x = cv.getContext('2d');
+  const g = x.createRadialGradient(128, 128, 0, 128, 128, 128); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.25, 'rgba(255,255,255,.45)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+  return new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(cv), color, opacity, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
+}
+function asteroid(pos, size, dir, len) {
+  const rock = new THREE.Mesh(new THREE.IcosahedronGeometry(size, 0), lam(0x6b625a)); rock.position.copy(pos); rock.rotation.set(1, 2, 3); scene.add(rock);
+  // glowing trail: tapered cone with a colour gradient, additive
+  const cone = new THREE.ConeGeometry(size * 1.05, len, 24, 12, true); cone.rotateX(Math.PI); cone.translate(0, -len / 2, 0);
+  const cp = cone.attributes.position, cc = [];
+  for (let i = 0; i < cp.count; i++) { const f = -cp.getY(i) / len; const c = new THREE.Color(0xffd08a).lerp(new THREE.Color(0xb8502e), f).multiplyScalar((1 - f) ** 1.6);
+    cc.push(c.r, c.g, c.b); }
+  cone.setAttribute('color', new THREE.Float32BufferAttribute(cc, 3));
+  const tr = new THREE.Mesh(cone, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide, fog: false }));
+  tr.position.copy(pos); tr.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), dir.clone().negate()); scene.add(tr);
+  const halo = glowSprite(0xf2b766, .55); halo.scale.setScalar(size * 6); halo.position.copy(pos); scene.add(halo);
+}
+
+if (mode === 'avatar') {
+  sky(0x0a1222, 0x13233d, 0x1d3150); stars(500, -1);
+  const cam = new THREE.PerspectiveCamera(30, 1, 1, 9000); cam.position.set(0, 0, 60); cam.lookAt(0, 0, 0);
+  scene.add(new THREE.HemisphereLight(0xa9bedb, 0x26324a, 1.0));
+  const sun = new THREE.DirectionalLight(0xfff0dc, 2.6); sun.position.set(-40, 30, 35); scene.add(sun);
+  const e = lowPolyEarth(11.5); e.rotation.set(.35, -.6, .1); e.position.set(-1.2, -1.2, 0); scene.add(e);
+  // soft atmosphere ring
+  const glow = glowSprite(0x4f8fbf, .5); glow.scale.setScalar(34); glow.position.set(e.position.x, e.position.y, -12); scene.add(glow);
+  asteroid(new THREE.Vector3(8.2, 8.4, 6), 1.25, new THREE.Vector3(-.62, -.58, -.2).normalize(), 16);
+  renderer.render(scene, cam);
+} else {
+  sky(0x0d1830, 0x3a3f63, 0xd28b55); stars(1400, .18);
+  const cam = new THREE.PerspectiveCamera(32, W / H, 1, 9000); cam.position.set(0, 30, 700); cam.lookAt(0, 150, -900);
+  scene.fog = new THREE.Fog(0x5c4a55, 900, 3400);
+  scene.add(new THREE.HemisphereLight(0x8090c0, 0x1b1a22, .7));
+  const sun = new THREE.DirectionalLight(0xffc89a, 1.6); sun.position.set(200, 120, -300); scene.add(sun);
+  const m = moon(330); m.position.set(520, 520, -2600); m.rotation.set(.4, .2, 0); scene.add(m);
+  const mg = glowSprite(0xf0c9a0, .35); mg.scale.setScalar(1500); mg.position.copy(m.position).add(new THREE.Vector3(0, 0, -400)); scene.add(mg);
+  asteroid(new THREE.Vector3(-820, 700, -1600), 22, new THREE.Vector3(-.8, -.42, .3).normalize(), 420);
+  // ground + water
+  const gr = new THREE.Mesh(new THREE.PlaneGeometry(9000, 9000), lam(0x1a1c22)); gr.rotation.x = -Math.PI / 2; gr.position.z = -4900; scene.add(gr);
+  const bay = new THREE.Mesh(new THREE.PlaneGeometry(9000, 1600, 60, 12), new THREE.MeshLambertMaterial({ color: 0x1d3a4a, flatShading: true }));
+  bay.rotation.x = -Math.PI / 2; bay.position.set(0, .5, 350);
+  { const bp = bay.geometry.attributes.position; for (let i = 0; i < bp.count; i++) bp.setZ(i, (R() - .5) * 2.2); bay.geometry.computeVertexNormals(); }
+  scene.add(bay);
+
+  // window texture
+  function winTex(base) { const cv = document.createElement('canvas'); cv.width = 64; cv.height = 128; const x = cv.getContext('2d');
+    x.fillStyle = base; x.fillRect(0, 0, 64, 128);
+    for (let r = 0; r < 8; r++) for (let k = 0; k < 4; k++) { const lit = R() < .22;
+      x.fillStyle = lit ? (R() < .7 ? '#f2c37a' : '#e8dcc0') : '#1b2230'; x.fillRect(4 + k * 15, 6 + r * 15, 9, 9); }
+    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; }
+  const bases = ['#3a3540', '#40363a', '#33394a', '#463b36', '#2f3644'];
+  for (let row = 0; row < 4; row++) {
+    const z = -500 - row * 220, count = 30 - row * 3;
+    for (let i = 0; i < count; i++) {
+      const w = 30 + R() * 40, d = 30 + R() * 20, x = -1500 + (i + R() * .5) * (3000 / count);
+      let h = 25 + R() * 70 + row * 25; if (R() < .16) h += 90 + R() * 150;
+      if (Math.abs(x) < 420 && row < 2) h *= .5;      // keep the centre low behind the name
+      const tex = winTex(bases[Math.floor(R() * bases.length)]); tex.repeat.set(Math.round(w / 14), Math.round(h / 28));
+      const side = new THREE.MeshLambertMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: .55 });
+      const top = lam(0x23232b);
+      const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), [side, side, top, top, side, side]);
+      b.position.set(x, h / 2, z); scene.add(b);
+    }
+  }
+  renderer.render(scene, cam);
+  const t = document.getElementById('txt'); t.style.top = '540px'; t.style.background = 'radial-gradient(ellipse 900px 260px at 50% 45%, rgba(8,10,20,.55), rgba(8,10,20,0))'; t.style.padding = '40px 0';
+  t.innerHTML = '<div id="name">IfScape<span>3D</span></div><div id="tag">What if… the world changed tonight?</div><div id="sub">NEW SIMULATION EVERY DAY</div>';
+}
+document.fonts.ready.then(() => { window.ready = true; });
+</script></body></html>
