@@ -31,7 +31,8 @@ export function buildTL(scen, timing, o = {}) {
     place: o.place || topic.place, force: o.force || topic.force,
     title: topic.title, ...cfg,
   };
-  TL.beats.fade = TL.beats.fade ?? TL.T_END - 1.6;
+  // clean ending (default): no end card, no text; the picture fades out under the last lines
+  TL.beats.fade = TL.beats.fade ?? (TL.endStyle === 'card' ? TL.T_END - 1.6 : (TL.beats.end ?? TL.T_END - 4) - .3);
   TL.estimated = !!timing.estimated;
   return TL;
 }
