@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: PF; font-weight: 600; font-style: normal; src: url(node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-normal.woff2); }
+@font-face { font-family: PF; font-weight: 600; font-style: italic; src: url(node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-italic.woff2); }
+@font-face { font-family: CG; font-weight: 600; src: url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2); }
+html, body { margin: 0; width: 720px; height: 1280px; overflow: hidden; background: #000; }
+canvas { display: block; }
+#hud { position: absolute; left: 34px; top: 120px; color: #f3ede2; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
+#lab { font: 600 21px CG, serif; letter-spacing: 6px; opacity: .85; }
+#num { font: 600 64px PF, serif; line-height: 1.05; }
+#sub { font: 600 19px CG, serif; letter-spacing: 6px; opacity: .75; min-height: 24px; }
+#cap { position: absolute; left: 0; right: 0; top: 780px; text-align: center; color: #f6f1e7;
+       font: 600 italic 42px PF, serif; text-shadow: 0 3px 14px rgba(0,0,0,.45); padding: 0 40px; }
+#title { position: absolute; left: 0; right: 0; top: 330px; text-align: center; color: #f3ede2;
+       font: 600 64px PF, serif; line-height: 1.15; text-shadow: 0 3px 16px rgba(0,0,0,.35); }
+#black { position: absolute; inset: 0; background: #000; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="ash" style="position:absolute;inset:0;background:#5e554c;opacity:0"></div>
+<div id="black"></div>
+<div id="hud"><div id="lab"></div><div id="num"></div><div id="sub"></div></div>
+<div id="title">What if<br>Yellowstone erupted?</div>
+<div id="cap"></div>
+<script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js" } }</script>
+<script type="module">
+import * as THREE from 'three';
+
+const W = 720, H = 1280;
+const T_END = 34;
+
+// ---------- deterministic random ----------
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const hash = (i, k = 0) => rng(i * 7919 + k * 104729 + 13)();
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const lerp = (a, b, t) => a + (b - a) * t;
+
+// ---------- renderer / camera ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(58, W / H, 0.5, 3000);
+const CAM = new THREE.Vector3(0, 24, 50), LOOK = new THREE.Vector3(0, 5, -90);
+scene.fog = new THREE.Fog(0xb9c6cf, 160, 950);
+
+// ---------- sky ----------
+const skyMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide, depthWrite: false, fog: false,
+  uniforms: { top: { value: new THREE.Color(0x4f7fb8) }, hor: { value: new THREE.Color(0xc4d2db) } },
+  vertexShader: `varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+  fragmentShader: `uniform vec3 top; uniform vec3 hor; varying vec3 vP;
+    void main(){ float h = clamp(vP.y*2.2, 0., 1.); gl_FragColor = vec4(mix(hor, top, pow(h, .7)), 1.); }`
+});
+const sky = new THREE.Mesh(new THREE.SphereGeometry(1500, 32, 16), skyMat);
+scene.add(sky);
+
+const hemi = new THREE.HemisphereLight(0xdfe9f3, 0x4a5a3a, 1.6);
+const sun = new THREE.DirectionalLight(0xfff3df, 2.2);
+sun.position.set(-120, 200, 80);
+scene.add(hemi, sun);
+
+// ---------- ground ----------
+const CAL = new THREE.Vector3(0, 0, -95);   // caldera centre
+const gGeo = new THREE.PlaneGeometry(1400, 1400, 220, 220);
+gGeo.rotateX(-Math.PI / 2);
+const gCol = [], gp = gGeo.attributes.position;
+const grass = new THREE.Color(0x5f7a3e), grass2 = new THREE.Color(0x6d8646), dry = new THREE.Color(0xb8a98a), c = new THREE.Color();
+for (let i = 0; i < gp.count; i++) {
+  const x = gp.getX(i), z = gp.getZ(i);
+  const n = Math.sin(x * 0.05) * Math.cos(z * 0.07) * 0.5 + Math.sin(x * 0.013 + z * 0.021) * 0.5;
+  c.copy(grass).lerp(grass2, n * 0.5 + 0.5);
+  const d = Math.hypot(x - CAL.x, (z - CAL.z) * 1.6);
+  c.lerp(dry, smooth(110, 60, d) * 0.85);
+  gCol.push(c.r, c.g, c.b);
+}
+gGeo.setAttribute('color', new THREE.Float32BufferAttribute(gCol, 3));
+const ground = new THREE.Mesh(gGeo, new THREE.MeshLambertMaterial({ vertexColors: true }));
+scene.add(ground);
+const baseY = new Float32Array(gp.count);
+
+// hot springs (coloured rings)
+const springs = [[-50, -88], [42, -104], [-12, -120], [70, -130], [-85, -125]];
+for (const [x, z] of springs) {
+  for (const [r, col] of [[9, 0xd98a3a], [6, 0x6fb3a6], [3.5, 0x2f7f9a]]) {
+    const m = new THREE.Mesh(new THREE.CircleGeometry(r, 40), new THREE.MeshBasicMaterial({ color: col, fog: true }));
+    m.rotation.x = -Math.PI / 2; m.scale.y = 1; m.position.set(x, 0.05 + (10 - r) * 0.01, z);
+    scene.add(m);
+  }
+}
+// a few streams
+for (let k = 0; k < 0; k++) {
+  const s = new THREE.Mesh(new THREE.PlaneGeometry(4, 140), new THREE.MeshBasicMaterial({ color: 0x6a8fb0 }));
+  s.rotation.x = -Math.PI / 2; s.rotation.z = 0.9 + k * 0.4; s.position.set(-60 + k * 40, 0.04, -40 - k * 10);
+  scene.add(s);
+}
+
+// ---------- mountains ----------
+function ridge(z, hMax, col, seed) {
+  const pts = [], R = rng(seed);
+  const geo = new THREE.BufferGeometry(), pos = [];
+  let prev = null;
+  for (let x = -900; x <= 900; x += 30) {
+    const h = hMax * (0.55 + 0.45 * Math.sin(x * 0.006 + seed) * Math.cos(x * 0.011)) + R() * hMax * 0.15;
+    if (prev) { const [px, ph] = prev; pos.push(px, 0, z, x, 0, z, x, h, z, px, 0, z, x, h, z, px, ph, z); }
+    prev = [x, h];
+  }
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.computeVertexNormals();
+  scene.add(new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: col, side: THREE.DoubleSide })));
+}
+ridge(-650, 75, 0x55707a, 3);
+ridge(-520, 50, 0x2c4632, 7);
+
+// ---------- bushes ----------
+const bushGeo = new THREE.IcosahedronGeometry(1, 0); bushGeo.scale(1, 0.55, 1);
+const NB = 5000;
+const bushes = new THREE.InstancedMesh(bushGeo, new THREE.MeshLambertMaterial({ color: 0x33482a, flatShading: true }), NB);
+const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), v = new THREE.Vector3(), sc = new THREE.Vector3();
+{ const R = rng(11);
+  for (let i = 0; i < NB; i++) {
+    const x = (R() - 0.5) * 520, z = 40 - R() * 380, s = 0.3 + R() * 0.55;
+    m4.compose(v.set(x, 0.2, z), q.setFromEuler(new THREE.Euler(0, R() * 6, 0)), sc.set(s, s, s));
+    bushes.setMatrixAt(i, m4);
+  } }
+scene.add(bushes);
+
+// ---------- trees ----------
+function tree(x, z, s) {
+  const g = new THREE.Group();
+  const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.25, 2, 6), new THREE.MeshLambertMaterial({ color: 0x5a4330 }));
+  trunk.position.y = 1; g.add(trunk);
+  const mat = new THREE.MeshLambertMaterial({ color: 0x2f5a2c, flatShading: true });
+  for (let k = 0; k < 3; k++) { const cn = new THREE.Mesh(new THREE.ConeGeometry(1.6 - k * 0.35, 3, 7), mat); cn.position.y = 2.6 + k * 1.5; g.add(cn); }
+  g.position.set(x, 0, z); g.scale.setScalar(s); scene.add(g);
+}
+tree(-9.5, 31, 1.5); tree(-12, 26, 1.2); tree(10.5, 30, 1.6); tree(13, 24, 1.1); tree(8, 35, 1.9);
+{ const R = rng(5); for (let i = 0; i < 40; i++) tree((R() < .5 ? -1 : 1) * (40 + R() * 160), -R() * 200 - 20, 1.2 + R() * 1.4); }
+
+// ---------- bison ----------
+const bisonMat = new THREE.MeshLambertMaterial({ color: 0x5a3a24, flatShading: true });
+const headMat = new THREE.MeshLambertMaterial({ color: 0x3a2516, flatShading: true });
+const bison = [];
+{ const R = rng(21);
+  for (let i = 0; i < 16; i++) {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.SphereGeometry(1, 8, 6), bisonMat); body.scale.set(1.25, 0.75, 0.7); body.position.y = 1.1; g.add(body);
+    const hump = new THREE.Mesh(new THREE.SphereGeometry(0.7, 8, 6), headMat); hump.position.set(0.55, 1.5, 0); g.add(hump);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.45, 7, 5), headMat); head.position.set(1.35, 0.95, 0); g.add(head);
+    const legs = [];
+    for (const [lx, lz] of [[0.6, 0.3], [0.6, -0.3], [-0.6, 0.3], [-0.6, -0.3]]) {
+      const l = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.7, 0.18), headMat); l.position.set(lx, 0.35, lz); g.add(l); legs.push(l);
+    }
+    const x = (R() - 0.5) * 34, z = 22 - R() * 34;
+    const dir = x < 0 ? -1 : 1;
+    g.rotation.y = R() * 6;
+    scene.add(g);
+    bison.push({ g, legs, x, z, dir, delay: R() * 2, speed: 5 + R() * 3, rot0: g.rotation.y });
+  } }
+
+// ---------- particles (smoke / steam / ash) ----------
+function puffTexture() {
+  const cv = document.createElement('canvas'); cv.width = cv.height = 128;
+  const x = cv.getContext('2d'), R = rng(99);
+  for (let i = 0; i < 26; i++) {
+    const px = 64 + (R() - .5) * 60, py = 64 + (R() - .5) * 60, r = 18 + R() * 26;
+    const gr = x.createRadialGradient(px, py - r * 0.3, 0, px, py, r);
+    gr.addColorStop(0, 'rgba(255,255,255,0.55)'); gr.addColorStop(0.6, 'rgba(235,235,235,0.25)'); gr.addColorStop(1, 'rgba(200,200,200,0)');
+    x.fillStyle = gr; x.beginPath(); x.arc(px, py, r, 0, 7); x.fill();
+  }
+  const fade = x.createRadialGradient(64, 64, 30, 64, 64, 64);
+  x.globalCompositeOperation = 'destination-in';
+  fade.addColorStop(0, 'rgba(0,0,0,1)'); fade.addColorStop(1, 'rgba(0,0,0,0)');
+  x.fillStyle = fade; x.fillRect(0, 0, 128, 128);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const MAXP = 2600;
+const pGeo = new THREE.BufferGeometry();
+const P = { pos: new Float32Array(MAXP * 3), col: new Float32Array(MAXP * 3), size: new Float32Array(MAXP), alpha: new Float32Array(MAXP), rot: new Float32Array(MAXP) };
+pGeo.setAttribute('position', new THREE.BufferAttribute(P.pos, 3));
+pGeo.setAttribute('color', new THREE.BufferAttribute(P.col, 3));
+pGeo.setAttribute('size', new THREE.BufferAttribute(P.size, 1));
+pGeo.setAttribute('alpha', new THREE.BufferAttribute(P.alpha, 1));
+pGeo.setAttribute('rot', new THREE.BufferAttribute(P.rot, 1));
+const pMat = new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false,
+  uniforms: { map: { value: puffTexture() }, scale: { value: H / (2 * Math.tan(THREE.MathUtils.degToRad(29))) },
+              fogColor: { value: new THREE.Color() }, fogNear: { value: 160 }, fogFar: { value: 950 } },
+  vertexShader: `attribute float size; attribute float alpha; attribute float rot; attribute vec3 color;
+    uniform float scale; varying float vA; varying float vR; varying vec3 vC; varying float vD;
+    void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); vA = alpha; vR = rot; vC = color; vD = -mv.z;
+      gl_PointSize = min(size*scale/max(-mv.z, .1), 2048.); gl_Position = projectionMatrix*mv; }`,
+  fragmentShader: `uniform sampler2D map; uniform vec3 fogColor; uniform float fogNear; uniform float fogFar;
+    varying float vA; varying float vR; varying vec3 vC; varying float vD;
+    void main(){ vec2 p = gl_PointCoord - .5; float cs = cos(vR), sn = sin(vR);
+      p = vec2(cs*p.x - sn*p.y, sn*p.x + cs*p.y) + .5;
+      vec4 t = texture2D(map, p); float shade = mix(.78, 1.08, 1. - gl_PointCoord.y);
+      vec3 col = vC*shade; col = mix(col, fogColor, smoothstep(fogNear, fogFar, vD)*.6);
+      gl_FragColor = vec4(col, t.a*vA); if (gl_FragColor.a < .003) discard; }`
+});
+const points = new THREE.Points(pGeo, pMat);
+points.frustumCulled = false;
+scene.add(points);
+
+const list = [];
+function add(x, y, z, size, alpha, r, g, b, rot) { if (alpha > 0.004 && size > 0) list.push([x, y, z, size, alpha, r, g, b, rot]); }
+
+const geysers = [[0, -80, 1.0, 0], [-50, -88, 0.6, 3], [42, -104, 0.6, 4], [-12, -120, 0.5, 5], [70, -130, 0.45, 6], [-85, -125, 0.45, 7], [25, -70, 0.4, 8.5]];
+function steam(t, intensityAll) {
+  geysers.forEach(([gx, gz, power, start], gi) => {
+    const rate = 7, life = 7;
+    for (let k = Math.floor((t - life) * rate); k <= t * rate; k++) {
+      const b = k / rate + hash(k, gi) / rate, a = t - b;
+      if (a < 0 || a > life || b < start) continue;
+      const ramp = smooth(start, start + 2.5, b) * power * intensityAll;
+      const up = (9 + hash(k, gi + 50) * 4) * a * (1 - a / (life * 2.4)) * (0.7 + power);
+      const sx = (hash(k, gi + 9) - .5) * (1 + a * 1.6) + a * 1.4;
+      const sz = (hash(k, gi + 19) - .5) * (1 + a * 1.2);
+      const s = (2.2 + a * 3.2) * (0.6 + power);
+      const al = smooth(0, .5, a) * (1 - smooth(life * .45, life, a)) * 0.85 * ramp;
+      add(gx + sx, 1 + up, gz + sz, s, al, .97, .97, .97, hash(k, gi + 3) * 6);
+    }
+  });
+}
+
+// eruption column: starts at 13s
+const ER = 13, COLLAPSE = 20.5;
+function column(t) {
+  if (t < ER) return;
+  const rate = 42, life = 15;
+  for (let k = Math.floor((t - life - ER) * rate); k <= (t - ER) * rate; k++) {
+    if (k < 0) continue;
+    const b = ER + k / rate + hash(k, 1) / rate, a = t - b;
+    if (a < 0 || a > life) continue;
+    const vy = 34 + hash(k, 2) * 12;
+    let y = vy * a * (1 - a / (life * 2.2));
+    const topY = 270;
+    let spread = 5 + y * 0.22;
+    if (y > topY * 0.7) spread += (y - topY * .7) * 1.6;   // umbrella
+    y = Math.min(y, topY + hash(k, 8) * 30);
+    const ang = hash(k, 3) * Math.PI * 2, rr = Math.sqrt(hash(k, 4)) * spread;
+    let x = CAL.x + Math.cos(ang) * rr + a * 2, z = CAL.z + Math.sin(ang) * rr * .7;
+    // after collapse: column falls back
+    const col = smooth(COLLAPSE, COLLAPSE + 4, t);
+    y = lerp(y, y * 0.35, col * smooth(0, 1, (y - 20) / 100));
+    const s = (14 + a * 6.5) * (1 + y / 110);
+    const al = smooth(0, .6, a) * (1 - smooth(life * .7, life, a)) * .9 * (1 - smooth(31, 33, t) * 0);
+    const dark = .30 + hash(k, 5) * .16 + smooth(60, 260, y) * .08;
+    add(x, y, z, s, al, dark * 1.05, dark, dark * .95, hash(k, 6) * 6);
+    // warm glow at the base
+    if (y < 18 && hash(k, 7) < .25) add(x, y, z, s * .7, al * .2 * (1 - col), .8, .5, .35, hash(k, 9) * 6);
+  }
+}
+// pyroclastic flow: front moves from caldera towards the camera
+const flowDistAt = t => { const p = smooth(COLLAPSE + 0.5, 30.5, t); return 15 + p * (CAM.z - CAL.z - 8); };
+function flow(t) {
+  if (t < COLLAPSE + 0.5) return;
+  const front = flowDistAt(t);
+  const N = 900;
+  for (let i = 0; i < N; i++) {
+    const ang = -Math.PI / 2 + (hash(i, 31) - .5) * 2.4;   // sector facing the camera (+z)
+    const lag = hash(i, 32) * hash(i, 32) * 70;
+    const r = front - lag;
+    if (r < 0) continue;
+    const billow = Math.sin(t * .8 + i) * 1.5;
+    const h = hash(i, 33) * (14 + lag * .9) + billow;
+    const x = CAL.x + Math.cos(ang + Math.PI) * r * -1, z = CAL.z - Math.sin(ang) * r;
+    const s = 10 + hash(i, 34) * 18 + lag * .25;
+    const al = smooth(0, 6, r) * .8;
+    const d = .30 + hash(i, 35) * .12;
+    add(x, h + s * .25, z, s, al, d * 1.12, d * .98, d * .88, hash(i, 36) * 6 + t * .1 * (hash(i, 37) - .5));
+  }
+}
+// falling ash specks
+function specks(t) {
+  const a = smooth(16, 22, t);
+  if (a <= 0) return;
+  for (let i = 0; i < 350; i++) {
+    const x = (hash(i, 41) - .5) * 70, z = 30 - hash(i, 42) * 60;
+    const y = 45 - ((t * (3 + hash(i, 43) * 2) + hash(i, 44) * 45) % 45);
+    add(x, y, z, .18 + hash(i, 45) * .2, a * .9, .15, .14, .13, 0);
+  }
+}
+
+// ---------- HUD / timeline ----------
+const $ = id => document.getElementById(id);
+const fmt = n => n.toFixed(1);
+function hud(t) {
+  let lab = '', num = '', sub = '';
+  if (t < 12.5) {
+    const ft = lerp(0.6, 7.0, smooth(1.5, 12, t));
+    lab = 'GROUND UPLIFT'; num = fmt(ft) + ' ft'; sub = t > 6 ? 'RISING' : '';
+  } else if (t < COLLAPSE + 0.6) {
+    const mi = lerp(0.3, 21, smooth(ER, COLLAPSE, t));
+    lab = 'ASH COLUMN'; num = fmt(mi) + ' miles'; sub = 'HIGH';
+  } else {
+    const d = Math.max(0, flowDistAt(t) );
+    const total = CAM.z - CAL.z;
+    const miles = Math.max(0, (total - d) / total * 7.2);
+    lab = 'ASH FLOW'; sub = 'AWAY';
+    num = miles > 0.1 ? fmt(miles) + ' miles' : Math.round(miles * 5280) + ' ft';
+  }
+  $('lab').textContent = lab; $('num').textContent = num; $('sub').textContent = sub;
+  const hudA = smooth(0.3, 1.2, t) * (1 - smooth(31.6, 32.2, t));
+  $('hud').style.opacity = hudA;
+  $('title').style.opacity = smooth(0.4, 1.4, t) * (1 - smooth(4.6, 5.6, t));
+  const caps = [[6.8, 11.6, 'The animals know first.'], [13.4, 19, 'The whole caldera opens.'],
+                [20.8, 25, 'Then the column falls.'], [25.6, 30.4, 'It moves faster than a car.'],
+                [32.4, 34, 'You could not outrun it.']];
+  let ct = '', ca = 0;
+  for (const [a, b, s] of caps) if (t >= a - .1 && t <= b + .1) { ct = s; ca = smooth(a, a + .5, t) * (1 - smooth(b - .5, b, t)); }
+  $('cap').textContent = ct; $('cap').style.opacity = ca;
+  $('black').style.opacity = smooth(31.4, 32.3, t);
+  $('ash').style.opacity = smooth(28.6, 31, t) * .92;
+}
+
+// ---------- frame ----------
+const skyTop0 = new THREE.Color(0x4f7fb8), skyHor0 = new THREE.Color(0xc4d2db);
+const skyTop1 = new THREE.Color(0x3b3835), skyHor1 = new THREE.Color(0x857a6e);
+const skyTop2 = new THREE.Color(0x2a2724), skyHor2 = new THREE.Color(0x6a5f55);
+window.renderAt = function (t) {
+  // atmosphere darkens with the ash
+  const dk = smooth(ER, ER + 7, t), dk2 = smooth(COLLAPSE + 1, 29, t);
+  skyMat.uniforms.top.value.copy(skyTop0).lerp(skyTop1, dk).lerp(skyTop2, dk2);
+  skyMat.uniforms.hor.value.copy(skyHor0).lerp(skyHor1, dk).lerp(skyHor2, dk2);
+  scene.fog.color.copy(skyMat.uniforms.hor.value);
+  scene.fog.near = lerp(160, 60, dk2); scene.fog.far = lerp(950, 300, Math.max(dk * .4, dk2));
+  pMat.uniforms.fogColor.value.copy(scene.fog.color);
+  pMat.uniforms.fogNear.value = scene.fog.near; pMat.uniforms.fogFar.value = scene.fog.far;
+  hemi.intensity = lerp(1.6, 0.8, dk) * lerp(1, .7, dk2); sun.intensity = lerp(2.2, 0.5, dk);
+
+  // ground uplift around the caldera
+  const up = smooth(1, 13, t) * 2.2;
+  for (let i = 0; i < gp.count; i++) {
+    const x = gp.getX(i), z = gp.getZ(i);
+    const d = Math.hypot(x - CAL.x, (z - CAL.z) * 1.4);
+    gp.setY(i, up * Math.exp(-d * d / 9000) - smooth(ER, ER + 3, t) * 6 * Math.exp(-d * d / 900));
+  }
+  gp.needsUpdate = true;
+
+  // bison flee after 7s
+  for (const b of bison) {
+    const run = Math.max(0, t - 7 - b.delay);
+    const x = b.x + b.dir * run * b.speed, z = b.z + run * b.speed * .35;
+    b.g.position.set(x, 0, z);
+    if (run > 0) { b.g.rotation.y = b.dir > 0 ? -0.35 : Math.PI + 0.35; b.legs.forEach((l, j) => l.rotation.z = Math.sin(t * 14 + j * 1.7) * .6); }
+    else b.g.rotation.y = b.rot0 + Math.sin(t * .3 + b.x) * .05;
+  }
+
+  // camera: gentle push-in, tremor during the eruption
+  const shake = smooth(ER - .5, ER + .5, t) * (1 - smooth(ER + 3, ER + 8, t)) * .35 + smooth(28, 31, t) * .25;
+  camera.position.set(CAM.x + Math.sin(t * 31) * shake, CAM.y - t * .04 + Math.sin(t * 27) * shake, CAM.z - t * .35);
+  camera.lookAt(LOOK.x, LOOK.y + Math.sin(t * 23) * shake * .5, LOOK.z);
+
+  // particles
+  list.length = 0;
+  steam(t, 1 - smooth(ER, ER + 5, t) * .75);
+  column(t); flow(t); specks(t);
+  const cp = camera.position;
+  list.sort((a, b) => ((b[0]-cp.x)**2 + (b[1]-cp.y)**2 + (b[2]-cp.z)**2) - ((a[0]-cp.x)**2 + (a[1]-cp.y)**2 + (a[2]-cp.z)**2));
+  const n = Math.min(list.length, MAXP);
+  for (let i = 0; i < n; i++) {
+    const p = list[i];
+    P.pos.set([p[0], p[1], p[2]], i * 3); P.size[i] = p[3]; P.alpha[i] = p[4]; P.col.set([p[5], p[6], p[7]], i * 3); P.rot[i] = p[8];
+  }
+  pGeo.setDrawRange(0, n);
+  for (const k of ['position', 'color', 'size', 'alpha', 'rot']) pGeo.attributes[k].needsUpdate = true;
+
+  hud(t);
+  renderer.render(scene, camera);
+  return n;
+};
+window.T_END = T_END;
+document.fonts.ready.then(() => { window.ready = true; });
+</script>
+</body>
+</html>
