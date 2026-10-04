@@ -60,7 +60,7 @@ export function create(E, TL) {
   E.emitters.push((tv, add) => {
     for (const [i, b] of E.burn.entries()) {
       const t0 = b.t0 ?? 1e9, a = tv - t0; if (a < 0) continue;
-      const s = b.size ?? 1, grow = smooth(0, 1.2, a), out = 1 - smooth(9, 14, a);
+      const s = b.size ?? 1, grow = smooth(0, 1.2, a), out = 1 - smooth(b.burnT ?? 30, (b.burnT ?? 30) + 6, a);
       for (let k = 0; k < 10; k++) {          // flames: flickering orange-yellow tongues
         const u = (tv * 1.6 + hash(k, i)) % 1;
         add(b.pos[0] + (hash(k, i + 2) - .5) * s * 1.4, b.pos[1] + u * s * 2.2, b.pos[2] + (hash(k, i + 4) - .5) * s * 1.4,

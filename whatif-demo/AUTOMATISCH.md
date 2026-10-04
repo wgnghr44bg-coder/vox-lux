@@ -30,7 +30,10 @@ Script-regels:
 - Engels, begint met "Imagine…" + `pause`, 170–210 woorden, tweede persoon ("you").
 - Alleen natuurkunde die klopt, verteld als "would". Twijfel je aan een getal: weglaten.
 - Rustige opbouw → kracht groeit (teller loopt mee) → climax waarin de stem zwijgt (een getal als
-  pauze, bijv. `6` = 6 s stilte) → laatste zinnen over het stille beeld → eindkaart.
+  pauze, bijv. `6` = 6 s stilte) → laatste zinnen over het beeld.
+- Netjes afsluiten (eigenaar, okt 2026): geen eindkaart en geen tekst aan het eind; de stem sluit af
+  en het beeld vloeit uit (standaard naar zwart, `endStyle: 'white'` naar wit, bijv. als de zon het
+  beeld wit brandt). Laat het laatste shot iets moois tonen (geen verkoold of leeg beeld).
 - Eén korte kernzin tegelijk als caption, nooit de hele zin.
 
 Beeld-regels (stijl zoals earth-stops):
