@@ -78,6 +78,8 @@ pip install -q numpy scipy requests imageio-ffmpeg
 
 ## 1. Onderwerp kiezen
 
+- Haal eerst de uploads van het kanaal op en vergelijk met "Al op het kanaal" in `onderwerpen.md`: nooit een dubbele
+  video (Short of lang).
 - Neem in `whatif-demo/onderwerpen.md` het eerste onderwerp met status `gepland`.
 - Regel: een andere plek dan de vorige video. Is de plek gelijk aan die van de laatst geüploade video,
   neem dan het volgende `gepland`-onderwerp.

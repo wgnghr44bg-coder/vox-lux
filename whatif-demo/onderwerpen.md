@@ -6,6 +6,20 @@ onderwerpen onderaan toe (nooit een onderwerp dat al in deze lijst staat).
 Regels: elke dag een andere plek dan de vorige video; geen gewonden of lichamen in beeld;
 alleen natuurkunde die klopt, verteld als "would".
 
+## Al op het kanaal (IfScape3D, stand 2026-10-05) – geen dubbele video's
+
+| Datum | Soort | Duur | Titel | Link |
+|---|---|---|---|---|
+| 2026-10-04 | Short | 1:27 | What if gravity suddenly doubled? | https://youtu.be/DE61_VUIuCw |
+| 2026-10-04 | Short | 0:57 | What if the Sun came closer to Earth? | https://youtu.be/i2pChBmzRDs |
+| 2026-10-05 | Short | 1:30 | What if Earth suddenly stopped spinning? | https://youtu.be/Bkd2gh_IlU0 |
+| 2026-10-05 | Lang | 4:04 | What if the wind never stopped? (20 to 1,000 km/h) | https://youtu.be/1LNaLpmOcuM |
+
+Regel (eigenaar, okt 2026): vóór het kiezen van een onderwerp de uploads van het kanaal ophalen (API: uploads-playlist
+van kanaal `whatif`) en vergelijken met deze tabel en de lijst hieronder. Hetzelfde onderwerp nooit nog een keer, ook
+niet als Short ↔ lange video, tenzij de eigenaar daarom vraagt. Lijkt een onderwerp erg op een bestaande video, kies
+dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel bijwerken.
+
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
 Doel: gevarieerde What if-video's over 14 categorieën. Nooit twee keer achter elkaar dezelfde categorie
