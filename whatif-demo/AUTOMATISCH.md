@@ -11,6 +11,13 @@ whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 - Korte berichten: resultaat + video, geen lange uitleg.
 - Meerdere video's in één sessie maken als de eigenaar daarom vraagt (code maar één keer inlezen).
 
+## Usage bijhouden (eigenaar, okt 2026)
+
+Vóór elke run: lees `USAGE.md` (in de root), reken met de schattingen uit of de run nog past tot zaterdag
+12:00 (eerst ruimte voor de geplande Sleep-runs en 10% buffer). Na de run: voeg een regel toe aan het log
+(kanaal, short/lang, geschatte kosten). Stuurt de eigenaar een Usage-screenshot, vul dan de echte stand in en
+stel de schattingen bij.
+
 ## Glitch op straat (eigenaar, okt 2026)
 
 In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij elke video met de plek
