@@ -27,7 +27,7 @@ export function createBrand(E, TL) {
     back.material = E.lam(S.panel ?? 0xf1ede4); });
   const g = new THREE.Group(); g.position.set(...S.pos); g.rotation.y = S.ry ?? 0; E.scene.add(g);
   const w = S.w ?? 6, h = S.h ?? 3;
-  const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex })); face.position.z = .08; g.add(face);
+  const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })); face.position.z = .14; g.add(face);
   const back = E.shadowed(new THREE.Mesh(new THREE.BoxGeometry(w + .3, h + .3, .15), E.lam(0x2a2d31))); g.add(back);
   const frame = new THREE.Mesh(new THREE.BoxGeometry(w + .5, h + .5, .1), E.lam(0x2a2d31)); frame.position.z = -.06; g.add(frame);
   if (S.arm) {        // steel arm from the top of the sign to the wall

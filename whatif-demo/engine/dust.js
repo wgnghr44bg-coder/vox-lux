@@ -36,7 +36,7 @@ export function createDust(E) {
     vertexShader: `attribute float size; attribute float alpha; attribute float rot; attribute vec3 color;
       uniform float scale; varying float vA; varying float vR; varying vec3 vC; varying float vD;
       void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); vA = alpha; vR = rot; vC = color; vD = -mv.z;
-        gl_PointSize = min(size*scale/max(-mv.z, .1), 1400.); gl_Position = projectionMatrix*mv; vA *= smoothstep(2., 12., -mv.z); }`,
+        gl_PointSize = min(size*scale/max(-mv.z, .1), 1400.); gl_Position = projectionMatrix*mv; vA *= rot > 50. ? 1. : smoothstep(2., 12., -mv.z); }`,   // rot > 50: close-up particle (e.g. your own breath), no near fade
     fragmentShader: `uniform sampler2D map; uniform vec3 fogColor; uniform float fogNear; uniform float fogFar; uniform float light;
       varying float vA; varying float vR; varying vec3 vC; varying float vD;
       void main(){ vec2 p = gl_PointCoord - .5; float cs = cos(vR), sn = sin(vR);

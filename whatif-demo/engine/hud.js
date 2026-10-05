@@ -4,7 +4,7 @@ import { smooth, monotone } from './util.js';
 export function createHud(TL) {
   const $ = id => document.getElementById(id);
   const H = TL.hud, dec = H.decimals ?? 0;
-  const fmt = (n, d = dec) => n.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const fmt = (n, d = dec) => (Math.abs(n) < .5 * 10 ** -d ? 0 : n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }).replace('-', '−');
   const counterAt = monotone(TL.counter);
   $('title').innerHTML = TL.title; $('endT').innerHTML = TL.end.title; $('endS').innerHTML = TL.end.lines;
   $('lab').textContent = H.label; $('sub').textContent = H.sub || '';
@@ -16,7 +16,7 @@ export function createHud(TL) {
       $('num').textContent = (H.prefix || '') + fmt(v) + (H.unit || '');
       if (H.second) {
         const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;
-        $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(0, v2), S.decimals ?? 0)}${S.unit || ''}`;
+        $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(S.min ?? 0, v2), S.decimals ?? 0)}${S.unit || ''}`;
         $('second').style.opacity = smooth(S.showAt ?? 0, (S.showAt ?? 0) + 1.5, t) * .85;
       }
       $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t)) * (TL.endStyle === 'card' ? 1 : 1 - smooth(B.fade - .5, B.fade + 1, t));
