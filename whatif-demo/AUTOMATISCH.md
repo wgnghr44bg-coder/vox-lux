@@ -27,6 +27,19 @@ Vóór elke run: lees `USAGE.md` (in de root), reken met de schattingen uit of d
 (kanaal, short/lang, geschatte kosten). Stuurt de eigenaar een Usage-screenshot, vul dan de echte stand in en
 stel de schattingen bij.
 
+## Ondertitels: verplichte controle vóór upload (eigenaar, okt 2026)
+
+Shorts krijgen Engelse ondertitels (3–5 woorden per keer, ingebrand, synchroon met de stem). Bij het bouwen van
+`--subs` hoort een controle-script (zoals `tools/check_video.py` bij Sleep); zonder "SUBS GOED" niet uploaden:
+- Timing: elke ondertitel valt binnen de gemeten zinstijd (`voice-times.tsv`), start hooguit 0,15 s vóór de stem,
+  geen overlap, geen gat > 0,4 s midden in een zin, elke ondertitel ≥ 0,6 s in beeld.
+- Tekst: exact gelijk aan het script (geen ontbrekende of dubbele woorden), max ± 32 tekens per regel, max 2 regels.
+- Beeld: de tekst valt niet over de teller of het logo; leesbaar (wit met donkere rand).
+- Vloeiend: `tools/check_video.py` op het eindbestand (geen haperende stem, decodeerfouten, renderfouten of
+  stilstaand beeld) + geen flikkerende of verspringende ondertitels (beeld voor beeld bij de wissels kijken).
+- Zelf kijken: overzichtsplaat met een beeld per ondertitel-wissel bekijken; bij twijfel een stukje als video.
+Faalt iets: repareren en opnieuw controleren; lukt het niet, dan niet uploaden en melden.
+
 ## Glitch op straat (eigenaar, okt 2026)
 
 In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij elke video met de plek
