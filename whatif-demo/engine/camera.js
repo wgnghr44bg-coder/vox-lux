@@ -5,7 +5,7 @@
 //    sky objects (E.skyObjects) pull the gaze up; TL.looks = [[t, [x,y,z], seconds, weight]] adds manual ones;
 //  - the camera reacts 0.2-0.4 s late, turns with a slightly underdamped spring (a little
 //    overshoot), stays >= 1.5 s on a target unless something much bigger happens, then looks around;
-//  - never more than 70° from the base direction, never below -35° (no staring into the ground);
+//  - never more than 70° (shot.reach / TL.reach) from the base direction, never below -35° (no staring into the ground);
 //  - always a soft handheld motion: breathing, small jitter, now and then a few degrees of roll,
 //    plus shake that grows with the disaster and hard jolts on big hits.
 // The gaze is simulated once over the whole video (deterministic), so any frame renders on its own.
@@ -58,11 +58,12 @@ export function createCamera(E, TL, P, F) {
     if (sh.start !== lastShot) { yaw = by; pitch = bp; vy = vp = 0; cur = null; lastShot = sh.start; }
     // pick the most important visible target
     let best = null, bestVal = 0, bestDir = null;
+    const REACH = (sh.shot.reach ?? TL.reach ?? 70) * D2R;   // how far the gaze may turn from the base direction (observer shots: small)
     for (const c of T) {
       if (ts < c.t + c.delay || ts > c.until || t > STOP + .5) continue;
       const [ty, tp, dist] = dirOf(pos, c.pos(ts));
       const dy = wrap(ty - by);
-      if (Math.abs(dy) > 70 * D2R || tp < -35 * D2R || tp > 75 * D2R || dist < (c.kind === 'mover' ? 30 : 6)) continue;   // never stare at a big piece right in front of the lens
+      if (Math.abs(dy) > REACH || tp < -35 * D2R || tp > 75 * D2R || dist < (c.kind === 'mover' ? 30 : 6)) continue;   // never stare at a big piece right in front of the lens
       const val = c.w / (1 + dist / 90) * (c === cur ? 1.15 : 1);
       if (val > bestVal) { best = c; bestVal = val; bestDir = [ty, tp]; }
     }
@@ -71,7 +72,7 @@ export function createCamera(E, TL, P, F) {
     let dyaw, dpitch;
     if (cur) {
       const [ty, tp, dist] = dirOf(pos, cur.pos(ts)); curVal = cur.w / (1 + dist / 90);
-      dyaw = by + clamp(wrap(ty - by), -70 * D2R, 70 * D2R); dpitch = clamp(tp, -35 * D2R, 75 * D2R);
+      dyaw = by + clamp(wrap(ty - by), -REACH, REACH); dpitch = clamp(tp, Math.max(-35 * D2R, bp - REACH), Math.min(75 * D2R, bp + REACH));
     } else {   // idle: look around a little, like a person taking it in
       dyaw = by + (noise(t * .11, 3.1) * 9 + noise(t * .23, 7.7) * 4) * D2R;
       dpitch = bp + noise(t * .17, 1.3) * 3 * D2R;
@@ -84,7 +85,7 @@ export function createCamera(E, TL, P, F) {
       vy += (-(wn * wn) * wrap(yaw - dyaw) - 2 * zeta * wn * vy) * dt; yaw += vy * dt;
       vp += (-(wn * wn) * (pitch - dpitch) - 2 * zeta * wn * vp) * dt; pitch += vp * dt;
     }
-    yaw = by + clamp(wrap(yaw - by), -72 * D2R, 72 * D2R); pitch = clamp(pitch, -36 * D2R, 76 * D2R);
+    yaw = by + clamp(wrap(yaw - by), -REACH - 2 * D2R, REACH + 2 * D2R); pitch = clamp(pitch, -36 * D2R, 76 * D2R);
     yawA[f] = yaw; pitchA[f] = pitch;
   }
 
@@ -127,7 +128,7 @@ export function createCamera(E, TL, P, F) {
         pos[1] += Math.abs(Math.sin(ph)) * amp * 2 - amp; pos[0] += Math.sin(ph / 2) * amp * 1.4;
         pa += Math.sin(ph) * 1.4 * D2R; ya += Math.sin(ph / 2) * 1.6 * D2R; rollRun = Math.sin(ph / 2) * 2.5 * D2R;
       }
-      cam.fov = sh.shot.fov || 60; cam.updateProjectionMatrix();
+      cam.fov = (sh.shot.fov || 60) * (E.WIDE ? .62 : 1); cam.updateProjectionMatrix();
       cam.position.set(pos[0] + noise(tv * .5, 2) * .05 + sx * shake * .25, pos[1] + Math.sin(tv * 2 * Math.PI * .24) * .03 + sy * shake * .25, pos[2] + noise(tv * .5, 6) * .05);
       cam.rotation.set(pa, ya, roll + rollRun + sx * shake * .03);
       // a point 60 m ahead (used to aim the sun's shadow map)

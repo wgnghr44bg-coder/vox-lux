@@ -3,7 +3,10 @@
 import * as THREE from 'three';
 import { rng, hash } from './util.js';
 
-export const W = 720, H = 1280, FPS = 30;
+// ?wide=1: landscape 16:9 (long videos), otherwise vertical 9:16 (Shorts)
+export const WIDE = new URLSearchParams(location.search).has('wide');
+export const W = WIDE ? 1280 : 720, H = WIDE ? 720 : 1280, FPS = 30;
+if (WIDE) document.documentElement.classList.add('wide');
 
 export function createEngine() {
   const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -112,7 +115,7 @@ export function createEngine() {
   const frost = [];               // materials that frost over in the cold
   const windowMats = [];          // facade materials whose windows light up in the dark
   const E = {
-    THREE, W, H, FPS, renderer, scene, camera, sky, skyMat, hemi, sun, lam, shadowed, add, rng, hash,
+    THREE, W, H, WIDE, FPS, renderer, scene, camera, sky, skyMat, hemi, sun, lam, shadowed, add, rng, hash,
     facadeTex, facadeMats, facadeBox, IM, slot, DUMMY,
     PALETTE: [0x9c4a3a, 0xc9b896, 0x7a5a44, 0x8e8e8a, 0xc4a85a, 0xb5653f, 0xd2c6ae, 0x6f6a64],
     TOWER_PAL: [0xb9bcbc, 0xa7a49b, 0xc9c1ae, 0x8f969b, 0xd0cdc4],

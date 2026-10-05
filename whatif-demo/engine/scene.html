@@ -23,10 +23,16 @@ canvas { display: block; }
 #endT { font: 600 italic 54px PF, serif; line-height: 1.18; text-shadow: 0 3px 16px rgba(0,0,0,.6); }
 #endS { font: 600 27px CG, serif; line-height: 1.45; margin-top: 34px; opacity: .82; letter-spacing: .5px; }
 #fade { position: absolute; inset: 0; background: #000; opacity: 0; }
+/* landscape 16:9 (long videos) */
+html.wide, html.wide body { width: 1280px; height: 720px; }
+html.wide #hud { left: 48px; top: 40px; }
+html.wide #num { font-size: 52px; }
+html.wide #cap { top: 590px; font-size: 38px; padding: 0 160px; }
+html.wide #vig { width: 1280px !important; height: 360px !important; }
 </style>
 </head>
 <body>
-<div id="haze"></div><div style="position:absolute;left:0;top:0;width:720px;height:520px;background:radial-gradient(ellipse 520px 320px at 120px 230px, rgba(0,0,0,.32), rgba(0,0,0,0))"></div>
+<div id="haze"></div><div id="vig" style="position:absolute;left:0;top:0;width:720px;height:520px;background:radial-gradient(ellipse 520px 320px at 120px 230px, rgba(0,0,0,.32), rgba(0,0,0,0))"></div>
 <div id="black"></div>
 <div id="hud"><div id="lab"></div><div id="num"></div><div id="sub"></div><div id="second"></div></div>
 <div id="title"></div>

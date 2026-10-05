@@ -28,7 +28,7 @@ export function createHud(TL) {
       const style = TL.endStyle || 'fade', white = style === 'white', card = style === 'card';
       $('end').style.opacity = card ? smooth(B.end, B.end + 1.4, t) : 0;
       $('fade').style.background = white ? '#fffaf0' : '#000';
-      $('fade').style.opacity = smooth(B.fade, TL.T_END - (white ? .6 : .1), t);
+      $('fade').style.opacity = B.fade < TL.T_END ? smooth(B.fade, TL.T_END - (white ? .6 : .1), t) : 0;   // fade >= T_END: no fade (chapters of a long video)
       $('black').style.opacity = !card ? 0 : smooth(B.stop + .3, B.dark ?? B.end, t) * (TL.dim ?? .6) + smooth(B.end - 1, B.end + 1, t) * .3;
     },
   };

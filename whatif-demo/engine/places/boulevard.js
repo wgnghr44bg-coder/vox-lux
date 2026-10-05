@@ -88,7 +88,7 @@ export function build(E, TL, F) {
   for (let x = -300, i = 0; x < 300; x += 15, i++) burnPalm(palm(E, x + 7, 69.5, 7 + hash(i, 3) * 3, 500 + i, { y: PROM }), i + 50);
   // cars on the boulevard road
   [[73, 1], [79, -1]].forEach(([z, dir], li) => [0, 1, 2, 3, 4].forEach(k => {
-    car(E, 600 + li * 10 + k, { x0: -300 + k * 120 + li * 50, z0: z, dir, v: 9, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: (B.carsStop ?? 1e9) + k * .5 + li, F, ground: PROM });
+    car(E, 600 + li * 10 + k, { x0: -300 + k * 120 + li * 50, z0: z, dir, v: 9, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: (B.carsStop ?? 1e9) + k * .5 + li, F, ground: PROM, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1, water: PROM + .6 } }) });
   }));
   // hotels and apartments
   { const R = rng(21); let x = -360;
