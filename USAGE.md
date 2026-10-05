@@ -9,7 +9,7 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 |---|---|---|---|
 | IfScape3D (What If) | Short (bestaande plek/kracht) | ± 1% | schatting |
 | IfScape3D (What If) | Short met nieuwe plek of kracht | ± 2% | schatting |
-| IfScape3D (What If) | Lange video 16:9, 6–8 min (bestaande plekken) | ± 4–6% | wind-video: ± 2–4% incl. eenmalig bouwwerk |
+| IfScape3D (What If) | Lange video 16:9, min. 8 min (bestaande plekken) | ± 5–7% | wind-video: ± 2–4% incl. eenmalig bouwwerk |
 | IfScape3D (What If) | Lange video met nieuwe plek/modellen (bv. dino's) | ± 5–6% | schatting |
 | Sleep Archives | Lange video (routine, ± 2 uur doc + 72 beelden) | ± 5–8% | schatting (run ± 66 min) |
 | Sleep Archives | Short (los gemaakt; routine maakt sinds okt 2026 geen Shorts) | ± 1% | schatting |
@@ -22,7 +22,7 @@ Week tot za 10 okt 2026 12:00 (stand ma 5 okt 22:11: 68% gebruikt):
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
   - wo 7 okt: ondertitels bouwen (`--subs`) + Shorts "−100 °C" (live do 8 okt 18:00) en
     "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00)
-  - vr 9 okt: lange video "What if the Sun went out?", 6–8 min (live za 10 okt 21:00, met thumbnail) +
+  - vr 9 okt: lange video "What if the Sun went out?", min. 8 min (live za 10 okt 21:00, met thumbnail) +
     Short "What if all the ice on Earth melted?" (live za 10 okt 18:00)
 
 Na de reset, za 10 okt (na 12:00): TikTok-pagina "IfScape3D TikToks" bouwen (claude.ai-pagina zoals de oude Sleep-pagina:

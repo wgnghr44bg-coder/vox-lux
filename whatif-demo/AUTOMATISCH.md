@@ -20,11 +20,11 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 
 ## Lange video's: lengte en opbouw (eigenaar, okt 2026)
 
-- 6–8 minuten, 4–6 hoofdstukken van ± 1–1,5 min, per hoofdstuk een nieuwe plek of stap; stap voor stap erger
+- Minimaal 8 minuten (eigenaar; mid-roll-grens), ± 8–9 min, 5–7 hoofdstukken van ± 1–1,5 min, per hoofdstuk een nieuwe plek of stap; stap voor stap erger
   (zoals de wind-video), climax in het laatste kwart.
 - Sterke opening zonder vooruitblik: meteen "Imagine …" over een beeld waar al iets onrustigs gebeurt, teller in beeld.
 - Na de eerste lange video's samen met de eigenaar de kijkduur (Betrokkenheid) bekijken; blijven kijkers tot het eind,
-  dan naar 8–10 minuten. Usage ± 4–6% per lange video.
+  dan naar 10 minuten. Usage ± 5–7% per lange video.
 
 ## Zuinig werken (eigenaar, okt 2026)
 
