@@ -158,7 +158,9 @@ export function car(E, seed, o) {
   const roofSnow = o.snow ? new THREE.Mesh(new THREE.BoxGeometry(1.5, .12, 2.0), lam(0xeef2f5)) : null;
   if (roofSnow) { roofSnow.position.set(0, .9, .2); shell.add(roofSnow); E.melt.push({ mesh: roofSnow, to: 0 }); }
   const brake = new THREE.Mesh(new THREE.BoxGeometry(1.5, .14, .05), new THREE.MeshBasicMaterial({ color: 0x5a2420 })); brake.position.set(0, .05, 2.16); shell.add(brake);
-  const front = new THREE.Mesh(new THREE.BoxGeometry(1.5, .14, .05), new THREE.MeshBasicMaterial({ color: 0x55534c })); front.position.set(0, .05, -2.16); shell.add(front);
+  // front: two separate headlamps; rear: one long light bar (brake)
+  const front = { material: new THREE.MeshBasicMaterial({ color: 0x55534c }) };
+  for (const sx of [-.55, .55]) { const l = new THREE.Mesh(new THREE.BoxGeometry(.32, .16, .05), front.material); l.position.set(sx, .05, -2.16); shell.add(l); }
   for (const [x, z] of [[-.85, 1.35], [.85, 1.35], [-.85, -1.35], [.85, -1.35]]) { const w = new THREE.Mesh(wheelGeo, lam(0x1c1d1f)); w.position.set(x, -.43, z); g.add(w); }
   E.scene.add(g);
   E.lights.push({ mat: front.material, off: 0x55534c, on: 0xfff1cf, at: R() * .1 });
