@@ -18,6 +18,14 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 - Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
 - TikTok: geen Google Drive meer; de Shorts komen op de pagina "IfScape3D TikToks" (vanaf za 10 okt 2026).
 
+## Lange video's: lengte en opbouw (eigenaar, okt 2026)
+
+- 6–8 minuten, 4–6 hoofdstukken van ± 1–1,5 min, per hoofdstuk een nieuwe plek of stap; stap voor stap erger
+  (zoals de wind-video), climax in het laatste kwart.
+- Sterke opening zonder vooruitblik: meteen "Imagine …" over een beeld waar al iets onrustigs gebeurt, teller in beeld.
+- Na de eerste lange video's samen met de eigenaar de kijkduur (Betrokkenheid) bekijken; blijven kijkers tot het eind,
+  dan naar 8–10 minuten. Usage ± 4–6% per lange video.
+
 ## Zuinig werken (eigenaar, okt 2026)
 
 - Gebruik bestaande plekken en krachten; bouw alleen iets nieuws als het onderwerp echt niet past.
