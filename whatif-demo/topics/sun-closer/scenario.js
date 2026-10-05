@@ -63,7 +63,7 @@ export const upload = {
   description: "POV: you're lying on a summer beach when Earth starts falling toward the Sun. ☀️🔥\n\n" +
     'At half the distance the Sun looks twice as wide. At a quarter, sunlight is 16 times stronger and towels, parasols and palm trees catch fire.\n\n' +
     'Would you run or stay? 👇\n\n' +
-    'Animated with code, AI voice.\n\n#whatif #sun #space #shorts',
+    '#whatif #sun #space #shorts',
   tags: ['what if', 'what if the sun came closer', 'sun', 'space', 'science', 'physics', 'beach', 'simulation', '3d animation', 'IfScape3D'],
   tiktok: 'POV: Earth starts falling toward the Sun ☀️🔥 At a quarter of the distance, sunlight is 16× stronger. Would you run or stay? #whatif #space #science #fyp',
 };
