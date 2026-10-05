@@ -6,6 +6,34 @@ onderwerpen onderaan toe (nooit een onderwerp dat al in deze lijst staat).
 Regels: elke dag een andere plek dan de vorige video; geen gewonden of lichamen in beeld;
 alleen natuurkunde die klopt, verteld als "would".
 
+## Categorieën en bouwplan (eigenaar, okt 2026)
+
+Doel: gevarieerde What if-video's over 14 categorieën. Nooit twee keer achter elkaar dezelfde categorie
+(en ook niet dezelfde plek). Bakstenen worden langzaam opgebouwd: hooguit één nieuwe baksteen per week, alleen
+na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-runs + 10% buffer).
+
+| # | Categorie | Voorbeeld | Kan nu? | Baksteen nodig |
+|---|---|---|---|---|
+| 1 | Earth & Nature | What if Earth stopped spinning? | ja | – |
+| 2 | Space & Universe | What if the Sun suddenly disappeared? | deels (zon uit/dichterbij) | Hemel |
+| 3 | Human Body | What if humans never needed sleep? | nee | Mensen dichtbij |
+| 4 | Civilization & Society | What if everyone disappeared for 24 hours? | nee | Tijd & stad |
+| 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
+| 6 | History | What if the Roman Empire never fell? | nee | Oude plek (Rome) |
+| 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels (wind/water/kou/hitte) | Aarde beweegt |
+| 8 | Animals & Evolution | What if dinosaurs never went extinct? | nee | Dieren (plan: long/dinosaurs) |
+| 9 | Science & Physics | What if gravity suddenly disappeared? | ja | – |
+| 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | nee | Hemel (ufo) |
+| 11 | Horror & Dark What If | What if nobody could die after midnight? | nee | Tijd & stad (nacht); spanning door sfeer, nooit gewonden/lichamen |
+| 12 | Money & Economy | What if everyone received €1 million? | nee | Mensen dichtbij (+ drukte, prijzenteller) |
+| 13 | Psychology & Human Behavior | What if everyone could read minds? | nee | Mensen dichtbij |
+| 14 | Alternate Worlds | What if Earth had rings like Saturn? | nee | Hemel |
+
+Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede zon, ufo (± 3%) →
+2 Aarde beweegt – aardbeving, as, lava (± 4%) → 3 Tijd & stad – dag/nacht, lege stad, lichten uit, natuur groeit terug (± 4%) →
+4 Mensen dichtbij – grotere poppetjes, interieur, uitdrukking (± 5%) → 5 Oude plek – Romeinse stad (± 4%) →
+6 Dieren – dino's (± 5–6%). Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
+
 | # | What if… | Plek | Kracht / beeld | Status |
 |---|---|---|---|---|
 | 1 | Gravity suddenly doubled? | Rivierstad met hangbrug | Zwaartekracht: brug zakt door, torens storten recht in | geüpload 2026-10-04 https://youtu.be/DE61_VUIuCw (openbaar, straatversie van de eigenaar) |
