@@ -11,6 +11,7 @@ import { rng, hash, smooth, clamp, colorKeys } from '../util.js';
 import { palm, lamp, bench, car } from '../props.js';
 import { block } from '../blocks.js';
 import { crowd, sunbathers } from '../crowd.js';
+import { lifebuoy } from '../lifebuoy.js';
 
 export function build(E, TL, F) {
   const { scene, lam, shadowed } = E, B = TL.beats;
@@ -112,6 +113,8 @@ export function build(E, TL, F) {
     }
   });
 
+  if (TL.lifebuoy) { const b = lifebuoy(E, { pos: [TL.lifebuoy[0], 0, TL.lifebuoy[1]], ry: .4 });
+    E.updates.push((t, F, tv) => { const wy = F.field(t).waterY ?? 0; b.position.y = wy + .06 + Math.sin(tv * 1.3) * .04; b.rotation.z = Math.sin(tv * .9) * .05; }); }
   E.brandSpot = { pos: [22, groundAt(22, 16) + 3.4, 16], ry: -.35, w: 4.5, h: 2.2, posts: 2.3, shot: 'pov-beach' };   // beach sign
   const sky = colorKeys(THREE, [[0, 0x6ea6d3, 0xdfe7e6]]);
   E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [120, 160, -60]));
@@ -129,6 +132,8 @@ export function build(E, TL, F) {
       'pov-sea': { pos: [12, groundAt(0, 27) + 1.65, 27], look: [-4, 3, -150], drift: [0, 0, -.6], fov: 62 },
       'pov-beach': { pos: [-30, groundAt(0, 18) + 1.65, 18], look: [30, 1.2, 14], drift: [.8, 0, 0], fov: 60 },
       'pov-back': { pos: [2, groundAt(0, 4) + 1.65, 4], look: [0, 4, 70], drift: [0, 0, .5], fov: 62 },
+      'pov-balcony': { pos: [2, PROM + 4.2 + 2 * 3.5 + 1.6, 88.3], look: [-1, PROM, 74], drift: [0, 0, 0], fov: 62 },
+      'balcony-zoom': { pos: [2, PROM + 4.2 + 2 * 3.5 + 1.6, 88.3], look: [-1, 7, 76], drift: [0, 0, 0], fov: 9 },
       'pov-lie': { pos: [3, groundAt(0, 26) + .55, 26], look: [-12, 30, -200], drift: [0, 0, 0], fov: 64 },
       'pov-run': { pos: [2, groundAt(0, 12) + 1.6, 12], look: [-2, 3.5, 90], drift: [0, .9, 32], fov: 66, run: { amp: .08, freq: 1.4 } },
       'pov-glance': { pos: [2, groundAt(0, 24) + 1.6, 24], look: [-10, 12, -160], drift: [0, .4, 12], fov: 66, run: { amp: .06, freq: 1.4 } },
