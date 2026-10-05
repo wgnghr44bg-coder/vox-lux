@@ -9,8 +9,14 @@ De dagelijkse routine mag Shorts én lange video's zelf uploaden, altijd privé 
 (publishAt), zodat de eigenaar tot dat moment kan ingrijpen in YouTube Studio:
 - Short: privé, live de volgende dag 18:00 (Europe/Amsterdam).
 - Lange video (16:9): privé, live op de datum uit `USAGE.md` (planning) of anders de eerstvolgende zaterdag 21:00,
-  altijd met thumbnail (`--thumbnail`, stijl: zie "Lange video's: altijd een thumbnail").
+  altijd met thumbnail (`--thumbnail`, stijl en controle: `regels/thumbnail.md`).
 Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in het budget: niets maken, wel melden.
+
+## Losse regels (alleen lezen als nodig)
+
+- Lange video (16:9): thumbnail-stijl en -controle in `regels/thumbnail.md` (altijd met thumbnail uploaden).
+- Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
+- TikTok: geen Google Drive meer; de Shorts komen op de pagina "IfScape3D TikToks" (vanaf za 10 okt 2026).
 
 ## Zuinig werken (eigenaar, okt 2026)
 
@@ -18,7 +24,8 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 - Eén testronde per video: één testblad bekijken, één keer bijsturen, dan de volledige render.
 - Vraag de wensen vooraf in één keer; niet halverwege van richting veranderen.
 - Korte berichten: resultaat + video, geen lange uitleg.
-- Meerdere video's in één sessie maken als de eigenaar daarom vraagt (code maar één keer inlezen).
+- Routine: per run 2 Shorts (code maar één keer inlezen), live op twee verschillende dagen; lange video's één per run.
+- Lees alleen wat de taak van vandaag nodig heeft; regels voor andere taken staan in `regels/`.
 
 ## Usage bijhouden (eigenaar, okt 2026)
 
@@ -45,50 +52,6 @@ Faalt iets: repareren en opnieuw controleren; lukt het niet, dan niet uploaden e
 In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij elke video met de plek
 `street` extra opletten: niet alleen stills bekijken, maar ook een kort stukje video van de straat-shots
 (beeld voor beeld) op flikkeren, verspringen of haperen controleren, en pas renderen als het weg is.
-
-## Lange video's (16:9): altijd een thumbnail (eigenaar, okt 2026)
-
-Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste stijl van
-`branding/thumbnail-voorbeeld.jpg` (de wind-video), in de stijl van het grote What If-kanaal. Shorts: geen thumbnail.
-
-Doel: altijd pakkend. De kijker moet nieuwsgierig worden en willen klikken. Laat het spannendste moment zien,
-maar niet de afloop (wat gebeurt er hierna?); het getal moet verbazen (extreem, onverwacht). Vraag jezelf vóór
-gebruik af: zou ik hierop klikken als ik door YouTube scroll? Zo niet: ander moment, groter onderwerp, minder tekst.
-
-Stijl (elke keer hetzelfde, passend bij het onderwerp):
-- 1280x720. Achtergrond = een echt frame uit de eigen 3D-video (plek van de climax), iets verzacht.
-- Rechts groot en dichtbij waar de video om draait (het hoofdonderwerp: bij dinosaurussen een T-rex, bij wind
-  wegvliegende auto's, bij kou een bevroren brug …), met de echte low-poly modellen uit de video,
-  uitvergroot, schuin/wegvliegend, met witte snelheidsstrepen of ander effect dat bij de kracht past.
-- Links weinig tekst, dik schreefloos lettertype (heavy, hoofdletters), wit met donkere rand/schaduw:
-  hooguit 3 regels, één groot getal of extreem in geel (bv. "OVER | 1,000 | KM/H", "2X | GRAVITY", "−100 °C").
-- Logo (bol met ring) linksboven. Rechtsonder leeg (videolengte).
-- Geen gewonden, geen bloed; poppetjes mogen wel zichtbaar in de kracht staan.
-
-Werkwijze:
-1. Klaarzetten: `pip install -q fonttools brotli pillow`.
-2. Achtergrond: frame uit de video (`ffmpeg -ss <s> -i <video> -frames:v 1 bg.png`), liefst zonder teller in beeld;
-   modellen los renderen uit de engine (zelfde plek/props, transparante achtergrond) en erop plakken.
-   (`whatif-demo/ifscape_thumbnail.py` maakt nog de oude, rustige stijl; alleen gebruiken als basis/noodoptie.)
-3. Controle vóór gebruik: zelf openen en kijken: actie goed zichtbaar en niet achter de tekst, tekst leesbaar
-   op telefoonformaat, logo staat erop, getal klopt met de video.
-4. Uploaden: `tools/youtube_upload.py … --thumbnail <map>/thumbnail.jpg`, zodat hij er meteen op staat zodra de
-   video live gaat (werkt sinds okt 2026). Lukt het niet: thumbnail naar de eigenaar sturen met
-   YouTube Studio → Content → video → Thumbnail → Uploaden → Opslaan.
-
-## Uploaden van een video die de eigenaar stuurt (eigenaar, okt 2026)
-
-Stuurt de eigenaar een (ondertitelde) video in de chat met de vraag hem te plaatsen:
-1. Bekijk hem eerst (een paar beelden + decodeercontrole: `ffmpeg -v error -i <bestand> -f null -`).
-2. Upload precies dat bestand, niet opnieuw coderen:
-   `python3 tools/youtube_upload.py <bestand> --channel whatif --title "What if …?" --description-file d.txt --tags "…" --privacy public`
-   Openbaar, categorie Education (27), Engels, niet voor kinderen, AI-label aan, geen thumbnail.
-3. Korte, menselijke beschrijving:
-   POV-zin + emoji / één feit / een vraag aan de kijker + 👇 / 3-4 hashtags waarvan #whatif en #shorts.
-   Geen regel "Animated with code / AI voice" (eigenaar, okt 2026); wel het AI-vinkje bij upload.
-   Titel zonder #shorts. ±10 tags (what if, onderwerp, science, physics, simulation, 3d animation, IfScape3D).
-4. Zet de video in de playlist "What If".
-5. Werk onderwerpen.md bij (status "geüpload <datum> <link>") en meld de link.
 
 ## 0. Klaarzetten
 
@@ -198,12 +161,6 @@ python3 whatif-demo/publish_whatif.py <nr>
 
 Faalt de controle: lees de melding, repareer (meestal render opnieuw met `--from render` of geluid
 met `--from audio`), en probeer nog één keer. Lukt het dan nog niet: niet uploaden, wel melden.
-
-## 6. Google Drive (TikTok)
-
-Zet met de Google Drive-connector de bestanden uit `whatif-demo/tiktok/<datum>-<slug>/` in de
-map "TikTok klaar" (maak die aan als hij niet bestaat; per video een submap `<datum>-<slug>`). Lukt dat
-niet (geen connector, geen rechten), meld het dan; de map in de repo blijft de bron.
 
 ## 7. Vastleggen
 
