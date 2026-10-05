@@ -184,6 +184,7 @@ export function build(E, TL, F) {
   }
 
   // ---------- light ----------
+  E.brandSpot = { pos: [52, 5.2, -14], ry: Math.PI / 2, w: 6, h: 3, posts: 3.6, shot: 'quay' };   // billboard on the promenade
   const sky = colorKeys(THREE, [[0, 0x7aa3cc, 0xd3dde2]]);
   E.sunOffset = new THREE.Vector3(-170, 230, 110);
   const P = {
