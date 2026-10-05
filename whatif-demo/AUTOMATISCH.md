@@ -3,6 +3,15 @@
 Deze instructies volgt de dagelijkse sessie ("Maak en upload de volgende What if-video volgens
 whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 
+## Routine en uploaden (eigenaar, okt 2026)
+
+De dagelijkse routine mag Shorts én lange video's zelf uploaden, altijd privé met een geplande publicatie
+(publishAt), zodat de eigenaar tot dat moment kan ingrijpen in YouTube Studio:
+- Short: privé, live de volgende dag 18:00 (Europe/Amsterdam).
+- Lange video (16:9): privé, live op de datum uit `USAGE.md` (planning) of anders de eerstvolgende zaterdag 21:00,
+  altijd met thumbnail (`--thumbnail`, stijl: zie "Lange video's: altijd een thumbnail").
+Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in het budget: niets maken, wel melden.
+
 ## Zuinig werken (eigenaar, okt 2026)
 
 - Gebruik bestaande plekken en krachten; bouw alleen iets nieuws als het onderwerp echt niet past.
