@@ -69,3 +69,4 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 |---|---|---|---|---|---|---|
 | 2026-10-05 | IfScape3D | Lang: What if the wind never stopped? (4:04) | ± 60% | 63% | ± 3% | incl. liggend beeld bouwen; sessie 26→35% tussen 16:34 en 17:50 |
 | 2026-10-05 | IfScape3D | Thumbnails, usage-log, planning (overleg) | 63% | 68% | 5% | screenshot 22:11; ook overleg kost usage |
+| 2026-10-05 | IfScape3D | Routine, regels en planning (overleg) | 68% | 69% | 1% | screenshot 22:45 |
