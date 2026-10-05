@@ -58,9 +58,12 @@ Script-regels:
   opbouwen tot de climax (teller versnelt, `audio: { heartbeat, riser }` in scenario.js).
 - Kanaalnaam in beeld (eigenaar, okt 2026): één keer per video kijkt de POV-camera ±1,6 s naar het logo
   (branding/logo-cut.png: alleen bol + naam) en draait dan weer weg. Het logo moet passen in de scène:
-  op een reclamebord, tv-scherm, auto, reddingsband of t-shirt – nooit los aan een gebouw. Elke plek heeft een vaste plek (E.brandSpot); `beats.brand` kiest
+  op een reclamebord, tv-scherm, auto, reddingsband, t-shirt/jas van iemand (`driver: { logo: 'front' }` in props.car)
+  of als graffiti op een muur – nooit als los bord aan een gebouw. Elke plek heeft een vaste plek (E.brandSpot); `beats.brand` kiest
   eventueel het moment, `brand: false` zet het uit.
 - Auto's: voorop twee losse koplampen, achterop één lange lichtbalk.
+- Wat de stem zegt, moet je ook zien (eigenaar, okt 2026): zegt de stem "engines stop", laat dan een auto
+  stoppen en de bestuurder uitstappen en weglopen (`beats.driver` in river-city).
 - Geen haak of flash-forward aan het begin (eigenaar, okt 2026): het verhaal begint gewoon bij het
   begin en loopt op volgorde. Gebruik `hook` in scenario.js dus niet.
 - Netjes afsluiten (eigenaar, okt 2026): geen eindkaart en geen tekst aan het eind; de stem sluit af
