@@ -93,7 +93,8 @@ function cameraAt(tv, fixed) {
   const look = camera.apply(tv, fixed);
   if (E.sunOffset) {        // keep the shadow map around what the camera sees
     const c = E.camera.position, dx = look.x - c.x, dz = look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
-    E.sun.target.position.set(c.x + dx / l * k2, 0, c.z + dz / l * k2);
+    const snap = v => Math.round(v / 8) * 8;   // shadow map moves in 8 m steps, not with every handheld wobble (no shimmer)
+    E.sun.target.position.set(snap(c.x + dx / l * k2), 0, snap(c.z + dz / l * k2));
     E.sun.position.copy(E.sun.target.position).add(E.sunOffset);
   }
 }
@@ -166,4 +167,4 @@ window.blurAt = tv => {
 window.E = E;
 window.T_END = HOOK ? HOOK.dur : TL.T_END; window.TL = TL; window.EVENTS = E.EVENTS;
 window.AUDIO = { place: TL.place, force: TL.force, ambience: P.ambience, level: Array.from({ length: Math.ceil(TL.T_END * 10) }, (_, i) => +F.level(Math.min(i / 10, STOP)).toFixed(3)) };
-document.fonts.ready.then(() => { window.ready = true; });
+Promise.all([document.fonts.ready, ...(E.loading || [])]).then(() => { window.ready = true; });   // wait for fonts and textures (logo)

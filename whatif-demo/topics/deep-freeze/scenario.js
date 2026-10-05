@@ -40,10 +40,10 @@ export default function (at) {
                [at('ninety').s, at('ninety').e + .5, 'Colder than ever recorded.'],
                [at('steel').s, at('steel').e + .4, 'Steel turns brittle.']],
     shots: [[0, 'wide'], [at('intro').s + 1, 'quay'], [at('now').s, 'wide'], [at('twenty').s, 'under'], [at('forty').s, 'quay'],
-            [at('cars').s, 'deck'], [at('sixty').s, 'wide'], [at('ice').s, 'under'], [at('ninety').s, 'quay'],
+            [at('cars').s - .4, 'road'], [at('ice').s + 1.5, 'under'], [at('ninety').s, 'quay'],
             [at('steel').s, 'span'], [climax + 3.5, 'under'], [at('still').s, 'wide']],
     beats: {
-      brand: at('intro').s + 2, carsStop: at('cars').s, lookUp: at('now').e, shelter: at('skin').s + 1,
+      carsStop: at('cars').s, driver: at('cars').s - .8, lookUp: at('now').e, shelter: at('skin').s + 1,
       hangers: at('bang').s + .3, deckBreak: climax, climax, falls: [], stop,
       fade: at('final').s - .2,
     },

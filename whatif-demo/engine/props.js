@@ -134,6 +134,11 @@ export function person(E, seed, o = {}) {
   if (o.hat) { const h = shadowed(new THREE.Mesh(new THREE.ConeGeometry(.15, .18, 6), lam(o.hat))); h.position.y = 1.03; upper.add(h); }
   const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * .08, .82, 0); g.add(p);
     const l = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.12, .82, .13), lam(0x2f3236))); l.position.y = -.41; p.add(l); return p; });
+  if (o.logo) {        // channel logo on the jacket: o.logo = 'front' (chest, local +z) or 'back'
+    const m = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }), lg = new THREE.Mesh(new THREE.PlaneGeometry(.4, .4), m);
+    const back = o.logo === 'back'; lg.position.set(0, .45, back ? -.21 : .21); lg.rotation.y = back ? Math.PI : 0; upper.add(lg);
+    (E.loading ||= []).push(new Promise(ok => new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; m.map = t; m.needsUpdate = true; ok(); }, undefined, ok)));
+  }
   const ph = R() * 6;
   const P = { g, R, ph, update(t, F) {
     const s = o.path(t, F, P);
@@ -178,5 +183,23 @@ export function car(E, seed, o) {
     strength: o.strength ?? { wind: .3 + R() * .15, water: (o.ground ?? 0) + .55 + R() * .2 }, brakeT, wob: .3,
     onPose(t, st, w) { brake.material.color.setHex(t > brakeT - .5 && t < brakeT + 30 && !E.powerOut?.(t) ? 0xc8352b : 0x5a2420);
       const d = o.F?.droop(t) ?? 0; shell.position.y = -d * .22; } });
+  // o.driver = { out: s after the stop, to: [[x, z], ...] }: the driver gets out on the left and walks away (vanishes at the end)
+  if (o.driver) {
+    const D = o.driver, tOut = brakeT + Tb + (D.out ?? 1), vW = D.speed ?? 2.4;
+    const at = t => {
+      if (t < tOut) return { visible: false };
+      const p = drive(tOut).p, side = axis === 'x' ? [0, -dir * 1.25] : [dir * 1.25, 0];
+      const pts = [[p[0] + side[0], p[2] + side[1]], ...D.to];
+      let d = (t - tOut) * vW;
+      for (let i = 0; i < pts.length - 1; i++) {
+        const [ax, az] = pts[i], [bx, bz] = pts[i + 1], L = Math.hypot(bx - ax, bz - az);
+        if (d <= L) { const k = d / L; return { x: ax + (bx - ax) * k, z: az + (bz - az) * k, rot: Math.atan2(bx - ax, bz - az), moving: 1, speed: vW }; }
+        d -= L;
+      }
+      return { visible: false };
+    };
+    person(E, seed + 7, { coat: D.coat ?? 0x2b3a4a, logo: D.logo, path: at });
+    body.driverAt = at;
+  }
   return body;
 }
