@@ -24,7 +24,8 @@ Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste
 
 Stijl (elke keer hetzelfde, passend bij het onderwerp):
 - 1280x720. Achtergrond = een echt frame uit de eigen 3D-video (plek van de climax), iets verzacht.
-- Rechts de actie groot en dichtbij: de echte low-poly modellen uit de video (auto's, poppetjes, brokken)
+- Rechts groot en dichtbij waar de video om draait (het hoofdonderwerp: bij dinosaurussen een T-rex, bij wind
+  wegvliegende auto's, bij kou een bevroren brug …), met de echte low-poly modellen uit de video,
   uitvergroot, schuin/wegvliegend, met witte snelheidsstrepen of ander effect dat bij de kracht past.
 - Links weinig tekst, dik schreefloos lettertype (heavy, hoofdletters), wit met donkere rand/schaduw:
   hooguit 3 regels, één groot getal of extreem in geel (bv. "OVER | 1,000 | KM/H", "2X | GRAVITY", "−100 °C").
