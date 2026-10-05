@@ -89,7 +89,7 @@ Stappen:
    beschouwende zin. Na elk feitje [long-pause]. Zelfde begin en einde als hierboven;
    houd een logische volgorde aan (bv. van herfst naar winter naar voorjaar). Titel:
    "Sleepy Facts About <onderwerp> | History for Sleep" (≤ 70 tekens), thumbnail-hook
-   bv. "SLEEPY FACTS". Zet in planning.txt een regel `vorm facts`, zodat de cockpit later
+   bv. "SLEEPY FACTS". Zet in planning.txt een regel `vorm facts`, zodat je later
    kan vergelijken hoe feitjes- en verhaalvideo's het doen.
 3. Stem: xAI, stem Lux op snelheid 0.9 (standaard in tools/xai_voiceover.py; niet aanpassen).
    Controle (eigenaar, okt 2026: bij San Francisco haperde en kraakte de stem): de stem moet
