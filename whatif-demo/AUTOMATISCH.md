@@ -22,6 +22,10 @@ In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij el
 Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste stijl van
 `branding/thumbnail-voorbeeld.jpg` (de wind-video), in de stijl van het grote What If-kanaal. Shorts: geen thumbnail.
 
+Doel: altijd pakkend. De kijker moet nieuwsgierig worden en willen klikken. Laat het spannendste moment zien,
+maar niet de afloop (wat gebeurt er hierna?); het getal moet verbazen (extreem, onverwacht). Vraag jezelf vóór
+gebruik af: zou ik hierop klikken als ik door YouTube scroll? Zo niet: ander moment, groter onderwerp, minder tekst.
+
 Stijl (elke keer hetzelfde, passend bij het onderwerp):
 - 1280x720. Achtergrond = een echt frame uit de eigen 3D-video (plek van de climax), iets verzacht.
 - Rechts groot en dichtbij waar de video om draait (het hoofdonderwerp: bij dinosaurussen een T-rex, bij wind
