@@ -152,7 +152,7 @@ export function build(E, TL, F) {
   crowd(E, TL, { n: 26, axis: 'z', lane: [11, 15], range: [-140, 25], door: (along, acr) => Math.sign(acr || 1) * 16.6, seed: 31 });
   crowd(E, TL, { n: 14, axis: 'z', lane: [-15, -11], range: [-140, 25], door: () => -16.6, seed: 32 });
 
-  E.brandSpot = { pos: [13.2, 8, -4], ry: -.3, w: 6.5, h: 3.1, shot: 'avenue' };   // sign sticking out over the pavement, right side
+  E.brandSpot = { pos: [13.2, 10, -4], ry: -.3, w: 6.5, h: 3.1, shot: 'avenue' };   // sign sticking out over the pavement, right side
   const sky = colorKeys(THREE, [[0, 0x7aa3cc, 0xd3dde2]]);
   E.sunOffset = new THREE.Vector3(-90, 110, 120);
   return {
