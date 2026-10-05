@@ -35,7 +35,7 @@ alleen natuurkunde die klopt, verteld als "would".
 | 25 | Antarctica's ice slid into the sea? | Havenstad | Zeespiegel springt omhoog | gepland |
 | 26 | A meteor shower lit up the night? | Camping in het bos | Vuurstrepen, inslagen in de verte | gepland |
 | 27 | Earth had two suns? | Woestijn met rotsbogen | Dubbele schaduwen, geen echte nacht | gepland |
-| 28 | Earth stopped spinning? | Stadsstraat aan zee | Wind van 1,037 mph | gemaakt (earth-stops), nog niet geüpload |
+| 28 | Earth stopped spinning? | Stadsstraat aan zee | Wind van 1,037 mph | geüpload 2026-10-05 https://youtu.be/Bkd2gh_IlU0 |
 | 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | proef bestaat, opnieuw maken in nieuwe stijl |
 | 30 | The air got twice as thick? | Bergweg met uitzichtpunt | Zware lucht, vogels en vliegtuigen anders | gepland |
 | 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | geüpload 2026-10-04 https://youtu.be/i2pChBmzRDs (openbaar, ondertitelde versie van de eigenaar) |
