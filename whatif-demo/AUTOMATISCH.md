@@ -71,6 +71,10 @@ Script-regels:
   beeld wit brandt). Laat het laatste shot iets moois tonen (geen verkoold of leeg beeld).
 - Eén korte kernzin tegelijk als caption, nooit de hele zin.
 
+Camerastijl (eigenaar, okt 2026): standaard de toeschouwer-stijl – wijde, stabiele shots waarin je oorzaak en
+gevolg in één beeld ziet (zoals de zwaartekracht-video, die het beter doet op TikTok). POV alleen als kort
+accent (2–3 s) op het spannendste moment. Lange video's: liggend 16:9, 720p.
+
 Beeld-regels (stijl zoals earth-stops):
 - Low-poly, flat-shaded, matte kleuren, echte schaal, serieuze belichting; stabiele camera.
 - Elke vernielfase hooguit 4–5 s per shot (wissel van shot); grote brokken nooit beeldvullend of
