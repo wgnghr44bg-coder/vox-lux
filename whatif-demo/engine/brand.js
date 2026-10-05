@@ -20,11 +20,11 @@ export function createBrand(E, TL) {
   draw(); document.fonts.ready.then(draw);
   // the channel logo (branding/logo.png) on a square sign; the drawn name stays as fallback
   // only the globe and the name (branding/logo-cut.png, transparent background), no board behind it
-  if (S.logo !== false) new THREE.TextureLoader().load('../branding/logo-cut.png', t => {
+  if (S.logo !== false) (E.loading ||= []).push(new Promise(ok => new THREE.TextureLoader().load('../branding/logo-cut.png', t => {
     t.colorSpace = THREE.SRGBColorSpace; Object.assign(face.material, { map: t, transparent: true, alphaTest: .05 }); face.material.needsUpdate = true;
     // the logo sits on a light billboard panel (keeps its own aspect, centred on the panel)
     const k = Math.min(1, (S.h ?? 3) / (S.w ?? 6)) * .95; face.scale.set(k, (S.w ?? 6) / (S.h ?? 3) * k, 1);
-    back.material = E.lam(S.panel ?? 0xf1ede4); });
+    back.material = E.lam(S.panel ?? 0xf1ede4); ok(); }, undefined, ok)));
   const g = new THREE.Group(); g.position.set(...S.pos); g.rotation.y = S.ry ?? 0; E.scene.add(g);
   const w = S.w ?? 6, h = S.h ?? 3;
   const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })); face.position.z = .14; g.add(face);
@@ -53,7 +53,7 @@ function beachFlag(E, TL, S) {
   banner.position.set(w / 2 + .05, -h / 2, 0); piv.add(banner);
   const logo = new THREE.Mesh(new THREE.PlaneGeometry(w * .92, w * .92), new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }));
   logo.position.set(w / 2 + .05, -w * .55, .01); piv.add(logo);
-  new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; logo.material.map = t; logo.material.needsUpdate = true; });
+  (E.loading ||= []).push(new Promise(ok => new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; logo.material.map = t; logo.material.needsUpdate = true; ok(); }, undefined, ok)));
   E.updates.push((t, F, tv) => { const a = .08 + (F.lateral ? F.lateral(t).a : 0) * .6; piv.rotation.y = Math.sin(tv * 2.1) * a; piv.rotation.z = Math.sin(tv * 1.3) * .02; });
   let tl = TL.beats.brand;
   if (tl == null) { const s = TL.shots.find(([ts, name]) => name === S.shot && ts > 3) || TL.shots.find(([, name]) => name === S.shot); tl = s ? Math.max(s[0], 3) + 1.2 : null; }

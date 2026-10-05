@@ -21,11 +21,11 @@ export function build(E, TL, F) {
   E.groundAt = (x, z) => z < S_QUAY && z > N_QUAY ? BED : 0;
   E.windArea = { x: 60, z0: -20, z1: -300 };
 
-  // ---------- land, quays, river ----------
-  const ground = (w, d, x, z, col) => { const g = new THREE.Mesh(new THREE.PlaneGeometry(w, d), lam(col)); g.rotation.x = -Math.PI / 2; g.position.set(x, 0, z); g.receiveShadow = true; scene.add(g); E.frost.push(g.material); return g; };
-  ground(3000, 700, 0, S_QUAY + 350, 0x8c877c);
+  // ---------- land, quays, river ---------- (ground planes must not overlap: overlapping planes flicker)
+  const ground = (w, d, x, z, col, y = 0) => { const g = new THREE.Mesh(new THREE.PlaneGeometry(w, d), lam(col, { flatShading: false })); g.rotation.x = -Math.PI / 2; g.position.set(x, y, z); g.receiveShadow = true; scene.add(g); E.frost.push(g.material); return g; };
+  ground(3000, 690, 0, S_QUAY + 355, 0x8c877c);                                 // starts behind the promenade (no overlap = no flicker)
   ground(3000, 1400, 0, N_QUAY - 700, 0x86817a);
-  ground(3000, 10, 0, S_QUAY + 5, 0xb3aa98);                                   // promenade paving
+  ground(3000, 10, 0, S_QUAY + 5, 0xb3aa98);                                // promenade paving
   for (const [z, s] of [[S_QUAY, 1], [N_QUAY, -1]]) {
     const wall = shadowed(new THREE.Mesh(new THREE.BoxGeometry(3000, 18.6, 3), lam(0x8f8778)), false); wall.position.set(0, -9 + .3, z - s * 1.5); scene.add(wall);
     const cap = new THREE.Mesh(new THREE.BoxGeometry(3000, .5, 1.6), lam(0xc2b9a6)); cap.position.set(0, .25, z + s * .4); scene.add(cap);
@@ -146,9 +146,13 @@ export function build(E, TL, F) {
   // the quay road along the south bank, under the viaduct
   [[6, 1], [10, -1]].forEach(([z, dir], li) => [0, 1, 2, 3].forEach(k => {
     const brake = (B.carsStop ?? 1e9) + 1 + k * .4 + li;
-    const c = car(E, 100 + li * 10 + k, { x0: -300 + k * 160 + li * 60, z0: z, dir, v: 10, axis: 'x', a: -400, b: 400, brakeT: brake, F });
+    // beats.driver: the first car stops right in front of the 'road' shot and its driver (logo on the jacket) walks off to the houses
+    const lead = B.driver != null && li === 0 && k === 0, bt = lead ? B.driver : brake;
+    const c = car(E, 100 + li * 10 + k, { x0: lead ? 36 - 10 * (bt + 1.1) : -300 + k * 160 + li * 60, z0: z, dir, v: 10, axis: 'x', a: -400, b: 400, brakeT: bt, F,
+      driver: lead ? { out: .3, to: [[39.4, 4.75], [40.6, 20], [41.2, 27]], logo: 'front', speed: 3 } : null });
+    if (lead) { const tg = bt + 2.2 + .3 + 4.4, p = c.driverAt(tg + .8); (TL.looks ||= []).push([tg, [p.x, 1.5, p.z], 1.6, 9]); }   // glance at the driver (logo) as they hurry past
   }));
-  { const road = new THREE.Mesh(new THREE.PlaneGeometry(3000, 12), lam(0x3c3e41)); road.rotation.x = -Math.PI / 2; road.position.set(0, .02, 8); road.receiveShadow = true; scene.add(road); }
+  { const road = new THREE.Mesh(new THREE.PlaneGeometry(3000, 12), lam(0x3c3e41, { flatShading: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })); road.rotation.x = -Math.PI / 2; road.position.set(0, .02, 8); road.receiveShadow = true; scene.add(road); }
 
   // ---------- south quay: promenade ----------
   for (let x = -260, i = 0; x < 260; x += 16, i++) {
@@ -184,7 +188,7 @@ export function build(E, TL, F) {
   }
 
   // ---------- light ----------
-  E.brandSpot = { pos: [46, 5.2, -28.6], ry: Math.PI / 2, w: 6, h: 3, posts: 3.6, shot: 'quay' };   // billboard on the promenade
+  if (B.driver == null) E.brandSpot = { pos: [46, 5.2, -28.6], ry: Math.PI / 2, w: 6, h: 3, posts: 3.6, shot: 'quay' };   // billboard on the promenade
   const sky = colorKeys(THREE, [[0, 0x7aa3cc, 0xd3dde2]]);
   E.sunOffset = new THREE.Vector3(-170, 230, 110);
   const P = {
@@ -196,6 +200,7 @@ export function build(E, TL, F) {
       deck: { pos: [.5, DECK0 + 5.2, 34], look: [0, 19, -160], drift: [0, 0, -6], fov: 62 },
       span: { pos: [52, -4, -112], look: [0, 8, -182], drift: [-2, .2, -1], fov: 50 },
       under: { pos: [34, WATER + 3, -72], look: [0, 14, -175], drift: [0, .3, -4], fov: 60 },
+      road: { pos: [43, 1.7, 21.5], look: [36, 1.3, 5], drift: [0, 0, -.1], fov: 55 },   // from the house fronts back to the quay road
       quay: { pos: [80, 2.6, -24.5], look: [0, 6, -14], drift: [-5, 0, 0], fov: 60 },
       north: { pos: [70, 3, -26], look: [70, 22, -360], drift: [-5, 0, 0], fov: 34, shake: .5 },
       towers: { pos: [125, 3, -26], look: [108, 24, -360], drift: [-3, 0, 0], fov: 30, shake: .4 },

@@ -35,7 +35,7 @@ export function createEngine() {
   sun.position.set(-90, 110, 120); sun.target.position.set(0, 0, -40);
   sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
   Object.assign(sun.shadow.camera, { left: -110, right: 110, top: 110, bottom: -110, near: 10, far: 900 });
-  sun.shadow.bias = -0.0008;
+  sun.shadow.bias = -0.0008; sun.shadow.normalBias = .04;   // no acne flicker on big flat ground planes
   scene.add(hemi, sun, sun.target);
 
   const lam = (color, o = {}) => new THREE.MeshLambertMaterial({ color, flatShading: true, ...o });
