@@ -19,22 +19,28 @@ In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij el
 
 ## Lange video's (16:9): altijd een thumbnail (eigenaar, okt 2026)
 
-Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste stijl
-(voorbeeld: `branding/thumbnail-voorbeeld.jpg`). Shorts krijgen geen thumbnail.
+Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste stijl van
+`branding/thumbnail-voorbeeld.jpg` (de wind-video), in de stijl van het grote What If-kanaal. Shorts: geen thumbnail.
 
-1. Klaarzetten: `pip install -q fonttools brotli pillow` (Playfair Display haalt het script zelf op via npm).
-2. Maken van een frame uit de eigen video (geen AI-beeld):
-   `python3 whatif-demo/ifscape_thumbnail.py <video.mp4> <map>/thumbnail.jpg --tijd <seconde> --vraag "THE WIND|NEVER|STOPPED?" --hook "1,000 km/h" --logo whatif-demo/branding/logo-cut.png`
-3. Stijl (niet van afwijken): 1280x720. Spannendste moment (iets breekt, valt om, vliegt weg), liefst een
-   frame zonder tekst of teller; de actie rechts van het midden (links staat de tekst). Links "WHAT IF" klein
-   oranje, de vraag in 2–3 regels HOOFDLETTERS (crème, Playfair Display Black), de hook groot oranje cursief
-   (getal of extreem, bv. "1,000 km/h", "2x gravity", "−100 °C"); max ± 10 tekens per regel. Logo rechtsboven,
-   rechtsonder leeg (videolengte). Kleuren: crème (246,238,224), oranje (232,166,84), donker verloop links.
-4. Controle vóór gebruik: open de thumbnail zelf: (a) actie goed zichtbaar en niet achter de tekst,
-   (b) alle tekst leesbaar op telefoonformaat, (c) logo staat erop. Zo niet: andere `--tijd` of `--zoom 1.0`.
-5. Uploaden: geef hem mee bij de upload (`tools/youtube_upload.py … --thumbnail <map>/thumbnail.jpg`), zodat
-   hij er meteen op staat zodra de video live gaat. Lukt dat niet (kanaal niet geverifieerd: youtube.com/verify),
-   stuur de thumbnail naar de eigenaar met: YouTube Studio → Content → video → Thumbnail → Uploaden → Opslaan.
+Stijl (elke keer hetzelfde, passend bij het onderwerp):
+- 1280x720. Achtergrond = een echt frame uit de eigen 3D-video (plek van de climax), iets verzacht.
+- Rechts de actie groot en dichtbij: de echte low-poly modellen uit de video (auto's, poppetjes, brokken)
+  uitvergroot, schuin/wegvliegend, met witte snelheidsstrepen of ander effect dat bij de kracht past.
+- Links weinig tekst, dik schreefloos lettertype (heavy, hoofdletters), wit met donkere rand/schaduw:
+  hooguit 3 regels, één groot getal of extreem in geel (bv. "OVER | 1,000 | KM/H", "2X | GRAVITY", "−100 °C").
+- Logo (bol met ring) linksboven. Rechtsonder leeg (videolengte).
+- Geen gewonden, geen bloed; poppetjes mogen wel zichtbaar in de kracht staan.
+
+Werkwijze:
+1. Klaarzetten: `pip install -q fonttools brotli pillow`.
+2. Achtergrond: frame uit de video (`ffmpeg -ss <s> -i <video> -frames:v 1 bg.png`), liefst zonder teller in beeld;
+   modellen los renderen uit de engine (zelfde plek/props, transparante achtergrond) en erop plakken.
+   (`whatif-demo/ifscape_thumbnail.py` maakt nog de oude, rustige stijl; alleen gebruiken als basis/noodoptie.)
+3. Controle vóór gebruik: zelf openen en kijken: actie goed zichtbaar en niet achter de tekst, tekst leesbaar
+   op telefoonformaat, logo staat erop, getal klopt met de video.
+4. Uploaden: `tools/youtube_upload.py … --thumbnail <map>/thumbnail.jpg`, zodat hij er meteen op staat zodra de
+   video live gaat (werkt sinds okt 2026). Lukt het niet: thumbnail naar de eigenaar sturen met
+   YouTube Studio → Content → video → Thumbnail → Uploaden → Opslaan.
 
 ## Uploaden van een video die de eigenaar stuurt (eigenaar, okt 2026)
 
