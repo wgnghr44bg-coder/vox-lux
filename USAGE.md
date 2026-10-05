@@ -26,6 +26,10 @@ Week tot za 10 okt 2026 12:00 (stand ma 5 okt 22:11: 68% gebruikt):
   - vr 9 okt: lange video "What if the Sun went out?" (± 3%), live za 10 okt 21:00
   - Shorts live om 18:00 de dag na het maken.
 
+Na de reset, za 10 okt (na 12:00): TikTok-pagina "IfScape3D TikToks" bouwen (claude.ai-pagina zoals de oude Sleep-pagina:
+video, tekst + kopieerknop, downloadknop, vinkje "op TikTok gezet"; video's verkleind tot < 15 MB), met de Shorts die al
+op YouTube staan (± 2%). Daarna zet elke run nieuwe Shorts erbij.
+
 Na de reset (elke week): eerst de 3 Sleep-runs (± 15–24%) en 10% buffer; daarna per week voor IfScape3D
 ± 1 nieuwe baksteen (bouwvolgorde in whatif-demo/onderwerpen.md) + 4–5 Shorts + 1–2 lange video's (± 15%).
 
