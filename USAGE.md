@@ -19,28 +19,25 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 Week tot za 10 okt 2026 12:00 (stand ma 5 okt 22:11: 68% gebruikt):
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
-- IfScape3D (± 7% totaal):
-  - di 6 okt: ondertitels bouwen (`--subs`) + Short "−100 °C" met Engelse ondertitels (± 2%)
-  - wo 7 okt: Short "What if gravity disappeared for 5 seconds?" (± 1%)
-  - do 8 okt: Short "What if all the ice on Earth melted?" (± 1%)
-  - vr 9 okt: lange video "What if the Sun went out?" (± 3%), live za 10 okt 21:00
-  - Shorts live om 18:00 de dag na het maken.
+- IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
+  - wo 7 okt: ondertitels bouwen (`--subs`) + Shorts "−100 °C" (live do 8 okt 18:00) en
+    "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00)
+  - vr 9 okt: lange video "What if the Sun went out?" (live za 10 okt 21:00, met thumbnail) +
+    Short "What if all the ice on Earth melted?" (live za 10 okt 18:00)
 
 Na de reset, za 10 okt (na 12:00): TikTok-pagina "IfScape3D TikToks" bouwen (claude.ai-pagina zoals de oude Sleep-pagina:
 video, tekst + kopieerknop, downloadknop, vinkje "op TikTok gezet"; video's verkleind tot < 15 MB), met de Shorts die al
 op YouTube staan (± 2%). Daarna zet elke run nieuwe Shorts erbij.
 
-Week 11–17 okt 2026 (eerste weekplanning):
-- zo 11: baksteen Hemel bouwen (planeten, ringen, tweede zon, ufo) (± 3%)
-- ma 12: Short "What if Earth had rings like Saturn?" (Alternate Worlds)
-- di 13: Short "What if the Moon disappeared?" (Space & Universe; boulevard bij nacht)
-- wo 14: Short "What if it rained for a whole year?" (Earth & Nature)
-- do 15: Short "What if aliens contacted Earth tomorrow?" (Aliens & Mysteries)
-- vr 16: lange video "What if Earth had two suns?" (Alternate Worlds), live za 17 okt 21:00, met thumbnail
+Week 11–17 okt 2026 (eerste weekplanning; routine ma/wo/vr/za):
+- ma 12: baksteen Hemel bouwen (planeten, ringen, tweede zon, ufo) (± 3%) + Short "What if Earth had rings like Saturn?" (live di 13)
+- wo 14: Shorts "What if the Moon disappeared?" (boulevard bij nacht, live do 15) en "What if it rained for a whole year?" (live vr 16)
+- vr 16: lange video "What if Earth had two suns?" (live za 17 okt 21:00, met thumbnail) + Short "What if aliens contacted Earth tomorrow?" (live za 17 18:00)
 - za 17: weekplanning voor 18–24 okt maken (+ eventueel extra Short)
 (Eerst nog de kanaal-check op dubbele video's; vervalt een onderwerp, neem het volgende passende uit onderwerpen.md.)
 
-Elke zaterdag (eigenaar, okt 2026): de run van zaterdag maakt de planning per dag voor de week erna en zet die hier,
+Elke zaterdag (eigenaar, okt 2026): de run van zaterdag maakt de planning voor de week erna (runs ma/wo/vr/za, 2 Shorts per run of
+1 lange video + 1 Short) en zet die hier,
 volgens het weekritme hieronder, met afwisseling in categorie en plek; de planning staat ook in de melding aan de eigenaar.
 
 Extra Shorts (eigenaar, okt 2026): blijft er na de geplande video van de dag ruimte over (stand na de run onder 75% en
