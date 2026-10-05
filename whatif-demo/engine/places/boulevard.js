@@ -115,7 +115,7 @@ export function build(E, TL, F) {
 
   if (TL.lifebuoy) { const b = lifebuoy(E, { pos: [TL.lifebuoy[0], 0, TL.lifebuoy[1]], ry: .4 });
     E.updates.push((t, F, tv) => { const wy = F.field(t).waterY ?? 0; b.position.y = wy + .06 + Math.sin(tv * 1.3) * .04; b.rotation.z = Math.sin(tv * .9) * .05; }); }
-  E.brandSpot = { pos: [22, groundAt(22, 16) + 3.4, 16], ry: -.35, w: 4.5, h: 2.2, posts: 2.3, shot: 'pov-beach' };   // beach sign
+  E.brandSpot = { type: 'flag', pos: [-17, groundAt(-17, 19.5), 19.5], ry: -Math.PI / 2 + .35, height: 5.5, w: 1.8, h: 2.6, shot: 'pov-beach' };   // beach flag
   const sky = colorKeys(THREE, [[0, 0x6ea6d3, 0xdfe7e6]]);
   E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [120, 160, -60]));
   return {
