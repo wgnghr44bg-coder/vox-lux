@@ -56,7 +56,7 @@ def find_topic(num: int) -> Path:
 
 def load_scenario(d: Path) -> dict:
     js = ("import(process.argv[1]).then(m => console.log(JSON.stringify("
-          "{ topic: m.topic, lines: m.lines, upload: m.upload })))")
+          "{ topic: m.topic, lines: m.lines, upload: m.upload || {} })))")
     out = subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout
     return json.loads(out)
 
@@ -127,18 +127,19 @@ def main():
     d = find_topic(a.number); slug = d.name
     sc = load_scenario(d)
     lines = sc["lines"]
-    check_script(lines)
+    if not sc["topic"].get("wide"): check_script(lines)
+    else: print("script:", sum(len(re.sub(r"\[[^\]]+\]", " ", t).split()) for _, t, _ in lines), "words (chapter of a long video)")
     script = script_text(lines)
     (d / "script.txt").write_text(script, encoding="utf-8")
     render = ["node", HERE / "engine" / "render.mjs", slug]
     stage = STAGES.index(a.start)
 
     # 1. voice (skipped when the script did not change)
-    digest = hashlib.sha1(script.encode()).hexdigest()[:12]
+    digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", 1.0))).encode()).hexdigest()[:12]
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
         run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
-             "--speed", "1.0", "--voice", "lux", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
+             "--speed", str(sc["topic"].get("voiceSpeed", 1.0)), "--voice", "lux", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():
         tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"))
@@ -181,7 +182,7 @@ def main():
              f"[h][m]concat=n=2:v=0:a=1,alimiter=limit=0.89:level=false[o]", "-map", "[o]", d / "final-mix.wav"])
         video, audio = d / "with-hook.mp4", d / "final-mix.wav"
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-i", audio,
-         "-vf", "scale=1080:1920:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p",
+         *([] if sc["topic"].get("wide") else ["-vf", "scale=1080:1920:flags=lanczos"]), "-c:v", "libx264", "-preset", "slow", "-crf", "19", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest", out])
     (d / "check-bron.txt").write_text(audio.name)
     up = dict(sc["upload"]); up["question"] = sc["topic"]["question"]; up["number"] = a.number; up["slug"] = slug

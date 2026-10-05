@@ -20,6 +20,8 @@ if (slug.startsWith('preview:')) {
   query = `place=${place}&force=${force}` + (shots ? `&shots=${encodeURIComponent(shots)}` : '');
   OUT = path.join(ROOT, 'engine', 'previews', `${place}-${force}`);
 } else { const [s, flag] = slug.split('+'); query = `topic=${s}` + (flag === 'hook' ? '&hook=1' : ''); OUT = path.join(ROOT, 'topics', s); }
+const WIDE = /\bwide:\s*true/.test(slug.startsWith('preview:') ? '' : fs.readFileSync(path.join(OUT, 'scenario.js'), 'utf8')) || process.env.WIDE === '1';
+if (WIDE) query += '&wide=1';
 fs.mkdirSync(OUT, { recursive: true });
 
 const types = { '.png': 'image/png', '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2' };
@@ -31,7 +33,7 @@ const server = http.createServer((q, r) => {
 }).listen(0);
 const port = server.address().port;
 
-async function open(w = 720, h = 1280) {
+async function open(w = WIDE ? 1280 : 720, h = WIDE ? 720 : 1280) {
   const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const page = await browser.newPage({ viewport: { width: w, height: h } });
   page.setDefaultTimeout(600000);

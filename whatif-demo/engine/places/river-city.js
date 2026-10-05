@@ -56,6 +56,9 @@ export function build(E, TL, F) {
     const u = (z - MID) / HALF; return DECK0 + CREST * (1 - u * u) - sagAt(t) * (1 - u * u) - hangAt(z, t);
   };
   E.deckY = deckY;
+  // wind: the main span sways sideways (and twists a little), growing with the wind
+  const swayA = t => F.kind === 'wind' ? smooth(150, 450, F.mph(t)) * 2.2 + smooth(450, 650, F.mph(t)) * 3 : 0;
+  const swayX = (z, t) => { if (z > T1 || z < T2) return 0; const u = (z - MID) / HALF; return swayA(t) * (1 - u * u) * Math.sin(t * 2 * Math.PI / 4.2); };
   const asphalt = lam(0x4a4c4e), steel = lam(0x6b5f55), steelD = lam(0x55504a), rail = lam(0x8a8478);
   const deckMats = [steel, steel, asphalt, steelD, steel, steel];
   const segs = [], SEG = 6;
@@ -115,18 +118,18 @@ export function build(E, TL, F) {
     for (const s of segs) {
       if (s.body) continue;
       const y0 = deckY(s.zc + SEG / 2, t), y1 = deckY(s.zc - SEG / 2, t);
-      s.g.position.set(0, (y0 + y1) / 2, s.zc); s.g.rotation.set(Math.atan2(y0 - y1, SEG) * -1, 0, 0);
+      const sw = swayX(s.zc, t); s.g.position.set(sw, (y0 + y1) / 2, s.zc); s.g.rotation.set(Math.atan2(y0 - y1, SEG) * -1, 0, -sw * .025);
     }
     for (const c of cables) for (let i = 0; i < c.ms.length; i++) {
       const za = c.pts[i], zb = c.pts[i + 1], ya = cableY(za, t), yb = cableY(zb, t), m = c.ms[i];
-      m.position.set(c.sx, (ya + yb) / 2, (za + zb) / 2); m.scale.set(1, 1, Math.hypot(za - zb, ya - yb) + .1);
+      m.position.set(c.sx + swayX((za + zb) / 2, t) * .8, (ya + yb) / 2, (za + zb) / 2); m.scale.set(1, 1, Math.hypot(za - zb, ya - yb) + .1);
       m.rotation.set(Math.atan2(-(ya - yb), za - zb), 0, 0);
     }
     for (const h of hangers) {
       const yc = cableY(h.z, t), yd = deckY(h.z, t) + 1;
       let top = yc, bot = yd;
       if (t > h.snap) { const a = t - h.snap; bot = Math.max(yd, yc - 4 - 2 * Math.exp(-a * 3) * Math.sin(a * 14)); }   // dangling end
-      h.m.position.set(h.sx, (top + bot) / 2, h.z); h.m.scale.y = Math.max(.1, top - bot);
+      h.m.position.set(h.sx + swayX(h.z, t) * .9, (top + bot) / 2, h.z); h.m.scale.y = Math.max(.1, top - bot);
     }
   });
 
@@ -139,7 +142,7 @@ export function build(E, TL, F) {
     const stopZ = z0 => { const a = -470, b = 150, len = b - a, d = v * (brake + shift) + v * 1.1; return a + (((z0 + dir * d) - a) % len + len) % len; };
     for (let k = 0; k < 60 && z0s.some(z0 => { const z = stopZ(z0); return z < -40 && z > -330; }); k++) shift += .1;
     z0s.forEach((z0, k) => {
-      const c = car(E, li * 10 + k, { x0: x, z0, dir, v, axis: 'z', a: -470, b: 150, brakeT: brake + shift, F, strength: { wind: .35 + hash(li, k) * .1 } });
+      const c = car(E, li * 10 + k, { x0: x, z0, dir, v, axis: 'z', a: -470, b: 150, brakeT: brake + shift, F, strength: { wind: (TL.carWind ?? .35) + hash(li, k) * .1 } });
       const base = c.drive; c.drive = t => { const d = base(t); d.p[1] = deckY(d.p[2], t) + 1.8; return d; };
     });
   });
@@ -148,7 +151,7 @@ export function build(E, TL, F) {
     const brake = (B.carsStop ?? 1e9) + 1 + k * .4 + li;
     // beats.driver: the first car stops right in front of the 'road' shot and its driver (logo on the jacket) walks off to the houses
     const lead = B.driver != null && li === 0 && k === 0, bt = lead ? B.driver : brake;
-    const c = car(E, 100 + li * 10 + k, { x0: lead ? 36 - 10 * (bt + 1.1) : -300 + k * 160 + li * 60, z0: z, dir, v: 10, axis: 'x', a: -400, b: 400, brakeT: bt, F,
+    const c = car(E, 100 + li * 10 + k, { x0: lead ? 36 - 10 * (bt + 1.1) : -300 + k * 160 + li * 60, z0: z, dir, v: 10, axis: 'x', a: -400, b: 400, brakeT: bt, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }),
       driver: lead ? { out: .3, to: [[39.4, 4.75], [40.6, 20], [41.2, 27]], logo: 'front', speed: 3 } : null });
     if (lead) { const tg = bt + 2.2 + .3 + 4.4, p = c.driverAt(tg + .8); (TL.looks ||= []).push([tg, [p.x, 1.5, p.z], 1.6, 9]); }   // glance at the driver (logo) as they hurry past
   }));
@@ -196,6 +199,7 @@ export function build(E, TL, F) {
     look: t => ({ top: sky(t, 1), hor: sky(t, 2), fogNear: 220, fogFar: 1900, hemi: 1.45, hemiColor: new THREE.Color(0xe3ecf4), groundColor: new THREE.Color(0x5a5448),
       sun: 2.4, sunColor: new THREE.Color(0xffeedd), sunDisc: new THREE.Color(0x998866) }),
     shots: {
+      far: { pos: [-250, 30, 40], look: [30, 14, -200], drift: [3, 0, -2], fov: 46 },   // high and far upriver: falls and the bridge, debris blows away from the lens
       wide: { pos: [-150, 9, -12], look: [-12, 24, -185], drift: [4, .3, -4], fov: 54 },
       deck: { pos: [.5, DECK0 + 5.2, 34], look: [0, 19, -160], drift: [0, 0, -6], fov: 62 },
       span: { pos: [52, -4, -112], look: [0, 8, -182], drift: [-2, .2, -1], fov: 50 },

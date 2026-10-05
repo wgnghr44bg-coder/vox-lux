@@ -98,7 +98,7 @@ export function build(E, TL, F) {
   { const R = rng(44);
     [[-7.4, 1], [-2.6, 1], [2.6, -1], [7.4, -1]].forEach(([x, dir], li) => { for (let k = 0; k < 4; k++) {
       const z0 = dir > 0 ? -20 - k * (30 + R() * 25) : 30 - k * (30 + R() * 25) - 10;
-      car(E, li * 7 + k, { x0: x, z0, dir, v: 9 + R() * 3, axis: 'z', a: -280, b: 60, brakeT: (B.carsStop ?? 1e9) + R() * 2.2, F });
+      car(E, li * 7 + k, { x0: x, z0, dir, v: 9 + R() * 3, axis: 'z', a: -280, b: 60, brakeT: (B.carsStop ?? 1e9) + R() * 2.2, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }) });
     } }); }
   // loose things: they go when the force passes their strength
   { const R = rng(51);
