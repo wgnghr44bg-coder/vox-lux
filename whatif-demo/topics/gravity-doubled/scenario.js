@@ -65,7 +65,7 @@ export const upload = {
     'The facts: at 2 g everything weighs twice as much, a dropped object hits the ground about 40% faster ' +
     '(√2 times the speed from the same height), and the air presses down twice as hard. Our structures are ' +
     'designed for 1 g with safety margins; doubling every load would push many of them past their limits.\n\n' +
-    'Animated with code. Voice: AI.\n\n#whatif #physics #science #gravity #shorts',
+    '#whatif #physics #science #gravity #shorts',
   tags: ['what if', 'gravity', 'physics', 'science', 'suspension bridge', 'what if gravity doubled', 'shorts', 'hypothetical'],
   tiktok: 'What if gravity suddenly doubled? 🌍 You would weigh twice as much, and every bridge was built for one g. #whatif #physics #science #gravity #fyp',
 };
