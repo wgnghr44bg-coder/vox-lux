@@ -11,6 +11,12 @@ whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 - Korte berichten: resultaat + video, geen lange uitleg.
 - Meerdere video's in één sessie maken als de eigenaar daarom vraagt (code maar één keer inlezen).
 
+## Glitch op straat (eigenaar, okt 2026)
+
+In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij elke video met de plek
+`street` extra opletten: niet alleen stills bekijken, maar ook een kort stukje video van de straat-shots
+(beeld voor beeld) op flikkeren, verspringen of haperen controleren, en pas renderen als het weg is.
+
 ## Uploaden van een video die de eigenaar stuurt (eigenaar, okt 2026)
 
 Stuurt de eigenaar een (ondertitelde) video in de chat met de vraag hem te plaatsen:
