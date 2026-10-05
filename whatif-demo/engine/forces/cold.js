@@ -1,6 +1,7 @@
 // COLD / DARKNESS: the light fades (sun out, long night), temperature drops, water freezes,
 // everything frosts over. The physical quantity is the level 0..1 (1 = dark and deep-frozen).
-// TL.forceParams: { darkAt: [0..1 level where darkness starts, full], frostAt: [a, b], snow: 0..1 }
+// TL.forceParams: { darkAt: [0..1 level where darkness starts, full], frostAt: [a, b], snow: 0..1,
+//                   breath: time from which your own breath shows as a small white cloud }
 import { baseForce } from './base.js';
 import { smooth, lerp, hash, noise } from '../util.js';
 
@@ -39,5 +40,19 @@ export function create(E, TL) {
       add(x, y + cam.y - 6, z, .35 + hash(k, 5) * .3, .55, .95, .97, 1, 0);
     }
   });
+  // your own breath (POV): a small white puff in front of the camera every few seconds
+  if (P.breath != null) {
+    const dir = new E.THREE.Vector3();
+    E.emitters.push((tv, add, cam) => {
+      if (tv < P.breath || tv > (TL.beats.fade ?? 1e9)) return;
+      const a = (tv - P.breath) % 3.4; if (a > 1.6) return;
+      E.camera.getWorldDirection(dir);
+      for (let k = 0; k < 7; k++) {
+        const u = a + hash(k, 3) * .2, d = 1.1 + u * .7;
+        add(cam.x + dir.x * d + (hash(k, 4) - .5) * .12 * (1 + u), cam.y - .3 + u * .12 + dir.y * d, cam.z + dir.z * d + (hash(k, 5) - .5) * .12 * (1 + u),
+            .15 + u * .35, .38 * smooth(0, .15, a) * (1 - smooth(.4, 1.6, a)), .95, .97, 1, 100 + hash(k, 6) * 6);   // rot > 50 = no near fade
+      }
+    });
+  }
   return F;
 }

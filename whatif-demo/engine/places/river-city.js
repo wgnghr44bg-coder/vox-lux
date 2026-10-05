@@ -22,7 +22,7 @@ export function build(E, TL, F) {
   E.windArea = { x: 60, z0: -20, z1: -300 };
 
   // ---------- land, quays, river ----------
-  const ground = (w, d, x, z, col) => { const g = new THREE.Mesh(new THREE.PlaneGeometry(w, d), lam(col)); g.rotation.x = -Math.PI / 2; g.position.set(x, 0, z); g.receiveShadow = true; scene.add(g); return g; };
+  const ground = (w, d, x, z, col) => { const g = new THREE.Mesh(new THREE.PlaneGeometry(w, d), lam(col)); g.rotation.x = -Math.PI / 2; g.position.set(x, 0, z); g.receiveShadow = true; scene.add(g); E.frost.push(g.material); return g; };
   ground(3000, 700, 0, S_QUAY + 350, 0x8c877c);
   ground(3000, 1400, 0, N_QUAY - 700, 0x86817a);
   ground(3000, 10, 0, S_QUAY + 5, 0xb3aa98);                                   // promenade paving
@@ -184,7 +184,7 @@ export function build(E, TL, F) {
   }
 
   // ---------- light ----------
-  E.brandSpot = { pos: [52, 5.2, -14], ry: Math.PI / 2, w: 6, h: 3, posts: 3.6, shot: 'quay' };   // billboard on the promenade
+  E.brandSpot = { pos: [46, 5.2, -28.6], ry: Math.PI / 2, w: 6, h: 3, posts: 3.6, shot: 'quay' };   // billboard on the promenade
   const sky = colorKeys(THREE, [[0, 0x7aa3cc, 0xd3dde2]]);
   E.sunOffset = new THREE.Vector3(-170, 230, 110);
   const P = {
