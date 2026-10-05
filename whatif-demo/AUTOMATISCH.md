@@ -55,8 +55,9 @@ Script-regels:
 - Opening (eigenaar, okt 2026): geen titel in beeld. De eerste zin is altijd "Imagine" + het onderwerp,
   bijv. "Imagine the Earth stopped spinning." Daarna rustig beginnen en de spanning steeds verder
   opbouwen tot de climax (teller versnelt, `audio: { heartbeat, riser }` in scenario.js).
-- Kanaalnaam in beeld (eigenaar, okt 2026): één keer per video kijkt de POV-camera ±1,6 s naar een bord met
-  "IfScape3D" en draait dan weer weg. Elke plek heeft een vaste plek (E.brandSpot); `beats.brand` kiest
+- Kanaalnaam in beeld (eigenaar, okt 2026): één keer per video kijkt de POV-camera ±1,6 s naar het logo
+  (branding/logo-cut.png: alleen bol + naam) en draait dan weer weg. Het logo moet passen in de scène:
+  op een reclamebord, tv-scherm, auto, reddingsband of t-shirt – nooit los aan een gebouw. Elke plek heeft een vaste plek (E.brandSpot); `beats.brand` kiest
   eventueel het moment, `brand: false` zet het uit.
 - Auto's: voorop twee losse koplampen, achterop één lange lichtbalk.
 - Geen haak of flash-forward aan het begin (eigenaar, okt 2026): het verhaal begint gewoon bij het

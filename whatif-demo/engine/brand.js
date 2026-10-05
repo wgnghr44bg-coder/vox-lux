@@ -21,11 +21,20 @@ export function createBrand(E, TL) {
   // only the globe and the name (branding/logo-cut.png, transparent background), no board behind it
   if (S.logo !== false) new THREE.TextureLoader().load('../branding/logo-cut.png', t => {
     t.colorSpace = THREE.SRGBColorSpace; Object.assign(face.material, { map: t, transparent: true, alphaTest: .05 }); face.material.needsUpdate = true;
-    face.scale.set(1, (S.w ?? 6) / (S.h ?? 3), 1); face.position.y = ((S.w ?? 6) - (S.h ?? 3)) / 2; back.visible = false; });
+    // the logo sits on a light billboard panel (keeps its own aspect, centred on the panel)
+    const k = Math.min(1, (S.h ?? 3) / (S.w ?? 6)) * .95; face.scale.set(k, (S.w ?? 6) / (S.h ?? 3) * k, 1);
+    back.material = E.lam(S.panel ?? 0xf1ede4); });
   const g = new THREE.Group(); g.position.set(...S.pos); g.rotation.y = S.ry ?? 0; E.scene.add(g);
   const w = S.w ?? 6, h = S.h ?? 3;
   const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex })); face.position.z = .08; g.add(face);
   const back = E.shadowed(new THREE.Mesh(new THREE.BoxGeometry(w + .3, h + .3, .15), E.lam(0x2a2d31))); g.add(back);
+  const frame = new THREE.Mesh(new THREE.BoxGeometry(w + .5, h + .5, .1), E.lam(0x2a2d31)); frame.position.z = -.06; g.add(frame);
+  if (S.arm) {        // steel arm from the top of the sign to the wall
+    const top = new THREE.Vector3(0, h / 2 + .25, 0).applyMatrix4(g.matrixWorld.compose(g.position, g.quaternion, g.scale)), to = new THREE.Vector3(...S.arm);
+    const len = top.distanceTo(to), arm = E.shadowed(new THREE.Mesh(new THREE.BoxGeometry(.12, .12, len), E.lam(0x2f3236)));
+    arm.position.copy(top).add(to).multiplyScalar(.5); arm.lookAt(to); E.scene.add(arm);
+    for (const dx of [-w / 3, w / 3]) { const hng = new THREE.Mesh(new THREE.BoxGeometry(.05, .3, .05), E.lam(0x2f3236)); hng.position.set(dx, h / 2 + .4, 0); g.add(hng); }
+  }
   if (S.posts) for (const sx of [-w / 3, w / 3]) { const p = E.shadowed(new THREE.Mesh(new THREE.BoxGeometry(.15, S.posts, .15), E.lam(0x3a3d41))); p.position.set(sx, -h / 2 - S.posts / 2, -.05); g.add(p); }
   // one glance: the first time the named shot is on screen after the first lines, unless the scenario sets beats.brand
   let t = TL.beats.brand;
