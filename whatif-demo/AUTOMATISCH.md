@@ -17,6 +17,25 @@ In de wind-video (lange video, hoofdstuk straat) zat een glitch in beeld. Bij el
 `street` extra opletten: niet alleen stills bekijken, maar ook een kort stukje video van de straat-shots
 (beeld voor beeld) op flikkeren, verspringen of haperen controleren, en pas renderen als het weg is.
 
+## Lange video's (16:9): altijd een thumbnail (eigenaar, okt 2026)
+
+Elke lange IfScape3D-video krijgt bij de upload meteen een thumbnail in de vaste stijl
+(voorbeeld: `branding/thumbnail-voorbeeld.jpg`). Shorts krijgen geen thumbnail.
+
+1. Klaarzetten: `pip install -q fonttools brotli pillow` (Playfair Display haalt het script zelf op via npm).
+2. Maken van een frame uit de eigen video (geen AI-beeld):
+   `python3 whatif-demo/ifscape_thumbnail.py <video.mp4> <map>/thumbnail.jpg --tijd <seconde> --vraag "THE WIND|NEVER|STOPPED?" --hook "1,000 km/h" --logo whatif-demo/branding/logo-cut.png`
+3. Stijl (niet van afwijken): 1280x720. Spannendste moment (iets breekt, valt om, vliegt weg), liefst een
+   frame zonder tekst of teller; de actie rechts van het midden (links staat de tekst). Links "WHAT IF" klein
+   oranje, de vraag in 2–3 regels HOOFDLETTERS (crème, Playfair Display Black), de hook groot oranje cursief
+   (getal of extreem, bv. "1,000 km/h", "2x gravity", "−100 °C"); max ± 10 tekens per regel. Logo rechtsboven,
+   rechtsonder leeg (videolengte). Kleuren: crème (246,238,224), oranje (232,166,84), donker verloop links.
+4. Controle vóór gebruik: open de thumbnail zelf: (a) actie goed zichtbaar en niet achter de tekst,
+   (b) alle tekst leesbaar op telefoonformaat, (c) logo staat erop. Zo niet: andere `--tijd` of `--zoom 1.0`.
+5. Uploaden: geef hem mee bij de upload (`tools/youtube_upload.py … --thumbnail <map>/thumbnail.jpg`), zodat
+   hij er meteen op staat zodra de video live gaat. Lukt dat niet (kanaal niet geverifieerd: youtube.com/verify),
+   stuur de thumbnail naar de eigenaar met: YouTube Studio → Content → video → Thumbnail → Uploaden → Opslaan.
+
 ## Uploaden van een video die de eigenaar stuurt (eigenaar, okt 2026)
 
 Stuurt de eigenaar een (ondertitelde) video in de chat met de vraag hem te plaatsen:
