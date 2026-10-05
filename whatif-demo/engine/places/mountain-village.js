@@ -78,6 +78,7 @@ export function build(E, TL, F) {
   [[8, 1], [16, -1]].forEach(([x, dir], li) => [0, 1].forEach(k => car(E, 800 + li * 5 + k, { x0: x, z0: -40 - k * 120 - li * 60, dir, v: 8, axis: 'z', a: -260, b: 60, brakeT: (B.carsStop ?? 1e9) + k, F, snow: true })));
   crowd(E, TL, { n: 14, axis: 'z', lane: [3, 21], range: [-110, 20], door: (along, acr) => acr > 12 ? 30 : -6, seed: 71, coats: [0x7b4a42, 0x3d4650, 0x56624a, 0x8a6b4e, 0x2f3236], hats: [0xb5543f, 0x2f5d46, 0xd9cdb4] });
 
+  E.brandSpot = { pos: [19, 3.6, -8], ry: -.4, w: 3.6, h: 1.6, posts: 2.8, shot: 'village' };   // shop sign at the square
   const sky = colorKeys(THREE, [[0, 0x5f8fbf, 0xd8e2ea]]);
   E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [-140, 120, 60]));
   return {

@@ -10,6 +10,7 @@ import { createHud } from './hud.js';
 import { buildTL } from './timeline.js';
 import { createCamera } from './camera.js';
 import { createSkyObjects } from './sky-objects.js';
+import { createBrand } from './brand.js';
 import { smooth, clamp, hash, lerp } from './util.js';
 
 const qs = new URLSearchParams(location.search);
@@ -30,6 +31,7 @@ const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 E.F = F; E.P = P;
 F.attach?.(P);
 createSkyObjects(E, TL);
+createBrand(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
 E.poseAll = t => { for (const b of E.bend) b.pose(t, F); E.scene.updateMatrixWorld(true); };

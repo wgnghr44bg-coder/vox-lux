@@ -112,6 +112,7 @@ export function build(E, TL, F) {
     }
   });
 
+  E.brandSpot = { pos: [22, groundAt(22, 16) + 3.4, 16], ry: -.35, w: 4.5, h: 2.2, posts: 2.3, shot: 'pov-beach' };   // beach sign
   const sky = colorKeys(THREE, [[0, 0x6ea6d3, 0xdfe7e6]]);
   E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [120, 160, -60]));
   return {
