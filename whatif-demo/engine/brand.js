@@ -17,6 +17,8 @@ export function createBrand(E, TL) {
   };
   const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
   draw(); document.fonts.ready.then(draw);
+  // the channel logo (branding/logo.png) on a square sign; the drawn name stays as fallback
+  if (S.logo !== false) new THREE.TextureLoader().load('../branding/logo.png', t => { t.colorSpace = THREE.SRGBColorSpace; face.material.map = t; face.material.needsUpdate = true; face.scale.set(1, (S.w ?? 6) / (S.h ?? 3), 1); back.scale.set(1, ((S.w ?? 6) + .3) / ((S.h ?? 3) + .3), 1); face.position.y = back.position.y = ((S.w ?? 6) - (S.h ?? 3)) / 2; });
   const g = new THREE.Group(); g.position.set(...S.pos); g.rotation.y = S.ry ?? 0; E.scene.add(g);
   const w = S.w ?? 6, h = S.h ?? 3;
   const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex })); face.position.z = .08; g.add(face);
