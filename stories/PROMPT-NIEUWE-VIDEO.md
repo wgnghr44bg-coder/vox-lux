@@ -148,6 +148,8 @@ Stappen:
    stories/ONDERWERPEN.md naar "Al gemaakt". Maak een pull request naar main en
    merge die zelf (GitHub-tools). Heeft die een conflict met main, haal main
    binnen, los het op en merge daarna.
+   Usage (eigenaar, okt 2026): voeg een regel toe aan USAGE.md (kanaal Sleep Archives, lang/short,
+   geschatte kosten in % van het weekbudget) en werk daar het blok "Planning" bij.
 10. Geef me tot slot een kort overzicht:
     - de YouTube-links met de geplande datums en tijden;
     - wat het totaal gekost heeft (per onderdeel);
