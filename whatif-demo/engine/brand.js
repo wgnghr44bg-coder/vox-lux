@@ -5,6 +5,7 @@ import * as THREE from 'three';
 
 export function createBrand(E, TL) {
   const S = E.brandSpot; if (!S || TL.brand === false) return;
+  if (S.type === 'flag') return beachFlag(E, TL, S);
   const cv = document.createElement('canvas'); cv.width = 512; cv.height = 256;
   const x = cv.getContext('2d');
   const draw = () => {
@@ -40,4 +41,21 @@ export function createBrand(E, TL) {
   let t = TL.beats.brand;
   if (t == null) { const s = TL.shots.find(([ts, name]) => name === S.shot && ts > 3) || TL.shots.find(([, name]) => name === S.shot); t = s ? Math.max(s[0], 3) + 1.2 : null; }
   if (t != null && t < TL.beats.climax - 6) (TL.looks ||= []).push([t, S.pos, 1.6, 9]);
+}
+
+// tall beach flag: pole + a light banner with the logo, waving gently (stronger in wind)
+function beachFlag(E, TL, S) {
+  const g = new THREE.Group(); g.position.set(...S.pos); g.rotation.y = S.ry ?? 0; E.scene.add(g);
+  const H = S.height ?? 5.5, w = S.w ?? 1.8, h = S.h ?? 2.6;
+  const pole = E.shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.04, .05, H, 6), E.lam(0xd9d6cc))); pole.position.y = H / 2; g.add(pole);
+  const piv = new THREE.Group(); piv.position.set(0, H - .1, 0); g.add(piv);
+  const banner = new THREE.Mesh(new THREE.PlaneGeometry(w, h, 6, 1), new THREE.MeshLambertMaterial({ color: S.panel ?? 0xf3efe6, side: THREE.DoubleSide }));
+  banner.position.set(w / 2 + .05, -h / 2, 0); piv.add(banner);
+  const logo = new THREE.Mesh(new THREE.PlaneGeometry(w * .92, w * .92), new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }));
+  logo.position.set(w / 2 + .05, -w * .55, .01); piv.add(logo);
+  new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; logo.material.map = t; logo.material.needsUpdate = true; });
+  E.updates.push((t, F, tv) => { const a = .08 + (F.lateral ? F.lateral(t).a : 0) * .6; piv.rotation.y = Math.sin(tv * 2.1) * a; piv.rotation.z = Math.sin(tv * 1.3) * .02; });
+  let tl = TL.beats.brand;
+  if (tl == null) { const s = TL.shots.find(([ts, name]) => name === S.shot && ts > 3) || TL.shots.find(([, name]) => name === S.shot); tl = s ? Math.max(s[0], 3) + 1.2 : null; }
+  if (tl != null && tl < TL.beats.climax - 6) (TL.looks ||= []).push([tl, [S.pos[0], S.pos[1] + H - h / 2, S.pos[2]], 1.6, 9]);
 }
