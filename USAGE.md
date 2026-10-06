@@ -23,7 +23,7 @@ Week tot za 10 okt 2026 12:00 (stand di 6 okt 13:03: 77% gebruikt, screenshot ei
   Vikings 10 okt 21:00 (kost geen usage meer).
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
   - wo 7 okt: ondertitels bouwen (`--subs`) + Short "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00).
-    Short "−100 °C" NIET maken: de eigenaar plaatst die zelf (6 okt 2026); telt als al op het kanaal.
+    Short "−100 °C" NIET maken: al geüpload op 6 okt 2026 (https://youtu.be/0Kvcuv5-3EQ, openbaar, in playlist "What If").
   - vr 9 okt: lange video "What if the Sun went out?", min. 8 min (live za 10 okt 21:00, met thumbnail) +
     Short "What if all the ice on Earth melted?" (live za 10 okt 18:00)
 
@@ -70,3 +70,4 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 | 2026-10-05 | IfScape3D | Thumbnails, usage-log, planning (overleg) | 63% | 68% | 5% | screenshot 22:11; ook overleg kost usage |
 | 2026-10-05 | IfScape3D | Routine, regels en planning (overleg) | 68% | 69% | 1% | screenshot 22:45 |
 | 2026-10-06 | Beide | Sleep-run 6 okt + overleg (planning) | 69% | 77% | ± 8% | screenshot 13:03; over voor IfScape3D tot reset ± 2–5% (na Sleep do 8, audit 8 okt, 10% buffer) |
+| 2026-10-06 | IfScape3D | Short −100 °C (video van eigenaar) geüpload + playlist | 77% | ± 78% | ± 1% | geen nieuwe video gemaakt |

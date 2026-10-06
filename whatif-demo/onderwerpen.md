@@ -81,5 +81,5 @@ Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede
 | 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | proef bestaat, opnieuw maken in nieuwe stijl |
 | 30 | The air got twice as thick? | Bergweg met uitzichtpunt | Zware lucht, vogels en vliegtuigen anders | gepland |
 | 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | geüpload 2026-10-04 https://youtu.be/i2pChBmzRDs (openbaar, ondertitelde versie van de eigenaar) |
-| 32 | The temperature dropped to −100°C? | Rivierstad met hangbrug | Kou: rivier bevriest, rijp, adem bevriest, brug barst | gemaakt |
+| 32 | The temperature dropped to −100°C? | Rivierstad met hangbrug | Kou: rivier bevriest, rijp, adem bevriest, brug barst | geüpload 2026-10-06 https://youtu.be/0Kvcuv5-3EQ (openbaar, Short, door eigenaar aangeleverd; staat ook al op TikTok) |
 | 33 | The wind never stopped? (lange video 16:9) | Straat → boulevard → rivierstad | Wind 20 → 1.000 km/u, brug bezwijkt | geüpload 2026-10-05 https://youtu.be/1LNaLpmOcuM (openbaar, 4:04) |
