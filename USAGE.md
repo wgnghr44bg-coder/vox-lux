@@ -13,6 +13,8 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 | IfScape3D (What If) | Lange video met nieuwe plek/modellen (bv. dino's) | ± 5–6% | schatting |
 | Sleep Archives | Lange video (routine, ± 2 uur doc + 72 beelden) | ± 5–8% | schatting (run ± 66 min) |
 | Sleep Archives | Short (los gemaakt; routine maakt sinds okt 2026 geen Shorts) | ± 1% | schatting |
+| Beide kanalen | Weekcheck YouTube (elke ma 17:52, alleen cijfers + voorstellen) | ± 1% | schatting |
+| Beide kanalen | Maandaudit YouTube (elke 8e van de maand 17:52) | ± 3% | schatting |
 
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
