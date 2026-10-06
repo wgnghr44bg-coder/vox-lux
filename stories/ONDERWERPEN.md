@@ -25,7 +25,6 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 
 ## Nog te maken
 - The Tunguska Event
-- A Winter Hike to the Dyatlov Pass, 1959
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
 - How the Lost Colony of Roanoke Lived
@@ -92,6 +91,7 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The Villisca Axe Murders
 
 ## Al gemaakt
+- A Winter Hike to the Dyatlov Pass, 1959 (= de video "The Dyatlov Pass Mystery", live 12 okt 2026; titel wordt nog aangepast)
 - The Somerton Man Mystery
 - The Man in the Iron Mask
 - Dark History of the Roman Colosseum
