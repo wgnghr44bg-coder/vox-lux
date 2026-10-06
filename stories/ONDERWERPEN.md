@@ -14,6 +14,12 @@ vaker minder advertenties toont (martelingen, executies, moordzaken) staan achte
 Is de lijst op, verzin dan zelf nieuwe in dezelfde sfeer (vooral dagelijks leven) en zet
 ze hier bij.
 
+**Kanaalcijfers okt 2026:** de video's die een rustige beleving beloven (*Life Before Fire*,
+*Life in Old San Francisco Before the 1906 Earthquake*) houden kijkers het langst vast (gemiddeld
+15–19 min) en krijgen hun kijkers vooral via voorgestelde video's. Formuleer daarom ook een ramp,
+mysterie of beroemd verhaal als beleving, en wissel de vorm af (`Life in … Before …`, `How … Lived`,
+`What Life Was Like …`, `A Day in …`, `Life Aboard …`). Geen "Quiet"/"Calm" (zie YOUTUBE-STANDAARD.md, Titel).
+
 Achter een onderwerp kan "(facts)" staan: dan wordt het een Sleepy Facts-video (losse
 feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op de 3 video's.
 
@@ -21,19 +27,19 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The Tunguska Event
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
-- The Lost Colony of Roanoke
+- How the Lost Colony of Roanoke Lived
 - A Day in the Baths of Ancient Rome (facts)
-- The Sinking of the Lusitania: The Last Crossing
+- Life Aboard the Lusitania's Last Crossing
 - How People Lived Along the Nile in Ancient Egypt
-- How Sailors Lived and Slept on 1700s Sailing Ships (facts)
-- The Last Days of the Roman Empire
-- A Winter in a Medieval Village (facts)
+- A Night on a 1700s Sailing Ship (facts)
+- What Life Was Like as Rome Fell
+- Life in a Medieval Village in Winter (facts)
 - How Lighthouse Keepers Lived Alone at Sea
-- The Great Fire of London: Life in the City Before the Flames
+- What London Was Like Before the Great Fire of 1666
 - A Day in a Medieval Castle
-- The Mystery of Stonehenge: Who Built It and Why
-- How Samurai Lived in Old Japan
-- Life in a Victorian London Home
+- How the People of Stonehenge Lived
+- Life in a Samurai Household in Old Japan
+- Inside a Victorian London Home
 - How Pioneers Survived Winter on the American Frontier
 - The Abandoned Island of Hashima
 - What Life Was Like in Ancient Athens
@@ -85,6 +91,7 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The Villisca Axe Murders
 
 ## Al gemaakt
+- A Winter Hike to the Dyatlov Pass, 1959 (= de video "The Dyatlov Pass Mystery", live 12 okt 2026; titel wordt nog aangepast)
 - The Somerton Man Mystery
 - The Man in the Iron Mask
 - Dark History of the Roman Colosseum
