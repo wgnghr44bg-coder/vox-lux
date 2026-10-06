@@ -17,15 +17,15 @@ ze hier bij.
 **Kanaalcijfers okt 2026:** de video's die een rustige beleving beloven (*Life Before Fire*,
 *Life in Old San Francisco Before the 1906 Earthquake*) houden kijkers het langst vast (gemiddeld
 15–19 min) en krijgen hun kijkers vooral via voorgestelde video's. Formuleer daarom ook een ramp,
-mysterie of beroemd verhaal als beleving: `Life in <plaats> Before <gebeurtenis>`, `Life Before …`,
-`How … Lived/Survived …`. Geen "Quiet"/"Calm" in de titel (zie YOUTUBE-STANDAARD.md, Titel).
+mysterie of beroemd verhaal als beleving, en wissel de vorm af (`Life in … Before …`, `How … Lived`,
+`What Life Was Like …`, `A Day in …`, `Life Aboard …`). Geen "Quiet"/"Calm" (zie YOUTUBE-STANDAARD.md, Titel).
 
 Achter een onderwerp kan "(facts)" staan: dan wordt het een Sleepy Facts-video (losse
 feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op de 3 video's.
 
 ## Nog te maken
 - The Tunguska Event
-- Life Before the Dyatlov Pass Mystery
+- A Winter Hike to the Dyatlov Pass, 1959
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
 - How the Lost Colony of Roanoke Lived

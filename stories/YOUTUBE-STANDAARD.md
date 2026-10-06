@@ -122,12 +122,17 @@ the Coldest Nights", "What Did Medieval Peasants Do All Day".
 - **Vast patroon (eigenaar, okt 2026), naar de best lopende video's** *Life Before Fire: How
   Early Humans Survived the Night* en *Life in Old San Francisco Before the 1906 Earthquake*
   (langste kijkduur, meeste kijkers via voorgestelde video's):
-  - dagelijks leven vóór een gebeurtenis: `Life in <plaats> Before <gebeurtenis>`
-    (bv. `Life in Pompeii Before Vesuvius`, `Life in Siberia Before the Tunguska Blast`);
-  - zonder gebeurtenis: `Life Before …`, `How <mensen> Lived …` of `How <mensen> Survived …`
-    (bv. `How Vikings Survived the Long Dark Winter`).
-  - **Niet** "Quiet", "Calm" of "The Last Quiet …" in de titel: dat stond al op 4 thumbnails
-    en maakte het kanaal eentonig.
+  altijd een **beleving** in de titel, maar **wissel de vorm af** (eigenaar: niet alleen
+  "Life" of "Before"; dit patroon is gebaseerd op maar 2 video's). Kies per video een van:
+  - `Life in <plaats> Before <gebeurtenis>` / `Life Before …` (bv. `Life in Pompeii Before Vesuvius`)
+  - `How <mensen> Lived/Survived …` (bv. `How Vikings Survived the Long Dark Winter`)
+  - `What Life Was Like …` / `What <mensen> Did All Day`
+  - `A Day/Night/Winter in …` / `A Winter Hike to …` (bv. `A Day in the Baths of Ancient Rome`)
+  - `Life Aboard …` / `Inside …`
+  - **Nooit dezelfde vorm als een van de vorige 2 video's** (kijk naar de laatste titels op
+    YouTube). Houd de bekende naam erin (Pompeii, Titanic, Dyatlov), daar zoeken mensen op.
+  - **Niet** "Quiet", "Calm" of "The Last Quiet …": dat stond al op 4 thumbnails en maakte
+    het kanaal eentonig.
 - Titel = **het onderwerp uit `ONDERWERPEN.md`** (die staan er al als belevingstitel
   in) + ` | History for Sleep`. Bijvoorbeeld
   `What Life Was Like in Pompeii Before Vesuvius | History for Sleep`.
@@ -189,10 +194,12 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
     (`stories/tunguska/thumbnail-v4.jpg`).
   - **Tekst: vast patroon (eigenaar, okt 2026)**, zoals *Old San Francisco* en *Before the First
     Fire* (de best lopende video's):
-    - amberregel `--title "Before <gebeurtenis>  ·  <jaar>"` (of `<streek>  ·  <tijd>` als er
-      geen gebeurtenis is), bv. "Before the Earthquake · 1906", "Before Vesuvius · 79 AD";
-    - hook `--hook` = **de plaatsnaam** (1–3 woorden), bv. "Old San Francisco", "Pompeii",
-      "Tunguska"; of "Before the First Fire" als er geen plaats is.
+    - amberregel `--title`: plaats/tijd, **afwisselend**: `Before <gebeurtenis>  ·  <jaar>`
+      ("Before the Earthquake · 1906"), `<streek>  ·  <tijd>` ("Scandinavia · Viking Age"),
+      `<maand jaar>  ·  <plaats>` ("February 1959 · Ural Mountains");
+    - hook `--hook` (1–4 woorden), **afwisselend**: de plaatsnaam ("Old San Francisco",
+      "Pompeii") of een korte beleving ("Before the First Fire", "A Viking Winter Night").
+    - Niet twee video's achter elkaar met dezelfde soort amberregel of hook.
     - **De thumbnail herhaalt de titel niet** (titel en thumbnail staan naast elkaar op
       YouTube) en nooit "Quiet"/"Calm".
     - Voorbeelden: `stories/san-francisco-1906/thumbnail-v2.jpg`,
