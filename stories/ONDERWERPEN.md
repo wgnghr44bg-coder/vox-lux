@@ -19,7 +19,6 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 
 ## Nog te maken
 - The Tunguska Event
-- The Dyatlov Pass Mystery
 - What Medieval Monks Did All Day
 - Life in Europe During the Black Death
 - The Lost Colony of Roanoke
@@ -101,3 +100,4 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The Titanic: The Night It Sank
 - The Fall of Pompeii (dubbel met Pompeii: The Last Day, overgeslagen)
 - How Vikings Survived the Long Dark Winter (facts)
+- The Dyatlov Pass Mystery (op YouTube als "Dyatlov Pass: A Winter Night in the Urals")
