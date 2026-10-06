@@ -22,8 +22,8 @@ Week tot za 10 okt 2026 12:00 (stand di 6 okt 13:03: 77% gebruikt, screenshot ei
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
-  - wo 7 okt: ondertitels bouwen (`--subs`) + Shorts "−100 °C" (live do 8 okt 18:00) en
-    "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00)
+  - wo 7 okt: ondertitels bouwen (`--subs`) + Short "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00).
+    Short "−100 °C" NIET maken: de eigenaar plaatst die zelf (6 okt 2026); telt als al op het kanaal.
   - vr 9 okt: lange video "What if the Sun went out?", min. 8 min (live za 10 okt 21:00, met thumbnail) +
     Short "What if all the ice on Earth melted?" (live za 10 okt 18:00)
 
