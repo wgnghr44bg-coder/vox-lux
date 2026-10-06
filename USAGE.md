@@ -13,12 +13,15 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 | IfScape3D (What If) | Lange video met nieuwe plek/modellen (bv. dino's) | ± 5–6% | schatting |
 | Sleep Archives | Lange video (routine, ± 2 uur doc + 72 beelden) | ± 5–8% | schatting (run ± 66 min) |
 | Sleep Archives | Short (los gemaakt; routine maakt sinds okt 2026 geen Shorts) | ± 1% | schatting |
+| Beide kanalen | Weekcheck YouTube (ma 17:52, alleen cijfers) | ± 1% | schatting |
+| Beide kanalen | Maandaudit YouTube (8e van de maand 17:52) | ± 3% | schatting |
 
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
 Week tot za 10 okt 2026 12:00:
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
+- Rapporten (vast): weekcheck elke ma 17:52 (± 1%), maandaudit elke 8e 17:52 (± 3%; 8 okt).
 - IfScape3D: ruimte voor ± 3 lange video's (± 3% per stuk), of Shorts (± 1% per stuk).
 
 ## Rekenregel vóór elke run
