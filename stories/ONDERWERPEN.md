@@ -32,15 +32,15 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - A Day in the Baths of Ancient Rome (facts)
 - Life Aboard the Lusitania's Last Crossing
 - How People Lived Along the Nile in Ancient Egypt
-- How Sailors Lived and Slept on 1700s Sailing Ships (facts)
+- A Night on a 1700s Sailing Ship (facts)
 - What Life Was Like as Rome Fell
-- A Winter in a Medieval Village (facts)
+- Life in a Medieval Village in Winter (facts)
 - How Lighthouse Keepers Lived Alone at Sea
-- Life in London Before the Great Fire of 1666
+- What London Was Like Before the Great Fire of 1666
 - A Day in a Medieval Castle
 - How the People of Stonehenge Lived
-- How Samurai Lived in Old Japan
-- Life in a Victorian London Home
+- Life in a Samurai Household in Old Japan
+- Inside a Victorian London Home
 - How Pioneers Survived Winter on the American Frontier
 - The Abandoned Island of Hashima
 - What Life Was Like in Ancient Athens
