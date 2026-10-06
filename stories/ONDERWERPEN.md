@@ -107,3 +107,4 @@ feitjes, zie stap 2 van PROMPT-NIEUWE-VIDEO.md). Proef sinds okt 2026: ± 1 op d
 - The Titanic: The Night It Sank
 - The Fall of Pompeii (dubbel met Pompeii: The Last Day, overgeslagen)
 - How Vikings Survived the Long Dark Winter (facts)
+- The Dyatlov Pass Mystery (op YouTube als "Dyatlov Pass: A Winter Night in the Urals")
