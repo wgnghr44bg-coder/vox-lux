@@ -1,0 +1,231 @@
+{
+ "onderwerp": "Dyatlov Pass: A Winter Night in the Urals",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "The City of Sverdlovsk"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 314.7,
+   "nummer": 2,
+   "titel": "Students and Tourists"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 766.3,
+   "nummer": 3,
+   "titel": "The Urals and the Mansi"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1327.9,
+   "nummer": 4,
+   "titel": "Igor Dyatlov's Plan"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1475.2,
+   "nummer": 5,
+   "titel": "The Ten Friends"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1937.4,
+   "nummer": 6,
+   "titel": "The Journey North"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2419.6,
+   "nummer": 7,
+   "titel": "Into the Forest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2801.1,
+   "nummer": 8,
+   "titel": "Along the Lozva"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3327.8,
+   "nummer": 9,
+   "titel": "The Last Night in the Forest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3627.7,
+   "nummer": 10,
+   "titel": "The Climb"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4347.3,
+   "nummer": 11,
+   "titel": "The Night on the Slope"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4574.1,
+   "nummer": 12,
+   "titel": "The Search"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4794.3,
+   "nummer": 13,
+   "titel": "The Tent Is Found"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5236.0,
+   "nummer": 14,
+   "titel": "The Investigation"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5959.4,
+   "nummer": 15,
+   "titel": "The Theories"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6788.2,
+   "nummer": 16,
+   "titel": "Remembering the Nine"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1956.4,
+   "regel1": "23 January 1959",
+   "regel2": "Sverdlovsk Railway Station"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2701.2,
+   "regel1": "28 January 1959",
+   "regel2": "The Second Northern"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3346.8,
+   "regel1": "31 January 1959",
+   "regel2": "The Upper Auspiya Valley"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3649.7,
+   "regel1": "1 February 1959",
+   "regel2": "The Slope of Kholat Syakhl"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4813.3,
+   "regel1": "26 February 1959",
+   "regel2": "Kholat Syakhl"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5628.1,
+   "regel1": "Late May 1959",
+   "regel2": "Ivdel"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 2526.6,
+   "titel": "The Northern Urals, 1959",
+   "gebied": [
+    57.0,
+    63.0,
+    56.3,
+    62.3
+   ],
+   "plaatsen": [
+    {
+     "naam": "Sverdlovsk",
+     "lon": 60.61,
+     "lat": 56.84,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Nizhny Tagil",
+     "lon": 59.97,
+     "lat": 57.92,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Serov",
+     "lon": 60.57,
+     "lat": 59.6,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Ivdel",
+     "lon": 60.43,
+     "lat": 60.69,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Kholat Syakhl",
+     "lon": 59.44,
+     "lat": 61.75,
+     "berg": true,
+     "kant": "links"
+    }
+   ],
+   "route": [
+    [
+     60.61,
+     56.84
+    ],
+    [
+     59.97,
+     57.92
+    ],
+    [
+     60.57,
+     59.6
+    ],
+    [
+     60.43,
+     60.69
+    ],
+    [
+     59.8,
+     61.3
+    ],
+    [
+     59.44,
+     61.75
+    ]
+   ]
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 7136.0,
+   "punten": [
+    [
+     "1959",
+     "Nine friends are lost on Kholat Syakhl"
+    ],
+    [
+     "1959",
+     "The case is closed"
+    ],
+    [
+     "1990s",
+     "The files are opened"
+    ],
+    [
+     "2020",
+     "An avalanche is named the likely cause"
+    ]
+   ]
+  }
+ ]
+}
