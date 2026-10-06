@@ -9,7 +9,7 @@ Usage:
     python3 tools/dashboard_data.py > /tmp/dashboard.json
 
 Output keys: growth, watch_hours_12m, updated, channel, period, daily, top, traffic, youtube_schedule,
-planning, vooruit, playlists. Times are Dutch local time ("YYYY-MM-DD HH:MM").
+planning, vooruit, playlists, per_video. Times are Dutch local time ("YYYY-MM-DD HH:MM").
 """
 
 from __future__ import annotations
@@ -55,6 +55,30 @@ def totals(token: str, start: dt.date, end: dt.date) -> dict:
                   "subscribersLost")
     return rows[0] if rows else {"views": 0, "estimatedMinutesWatched": 0,
                                  "subscribersGained": 0, "subscribersLost": 0}
+
+
+def per_video(token: str, schedule: list[dict], end: dt.date) -> list[dict]:
+    """Every public long video since its publication: views, watch time, how far people watch
+    and where the viewers come from. (Thumbnail impressions/CTR are not offered by the
+    Analytics API; see YouTube Studio > Bereik.)"""
+    vids = [s for s in schedule if not s["short"] and s["status"] == "public"]
+    if not vids:
+        return []
+    first = min(dt.date.fromisoformat(v["when"][:10]) for v in vids)
+    stats = {r["video"]: r for r in report(
+        token, first, end, dimensions="video", filters="video==" + ",".join(v["id"] for v in vids),
+        metrics="views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,"
+                "subscribersGained")}
+    out = []
+    for v in vids:
+        r = stats.get(v["id"], {})
+        traffic = report(token, first, end, dimensions="insightTrafficSourceType", sort="-views",
+                         filters=f"video=={v['id']}", metrics="views,estimatedMinutesWatched")
+        out.append({"id": v["id"], "title": v["title"], "online": v["when"],
+                    **{k: r.get(k, 0) for k in ("views", "estimatedMinutesWatched", "averageViewDuration",
+                                                "averageViewPercentage", "subscribersGained")},
+                    "traffic": traffic})
+    return out
 
 
 def git(*args: str) -> str:
@@ -196,6 +220,7 @@ def main() -> None:
         "vooruit": vooruit(plan, today, schedule),
         "playlists": [{"title": p["snippet"]["title"],
                        "count": p["contentDetails"]["itemCount"]} for p in playlists],
+        "per_video": per_video(token, schedule, end),
     }
     print(json.dumps(out, ensure_ascii=False, indent=1))
 
