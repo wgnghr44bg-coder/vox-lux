@@ -18,7 +18,7 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
-Week tot za 10 okt 2026 12:00 (stand ma 5 okt 22:11: 68% gebruikt):
+Week tot za 10 okt 2026 12:00 (stand di 6 okt 13:03: 77% gebruikt, screenshot eigenaar; Sleep-run van 6 okt mogelijk nog niet helemaal meegeteld):
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
@@ -69,3 +69,4 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 | 2026-10-05 | IfScape3D | Lang: What if the wind never stopped? (4:04) | ± 60% | 63% | ± 3% | incl. liggend beeld bouwen; sessie 26→35% tussen 16:34 en 17:50 |
 | 2026-10-05 | IfScape3D | Thumbnails, usage-log, planning (overleg) | 63% | 68% | 5% | screenshot 22:11; ook overleg kost usage |
 | 2026-10-05 | IfScape3D | Routine, regels en planning (overleg) | 68% | 69% | 1% | screenshot 22:45 |
+| 2026-10-06 | Beide | Sleep-run 6 okt + overleg (planning) | 69% | 77% | ± 8% | screenshot 13:03; over voor IfScape3D tot reset ± 2–5% (na Sleep do 8, audit 8 okt, 10% buffer) |
