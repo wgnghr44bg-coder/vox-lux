@@ -119,6 +119,15 @@ Mensen zoeken in deze niche op **"History for Sleep"** en klikken op titels die 
 **beleving** beloven (hoe leefden ze, wat deden ze de hele dag, de laatste rustige
 nacht), niet op een kale onderwerpnaam. Grote kanalen: "How Medieval Peasants Survived
 the Coldest Nights", "What Did Medieval Peasants Do All Day".
+- **Vast patroon (eigenaar, okt 2026), naar de best lopende video's** *Life Before Fire: How
+  Early Humans Survived the Night* en *Life in Old San Francisco Before the 1906 Earthquake*
+  (langste kijkduur, meeste kijkers via voorgestelde video's):
+  - dagelijks leven vóór een gebeurtenis: `Life in <plaats> Before <gebeurtenis>`
+    (bv. `Life in Pompeii Before Vesuvius`, `Life in Siberia Before the Tunguska Blast`);
+  - zonder gebeurtenis: `Life Before …`, `How <mensen> Lived …` of `How <mensen> Survived …`
+    (bv. `How Vikings Survived the Long Dark Winter`).
+  - **Niet** "Quiet", "Calm" of "The Last Quiet …" in de titel: dat stond al op 4 thumbnails
+    en maakte het kanaal eentonig.
 - Titel = **het onderwerp uit `ONDERWERPEN.md`** (die staan er al als belevingstitel
   in) + ` | History for Sleep`. Bijvoorbeeld
   `What Life Was Like in Pompeii Before Vesuvius | History for Sleep`.
@@ -166,8 +175,8 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
   ```
   python3 tools/make_thumbnail.py <beeld.jpg> thumbnail.jpg --hook "<2-4 woorden>" --title "<plaats>  ·  <jaar>"
   ```
-  Voorbeelden: `stories/pompeii/thumbnail-v2.jpg` (`--hook "Before the Ash" --title "Pompeii  ·  79 AD"`),
-  `stories/titanic/thumbnail-v2.jpg`, `stories/san-francisco-1906/thumbnail-v2.jpg`.
+  Voorbeelden: `stories/san-francisco-1906/thumbnail-v2.jpg`,
+  `stories/pompeii/thumbnail-v4.jpg` (`--hook "Pompeii" --title "Before Vesuvius  ·  79 AD"`).
   - Ontwerp: linksboven klein het logo (maantje + SLEEP ARCHIVES); linksonder een kleine
     amberkleurige regel (plaats · jaar) en daaronder de **hook** heel groot, wit, extra dik.
     Geen grote "SLEEP DOCUMENTARY"-balk meer: die ruimte is voor het beeld. De tekst blijft
@@ -176,10 +185,18 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
     knus; de ramp of het mysterie hooguit als kleine hint in de verte (een lichtje in de lucht,
     rook ver weg). Nooit ontploffingen, vuurballen groot in beeld, angstige gezichten of
     woorden als "Exploded", "Death", "Horror" in de hook: slaapkijkers zoeken rust.
-    Voorbeeld: Tunguska = oma en kleindochter bij de samovar, klein lichtspoor, hook
-    "The Last Quiet Morning" (`stories/tunguska/thumbnail-v2.jpg`).
-  - **Hook**: 2–4 woorden die een gevoel of beleving geven, niet de hele titel. Bv.
-    "Before the Ash", "The Last Quiet Night", "Old San Francisco", "Winter in a Viking Hut".
+    Voorbeeld: Tunguska = oma en kleindochter bij de samovar, klein lichtspoor
+    (`stories/tunguska/thumbnail-v4.jpg`).
+  - **Tekst: vast patroon (eigenaar, okt 2026)**, zoals *Old San Francisco* en *Before the First
+    Fire* (de best lopende video's):
+    - amberregel `--title "Before <gebeurtenis>  ·  <jaar>"` (of `<streek>  ·  <tijd>` als er
+      geen gebeurtenis is), bv. "Before the Earthquake · 1906", "Before Vesuvius · 79 AD";
+    - hook `--hook` = **de plaatsnaam** (1–3 woorden), bv. "Old San Francisco", "Pompeii",
+      "Tunguska"; of "Before the First Fire" als er geen plaats is.
+    - **De thumbnail herhaalt de titel niet** (titel en thumbnail staan naast elkaar op
+      YouTube) en nooit "Quiet"/"Calm".
+    - Voorbeelden: `stories/san-francisco-1906/thumbnail-v2.jpg`,
+      `stories/pompeii/thumbnail-v4.jpg`, `stories/tunguska/thumbnail-v4.jpg`.
   - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
     kaars), warm oranje licht tegen een koele blauwe/paarse avond. De mensen en hun
     gezichten staan **rechts of in het midden**, links onderin moet rustig zijn voor de
@@ -193,6 +210,10 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
   - Oud ontwerp (v1) kan nog met `--stijl v1 --title "<onderwerp>"`, niet meer gebruiken
     voor nieuwe video's.
   - Uploaden kan alleen als het kanaal geverifieerd is (youtube.com/verify).
+  - Bij een **geplande (nog privé)** video weigert de API een nieuwe thumbnail (403); zet hem
+    dan in Studio, of via het script zodra de video openbaar is.
+  - Laat maar **één sessie tegelijk** titels/thumbnails aanpassen (okt 2026: twee sessies
+    overschreven elkaars Pompeii-thumbnail).
 
 ## Na de upload
 Meld de eigenaar de link(s) en wat nog in YouTube Studio moet (altijd deze lijst):
