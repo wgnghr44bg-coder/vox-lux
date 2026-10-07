@@ -32,6 +32,8 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 - Minimaal 8 minuten (eigenaar; mid-roll-grens), ± 8–9 min, 5–7 hoofdstukken van ± 1–1,5 min, per hoofdstuk een nieuwe plek of stap; stap voor stap erger
   (zoals de wind-video), climax in het laatste kwart.
 - Sterke opening zonder vooruitblik: meteen "Imagine …" over een beeld waar al iets onrustigs gebeurt, teller in beeld.
+- Eerste zin (eigenaar, 7 okt 2026): altijd "Imagine" + de titel, bijv. titel "What if the Sun went out?" →
+  "Imagine the Sun went out." Mag na een korte intro van een paar seconden (beeld + geluid, nog geen stem).
 - Na de eerste lange video's samen met de eigenaar de kijkduur (Betrokkenheid) bekijken; blijven kijkers tot het eind,
   dan naar 10 minuten. Usage ± 5–7% per lange video.
 
