@@ -1,6 +1,7 @@
 # Shorts gaan via de eigenaar (eigenaar, 7 okt 2026)
 
-Geldt alleen voor Shorts. Lange video's (16:9) uploadt en plant de routine zelf, zoals in AUTOMATISCH.md.
+Geldt alleen voor Shorts. Lange video's (16:9) uploadt en plant de routine zelf, zoals in AUTOMATISCH.md,
+altijd ZONDER ondertitels (eigenaar, 7 okt 2026).
 
 1. Maak de Short zoals altijd (stijl A/B volgens `stijl-afwisseling.md`), maar ZONDER ingebrande ondertitels:
    bouw niet met `--subs` en sla de ondertitel-controle over. De eigenaar zet de ondertitels zelf in TikTok.

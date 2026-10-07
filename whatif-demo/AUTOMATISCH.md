@@ -49,7 +49,8 @@ stel de schattingen bij.
 
 ## Ondertitels: verplichte controle vóór upload (eigenaar, okt 2026)
 
-(Sinds 7 okt 2026 niet meer voor Shorts: de eigenaar zet de ondertitels in TikTok, zie `regels/shorts-via-eigenaar.md`.)
+(Sinds 7 okt 2026 geldt dit voor geen enkele video meer: Shorts krijgen hun ondertitels van de eigenaar in TikTok
+(`regels/shorts-via-eigenaar.md`) en lange video's (16:9) krijgen géén ondertitels – nooit met `--subs` bouwen.)
 
 Shorts krijgen Engelse ondertitels (3–5 woorden per keer, ingebrand, synchroon met de stem). Bij het bouwen van
 `--subs` hoort een controle-script (zoals `tools/check_video.py` bij Sleep); zonder "SUBS GOED" niet uploaden:
