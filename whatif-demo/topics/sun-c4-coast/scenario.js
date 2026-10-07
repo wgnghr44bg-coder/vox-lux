@@ -34,7 +34,8 @@ export default function (at) {
     shots: [[0, 'sea'], [at('waste').s - .2, 'beach'], [at('deep').s - .2, 'sea'], [at('vents').s - .2, 'hotels'],
             [at('y1000').s - .2, 'beach'], [at('most').s - .2, 'hotels'], [at('freeze').s - .2, 'sea'], [climax + 1.5, 'beach'],
             [at('memory').s - .2, 'sea']],
-    beats: { lookUp: 1e9, shelter: 0, carsStop: 0, climax, falls: [], stop: at('question').s - 1, dark: at('question').s - .5, end: at('question').e + .3, fade: 1e9 },
+    beats: { lookUp: 1e9, shelter: 0, carsStop: 0, powerOut: -1,   // year 100+: no lights left anywhere
+             climax, falls: [], stop: at('question').s - 1, dark: at('question').s - .5, end: at('question').e + .3, fade: 1e9 },
     audio: { hiss: -40, ice: -32, heartbeat: [at('most').s, climax + 2], riser: [at('notexplode').s, climax] },
     end: { title: 'What if<br>the Sun went out?', lines: 'How long would humanity survive?' },
   };
