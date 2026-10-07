@@ -161,6 +161,7 @@ window.renderAt = function (tv, n = 1) {
 // how many subframes this frame needs: fast camera turns, running, the climax
 window.blurAt = tv => {
   if (HOOK) return 2;
+  if (camera.cutNear(tv)) return 1;
   const sp = camera.speedAt(tv), hot = tv > TL.beats.climax - 1 && tv < STOP;
   return sp > 40 || hot || (camera.runningAt(tv) && sp > 12) ? 3 : sp > 20 || camera.runningAt(tv) ? 2 : 1;
 };

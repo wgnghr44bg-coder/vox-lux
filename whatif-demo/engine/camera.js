@@ -96,6 +96,8 @@ export function createCamera(E, TL, P, F) {
     // angular speed of the gaze in degrees per second (render.mjs adds motion blur when fast)
     speedAt: tv => { const i = clamp(Math.round(tv * FPS), 1, N - 1); return Math.hypot(wrap(yawA[i] - yawA[i - 1]), pitchA[i] - pitchA[i - 1]) * FPS / D2R; },
     runningAt: tv => !!shotAt(tv).shot.run,
+    // a shot cut within the last two frames: no motion blur there (subframes would mix the two shots = the street glitch)
+    cutNear: tv => TL.shots.some(x => x[0] > 0 && x[0] > tv - 2 / FPS && x[0] <= tv + .5 / FPS),
     // apply(tv) follows the simulated gaze; apply(tv, { shot, t }) frames a fixed shot (the opening hook)
     apply(tv, fixed) {
       const t = Math.min(fixed ? fixed.t : tv, STOP);
