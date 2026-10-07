@@ -24,7 +24,7 @@ export const lines = [
 export default function (at) {
   const climax = at('last').e + .4, dark = climax + 4.5, T_END = at('sand').e + 3.5;
   return {
-    T_END, tripod: true, showTitle: true, showTitle: true, brand: false, endStyle: 'black',
+    T_END, tripod: true, showTitle: true, showTitle: true, showTitle: true, brand: false, endStyle: 'black',
     titleOut: at('waves').e + .2,
     sunOffset: [-15, 42, -200],
     hud: { label: 'DAYLIGHT', unit: '%', decimals: 0 },
