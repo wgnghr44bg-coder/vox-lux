@@ -31,10 +31,10 @@ export default function (at) {
   const climax = at('minus50').e + .4, T_END = at('still').e + 3.0;
   return {
     T_END, tripod: true, brand: false,
-    hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
+    hud: { label: 'TEMPERATURE', unit: '°C', sub: 'MONTH 3', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, -18], [at('beach').s, -22], [at('minus30').s, -30], [at('sky').s, -40], [at('minus50').s, -50], [T_END, -52]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: .25 },
-    captions: [[at('heat').s, at('heat').e + .4, 'The sea cools slowest.'],
+    captions: [[at('months').s, at('months').e + .8, 'Months later.'], [at('heat').s, at('heat').e + .4, 'The sea cools slowest.'],
                [at('crust').s, at('crust').e + .5, 'The sea freezes over.'],
                [at('clear').s, at('clear').e + .6, 'No more clouds.']],
     // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
