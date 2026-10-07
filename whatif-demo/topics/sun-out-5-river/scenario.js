@@ -29,8 +29,8 @@ export const lines = [
 
 export default function (at) {
   const climax = at('snap').e + .4, stop = at('drift').s - .1;   // 'deck' is said while the deck goes
-  const SEQ = ['far', 'wide', 'quay', 'under', 'span', 'deck', 'north'];
-  const gen = lines.map(([id], k) => [k ? at(id).s - .2 : 0, SEQ[k % SEQ.length]]).filter(([t]) => t < at('creak').s || t > climax + 6);
+  const SHOT = { year: 'far', city: 'wide', river: 'under', deep: 'under', vents: 'span', built: 'deck', steel: 'span', shrink: 'deck', hold: 'wide',
+    creak: 'span', colder: 'far', snap: 'span', deck: 'far', drift: 'wide', line: 'far', away: 'wide', bright: 'north', every: 'far', final: 'far' };
   return {
     T_END: at('final').e + 4.6, tripod: true, brand: false, endStyle: 'card',
     hud: { label: 'TEMPERATURE', unit: '°C', sub: 'YEAR 1', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
@@ -39,8 +39,8 @@ export default function (at) {
     captions: [[at('year').s + .5, at('year').e + .6, 'One year: about −73 °C.'],
                [at('steel').s, at('steel').e + .5, 'Steel turns brittle.'],
                [at('line').s + 1, at('line').e + .5, '30 km every second.']],
-    // like gravity-doubled around the break: north -> span -> wide -> far (the bridge stays in view)
-    shots: [...gen, [at('creak').s - .2, 'north'], [at('snap').s, 'span'], [climax + 3.3, 'wide'], [climax + 5.6, 'far']]
+    // every line shows what the voice says; around the break: span -> wide -> far (the bridge stays in view)
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, SHOT[id]]), [climax + 3.3, 'wide']]
       .sort((a, b) => a[0] - b[0]),
     beats: {
       lookUp: 1e9, shelter: 0, carsStop: 0,
