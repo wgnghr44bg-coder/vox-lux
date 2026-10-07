@@ -22,7 +22,7 @@ Week tot za 10 okt 2026 12:00 (stand di 6 okt 13:03: 77% gebruikt, screenshot ei
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
-  - wo 7 okt: ondertitels bouwen (`--subs`) + Short [B] "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00).
+  - wo 7 okt: Short [B] "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00).
     Short "−100 °C" NIET maken: al geüpload op 6 okt 2026 (https://youtu.be/0Kvcuv5-3EQ, openbaar, in playlist "What If").
   - vr 9 okt: lange video "What if the Sun went out?", min. 8 min (live za 10 okt 21:00, met thumbnail) +
     Short [A] "What if all the ice on Earth melted?" (live za 10 okt 18:00)
@@ -36,6 +36,7 @@ Week 11–17 okt 2026 (eerste weekplanning; routine ma/wo/vr/za):
 - wo 14: Shorts [A] "What if the Moon disappeared?" (boulevard bij nacht, live do 15) en [B] "What if it rained for a whole year?" (live vr 16)
 - vr 16: lange video "What if Earth had two suns?" (live za 17 okt 21:00, met thumbnail) + Short [A] "What if aliens contacted Earth tomorrow?" (live za 17 18:00)
 - za 17: weekplanning voor 18–24 okt maken (+ eventueel extra Short)
+Shorts (sinds 7 okt 2026): niet uploaden, zonder ondertitels naar de eigenaar (TikTok); "live"-data bij Shorts zijn streefdata, de eigenaar stuurt ze terug en dan gaan ze op YouTube (whatif-demo/regels/shorts-via-eigenaar.md).
 Shorts om en om: [A] = POV, [B] = gravity-stijl (whatif-demo/regels/stijl-afwisseling.md); de weekplanning zet bij elke Short [A] of [B].
 (Eerst nog de kanaal-check op dubbele video's; vervalt een onderwerp, neem het volgende passende uit onderwerpen.md.)
 

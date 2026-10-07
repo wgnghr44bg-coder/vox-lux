@@ -5,9 +5,12 @@ whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 
 ## Routine en uploaden (eigenaar, okt 2026)
 
-De dagelijkse routine mag Shorts én lange video's zelf uploaden, altijd privé met een geplande publicatie
+Shorts (sinds 7 okt 2026): NIET uploaden, zonder ingebrande ondertitels maken en aan de eigenaar geven
+(TikTok); zie `regels/shorts-via-eigenaar.md`. Dat gaat vóór alles hieronder over Shorts.
+
+De dagelijkse routine mag lange video's zelf uploaden, altijd privé met een geplande publicatie
 (publishAt), zodat de eigenaar tot dat moment kan ingrijpen in YouTube Studio:
-- Short: privé, live de volgende dag 18:00 (Europe/Amsterdam).
+- Short: niet uploaden (zie hierboven); de eigenaar stuurt hem met ondertitels terug.
 - Lange video (16:9): privé, live op de datum uit `USAGE.md` (planning) of anders de eerstvolgende zaterdag 21:00,
   altijd met thumbnail (`--thumbnail`, stijl en controle: `regels/thumbnail.md`).
 Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in het budget: niets maken, wel melden.
@@ -15,6 +18,7 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 ## Losse regels (alleen lezen als nodig)
 
 - Lange video (16:9): thumbnail-stijl en -controle in `regels/thumbnail.md` (altijd met thumbnail uploaden).
+- Shorts gaan via de eigenaar (geen upload, geen ingebrande ondertitels): `regels/shorts-via-eigenaar.md`.
 - Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
 - Shorts om en om in stijl A (POV) en B (gravity-stijl): `regels/stijl-afwisseling.md`.
 - TikTok: geen Google Drive meer; de Shorts komen op de pagina "IfScape3D TikToks" (vanaf za 10 okt 2026).
@@ -44,6 +48,8 @@ Vóór elke run: lees `USAGE.md` (in de root), reken met de schattingen uit of d
 stel de schattingen bij.
 
 ## Ondertitels: verplichte controle vóór upload (eigenaar, okt 2026)
+
+(Sinds 7 okt 2026 niet meer voor Shorts: de eigenaar zet de ondertitels in TikTok, zie `regels/shorts-via-eigenaar.md`.)
 
 Shorts krijgen Engelse ondertitels (3–5 woorden per keer, ingebrand, synchroon met de stem). Bij het bouwen van
 `--subs` hoort een controle-script (zoals `tools/check_video.py` bij Sleep); zonder "SUBS GOED" niet uploaden:
