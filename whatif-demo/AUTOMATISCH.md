@@ -11,7 +11,7 @@ Shorts (sinds 7 okt 2026): NIET uploaden, zonder ingebrande ondertitels maken en
 De dagelijkse routine mag lange video's zelf uploaden, altijd privé met een geplande publicatie
 (publishAt), zodat de eigenaar tot dat moment kan ingrijpen in YouTube Studio:
 - Short: niet uploaden (zie hierboven); de eigenaar stuurt hem met ondertitels terug.
-- Lange video (16:9): privé, live op de datum uit `USAGE.md` (planning) of anders de eerstvolgende zaterdag 21:00,
+- Lange video (16:9): privé, live op de datum uit `USAGE.md` (planning) of anders de eerstvolgende woensdag of zaterdag 21:00 (2 per week),
   altijd met thumbnail (`--thumbnail`, stijl en controle: `regels/thumbnail.md`).
 Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in het budget: niets maken, wel melden.
 

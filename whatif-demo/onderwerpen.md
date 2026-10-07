@@ -23,8 +23,8 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
 Doel: gevarieerde What if-video's over 14 categorieën. Nooit twee keer achter elkaar dezelfde categorie
-(en ook niet dezelfde plek). Bakstenen worden langzaam opgebouwd: hooguit één nieuwe baksteen per week, alleen
-na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-runs + 10% buffer).
+(en ook niet dezelfde plek). Bakstenen: hooguit twee nieuwe per week (eigenaar, 7 okt 2026; was één), alleen
+na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-runs + geplande video's + 10% buffer).
 
 | # | Categorie | Voorbeeld | Kan nu? | Baksteen nodig |
 |---|---|---|---|---|
