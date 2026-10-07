@@ -22,6 +22,7 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
   zetten tenzij de eigenaar dat vraagt). Sleep Archives: Lux op 0.9. Niet zelf een andere stem of tempo kiezen.
 
 - Lange video (16:9): thumbnail-stijl en -controle in `regels/thumbnail.md` (altijd met thumbnail uploaden).
+- QC vóór elke upload (lang) of doorgeven (Short), verplicht: `regels/qc.md` – alleen bij "✅ VIDEO APPROVED".
 - Shorts gaan via de eigenaar (geen upload, geen ingebrande ondertitels): `regels/shorts-via-eigenaar.md`.
 - Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
 - Shorts om en om in stijl A (POV) en B (gravity-stijl): `regels/stijl-afwisseling.md`.
