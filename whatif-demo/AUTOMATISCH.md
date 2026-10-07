@@ -3,12 +3,13 @@
 Deze instructies volgt de dagelijkse sessie ("Maak en upload de volgende What if-video volgens
 whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 
-## PAUZE (eigenaar, 7 okt 2026) – lees dit eerst
+## PAUZE LANGE VIDEO'S (eigenaar, 7 okt 2026) – lees dit eerst
 
-IfScape3D staat stil tot de eigenaar zelf zegt dat het weer mag. Ook na de usage-reset (zaterdag 12:00) NIET
-automatisch beginnen met maken, bouwen of uploaden voor IfScape3D. Eerst moet er één goede video zijn die de
-eigenaar heeft goedgekeurd (de nieuwe Sun-video volgens zijn shotlijst). Een routine-run stopt hier, maakt niets
-en meldt alleen kort: "IfScape3D staat op pauze tot akkoord van de eigenaar."
+Lange video's (16:9) staan stil tot de eigenaar zelf zegt dat het weer mag. Ook na de usage-reset (zaterdag 12:00)
+GEEN lange video maken, bouwen of uploaden en geen nieuwe baksteen bouwen. Eerst moet er één goede lange video zijn
+die de eigenaar heeft goedgekeurd (de nieuwe Sun-video volgens zijn shotlijst). Meld in de routine kort:
+"Lange video's staan op pauze tot akkoord van de eigenaar."
+Shorts gaan wél door (volgens de regels hieronder, via de eigenaar, niet uploaden), als USAGE.md het toelaat.
 
 ## Routine en uploaden (eigenaar, okt 2026)
 
