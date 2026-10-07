@@ -10,8 +10,9 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 ## Verhaal: sprongen in de tijd, stap voor stap erger
 - Opening (haak): "Imagine …" over het onderwerp, dan wat het níet is en de verrassing
   (bijv. "Not exploding. Not slowly disappearing. Just… gone." / "But here's the terrifying part.").
-- Daarna tijdsprongen met een duidelijke marker die de stem uitspreekt én die in beeld staat,
-  bijv. DAY 0 → DAY 1 → DAY 3 → DAY 7 → MONTH 1 → YEAR 1 → YEAR 100 → YEAR 1,000 (passend bij het onderwerp).
+- Daarna stappen die steeds erger worden, met een duidelijke marker die de stem uitspreekt én die in beeld staat.
+  Dat kan tijd zijn (DAY 1 → MONTH 1 → YEAR 1,000) maar ook iets anders, passend bij het onderwerp
+  (bijv. 100 °C → 500 °C → 1.000 °C bij vuur, 50 → 300 km/u bij wind, 1 m → 50 m bij water).
 - Elke stap is erger dan de vorige; feiten met getallen erbij (zoals gravity: "−17 °C na een week").
 - Elk hoofdstuk eindigt met een cliffhanger-zin ("But this is only the beginning.", "But then comes the truly terrifying part.").
 - Slot: de grootste climax in het laatste hoofdstuk, dan een vraag aan de kijker
@@ -22,8 +23,10 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 - Toeschouwer-shots (wijd, stabiel, `tripod: true`), geen POV.
 - Titelkaart bij de start (`showTitle: true`, `title`, `titleOut`) en eindkaart in het laatste hoofdstuk
   (`end: { title, lines }` met `beats.end`/`beats.dark`).
-- Teller in beeld met de tijdsmarker eronder: `hud.subAt: [[t, 'DAY 1'], …]` (engine/hud.js), plus een
-  tweede regel (bijv. °F, of W/m²) zoals "YOU WEIGH" bij gravity.
+- Teller in beeld, passend bij het onderwerp (eigenaar): de grootheid die het verhaal drijft, bijv.
+  vuur/hitte → °C/°F, wind → km/u, water → meters, zwaartekracht → g, licht → %, aardbeving → magnitude,
+  tijd → dag/jaar. Eronder eventueel een tweede regel (bijv. °F of "YOU WEIGH" zoals bij gravity) en, als het
+  verhaal in tijdsprongen loopt, de tijdstap: `hud.subAt: [[t, 'DAY 1'], …]` (engine/hud.js).
 - Wat de stem zegt, moet je zien (lichten aan, mensen kijken omhoog, auto stopt, meer bevriest …).
 
 ## Variatie (nooit hetzelfde)
