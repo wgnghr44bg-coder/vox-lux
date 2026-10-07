@@ -31,25 +31,26 @@ Na de reset, za 10 okt (na 12:00): TikTok-pagina "IfScape3D TikToks" bouwen (cla
 video, tekst + kopieerknop, downloadknop, vinkje "op TikTok gezet"; video's verkleind tot < 15 MB), met de Shorts die al
 op YouTube staan (± 2%). Daarna zet elke run nieuwe Shorts erbij.
 
-Week 11–17 okt 2026 (eerste weekplanning; routine ma/wo/vr/za):
-- ma 12: baksteen Hemel bouwen (planeten, ringen, tweede zon, ufo) (± 3%) + Short [B] "What if Earth had rings like Saturn?" (live di 13)
-- wo 14: Shorts [A] "What if the Moon disappeared?" (boulevard bij nacht, live do 15) en [B] "What if it rained for a whole year?" (live vr 16)
-- vr 16: lange video "What if Earth had two suns?" (live za 17 okt 21:00, met thumbnail) + Short [A] "What if aliens contacted Earth tomorrow?" (live za 17 18:00)
-- za 17: weekplanning voor 18–24 okt maken (+ eventueel extra Short)
+Week 11–17 okt 2026 (eigenaar 7 okt: 2 lange video's per week, ± 3 Shorts; routine ma/wo/vr/za):
+- ma 12: lange video "What if sea levels rose 100 meters?" (bestaande plekken, min. 8 min; live wo 14 okt 21:00, met thumbnail) + Short [B] "What if it rained for a whole year?"
+- wo 14: baksteen Hemel bouwen (planeten, ringen, tweede zon, ufo) (± 3%) + Short [A] "What if Earth had rings like Saturn?"
+- vr 16: lange video "What if Earth had two suns?" (live za 17 okt 21:00, met thumbnail) + Short [B] "What if the Moon disappeared?"
+- za 17: weekplanning voor 18–24 okt maken; is er ruimte, dan de volgende baksteen (Aarde beweegt, ± 4%)
 Shorts (sinds 7 okt 2026): niet uploaden, zonder ondertitels naar de eigenaar (TikTok); "live"-data bij Shorts zijn streefdata, de eigenaar stuurt ze terug en dan gaan ze op YouTube (whatif-demo/regels/shorts-via-eigenaar.md).
 Shorts om en om: [A] = POV, [B] = gravity-stijl (whatif-demo/regels/stijl-afwisseling.md); de weekplanning zet bij elke Short [A] of [B].
 (Eerst nog de kanaal-check op dubbele video's; vervalt een onderwerp, neem het volgende passende uit onderwerpen.md.)
 
-Elke zaterdag (eigenaar, okt 2026): de run van zaterdag maakt de planning voor de week erna (runs ma/wo/vr/za, 2 Shorts per run of
-1 lange video + 1 Short) en zet die hier,
-volgens het weekritme hieronder, met afwisseling in categorie en plek; de planning staat ook in de melding aan de eigenaar.
+Elke zaterdag (eigenaar, okt 2026): de run van zaterdag maakt de planning voor de week erna en zet die hier.
+Weekritme (eigenaar, 7 okt 2026): ma = lange video (live wo 21:00) + 1 Short · wo = baksteen + 1 Short ·
+vr = lange video (live za 21:00) + 1 Short · za = weekplanning (+ 2e baksteen als er ruimte is).
+Dus 2 lange video's (min. 8 min, wisselende categorie en plek) en ± 3 Shorts per week; de planning staat ook in de melding aan de eigenaar.
 
 Extra Shorts (eigenaar, okt 2026): blijft er na de geplande video van de dag ruimte over (stand na de run onder 75% en
 na aftrek van de resterende Sleep-runs + 10% buffer nog ± 3% over), dan mag de run 1 extra Short maken en plannen
 (live op de eerstvolgende vrije dag om 18:00, of 12:00 als 18:00 al bezet is). Nooit meer dan 1 extra per run.
 
 Na de reset (elke week): eerst de 2 Sleep-runs (± 10–16%) en 10% buffer; daarna per week voor IfScape3D
-± 1 nieuwe baksteen (bouwvolgorde in whatif-demo/onderwerpen.md) + 4–5 Shorts + 1–2 lange video's (± 15%).
+1–2 nieuwe bakstenen (bouwvolgorde in whatif-demo/onderwerpen.md) + ± 3 Shorts + 2 lange video's (± 20–28%).
 
 ## Rekenregel vóór elke run
 
