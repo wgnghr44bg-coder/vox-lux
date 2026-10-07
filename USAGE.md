@@ -19,11 +19,11 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
 Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). UITZONDERING (eigenaar, 7 okt): de Sleep-run van do 8 okt vervalt en de maandaudit schuift naar ma 12 okt,
-zodat er nog ruimte is voor precies 1 Short vandaag (± 1–2%, stand blijft < 90%). Verder tot de reset NIETS:
-  - wo 7 okt 13:47: ALLEEN Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok). Geen ondertitels-bouwwerk, niets anders.
-  - vr 9 okt 13:47: NIETS maken (alleen kort melden "wacht op de reset").
-  - za 10 okt 13:47 (na de reset): lange video "What if the Sun went out?" (min. 8 min, met thumbnail) en meteen inplannen voor
-    za 10 okt 21:00 (lukt dat niet vóór 20:30, dan wo 14 okt 21:00); daarna TikTok-pagina bouwen en de weekplanning maken.
+zodat er ruimte is voor (eigenaar, 7 okt 11:50):
+  - wo 7 okt 13:47: lange video "What if the Sun went out?" (min. 8 min, thumbnail), live za 10 okt 21:00. Geen Short, niets anders.
+  - vr 9 okt 13:47: Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok), ALLEEN als de stand
+    na de run van woensdag (log) ≤ 93% is; anders niets maken en de Short na de reset doen.
+  - za 10 okt 13:47 (na de reset): TikTok-pagina bouwen + weekplanning (+ Short [B] als die vrijdag niet gelukt is).
     Short [A] "What if all the ice on Earth melted?" schuift naar de week erna.
 - Sleep: al klaar en gepland: Vikings za 10 okt 21:00, Dyatlov wo 14 okt 21:00 (kost geen usage). Volgende run zo 11 okt (na de reset).
 
