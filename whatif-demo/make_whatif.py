@@ -141,7 +141,7 @@ def main():
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
         run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
-             "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
+             "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--soft-edges", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():
         tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"), sc["topic"].get("voOffset", 0.8))

@@ -74,6 +74,8 @@ LOUDNESS_LUFS: float | None = -16.0
 # Cut the silence the TTS service leaves at the start/end of each piece, so
 # PAUSE_MS / LONG_PAUSE_MS are the real gap lengths. Also --no-trim.
 TRIM_EDGE_SILENCE = True
+# Fade the edges of every piece (--soft-edges): no hard cut into the silence after a sentence.
+SOFT_EDGES = False
 
 API_URL = "https://api.x.ai/v1/tts"
 
@@ -276,6 +278,8 @@ def prepare_piece(ffmpeg: str, src: Path, dst: Path, trim: bool) -> float:
     if trim:
         edge = "silenceremove=start_periods=1:start_threshold=-50dB"
         af = f"{edge},areverse,{edge},areverse,{af}"
+    if SOFT_EDGES:   # soft start/end so a cut into silence never sounds clipped (same length)
+        af = f"{af},afade=t=in:d=0.015,areverse,afade=t=in:d=0.12:curve=qsin,areverse"
     subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(src),
                     "-af", af, "-ac", "1", "-c:a", "pcm_s16le", str(dst)], check=True)
     return (dst.stat().st_size - 44) / 2 / SAMPLE_RATE
@@ -360,6 +364,8 @@ def main() -> None:
                              f"(default {SENTENCE_PAUSE_MS}, 0 = off)")
     parser.add_argument("--voice", help=f"voice (default {VOICE_ID} for xAI, "
                                         f"{ELEVEN_VOICE} for ElevenLabs)")
+    parser.add_argument("--soft-edges", action="store_true",
+                        help="fade in/out every piece so pauses do not start with a hard cut")
     parser.add_argument("--no-trim", action="store_true",
                         help="keep the service's own silence around each piece")
     parser.add_argument("--timeline", type=Path,
@@ -429,6 +435,8 @@ def main() -> None:
     for i, p in enumerate(pieces, 1):
         pause = f"  + {p.silence_after_ms} ms silence" if p.silence_after_ms else ""
         print(f"  {i:>3}. {p.text[:70]!r}{'…' if len(p.text) > 70 else ''}{pause}")
+    global SOFT_EDGES
+    SOFT_EDGES = SOFT_EDGES or args.soft_edges
     if args.dry_run:
         return
 
