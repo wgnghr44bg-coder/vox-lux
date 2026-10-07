@@ -27,17 +27,17 @@ export const lines = [
 export default function (at) {
   const climax = at('into').e + .4, T_END = at('final').e + 3.6;
   return {
-    T_END, reach: 16, brand: false,
+    T_END, tripod: true, brand: false,
     hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, -52], [at('year').e, -73], [T_END, -73]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: 0 },
     captions: [[at('year').s + .5, at('year').e + .6, 'One year: about −73 °C.'],
                [at('deep').s, at('deep').e + .4, 'The deep ocean stays liquid.'],
                [at('line').s + 1, at('line').e + .5, '30 km every second.']],
-    shots: [[at('sound').s, 'crossing'], [at('marble').s, 'wide'], [at('milky').s, 'sea'],
-            [0, 'wide'], [at('street').s, 'avenue'], [at('frozen').s, 'crossing'], [at('sea').s, 'sea'], [at('deep').s, 'wide'],
-            [at('vents').s, 'sea'], [at('drift').s, 'crossing'], [at('line').s, 'wide'], [at('into').s, 'avenue'],
-            [climax + 2.4, 'sea'], [at('every').s, 'wide']].sort((a, b) => a[0] - b[0]),
+    shots: [[at('sound').s, 'corner'], [at('marble').s, 'high'], [at('milky').s, 'sea'],
+            [0, 'high'], [at('street').s, 'avenue'], [at('frozen').s, 'corner'], [at('sea').s, 'sea'], [at('deep').s, 'high'],
+            [at('vents').s, 'sea'], [at('drift').s, 'corner'], [at('line').s, 'high'], [at('into').s, 'avenue'],
+            [climax + 2.4, 'sea'], [at('every').s, 'high']].sort((a, b) => a[0] - b[0]),
     beats: { lookUp: at('bright').s, shelter: 0, carsStop: 0, climax, falls: [], stop: T_END + 1, fade: at('final').s - .2 },
     audio: { heartbeat: [at('drift').s, climax + 2], riser: [at('line').s, climax] },
     end: { title: '', lines: '' },

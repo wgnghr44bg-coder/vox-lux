@@ -1,4 +1,4 @@
-// Handheld POV camera that looks at what happens, like a person standing there.
+// Handheld POV camera that looks at what happens, like a person standing there (TL.tripod: fixed observer shots instead).
 // Shots (TL.shots + place.shots) give the standpoint and the base direction. On top of that:
 //  - every EVENT (impact, collapse, splash, snap, tear, glass) is a look target with a place,
 //    a time and a weight; heavy bodies that break loose are followed while they move;
@@ -94,7 +94,7 @@ export function createCamera(E, TL, P, F) {
   return {
     targetAt: tv => tgtA[Math.min(N - 1, Math.round(tv * FPS))],
     // angular speed of the gaze in degrees per second (render.mjs adds motion blur when fast)
-    speedAt: tv => { const i = clamp(Math.round(tv * FPS), 1, N - 1); return Math.hypot(wrap(yawA[i] - yawA[i - 1]), pitchA[i] - pitchA[i - 1]) * FPS / D2R; },
+    speedAt: tv => { if (TL.tripod) return 0; const i = clamp(Math.round(tv * FPS), 1, N - 1); return Math.hypot(wrap(yawA[i] - yawA[i - 1]), pitchA[i] - pitchA[i - 1]) * FPS / D2R; },
     runningAt: tv => !!shotAt(tv).shot.run,
     // a shot cut within the last two frames: no motion blur there (subframes would mix the two shots = the street glitch)
     cutNear: tv => TL.shots.some(x => x[0] > 0 && x[0] > tv - 2 / FPS && x[0] <= tv + .5 / FPS),
@@ -105,6 +105,7 @@ export function createCamera(E, TL, P, F) {
       const f = clamp(tv * FPS, 0, N - 2), i = Math.floor(f), fr = f - i;
       let ya, pa;
       if (fixed) { [ya, pa] = dirOf(pos, lookAtBase(sh, fixed.t)); }
+      else if (TL.tripod) { [ya, pa] = dirOf(pos, lookAtBase(sh, tv)); }   // observer on a tripod (gravity style): no gaze, no handheld
       else { ya = yawA[i] + wrap(yawA[i + 1] - yawA[i]) * fr; pa = lerp(pitchA[i], pitchA[i + 1], fr); }
       // shake grows with the disaster; hard jolts on big hits
       let shake = 0, rumble = (F.rumble ? F.rumble(t) : 0) * (sh.shot.shake ?? 1) * .6;
@@ -115,9 +116,9 @@ export function createCamera(E, TL, P, F) {
         shake += amp * Math.exp(-a * 5) / (1 + Math.max(0, dist - 15) / 30);
       }
       shake = Math.min(shake, .45);
-      const calm = 1 - smooth(TL.beats.end - 1, TL.beats.end + 1, tv) * .6;
+      const calm = TL.tripod ? 0 : 1 - smooth(TL.beats.end - 1, TL.beats.end + 1, tv) * .6;
       // handheld: breathing, jitter, a little roll now and then
-      const breathe = Math.sin(tv * 2 * Math.PI * .24) * .45 * D2R;
+      const breathe = Math.sin(tv * 2 * Math.PI * .24) * .45 * D2R * calm;
       const jy = (noise(tv * 1.7, 11) * .35 + noise(tv * 4.3, 5) * .12) * D2R * calm, jp = (noise(tv * 1.9, 21) * .3 + noise(tv * 4.9, 9) * .1) * D2R * calm;
       const roll = (noise(tv * .13, 41) * .9 + noise(tv * .9, 3) * .15) * D2R * calm;
       // jolts (impacts) are short and quick; the steady rumble is a slow sway, so walls never seem to wobble
@@ -131,7 +132,7 @@ export function createCamera(E, TL, P, F) {
         pa += Math.sin(ph) * 1.4 * D2R; ya += Math.sin(ph / 2) * 1.6 * D2R; rollRun = Math.sin(ph / 2) * 2.5 * D2R;
       }
       cam.fov = (sh.shot.fov || 60) * (E.WIDE ? .62 : 1); cam.updateProjectionMatrix();
-      cam.position.set(pos[0] + noise(tv * .5, 2) * .05 + sx * shake * .25, pos[1] + Math.sin(tv * 2 * Math.PI * .24) * .03 + sy * shake * .25, pos[2] + noise(tv * .5, 6) * .05);
+      cam.position.set(pos[0] + noise(tv * .5, 2) * .05 * calm + sx * shake * .25, pos[1] + Math.sin(tv * 2 * Math.PI * .24) * .03 * calm + sy * shake * .25, pos[2] + noise(tv * .5, 6) * .05 * calm);
       cam.rotation.set(pa, ya, roll + rollRun + sx * shake * .03);
       // a point 60 m ahead (used to aim the sun's shadow map)
       _l.set(-Math.sin(ya) * Math.cos(pa), Math.sin(pa), -Math.cos(ya) * Math.cos(pa)).multiplyScalar(60).add(cam.position);

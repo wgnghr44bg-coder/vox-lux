@@ -1,9 +1,9 @@
 // What if the Sun went out? Long video (16:9), chapter 1 of 5: the street, the first 8 minutes 20 seconds.
 // Build like gravity-doubled (place -> why it matters -> "Now imagine" -> facts step by step -> silent climax),
-// opening with "Imagine" + title after a short silent title card (voOffset). Counter = seconds since the Sun went out;
-// the light only stops at 500 s (8 min 20 s), so the darkness (cold force, darkAt) falls exactly there.
+// opening: title on screen while the voice says "Imagine the Sun went out." Tripod (observer) shots, no POV.
+// Counter = seconds since the Sun went out; the light only stops at 500 s (8 min 20 s), so the darkness (cold force, darkAt) falls exactly there.
 export const topic = {
-  number: 201, slug: 'sun-out-1-street', place: 'street', force: 'cold', wide: true, voOffset: 3.2,
+  number: 201, slug: 'sun-out-1-street', place: 'street', force: 'cold', wide: true,
   question: 'What if the Sun went out?', title: 'What if<br>the Sun<br>went out?',
 };
 
@@ -42,7 +42,7 @@ export const lines = [
 export default function (at) {
   const climax = at('then').e + .4, T_END = at('cold').e + 3.0;
   return {
-    T_END, reach: 16, showTitle: true, titleOut: at('imagine').s + 1.2,
+    T_END, tripod: true, showTitle: true, titleOut: at('imagine').e + 2,
     hud: { label: 'SINCE THE SUN WENT OUT', unit: ' s',
            second: { label: 'MINUTES', fn: v => v / 60, decimals: 1, unit: '', showAt: at('now').e } },
     counter: [[0, 0], [at('now').e, 0], [at('nothing').e, 20], [at('light').s, 60], [at('normal').s, 180],
@@ -53,11 +53,11 @@ export default function (at) {
                [at('onway').s, at('onway').e + .6, 'Still on its way.'],
                [at('gone').s, at('gone').e + .6, 'No more light.'],
                [at('stars').s, at('stars').e + .5, 'Stars in the afternoon.']],
-    shots: [[at('blue').s, 'sea'], [at('ghost').s, 'wide'], [at('faster').s, 'avenue'], [at('six').s, 'crossing'], [at('seven').s, 'avenue'],
-            [0, 'wide'], [at('people').s, 'avenue'], [at('power').s, 'sea'], [at('now').s, 'wide'], [at('light').s, 'crossing'],
-            [at('left').s, 'avenue'], [at('normal').s, 'crossing'], [at('traffic').s, 'crossing'], [at('last').s, 'avenue'],
-            [at('five').s, 'sea'], [at('eight').s, 'crossing'], [at('then').s, 'wide'], [climax + 2.6, 'avenue'],
-            [at('moon').s, 'sea'], [at('stars').s, 'wide'], [at('cold').s, 'avenue']].sort((a, b) => a[0] - b[0]),
+    shots: [[at('blue').s, 'sea'], [at('ghost').s, 'high'], [at('faster').s, 'avenue'], [at('six').s, 'balcony'], [at('seven').s, 'avenue'],
+            [0, 'high'], [at('people').s, 'avenue'], [at('power').s, 'sea'], [at('now').s, 'high'], [at('light').s, 'balcony'],
+            [at('left').s, 'avenue'], [at('normal').s, 'balcony'], [at('traffic').s, 'balcony'], [at('last').s, 'avenue'],
+            [at('five').s, 'sea'], [at('eight').s, 'balcony'], [at('then').s, 'high'], [climax + 2.6, 'avenue'],
+            [at('moon').s, 'sea'], [at('stars').s, 'high'], [at('cold').s, 'avenue']].sort((a, b) => a[0] - b[0]),
     beats: { lookUp: climax + 1, carsStop: at('gone').s, shelter: 1e9, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('last').s, climax + 3], riser: [at('five').s, climax] },
     end: { title: '', lines: '' },

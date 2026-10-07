@@ -30,7 +30,7 @@ export const lines = [
 export default function (at) {
   const climax = at('minus50').e + .4, T_END = at('still').e + 3.0;
   return {
-    T_END, brand: false,
+    T_END, tripod: true, brand: false,
     hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, -18], [at('beach').s, -22], [at('minus30').s, -30], [at('sky').s, -40], [at('minus50').s, -50], [T_END, -52]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: .25 },
