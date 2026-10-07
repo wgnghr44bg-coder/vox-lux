@@ -48,3 +48,9 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 ## Shots die niet werken (getest)
 - `mountain-village`: `village`, `square`, `church`, `lakeside` worden geblokkeerd door huizen/daken → gebruik `wide`, `lake`, `mountains`.
 - `boulevard`: `wide` heeft een palm vooraan (in het donker een zwart silhouet) → bij nacht liever `sea`, `beach`, `hotels`.
+
+## Shorts: dezelfde opbouw, korter (eigenaar, 7 okt 2026)
+- Shorts volgen dezelfde opbouw (haak "Imagine …", stappen die erger worden met marker in beeld, teller passend
+  bij het onderwerp, feiten met getallen, cliffhanger-zin, vraag aan de kijker aan het eind), maar korter:
+  ± 60–90 s, 1 plek (hooguit 2), 3–4 stappen, één stille climax.
+- De A/B-test (`regels/stijl-afwisseling.md`) blijft: alleen de camera verschilt (A = POV, B = toeschouwer/gravity).
