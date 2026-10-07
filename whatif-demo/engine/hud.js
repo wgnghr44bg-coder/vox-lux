@@ -14,6 +14,7 @@ export function createHud(TL) {
     update(t) {
       const v = counterAt(Math.min(t, B.stop));
       $('num').textContent = (H.prefix || '') + fmt(v) + (H.unit || '');
+      if (H.subAt) { let s = H.sub || ''; for (const [ts, txt] of H.subAt) if (t >= ts) s = txt; $('sub').textContent = s; }   // e.g. DAY 1 -> WEEK 1
       if (H.second) {
         const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;
         $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(S.min ?? 0, v2), S.decimals ?? 0)}${S.unit || ''}`;
