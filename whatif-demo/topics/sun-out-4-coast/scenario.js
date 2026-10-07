@@ -19,6 +19,7 @@ export const lines = [
   ['people', 'People would survive only where they had power, fuel and shelter.', 'long'],
   ['under', 'Some would move underground, where the rock keeps the temperature steady.', 'pause'],
   ['geo', 'Places with hot springs and volcanoes, like Iceland, could live on the heat of the Earth itself.', 'long'],
+  ['cities', 'Cities would shrink to a few warm islands of light in an endless dark.', 'long'],
   ['sky', 'With almost no water left to evaporate, the clouds would thin out and the snow would stop.', 'pause'],
   ['clear', 'Just a clear, black sky.', 'long'],
   ['minus50', 'Minus fifty.', 4],

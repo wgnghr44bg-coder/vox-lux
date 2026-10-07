@@ -13,6 +13,7 @@ export const lines = [
   ['leak', 'But that heat would slowly leak away into space, and nothing would come to replace it.', 'long'],
   ['plants', 'Every plant on Earth would stop making food the moment the light was gone.', 'pause'],
   ['grass', 'The grass, the crops, the trees on these slopes.', 'pause'],
+  ['crops', 'No harvest would ever ripen again.', 'pause'],
   ['wait', 'For now, they would wait, living on what they had stored.', 'pause'],
   ['solar', 'Solar panels on the roofs would produce nothing at all.', 'long'],
   ['temp', 'The temperature would keep falling, hour after hour.', 'pause'],
