@@ -35,8 +35,9 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 - Elke video andere plekken-volgorde en andere tijdstappen.
 
 ## Stem, pauzes en geluid (eigenaar, 7 okt 2026 – na de Sun-video v3)
-- Geen stops tussen het praten: binnen één stap zinnen achter elkaar (`'none'`), alleen bij een nieuwe stap
-  (DAY 1, WEEK 1 …) een korte pauze (`'pause'`); `'long'` spaarzaam. Stille climax hooguit 3 s.
+- Rustig maar niet stilvallen (eigenaar, 7 okt 2026: "zonder pauzes voelt het gehaast"): tussen zinnen een korte
+  pauze (`'pause'`), na een belangrijke zin of bij een nieuwe stap (DAY 1, WEEK 1 …) `'long'`. Nooit langer dan
+  ± 1 s stil, behalve de stille climax (± 3 s, mét actie in beeld).
   Hoofdstukken eindigen ± 1,5 s na de laatste zin (geen lange staart; cross-fade 1 s).
   Dit gaat vóór "mét alle pauzes" in AUTOMATISCH.md.
 - Geen gekraak: bij kou `audio: { hiss: -40, ice: -32 }` in scenario.js (vorst-sis uit, ijs zacht).
