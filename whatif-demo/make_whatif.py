@@ -10,7 +10,7 @@ topics/<slug>/scenario.js (topic, place, force, counter, lines, timing, end text
 Writing that file is the creative step (see AUTOMATISCH.md); everything after it is automatic:
 
   script.txt  <- lines            (English, "Imagine…", 170-210 words)
-  voice.mp3   <- tools/xai_voiceover.py --proxy-auth --speed 1.0 --voice sal --timeline voice-times.tsv
+  voice.mp3   <- tools/xai_voiceover.py --proxy-auth --speed 1.05 --voice lux --timeline voice-times.tsv
   timing.json <- measured sentence times
   silent.mp4  <- engine/render.mjs (720x1280, 30 fps, 3 workers)
   mix.wav     <- make_audio.py (voice first, bed ducked 8 dB, -14 LUFS, peak -1 dB)
@@ -30,7 +30,8 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 TOPICS = HERE / "topics"
 STAGES = ["voice", "render", "audio", "final"]
-VOICE = "sal"  # IfScape3D-stem (eigenaar, 7 okt 2026: hype-documentaire, mannelijk, tempo 1.0); Sleep Archives houdt "lux"
+VOICE = "lux"  # IfScape3D-stem (eigenaar, 7 okt 2026): Lux in documentairestijl, tempo 1.05, mét pauzes
+SPEED = 1.05  # standaardtempo IfScape3D (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
 
 
 def run(cmd, **kw):
@@ -136,11 +137,11 @@ def main():
     stage = STAGES.index(a.start)
 
     # 1. voice (skipped when the script did not change)
-    digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", 1.0)) + VOICE).encode()).hexdigest()[:12]
+    digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", SPEED)) + VOICE).encode()).hexdigest()[:12]
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
         run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
-             "--speed", str(sc["topic"].get("voiceSpeed", 1.0)), "--voice", VOICE, "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
+             "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():
         tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"))
