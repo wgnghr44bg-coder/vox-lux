@@ -20,10 +20,15 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). UITZONDERING (eigenaar, 7 okt): de Sleep-run van do 8 okt vervalt en de maandaudit schuift naar ma 12 okt,
 zodat er ruimte is voor (eigenaar, 7 okt 11:50):
-  - wo 7 okt: KLAAR – lange video "What if the Sun went out?" (8:28, 5 hoofdstukken, thumbnail) https://youtu.be/S2nOY7Jz2NU,
-    privé met publishAt wo 7 okt 21:00, in playlist "What If". Stand daarna ± 95% (schatting).
-  - vr 9 okt 13:47: Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok), ALLEEN als de stand
-    na de run van woensdag (log) ≤ 93% is; anders niets maken en de Short na de reset doen.
+  - wo 7 okt: lange video "What if the Sun went out?": eerste versie (S2nOY7Jz2NU) door de eigenaar VERWIJDERD (glitch op straat).
+    Nieuwe versie wordt in een aparte sessie opnieuw gemaakt (bron: ifscape3d-videos/2026-10-07-sun-went-out); die sessie zet
+    hier de nieuwe link + live-tijd. Stand wo 7 okt ± 17:15: 92% (eigenaar).
+  - vr 9 okt 13:47 (DOEL eigenaar, 7 okt: weekbudget tot ± 98% opmaken vóór de reset za 12:00; de ≤ 93%-regel vervalt):
+    maak zoveel Shorts als er passen, in deze volgorde, en stop zodra de geschatte stand ≥ 97% is (1% marge, schattingen zijn ±):
+    1. Short [B] "What if gravity disappeared for 5 seconds?"  2. Short [A] "What if all the ice on Earth melted?"
+    3. Short [B] "What if Earth had rings like Saturn?" (alleen als de bouwsteen Hemel niet nodig is; anders de volgende uit onderwerpen.md).
+    Per Short ± 1–2%. Stand begin vr = laatste stand in de log hieronder (wo 7 okt ± 17:15: 92%, minus/plus de render van Sun went out).
+    Alle Shorts naar de eigenaar voor TikTok (shorts-via-eigenaar.md), niets naar YouTube. Geen baksteen, geen lange video.
   - za 10 okt 13:47 (na de reset): TikTok-pagina bouwen + weekplanning (+ Short [B] als die vrijdag niet gelukt is).
     Short [A] "What if all the ice on Earth melted?" schuift naar de week erna.
 - Sleep: al klaar en gepland: Vikings za 10 okt 21:00, Dyatlov wo 14 okt 21:00 (kost geen usage). Volgende run zo 11 okt (na de reset).
