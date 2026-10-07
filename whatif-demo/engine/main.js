@@ -113,6 +113,7 @@ function applyLook(t) {
   E.hemi.intensity = L.hemi; E.hemi.color.copy(L.hemiColor); E.hemi.groundColor.copy(L.groundColor || C(0x5a5448));
   E.sun.intensity = L.sun; E.sun.color.copy(L.sunColor);
   const dark = L.dark || 0;
+  if (!E.powerOut && TL.beats.powerOut != null) E.powerOut = tt => tt > TL.beats.powerOut;   // any place: city lights out (beats.powerOut)
   for (const l of E.lights) l.mat.color.setHex(dark > .25 + l.at && !(E.powerOut?.(t)) ? l.on : l.off);
   for (const m of E.windowMats) m.emissiveIntensity = E.powerOut?.(t) ? 0 : smooth(.25, .7, dark) * .85;
   E.renderer.toneMappingExposure = 1;
