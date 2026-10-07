@@ -6,17 +6,17 @@ export const topic = {
 };
 
 export const lines = [
-  ['imagine', 'Imagine looking up at the sky, and watching the Sun disappear.', 'pause'],
-  ['energy', 'In a single hour, the Sun delivers about as much energy to Earth as all of humanity uses in an entire year.', 'none'],
-  ['every', 'Every plant, every meal, every breath of wind starts with that light.', 'pause'],
-  ['now', 'Now imagine that, at exactly twelve o\'clock, it simply stops shining.', 'pause'],
-  ['nothing', 'At first, nothing seems to happen.', 'none'],
-  ['old', 'The light hitting this street left the Sun eight minutes ago. It is still on its way, so the sky stays blue and the shadows stay sharp.', 'none'],
-  ['warning', 'Nothing in the universe travels faster than light. So no warning could reach us any sooner.', 'pause'],
-  ['eight', 'Twelve oh eight.', 2],
-  ['seconds', 'In just a few seconds, noon turns into night.', 'none'],
-  ['nosunset', 'No sunset. No twilight. Without sunlight to scatter, the sky does not fade. It simply turns black.', 'pause'],
-  ['lamps', 'The street lights switch on by themselves. Their sensors think it is night.', 'none'],
+  ['imagine', 'Imagine looking up at the sky, and watching the Sun disappear.', 'long'],
+  ['energy', 'In a single hour, the Sun delivers about as much energy to Earth as all of humanity uses in an entire year.', 'pause'],
+  ['every', 'Every plant, every meal, every breath of wind starts with that light.', 'long'],
+  ['now', 'Now imagine that, at exactly twelve o\'clock, it simply stops shining.', 'long'],
+  ['nothing', 'At first, nothing seems to happen.', 'pause'],
+  ['old', 'The light hitting this street left the Sun eight minutes ago. It is still on its way, so the sky stays blue and the shadows stay sharp.', 'pause'],
+  ['warning', 'Nothing in the universe travels faster than light. So no warning could reach us any sooner.', 'long'],
+  ['eight', 'Twelve oh eight.', 3],
+  ['seconds', 'In just a few seconds, noon turns into night.', 'pause'],
+  ['nosunset', 'No sunset. No twilight. Without sunlight to scatter, the sky does not fade. It simply turns black.', 'long'],
+  ['lamps', 'The street lights switch on by themselves. Their sensors think it is night.', 'pause'],
   ['lost', 'But the world has just lost the most important source of energy it has.', 'none'],
 ];
 
