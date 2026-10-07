@@ -30,6 +30,9 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 
 ## Lange video's: lengte en opbouw (eigenaar, okt 2026)
 
+VASTE OPBOUW SINDS 7 OKT 2026: `regels/lange-video-opbouw.md` (± 3–4 min, tijdsprongen, gravity-stijl). Die gaat vóór
+de punten hieronder over lengte (8 min) en eerste zin.
+
 - Minimaal 8 minuten (eigenaar; mid-roll-grens), ± 8–9 min, 5–7 hoofdstukken van ± 1–1,5 min, per hoofdstuk een nieuwe plek of stap; stap voor stap erger
   (zoals de wind-video), climax in het laatste kwart.
 - Sterke opening zonder vooruitblik: meteen "Imagine …" over een beeld waar al iets onrustigs gebeurt, teller in beeld.

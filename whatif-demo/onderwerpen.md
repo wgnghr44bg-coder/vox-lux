@@ -30,7 +30,8 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 | Earth stopped spinning? | wind 1.037 mph door de straat aan zee |
 | The wind never stopped? | straat → boulevard → rivierstad, brug bezwijkt |
 | The Sun came closer to Earth? | sneeuw smelt, bosbranden (bergdorp) |
-| The Sun went out? (v2, in de maak) | 8:20 aftellen, het licht valt weg in de stad |
+| The Sun went out? (v2, verwijderd) | 8:20 aftellen, het licht valt weg in de stad |
+| The Sun went out? (v3, script eigenaar, in de maak) | tijdsprongen dag 0 → jaar 1.000: strand, straat, bergdorp (meer bevriest), bevroren kust |
 
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
