@@ -528,7 +528,9 @@ def build_engine(topic: Path):
         thin = layer(lambda r: norm(bp(r.standard_normal(n), 1500, 4000) * np.clip(lfo(r, n, .1, 1), 0, None)), I * .5)
         bed += thin * db(-16) * alive[:, None]
         for tc in np.sort(rng.uniform(STOP * .4, STOP, 10)):
-            place(bed, s_ice(rng), tc, db(-18) * I[int(tc * SR)], rng.uniform(-.8, .8))
+            i = min(int(tc * SR), len(I) - 1)   # STOP can lie past the end (chapters of a long video)
+            if I[i] > .6:                        # ice only cracks once it is really frozen
+                place(bed, s_ice(rng), tc, db(-18) * I[i], rng.uniform(-.8, .8))
 
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}
