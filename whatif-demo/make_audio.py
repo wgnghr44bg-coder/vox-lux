@@ -526,11 +526,12 @@ def build_engine(topic: Path):
         bed += (drone * db(-12) + sizzle * db(-24)) * alive[:, None]
     elif force == "cold":
         thin = layer(lambda r: norm(bp(r.standard_normal(n), 1500, 4000) * np.clip(lfo(r, n, .1, 1), 0, None)), I * .5)
-        bed += thin * db(-16) * alive[:, None]
+        A0 = TL.get("audio") or {}            # scenario can soften the frost hiss / ice cracks (audio: { hiss, ice } in dB)
+        bed += thin * db(A0.get("hiss", -16)) * alive[:, None]
         for tc in np.sort(rng.uniform(STOP * .4, STOP, 10)):
             i = min(int(tc * SR), len(I) - 1)   # STOP can lie past the end (chapters of a long video)
             if I[i] > .6:                        # ice only cracks once it is really frozen
-                place(bed, s_ice(rng), tc, db(-18) * I[i], rng.uniform(-.8, .8))
+                place(bed, s_ice(rng), tc, db(A0.get("ice", -18)) * I[i], rng.uniform(-.8, .8))
 
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}

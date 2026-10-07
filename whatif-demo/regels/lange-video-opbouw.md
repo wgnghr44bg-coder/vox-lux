@@ -34,6 +34,14 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 - Geen hoogtepunt of beeld herhalen uit "Al gebruikt" (onderwerpen.md); zeker niet weer de bevroren rivier/brug.
 - Elke video andere plekken-volgorde en andere tijdstappen.
 
+## Stem, pauzes en geluid (eigenaar, 7 okt 2026 – na de Sun-video v3)
+- Geen stops tussen het praten: binnen één stap zinnen achter elkaar (`'none'`), alleen bij een nieuwe stap
+  (DAY 1, WEEK 1 …) een korte pauze (`'pause'`); `'long'` spaarzaam. Stille climax hooguit 3 s.
+  Hoofdstukken eindigen ± 1,5 s na de laatste zin (geen lange staart; cross-fade 1 s).
+  Dit gaat vóór "mét alle pauzes" in AUTOMATISCH.md.
+- Geen gekraak: bij kou `audio: { hiss: -40, ice: -32 }` in scenario.js (vorst-sis uit, ijs zacht).
+- Beeld vloeiend met de stem: shot wisselen per stap (± elke 5–10 s), niet bij elke zin.
+
 ## Inhoud en veiligheid
 - Alleen natuurkunde die klopt; twijfel = weglaten. Geen geweld in tekst ("fighting" → "compete").
 - Geen gewonden of lichamen in beeld.
