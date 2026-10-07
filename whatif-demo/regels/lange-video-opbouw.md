@@ -43,6 +43,10 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 - Geen gekraak: bij kou `audio: { hiss: -40, ice: -32 }` in scenario.js (vorst-sis uit, ijs zacht).
 - Beeld vloeiend met de stem: shot wisselen per stap (± elke 5–10 s), niet bij elke zin.
 
+- Stem in één keer (eigenaar, 7 okt 2026): make_whatif.py laat de hele tekst in één xAI-aanvraag inspreken
+  (`one_take`, standaard aan; `oneTake: false` in topic = oude manier per zin). De stem maakt zelf de pauzes; de
+  zinstijden komen uit de stiltes. Klinkt veel natuurlijker dan los geknipte zinnen.
+
 ## Inhoud en veiligheid
 - Alleen natuurkunde die klopt; twijfel = weglaten. Geen geweld in tekst ("fighting" → "compete").
 - Geen gewonden of lichamen in beeld.
