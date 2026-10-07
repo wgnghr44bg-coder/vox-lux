@@ -110,8 +110,8 @@ def planning() -> list[dict]:
     return sorted(found.values(), key=lambda e: e["slots"].get("lang", ""))
 
 
-LONG_DAYS = {0, 2, 5}       # lange video: ma, wo, za 21:00
-RUN_DAYS = {6, 1, 3}        # routine "Sleep Archives video": zo, di, do 08:54
+LONG_DAYS = {2, 5}          # lange video: wo, za 21:00 (2 per week sinds 7 okt 2026)
+RUN_DAYS = {6, 3}           # routine "Sleep Archives video": zo, do 08:54
 
 
 def vooruit(plan: list[dict], today: dt.date, schedule: list[dict] = (), weeks: int = 5) -> list[dict]:
