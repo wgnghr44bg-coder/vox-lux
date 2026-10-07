@@ -65,7 +65,7 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 
 ## Pauze lange video's IfScape3D (eigenaar, 7 okt 2026)
 
-Geen lange video's en geen bakstenen (ook niet na de reset) tot de eigenaar akkoord geeft; Shorts gaan wel door
+Geen lange video's (ook niet na de reset) tot de eigenaar akkoord geeft; Shorts en bakstenen (voor Shorts) gaan wel door
 (zie whatif-demo/AUTOMATISCH.md, PAUZE). Sleep-runs gaan gewoon door.
 
 ## Vangnetten

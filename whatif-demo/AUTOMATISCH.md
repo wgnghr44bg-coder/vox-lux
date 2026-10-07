@@ -6,10 +6,11 @@ whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 ## PAUZE LANGE VIDEO'S (eigenaar, 7 okt 2026) – lees dit eerst
 
 Lange video's (16:9) staan stil tot de eigenaar zelf zegt dat het weer mag. Ook na de usage-reset (zaterdag 12:00)
-GEEN lange video maken, bouwen of uploaden en geen nieuwe baksteen bouwen. Eerst moet er één goede lange video zijn
+GEEN lange video maken of uploaden. Eerst moet er één goede lange video zijn
 die de eigenaar heeft goedgekeurd (de nieuwe Sun-video volgens zijn shotlijst). Meld in de routine kort:
 "Lange video's staan op pauze tot akkoord van de eigenaar."
 Shorts gaan wél door (volgens de regels hieronder, via de eigenaar, niet uploaden), als USAGE.md het toelaat.
+Bakstenen bouwen mag ook (bouwplan in onderwerpen.md, max. 2 per week, binnen het budget); gebruik ze eerst in Shorts.
 
 ## Routine en uploaden (eigenaar, okt 2026)
 
