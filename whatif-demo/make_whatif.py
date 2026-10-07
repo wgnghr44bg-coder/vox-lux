@@ -23,6 +23,7 @@ import hashlib
 import json
 import re
 import subprocess
+import time
 import sys
 from pathlib import Path
 
@@ -107,6 +108,56 @@ def timing_from_tsv(lines, rows, offset=0.8) -> dict:
     return {"VO_OFFSET": offset, "lines": out}
 
 
+def one_take(d: Path, lines, speed):
+    """Speak the whole script in ONE xAI request (its own [pause] tags), so sentences flow into each other.
+    Line times come from the silences in the take: every line boundary goes to the nearest gap, in order."""
+    import requests
+    text = re.sub(r"\s+", " ", script_text(lines)).strip()
+    raw = d / "voice-take.mp3"
+    for k in range(4):
+        r = requests.post("https://api.x.ai/v1/tts", json={"text": text, "voice_id": VOICE, "language": "en", "speed": speed}, timeout=300)
+        if r.ok and r.content: raw.write_bytes(r.content); break
+        if k == 3: raise SystemExit(f"xAI TTS HTTP {r.status_code}: {r.text[:200]}")
+        time.sleep(2 ** (k + 1))
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-b:a", "192k", d / "voice.mp3"])
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", d / "voice.mp3"],
+                               capture_output=True, text=True).stdout)
+    log = subprocess.run(["ffmpeg", "-i", d / "voice.mp3", "-af", "silencedetect=n=-38dB:d=0.18", "-f", "null", "-"], capture_output=True, text=True).stderr
+    st = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", log)]; en = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", log)]
+    sil = list(zip(st, en + [dur] * (len(st) - len(en))))
+    t_first = sil[0][1] if sil and sil[0][0] <= .05 else 0.0
+    t_last = sil[-1][0] if sil and sil[-1][1] >= dur - .05 else dur
+    gaps = [(a, b) for a, b in sil if a > .05 and b < dur - .05]          # inner gaps only
+    words = [len(re.sub(r"[^A-Za-z0-9' ]", " ", t).split()) for _, t, _ in lines]
+    speech = lambda t: t - sum(min(b, t) - a for a, b in gaps if a < t)   # speech-only clock
+    total = speech(t_last) - speech(t_first)
+    # best monotone choice of one gap per line boundary (dynamic programming): close to the word-count estimate,
+    # and a marked pause ([pause]/[long pause]) should land on a long gap
+    want, cum = [], 0
+    for w in words[:-1]:
+        cum += w; want.append(speech(t_first) + total * cum / sum(words))
+    wgt = [5 if isinstance(pz, (int, float)) or pz == "long" else 3.5 if pz == "pause" else .3 for _, _, pz in lines[:-1]]
+    cost = lambda i, j: abs(speech(gaps[j][0]) - want[i]) - wgt[i] * min(gaps[j][1] - gaps[j][0], 2)
+    N, G = len(want), len(gaps)
+    if G < N: raise SystemExit("one-take: not enough pauses to place every line")
+    INF = float("inf"); best = [[INF] * G for _ in range(N)]; prev = [[-1] * G for _ in range(N)]
+    for j in range(G): best[0][j] = cost(0, j)
+    for i in range(1, N):
+        run_min, arg = INF, -1
+        for j in range(G):
+            if j - 1 >= 0 and best[i - 1][j - 1] < run_min: run_min, arg = best[i - 1][j - 1], j - 1
+            if arg >= 0: best[i][j] = run_min + cost(i, j); prev[i][j] = arg
+    j = min(range(G), key=lambda k: best[N - 1][k]); pick = []
+    for i in range(N - 1, -1, -1): pick.append(j); j = prev[i][j]
+    pick.reverse()
+    starts, ends = [t_first] + [gaps[j][1] for j in pick], [gaps[j][0] for j in pick]
+    ends.append(t_last)
+    hms = lambda t: f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:04.1f}"
+    rows = ["nr\tstart\tend\tpause\ttext"] + [f"{i + 1}\t{hms(a)}\t{hms(b)}\t\t{t}" for i, (a, b, (_, t, _)) in enumerate(zip(starts, ends, lines))]
+    (d / "voice-times.tsv").write_text("\n".join(rows) + "\n", encoding="utf-8")
+    print(f"one take: {dur:.1f} s, {len(gaps)} pauses, {len(lines)} lines placed")
+
+
 def contact_sheet(d: Path, times):
     st = d / "stills"
     ins = sum([["-i", str(st / f"still-{t}.jpg")] for t in times], [])
@@ -140,8 +191,11 @@ def main():
     digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", SPEED)) + VOICE).encode()).hexdigest()[:12]
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
-        run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
-             "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--soft-edges", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
+        if sc["topic"].get("oneTake", True):    # eigenaar 7 okt 2026: whole script in one take, the voice makes its own pauses
+            one_take(d, lines, sc["topic"].get("voiceSpeed", SPEED))
+        else:
+            run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
+                 "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--soft-edges", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():
         tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"), sc["topic"].get("voOffset", 0.8))
