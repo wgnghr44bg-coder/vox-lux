@@ -6,24 +6,24 @@ export const topic = {
 };
 
 export const lines = [
-  ['wake', 'Imagine waking up tomorrow, and the Sun is gone.', 'long'],
-  ['notexp', 'Not exploding. Not slowly disappearing.', 'pause'],
-  ['gone', 'Just gone.', 'long'],
-  ['terr', "But here's the terrifying part.", 'pause'],
-  ['notice', "You wouldn't notice immediately.", 'pause'],
-  ['light', 'Because sunlight takes about eight minutes and twenty seconds to reach Earth.', 'pause'],
-  ['normal', 'So for those final eight minutes, everything would look completely normal.', 'long'],
-  ['birds', 'The birds are still singing. Cars are still driving. People are going about their day.', 'long'],
-  ['then', 'Then.', 5],
-  ['dark', 'Darkness.', 'long'],
-  ['last', 'The last sunlight disappears.', 'pause'],
+  ['wake', 'Imagine waking up tomorrow, and the Sun is gone.', 'none'],
+  ['notexp', 'Not exploding. Not slowly disappearing.', 'none'],
+  ['gone', 'Just gone.', 'pause'],
+  ['terr', "But here's the terrifying part.", 'none'],
+  ['notice', "You wouldn't notice immediately.", 'none'],
+  ['light', 'Because sunlight takes about eight minutes and twenty seconds to reach Earth.', 'none'],
+  ['normal', 'So for those final eight minutes, everything would look completely normal.', 'pause'],
+  ['birds', 'The birds are still singing. Cars are still driving. People are going about their day.', 'pause'],
+  ['then', 'Then.', 3],
+  ['dark', 'Darkness.', 'none'],
+  ['last', 'The last sunlight disappears.', 'none'],
   ['flying', 'And suddenly, Earth is flying through space without its Sun.', 'none'],
 ];
 
 const clock = s => { s = Math.round(s); return `DAY 0 — 00:${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
 
 export default function (at) {
-  const t0 = at('notice').s, climax = at('then').e + 1.2, dark = climax + 3.5, T_END = at('flying').e + 3.2;
+  const t0 = at('notice').s, climax = at('then').e + 1.2, dark = climax + 3.5, T_END = at('flying').e + 1.5;
   const subAt = [];
   for (let t = 0; t <= climax; t += .25) subAt.push([t, clock(t < t0 ? 0 : 500 * Math.min(1, (t - t0) / (climax - t0)))]);
   return {
@@ -34,11 +34,10 @@ export default function (at) {
     counter: [[0, 100], [climax, 100], [climax + 1.5, 60], [dark, 0], [T_END, 0]],
     range: [100, 0], forceParams: { darkAt: [0, 1], frostAt: [2, 3], snow: 0 },
     captions: [[at('light').s, at('light').e + .4, '8 min 20 s.'], [at('dark').s, at('dark').e + .6, 'Darkness.']],
-    shots: [[0, 'boulevard'], [at('notexp').s - .2, 'sea'], [at('terr').s - .2, 'beach'], [at('light').s - .2, 'sea'],
-            [at('normal').s - .2, 'wide'], [at('birds').s - .2, 'boulevard'], [at('then').s - .2, 'sea'],
-            [climax + 2.6, 'wide'], [at('last').s - .2, 'beach'], [at('flying').s - .2, 'sea']],
+    shots: [[0, 'boulevard'], [at('terr').s - .2, 'sea'], [at('normal').s - .2, 'wide'], [at('birds').s - .2, 'boulevard'],
+            [at('then').s - .2, 'sea'], [climax + 1.5, 'wide'], [at('last').s - .2, 'beach']],
     beats: { lookUp: climax + .5, shelter: 1e9, carsStop: 1e9, climax, falls: [], stop: T_END + 1 },
-    audio: { heartbeat: [at('normal').s, climax + 2], riser: [at('birds').s, climax] },
+    audio: { hiss: -40, ice: -32, heartbeat: [at('normal').s, climax + 2], riser: [at('birds').s, climax] },
     end: { title: '', lines: '' },
   };
 }
