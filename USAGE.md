@@ -18,7 +18,7 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
-Week tot za 10 okt 2026 12:00 (stand di 6 okt 13:03: 77% gebruikt, screenshot eigenaar; Sleep-run van 6 okt mogelijk nog niet helemaal meegeteld):
+Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). BOVEN 85%: IfScape3D maakt tot de reset NIETS (wo 7 en vr 9 vervallen, alles schuift door naar na za 10 okt 12:00); alleen melden.
 - Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
   Vikings 10 okt 21:00 (kost geen usage meer).
 - IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
@@ -74,3 +74,4 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 | 2026-10-05 | IfScape3D | Routine, regels en planning (overleg) | 68% | 69% | 1% | screenshot 22:45 |
 | 2026-10-06 | Beide | Sleep-run 6 okt + overleg (planning) | 69% | 77% | ± 8% | screenshot 13:03; over voor IfScape3D tot reset ± 2–5% (na Sleep do 8, audit 8 okt, 10% buffer) |
 | 2026-10-06 | IfScape3D | Short −100 °C (video van eigenaar) geüpload + playlist | 77% | ± 78% | ± 1% | geen nieuwe video gemaakt |
+| 2026-10-07 | Beide | Overleg (stem, planning, ritme) | ± 78% | 87% | ± 9% | screenshot 13:18 |
