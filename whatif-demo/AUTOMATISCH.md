@@ -16,6 +16,7 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 
 - Lange video (16:9): thumbnail-stijl en -controle in `regels/thumbnail.md` (altijd met thumbnail uploaden).
 - Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
+- Shorts om en om in stijl A (POV) en B (gravity-stijl): `regels/stijl-afwisseling.md`.
 - TikTok: geen Google Drive meer; de Shorts komen op de pagina "IfScape3D TikToks" (vanaf za 10 okt 2026).
 
 ## Lange video's: lengte en opbouw (eigenaar, okt 2026)
@@ -91,6 +92,8 @@ Script-regels:
 - Alleen natuurkunde die klopt, verteld als "would". Twijfel je aan een getal: weglaten.
 - Rustige opbouw → kracht groeit (teller loopt mee) → climax waarin de stem zwijgt (een getal als
   pauze, bijv. `6` = 6 s stilte) → laatste zinnen over het beeld.
+- Shorts wisselen sinds 7 okt 2026 om en om tussen stijl A (POV, de regels hieronder) en stijl B (gravity-stijl):
+  zie `regels/stijl-afwisseling.md`; voor stijl B gelden de afwijkingen uit die tabel.
 - Opening (eigenaar, okt 2026): geen titel in beeld. De eerste zin is altijd "Imagine" + het onderwerp,
   bijv. "Imagine the Earth stopped spinning." Daarna rustig beginnen en de spanning steeds verder
   opbouwen tot de climax (teller versnelt, `audio: { heartbeat, riser }` in scenario.js).
