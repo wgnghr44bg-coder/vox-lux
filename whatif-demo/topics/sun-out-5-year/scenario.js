@@ -6,9 +6,9 @@ export const topic = {
 
 export const lines = [
   ['year', 'After one year, the average temperature would be around minus seventy-three degrees.', 'long'],
-  ['street', 'Back on the street by the sea, everything would be still.', 'pause'],
+  ['street', 'Back downtown, where it all began, everything would be still.', 'pause'],
   ['frozen', 'The palm trees frozen in place. The cars white with frost.', 'pause'],
-  ['sea', 'The sea at the end of the road, a flat white plain.', 'long'],
+  ['sea', 'Where the water used to move, a flat white plain.', 'long'],
   ['sound', 'No birds. No traffic. No sound at all.', 'long'],
   ['deep', 'But deep below that ice, the ocean would still be liquid.', 'pause'],
   ['inner', "Earth's own inner heat would keep the deep water from freezing for a very long time.", 'pause'],
@@ -34,10 +34,9 @@ export default function (at) {
     captions: [[at('year').s + .5, at('year').e + .6, 'One year: about −73 °C.'],
                [at('deep').s, at('deep').e + .4, 'The deep ocean stays liquid.'],
                [at('line').s + 1, at('line').e + .5, '30 km every second.']],
-    shots: [[at('sound').s, 'corner'], [at('marble').s, 'high'], [at('milky').s, 'sea'],
-            [0, 'high'], [at('street').s, 'avenue'], [at('frozen').s, 'corner'], [at('sea').s, 'sea'], [at('deep').s, 'high'],
-            [at('vents').s, 'sea'], [at('drift').s, 'corner'], [at('line').s, 'high'], [at('into').s, 'avenue'],
-            [climax + 2.4, 'sea'], [at('every').s, 'high']].sort((a, b) => a[0] - b[0]),
+    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['high', 'balcony', 'corner', 'sea', 'avenue'][k % 5]]), [climax + 2.5, ['high', 'balcony', 'corner', 'sea', 'avenue', 'crossing'][(lines.length + 2) % 5]]]
+      .sort((a, b) => a[0] - b[0]),
     beats: { lookUp: at('bright').s, shelter: 0, carsStop: 0, climax, falls: [], stop: T_END + 1, fade: at('final').s - .2 },
     audio: { heartbeat: [at('drift').s, climax + 2], riser: [at('line').s, climax] },
     end: { title: '', lines: '' },

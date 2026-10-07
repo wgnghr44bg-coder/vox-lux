@@ -9,7 +9,7 @@ export const topic = {
 
 export const lines = [
   ['imagine', 'Imagine the Sun went out.', 'long'],
-  ['street', 'It is a warm afternoon on a busy street by the sea.', 'pause'],
+  ['street', 'It is a warm afternoon in the middle of a busy city.', 'pause'],
   ['people', 'People are out shopping. Cars wait at the lights. The palm trees move in a soft breeze.', 'pause'],
   ['power', 'All of it, the warmth, the wind, the light on every wall, comes from one star.', 'pause'],
   ['star', 'The Sun.', 'long'],
@@ -35,7 +35,7 @@ export const lines = [
   ['then', 'And then, at eight minutes and twenty seconds,', 5],
   ['gone', 'the last light arrives. And after it, there is no more.', 'long'],
   ['moon', 'The Moon would vanish too. It only ever shone with borrowed sunlight.', 'pause'],
-  ['stars', 'Above the street, the stars would come out in the middle of the afternoon.', 'long'],
+  ['stars', 'Between the towers, the stars would come out in the middle of the afternoon.', 'long'],
   ['cold', 'And the cold would begin.', 'long'],
 ];
 
@@ -53,11 +53,9 @@ export default function (at) {
                [at('onway').s, at('onway').e + .6, 'Still on its way.'],
                [at('gone').s, at('gone').e + .6, 'No more light.'],
                [at('stars').s, at('stars').e + .5, 'Stars in the afternoon.']],
-    shots: [[at('blue').s, 'sea'], [at('ghost').s, 'high'], [at('faster').s, 'avenue'], [at('six').s, 'balcony'], [at('seven').s, 'avenue'],
-            [0, 'high'], [at('people').s, 'avenue'], [at('power').s, 'sea'], [at('now').s, 'high'], [at('light').s, 'balcony'],
-            [at('left').s, 'avenue'], [at('normal').s, 'balcony'], [at('traffic').s, 'balcony'], [at('last').s, 'avenue'],
-            [at('five').s, 'sea'], [at('eight').s, 'balcony'], [at('then').s, 'high'], [climax + 2.6, 'avenue'],
-            [at('moon').s, 'sea'], [at('stars').s, 'high'], [at('cold').s, 'avenue']].sort((a, b) => a[0] - b[0]),
+    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['high', 'corner', 'avenue', 'balcony', 'sea'][k % 5]]), [climax + 2.5, ['high', 'corner', 'avenue', 'balcony', 'sea', 'crossing'][(lines.length + 2) % 5]]]
+      .sort((a, b) => a[0] - b[0]),
     beats: { lookUp: climax + 1, carsStop: at('gone').s, shelter: 1e9, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('last').s, climax + 3], riser: [at('five').s, climax] },
     end: { title: '', lines: '' },
