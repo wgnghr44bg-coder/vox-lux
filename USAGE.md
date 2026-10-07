@@ -20,7 +20,8 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). UITZONDERING (eigenaar, 7 okt): de Sleep-run van do 8 okt vervalt en de maandaudit schuift naar ma 12 okt,
 zodat er ruimte is voor (eigenaar, 7 okt 11:50):
-  - wo 7 okt 13:47: lange video "What if the Sun went out?" (min. 8 min, thumbnail), live za 10 okt 21:00. Geen Short, niets anders.
+  - wo 7 okt: KLAAR – lange video "What if the Sun went out?" (8:28, 5 hoofdstukken, thumbnail) https://youtu.be/S2nOY7Jz2NU,
+    privé met publishAt wo 7 okt 21:00, in playlist "What If". Stand daarna ± 95% (schatting).
   - vr 9 okt 13:47: Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok), ALLEEN als de stand
     na de run van woensdag (log) ≤ 93% is; anders niets maken en de Short na de reset doen.
   - za 10 okt 13:47 (na de reset): TikTok-pagina bouwen + weekplanning (+ Short [B] als die vrijdag niet gelukt is).
@@ -75,3 +76,4 @@ Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (
 | 2026-10-06 | Beide | Sleep-run 6 okt + overleg (planning) | 69% | 77% | ± 8% | screenshot 13:03; over voor IfScape3D tot reset ± 2–5% (na Sleep do 8, audit 8 okt, 10% buffer) |
 | 2026-10-06 | IfScape3D | Short −100 °C (video van eigenaar) geüpload + playlist | 77% | ± 78% | ± 1% | geen nieuwe video gemaakt |
 | 2026-10-07 | Beide | Overleg (stem, planning, ritme) | ± 78% | 87% | ± 9% | screenshot 13:18 |
+| 2026-10-07 | IfScape3D | Lang: What if the Sun went out? (8:28, 5 hoofdstukken, thumbnail; live wo 7 okt 21:00) | 87% | ± 95% | ± 8% | schatting; bestaande plekken (bergdorp, straat, boulevard, rivierstad) met kou-kracht; run kon niet pushen (repo niet aan routine gekoppeld): scenario's/scripts van sun-1..5 staan niet in git, alleen de video op YouTube |
