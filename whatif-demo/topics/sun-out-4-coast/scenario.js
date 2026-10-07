@@ -37,10 +37,9 @@ export default function (at) {
     captions: [[at('heat').s, at('heat').e + .4, 'The sea cools slowest.'],
                [at('crust').s, at('crust').e + .5, 'The sea freezes over.'],
                [at('clear').s, at('clear').e + .6, 'No more clouds.']],
-    shots: [[at('thick').s, 'wide'], [at('under').s, 'hotels'], [at('geo').s, 'sea'], [at('crack').s, 'beach'],
-            [0, 'wide'], [at('coast').s, 'sea'], [at('heat').s, 'boulevard'], [at('beach').s, 'beach'], [at('crust').s, 'sea'],
-            [at('plants').s, 'boulevard'], [at('trees').s, 'hotels'], [at('minus30').s, 'wide'], [at('people').s, 'boulevard'],
-            [at('sky').s, 'sea'], [at('minus50').s, 'beach'], [climax + 2, 'wide'], [at('sea').s, 'sea'], [at('still').s, 'wide']].sort((a, b) => a[0] - b[0]),
+    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['wide', 'sea', 'beach', 'boulevard', 'hotels'][k % 5]]), [climax + 2.5, ['wide', 'sea', 'beach', 'boulevard', 'hotels'][(lines.length + 2) % 5]]]
+      .sort((a, b) => a[0] - b[0]),
     beats: { lookUp: 1e9, shelter: 0, carsStop: 0, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('minus30').s, climax + 2], riser: [at('clear').s, climax] },
     end: { title: '', lines: '' },

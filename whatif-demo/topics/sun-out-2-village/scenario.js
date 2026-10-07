@@ -42,10 +42,9 @@ export default function (at) {
                [at('solar').s, at('solar').e + .4, 'No solar power.'],
                [at('frost').s, at('frost').e + .4, 'Frost on the rooftops.'],
                [at('morning').s, at('morning').e + .6, 'No morning.']],
-    shots: [[at('night').s, 'square'], [at('lake').s, 'mountains'], [at('fuel').s, 'mountains'], [at('birds').s, 'village'],
-            [0, 'wide'], [at('village').s, 'village'], [at('warm').s, 'village'], [at('leak').s, 'mountains'], [at('plants').s, 'wide'],
-            [at('wait').s, 'square'], [at('temp').s, 'village'], [at('people').s, 'square'], [at('frost').s, 'wide'],
-            [at('snow').s, 'wide'], [climax + 2, 'village'], [at('morning').s, 'mountains'], [at('clock').s, 'square'], [at('forever').s, 'wide']].sort((a, b) => a[0] - b[0]),
+    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['wide', 'village', 'square', 'mountains', 'lake'][k % 5]]), [climax + 2.5, ['wide', 'village', 'square', 'mountains', 'lake'][(lines.length + 2) % 5]]]
+      .sort((a, b) => a[0] - b[0]),
     beats: { lookUp: at('hours').s, shelter: at('inside').s, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('temp').s, climax + 2], riser: [at('frost').s, climax] },
     end: { title: '', lines: '' },

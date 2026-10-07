@@ -167,7 +167,7 @@ export function build(E, TL, F) {
       wide: { pos: [-1, 3.2, 42], look: [-1, 26, -200], drift: [0, 0, -1.8], fov: 60 },
       high: { pos: [-6, 26, 64], look: [0, 4, -160], drift: [0, 0, -2], fov: 60 },          // observer shots (gravity style)
       balcony: { pos: [13, 15, -8], look: [-5, 3, -110], drift: [0, 0, -1.2], fov: 60 },
-      corner: { pos: [-14, 6, 28], look: [6, 5, -70], drift: [.4, 0, -1], fov: 60 },
+      corner: { pos: [-9.4, 7, 33], look: [7, 4, -70], drift: [.4, 0, -1], fov: 60 },
     },
   };
 }

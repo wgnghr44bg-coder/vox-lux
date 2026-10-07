@@ -38,10 +38,9 @@ export default function (at) {
     captions: [[at('floats').s, at('floats').e + .4, 'Frozen from the top down.'],
                [at('breath').s, at('breath').e + .4, 'Your breath freezes.'],
                [at('avg').s + 1, climax + 1.5, 'Week one: about −17 °C.']],
-    shots: [[at('stars').s, 'far'], [at('fish').s, 'under'], [at('roads').s, 'north'], [at('everywhere').s, 'wide'],
-            [0, 'far'], [at('city').s, 'wide'], [at('lights').s, 'north'], [at('river').s, 'under'], [at('floats').s, 'span'],
-            [at('minus10').s, 'wide'], [at('cars').s, 'north'], [at('breath').s, 'quay'], [at('quiet').s, 'far'],
-            [at('bridge').s, 'deck'], [at('avg').s, 'wide'], [climax + 2.5, 'towers'], [at('colder').s, 'span'], [at('only').s, 'far']].sort((a, b) => a[0] - b[0]),
+    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['far', 'wide', 'quay', 'under', 'span', 'deck', 'north', 'towers'][k % 8]]), [climax + 2.5, ['far', 'wide', 'quay', 'under', 'span', 'deck', 'north', 'towers'][(lines.length + 2) % 8]]]
+      .sort((a, b) => a[0] - b[0]),
     beats: { carsStop: at('cars').s, lookUp: 1e9, shelter: at('quiet').s, hangers: 1e9, deckBreak: 1e9, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('minus10').s, climax + 2], riser: [at('bridge').s, climax] },
     end: { title: '', lines: '' },
