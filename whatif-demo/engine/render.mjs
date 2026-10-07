@@ -1,7 +1,7 @@
 // Generic renderer for the What if engine (Playwright + Chromium + ffmpeg).
 //   node engine/render.mjs <slug> stills 5 30 45        -> topics/<slug>/stills/still-<t>.jpg
 //   node engine/render.mjs <slug> timeline              -> topics/<slug>/timeline.json (TL + EVENTS + AUDIO)
-//   node engine/render.mjs <slug> video out.mp4 [workers] [from]
+//   node engine/render.mjs <slug> video out.mp4 [workers] [from]     (TO=60 renders only up to 60 s, e.g. a preview)
 //   node engine/render.mjs preview:<place>:<force> stills ...   (no topic; writes to engine/previews/)
 import { createRequire } from 'module';
 import http from 'http';
@@ -65,7 +65,7 @@ if (mode === 'stills') {
   const probe = await open();
   const tEnd = await probe.page.evaluate(() => window.T_END);
   await probe.browser.close();
-  const frames = Math.round(tEnd * FPS), per = Math.ceil((frames - from) / workers), t0 = Date.now();
+  const frames = Math.round(Math.min(tEnd, +(process.env.TO || 1e9)) * FPS), per = Math.ceil((frames - from) / workers), t0 = Date.now();
   const segs = [];
   await Promise.all(Array.from({ length: workers }, async (_, w) => {
     const a = from + w * per, b = Math.min(frames, a + per), seg = `${out}.part${w}.mp4`; segs[w] = seg;

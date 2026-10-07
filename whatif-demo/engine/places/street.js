@@ -165,6 +165,9 @@ export function build(E, TL, F) {
       pavement: { pos: [15.3, 1.8, 4], look: [12.5, 5, -60], drift: [0, 0, -1.5], fov: 60 },
       sea: { pos: [-1, 12, -150], look: [0, 30, -400], drift: [0, 0, -2], fov: 55 },
       wide: { pos: [-1, 3.2, 42], look: [-1, 26, -200], drift: [0, 0, -1.8], fov: 60 },
+      high: { pos: [-6, 26, 64], look: [0, 4, -160], drift: [0, 0, -2], fov: 60 },          // observer shots (gravity style)
+      balcony: { pos: [13, 15, -8], look: [-5, 3, -110], drift: [0, 0, -1.2], fov: 60 },
+      corner: { pos: [-14, 6, 28], look: [6, 5, -70], drift: [.4, 0, -1], fov: 60 },
     },
   };
 }

@@ -34,7 +34,7 @@ export const lines = [
 export default function (at) {
   const climax = at('snow').e + .4, T_END = at('forever').e + 3.0;
   return {
-    T_END, brand: false,
+    T_END, tripod: true, brand: false,
     hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, 15], [at('leak').e, 14], [at('temp').s, 12], [at('ten').s, 10], [at('five').s, 5], [at('frost').s, 3], [T_END, 2]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: 2.2 },
