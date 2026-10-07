@@ -25,13 +25,13 @@ A. Doe dit als allereerste, vóór het script:
    - `git fetch origin` en lees ALLE bestanden `stories/*/planning.txt` op origin/main
      én op alle branches origin/claude/* (bv. met `git ls-tree` + `git show`).
    - Het schema (vaste dagen, ook in het weekend):
-       lange video: maandag, woensdag en zaterdag om 21:00 Nederlandse tijd;
+       lange video: woensdag en zaterdag om 21:00 Nederlandse tijd (2 per week, eigenaar, 7 okt 2026);
        GEEN Shorts meer (eigenaar, okt 2026): niet maken, niet uploaden, niet op TikTok.
    - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
      `onderwerp` in een planning.txt staat (main of origin/claude/*). Schrijf het
      onderwerp in planning.txt zonder " (facts)".
-   - Kies het eerste vrije moment voor de lange video: een maandag, woensdag of
+   - Kies het eerste vrije moment voor de lange video: een woensdag of
      zaterdag, minstens 2 dagen na vandaag, die nog niet in een planning.txt staat
      (en na de laatste lange video die er al staat).
    - Schrijf direct `stories/<map>/planning.txt` met de tijd, bv. voor een woensdag-video:

@@ -26,7 +26,7 @@ Week tot za 10 okt 2026 12:00:
 
 ## Rekenregel vóór elke run
 
-Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (routine: zo/di/do 08:54)
+Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (routine: zo/do 08:54, 2 video's per week)
 − 10% buffer. Past de run niet: niet beginnen, wel melden aan de eigenaar.
 
 ## Log
