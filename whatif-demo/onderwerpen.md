@@ -21,6 +21,17 @@ van kanaal `whatif`) en vergelijken met deze tabel en de lijst hieronder. Hetzel
 niet als Short ↔ lange video, tenzij de eigenaar daarom vraagt. Lijkt een onderwerp erg op een bestaande video, kies
 dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel bijwerken.
 
+## Al gebruikt als hoogtepunt (niet herhalen)
+
+| Video | Hoogtepunt |
+|---|---|
+| Gravity suddenly doubled? | hangbrug zakt door en breekt, torens storten in (rivierstad) |
+| The temperature dropped to −100°C? | rivier bevriest, brug barst (rivierstad) |
+| Earth stopped spinning? | wind 1.037 mph door de straat aan zee |
+| The wind never stopped? | straat → boulevard → rivierstad, brug bezwijkt |
+| The Sun came closer to Earth? | sneeuw smelt, bosbranden (bergdorp) |
+| The Sun went out? (v2, in de maak) | 8:20 aftellen, het licht valt weg in de stad |
+
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
 Doel: gevarieerde What if-video's over 14 categorieën. Nooit twee keer achter elkaar dezelfde categorie
