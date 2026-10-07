@@ -28,7 +28,7 @@ export default function (at) {
   const climax = at('into').e + .4, T_END = at('final').e + 3.6;
   return {
     T_END, tripod: true, brand: false,
-    hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
+    hud: { label: 'TEMPERATURE', unit: '°C', sub: 'YEAR 1', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, -52], [at('year').e, -73], [T_END, -73]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: 0 },
     captions: [[at('year').s + .5, at('year').e + .6, 'One year: about −73 °C.'],

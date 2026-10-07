@@ -32,10 +32,10 @@ export default function (at) {
   const climax = at('avg').e + .4, T_END = at('only').e + 3.0;
   return {
     T_END, tripod: true, brand: false,
-    hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
+    hud: { label: 'TEMPERATURE', unit: '°C', sub: 'WEEK 1', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, 2], [at('zero').s, 0], [at('ice').s, -4], [at('minus10').s, -10], [at('bridge').s, -14], [climax, -17], [T_END, -18]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: .8, breath: at('breath').s },
-    captions: [[at('floats').s, at('floats').e + .4, 'Frozen from the top down.'],
+    captions: [[at('week').s, at('week').e + .8, 'A few days later.'], [at('floats').s, at('floats').e + .4, 'Frozen from the top down.'],
                [at('breath').s, at('breath').e + .4, 'Your breath freezes.'],
                [at('avg').s + 1, climax + 1.5, 'Week one: about −17 °C.']],
     // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax

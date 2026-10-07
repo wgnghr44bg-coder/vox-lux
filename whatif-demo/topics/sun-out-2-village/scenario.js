@@ -35,10 +35,10 @@ export default function (at) {
   const climax = at('snow').e + .4, T_END = at('forever').e + 3.0;
   return {
     T_END, tripod: true, brand: false,
-    hud: { label: 'TEMPERATURE', unit: '°C', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
+    hud: { label: 'TEMPERATURE', unit: '°C', sub: 'DAY 1', second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 } },
     counter: [[0, 15], [at('leak').e, 14], [at('temp').s, 12], [at('ten').s, 10], [at('five').s, 5], [at('frost').s, 3], [T_END, 2]],
     range: [15, -73], forceParams: { darkAt: [-1, 0], frostAt: [.1, .9], snow: 2.2 },
-    captions: [[at('plants').s, at('plants').e + .5, 'Plants stop making food.'],
+    captions: [[at('hours').s, at('hours').e + .8, 'The first night.'], [at('plants').s, at('plants').e + .5, 'Plants stop making food.'],
                [at('solar').s, at('solar').e + .4, 'No solar power.'],
                [at('frost').s, at('frost').e + .4, 'Frost on the rooftops.'],
                [at('morning').s, at('morning').e + .6, 'No morning.']],
