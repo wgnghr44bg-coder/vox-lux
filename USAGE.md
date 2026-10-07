@@ -20,8 +20,9 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). UITZONDERING (eigenaar, 7 okt): de Sleep-run van do 8 okt vervalt en de maandaudit schuift naar ma 12 okt,
 zodat er ruimte is voor (eigenaar, 7 okt 11:50):
-  - wo 7 okt: KLAAR – lange video "What if the Sun went out?" (8:28, 5 hoofdstukken, thumbnail) https://youtu.be/S2nOY7Jz2NU,
-    privé met publishAt wo 7 okt 21:00, in playlist "What If". Stand daarna ± 95% (schatting).
+  - wo 7 okt: lange video "What if the Sun went out?": eerste versie (S2nOY7Jz2NU) door de eigenaar VERWIJDERD (glitch op straat).
+    Nieuwe versie wordt in een aparte sessie opnieuw gemaakt (bron: ifscape3d-videos/2026-10-07-sun-went-out); die sessie zet
+    hier de nieuwe link + live-tijd. Stand wo 7 okt ± 17:15: 92% (eigenaar).
   - vr 9 okt 13:47: Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok), ALLEEN als de stand
     na de run van woensdag (log) ≤ 93% is; anders niets maken en de Short na de reset doen.
   - za 10 okt 13:47 (na de reset): TikTok-pagina bouwen + weekplanning (+ Short [B] als die vrijdag niet gelukt is).
