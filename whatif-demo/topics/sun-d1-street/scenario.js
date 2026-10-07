@@ -2,7 +2,7 @@
 export const topic = {
   number: 421, slug: 'sun-d1-street', place: 'street', force: 'cold', wide: true,
   question: 'What if the Sun went out?',
-  title: 'Imagine<br>the Sun<br>went down',
+  title: 'Imagine<br>the Sun<br>went out',
 };
 
 export const lines = [
@@ -36,7 +36,7 @@ export default function (at) {
     counter: [[0, 100], [climax, 100], [climax + .8, 55], [dark, 0], [T_END, 0]],
     range: [100, 0], forceParams: { darkAt: [0, 1], frostAt: [2, 3], snow: 0 },
     captions: [[at('old').s, at('old').s + 3.5, 'Light takes 8 min 20 s.'], [at('eight').s, at('eight').e + 1.5, '12:08 PM.']],
-    shots: [[0, 'high'], [at('energy').s - .2, 'corner'], [at('now').s - .2, 'avenue'],
+    shots: [[0, 'high'], [at('energy').s - .2, 'corner'], [at('every').s - .2, 'crossing'], [at('now').s - .2, 'avenue'],
             [at('old').s - .2, 'pov-up'], [at('old').s + 4, 'crossing'], [at('warning').s - .2, 'high'],
             [at('eight').s - .2, 'corner'], [climax + 2.2, 'crossing'],
             [at('nosunset').s - .2, 'pov-up'], [at('lamps').s - .2, 'avenue'], [at('lost').s - .2, 'high']],
