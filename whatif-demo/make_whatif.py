@@ -144,7 +144,7 @@ def main():
              "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():
-        tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"))
+        tm = timing_from_tsv(lines, parse_tsv(d / "voice-times.tsv"), sc["topic"].get("voOffset", 0.8))
         (d / "timing.json").write_text(json.dumps(tm, indent=1))
 
     if a.stills:
