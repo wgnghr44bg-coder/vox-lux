@@ -11,7 +11,7 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 | IfScape3D (What If) | Short met nieuwe plek of kracht | ± 2% | schatting |
 | IfScape3D (What If) | Lange video 16:9, min. 8 min (bestaande plekken) | ± 5–7% | wind-video: ± 2–4% incl. eenmalig bouwwerk |
 | IfScape3D (What If) | Lange video met nieuwe plek/modellen (bv. dino's) | ± 5–6% | schatting |
-| Sleep Archives | Lange video (routine, ± 2 uur doc + 72 beelden) | ± 5–8% | schatting (run ± 66 min) |
+| Sleep Archives | Lange video (routine zo/do, 2 per week, ± 2 uur doc + 72 beelden) | ± 5–8% | schatting (run ± 66 min) |
 | Sleep Archives | Short (los gemaakt; routine maakt sinds okt 2026 geen Shorts) | ± 1% | schatting |
 | Beide kanalen | Weekcheck YouTube (elke ma 17:52, alleen cijfers + voorstellen) | ± 1% | schatting |
 | Beide kanalen | Maandaudit YouTube (elke 8e van de maand 17:52) | ± 3% | schatting |
@@ -48,12 +48,12 @@ Extra Shorts (eigenaar, okt 2026): blijft er na de geplande video van de dag rui
 na aftrek van de resterende Sleep-runs + 10% buffer nog ± 3% over), dan mag de run 1 extra Short maken en plannen
 (live op de eerstvolgende vrije dag om 18:00, of 12:00 als 18:00 al bezet is). Nooit meer dan 1 extra per run.
 
-Na de reset (elke week): eerst de 3 Sleep-runs (± 15–24%) en 10% buffer; daarna per week voor IfScape3D
+Na de reset (elke week): eerst de 2 Sleep-runs (± 10–16%) en 10% buffer; daarna per week voor IfScape3D
 ± 1 nieuwe baksteen (bouwvolgorde in whatif-demo/onderwerpen.md) + 4–5 Shorts + 1–2 lange video's (± 15%).
 
 ## Rekenregel vóór elke run
 
-Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (routine: zo/di/do 08:54)
+Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (routine: zo/do 08:54, 2 video's per week)
 − 10% buffer. Past de run niet: niet beginnen, wel melden aan de eigenaar.
 
 ## Vangnetten
