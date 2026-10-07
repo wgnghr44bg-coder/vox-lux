@@ -63,6 +63,11 @@ Na de reset (elke week): eerst de 2 Sleep-runs (± 10–16%) en 10% buffer; daar
 Over voor deze run = weekstand-over − geplande Sleep-runs tot zaterdag 12:00 (routine: zo/do 08:54, 2 video's per week)
 − 10% buffer. Past de run niet: niet beginnen, wel melden aan de eigenaar.
 
+## Pauze IfScape3D (eigenaar, 7 okt 2026)
+
+Na de reset van zaterdag niet automatisch met IfScape3D beginnen: eerst één goedgekeurde video, en pas verder
+als de eigenaar het zegt (zie whatif-demo/AUTOMATISCH.md, PAUZE). Sleep-runs gaan gewoon door.
+
 ## Vangnetten
 
 - Weekstand boven 85% (laatste screenshot of schatting): alleen nog Sleep-runs; IfScape3D wacht tot de reset.
