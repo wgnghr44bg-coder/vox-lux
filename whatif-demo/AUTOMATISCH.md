@@ -188,8 +188,13 @@ met `--from audio`), en probeer nog één keer. Lukt het dan nog niet: niet uplo
 
 ## 7. Vastleggen
 
-Commit en push naar `claude/whatif-machine` (geen pull request): scenario.js, script.txt, voice.mp3,
-voice-times.tsv, timing.json, mp4, upload.json, tiktok.txt, onderwerpen.md en nieuwe
-engine-onderdelen. Geen stills, geen wav's (staat in `.gitignore`).
+Bronbestanden per video (eigenaar, 7 okt 2026) – VERPLICHT, ook bij lange video's:
+repo `wgnghr44bg-coder/ifscape3d-videos` (branch `main`, zie README daar), map `<datum>-<slug>/` met alle
+scenario.js-bestanden, script.txt, voice.mp3, voice-times.tsv, timing.json, upload.json (met YouTube-link),
+thumbnail en `ENGINE.txt` (commit van vox-lux waarmee gerenderd is). Geen mp4, stills of wav's.
+Zonder deze map is een video later niet te repareren.
 
-Meld kort: onderwerp, link (of waarom niet geüpload), publicatietijd, Drive gelukt ja/nee.
+Daarna commit en push naar `claude/whatif-machine` in vox-lux (geen pull request): onderwerpen.md, USAGE.md
+en nieuwe engine-onderdelen.
+
+Meld kort: onderwerp, link (of waarom niet geüpload), publicatietijd, bronbestanden opgeslagen ja/nee.
