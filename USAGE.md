@@ -18,14 +18,14 @@ met screenshots van de eigenaar (Usage-scherm: "All models" = weekstand).
 
 ## Planning tot de volgende reset (bijwerken bij elke run)
 
-Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). BOVEN 85%: IfScape3D maakt tot de reset NIETS (wo 7 en vr 9 vervallen, alles schuift door naar na za 10 okt 12:00); alleen melden.
-- Sleep-routine: di 6 okt en do 8 okt 08:54 (± 5–8% per run). Al klaar en gepland: Titanic-Shorts 6 en 7 okt,
-  Vikings 10 okt 21:00 (kost geen usage meer).
-- IfScape3D (routine ma/wo/vr/za 13:47; ± 7% totaal):
-  - wo 7 okt: Short [B] "What if gravity disappeared for 5 seconds?" (live vr 9 okt 18:00).
-    Short "−100 °C" NIET maken: al geüpload op 6 okt 2026 (https://youtu.be/0Kvcuv5-3EQ, openbaar, in playlist "What If").
-  - vr 9 okt: lange video "What if the Sun went out?", min. 8 min (live za 10 okt 21:00, met thumbnail) +
-    Short [A] "What if all the ice on Earth melted?" (live za 10 okt 18:00)
+Week tot za 10 okt 2026 12:00 (stand wo 7 okt 13:18: 87% gebruikt, screenshot eigenaar). UITZONDERING (eigenaar, 7 okt): de Sleep-run van do 8 okt vervalt en de maandaudit schuift naar ma 12 okt,
+zodat er nog ruimte is voor precies 1 Short vandaag (± 1–2%, stand blijft < 90%). Verder tot de reset NIETS:
+  - wo 7 okt 13:47: ALLEEN Short [B] "What if gravity disappeared for 5 seconds?" (naar de eigenaar voor TikTok). Geen ondertitels-bouwwerk, niets anders.
+  - vr 9 okt 13:47: NIETS maken (alleen kort melden "wacht op de reset").
+  - za 10 okt 13:47 (na de reset): lange video "What if the Sun went out?" (min. 8 min, met thumbnail) en meteen inplannen voor
+    za 10 okt 21:00 (lukt dat niet vóór 20:30, dan wo 14 okt 21:00); daarna TikTok-pagina bouwen en de weekplanning maken.
+    Short [A] "What if all the ice on Earth melted?" schuift naar de week erna.
+- Sleep: al klaar en gepland: Vikings za 10 okt 21:00, Dyatlov wo 14 okt 21:00 (kost geen usage). Volgende run zo 11 okt (na de reset).
 
 Na de reset, za 10 okt (na 12:00): TikTok-pagina "IfScape3D TikToks" bouwen (claude.ai-pagina zoals de oude Sleep-pagina:
 video, tekst + kopieerknop, downloadknop, vinkje "op TikTok gezet"; video's verkleind tot < 15 MB), met de Shorts die al
