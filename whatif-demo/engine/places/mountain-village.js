@@ -91,6 +91,8 @@ export function build(E, TL, F) {
       square: { pos: [12, 2, -10], look: [-12, 14, -40], drift: [-1, 0, 0], fov: 60 },
       lake: { pos: [-10, 2, -40], look: [-70, 6, -140], drift: [-2, 0, 0], fov: 58 },
       mountains: { pos: [12, 2, 40], look: [0, 120, -700], drift: [0, 0, -2], fov: 50 },
+      lakeside: { pos: [14, 13, -76], look: [-60, 0, -125], drift: [-1, 0, 0], fov: 58 },      // observer shots (gravity style)
+      church: { pos: [16, 4, -18], look: [-14, 15, -46], drift: [0, 0, -.6], fov: 58 },
     },
   };
 }

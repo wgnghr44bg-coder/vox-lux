@@ -40,7 +40,7 @@ export const lines = [
 ];
 
 export default function (at) {
-  const climax = at('then').e + .4, T_END = at('cold').e + 3.0;
+  const climax = at('then').e + .4, T_END = at('cold').e + 3.8;
   return {
     T_END, tripod: true, showTitle: true, titleOut: at('imagine').e + 2,
     hud: { label: 'SINCE THE SUN WENT OUT', unit: ' s',
@@ -53,8 +53,8 @@ export default function (at) {
                [at('onway').s, at('onway').e + .6, 'Still on its way.'],
                [at('gone').s, at('gone').e + .6, 'No more light.'],
                [at('stars').s, at('stars').e + .5, 'Stars in the afternoon.']],
-    // a new standpoint on every line (gravity style: observer shots, never the same twice in a row), one extra cut in the silent climax
-    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, ['high', 'corner', 'avenue', 'balcony', 'sea'][k % 5]]), [climax + 2.5, ['high', 'corner', 'avenue', 'balcony', 'sea', 'crossing'][(lines.length + 2) % 5]]]
+    // every line shows what the voice says (observer shots); one extra cut in the silent climax
+    shots: [...lines.map(([id], k) => [k ? at(id).s - .2 : 0, { imagine: 'high', street: 'high', people: 'avenue', power: 'corner', star: 'sea', feel: 'corner', now: 'high', nothing: 'avenue', light: 'sea', left: 'balcony', onway: 'corner', blue: 'high', look: 'sea', ghost: 'sea', normal: 'avenue', nobody: 'corner', kids: 'corner', traffic: 'avenue', faster: 'high', last: 'balcony', five: 'corner', six: 'avenue', seven: 'balcony', eight: 'high', then: 'high', gone: 'avenue', moon: 'sea', stars: 'high', cold: 'corner' }[id]]), [climax + 2.5, 'avenue']]
       .sort((a, b) => a[0] - b[0]),
     beats: { lookUp: climax + 1, carsStop: at('gone').s, shelter: 1e9, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('last').s, climax + 3], riser: [at('five').s, climax] },
