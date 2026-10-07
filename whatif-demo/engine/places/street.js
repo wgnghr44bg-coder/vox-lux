@@ -154,11 +154,11 @@ export function build(E, TL, F) {
 
   E.brandSpot = { pos: [11.5, 14.5, -52], ry: -.18, w: 10, h: 5.8, posts: 11.6, shot: 'avenue' };   // billboard on two poles on the pavement, facing down the avenue
   const sky = colorKeys(THREE, [[0, 0x7aa3cc, 0xd3dde2]]);
-  E.sunOffset = new THREE.Vector3(-90, 110, 120);
+  E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [-90, 110, 120]));
   return {
     ambience: 'stad',
     look: t => ({ top: sky(t, 1), hor: sky(t, 2), fogNear: 120, fogFar: 900, hemi: 1.5, hemiColor: new THREE.Color(0xe3ecf4), groundColor: new THREE.Color(0x5a5448),
-      sun: 2.4, sunColor: new THREE.Color(0xffeedd) }),
+      sun: 2.4, sunColor: new THREE.Color(0xffeedd), sunDisc: new THREE.Color(0xaa9977) }),
     shots: {
       avenue: { pos: [-1, 3.2, 42], look: [-1, 26, -200], drift: [0, 0, -1.8], fov: 60 },
       crossing: { pos: [-13, 1.7, 22], look: [4, 3, 0], drift: [.5, 0, -.5], fov: 60 },
@@ -168,6 +168,7 @@ export function build(E, TL, F) {
       high: { pos: [-6, 26, 64], look: [0, 4, -160], drift: [0, 0, -2], fov: 60 },          // observer shots (gravity style)
       balcony: { pos: [13, 15, -8], look: [-5, 3, -110], drift: [0, 0, -1.2], fov: 60 },
       corner: { pos: [-9.4, 7, 33], look: [7, 4, -70], drift: [.4, 0, -1], fov: 60 },
+      'pov-up': { pos: [15.3, 1.7, 4], look: [-30, 57, 64], drift: [0, 0, 0], fov: 66 },   // POV: look up at the Sun (default sunOffset)
     },
   };
 }
