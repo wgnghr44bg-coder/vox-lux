@@ -26,6 +26,7 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 - Shorts gaan via de eigenaar (geen upload, geen ingebrande ondertitels): `regels/shorts-via-eigenaar.md`.
 - Eigenaar stuurt zelf een video om te plaatsen: `regels/eigen-upload.md`.
 - Shorts om en om in stijl A (POV) en B (gravity-stijl): `regels/stijl-afwisseling.md`.
+- Opbouw van Shorts (sinds 7 okt 2026): zelfde als lange video's, maar korter: `regels/lange-video-opbouw.md` (onderaan).
 - TikTok: geen Google Drive meer; de Shorts komen op de pagina "IfScape3D TikToks" (vanaf za 10 okt 2026).
 
 ## Lange video's: lengte en opbouw (eigenaar, okt 2026)
