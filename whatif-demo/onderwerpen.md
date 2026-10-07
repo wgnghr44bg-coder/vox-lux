@@ -14,6 +14,7 @@ alleen natuurkunde die klopt, verteld als "would".
 | 2026-10-04 | Short | 0:57 | What if the Sun came closer to Earth? | https://youtu.be/i2pChBmzRDs |
 | 2026-10-05 | Short | 1:30 | What if Earth suddenly stopped spinning? | https://youtu.be/Bkd2gh_IlU0 |
 | 2026-10-05 | Lang | 4:04 | What if the wind never stopped? (20 to 1,000 km/h) | https://youtu.be/1LNaLpmOcuM |
+| 2026-10-07 | Lang | 8:28 | What if the Sun went out? | https://youtu.be/S2nOY7Jz2NU (live wo 7 okt 21:00) |
 
 Regel (eigenaar, okt 2026): vóór het kiezen van een onderwerp de uploads van het kanaal ophalen (API: uploads-playlist
 van kanaal `whatif`) en vergelijken met deze tabel en de lijst hieronder. Hetzelfde onderwerp nooit nog een keer, ook
@@ -53,7 +54,7 @@ Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede
 | 1 | Gravity suddenly doubled? | Rivierstad met hangbrug | Zwaartekracht: brug zakt door, torens storten recht in | geüpload 2026-10-04 https://youtu.be/DE61_VUIuCw (openbaar, straatversie van de eigenaar) |
 | 2 | The Moon disappeared? | Haven bij nacht | Getij valt weg, schepen op het droge, donkere nachten | gepland |
 | 3 | All the ice on Earth melted? | Strandboulevard | Zee stijgt meter voor meter | gepland |
-| 4 | The Sun went out? | Besneeuwd bergdorp | Steeds donkerder en kouder, alles bevriest | gepland |
+| 4 | The Sun went out? | Bergdorp, straat, boulevard, rivierstad (lange video) | Steeds donkerder en kouder, alles bevriest | geüpload 2026-10-07 https://youtu.be/S2nOY7Jz2NU (lang, 8:28, live wo 7 okt 21:00) |
 | 5 | A megaquake hit? | Buitenwijk met huizen | Golvende grond, scheuren, huizen schuiven | gepland |
 | 6 | A world without internet? | Stad bij avond | Lichten gaan blok voor blok uit | gepland |
 | 7 | The oceans disappeared? | Kustdorp met vuurtoren | Zeebodem valt droog, schepen liggen scheef | gepland |
