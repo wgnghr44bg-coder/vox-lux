@@ -3,6 +3,13 @@
 Deze instructies volgt de dagelijkse sessie ("Maak en upload de volgende What if-video volgens
 whatif-demo/AUTOMATISCH.md"). Antwoord aan het eind in het Nederlands, kort.
 
+## PAUZE (eigenaar, 7 okt 2026) – lees dit eerst
+
+IfScape3D staat stil tot de eigenaar zelf zegt dat het weer mag. Ook na de usage-reset (zaterdag 12:00) NIET
+automatisch beginnen met maken, bouwen of uploaden voor IfScape3D. Eerst moet er één goede video zijn die de
+eigenaar heeft goedgekeurd (de nieuwe Sun-video volgens zijn shotlijst). Een routine-run stopt hier, maakt niets
+en meldt alleen kort: "IfScape3D staat op pauze tot akkoord van de eigenaar."
+
 ## Routine en uploaden (eigenaar, okt 2026)
 
 Shorts (sinds 7 okt 2026): NIET uploaden, zonder ingebrande ondertitels maken en aan de eigenaar geven
