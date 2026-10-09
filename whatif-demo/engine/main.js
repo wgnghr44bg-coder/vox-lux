@@ -11,6 +11,7 @@ import { buildTL } from './timeline.js';
 import { createCamera } from './camera.js';
 import { createSkyObjects } from './sky-objects.js';
 import { createUfo } from './ufo.js';
+import { createArmy } from './army.js';
 import { createBrand } from './brand.js';
 import { createPost } from './post.js';
 import { createMoon } from './moon.js';
@@ -42,6 +43,7 @@ F.attach?.(P);
 if (TL.time) (await import('./time.js')).applyTime(E, TL, F, P);   // baksteen Tijd: days pass, nature takes over
 createSkyObjects(E, TL);
 createUfo(E, TL);                                     // TL.ufo: motherships, scouts, beams
+createArmy(E, TL);                                    // TL.army: tanks, trucks, helicopters, soldiers, barriers
 Object.assign(P.shots, TL.extraShots || {});          // scenario-specific camera standpoints
 createSpace(E, TL);        // TL.space: Earth and Moon seen from space (its own scene)
 createBrand(E, TL);

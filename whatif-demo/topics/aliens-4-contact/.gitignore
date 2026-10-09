@@ -1,0 +1,11 @@
+stills/
+timeline.json
+voice-take.mp3
+*.mp4
+*.wav
+.voice-hash
+check-bron.txt
+upload.json
+concat.txt
+frames*/
+done/

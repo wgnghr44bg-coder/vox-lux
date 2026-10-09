@@ -47,6 +47,7 @@ async function open(w = WIDE ? 1280 : 720, h = WIDE ? 720 : 1280) {
 if (mode === 'stills') {
   const { browser, page } = await open();
   fs.mkdirSync(path.join(OUT, 'stills'), { recursive: true });
+  if (process.env.NOHUD) await page.addStyleTag({ content: '#hud,#cap,#title{visibility:hidden!important}' });   // clean picture (e.g. a TV feed)
   for (const t of rest) {
     const t0 = Date.now();
     const n = await page.evaluate(t => window.renderAt(+t, window.blurAt ? window.blurAt(+t) : 1), t);

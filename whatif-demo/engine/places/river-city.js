@@ -135,7 +135,7 @@ export function build(E, TL, F) {
 
   // cars on the bridge: stop well before the middle (no one is on the span when it breaks)
   const lanes = [[-7.5, -1], [-2.5, -1], [2.5, 1], [7.5, 1]];
-  lanes.forEach(([x, dir], li) => {
+  if (!TL.noTraffic) lanes.forEach(([x, dir], li) => {
     const v = 11 + li * .6, brake = (B.carsStop ?? 1e9) + li * .7;
     const z0s = [0, 1, 2].map(k => -60 - k * 170 - hash(li, k) * 30);
     let shift = 0;
@@ -147,7 +147,7 @@ export function build(E, TL, F) {
     });
   });
   // the quay road along the south bank, under the viaduct
-  [[6, 1], [10, -1]].forEach(([z, dir], li) => [0, 1, 2, 3].forEach(k => {
+  if (!TL.noTraffic) [[6, 1], [10, -1]].forEach(([z, dir], li) => [0, 1, 2, 3].forEach(k => {   // TL.noTraffic: no cars (evacuated city)
     const brake = (B.carsStop ?? 1e9) + 1 + k * .4 + li;
     // beats.driver: the first car stops right in front of the 'road' shot and its driver (logo on the jacket) walks off to the houses
     const lead = B.driver != null && li === 0 && k === 0, bt = lead ? B.driver : brake;

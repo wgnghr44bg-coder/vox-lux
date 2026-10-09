@@ -596,6 +596,20 @@ def build_engine(topic: Path):
     for a_, b_ in AUD.get("siren", []):          # sirens (props-alarm.js), far away and echoing
         b_ = min(b_, T)
         if b_ - a_ > .5: place(bed, s_siren(rng, b_ - a_) * np.minimum(1, (b_ - a_ - np.arange(int((b_ - a_) * SR)) / SR) / 1.5)[:, None], a_, db(-15))
+    for a, b in AUD.get("heli", []):          # helicopter: rotor thump (~ 4.5 per second) with a whine (baksteen Leger)
+        b = min(b, STOP); L = int(max(0, b - a) * SR)
+        if L > SR:
+            tt = np.arange(L) / SR
+            thump = lp(rng.standard_normal(L), 160) * (.5 + .5 * np.sin(2 * np.pi * 4.6 * tt)) ** 6 * 3 + np.sin(2 * np.pi * 380 * tt) * .03
+            env = np.minimum(1, tt / 1.5) * np.minimum(1, (tt[-1] - tt) / 1.5) * (.75 + .25 * np.sin(2 * np.pi * tt / 9))
+            place(bed, np.stack([thump * env, thump * env], 1) / (np.abs(thump).max() + 1e-9), a, db(-20))
+    for a, b in AUD.get("engines", []):       # army diesels and tracks rolling in
+        b = min(b, STOP); L = int(max(0, b - a) * SR)
+        if L > SR:
+            tt = np.arange(L) / SR
+            rum = lp(brown(rng, L), 120) * (1 + .3 * np.sin(2 * np.pi * 11 * tt)) + bp(rng.standard_normal(L), 300, 1200) * .15 * (.5 + .5 * np.sin(2 * np.pi * 7 * tt))
+            env = np.minimum(1, tt / 2) * np.minimum(1, (tt[-1] - tt) / 2.5)
+            place(bed, np.stack([rum * env, rum * env], 1) / (np.abs(rum).max() + 1e-9), a, db(-14))
     if "heartbeat" in AUD:
         a, b = AUD["heartbeat"]; tc = a
         while tc < min(b, STOP):
