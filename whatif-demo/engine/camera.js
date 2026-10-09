@@ -13,8 +13,8 @@ import * as THREE from 'three';
 import { clamp, hash, noise, smooth, lerp } from './util.js';
 
 const D2R = Math.PI / 180;
-const WEIGHT = { fire: 2.5, impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear: 1.6, glass: 1.4, crack: 1, sky: 3, look: 6, mover: 1.4 };
-const HOLD = { fire: 3, impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5 };
+const WEIGHT = { fire: 2.5, impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear: 1.6, glass: 1.4, crack: 1, sky: 3, look: 6, mover: 1.4, roar: 5 };
+const HOLD = { fire: 3, impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5, roar: 2.5 };
 
 export function createCamera(E, TL, P, F) {
   const FPS = E.FPS, STOP = TL.beats.stop, N = Math.ceil(TL.T_END * FPS) + 2, cam = E.camera;
@@ -112,7 +112,7 @@ export function createCamera(E, TL, P, F) {
       for (const ev of E.EVENTS) {
         if (ev.t > t || t - ev.t > 2 || ev.t > STOP) continue;
         const a = t - ev.t, dist = ev.x == null ? 30 : Math.hypot(ev.x - pos[0], ev.z - pos[2]);
-        const amp = { impact: ev.e * .5, collapse: .6 * (ev.e || 1), splash: .2 * ev.e, snap: .12, crack: .06, glass: .05, tear: .08 }[ev.kind] || 0;
+        const amp = { impact: ev.e * .5, collapse: .6 * (ev.e || 1), splash: .2 * ev.e, snap: .12, crack: .06, glass: .05, tear: .08, stomp: .25 * ev.e, roar: .05 * ev.e }[ev.kind] || 0;
         shake += amp * Math.exp(-a * 5) / (1 + Math.max(0, dist - 15) / 30);
       }
       if (F.shake) shake += F.shake(t) * (sh.shot.shake ?? 1);    // earthquake: the whole picture shakes (also on a tripod)

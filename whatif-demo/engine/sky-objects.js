@@ -7,9 +7,9 @@ import { clamp, hash, lerp } from './util.js';
 
 export function createSkyObjects(E, TL) {
   E.skyObjects = (TL.skyObjects || []).map((o, i) => {
-    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(o.r ?? 20, 0), E.lam(o.color ?? 0x5d5650));
+    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(o.r ?? 20, 0), E.lam(o.color ?? 0x5d5650, { fog: o.fog ?? true }));
     E.scene.add(m);
-    const glow = new THREE.Mesh(new THREE.IcosahedronGeometry((o.r ?? 20) * 1.15, 1), new THREE.MeshBasicMaterial({ color: o.glow ?? 0xffb070, transparent: true, opacity: 0 }));
+    const glow = new THREE.Mesh(new THREE.IcosahedronGeometry((o.r ?? 20) * 1.15, 1), new THREE.MeshBasicMaterial({ color: o.glow ?? 0xffb070, transparent: true, opacity: 0, fog: o.fog ?? true }));
     m.add(glow);
     const u = t => Math.pow(clamp((t - o.t0) / (o.t1 - o.t0)), o.ease ?? 2);
     const pos = t => [lerp(o.from[0], o.to[0], u(t)), lerp(o.from[1], o.to[1], u(t)), lerp(o.from[2], o.to[2], u(t))];
