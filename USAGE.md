@@ -93,3 +93,4 @@ Geen lange video's (ook niet na de reset) tot de eigenaar akkoord geeft; Shorts 
 | 2026-10-09 | IfScape3D | Baksteen Kleine dingen + hoofdstuk 1 Every human disappeared (stem + testbeelden, geen video) | ± 7% | ± 11% | ± 4% | schatting; wacht op akkoord eigenaar op de beelden |
 | 2026-10-09 | IfScape3D | Lang Colosseum: bakstenen Oude plek (colosseum, ancient.js, kracht day) + testbeelden hoofdstuk 1 (wacht op akkoord) | ± 11% | ± 13% | ± 2% | schatting; nog geen stem/render |
 | 2026-10-09 | IfScape3D | Lang Moon falling: bakstenen haven, getij, maan op schaal, ruimte-shot + proef h1 | ± 13% | ± 17% | ± 4% (schatting) | eigenaar gaf akkoord voor deze bakstenen; rest na akkoord proef |
+| 2026-10-09 | IfScape3D | Dino's: bakstenen Grote dieren, oerwoud, hekken, geluid + testbeelden hoofdstuk 1 | ± 17% | ± 25% | ± 8% (schatting) | geen video/stem gemaakt; wacht op akkoord eigenaar op de beelden |

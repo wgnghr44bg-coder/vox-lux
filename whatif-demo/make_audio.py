@@ -514,7 +514,8 @@ def build_engine(topic: Path):
 
     # 1. place ambience, fading as the force takes over
     ambs = {"stad": lambda: lib["stad"], "rivier": lambda: lib["stad"] * .6 + s_water(rng) * .5,
-            "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng), "park": lambda: s_park(rng)}
+            "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng), "park": lambda: s_park(rng),
+            "oerwoud": lambda: __import__("sfx_animals").s_jungle(rng)}
     A = loop(ambs.get(amb, ambs["stad"])(), n)
     q = (TL.get("audio") or {}).get("quiet")      # TL.audio.quiet = t: the city hush (people gone) – murmur falls away in half a second
     hush = 1 - .88 * smooth(q, q + .5, t) if q is not None else 1
@@ -656,6 +657,16 @@ def build_engine(topic: Path):
             place(bed, s_kraak(rng), e["t"], db(-6), p)
             place(bed, lp(s_klap(rng, 1.6), 600), e["t"] + .05, db(-8), p)
             place(bed, lp(s_puin(rng), 2000), e["t"] + .3, db(-14), p)
+        elif e["kind"] in ("stomp", "roar", "flyby"):      # animals and sky objects (sfx_animals.py)
+            import sfx_animals as SA
+            if e["kind"] == "stomp":
+                if e["t"] - last < .08: continue
+                last = e["t"]
+                place(bed, SA.s_stomp(rng, e.get("e", 1)), e["t"], db(-7) * min(1.3, e.get("e", 1)) ** .7, p * .5)
+            elif e["kind"] == "roar":
+                place(bed, SA.s_roar(rng, e.get("call", "roar"), e.get("dur", 2.6), e.get("e", 1)), e["t"], db(-4) * min(1.2, e.get("e", 1)), p * .6)
+            else:
+                place(bed, SA.s_flyby(rng, e.get("dur", 8)), e["t"], db(-5) * e.get("e", 1))
         elif e["kind"] == "snap":
             place(bed, s_snap(rng), e["t"], db(-9), p)
         elif e["kind"] == "splash":

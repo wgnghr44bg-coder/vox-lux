@@ -49,7 +49,7 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 | 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
 | 6 | History | What if the Roman Empire never fell? | deels (Rome 80 n.Chr.: straat, Colosseum, Romeinen, menigte; nog niet: hypogeum, leeuw) | Oude plek (Rome) – plek `colosseum`, `ancient.js`, kracht `day` |
 | 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels: aardbeving, natuurpark, sirene/wegblokkade klaar (9 okt); as, lava, bosbrand, lahar, aslucht volgen | Aarde beweegt (rest) |
-| 8 | Animals & Evolution | What if dinosaurs never went extinct? | deels (hond, vos, hert, vogels klaar 9 okt; dino's nog niet) | Dieren (plan: long/dinosaurs) |
+| 8 | Animals & Evolution | What if dinosaurs never went extinct? | ja (hond, vos, hert, vogels + dino's, olifant, mammoet, oerwoud, hekken: 9 okt) | – (plan: long/dinosaurs/plan.md) |
 | 9 | Science & Physics | What if gravity suddenly disappeared? | ja | – |
 | 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | nee | Hemel (ufo) |
 | 11 | Horror & Dark What If | What if nobody could die after midnight? | deels (nacht via Tijd) | Tijd & stad (nacht); spanning door sfeer, nooit gewonden/lichamen |
@@ -64,6 +64,9 @@ Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede
 Klaar (9 okt 2026): **Tijd** (`engine/time.js`, `TL.time`: dag/nacht, wolken, seizoenen, regen, sneeuw, gras, klimop, jonge bomen,
 stof, roest, kapotte ramen; kracht `calm` = geen kracht) en **Dieren** (`engine/animals.js`, `TL.animals`: hond (met lege riem),
 vos, hert, groepjes, vogels). Ook klaar: **Kleine dingen** (`engine/small.js`). Testbeelden: `topics/proef-tijd`, `topics/proef-dieren`, `topics/humans-1-street`. Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
+Klaar (9 okt 2026, dino-sessie): **Grote dieren** (`engine/big-animals.js`: T. rex, langnek, triceratops, raptor, pterosauriër, olifant,
+mammoet, spitsmuis; lopen, kop draaien, brullen, kuddes), plek **oerwoud** (`places/prehistoric.js`), **Hekken** (`engine/fences.js`: omheining,
+wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/dino-lineup`, `topics/dino-proef-park`, `topics/dino-c1-jungle`.
 
 | # | What if… | Plek | Kracht / beeld | Status |
 |---|---|---|---|---|
@@ -104,3 +107,6 @@ vos, hert, groepjes, vogels). Ook klaar: **Kleine dingen** (`engine/small.js`). 
 | 34 | Every human disappeared? (lange video 16:9, script eigenaar, max. 25 jaar) | Straat → rivierstad → park/buitenwijk → straat | Mensen weg, lichten uit, natuur neemt de stad terug (bakstenen Tijd, Dieren, park) | gepland na de Sun-video; plan: long/humans-disappeared/plan.md |
 | 35 | A supervolcano erupted? (lange video 16:9) | Natuurpark → dal → stad → Europese kust | Aardbeving, uitbarsting, as, vulkanische winter (15 → 8.000 km) | hoofdstuk 1 als proef (9 okt); plan: long/supervolcano/plan.md |
 | 36 | The Moon started falling toward Earth? (lange video 16:9) | Haven → (stad/bergen) → ruimte | Getij steeds hoger, maan groter, Roche-grens 18.000 km: maan breekt tot ring, meteoren | in de maak (proef hoofdstuk 1: topics/moon-c1-harbor); let op: #2 en #15 lijken hierop (getij/haven) |
+| 37 | Dinosaurs never went extinct? (lange video 16:9) | Oerwoud → dinopark → storm → stad bij nacht | Dino's komen steeds dichterbij (1 km → 3 m) | in de maak; plan: long/dinosaurs/plan.md |
+| 38 | A zoo's animals all escaped? | Dierentuin (hekken, poort) → stad | Olifanten en giraffen in de straat, iedereen binnen | gepland (bakstenen Dieren, Hekken) |
+| 39 | Mammoths came back? | Toendra/bergdorp in de winter | Kudde mammoeten door het dorp, sneeuw | gepland (Grote dieren: mammoth) |

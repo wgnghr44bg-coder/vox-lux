@@ -10,6 +10,7 @@
 // Before the first and after the last waypoint it stays there (visible: false with `hide: [a, b]`).
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, lerp } from './util.js';
+import { isBig, bigAnimals } from './big-animals.js';   // dinosaurs, elephants, mammoths (baksteen Grote dieren)
 
 const KINDS = {
   dog:  { len: .62, h: .5, leg: .32, neck: .2, head: .2, snout: .12, tail: .32, colors: [0x6b4a32, 0x2a2622, 0xb08a5a, 0xd8cdb8, 0x8a6a48], ears: 'flop', bush: false },
@@ -162,6 +163,7 @@ function birds(E, seed, o) {
 export function animals(E, TL, shots) {
   (TL.animals || []).forEach((A, ai) => {
     if (A.kind === 'birds') return birds(E, 300 + ai, A);
+    if (isBig(A.kind)) return bigAnimals(E, TL, A);
     const n = A.n ?? 1;
     for (let i = 0; i < n; i++) {
       const ox = i ? (hash(ai * 10 + i, 1) - .5) * 2 * (A.spread ?? 1.5) : 0, oz = i ? (hash(ai * 10 + i, 2) - .5) * 2 * (A.spread ?? 1.5) : 0, lag = i * (A.lag ?? .35);
