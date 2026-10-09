@@ -170,6 +170,10 @@ Beeld-regels (stijl zoals earth-stops):
 | `forces/day.js` | kracht `day`: tijd van de dag (`forceParams.hours`), zon beweegt, lucht/licht per uur, `E.dark` voor fakkels; niks gaat kapot (voor History/Civilization) |
 | `props-alarm.js` | klein: sirenepaal (zwaailicht) en wegblokkade (hekken, knipperlampen, patrouilleauto); geluid `audio.siren: [[a, b]]` |
 | `small.js` | baksteen Kleine dingen: `beats.vanish` (iedereen weg in één klik, tassen/telefoons vallen), `TL.traffic` (auto's zonder bestuurder rollen uit), `TL.bikes` (fiets valt om), `TL.crashes` (botsing, rook, alarmlichten, autoalarm), `TL.smoke`, `TL.extraShots`; geluiden click/drop/crash/alarm/buzz + `audio.quiet` in make_audio.py. Straat: `cars: false`, `lightCycle` |
+| `places/harbor.js` | haven bij nacht (okt 2026): kade met getijdenband, 3 kranen, containers, vrachtschip met trossen, sleepboot/vissersboten/jacht die met het water meedrijven en bij hoogwater de straat op spoelen (`TL.boats`), golfbreker met vuurtoren |
+| `forces/tide.js` | getij: water omhoog én weer omlaag (`forceParams.tide: [[t, y], …]`), stroming land in/uit; teller blijft vrij (bijv. maanafstand) |
+| `moon.js` | maan aan de hemel op echte schaal per afstand (`TL.moon: { km: [[t, km]], dir }`), helderder als hij nadert; geeft `E.moonKm/moonDir/moonBright` (maanlicht en schaduw) |
+| `space.js` | aarde + maan vanuit de ruimte, echte schaal (`TL.space: [[t0, t1, { frame, yaw, focus }]]`), eigen scène in hetzelfde hoofdstuk |
 
 Elke plek zegt zelf wat kan buigen (`E.bend`), breken (`E.breaks`, met sterkte per kracht), vallen
 (`E.falls`, met `rank` voor `beats.falls`) en onderlopen (`E.floods`), en levert `shots` en `look`.
