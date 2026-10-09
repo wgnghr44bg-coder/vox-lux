@@ -1,4 +1,4 @@
-# What if a supervolcano erupted? – voorstel script + shotlijst (wacht op akkoord eigenaar)
+# What if a supervolcano erupted? – voorstel script + shotlijst v2 (spannender, wacht op akkoord eigenaar)
 
 16:9 720p, filmlook (`post: true`), stem atlas in één keer, ± 3:30, 4 hoofdstukken, nieuwe mensen + `groups`.
 Camera ± 70% WIJD (tripod) / 30% POV. Europese eenheden. Alles als "would/could".
@@ -21,14 +21,14 @@ Camera ± 70% WIJD (tripod) / 30% POV. Europese eenheden. Alles als "would/could
 
 VO:
 "Imagine a supervolcano erupted. [long]
-Not a mountain spitting lava. Something far bigger. Its crater is about seventy kilometres long: you could drive right through it without noticing. [pause]
-And it has erupted like this before. [long]
-THREE DAYS BEFORE. The ground would start to shake. Hundreds of small earthquakes, every single day. [pause]
-Roads crack open. Steam rises out of the forest. [pause]
-ONE DAY BEFORE. The ground would bulge upwards as magma pushes from below. [long]
-The park closes. Sirens wail. Cars leave in long lines. [pause]
-Then… everything goes quiet. [3]
-But this kind of silence never lasts."
+Not a mountain with a peak. Not a slow river of lava. A crater so wide, you could drive across it for almost an hour… without knowing you were inside. [pause]
+But here is what keeps scientists watching it. [pause] Beneath it lies a chamber of hot, partly molten rock big enough to fill the Grand Canyon more than twice. [pause]
+And it has exploded before. Three times. [long]
+THREE DAYS BEFORE. The ground would start to tremble. Not once… hundreds of times a day. [pause]
+Rising magma could push the earth upwards, tilting roads until they crack open. [long]
+ONE DAY BEFORE. Steam and boiling water would burst out of the ground where yesterday there were only trees. [pause]
+Sirens. Every road out of the park is full. [3]
+Then, for a moment, the shaking stops. [pause] But deep below, the pressure is still rising."
 
 ## Hoofdstuk 2 – The eruption (± 60 s) · plek: natuurpark, ander standpunt (weg langs het dal, rivier) · 40 KM
 | # | Shot | Wat je ziet |
@@ -42,13 +42,13 @@ But this kind of silence never lasts."
 
 VO:
 "HOUR ZERO. [5]
-A column of ash and rock would blast more than thirty kilometres into the sky. Higher than any passenger plane flies. [pause]
-Lightning flickers inside the cloud: billions of ash grains rubbing together, building up charge. [long]
-Then the column could collapse. Clouds of red-hot ash and gas would race down the slopes, faster than a car on a motorway, and hotter than three hundred degrees. [pause]
-Forests catch fire in seconds. [long]
-HOUR ONE. Rain mixes with fresh ash. Rivers of mud, called lahars, could pour through the valleys, carrying whole trees with them. [pause]
-And at midday… the sky turns black. [pause]
-But the ash has only just started its journey."
+When Krakatoa erupted in 1883, people heard it almost five thousand kilometres away. [pause] This would be far bigger. [long]
+Within minutes, a column of ash could rise more than thirty kilometres, punching straight through the clouds. [pause]
+Inside it: lightning. Thousands of strikes, sparked by ash grains rubbing against each other. [long]
+MINUTE TEN. Then the column could collapse under its own weight. [pause] Avalanches of glowing ash and gas, hotter than three hundred degrees, would race down the slopes faster than a car on a motorway. [pause] Forests would vanish in seconds. [long]
+HOUR SIX. Rain mixes with the fresh ash, thick as wet concrete. [pause] Rivers of mud, called lahars, could roll through the valleys, dragging whole trees along. [pause]
+And at midday… the sky turns completely black. [pause]
+But for the rest of the continent, the worst hasn't even arrived."
 
 ## Hoofdstuk 3 – The ash (± 55 s) · plek: stad (`river-city` of `street`) + klein vliegveld · 600 KM
 | # | Shot | Wat je ziet |
@@ -60,13 +60,13 @@ But the ash has only just started its journey."
 | 5 | WIJD | WEEK 1: straat grijs en stil, mensen met mondkapjes lopen naar binnen (stille climax ± 3 s) |
 
 VO:
-"DAY ONE. Six hundred kilometres away, it starts to snow. [pause] But this snow is grey… and it doesn't melt. [long]
-Volcanic ash is made of tiny pieces of rock and glass. [pause] Ten centimetres of wet ash could weigh up to two hundred kilos on every square metre of roof. [pause]
-Sirens. Roads close. Engines choke as ash clogs their air filters. [long]
-In 2010, a far smaller volcano in Iceland cancelled around one hundred thousand flights. [pause] Now, every airport across an entire continent could stand still. [long]
-WEEK ONE. [3]
-Fields lie buried under grey dust. [pause]
-And high above, something invisible is already spreading around the whole planet."
+"DAY ONE. Six hundred kilometres away, it begins to snow. [pause] Except this snow is grey… and it will never melt. [long]
+Volcanic ash isn't soft like smoke. It is shattered rock and glass, sharp enough to sting your eyes and lungs. [pause]
+And it is heavy. Ten centimetres of wet ash could press up to two hundred kilos onto every square metre of a roof. [pause]
+Sirens. Roads close. Engines choke as the ash clogs them. [long]
+In 2010, a small volcano in Iceland cancelled around one hundred thousand flights. [pause] This eruption could be thousands of times larger. [3]
+WEEK ONE. Grey dust buries farmland across half a continent. [pause]
+And yet the most dangerous part of this eruption… is something you can't see at all."
 
 ## Hoofdstuk 4 – The volcanic winter (± 60 s) · plek: Europese kust (`boulevard`, zomer) · 8.000 KM
 | # | Shot | Wat je ziet |
@@ -78,15 +78,16 @@ And high above, something invisible is already spreading around the whole planet
 | 5 | WIJD | camera stijgt op, eindkaart WHAT IF A SUPERVOLCANO ERUPTED? – IFSCAPE3D |
 
 VO:
-"MONTH ONE. Eight thousand kilometres away, here in Europe, the sunsets turn blood red. [pause]
-Sulphur gas from the eruption would form a thin veil high in the sky, reflecting sunlight back into space. [long]
-YEAR ONE. Summer never really arrives. [pause] The whole planet could cool by a few degrees. [5]
-It has happened before, on a smaller scale. After the Tambora eruption in 1815 came the year without a summer. [pause] Snow fell in June, and harvests failed across Europe. [long]
-A supereruption could be many times bigger. [pause] The good news: the chance in any given year is tiny, about one in seven hundred thousand. [long]
-So… how far away do you think you would need to be, to be safe?"
+"MONTH ONE. Eight thousand kilometres away, in Europe, the evening sky turns blood red. [pause]
+High above the clouds, sulphur gas from the volcano would spread into a thin veil around the planet, reflecting sunlight back into space. [long]
+YEAR ONE. Summer never comes. [pause] The whole Earth could cool by a few degrees. That sounds small. It isn't. [pause]
+In 1815, a far smaller eruption, Tambora, caused the year without a summer. [pause] Snow fell in June. Harvests failed across Europe, and food prices soared. [5]
+A supereruption could be many times worse. [long]
+The chance of it happening in any given year is tiny, about one in seven hundred thousand. [pause] But somewhere on Earth, it has happened before… and it will happen again. [long]
+So if it happened tomorrow… how far away would you want to be?"
 
 Feitencheck: Yellowstone-caldera ± 70 × 45 km; pluim > 30 km (stratosfeer); pyroclastische stromen > 100 km/u, 200–700 °C;
-bliksem in aswolken (echt); lahars bij regen; nat as tot ± 2.000 kg/m³ → 10 cm ≈ 200 kg/m²; Eyjafjallajökull 2010 ± 100.000
+bliksem in aswolken (echt); Krakatau 1883 gehoord op ± 4.800 km (Rodrigues); magmakamer Yellowstone ± 10.000 km³ deels gesmolten ≈ 2,5× Grand Canyon (USGS/Science 2015); 3 super-uitbarstingen (2,1 mln, 1,3 mln, 640.000 jaar geleden); 2010 vs dit: ± 0,25 km³ vs ± 1.000 km³; lahars bij regen; nat as tot ± 2.000 kg/m³ → 10 cm ≈ 200 kg/m²; Eyjafjallajökull 2010 ± 100.000
 vluchten geschrapt; Tambora 1815 → 1816 "year without a summer" (sneeuw in juni in Noord-Amerika, misoogsten in Europa);
 afkoeling "a few degrees" (modellen lopen uiteen → voorzichtig); kans Yellowstone ± 1 op 730.000 per jaar (USGS).
 
