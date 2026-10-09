@@ -44,7 +44,8 @@ export function create(E, TL) {
   if (P.breath != null) {
     const dir = new E.THREE.Vector3();
     E.emitters.push((tv, add, cam) => {
-      if (tv < P.breath || tv > (TL.beats.fade ?? 1e9)) return;
+      const BR = Array.isArray(P.breath) ? P.breath : [[P.breath, 1e9]];
+      if (!BR.some(([a, b]) => tv >= a && tv <= b) || tv > (TL.beats.fade ?? 1e9)) return;
       const a = (tv - P.breath) % 3.4; if (a > 1.6) return;
       E.camera.getWorldDirection(dir);
       for (let k = 0; k < 7; k++) {

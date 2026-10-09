@@ -206,6 +206,7 @@ export function build(E, TL, F) {
       under: { pos: [34, WATER + 3, -72], look: [0, 14, -175], drift: [0, .3, -4], fov: 60 },
       road: { pos: [43, 1.7, 21.5], look: [36, 1.3, 5], drift: [0, 0, -.1], fov: 55 },   // from the house fronts back to the quay road
       quay: { pos: [80, 2.6, -24.5], look: [0, 6, -14], drift: [-5, 0, 0], fov: 60 },
+      'pov-walk': { pos: [125, 1.65, -21.5], look: [60, 1.9, -23.5], drift: [-13, 0, 0], fov: 64, run: { amp: .035, freq: 1.8 } },   // walking along the quay
       north: { pos: [70, 3, -26], look: [70, 22, -360], drift: [-5, 0, 0], fov: 34, shake: .5 },
       towers: { pos: [125, 3, -26], look: [108, 24, -360], drift: [-3, 0, 0], fov: 30, shake: .4 },
     },
