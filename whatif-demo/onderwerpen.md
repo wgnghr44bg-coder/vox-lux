@@ -32,6 +32,7 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 | The Sun came closer to Earth? | sneeuw smelt, bosbranden (bergdorp) |
 | The Sun went out? (v2, verwijderd) | 8:20 aftellen, het licht valt weg in de stad |
 | The Sun went out? (v3, script eigenaar, in de maak) | tijdsprongen dag 0 → jaar 1.000: strand, straat, bergdorp (meer bevriest), bevroren kust |
+| The Moon started falling? (in de maak) | haven loopt onder, schepen op straat (h1); climax: maan breekt op de Roche-grens tot een ring |
 
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
@@ -42,7 +43,7 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 | # | Categorie | Voorbeeld | Kan nu? | Baksteen nodig |
 |---|---|---|---|---|
 | 1 | Earth & Nature | What if Earth stopped spinning? | ja | – |
-| 2 | Space & Universe | What if the Sun suddenly disappeared? | deels (zon uit/dichterbij) | Hemel |
+| 2 | Space & Universe | What if the Sun suddenly disappeared? | ja voor maan/aarde (maan op schaal, ruimte-shot, getij, haven; okt 2026); ringen/meteoren volgen met Moon-video | Hemel (rest: ringen, meteoren) |
 | 3 | Human Body | What if humans never needed sleep? | nee | Mensen dichtbij |
 | 4 | Civilization & Society | What if everyone disappeared for 24 hours? | deels (Tijd klaar 9 okt; lege stad/park volgt) | Tijd & stad |
 | 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
@@ -102,3 +103,4 @@ vos, hert, groepjes, vogels). Ook klaar: **Kleine dingen** (`engine/small.js`). 
 | 35 | You were trapped inside the Colosseum for one day? (lange video 16:9, History) | Rome → Colosseum → hypogeum → nacht | Tijd van de dag DAWN → NIGHT, menigte, velarium, paniek (geen geweld in beeld) | hoofdstuk 1 testbeelden, wacht op akkoord; plan: long/colosseum/plan.md |
 | 34 | Every human disappeared? (lange video 16:9, script eigenaar, max. 25 jaar) | Straat → rivierstad → park/buitenwijk → straat | Mensen weg, lichten uit, natuur neemt de stad terug (bakstenen Tijd, Dieren, park) | gepland na de Sun-video; plan: long/humans-disappeared/plan.md |
 | 35 | A supervolcano erupted? (lange video 16:9) | Natuurpark → dal → stad → Europese kust | Aardbeving, uitbarsting, as, vulkanische winter (15 → 8.000 km) | hoofdstuk 1 als proef (9 okt); plan: long/supervolcano/plan.md |
+| 36 | The Moon started falling toward Earth? (lange video 16:9) | Haven → (stad/bergen) → ruimte | Getij steeds hoger, maan groter, Roche-grens 18.000 km: maan breekt tot ring, meteoren | in de maak (proef hoofdstuk 1: topics/moon-c1-harbor); let op: #2 en #15 lijken hierop (getij/haven) |

@@ -543,7 +543,7 @@ def build_engine(topic: Path):
             place(bed, s_groan(rng, rng.uniform(2.5, 4.5)), tc, db(-9) * (.4 + I[min(n - 1, int(tc * SR))]), rng.uniform(-.6, .6))
             if rng.random() < .5: place(bed, s_metaal(rng), tc + rng.uniform(0, 1), db(-17), rng.uniform(-.7, .7))
             if rng.random() < .4: place(bed, s_kraak(rng), tc + rng.uniform(0, 1), db(-15), rng.uniform(-.7, .7))
-    elif force == "water":
+    elif force in ("water", "tide"):
         rush = layer(lambda r: norm(bp(r.standard_normal(n), 150, 2500) * lfo(r, n, .2, .4)), I ** 1.3)
         low = layer(lambda r: norm(lp(brown(r, n), 180) * lfo(r, n, .07, .5)), I)
         bed += (rush * db(-8) + low * db(-10)) * alive[:, None]

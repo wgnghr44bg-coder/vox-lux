@@ -13,6 +13,8 @@ import { createSkyObjects } from './sky-objects.js';
 import { createUfo } from './ufo.js';
 import { createBrand } from './brand.js';
 import { createPost } from './post.js';
+import { createMoon } from './moon.js';
+import { createSpace } from './space.js';
 import { smooth, clamp, hash, lerp } from './util.js';
 
 const qs = new URLSearchParams(location.search);
@@ -28,6 +30,7 @@ const STOP = TL.beats.stop;
 
 const E = createEngine();
 E.TL = TL;
+createMoon(E, TL);         // TL.moon: the Moon at its true size for its distance (before the place: it lights the night)
 const F = (await import(`./forces/${TL.force}.js`)).create(E, TL);
 const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 (await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
@@ -39,6 +42,7 @@ if (TL.time) (await import('./time.js')).applyTime(E, TL, F, P);   // baksteen T
 createSkyObjects(E, TL);
 createUfo(E, TL);                                     // TL.ufo: motherships, scouts, beams
 Object.assign(P.shots, TL.extraShots || {});          // scenario-specific camera standpoints
+createSpace(E, TL);        // TL.space: Earth and Moon seen from space (its own scene)
 createBrand(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
@@ -132,6 +136,7 @@ function applyLook(t) {
 }
 
 function renderScene(tv, fixed) {
+  if (!fixed && E.space?.render(tv)) return 0;
   const ts = fixed ? fixed.t : tv, t = Math.min(ts, STOP);
   applyLook(t);
   E.poseAll(t);
