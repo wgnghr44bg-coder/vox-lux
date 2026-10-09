@@ -115,6 +115,7 @@ export function createCamera(E, TL, P, F) {
         const amp = { impact: ev.e * .5, collapse: .6 * (ev.e || 1), splash: .2 * ev.e, snap: .12, crack: .06, glass: .05, tear: .08 }[ev.kind] || 0;
         shake += amp * Math.exp(-a * 5) / (1 + Math.max(0, dist - 15) / 30);
       }
+      if (F.shake) shake += F.shake(t) * (sh.shot.shake ?? 1);    // earthquake: the whole picture shakes (also on a tripod)
       shake = Math.min(shake, .45);
       const calm = TL.tripod ? 0 : 1 - smooth(TL.beats.end - 1, TL.beats.end + 1, tv) * .6;
       // handheld: breathing, jitter, a little roll now and then

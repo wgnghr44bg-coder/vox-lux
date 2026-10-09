@@ -428,6 +428,31 @@ def s_berg(rng, sec=30):
     return x
 
 
+def s_park(rng, sec=30):
+    """Forest park: leaves in a light breeze, birds now and then (nature-park)."""
+    n = int(sec * SR)
+    x = norm(stereo(rng, lambda r: bp(r.standard_normal(n), 1200, 6000) * np.clip(lfo(r, n, .09, .9), .05, None), .9), .25)
+    x += norm(stereo(rng, lambda r: bp(brown(r, n), 150, 900) * lfo(r, n, .05, .6), .8), .2)
+    for _ in range(14):
+        L = int(rng.uniform(.12, .3) * SR); tt = np.arange(L) / SR; p = int(rng.uniform(0, sec - 1) * SR); f0 = rng.uniform(2500, 4200)
+        call = np.sin(2 * np.pi * np.cumsum(f0 * (1 + .25 * np.sin(2 * np.pi * rng.uniform(15, 30) * tt))) / SR) * np.sin(np.pi * tt / tt[-1]) * .05
+        for rep in range(int(rng.integers(1, 4))):
+            q = p + rep * int(.35 * SR)
+            if q + L < n: x[q:q + L] += pan(call, rng.uniform(-.8, .8))
+    return x
+
+
+def s_siren(rng, sec):
+    """Civil-defence siren far away: a slow rising and falling wail with some echo."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    f = 430 + 380 * (.5 - .5 * np.cos(2 * np.pi * t / 7.0))
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    tone = np.sin(ph) + .35 * np.sin(2 * ph) + .15 * np.sin(3 * ph)
+    tone = lp(tone, 2500) * smooth(0, 2.5, t)
+    x = echo(tone, (0.18, 0.41, 0.77), (0.35, 0.22, 0.12))
+    return np.stack([x, x * .92], 1) / (np.abs(x).max() + 1e-9)
+
+
 def s_snap(rng):
     """A steel cable snapping: sharp crack and a falling twang."""
     n = int(2.2 * SR); t = np.arange(n) / SR
@@ -489,7 +514,7 @@ def build_engine(topic: Path):
 
     # 1. place ambience, fading as the force takes over
     ambs = {"stad": lambda: lib["stad"], "rivier": lambda: lib["stad"] * .6 + s_water(rng) * .5,
-            "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng)}
+            "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng), "park": lambda: s_park(rng)}
     A = loop(ambs.get(amb, ambs["stad"])(), n)
     bed += A * (db(-14) * (1 - smooth(.25, .7, I)) * alive + db(-30) * alive)[:, None]
 
@@ -533,6 +558,16 @@ def build_engine(topic: Path):
             if I[i] > .6:                        # ice only cracks once it is really frozen
                 place(bed, s_ice(rng), tc, db(A0.get("ice", -18)) * I[i], rng.uniform(-.8, .8))
 
+    elif force == "quake":
+        # deep ground rumble that follows the shaking, plus rattling things near you
+        low = layer(lambda r: norm(lp(brown(r, n), 90) * lfo(r, n, .3, .5)), I ** .9)
+        mid = layer(lambda r: norm(bp(brown(r, n), 80, 400) * lfo(r, n, 1.7, .7)), I ** 1.4)
+        bed += (low * db(-4) + mid * db(-12)) * alive[:, None]
+        for e in EV:
+            if e["kind"] != "quake" or e["t"] >= STOP: continue
+            for j in range(int(2 + e["e"] * 8)):
+                place(bed, s_rammel(rng), e["t"] + rng.uniform(.2, max(.4, e.get("dur", 2) * .7)), db(-16) * e["e"], rng.uniform(-.8, .8))
+
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}
     # footsteps in snow (TL.audio.steps = [[a, b], ...], one crunch every ~0.6 s) and a church bell (TL.audio.bell = [t, ...])
@@ -550,6 +585,9 @@ def build_engine(topic: Path):
                    ((220, 1, .6), (440 * .99, .5, .9), (528, .45, 1.1), (660, .3, 1.4), (880 * 1.01, .25, 1.8), (1210, .15, 2.4)))
         bell = bell * np.minimum(1, tt / .004)
         place(bed, np.stack([bell, bell], 1) / np.abs(bell).max(), tb, db(-13), 0)
+    for a_, b_ in AUD.get("siren", []):          # sirens (props-alarm.js), far away and echoing
+        b_ = min(b_, T)
+        if b_ - a_ > .5: place(bed, s_siren(rng, b_ - a_) * np.minimum(1, (b_ - a_ - np.arange(int((b_ - a_) * SR)) / SR) / 1.5)[:, None], a_, db(-15))
     if "heartbeat" in AUD:
         a, b = AUD["heartbeat"]; tc = a
         while tc < min(b, STOP):
@@ -607,6 +645,10 @@ def build_engine(topic: Path):
                     if q + l < L: cr[q:q + l] += rng.standard_normal(l) * np.exp(-np.arange(l) / (l / 4)) * rng.uniform(.1, 1)
                 cr = bp(cr, 800, 7000) + lp(rng.standard_normal(L), 300) * .15
                 place(bed, cr * smooth(0, 1, np.arange(L) / SR)[:, None].ravel(), e["t"], db(-22) * e["e"], p)
+        elif e["kind"] == "rift":                    # the ground cracks open: a dry tearing crack and a deep thud
+            place(bed, s_kraak(rng), e["t"], db(-6), p)
+            place(bed, lp(s_klap(rng, 1.6), 600), e["t"] + .05, db(-8), p)
+            place(bed, lp(s_puin(rng), 2000), e["t"] + .3, db(-14), p)
         elif e["kind"] == "snap":
             place(bed, s_snap(rng), e["t"], db(-9), p)
         elif e["kind"] == "splash":
