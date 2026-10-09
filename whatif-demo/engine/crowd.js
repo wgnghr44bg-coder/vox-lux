@@ -77,7 +77,7 @@ export function groups(E, TL, shots) {
     for (let i = 0; i < n; i++) {
       const x = cx + (R() - .5) * sp * 2, z = cz + (R() - .5) * sp, face = (G.face ?? 0) + (R() - .5) * 2.2;
       const look = (B.lookUp ?? 1e9) + R() * 1.2, go = (B.shelter ?? 1e9) + R() * 2, away = R() < .5 ? -1 : 1;
-      person(E, 5000 + gi * 50 + i, { y: gy + .02, path(t) {
+      (E.personFn || person)(E, 5000 + gi * 50 + i, { y: gy + .02, kind: G.kinds?.[i % G.kinds.length], path(t) {
         if (t > go) { const w = (t - go) * 1.6; return { x: x + away * w, z, rot: away * Math.PI / 2, moving: 1, speed: 1.6, visible: w < 40 }; }
         const up = smooth(look, look + 1.2, t);
         return { x, z, rot: face + Math.sin(t * .4 + i) * .15 * (1 - up), moving: 0, speed: 0, headUp: up * .75, stoop: 0 };

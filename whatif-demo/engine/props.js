@@ -136,8 +136,8 @@ const TOPS = [...SHIRTS, 0xb8503e, 0x3f6f9a, 0xd9b04a, 0x6b8f5a, 0xe8e2d4, 0x7a3
 export function person(E, seed, o = {}) {
   const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); E.scene.add(g); g.rotation.order = 'YXZ';
   const pick = a => a[Math.floor(R() * a.length)], M = c => lam(c), S = m => shadowed(m);
-  const skin = M(pick(SKIN)), hairC = M(pick(HAIR)), top = M(o.coat ?? pick(TOPS)), pants = M(pick(PANTS)), shoe = M(0x24221f);
-  const skirt = R() < .3, hairType = pick(['short', 'short', 'long', 'bun', 'tail', 'short']), big = .92 + R() * .16;
+  const skin = M(pick(SKIN)), hairC = M(pick(HAIR)), top = M(o.coat ?? pick(TOPS)), pants = M(o.pants ?? pick(PANTS)), shoe = M(o.shoe ?? 0x24221f);
+  const skirt = o.skirt ?? R() < .3, hairType = pick(['short', 'short', 'long', 'bun', 'tail', 'short']), big = .92 + R() * .16;
   g.scale.setScalar(big);
   const upper = new THREE.Group(); upper.position.y = .82; g.add(upper);
   const hips = S(new THREE.Mesh(new THREE.BoxGeometry(.34, .16, .2), skirt ? top : pants)); hips.position.y = .04; upper.add(hips);
@@ -165,6 +165,7 @@ export function person(E, seed, o = {}) {
   const legs = [-1, 1].map(sx => { const p = new THREE.Group(); p.position.set(sx * .085, .82, 0); g.add(p);
     const l = S(new THREE.Mesh(new THREE.BoxGeometry(.13, .78, .14), skirt ? skin : pants)); l.position.y = -.39; p.add(l);
     const f = S(new THREE.Mesh(new THREE.BoxGeometry(.13, .07, .24), shoe)); f.position.set(0, -.79, .04); p.add(f); return p; });
+  o.dress?.({ E, R, g, upper, headG, hair, top, skin, hairC, arms, legs, skirt });   // costume hook (ancient.js: toga, tunic, helmet)
   if (o.logo) {        // channel logo on the jacket: o.logo = 'front' (chest, local +z) or 'back'
     const m = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }), lg = new THREE.Mesh(new THREE.PlaneGeometry(.32, .32), m);
     const back = o.logo === 'back'; lg.position.set(0, .38, back ? -.2 : .2); lg.rotation.y = back ? Math.PI : 0; upper.add(lg);
