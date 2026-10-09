@@ -171,7 +171,7 @@ export function person(E, seed, o = {}) {
     (E.loading ||= []).push(new Promise(ok => new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; m.map = t; m.needsUpdate = true; ok(); }, undefined, ok)));
   }
   const ph = R() * 6, react = o.react ?? pick(['point', 'shade', 'head', 'down', 'shade', 'point']);
-  const P = { g, R, ph, update(t, F) {
+  const P = { g, R, ph, path: o.path, baseY: o.y ?? .2, update(t, F) {
     const s = o.path(t, F, P);
     g.visible = s.visible !== false; if (!g.visible) return;
     g.position.set(s.x, (o.y ?? .2) + (s.y ?? 0), s.z); g.rotation.y = s.rot; g.rotation.x = s.lie ? -Math.PI / 2 : 0;
@@ -209,7 +209,7 @@ export function car(E, seed, o) {
   E.lights.push({ mat: front.material, off: 0x55534c, on: 0xfff1cf, at: R() * .1 });
   // lane: axis 'z' (x fixed) or 'x' (z fixed); path wraps within [a, b]
   const { x0, z0, dir, v, axis = 'z', a = -300, b = 80, brakeT = 1e9, y = .75 } = o;
-  const len = b - a, Tb = 2.2;
+  const len = b - a, Tb = o.Tb ?? 2.2;   // o.Tb: longer = the car rolls on and coasts to a stop (no driver)
   const s = t => { if (t < brakeT) return v * t; const tau = Math.min(t - brakeT, Tb); return v * brakeT + v * tau - v * tau * tau / (2 * Tb); };
   const wrap = q => a + ((q - a) % len + len) % len;
   const drive = t => {
@@ -219,7 +219,7 @@ export function car(E, seed, o) {
   };
   const body = E.body({ kind: 'car', obj: g, drive, k: .021, mu: .8, lift: .15, spin: .15, heavy: 2, hx: .9, hy: .75, hz: 2.15, density: .55,
     strength: o.strength ?? { wind: .3 + R() * .15, water: (o.ground ?? 0) + .55 + R() * .2 }, brakeT, wob: .3,
-    onPose(t, st, w) { brake.material.color.setHex(t > brakeT - .5 && t < brakeT + 30 && !E.powerOut?.(t) ? 0xc8352b : 0x5a2420);
+    onPose(t, st, w) { brake.material.color.setHex(!o.noBrakeLight && t > brakeT - .5 && t < brakeT + 30 && !E.powerOut?.(t) ? 0xc8352b : 0x5a2420);
       const d = o.F?.droop(t) ?? 0; shell.position.y = -d * .22; } });
   // o.driver = { out: s after the stop, to: [[x, z], ...] }: the driver gets out on the left and walks away (vanishes at the end)
   if (o.driver) {

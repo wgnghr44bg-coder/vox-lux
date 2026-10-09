@@ -32,6 +32,7 @@ const F = (await import(`./forces/${TL.force}.js`)).create(E, TL);
 const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 (await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
 if (TL.animals) (await import('./animals.js')).animals(E, TL, P.shots);   // baksteen Dieren
+if (TL.beats.vanish != null || TL.traffic || TL.bikes || TL.crashes || TL.smoke || TL.extraShots) (await import('./small.js')).applySmall(E, TL, F, P);   // baksteen Kleine dingen
 E.F = F; E.P = P;
 F.attach?.(P);
 if (TL.time) (await import('./time.js')).applyTime(E, TL, F, P);   // baksteen Tijd: days pass, nature takes over
@@ -135,7 +136,7 @@ function renderScene(tv, fixed) {
   applyLook(t);
   E.poseAll(t);
   for (const u of E.updates) u(t, F, ts);
-  for (const p of E.people) p.update(t, F);
+  for (const p of E.people) { p.update(t, F); if (t >= (TL.beats.vanish ?? 1e9)) p.g.visible = false; }   // beats.vanish: everyone gone
   for (const a of E.animals) a.update(t, F, ts);
   poseBodies(E, t, F);
   poseFalls(t);

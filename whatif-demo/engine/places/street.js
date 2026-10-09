@@ -91,12 +91,12 @@ export function build(E, TL, F) {
     E.bend.push({ pose(t, F) { const L = F.lateral(t); head.rotation.x = smooth(.08, .75, L.a) * .5; g.rotation.x = smooth(.75, 1.6, L.a) * .45; } });
   }
   E.powerOut = t => t > (B.powerOut ?? 1e9);
-  E.updates.push(t => { const [r0, r1] = B.redLight || [1e9, 1e9];
-    const st = E.powerOut(t) ? -1 : t > r0 - 1 && t < r0 ? 1 : t >= r0 && t < r1 ? 0 : 2;
+  E.updates.push(t => { const [r0, r1] = B.redLight || [1e9, 1e9], cy = TL.lightCycle, u = cy ? (t % cy) / cy : 0;   // TL.lightCycle: seconds per green-amber-red round
+    const st = E.powerOut(t) ? -1 : cy ? (u < .45 ? 2 : u < .55 ? 1 : 0) : t > r0 - 1 && t < r0 ? 1 : t >= r0 && t < r1 ? 0 : 2;
     tl.forEach(l => l.bulbs.forEach((b, i) => b.material.color.setHex(st === i ? [0xc4392f, 0xd99a2b, 0x4fae6a][i] : 0x222222))); });
 
   // cars in four lanes
-  { const R = rng(44);
+  if (TL.cars !== false) { const R = rng(44);   // TL.cars: false = no traffic of its own (use TL.traffic, small.js)
     [[-7.4, 1], [-2.6, 1], [2.6, -1], [7.4, -1]].forEach(([x, dir], li) => { for (let k = 0; k < 4; k++) {
       const z0 = dir > 0 ? -20 - k * (30 + R() * 25) : 30 - k * (30 + R() * 25) - 10;
       car(E, li * 7 + k, { x0: x, z0, dir, v: 9 + R() * 3, axis: 'z', a: -280, b: 60, brakeT: (B.carsStop ?? 1e9) + R() * 2.2, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }) });

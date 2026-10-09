@@ -62,7 +62,7 @@ Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede
 6 Dieren – dino's (± 5–6%).
 Klaar (9 okt 2026): **Tijd** (`engine/time.js`, `TL.time`: dag/nacht, wolken, seizoenen, regen, sneeuw, gras, klimop, jonge bomen,
 stof, roest, kapotte ramen; kracht `calm` = geen kracht) en **Dieren** (`engine/animals.js`, `TL.animals`: hond (met lege riem),
-vos, hert, groepjes, vogels). Testbeelden: `topics/proef-tijd`, `topics/proef-dieren`. Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
+vos, hert, groepjes, vogels). Ook klaar: **Kleine dingen** (`engine/small.js`). Testbeelden: `topics/proef-tijd`, `topics/proef-dieren`, `topics/humans-1-street`. Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
 
 | # | What if… | Plek | Kracht / beeld | Status |
 |---|---|---|---|---|

@@ -516,7 +516,9 @@ def build_engine(topic: Path):
     ambs = {"stad": lambda: lib["stad"], "rivier": lambda: lib["stad"] * .6 + s_water(rng) * .5,
             "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng), "park": lambda: s_park(rng)}
     A = loop(ambs.get(amb, ambs["stad"])(), n)
-    bed += A * (db(-14) * (1 - smooth(.25, .7, I)) * alive + db(-30) * alive)[:, None]
+    q = (TL.get("audio") or {}).get("quiet")      # TL.audio.quiet = t: the city hush (people gone) – murmur falls away in half a second
+    hush = 1 - .88 * smooth(q, q + .5, t) if q is not None else 1
+    bed += A * (db(-14) * (1 - smooth(.25, .7, I)) * alive * hush + db(-30) * alive)[:, None]
 
     def layer(make, gain, width=.7):
         return stereo(rng, make, width) * gain[:, None]
@@ -663,6 +665,31 @@ def build_engine(topic: Path):
         elif e["kind"] in ("crack", "tear"):
             place(bed, s_kraak(rng), e["t"], db(-8), p)
             place(bed, s_metaal(rng), e["t"] + .2, db(-14), -p)
+        # baksteen Kleine dingen (engine/small.js)
+        elif e["kind"] == "click":        # everyone gone: one dry click
+            L = int(.06 * SR); tt = np.arange(L) / SR
+            ck = (hp(rng.standard_normal(L), 1800) * np.exp(-tt * 160) + np.sin(2 * np.pi * 2300 * tt) * np.exp(-tt * 90) * .5)
+            place(bed, np.stack([ck, ck], 1) / (np.abs(ck).max() + 1e-9), e["t"], db(-6))
+        elif e["kind"] == "drop":         # a bag, a phone or a bicycle hits the ground
+            L = int(.3 * SR); tt = np.arange(L) / SR
+            th = lp(rng.standard_normal(L), 500) * np.exp(-tt * 25) + bp(rng.standard_normal(L), 1200, 5000) * np.exp(-tt * 45) * .3
+            place(bed, np.stack([th, th], 1) / (np.abs(th).max() + 1e-9), e["t"], db(-15) * e.get("e", 1) ** .5, p)
+            if e.get("e", 1) > .8: place(bed, s_metaal(rng), e["t"] + .03, db(-17), p)
+        elif e["kind"] == "crash":        # two cars: bang, glass, metal
+            place(bed, s_klap(rng, 1.2), e["t"], db(-5), p)
+            place(bed, s_glas(rng), e["t"] + .05, db(-10), p)
+            place(bed, s_metaal(rng), e["t"] + .1, db(-9), -p * .5)
+            place(bed, s_rammel(rng) if "rammel" in lib else s_metaal(rng), e["t"] + .5, db(-18), p)
+        elif e["kind"] == "alarm":        # car alarm: fast two-tone whoop, distant-ish
+            dur = min(e.get("dur", 15), max(0.1, min(STOP, T) - e["t"])); L = int(dur * SR); tt = np.arange(L) / SR
+            f = np.where((tt * 1.25) % 1 < .5, 1350 + 450 * ((tt * 5) % 1), 850)
+            al = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * .5 + np.sin(2 * np.pi * np.cumsum(f) / SR) * .5
+            al = lp(al, 3500) * smooth(0, .05, tt) * (1 - smooth(dur - .3, dur, tt))
+            place(bed, np.stack([al, al], 1), e["t"], db(-27) * e.get("e", 1), p)
+        elif e["kind"] == "buzz":         # electric hum of a city with nobody: 50 Hz + harmonics
+            dur = min(e.get("dur", 8), max(0.1, min(STOP, T) - e["t"])); L = int(dur * SR); tt = np.arange(L) / SR
+            hm = sum(np.sin(2 * np.pi * 50 * k * tt) / k for k in (1, 2, 3, 5)) * smooth(0, 1, tt) * (1 - smooth(dur - 1, dur, tt))
+            place(bed, np.stack([hm, hm], 1), e["t"], db(-26) * e.get("e", 1), p)
 
     # 5. hard stop, then a quiet aftermath
     bed[i0:] *= 0
