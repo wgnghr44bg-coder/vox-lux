@@ -88,4 +88,5 @@ Geen lange video's (ook niet na de reset) tot de eigenaar akkoord geeft; Shorts 
 | 2026-10-07 | Beide | Overleg (stem, planning, ritme) | ± 78% | 87% | ± 9% | screenshot 13:18 |
 | 2026-10-07 | IfScape3D | Lang: What if the Sun went out? (8:28, 5 hoofdstukken, thumbnail; live wo 7 okt 21:00) | 87% | ± 95% | ± 8% | schatting; bestaande plekken (bergdorp, straat, boulevard, rivierstad) met kou-kracht; run kon niet pushen (repo niet aan routine gekoppeld): scenario's/scripts van sun-1..5 staan niet in git, alleen de video op YouTube |
 | 2026-10-09 | IfScape3D | Screenshot eigenaar 19:49: week 3% (reset za ± 12:00), sessie 19% | – | 3% | – | echte stand; Sun-video nieuwe stijl + bakstenen mensen/filmlook gebouwd |
+| 2026-10-09 | IfScape3D | Lang dino's: voorstel script + shotlijst (wacht op akkoord) | ± 3% | ± 3% | < 1% | nog niets gebouwd |
 | 2026-10-09 | IfScape3D | Bakstenen Tijd + Dieren gebouwd (Every human disappeared), testbeelden naar eigenaar | 3% | ± 7% | ± 4% | schatting; park/buitenwijk + kleine dingen nog niet (wacht op akkoord eigenaar: grens 2 per week) |
