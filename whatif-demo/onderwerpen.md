@@ -31,6 +31,7 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 | The wind never stopped? | straat → boulevard → rivierstad, brug bezwijkt |
 | The Sun came closer to Earth? | sneeuw smelt, bosbranden (bergdorp) |
 | The Sun went out? (v2, verwijderd) | 8:20 aftellen, het licht valt weg in de stad |
+| Aliens landed tomorrow? (lang, in de maak) | moederschip voor de zon, kleine schepen scannen met lichtbundels, schip landt op het strand bij zonsopkomst en de deur gaat open |
 | The Sun went out? (v3, script eigenaar, in de maak) | tijdsprongen dag 0 → jaar 1.000: strand, straat, bergdorp (meer bevriest), bevroren kust |
 | The Moon started falling? (in de maak) | haven loopt onder, schepen op straat (h1); climax: maan breekt op de Roche-grens tot een ring |
 
@@ -46,12 +47,12 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 | 2 | Space & Universe | What if the Sun suddenly disappeared? | ja voor maan/aarde (maan op schaal, ruimte-shot, getij, haven; okt 2026); ringen/meteoren volgen met Moon-video | Hemel (rest: ringen, meteoren) |
 | 3 | Human Body | What if humans never needed sleep? | nee | Mensen dichtbij |
 | 4 | Civilization & Society | What if everyone disappeared for 24 hours? | deels (Tijd klaar 9 okt; lege stad/park volgt) | Tijd & stad |
-| 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
+| 5 | Technology & AI | What if AI controlled the world? | deels (tv-nieuws/studio, huiskamer, leger klaar 9 okt; robots volgen) | Tijd & stad (+ robots) |
 | 6 | History | What if the Roman Empire never fell? | deels (Rome 80 n.Chr.: straat, Colosseum, Romeinen, menigte; nog niet: hypogeum, leeuw) | Oude plek (Rome) – plek `colosseum`, `ancient.js`, kracht `day` |
 | 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels: aardbeving, natuurpark, sirene/wegblokkade klaar (9 okt); as, lava, bosbrand, lahar, aslucht volgen | Aarde beweegt (rest) |
 | 8 | Animals & Evolution | What if dinosaurs never went extinct? | ja (hond, vos, hert, vogels + dino's, olifant, mammoet, oerwoud, hekken: 9 okt) | – (plan: long/dinosaurs/plan.md) |
 | 9 | Science & Physics | What if gravity suddenly disappeared? | ja | – |
-| 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | nee | Hemel (ufo) |
+| 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | ja (Ufo, Leger, Tv-nieuws, Huiskamer klaar 9 okt) | – |
 | 11 | Horror & Dark What If | What if nobody could die after midnight? | deels (nacht via Tijd) | Tijd & stad (nacht); spanning door sfeer, nooit gewonden/lichamen |
 | 12 | Money & Economy | What if everyone received €1 million? | nee | Mensen dichtbij (+ drukte, prijzenteller) |
 | 13 | Psychology & Human Behavior | What if everyone could read minds? | nee | Mensen dichtbij |
@@ -110,3 +111,6 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 37 | Dinosaurs never went extinct? (lange video 16:9) | Oerwoud → dinopark → storm → stad bij nacht | Dino's komen steeds dichterbij (1 km → 3 m) | in de maak; plan: long/dinosaurs/plan.md |
 | 38 | A zoo's animals all escaped? | Dierentuin (hekken, poort) → stad | Olifanten en giraffen in de straat, iedereen binnen | gepland (bakstenen Dieren, Hekken) |
 | 39 | Mammoths came back? | Toendra/bergdorp in de winter | Kudde mammoeten door het dorp, sneeuw | gepland (Grote dieren: mammoth) |
+| 40 | Aliens landed tomorrow? (lange video 16:9) | Straat → huiskamer/studio/etalage → rivierstad → strand | Moederschip, breaking news, leger, kleine schepen scannen, landing bij zonsopkomst (HOUR 0 → WEEK 1) | in de maak (9 okt); plan: long/aliens-landed/plan.md; topics/aliens-1..4 |
+| 41 | Aliens sent us a message? | Nieuwsstudio, huiskamer, straat bij nacht | Signaal uit de ruimte, alle tv's tonen het, mensen kijken omhoog | gepland (bakstenen Tv-nieuws, Huiskamer) |
+| 42 | A UFO crashed in your town? | Straat → bos/natuurpark | Vuurstreep, leger zet alles af, wegversperring, helikopters | gepland (bakstenen Ufo, Leger) |

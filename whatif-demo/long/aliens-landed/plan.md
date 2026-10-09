@@ -98,3 +98,10 @@ Eindkaart: WHAT IF ALIENS LANDED TOMORROW? — IFSCAPE3D
 4. **Huiskamer** (plek `engine/places/living-room.js`): bank, tv, raam met uitzicht op de stad; mensen binnen.
 
 Schatting usage: bakstenen ± 15–20%, video ± 6–8%.
+
+## Stand 9 okt (gebouwd)
+- Akkoord eigenaar op de beelden ("Maak de video"). Scenario's: `topics/aliens-1-street`, `aliens-2-news`, `aliens-3-army`, `aliens-4-contact`.
+- Afwijkingen van het voorstel: teller hoofdstuk 1 = 12.000 → 2.000 m (schip komt binnen), hoofdstuk 4 = hoogte van het landende schip (900 → 0 m);
+  hoofdstuk 2 zin over supermarkten → "People rush out for water and food. In 2020, shelves emptied over weeks. Now it takes one afternoon." (beeld: etalage, mensen haasten zich).
+- Stille climax: stilte in de stem verlengd (hoofdstuk 1: 3 s, 2: 3 s, 3: 3 s, 4: 5 s).
+- Overzicht bakstenen: `bakstenen.jpg`; hoofdstuk 1: `h1-overzicht.jpg`.
