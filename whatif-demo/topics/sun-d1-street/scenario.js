@@ -30,7 +30,7 @@ export default function (at) {
     subAt.push([t, clock(Math.min(s, 599))]);
   }
   return {
-    T_END, tripod: true, brand: false, showTitle: true,
+    T_END, tripod: true, brand: false, showTitle: true, post: true,
     titleOut: at('imagine').e + .4,
     hud: { label: 'DAYLIGHT', unit: '%', decimals: 0, sub: clock(0), subAt },
     counter: [[0, 100], [climax, 100], [climax + .8, 55], [dark, 0], [T_END, 0]],

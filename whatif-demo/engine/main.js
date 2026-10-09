@@ -11,6 +11,7 @@ import { buildTL } from './timeline.js';
 import { createCamera } from './camera.js';
 import { createSkyObjects } from './sky-objects.js';
 import { createBrand } from './brand.js';
+import { createPost } from './post.js';
 import { smooth, clamp, hash, lerp } from './util.js';
 
 const qs = new URLSearchParams(location.search);
@@ -133,7 +134,8 @@ function renderScene(tv, fixed) {
   poseFalls(t);
   cameraAt(tv, fixed);
   const n = dust.render(ts, E.camera.position);
-  E.renderer.render(E.scene, E.camera);
+  if (TL.post && !E.post) E.post = createPost(E, E.renderer.domElement.width, E.renderer.domElement.height, typeof TL.post === 'object' ? TL.post : {});
+  if (E.post) E.post.render(); else E.renderer.render(E.scene, E.camera);
   return n;
 }
 
