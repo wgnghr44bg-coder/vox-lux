@@ -1,4 +1,4 @@
-// Imagine the Sun went out (owner's shot list, okt 2026). Chapter 1: the street, day 0, 12:00 -> 12:08 PM.
+// Imagine the Sun went out (owner's shot list, okt 2026). Chapter 1: the street, day 0, 12:00 -> 12:08.
 export const topic = {
   number: 421, slug: 'sun-d1-street', place: 'street', force: 'cold', wide: true,
   question: 'What if the Sun went out?',
@@ -20,7 +20,7 @@ export const lines = [
   ['lost', 'But the world has just lost the most important source of energy it has.', 'none'],
 ];
 
-const clock = s => { const m = Math.floor(s / 60), x = Math.round(s % 60); return `DAY 0 — 12:${String(m).padStart(2, '0')}:${String(x).padStart(2, '0')} PM`; };
+const clock = s => { const m = Math.floor(s / 60), x = Math.round(s % 60); return `DAY 0 — 12:${String(m).padStart(2, '0')}:${String(x).padStart(2, '0')}`; };
 
 export default function (at) {
   const t0 = at('now').e, climax = at('eight').e + .2, dark = climax + 2.5, T_END = at('lost').e + 2;
@@ -36,7 +36,7 @@ export default function (at) {
     hud: { label: 'DAYLIGHT', unit: '%', decimals: 0, sub: clock(0), subAt },
     counter: [[0, 100], [climax, 100], [climax + .8, 55], [dark, 0], [T_END, 0]],
     range: [100, 0], forceParams: { darkAt: [0, 1], frostAt: [2, 3], snow: 0 },
-    captions: [[at('old').s, at('old').s + 3.5, 'Light takes 8 min 20 s.'], [at('eight').s, at('eight').e + 1.5, '12:08 PM.']],
+    captions: [[at('old').s, at('old').s + 3.5, 'Light takes 8 min 20 s.'], [at('eight').s, at('eight').e + 1.5, '12:08.']],
     shots: [[0, 'high'], [at('energy').s - .2, 'corner'], [at('every').s - .2, 'group'], [at('now').s - .2, 'avenue'],
             [at('old').s - .2, 'pov-up'], [at('old').s + 4, 'crossing'], [at('warning').s - .2, 'high'],
             [at('eight').s - .2, 'corner'], [climax + 2.2, 'group'],
