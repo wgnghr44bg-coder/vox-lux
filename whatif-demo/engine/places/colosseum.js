@@ -154,6 +154,10 @@ export function build(E, TL, F) {
     const cav = new THREE.Mesh(geo.toNonIndexed ? geo : geo, kinds.map(k => mats[k])); cav.receiveShadow = true; cav.castShadow = true; scene.add(cav);
     geo.deleteAttribute('normal'); geo.computeVertexNormals();
   }
+  // substructure: a solid ring under the stands (vaults), so the arches open onto a corridor, not onto the far stands
+  { const ring = [], NR = 160; for (let k = 0; k < NR; k++) { const th = (k + .5) / NR * 2 * Math.PI, [x, z] = ell(dIn - 3, th), [x1, z1] = ell(dIn - 3, k / NR * 6.283), [x2, z2] = ell(dIn - 3, (k + 1) / NR * 6.283);
+      ring.push([x, 17.5, z, Math.atan2(Math.cos(th) / (A0 + dIn - 3), Math.sin(th) / (B0 + dIn - 3)), Math.hypot(x2 - x1, z2 - z1) * 1.03, 1, 1]); }
+    inst(new THREE.BoxGeometry(1, 35, 1.2), lam(0x8c816c), ring, false); }
   // vomitoria (dark doorways in the stands) and stair lines
   { const vom = [], stairs = [];
     for (const [d, y, n, len] of [[9, 8.2, 32, 0], [22, 20, 40, 0], [34, 31.5, 48, 0]]) for (let k = 0; k < n; k++) {
@@ -255,7 +259,7 @@ export function build(E, TL, F) {
 
   // ---------- shots ----------
   const out = (k, d, y, look = [0, 20, ZC]) => { const b = bay(k, d); return [b.x, y, b.z]; };
-  const gOut2 = bay(gk, dOut + 24), gIn = bay(gk, dIn - 4), gOut = bay(gk, dOut + 14), gNear = bay(gk, dOut + 5);
+  const gOut2 = bay(gk, dOut + 24), gFar = bay(gk, dOut + 60), gIn = bay(gk, dIn - 4), gOut = bay(gk, dOut + 14), gNear = bay(gk, dOut + 5);
   const [vx, vz] = ell(22.4, Math.PI / 2 + .35), [tx, tz] = ell(48, -Math.PI / 2 + .5);
   const shots = {
     aerial: { pos: [150, 120, 40], look: [0, 10, ZC + 30], drift: [-6, 0, -3], fov: 50 },
@@ -264,8 +268,8 @@ export function build(E, TL, F) {
     'pov-street': { pos: [1.4, 1.65, 8], look: [.4, 14, ZC], drift: [0, 0, -12], fov: 62, run: { freq: 1.8, amp: .025 } },
     square: { pos: [-20, 4, -92], look: [0, 24, ZC + 40], drift: [3, 0, -.6], fov: 55 },
     market: { pos: [26, 2.2, -92], look: [5, 10, -160], drift: [-.6, 0, -1], fov: 55 },
-    facade: { pos: [gOut.x + 30, 2, gOut.z + 20], look: [gb.x, 22, gb.z], drift: [-1.5, 0, 0], fov: 55 },
-    gate: { pos: [gOut2.x, 1.8, gOut2.z], look: [gNear.x, 6, gNear.z], drift: [-gb.n[0] * 3, 0, -gb.n[1] * 3], fov: 52 },
+    facade: { pos: [gFar.x + gb.n[1] * 25, 2, gFar.z - gb.n[0] * 25], look: [gb.x, 22, gb.z], drift: [-1.5, 0, 0], fov: 55 },
+    gate: { pos: [gOut2.x, 1.8, gOut2.z], look: [gNear.x, 7.2, gNear.z], drift: [-gb.n[0] * 3, 0, -gb.n[1] * 3], fov: 52 },
     'pov-gate': { pos: [gNear.x, 1.65, gNear.z], look: [gIn.x, 2.6, gIn.z], drift: [-gb.n[0] * 11, 0, -gb.n[1] * 11], fov: 62, run: { freq: 1.8, amp: .02 } },
     reveal: { pos: [vx, 22, vz], look: [0, 9, ZC - 6], drift: [-Math.cos(Math.PI / 2 + .35) * 1.2, .2, -Math.sin(Math.PI / 2 + .35) * 1.2], fov: 62 },
     bowl: { pos: [-A0 - 10, 30, ZC + 40], look: [20, 6, ZC - 10], drift: [0, 0, -1.2], fov: 60 },
