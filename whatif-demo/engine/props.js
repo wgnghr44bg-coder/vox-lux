@@ -67,7 +67,7 @@ export function roundTree(E, x, z, s, seed, o = {}) {
   const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); g.position.set(x, o.y ?? .2, z); g.scale.setScalar(s); E.scene.add(g);
   const piv = new THREE.Group(); g.add(piv);
   const bark = lam(0x5b4a3a), leaf = lam(o.color ?? [0x56703f, 0x617a43, 0x4d653a][Math.floor(R() * 3)]);
-  E.frost.push(leaf);
+  E.frost.push(leaf); E.leaves.push(leaf);
   const tr = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.22, .32, 3.2, 6), bark)); tr.position.y = 1.6; piv.add(tr);
   const top = shadowed(new THREE.Mesh(new THREE.IcosahedronGeometry(1.9, 0), leaf)); top.position.y = 4.4; top.scale.set(1, .85, 1); piv.add(top);
   const branches = [];

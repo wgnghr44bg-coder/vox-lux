@@ -78,7 +78,7 @@ export function createEngine() {
     const key = color + kind + (roof ?? '');
     if (!matCache[key]) {
       const side = lam(0xffffff, { map: facadeTex(color, kind) }), top = lam(roof ?? new THREE.Color(color).multiplyScalar(.75));
-      matCache[key] = [side, side, top, top, side, side];
+      matCache[key] = [side, side, top, top, side, side]; side.userData.facade = { color, kind };
       frost.push(side, top);
       if (kind === 'win' || kind === 'chalet' || kind === 'tower') {      // windows glow in the dark (E.night)
         side.emissive = new THREE.Color(0xffffff); side.emissiveMap = facadeTex(color, kind + 'Glow'); side.emissiveIntensity = 0;
@@ -127,6 +127,8 @@ export function createEngine() {
     lights: [],          // { mat, on: color, off: color, at } lamps that light up in the dark
     windowMats,          // facade materials with glowing windows (emissiveIntensity follows the dark)
     frost,               // materials that frost over
+    leaves: [],          // leaf materials of deciduous trees (time.js: colours follow the seasons)
+    animals: [],         // { g, update(t, F) } (animals.js)
     melt: [],            // snow that melts in the heat: { mat, bare } (colour) or { mesh, to } (shrinks)
     burn: [],            // things that catch fire in strong sunlight: { mats, pos: [x,y,z], size, sun: × today's sunlight }
     people: [],          // { update(t, F) }

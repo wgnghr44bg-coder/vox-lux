@@ -44,14 +44,14 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 | 1 | Earth & Nature | What if Earth stopped spinning? | ja | – |
 | 2 | Space & Universe | What if the Sun suddenly disappeared? | deels (zon uit/dichterbij) | Hemel |
 | 3 | Human Body | What if humans never needed sleep? | nee | Mensen dichtbij |
-| 4 | Civilization & Society | What if everyone disappeared for 24 hours? | nee | Tijd & stad |
+| 4 | Civilization & Society | What if everyone disappeared for 24 hours? | deels (Tijd klaar 9 okt; lege stad/park volgt) | Tijd & stad |
 | 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
 | 6 | History | What if the Roman Empire never fell? | nee | Oude plek (Rome) |
 | 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels (wind/water/kou/hitte) | Aarde beweegt |
-| 8 | Animals & Evolution | What if dinosaurs never went extinct? | nee | Dieren (plan: long/dinosaurs) |
+| 8 | Animals & Evolution | What if dinosaurs never went extinct? | deels (hond, vos, hert, vogels klaar 9 okt; dino's nog niet) | Dieren (plan: long/dinosaurs) |
 | 9 | Science & Physics | What if gravity suddenly disappeared? | ja | – |
 | 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | nee | Hemel (ufo) |
-| 11 | Horror & Dark What If | What if nobody could die after midnight? | nee | Tijd & stad (nacht); spanning door sfeer, nooit gewonden/lichamen |
+| 11 | Horror & Dark What If | What if nobody could die after midnight? | deels (nacht via Tijd) | Tijd & stad (nacht); spanning door sfeer, nooit gewonden/lichamen |
 | 12 | Money & Economy | What if everyone received €1 million? | nee | Mensen dichtbij (+ drukte, prijzenteller) |
 | 13 | Psychology & Human Behavior | What if everyone could read minds? | nee | Mensen dichtbij |
 | 14 | Alternate Worlds | What if Earth had rings like Saturn? | nee | Hemel |
@@ -59,7 +59,10 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 Bouwvolgorde bakstenen (± usage eenmalig): 1 Hemel – planeten, ringen, tweede zon, ufo (± 3%) →
 2 Aarde beweegt – aardbeving, as, lava (± 4%) → 3 Tijd & stad – dag/nacht, lege stad, lichten uit, natuur groeit terug (± 4%) →
 4 Mensen dichtbij – grotere poppetjes, interieur, uitdrukking (± 5%) → 5 Oude plek – Romeinse stad (± 4%) →
-6 Dieren – dino's (± 5–6%). Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
+6 Dieren – dino's (± 5–6%).
+Klaar (9 okt 2026): **Tijd** (`engine/time.js`, `TL.time`: dag/nacht, wolken, seizoenen, regen, sneeuw, gras, klimop, jonge bomen,
+stof, roest, kapotte ramen; kracht `calm` = geen kracht) en **Dieren** (`engine/animals.js`, `TL.animals`: hond (met lege riem),
+vos, hert, groepjes, vogels). Testbeelden: `topics/proef-tijd`, `topics/proef-dieren`. Is een baksteen klaar: zet "Kan nu?" op ja en voeg onderwerpen uit die categorie toe aan de lijst.
 
 | # | What if… | Plek | Kracht / beeld | Status |
 |---|---|---|---|---|

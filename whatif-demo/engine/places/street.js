@@ -18,6 +18,7 @@ export function build(E, TL, F) {
   E.waterBase = -1.2;
   E.windArea = { x: 30, z0: -20, z1: -180 };
   E.groundAt = (x, z) => z < SEA ? -6 : 0;
+  E.wildArea = { x: [-15.5, 15.5], z: [-160, 30] }; E.wildEdges = [-15.7, -10.3, -9.7, -.2, .2, 9.7, 10.3, 15.7]; E.kerbX = 10;   // time.js: where nature grows back
   E.collide = (p, v, b) => {
     if (Math.abs(p[0]) > WALK - .3 && p[1] < 30 && b.kind !== 'floor' && p[0] * v[0] > 0) { p[0] = Math.sign(p[0]) * (WALK - .3); v[0] = -v[0] * .3; }
     // big pieces never reach the camera: they pile up before the crossing
