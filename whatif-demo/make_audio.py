@@ -567,6 +567,11 @@ def build_engine(topic: Path):
             if e["kind"] != "quake" or e["t"] >= STOP: continue
             for j in range(int(2 + e["e"] * 8)):
                 place(bed, s_rammel(rng), e["t"] + rng.uniform(.2, max(.4, e.get("dur", 2) * .7)), db(-16) * e["e"], rng.uniform(-.8, .8))
+    elif force == "alien":      # a ship overhead: deep, slowly beating hum that grows as it comes closer (baksteen Ufo)
+        tt = np.arange(n) / SR
+        hum = (np.sin(2 * np.pi * 36 * tt) + .6 * np.sin(2 * np.pi * 36.7 * tt) + .35 * np.sin(2 * np.pi * 72.4 * tt)) * (1 + .25 * np.sin(2 * np.pi * .13 * tt))
+        air = layer(lambda r: norm(lp(brown(r, n), 220) * lfo(r, n, .08, .5)), smooth(.05, .8, I))
+        bed += (np.stack([hum, hum], 1) / 2.2 * db(-9) * smooth(.05, .8, I)[:, None] + air * db(-16)) * alive[:, None]
 
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}

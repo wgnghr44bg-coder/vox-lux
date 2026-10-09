@@ -117,7 +117,7 @@ export function createCamera(E, TL, P, F) {
       }
       if (F.shake) shake += F.shake(t) * (sh.shot.shake ?? 1);    // earthquake: the whole picture shakes (also on a tripod)
       shake = Math.min(shake, .45);
-      const calm = TL.tripod ? 0 : 1 - smooth(TL.beats.end - 1, TL.beats.end + 1, tv) * .6;
+      const calm = TL.tripod && !sh.shot.hand ? 0 : 1 - smooth(TL.beats.end - 1, TL.beats.end + 1, tv) * .6;   // shot.hand: handheld POV inside a tripod video
       // handheld: breathing, jitter, a little roll now and then
       const breathe = Math.sin(tv * 2 * Math.PI * .24) * .45 * D2R * calm;
       const jy = (noise(tv * 1.7, 11) * .35 + noise(tv * 4.3, 5) * .12) * D2R * calm, jp = (noise(tv * 1.9, 21) * .3 + noise(tv * 4.9, 9) * .1) * D2R * calm;
