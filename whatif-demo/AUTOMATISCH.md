@@ -166,6 +166,7 @@ Beeld-regels (stijl zoals earth-stops):
 | `time.js` | baksteen Tijd (`TL.time`): dagen voorbij in elk tempo – dag/nacht (zon beweegt, sterren), wolken, seizoenen (bladkleur, sneeuw), regen; natuur neemt over in jaren (gras in scheuren, klimop, jonge bomen) en verval (stof, roest, kapotte ramen). Plek geeft `E.wildArea`/`E.wildEdges`. Uitleg bovenin het bestand |
 | `animals.js` | baksteen Dieren (`TL.animals`): hond (ook met lege riem, groepje), vos, hert (gewei), vogels (vliegen, landen); route met tijden, `act`: sniff/graze/sit/look; optioneel eigen shot |
 | `props-alarm.js` | klein: sirenepaal (zwaailicht) en wegblokkade (hekken, knipperlampen, patrouilleauto); geluid `audio.siren: [[a, b]]` |
+| `small.js` | baksteen Kleine dingen: `beats.vanish` (iedereen weg in één klik, tassen/telefoons vallen), `TL.traffic` (auto's zonder bestuurder rollen uit), `TL.bikes` (fiets valt om), `TL.crashes` (botsing, rook, alarmlichten, autoalarm), `TL.smoke`, `TL.extraShots`; geluiden click/drop/crash/alarm/buzz + `audio.quiet` in make_audio.py. Straat: `cars: false`, `lightCycle` |
 
 Elke plek zegt zelf wat kan buigen (`E.bend`), breken (`E.breaks`, met sterkte per kracht), vallen
 (`E.falls`, met `rank` voor `beats.falls`) en onderlopen (`E.floods`), en levert `shots` en `look`.

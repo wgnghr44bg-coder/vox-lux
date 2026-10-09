@@ -13,7 +13,7 @@ export function createHud(TL) {
     counterAt,
     update(t) {
       const v = counterAt(Math.min(t, B.stop));
-      $('num').textContent = (H.prefix || '') + fmt(v) + (H.unit || '');
+      $('num').textContent = H.fmt ? H.fmt(v, t) : (H.prefix || '') + fmt(v) + (H.unit || '');   // H.fmt: own text, e.g. 00:12:40 or HOUR 1
       if (H.subAt) { let s = H.sub || ''; for (const [ts, txt] of H.subAt) if (t >= ts) s = txt; $('sub').textContent = s; }   // e.g. DAY 1 -> WEEK 1
       if (H.second) {
         const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;

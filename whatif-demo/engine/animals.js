@@ -2,7 +2,8 @@
 // Scenario: TL.animals = [
 //   { kind: 'dog' | 'fox' | 'deer', path: [[t, x, z], ...], n: 1, spread: 1.5, lag: .4, color, scale, y,
 //     act: 'sniff' | 'graze' | 'sit' | 'look'  (what it does when it stands still), antlers: true (deer),
-//     leash: [x, z] (dog: an empty leash from its collar to that spot on the ground), shot: { name, from: [dx, dy, dz], fov } },
+//     leash: [x, z] (dog: an empty leash from its collar to that spot on the ground; leashHand: [x, y, z] + leashDrop: t = held until t),
+//     acts: [[t, act], ...] (change what it does over time), shot: { name, from: [dx, dy, dz], fov } },
 //   { kind: 'birds', n: 14, center: [x, y, z], radius: 12, perch: [[x, y, z], ...], land: t, fly: t, color },
 // ]
 // Path: waypoints in video time; between two equal points the animal stands still and does `act`.
@@ -61,6 +62,7 @@ function quadruped(E, kind, seed, o) {
     leash = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]), 12, .012, 4), lam(0xa3352b));
     E.scene.add(leash);
     const loop = new THREE.Mesh(new THREE.TorusGeometry(.09, .012, 4, 10), lam(0xa3352b)); loop.rotation.x = Math.PI / 2; loop.position.set(o.leash[0], .03, o.leash[1]); E.scene.add(loop);
+    if (o.leashHand) E.updates.push(t => { loop.visible = t >= (o.leashDrop ?? 1e9) + .4; });
   }
   const ph = R() * 6, act = o.act ?? (kind === 'deer' ? 'graze' : 'sniff');
   const A = { g, kind, update(t, F, tv) {
@@ -75,7 +77,8 @@ function quadruped(E, kind, seed, o) {
     body.position.y = K.leg + K.h * .25 + (gait === 2 ? Math.abs(Math.sin(tt + ph)) * .06 : gait ? Math.abs(Math.sin(tt + ph)) * .015 : 0);
     body.rotation.x = gait === 2 ? Math.sin(tt + ph) * .06 : 0;
     // standing still: sniff/graze (head down, now and then up), sit (dog), look (head up, turning)
-    const idle = gait === 0 ? smooth(0, .6, s.still ?? 1) : 0, a = s.act ?? act;
+    let actNow = act; for (const [ta, x] of o.acts || []) if (t >= ta) actNow = x;   // o.acts = [[t, 'sit'], [t2, 'look']]
+    const idle = gait === 0 ? smooth(0, .6, s.still ?? 1) : 0, a = s.act ?? actNow;
     const up = Math.sin(t * .5 + ph) > .55 ? 1 : 0, nb = kind === 'deer' ? .35 : .7;
     let nx = nb, hy = 0;
     if (a === 'graze' || a === 'sniff') nx = lerp(nb, a === 'graze' ? 2.0 : 1.55, idle * (1 - up * .8));
@@ -90,7 +93,8 @@ function quadruped(E, kind, seed, o) {
     if (leash) {               // collar -> ground -> the dropped loop
       leash.visible = true; g.updateMatrixWorld(true);
       const c = new THREE.Vector3(0, K.neck * .3, 0); neck.localToWorld(c);
-      const end = new THREE.Vector3(o.leash[0], .03, o.leash[1]), mid = c.clone().lerp(end, .45); mid.y = .03;
+      const gEnd = new THREE.Vector3(o.leash[0], .03, o.leash[1]), d = o.leashHand ? smooth(o.leashDrop ?? 1e9, (o.leashDrop ?? 1e9) + .45, t) : 1;
+      const end = o.leashHand ? new THREE.Vector3(...o.leashHand).lerp(gEnd, d) : gEnd, mid = c.clone().lerp(end, .45); mid.y = lerp(Math.min(c.y, end.y) - .15, .03, d);   // held in a hand, then dropped
       leash.geometry.dispose(); leash.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([c, c.clone().lerp(mid, .5).setY(c.y * .35), mid, end]), 14, .012, 4);
     }
   } };
