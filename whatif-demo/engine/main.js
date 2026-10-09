@@ -120,7 +120,7 @@ function applyLook(t) {
   const PO = TL.beats.powerOff, winOff = (i, tt) => PO && tt > PO[0] + hash(i, 77) * (PO[1] - PO[0]), lampsOff = tt => PO && tt > PO[1] + 1.5;
   E.lights.forEach((l, i) => l.mat.color.setHex(dark > .25 + l.at && !(E.powerOut?.(t)) && !lampsOff(t) ? l.on : l.off));
   E.windowMats.forEach((m, i) => { m.emissiveIntensity = E.powerOut?.(t) || winOff(i, t) ? 0 : smooth(.25, .7, dark) * .85; });
-  E.renderer.toneMappingExposure = 1;
+  E.renderer.toneMappingExposure = E.post ? 1 + (E.dark ?? 0) * (TL.nightExposure ?? 1.1) : 1;   // film look: lift the night a little so it stays readable
   document.getElementById('haze').style.opacity = L.haze || 0;
   document.getElementById('haze').style.background = L.hazeColor || '#6e604f';
 }

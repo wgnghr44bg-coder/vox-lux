@@ -128,7 +128,7 @@ def one_take(d: Path, lines, speed):
     t_first = sil[0][1] if sil and sil[0][0] <= .05 else 0.0
     t_last = sil[-1][0] if sil and sil[-1][1] >= dur - .05 else dur
     gaps = [(a, b) for a, b in sil if a > .05 and b < dur - .05]          # inner gaps only
-    words = [len(re.sub(r"[^A-Za-z0-9' ]", " ", t).split()) for _, t, _ in lines]
+    words = [len(re.sub(r"[^A-Za-z0-9]", "", t)) + 2 * len(re.findall(r"[,.;:!?]", t)) for _, t, _ in lines]   # letters (+ a little per punctuation pause)
     speech = lambda t: t - sum(min(b, t) - a for a, b in gaps if a < t)   # speech-only clock
     total = speech(t_last) - speech(t_first)
     # best monotone choice of one gap per line boundary (dynamic programming): close to the word-count estimate,
@@ -136,7 +136,7 @@ def one_take(d: Path, lines, speed):
     want, cum = [], 0
     for w in words[:-1]:
         cum += w; want.append(speech(t_first) + total * cum / sum(words))
-    wgt = [5 if isinstance(pz, (int, float)) or pz == "long" else 3.5 if pz == "pause" else .3 for _, _, pz in lines[:-1]]
+    wgt = [1.5 if isinstance(pz, (int, float)) or pz == "long" else 1 if pz == "pause" else .2 for _, _, pz in lines[:-1]]
     cost = lambda i, j: abs(speech(gaps[j][0]) - want[i]) - wgt[i] * min(gaps[j][1] - gaps[j][0], 2)
     N, G = len(want), len(gaps)
     if G < N: raise SystemExit("one-take: not enough pauses to place every line")
@@ -152,10 +152,41 @@ def one_take(d: Path, lines, speed):
     pick.reverse()
     starts, ends = [t_first] + [gaps[j][1] for j in pick], [gaps[j][0] for j in pick]
     ends.append(t_last)
+    stt = stt_line_times(d / "voice.mp3", lines)          # exact word times (ElevenLabs speech-to-text) when available
+    if stt: starts, ends = stt
     hms = lambda t: f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:04.1f}"
     rows = ["nr\tstart\tend\tpause\ttext"] + [f"{i + 1}\t{hms(a)}\t{hms(b)}\t\t{t}" for i, (a, b, (_, t, _)) in enumerate(zip(starts, ends, lines))]
     (d / "voice-times.tsv").write_text("\n".join(rows) + "\n", encoding="utf-8")
     print(f"one take: {dur:.1f} s, {len(gaps)} pauses, {len(lines)} lines placed")
+
+
+def stt_line_times(mp3: Path, lines):
+    """Word timestamps from ElevenLabs speech-to-text, matched to the script words -> (starts, ends) per line, or None."""
+    import difflib, requests
+    try:
+        with open(mp3, "rb") as f:
+            r = requests.post("https://api.elevenlabs.io/v1/speech-to-text", files={"file": (mp3.name, f, "audio/mpeg")},
+                              data={"model_id": "scribe_v1", "timestamps_granularity": "word", "tag_audio_events": "false"}, timeout=240)
+        if not r.ok: print("stt: HTTP", r.status_code); return None
+        words = [w for w in r.json().get("words", []) if w.get("type") == "word"]
+    except Exception as e:
+        print("stt failed:", e); return None
+    norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
+    script, owner = [], []
+    for i, (_, t, _) in enumerate(lines):
+        for w in t.split(): script.append(norm(w)); owner.append(i)
+    heard = [norm(w["text"]) for w in words]
+    sm = difflib.SequenceMatcher(None, script, heard, autojunk=False)
+    first, last = {}, {}
+    for a, b, n in sm.get_matching_blocks():
+        for k in range(n):
+            i = owner[a + k]; w = words[b + k]
+            first.setdefault(i, w["start"]); last[i] = w["end"]
+    if len(first) < len(lines): print(f"stt: only {len(first)}/{len(lines)} lines matched"); return None
+    starts = [first[i] for i in range(len(lines))]; ends = [last[i] for i in range(len(lines))]
+    if all(starts[i + 1] >= ends[i] - .05 for i in range(len(lines) - 1)):
+        print("stt: line times from speech recognition"); return starts, ends
+    print("stt: times out of order"); return None
 
 
 def contact_sheet(d: Path, times):

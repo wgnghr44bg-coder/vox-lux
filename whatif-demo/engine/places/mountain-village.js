@@ -93,6 +93,7 @@ export function build(E, TL, F) {
       mountains: { pos: [12, 2, 40], look: [0, 120, -700], drift: [0, 0, -2], fov: 50 },
       lakeside: { pos: [14, 13, -76], look: [-60, 0, -125], drift: [-1, 0, 0], fov: 58 },      // observer shots (gravity style)
       church: { pos: [16, 4, -18], look: [-14, 15, -46], drift: [0, 0, -.6], fov: 58 },
+      'lake-view': { pos: [-38, 5, -92], look: [-85, 0, -150], drift: [-1.5, 0, -1], fov: 56 },   // over the frozen lake
       'pov-walk': { pos: [12, 1.65, 22], look: [12, 2, -60], drift: [0, 0, -12], fov: 64, run: { amp: .04, freq: 1.7 } },   // walking down the road in deep snow
       'pov-up': { pos: [12, 1.65, 12], look: [4, 60, -40], drift: [0, 0, 0], fov: 72 },                               // stop and look up
       vast: { pos: [140, 6, 170], look: [0, 70, -200], drift: [-2, 0, -2], fov: 78 },                                  // tiny village, huge sky

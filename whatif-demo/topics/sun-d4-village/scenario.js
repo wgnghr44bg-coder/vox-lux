@@ -24,14 +24,14 @@ export const lines = [
 export default function (at) {
   const T_END = at('beginning').e + 4.8;
   return {
-    T_END, tripod: true, brand: false,
+    T_END, tripod: true, brand: false, post: true,
     hud: { label: 'TEMPERATURE', unit: '°C', decimals: 0, sub: 'DAY 30',
            second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 },
            subAt: [[0, 'DAY 30'], [at('world').s, '30 DAYS — NO SUNLIGHT']] },
     counter: [[0, -27], [at('minus').s, -30], [at('world').e, -33], [T_END, -33]],
     range: [0, -40], forceParams: { darkAt: [-1, 0], frostAt: [.2, .5], snow: 0, breath: [[at('walk').s - .2, at('strange').s - .2]] },
     captions: [[at('month').s, at('month').e + .5, 'Day 30.'], [at('lake').s + 2, at('lake').e + .3, 'Frozen from the top down.']],
-    shots: [[0, 'wide'], [at('lake').s - .2, 'lake'], [at('nolight').s - .2, 'wide'], [at('clock').s - .2, 'wide'],
+    shots: [[0, 'wide'], [at('lake').s - .2, 'lake-view'], [at('nolight').s - .2, 'wide'], [at('clock').s - .2, 'wide'],
             [at('noone').s - .2, 'mountains'], [at('walk').s - .2, 'pov-walk'], [at('strange').s - .2, 'pov-up'],
             [at('because').s - .2, 'vast']],
     beats: { lookUp: 1e9, shelter: 0, carsStop: 0, powerOut: -1, climax: 1e9, falls: [],
