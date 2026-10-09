@@ -25,7 +25,6 @@ export default function (at) {
     T_END, tripod: true, brand: false, post: true,
     groups: [{ at: [70, -20], n: 6, face: 3.1, y: .2, shot: { name: 'group', from: [0, 1.5, -5.8], fov: 50 } }],
     hud: { label: 'TEMPERATURE', unit: '°C', decimals: 0, sub: 'DAY 1',
-           second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 },
            subAt: [[0, 'DAY 1'], [at('walk').s, 'DAY 1 — TEMPERATURE FALLING']] },
     counter: [[0, 12], [at('limit').e, 9], [at('walk').s, 6], [at('fall').e, -2], [at('river').e, -6], [T_END, -6]],
     range: [15, -40], forceParams: { darkAt: [-1, 0], frostAt: [.2, .6], snow: 0, breath: [[at('walk').s - .2, at('fall').s - .2]] },

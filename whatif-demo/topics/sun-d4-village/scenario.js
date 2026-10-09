@@ -26,7 +26,6 @@ export default function (at) {
   return {
     T_END, tripod: true, brand: false, post: true,
     hud: { label: 'TEMPERATURE', unit: '°C', decimals: 0, sub: 'DAY 30',
-           second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 },
            subAt: [[0, 'DAY 30'], [at('world').s, '30 DAYS — NO SUNLIGHT']] },
     counter: [[0, -27], [at('minus').s, -30], [at('world').e, -33], [T_END, -33]],
     range: [0, -40], forceParams: { darkAt: [-1, 0], frostAt: [.2, .5], snow: 0, breath: [[at('walk').s - .2, at('strange').s - .2]] },

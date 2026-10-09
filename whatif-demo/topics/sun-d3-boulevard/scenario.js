@@ -24,7 +24,6 @@ export default function (at) {
     T_END, tripod: true, brand: false, post: true, sunbathers: 0,
     hand: { car: [15, 73], cam: [14.4, 3 + 2.05, 74.9], t: [carT, T_END + 1] },
     hud: { label: 'TEMPERATURE', unit: '°C', decimals: 0, sub: 'DAY 7',
-           second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 },
            subAt: [[0, 'DAY 7'], [at('outside').s, 'DAY 7 — NO SUNLIGHT']] },
     counter: [[0, -10], [at('avg').e, -13], [at('ice').e, -16], [T_END, -17]],
     range: [0, -40], forceParams: { darkAt: [-1, 0], frostAt: [.2, .6], snow: .6, breath: [[carT, T_END + 1]] },

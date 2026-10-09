@@ -47,6 +47,9 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
   (`one_take`, standaard aan; `oneTake: false` in topic = oude manier per zin). De stem maakt zelf de pauzes; de
   zinstijden komen uit de stiltes. Klinkt veel natuurlijker dan los geknipte zinnen.
 
+## Eenheden: Europees (eigenaar, 9 okt 2026)
+- Alleen °C (geen °F), meters/kilometers, km/u, kilo, 24-uursklok (12:08, niet 12:08 PM). Ook in de stem en ondertitels.
+
 ## Inhoud en veiligheid
 - Alleen natuurkunde die klopt; twijfel = weglaten. Geen geweld in tekst ("fighting" → "compete").
 - Geen gewonden of lichamen in beeld.
