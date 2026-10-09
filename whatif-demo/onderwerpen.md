@@ -47,7 +47,7 @@ na de reset (zaterdag 12:00) en als `USAGE.md` er ruimte voor laat (eerst Sleep-
 | 4 | Civilization & Society | What if everyone disappeared for 24 hours? | deels (Tijd klaar 9 okt; lege stad/park volgt) | Tijd & stad |
 | 5 | Technology & AI | What if AI controlled the world? | nee | Tijd & stad (+ robots) |
 | 6 | History | What if the Roman Empire never fell? | nee | Oude plek (Rome) |
-| 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels (wind/water/kou/hitte) | Aarde beweegt |
+| 7 | Disasters & Survival | What if a supervolcano erupted tomorrow? | deels: aardbeving, natuurpark, sirene/wegblokkade klaar (9 okt); as, lava, bosbrand, lahar, aslucht volgen | Aarde beweegt (rest) |
 | 8 | Animals & Evolution | What if dinosaurs never went extinct? | deels (hond, vos, hert, vogels klaar 9 okt; dino's nog niet) | Dieren (plan: long/dinosaurs) |
 | 9 | Science & Physics | What if gravity suddenly disappeared? | ja | – |
 | 10 | Aliens & Mysteries | What if aliens contacted Earth tomorrow? | nee | Hemel (ufo) |
@@ -94,9 +94,10 @@ vos, hert, groepjes, vogels). Testbeelden: `topics/proef-tijd`, `topics/proef-di
 | 26 | A meteor shower lit up the night? | Camping in het bos | Vuurstrepen, inslagen in de verte | gepland |
 | 27 | Earth had two suns? | Woestijn met rotsbogen | Dubbele schaduwen, geen echte nacht | gepland |
 | 28 | Earth stopped spinning? | Stadsstraat aan zee | Wind van 1,037 mph | geüpload 2026-10-05 https://youtu.be/Bkd2gh_IlU0 |
-| 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | proef bestaat, opnieuw maken in nieuwe stijl |
+| 29 | Yellowstone erupted? | Natuurpark met bizons | Aswolk en asregen | wordt de lange video "What if a supervolcano erupted?" (plan: long/supervolcano/plan.md) |
 | 30 | The air got twice as thick? | Bergweg met uitzichtpunt | Zware lucht, vogels en vliegtuigen anders | gepland |
 | 31 | The Sun came closer to Earth? | Besneeuwd bergdorp | Hitte: zon groter en feller, sneeuw smelt, bosbranden | geüpload 2026-10-04 https://youtu.be/i2pChBmzRDs (openbaar, ondertitelde versie van de eigenaar) |
 | 32 | The temperature dropped to −100°C? | Rivierstad met hangbrug | Kou: rivier bevriest, rijp, adem bevriest, brug barst | geüpload 2026-10-06 https://youtu.be/0Kvcuv5-3EQ (openbaar, Short, door eigenaar aangeleverd; staat ook al op TikTok) |
 | 33 | The wind never stopped? (lange video 16:9) | Straat → boulevard → rivierstad | Wind 20 → 1.000 km/u, brug bezwijkt | geüpload 2026-10-05 https://youtu.be/1LNaLpmOcuM (openbaar, 4:04) |
 | 34 | Every human disappeared? (lange video 16:9, script eigenaar, max. 25 jaar) | Straat → rivierstad → park/buitenwijk → straat | Mensen weg, lichten uit, natuur neemt de stad terug (bakstenen Tijd, Dieren, park) | gepland na de Sun-video; plan: long/humans-disappeared/plan.md |
+| 35 | A supervolcano erupted? (lange video 16:9) | Natuurpark → dal → stad → Europese kust | Aardbeving, uitbarsting, as, vulkanische winter (15 → 8.000 km) | hoofdstuk 1 als proef (9 okt); plan: long/supervolcano/plan.md |

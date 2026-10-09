@@ -160,6 +160,37 @@ def one_take(d: Path, lines, speed):
     print(f"one take: {dur:.1f} s, {len(gaps)} pauses, {len(lines)} lines placed")
 
 
+def pad_silence(d: Path, lines):
+    """topic.padSilence (opt-in): a one take rarely holds a long silence, so after a line whose pause is a number
+    (the silent climax, e.g. 3) the gap in voice.mp3 is stretched to that many seconds; later line times shift."""
+    rows = parse_tsv(d / "voice-times.tsv")
+    if len(rows) != len(lines): return
+    times = [[a, b] for a, b, _ in rows]; cuts = []
+    for i, (_, _, pz) in enumerate(lines[:-1]):
+        if not isinstance(pz, (int, float)): continue
+        gap = times[i + 1][0] - times[i][1]
+        if gap >= pz - .05: continue
+        at, add = times[i][1] + gap / 2, pz - gap
+        cuts.append((at, add))
+        for j in range(i + 1, len(times)): times[j] = [times[j][0] + add, times[j][1] + add]
+    if not cuts: return
+    src = d / "voice-unpadded.mp3"
+    if not src.exists(): (d / "voice.mp3").rename(src)
+    parts, last, fc = [], 0.0, []
+    for k, (at, add) in enumerate(cuts):
+        orig = at - sum(a for _, a in cuts[:k])
+        fc.append(f"[0:a]atrim={last:.3f}:{orig:.3f},asetpts=PTS-STARTPTS[p{k}];aevalsrc=0:d={add:.3f}:s=44100:c=stereo[s{k}]")
+        parts += [f"[p{k}]", f"[s{k}]"]; last = orig
+    fc.append(f"[0:a]atrim=start={last:.3f},asetpts=PTS-STARTPTS[pe]"); parts.append("[pe]")
+    fc = ";".join(fc) + ";" + "".join(f"{p}aformat=sample_rates=44100:channel_layouts=stereo[f{i}];" for i, p in enumerate(parts)) \
+        + "".join(f"[f{i}]" for i in range(len(parts))) + f"concat=n={len(parts)}:v=0:a=1[o]"
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", "[o]", "-b:a", "192k", d / "voice.mp3"])
+    hms = lambda t: f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:04.1f}"
+    out = ["nr\tstart\tend\tpause\ttext"] + [f"{i + 1}\t{hms(a)}\t{hms(b)}\t\t{t}" for i, ((a, b), (_, t, _)) in enumerate(zip(times, lines))]
+    (d / "voice-times.tsv").write_text("\n".join(out) + "\n", encoding="utf-8")
+    print("silence padded:", ", ".join(f"+{a:.1f}s at {t:.1f}s" for t, a in cuts))
+
+
 def stt_line_times(mp3: Path, lines):
     """Word timestamps from ElevenLabs speech-to-text, matched to the script words -> (starts, ends) per line, or None."""
     import difflib, requests
@@ -224,6 +255,7 @@ def main():
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
         if sc["topic"].get("oneTake", True):    # eigenaar 7 okt 2026: whole script in one take, the voice makes its own pauses
             one_take(d, lines, sc["topic"].get("voiceSpeed", SPEED))
+            if sc["topic"].get("padSilence"): pad_silence(d, lines)
         else:
             run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
                  "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--soft-edges", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])

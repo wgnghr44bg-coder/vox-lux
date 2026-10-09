@@ -161,10 +161,11 @@ Beeld-regels (stijl zoals earth-stops):
 | `physics.js` | debris eenmalig gesimuleerd (zwaartekracht, lucht, water/drijven), EVENTS voor geluid en schok |
 | `dust.js`, `hud.js`, `timeline.js`, `main.js` | stof/sneeuw/spray, tekstlaag, scenario → TL, hoofdlus en camera |
 | `props.js`, `blocks.js`, `crowd.js` | palmen, bomen, lantaarns, borden, auto's, mensen; gebouwen, huizen, watertoren |
-| `places/*.js` | plekken: `street` (stadsstraat), `river-city` (rivierstad met hangbrug), `boulevard` (strandboulevard), `mountain-village` (besneeuwd bergdorp) |
-| `forces/*.js` | krachten: `wind`, `gravity` (zwaartekracht), `water` (stijgen/zakken), `cold` (kou/duisternis), `heat`, `calm` (geen kracht) |
+| `places/*.js` | plekken: `street` (stadsstraat), `river-city` (rivierstad met hangbrug), `boulevard` (strandboulevard), `mountain-village` (besneeuwd bergdorp), `nature-park` (natuurpark/vulkaangebied: weg met uitzichtpunt boven een meer, bos, bezoekerscentrum, uitkijktoren, calderarand; `E.vent` = waar een uitbarsting vandaan komt) |
+| `forces/*.js` | krachten: `wind`, `gravity` (zwaartekracht), `water` (stijgen/zakken), `cold` (kou/duisternis), `quake` (aardbeving: schokken `forceParams.tremors`, schuddend beeld ook op statief, scheuren `E.crackSpots`, omvallende dingen `strength.quake`, stoom `forceParams.steamAt`), `heat`, `calm` (geen kracht) |
 | `time.js` | baksteen Tijd (`TL.time`): dagen voorbij in elk tempo – dag/nacht (zon beweegt, sterren), wolken, seizoenen (bladkleur, sneeuw), regen; natuur neemt over in jaren (gras in scheuren, klimop, jonge bomen) en verval (stof, roest, kapotte ramen). Plek geeft `E.wildArea`/`E.wildEdges`. Uitleg bovenin het bestand |
 | `animals.js` | baksteen Dieren (`TL.animals`): hond (ook met lege riem, groepje), vos, hert (gewei), vogels (vliegen, landen); route met tijden, `act`: sniff/graze/sit/look; optioneel eigen shot |
+| `props-alarm.js` | klein: sirenepaal (zwaailicht) en wegblokkade (hekken, knipperlampen, patrouilleauto); geluid `audio.siren: [[a, b]]` |
 
 Elke plek zegt zelf wat kan buigen (`E.bend`), breken (`E.breaks`, met sterkte per kracht), vallen
 (`E.falls`, met `rank` voor `beats.falls`) en onderlopen (`E.floods`), en levert `shots` en `look`.
@@ -175,6 +176,9 @@ Past het onderwerp niet bij een bestaande plek of kracht, bouw dan een nieuwe in
 `engine/forces/` (zelfde vorm als de bestaande, kopieer de meest verwante) en houd die – ze blijven
 bewaard voor volgende video's. Proef een plek zonder onderwerp met:
 `node whatif-demo/engine/render.mjs 'preview:<plek>:<kracht>:[[0,"wide"],[20,"..."]]' stills 5 25 40`.
+
+Stille climax in één take (sinds 9 okt 2026): `padSilence: true` in `topic` rekt de stilte na een regel met een getal als pauze
+(bijv. `3`) op tot zoveel seconden (make_whatif.py `pad_silence`); de stem maakt die stilte zelf niet.
 
 ## 3. Testbeelden (maximaal 2 rondes)
 
