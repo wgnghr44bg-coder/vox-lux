@@ -1,7 +1,7 @@
 // What if a supervolcano erupted? Long video (16:9), chapter 1: the warning. Nature park, 15 km from the caldera.
 // Bricks: place nature-park, force quake (tremors, cracks, steam), alarm (siren pole, roadblock).
 export const topic = {
-  number: 501, slug: 'volcano-1-park', place: 'nature-park', force: 'quake', wide: true, voOffset: 2.5, padSilence: true,
+  number: 3501, slug: 'volcano-1-park', place: 'nature-park', force: 'quake', wide: true, voOffset: 2.5, padSilence: true,
   question: 'What if a supervolcano erupted?', title: '',
 };
 
