@@ -168,6 +168,7 @@ export function build(E, TL, F) {
       high: { pos: [-6, 26, 64], look: [0, 4, -160], drift: [0, 0, -2], fov: 60 },          // observer shots (gravity style)
       balcony: { pos: [13, 15, -8], look: [-5, 3, -110], drift: [0, 0, -1.2], fov: 60 },
       corner: { pos: [-9.4, 7, 33], look: [7, 4, -70], drift: [.4, 0, -1], fov: 60 },
+      people: { pos: [10.5, 1.6, 12], look: [14, 1.7, -4], drift: [0, 0, -.6], fov: 50 },   // close to the people on the pavement
       'pov-up': { pos: [15.3, 1.7, 4], look: [-30, 57, 64], drift: [0, 0, 0], fov: 66 },   // POV: look up at the Sun (default sunOffset)
     },
   };
