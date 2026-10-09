@@ -86,6 +86,22 @@ export function build(E, TL, F) {
     if (i % 3 === 0) bench(E, x + 4, WALL + 3, 0).position.y = PROM;
   }
   for (let x = -300, i = 0; x < 300; x += 15, i++) burnPalm(palm(E, x + 7, 69.5, 7 + hash(i, 3) * 3, 500 + i, { y: PROM }), i + 50);
+  // TL.hand: a parked car with frost, and your own gloved hand resting on its roof (POV 'pov-car')
+  let handShot = null;
+  if (TL.hand) {
+    const [hx, hz] = TL.hand.car, roofY = PROM + .75 + .55 + .3;
+    car(E, 690, { x0: hx, z0: hz, dir: 1, v: 0, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: -1, F, ground: PROM, snow: true, color: 0x6c7a86 });
+    const cam = TL.hand.cam, hand = new THREE.Group(), glove = lam(0x2b2f36);
+    const palmM = new THREE.Mesh(new THREE.BoxGeometry(.11, .05, .16), glove); hand.add(palmM);
+    const thumb = new THREE.Mesh(new THREE.BoxGeometry(.04, .04, .08), glove); thumb.position.set(-.07, 0, .02); thumb.rotation.y = .5; hand.add(thumb);
+    const tip = new THREE.Vector3(hx + (cam[0] - hx) * .45, roofY + .03, hz + (cam[2] - hz) * .35);
+    hand.position.copy(tip); hand.lookAt(cam[0], roofY + .03, cam[2]); scene.add(hand);
+    const sh = new THREE.Vector3(cam[0] + .3, cam[1] - .45, cam[2]), arm = new THREE.Mesh(new THREE.CylinderGeometry(.045, .06, 1, 6), lam(0x3a4350));
+    arm.position.copy(tip).add(sh).multiplyScalar(.5); arm.scale.y = tip.distanceTo(sh) - .06;
+    arm.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), sh.clone().sub(tip).normalize()); scene.add(arm);
+    const [t0, t1] = TL.hand.t || [0, 1e9]; E.updates.push((t, F, tv) => { hand.visible = arm.visible = tv >= t0 && tv <= t1; });
+    handShot = { pos: cam, look: [hx, roofY - .1, hz], drift: [0, 0, 0], fov: 62 };
+  }
   // cars on the boulevard road
   [[73, 1], [79, -1]].forEach(([z, dir], li) => [0, 1, 2, 3, 4].forEach(k => {
     car(E, 600 + li * 10 + k, { x0: -300 + k * 120 + li * 50, z0: z, dir, v: 9, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: (B.carsStop ?? 1e9) + k * .5 + li, F, ground: PROM, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1, water: PROM + .6 } }) });
@@ -139,6 +155,8 @@ export function build(E, TL, F) {
       'pov-glance': { pos: [2, groundAt(0, 24) + 1.6, 24], look: [-10, 12, -160], drift: [0, .4, 12], fov: 66, run: { amp: .06, freq: 1.4 } },
       'pov-prom': { pos: [-12, PROM + 1.65, 52], look: [60, 7, 46], drift: [6, 0, 0], fov: 64, run: { amp: .05, freq: 1.3 } },
       'pov-sky': { pos: [12, groundAt(0, 27) + 1.65, 27], look: [-15, 45, -200], drift: [0, 0, 0], fov: 64 },
+      ...(handShot && { 'pov-car': handShot }),
+      'slow-prom': { pos: [-40, PROM + 2.2, 56], look: [40, PROM + 2, 52], drift: [12, 0, 0], fov: 60 },   // slow move along the empty boulevard
     },
   };
 }

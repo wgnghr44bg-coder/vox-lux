@@ -535,6 +535,21 @@ def build_engine(topic: Path):
 
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}
+    # footsteps in snow (TL.audio.steps = [[a, b], ...], one crunch every ~0.6 s) and a church bell (TL.audio.bell = [t, ...])
+    for a, b in AUD.get("steps", []):
+        tc = a
+        while tc < b:
+            L = int(.22 * SR); tt = np.arange(L) / SR
+            crunch = bp(rng.standard_normal(L), 900, 5000) * np.exp(-tt * 22) * (1 + .5 * np.sin(2 * np.pi * 37 * tt))
+            crunch += lp(rng.standard_normal(L), 300) * np.exp(-tt * 40) * .8
+            place(bed, np.stack([crunch, crunch], 1) / (np.abs(crunch).max() + 1e-9), tc, db(-20) * rng.uniform(.8, 1.1), rng.uniform(-.15, .15))
+            tc += .58 + rng.uniform(-.04, .04)
+    for tb in AUD.get("bell", []):
+        L = int(6 * SR); tt = np.arange(L) / SR
+        bell = sum(g * np.sin(2 * np.pi * f * tt) * np.exp(-tt * dmp) for f, g, dmp in
+                   ((220, 1, .6), (440 * .99, .5, .9), (528, .45, 1.1), (660, .3, 1.4), (880 * 1.01, .25, 1.8), (1210, .15, 2.4)))
+        bell = bell * np.minimum(1, tt / .004)
+        place(bed, np.stack([bell, bell], 1) / np.abs(bell).max(), tb, db(-13), 0)
     if "heartbeat" in AUD:
         a, b = AUD["heartbeat"]; tc = a
         while tc < min(b, STOP):

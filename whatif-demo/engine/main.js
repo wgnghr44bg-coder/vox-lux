@@ -114,8 +114,10 @@ function applyLook(t) {
   E.sun.intensity = L.sun; E.sun.color.copy(L.sunColor);
   const dark = L.dark || 0;
   if (!E.powerOut && TL.beats.powerOut != null) E.powerOut = tt => tt > TL.beats.powerOut;   // any place: city lights out (beats.powerOut)
-  for (const l of E.lights) l.mat.color.setHex(dark > .25 + l.at && !(E.powerOut?.(t)) ? l.on : l.off);
-  for (const m of E.windowMats) m.emissiveIntensity = E.powerOut?.(t) ? 0 : smooth(.25, .7, dark) * .85;
+  // beats.powerOff = [a, b]: windows go out one by one between a and b, then the street lamps (b + 1.5 s)
+  const PO = TL.beats.powerOff, winOff = (i, tt) => PO && tt > PO[0] + hash(i, 77) * (PO[1] - PO[0]), lampsOff = tt => PO && tt > PO[1] + 1.5;
+  E.lights.forEach((l, i) => l.mat.color.setHex(dark > .25 + l.at && !(E.powerOut?.(t)) && !lampsOff(t) ? l.on : l.off));
+  E.windowMats.forEach((m, i) => { m.emissiveIntensity = E.powerOut?.(t) || winOff(i, t) ? 0 : smooth(.25, .7, dark) * .85; });
   E.renderer.toneMappingExposure = 1;
   document.getElementById('haze').style.opacity = L.haze || 0;
   document.getElementById('haze').style.background = L.hazeColor || '#6e604f';
