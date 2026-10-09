@@ -10,6 +10,7 @@ import { createHud } from './hud.js';
 import { buildTL } from './timeline.js';
 import { createCamera } from './camera.js';
 import { createSkyObjects } from './sky-objects.js';
+import { createUfo } from './ufo.js';
 import { createBrand } from './brand.js';
 import { createPost } from './post.js';
 import { smooth, clamp, hash, lerp } from './util.js';
@@ -35,6 +36,8 @@ E.F = F; E.P = P;
 F.attach?.(P);
 if (TL.time) (await import('./time.js')).applyTime(E, TL, F, P);   // baksteen Tijd: days pass, nature takes over
 createSkyObjects(E, TL);
+createUfo(E, TL);                                     // TL.ufo: motherships, scouts, beams
+Object.assign(P.shots, TL.extraShots || {});          // scenario-specific camera standpoints
 createBrand(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
