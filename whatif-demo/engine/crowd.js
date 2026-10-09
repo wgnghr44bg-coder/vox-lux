@@ -18,11 +18,12 @@ export function crowd(E, TL, o) {
         const d = F.droop(t), kind = F.kind;
         // distance walked: integrate the speed, which drops as gravity grows
         const steps = 24, tt = Math.min(t, go); let dist = 0;
-        for (let k = 0; k < steps; k++) { const tk = tt * (k + .5) / steps; dist += v / (1 + 2.2 * F.droop(tk)) * (kind === 'wind' && tk > look ? 0 : 1); }
+        for (let k = 0; k < steps; k++) { const tk = tt * (k + .5) / steps; dist += v / (1 + 2.2 * F.droop(tk)) * (tk > look ? 0 : 1); }
         dist *= tt / steps;
         let along = wrap(s0 + dir * dist), acr = across, rot = axis === 'x' ? (dir > 0 ? Math.PI / 2 : -Math.PI / 2) : (dir > 0 ? 0 : Math.PI);
         let moving = t < go ? 1 : 0, speed = v / (1 + 2.2 * d), stoop = clamp(d * .32 + (kind === 'cold' ? F.level(t) * .15 : 0), 0, .45), headUp = 0;
         if (kind === 'wind' && t > look && t < go) { moving = 0; headUp = smooth(look, look + .8, t) * .5; rot += Math.sin((t - look) * .9 + i) * 1.2; }
+        else if (t > look && t < go) { moving = 0; headUp = smooth(look, look + 1.2, t) * .7; rot += Math.sin(i * 2.3) * .9 * smooth(look, look + 1.5, t); }   // stop and stare at the sky
         if (t >= go) {                       // walk (or hurry) to the nearest door and go in
           const target = door(along, acr), tr = t - go, vs = kind === 'gravity' ? .9 / (1 + d) : kind === 'wind' ? 4.2 : 2.2;
           const dd = Math.abs(target - acr), mv = Math.min(dd, tr * vs);
@@ -64,4 +65,28 @@ export function sunbathers(E, TL, o) {
         return { x: xx, z: zz, y: E.groundAt(xx, zz), rot: 0, moving: 2, speed: v };
       } });
   }
+}
+
+// TL.groups = [{ at: [x, z], n, spread, face, y, shot: { name, from: [dx, dy, dz] } }]: people standing close together
+// (chatting, phones, waiting) near the camera. At beats.lookUp they stop and stare at the sky with a reaction
+// (point, shade the eyes, hands on the head); at beats.shelter they walk off. Optional shot: adds a close shot on them.
+export function groups(E, TL, shots) {
+  const B = TL.beats;
+  (TL.groups || []).forEach((G, gi) => {
+    const R = rng(900 + gi), [cx, cz] = G.at, n = G.n ?? 6, sp = G.spread ?? 2.2, gy = G.y ?? (E.groundAt ? E.groundAt(cx, cz) : 0);
+    for (let i = 0; i < n; i++) {
+      const x = cx + (R() - .5) * sp * 2, z = cz + (R() - .5) * sp, face = (G.face ?? 0) + (R() - .5) * 2.2;
+      const look = (B.lookUp ?? 1e9) + R() * 1.2, go = (B.shelter ?? 1e9) + R() * 2, away = R() < .5 ? -1 : 1;
+      person(E, 5000 + gi * 50 + i, { y: gy + .02, path(t) {
+        if (t > go) { const w = (t - go) * 1.6; return { x: x + away * w, z, rot: away * Math.PI / 2, moving: 1, speed: 1.6, visible: w < 40 }; }
+        const up = smooth(look, look + 1.2, t);
+        return { x, z, rot: face + Math.sin(t * .4 + i) * .15 * (1 - up), moving: 0, speed: 0, headUp: up * .75, stoop: 0 };
+      } });
+    }
+    if (G.lamp !== false) {   // a warm street light over the group: they stay visible (and moody) once it is dark
+      const L = new E.THREE.PointLight(0xffd29a, 0, 22, 1.6); L.position.set(cx + (G.lampAt?.[0] ?? 1), gy + 5.2, cz + (G.lampAt?.[1] ?? 1.5)); E.scene.add(L);
+      E.updates.push((t, F, tv) => { L.intensity = (E.dark ?? 0) * (E.powerOut?.(t) || (B.powerOff && t > B.powerOff[1] + 1.5) ? 0 : 1) * (G.lampPower ?? 60); });
+    }
+    if (G.shot && shots) { const [dx, dy, dz] = G.shot.from; shots[G.shot.name] = { pos: [cx + dx, gy + dy, cz + dz], look: [cx, gy + 1.3, cz], drift: G.shot.drift || [0, 0, 0], fov: G.shot.fov ?? 50 }; }
+  });
 }

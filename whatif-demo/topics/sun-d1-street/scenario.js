@@ -31,14 +31,15 @@ export default function (at) {
   }
   return {
     T_END, tripod: true, brand: false, showTitle: true, post: true,
+    groups: [{ at: [13, -6], n: 7, face: -.6, y: .2, shot: { name: 'group', from: [-3.1, 1.5, 6], fov: 46 } }],
     titleOut: at('imagine').e + .4,
     hud: { label: 'DAYLIGHT', unit: '%', decimals: 0, sub: clock(0), subAt },
     counter: [[0, 100], [climax, 100], [climax + .8, 55], [dark, 0], [T_END, 0]],
     range: [100, 0], forceParams: { darkAt: [0, 1], frostAt: [2, 3], snow: 0 },
     captions: [[at('old').s, at('old').s + 3.5, 'Light takes 8 min 20 s.'], [at('eight').s, at('eight').e + 1.5, '12:08 PM.']],
-    shots: [[0, 'high'], [at('energy').s - .2, 'corner'], [at('every').s - .2, 'crossing'], [at('now').s - .2, 'avenue'],
+    shots: [[0, 'high'], [at('energy').s - .2, 'corner'], [at('every').s - .2, 'group'], [at('now').s - .2, 'avenue'],
             [at('old').s - .2, 'pov-up'], [at('old').s + 4, 'crossing'], [at('warning').s - .2, 'high'],
-            [at('eight').s - .2, 'corner'], [climax + 2.2, 'crossing'],
+            [at('eight').s - .2, 'corner'], [climax + 2.2, 'group'],
             [at('nosunset').s - .2, 'pov-up'], [at('lamps').s - .2, 'avenue'], [at('lost').s - .2, 'high']],
     beats: { lookUp: climax + .6, carsStop: climax + .3, shelter: 1e9, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { hiss: -60, ice: -60, heartbeat: [at('warning').s, climax + 2], riser: [at('warning').s, climax] },

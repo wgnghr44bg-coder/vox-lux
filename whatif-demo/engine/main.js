@@ -29,6 +29,7 @@ const E = createEngine();
 E.TL = TL;
 const F = (await import(`./forces/${TL.force}.js`)).create(E, TL);
 const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
+(await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
 E.F = F; E.P = P;
 F.attach?.(P);
 createSkyObjects(E, TL);
@@ -113,7 +114,7 @@ function applyLook(t) {
   dust.mat.uniforms.light.value = L.dustLight ?? 1;
   E.hemi.intensity = L.hemi; E.hemi.color.copy(L.hemiColor); E.hemi.groundColor.copy(L.groundColor || C(0x5a5448));
   E.sun.intensity = L.sun; E.sun.color.copy(L.sunColor);
-  const dark = L.dark || 0;
+  const dark = L.dark || 0; E.dark = dark;
   if (!E.powerOut && TL.beats.powerOut != null) E.powerOut = tt => tt > TL.beats.powerOut;   // any place: city lights out (beats.powerOut)
   // beats.powerOff = [a, b]: windows go out one by one between a and b, then the street lamps (b + 1.5 s)
   const PO = TL.beats.powerOff, winOff = (i, tt) => PO && tt > PO[0] + hash(i, 77) * (PO[1] - PO[0]), lampsOff = tt => PO && tt > PO[1] + 1.5;

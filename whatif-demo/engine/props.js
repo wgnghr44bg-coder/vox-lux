@@ -126,27 +126,65 @@ export function bench(E, x, z, ry = 0) {
 
 // a walking person; behaviour comes from the place: (t) => { x, z, rot, moving, speed, visible, headUp, stoop }
 const SHIRTS = [0x8a6b4e, 0x5e6f80, 0xb9ae96, 0x7b4a42, 0x56624a, 0xd2cbb8, 0x3d4650, 0x9a8a5c];
+// People (eigenaar, okt 2026: "mensen dichtbij"): hips, torso, shoulders, two arms with elbows and hands, a head
+// with hair (short, long, bun or ponytail) and eyes, trousers or a skirt, shoes. Skin, hair and clothes vary per person.
+// path(t) may also return arms: 'point' | 'shade' | 'head' | 'down' to override the reaction pose.
+const SKIN = [0xf1c9a5, 0xe3b08c, 0xc98d66, 0xa06a48, 0x75492f];
+const HAIR = [0x2a1d14, 0x4a3020, 0x7a5530, 0xc9a46a, 0x1c1c1c, 0x8d8a86, 0x9a4a2a];
+const PANTS = [0x2f3236, 0x3e4a5c, 0x5b4a3a, 0x6b6f74, 0x2b3a4a, 0x8a7d63, 0x46543f];
+const TOPS = [...SHIRTS, 0xb8503e, 0x3f6f9a, 0xd9b04a, 0x6b8f5a, 0xe8e2d4, 0x7a3e5c, 0x2f6b6b];
 export function person(E, seed, o = {}) {
   const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); E.scene.add(g); g.rotation.order = 'YXZ';
+  const pick = a => a[Math.floor(R() * a.length)], M = c => lam(c), S = m => shadowed(m);
+  const skin = M(pick(SKIN)), hairC = M(pick(HAIR)), top = M(o.coat ?? pick(TOPS)), pants = M(pick(PANTS)), shoe = M(0x24221f);
+  const skirt = R() < .3, hairType = pick(['short', 'short', 'long', 'bun', 'tail', 'short']), big = .92 + R() * .16;
+  g.scale.setScalar(big);
   const upper = new THREE.Group(); upper.position.y = .82; g.add(upper);
-  const body = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.2, .17, .75, 6), lam(o.coat ?? SHIRTS[Math.floor(R() * 8)]))); body.position.y = .38; upper.add(body);
-  const head = shadowed(new THREE.Mesh(new THREE.IcosahedronGeometry(.13, 0), lam(0x6b5444))); head.position.y = .9; upper.add(head);
-  if (o.hat) { const h = shadowed(new THREE.Mesh(new THREE.ConeGeometry(.15, .18, 6), lam(o.hat))); h.position.y = 1.03; upper.add(h); }
-  const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * .08, .82, 0); g.add(p);
-    const l = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.12, .82, .13), lam(0x2f3236))); l.position.y = -.41; p.add(l); return p; });
+  const hips = S(new THREE.Mesh(new THREE.BoxGeometry(.34, .16, .2), skirt ? top : pants)); hips.position.y = .04; upper.add(hips);
+  const torso = S(new THREE.Mesh(new THREE.CylinderGeometry(.18, .15, .5, 8), top)); torso.position.y = .34; upper.add(torso);
+  const sh = S(new THREE.Mesh(new THREE.BoxGeometry(.44, .11, .22), top)); sh.position.y = .58; upper.add(sh);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(.05, .055, .08, 6), skin); neck.position.y = .67; upper.add(neck);
+  const headG = new THREE.Group(); headG.position.y = .79; upper.add(headG);
+  const head = S(new THREE.Mesh(new THREE.SphereGeometry(.112, 10, 8), skin)); head.scale.set(1, 1.12, 1.02); headG.add(head);
+  const hair = S(new THREE.Mesh(new THREE.SphereGeometry(.122, 10, 6, 0, Math.PI * 2, 0, Math.PI * .55), hairC)); hair.position.y = .02; hair.rotation.x = -.25; headG.add(hair);
+  if (hairType === 'long') { const l = S(new THREE.Mesh(new THREE.BoxGeometry(.22, .26, .07), hairC)); l.position.set(0, -.1, -.08); headG.add(l); }
+  if (hairType === 'bun') { const b2 = S(new THREE.Mesh(new THREE.SphereGeometry(.06, 8, 6), hairC)); b2.position.set(0, .09, -.1); headG.add(b2); }
+  if (hairType === 'tail') { const t2 = S(new THREE.Mesh(new THREE.BoxGeometry(.05, .2, .05), hairC)); t2.position.set(0, -.04, -.13); t2.rotation.x = .3; headG.add(t2); }
+  const eyeM = new THREE.MeshBasicMaterial({ color: 0x1b1a19 });
+  [-1, 1].forEach(sx => { const e = new THREE.Mesh(new THREE.BoxGeometry(.022, .022, .01), eyeM); e.position.set(sx * .04, .015, .108); headG.add(e); });
+  if (o.hat) { const h = S(new THREE.Mesh(new THREE.ConeGeometry(.15, .18, 8), M(o.hat))); h.position.y = .16; headG.add(h); }
+  if (skirt) { const sk = S(new THREE.Mesh(new THREE.CylinderGeometry(.17, .27, .42, 8), top)); sk.position.y = -.2; upper.add(sk); }
+  const arms = [-1, 1].map(sx => {
+    const a = new THREE.Group(); a.position.set(sx * .24, .56, 0); upper.add(a);
+    const up = S(new THREE.Mesh(new THREE.BoxGeometry(.09, .3, .1), top)); up.position.y = -.15; a.add(up);
+    const el = new THREE.Group(); el.position.y = -.3; a.add(el);
+    const lo = S(new THREE.Mesh(new THREE.BoxGeometry(.08, .27, .09), R() < .4 ? skin : top)); lo.position.y = -.13; el.add(lo);
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(.045, 6, 5), skin); hand.position.y = -.29; el.add(hand);
+    return { a, el };
+  });
+  const legs = [-1, 1].map(sx => { const p = new THREE.Group(); p.position.set(sx * .085, .82, 0); g.add(p);
+    const l = S(new THREE.Mesh(new THREE.BoxGeometry(.13, .78, .14), skirt ? skin : pants)); l.position.y = -.39; p.add(l);
+    const f = S(new THREE.Mesh(new THREE.BoxGeometry(.13, .07, .24), shoe)); f.position.set(0, -.79, .04); p.add(f); return p; });
   if (o.logo) {        // channel logo on the jacket: o.logo = 'front' (chest, local +z) or 'back'
-    const m = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }), lg = new THREE.Mesh(new THREE.PlaneGeometry(.4, .4), m);
-    const back = o.logo === 'back'; lg.position.set(0, .45, back ? -.21 : .21); lg.rotation.y = back ? Math.PI : 0; upper.add(lg);
+    const m = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: .05 }), lg = new THREE.Mesh(new THREE.PlaneGeometry(.32, .32), m);
+    const back = o.logo === 'back'; lg.position.set(0, .38, back ? -.2 : .2); lg.rotation.y = back ? Math.PI : 0; upper.add(lg);
     (E.loading ||= []).push(new Promise(ok => new THREE.TextureLoader().load('../branding/logo-cut.png', t => { t.colorSpace = THREE.SRGBColorSpace; m.map = t; m.needsUpdate = true; ok(); }, undefined, ok)));
   }
-  const ph = R() * 6;
+  const ph = R() * 6, react = o.react ?? pick(['point', 'shade', 'head', 'down', 'shade', 'point']);
   const P = { g, R, ph, update(t, F) {
     const s = o.path(t, F, P);
     g.visible = s.visible !== false; if (!g.visible) return;
     g.position.set(s.x, (o.y ?? .2) + (s.y ?? 0), s.z); g.rotation.y = s.rot; g.rotation.x = s.lie ? -Math.PI / 2 : 0;
-    head.rotation.x = -(s.headUp ?? 0); upper.rotation.x = s.stoop ?? 0;
+    const hu = s.headUp ?? 0; headG.rotation.x = -hu; upper.rotation.x = s.stoop ?? 0;
     const sw = s.moving ? Math.sin(t * s.speed * 4.2 + ph) * (s.moving === 2 ? .9 : .45) * (1 - (s.stoop ?? 0)) : 0;
     legs[0].rotation.x = sw; legs[1].rotation.x = -sw;
+    // arms: swing while walking; when looking up they react (point, shade the eyes, hands on the head)
+    const pose = s.arms ?? (hu > .25 && !s.moving ? react : null), k = Math.min(1, (hu - .25) / .3);
+    arms[0].a.rotation.set(-sw * .8, 0, -.06); arms[1].a.rotation.set(sw * .8, 0, .06); arms[0].el.rotation.x = arms[1].el.rotation.x = -.25 - Math.abs(sw) * .3;
+    if (pose === 'point') { arms[1].a.rotation.x = -2.5 * k; arms[1].el.rotation.x = -.1; }
+    else if (pose === 'shade') { arms[1].a.rotation.x = -2.1 * k; arms[1].a.rotation.z = -.35 * k; arms[1].el.rotation.x = -1.7 * k; }
+    else if (pose === 'head') { for (const [i, A] of arms.entries()) { A.a.rotation.x = -2.7 * k; A.a.rotation.z = (i ? -.5 : .5) * k; A.el.rotation.x = -1.9 * k; } }
+    else if (s.lie) { arms[0].a.rotation.z = -.3; arms[1].a.rotation.z = .3; }
   } };
   E.people.push(P); return P;
 }
