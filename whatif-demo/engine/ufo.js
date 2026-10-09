@@ -95,7 +95,7 @@ function scout(s) {
   const hinge = new THREE.Group(); hinge.position.set(0, -.12 * r, .62 * r); g.add(hinge);
   const ramp = new THREE.Mesh(new THREE.BoxGeometry(.32 * r, .02 * r, .55 * r), mat(0x585e66, hz)); ramp.position.z = .275 * r; hinge.add(ramp);
   const open = new THREE.Mesh(new THREE.PlaneGeometry(.3 * r, .2 * r), glowMat(0xfff4dc, { side: THREE.DoubleSide }));
-  open.position.set(0, -.03 * r, .6 * r); open.visible = false; g.add(open);
+  open.position.set(0, -.15 * r, .68 * r); open.rotation.x = Math.PI / 2 - .35; open.scale.set(1, 1.6, 1); open.visible = false; g.add(open);   // the doorway in the underside, behind the ramp
   const glow = new THREE.PointLight(0xfff0d0, 0, 14 * r / 10, 1.4); glow.position.set(0, -.15 * r, .9 * r); g.add(glow);
   // soft light spilling onto the ground in front of the ramp
   const spill = new THREE.Mesh(new THREE.CircleGeometry(.6 * r, 24), glowMat(0xfff1d6, { transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
@@ -129,10 +129,19 @@ export function createUfo(E, TL) {
         S.legs.forEach(L => { L.scale.y = .05 + .95 * out; L.visible = out > .01; });
         const d = s.door != null ? smooth(s.door, s.door + 2.5, tt) : 0;
         S.hinge.rotation.x = d * 1.15; S.open.visible = d > .02;
-        S.glow.intensity = d * (s.doorLight ?? 260); S.spill.material.opacity = d * .35;
+        S.glow.intensity = d * (s.doorLight ?? 260); S.spill.material.opacity = d * .18;
         S.spill.position.set(0, -p[1] - bob + .05 + (E.groundAt ? E.groundAt(p[0], p[2]) : 0), .9 * r);
       }
     });
+    if (s.land != null && s.kind !== 'mother') {        // sand/dust blown out in a ring as it touches down
+      const r = s.r, col = E.dustColor || [.78, .72, .6];
+      E.emitters.push((tv, add) => {
+        const a = tv - (s.land - 1.2); if (a < 0 || a > 6) return;
+        const p = pos(s.land), gy = E.groundAt ? E.groundAt(p[0], p[2]) : 0;
+        for (let k = 0; k < 90; k++) { const ang = k / 90 * Math.PI * 2 + k * 1.7, u = Math.min(a, 6) * (.5 + (k % 7) / 10), d = r * .6 + u * 5;
+          add(p[0] + Math.cos(ang) * d, gy + .6 + u * .5, p[2] + Math.sin(ang) * d, 2 + u * 1.6, .32 * Math.sin(Math.min(1, a / 1.5) * Math.PI / 2) * (1 - smooth(2.5, 6, a)), col[0], col[1], col[2], k); }
+      });
+    }
     if (s.look) (E.skyObjects ||= []).push({ t0: s.lookFrom ?? s.keys[0][0], t1: s.lookUntil ?? 1e9, pos: t => { const q = pos(t); return [q[0], q[1] + S.bottom, q[2]]; }, weight: s.look });
   }
   // light beams: open cones from the bottom of a ship to a point on the ground (sweeping along keys)
