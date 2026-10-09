@@ -162,7 +162,9 @@ Beeld-regels (stijl zoals earth-stops):
 | `dust.js`, `hud.js`, `timeline.js`, `main.js` | stof/sneeuw/spray, tekstlaag, scenario → TL, hoofdlus en camera |
 | `props.js`, `blocks.js`, `crowd.js` | palmen, bomen, lantaarns, borden, auto's, mensen; gebouwen, huizen, watertoren |
 | `places/*.js` | plekken: `street` (stadsstraat), `river-city` (rivierstad met hangbrug), `boulevard` (strandboulevard), `mountain-village` (besneeuwd bergdorp) |
-| `forces/*.js` | krachten: `wind`, `gravity` (zwaartekracht), `water` (stijgen/zakken), `cold` (kou/duisternis) |
+| `forces/*.js` | krachten: `wind`, `gravity` (zwaartekracht), `water` (stijgen/zakken), `cold` (kou/duisternis), `heat`, `calm` (geen kracht) |
+| `time.js` | baksteen Tijd (`TL.time`): dagen voorbij in elk tempo – dag/nacht (zon beweegt, sterren), wolken, seizoenen (bladkleur, sneeuw), regen; natuur neemt over in jaren (gras in scheuren, klimop, jonge bomen) en verval (stof, roest, kapotte ramen). Plek geeft `E.wildArea`/`E.wildEdges`. Uitleg bovenin het bestand |
+| `animals.js` | baksteen Dieren (`TL.animals`): hond (ook met lege riem, groepje), vos, hert (gewei), vogels (vliegen, landen); route met tijden, `act`: sniff/graze/sit/look; optioneel eigen shot |
 
 Elke plek zegt zelf wat kan buigen (`E.bend`), breken (`E.breaks`, met sterkte per kracht), vallen
 (`E.falls`, met `rank` voor `beats.falls`) en onderlopen (`E.floods`), en levert `shots` en `look`.
