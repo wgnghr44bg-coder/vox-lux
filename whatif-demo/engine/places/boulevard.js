@@ -89,7 +89,7 @@ export function build(E, TL, F) {
   // TL.hand: a parked car with frost, and your own gloved hand resting on its roof (POV 'pov-car')
   let handShot = null;
   if (TL.hand) {
-    const [hx, hz] = TL.hand.car, roofY = PROM + .75 + .55 + .3;
+    const [hx, hz] = TL.hand.car, roofY = PROM + .75 + .92;   // top of the frosted roof
     car(E, 690, { x0: hx, z0: hz, dir: 1, v: 0, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: -1, F, ground: PROM, snow: true, color: 0x6c7a86 });
     const cam = TL.hand.cam, hand = new THREE.Group(), glove = lam(0x2b2f36);
     const palmM = new THREE.Mesh(new THREE.BoxGeometry(.11, .05, .16), glove); hand.add(palmM);

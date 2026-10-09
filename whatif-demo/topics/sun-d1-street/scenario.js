@@ -31,7 +31,7 @@ export default function (at) {
   }
   return {
     T_END, tripod: true, brand: false, showTitle: true, post: true,
-    groups: [{ at: [13, -6], n: 7, face: -.6, y: .2, shot: { name: 'group', from: [-3.1, 1.5, 6], fov: 46 } }],
+    groups: [{ at: [13, -6], n: 7, face: -.6, y: .2, shot: { name: 'group', from: [-2.2, 1.5, 6.6], fov: 46 } }],
     titleOut: at('imagine').e + .4,
     hud: { label: 'DAYLIGHT', unit: '%', decimals: 0, sub: clock(0), subAt },
     counter: [[0, 100], [climax, 100], [climax + .8, 55], [dark, 0], [T_END, 0]],

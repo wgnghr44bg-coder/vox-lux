@@ -21,8 +21,8 @@ export const lines = [
 export default function (at) {
   const T_END = at('breath').e + 1.8, carT = at('car').s - .2;
   return {
-    T_END, tripod: true, brand: false, sunbathers: 0,
-    hand: { car: [15, 73], cam: [14.4, 3 + 1.65, 75.1], t: [carT, T_END + 1] },
+    T_END, tripod: true, brand: false, post: true, sunbathers: 0,
+    hand: { car: [15, 73], cam: [14.4, 3 + 2.05, 74.9], t: [carT, T_END + 1] },
     hud: { label: 'TEMPERATURE', unit: '°C', decimals: 0, sub: 'DAY 7',
            second: { label: '', scale: 1.8, offset: 32, min: -1e9, unit: '°F', showAt: 0 },
            subAt: [[0, 'DAY 7'], [at('outside').s, 'DAY 7 — NO SUNLIGHT']] },
