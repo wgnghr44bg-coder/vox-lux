@@ -229,23 +229,6 @@ try {
   & $py -m pip install --user --quiet --disable-pip-version-check @PyPackages
   if ($LASTEXITCODE -ne 0) { throw "pip install mislukt" }
 
-  # Codex CLI: writes the scenario when you run  whatif "What if ..."  (uses your ChatGPT plan, no extra service)
-  if (-not (Find "codex")) {
-    if (Ask "Codex CLI installeren (npm, gratis; werkt met je ChatGPT-account)?") {
-      npm install -g @openai/codex --no-audit --no-fund
-      if ($LASTEXITCODE -ne 0) { throw "Codex CLI installeren mislukt" }
-      RefreshPath
-    }
-  }
-  if (Find "codex") {
-    $logged = $false
-    try { & codex login status *> $null; $logged = ($LASTEXITCODE -eq 0) } catch {}
-    if (-not $logged) {
-      Say "Codex is nog niet ingelogd. Er opent zo een browser: log in met je ChatGPT-account." Yellow
-      if (Ask "Nu inloggen bij Codex?") { codex login }
-    } else { Say "Codex CLI: ingelogd" Green }
-  }
-
   # the command  whatif  in every new PowerShell window
   $ps1 = Join-Path $wd "windows\whatif.ps1"
   $fn = "function whatif { & '$ps1' @args }"
@@ -267,8 +250,8 @@ try {
   $hasKey = Select-String -Path $envFile -Pattern '^\s*XAI_API_KEY\s*=\s*\S' -Quiet
   if (-not $hasKey) {
     Say ""
-    Say "De stem (xAI 'atlas') heeft een xAI API-sleutel nodig: https://console.x.ai -> API Keys." Yellow
-    Say "Kosten: betaald per gebruik, ongeveer 1 cent per Short-stem. Zonder sleutel werkt alles behalve de stem." Yellow
+    Say "xAI API-sleutel nodig (https://console.x.ai -> API Keys): Grok schrijft het scenario, Atlas spreekt het in." Yellow
+    Say "Kosten: betaald per gebruik, ongeveer 5-10 cent per Short (scenario + controle + stem)." Yellow
     $sec = Read-Host "Plak je XAI_API_KEY (Enter = later)" -AsSecureString
     $key = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec))
     if ($key) {
@@ -297,5 +280,5 @@ Say "Engine : $engine  (branch $(git -C $engine rev-parse --abbrev-ref HEAD))"
 Say "Archief: $archive"
 Say "Volgende stap: open een NIEUW PowerShell-venster en typ bijvoorbeeld:"
 Say '  whatif "What if the Sun disappeared?"' Green
-Say "Dat doet alles: scenario (Codex), stem, 6 testbeelden, jouw akkoord, video met geluid, controle, archief."
+Say "Dat doet alles: scenario (Grok), stem, 6 testbeelden, jouw akkoord, video met geluid, controle, archief."
 Say "Handleiding: $wd\windows\HANDLEIDING.md"
