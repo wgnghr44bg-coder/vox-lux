@@ -25,6 +25,7 @@ export function buildTL(scen, timing, o = {}) {
     return { s: r[0] + off, e: r[1] + off };
   };
   const cfg = scen.default(at, o);
+  if (o.shots && scen.topic) cfg.shots = o.shots;      // ?shots=[[t, name], ...]: other camera choices for the same video (director.py)
   const topic = scen.topic || {};
   const TL = {
     VO_OFFSET: off, titleIn: .3, titleOut: 6.4, dim: .6, events: [],

@@ -29,6 +29,7 @@ if (slug.startsWith('preview:')) {
   query = `place=${place}&force=${force}` + (shots ? `&shots=${encodeURIComponent(shots)}` : '');
   OUT = path.join(ROOT, 'engine', 'previews', `${place}-${force}`);
 } else { const [s, flag] = slug.split('+'); query = `topic=${s}` + (flag === 'hook' ? '&hook=1' : ''); OUT = path.join(ROOT, 'topics', s); }
+if (process.env.SHOTS && !slug.startsWith('preview:')) query += `&shots=${encodeURIComponent(process.env.SHOTS)}`;   // director.py: try other shots
 const WIDE = /\bwide:\s*true/.test(slug.startsWith('preview:') ? '' : fs.readFileSync(path.join(OUT, 'scenario.js'), 'utf8')) || process.env.WIDE === '1';
 if (WIDE) query += '&wide=1';
 fs.mkdirSync(OUT, { recursive: true });
@@ -66,7 +67,7 @@ if (mode === 'stills') {
   await browser.close();
 } else if (mode === 'timeline') {
   const { browser, page } = await open();
-  const data = await page.evaluate(() => ({ TL: window.TL, EVENTS: window.EVENTS, AUDIO: window.AUDIO }));
+  const data = await page.evaluate(() => ({ TL: window.TL, EVENTS: window.EVENTS, AUDIO: window.AUDIO, SHOTS: window.SHOTS }));
   fs.writeFileSync(path.join(OUT, 'timeline.json'), JSON.stringify(data));
   console.log('events', data.EVENTS.length, 'T_END', data.TL.T_END);
   await browser.close();

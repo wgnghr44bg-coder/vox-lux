@@ -12,6 +12,7 @@
 #   .\whatif.ps1 archive 45     source files -> C:\AI\ifscape3d-videos\<date>-<slug>\ (commit, no push)
 #   .\whatif.ps1 preview street wind    one frame of a place + force, no topic, no costs
 #   .\whatif.ps1 aanpassen 12 "the water must reach the houses"   Grok changes topic 12, new test frames, then the same steps
+#   .\whatif.ps1 camera 12 "more close-ups of the cars"   only the director chooses the camera again (with a wish), then the same steps
 #
 # Nothing is ever uploaded or published.
 
@@ -29,9 +30,11 @@ $env:PYTHONUTF8 = "1"
 try { [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding $false } catch {}   # Python prints UTF-8
 $steps = @("stills", "render", "check", "archive", "preview")
 $fixNr = $null
-if ($Cmd -eq "aanpassen" -or $Cmd -eq "fix") {                   # whatif aanpassen 12 "wat er anders moet"
+$camOnly = $false
+if ($Cmd -eq "aanpassen" -or $Cmd -eq "fix" -or $Cmd -eq "camera") {   # whatif aanpassen 12 "wat er anders moet" / whatif camera 12 "wens"
+  $camOnly = ($Cmd -eq "camera")
   $fixNr = $Arg1; $fixText = (@($Arg2) + @($Rest) | Where-Object { $_ }) -join " "
-  if (-not $fixText) { $fixText = Read-Host "Wat moet er anders aan onderwerp $fixNr" }
+  if (-not $fixText -and -not $camOnly) { $fixText = Read-Host "Wat moet er anders aan onderwerp $fixNr" }
   $Cmd = "make"
 } elseif ($steps -notcontains $Cmd) {                             # not a step: it is a topic (or nothing yet)
   $Arg1 = (@($Cmd, $Arg1, $Arg2) + @($Rest) | Where-Object { $_ }) -join " "
@@ -64,7 +67,12 @@ Push-Location $repo
 try {
   switch ($Cmd) {
     "make" {
-      if ($fixNr) {
+      if ($fixNr -and $camOnly) {
+        $nr = $fixNr
+        Write-Host "1/5 De regisseur kiest de camera opnieuw voor onderwerp $nr $(if ($fixText) { ": $fixText" })" -ForegroundColor Cyan
+        $da = @("$wd\director.py", $nr); if ($fixText) { $da += @("--wish", $fixText) }   # PowerShell 5 drops empty arguments
+        Py @da
+      } elseif ($fixNr) {
         $nr = $fixNr
         Write-Host "1/5 Grok past onderwerp $nr aan: $fixText" -ForegroundColor Cyan
         Topic --fix $nr $fixText | Out-Null

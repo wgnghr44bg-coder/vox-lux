@@ -15,4 +15,4 @@ topics/*/*.part*.mp4
 topics/*/*-klein.mp4
 .env
 .codex-result.txt
-topics/_blok-*/
+topics/_*/

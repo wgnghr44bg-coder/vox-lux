@@ -204,9 +204,24 @@ def review(d: Path) -> str | None:
     return "\n".join(f"- {p}" for p in probs) or None
 
 
-def write_reviewed(d: Path, messages: list) -> bool:
-    """Write + engine check, then up to 3 rounds of: Grok looks at a frame per sentence and fixes what does not match."""
+def run_director(d: Path, wish: str = "") -> None:
+    """director.py chooses the camera per sentence (labels, film rules, Grok compares rendered options)."""
+    import director
+    good = (d / "scenario.js").read_text(encoding="utf-8")
+    try:
+        director.direct(d, grok, wish=wish)
+        problem = check(d)
+        if problem: raise RuntimeError(problem)
+    except Exception as e:
+        print("director: kept the scenario's own shots (" + str(e)[:200] + ")")
+        (d / "scenario.js").write_text(good, encoding="utf-8"); check(d)
+
+
+def write_reviewed(d: Path, messages: list, wish: str = "") -> bool:
+    """Write + engine check, the director picks the camera, then up to 3 rounds of: Grok looks at a frame per
+    sentence and fixes what does not match (the director chooses the camera again after every fix)."""
     if not write_loop(d, messages): return False
+    run_director(d, wish)
     for k in range(3):
         problem = review(d)
         if not problem: return True
@@ -217,6 +232,7 @@ def write_reviewed(d: Path, messages: list) -> bool:
         good = (d / "scenario.js").read_text(encoding="utf-8")
         if not write_loop(d, messages):
             (d / "scenario.js").write_text(good, encoding="utf-8"); check(d); return True
+        run_director(d, wish)
     return True
 
 
@@ -355,6 +371,8 @@ then the counter on screen and the real water always agree. Use the heights in t
 +10.6 in river-city) and let the counter pass those heights at the line that names them.
 Events need their beat: cars stop/float -> beats.carsStop before it (and water above the float height); people go inside
 -> beats.shelter; buildings collapse -> beats.falls; a bridge breaks -> beats.deckBreak (river-city).
+The camera (shots) is chosen afterwards by the director, sentence by sentence: still give a simple valid shots list,
+and focus on the story, the counter, the force parameters, beats, captions and auto blocks.
 NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
 it in the export `missing` (array of short English descriptions) so it can be built later: export const missing = [...]; Output only the complete scenario.js in one ```js block."""
 
@@ -440,7 +458,7 @@ def fix_topic(num: int, feedback: str):
         "something the engine cannot show yet, put a short description of it in `export const missing = [...]`: it is then "
         "built automatically and you get it back to use."}]
     backup = d / "scenario.vorige.js"; backup.write_text(s, encoding="utf-8")
-    ok = write_reviewed(d, msg)
+    ok = write_reviewed(d, msg, wish=feedback)
     if ok:
         tp = re.search(r"place:\s*'([\w-]+)'.*?force:\s*'([\w-]+)'", (d / "scenario.js").read_text(encoding="utf-8"), re.S)
         built = build_missing(d, tp[1], tp[2]) if tp else []

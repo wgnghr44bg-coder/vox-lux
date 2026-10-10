@@ -86,6 +86,26 @@ Zo schrijf je een goede aanpassing:
 Wat níet kan met een aanpassing: een plek of object dat nog niet in de engine zit (bijvoorbeeld Mars, een ruimtestation
 of een vliegtuig van binnen). Grok kiest dan de best passende bestaande plek.
 
+## De camera: de regisseur
+
+Bij elke video kiest de **regisseur** (`director.py`) automatisch per zin de camera:
+- Elk camerastandpunt heeft een label in `engine/shots.json`: overzicht, hoog, middel, dichtbij, POV, telelens of lucht, en wat je ziet.
+- Grok zegt per zin waar die over gaat en hoe spannend die is.
+- Filmregels bepalen de keuze. De video opent met een overzicht. Een detail krijgt een close-up. POV is alleen een kort accent
+  (hooguit 3 keer). Na de climax volgt een overzicht. Nooit twee keer hetzelfde shot achter elkaar, en een standpunt hooguit 3 keer.
+  Er wordt gewisseld op een pauze in de stem.
+- Waar het spannend is, worden 2–3 opties gerenderd en kiest Grok het beeld waarop je het best ziet wat de stem zegt.
+  Een beeld dat geblokkeerd wordt door iets op de voorgrond, valt af.
+- Nieuwe bouwstenen (zoals het zinkgat) krijgen vanzelf een eigen overzichtsshot en close-up.
+
+Alleen de camera opnieuw laten kiezen, eventueel met een wens:
+
+```powershell
+whatif camera 12 "meer close-ups van de auto's, eindig hoog boven de stad"
+```
+
+Dat kost ongeveer 1–2 cent.
+
 ## Losse stappen
 
 Ga eerst naar de juiste map:
