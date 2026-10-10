@@ -5,6 +5,8 @@
 //   can break:  palm fronds, lamp heads, umbrellas (wind), beach huts lift off (water)
 //   can fall:   two old hotels (rank 0..1)
 //   can flood:  beach (0..3 m), boulevard and road (3 m), the street behind (3..6 m)
+// Water force heights (metres ABOVE sea level): beach 0..+3, boulevard and road +3, cars float from +3.6,
+//   the street behind +3..+6; hotel doors +3, every floor 3.5 m.
 // Beats: lookUp, shelter, carsStop, falls[]
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, colorKeys } from '../util.js';

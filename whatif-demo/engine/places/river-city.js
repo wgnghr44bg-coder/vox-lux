@@ -6,6 +6,9 @@
 //   can break:  branches, chimneys, balconies, bridge hangers, the middle of the deck (beats.deckBreak)
 //   can fall:   warehouses, water tower (rank 0..3, scripted by beats.falls)
 //   can flood:  river rises over both quays (water force)
+// Water force heights (metres ABOVE the normal river, so the counter can show them directly): quays, promenade and
+//   road +10; cars float from +10.6 (stop them first with beats.carsStop); house doors +10.5, every floor 3.5 m
+//   (houses 3-6 floors: roofs +20.5..+31); bridge deck +19. Below +10 the water stays inside the river walls.
 // Beats: carsStop, hangers, deckBreak, lookUp, shelter, falls[]
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, colorKeys, lerp, noise } from '../util.js';

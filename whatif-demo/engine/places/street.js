@@ -6,6 +6,8 @@
 //               windows (beats.windows), facade chunks (beats.walls), whole top floors (beats.floors)
 //   can fall:   the skyscrapers near the sea (rank 0..2 -> beats.falls)
 //   can flood:  the sea at the end of the avenue rises up the street (water force)
+// Water force heights (metres ABOVE the normal sea level): street and pavements +1.2 (the water then runs up the
+//   avenue from the sea end); cars float from +1.8 (stop them first with beats.carsStop); shop doors +1.2, every floor 3.5 m.
 // Beats: redLight [a, b], lookUp, shelter, carsStop, powerOut, windows, walls, floors, climax, falls[]
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, colorKeys } from '../util.js';

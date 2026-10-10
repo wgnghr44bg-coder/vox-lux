@@ -102,6 +102,12 @@ def scenarios() -> list[dict]:
     return out
 
 
+def blocks() -> str:
+    a = (HERE / "AUTOMATISCH.md").read_text(encoding="utf-8")
+    i = a.find("### De engine"); j = a.find("Past het onderwerp niet", i)
+    return a[i:j].strip() if i >= 0 else ""
+
+
 def rules() -> str:
     a = (HERE / "AUTOMATISCH.md").read_text(encoding="utf-8")
     i, j = a.find("Script-regels:"), a.find("### De engine")
@@ -150,58 +156,77 @@ def check(d: Path) -> str | None:
     return "\n".join(problems) or None
 
 
-def spoken_at(lines, t: float, off: float = .8) -> str:
-    """The line spoken at video time t, with the same word-count estimate as engine/timeline.js (no voice yet)."""
-    pause = {"none": 0, "": .3, "pause": .5, "long": 1.0}; at = 0.0; last = ""
+def line_times(lines, off: float = .8):
+    """(start, end) per line in video seconds, with the same word-count estimate as engine/timeline.js (no voice yet)."""
+    pause = {"none": 0, "": .3, "pause": .5, "long": 1.0}; at = 0.0; out = []
     for _, text, pz in lines:
         words = len(re.sub(r"\[[^\]]+\]", " ", text).split())
         dur = words / 2.55 + max(0, len(re.findall(r"[.!?](\s|$)", text)) - 1) * .3 + text.count(",") * .35
-        if at + off <= t <= at + off + dur: return text
-        if at + off < t: last = f"(silence after) {text}"
+        out.append((at + off, at + off + dur))
         at += dur + (pz if isinstance(pz, (int, float)) else pause.get(pz or "", .3))
-    return last
+    return out
 
 
 def review(d: Path) -> str | None:
-    """Grok looks at 6 test frames (estimated timing, no voice, free to render) next to the narration.
-    Returns the problems in words, or None when it looks right."""
+    """Grok checks every sentence: one frame at the end of each line (estimated timing, no voice, free to render),
+    all in one grid, next to what the voice says there. Returns the problems in words, or None when it looks right."""
     import base64
-    from make_whatif import contact_sheet
-    tl = json.loads((d / "timeline.json").read_text(encoding="utf-8"))["TL"]; B = tl["beats"]
-    a, c = tl.get("titleOut", 6.4), B.get("climax", tl["T_END"] * .7)
-    times = [f"{x:.1f}" for x in (2.0, a + (c - a) * .3, a + (c - a) * .65, c + 1.5, c + 4.5, min(tl["T_END"] - 1, B.get("fade", c + 8) + 1))]
-    subprocess.run(["node", str(ENGINE / "render.mjs"), d.name, "stills", *times], capture_output=True, check=True)
-    contact_sheet(d, times)
     js = "import(process.argv[1]).then(m => console.log(JSON.stringify(m.lines)))"
     lines = json.loads(subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout)
-    said = "\n".join(f"frame {k + 1} at {t} s: voice says \"{spoken_at(lines, float(t), tl.get('VO_OFFSET', .8))}\"" for k, t in enumerate(times))
-    img = base64.b64encode((d / "stills" / "overzicht.jpg").read_bytes()).decode()
+    tl = json.loads((d / "timeline.json").read_text(encoding="utf-8"))["TL"]
+    tt = line_times(lines, tl.get("VO_OFFSET", .8))
+    times = [f"{max(s + .3, e - .2):.1f}" for s, e in tt][:20]
+    subprocess.run(["node", str(ENGINE / "render.mjs"), d.name, "stills", *times], capture_output=True, check=True)
+    st = d / "stills"; cols = 4; rows = -(-len(times) // cols)
+    ins = sum([["-i", str(st / f"still-{t}.jpg")] for t in times], [])
+    layout = "|".join(f"{k % cols * 270}_{k // cols * 480}" for k in range(len(times)))
+    grid = st / "controle.jpg"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex",
+                    "".join(f"[{k}]scale=270:480[s{k}];" for k in range(len(times))) + "".join(f"[s{k}]" for k in range(len(times))) +
+                    f"xstack=inputs={len(times)}:layout={layout}:fill=black", str(grid)], check=True)
+    said = "\n".join(f"frame {k + 1} ({lid}, {t} s): voice says \"{lines[k][1]}\"" for k, (t, (lid, _, _)) in enumerate(zip(times, lines)))
+    img = base64.b64encode(grid.read_bytes()).decode()
     ans = grok([{"role": "user", "content": [
         {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}},
-        {"type": "text", "text": "These are 6 frames of a low-poly 3D 'What if' Short (left to right, top to bottom).\n" + said +
-         "\n\nCheck ONLY for clear errors: numbers or captions on screen that contradict each other or the voice, impossible "
-         "values (e.g. above 100%), something the voice says that is clearly not visible, a broken or empty picture, the camera "
-         "inside a wall. Ignore style and taste. Answer JSON: {\"ok\": true|false, \"problems\": [\"...\"]}"}]}], json_mode=True)
+        {"type": "text", "text": f"A grid of {len(times)} frames (4 per row, left to right, top to bottom) from a low-poly 3D 'What if' Short. "
+         "Each frame is taken at the END of one narration line:\n" + said +
+         "\n\nFor each frame: is what the voice says VISIBLE in that frame (water at that height, cars floating, buildings "
+         "falling, people, the named object...)? Also flag numbers on screen that contradict the voice, impossible values, "
+         "empty/broken pictures or the camera inside an object. Ignore style and taste. Answer JSON: "
+         "{\"ok\": true|false, \"problems\": [\"line <id>: voice says ... but the frame shows ...\"]}"}]}], json_mode=True)
     try: r = json.loads(ans)
     except json.JSONDecodeError: return None
     probs = [p for p in r.get("problems", []) if p] if not r.get("ok") else []
-    print("review:", "OK" if not probs else "; ".join(probs))
+    print("review:", "OK" if not probs else "\n  " + "\n  ".join(probs))
     return "\n".join(f"- {p}" for p in probs) or None
 
 
 def write_reviewed(d: Path, messages: list) -> bool:
-    """Write + engine check, then up to 2 rounds of: Grok looks at the frames and fixes what is clearly wrong."""
+    """Write + engine check, then up to 3 rounds of: Grok looks at a frame per sentence and fixes what does not match."""
     if not write_loop(d, messages): return False
-    for k in range(2):
+    for k in range(3):
         problem = review(d)
         if not problem: return True
         messages += [{"role": "assistant", "content": (d / "scenario.js").read_text(encoding="utf-8")},
-                     {"role": "user", "content": "Looking at 6 rendered test frames, these things are wrong:\n" + problem +
-                      "\nFix them (counter, captions, force parameters, shots) and output the full corrected scenario.js."}]
+                     {"role": "user", "content": "Looking at a rendered frame at the end of every line, these things are wrong:\n" + problem +
+                      "\nFix them: change the force parameters, counter, beats and shots so it really happens at that line, or, if the "
+                      "engine cannot show it, rewrite the line (and add it to `missing`). Output the full corrected scenario.js."}]
         good = (d / "scenario.js").read_text(encoding="utf-8")
         if not write_loop(d, messages):
             (d / "scenario.js").write_text(good, encoding="utf-8"); check(d); return True
     return True
+
+
+def save_missing(d: Path):
+    """Things the story wanted but the engine cannot show yet -> engine/WENSEN.md (to build later, then kept for good)."""
+    js = "import(process.argv[1]).then(m => console.log(JSON.stringify(m.missing || [])))"
+    try: miss = json.loads(subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout)
+    except Exception: return
+    if not miss: return
+    f = ENGINE / "WENSEN.md"
+    old = f.read_text(encoding="utf-8") if f.exists() else "# Wensen: bouwstenen die nog ontbreken\n\nGrok noteert hier wat een verhaal nodig had maar de engine nog niet kan tonen.\nWat gebouwd is, blijft in de engine en is daarna voor elke video beschikbaar.\n\n"
+    new = "".join(f"- [ ] {m}  (gevraagd door {d.name}, {dt.date.today()})\n" for m in miss if m.lower() not in old.lower())
+    if new: f.write_text(old + new, encoding="utf-8"); print("ontbreekt nog (in engine/WENSEN.md):\n  " + "\n  ".join(miss))
 
 
 def extract_js(text: str) -> str:
@@ -215,7 +240,15 @@ beats and options that exist in the engine or in the example scenario. Physics m
 a number, leave it out. English narration in second person ("you").
 What the voice says must be VISIBLE: read the heights and positions in the place header (e.g. in river-city the river
 lies at y -10 and the quays at y 0, so water must rise more than 10 m before a street floods) and choose the force
-parameters, counter and shots so that every step the narration names really happens on screen at that moment. Output only the complete scenario.js in one ```js block."""
+parameters, counter and shots so that every step the narration names really happens on screen at that moment.
+How the force follows the counter: level = (counter - range[0]) / (range[1] - range[0]), 0..1. For the water force the water
+height above normal = forceParams.rise * level, so use counter values in metres above normal, range [0, R] and rise R:
+then the counter on screen and the real water always agree. Use the heights in the place header (e.g. cars float from
++10.6 in river-city) and let the counter pass those heights at the line that names them.
+Events need their beat: cars stop/float -> beats.carsStop before it (and water above the float height); people go inside
+-> beats.shelter; buildings collapse -> beats.falls; a bridge breaks -> beats.deckBreak (river-city).
+NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
+it in the export `missing` (array of short English descriptions) so it can be built later: export const missing = [...]; Output only the complete scenario.js in one ```js block."""
 
 
 def write_loop(d: Path, messages: list, tries: int = 4) -> bool:
@@ -266,9 +299,11 @@ def new_topic(question: str):
         f"RULES (from the channel owner, Dutch):\n{rules()}\n\n"
         f"PLACE {plan['place']} (header; shots: {', '.join(place_shots(pf)) if pf.exists() else '?'}):\n{header(pf) if pf.exists() else ''}\n\n"
         f"FORCE {plan['force']}:\n{header(ff) if ff.exists() else ''}\n\n"
+        f"ALL BUILDING BLOCKS OF THE ENGINE (Dutch):\n{blocks()}\n\n"
         f"EXAMPLE scenario ({ex.parent.name}) - copy its structure exactly, change the content:\n```js\n{ex.read_text(encoding='utf-8')}```\n\n"
         f"Second example (gravity-doubled):\n```js\n{(TOPICS / 'gravity-doubled' / 'scenario.js').read_text(encoding='utf-8')}```"}]
     ok = write_reviewed(d, msg)
+    save_missing(d)
     row = f"| {num} | {q[8:]} (Short, stijl {want_style[0]}) | {plan['place']} | {plan.get('summary', '')} | in de maak {dt.date.today()} (automatisch, Grok); topics/{slug} |"
     text = lijst.splitlines(); same = [i for i, l in enumerate(text) if re.match(rf"^\|\s*{num}\s*\|", l)]
     if same: text[same[0]] = row                    # a planned topic: its row gets the new status
@@ -288,6 +323,7 @@ def fix_topic(num: int, feedback: str):
         "Change the scenario accordingly (keep everything else) and output the full scenario.js."}]
     backup = d / "scenario.vorige.js"; backup.write_text(s, encoding="utf-8")
     ok = write_reviewed(d, msg)
+    save_missing(d)
     if not ok: backup.replace(d / "scenario.js"); print("kept the previous version")
     else: backup.unlink()
     print(f"total ~${COST['usd']:.2f}")

@@ -8,6 +8,8 @@
 //               [[x0, x1, z1], ...] overrides where the small boats end up)
 //   can flood:  quay (QY), road (QY), the town (above QY, 1 m every 20 m inland); the quay darkens once wet
 //   moorings:   lines from the cargo ship to the quay bollards
+// Water force heights (metres ABOVE mean sea level): quay and road +3.2; cars float from +3.8; the town rises 1 m
+//   every 20 m inland, so each extra metre floods 20 m more of it; boats float at every level.
 // Beats: lookUp, shelter (groups / people on the quay)
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, lerp } from '../util.js';
