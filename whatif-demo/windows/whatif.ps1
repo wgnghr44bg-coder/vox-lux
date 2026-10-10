@@ -119,6 +119,9 @@ try {
       $up = Get-Content (Join-Path $d "upload.json") -Raw | ConvertFrom-Json
       Write-Host "Titel  : $($up.title)"
       if ($up.tiktok) { Write-Host "TikTok : $($up.tiktok)" }
+      $kosten = 0.01                                              # the voice (xAI Atlas), about 1 cent
+      if (Test-Path "$d\kosten.txt") { Get-Content "$d\kosten.txt" | ForEach-Object { $kosten += [double]::Parse($_, [Globalization.CultureInfo]::InvariantCulture) } }
+      Write-Host ("Kosten  : ongeveer `${0:N2} bij xAI (scenario, controles, camera en stem)" -f $kosten)
       Write-Host "Niets geupload. Dat doe je zelf."
       Write-Host "Iets anders willen?  whatif aanpassen $nr `"wat er anders moet`""
       Start-Process $mp4

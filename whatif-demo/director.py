@@ -120,7 +120,7 @@ def candidates(place: str, tl: dict, shots: dict | None = None) -> dict:
 
 def tag_lines(grok, lines, vocab, style: str, wish: str = "") -> dict:
     said = "\n".join(f'{lid}: "{text}"' for lid, text, _ in lines)
-    ans = grok([{"role": "system", "content": "You are the director of a short 3D 'What if' video. Answer in JSON only."},
+    ans = grok(fast=True, messages=[{"role": "system", "content": "You are the director of a short 3D 'What if' video. Answer in JSON only."},
                 {"role": "user", "content":
                  f"Sentences of the voice-over:\n{said}\n\nWords for what can be on screen: {', '.join(sorted(vocab))}\n"
                  f"Style: {style} ({'POV: first person, handheld' if style.startswith('A') else 'observer on a tripod, wide shots'}).\n"
@@ -221,7 +221,11 @@ def plan(lines, times, tags, cands, style, tl):
 def look(grok, d: Path, slug: str, segs, lines, tags, max_rows=5) -> None:
     """Render the 3 best standpoints of every segment at its moment and let Grok choose (in place, segs[i][3][0])."""
     import base64
-    segs = [s for s in segs if len(s[3]) > 1]                        # only where there is a real choice
+    # only where there is a real choice, and only at the moments that matter (saves money): at most 6
+    def matters(sg):
+        t = sg[4] if len(sg) > 4 else tags.get(sg[2], {})
+        return t.get("kind") in ("event", "climax", "detail") or (t.get("intensity") or 0) >= 2
+    segs = [s for s in segs if len(s[3]) > 1 and matters(s)][:6]
     if not segs: return
     times = [f"{min(s[1] + 1.4, s[1] + 3):.1f}" for s in segs]
     st = d / "stills" / "director"; shutil.rmtree(st, ignore_errors=True); st.mkdir(parents=True)
@@ -243,7 +247,7 @@ def look(grok, d: Path, slug: str, segs, lines, tags, max_rows=5) -> None:
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", fc, "-map", "[o]", str(grid)], check=True)
         rows = "\n".join(f'row {i + 1}: voice says "{text[s[2]]}"; the viewer must see: {", ".join(tags.get(s[2], {}).get("subject") or ["-"])}'
                          for i, s in enumerate(grp))
-        ans = grok([{"role": "user", "content": [
+        ans = grok(fast=True, messages=[{"role": "user", "content": [
             {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(grid.read_bytes()).decode()}},
             {"type": "text", "text": f"A grid of camera options for a low-poly 3D video: {len(grp)} rows, 3 columns (A, B, C). "
              f"Each row is one moment:\n{rows}\n\nFor every row choose the column whose picture shows best what the voice says "
@@ -339,7 +343,9 @@ def main():
     a = ap.parse_args()
     from make_whatif import find_topic, load_env
     load_env()
-    direct(find_topic(a.number), use_look=not a.no_look, wish=a.wish)
+    d = find_topic(a.number)
+    direct(d, use_look=not a.no_look, wish=a.wish)
+    import make_topic; make_topic.save_cost(d)
 
 
 if __name__ == "__main__":
