@@ -402,7 +402,18 @@ camera cuts, so put a pause before each new step of the story.
 NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
 it in the export `missing` (array of short English descriptions of an OBJECT or EFFECT, e.g. 'people jumping', 'a
 collapsing dam'; never notes about shots, captions or visibility) so it can be built: export const missing = [...];
-The narration speaks to the viewer about what happens; it never describes captions, counters, signs or the screen. Output only the complete scenario.js in one ```js block."""
+The narration speaks to the viewer about what happens; it never describes captions, counters, signs or the screen.
+STORY CRAFT (what makes these videos strong):
+- A topic that happens TO YOU (struck by lightning, falling, a quake under your feet...): put 'you' on screen with the auto
+  block hero, close to the camera (camera directions like 'close hero', 'medium hero' over the shoulder, 'close lying').
+  The story follows that one person; their body shows what the voice says (hair standing up, struck, falling, marks).
+- Tell ONE real process step by step, in the order it really happens; every sentence is a new visible moment.
+- Always use the blocks that belong to the topic: lightning -> storm-clouds + rain + lightning (+ hero); floods -> rain;
+  storms -> storm-clouds; a sinkhole -> sinkhole; a tsunami -> tsunami-wave. A sunny sky in a storm story is wrong.
+- The counter may change meaning with hud.phases, e.g. STORM DISTANCE in km while it comes closer, then TIME in seconds
+  for a very fast moment told in slow motion (a lightning strike takes 0.2 s: stretch it over 15-25 s of video and
+  say so: "in slow motion"); put the matching values in `counter`.
+- End with what is left afterwards and one surprising real fact about scale (how often it happens, how many people). Output only the complete scenario.js in one ```js block."""
 
 
 def write_loop(d: Path, messages: list, tries: int = 4) -> bool:

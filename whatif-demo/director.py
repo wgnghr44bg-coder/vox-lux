@@ -82,6 +82,23 @@ def line_times(d: Path, lines, tl) -> list[tuple[float, float]]:
     return est(lines, tl.get("VO_OFFSET", .8))
 
 
+def hero_shots(a: dict) -> dict:
+    """Standpoints around the hero (auto/hero.js) from where it stands and where it looks: over the shoulder, the face,
+    an overview, straight down at the hero lying on the ground, and up at the sky from beside the hero."""
+    import math
+    x, y, z = (a.get("pos") or [0, 0, 0])[:3]; f = a.get("face", 0)
+    fx, fz = -math.sin(f), -math.cos(f)                    # forward (the hero looks at -z when face = 0)
+    sx, sz = -fz, fx                                       # to the right
+    P = lambda df, ds, h: [round(x + fx * df + sx * ds, 2), round(y + h, 2), round(z + fz * df + sz * ds, 2)]
+    return {
+        "auto-hero-back":  {"type": "medium", "shows": ["hero", "you", "person", "hair", "back", "sky", "storm"], "shot": {"pos": P(-3.0, .6, 2.0), "look": P(25, 0, 5), "fov": 58}},
+        "auto-hero-close": {"type": "close", "shows": ["hero", "you", "face", "hair", "body", "skin", "person"], "shot": {"pos": P(2.8, .3, 1.65), "look": P(0, 0, 1.45), "fov": 48}},
+        "auto-hero-wide":  {"type": "wide", "shows": ["hero", "you", "person", "field", "park", "storm", "lightning"], "shot": {"pos": P(10, 34, 4.5), "look": P(8, 0, 14), "fov": 64}},
+        "auto-hero-lie":   {"type": "close", "shows": ["hero", "you", "lying", "ground", "marks", "skin", "body"], "shot": {"pos": P(-1.1, 1.6, 3.6), "look": P(-1.1, 0, .2), "fov": 66}},
+        "auto-hero-sky":   {"type": "sky", "shows": ["sky", "clouds", "lightning", "storm", "leader", "spark", "bolt"], "shot": {"pos": P(-4, 1.5, 1.6), "look": P(90, 0, 300), "fov": 72}},
+    }
+
+
 def open_dirs(shots: dict, c) -> list:
     """Directions (unit x, z) from c towards the place's own standpoints: there is open space for a camera."""
     import math
@@ -104,6 +121,7 @@ def candidates(place: str, tl: dict, shots: dict | None = None) -> dict:
         t = "pov" if k.startswith("pov") or v.get("hand") else "tele" if v.get("fov", 60) < 35 else "medium"
         out.setdefault(k, {"type": t, "shows": re.split(r"[-_ ]", k)})
     for a in tl.get("auto") or []:
+        if a["block"] == "hero": out.update(hero_shots(a)); continue
         pts = a.get("pos")
         if not pts: continue
         pts = pts if isinstance(pts[0], (list, tuple)) else [pts]
