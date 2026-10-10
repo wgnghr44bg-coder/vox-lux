@@ -93,6 +93,7 @@ def catalogue() -> str:
 def scenarios() -> list[dict]:
     out = []
     for f in sorted(TOPICS.glob("*/scenario.js")):
+        if f.parent.name.startswith("_"): continue          # block tests
         s = f.read_text(encoding="utf-8")
         g = lambda k: (re.search(rf"\b{k}:\s*['\"]([^'\"]+)", s) or [None, ""])[1]
         n = re.search(r"\bnumber:\s*(\d+)", s)
@@ -105,7 +106,8 @@ def scenarios() -> list[dict]:
 def blocks() -> str:
     a = (HERE / "AUTOMATISCH.md").read_text(encoding="utf-8")
     i = a.find("### De engine"); j = a.find("Past het onderwerp niet", i)
-    return a[i:j].strip() if i >= 0 else ""
+    cat = (ENGINE / "auto" / "CATALOGUS.md")
+    return (a[i:j].strip() if i >= 0 else "") + ("\n\nAUTO BLOCKS (engine/auto/, use with auto: [...]):\n" + cat.read_text(encoding="utf-8") if cat.exists() else "")
 
 
 def rules() -> str:
@@ -175,7 +177,7 @@ def review(d: Path) -> str | None:
     lines = json.loads(subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout)
     tl = json.loads((d / "timeline.json").read_text(encoding="utf-8"))["TL"]
     tt = line_times(lines, tl.get("VO_OFFSET", .8))
-    times = [f"{max(s + .3, e - .2):.1f}" for s, e in tt][:20]
+    times = [f"{s + (e - s) * .7:.1f}" for s, e in tt][:20]          # 70 % into each line
     subprocess.run(["node", str(ENGINE / "render.mjs"), d.name, "stills", *times], capture_output=True, check=True)
     st = d / "stills"; cols = 4; rows = -(-len(times) // cols)
     ins = sum([["-i", str(st / f"still-{t}.jpg")] for t in times], [])
@@ -192,7 +194,8 @@ def review(d: Path) -> str | None:
          "Each frame is taken at the END of one narration line:\n" + said +
          "\n\nFor each frame: is what the voice says VISIBLE in that frame (water at that height, cars floating, buildings "
          "falling, people, the named object...)? Also flag numbers on screen that contradict the voice, impossible values, "
-         "empty/broken pictures or the camera inside an object. Ignore style and taste. Answer JSON: "
+         "empty/broken pictures or the camera inside an object. The counter keeps changing during a line, so only flag numbers "
+         "that are clearly wrong (more than 25 % off or going the wrong way); the last frame may fade to black. Ignore style and taste. Answer JSON: "
          "{\"ok\": true|false, \"problems\": [\"line <id>: voice says ... but the frame shows ...\"]}"}]}], json_mode=True)
     try: r = json.loads(ans)
     except json.JSONDecodeError: return None
@@ -215,6 +218,110 @@ def write_reviewed(d: Path, messages: list) -> bool:
         if not write_loop(d, messages):
             (d / "scenario.js").write_text(good, encoding="utf-8"); check(d); return True
     return True
+
+
+BLOCKS = ENGINE / "auto"
+
+
+def block_test(name: str, entry: dict, place: str, force: str, shot, times=(3, 8), force_params=None) -> Path:
+    """Render a block on its own: topics/_blok-<name>/ with only the place, the block and one camera standpoint.
+    shot: the name of a place shot, or { pos, look, fov }. Returns the folder (stills/still-<t>.jpg)."""
+    d = TOPICS / f"_blok-{name}"; d.mkdir(exist_ok=True)
+    for f in ("timing.json", "timeline.json"): (d / f).unlink(missing_ok=True)
+    # second camera, always aimed at the block: 30 m away, 10 m up, from the centre of its pos (or list of positions)
+    pts = entry.get("pos") or [0, 0, 0]; pts = pts if isinstance(pts[0], (list, tuple)) else [pts]
+    cx, cy, cz = (sum(p[i] for p in pts) / len(pts) for i in range(3))
+    aim = {"pos": [cx + 12, cy + 10, cz + 28], "look": [cx, cy, cz], "fov": 45}
+    first = json.dumps(shot) if isinstance(shot, str) else "'blok'"
+    shots = f"[[0, {first}], [5, 'aim']], extraShots: {{ aim: {json.dumps(aim)}" + ("" if isinstance(shot, str) else f", blok: {json.dumps(shot)}") + " }"
+    (d / "scenario.js").write_text(f"""// test of engine/auto/{name}.js (not a video)
+export const topic = {{ number: 0, slug: '_blok-{name}', place: '{place}', force: '{force}', question: 'block test', title: '' }};
+export const lines = [['a', 'One two three four five six seven eight nine ten eleven twelve.', 'pause'],
+                      ['b', 'One two three four five six seven eight nine ten eleven twelve.', 'none']];
+export default function (at) {{
+  return {{ T_END: 12, tripod: true, counter: [[0, 1], [12, 1]], range: [0, 1], forceParams: {json.dumps(force_params or {})},
+    hud: {{ label: '', unit: '' }}, captions: [], shots: {shots}, auto: [{json.dumps(entry)}],
+    beats: {{ climax: 10, stop: 13, dark: 1e9, end: 1e9, fade: 30, falls: [] }}, end: {{ title: '', lines: '' }} }};
+}}
+export const upload = {{}};
+""", encoding="utf-8")
+    r = subprocess.run(["node", str(ENGINE / "render.mjs"), d.name, "stills", *map(str, times)], capture_output=True, text=True, encoding="utf-8", errors="replace")
+    out = r.stdout + r.stderr
+    if r.returncode or "ERR " in out: raise RuntimeError(out[-2000:])
+    return d
+
+
+def look_at(img_paths, question: str) -> list[str]:
+    """Grok looks at one or more frames; returns the problems (empty list = fine)."""
+    import base64
+    content = [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(Path(f).read_bytes()).decode()}} for f in img_paths]
+    content.append({"type": "text", "text": question + ' Answer JSON: {"ok": true|false, "problems": ["..."]}'})
+    try: r = json.loads(grok([{"role": "user", "content": content}], json_mode=True))
+    except json.JSONDecodeError: return []
+    return [] if r.get("ok") else [p for p in r.get("problems", []) if p] or ["not ok"]
+
+
+BUILDER = """You build one new building block for a low-poly Three.js 'What if' engine. Follow the example file EXACTLY in
+form: a header comment (AUTO BLOCK <name>: what it shows; 'Use in scenario.js:' with the entry and its options), then
+export default function build(E, TL, o, F) that adds low-poly objects to E.scene and returns update(t, tv).
+Use only E.THREE, E.scene, E.camera, E.lam, E.shadowed, E.groundAt, F.field(t) as described in the example; no imports,
+no Math.random, no textures or external files. Real scale in metres; matte colours; it must read clearly in a video.
+The entry must have pos: [x, y, z] (or a list of positions) in place coordinates where it belongs (see the place header).
+In the test the force is at FULL strength (level 1) all the time: give forceParams so the situation exists (e.g. water
+force: rise in metres above normal so the water covers the road), and follow F.field(t).waterY for anything that floats.
+Answer with exactly two fenced blocks: ```js (the complete file) and ```json {"entry": {...the TL.auto entry...},
+"forceParams": {...}, "shot": {"pos": [x, y, z], "look": [x, y, z], "fov": 50}} (a camera standpoint that shows it well)."""
+
+
+def build_block(name: str, desc: str, place: str, force: str) -> dict | None:
+    """Grok writes engine/auto/<name>.js, the engine renders it on its own, Grok checks the picture; max 3 tries.
+    Returns the catalogue entry, or None (the file is then removed)."""
+    f = BLOCKS / f"{name}.js"
+    pf = ENGINE / "places" / f"{place}.js"
+    msg = [{"role": "system", "content": BUILDER}, {"role": "user", "content":
+        f"Block name: {name}\nIt must show: {desc}\nIt will be used in place '{place}' (force '{force}'):\n{header(pf)}\n\n"
+        f"EXAMPLE (engine/auto/rain.js):\n```js\n{(BLOCKS / 'rain.js').read_text(encoding='utf-8')}```"}]
+    for k in range(3):
+        ans = grok(msg)
+        fences = re.findall(r"```[a-zA-Z]*\s*\n(.*?)```", ans, re.S)
+        code = next(([None, b] for b in fences if "export default" in b), None)
+        meta = next(([None, b] for b in fences if b.strip().startswith("{")), None)
+        problem = None
+        if not code or not meta: problem = "Answer with one ```js block and one ```json block."
+        else:
+            f.write_text(code[1].strip() + "\n", encoding="utf-8")
+            try:
+                m = json.loads(meta[1]); entry = {**m["entry"], "block": name}
+                d = block_test(name, entry, place, force, m.get("shot") or "wide", force_params=m.get("forceParams"))
+                probs = look_at([d / "stills" / "still-3.jpg", d / "stills" / "still-8.jpg"],
+                                f"Two frames of a low-poly 3D scene (two camera angles). Does at least one clearly show: {desc}? "
+                                "Check: is it visible and recognisable, at a believable size, no broken geometry?")
+                if not probs:
+                    print(f"block {name}: OK"); return {"block": name, "desc": desc, "entry": entry}
+                problem = "Looking at the rendered test frames: " + "; ".join(probs)
+            except Exception as e:
+                problem = "The engine failed: " + str(e)[-1500:]
+        print(f"block {name} try {k + 1}: {problem[:300]}")
+        msg += [{"role": "assistant", "content": ans}, {"role": "user", "content": problem + "\nFix it and answer again with both blocks."}]
+    f.unlink(missing_ok=True); return None
+
+
+def build_missing(d: Path, place: str, force: str, limit: int = 3) -> list[dict]:
+    """Build what the story wanted but the engine could not show yet (export `missing`), and keep it for good."""
+    js = "import(process.argv[1]).then(m => console.log(JSON.stringify(m.missing || [])))"
+    try: miss = json.loads(subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout)
+    except Exception: return []
+    built = []
+    for desc in miss[:limit]:
+        name = re.sub(r"[^a-z0-9]+", "-", desc.lower()).strip("-")[:28].strip("-") or "block"
+        if (BLOCKS / f"{name}.js").exists(): continue
+        print(f"bouwsteen maken: {name} ({desc})")
+        b = build_block(name, desc, place, force)
+        if b:
+            built.append(b)
+            cat = BLOCKS / "CATALOGUS.md"
+            cat.write_text(cat.read_text(encoding="utf-8").rstrip("\n") + f"\n| `{name}` | {desc} (gemaakt voor {d.name}, {dt.date.today()}) | `{json.dumps(b['entry'])}` |\n", encoding="utf-8")
+    return built
 
 
 def save_missing(d: Path):
@@ -303,6 +410,14 @@ def new_topic(question: str):
         f"EXAMPLE scenario ({ex.parent.name}) - copy its structure exactly, change the content:\n```js\n{ex.read_text(encoding='utf-8')}```\n\n"
         f"Second example (gravity-doubled):\n```js\n{(TOPICS / 'gravity-doubled' / 'scenario.js').read_text(encoding='utf-8')}```"}]
     ok = write_reviewed(d, msg)
+    if ok:
+        built = build_missing(d, plan["place"], plan["force"])
+        if built:
+            msg += [{"role": "assistant", "content": (d / "scenario.js").read_text(encoding="utf-8")},
+                    {"role": "user", "content": "These building blocks were just built for this story and now exist:\n" +
+                     "\n".join(f"- {b['block']}: {b['desc']}; use: auto: [{json.dumps(b['entry'])}] (adjust options, times via at())" for b in built) +
+                     "\nUse them to show what you left out (you may add those lines back), remove them from `missing`, and output the full scenario.js."}]
+            ok = write_reviewed(d, msg)
     save_missing(d)
     row = f"| {num} | {q[8:]} (Short, stijl {want_style[0]}) | {plan['place']} | {plan.get('summary', '')} | in de maak {dt.date.today()} (automatisch, Grok); topics/{slug} |"
     text = lijst.splitlines(); same = [i for i, l in enumerate(text) if re.match(rf"^\|\s*{num}\s*\|", l)]
@@ -320,9 +435,20 @@ def fix_topic(num: int, feedback: str):
     msg = [{"role": "system", "content": SYSTEM}, {"role": "user", "content":
         f"RULES:\n{rules()}\n\nThis is topics/{d.name}/scenario.js:\n```js\n{s}```\n\n"
         f"The channel owner looked at the 6 test frames and asks:\n{feedback}\n\n"
-        "Change the scenario accordingly (keep everything else) and output the full scenario.js."}]
+        "Change the scenario accordingly (keep everything else) and output the full scenario.js. If the owner asks for "
+        "something the engine cannot show yet, put a short description of it in `export const missing = [...]`: it is then "
+        "built automatically and you get it back to use."}]
     backup = d / "scenario.vorige.js"; backup.write_text(s, encoding="utf-8")
     ok = write_reviewed(d, msg)
+    if ok:
+        tp = re.search(r"place:\s*'([\w-]+)'.*?force:\s*'([\w-]+)'", (d / "scenario.js").read_text(encoding="utf-8"), re.S)
+        built = build_missing(d, tp[1], tp[2]) if tp else []
+        if built:
+            msg += [{"role": "assistant", "content": (d / "scenario.js").read_text(encoding="utf-8")},
+                    {"role": "user", "content": "These building blocks were just built and now exist:\n" +
+                     "\n".join(f"- {b['block']}: {b['desc']}; use: auto: [{json.dumps(b['entry'])}]" for b in built) +
+                     "\nUse them for what the owner asked, remove them from `missing`, and output the full scenario.js."}]
+            ok = write_reviewed(d, msg)
     save_missing(d)
     if not ok: backup.replace(d / "scenario.js"); print("kept the previous version")
     else: backup.unlink()
