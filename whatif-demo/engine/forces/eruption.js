@@ -49,16 +49,16 @@ export function create(E, TL) {
     look(t, L) {
       const dk = dark(t), hz = haze(t), ss = sunset(t), wn = winter(t), fl = flash(t), gl = glowK(t);
       // far away: yellow-grey haze of high ash
-      L.top.lerp(C(0x9a9784), hz * .75); L.hor.lerp(C(0xc9b88e), hz * .8); L.sun *= 1 - hz * .45; L.sunColor.lerp(C(0xffd9a0), hz);
+      L.top.lerp(C(0x9a9784), hz * .75); L.hor.lerp(C(0xc9b88e), hz * .8); L.sun *= 1 - hz * .65; L.hemi *= 1 - hz * .15; L.sunColor.lerp(C(0xffd9a0), hz);
       // months later: blood-red sunsets (sulphur veil), then a cold grey summer
       L.top.lerp(C(0x5b3a4a), ss * .8); L.hor.lerp(C(0xe0562a), ss * .9); L.sunColor.lerp(C(0xff7a3a), ss); L.sunDisc = (L.sunDisc || C(0x998877)).clone().lerp(C(0xff5a2a), ss).multiplyScalar(1 + ss);
       L.hemi *= 1 - ss * .3; L.hemiColor = L.hemiColor.clone().lerp(C(0xf0a080), ss * .6);
-      L.top.lerp(C(0x7c858c), wn * .85); L.hor.lerp(C(0xa9b0b4), wn * .85); L.sun *= 1 - wn * .6; L.sunColor.lerp(C(0xdfe6ee), wn); L.hemiColor = L.hemiColor.clone().lerp(C(0xc4ccd4), wn);
+      L.sunDisc = L.sunDisc.clone().multiplyScalar(1 - wn * .75); L.hemi *= 1 - wn * .2; L.top.lerp(C(0x7c858c), wn * .85); L.hor.lerp(C(0xa9b0b4), wn * .85); L.sun *= 1 - wn * .6; L.sunColor.lerp(C(0xdfe6ee), wn); L.hemiColor = L.hemiColor.clone().lerp(C(0xc4ccd4), wn);
       if (wn > .01) { L.fogNear = lerp(L.fogNear, 60, wn * .7); L.fogFar = lerp(L.fogFar, 900, wn * .7); }
       // the column: open the far fog so the cloud can be seen, then the ash takes the light away
       if (col) { L.fogFar = Math.max(L.fogFar, lerp(L.fogFar, 7000, colK(t) * (1 - dk))); }
-      L.top.lerp(C(0x2a2522), dk); L.hor.lerp(C(0x4a3a30), dk * .9);
-      L.hor.lerp(C(0x9a3a1a), gl * dk * .55);                       // red glow low in the dark sky
+      L.top.lerp(C(0x1e1c1b), dk); L.hor.lerp(C(0x3a3430), dk * .95);
+      L.hor.lerp(C(0x6a2a14), gl * dk * .35);                       // red glow low in the dark sky
       L.sun *= 1 - dk * .97; L.hemi *= 1 - dk * .78; L.hemiColor = L.hemiColor.clone().lerp(C(0x8a5a40), dk * .6);
       L.sunDisc = (L.sunDisc || C(0x998877)).clone().multiplyScalar(1 - dk);
       if (dk > .01) { L.fogNear = lerp(L.fogNear, 40, dk * .8); L.fogFar = lerp(L.fogFar, 1600, dk * .7); L.fogColor = L.hor.clone(); }
@@ -75,9 +75,9 @@ export function create(E, TL) {
   E.updates.push(t => {
     const k = cover(t); if (k <= 0 && !E._ashOn) return; E._ashOn = true;
     const tint = (m, f) => { m.userData.ash0 ??= m.color.clone(); m.color.copy(m.userData.ash0).lerp(ASH, f); };
-    for (const m of E.ashGround || []) tint(m, k * .9);
+    for (const m of E.ashGround || []) tint(m, k * .95);
     for (const m of E.ashRoofs || []) tint(m, k * .85);
-    for (const m of E.frost || []) if (!(E.ashGround || []).includes(m)) tint(m, k * .5);
+    for (const m of E.frost || []) if (!(E.ashGround || []).includes(m)) tint(m, k * .7);
     if (E.forestMat) tint(E.forestMat, k * .55);
   });
 
@@ -89,6 +89,11 @@ export function create(E, TL) {
 
   F.attach = () => {
     const V = ventAt();
+    if (P.cover && !E.ashGround) {          // places without a list: every flat ground plane (not water) gets ash
+      const water = new Set(E.floods.map(f => f.mesh.material)), list = new Set();
+      E.scene.traverse(o => { if (o.isMesh && o.geometry?.type === 'PlaneGeometry' && Math.abs(o.rotation.x + Math.PI / 2) < .01 && !water.has(o.material) && o.material.color) list.add(o.material); });
+      E.ashGround = [...list];
+    }
     if (P.alarm?.siren) sirenPole(E, TL, P.alarm.siren[0], P.alarm.siren[1], { on: P.alarm.siren[2] });
     if (P.alarm?.block) roadblock(E, TL, P.alarm.block[0], P.alarm.block[1], { on: P.alarm.block[2], ry: P.alarm.block[3] ?? 0 });
     if (V) {
@@ -114,19 +119,19 @@ export function create(E, TL) {
   };
 
   function buildLahar() {
-    const [t0, v] = P.lahar, path = E.laharPath, segs = [], W = P.laharWidth ?? 9;
+    const [t0, v] = P.lahar, path = E.laharPath, segs = [], W = P.laharWidth ?? 14;
     let L = 0; const cum = [0]; for (let i = 1; i < path.length; i++) { L += Math.hypot(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1]); cum.push(L); }
     const at = s => { let i = 1; while (i < path.length - 1 && cum[i] < s) i++; const k = clamp((s - cum[i - 1]) / (cum[i] - cum[i - 1]));
       const x = lerp(path[i - 1][0], path[i][0], k), z = lerp(path[i - 1][1], path[i][1], k); return [x, z, Math.atan2(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1])]; };
-    const mud = E.lam(0x5a4a3a), N = Math.ceil(L / 4);
-    for (let i = 0; i < N; i++) { const [x, z, a] = at(i * 4 + 2), m = new THREE.Mesh(new THREE.BoxGeometry(W * (.85 + hash(i, 1) * .3), .9, 4.6), mud);
-      m.position.set(x, E.groundAt(x, z) + .1, z); m.rotation.y = a; m.visible = false; E.scene.add(m); segs.push({ m, s: i * 4, y: m.position.y }); }
+    const mud = E.lam(0x6a5a48), N = Math.ceil(L / 4);
+    for (let i = 0; i < N; i++) { const [x, z, a] = at(i * 4 + 2), m = new THREE.Mesh(new THREE.BoxGeometry(W * (.9 + hash(i, 1) * .2), .9, 7), mud);
+      m.position.set(x, E.groundAt(x, z) + (E.laharLift ?? 0) + .1, z); m.rotation.y = a; m.visible = false; E.scene.add(m); segs.push({ m, s: i * 4, y: m.position.y }); }
     const logs = Array.from({ length: 7 }, (_, k) => { const g = new THREE.Mesh(new THREE.CylinderGeometry(.35, .4, 9, 6), E.lam(0x5b4a3a)); g.rotation.z = Math.PI / 2; E.scene.add(g); g.visible = false;
       const tree = new THREE.Mesh(new THREE.ConeGeometry(2, 5, 6), E.lam(0x3a4a32)); tree.position.y = 5; tree.rotation.z = -Math.PI / 2; g.add(tree); return { g, off: 6 + k * 9, ph: hash(k, 3) * 6 }; });
     E.updates.push((t, _F, tv) => {
       const front = Math.max(0, (Math.min(tv, TL.beats.stop + 20) - t0) * v);
       for (const s of segs) { const a = front - s.s; s.m.visible = a > 0; if (a > 0) { s.m.scale.y = smooth(0, 12, a) * 1.6 + .2; s.m.position.y = s.y + s.m.scale.y * .3 + Math.sin(tv * 3 + s.s) * .05; } }
-      for (const lg of logs) { const s = front - lg.off; lg.g.visible = s > 0 && s < L; if (s > 0 && s < L) { const [x, z, a] = at(s); lg.g.position.set(x, E.groundAt(x, z) + 1.4, z); lg.g.rotation.set(Math.sin(tv + lg.ph) * .2, a + lg.ph, Math.PI / 2); } }
+      for (const lg of logs) { const s = front - lg.off; lg.g.visible = s > 0 && s < L; if (s > 0 && s < L) { const [x, z, a] = at(s); lg.g.position.set(x, E.groundAt(x, z) + (E.laharLift ?? 0) + 1.4, z); lg.g.rotation.set(Math.sin(tv + lg.ph) * .2, a + lg.ph, Math.PI / 2); } }
     });
     E.laharFront = tv => Math.max(0, (tv - t0) * v);
     if (t0 < TL.beats.stop) E.EVENTS.push({ t: t0, kind: 'lahar', e: 1 });
@@ -137,18 +142,18 @@ export function create(E, TL) {
     const t = tv, V = ventAt();
     if (V && col && t > col[0]) {
       const k = colK(t), h = H * k, top = Math.max(0, t - col[1]), dk = dark(t);
-      const shade = (u, gl) => { const b = .26 + u * .22 - dk * .12, r = b + gl * (1 - u) * .45; return [r, b * .95 + gl * (1 - u) * .12, b * .9]; };
+      const shade = (u, gl) => { const b = .1 + u * .1 - dk * .05, g2 = gl * Math.max(0, 1 - u * 3); return [b + g2 * .5, b * .95 + g2 * .14, b * .9]; };
       const gl = glowK(t);
       for (let i = 0; i < 260; i++) {           // the column: puffs that rise and spread
         const u = (t * .05 + hash(i, 1)) % 1; if (u * H > h + 50) continue;
-        const y = V[1] + u * h, rad = 60 + u * u * 520 + (hash(i, 2) - .5) * 120, ang = hash(i, 3) * 6.28 + t * .05;
+        const y = V[1] + u * h, rad = 180 + u * 420 + u * u * 500 + (hash(i, 2) - .5) * 160, ang = hash(i, 3) * 6.28 + t * .05;
         const [r, g, b] = shade(u, gl), fl = flash(t) * (hash(i, 9) < .3 ? 1 : 0);
-        add(V[0] + Math.cos(ang) * rad * .55, y, V[2] + Math.sin(ang) * rad * .35, 260 + u * 520, .5 * smooth(0, .05, u), r + fl * .5, g + fl * .5, b + fl * .6, hash(i, 4) * 6);
+        add(V[0] + Math.cos(ang) * rad * .55, y, V[2] + Math.sin(ang) * rad * .35, 380 + u * 600, .58 * smooth(0, .05, u), r + fl * .5, g + fl * .5, b + fl * .6, hash(i, 4) * 6);
       }
       for (let i = 0; i < 160; i++) {           // the umbrella: spreads out at the top, wider every second
         if (k < .8) break;
         const R = 300 + top * 160 + smooth(col[1] - 2, col[1] + 2, t) * 400, a = hash(i, 11) * 6.28, d = Math.sqrt(hash(i, 12)) * R;
-        add(V[0] + Math.cos(a) * d * 1.3, V[1] + h - 120 + (hash(i, 13) - .5) * 240 - d * .08, V[2] + Math.sin(a) * d * .7 + d * .25, 420 + hash(i, 14) * 380, .45, .3 - dk * .1, .28 - dk * .1, .26 - dk * .1, hash(i, 15) * 6);
+        add(V[0] + Math.cos(a) * d * 1.3, V[1] + h - 120 + (hash(i, 13) - .5) * 240 - d * .08, V[2] + Math.sin(a) * d * .7 + d * .25, 480 + hash(i, 14) * 420, .55, .14 - dk * .05, .13 - dk * .05, .12 - dk * .05, hash(i, 15) * 6);
       }
       if (gl > 0) for (let i = 0; i < 26; i++) {   // red glow at the base
         const a = hash(i, 21) * 6.28, d = hash(i, 22) * 140;
@@ -172,14 +177,14 @@ export function create(E, TL) {
     }
     const fa = ash(t), rk = rainK(t), wn = winter(t);
     if (fa > 0 || rk > 0 || wn > .3) {               // ash flakes / rain / sleet in a box around the camera
-      const c = cam, n = Math.round(fa * 420 + rk * 260 + (wn > .3 ? smooth(.3, 1, wn) * 220 : 0));
+      const c = cam, n = Math.round(fa * 700 + rk * 260 + (wn > .3 ? smooth(.3, 1, wn) * 260 : 0));
       for (let i = 0; i < n; i++) {
-        const kind = i < fa * 420 ? 'ash' : i < fa * 420 + rk * 260 ? 'rain' : 'sleet';
-        const sp = kind === 'rain' ? 9 : kind === 'sleet' ? 2.2 : .9, box = 60;
+        const kind = i < fa * 700 ? 'ash' : i < fa * 700 + rk * 260 ? 'rain' : 'sleet';
+        const sp = kind === 'rain' ? 9 : kind === 'sleet' ? 2.2 : .9, box = kind === 'ash' ? 26 : 40;
         const x0 = hash(i, 41) * box * 2 - box, z0 = hash(i, 42) * box * 2 - box, y0 = hash(i, 43) * 30;
         const y = ((y0 - tv * sp) % 30 + 30) % 30 - 4, drift = kind === 'rain' ? 0 : Math.sin(tv * .7 + i) * 1.2;
         const px = c.x + (((x0 + drift + tv * (kind === 'ash' ? .6 : .3)) % (box * 2)) + box * 2) % (box * 2) - box, pz = c.z + ((z0 % (box * 2)) + box * 2) % (box * 2) - box;
-        if (kind === 'ash') add(px, c.y + y, pz, .22 + hash(i, 44) * .25, .75, .42, .4, .38, hash(i, 45) * 6);
+        if (kind === 'ash') add(px, c.y + y, pz, .3 + hash(i, 44) * .35, .85, .3, .29, .27, 60 + hash(i, 45) * 6);
         else if (kind === 'sleet') add(px, c.y + y, pz, .18, .6, .85, .88, .9, 0);
         else add(px, c.y + y, pz, .12, .35, .7, .74, .8, 0);
       }

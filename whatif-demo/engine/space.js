@@ -5,7 +5,7 @@
 //     drift: slow orbit of the camera (rad per 10 s), ring: optional debris ring (ring.js) shown around the Earth.
 // main.js asks E.space.render(tv) first; when it returns true the street/harbour scene is skipped for that frame.
 import * as THREE from 'three';
-import { rng, clamp, lerp } from './util.js';
+import { rng, clamp, lerp, hash, smooth } from './util.js';
 import { moonTexture, MOON_R, EARTH_R } from './moon.js';
 
 function fbm3(R) {         // cheap 3D value noise (hash lattice), a few octaves
@@ -65,6 +65,28 @@ export function createSpace(E, TL) {
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(p, 3)); g.setAttribute('color', new THREE.BufferAttribute(c, 3));
     scene.add(new THREE.Points(g, new THREE.PointsMaterial({ size: 1.6, sizeAttenuation: false, vertexColors: true }))); }
   const mdir = new THREE.Vector3(1, 0, -.15).normalize();      // where the Moon is, seen from the Earth
+  const ph0 = Math.atan2(mdir.z, mdir.x), R = rng(23);
+  // TL.moon.breakAt: the Moon tears into pieces that spread along its orbit; TL.ring: the ring they become
+  const frags = TL.moon?.breakAt ? Array.from({ length: 40 }, (_, i) => {
+    const g = new THREE.IcosahedronGeometry(MOON_R, 1), p = g.attributes.position;
+    for (let k = 0; k < p.count; k++) { const q = .7 + hash(k + i * 50, 3) * .5; p.setXYZ(k, p.getX(k) * q, p.getY(k) * q, p.getZ(k) * q); }
+    g.computeVertexNormals(); const m = new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: moonTexture() })); m.visible = false; scene.add(m);
+    return { m, size: i < 4 ? .5 - i * .07 : .05 + R() * .14, dth: (R() - .5) * (i < 4 ? .3 : 1), dr: (R() - .5) * .12, dy: (R() - .5) * .02, spin: R() * 2 }; }) : [];
+  let ringMat = null;
+  if (TL.ring) {
+    const [r0, r1] = TL.ring.r || [9000, 20000], g = new THREE.RingGeometry(r0, r1, 360, 12); g.rotateX(-Math.PI / 2);
+    ringMat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, side: THREE.DoubleSide,
+      uniforms: { show: { value: 0 }, arc: { value: Math.PI }, ph0: { value: ph0 }, r0: { value: r0 }, r1: { value: r1 } },
+      vertexShader: `varying vec3 vP; void main(){ vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+      fragmentShader: `uniform float show, arc, ph0, r0, r1; varying vec3 vP;
+        void main(){ float u = (length(vP.xz) - r0) / (r1 - r0), a = atan(vP.z, vP.x), d = abs(atan(sin(a - ph0), cos(a - ph0)));
+          float lanes = clamp(.68 + .2 * sin(u * 61.) * sin(u * 23. + 1.3) + .1 * sin(u * 173.), 0., 1.);
+          float gap = smoothstep(.0, .02, abs(u - .62)) * smoothstep(.0, .012, abs(u - .31)), edge = smoothstep(0., .06, u) * smoothstep(1., .9, u);
+          float shadow = vP.x * ${'${sx}'} + vP.z * ${'${sz}'} < 0. && abs(vP.x * ${'${sz}'} - vP.z * ${'${sx}'}) < ${EARTH_R.toFixed(1)} ? .25 : 1.;
+          float dens = lanes * gap * edge; gl_FragColor = vec4(mix(vec3(.6, .58, .55), vec3(.95, .92, .86), dens) * shadow, dens * show * smoothstep(arc, arc * .7, d) * .9); }`
+        .replace(/\$\{sx\}/g, sunDir.x.toFixed(4)).replace(/\$\{sz\}/g, sunDir.z.toFixed(4)) });
+    scene.add(new THREE.Mesh(g, ringMat));
+  }
   E.spaceScene = scene;
   E.space = {
     scene, earth, moon,
@@ -72,7 +94,13 @@ export function createSpace(E, TL) {
     render(tv) {
       const s = this.on(tv); if (!s) return false;
       const v = s[2] || {}, t = Math.min(tv, TL.beats.stop), km = E.moonKm ? E.moonKm(t) : 384400;
-      moon.position.copy(mdir).multiplyScalar(km); moon.visible = !v.noMoon && km > 17000;
+      moon.position.copy(mdir).multiplyScalar(km);
+      const b = E.moonBroken ? E.moonBroken(t) : 0, u = smooth(.15, 1, b);
+      moon.visible = !v.noMoon && b < .3; moon.scale.set(1 + smooth(0, .25, b) * .35, 1 - smooth(0, .25, b) * .1, 1 - smooth(0, .25, b) * .12);
+      moon.rotation.set(0, Math.PI + ph0, 0);
+      for (const f of frags) { f.m.visible = b > .22; const a = ph0 - f.dth * u * (TL.moon.spread ?? 1.2), r = km * (1 + f.dr * u);
+        f.m.position.set(Math.cos(a) * r, f.dy * u * km, Math.sin(a) * r); f.m.scale.setScalar(f.size * (1 + .3 * u)); f.m.rotation.set(t * .1 * f.spin, t * .07 * f.spin, 0); }
+      if (ringMat) { ringMat.uniforms.show.value = E.ringShow(t); ringMat.uniforms.arc.value = E.ringArc(t); }
       earth.rotation.y = tv * .01; clouds.rotation.y = tv * .013;
       for (const u of this.updates) u(t, tv, v);
       // frame the Earth–Moon line: camera to the side, far enough that both fit (frame < 1 = closer)

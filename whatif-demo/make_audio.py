@@ -718,6 +718,12 @@ def build_engine(topic: Path):
                 place(bed, SA.s_caralarm(rng, e.get("dur", 4)), e["t"], db(-14) * e.get("e", 1), p)
             else:
                 place(bed, SA.s_flyby(rng, e.get("dur", 8)), e["t"], db(-5) * e.get("e", 1))
+        elif e["kind"] == "fireball":      # meteors.js: a rising roar as it streaks over, then a low distant boom
+            L = int(3.2 * SR); tt = np.arange(L) / SR
+            roar = bp(rng.standard_normal(L), 80, 1400) * smooth(0, 1.6, tt) * (1 - smooth(2.2, 3.2, tt))
+            place(bed, np.stack([roar, roar], 1) / (np.abs(roar).max() + 1e-9), e["t"], db(-14) * e["e"], rng.uniform(-.5, .5))
+            boom = norm(lp(brown(rng, 5 * SR), 90)) * env_ad(5 * SR, .05, 1.8)
+            place(bed, np.stack([boom, boom], 1), e["t"] + 3.0 + rng.uniform(.5, 1.5), db(-8) * e["e"])
         elif e["kind"] == "snap":
             place(bed, s_snap(rng), e["t"], db(-9), p)
         elif e["kind"] == "splash":

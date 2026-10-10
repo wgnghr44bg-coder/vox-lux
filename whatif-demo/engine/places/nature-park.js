@@ -24,7 +24,7 @@ export function build(E, TL, F) {
   const CREEK = [[620, -60], [480, -80], [360, -60], [250, -90], [170, -120], [100, -150], [40, -175]];
   const creekD = (x, z) => { let m = 1e9; for (let i = 1; i < CREEK.length; i++) { const [ax, az] = CREEK[i - 1], [bx, bz] = CREEK[i], dx = bx - ax, dz = bz - az;
     const k = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / (dx * dx + dz * dz))); m = Math.min(m, Math.hypot(x - ax - dx * k, z - az - dz * k)); } return m; };
-  E.laharPath = CREEK;
+  E.laharPath = CREEK; E.laharLift = 1.6;      // the ground mesh is coarse: the carved bed is only a hint, mud rides a little higher
   const ground0 = (x, z) => inLake(x, z) ? -18 : drop(z) + (Math.abs(z) < 30 ? 0 : hill(x, z));
   E.groundAt = (x, z) => { const g = ground0(x, z), d = creekD(x, z); return d < 9 ? g - 2.4 * (1 - d / 9) ** .7 : g; };
   E.waterBase = -15.5;
@@ -166,8 +166,8 @@ export function build(E, TL, F) {
       'pov-lot': { pos: [-104, 1.65, 4], look: [-125, 1.5, 22], drift: [0, 0, 0], fov: 64, run: { amp: .03, freq: 1.6 } },   // empty lot, alone
       tower: { pos: [150, 4, -20], look: [210, 14, -95], drift: [-.5, 0, 0], fov: 50 },
       volcano: { pos: [14, 3.4, 9], look: [110, 620, -2400], drift: [0, 0, -1], fov: 58 },                    // the caldera rim with the column above it
-      'pov-plume': { pos: [-104, 1.65, 4], look: [100, 800, -2400], drift: [0, 0, 0], fov: 70 },              // POV: look up at the growing cloud
-      creek: { pos: [150, 4.5, -28], look: [330, -4, -78], drift: [.5, 0, 0], fov: 54 },                        // the creek bed (lahar)
+      'pov-plume': { pos: [30, 1.65, 3.5], look: [110, 800, -2400], drift: [0, 0, 0], fov: 70 },              // POV: look up at the growing cloud
+      creek: { pos: [228, 7, -32], look: [335, -1, -72], drift: [.4, 0, 0], fov: 54 },                        // the creek bed (lahar)
             vista: { pos: [-40, 40, 160], look: [60, 20, -1200], drift: [2, 0, -1], fov: 58 },                     // high over the forest to the caldera
     },
   };

@@ -16,6 +16,9 @@ import { createBrand } from './brand.js';
 import { createPost } from './post.js';
 import { createMoon } from './moon.js';
 import { createSpace } from './space.js';
+import { createRing } from './ring.js';
+import { createMeteors } from './meteors.js';
+import { createGlows } from './glow.js';
 import { smooth, clamp, hash, lerp } from './util.js';
 
 const qs = new URLSearchParams(location.search);
@@ -46,6 +49,9 @@ createUfo(E, TL);                                     // TL.ufo: motherships, sc
 createArmy(E, TL);                                    // TL.army: tanks, trucks, helicopters, soldiers, barriers
 Object.assign(P.shots, TL.extraShots || {});          // scenario-specific camera standpoints
 createSpace(E, TL);        // TL.space: Earth and Moon seen from space (its own scene)
+createRing(E, TL);         // TL.ring: a debris ring across the sky (needs TL.moon.orbit)
+createMeteors(E, TL);      // TL.meteors: streaks and fireballs
+createGlows(E, TL);        // TL.glows: a volcano glowing on the horizon
 createBrand(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
