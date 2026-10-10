@@ -97,8 +97,17 @@ $missing = Report
 if ($CheckOnly) { Say ""; Say "Alleen controle (-CheckOnly): niets geinstalleerd."; exit 0 }
 
 if ($missing.Count -gt 0) {
-  if (-not (Find "winget")) {
-    Say "winget ontbreekt. Installeer 'App Installer' uit de Microsoft Store en start dit script opnieuw." Red
+  # winget lives in WindowsApps (an app alias), so look it up directly, not with Find
+  if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    # Windows 10/11 ship App Installer (winget), but on a new account it is sometimes not registered yet
+    Say "winget niet gevonden; App Installer wordt geactiveerd ..." Yellow
+    try { Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe } catch { Say "  activeren lukte niet: $_" Yellow }
+    RefreshPath
+    $env:Path += ";" + (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps")
+  }
+  if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Say "winget ontbreekt nog steeds. Open de Microsoft Store, zoek 'App Installer', klik Bijwerken/Installeren en start dit script opnieuw." Red
+    Say "Direct openen: start ms-windows-store://pdp/?productid=9NBLGGH4NNS1" Red
     exit 1
   }
   Say ""
