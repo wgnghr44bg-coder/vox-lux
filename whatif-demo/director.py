@@ -5,13 +5,14 @@
     python whatif-demo/director.py 45 --no-look       # rules only (free)
     python whatif-demo/director.py 45 --wish "zin 3 dichtbij op de auto's"
 
+0. The script may say it itself: export const camera = { cars: 'close cars', sky: 'pov' } (line id -> camera).
 1. Every camera standpoint has a label (engine/shots.json): wide, aerial, medium, close, pov, tele or sky, and what it shows.
    Auto blocks with a position (engine/auto/) get their own wide and close standpoint.
 2. Grok reads the sentences and says per sentence what it is about (subject), what kind of moment it is
    (establish, explain, detail, event, climax, aftermath, reflect) and how intense (0-3).
 3. Film rules give every standpoint a score per sentence: open wide; a detail gets a close-up that shows it;
    POV only as a short accent (2-3 s) at the most intense moments; wide after the climax to show the scale;
-   never the same shot twice in a row; cuts on sentence starts (pauses in the voice), a long sentence gets a second shot.
+   never the same shot twice in a row; cuts in the middle of the pauses in the voice, a long sentence gets a second shot.
 4. Where it is close, the three best standpoints are rendered at that moment and Grok picks the one that shows
    what the voice says best (about 1-2 cents). The result is written into scenario.js (shots and extraShots).
 """
@@ -118,6 +119,19 @@ def tag_lines(grok, lines, vocab, style: str, wish: str = "") -> dict:
     except json.JSONDecodeError: return {}
 
 
+def script_cam(tags: dict, camera: dict, cands: dict) -> None:
+    """export const camera = { lineId: 'close cars', other: 'pov', last: 'aerial' } in scenario.js: the script says which
+    camera a sentence gets (a type or a standpoint name, then optional words for what must be in it). The director follows it."""
+    for lid, how in camera.items():
+        words = str(how).lower().replace(",", " ").split()
+        if not words: continue
+        t = tags.setdefault(lid, {})
+        head = next((w for w in words if w in TYPES or w in cands), None)
+        if head: t["want"] = head
+        rest = [w for w in words if w != head]
+        if rest: t["subject"] = rest + [w for w in (t.get("subject") or []) if w not in rest]
+
+
 def score(name, c, tag, prev, used, first, style, pov_left):
     s = 0.0
     subj = [w.lower() for w in tag.get("subject") or []]
@@ -150,7 +164,10 @@ def plan(lines, times, tags, cands, style, tl):
     climax = tl.get("beats", {}).get("climax")
     for i, ((lid, text, pz), (s, e)) in enumerate(zip(lines, times)):
         tag = tags.get(lid) or {}
-        parts = [(f"at('{lid}').s", s)] if i else [("0", 0.0)]
+        if i:                                                                  # cut in the middle of the pause before the sentence
+            pl = lines[i - 1][0]; pe = times[i - 1][1]
+            parts = [(f"(at('{pl}').e + at('{lid}').s) / 2", (pe + s) / 2)] if s - pe > .25 else [(f"at('{lid}').s", s)]
+        else: parts = [("0", 0.0)]
         if e - s > 6.0: parts.append((f"at('{lid}').s + (at('{lid}').e - at('{lid}').s) * .5", (s + e) / 2))
         if isinstance(pz, (int, float)) and pz >= 2.5:                         # a silent climax: show the scale while it is quiet
             parts.append((f"at('{lid}').e + .3", e + .3))
@@ -165,7 +182,10 @@ def plan(lines, times, tags, cands, style, tl):
             # Grok may only choose between standpoints the film rules find (almost) as good; the opening stays an overview
             close = [n for n in ranked[:3] if sc[n] >= sc[pick] - 2.5 and (segs or cands[n]["type"] in ("wide", "aerial"))
                      and (cands[n]["type"] not in ("pov", "sky") or cands[pick]["type"] in ("pov", "sky"))]   # Grok never adds a POV
-            if len(close) < 2:                                                # always a second option: Grok can reject a blocked view
+            want = tg.get("want")
+            if want:                                                           # the script asks for this camera: only matching options
+                close = [n for n in ranked[:6] if n == want or cands[n]["type"] == want][:3] or [pick]
+            if len(close) < 2 and not want:                                   # always a second option: Grok can reject a blocked view
                 alt = next((n for n in ranked[1:6] if cands[n]["type"] not in ("pov", "sky") and n != prev), None)
                 if alt: close = (close or [pick]) + [alt]
             segs.append([expr, t0, lid, close or [pick]])
@@ -252,12 +272,13 @@ def direct(d: Path, grok=None, use_look=True, wish: str = "") -> None:
     d = d.resolve(); slug = d.name
     render(slug, None)                                                # timeline.json
     tlj = json.loads((d / "timeline.json").read_text(encoding="utf-8")); tl = tlj["TL"]
-    sc = node_json("import(process.argv[1]).then(m => console.log(JSON.stringify({ topic: m.topic, lines: m.lines, upload: m.upload || {} })))", d / "scenario.js")
+    sc = node_json("import(process.argv[1]).then(m => console.log(JSON.stringify({ topic: m.topic, lines: m.lines, upload: m.upload || {}, camera: m.camera || {} })))", d / "scenario.js")
     lines = sc["lines"]; place = sc["topic"]["place"]
     style = (sc.get("upload") or {}).get("stijl") or ("B-gravity" if tl.get("tripod") else "A-pov")
     cands = candidates(place, tl, {k: v for k, v in (tlj.get('SHOTS') or {}).items() if not k.startswith('auto-')})
     vocab = {w for c in cands.values() for w in c.get("shows", [])}
     tags = tag_lines(grok, lines, vocab, style, wish)
+    script_cam(tags, sc.get("camera") or {}, cands)
     times = line_times(d, lines, tl)
     write_extra(d, cands)
     segs = plan(lines, times, tags, cands, style, tl)

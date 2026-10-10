@@ -372,7 +372,11 @@ then the counter on screen and the real water always agree. Use the heights in t
 Events need their beat: cars stop/float -> beats.carsStop before it (and water above the float height); people go inside
 -> beats.shelter; buildings collapse -> beats.falls; a bridge breaks -> beats.deckBreak (river-city).
 The camera (shots) is chosen afterwards by the director, sentence by sentence: still give a simple valid shots list,
-and focus on the story, the counter, the force parameters, beats, captions and auto blocks.
+and focus on the story, the counter, the force parameters, beats, captions and auto blocks. For the important sentences,
+say which camera you want with an extra export, line id -> a type (wide, aerial, medium, close, pov, tele, sky) or a
+standpoint name, followed by what must be in view, e.g.: export const camera = { cars: 'close cars', climax: 'pov',
+after: 'aerial city' }; use pov at most 2-3 times. Pauses ('pause', 'long', a number of silent seconds) are where the
+camera cuts, so put a pause before each new step of the story.
 NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
 it in the export `missing` (array of short English descriptions) so it can be built later: export const missing = [...]; Output only the complete scenario.js in one ```js block."""
 
