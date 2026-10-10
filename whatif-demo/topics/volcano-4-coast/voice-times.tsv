@@ -1,13 +1,16 @@
 nr	start	end	pause	text
 1	0:00:00.2	0:00:00.8		Month one.
-2	0:00:01.5	0:00:05.6		Eight thousand kilometres away, in Europe, the evening sky turns blood red.
-3	0:00:06.2	0:00:13.4		High above the clouds, sulphur gas from the volcano would spread into a thin veil around the planet, reflecting sunlight back into space.
-4	0:00:14.2	0:00:14.7		Year one.
-5	0:00:15.3	0:00:16.2		Summer never comes.
-6	0:00:16.6	0:00:20.5		The whole Earth could cool by a few degrees. That sounds small. It isn't.
-7	0:00:21.1	0:00:26.0		In 1815, a far smaller eruption, Tambora, caused the year without a summer.
-8	0:00:26.6	0:00:30.7		Snow fell in June. Harvests failed across Europe, and food prices soared.
-9	0:00:35.7	0:00:37.7		A supereruption could be many times worse.
-10	0:00:38.3	0:00:42.6		The chance of it happening in any given year is tiny, about one in seven hundred thousand.
-11	0:00:43.0	0:00:46.2		But somewhere on Earth, it has happened before… and it will happen again.
-12	0:00:46.9	0:00:49.8		So if it happened tomorrow… how far away would you want to be?
+2	0:00:01.9	0:00:06.0		Eight thousand kilometres away, in Europe, the evening sky turns blood red.
+3	0:00:07.2	0:00:14.4		High above the clouds, sulphur gas from the volcano would spread into a thin veil around the planet, reflecting sunlight back into space.
+4	0:00:15.5	0:00:16.0		Year one.
+5	0:00:17.2	0:00:18.1		Summer never comes.
+6	0:00:19.2	0:00:21.2		The whole Earth could cool by a few degrees.
+7	0:00:22.0	0:00:22.7		That sounds small.
+8	0:00:23.4	0:00:23.8		It isn't.
+9	0:00:25.0	0:00:29.9		In 1815, a far smaller eruption, Tambora, caused the year without a summer.
+10	0:00:30.6	0:00:31.5		Snow fell in June.
+11	0:00:32.3	0:00:35.1		Harvests failed across Europe, and food prices soared.
+12	0:00:38.1	0:00:40.1		A supereruption could be many times worse.
+13	0:00:41.2	0:00:45.5		The chance of it happening in any given year is tiny, about one in seven hundred thousand.
+14	0:00:46.3	0:00:49.5		But somewhere on Earth, it has happened before… and it will happen again.
+15	0:00:50.6	0:00:53.5		So if it happened tomorrow… how far away would you want to be?

@@ -7,26 +7,30 @@ export const topic = {
 
 export const lines = [
   ['imagine', 'Imagine a supervolcano erupted.', 'long'],
-  ['not', 'Not a mountain with a peak. Not a slow river of lava.', 'pause'],
-  ['crater', 'A crater so wide, you could drive across it for almost an hour… without knowing you were inside.', 'pause'],
+  ['not', 'Not a mountain with a peak.', 'pause'],
+  ['not2', 'Not a slow river of lava.', 'pause'],
+  ['crater', 'A crater so wide, you could drive across it for almost an hour… without knowing you were inside.', 'long'],
   ['watch', 'But here is what keeps scientists watching it.', 'pause'],
-  ['chamber', 'Beneath it lies a chamber of hot, partly molten rock big enough to fill the Grand Canyon more than twice.', 'pause'],
-  ['before', 'And it has exploded before. Three times.', 'long'],
-  ['three', 'Three days before.', 'pause'],
-  ['tremble', 'The ground would start to tremble. Not once… hundreds of times a day.', 'pause'],
+  ['chamber', 'Beneath it lies a chamber of hot, partly molten rock big enough to fill the Grand Canyon more than twice.', 'long'],
+  ['before', 'And it has exploded before.', 'pause'],
+  ['times', 'Three times.', 'long'],
+  ['three', 'Three days before.', 'long'],
+  ['tremble', 'The ground would start to tremble.', 'pause'],
+  ['hundreds', 'Not once… hundreds of times a day.', 'pause'],
   ['rising', 'Rising magma could push the earth upwards, tilting roads until they crack open.', 'long'],
-  ['oneday', 'One day before.', 'pause'],
+  ['oneday', 'One day before.', 'long'],
   ['steam', 'Steam and boiling water would burst out of the ground where yesterday there were only trees.', 'pause'],
-  ['sirens', 'Sirens. Every road out of the park is full.', 3],
+  ['sirens', 'Sirens.', 'pause'],
+  ['full', 'Every road out of the park is full.', 3],
   ['stops', 'Then, for a moment, the shaking stops.', 'pause'],
   ['pressure', 'But deep below, the pressure is still rising.', 'none'],
 ];
 
 export default function (at) {
   const T_END = at('pressure').e + 1.6;
-  const tre = at('tremble'), ris = at('rising'), sir = at('sirens'), climax = sir.e + .3;
+  const tre = at('tremble'), ris = at('rising'), sir = at('sirens'), climax = at('full').e + .3;
   const tremors = [
-    [tre.s + .3, .22, 2.2], [tre.s + 2.8, .3, 2.4], [tre.e - .4, .36, 2.6],
+    [tre.s + .3, .22, 2.2], [at('hundreds').s + .2, .3, 2.4], [at('hundreds').e - .4, .36, 2.6],
     [ris.s + 1, .52, 3.4],                                            // the road cracks open
     [at('steam').s + 1.5, .4, 2.6],
     [sir.s + .4, .6, 2.8],
@@ -41,7 +45,7 @@ export default function (at) {
     counter: [[0, 15], [T_END, 15]],
     forceParams: { tremors, steamAt: [at('steam').s - .5, at('steam').s + 3] },
     captions: [[at('chamber').s + 1, at('chamber').e + .3, 'Enough to fill the Grand Canyon twice.'],
-               [at('tremble').s + 1.5, at('tremble').e + .3, 'Hundreds of quakes a day.']],
+               [at('hundreds').s + .5, at('hundreds').e + .3, 'Hundreds of quakes a day.']],
     shots: [[0, 'viewpoint'], [at('crater').s - .2, 'vista'], [at('chamber').s - .2, 'lake'], [at('before').s - .2, 'group'],
             [at('three').s - .2, 'lodge'], [ris.s - .2, 'road'], [ris.e + .6, 'viewpoint'],
             [at('steam').s - .2, 'lake'], [sir.s - .2, 'exit'], [climax - .3, 'tower'],

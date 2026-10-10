@@ -6,19 +6,20 @@ export const topic = {
 };
 
 export const lines = [
-  ['zero', 'Hour zero.', 5],
+  ['zero', 'Hour zero.', 3],
   ['krakatoa', 'When Krakatoa erupted in 1883, people heard it almost five thousand kilometres away.', 'pause'],
   ['bigger', 'This would be far bigger.', 'long'],
   ['column', 'Within minutes, a column of ash could rise more than thirty kilometres, punching straight through the clouds.', 'pause'],
-  ['lightning', 'Inside it: lightning. Thousands of strikes, sparked by ash grains rubbing against each other.', 'long'],
-  ['ten', 'Minute ten.', 'pause'],
+  ['lightning', 'Inside it: lightning.', 'pause'],
+  ['strikes', 'Thousands of strikes, sparked by ash grains rubbing against each other.', 'long'],
+  ['ten', 'Minute ten.', 'long'],
   ['collapse', 'Then the column could collapse under its own weight.', 'pause'],
   ['flows', 'Avalanches of glowing ash and gas, hotter than three hundred degrees, would race down the slopes faster than a car on a motorway.', 'pause'],
   ['forests', 'Forests would vanish in seconds.', 'long'],
-  ['six', 'Hour six.', 'pause'],
+  ['six', 'Hour six.', 'long'],
   ['rain', 'Rain mixes with the fresh ash, thick as wet concrete.', 'pause'],
   ['lahars', 'Rivers of mud, called lahars, could roll through the valleys, dragging whole trees along.', 'pause'],
-  ['black', 'And at midday… the sky turns completely black.', 'pause'],
+  ['black', 'And at midday… the sky turns completely black.', 'long'],
   ['worst', 'But for the rest of the continent, the worst hasn\'t even arrived.', 'none'],
 ];
 

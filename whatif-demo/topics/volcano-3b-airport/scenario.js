@@ -8,8 +8,8 @@ export const topic = {
 export const lines = [
   ['iceland', 'In 2010, a small volcano in Iceland cancelled around one hundred thousand flights.', 'pause'],
   ['larger', 'This eruption could be thousands of times larger.', 3],
-  ['week', 'Week one.', 'pause'],
-  ['fields', 'Grey dust buries farmland across half a continent.', 'pause'],
+  ['week', 'Week one.', 'long'],
+  ['fields', 'Grey dust buries farmland across half a continent.', 'long'],
   ['invisible', 'And yet the most dangerous part of this eruption… is something you can\'t see at all.', 'none'],
 ];
 
