@@ -1,6 +1,6 @@
 // What if dinosaurs never went extinct? Chapter 1: the miss (prehistoric valley, 66 million years ago).
 export const topic = {
-  number: 431, slug: 'dino-c1-jungle', place: 'prehistoric', force: 'calm', wide: true,
+  number: 431, slug: 'dino-c1-jungle', place: 'prehistoric', force: 'calm', wide: true, padSilence: true,
   question: 'What if dinosaurs never went extinct?',
   title: 'Imagine<br>dinosaurs never<br>went extinct',
 };
