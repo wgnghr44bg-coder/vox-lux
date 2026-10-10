@@ -35,6 +35,7 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 | The Sun went out? (v3, script eigenaar, in de maak) | tijdsprongen dag 0 → jaar 1.000: strand, straat, bergdorp (meer bevriest), bevroren kust |
 | Earth lost its atmosphere for one minute? (Short) | zwarte lucht met sterren overdag, meer en bos bevriezen in de stilte (natuurpark) |
 | The Moon started falling? (in de maak) | haven loopt onder, schepen op straat (h1); climax: maan breekt op de Roche-grens tot een ring |
+| The Moon moved toward Earth? (Short) | zee trekt terug, komt terug over boulevard tot aan de hotels; grote maan boven de overstroomde boulevard |
 
 ## Categorieën en bouwplan (eigenaar, okt 2026)
 
@@ -116,3 +117,4 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 41 | Aliens sent us a message? | Nieuwsstudio, huiskamer, straat bij nacht | Signaal uit de ruimte, alle tv's tonen het, mensen kijken omhoog | gepland (bakstenen Tv-nieuws, Huiskamer) |
 | 42 | A UFO crashed in your town? | Straat → bos/natuurpark | Vuurstreep, leger zet alles af, wegversperring, helikopters | gepland (bakstenen Ufo, Leger) |
 | 43 | Earth lost its atmosphere for one minute? (Short, stijl B) | Natuurpark (uitkijkpunt boven bergmeer) | Luchtdruk 1.013 → 0 hPa: zwarte lucht met sterren, stilte, meer kookt en bevriest, lucht komt terug | gemaakt 2026-10-10, naar eigenaar (TikTok), niet geüpload; topics/atmosphere-lost |
+| 44 | The Moon moved toward Earth? (Short, stijl A) | Boulevard/strand | Getij: maan 384.400 → 96.100 km, zee trekt terug, overstroomt boulevard tot aan de hotels | gemaakt 2026-10-10 (naar eigenaar, niet geüpload); topics/moon-closer |
