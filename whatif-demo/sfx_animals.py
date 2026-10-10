@@ -93,3 +93,19 @@ def s_flyby(rng, dur=8.0):
     # pans from left to right as it crosses the sky
     p = np.interp(t, [0, dur], [-.8, .8])
     return np.stack([mono * np.sqrt((1 - p) / 2), mono * np.sqrt((1 + p) / 2)], 1)
+
+
+def s_thunder(rng, size=1.0):
+    """Close lightning: a sharp crack, then a long rolling rumble."""
+    n = int(6 * SR); t = np.arange(n) / SR
+    crack = hp(rng.standard_normal(n), 800) * env_ad(n, .002, .05) * 1.2
+    roll = lp(brown(rng, n), 220) * np.clip(lfo(rng, n, .8, 1), .2, None) * smooth(0, .3, t) * np.exp(-t * .55)
+    return norm(crack + norm(roll) * .9)
+
+
+def s_caralarm(rng, sec=4.0):
+    """A car alarm: two tones switching, a little room echo."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    f = np.where((t * 2.2) % 1 < .5, 880, 660)
+    x = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * .5 + np.sin(2 * np.pi * np.cumsum(f * 2) / SR) * .2
+    return norm(bp(x, 400, 3000) * smooth(0, .05, t) * (1 - smooth(sec - .2, sec, t)))
