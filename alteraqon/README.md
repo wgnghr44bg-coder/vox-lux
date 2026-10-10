@@ -1,4 +1,4 @@
-# Ranengaliman – "What if"-documentaires (YouTube: @ranengaliman)
+# Alteraqon – "What if"-documentaires (YouTube: @alteraqon)
 
 Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 
