@@ -15,6 +15,8 @@ import { isBig, bigAnimals } from './big-animals.js';   // dinosaurs, elephants,
 const KINDS = {
   dog:  { len: .62, h: .5, leg: .32, neck: .2, head: .2, snout: .12, tail: .32, colors: [0x6b4a32, 0x2a2622, 0xb08a5a, 0xd8cdb8, 0x8a6a48], ears: 'flop', bush: false },
   fox:  { len: .55, h: .4, leg: .36, neck: .18, head: .18, snout: .14, tail: .45, colors: [0xbd5f26, 0xc66a2c], ears: 'point', bush: true, socks: 0x2b211b, tip: 0xece4d6 },
+  lion: { len: 1.7, h: 1.0, leg: .55, neck: .25, head: .38, snout: .16, tail: .8, colors: [0xc49a5a, 0xb88a4e], ears: 'flop', bush: false, mane: 0x6a4424, tip: 0x3a2818 },   // Colosseum (ancient.js)
+  horse: { len: 1.9, h: 1.3, leg: .95, neck: .7, head: .5, snout: .25, tail: .6, colors: [0x6a4a32, 0x3a2c22, 0x8a6a48, 0xd8cdb8], ears: 'point', bush: false, mane: 0x2a201a },
   deer: { len: 1.05, h: 1.0, leg: .7, neck: .45, head: .26, snout: .14, tail: .1, colors: [0x8a6646, 0x7d5c3f], ears: 'deer', bush: false, rump: 0xe8e0d0 },
 };
 
@@ -33,6 +35,8 @@ function quadruped(E, kind, seed, o) {
   neck.rotation.x = kind === 'deer' ? .35 : .7;
   const head = new THREE.Group(); head.position.y = K.neck; neck.add(head);
   const hd = S(new THREE.Mesh(new THREE.BoxGeometry(K.head * .8, K.head * .75, K.head), fur)); head.add(hd);
+  if (K.mane && kind === 'lion') { const mn = S(new THREE.Mesh(new THREE.IcosahedronGeometry(K.head * .85, 0), lam(K.mane))); mn.scale.set(1, 1.05, .7); mn.position.z = -K.head * .3; head.add(mn); }
+  else if (K.mane) { const mn = S(new THREE.Mesh(new THREE.BoxGeometry(.06, K.neck * .9, .18), lam(K.mane))); mn.position.set(0, K.neck * .5, -K.h * .1); neck.add(mn); }
   const sn = S(new THREE.Mesh(new THREE.BoxGeometry(K.head * .45, K.head * .4, K.snout), kind === 'fox' ? lam(K.tip) : fur)); sn.position.set(0, -K.head * .15, K.head / 2 + K.snout / 2 - .01); head.add(sn);
   const nose = new THREE.Mesh(new THREE.BoxGeometry(.04, .035, .02), lam(0x151312)); nose.position.set(0, -K.head * .05, K.head / 2 + K.snout); head.add(nose);
   for (const sx of [-1, 1]) {
