@@ -1,0 +1,49 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:03.60,Sub,,0,0,0,,{\fad(150,150)}You are standing in an open field.
+Dialogue: 0,0:00:03.60,0:00:05.70,Sub,,0,0,0,,{\fad(150,150)}The air smells like metal.
+Dialogue: 0,0:00:05.70,0:00:08.90,Sub,,0,0,0,,{\fad(150,150)}Your hair… starts to rise.
+Dialogue: 0,0:00:09.70,0:00:11.00,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:11.80,0:00:14.40,Sub,,0,0,0,,{\fad(150,150)}Three hundred million volts.
+Dialogue: 0,0:00:14.40,0:00:21.00,Sub,,0,0,0,,{\fad(150,150)}In a split second, the air around you heats to thirty thousand degrees.
+Dialogue: 0,0:00:21.00,0:00:24.60,Sub,,0,0,0,,{\fad(150,150)}Five times hotter than the surface of the Sun.
+Dialogue: 0,0:00:25.40,0:00:28.40,Sub,,0,0,0,,{\fad(150,150)}The rain on your skin turns to steam.
+Dialogue: 0,0:00:28.40,0:00:31.30,Sub,,0,0,0,,{\fad(150,150)}Your shoes can be blown right off.
+Dialogue: 0,0:00:32.10,0:00:35.20,Sub,,0,0,0,,{\fad(150,150)}And your heart… stops.
+Dialogue: 0,0:00:36.00,0:00:43.10,Sub,,0,0,0,,{\fad(150,150)}But often, most of the current flashes over your skin, not through you.
+Dialogue: 0,0:00:43.10,0:00:45.30,Sub,,0,0,0,,{\fad(150,150)}It leaves a strange mark.
+Dialogue: 0,0:00:45.30,0:00:51.80,Sub,,0,0,0,,{\fad(150,150)}A red, fern-like pattern, called a Lichtenberg figure.
+Dialogue: 0,0:00:52.60,0:00:56.40,Sub,,0,0,0,,{\fad(150,150)}With fast help, nine out of ten people survive.
+Dialogue: 0,0:00:57.20,0:01:01.60,Sub,,0,0,0,,{\fad(150,150)}One park ranger was struck seven times… and lived.
+Dialogue: 0,0:01:02.40,0:01:04.00,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:01:04.00,0:01:08.10,Sub,,0,0,0,,{\fad(150,150)}If you can hear thunder… you are close enough to be struck.
+Dialogue: 2,0:00:11.80,0:00:14.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:11.92,0:00:14.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}THE STRIKE
+Dialogue: 2,0:00:12.02,0:00:14.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}300,000,000 V
+Dialogue: 2,0:00:14.40,0:00:17.00,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:14.52,0:00:17.00,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AIR TEMPERATURE
+Dialogue: 2,0:00:14.62,0:00:17.00,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}30,000 °C
+Dialogue: 2,0:00:21.00,0:00:23.60,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:21.12,0:00:23.60,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SURFACE OF THE SUN
+Dialogue: 2,0:00:21.22,0:00:23.60,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}5,500 °C
+Dialogue: 2,0:00:32.10,0:00:34.70,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:32.22,0:00:34.70,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}HEART RATE
+Dialogue: 2,0:00:32.32,0:00:34.70,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)\c&H4040E8&}0
+Dialogue: 2,0:00:52.60,0:00:55.20,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:52.72,0:00:55.20,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SURVIVAL RATE
+Dialogue: 2,0:00:52.82,0:00:55.20,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}90%
+Dialogue: 2,0:00:57.20,0:00:59.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:57.32,0:00:59.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}PARK RANGER
+Dialogue: 2,0:00:57.42,0:00:59.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}7 STRIKES

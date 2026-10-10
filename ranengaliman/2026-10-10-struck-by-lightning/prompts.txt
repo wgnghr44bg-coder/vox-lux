@@ -1,0 +1,12 @@
+L01|Documentary photo, vertical, a lone person seen from behind standing in an open grass field under huge dark thunderstorm clouds, ominous green-grey light, wind in the grass, realistic
+L02|Documentary photo, vertical, close-up of the back of a person's head, hair standing straight up from static electricity, dark stormy sky behind, tense, realistic
+L03|Documentary photo, vertical, a massive bright lightning bolt striking an open field right next to a small human silhouette, blinding white light, night storm, realistic
+L04|Documentary photo, vertical, extreme close-up of a lightning bolt channel, glowing white-violet plasma branching across a black sky, realistic, high detail
+L05|Vertical image, close-up of the surface of the Sun, boiling orange plasma and solar flares, NASA SDO style, realistic
+L06|Documentary photo, vertical, a pair of sneakers lying apart on wet grass, smoking and steaming, scorch marks, rain, night, realistic
+L07|Documentary photo, vertical, close-up of a green heart monitor screen in the dark showing one perfectly flat line, "0" heart rate, red alarm glow, realistic
+L08|Documentary photo, vertical, close-up of a wet human forearm with thin blue electric arcs crawling over the surface of the skin, dark background, realistic
+L09|Medical documentary photo, vertical, a human shoulder and upper arm with a red branching fern-like Lichtenberg figure pattern on the skin, clinical light, realistic
+L10|Documentary photo, vertical, paramedics' hands performing CPR on a person lying on wet grass at night, flashing ambulance lights, rain, faces not visible, realistic
+L11|Documentary photo, vertical, a park ranger hat hanging on a wooden fence post in a national park, distant lightning over the mountains, moody, realistic
+L12|Documentary photo, vertical, small town street at dusk with a huge thunderstorm approaching, lightning on the horizon, empty street, realistic

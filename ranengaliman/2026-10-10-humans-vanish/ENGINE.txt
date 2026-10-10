@@ -1,0 +1,3 @@
+Goedkope test-Short (geen whatif-machine): 7 xAI-afbeeldingen (prompts.txt, grok-imagine-image 9:16),
+stem: python3 vox-lux/tools/xai_voiceover.py script-cues.txt --proxy-auth --speed 1.05 --timeline voice-times.tsv -o voice.mp3
+beeld: python3 make.py <tmpdir>  (zoom per afbeelding + subs.ass), daarna ffmpeg-mix met drone (zie commit).

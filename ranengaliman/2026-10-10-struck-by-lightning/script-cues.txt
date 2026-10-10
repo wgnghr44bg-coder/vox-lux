@@ -1,0 +1,26 @@
+{img:S01}
+You are standing in an open field. [pause]
+{img:S02}
+The air smells like metal. Your hair… starts to rise. [long pause]
+{img:S03}
+Then. [long pause]
+{img:S04}
+Three hundred million volts. [pause]
+{img:S05}
+In a split second, the air around you heats to thirty thousand degrees. [pause]
+{img:S06}
+Five times hotter than the surface of the Sun. [long pause]
+{img:S07}
+The rain on your skin turns to steam. Your shoes can be blown right off. [long pause]
+{img:S08}
+And your heart… stops. [long pause]
+{img:S09}
+But often, most of the current flashes over your skin, not through you. [pause]
+{img:S10}
+It leaves a strange mark. A red, fern-like pattern, called a Lichtenberg figure. [long pause]
+{img:S11}
+With fast help, nine out of ten people survive. [long pause]
+{img:S12}
+One park ranger was struck seven times… and lived. [long pause]
+{img:S13}
+So remember. If you can hear thunder… you are close enough to be struck.
