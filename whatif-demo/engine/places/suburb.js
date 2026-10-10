@@ -4,6 +4,8 @@
 //   time.js: E.wildArea (road, lot, paths), E.roofs (roofs that sag over the years)
 //   can bend:   trees, lamps (wind)
 //   can flood:  the pond (water force)
+// Water force heights (metres ABOVE the normal pond level): park paths and road +0.6; cars float from +1.2;
+//   house doors about +0.9, every floor 3 m.
 // Beats: carsStop (the few driving cars stop), lookUp, shelter. Shots: wide, street, park, pond, shop, lot, houses, 'pov-park', 'pov-street'
 import * as THREE from 'three';
 import { rng, hash, colorKeys } from '../util.js';
