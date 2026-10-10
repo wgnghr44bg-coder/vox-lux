@@ -37,6 +37,44 @@ function Find($exe) {
 function Version($exe, $arg = "--version") {
   try { return ((& $exe $arg 2>&1) | Select-Object -First 1).ToString().Trim() } catch { return "?" }
 }
+# ---- direct downloads (official sources) when winget is missing; portable tools go to $Root\tools, no admin
+$ToolsDir = Join-Path $Root "tools"
+$Direct = @{
+  "Git"     = @{ url = "https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/MinGit-2.47.1-64-bit.zip"; dir = "git"; bin = "cmd" }
+  "Node.js" = @{ url = "https://nodejs.org/dist/v22.20.0/node-v22.20.0-win-x64.zip"; dir = "node"; bin = "node-v22.20.0-win-x64" }
+  "FFmpeg"  = @{ url = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip"; dir = "ffmpeg"; bin = "ffmpeg-master-latest-win64-gpl\bin" }
+  "Python"  = @{ url = "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe" }
+}
+function AddUserPath($dir) {
+  $user = [Environment]::GetEnvironmentVariable("Path", "User")
+  if (($user -split ";") -notcontains $dir) { [Environment]::SetEnvironmentVariable("Path", (($user.TrimEnd(";") + ";" + $dir).TrimStart(";")), "User") }
+  $env:Path = "$dir;$env:Path"
+}
+function Download($url, $out) {
+  Say "  download $url"
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+  $old = $ProgressPreference; $ProgressPreference = "SilentlyContinue"     # the progress bar makes PowerShell 5 very slow
+  try { Invoke-WebRequest -Uri $url -OutFile $out -UseBasicParsing } finally { $ProgressPreference = $old }
+}
+function InstallDirect($name) {
+  $d = $Direct[$name]
+  New-Item -ItemType Directory -Force -Path $ToolsDir | Out-Null
+  $file = Join-Path $env:TEMP (Split-Path -Leaf $d.url)
+  Download $d.url $file
+  if ($name -eq "Python") {
+    Say "  Python installeren (alleen voor jouw account) ..."
+    $p = Start-Process -FilePath $file -ArgumentList "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0" -Wait -PassThru
+    if ($p.ExitCode -ne 0) { throw "Python-installatie gaf code $($p.ExitCode)" }
+    RefreshPath
+  } else {
+    $target = Join-Path $ToolsDir $d.dir
+    if (Test-Path $target) { Say "  $target bestaat al, wordt hergebruikt" } else { Expand-Archive -Path $file -DestinationPath $target }
+    AddUserPath (Join-Path $target $d.bin)
+  }
+  Remove-Item $file -ErrorAction SilentlyContinue
+  Say "  $name geinstalleerd" Green
+}
+
 function PythonExe {
   $p = Find "python"
   if ($p) { return $p }
@@ -100,25 +138,25 @@ if ($missing.Count -gt 0) {
   # winget lives in WindowsApps (an app alias), so look it up directly, not with Find
   if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     # Windows 10/11 ship App Installer (winget), but on a new account it is sometimes not registered yet
-    Say "winget niet gevonden; App Installer wordt geactiveerd ..." Yellow
-    try { Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe } catch { Say "  activeren lukte niet: $_" Yellow }
-    RefreshPath
+    try { Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe } catch {}
     $env:Path += ";" + (Join-Path $env:LOCALAPPDATA "Microsoft\WindowsApps")
   }
-  if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Say "winget ontbreekt nog steeds. Open de Microsoft Store, zoek 'App Installer', klik Bijwerken/Installeren en start dit script opnieuw." Red
-    Say "Direct openen: start ms-windows-store://pdp/?productid=9NBLGGH4NNS1" Red
-    exit 1
-  }
+  $useWinget = [bool](Get-Command winget -ErrorAction SilentlyContinue)
   Say ""
   Say ("Ontbreekt: {0}" -f ($missing -join ", ")) Yellow
-  Say "Installatie via winget (officiele pakketten, gratis). Windows kan per programma om toestemming (UAC) vragen: klik dan Ja."
+  if ($useWinget) { Say "Installatie via winget (officiele pakketten, gratis). Windows kan om toestemming (UAC) vragen: klik dan Ja." }
+  else { Say "winget is niet beschikbaar: de officiele versies worden direct gedownload naar $Root\tools (gratis, geen admin nodig)." }
   if (-not (Ask "Ontbrekende programma's nu installeren?")) { Say "Gestopt op verzoek. Niets geinstalleerd."; exit 0 }
   foreach ($name in $missing) {
-    $id = $tools[$name].winget
-    Say "winget install $id ..." Cyan
-    winget install --id $id -e --source winget --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -ne 0) { Say "Installatie van $name gaf code $LASTEXITCODE. Rond een eventueel venster af en start dit script opnieuw." Red; exit 1 }
+    $done = $false
+    if ($useWinget) {
+      $id = $tools[$name].winget
+      Say "winget install $id ..." Cyan
+      winget install --id $id -e --source winget --accept-package-agreements --accept-source-agreements
+      $done = ($LASTEXITCODE -eq 0)
+      if (-not $done) { Say "winget gaf code $LASTEXITCODE; nu direct downloaden ..." Yellow }
+    }
+    if (-not $done) { InstallDirect $name }
   }
   RefreshPath
   Say ""
@@ -159,6 +197,12 @@ if (-not (Test-Path (Join-Path $archive ".git"))) {
 } else {
   Say "Videoarchief staat er al: $archive (niet overschreven)"
   if (-not (git -C $archive status --porcelain)) { git -C $archive pull --ff-only }
+}
+
+# git needs a name to commit (whatif.ps1 saves each video); only set inside these two repos, only when missing
+foreach ($r in @($engine, $archive)) {
+  if (-not (git -C $r config user.name)) { git -C $r config user.name "IfScape3D pc" }
+  if (-not (git -C $r config user.email)) { git -C $r config user.email "ifscape3d@localhost" }
 }
 
 # ---------------------------------------------------------------- phase 3: dependencies
