@@ -1,18 +1,20 @@
 #	start	end	image	text
-1	0:00:00.0	0:00:01.9	S01	You are standing in an open field.
-2	0:00:02.8	0:00:04.3	S02	The air smells like metal.
-3	0:00:04.9	0:00:07.2		Your hair… starts to rise.
-4	0:00:08.9	0:00:09.3	S03	Then.
-5	0:00:11.0	0:00:12.7	S04	Three hundred million volts.
-6	0:00:13.6	0:00:19.3	S05	In a split second, the air around you heats to thirty thousand degrees.
-7	0:00:20.2	0:00:22.9	S06	Five times hotter than the surface of the Sun.
-8	0:00:24.6	0:00:27.0	S07	The rain on your skin turns to steam.
-9	0:00:27.6	0:00:29.6		Your shoes can be blown right off.
-10	0:00:31.3	0:00:33.5	S08	And your heart… stops.
-11	0:00:35.2	0:00:41.4	S09	But often, most of the current flashes over your skin, not through you.
-12	0:00:42.3	0:00:43.9	S10	It leaves a strange mark.
-13	0:00:44.5	0:00:50.1		A red, fern-like pattern, called a Lichtenberg figure.
-14	0:00:51.8	0:00:54.7	S11	With fast help, nine out of ten people survive.
-15	0:00:56.4	0:00:59.9	S12	One park ranger was struck seven times… and lived.
-16	0:01:01.6	0:01:02.6	S13	So remember.
-17	0:01:03.2	0:01:06.4		If you can hear thunder… you are close enough to be struck.
+1	0:00:00.0	0:00:02.7	S00	Imagine… you get struck by lightning.
+2	0:00:03.6	0:00:05.1		What would happen to your body?
+3	0:00:06.8	0:00:08.8	S01	You are standing in an open field.
+4	0:00:09.7	0:00:11.1	S02	The air smells like metal.
+5	0:00:11.7	0:00:14.1		Your hair… starts to rise.
+6	0:00:15.8	0:00:16.3	S03	Then.
+7	0:00:18.0	0:00:19.7	S04	Three hundred million volts.
+8	0:00:20.6	0:00:25.3	S05	In a split second, the air around you heats to thirty thousand degrees.
+9	0:00:26.2	0:00:28.6	S06	Five times hotter than the surface of the Sun.
+10	0:00:30.3	0:00:32.5	S07	The rain on your skin turns to steam.
+11	0:00:33.1	0:00:35.1		Your shoes can be blown right off.
+12	0:00:36.8	0:00:38.6	S08	And your heart… stops.
+13	0:00:40.3	0:00:46.4	S09	But often, most of the current flashes over your skin, not through you.
+14	0:00:47.3	0:00:48.8	S10	It leaves a strange mark.
+15	0:00:49.4	0:00:55.3		A red, fern-like pattern, called a Lichtenberg figure.
+16	0:00:57.0	0:01:00.3	S11	With fast help, nine out of ten people survive.
+17	0:01:02.0	0:01:05.5	S12	One park ranger was struck seven times… and lived.
+18	0:01:07.2	0:01:08.0	S13	So remember.
+19	0:01:08.6	0:01:12.2		If you can hear thunder… you are close enough to be struck.
