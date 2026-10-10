@@ -187,8 +187,14 @@ if (-not (Test-Path (Join-Path $engine ".git"))) {
   $cur = (git -C $engine rev-parse --abbrev-ref HEAD).Trim()
   $dirty = git -C $engine status --porcelain
   Say "  huidige branch: $cur"
-  if ($dirty) { Say "  let op: er zijn lokale wijzigingen; niets bijgewerkt." Yellow }
-  elseif ($cur -eq $Branch) { git -C $engine pull --ff-only origin $Branch }
+  if ($dirty) {
+    Say "  let op: er zijn lokale wijzigingen; niets bijgewerkt." Yellow
+    if ($cur -ne $Branch) { Say "  De engine staat op '$cur' in plaats van '$Branch'. Bewaar of verwijder de wijzigingen (git -C $engine status) en start opnieuw." Red; exit 1 }
+  } elseif ($cur -ne $Branch) {
+    Say "  overschakelen naar $Branch (de map is schoon; er gaat niets verloren) ..."
+    git -C $engine checkout $Branch
+    if ($LASTEXITCODE -ne 0) { Say "Overschakelen naar $Branch mislukt." Red; exit 1 }
+  } else { git -C $engine pull --ff-only origin $Branch }
 }
 if (-not (Test-Path (Join-Path $archive ".git"))) {
   if (Test-Path $archive) { Say "$archive bestaat al maar is geen git-map. Niets overschreven." Red; exit 1 }
@@ -208,6 +214,7 @@ foreach ($r in @($engine, $archive)) {
 # ---------------------------------------------------------------- phase 3: dependencies
 Step "Fase 3 - Afhankelijkheden"
 $wd = Join-Path $engine "whatif-demo"
+if (-not (Test-Path $wd)) { Say "$wd ontbreekt: de engine staat niet op de juiste branch ($Branch)." Red; exit 1 }
 Push-Location $wd
 try {
   Say "npm ci (three.js, lettertypes) ..."
