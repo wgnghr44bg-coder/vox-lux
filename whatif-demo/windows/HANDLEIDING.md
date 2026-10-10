@@ -99,6 +99,20 @@ Bij elke video kiest de **regisseur** (`director.py`) automatisch per zin de cam
 - Nieuwe bouwstenen (zoals het zinkgat) krijgen vanzelf een eigen overzichtsshot en close-up.
 - **De camera volgt het script.** Grok zet bij belangrijke zinnen een camera-aanwijzing in het script, bijvoorbeeld
   `export const camera = { cars: 'close cars', climax: 'pov', after: 'aerial city' }`. De regisseur volgt die altijd.
+- **De camera beweegt, zoals een filmploeg dat doet.** Elk shot dat lang genoeg duurt, krijgt een rustige, vloeiende beweging:
+
+  | Beweging | Wat je ziet | Wanneer de regisseur hem kiest |
+  |---|---|---|
+  | `drone` | komt hoog en van ver binnenglijden en daalt naar het standpunt | opening |
+  | `crane-down` / `crane-up` | kraan omlaag / omhoog | opening / na de climax, het einde |
+  | `push` / `pull` | rijdt langzaam naar het onderwerp toe / onthult door terug te rijden | detail, climax (sterker) / na de climax |
+  | `zoom` / `zoom-out` | lens zoomt langzaam in / uit | detail met telelens / einde |
+  | `orbit` / `orbit-left` | draait langzaam om het onderwerp heen | gebeurtenis, uitleg |
+  | `tilt-up` / `tilt-down` | kantelt omhoog naar de lucht / van de lucht naar beneden | slot, iets in de lucht |
+
+  Nooit twee keer dezelfde beweging achter elkaar. POV-shots blijven uit de hand gefilmd, zonder extra beweging.
+  Korte shots (onder 2,5 s) staan stil. In het scenario staat het zo: `[at('wave').s, 'wide', 'push']`,
+  en `'push:1.5'` is sterker, `'push:.5'` rustiger.
 - **Wissels vallen in de pauzes van de stem**, midden in de stilte tussen twee zinnen. Bij een stille climax komen er
   twee shots in de stilte, zodat je de schaal ziet.
 
@@ -108,7 +122,14 @@ Alleen de camera opnieuw laten kiezen, eventueel met een wens:
 whatif camera 12 "meer close-ups van de auto's, eindig hoog boven de stad"
 ```
 
-Dat kost ongeveer 1–2 cent.
+Dat kost ongeveer 1–2 cent. Je kunt ook om bewegingen vragen, in gewoon Nederlands:
+
+```powershell
+whatif camera 12 "langzaam inzoomen op de golf, en eindig met een kraan omhoog boven de stad"
+```
+
+Of zet de beweging in de camera-aanwijzing van het script: `export const camera = { wave: 'wide push', end: 'aerial crane-up' }`
+(`still` = geen beweging).
 
 ## Losse stappen
 

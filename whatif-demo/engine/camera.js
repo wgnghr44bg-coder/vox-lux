@@ -9,19 +9,65 @@
 //  - always a soft handheld motion: breathing, small jitter, now and then a few degrees of roll,
 //    plus shake that grows with the disaster and hard jolts on big hits.
 // The gaze is simulated once over the whole video (deterministic), so any frame renders on its own.
+// Camera MOVES (TL.shots: [t, name, move], or shot.move on a standpoint): the standpoint itself glides during the shot,
+// smooth in and out like a crane, dolly or drone. 'push:.5' = half as strong, 'push:1.5' = stronger.
+//  push       dolly in: starts on the standpoint, ends ~30% closer        pull       reveal: starts closer, ends on the standpoint
+//  crane-down starts high, settles on the standpoint                     crane-up   rises from the standpoint (aftermath, ending)
+//  drone      high and further back, glides forward and down to it      orbit / orbit-left  circles the look point (~24°)
+//  tilt-up    tilts up from the standpoint towards the sky              tilt-down  starts looking up, tilts down to it
+//  zoom       slow lens zoom in (fov to 60%)                             zoom-out   starts zoomed in, widens to the standpoint
 import * as THREE from 'three';
 import { clamp, hash, noise, smooth, lerp } from './util.js';
 
 const D2R = Math.PI / 180;
+export const MOVES = ['push', 'pull', 'crane-down', 'crane-up', 'drone', 'orbit', 'orbit-left', 'tilt-up', 'tilt-down', 'zoom', 'zoom-out'];
+const parseMove = m => {
+  if (!m) return null;
+  if (typeof m === 'object') return MOVES.includes(m.type) ? { k: 1, ...m } : null;
+  const [type, k] = String(m).trim().split(':');
+  return MOVES.includes(type) ? { type, k: k ? clamp(+k || 1, .1, 3) : 1 } : null;
+};
 const WEIGHT = { fire: 2.5, impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear: 1.6, glass: 1.4, crack: 1, sky: 3, look: 6, mover: 1.4, roar: 5 };
 const HOLD = { fire: 3, impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5, roar: 2.5 };
 
 export function createCamera(E, TL, P, F) {
   const FPS = E.FPS, STOP = TL.beats.stop, N = Math.ceil(TL.T_END * FPS) + 2, cam = E.camera;
   cam.rotation.order = 'YXZ';
-  const shotAt = t => { let s = TL.shots[0]; for (const x of TL.shots) if (t >= x[0]) s = x; return { name: s[1], start: s[0], shot: P.shots[s[1]] }; };
+  const shotAt = t => {
+    let i = 0; TL.shots.forEach((x, j) => { if (t >= x[0]) i = j; });
+    const s = TL.shots[i], shot = P.shots[s[1]], end = i + 1 < TL.shots.length ? TL.shots[i + 1][0] : TL.T_END;
+    return { name: s[1], start: s[0], end, shot, move: parseMove(s[2] ?? shot.move) };
+  };
   const posAt = (sh, t) => { const d = sh.shot.drift || [0, 0, 0], k = (t - sh.start) / 10, p = sh.shot.pos; return [p[0] + d[0] * k, p[1] + d[1] * k, p[2] + d[2] * k]; };
   const lookAtBase = (sh, t) => { const d = sh.shot.lookDrift || sh.shot.drift || [0, 0, 0], k = (t - sh.start) / 10, l = sh.shot.look; return [l[0] + d[0] * k, l[1] + d[1] * k, l[2] + d[2] * k]; };
+  // the standpoint at time t with its move applied: { pos, look, fov (factor) }
+  const frameAt = (sh, t) => {
+    const pos = posAt(sh, t), look = lookAtBase(sh, t), m = sh.move;
+    if (!m) return { pos, look, fov: 1 };
+    const x = clamp((t - sh.start) / Math.max(1, (sh.end ?? sh.start + 8) - sh.start), 0, 1), u = .5 - .5 * Math.cos(Math.PI * x), k = m.k;
+    const v = [look[0] - pos[0], look[1] - pos[1], look[2] - pos[2]], d = Math.hypot(...v) || 1, n = v.map(c => c / d);
+    const hl = Math.hypot(n[0], n[2]) || 1, h = [n[0] / hl, 0, n[2] / hl];             // horizontal direction of view
+    const along = (dir, s) => { for (let j = 0; j < 3; j++) pos[j] += dir[j] * s; };
+    const dolly = Math.max(0, Math.min(d * .3 * k, d - 4));                           // never closer than 4 m to the look point
+    const H = clamp(d * .3, 5, 40) * k;
+    let fov = 1;
+    switch (m.type) {
+      case 'push': along(n, dolly * u); break;
+      case 'pull': along(n, dolly * (1 - u)); break;
+      case 'crane-down': pos[1] += H * (1 - u); break;
+      case 'crane-up': pos[1] += H * u; look[1] += H * u * .35; break;
+      case 'drone': pos[1] += H * (1 - u); along(h, -d * .3 * k * (1 - u)); break;
+      case 'orbit': case 'orbit-left': {
+        const a = (u - .5) * 24 * k * D2R * (m.type === 'orbit-left' ? -1 : 1), dx = pos[0] - look[0], dz = pos[2] - look[2];
+        pos[0] = look[0] + dx * Math.cos(a) - dz * Math.sin(a); pos[2] = look[2] + dx * Math.sin(a) + dz * Math.cos(a); break;
+      }
+      case 'tilt-up': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 26 * k) * D2R) * u; break;
+      case 'tilt-down': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 26 * k) * D2R) * (1 - u); break;
+      case 'zoom': fov = 1 - Math.min(.65, .4 * k) * u; break;
+      case 'zoom-out': fov = 1 - Math.min(.65, .4 * k) * (1 - u); break;
+    }
+    return { pos, look, fov };
+  };
   const dirOf = (from, to) => { const dx = to[0] - from[0], dy = to[1] - from[1], dz = to[2] - from[2];
     return [Math.atan2(-dx, -dz), Math.atan2(dy, Math.hypot(dx, dz)), Math.hypot(dx, dy, dz)]; };
   const wrap = a => Math.atan2(Math.sin(a), Math.cos(a));
@@ -53,8 +99,8 @@ export function createCamera(E, TL, P, F) {
   let yaw = 0, pitch = 0, vy = 0, vp = 0, cur = null, curSince = 0, curVal = 0, lastShot = null;
   const SUB = 4, dt = 1 / FPS / SUB;
   for (let f = 0; f < N; f++) {
-    const t = f / FPS, ts = Math.min(t, STOP), sh = shotAt(t), pos = posAt(sh, t);
-    const [by, bp] = dirOf(pos, lookAtBase(sh, t));
+    const t = f / FPS, ts = Math.min(t, STOP), sh = shotAt(t), fr = frameAt(sh, t), pos = fr.pos;
+    const [by, bp] = dirOf(pos, fr.look);
     if (sh.start !== lastShot) { yaw = by; pitch = bp; vy = vp = 0; cur = null; lastShot = sh.start; }
     // pick the most important visible target
     let best = null, bestVal = 0, bestDir = null;
@@ -101,11 +147,11 @@ export function createCamera(E, TL, P, F) {
     // apply(tv) follows the simulated gaze; apply(tv, { shot, t }) frames a fixed shot (the opening hook)
     apply(tv, fixed) {
       const t = Math.min(fixed ? fixed.t : tv, STOP);
-      const sh = fixed ? { name: fixed.shot, start: fixed.t - tv, shot: P.shots[fixed.shot] } : shotAt(tv), pos = posAt(sh, fixed ? fixed.t : tv);
+      const sh = fixed ? { name: fixed.shot, start: fixed.t - tv, shot: P.shots[fixed.shot] } : shotAt(tv), sf = frameAt(sh, fixed ? fixed.t : tv), pos = sf.pos;
       const f = clamp(tv * FPS, 0, N - 2), i = Math.floor(f), fr = f - i;
       let ya, pa;
-      if (fixed) { [ya, pa] = dirOf(pos, lookAtBase(sh, fixed.t)); }
-      else if (TL.tripod) { [ya, pa] = dirOf(pos, lookAtBase(sh, tv)); }   // observer on a tripod (gravity style): no gaze, no handheld
+      if (fixed) { [ya, pa] = dirOf(pos, sf.look); }
+      else if (TL.tripod) { [ya, pa] = dirOf(pos, sf.look); }   // observer on a tripod (gravity style): no gaze, no handheld
       else { ya = yawA[i] + wrap(yawA[i + 1] - yawA[i]) * fr; pa = lerp(pitchA[i], pitchA[i + 1], fr); }
       // shake grows with the disaster; hard jolts on big hits
       let shake = 0, rumble = (F.rumble ? F.rumble(t) : 0) * (sh.shot.shake ?? 1) * .6;
@@ -132,7 +178,7 @@ export function createCamera(E, TL, P, F) {
         pos[1] += Math.abs(Math.sin(ph)) * amp * 2 - amp; pos[0] += Math.sin(ph / 2) * amp * 1.4;
         pa += Math.sin(ph) * 1.4 * D2R; ya += Math.sin(ph / 2) * 1.6 * D2R; rollRun = Math.sin(ph / 2) * 2.5 * D2R;
       }
-      cam.fov = (sh.shot.fov || 60) * (E.WIDE ? .62 : 1); cam.updateProjectionMatrix();
+      cam.fov = (sh.shot.fov || 60) * (E.WIDE ? .62 : 1) * sf.fov; cam.updateProjectionMatrix();
       cam.position.set(pos[0] + noise(tv * .5, 2) * .05 * calm + sx * shake * .25, pos[1] + Math.sin(tv * 2 * Math.PI * .24) * .03 * calm + sy * shake * .25, pos[2] + noise(tv * .5, 6) * .05 * calm);
       cam.rotation.set(pa, ya, roll + rollRun + sx * shake * .03);
       // a point 60 m ahead (used to aim the sun's shadow map)
