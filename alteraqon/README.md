@@ -18,3 +18,26 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 ## Video's
 - `2026-10-10-humans-vanish/` – What if all humans vanished? (eindversie: `doc/make-doc-lux.py`)
 - `2026-10-10-struck-by-lightning/` – What if you got struck by lightning? (`make.py`)
+
+## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
+Per video invullen met het onderwerp; niet meer feiten erbij zetten.
+
+- **Titel:** `What if <vraag>? <emoji>`
+- **Beschrijving:** één regel met 2–3 korte, verrassende feiten + twist, een vraag aan de kijker met 👇, dan 4 hashtags.
+- **Tags:** 4 stuks: `what if`, onderwerp, langere zoekterm, `science`.
+- In Studio: "Gewijzigde of synthetische content" → **Ja**.
+
+Voorbeeld (lightning):
+```
+What if you got struck by lightning? ⚡
+```
+```
+300 million volts. Five times hotter than the Sun. And yet, most people survive.
+
+Would you go outside during a storm? 👇
+
+#whatif #lightning #science #shorts
+```
+```
+what if, lightning, struck by lightning, science
+```
