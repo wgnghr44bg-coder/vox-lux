@@ -119,6 +119,7 @@ const C = h => new THREE.Color(h);
 function applyLook(t) {
   const L = P.look(t);
   F.look?.(t, L);
+  for (const f of E.lookMods || []) f(t, L);              // e.g. moon.js: night lit by a (growing) Moon
   E.skyMat.uniforms.top.value.copy(L.top); E.skyMat.uniforms.hor.value.copy(L.hor);
   E.skyMat.uniforms.sunDir.value.copy(E.sunOffset ?? E.sun.position).normalize(); E.skyMat.uniforms.sunCol.value.copy(L.sunDisc || C(0));
   E.skyMat.uniforms.stars.value = L.stars || 0; E.skyMat.uniforms.sunSize.value = L.sunSize || 1;
