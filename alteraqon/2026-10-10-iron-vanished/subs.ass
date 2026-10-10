@@ -1,0 +1,55 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:05.80,Sub,,0,0,0,,{\fad(150,150)}Imagine… every piece of iron on Earth suddenly vanished.
+Dialogue: 0,0:00:05.80,0:00:07.80,Sub,,0,0,0,,{\fad(150,150)}What would happen to you?
+Dialogue: 0,0:00:08.60,0:00:11.40,Sub,,0,0,0,,{\fad(150,150)}You are driving across a bridge.
+Dialogue: 0,0:00:11.40,0:00:13.00,Sub,,0,0,0,,{\fad(150,150)}The radio is on.
+Dialogue: 0,0:00:13.00,0:00:15.20,Sub,,0,0,0,,{\fad(150,150)}Nothing feels wrong.
+Dialogue: 0,0:00:16.00,0:00:17.30,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:18.10,0:00:20.30,Sub,,0,0,0,,{\fad(150,150)}Your car falls apart around you.
+Dialogue: 0,0:00:20.30,0:00:23.60,Sub,,0,0,0,,{\fad(150,150)}Steel is about ninety-eight percent iron.
+Dialogue: 0,0:00:23.60,0:00:26.70,Sub,,0,0,0,,{\fad(150,150)}The bridge has nothing left to hold it up.
+Dialogue: 0,0:00:26.70,0:00:30.00,Sub,,0,0,0,,{\fad(150,150)}Skyscrapers lose every steel beam.
+Dialogue: 0,0:00:30.80,0:00:32.40,Sub,,0,0,0,,{\fad(150,150)}But you won't see it.
+Dialogue: 0,0:00:32.40,0:00:35.40,Sub,,0,0,0,,{\fad(150,150)}The iron in your blood is gone too.
+Dialogue: 0,0:00:36.20,0:00:38.60,Sub,,0,0,0,,{\fad(150,150)}Your blood can't carry oxygen.
+Dialogue: 0,0:00:38.60,0:00:41.70,Sub,,0,0,0,,{\fad(150,150)}You black out in about ten seconds.
+Dialogue: 0,0:00:42.50,0:00:46.20,Sub,,0,0,0,,{\fad(150,150)}Deep below, the iron core disappears.
+Dialogue: 0,0:00:46.20,0:00:49.00,Sub,,0,0,0,,{\fad(150,150)}Earth loses a third of its mass.
+Dialogue: 0,0:00:49.00,0:00:53.50,Sub,,0,0,0,,{\fad(150,150)}And the magnetic field that shields us… shuts off.
+Dialogue: 0,0:00:54.30,0:00:55.90,Sub,,0,0,0,,{\fad(150,150)}Here's the twist.
+Dialogue: 0,0:00:55.90,0:00:59.00,Sub,,0,0,0,,{\fad(150,150)}That iron was never really from Earth.
+Dialogue: 0,0:00:59.00,0:01:04.90,Sub,,0,0,0,,{\fad(150,150)}It was forged in exploding stars, long before our planet existed.
+Dialogue: 0,0:01:05.70,0:01:07.20,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:01:07.20,0:01:13.00,Sub,,0,0,0,,{\fad(150,150)}Your blood holds about four grams of star metal… enough for one small nail.
+Dialogue: 2,0:00:20.30,0:00:22.90,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:20.42,0:00:22.90,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}STEEL
+Dialogue: 2,0:00:20.52,0:00:22.90,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}98% IRON
+Dialogue: 2,0:00:36.20,0:00:38.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:36.32,0:00:38.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}UNTIL BLACKOUT
+Dialogue: 2,0:00:36.42,0:00:38.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}~10 SEC
+Dialogue: 2,0:00:46.20,0:00:48.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:46.32,0:00:48.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}EARTH'S MASS
+Dialogue: 2,0:00:46.42,0:00:48.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}−32%
+Dialogue: 2,0:00:49.00,0:00:51.60,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:49.12,0:00:51.60,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}MAGNETIC FIELD
+Dialogue: 2,0:00:49.22,0:00:51.60,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)\c&H4040E8&}0
+Dialogue: 2,0:00:59.00,0:01:01.60,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:59.12,0:01:01.60,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}FORGED IN
+Dialogue: 2,0:00:59.22,0:01:01.60,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}SUPERNOVAE
+Dialogue: 2,0:01:07.20,0:01:09.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:07.32,0:01:09.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}IRON IN YOUR BODY
+Dialogue: 2,0:01:07.42,0:01:09.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}4 g
