@@ -441,7 +441,8 @@ def new_topic(question: str):
         {"role": "user", "content": f"New topic: {q}\n\nTopics already made or planned (onderwerpen.md):\n{lijst}\n\n"
          f"Existing Short scenarios to use as example:\n{json.dumps(known, indent=0)}\n\n{catalogue()}\n\n"
          "Answer with JSON: {\"exists\": true ONLY if this topic (or the same idea) was already MADE (on the channel, or status starting with 'gemaakt'/'klaar'), "
-         "\"planned\": the number of a row with the same idea that is only planned (status 'gepland'), else null, "
+         "\"planned\": the number of a planned row (status 'gepland') ONLY if it asks the SAME question in other words (sharing a "
+         "word like 'lightning' is not enough: 'struck by lightning' is not 'lightning never stopped'), else null, "
          "\"slug\": short-kebab-case, \"place\": one existing place, \"force\": one existing force, "
          "\"example\": slug of the existing Short scenario that is closest (prefer the same place, then the same force), "
          "\"summary\": one line in Dutch: what happens, with the counter (e.g. 'Zon 100% -> 0%: ...')}"}], json_mode=True))
