@@ -47,6 +47,12 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
   (`one_take`, standaard aan; `oneTake: false` in topic = oude manier per zin). De stem maakt zelf de pauzes; de
   zinstijden komen uit de stiltes. Klinkt veel natuurlijker dan los geknipte zinnen.
 
+## Documentairetempo (eigenaar, 10 okt 2026) – geldt voor lange video's én Shorts
+- De stem mag nooit gehaast klinken: het moet klinken als een documentaire. Na elke zin een duidelijke pauze
+  (`'pause'`), na een belangrijke zin of bij een nieuwe stap `'long'`, en een stille climax van ± 3 s.
+- Liever een zin minder dan te snel. Tempo blijft 1.05 (atlas); pauzes zorgen voor de rust.
+- Luister zelf de stem na vóór het renderen: klinkt het als een opsomming of gehaast → meer pauzes, opnieuw inspreken.
+
 ## Eenheden: Europees (eigenaar, 9 okt 2026)
 - Alleen °C (geen °F), meters/kilometers, km/u, kilo, 24-uursklok (12:08, niet 12:08 PM). Ook in de stem en ondertitels.
 
