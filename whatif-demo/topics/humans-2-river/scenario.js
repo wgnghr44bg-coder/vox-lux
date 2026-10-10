@@ -18,8 +18,8 @@ export const lines = [
 
 export default function (at) {
   const offA = at('out').s - .3, offB = at('out').e + 2.6, T_END = at('cliff').e + 1.6;
-  const dayKeys = [[0, 0], [offB, .16], [at('quiet').e + .5, .45], [at('metro').e, 2.2], [at('week').e, 7], [at('month').s, 30], [T_END, 30.4]];
-  const d0 = at('dogs').s - 1, f0 = at('cliff').s - 1.5;
+  const dayKeys = [[0, 0], [offB, .16], [at('quiet').e + .5, .45], [at('metro').s - .5, 1.6], [at('metro').e, 1.72], [at('week').e, 7], [at('month').s, 30], [T_END, 30.4]];
+  const d0 = at('dogs').s - 4.5, f0 = at('cliff').s - 1.5;
   return {
     T_END, tripod: true, brand: false, post: true, noTraffic: true, nightExposure: 1.3,
     time: { days: dayKeys, hour: 20.6, doy: 140, clouds: .3, rain: [[at('pumps').s - 1, at('metro').e + .5]] },
