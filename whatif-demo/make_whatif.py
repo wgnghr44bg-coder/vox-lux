@@ -243,6 +243,8 @@ def pad_silence(d: Path, lines):
 def stt_line_times(mp3: Path, lines):
     """Word timestamps from ElevenLabs speech-to-text, matched to the script words -> (starts, ends) per line, or None."""
     import difflib, requests
+    if os.name == "nt" and not os.environ.get("ELEVENLABS_API_KEY"):
+        return None          # local pc without an ElevenLabs key: use the pauses in the take (no request, no cost)
     try:
         with open(mp3, "rb") as f:
             r = requests.post("https://api.elevenlabs.io/v1/speech-to-text", files={"file": (mp3.name, f, "audio/mpeg")},
