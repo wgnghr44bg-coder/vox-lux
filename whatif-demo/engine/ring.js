@@ -26,13 +26,13 @@ export function createRing(E, TL) {
     fragmentShader: `uniform float show, arc, th0, lit; varying vec2 vUv; varying float vY;
       float h(float x){ return fract(sin(x * 127.1) * 43758.5); }
       void main(){ float u = vUv.x, d = abs(vUv.y - th0);
-        float lanes = .55 + .45 * sin(u * 61.) * sin(u * 23. + 1.3) + .25 * sin(u * 173.);
+        float lanes = .65 + .25 * sin(u * 61.) * sin(u * 23. + 1.3) + .12 * sin(u * 173.);
         float gap = smoothstep(.0, .02, abs(u - .62)) * smoothstep(.0, .012, abs(u - .31));
         float edge = smoothstep(0., .06, u) * smoothstep(1., .9, u);
         float dens = clamp(lanes, 0., 1.) * gap * edge * (.75 + .25 * h(floor(u * 90.)));
         float a = dens * show * smoothstep(arc, arc * .7, d) * smoothstep(-.01, .08, vY);
-        vec3 c = mix(vec3(.72, .70, .66), vec3(.95, .92, .86), dens) * lit;
-        gl_FragColor = vec4(c, a * .85); }`,
+        vec3 c = mix(vec3(.62, .60, .57), vec3(.86, .83, .78), dens) * lit;
+        gl_FragColor = vec4(c, a * .55); }`,
   });
   const ring = new THREE.Mesh(geo, mat); ring.frustumCulled = false; ring.renderOrder = -2;
   ring.onBeforeRender = (r, s, cam) => { ring.position.copy(cam.position); ring.updateMatrixWorld(); };

@@ -47,6 +47,11 @@ export function applySmall(E, TL, F, P) {
   for (const [i, c] of (TL.traffic || []).entries()) {
     const ax = c.axis || 'z', dir = c.dir, v = c.v ?? 10, coast = c.coast ?? 6 + hash(i, 3) * 4;
     const o = ax === 'z' ? { x0: c.x, z0: c.z - dir * v * V } : { z0: c.z, x0: c.x - dir * v * V };
+    if (TL.trafficStill) {   // a later chapter: the same cars, standing where they rolled to a stop
+      const end = (ax === 'z' ? c.z : c.x) + dir * v * (hash(i, 4) * .5 + coast / 2);
+      car(E, 900 + i, { x0: ax === 'z' ? c.x : end, z0: ax === 'z' ? end : c.z, dir, v: 0, axis: ax, a: -1e5, b: 1e5, brakeT: 0, noBrakeLight: true, F, strength: {} });
+      continue;
+    }
     car(E, 900 + i, { ...o, dir, v, axis: ax, a: -1e5, b: 1e5, brakeT: V + hash(i, 4) * .5, Tb: coast, noBrakeLight: true, F, strength: {} });
   }
 
@@ -69,11 +74,11 @@ export function applySmall(E, TL, F, P) {
       };
       const pose0 = b.onPose;
       b.onPose = (t, st, w) => { pose0?.(t, st, w); b.obj.children[0].children.forEach(m => { if (m.geometry?.parameters?.width === 1.5 && m.geometry.parameters.depth === .05)
-        m.material.color.setHex(t > at + .4 && Math.floor((t - at) * 1.6) % 2 === 0 ? 0xe39a2a : 0x5a2420); }); };   // hazard lights
+        m.material.color.setHex(at >= 0 && t > at + .4 && Math.floor((t - at) * 1.6) % 2 === 0 ? 0xe39a2a : 0x5a2420); }); };   // hazard lights
       if (C.smoke !== false && k === 0) (TL.smoke ||= []).push([at + .6, px, 1.1, pz, C.smoke ?? 1]);
     });
-    E.EVENTS.push({ t: at, kind: 'crash', e: 1, x: px, z: pz });
-    if (C.alarm) E.EVENTS.push({ t: at + 1.2, kind: 'alarm', dur: C.alarm, e: 1, x: px, z: pz });
+    if (at >= 0) E.EVENTS.push({ t: at, kind: 'crash', e: 1, x: px, z: pz });   // at < 0: crashed long ago (later chapter)
+    if (C.alarm && at >= 0) E.EVENTS.push({ t: at + 1.2, kind: 'alarm', dur: C.alarm, e: 1, x: px, z: pz });
   }
 
   for (const M of TL.metro || []) metro(E, TL, M);
@@ -128,12 +133,11 @@ function bike(E, TL, F, i, o, V) {
 // the stairs draw first, an invisible lid writes depth so the street surface skips the opening), water running down
 function metro(E, TL, M) {
   const { lam, shadowed } = E, g = new THREE.Group(); g.position.set(M.x, 0, M.z); g.rotation.y = M.ry ?? 0; E.scene.add(g);
-  const W = 3.2, L = 7, D = 4.2, steps = 16, stone = lam(0x8d8a84), dark = lam(0x2a2c30), under = [];
+  const W = 3.2, L = 7, D = 4.2, steps = 16, stone = lam(0xa9a59d), stone2 = lam(0x7d7a74), dark = lam(0x2a2c30), under = [];
   const add = (m, o = -3) => { m.renderOrder = o; g.add(m); under.push(m); return m; };
-  for (let i = 0; i < steps; i++) { const st = add(new THREE.Mesh(new THREE.BoxGeometry(W, D / steps, L / steps), stone)); st.position.set(0, -(i + .5) * D / steps, -L / 2 + (i + .5) * L / steps); }
+  for (let i = 0; i < steps; i++) { const st = add(new THREE.Mesh(new THREE.BoxGeometry(W, D / steps, L / steps), i % 2 ? stone2 : stone)); st.position.set(0, -(i + .5) * D / steps, -L / 2 + (i + .5) * L / steps); }
   for (const sx of [-1, 1]) { const w = add(new THREE.Mesh(new THREE.BoxGeometry(.2, D + .5, L + 3), lam(0xb9b4aa))); w.position.set(sx * (W / 2 + .1), -D / 2, .6); }
   const back = add(new THREE.Mesh(new THREE.BoxGeometry(W, D, .2), dark)); back.position.set(0, -D / 2 - .4, L / 2 + 2);
-  const roof = add(new THREE.Mesh(new THREE.BoxGeometry(W + .4, .2, 3), lam(0x6b6862))); roof.position.set(0, -D * .45, L / 2 + .8);
   const floor = add(new THREE.Mesh(new THREE.BoxGeometry(W, .2, 3), dark)); floor.position.set(0, -D - .1, L / 2 + .9);
   const lid = new THREE.Mesh(new THREE.PlaneGeometry(W, L), new THREE.MeshBasicMaterial({ colorWrite: false })); lid.rotation.x = -Math.PI / 2; lid.position.y = .025; lid.renderOrder = -2; g.add(lid);
   for (const m of under) m.renderOrder = -3;
@@ -147,18 +151,18 @@ function metro(E, TL, M) {
   const cv = document.createElement('canvas'); cv.width = cv.height = 64; const x = cv.getContext('2d'); x.fillStyle = '#fff'; x.font = 'bold 50px sans-serif'; x.textAlign = 'center'; x.fillText('M', 32, 50);
   const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
   for (const sd of [-1, 1]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(.7, .7), new THREE.MeshBasicMaterial({ map: tex, transparent: true })); f.position.set(W / 2 + .5, 3.1, -L / 2 - .3 + sd * .065); if (sd < 0) f.rotation.y = Math.PI; g.add(f); }
-  const lampM = new THREE.MeshBasicMaterial({ color: 0x777777 }); const bulb = new THREE.Mesh(new THREE.SphereGeometry(.12, 8, 6), lampM); bulb.position.set(0, -D * .45 - .15, L / 2 + .8); bulb.renderOrder = -3; g.add(bulb);
+  const lampM = new THREE.MeshBasicMaterial({ color: 0x777777 }); const bulb = new THREE.Mesh(new THREE.SphereGeometry(.12, 8, 6), lampM); bulb.position.set(0, -D * .6, L / 2 + 1.9); bulb.renderOrder = -3; g.add(bulb);
   // water: a sheet over the steps with streaks that run down, a pool at the bottom, splashes
   const wcv = document.createElement('canvas'); wcv.width = 64; wcv.height = 256; const wx = wcv.getContext('2d');
   wx.fillStyle = 'rgba(120,150,165,.55)'; wx.fillRect(0, 0, 64, 256); const R = rng(9);
   for (let i = 0; i < 60; i++) { wx.fillStyle = `rgba(225,238,242,${.25 + R() * .45})`; wx.fillRect(R() * 64, R() * 256, 1 + R() * 3, 10 + R() * 40); }
   const wt = new THREE.CanvasTexture(wcv); wt.wrapS = wt.wrapT = THREE.RepeatWrapping; wt.repeat.set(2, 2);
-  const wm = new THREE.MeshBasicMaterial({ map: wt, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
-  const sheet = new THREE.Mesh(new THREE.PlaneGeometry(W - .2, Math.hypot(L, D)), wm); sheet.renderOrder = -1;
+  const wm = new THREE.MeshBasicMaterial({ map: wt, color: 0x7d929b, side: THREE.DoubleSide });   // opaque: the invisible lid has already written depth before transparent things draw
+  const sheet = new THREE.Mesh(new THREE.PlaneGeometry(W - .2, Math.hypot(L, D)), wm); sheet.renderOrder = -3;
   sheet.position.set(0, -D / 2 + .08, 0); sheet.rotation.x = -Math.PI / 2 - Math.atan2(D, L); g.add(sheet);
-  const pool = new THREE.Mesh(new THREE.PlaneGeometry(W, 3), new THREE.MeshBasicMaterial({ color: 0x3e5560, transparent: true, opacity: 0 })); pool.rotation.x = -Math.PI / 2; pool.position.set(0, -D + .15, L / 2 + .9); pool.renderOrder = -1; g.add(pool);
+  const pool = new THREE.Mesh(new THREE.PlaneGeometry(W, 3), new THREE.MeshBasicMaterial({ color: 0x3e5560 })); pool.rotation.x = -Math.PI / 2; pool.position.set(0, -D + .15, L / 2 + .9); pool.renderOrder = -3; g.add(pool);
   const [w0, w1] = M.water || [1e9, 1e9];
-  E.updates.push((t, F, tv) => { const k = smooth(w0, w0 + 1.5, t) * (1 - smooth(w1, w1 + 1, t)); wm.opacity = k * .8; wt.offset.y = (tv ?? t) * 1.6; pool.material.opacity = k * .85;
+  E.updates.push((t, F, tv) => { const k = smooth(w0, w0 + 1.5, t) * (1 - smooth(w1, w1 + 1, t)); sheet.visible = pool.visible = k > .05; sheet.position.y = -D / 2 + .08 + (1 - k) * -.3; wt.offset.y = (tv ?? t) * 1.6;
     lampM.color.setHex(E.powerOut?.(t) || (TL.beats.powerOff && t > TL.beats.powerOff[1]) ? 0x333333 : 0xfff0c8); });
   const wp = new THREE.Vector3();
   E.emitters.push((tv, addP) => { const k = smooth(w0, w0 + 1.5, tv) * (1 - smooth(w1, w1 + 1, tv)); if (k <= 0) return;
