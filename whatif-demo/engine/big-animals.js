@@ -5,7 +5,7 @@
 // (2-bone IK + foot, walk cycle planted on the ground), a head with a jaw that opens (roar) and extras.
 //
 // Scenario: TL.animals = [{ kind, path: [[t, x, z], ...] | at: [x, z], rot, scale, herd: { n, spread, seed },
-//   look: [[t, [x, y, z]] | [t, null]], roar: [t, ...], drink: [[a, b], ...], graze: true, steps: true, fly: {...} }]
+//   look: [[t, [x, y, z]] | [t, null]], roar: [t, ...], drink: [[a, b], ...], steps: true, prints: true (footprints), loud: 1, fly: {...} }]
 //   kind: trex | sauropod | triceratops | raptor | velociraptor | pterosaur | shrew | elephant | mammoth
 //   path: waypoints (the animal walks, legs follow the speed); without path it stands at `at` facing `rot`.
 //   fly (pterosaur): { c: [x, y, z], r, period, dir } circles; or path with y: [[t, x, y, z], ...].
@@ -318,7 +318,17 @@ export function animal(E, TL, kind, o = {}) {
     const cyc = S.stride / S.duty;
     legs.forEach(L => { let prev = null;
       for (let f = 0; f < N; f++) { const t = f / FPS; if (t > STOP) break; const s = tr.at(t), ph = Math.floor(s.dist / sc / cyc + L.phase);
-        if (prev != null && ph !== prev && s.speed > .2 * sc) E.EVENTS.push({ t, kind: 'stomp', e: S.mass * (o.loud ?? 1) * Math.min(1, sc), x: s.x, z: s.z });
+        if (prev != null && ph !== prev && s.speed > .2 * sc) {
+          E.EVENTS.push({ t, kind: 'stomp', e: S.mass * (o.loud ?? 1) * Math.min(1, sc), x: s.x, z: s.z });
+          if (o.prints) {        // footprints left on the ground (show from the moment the foot lands)
+            const lx = L.at[0] * sc, lz = (L.at[2] + S.stride / 2) * sc, c = Math.cos(s.head), si = Math.sin(s.head);
+            const px = s.x + lx * c + lz * si, pz = s.z - lx * si + lz * c, pr = new THREE.Group();
+            for (const a of [-.45, 0, .45]) { const toe = new THREE.Mesh(new THREE.CircleGeometry(.12 * sc * (S.legs.length > 2 ? 2 : 1), 5), new THREE.MeshLambertMaterial({ color: 0x2c2a26, transparent: true, opacity: .75 }));
+              toe.rotation.x = -Math.PI / 2; toe.scale.y = S.legs.length > 2 ? 1 : 3; toe.position.set(Math.sin(a) * .3 * sc, 0, Math.cos(a) * .3 * sc); toe.rotation.z = -a; pr.add(toe); }
+            pr.position.set(px, (E.groundAt ? E.groundAt(px, pz) : 0) + .04, pz); pr.rotation.y = s.head; pr.visible = false; E.scene.add(pr);
+            const t0 = t; E.updates.push(tt => { pr.visible = tt >= t0; });
+          }
+        }
         prev = ph; } });
   }
   for (const r of roars) if (r < STOP && S.call) { const s = tr.at(r); E.EVENTS.push({ t: r, kind: 'roar', call: S.call, e: (o.loud ?? 1) * Math.min(1.2, sc * (S.mass || .3) + .3), x: s.x, y: S.spine[NS - 1][1] * sc, z: s.z, dur: S.roarDur }); }
