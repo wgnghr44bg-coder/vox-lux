@@ -386,7 +386,10 @@ The camera (shots) is chosen afterwards by the director, sentence by sentence: s
 and focus on the story, the counter, the force parameters, beats, captions and auto blocks. For the important sentences,
 say which camera you want with an extra export, line id -> a type (wide, aerial, medium, close, pov, tele, sky) or a
 standpoint name, followed by what must be in view, e.g.: export const camera = { cars: 'close cars', climax: 'pov',
-after: 'aerial city' }; use pov at most 2-3 times. Pauses ('pause', 'long', a number of silent seconds) are where the
+after: 'aerial city' }; use pov at most 2-3 times. You may add a camera move to such a hint (the director otherwise
+picks one itself): push (dolly in), pull (reveal out), crane-down, crane-up, drone (glides in from high and far),
+orbit, orbit-left, tilt-up, tilt-down, zoom, zoom-out, 'push:1.5' = stronger, still = no move; e.g. wave: 'wide push',
+after: 'aerial crane-up'. Pauses ('pause', 'long', a number of silent seconds) are where the
 camera cuts, so put a pause before each new step of the story.
 NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
 it in the export `missing` (array of short English descriptions of an OBJECT or EFFECT, e.g. 'people jumping', 'a

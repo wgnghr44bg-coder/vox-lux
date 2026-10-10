@@ -13,6 +13,7 @@
 #   .\whatif.ps1 preview street wind    one frame of a place + force, no topic, no costs
 #   .\whatif.ps1 aanpassen 12 "the water must reach the houses"   Grok changes topic 12, new test frames, then the same steps
 #   .\whatif.ps1 camera 12 "more close-ups of the cars"   only the director chooses the camera again (with a wish), then the same steps
+#   .\whatif.ps1 camera 12 "langzaam inzoomen bij de golf, eindig met een kraan omhoog"   camera moves (push, zoom, drone, orbit, crane ...)
 #
 # Nothing is ever uploaded or published.
 

@@ -15,6 +15,10 @@
    never the same shot twice in a row; cuts in the middle of the pauses in the voice, a long sentence gets a second shot.
 4. Where it is close, the three best standpoints are rendered at that moment and Grok picks the one that shows
    what the voice says best (about 1-2 cents). The result is written into scenario.js (shots and extraShots).
+5. Every shot that lasts long enough gets a camera MOVE (engine/camera.js), like a film crew would do it: the opening
+   glides in like a drone, a detail gets a slow push-in or zoom, an event a slow orbit, the climax a stronger push,
+   after the climax the camera pulls out or cranes up. Never the same move twice in a row, never on POV (handheld).
+   The script or a wish can ask for one: camera = { wave: 'wide push' }, whatif camera 12 "langzaam inzoomen".
 """
 from __future__ import annotations
 
@@ -31,6 +35,17 @@ ENGINE = HERE / "engine"
 sys.path.insert(0, str(HERE))
 
 TYPES = ["wide", "aerial", "medium", "close", "pov", "tele", "sky"]
+MOVES = ["push", "pull", "crane-down", "crane-up", "drone", "orbit", "orbit-left", "tilt-up", "tilt-down", "zoom", "zoom-out"]
+# preferred camera moves per kind of moment, per shot type (first that differs from the previous move wins)
+MOVE_FOR = {
+    "establish": {"aerial": ["drone", "crane-down"], "wide": ["crane-down", "drone", "push"], "tele": ["zoom-out"], "*": ["push", "orbit"]},
+    "explain":   {"wide": ["push:.6", "orbit"], "aerial": ["orbit", "push:.6"], "tele": ["zoom:.6"], "*": ["orbit", "push:.6"]},
+    "detail":    {"tele": ["zoom", "push"], "*": ["push", "zoom:.7", "orbit"]},
+    "event":     {"wide": ["push", "zoom:.6"], "aerial": ["orbit", "push"], "tele": ["zoom"], "*": ["orbit", "push"]},
+    "climax":    {"tele": ["zoom:1.4"], "*": ["push:1.4", "zoom", "orbit"]},
+    "aftermath": {"wide": ["pull", "crane-up"], "aerial": ["crane-up", "orbit-left"], "tele": ["zoom-out"], "*": ["pull", "crane-up"]},
+    "reflect":   {"wide": ["crane-up", "pull"], "aerial": ["crane-up", "orbit-left"], "*": ["pull", "tilt-up"]},
+}
 # score per kind of moment for each type of shot
 PREFER = {
     "establish": {"wide": 3, "aerial": 3, "medium": 1, "tele": 0, "close": -1, "pov": -2, "sky": -1},
@@ -113,7 +128,9 @@ def tag_lines(grok, lines, vocab, style: str, wish: str = "") -> dict:
                  "For every sentence give: subject (1-3 words from the list, most important first: what the viewer must SEE), "
                  "kind (establish, explain, detail, event, climax, aftermath, reflect), intensity (0 calm - 3 peak), and "
                  "want (only if the owner asked for something for that sentence: a shot type wide/aerial/medium/close/pov/tele/sky "
-                 "or a standpoint name, else null). JSON: {\"<id>\": {\"subject\": [...], \"kind\": \"...\", \"intensity\": 0, \"want\": null}}"}],
+                 "or a standpoint name, else null) and move (only if the owner asked for a camera movement there: one of "
+                 f"{', '.join(MOVES)}; 'none' for a still camera; else null). "
+                 "JSON: {\"<id>\": {\"subject\": [...], \"kind\": \"...\", \"intensity\": 0, \"want\": null, \"move\": null}}"}],
                json_mode=True)
     try: return json.loads(ans)
     except json.JSONDecodeError: return {}
@@ -126,6 +143,8 @@ def script_cam(tags: dict, camera: dict, cands: dict) -> None:
         words = str(how).lower().replace(",", " ").split()
         if not words: continue
         t = tags.setdefault(lid, {})
+        mv = next((w for w in words if w.split(":")[0] in MOVES or w == "still"), None)
+        if mv: t["move"] = "none" if mv == "still" else mv; words = [w for w in words if w != mv]
         head = next((w for w in words if w in TYPES or w in cands), None)
         if head: t["want"] = head
         rest = [w for w in words if w != head]
@@ -188,7 +207,7 @@ def plan(lines, times, tags, cands, style, tl):
             if len(close) < 2 and not want:                                   # always a second option: Grok can reject a blocked view
                 alt = next((n for n in ranked[1:6] if cands[n]["type"] not in ("pov", "sky") and n != prev), None)
                 if alt: close = (close or [pick]) + [alt]
-            segs.append([expr, t0, lid, close or [pick]])
+            segs.append([expr, t0, lid, close or [pick], tg])
             used[pick] = used.get(pick, 0) + 1; used["_type_" + pick] = cands[pick]["type"]
             if cands[pick]["type"] in ("pov", "sky"): pov_left -= 1
             prev = pick
@@ -246,14 +265,34 @@ def write_extra(d: Path, cands) -> None:
     f.write_text(s, encoding="utf-8")
 
 
-def write_shots(d: Path, segs, cands) -> None:
+def choose_moves(out, cands, end: float) -> list:
+    """A camera move per shot (film rules, see MOVE_FOR); out = [(expr, t0, name, tag)]. Returns the move or None per shot."""
+    moves, prev = [], None
+    for i, (_, t0, name, tag) in enumerate(out):
+        dur = (out[i + 1][1] if i + 1 < len(out) else end) - t0
+        t = cands.get(name, {}).get("type", "medium")
+        want = str(tag.get("move") or "").strip().lower()
+        kind = "establish" if i == 0 else tag.get("kind", "explain")
+        if want == "none" or t in ("pov", "sky") or dur < 2.5: mv = None             # POV is handheld already; short shots stay still
+        elif want.split(":")[0] in MOVES: mv = want
+        else:
+            opts = (MOVE_FOR.get(kind) or MOVE_FOR["explain"])
+            opts = opts.get(t) or opts["*"]
+            mv = next((m for m in opts if m.split(":")[0] != (prev or "").split(":")[0]), opts[0])
+            if dur < 4 and ":" not in mv: mv += ":.6"                                   # a short shot: a smaller move
+        moves.append(mv); prev = mv or prev
+    return moves
+
+
+def write_shots(d: Path, segs, cands, end: float = 1e9) -> None:
     f = d / "scenario.js"; s = f.read_text(encoding="utf-8")
     # no two identical shots in a row after the choices
     out, last = [], None
-    for expr, _, _, ranked in segs:
+    for expr, t0, _, ranked, *tg in segs:
         pick = ranked[0] if ranked[0] != last else next((r for r in ranked[1:] if r != last), ranked[0])
-        if pick != last: out.append((expr, pick)); last = pick
-    shots = "shots: [" + ", ".join(f"[{e}, '{n}']" for e, n in out) + "],"
+        if pick != last: out.append((expr, t0, pick, tg[0] if tg else {})); last = pick
+    moves = choose_moves(out, cands, end)
+    shots = "shots: [" + ", ".join(f"[{e}, '{n}'" + (f", '{m}'" if m else "") + "]" for (e, _, n, _), m in zip(out, moves)) + "],"
     i = s.find("shots:")
     if i < 0: raise ValueError("no shots: in scenario.js")
     j = s.index("[", i); depth = 0
@@ -263,7 +302,7 @@ def write_shots(d: Path, segs, cands) -> None:
     end = k + 1 + (1 if s[k + 1:k + 2] == "," else 0)
     s = s[:i] + shots + s[end:]
     f.write_text(s, encoding="utf-8")
-    print("director:", " | ".join(f"{n}" for _, n in out))
+    print("director:", " | ".join(f"{n}" + (f" ({m})" if m else "") for (_, _, n, _), m in zip(out, moves)))
 
 
 def direct(d: Path, grok=None, use_look=True, wish: str = "") -> None:
@@ -285,7 +324,7 @@ def direct(d: Path, grok=None, use_look=True, wish: str = "") -> None:
     if use_look:
         try: look(grok, d, slug, segs, lines, tags)
         except Exception as e: print("director: could not compare shots:", str(e)[:300])
-    write_shots(d, segs, cands)
+    write_shots(d, segs, cands, end=(times[-1][1] + 3) if times else 1e9)
 
 
 def main():
