@@ -162,12 +162,15 @@ def one_take(d: Path, lines, speed):
 
 def pad_silence(d: Path, lines):
     """topic.padSilence (opt-in): a one take rarely holds a long silence, so after a line whose pause is a number
-    (the silent climax, e.g. 3) the gap in voice.mp3 is stretched to that many seconds; later line times shift."""
+    (the silent climax, e.g. 3) the gap in voice.mp3 is stretched to that many seconds; 'pause' gaps to at least
+    0.75 s and 'long' gaps to at least 1.15 s (documentary pace); later line times shift."""
     rows = parse_tsv(d / "voice-times.tsv")
     if len(rows) != len(lines): return
     times = [[a, b] for a, b, _ in rows]; cuts = []
     for i, (_, _, pz) in enumerate(lines[:-1]):
-        if not isinstance(pz, (int, float)): continue
+        if not isinstance(pz, (int, float)):
+            pz = {"pause": .75, "long": 1.15}.get(pz)    # documentary pace (eigenaar 10 okt): never a rushed pause
+            if pz is None: continue
         gap = times[i + 1][0] - times[i][1]
         if gap >= pz - .05: continue
         at, add = times[i][1] + gap / 2, pz - gap

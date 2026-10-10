@@ -1,7 +1,11 @@
 nr	start	end	pause	text
 1	0:00:00.2	0:00:00.8		Day one.
-2	0:00:02.2	0:00:04.7		Six hundred kilometres away, it begins to snow.
-3	0:00:05.7	0:00:08.6		Except this snow is grey… and it will never melt.
-4	0:00:10.3	0:00:16.8		Volcanic ash isn't soft like smoke. It is shattered rock and glass, sharp enough to sting your eyes and lungs.
-5	0:00:17.6	0:00:23.9		And it is heavy. Ten centimetres of wet ash could press up to two hundred kilos onto every square metre of a roof.
-6	0:00:24.7	0:00:28.6		Sirens. Roads close. Engines choke as the ash clogs them.
+2	0:00:01.9	0:00:04.6		Six hundred kilometres away, it begins to snow.
+3	0:00:05.8	0:00:08.7		Except this snow is grey… and it will never melt.
+4	0:00:10.2	0:00:12.2		Volcanic ash isn't soft like smoke.
+5	0:00:13.0	0:00:16.9		It is shattered rock and glass, sharp enough to sting your eyes and lungs.
+6	0:00:18.0	0:00:18.7		And it is heavy.
+7	0:00:19.8	0:00:24.5		Ten centimetres of wet ash could press up to two hundred kilos onto every square metre of a roof.
+8	0:00:25.6	0:00:26.2		Sirens.
+9	0:00:27.0	0:00:27.8		Roads close.
+10	0:00:28.6	0:00:30.4		Engines choke as the ash clogs them.
