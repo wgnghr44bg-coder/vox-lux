@@ -244,7 +244,9 @@ try {
     $pol = Get-ExecutionPolicy -Scope CurrentUser
     if ($pol -eq "Undefined" -or $pol -eq "Restricted") {
       Say "PowerShell mag nu lokale scripts draaien (CurrentUser: RemoteSigned)."
-      Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
+      # throws "overridden by a policy at a more specific scope" when this window runs with -ExecutionPolicy Bypass;
+      # the CurrentUser setting is saved anyway, so that message is not an error
+      try { Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force } catch { if ("$_" -notmatch "overridden|more specific scope") { throw } }
     }
     if (-not (Test-Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force | Out-Null }
     Add-Content -Path $PROFILE -Value $fn
