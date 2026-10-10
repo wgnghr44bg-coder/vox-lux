@@ -9,12 +9,12 @@ END=float(rows[-1][2])+2.5
 # (spreker-regel waar de shot begint, afbeelding, beweging, extra filter, tijdstempel)
 FLASH="fade=t=in:st=0:d=0.7:color=white"
 # (spreker-regel waar de shot begint, afbeelding, beweging, extra filter, (label, tijdstempel) of None)
-SH=[(1,"L01","in","",None),(3,"L02","in","",None),(4,"L03","shake",FLASH,None),
- (5,"L04","in","",("THE STRIKE","300,000,000 V")),(6,"L03","punch","",("AIR TEMPERATURE","30,000 °C")),
- (7,"L05","out","",("SURFACE OF THE SUN","5,500 °C")),(8,"L06","in","",None),
- (10,"L07","in","",("HEART RATE","0")),(11,"L08","up","",None),(12,"L09","in","",None),
- (14,"L10","out","",("SURVIVAL RATE","90%")),(15,"L11","in","",("PARK RANGER","7 STRIKES")),
- (16,"L12","in","",None)]
+SH=[(1,"L12","out","eq=brightness=-0.12",None),(3,"L01","in","",None),(5,"L02","in","",None),(6,"L03","shake",FLASH,None),
+ (7,"L04","in","",("THE STRIKE","300,000,000 V")),(8,"L03","punch","",("AIR TEMPERATURE","30,000 °C")),
+ (9,"L05","out","",("SURFACE OF THE SUN","5,500 °C")),(10,"L06","in","",None),
+ (12,"L07","in","",("HEART RATE","0")),(13,"L08","up","",None),(14,"L09","in","",None),
+ (16,"L10","out","",("SURVIVAL RATE","90%")),(17,"L11","in","",("PARK RANGER","7 STRIKES")),
+ (18,"L12","in","",None)]
 starts=[0.0]+[float(rows[r-1][1]) for r,*_ in SH[1:]]
 
 # --- beeld ---
@@ -42,6 +42,7 @@ ass=["[Script Info]","PlayResX: 1080","PlayResY: 1920","WrapStyle: 0","","[V4+ S
 "Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1",
 "Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1",
 "Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1",
+"Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1",
 "Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1",
 "","[Events]","Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
 def ev(layer,st,en,style,text): ass.append(f"Dialogue: {layer},{ts(st)},{ts(en)},{style},,0,0,0,,{text}")
@@ -60,7 +61,7 @@ open("subs.ass","w").write("\n".join(ass)+"\n")
 
 # --- geluid + eindmix ---
 hits=[starts[i] for i,s in enumerate(SH) if s[4]]
-STRIKE=starts[2]
+STRIKE=starts[3]
 subprocess.run(["ffmpeg","-v","error","-y","-f","lavfi","-i","sine=f=48:d=2.2","-f","lavfi","-i","anoisesrc=color=brown:d=2.2:amplitude=0.8",
   "-filter_complex","[0]volume=1.2[s];[1]lowpass=f=180,volume=0.8[n];[s][n]amix=2:normalize=0,afade=t=out:st=0.05:d=2.1:curve=exp,aresample=44100,pan=stereo|c0=c0|c1=c0",
   f"{S}/boom.wav"],check=True)

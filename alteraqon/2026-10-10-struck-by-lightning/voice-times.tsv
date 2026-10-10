@@ -1,18 +1,20 @@
 #	start	end	image	text
-1	0.80	2.70	S01	You are standing in an open field.
-2	3.60	5.10	S02	The air smells like metal.
-3	5.70	8.00		Your hair… starts to rise.
-4	9.70	10.10	S03	Then.
-5	11.80	13.50	S04	Three hundred million volts.
-6	14.40	20.10	S05	In a split second, the air around you heats to thirty thousand degrees.
-7	21.00	23.70	S06	Five times hotter than the surface of the Sun.
-8	25.40	27.80	S07	The rain on your skin turns to steam.
-9	28.40	30.40		Your shoes can be blown right off.
-10	32.10	34.30	S08	And your heart… stops.
-11	36.00	42.20	S09	But often, most of the current flashes over your skin, not through you.
-12	43.10	44.70	S10	It leaves a strange mark.
-13	45.30	50.90		A red, fern-like pattern, called a Lichtenberg figure.
-14	52.60	55.50	S11	With fast help, nine out of ten people survive.
-15	57.20	60.70	S12	One park ranger was struck seven times… and lived.
-16	62.40	63.40	S13	So remember.
-17	64.00	67.20		If you can hear thunder… you are close enough to be struck.
+1	0.80	3.50	S00	Imagine… you get struck by lightning.
+2	4.40	5.90		What would happen to your body?
+3	7.60	9.60	S01	You are standing in an open field.
+4	10.50	11.90	S02	The air smells like metal.
+5	12.50	14.90		Your hair… starts to rise.
+6	16.60	17.10	S03	Then.
+7	18.80	20.50	S04	Three hundred million volts.
+8	21.40	26.10	S05	In a split second, the air around you heats to thirty thousand degrees.
+9	27.00	29.40	S06	Five times hotter than the surface of the Sun.
+10	31.10	33.30	S07	The rain on your skin turns to steam.
+11	33.90	35.90		Your shoes can be blown right off.
+12	37.60	39.40	S08	And your heart… stops.
+13	41.10	47.20	S09	But often, most of the current flashes over your skin, not through you.
+14	48.10	49.60	S10	It leaves a strange mark.
+15	50.20	56.10		A red, fern-like pattern, called a Lichtenberg figure.
+16	57.80	61.10	S11	With fast help, nine out of ten people survive.
+17	62.80	66.30	S12	One park ranger was struck seven times… and lived.
+18	68.00	68.80	S13	So remember.
+19	69.40	73.00		If you can hear thunder… you are close enough to be struck.
