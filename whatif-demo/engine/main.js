@@ -37,7 +37,7 @@ const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 (await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
 if (TL.animals) (await import('./animals.js')).animals(E, TL, P.shots);   // baksteen Dieren (+ Grote dieren: big-animals.js)
 if (TL.beats.vanish != null || TL.traffic || TL.bikes || TL.crashes || TL.smoke || TL.extraShots) (await import('./small.js')).applySmall(E, TL, F, P);   // baksteen Kleine dingen
-if (TL.fences || TL.towers || TL.gates) (await import('./fences.js')).build(E, TL, P.shots);   // baksteen Hekken: omheining, wachttoren, poort
+if (TL.fences || TL.towers || TL.gates || TL.puddles || TL.lightning) (await import('./fences.js')).build(E, TL, P.shots);   // baksteen Hekken: omheining, wachttoren, poort
 E.F = F; E.P = P;
 F.attach?.(P);
 if (TL.time) (await import('./time.js')).applyTime(E, TL, F, P);   // baksteen Tijd: days pass, nature takes over

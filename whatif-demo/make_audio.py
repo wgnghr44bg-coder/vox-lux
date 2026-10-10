@@ -704,7 +704,7 @@ def build_engine(topic: Path):
             place(bed, s_kraak(rng), e["t"], db(-6), p)
             place(bed, lp(s_klap(rng, 1.6), 600), e["t"] + .05, db(-8), p)
             place(bed, lp(s_puin(rng), 2000), e["t"] + .3, db(-14), p)
-        elif e["kind"] in ("stomp", "roar", "flyby"):      # animals and sky objects (sfx_animals.py)
+        elif e["kind"] in ("stomp", "roar", "flyby", "thunder", "caralarm"):      # animals and sky objects (sfx_animals.py)
             import sfx_animals as SA
             if e["kind"] == "stomp":
                 if e["t"] - last < .08: continue
@@ -712,6 +712,10 @@ def build_engine(topic: Path):
                 place(bed, SA.s_stomp(rng, e.get("e", 1)), e["t"], db(-7) * min(1.3, e.get("e", 1)) ** .7, p * .5)
             elif e["kind"] == "roar":
                 place(bed, SA.s_roar(rng, e.get("call", "roar"), e.get("dur", 2.6), e.get("e", 1)), e["t"], db(-4) * min(1.2, e.get("e", 1)), p * .6)
+            elif e["kind"] == "thunder":
+                place(bed, SA.s_thunder(rng), e["t"], db(-5) * e.get("e", 1))
+            elif e["kind"] == "caralarm":
+                place(bed, SA.s_caralarm(rng, e.get("dur", 4)), e["t"], db(-14) * e.get("e", 1), p)
             else:
                 place(bed, SA.s_flyby(rng, e.get("dur", 8)), e["t"], db(-5) * e.get("e", 1))
         elif e["kind"] == "snap":

@@ -1,0 +1,5 @@
+stills/
+timeline.json
+*.mp4
+*.wav
+.voice-cache/
