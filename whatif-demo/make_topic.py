@@ -141,6 +141,9 @@ def check(d: Path) -> str | None:
         problems.append(f"The narration has {words} words in total; it must be 175-205. Do NOT add or remove lines and keep "
                         f"all ids; only rewrite each text to this exact word count (count every word):\n{per}")
     if not lines[0][1].startswith("Imagine"): problems.append("The first line must start with 'Imagine'.")
+    meta = [lid for lid, t, _ in lines if re.search(r"\b(caption|captions|counter|sign says|the sign|on screen|the screen shows|the frame)\b", t, re.I)]
+    if meta: problems.append("The narration must tell the story to the viewer, never describe captions, counters, signs or "
+                             f"the screen. Rewrite these lines as natural narration: {', '.join(meta)}.")
     if len({l[0] for l in lines}) != len(lines): problems.append("Line ids must be unique.")
     for f in ("timing.json", "timeline.json"): (d / f).unlink(missing_ok=True)   # estimated timing from the word count
     r = subprocess.run(["node", str(ENGINE / "render.mjs"), d.name, "timeline"], capture_output=True, text=True, encoding="utf-8", errors="replace")
@@ -222,13 +225,19 @@ def write_reviewed(d: Path, messages: list, wish: str = "") -> bool:
     sentence and fixes what does not match (the director chooses the camera again after every fix)."""
     if not write_loop(d, messages): return False
     run_director(d, wish)
-    for k in range(3):
+    last = None
+    for k in range(2):
         problem = review(d)
         if not problem: return True
+        n = problem.count("\n- ") + 1
+        if last is not None and n >= last: print("review: not getting better, stopping here"); return True
+        last = n
         messages += [{"role": "assistant", "content": (d / "scenario.js").read_text(encoding="utf-8")},
                      {"role": "user", "content": "Looking at a rendered frame at the end of every line, these things are wrong:\n" + problem +
-                      "\nFix them: change the force parameters, counter, beats and shots so it really happens at that line, or, if the "
-                      "engine cannot show it, rewrite the line (and add it to `missing`). Output the full corrected scenario.js."}]
+                      "\nFix them by changing what is SHOWN (force parameters, counter, beats, auto blocks, camera directions) so it "
+                      "really happens at that line. Keep the narration a natural, gripping story: never make a line describe "
+                      "captions, counters or signs. Only if the engine truly cannot show something: soften that one claim and put "
+                      "the missing object or effect in `missing`. Output the full corrected scenario.js."}]
         good = (d / "scenario.js").read_text(encoding="utf-8")
         if not write_loop(d, messages):
             (d / "scenario.js").write_text(good, encoding="utf-8"); check(d); return True
@@ -329,6 +338,8 @@ def build_missing(d: Path, place: str, force: str, limit: int = 3) -> list[dict]
     try: miss = json.loads(subprocess.run(["node", "-e", js, (d / "scenario.js").as_uri()], capture_output=True, text=True, check=True).stdout)
     except Exception: return []
     built = []
+    # only things that can be built: objects or effects, not notes about the camera, captions or visibility
+    miss = [m for m in miss if not re.search(r"\b(shot|camera|visible|caption|counter|frame|screen|text|label|sign)\b", m, re.I)]
     for desc in miss[:limit]:
         name = re.sub(r"[^a-z0-9]+", "-", desc.lower()).strip("-")[:28].strip("-") or "block"
         if (BLOCKS / f"{name}.js").exists(): continue
@@ -378,7 +389,9 @@ standpoint name, followed by what must be in view, e.g.: export const camera = {
 after: 'aerial city' }; use pov at most 2-3 times. Pauses ('pause', 'long', a number of silent seconds) are where the
 camera cuts, so put a pause before each new step of the story.
 NEVER narrate something the engine cannot show (no place, building block, beat or option for it). Leave it out and list
-it in the export `missing` (array of short English descriptions) so it can be built later: export const missing = [...]; Output only the complete scenario.js in one ```js block."""
+it in the export `missing` (array of short English descriptions of an OBJECT or EFFECT, e.g. 'people jumping', 'a
+collapsing dam'; never notes about shots, captions or visibility) so it can be built: export const missing = [...];
+The narration speaks to the viewer about what happens; it never describes captions, counters, signs or the screen. Output only the complete scenario.js in one ```js block."""
 
 
 def write_loop(d: Path, messages: list, tries: int = 4) -> bool:
