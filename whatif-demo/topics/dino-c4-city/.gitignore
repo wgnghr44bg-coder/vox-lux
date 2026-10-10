@@ -3,3 +3,7 @@ timeline.json
 *.mp4
 *.wav
 .voice-cache/
+voice-take.mp3
+voice-unpadded.mp3
+.voice-hash
+*.list
