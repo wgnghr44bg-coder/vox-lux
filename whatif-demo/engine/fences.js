@@ -3,10 +3,13 @@
 //                  color, closed: false, sag: [[t, i, k]] (post i leans k 0..1 from time t: an animal pushes it) }]
 //   TL.towers = [{ at: [x, z], ry, h: 9, name: 'tower' (adds shots: <name> on the platform, <name>-view looking at it) }]
 //   TL.gates  = [{ at: [x, z], ry, w: 10, h: 8, sign: 'PARK', open: [[t, 0..1], ...] }]
+//   TL.puddles = [[x, z, r], ...]  puddles that ripple at every heavy footstep (big-animals.js)
+//   TL.lightning = [t, ...]        lightning: the whole scene flashes white, thunder follows (sound 'thunder')
 // Lamps on fences and towers light up in the dark (E.lights) and go out with beats.powerOut / powerOff.
 // Electric fences hum (AUDIO.hum) while the power is on.
 import * as THREE from 'three';
 import { rng, smooth, monotone } from './util.js';
+import { puddle } from './big-animals.js';
 
 function meshTex() {          // chain-link: a diamond grid with alpha
   const cv = document.createElement('canvas'); cv.width = cv.height = 64; const x = cv.getContext('2d');
@@ -95,6 +98,12 @@ export function build(E, TL, shots) {
       for (const yy of [.2, .5, .8]) { const plank = new THREE.Mesh(new THREE.BoxGeometry(w / 2, .25, .45), wood); plank.position.set(-s * w / 4, h * yy, 0); hinge.add(plank); }
       return { hinge, s }; });
     E.updates.push(t => { const k = open(t); for (const D of doors) D.hinge.rotation.y = D.s * k * 1.45; });
+  }
+  for (const [x, z, r] of TL.puddles || []) puddle(E, x, z, r);
+  if (TL.lightning) {
+    for (const t of TL.lightning) E.EVENTS.push({ t: t + .6, kind: 'thunder', e: 1 });
+    E.updates.push((t, F, tv) => { let k = 0; for (const l of TL.lightning) { const a = tv - l; if (a >= 0 && a < .5) k = Math.max(k, (a < .08 || (a > .16 && a < .22) ? 1 : .3) * (1 - a * 1.6)); }
+      if (k > 0) { E.hemi.intensity += k * 4; E.hemi.color.lerp(new THREE.Color(0xdde6ff), k); E.renderer.toneMappingExposure += k * .8; } });
   }
   E.fencePowerOn = powerOn;
 }

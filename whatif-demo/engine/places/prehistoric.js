@@ -2,7 +2,7 @@
 // monkey-puzzle conifers, a smoking volcano far away, mist over the water. No buildings.
 // For dinosaurs (TL.animals, animals.js) and any "long ago / untouched nature" story.
 //   ground:  E.groundAt drops into the river bed (animals can wade in); the camera side rises a little
-//   options: TL.placeParams = { time: 'morning' | 'day' | 'evening', smoke: 1 (volcano plume), mist: 1, clear: [x0, x1, z0, z1] }
+//   options: TL.placeParams = { time: 'morning' | 'day' | 'evening', smoke: 1 (volcano plume), mist: 1, clear: [x0, x1, z0, z1] | [[...], ...], shots: { name: { pos, look, fov } } (heights above the ground) }
 //   shots:   valley, riverbank, across (telephoto to the far plain), ferns (low, between the ferns),
 //            pov-sky (look up past the canopy), canopy, volcano, shore (close, along the bank)
 // Beats: none (the animals and sky objects carry the story)
@@ -61,6 +61,7 @@ export function build(E, TL, F) {
     lineup: { pos: [0, 7, 75], look: [0, 5, 20], drift: [0, 0, 0], fov: 62 },      // test sheet: animals side by side
     volcano: { pos: [20, 12, 40], look: [VX, 700, VZ], drift: [0, 0, 0], fov: 38 },
   };
+  Object.assign(SHOTS, PP.shots || {});    // scenario shots, also given above the local ground
   for (const S of Object.values(SHOTS)) {   // standpoints are given above the local ground
     S.pos[1] += height(S.pos[0], S.pos[2]);
     if (Math.hypot(S.look[0], S.look[2]) < 600) S.look[1] += height(S.look[0], S.look[2]);
@@ -100,8 +101,8 @@ export function build(E, TL, F) {
     im.castShadow = shadow; im.receiveShadow = true; scene.add(im); return im;
   }
   // where things may grow: not in the river, not on the camera lanes
-  const CL = PP.clear;     // [x0, x1, z0, z1]: an open clearing (no plants), e.g. for a test sheet or a herd up close
-  const free = (x, z, m = 3) => Math.abs(z - riverZ(x)) > RIVER.w / 2 + m && !(CL && x > CL[0] && x < CL[1] && z > CL[2] && z < CL[3]) && !nearCam(x, z);
+  const CL = PP.clear && (Array.isArray(PP.clear[0]) ? PP.clear : [PP.clear]);   // [x0, x1, z0, z1] (or a list): open clearings (no plants)
+  const free = (x, z, m = 3) => Math.abs(z - riverZ(x)) > RIVER.w / 2 + m && !(CL && CL.some(c => x > c[0] && x < c[1] && z > c[2] && z < c[3])) && !nearCam(x, z);
   const scatter = (n, rx, z0, z1, m, s0, s1) => { const L = []; for (let i = 0; i < n * 3 && L.length < n; i++) {
     const x = (R() - .5) * rx * 2, z = z0 + R() * (z1 - z0); if (free(x, z, m)) L.push([x, z, s0 + R() * (s1 - s0), R() * 6.3, R()]); } return L; };
   plant(coloured(treeFernGeo(6), 0x5a4632, 0x4f6e2e), scatter(260, 420, -420, 160, 4, .7, 1.5));
