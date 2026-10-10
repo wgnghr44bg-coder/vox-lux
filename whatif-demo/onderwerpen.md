@@ -33,6 +33,7 @@ dan een duidelijk andere hoek of een ander onderwerp. Na elke upload deze tabel 
 | The Sun went out? (v2, verwijderd) | 8:20 aftellen, het licht valt weg in de stad |
 | Aliens landed tomorrow? (lang, in de maak) | moederschip voor de zon, kleine schepen scannen met lichtbundels, schip landt op het strand bij zonsopkomst en de deur gaat open |
 | The Sun went out? (v3, script eigenaar, in de maak) | tijdsprongen dag 0 → jaar 1.000: strand, straat, bergdorp (meer bevriest), bevroren kust |
+| Earth lost its atmosphere for one minute? (Short) | zwarte lucht met sterren overdag, meer en bos bevriezen in de stilte (natuurpark) |
 | The Moon started falling? (in de maak) | haven loopt onder, schepen op straat (h1); climax: maan breekt op de Roche-grens tot een ring |
 
 ## Categorieën en bouwplan (eigenaar, okt 2026)
@@ -114,3 +115,4 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 40 | Aliens landed tomorrow? (lange video 16:9) | Straat → huiskamer/studio/etalage → rivierstad → strand | Moederschip, breaking news, leger, kleine schepen scannen, landing bij zonsopkomst (HOUR 0 → WEEK 1) | in de maak (9 okt); plan: long/aliens-landed/plan.md; topics/aliens-1..4 |
 | 41 | Aliens sent us a message? | Nieuwsstudio, huiskamer, straat bij nacht | Signaal uit de ruimte, alle tv's tonen het, mensen kijken omhoog | gepland (bakstenen Tv-nieuws, Huiskamer) |
 | 42 | A UFO crashed in your town? | Straat → bos/natuurpark | Vuurstreep, leger zet alles af, wegversperring, helikopters | gepland (bakstenen Ufo, Leger) |
+| 43 | Earth lost its atmosphere for one minute? (Short, stijl B) | Natuurpark (uitkijkpunt boven bergmeer) | Luchtdruk 1.013 → 0 hPa: zwarte lucht met sterren, stilte, meer kookt en bevriest, lucht komt terug | gemaakt 2026-10-10, naar eigenaar (TikTok), niet geüpload; topics/atmosphere-lost |
