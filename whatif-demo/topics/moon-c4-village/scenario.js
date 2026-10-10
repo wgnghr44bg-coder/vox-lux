@@ -14,7 +14,7 @@ export const lines = [
   ['fall', 'And some of them fall.', 'long'],
   ['y1', 'Year one.', 'long'],
   ['speed', 'Every night brings meteors. Falling pieces hit the air at around eight kilometres per second, more than twenty times the speed of sound.', 'pause'],
-  ['most', 'Most would burn up high above us. But the biggest could reach the ground.', 4],
+  ['most', 'Most would burn up high above us. But the biggest could reach the ground.', 3],
   ['tides', 'Without the Moon, the tides shrink to about a third of what they were, driven by the Sun alone.', 'long'],
   ['gone', 'No more full moons. Only a ring, made of what the Moon used to be.', 'long'],
   ['q', 'Would we survive the most beautiful sky in history?', 'none'],

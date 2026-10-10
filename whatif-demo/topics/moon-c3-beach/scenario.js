@@ -15,7 +15,7 @@ export const lines = [
   ['huge', 'The Moon covers a huge part of the sky now. Night looks like a strange, silver day.', 'pause'],
   ['m18', 'Eighteen thousand kilometres.', 'long'],
   ['nocrash', 'The Moon does not crash into us.', 'pause'],
-  ['torn', 'It is torn apart.', 6],
+  ['torn', 'It is torn apart.', 3],
   ['rock', 'Seventy-three billion billion tonnes of rock spread out along its old path…', 'pause'],
   ['wrap', '…until the pieces wrap all the way around the Earth.', 'long'],
   ['cliff', 'Our planet now has a ring. But not all of that rock will stay up there.', 'none'],
