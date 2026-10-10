@@ -18,7 +18,7 @@ import { monotone, smooth, clamp, lerp, rng, hash } from './util.js';
 import { roundTree, coneTree } from './props.js';
 
 const C = h => new THREE.Color(h);
-const GROW = { grass: [.15, 18], ivy: [1, 22], trees: [1.5, 25], dust: [.02, 2], rust: [1, 15], windows: [2, 25] };
+const GROW = { roofs: [8, 25], grass: [.15, 18], ivy: [1, 22], trees: [1.5, 25], dust: [.02, 2], rust: [1, 15], windows: [2, 25] };
 // leaves through the year (deciduous): bare in winter, light green in spring, dark in summer, orange in autumn
 const LEAF = [[0, 0x6e6252], [.22, 0x6e6252], [.3, 0x8aa653], [.42, 0x5f7a40], [.68, 0x56703f], [.76, 0xb8822f], [.84, 0x9a5a2a], [.9, 0x6e6252], [1, 0x6e6252]];
 const leafAt = s => { let i = 0; while (i < LEAF.length - 2 && s > LEAF[i + 1][0]) i++; const [a, ca] = LEAF[i], [b, cb] = LEAF[i + 1];
@@ -169,6 +169,9 @@ export function applyTime(E, TL, F, P) {
       const f = m.userData.facade; m.userData.origMap ??= m.map;
       m.map = br ? (brokenTex[f.color] ??= E.facadeTex(f.color, 'broken')) : m.userData.origMap; if (m.map !== m.userData.origMap) { m.map.repeat.copy(m.userData.origMap.repeat); }
       m.userData.isBroken = br; m.needsUpdate = true; });
+    // roofs (E.roofs from the place: { m, h, side, k }) sag and cave in over the years, about a third of them
+    const rs = g('roofs', t);
+    for (const r of E.roofs || []) if (r.k < .35) { const a = smooth(r.k, r.k + .6, rs); r.m.rotation.z = r.side * .09 * a; r.m.position.y = r.h - .9 * a; r.m.scale.y = 1 - .35 * a; }
     // young trees and tufts grow
     const yt = g('trees', t);
     for (const tr of trees) tr.g.scale.setScalar(Math.max(.001, tr.s * smooth(tr.a, 1, yt) * (.25 + .75 * yt)));
