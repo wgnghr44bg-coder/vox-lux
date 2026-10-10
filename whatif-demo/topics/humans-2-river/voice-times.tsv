@@ -1,12 +1,16 @@
 nr	start	end	pause	text
-1	0:00:00.2	0:00:00.7		Day one.
-2	0:00:02.0	0:00:06.4		The first night falls on a city with no one in it. For now, the lights still burn.
-3	0:00:07.5	0:00:14.9		Power stations can run on their own for a while. But with no one to feed them fuel, or fix a single fault, the grid starts to break apart.
-4	0:00:15.8	0:00:17.4		One by one, the lights go out.
-5	0:00:19.3	0:00:25.8		Within a day, most of the city is dark. Freezers thaw. Phones die. The internet goes silent.
-6	0:00:26.8	0:00:30.1		Deep below the streets, the pumps that kept the water out have stopped.
-7	0:00:30.8	0:00:34.2		Without them, many metro tunnels would flood in just a couple of days.
-8	0:00:35.0	0:00:38.3		By the end of the first week, the pets left behind are on their own.
-9	0:00:39.0	0:00:42.8		Hungry dogs form packs, and roam the empty streets in search of food.
-10	0:00:43.6	0:00:47.7		One month in, the city is still standing. But it no longer belongs to us.
-11	0:00:48.4	0:00:50.1		Because something else is already moving in.
+1	0:00:00.1	0:00:00.8		Day one.
+2	0:00:02.1	0:00:04.7		The first night falls on a city with no one in it.
+3	0:00:05.8	0:00:07.4		For now, the lights still burn.
+4	0:00:08.9	0:00:11.3		Power stations can run on their own for a while.
+5	0:00:12.4	0:00:17.3		But with no one to feed them fuel, or fix a single fault, the grid starts to break apart.
+6	0:00:18.7	0:00:20.5		One by one, the lights go out.
+7	0:00:23.5	0:00:25.7		Within a day, most of the city is dark.
+8	0:00:26.7	0:00:30.3		Freezers thaw. Phones die. The internet goes silent.
+9	0:00:31.7	0:00:35.2		Deep below the streets, the pumps that kept the water out have stopped.
+10	0:00:36.0	0:00:39.7		Without them, many metro tunnels would flood in just a couple of days.
+11	0:00:41.0	0:00:44.4		By the end of the first week, the pets left behind are on their own.
+12	0:00:45.3	0:00:49.1		Hungry dogs form packs, and roam the empty streets in search of food.
+13	0:00:50.5	0:00:52.7		One month in, the city is still standing.
+14	0:00:53.6	0:00:55.1		But it no longer belongs to us.
+15	0:00:56.4	0:00:58.1		Because something else is already moving in.

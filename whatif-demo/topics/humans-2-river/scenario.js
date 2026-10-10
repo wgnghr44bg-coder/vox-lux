@@ -4,21 +4,25 @@ export const topic = { number: 442, slug: 'humans-2-river', place: 'river-city',
 
 export const lines = [
   ['day1', 'Day one.', 'long'],
-  ['night', 'The first night falls on a city with no one in it. For now, the lights still burn.', 'pause'],
-  ['grid', 'Power stations can run on their own for a while. But with no one to feed them fuel, or fix a single fault, the grid starts to break apart.', 'long'],
+  ['night', 'The first night falls on a city with no one in it.', 'pause'],
+  ['burn', 'For now, the lights still burn.', 'long'],
+  ['grid', 'Power stations can run on their own for a while.', 'pause'],
+  ['fault', 'But with no one to feed them fuel, or fix a single fault, the grid starts to break apart.', 'long'],
   ['out', 'One by one, the lights go out.', 3],
-  ['quiet', 'Within a day, most of the city is dark. Freezers thaw. Phones die. The internet goes silent.', 'long'],
+  ['quiet', 'Within a day, most of the city is dark.', 'pause'],
+  ['thaw', 'Freezers thaw. Phones die. The internet goes silent.', 'long'],
   ['pumps', 'Deep below the streets, the pumps that kept the water out have stopped.', 'pause'],
   ['metro', 'Without them, many metro tunnels would flood in just a couple of days.', 'long'],
   ['week', 'By the end of the first week, the pets left behind are on their own.', 'pause'],
   ['dogs', 'Hungry dogs form packs, and roam the empty streets in search of food.', 'long'],
-  ['month', 'One month in, the city is still standing. But it no longer belongs to us.', 'pause'],
+  ['month', 'One month in, the city is still standing.', 'pause'],
+  ['ours', 'But it no longer belongs to us.', 'long'],
   ['cliff', 'Because something else is already moving in.', 'none'],
 ];
 
 export default function (at) {
   const offA = at('out').s - .3, offB = at('out').e + 2.6, T_END = at('cliff').e + 1.6;
-  const dayKeys = [[0, 0], [offB, .16], [at('quiet').e + .5, .45], [at('metro').s - .5, 1.6], [at('metro').e, 1.72], [at('week').e, 7], [at('month').s, 30], [T_END, 30.4]];
+  const dayKeys = [[0, 0], [offB, .16], [at('thaw').e + .5, .45], [at('metro').s - .5, 1.6], [at('metro').e, 1.72], [at('week').e, 7], [at('month').s, 30], [T_END, 30.4]];
   const d0 = at('dogs').s - 4.5, f0 = at('cliff').s - 1.5;
   return {
     T_END, tripod: true, brand: false, post: true, noTraffic: true, nightExposure: 1.3,
