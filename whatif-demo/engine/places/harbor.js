@@ -226,7 +226,7 @@ export function build(E, TL, F) {
     shots: {
       harbor: { pos: [150, 24, -160], look: [-50, 4, 10], drift: [-4, 0, 0], fov: 55 },
       'harbor-low': { pos: [130, 12, 54], look: [0, 4, -20], drift: [-3, 0, 0], fov: 55 },
-      high: { pos: [-210, 48, 56], look: [40, 0, -10], drift: [3, 0, 0], fov: 55 },
+      high: { pos: [-210, 48, 56], look: [40, -4, -70], drift: [3, 0, 0], fov: 55 },
       quay: { pos: [70, QY + 3.2, -22], look: [-30, QY - 1.4, -1], drift: [-2, 0, 0], fov: 55 },
       ship: { pos: [-10, 14, 22], look: [-80, 8, -14], drift: [-2, 0, 0], fov: 55 },
       street: { pos: [175, QY + 9, 60], look: [80, QY + 1, 36], drift: [-2, 0, 0], fov: 52 },
