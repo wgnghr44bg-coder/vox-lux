@@ -37,7 +37,7 @@ def banner():
     d=ImageDraw.Draw(im)
     big=font("Inter Display:light",150); tr=38; t="ALTERAQON"
     w=spaced_w(d,t,big,tr); spaced(d,((W-w)/2,H//2-120),t,big,(245,245,245),tr)
-    small=font("Inter:semibold",38); tr2=14; t2="WHAT IF  ·  DOCUMENTARY SHORTS"
+    small=font("Inter:semibold",38); tr2=14; t2="WHAT IF  ·  DOCUMENTARIES"
     w2=spaced_w(d,t2,small,tr2); spaced(d,((W-w2)/2,H//2+70),t2,small,GOLD,tr2)
     d.rectangle((W/2-130,H//2+48,W/2+130,H//2+52),fill=GOLD)
     im.save("banner.png")
