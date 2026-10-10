@@ -748,6 +748,11 @@ def build_engine(topic: Path):
             al = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * .5 + np.sin(2 * np.pi * np.cumsum(f) / SR) * .5
             al = lp(al, 3500) * smooth(0, .05, tt) * (1 - smooth(dur - .3, dur, tt))
             place(bed, np.stack([al, al], 1), e["t"], db(-27) * e.get("e", 1), p)
+        elif e["kind"] == "water":        # water running down metro stairs
+            dur = min(e.get("dur", 8), max(0.1, min(STOP, T) - e["t"]))
+            w = s_water(rng, max(1.0, dur)); L = min(len(w), int(dur * SR)); w = w[:L]
+            env = smooth(0, 1.2, np.arange(L) / SR) * (1 - smooth(dur - 1, dur, np.arange(L) / SR))
+            place(bed, w * env[:, None] if w.ndim == 2 else np.stack([w * env, w * env], 1), e["t"], db(-12), p)
         elif e["kind"] == "buzz":         # electric hum of a city with nobody: 50 Hz + harmonics
             dur = min(e.get("dur", 8), max(0.1, min(STOP, T) - e["t"])); L = int(dur * SR); tt = np.arange(L) / SR
             hm = sum(np.sin(2 * np.pi * 50 * k * tt) / k for k in (1, 2, 3, 5)) * smooth(0, 1, tt) * (1 - smooth(dur - 1, dur, tt))
