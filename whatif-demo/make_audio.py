@@ -576,6 +576,39 @@ def build_engine(topic: Path):
         air = layer(lambda r: norm(lp(brown(r, n), 220) * lfo(r, n, .08, .5)), smooth(.05, .8, I))
         bed += (np.stack([hum, hum], 1) / 2.2 * db(-9) * smooth(.05, .8, I)[:, None] + air * db(-16)) * alive[:, None]
 
+    elif force == "eruption":
+        # a deep, endless roar that follows the eruption, with a rumbling low end
+        roar = layer(lambda r: norm(lp(brown(r, n), 120) * lfo(r, n, .13, .5)), I ** .8)
+        body = layer(lambda r: norm(bp(brown(r, n), 60, 700) * lfo(r, n, .4, .6)), I ** 1.2)
+        bed += (roar * db(-4) + body * db(-11)) * alive[:, None]
+        A1 = TL.get("forceParams") or {}
+        if A1.get("rain"):                       # rain on leaves and ground
+            ra, rb = A1["rain"]; k = smooth(ra, ra + 2, t) * (1 - smooth(rb - 2, rb, t))
+            bed += layer(lambda r: norm(bp(r.standard_normal(n), 1500, 8000)), k) * db(-18) * alive[:, None]
+        for e in EV:
+            if e["t"] >= STOP: continue
+            if e["kind"] == "blast":             # the first explosion: a huge low boom, then a pressure rumble
+                L = int(9 * SR); tt = np.arange(L) / SR
+                boom = lp(brown(rng, L), 70) * np.exp(-tt * .45) * smooth(0, .08, tt)
+                place(bed, np.stack([boom, boom], 1) / (np.abs(boom).max() + 1e-9), e["t"], db(1))
+                place(bed, lp(s_klap(rng, 2.0), 300), e["t"], db(-3))
+            elif e["kind"] == "thunder":         # thunder from the cloud: a crack, then a long roll (sound comes later)
+                L = int(5 * SR); tt = np.arange(L) / SR
+                roll = lp(brown(rng, L), 200) * np.exp(-tt * .9) * (1 + .5 * np.sin(2 * np.pi * 1.7 * tt))
+                place(bed, np.stack([roll, roll * .9], 1) / (np.abs(roll).max() + 1e-9), e["t"] + e.get("delay", 2), db(-11) * e["e"], rng.uniform(-.5, .5))
+            elif e["kind"] == "flow":            # glowing clouds racing down: a rising rushing roar
+                L = int(12 * SR); tt = np.arange(L) / SR
+                rush = bp(rng.standard_normal(L), 100, 1500) * smooth(0, 4, tt) * (1 - smooth(9, 12, tt))
+                place(bed, rush, e["t"], db(-8))
+            elif e["kind"] == "lahar":           # a mud flow: grinding, gurgling, wood knocking
+                L = int(min(STOP, T) * SR - e["t"] * SR)
+                if L > SR:
+                    tt = np.arange(L) / SR
+                    mud = lp(brown(rng, L), 400) * smooth(0, 3, tt) + bp(rng.standard_normal(L), 200, 1200) * lfo(rng, L, .8, .7) * .5 * smooth(0, 3, tt)
+                    place(bed, mud, e["t"], db(-9))
+                    for j in range(int(L / SR / 1.3)):
+                        place(bed, lp(s_klap(rng, .8), 900), e["t"] + 1 + j * 1.3 + rng.uniform(0, .6), db(-17), rng.uniform(-.6, .6))
+
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}
     # footsteps in snow (TL.audio.steps = [[a, b], ...], one crunch every ~0.6 s) and a church bell (TL.audio.bell = [t, ...])

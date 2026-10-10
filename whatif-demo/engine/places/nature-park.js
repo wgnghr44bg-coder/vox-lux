@@ -20,7 +20,13 @@ export function build(E, TL, F) {
   const inLake = (x, z) => Math.hypot(x - LAKE.x, (z - LAKE.z) * 1.5) < LAKE.r;
   const hill = (x, z) => { const d = Math.hypot(x, z + 100); return Math.max(0, d - 420) * .1 + Math.sin(x * .011) * Math.cos(z * .013) * 2.2 * Math.min(1, Math.abs(z) / 40); };
   const drop = z => -15 * smooth(-22, -135, z);          // from the road the land falls away to the lake (the viewpoint looks down on it)
-  E.groundAt = (x, z) => inLake(x, z) ? -18 : drop(z) + (Math.abs(z) < 30 ? 0 : hill(x, z));
+  // a creek bed from the eastern hills down to the lake (E.laharPath: the eruption force can send a mud flow down it)
+  const CREEK = [[620, -60], [480, -80], [360, -60], [250, -90], [170, -120], [100, -150], [40, -175]];
+  const creekD = (x, z) => { let m = 1e9; for (let i = 1; i < CREEK.length; i++) { const [ax, az] = CREEK[i - 1], [bx, bz] = CREEK[i], dx = bx - ax, dz = bz - az;
+    const k = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / (dx * dx + dz * dz))); m = Math.min(m, Math.hypot(x - ax - dx * k, z - az - dz * k)); } return m; };
+  E.laharPath = CREEK;
+  const ground0 = (x, z) => inLake(x, z) ? -18 : drop(z) + (Math.abs(z) < 30 ? 0 : hill(x, z));
+  E.groundAt = (x, z) => { const g = ground0(x, z), d = creekD(x, z); return d < 9 ? g - 2.4 * (1 - d / 9) ** .7 : g; };
   E.waterBase = -15.5;
   E.dustColor = [.62, .58, .5];
   E.vent = [120, 60, -2400];          // the caldera, far beyond the lake (eruption force)
@@ -108,7 +114,7 @@ export function build(E, TL, F) {
   }
 
   // forest: pines and some broadleaf trees, kept off the road, the lot, the viewpoint view and the lake
-  const R = rng(14), wedge = (x, z) => z < -8 && z > -150 && Math.abs(x - 10) < 40 + (-z) * 1.1, free = (x, z) => !(inLake(x, z) || Math.abs(z) < 16 || (x > 165 && x < 310 && z > -40 && z < 45) || (x > 140 && x < 230 && z < -10 && z > -110 && Math.abs((z + 20) / -75 * 60 + 150 - x) < 22) || (x > -160 && x < -70 && z > 0 && z < 60) || (wedge(x, z) && (z > -70 || hash(Math.round(x), Math.round(z)) > .12)) || (x > 195 && x < 225 && z > -110 && z < -80));
+  const R = rng(14), wedge = (x, z) => z < -8 && z > -150 && Math.abs(x - 10) < 40 + (-z) * 1.1, free = (x, z) => !(inLake(x, z) || creekD(x, z) < 12 || Math.abs(z) < 16 || (x > 165 && x < 310 && z > -40 && z < 45) || (x > 140 && x < 230 && z < -10 && z > -110 && Math.abs((z + 20) / -75 * 60 + 150 - x) < 22) || (x > -160 && x < -70 && z > 0 && z < 60) || (wedge(x, z) && (z > -70 || hash(Math.round(x), Math.round(z)) > .12)) || (x > 195 && x < 225 && z > -110 && z < -80));
   E.fireSpots = [];
   for (let i = 0; i < 520; i++) {          // near trees: real props (they sway and shake)
     const x = (R() - .5) * 560, z = 90 - R() * 380;
@@ -159,7 +165,10 @@ export function build(E, TL, F) {
       exit: { pos: [276, 3.2, 13], look: [205, 2, -2], drift: [0, 0, .5], fov: 52 },                             // siren, roadblock, cars leaving
       'pov-lot': { pos: [-104, 1.65, 4], look: [-125, 1.5, 22], drift: [0, 0, 0], fov: 64, run: { amp: .03, freq: 1.6 } },   // empty lot, alone
       tower: { pos: [150, 4, -20], look: [210, 14, -95], drift: [-.5, 0, 0], fov: 50 },
-      vista: { pos: [-40, 40, 160], look: [60, 20, -1200], drift: [2, 0, -1], fov: 58 },                     // high over the forest to the caldera
+      volcano: { pos: [14, 3.4, 9], look: [110, 620, -2400], drift: [0, 0, -1], fov: 58 },                    // the caldera rim with the column above it
+      'pov-plume': { pos: [-104, 1.65, 4], look: [100, 800, -2400], drift: [0, 0, 0], fov: 70 },              // POV: look up at the growing cloud
+      creek: { pos: [150, 4.5, -28], look: [330, -4, -78], drift: [.5, 0, 0], fov: 54 },                        // the creek bed (lahar)
+            vista: { pos: [-40, 40, 160], look: [60, 20, -1200], drift: [2, 0, -1], fov: 58 },                     // high over the forest to the caldera
     },
   };
 }
