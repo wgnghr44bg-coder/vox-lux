@@ -176,6 +176,38 @@ try {
   & $py -m pip install --user --quiet --disable-pip-version-check @PyPackages
   if ($LASTEXITCODE -ne 0) { throw "pip install mislukt" }
 
+  # Codex CLI: writes the scenario when you run  whatif "What if ..."  (uses your ChatGPT plan, no extra service)
+  if (-not (Find "codex")) {
+    if (Ask "Codex CLI installeren (npm, gratis; werkt met je ChatGPT-account)?") {
+      npm install -g @openai/codex --no-audit --no-fund
+      if ($LASTEXITCODE -ne 0) { throw "Codex CLI installeren mislukt" }
+      RefreshPath
+    }
+  }
+  if (Find "codex") {
+    $logged = $false
+    try { & codex login status *> $null; $logged = ($LASTEXITCODE -eq 0) } catch {}
+    if (-not $logged) {
+      Say "Codex is nog niet ingelogd. Er opent zo een browser: log in met je ChatGPT-account." Yellow
+      if (Ask "Nu inloggen bij Codex?") { codex login }
+    } else { Say "Codex CLI: ingelogd" Green }
+  }
+
+  # the command  whatif  in every new PowerShell window
+  $ps1 = Join-Path $wd "windows\whatif.ps1"
+  $fn = "function whatif { & '$ps1' @args }"
+  $has = (Test-Path $PROFILE) -and (Select-String -Path $PROFILE -SimpleMatch $fn -Quiet)
+  if (-not $has -and (Ask "Commando 'whatif' toevoegen aan PowerShell (overal te gebruiken)?")) {
+    $pol = Get-ExecutionPolicy -Scope CurrentUser
+    if ($pol -eq "Undefined" -or $pol -eq "Restricted") {
+      Say "PowerShell mag nu lokale scripts draaien (CurrentUser: RemoteSigned)."
+      Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
+    }
+    if (-not (Test-Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force | Out-Null }
+    Add-Content -Path $PROFILE -Value $fn
+    Say "Toegevoegd aan $PROFILE" Green
+  }
+
   # keys: local .env file, never in git (whatif-demo/.gitignore)
   $envFile = Join-Path $wd ".env"
   if (-not (Test-Path $envFile)) { Copy-Item (Join-Path $wd ".env.example") $envFile; Say "Aangemaakt: $envFile (staat niet in git)" }
@@ -210,6 +242,7 @@ Pop-Location
 Step "Klaar"
 Say "Engine : $engine  (branch $(git -C $engine rev-parse --abbrev-ref HEAD))"
 Say "Archief: $archive"
-Say "Volgende stap: open Codex in $wd en zeg bijvoorbeeld:"
-Say '  Maak een What if-Short over "What if the Sun disappeared?" volgens AGENTS.md' Green
+Say "Volgende stap: open een NIEUW PowerShell-venster en typ bijvoorbeeld:"
+Say '  whatif "What if the Sun disappeared?"' Green
+Say "Dat doet alles: scenario (Codex), stem, 6 testbeelden, jouw akkoord, video met geluid, controle, archief."
 Say "Handleiding: $wd\windows\HANDLEIDING.md"

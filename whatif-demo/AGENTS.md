@@ -14,7 +14,13 @@ Jij maakt daarvan een Short met de bestaande engine. Antwoord kort en in het Ned
 - Overschrijf of verwijder geen bestaande topics of video's.
 - Commit naar je eigen branch in `vox-lux`. Push alleen als de eigenaar dat vraagt.
 
-## Werkwijze per onderwerp
+## Aangeroepen door `whatif "…"` (codex exec)
+
+Het script `windows/whatif.ps1` roept jou aan met `codex exec`. Doe dan **alleen wat die prompt vraagt**
+(stap 1–3, of een aanpassing van het scenario) en draai zelf niets. Het script maakt daarna de stem, de testbeelden,
+de video, de controle en het archief, en vraagt de eigenaar om goedkeuring.
+
+## Werkwijze per onderwerp (als de eigenaar in Codex zelf vraagt)
 
 Alle commando's draaien vanuit `C:\AI\vox-lux\whatif-demo\windows`.
 
