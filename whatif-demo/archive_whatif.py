@@ -70,6 +70,14 @@ def main():
         print("WARNING: whatif-demo/engine has uncommitted changes; commit them so ENGINE.txt points at the real engine")
     (folder / "ENGINE.txt").write_text(f"vox-lux {branch} {commit} - python whatif-demo/make_whatif.py {a.number}\n", encoding="utf-8")
 
+    # onderwerpen.md: status of this topic -> made (never uploaded by these scripts)
+    lst = HERE / "onderwerpen.md"; rows = lst.read_text(encoding="utf-8").splitlines()
+    for i, l in enumerate(rows):
+        c = l.split("|")
+        if len(c) >= 7 and c[1].strip() == str(a.number):
+            c[5] = f" gemaakt {a.date}, niet geüpload; topics/{d.name} "; rows[i] = "|".join(c); break
+    lst.write_text("\n".join(rows) + "\n", encoding="utf-8")
+
     git("add", folder.name, cwd=a.archive)
     subprocess.run(["git", "commit", "-q", "-m", f"{folder.name}: bronbestanden"], cwd=a.archive, check=False)
     print("saved:", folder)

@@ -11,6 +11,7 @@
 #   .\whatif.ps1 check 45       is the mp4 there, playable, right size, picture + sound (CONTROLE GOED)
 #   .\whatif.ps1 archive 45     source files -> C:\AI\ifscape3d-videos\<date>-<slug>\ (commit, no push)
 #   .\whatif.ps1 preview street wind    one frame of a place + force, no topic, no costs
+#   .\whatif.ps1 aanpassen 12 "the water must reach the houses"   Grok changes topic 12, new test frames, then the same steps
 #
 # Nothing is ever uploaded or published.
 
@@ -27,7 +28,12 @@ $ErrorActionPreference = "Stop"
 $env:PYTHONUTF8 = "1"
 try { [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding $false } catch {}   # Python prints UTF-8
 $steps = @("stills", "render", "check", "archive", "preview")
-if ($steps -notcontains $Cmd) {                                   # not a step: it is a topic (or nothing yet)
+$fixNr = $null
+if ($Cmd -eq "aanpassen" -or $Cmd -eq "fix") {                   # whatif aanpassen 12 "wat er anders moet"
+  $fixNr = $Arg1; $fixText = (@($Arg2) + @($Rest) | Where-Object { $_ }) -join " "
+  if (-not $fixText) { $fixText = Read-Host "Wat moet er anders aan onderwerp $fixNr" }
+  $Cmd = "make"
+} elseif ($steps -notcontains $Cmd) {                             # not a step: it is a topic (or nothing yet)
   $Arg1 = (@($Cmd, $Arg1, $Arg2) + @($Rest) | Where-Object { $_ }) -join " "
   $Cmd = "make"
 }
@@ -58,11 +64,17 @@ Push-Location $repo
 try {
   switch ($Cmd) {
     "make" {
-      $topic = $Arg1
-      if (-not $topic) { $topic = Read-Host "Onderwerp (bijv. What if the Sun disappeared?)" }
-      if (-not $topic) { throw "Geen onderwerp" }
-      Write-Host "1/5 Grok schrijft en controleert het scenario voor: $topic" -ForegroundColor Cyan
-      $nr = Topic $topic
+      if ($fixNr) {
+        $nr = $fixNr
+        Write-Host "1/5 Grok past onderwerp $nr aan: $fixText" -ForegroundColor Cyan
+        Topic --fix $nr $fixText | Out-Null
+      } else {
+        $topic = $Arg1
+        if (-not $topic) { $topic = Read-Host "Onderwerp (bijv. What if the Sun disappeared?)" }
+        if (-not $topic) { throw "Geen onderwerp" }
+        Write-Host "1/5 Grok schrijft en controleert het scenario voor: $topic" -ForegroundColor Cyan
+        $nr = Topic $topic
+      }
       $d = TopicDir $nr; $slug = Split-Path -Leaf $d
       Write-Host "Onderwerp $nr -> topics\$slug" -ForegroundColor Green
 
@@ -88,17 +100,18 @@ try {
       & $py "$repo\tools\check_video.py" $d "$slug.mp4" --stem voice.mp3 --bron $bron
       $ok = ($LASTEXITCODE -eq 0)
       Write-Host "5/5 Bronbestanden bewaren" -ForegroundColor Cyan
+      Py "$wd\archive_whatif.py" $nr --force
       Push-Location $repo
       git add "whatif-demo/topics/$slug" whatif-demo/onderwerpen.md
       git commit -q -m "whatif: $slug"
       Pop-Location
-      Py "$wd\archive_whatif.py" $nr
       Write-Host ""
       if ($ok) { Write-Host "KLAAR: $mp4" -ForegroundColor Green } else { Write-Host "Video gemaakt, maar de controle vond iets (zie hierboven): $mp4" -ForegroundColor Yellow }
       $up = Get-Content (Join-Path $d "upload.json") -Raw | ConvertFrom-Json
       Write-Host "Titel  : $($up.title)"
       if ($up.tiktok) { Write-Host "TikTok : $($up.tiktok)" }
       Write-Host "Niets geupload. Dat doe je zelf."
+      Write-Host "Iets anders willen?  whatif aanpassen $nr `"wat er anders moet`""
       Start-Process $mp4
     }
     "stills" {
