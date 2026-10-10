@@ -233,7 +233,8 @@ def block_test(name: str, entry: dict, place: str, force: str, shot, times=(3, 8
     cx, cy, cz = (sum(p[i] for p in pts) / len(pts) for i in range(3))
     aim = {"pos": [cx + 12, cy + 10, cz + 28], "look": [cx, cy, cz], "fov": 45}
     first = json.dumps(shot) if isinstance(shot, str) else "'blok'"
-    shots = f"[[0, {first}], [5, 'aim']], extraShots: {{ aim: {json.dumps(aim)}" + ("" if isinstance(shot, str) else f", blok: {json.dumps(shot)}") + " }"
+    shots = (f"[[0, {first}]" + (", [5, 'aim']" if entry.get("pos") else "") + f"], extraShots: {{ aim: {json.dumps(aim)}"
+             + ("" if isinstance(shot, str) else f", blok: {json.dumps(shot)}") + " }")
     (d / "scenario.js").write_text(f"""// test of engine/auto/{name}.js (not a video)
 export const topic = {{ number: 0, slug: '_blok-{name}', place: '{place}', force: '{force}', question: 'block test', title: '' }};
 export const lines = [['a', 'One two three four five six seven eight nine ten eleven twelve.', 'pause'],

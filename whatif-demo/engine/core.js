@@ -9,7 +9,7 @@ export const W = WIDE ? 1280 : 720, H = WIDE ? 720 : 1280, FPS = 30;
 if (WIDE) document.documentElement.classList.add('wide');
 
 export function createEngine() {
-  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, stencil: true });   // stencil: holes in the ground (auto/sinkhole.js)
   renderer.setSize(W, H); renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
