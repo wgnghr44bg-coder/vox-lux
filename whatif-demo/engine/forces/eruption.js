@@ -25,7 +25,7 @@ export function create(E, TL) {
   const P = TL.forceParams || {}, THREE = E.THREE, C = h => new THREE.Color(h);
   const curve = (k, d = 0) => P[k] ? monotone(P[k]) : () => d;
   const dark = curve('dark'), ash = curve('ash'), cover = curve('cover'), haze = curve('haze'), sunset = curve('sunset'), winter = curve('winter');
-  const H = P.H ?? 2400, col = P.column, glowP = P.glow, lit = P.lightning;
+  const H = P.H ?? 2400, col = P.column, glowP = P.glow, lit = P.lightning && [P.lightning[0], Math.min(P.lightning[1], TL.T_END ?? 600)];   // never past the end (1e9 would hang)
   const colK = t => col ? smooth(col[0], col[1], t) : 0;
   const glowK = t => glowP ? smooth(glowP[0], glowP[0] + 3, t) * (glowP[1] != null ? 1 - smooth(glowP[1], glowP[1] + 3, t) * .5 : 1) : 0;
   const rainK = t => P.rain ? smooth(P.rain[0], P.rain[0] + 2, t) * (1 - smooth(P.rain[1] - 2, P.rain[1], t)) : 0;
