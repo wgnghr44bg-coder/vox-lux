@@ -132,8 +132,12 @@ def tag_lines(grok, lines, vocab, style: str, wish: str = "") -> dict:
                  f"{', '.join(MOVES)}; 'none' for a still camera; else null). "
                  "JSON: {\"<id>\": {\"subject\": [...], \"kind\": \"...\", \"intensity\": 0, \"want\": null, \"move\": null}}"}],
                json_mode=True)
-    try: return json.loads(ans)
+    try: tags = json.loads(ans)
     except json.JSONDecodeError: return {}
+    if not wish:                       # 'want' and 'move' are only for the owner's own wishes (or the script's camera = {...})
+        for t in tags.values():
+            if isinstance(t, dict): t.pop("want", None); t.pop("move", None)
+    return tags
 
 
 def script_cam(tags: dict, camera: dict, cands: dict) -> None:
