@@ -97,6 +97,10 @@ Bij elke video kiest de **regisseur** (`director.py`) automatisch per zin de cam
 - Waar het spannend is, worden 2–3 opties gerenderd en kiest Grok het beeld waarop je het best ziet wat de stem zegt.
   Een beeld dat geblokkeerd wordt door iets op de voorgrond, valt af.
 - Nieuwe bouwstenen (zoals het zinkgat) krijgen vanzelf een eigen overzichtsshot en close-up.
+- **De camera volgt het script.** Grok zet bij belangrijke zinnen een camera-aanwijzing in het script, bijvoorbeeld
+  `export const camera = { cars: 'close cars', climax: 'pov', after: 'aerial city' }`. De regisseur volgt die altijd.
+- **Wissels vallen in de pauzes van de stem**, midden in de stilte tussen twee zinnen. Bij een stille climax komen er
+  twee shots in de stilte, zodat je de schaal ziet.
 
 Alleen de camera opnieuw laten kiezen, eventueel met een wens:
 
