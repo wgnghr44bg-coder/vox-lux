@@ -52,6 +52,12 @@ createSpace(E, TL);        // TL.space: Earth and Moon seen from space (its own 
 createRing(E, TL);         // TL.ring: a debris ring across the sky (needs TL.moon.orbit)
 createMeteors(E, TL);      // TL.meteors: streaks and fireballs
 createGlows(E, TL);        // TL.glows: a volcano glowing on the horizon
+// TL.auto: [{ block: 'rain', ...options }] - building blocks in engine/auto/<block>.js (made per story, kept for good;
+// list: engine/auto/CATALOGUS.md). Each default export build(E, TL, o, F) adds its objects and may return update(t, tv).
+for (const o of TL.auto || []) {
+  const upd = (await import(`./auto/${o.block}.js`)).default(E, TL, o, F);
+  if (typeof upd === 'function') (E.lateUpdates ||= []).push(upd);   // after the camera: blocks may follow it
+}
 createBrand(E, TL);
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
@@ -112,6 +118,14 @@ const camera = createCamera(E, TL, P, F);
 window.camTarget = tv => { const k = camera.targetAt(tv); return k < 0 ? null : E.lookTargets[k].kind; };
 function cameraAt(tv, fixed) {
   const look = camera.apply(tv, fixed);
+  // rising water (water/tide force): a shot standpoint below the surface would show a dry street or a brown blur,
+  // so the camera floats up with the water and stays 1.8 m above it (same direction). TL.underwater: true switches it off.
+  if (!TL.underwater && F.field) {
+    const wy = F.field(Math.min(fixed ? fixed.t : tv, STOP)).waterY;
+    if (wy > -1e8 && E.camera.position.y < wy + 1.8) {
+      const dy = wy + 1.8 - E.camera.position.y; E.camera.position.y += dy; if (look) look.y = (look.y ?? 0) + dy;
+    }
+  }
   if (E.sunOffset) {        // keep the shadow map around what the camera sees
     const c = E.camera.position, dx = look.x - c.x, dz = look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
     const snap = v => Math.round(v / 8) * 8;   // shadow map moves in 8 m steps, not with every handheld wobble (no shimmer)
@@ -156,6 +170,7 @@ function renderScene(tv, fixed) {
   poseBodies(E, t, F);
   poseFalls(t);
   cameraAt(tv, fixed);
+  for (const u of E.lateUpdates || []) u(t, ts);
   const n = dust.render(ts, E.camera.position);
   if (TL.post && !E.post) E.post = createPost(E, E.renderer.domElement.width, E.renderer.domElement.height, typeof TL.post === 'object' ? TL.post : {});
   if (E.post) E.post.render(); else E.renderer.render(E.scene, E.camera);
