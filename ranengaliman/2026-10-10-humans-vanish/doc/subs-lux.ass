@@ -1,0 +1,56 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:02.10,Sub,,0,0,0,,{\fad(150,150)}Earth.
+Dialogue: 0,0:00:02.10,0:00:04.90,Sub,,0,0,0,,{\fad(150,150)}Population: eight billion.
+Dialogue: 0,0:00:04.90,0:00:09.90,Sub,,0,0,0,,{\fad(150,150)}Now… imagine every one of them, gone.
+Dialogue: 0,0:00:10.70,0:00:12.10,Sub,,0,0,0,,{\fad(150,150)}Hour one.
+Dialogue: 0,0:00:12.10,0:00:17.40,Sub,,0,0,0,,{\fad(150,150)}The power plants run on, with no one left to feed them.
+Dialogue: 0,0:00:17.40,0:00:20.80,Sub,,0,0,0,,{\fad(150,150)}One by one… the lights go out.
+Dialogue: 0,0:00:21.60,0:00:23.30,Sub,,0,0,0,,{\fad(150,150)}Hour thirty-six.
+Dialogue: 0,0:00:23.30,0:00:28.40,Sub,,0,0,0,,{\fad(150,150)}Beneath New York, seven hundred and fifty pumps have stopped.
+Dialogue: 0,0:00:28.40,0:00:30.40,Sub,,0,0,0,,{\fad(150,150)}The subway floods.
+Dialogue: 0,0:00:31.20,0:00:32.60,Sub,,0,0,0,,{\fad(150,150)}Year twenty.
+Dialogue: 0,0:00:32.60,0:00:35.00,Sub,,0,0,0,,{\fad(150,150)}Roots split the asphalt.
+Dialogue: 0,0:00:35.00,0:00:37.60,Sub,,0,0,0,,{\fad(150,150)}Trees rise through the streets.
+Dialogue: 0,0:00:38.40,0:00:40.20,Sub,,0,0,0,,{\fad(150,150)}Year three hundred.
+Dialogue: 0,0:00:40.20,0:00:45.10,Sub,,0,0,0,,{\fad(150,150)}With no one to paint it, the Eiffel Tower rusts…
+Dialogue: 0,0:00:45.10,0:00:46.80,Sub,,0,0,0,,{\fad(150,150)}and falls.
+Dialogue: 0,0:00:47.60,0:00:49.20,Sub,,0,0,0,,{\fad(150,150)}Year five hundred.
+Dialogue: 0,0:00:49.20,0:00:52.20,Sub,,0,0,0,,{\fad(150,150)}Forests have taken back our cities.
+Dialogue: 0,0:00:53.00,0:00:56.50,Sub,,0,0,0,,{\fad(150,150)}But one thing we made will outlast us all…
+Dialogue: 0,0:00:56.50,0:00:57.80,Sub,,0,0,0,,{\fad(150,150)}Plastic.
+Dialogue: 0,0:00:57.80,0:01:01.90,Sub,,0,0,0,,{\fad(150,150)}Still here, thousands of years from now.
+Dialogue: 0,0:01:02.70,0:01:06.20,Sub,,0,0,0,,{\fad(150,150)}So tell me… would Earth even miss us?
+Dialogue: 2,0:00:10.70,0:00:13.30,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:10.82,0:00:13.30,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AFTER HUMANS
+Dialogue: 2,0:00:10.92,0:00:13.30,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}HOUR 1
+Dialogue: 2,0:00:21.60,0:00:24.20,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:21.72,0:00:24.20,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AFTER HUMANS
+Dialogue: 2,0:00:21.82,0:00:24.20,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}HOUR 36
+Dialogue: 2,0:00:31.20,0:00:33.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:31.32,0:00:33.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AFTER HUMANS
+Dialogue: 2,0:00:31.42,0:00:33.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}YEAR 20
+Dialogue: 2,0:00:38.40,0:00:41.00,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:38.52,0:00:41.00,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AFTER HUMANS
+Dialogue: 2,0:00:38.62,0:00:41.00,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}YEAR 300
+Dialogue: 2,0:00:47.60,0:00:50.20,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:47.72,0:00:50.20,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AFTER HUMANS
+Dialogue: 2,0:00:47.82,0:00:50.20,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}YEAR 500
+Dialogue: 2,0:00:02.10,0:00:04.85,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:02.22,0:00:04.85,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}WORLD POPULATION
+Dialogue: 2,0:00:02.32,0:00:04.85,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}8,000,000,000
+Dialogue: 2,0:00:04.90,0:00:07.50,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:05.02,0:00:07.50,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}WORLD POPULATION
+Dialogue: 2,0:00:05.12,0:00:07.50,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)\c&H4040E8&}0
