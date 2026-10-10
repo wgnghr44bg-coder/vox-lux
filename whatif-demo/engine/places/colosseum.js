@@ -179,7 +179,7 @@ export function build(E, TL, F) {
       roofS.push([x, 44.4, z, Math.atan2(Math.cos(th) / (A0 + 43.5), Math.sin(th) / (B0 + 43.5)), Math.hypot(x2 - x1, z2 - z1) * 1.04, 1, 1]); }
     inst(new THREE.BoxGeometry(1, .5, 6.4), lam(0xa5583a), roofS); }
   // arena: sand floor with trapdoors, podium wall with a painted band and a net railing, emperor's box on the minor axis
-  { const sand = new THREE.Mesh(new THREE.CircleGeometry(1, 64), lam(0xd9c49a)); sand.scale.set(A0, B0, 1); sand.rotation.x = -Math.PI / 2; sand.position.set(0, .03, ZC); sand.receiveShadow = true; scene.add(sand);
+  { const sand = new THREE.Mesh(new THREE.CircleGeometry(1, 64), lam(0xd9c49a)); sand.scale.set(A0, B0, 1); sand.rotation.x = -Math.PI / 2; sand.position.set(0, .03, ZC); sand.receiveShadow = true; sand.castShadow = !!TL.hypogeum; scene.add(sand);
     E.arenaFloor = sand;
     const R = rng(29), traps = [];
     for (let i = 0; i < 26; i++) { const a = R() * 6.283, q = Math.sqrt(R()) * .78; traps.push([Math.cos(a) * A0 * q, .04, ZC + Math.sin(a) * B0 * q, R() * .3]); }
@@ -253,9 +253,69 @@ export function build(E, TL, F) {
   stream(E, TL, { pts: [[0, 70], [0, -90], [gb.x * .6, -140], [gb.x, gb.z]], n: 90, w: 3.4, seed: 61, start: TL.streamStart ?? 0, torches: .05 });
   stream(E, TL, { pts: [[-120, -120], [-60, -150], [gb.x - 4, gb.z + 2]], n: 40, w: 4, seed: 62, start: TL.streamStart ?? 0 });
   stream(E, TL, { pts: [[130, -110], [60, -140], [gb.x + 4, gb.z + 2]], n: 40, w: 4, seed: 63, start: TL.streamStart ?? 0 });
+  if (TL.panic) { const th0 = Math.PI / 2 + Math.PI * 3 / 20, pts = []; for (let k = 0; k <= 12; k++) { const [x, z] = ell(15.3, th0 + k * .05); pts.push([x, z]); }
+    stream(E, TL, { pts, n: 46, w: .25, v: 2.4, seed: 71, y: 14.6, start: TL.panic, loop: true }); }
   // guards at the gate
   for (const s of [-1, 1]) { const [x, z] = ell(dOut + DEP / 2 + 1.5, thetas[gk] + (s > 0 ? 2 * Math.PI / NB * .95 : .02));
     roman(E, 8100 + s, { kind: 'soldier', y: .02, path: () => ({ x, z, rot: Math.atan2(gb.n[0], gb.n[1]), moving: 0, speed: 0 }) }); }
+
+
+  // ---------- the hypogeum (TL.hypogeum): tunnels under the arena floor, cages, a lift with a winch ----------
+  //   TL.lift = [a, b]: the lift with the cage rises from the tunnel floor up to the trapdoor between a and b (trapdoor opens at a + 1)
+  const HY = -6.5, LX = 8, LZ = ZC + 5.3;
+  if (TL.hypogeum) {
+    const [la, lb] = TL.lift || [1e9, 1e9], liftY = t => HY + (-.35 - HY) * smooth(la, lb, t);
+    const inEll = (x, z, d = 0) => (x / (A0 + d)) ** 2 + ((z - ZC) / (B0 + d)) ** 2 < 1;
+    E._t = 0; E.updates.unshift((t) => { E._t = t; });
+    E.groundAt = (x, z) => Math.abs(x - LX) < 1.3 && Math.abs(z - LZ) < 1.7 ? liftY(E._t) : inEll(x, z) ? HY : 0;
+    const fl = new THREE.Mesh(new THREE.CircleGeometry(1, 48), lam(0x5a4a38)); fl.scale.set(A0, B0, 1); fl.rotation.x = -Math.PI / 2; fl.position.set(0, HY, ZC); fl.receiveShadow = true; scene.add(fl);
+    const ce = new THREE.Mesh(new THREE.CircleGeometry(1, 48), lam(0x4a3828)); ce.scale.set(A0, B0, 1); ce.rotation.x = Math.PI / 2; ce.position.set(0, -.08, ZC); scene.add(ce);
+    const beams = []; for (let x = -A0 + 1; x < A0; x += 2.2) beams.push([x, -.35, ZC, 0, 1, 1, 2 * B0 * Math.sqrt(Math.max(0, 1 - (x / A0) ** 2))]);
+    inst(new THREE.BoxGeometry(.3, .45, 1), lam(0x5a4430), beams, false);
+    const ring = [], NR = 90; for (let k = 0; k < NR; k++) { const th = (k + .5) / NR * 6.283, [x, z] = ell(0, th), [x1, z1] = ell(0, k / NR * 6.283), [x2, z2] = ell(0, (k + 1) / NR * 6.283);
+      ring.push([x, HY / 2, z, Math.atan2(Math.cos(th) / A0, Math.sin(th) / B0), Math.hypot(x2 - x1, z2 - z1) * 1.05, 1, 1]); }
+    inst(new THREE.BoxGeometry(1, -HY, 1), lam(0x7d6c56), ring, false);
+    // tunnel walls parallel to the long axis, with doorways; the central corridor (|dz| < 3) stays open
+    const walls = [];
+    for (const dz of [-21, -16.5, -12, -7.5, -3, 3, 7.5, 12, 16.5, 21]) { const half = A0 * Math.sqrt(Math.max(0, 1 - (dz / B0) ** 2)) - 1;
+      for (let x = -half; x < half - 2; x += 6) { if ((dz === 3 || dz === 7.5) && x + 4 > LX - 4.5 && x < LX + 4.5) continue; walls.push([x + 2, HY / 2, ZC + dz, 0, 4, 1, 1]); } }
+    inst(new THREE.BoxGeometry(1, -HY, .8), lam(0x8f8270), walls, false);
+    // the lift: four posts, a platform, a cage with bars (and a lion in it via TL.animals), a rope to the winch
+    const lift = new THREE.Group(); scene.add(lift);
+    const plat = S(new THREE.Mesh(new THREE.BoxGeometry(2.8, .2, 3.6), lam(0x6a5038))); lift.add(plat);
+    const bar = lam(0x3a3430);
+    for (let i = 0; i < 9; i++) for (const sx of [-1, 1]) { const b = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, 2.1, 4), bar); b.position.set(sx * 1.3, 1.1, -1.7 + i * .425); lift.add(b); }
+    for (let i = 0; i < 7; i++) for (const sz of [-1, 1]) { const b = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, 2.1, 4), bar); b.position.set(-1.3 + i * .433, 1.1, sz * 1.7); lift.add(b); }
+    const top = S(new THREE.Mesh(new THREE.BoxGeometry(2.8, .12, 3.6), lam(0x5a4430))); top.position.y = 2.2; lift.add(top);
+    for (const [px, pz] of [[-1.5, -1.9], [1.5, -1.9], [-1.5, 1.9], [1.5, 1.9]]) { const p2 = S(new THREE.Mesh(new THREE.BoxGeometry(.25, -HY, .25), lam(0x5a4430))); p2.position.set(LX + px, HY / 2, LZ + pz); scene.add(p2); }
+    // winch (capstan) in the corridor, pushed round by workers
+    const cap = new THREE.Group(); cap.position.set(LX - 1, HY, ZC - .2); scene.add(cap);
+    const drum = S(new THREE.Mesh(new THREE.CylinderGeometry(.45, .5, 1.6, 10), lam(0x6a5038))); drum.position.y = .8; cap.add(drum);
+    for (let k = 0; k < 4; k++) { const sp = S(new THREE.Mesh(new THREE.BoxGeometry(3.2, .12, .12), lam(0x5a4430))); sp.position.y = 1.1; sp.rotation.y = k * Math.PI / 4; cap.add(sp); }
+    const rot = t => 1.1 * Math.max(0, Math.min(t, lb) - la);
+    E.updates.push(t => { const y = liftY(t); lift.position.set(LX, y + .1, LZ); cap.rotation.y = rot(t); });
+    for (let i = 0; i < 4; i++) roman(E, 9100 + i, { kind: 'tunic', y: HY, path: t => { const a = rot(t) + i * Math.PI / 2;
+      return { x: LX - 1 + Math.cos(a) * 1.5, z: ZC - .2 - Math.sin(a) * 1.5, rot: a + Math.PI, moving: t > la && t < lb ? 1 : 0, speed: 1, stoop: .25 }; } });
+    const rope = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, 1, 4), lam(0x8a7458)); scene.add(rope);
+    E.updates.push(t => { const a = new THREE.Vector3(LX - 1, HY + 1.2, ZC - .2), b = new THREE.Vector3(LX, -.4, LZ - 1.8); rope.position.copy(a).lerp(b, .5); rope.scale.y = a.distanceTo(b); rope.lookAt(b); rope.rotateX(Math.PI / 2); });
+    // trapdoor: daylight pours in when it opens (a glowing patch in the ceiling + a soft beam)
+    const glow = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 3.6), new THREE.MeshBasicMaterial({ color: 0xfff1d6 })); glow.rotation.x = Math.PI / 2; glow.position.set(LX, -.1, LZ); scene.add(glow);
+    const beamM = new THREE.MeshBasicMaterial({ color: 0xffe6b8, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+    const beam = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.7, -HY, 4, 1, true), beamM); beam.rotation.y = Math.PI / 4; beam.position.set(LX, HY / 2, LZ); scene.add(beam);
+    const sunL = new THREE.SpotLight(0xffe2b0, 0, 14, .7, .5, 1.2); sunL.position.set(LX, -.2, LZ); sunL.target.position.set(LX, HY, LZ); scene.add(sunL, sunL.target);
+    E.updates.push(t => { const o = smooth(la + 1, la + 2.2, t); glow.visible = o > .01; glow.material.color.setRGB(o, o * .95, o * .84); beamM.opacity = o * .07; sunL.intensity = o * 60; });
+    // more cages along the corridor, lamps and torches, crates, amphorae, hay
+    for (const [cx, cz] of [[-6, ZC + 5.3], [-18, ZC - 5.3], [20, ZC - 5.3]]) { for (let i = 0; i < 8; i++) { const b = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, 2.2, 4), bar); b.position.set(cx - 1.5 + i * .43, HY + 1.1, cz + (cz > ZC ? -1.9 : 1.9)); scene.add(b); } }
+    for (const x of [-26, -12, 2, 16, 28]) torch(E, x, HY + 2.2, ZC + (x % 4 ? 2.6 : -2.6), { light: true, always: true, power: 7, range: 18, color: 0xffb868 });
+    torch(E, LX - 2.2, HY + 2.3, ZC + 3.4, { light: true, always: true, power: 9, range: 12, color: 0xffb868 });
+    for (let x = -30; x < 30; x += 7) oilLamp(E, x + 2, HY + 1.4, ZC + 2.6);
+    for (let i = 0; i < 10; i++) { const c = S(new THREE.Mesh(new THREE.BoxGeometry(.8, .7, .8), lam(0x7a5a3a))); c.position.set(-24 + i * 4.3 + hash(i, 3) * 2, HY + .35, ZC + (i % 2 ? 2.4 : -2.4)); c.rotation.y = hash(i, 4); scene.add(c); }
+    for (let i = 0; i < 6; i++) amphora(E, -10 + i * .6, ZC - 2.5, 1.2).position.y = HY;
+    E.updates.push((t, F, tv) => { let nm = TL.shots[0][1]; for (const [a, n] of TL.shots) if (tv >= a) nm = n;
+      if (!/hypo/.test(nm)) return;
+      E.hemi.intensity = 1.15; E.hemi.color.setHex(0xd6c2a4); E.hemi.groundColor.setHex(0x3a3028); E.sun.intensity = 0; E.dark = 1;
+      scene.fog.color.setHex(0x2a2018); scene.fog.near = 12; scene.fog.far = 95; });
+  }
 
   // ---------- shots ----------
   const out = (k, d, y, look = [0, 20, ZC]) => { const b = bay(k, d); return [b.x, y, b.z]; };
@@ -275,6 +335,15 @@ export function build(E, TL, F) {
     bowl: { pos: [-A0 - 10, 30, ZC + 40], look: [20, 6, ZC - 10], drift: [0, 0, -1.2], fov: 60 },
     attic: { pos: [tx, 50.4, tz], look: [0, 30, ZC + 20], drift: [0, 0, 0], fov: 60 },
     sky: { pos: [0, 160, ZC + 200], look: [0, 0, ZC], drift: [0, 0, -4], fov: 50 },
+    'hypo-corridor': { pos: [-30, HY + 1.7, ZC + .4], look: [20, HY + 1.6, ZC], drift: [1.5, 0, 0], fov: 60 },
+    'pov-hypo': { pos: [-16, HY + 1.65, ZC - 1], look: [10, HY + 1.6, ZC + 1], drift: [6, 0, 0], fov: 62, run: { freq: 1.8, amp: .02 } },
+    'hypo-cage': { pos: [4.6, HY + 1.5, ZC + 1.6], look: [LX, HY + .9, LZ], drift: [.3, 0, 0], fov: 50 },
+    'hypo-lift': { pos: [2.5, HY + 1.2, ZC - 2], look: [LX, HY + 4.5, LZ], drift: [0, 0, 0], fov: 62 },
+    'pov-seat': { pos: [...(([x, z]) => [x, 0, z])(ell(20, Math.PI / 2 + Math.PI * 4 / 20))].map((v, i) => i === 1 ? 19.6 : v), look: [0, 2, ZC], drift: [0, 0, 0], fov: 62 },
+    'pov-crowd': { pos: [...(([x, z]) => [x, 0, z])(ell(18, Math.PI / 2 + Math.PI * 6 / 20))].map((v, i) => i === 1 ? 18.6 : v), look: [...(([x, z]) => [x, 14.6, z])(ell(15.3, Math.PI / 2 + Math.PI * 4.5 / 20))], drift: [0, 0, 0], fov: 62 },
+    'pov-up': { pos: [...(([x, z]) => [x, 0, z])(ell(20, Math.PI / 2 + Math.PI * 4 / 20))].map((v, i) => i === 1 ? 19.6 : v), look: [...(([x, z]) => [x, 52, z])(ell(-5, Math.PI / 2 + Math.PI * 4 / 20 + Math.PI))], drift: [0, 0, 0], fov: 66 },
+    'arena-up': { pos: [-12, 1.7, ZC + 6], look: [6, 30, ZC - 30], drift: [.5, 0, 0], fov: 66 },
+    night: { pos: [gOut2.x * 1.0 + gb.n[1] * 30, 2.2, gOut2.z - gb.n[0] * 30], look: [gb.x, 18, gb.z], drift: [-.8, 0, 0], fov: 55 },
     arena: { pos: [-20, 1.7, ZC + 10], look: [10, 12, ZC - 25], drift: [1, 0, 0], fov: 62 },
   };
   E.sunOffset = new THREE.Vector3(150, 60, 120);

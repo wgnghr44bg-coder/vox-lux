@@ -481,6 +481,38 @@ def s_ice(rng):
     return norm(pew + hp(rng.standard_normal(n), 2000) * env_ad(n, .0005, .02) + lp(rng.standard_normal(n), 300) * env_ad(n, .001, .1) * .5)
 
 
+def s_menigte(rng, sec=20):
+    """Crowd (baksteen menigte-geluid): many voices murmuring (syllable bursts in speech bands), stereo."""
+    n = int(sec * SR); t = np.arange(n) / SR; x = np.zeros((n, 2))
+    for k in range(48):
+        f0 = rng.uniform(220, 900); rate = rng.uniform(2.5, 6.0); ph = rng.uniform(0, 6)
+        syl = np.clip(np.sin(2 * np.pi * rate * t + ph + .6 * np.sin(2 * np.pi * .7 * t + ph)), 0, None) ** 2
+        gate = smooth(-.2, .4, np.sin(2 * np.pi * rng.uniform(.05, .2) * t + rng.uniform(0, 6)))
+        v = bp(rng.standard_normal(n), f0, f0 * rng.uniform(2.2, 3.5)) * syl * gate
+        x += pan(norm(v, .5), rng.uniform(-.9, .9))
+    x += stereo(rng, lambda r: lp(brown(r, n), 300), .7) * .25
+    return norm(x, .8)
+
+
+def s_juich(rng, sec=4.0):
+    """A roar/cheer of a big crowd: fast swell, long tail, many voices."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    body = stereo(rng, lambda r: bp(r.standard_normal(n), 250, 3200) * np.clip(lfo(r, n, 7, .35), 0, None), .8)
+    low = stereo(rng, lambda r: lp(brown(r, n), 220), .5) * .6
+    env = smooth(0, .5, t) * np.exp(-np.maximum(0, t - .6) / (sec * .45))
+    return norm((body + low) * env[:, None])
+
+
+def s_leeuw(rng, sec=2.6):
+    """Lion roar: low pulsing growl, rising then falling."""
+    n = int(sec * SR); t = np.arange(n) / SR
+    f0 = 95 + 70 * np.sin(np.pi * t / sec) ** 1.5
+    tone = sum(np.sin(2 * np.pi * np.cumsum(f0 * k) / SR) / k ** .8 for k in range(1, 14))
+    grit = np.clip(lfo(rng, n, 28, .9), 0, None)
+    x = lp(tone * (.5 + .5 * grit), 1800) + bp(rng.standard_normal(n), 150, 900) * .4 * grit
+    return norm(x * smooth(0, .3, t) * (1 - smooth(sec - .9, sec, t)))
+
+
 def s_groan(rng, sec=4.0):
     """Very low structural groan (steel and concrete under load)."""
     n = int(sec * SR); t = np.arange(n) / SR
@@ -515,7 +547,7 @@ def build_engine(topic: Path):
     # 1. place ambience, fading as the force takes over
     ambs = {"stad": lambda: lib["stad"], "rivier": lambda: lib["stad"] * .6 + s_water(rng) * .5,
             "zee": lambda: s_waves(rng) * .8 + lib["stad"] * .2, "berg": lambda: s_berg(rng), "park": lambda: s_park(rng),
-            "oerwoud": lambda: __import__("sfx_animals").s_jungle(rng)}
+            "oerwoud": lambda: __import__("sfx_animals").s_jungle(rng), "rome": lambda: s_menigte(rng, 24) * .5}
     A = loop(ambs.get(amb, ambs["stad"])(), n)
     q = (TL.get("audio") or {}).get("quiet")      # TL.audio.quiet = t: the city hush (people gone) – murmur falls away in half a second
     hush = 1 - .88 * smooth(q, q + .5, t) if q is not None else 1
@@ -608,6 +640,20 @@ def build_engine(topic: Path):
                     place(bed, mud, e["t"], db(-9))
                     for j in range(int(L / SR / 1.3)):
                         place(bed, lp(s_klap(rng, .8), 900), e["t"] + 1 + j * 1.3 + rng.uniform(0, .6), db(-17), rng.uniform(-.6, .6))
+    # 2a. crowd (place colosseum / force day): TL.audio.crowd = [[t, 0..1]] loudness of the murmur, roars = [[t, size]], lion = [t], creak = [[a, b]]
+    AU0 = TL.get("audio") or {}
+    if AU0.get("crowd"):
+        pts = np.array(AU0["crowd"], float); cg = np.interp(t, pts[:, 0], pts[:, 1])
+        bed += loop(s_menigte(rng, 24), n) * (db(-12) * cg * alive)[:, None]
+    for tr, sz in AU0.get("roars", []):
+        place(bed, s_juich(rng, 3 + 2 * sz), tr, db(-9) * sz, 0)
+    for tl in AU0.get("lion", []):
+        place(bed, s_leeuw(rng), tl, db(-8), rng.uniform(-.3, .3))
+    for a, b in AU0.get("creak", []):
+        tc = a
+        while tc < b:
+            place(bed, s_kraak(rng), tc, db(-20), rng.uniform(-.5, .5)); tc += rng.uniform(.6, 1.4)
+        place(bed, s_groan(rng, b - a), a, db(-16), 0)
 
     # 2b. tension cues from the scenario (TL.audio): heartbeat, riser, breathing while you run
     AUD = TL.get("audio") or {}
