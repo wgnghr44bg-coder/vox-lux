@@ -1,0 +1,4 @@
+icon1|1:1|Minimalist emblem on pure black background: planet Earth seen from space, split by a thin glowing golden crack running through it, one half normal blue, the other half dark and alternate, cinematic, centered, no text, high contrast, iconic logo
+icon2|1:1|Minimalist iconic logo on deep black: a thin golden circle like a ring, inside it a dark planet with a single bright lightning-like golden fracture, elegant, documentary style, centered, no text, no letters
+icon3|1:1|Elegant minimalist symbol on black background: a golden question mark formed by a glowing orbit path around a small dark Earth, cinematic lighting, centered, no text, iconic
+banner|16:9|Ultra wide cinematic panorama, dark and moody: on the left a lush living city at dusk, blending in the middle into an overgrown abandoned skyline, on the right a lightning storm over an empty plain, one continuous scene, deep blue-grey tones with subtle golden light, documentary style, no text, no people
