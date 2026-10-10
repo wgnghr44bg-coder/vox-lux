@@ -106,15 +106,15 @@ export function createMoon(E, TL) {
   const place = cam => {
     const d = cur.length(), dir = _t.copy(cur).normalize(), r = D * MOON_R / d;
     moon.position.copy(cam.position).addScaledVector(dir, D); moon.updateMatrixWorld();
-    halo.position.copy(cam.position).addScaledVector(dir, D * 1.02); halo.scale.setScalar(r * (M.halo ?? 1) * 7); halo.updateMatrixWorld();
+    halo.position.copy(cam.position).addScaledVector(dir, D * 1.02); halo.scale.setScalar(r * (M.halo ?? 1) * Math.min(7, 2.6 + 50 / r)); halo.updateMatrixWorld();
     const b = E.moonBroken(curT);
     if (NF && b > 0) {
       const km0 = E.moonKm(curT), u = smooth(.15, 1, b);
       for (const f of frags) {
         const p = rel(curT, M.orbit.theta + f.dth * u * (M.spread ?? 1.2)), dd = p.length();
         p.normalize(); const rr = D * MOON_R / dd;
-        f.m.position.copy(cam.position).addScaledVector(p, D * .999).add(_t.set(f.off[0], f.off[1], 0).multiplyScalar(rr * (1 + 3 * u) * smooth(0, .3, b)));
-        f.m.scale.setScalar(rr * f.size * (1 + .3 * u)); f.m.rotation.set(curT * .1 * f.spin, curT * .07 * f.spin, 0); f.m.updateMatrixWorld();
+        f.m.position.copy(cam.position).addScaledVector(p, D * .999).add(_t.set(f.off[0], f.off[1], 0).multiplyScalar(rr * (.3 + .6 * u) * smooth(0, .3, b)));
+        f.m.scale.setScalar(rr * f.size * (1 + .3 * u) * (1 - .9 * smooth(.75, 1, b))); f.m.rotation.set(curT * .1 * f.spin, curT * .07 * f.spin, 0); f.m.updateMatrixWorld();
       }
     }
   };
@@ -130,18 +130,18 @@ export function createMoon(E, TL) {
     if (G) { const tan = G.e1.clone().multiplyScalar(-Math.sin(M.orbit.theta)).addScaledVector(G.e2, Math.cos(M.orbit.theta)); moon.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), tan); moon.rotateX(-Math.PI / 2 - .35); }
     const gain = (M.gain ?? 1.15) * Math.min(1.6, .9 + .1 * Math.log2(E.moonBright(t)));
     mat.uniforms.gain.value = gain; mat.uniforms.crack.value = smooth(0, .3, b);
-    for (const f of frags) { f.m.visible = b > .22; f.m.material.uniforms.gain.value = gain; f.m.material.uniforms.crack.value = .6 * (1 - smooth(.5, 1, b)); }
+    for (const f of frags) { f.m.visible = b > .22 && b < .985; f.m.material.uniforms.gain.value = gain * .8; f.m.material.uniforms.crack.value = .6 * (1 - smooth(.5, 1, b)); }
     halo.material.opacity = Math.min(.55, .12 + .05 * Math.log2(E.moonBright(t))) * (M.halo ?? 1) * (1 - b);
     const vis = M.visible ? M.visible(tv) : true;
     moon.visible = vis && b < .3; halo.visible = vis;
   });
   // night lit by the Moon (any place): dark sky with stars, moonlight that grows as it comes closer
   if (M.night) (E.lookMods ||= []).push((t, L) => {
-    const k = clamp(Math.log2(E.moonBright(t)) / 8), C = h => new THREE.Color(h);       // 0 today .. 1 at ~250× today's moonlight
-    L.top = C(0x060c18).lerp(C(0x1a2c4a), k); L.hor = C(0x15223a).lerp(C(0x34496a), k); L.stars = 1 - k * .5;
+    const k = clamp(Math.log2(E.moonBright(t)) / 9), C = h => new THREE.Color(h);       // 0 today .. 1 at ~250× today's moonlight
+    L.top = C(0x060c18).lerp(C(0x14223c), k); L.hor = C(0x15223a).lerp(C(0x2a3c5a), k); L.stars = 1 - k * .5;
     L.fogColor = C(0x0d1626).lerp(C(0x22324e), k); L.fogNear = Math.min(L.fogNear ?? 200, 250); L.fogFar = Math.max(L.fogFar ?? 1600, 2200);
-    L.hemi = .95 + .6 * k; L.hemiColor = C(0x7a8aa8); L.groundColor = C(0x24262a);
-    L.sun = 1.1 + 1.3 * k; L.sunColor = C(0xc4d2f2); L.sunDisc = C(0); L.dark = 1; L.haze = 0; L.dustLight = .6;
+    L.hemi = .95 + .35 * k; L.hemiColor = C(0x7a8aa8); L.groundColor = C(0x24262a);
+    L.sun = 1.1 + .9 * k; L.sunColor = C(0xc4d2f2); L.sunDisc = C(0); L.dark = 1; L.haze = 0; L.dustLight = .6;
     const d = E.moonDirAt(t); E.sunOffset = d.clone().multiplyScalar(220); if (E.sunOffset.y < 60) E.sunOffset.y = 60;
   });
   return moon;

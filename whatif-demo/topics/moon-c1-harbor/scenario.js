@@ -25,7 +25,7 @@ export const lines = [
 
 export default function (at) {
   const T_END = at('cliff').e + 2;
-  const QY = 3.2, climax = at('rush').e + .2;
+  const QY = 3.2, climax = at('rush').e + .2;   // silent climax: the sea floods the quay (rush.e -> left.s)
   const km = [[0, 384400], [at('m200').s - .6, 384400], [at('m200').e + .3, 200000], [at('m100').s - .6, 200000], [at('m100').e + .3, 100000], [T_END, 100000]];
   const p = at('pull'), q = at('quay');
   return {
@@ -40,11 +40,11 @@ export default function (at) {
     forceParams: { calm: QY - .5, top: QY + 3.6, tide: [
       [0, -.4], [p.s, -.9], [(p.s + p.e) / 2, 1.1], [p.e + .6, -.9], [at('m200').s, -1.6],
       [q.e + .4, QY + .55], [q.e + 2.4, QY + .3], [at('m100').e, -3], [at('fifty').e, -6],
-      [at('rush').s, -6.2], [climax + 4.6, QY + 3.6], [at('left').s + .4, QY + 3.2], [at('left').e + 1.5, -7], [T_END, -7.2]] },
+      [at('rush').s, -6.2], [at('left').s + .3, QY + 3.6], [at('left').s + 1.5, QY + 3.4], [at('left').e + 1.5, -7], [T_END, -7.2]] },
     captions: [[at('today').s + .5, at('today').e + .6, '384,400 km'], [at('halve').s + 1.5, at('halve').e + .5, 'Half the distance → 8× the pull']],
     shots: [[0, 'moon-tele'], [at('notcrash').s - .2, 'group'], [p.s - .3, 'quay'], [at('halve').s - .2, 'harbor'],
             [at('m200').s - .2, 'moon-tele'], [at('wide').s + 2.6, 'quay'], [q.s - .2, 'harbor-low'],
-            [at('fifty').s - .3, 'high'], [climax + 1.6, 'street'], [at('left').e - 1.5, 'ship'], [at('cliff').s - .2, 'moon-sky']],
+            [at('fifty').s - .3, 'high'], [at('rush').e + .3, 'street'], [at('cliff').s - .2, 'moon-sky']],
     beats: { lookUp: at('notcrash').s + .4, shelter: at('fifty').s, climax, falls: [], stop: T_END + 1, fade: 1e9 },
     audio: { heartbeat: [at('m100').s, climax + 3], riser: [at('fifty').s, climax] },
     end: { title: '', lines: '' },
