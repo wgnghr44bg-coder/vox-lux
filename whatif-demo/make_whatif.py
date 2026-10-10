@@ -23,6 +23,7 @@ import hashlib
 import json
 import re
 import subprocess
+import os
 import time
 import sys
 from pathlib import Path
@@ -33,6 +34,22 @@ TOPICS = HERE / "topics"
 STAGES = ["voice", "render", "audio", "final"]
 VOICE = "atlas"  # IfScape3D-stem (eigenaar, 7 okt 2026): xAI Atlas, documentairestijl, tempo 1.05, mét pauzes
 SPEED = 1.05  # standaardtempo IfScape3D (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
+
+
+def load_env():
+    """Keys on a local pc: whatif-demo/.env (never committed, see .env.example). Without keys (cloud session)
+    a credential proxy adds them."""
+    f = HERE / ".env"
+    if f.exists():
+        for line in f.read_text(encoding="utf-8").splitlines():
+            k, _, v = line.partition("=")
+            if k.strip() and not k.lstrip().startswith("#") and v.strip():
+                os.environ.setdefault(k.strip(), v.strip().strip('"'))
+
+
+def auth(var: str, header: str, prefix: str = "") -> dict:
+    key = os.environ.get(var, "").strip()
+    return {header: prefix + key} if key else {}
 
 
 def run(cmd, **kw):
@@ -142,7 +159,8 @@ def one_take(d: Path, lines, speed):
     text = re.sub(r"\s+", " ", script_text(lines)).strip()
     raw = d / "voice-take.mp3"
     for k in range(4):
-        r = requests.post("https://api.x.ai/v1/tts", json={"text": text, "voice_id": VOICE, "language": "en", "speed": speed}, timeout=300)
+        r = requests.post("https://api.x.ai/v1/tts", json={"text": text, "voice_id": VOICE, "language": "en", "speed": speed},
+                          headers=auth("XAI_API_KEY", "Authorization", "Bearer "), timeout=300)
         if r.ok and r.content: raw.write_bytes(r.content); break
         if k == 3: raise SystemExit(f"xAI TTS HTTP {r.status_code}: {r.text[:200]}")
         time.sleep(2 ** (k + 1))
@@ -228,7 +246,8 @@ def stt_line_times(mp3: Path, lines):
     try:
         with open(mp3, "rb") as f:
             r = requests.post("https://api.elevenlabs.io/v1/speech-to-text", files={"file": (mp3.name, f, "audio/mpeg")},
-                              data={"model_id": "scribe_v1", "timestamps_granularity": "word", "tag_audio_events": "false"}, timeout=240)
+                              data={"model_id": "scribe_v1", "timestamps_granularity": "word", "tag_audio_events": "false"},
+                              headers=auth("ELEVENLABS_API_KEY", "xi-api-key"), timeout=240)
         if not r.ok: print("stt: HTTP", r.status_code); return None
         words = [w for w in r.json().get("words", []) if w.get("type") == "word"]
     except Exception as e:
@@ -269,6 +288,7 @@ def main():
     ap.add_argument("--from", dest="start", choices=STAGES, default="voice")
     ap.add_argument("--workers", type=int, default=3)
     a = ap.parse_args()
+    load_env()
 
     d = find_topic(a.number); slug = d.name
     sc = load_scenario(d)
@@ -288,7 +308,7 @@ def main():
             one_take(d, lines, sc["topic"].get("voiceSpeed", SPEED))
             if sc["topic"].get("padSilence"): pad_silence(d, lines)
         else:
-            run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", "--proxy-auth",
+            run([sys.executable, REPO / "tools" / "xai_voiceover.py", d / "script.txt", "-o", d / "voice.mp3", *([] if os.environ.get("XAI_API_KEY") else ["--proxy-auth"]),
                  "--speed", str(sc["topic"].get("voiceSpeed", SPEED)), "--voice", VOICE, "--soft-edges", "--timeline", d / "voice-times.tsv", "--cache-dir", d / ".voice-cache"])
         stamp.write_text(digest)
     if (d / "voice-times.tsv").exists():

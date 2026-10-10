@@ -7,11 +7,20 @@ import { createRequire } from 'module';
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
+import { fileURLToPath } from 'url';
 
-const require = createRequire('/opt/node22/lib/node_modules/');
-const { chromium } = require('playwright');
-const ROOT = path.dirname(path.dirname(new URL(import.meta.url).pathname));   // whatif-demo/
+// Playwright: local node_modules, the cloud's global install, or the global npm folder (Windows pc: npm i -g playwright)
+function loadPlaywright() {
+  const roots = [import.meta.url, '/opt/node22/lib/node_modules/'];
+  try { roots.push(path.join(execSync('npm root -g', { encoding: 'utf8', shell: true }).trim(), '/')); } catch {}
+  for (const r of roots) { try { return createRequire(r)('playwright'); } catch {} }
+  throw new Error('Playwright not found: run  npm install -g playwright  and  npx playwright install chromium');
+}
+const { chromium } = loadPlaywright();
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));   // whatif-demo/ (also C:\\... on Windows)
+// Default: software WebGL (SwiftShader), identical on every machine. WHATIF_GPU=1 uses the graphics card (faster, may differ slightly).
+const GL_ARGS = process.env.WHATIF_GPU === '1' ? ['--ignore-gpu-blocklist', '--use-angle=default'] : ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
 const FPS = 30;
 const [slug, mode, ...rest] = process.argv.slice(2);
 let query, OUT;
@@ -34,7 +43,7 @@ const server = http.createServer((q, r) => {
 const port = server.address().port;
 
 async function open(w = WIDE ? 1280 : 720, h = WIDE ? 720 : 1280) {
-  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  const browser = await chromium.launch({ args: GL_ARGS });
   const page = await browser.newPage({ viewport: { width: w, height: h } });
   page.setDefaultTimeout(600000);
   page.on('console', m => { if (!/GPU stall|WebGL/.test(m.text())) console.log('page:', m.text()); });
