@@ -18,7 +18,7 @@
    - Het zet beide projecten in `C:\AI`. Bestaande mappen worden niet overschreven.
    - Het installeert de onderdelen: three.js, Playwright met Chromium en de Python-pakketten.
    - Het vraagt om je **xAI API-sleutel** (voor het scenario en de stem). Die maak je aan op https://console.x.ai onder *API Keys*.
-     Je betaalt per gebruik, ongeveer 1 cent per Short. Je kunt de sleutel ook later invullen in `C:\AI\vox-lux\whatif-demo\.env`.
+     Je betaalt per gebruik, ongeveer 5 cent per Short. Je kunt de sleutel ook later invullen in `C:\AI\vox-lux\whatif-demo\.env`.
    - Tot slot maakt het één testbeeld, om te controleren dat alles werkt.
 4. Zegt het script dat je PowerShell opnieuw moet openen? Doe dat en draai regel 3 nog een keer.
    Het script kun je altijd veilig opnieuw draaien.
@@ -61,6 +61,30 @@ De video staat in `C:\AI\vox-lux\whatif-demo\topics\<naam>\<naam>.mp4`.
 
 **Goed om te weten:** Grok maakt een werkende video, maar kijkt minder scherp dan een mens.
 Bekijk de 6 testbeelden dus echt, en zeg wat er beter kan. Zo blijft de kwaliteit goed.
+
+## Aanpassen wat je wilt
+
+**Tijdens het maken** (bij de vraag "Goed?"): typ in gewoon Nederlands wat er anders moet. Grok past het aan en je krijgt nieuwe testbeelden.
+Dat kan zo vaak als je wilt.
+
+**Na afloop** (de video is al klaar):
+
+```powershell
+whatif aanpassen 12 "de climax moet langer duren en eindig met een zonsopkomst"
+```
+
+Grok past het scenario aan. Daarna volgen testbeelden, jouw akkoord, een nieuwe video en de controle, net als eerst.
+Het nummer staat aan het eind van elke run ("whatif aanpassen 12 ...") en in `onderwerpen.md`.
+
+Zo schrijf je een goede aanpassing:
+- **Zeg wat je ziet en wat je wilt**: "beeld 3 staat achter een pilaar, kies een wijd shot van de rivier".
+- **Gebruik de tijd of het beeldnummer**: "bij 'Ten metres' moet het water al in de straat staan".
+- **Geef een getal waar dat kan**: "laat het water 15 m stijgen", "de stilte bij de climax 6 seconden".
+- **Tekst en stem kun je ook aanpassen**: "laatste zin: Where would you go?", "minder getallen, meer gevoel", "stijl A (POV)".
+- **Eén of twee punten tegelijk** werkt beter dan tien.
+
+Wat níet kan met een aanpassing: een plek of object dat nog niet in de engine zit (bijvoorbeeld Mars, een ruimtestation
+of een vliegtuig van binnen). Grok kiest dan de best passende bestaande plek.
 
 ## Losse stappen
 
