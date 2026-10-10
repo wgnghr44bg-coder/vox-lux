@@ -7,22 +7,30 @@ export const topic = {
 
 export const lines = [
   ['imagine', 'Imagine every human on Earth disappeared.', 'long'],
-  ['not', 'Not slowly. Not through a war, or a disease. All eight billion of us, gone in the very same second.', 'long'],
-  ['normal', 'It is an ordinary afternoon. People are talking, laughing, waiting for the lights to change.', 'pause'],
+  ['not', 'Not slowly. Not through a war, or a disease.', 'pause'],
+  ['gone', 'All eight billion of us, gone in the very same second.', 'long'],
+  ['afternoon', 'It is an ordinary afternoon.', 'pause'],
+  ['normal', 'People are talking, laughing, waiting for the lights to change.', 'pause'],
   ['then', 'And then...', 3],
-  ['nosound', 'No scream. No flash of light. Every phone call ends in the middle of a word.', 'pause'],
-  ['cars', 'Right now, millions of cars are moving on the roads of the world. In this second, not one of them has a driver.', 'pause'],
-  ['others', 'Most roll on, and slowly come to a stop. Some don\'t.', 'long'],
-  ['alarm', 'Within minutes, the first alarms begin to wail. There is no one left to switch them off.', 'pause'],
+  ['nosound', 'No scream. No flash of light.', 'pause'],
+  ['phone', 'Every phone call ends in the middle of a word.', 'long'],
+  ['cars', 'Right now, millions of cars are moving on the roads of the world.', 'pause'],
+  ['driver', 'In this second, not one of them has a driver.', 'long'],
+  ['roll', 'Most roll on, and slowly come to a stop.', 'pause'],
+  ['others', 'Some don\'t.', 'long'],
+  ['alarm', 'Within minutes, the first alarms begin to wail.', 'pause'],
+  ['noone', 'There is no one left to switch them off.', 'long'],
   ['dog', 'A dog waits beside an empty lead, for someone who will never come back.', 'long'],
-  ['hour', 'One hour in, the city still looks almost normal. The traffic lights still change. Red, amber, green. For nobody.', 'pause'],
-  ['fail', 'But everything that kept this city alive needed people. And it is already beginning to fail.', 'none'],
+  ['hour', 'One hour in, the city still looks almost normal.', 'pause'],
+  ['lights', 'The traffic lights still change. Red, amber, green. For nobody.', 'long'],
+  ['fail', 'But everything that kept this city alive needed people.', 'pause'],
+  ['cliff', 'And it is already beginning to fail.', 'none'],
 ];
 
 const hms = s => [3600, 60, 1].map(k => String(Math.floor(s / k) % (k === 3600 ? 100 : 60)).padStart(2, '0')).join(':');
 
 export default function (at) {
-  const V = at('then').e + .5, crash = at('others').e + .4, T_END = at('fail').e + 1.6;
+  const V = at('then').e + .5, crash = at('others').e + .4, T_END = at('cliff').e + 1.6;
   const dogX = 11.2, dogZ = -4.2;
   return {
     T_END, tripod: true, brand: false, showTitle: false, post: true, cars: false, lightCycle: 9,
@@ -50,11 +58,11 @@ export default function (at) {
     counter: [[0, 0], [V, 0], [at('alarm').s, 140], [at('dog').e, 1100], [at('hour').s, 3600], [T_END, 3640]],
     range: [0, 3600],
     captions: [],
-    shots: [[0, 'high'], [at('not').s - .2, 'avenue'], [at('normal').s - .2, 'group'], [at('then').s - .3, 'kerb'], [V + 1.6, 'crossing'],
-            [at('nosound').s + 1.5, 'pov-look'], [at('cars').s - .2, 'corner'], [at('others').s + .6, 'crash'], [at('alarm').s + 3, 'high'],
-            [at('alarm').e + .2, 'pov-walk'], [at('dog').s + 2.4, 'dog'], [at('hour').s - .2, 'lights'], [at('hour').s + 6, 'avenue'], [at('fail').s - .2, 'high']],
+    shots: [[0, 'high'], [at('not').s - .2, 'avenue'], [at('afternoon').s - .2, 'group'], [at('then').s - .3, 'kerb'], [V + 1.6, 'crossing'],
+            [at('nosound').s + 1.5, 'pov-look'], [at('cars').s - .2, 'corner'], [at('roll').s + 1, 'crash'], [at('alarm').s + 3, 'high'],
+            [at('noone').e + .2, 'pov-walk'], [at('dog').s + 2.4, 'dog'], [at('hour').s - .2, 'lights'], [at('lights').s + 1, 'avenue'], [at('fail').s - .2, 'high']],
     beats: { lookUp: 1e9, shelter: 1e9, carsStop: 1e9, vanish: V, climax: V, falls: [], stop: T_END + 1, fade: 1e9 },
-    audio: { quiet: V, riser: [at('normal').s, V], heartbeat: [at('normal').s + 1, V] },
+    audio: { quiet: V, riser: [at('afternoon').s, V], heartbeat: [at('normal').s, V] },
     end: { title: '', lines: '' },
   };
 }

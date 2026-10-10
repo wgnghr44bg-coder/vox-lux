@@ -4,22 +4,27 @@ export const topic = { number: 444, slug: 'humans-4-street', place: 'street', fo
 
 export const lines = [
   ['year25', 'Twenty-five years later.', 'long'],
-  ['same', 'This is the same street. The same corner where, one ordinary afternoon, everyone vanished.', 'long'],
-  ['trees', 'Trees now grow straight out of the road. Their roots lift the asphalt, and the cars beneath them are slowly rusting away.', 'pause'],
-  ['windows', 'Most of the windows are gone. Ivy climbs the walls, and every storm pulls a little more of the city down.', 'long'],
-  ['real', 'And this is not just imagination.', 'pause'],
-  ['pripyat', 'In nineteen eighty-six, the city of Pripyat was abandoned in a single day. Today, forest grows through its streets, and trees stand inside its buildings.', 'long'],
-  ['silence', 'No engines. No voices. Only wind, birds, and the slow sound of a city returning to the earth.', 4],
+  ['same', 'This is the same street.', 'pause'],
+  ['corner', 'The same corner where, one ordinary afternoon, everyone vanished.', 'long'],
+  ['trees', 'Trees now grow straight out of the road.', 'pause'],
+  ['roots', 'Their roots lift the asphalt, and the cars beneath them are slowly rusting away.', 'long'],
+  ['windows', 'Most of the windows are gone.', 'pause'],
+  ['ivy', 'Ivy climbs the walls, and every storm pulls a little more of the city down.', 'long'],
+  ['real', 'And this is not just imagination.', 'long'],
+  ['pripyat', 'In nineteen eighty-six, the city of Pripyat was abandoned in a single day.', 'pause'],
+  ['forest', 'Today, forest grows through its streets, and trees stand inside its buildings.', 'long'],
+  ['silence', 'No engines. No voices.', 'pause'],
+  ['earth', 'Only wind, birds, and the slow sound of a city returning to the earth.', 3],
   ['question', 'After just twenty-five years... would anyone still recognize this as a city?', 'none'],
 ];
 
 export default function (at) {
   const T_END = at('question').e + 5, Y = 365;
-  const days = [[0, .05], [at('same').s, 40], [at('trees').s, 8 * Y], [at('windows').e, 20 * Y], [at('pripyat').s - 1, 9124.85], [T_END, 9124.93]];
+  const days = [[0, .05], [at('same').s, 40], [at('trees').s, 8 * Y], [at('ivy').e, 20 * Y], [at('pripyat').s - 1, 9124.85], [T_END, 9124.93]];
   const c1 = (at, point, cars, smoke) => ({ at, point, cars, smoke: false });
   return {
     T_END, tripod: true, brand: false, post: true, cars: false, lightCycle: 9, trafficStill: true, endStyle: 'card',
-    time: { days, hour: 15.2, doy: 140, clouds: .4, snow: true, rain: [[at('windows').s, at('windows').e + .5]],
+    time: { days, hour: 15.2, doy: 140, clouds: .4, snow: true, rain: [[at('windows').s, at('ivy').e + .5]],
             avoid: [[-1, 42, 7], [-6, 64, 7], [-9.4, 33, 4], [-13, 22, 4], [8.8, 11, 3], [-1, 30, 3]] },
     traffic: [{ x: -7.4, z: -45, dir: 1, v: 10 }, { x: -7.4, z: -75, dir: 1, v: 9 }, { x: -2.6, z: -6, dir: 1, v: 9.5 },
               { x: 2.6, z: 25, dir: -1, v: 9 }, { x: 7.4, z: -15, dir: -1, v: 10 }, { x: 7.4, z: 75, dir: -1, v: 9.5 }, { x: 7.4, z: -70, dir: -1, v: 9 }],
@@ -38,9 +43,9 @@ export default function (at) {
     counter: days, range: [0, 9125],
     captions: [],
     shots: [[0, 'high'], [at('windows').s - .2, 'corner'], [at('real').s - .2, 'sign'], [at('pripyat').s - .2, 'pov-walk'], [at('silence').s - .2, 'rise']],
-    beats: { lookUp: 1e9, shelter: 1e9, carsStop: 0, vanish: 0, powerOut: 0, climax: at('silence').s, falls: [],
+    beats: { lookUp: 1e9, shelter: 1e9, carsStop: 0, vanish: 0, powerOut: 0, climax: at('earth').e, falls: [],
              stop: at('question').e + .4, dark: at('question').e + 1.4, end: at('question').e + .9, fade: 1e9 },
-    audio: { quiet: 0, riser: [at('pripyat').e - 4, at('silence').s + 1] },
+    audio: { quiet: 0, riser: [at('forest').e - 4, at('silence').s + 1] },
     end: { title: 'What if every human<br>disappeared?', lines: 'IFSCAPE3D' },
   };
 }

@@ -108,6 +108,33 @@ def timing_from_tsv(lines, rows, offset=0.8) -> dict:
     return {"VO_OFFSET": offset, "lines": out}
 
 
+MIN_GAP = {"pause": 0.85, "long": 1.35}   # documentairetempo (eigenaar, 10 okt 2026): never rushed; a number = silent climax in seconds
+
+
+def stretch_gaps(d: Path, lines, starts, ends):
+    """The one-take voice shortens pauses: lengthen each gap after a line to at least MIN_GAP / the climax seconds
+    by inserting silence in voice.mp3 (the take itself stays untouched)."""
+    import numpy as np, wave
+    SR = 44100
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(d / "voice.mp3"), "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, "<i2"); parts, pos, shift, S, En = [], 0, 0.0, [], []
+    for i, (_, _, pz) in enumerate(lines):
+        S.append(starts[i] + shift); En.append(ends[i] + shift)
+        if i == len(lines) - 1: break
+        need = float(pz) if isinstance(pz, (int, float)) else MIN_GAP.get(pz or "", 0.5)
+        gap = starts[i + 1] - ends[i]
+        if gap < need:
+            cut = int((ends[i] + min(.25, gap / 2)) * SR)
+            parts += [x[pos:cut], np.zeros(int((need - gap) * SR), "<i2")]; pos = cut; shift += need - gap
+    parts.append(x[pos:])
+    if shift > 0:
+        tmp = d / "voice-stretched.wav"
+        with wave.open(str(tmp), "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(np.concatenate(parts).tobytes())
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-ar", "44100", "-b:a", "192k", d / "voice.mp3"]); tmp.unlink()
+        print(f"documentairetempo: +{shift:.1f} s of pauses")
+    return S, En
+
+
 def one_take(d: Path, lines, speed):
     """Speak the whole script in ONE xAI request (its own [pause] tags), so sentences flow into each other.
     Line times come from the silences in the take: every line boundary goes to the nearest gap, in order."""
@@ -154,6 +181,7 @@ def one_take(d: Path, lines, speed):
     ends.append(t_last)
     stt = stt_line_times(d / "voice.mp3", lines)          # exact word times (ElevenLabs speech-to-text) when available
     if stt: starts, ends = stt
+    starts, ends = stretch_gaps(d, lines, starts, ends)
     hms = lambda t: f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:04.1f}"
     rows = ["nr\tstart\tend\tpause\ttext"] + [f"{i + 1}\t{hms(a)}\t{hms(b)}\t\t{t}" for i, (a, b, (_, t, _)) in enumerate(zip(starts, ends, lines))]
     (d / "voice-times.tsv").write_text("\n".join(rows) + "\n", encoding="utf-8")
