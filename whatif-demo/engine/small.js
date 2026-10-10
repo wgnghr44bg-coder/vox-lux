@@ -7,6 +7,7 @@
 //                                   driverless cars drift (off = metres beside the line at vanish) and meet at `point` at `at`:
 //                                   bang, slide, hazard lights, smoke from the bonnet, a car alarm for `alarm` s
 //   TL.smoke = [[t, x, y, z, size]]   a smoke column from t on
+//   TL.metro = [{ x, z, ry, water: [t0, t1] }]   a metro entrance: stairs down into the ground, water pouring down them
 //   TL.extraShots = { name: shot }  shots of the scenario itself (POV walks etc.)
 //   Sounds (make_audio.py): events 'click', 'drop', 'crash', 'alarm' { dur }, 'buzz' { dur }; TL.audio.quiet = t (city hush)
 import * as THREE from 'three';
@@ -16,10 +17,10 @@ import { car, person } from './props.js';
 export function applySmall(E, TL, F, P) {
   const B = TL.beats, V = B.vanish ?? 1e9;
   Object.assign(P.shots, TL.extraShots || {});
-  if (B.vanish != null) E.EVENTS.push({ t: V, kind: 'click', e: 1 });
+  if (B.vanish > 0) E.EVENTS.push({ t: V, kind: 'click', e: 1 });   // vanish: 0 = nobody there from the start (later chapters)
 
   // ---------- things people drop when they vanish ----------
-  if (B.vanish != null) {
+  if (B.vanish > 0) {
     const R = rng(515);
     for (const p of [...E.people]) {
       if (!p.path || R() > (TL.dropFrac ?? .45)) continue;
@@ -75,6 +76,8 @@ export function applySmall(E, TL, F, P) {
     if (C.alarm) E.EVENTS.push({ t: at + 1.2, kind: 'alarm', dur: C.alarm, e: 1, x: px, z: pz });
   }
 
+  for (const M of TL.metro || []) metro(E, TL, M);
+
   // ---------- smoke columns ----------
   for (const [t0, x, y, z, size = 1] of TL.smoke || []) {
     E.emitters.push((tv, add) => {
@@ -119,4 +122,48 @@ function bike(E, TL, F, i, o, V) {
     person(E, 4000 + i, { y: .45, path(t) { const s = along(t);
       return ax === 'z' ? { x: o.x, z: s - dir * .05, rot: dir > 0 ? 0 : Math.PI, moving: 1, speed: 1.1, stoop: .35, visible: t < V } : { x: s, z: o.z, rot: dir > 0 ? Math.PI / 2 : -Math.PI / 2, moving: 1, speed: 1.1, stoop: .35, visible: t < V }; } });
   }
+}
+
+// metro entrance: railings + a sign on the pavement, stairs going down (seen through a 'hole' in the ground:
+// the stairs draw first, an invisible lid writes depth so the street surface skips the opening), water running down
+function metro(E, TL, M) {
+  const { lam, shadowed } = E, g = new THREE.Group(); g.position.set(M.x, 0, M.z); g.rotation.y = M.ry ?? 0; E.scene.add(g);
+  const W = 3.2, L = 7, D = 4.2, steps = 16, stone = lam(0x8d8a84), dark = lam(0x2a2c30), under = [];
+  const add = (m, o = -3) => { m.renderOrder = o; g.add(m); under.push(m); return m; };
+  for (let i = 0; i < steps; i++) { const st = add(new THREE.Mesh(new THREE.BoxGeometry(W, D / steps, L / steps), stone)); st.position.set(0, -(i + .5) * D / steps, -L / 2 + (i + .5) * L / steps); }
+  for (const sx of [-1, 1]) { const w = add(new THREE.Mesh(new THREE.BoxGeometry(.2, D + .5, L + 3), lam(0xb9b4aa))); w.position.set(sx * (W / 2 + .1), -D / 2, .6); }
+  const back = add(new THREE.Mesh(new THREE.BoxGeometry(W, D, .2), dark)); back.position.set(0, -D / 2 - .4, L / 2 + 2);
+  const roof = add(new THREE.Mesh(new THREE.BoxGeometry(W + .4, .2, 3), lam(0x6b6862))); roof.position.set(0, -D * .45, L / 2 + .8);
+  const floor = add(new THREE.Mesh(new THREE.BoxGeometry(W, .2, 3), dark)); floor.position.set(0, -D - .1, L / 2 + .9);
+  const lid = new THREE.Mesh(new THREE.PlaneGeometry(W, L), new THREE.MeshBasicMaterial({ colorWrite: false })); lid.rotation.x = -Math.PI / 2; lid.position.y = .025; lid.renderOrder = -2; g.add(lid);
+  for (const m of under) m.renderOrder = -3;
+  // railings and the sign
+  const rail = lam(0x3c4a3f);
+  for (const sx of [-1, 1]) { const r = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.06, .06, L), rail)); r.position.set(sx * (W / 2 + .05), 1.0, 0); g.add(r);
+    for (let k = 0; k <= 4; k++) { const p = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.05, 1, .05), rail)); p.position.set(sx * (W / 2 + .05), .5, -L / 2 + k * L / 4); g.add(p); } }
+  { const r = shadowed(new THREE.Mesh(new THREE.BoxGeometry(W + .1, .06, .06), rail)); r.position.set(0, 1.0, -L / 2); g.add(r); }
+  const post = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.07, .07, 3, 6), rail)); post.position.set(W / 2 + .5, 1.5, -L / 2 - .3); g.add(post);
+  const sg = new THREE.Mesh(new THREE.BoxGeometry(.8, .8, .12), lam(0x2d5aa0)); sg.position.set(W / 2 + .5, 3.1, -L / 2 - .3); g.add(sg);
+  const cv = document.createElement('canvas'); cv.width = cv.height = 64; const x = cv.getContext('2d'); x.fillStyle = '#fff'; x.font = 'bold 50px sans-serif'; x.textAlign = 'center'; x.fillText('M', 32, 50);
+  const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+  for (const sd of [-1, 1]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(.7, .7), new THREE.MeshBasicMaterial({ map: tex, transparent: true })); f.position.set(W / 2 + .5, 3.1, -L / 2 - .3 + sd * .065); if (sd < 0) f.rotation.y = Math.PI; g.add(f); }
+  const lampM = new THREE.MeshBasicMaterial({ color: 0x777777 }); const bulb = new THREE.Mesh(new THREE.SphereGeometry(.12, 8, 6), lampM); bulb.position.set(0, -D * .45 - .15, L / 2 + .8); bulb.renderOrder = -3; g.add(bulb);
+  // water: a sheet over the steps with streaks that run down, a pool at the bottom, splashes
+  const wcv = document.createElement('canvas'); wcv.width = 64; wcv.height = 256; const wx = wcv.getContext('2d');
+  wx.fillStyle = 'rgba(120,150,165,.55)'; wx.fillRect(0, 0, 64, 256); const R = rng(9);
+  for (let i = 0; i < 60; i++) { wx.fillStyle = `rgba(225,238,242,${.25 + R() * .45})`; wx.fillRect(R() * 64, R() * 256, 1 + R() * 3, 10 + R() * 40); }
+  const wt = new THREE.CanvasTexture(wcv); wt.wrapS = wt.wrapT = THREE.RepeatWrapping; wt.repeat.set(2, 2);
+  const wm = new THREE.MeshBasicMaterial({ map: wt, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
+  const sheet = new THREE.Mesh(new THREE.PlaneGeometry(W - .2, Math.hypot(L, D)), wm); sheet.renderOrder = -1;
+  sheet.position.set(0, -D / 2 + .08, 0); sheet.rotation.x = -Math.PI / 2 - Math.atan2(D, L); g.add(sheet);
+  const pool = new THREE.Mesh(new THREE.PlaneGeometry(W, 3), new THREE.MeshBasicMaterial({ color: 0x3e5560, transparent: true, opacity: 0 })); pool.rotation.x = -Math.PI / 2; pool.position.set(0, -D + .15, L / 2 + .9); pool.renderOrder = -1; g.add(pool);
+  const [w0, w1] = M.water || [1e9, 1e9];
+  E.updates.push((t, F, tv) => { const k = smooth(w0, w0 + 1.5, t) * (1 - smooth(w1, w1 + 1, t)); wm.opacity = k * .8; wt.offset.y = (tv ?? t) * 1.6; pool.material.opacity = k * .85;
+    lampM.color.setHex(E.powerOut?.(t) || (TL.beats.powerOff && t > TL.beats.powerOff[1]) ? 0x333333 : 0xfff0c8); });
+  const wp = new THREE.Vector3();
+  E.emitters.push((tv, addP) => { const k = smooth(w0, w0 + 1.5, tv) * (1 - smooth(w1, w1 + 1, tv)); if (k <= 0) return;
+    for (let i = 0; i < 26; i++) { const a = (tv * 1.3 + hash(i, 1)) % 1;
+      wp.set((hash(i, 2) - .5) * (W - .4), -D + .3 + a * .6, L / 2 + .2 + hash(i, 3)).applyAxisAngle(new THREE.Vector3(0, 1, 0), M.ry ?? 0).add(g.position);
+      addP(wp.x, wp.y, wp.z, .35 + a * .4, .3 * k * (1 - a), .85, .9, .93, 100 + hash(i, 4) * 6); } });
+  if (M.water) E.EVENTS.push({ t: w0, kind: 'water', dur: w1 - w0, e: 1, x: M.x, z: M.z });
 }
