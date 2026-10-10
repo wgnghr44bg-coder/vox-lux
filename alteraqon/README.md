@@ -19,6 +19,27 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-10-humans-vanish/` – What if all humans vanished? (eindversie: `doc/make-doc-lux.py`)
 - `2026-10-10-struck-by-lightning/` – What if you got struck by lightning? (`make.py`)
 
+## Opbouw van elke video (sjabloon = de lightning-video)
+Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca. 18 zinnen, 65–75 s:
+1. **Opening:** "Imagine… <onderwerp>. What would happen…?" (zegt meteen waar de video over gaat; geen titel in beeld)
+2. **POV-opbouw:** jij staat ergens, kleine voortekenen, spanning.
+3. **Het moment:** één kort woord ("Then.") + witte flits en knal (`BANG` in shots.py).
+4. **Feiten met grote getallen:** elk feit een eigen beeld + tijdstempel (label + getal, ~2,6 s in beeld).
+5. **Dieptepunt, dan de twist ("But…"):** verrassend detail, goede afloop, een bizar echt record.
+6. **Slot:** "So remember." + les of vraag aan de kijker.
+
+Regels: één beeld per (deel)zin, wissel precies op de stem; elke zin eindigt op `[pause]` of `[long pause]`;
+feiten alleen als ze algemeen bekend en controleerbaar zijn; ca. 13 afbeeldingen (≈ $0,30 per video).
+
+Stappen (vanuit de map `vox-lux`):
+```
+cp -r alteraqon/_sjabloon alteraqon/<datum>-<slug>       # daarna script-cues.txt, prompts.txt, shots.py, upload.json invullen
+python3 alteraqon/tools/make_images.py alteraqon/<datum>-<slug>
+python3 alteraqon/tools/make_voice.py  alteraqon/<datum>-<slug>
+python3 alteraqon/tools/make_video.py  alteraqon/<datum>-<slug> <tmpmap>    # -> <tmpmap>/<slug>.mp4
+```
+In `shots.py` verwijst het eerste getal naar de regel in `voice-times.tsv` (pas invullen ná make_voice).
+
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp; niet meer feiten erbij zetten.
 
