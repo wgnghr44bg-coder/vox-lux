@@ -31,7 +31,7 @@ export const lines = [
 export default function (at) {
   const climax = at('lake').e + .3, back = at('sixty').s + .3, blue = at('blue').e;
   return {
-    T_END: at('ask').e + 4.6, tripod: true, showTitle: true,
+    T_END: at('ask').e + 4.6, tripod: true, showTitle: true, endStyle: 'card',
     titleOut: at('blanket').s - .1,
     hud: { label: 'AIR PRESSURE', unit: ' hPa', decimals: 0, sub: '',
            subAt: [[at('one').s, 'SECOND 1'], [at('ten').s, 'SECOND 10'], [at('thirty').s, 'SECOND 30'], [at('sixty').s, 'SECOND 60']] },
@@ -54,7 +54,7 @@ export default function (at) {
             [at('thirty').s, 'lake'], [climax, 'overlook'], [at('blue').s, 'vista'], [at('ask').s, 'overlook']],
     beats: {
       brand: at('blanket').s + .4, shelter: at('silent').s, carsStop: 1e9,
-      falls: [], climax, stop: blue + 1, dark: at('ask').e + 1, end: at('ask').s,
+      falls: [], climax, stop: blue + 1, dark: at('ask').e + 1, end: at('ask').e - .3,
     },
     audio: { hiss: -40, ice: -32, quiet: at('silent').s, heartbeat: [at('ten').s, climax], riser: [at('thirty').s, at('lake').s] },
     end: { title: 'What if Earth lost its<br>atmosphere for one minute?',
