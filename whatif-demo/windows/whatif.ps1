@@ -1,8 +1,9 @@
 # IfScape3D - short commands on Windows (run from anywhere).
 #
 #   .\whatif.ps1 "What if the Sun disappeared?"
-#       EVERYTHING in one go: Codex writes the scenario -> voice + 6 test frames -> you answer j (or say what
-#       to change) -> full video with sound -> check -> source files archived. After setup.ps1 also just:  whatif "..."
+#       EVERYTHING in one go: Grok (xAI) writes and checks the scenario -> voice + 6 test frames -> you answer j
+#       (or type what to change) -> full video with sound -> check -> source files archived.
+#       After setup.ps1 also just:  whatif "..."      Costs (xAI): about 5-10 cents per Short.
 #
 # Single steps (topic number from onderwerpen.md):
 #   .\whatif.ps1 stills 45      6 test frames + overview (makes the voice first: xAI, about 1 cent)
@@ -24,7 +25,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $env:PYTHONUTF8 = "1"
-$OutputEncoding = New-Object System.Text.UTF8Encoding $false     # prompts piped to codex keep their accents
+try { [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding $false } catch {}   # Python prints UTF-8
 $steps = @("stills", "render", "check", "archive", "preview")
 if ($steps -notcontains $Cmd) {                                   # not a step: it is a topic (or nothing yet)
   $Arg1 = (@($Cmd, $Arg1, $Arg2) + @($Rest) | Where-Object { $_ }) -join " "
@@ -43,11 +44,14 @@ function TopicDir($nr) {
   return $p.Trim()
 }
 
-function Codex($prompt) {
-  $c = Get-Command codex -ErrorAction SilentlyContinue
-  if (-not $c) { throw "Codex CLI not found: npm install -g @openai/codex  and then once:  codex login" }
-  $prompt | & codex exec --full-auto -C $wd -
-  if ($LASTEXITCODE -ne 0) { throw "codex exec failed (exit $LASTEXITCODE)" }
+function Topic {   # make_topic.py: Grok writes / adjusts the scenario; returns the topic number
+  $ErrorActionPreference = "Continue"          # Python warnings on stderr must not stop PowerShell 5
+  $lines = @(& $py "$wd\make_topic.py" @args 2>&1 | ForEach-Object { $t = "$_"; Write-Host $t; $t })
+  $code = $LASTEXITCODE
+  $num = ($lines | Select-String '^NUMBER=(\d+)' | Select-Object -Last 1)
+  if ($code -eq 3) { throw "Dit onderwerp is al gemaakt (zie onderwerpen.md)" }
+  if ($code -ne 0) { throw "Het scenario lukte niet (zie de meldingen hierboven)" }
+  if ($num) { return $num.Matches[0].Groups[1].Value }
 }
 
 Push-Location $repo
@@ -57,20 +61,8 @@ try {
       $topic = $Arg1
       if (-not $topic) { $topic = Read-Host "Onderwerp (bijv. What if the Sun disappeared?)" }
       if (-not $topic) { throw "Geen onderwerp" }
-      $result = Join-Path $wd ".codex-result.txt"
-      if (Test-Path $result) { Remove-Item $result }
-      Write-Host "1/5 Codex schrijft het scenario voor: $topic" -ForegroundColor Cyan
-      Codex @"
-Make a new What if Short about: $topic
-Follow AGENTS.md, but do ONLY steps 1 to 3 (check it does not exist yet, add the row to onderwerpen.md, write topics/<slug>/scenario.js).
-Do NOT run whatif.ps1, make_whatif.py or the renderer: this script does that next. No network needed.
-When done, write only the topic number into the file .codex-result.txt (in whatif-demo).
-If the topic already exists, create nothing and write only the word EXISTS into .codex-result.txt.
-"@
-      if (-not (Test-Path $result)) { throw "Codex gave no topic number (.codex-result.txt missing)" }
-      $nr = (Get-Content $result -Raw).Trim()
-      if ($nr -eq "EXISTS") { throw "Dit onderwerp bestaat al (zie onderwerpen.md)" }
-      if ($nr -notmatch '^\d+$') { throw "Unexpected answer from Codex: $nr" }
+      Write-Host "1/5 Grok schrijft en controleert het scenario voor: $topic" -ForegroundColor Cyan
+      $nr = Topic $topic
       $d = TopicDir $nr; $slug = Split-Path -Leaf $d
       Write-Host "Onderwerp $nr -> topics\$slug" -ForegroundColor Green
 
@@ -81,12 +73,8 @@ If the topic already exists, create nothing and write only the word EXISTS into 
         $ans = (Read-Host "Goed? [Enter/j = video maken, n = stoppen, of typ wat er anders moet]").Trim()
         if ($ans -eq "" -or $ans -match '^(j|ja|y|yes|goed|ok)$') { break }
         if ($ans -match '^(n|nee|no|stop)$') { Write-Host "Gestopt. Later verder:  whatif render $nr"; return }
-        Write-Host "Codex past het scenario aan ..." -ForegroundColor Cyan
-        Codex @"
-Adjust topics/$slug/scenario.js (keep the rules of AGENTS.md and AUTOMATISCH.md). The owner looked at the 6 test frames and says:
-$ans
-Only edit files; do NOT run whatif.ps1, make_whatif.py or the renderer.
-"@
+        Write-Host "Grok past het scenario aan ..." -ForegroundColor Cyan
+        try { Topic --fix $nr $ans | Out-Null } catch { Write-Host "$_ (vorige versie blijft staan)" -ForegroundColor Yellow }
       }
 
       Write-Host "3/5 Video + geluid (duurt 10-30 min)" -ForegroundColor Cyan

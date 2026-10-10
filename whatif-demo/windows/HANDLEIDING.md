@@ -17,7 +17,7 @@
      Vraagt Windows daarna om toestemming, klik dan **Ja**.
    - Het zet beide projecten in `C:\AI`. Bestaande mappen worden niet overschreven.
    - Het installeert de onderdelen: three.js, Playwright met Chromium en de Python-pakketten.
-   - Het vraagt om je **xAI API-sleutel** voor de stem. Die maak je aan op https://console.x.ai onder *API Keys*.
+   - Het vraagt om je **xAI API-sleutel** (voor het scenario en de stem). Die maak je aan op https://console.x.ai onder *API Keys*.
      Je betaalt per gebruik, ongeveer 1 cent per Short. Je kunt de sleutel ook later invullen in `C:\AI\vox-lux\whatif-demo\.env`.
    - Tot slot maakt het één testbeeld, om te controleren dat alles werkt.
 4. Zegt het script dat je PowerShell opnieuw moet openen? Doe dat en draai regel 3 nog een keer.
@@ -33,29 +33,36 @@ Open een PowerShell-venster en typ:
 whatif "What if the Sun disappeared?"
 ```
 
-Dan gebeurt dit vanzelf:
+Er komt geen Claude of Codex aan te pas. De schrijfstap doet **Grok** (xAI), met dezelfde sleutel als de stem. Dan gebeurt dit:
 
-1. **Codex** schrijft het Engelse script (170–210 woorden) en het scenario: plek, kracht, camerashots en teller.
-   Het gebruikt daarvoor de bestaande bouwstenen. Bestaat het onderwerp al, dan stopt het.
-2. De **stem** wordt gemaakt (xAI "atlas", ± 1 cent), samen met **6 testbeelden**. Het overzichtsbeeld gaat vanzelf open.
-3. PowerShell vraagt: **Goed?**
-   - Druk op **Enter** (of typ `j`) om de video te laten maken.
-   - Typ wat er anders moet, bijvoorbeeld `meer mensen op straat, laatste beeld een zonsopkomst`.
-     Codex past het scenario aan en je krijgt nieuwe testbeelden.
+1. **Grok kiest een opzet.** Het kijkt in `onderwerpen.md` of het onderwerp al gemaakt is; is dat zo, dan stopt het.
+   Staat het onderwerp al als *gepland* op de lijst, dan gebruikt het dat nummer. Daarna kiest het een plek, een kracht
+   en een bestaande Short als voorbeeld.
+2. **Grok schrijft het script en het scenario.** Het script is Engels, 175–205 woorden, en begint met "Imagine …".
+   Het scenario regelt de shots, de teller en de effecten.
+3. **De engine test het scenario zelf.** Laadt het? Klopt de tijdlijn? Lukken de beelden? Klopt het aantal woorden?
+   Bij een fout krijgt Grok de melding terug en verbetert het, tot 4 keer.
+4. **Grok bekijkt zelf 6 testbeelden.** Kloppen teller, tekst en beeld met wat de stem zegt? Duidelijke fouten verbetert het meteen.
+5. **De stem wordt gemaakt** (xAI "atlas") en je krijgt de **6 testbeelden** te zien.
+6. PowerShell vraagt: **Goed?**
+   - Druk op **Enter** om de video te laten maken.
+   - Of typ in gewoon Nederlands wat er anders moet, bijvoorbeeld `het water moet echt de straten in lopen`
+     of `derde beeld staat achter een pilaar`. Grok past het aan en je krijgt nieuwe testbeelden.
    - Typ `n` om te stoppen. Later ga je verder met `whatif render <nr>`.
-4. De **video wordt gerenderd en het geluid wordt eronder gezet**: stem, achtergrondgeluid en effecten.
-   Dat duurt 10–30 min. Je hoeft niets te doen.
-5. Er volgt een **controle**: speelt de video af, zitten beeld en geluid erin, klopt de lengte, hapert er niets?
-6. De **bronbestanden** worden bewaard in `C:\AI\ifscape3d-videos`, en de mp4 gaat open.
-   Daarbij krijg je de titel en de TikTok-tekst te zien.
+7. **De video wordt gemaakt, met geluid** (stem, achtergrondgeluid en effecten). Dat duurt 10–30 min.
+8. **Controle en archief:** speelt de video af, zitten beeld en geluid erin, hapert er niets?
+   Daarna worden de bronbestanden bewaard in `C:\AI\ifscape3d-videos` en gaat de mp4 open, met de titel en de TikTok-tekst.
 
-De video staat in `C:\AI\vox-lux\whatif-demo\topics\<naam>\<naam>.mp4`.
+**Kosten:** ongeveer 5–10 cent per Short bij xAI (scenario, controle en stem). Dat gaat van je xAI-tegoed af.
+Elke aanpassing na de testbeelden kost ongeveer 1–3 cent.
 **Er wordt nooit iets geüpload.** Dat doe je zelf.
 
-Wil je liever in Codex zelf werken? Open Codex in `C:\AI\vox-lux\whatif-demo` en typ
-*Maak een What if-Short over "…"*. Codex volgt dan dezelfde stappen uit `AGENTS.md`.
+De video staat in `C:\AI\vox-lux\whatif-demo\topics\<naam>\<naam>.mp4`.
 
-## Zelf de commando's draaien (zonder Codex)
+**Goed om te weten:** Grok maakt een werkende video, maar kijkt minder scherp dan een mens.
+Bekijk de 6 testbeelden dus echt, en zeg wat er beter kan. Zo blijft de kwaliteit goed.
+
+## Losse stappen
 
 Ga eerst naar de juiste map:
 
@@ -72,6 +79,7 @@ Na de installatie kun je ook overal `whatif` typen in plaats van `.\whatif.ps1`.
 | `.\whatif.ps1 check 45` | Controleert de video en opent hem |
 | `.\whatif.ps1 archive 45` | Bewaart de bronbestanden in het archief |
 | `.\whatif.ps1 preview street wind` | Laat een plek zien, zonder kosten |
+| `python ..\make_topic.py --fix 45 "tekst"` | Laat Grok het scenario van onderwerp 45 aanpassen |
 
 Weigert PowerShell het script? Draai dan eerst `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` en antwoord **J**.
 
