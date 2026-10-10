@@ -48,6 +48,7 @@ createSkyObjects(E, TL);
 createUfo(E, TL);                                     // TL.ufo: motherships, scouts, beams
 createArmy(E, TL);                                    // TL.army: tanks, trucks, helicopters, soldiers, barriers
 Object.assign(P.shots, TL.extraShots || {});          // scenario-specific camera standpoints
+window.SHOTS = P.shots;                               // for director.py (render.mjs timeline)
 createSpace(E, TL);        // TL.space: Earth and Moon seen from space (its own scene)
 createRing(E, TL);         // TL.ring: a debris ring across the sky (needs TL.moon.orbit)
 createMeteors(E, TL);      // TL.meteors: streaks and fireballs
