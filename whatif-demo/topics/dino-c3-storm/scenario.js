@@ -7,17 +7,17 @@ export const topic = {
 };
 
 export const lines = [
-  ['storm', 'Twenty-one forty. A storm rolls over the park.', 'pause'],
-  ['strike', 'Lightning strikes a pole. The power goes out.', 'pause'],
+  ['storm', 'Twenty-one forty. [pause] A storm rolls over the park.', 'pause'],
+  ['strike', 'Lightning strikes a pole. [pause] The power goes out.', 'pause'],
   ['fence', 'And with it… the electric fence.', 'long'],
-  ['fifty', 'Fifty metres. Something moves between the trees.', 'pause'],
-  ['movies', 'Forget the movies. A real Velociraptor was about the size of a turkey, and covered in feathers.', 'pause'],
+  ['fifty', 'Fifty metres. [pause] Something moves between the trees.', 'pause'],
+  ['movies', 'Forget the movies. [pause] A real Velociraptor was about the size of a turkey, and covered in feathers.', 'pause'],
   ['utah', 'But its bigger cousin, Utahraptor, could weigh as much as a horse.', 'pause'],
   ['groups', 'And animals like these may have hunted in groups.', 'long'],
   ['staff', 'The last keepers hurry away and lock the gates behind them.', 'pause'],
-  ['five', 'Five metres.', 4],
+  ['five', 'Five metres.', 3],
   ['holds', 'The fence holds.', 'pause'],
-  ['other', 'But on the far side of the park, another gate has swung open. And the biggest hunter of them all just walked through it.', 'none'],
+  ['other', 'But on the far side of the park, another gate has swung open. [pause] And the biggest hunter of them all just walked through it.', 'none'],
 ];
 
 export default function (at) {

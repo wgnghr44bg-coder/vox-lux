@@ -5,15 +5,15 @@ export const topic = {
 };
 
 export const lines = [
-  ['today', 'Today. Ten o\'clock. The gates open.', 'long'],
-  ['three', 'Two hundred metres. Behind a double fence, six metres high, walks the most famous predator that ever lived.', 'pause'],
-  ['rex', 'Tyrannosaurus rex. Twelve metres long. Around eight tonnes.', 'pause'],
+  ['today', 'Today. [pause] Ten o\'clock. [pause] The gates open.', 'long'],
+  ['three', 'Two hundred metres. [pause] Behind a double fence, six metres high, walks the most famous predator that ever lived.', 'pause'],
+  ['rex', 'Tyrannosaurus rex. [pause] Twelve metres long. [pause] Around eight tonnes.', 'pause'],
   ['bite', 'Its bite was the strongest of any land animal we know: more than three tonnes of force.', 'long'],
-  ['fifteen', 'Fifteen metres. A long-neck lifts its head over the fence, right above the visitors.', 'pause'],
-  ['argentino', 'The biggest of them, Argentinosaurus, could weigh around seventy tonnes. As much as ten elephants.', 'pause'],
+  ['fifteen', 'Fifteen metres. [pause] A long-neck lifts its head over the fence, right above the visitors.', 'pause'],
+  ['argentino', 'The biggest of them, Argentinosaurus, could weigh around seventy tonnes. [pause] As much as ten elephants.', 'pause'],
   ['feel', 'You would feel every footstep through your shoes.', 'long'],
-  ['stops', 'Then the T. rex stops. And slowly turns its head… towards the tower.', 3],
-  ['eyes', 'Its eyes faced forward, like ours. It could judge distance.', 'pause'],
+  ['stops', 'Then the T. rex stops. [pause] And slowly turns its head… towards the tower.', 3],
+  ['eyes', 'Its eyes faced forward, like ours. [pause] It could judge distance.', 'pause'],
   ['storm', 'And tonight, a storm is coming.', 'none'],
 ];
 
