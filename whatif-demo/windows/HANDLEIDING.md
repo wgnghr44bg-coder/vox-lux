@@ -25,23 +25,35 @@
 
 Alleen kijken, niets installeren: `powershell -ExecutionPolicy Bypass -File C:\AI\setup.ps1 -CheckOnly`
 
-## Elke video: alleen een onderwerp geven
+## Elke video: één commando
 
-Open Codex in de map `C:\AI\vox-lux\whatif-demo` en typ bijvoorbeeld:
+Open een PowerShell-venster en typ:
 
-> Maak een What if-Short over "What if the Sun disappeared?"
+```powershell
+whatif "What if the Sun disappeared?"
+```
 
-Codex volgt dan `AGENTS.md`:
+Dan gebeurt dit vanzelf:
 
-1. Codex schrijft het script en het scenario met de bestaande bouwstenen.
-2. Codex maakt de stem en **6 testbeelden**. Je krijgt het overzichtsbeeld te zien.
-3. Jij zegt **"goed"**, of wat er anders moet.
-4. Codex rendert de volledige video. Dat duurt 10–30 min.
-5. Codex controleert de mp4: is hij er, speelt hij af, zitten beeld en geluid erin, klopt de lengte?
-6. Codex bewaart de bronbestanden in `C:\AI\ifscape3d-videos`.
+1. **Codex** schrijft het Engelse script (170–210 woorden) en het scenario: plek, kracht, camerashots en teller.
+   Het gebruikt daarvoor de bestaande bouwstenen. Bestaat het onderwerp al, dan stopt het.
+2. De **stem** wordt gemaakt (xAI "atlas", ± 1 cent), samen met **6 testbeelden**. Het overzichtsbeeld gaat vanzelf open.
+3. PowerShell vraagt: **Goed?**
+   - Druk op **Enter** (of typ `j`) om de video te laten maken.
+   - Typ wat er anders moet, bijvoorbeeld `meer mensen op straat, laatste beeld een zonsopkomst`.
+     Codex past het scenario aan en je krijgt nieuwe testbeelden.
+   - Typ `n` om te stoppen. Later ga je verder met `whatif render <nr>`.
+4. De **video wordt gerenderd en het geluid wordt eronder gezet**: stem, achtergrondgeluid en effecten.
+   Dat duurt 10–30 min. Je hoeft niets te doen.
+5. Er volgt een **controle**: speelt de video af, zitten beeld en geluid erin, klopt de lengte, hapert er niets?
+6. De **bronbestanden** worden bewaard in `C:\AI\ifscape3d-videos`, en de mp4 gaat open.
+   Daarbij krijg je de titel en de TikTok-tekst te zien.
 
-De video staat daarna in `C:\AI\vox-lux\whatif-demo\topics\<naam>\<naam>.mp4`.
+De video staat in `C:\AI\vox-lux\whatif-demo\topics\<naam>\<naam>.mp4`.
 **Er wordt nooit iets geüpload.** Dat doe je zelf.
+
+Wil je liever in Codex zelf werken? Open Codex in `C:\AI\vox-lux\whatif-demo` en typ
+*Maak een What if-Short over "…"*. Codex volgt dan dezelfde stappen uit `AGENTS.md`.
 
 ## Zelf de commando's draaien (zonder Codex)
 
@@ -50,6 +62,8 @@ Ga eerst naar de juiste map:
 ```powershell
 cd C:\AI\vox-lux\whatif-demo\windows
 ```
+
+Na de installatie kun je ook overal `whatif` typen in plaats van `.\whatif.ps1`.
 
 | Commando | Wat het doet |
 |---|---|
