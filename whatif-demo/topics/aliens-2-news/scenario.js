@@ -1,12 +1,14 @@
 // What if aliens landed tomorrow? Chapter 2: breaking news (studio, living room, shop window), HOUR 1 -> HOUR 6.
-import { lines } from './lines.js';
-export { lines };
+import { lines as raw } from './lines.js';
+import { split, group } from '../aliens-1-street/sentences.js';
+export const lines = split(raw);
 export const topic = {
   number: 502, slug: 'aliens-2-news', place: 'indoors', force: 'alien', wide: true,
   question: 'What if aliens landed tomorrow?', title: '',
 };
 
-export default function (at) {
+export default function (at0) {
+  const at = group(at0, lines);
   const black = at('black').s + .9, back = at('lower').s - .2, T_END = at('lower').e + 1.6;
   const tick = 'OBJECT ABOUT 3 KM WIDE HOVERING AT 2,000 M  •  AUTHORITIES URGE CALM  •  AIRSPACE CLOSED  •  NO CONTACT SO FAR';
   return {

@@ -1,6 +1,7 @@
 // What if aliens landed tomorrow? Chapter 4: contact (beach at dawn), WEEK 1 -> a ship lands, the door opens.
-import { lines } from './lines.js';
-export { lines };
+import { lines as raw } from './lines.js';
+import { split, group } from '../aliens-1-street/sentences.js';
+export const lines = split(raw);
 export const topic = {
   number: 504, slug: 'aliens-4-contact', place: 'boulevard', force: 'alien', wide: true,
   question: 'What if aliens landed tomorrow?', title: '',
@@ -8,7 +9,8 @@ export const topic = {
 
 const LX = -170, LZ = 12, GY = LZ / 38 * 2.4, LY = GY + .55 * 24;     // landing spot on the sand
 
-export default function (at) {
+export default function (at0) {
+  const at = group(at0, lines);
   const T_END = at('ask').e + 3.2, land = at('silent').s + 2.4, door = at('door').s - .2;
   const groups = [[-118, 46], [-100, 50], [-136, 48], [-84, 45], [-108, 58], [-128, 56]].map(([x, z], i) =>
     ({ at: [x, z], n: 9, face: -Math.PI / 2, spread: 3, lamp: false, ...(i === 0 && { shot: { name: 'faces', from: [-6, 1.2, -3], fov: 44 } }) }));

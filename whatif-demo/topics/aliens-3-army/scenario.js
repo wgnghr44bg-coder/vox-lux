@@ -1,7 +1,8 @@
 // What if aliens landed tomorrow? Chapter 3: the army (river city), DAY 1 -> the small ships break away and scan.
-import { lines } from './lines.js';
+import { lines as raw } from './lines.js';
+import { split, group } from '../aliens-1-street/sentences.js';
 import { rng } from '../../engine/util.js';
-export { lines };
+export const lines = split(raw);
 export const topic = {
   number: 503, slug: 'aliens-3-army', place: 'river-city', force: 'alien', wide: true,
   question: 'What if aliens landed tomorrow?', title: '',
@@ -9,7 +10,8 @@ export const topic = {
 
 const MOTHER = [-320, 1500, -1900];
 
-export default function (at) {
+export default function (at0) {
+  const at = group(at0, lines);
   const T_END = at('week').e + 1.6, d0 = at('dozens').s, R = rng(77);
   // the column: tanks and trucks drive in along the quay road and park in a row
   const kinds = ['tank', 'truck', 'truck', 'tank', 'truck', 'jeep', 'truck'];
