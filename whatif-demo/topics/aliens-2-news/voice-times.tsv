@@ -1,9 +1,19 @@
 nr	start	end	pause	text
-1	0:00:00.2	0:00:03.4		HOUR 1. Every channel on Earth shows the same picture.
-2	0:00:04.1	0:00:07.6		More people are watching than the six hundred million who saw the first Moon landing.
-3	0:00:08.5	0:00:14.3		Then the phone networks fail. Not because of an attack. Just because everyone calls the people they love, at the same time.
-4	0:00:16.0	0:00:21.4		HOUR 3. Stock markets stop trading. Automatic brakes kick in when prices fall too fast.
-5	0:00:22.1	0:00:27.9		People rush out for water and food. In 2020, shelves emptied over weeks. Now it takes one afternoon.
-6	0:00:29.6	0:00:33.7		HOUR 6. The ship has still done nothing. No message. No sound.
-7	0:00:34.6	0:00:36.1		Then every screen goes black.
-8	0:00:39.2	0:00:41.6		And when the picture comes back… the ship is lower.
+1	0:00:00.2	0:00:00.5		HOUR 1.
+2	0:00:02.5	0:00:04.6		Every channel on Earth shows the same picture.
+3	0:00:06.3	0:00:09.9		More people are watching than the six hundred million who saw the first Moon landing.
+4	0:00:11.6	0:00:12.8		Then the phone networks fail.
+5	0:00:14.1	0:00:15.1		Not because of an attack.
+6	0:00:16.4	0:00:19.6		Just because everyone calls the people they love, at the same time.
+7	0:00:21.3	0:00:21.6		HOUR 3.
+8	0:00:23.8	0:00:25.1		Stock markets stop trading.
+9	0:00:26.2	0:00:28.9		Automatic brakes kick in when prices fall too fast.
+10	0:00:29.7	0:00:31.4		People rush out for water and food.
+11	0:00:32.1	0:00:34.6		In 2020, shelves emptied over weeks.
+12	0:00:35.4	0:00:36.8		Now it takes one afternoon.
+13	0:00:38.4	0:00:38.6		HOUR 6.
+14	0:00:40.4	0:00:41.7		The ship has still done nothing.
+15	0:00:42.5	0:00:43.1		No message.
+16	0:00:43.9	0:00:44.4		No sound.
+17	0:00:45.7	0:00:47.2		Then every screen goes black.
+18	0:00:50.2	0:00:52.9		And when the picture comes back… the ship is lower.

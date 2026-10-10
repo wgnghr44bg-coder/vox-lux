@@ -5,24 +5,16 @@ export const topic = {
   title: 'Imagine<br>aliens landed<br>tomorrow',
 };
 
-export const lines = [
-  ['imagine', 'Imagine aliens landed tomorrow.', 'long'],
-  ['notx', 'Not a signal from a distant star. Not a blurry light in the night sky. Just… there. Hanging over your city.', 'long'],
-  ['three', 'It is three in the afternoon. The street is busy. Then the sunlight turns strangely dim.', 'pause'],
-  ['stop', 'People stop walking. Something is sliding in front of the Sun.', 'long'],
-  ['wide', 'It is almost three kilometres wide. Wider than the whole city centre.', 'pause'],
-  ['star', 'The nearest star is more than four light-years away. Our fastest spacecraft would need over six thousand years to get there.', 'pause'],
-  ['built', 'Whoever built this did not just cross that distance. They arrived.', 'long'],
-  ['still', 'And now… it is not moving.', 3],
-  ['terrifying', 'But here\'s the terrifying part. Our radio and TV signals have been leaking into space for about a hundred years.', 'pause'],
-  ['listening', 'This may not be an accident. They could have been listening.', 'none'],
-];
+import { lines as raw } from './lines.js';
+import { split, group } from './sentences.js';
+export const lines = split(raw);
 
 // mothership hover point: straight toward the Sun from the street, 2,000 m up (it slides in front of the Sun)
 const SUN = [-70, 120, -170], k = 2000 / SUN[1], HOVER = [SUN[0] * k, 2000, SUN[2] * k];
 const clock = s => { const m = Math.floor(s / 60), x = Math.floor(s % 60); return `HOUR 0 — 15:${String(m).padStart(2, '0')}:${String(x).padStart(2, '0')}`; };
 
-export default function (at) {
+export default function (at0) {
+  const at = group(at0, lines);
   const arrive0 = at('three').s - 2, arrive1 = at('wide').s + 1, climax = at('still').e + .2, T_END = at('listening').e + 1.6;
   const subAt = []; for (let t = 0; t <= T_END; t += .5) subAt.push([t, clock(t * 1.6)]);
   return {
