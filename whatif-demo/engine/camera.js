@@ -11,11 +11,11 @@
 // The gaze is simulated once over the whole video (deterministic), so any frame renders on its own.
 // Camera MOVES (TL.shots: [t, name, move], or shot.move on a standpoint): the standpoint itself glides during the shot,
 // smooth in and out like a crane, dolly or drone. 'push:.5' = half as strong, 'push:1.5' = stronger.
-//  push       dolly in: starts on the standpoint, ends ~30% closer        pull       reveal: starts closer, ends on the standpoint
+//  push       dolly in: starts on the standpoint, ends ~20% closer        pull       reveal: starts closer, ends on the standpoint
 //  crane-down starts high, settles on the standpoint                     crane-up   rises from the standpoint (aftermath, ending)
-//  drone      high and further back, glides forward and down to it      orbit / orbit-left  circles the look point (~24°)
+//  drone      high and further back, glides forward and down to it      orbit / orbit-left  circles the look point (~16°)
 //  tilt-up    tilts up from the standpoint towards the sky              tilt-down  starts looking up, tilts down to it
-//  zoom       slow lens zoom in (fov to 60%)                             zoom-out   starts zoomed in, widens to the standpoint
+//  zoom       slow lens zoom in (fov to 72%)                             zoom-out   starts zoomed in, widens to the standpoint
 import * as THREE from 'three';
 import { clamp, hash, noise, smooth, lerp } from './util.js';
 
@@ -48,23 +48,23 @@ export function createCamera(E, TL, P, F) {
     const v = [look[0] - pos[0], look[1] - pos[1], look[2] - pos[2]], d = Math.hypot(...v) || 1, n = v.map(c => c / d);
     const hl = Math.hypot(n[0], n[2]) || 1, h = [n[0] / hl, 0, n[2] / hl];             // horizontal direction of view
     const along = (dir, s) => { for (let j = 0; j < 3; j++) pos[j] += dir[j] * s; };
-    const dolly = Math.max(0, Math.min(d * .3 * k, d - 4));                           // never closer than 4 m to the look point
-    const H = clamp(d * .3, 5, 40) * k;
+    const dolly = Math.max(0, Math.min(d * .2 * k, d - 4));                           // never closer than 4 m to the look point
+    const H = clamp(d * .2, 4, 28) * k;
     let fov = 1;
     switch (m.type) {
       case 'push': along(n, dolly * u); break;
       case 'pull': along(n, dolly * (1 - u)); break;
       case 'crane-down': pos[1] += H * (1 - u); break;
       case 'crane-up': pos[1] += H * u; look[1] += H * u * .35; break;
-      case 'drone': pos[1] += H * (1 - u); along(h, -d * .3 * k * (1 - u)); break;
+      case 'drone': pos[1] += H * (1 - u); along(h, -d * .2 * k * (1 - u)); break;
       case 'orbit': case 'orbit-left': {
-        const a = (u - .5) * 24 * k * D2R * (m.type === 'orbit-left' ? -1 : 1), dx = pos[0] - look[0], dz = pos[2] - look[2];
+        const a = (u - .5) * 16 * k * D2R * (m.type === 'orbit-left' ? -1 : 1), dx = pos[0] - look[0], dz = pos[2] - look[2];
         pos[0] = look[0] + dx * Math.cos(a) - dz * Math.sin(a); pos[2] = look[2] + dx * Math.sin(a) + dz * Math.cos(a); break;
       }
-      case 'tilt-up': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 26 * k) * D2R) * u; break;
-      case 'tilt-down': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 26 * k) * D2R) * (1 - u); break;
-      case 'zoom': fov = 1 - Math.min(.65, .4 * k) * u; break;
-      case 'zoom-out': fov = 1 - Math.min(.65, .4 * k) * (1 - u); break;
+      case 'tilt-up': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 18 * k) * D2R) * u; break;
+      case 'tilt-down': look[1] += Math.hypot(v[0], v[2]) * Math.tan(Math.min(40, 18 * k) * D2R) * (1 - u); break;
+      case 'zoom': fov = 1 - Math.min(.6, .28 * k) * u; break;
+      case 'zoom-out': fov = 1 - Math.min(.6, .28 * k) * (1 - u); break;
     }
     return { pos, look, fov };
   };
