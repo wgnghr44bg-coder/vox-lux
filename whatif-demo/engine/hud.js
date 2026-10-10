@@ -13,7 +13,13 @@ export function createHud(TL) {
     counterAt,
     update(t) {
       const v = counterAt(Math.min(t, B.stop));
-      $('num').textContent = H.fmt ? H.fmt(v, t) : (H.prefix || '') + fmt(v) + (H.unit || '');   // H.fmt: own text, e.g. 00:12:40 or HOUR 1
+      // hud.phases: [[t, { label, unit, decimals, prefix, sub }], ...] - the counter changes meaning, e.g. STORM DISTANCE in km,
+      // then TIME in slow motion (seconds): the counter values follow the phase (set them in `counter`)
+      if (H.phases) { let P = null; for (const [ts, ph] of H.phases) if (t >= ts) P = ph;
+        if (P) { $('lab').textContent = P.label ?? H.label; if (P.sub != null) $('sub').textContent = P.sub;
+          $('num').textContent = (P.prefix || '') + fmt(v, P.decimals ?? dec) + (P.unit ?? H.unit ?? ''); }
+        else $('num').textContent = (H.prefix || '') + fmt(v) + (H.unit || ''); }
+      else $('num').textContent = H.fmt ? H.fmt(v, t) : (H.prefix || '') + fmt(v) + (H.unit || '');   // H.fmt: own text, e.g. 00:12:40 or HOUR 1
       if (H.subAt) { let s = H.sub || ''; for (const [ts, txt] of H.subAt) if (t >= ts) s = txt; $('sub').textContent = s; }   // e.g. DAY 1 -> WEEK 1
       if (H.second) {
         const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;
