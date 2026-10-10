@@ -7,16 +7,16 @@ export const topic = {
 
 export const lines = [
   ['imagine', 'Imagine dinosaurs never went extinct.', 'long'],
-  ['notbones', 'Not bones in a museum. Not a movie. Living, breathing giants… sharing the planet with you.', 'pause'],
+  ['notbones', 'Not bones in a museum. [pause] Not a movie. [pause] Living, breathing giants… sharing the planet with you.', 'pause'],
   ['goback', 'To see how, we have to go back sixty-six million years.', 'long'],
   ['rock', 'A rock about ten kilometres wide is racing towards Earth at twenty kilometres per second.', 'pause'],
-  ['history', 'In our history, it hits. Three out of every four species vanish.', 'long'],
-  ['miss', 'But Earth moves fast through space. If that rock had arrived just a few minutes later… it would have missed.', 4],
-  ['onekm', 'One kilometre. Across the river, a herd of long-necks keeps on eating, as if nothing happened.', 'pause'],
-  ['forty', 'Forty metres. Triceratops, around ten tonnes each, wade in to drink.', 'long'],
-  ['ancestors', 'Back then, our ancestors were tiny. Small furry mammals, hiding in the ferns.', 'pause'],
+  ['history', 'In our history, it hits. [pause] Three out of every four species vanish.', 'long'],
+  ['miss', 'But Earth moves fast through space. [pause] If that rock had arrived just a few minutes later… it would have missed.', 3],
+  ['onekm', 'One kilometre. [pause] Across the river, a herd of long-necks keeps on eating, as if nothing happened.', 'pause'],
+  ['forty', 'Forty metres. [pause] Triceratops, around ten tonnes each, wade in to drink.', 'long'],
+  ['ancestors', 'Back then, our ancestors were tiny. [pause] Small furry mammals, hiding in the ferns.', 'pause'],
   ['never', 'Most scientists think we would never have appeared at all.', 'pause'],
-  ['fence', 'But imagine we did. And imagine we tried to keep them… behind a fence.', 'none'],
+  ['fence', 'But imagine we did. [pause] And imagine we tried to keep them… behind a fence.', 'none'],
 ];
 
 export default function (at) {

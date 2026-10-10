@@ -5,15 +5,15 @@ export const topic = {
 };
 
 export const lines = [
-  ['night', 'Twenty-three fifty. Ten kilometres away, the city is asleep.', 'long'],
-  ['alert', 'Then every phone buzzes at once. Emergency alert. Stay inside.', 'pause'],
-  ['two', 'Two hundred metres. You don\'t see it yet. You feel it.', 'long'],
-  ['print', 'A T. rex footprint was almost a metre long. Every step would send a small shock through the ground… and the puddles start to ripple.', 'pause'],
-  ['fifty', 'Fifty metres. Car alarms go off, one by one.', 'long'],
-  ['three', 'Three metres.', 5],
-  ['smell', 'It may smell you, more than it sees you. Its sense of smell was one of the best of any dinosaur.', 'pause'],
+  ['night', 'Twenty-three fifty. [pause] Ten kilometres away, the city is asleep.', 'long'],
+  ['alert', 'Then every phone buzzes at once. [pause] Emergency alert. [pause] Stay inside.', 'pause'],
+  ['two', 'Two hundred metres. [pause] You don\'t see it yet. [pause] You feel it.', 'long'],
+  ['print', 'A T. rex footprint was almost a metre long. [pause] Every step would send a small shock through the ground… and the puddles start to ripple.', 'pause'],
+  ['fifty', 'Fifty metres. [pause] Car alarms go off, one by one.', 'long'],
+  ['three', 'Three metres.', 3],
+  ['smell', 'It may smell you, more than it sees you. [pause] Its sense of smell was one of the best of any dinosaur.', 'pause'],
   ['walks', 'And then… it simply walks on.', 'long'],
-  ['six', 'Six o\'clock. Sunrise. Only its footprints are left in the street.', 'pause'],
+  ['six', 'Six o\'clock. [pause] Sunrise. [pause] Only its footprints are left in the street.', 'pause'],
   ['rock', 'For sixty-six million years, one rock decided who would rule this planet.', 'long'],
   ['question', 'So tell me… if that rock had missed, do you think we would ever have stood a chance?', 'none'],
 ];
