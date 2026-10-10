@@ -2,3 +2,7 @@ stills/
 timeline.json
 *.mp4
 *.wav
+voice-take.mp3
+voice-unpadded.mp3
+.voice-hash
+*.list
