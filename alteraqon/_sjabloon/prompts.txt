@@ -1,0 +1,3 @@
+L01|Documentary photo, vertical, <scène>, <licht/sfeer>, realistic
+L02|Documentary photo, vertical, close-up of <detail dat spanning geeft>, realistic
+L03|Documentary photo, vertical, <het moment zelf>, dramatic, realistic
