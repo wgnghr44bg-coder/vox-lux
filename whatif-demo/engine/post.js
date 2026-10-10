@@ -23,7 +23,7 @@ export function createPost(E, W, H, opt = {}) {
   const r = E.renderer;
   r.shadowMap.type = THREE.PCFSoftShadowMap; r.shadowMap.needsUpdate = true;
   r.toneMapping = THREE.ACESFilmicToneMapping;
-  const comp = new EffectComposer(r, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4 }));
+  const comp = new EffectComposer(r, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4, stencilBuffer: true }));
   comp.setPixelRatio(1); comp.setSize(W, H);
   comp.addPass(new RenderPass(E.scene, E.camera));
   if (opt.ao !== false) { const ao = new GTAOPass(E.scene, E.camera, W, H); ao.blendIntensity = opt.ao ?? .85; comp.addPass(ao); }
