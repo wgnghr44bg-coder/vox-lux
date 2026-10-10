@@ -6,7 +6,7 @@ export function createHud(TL) {
   const H = TL.hud, dec = H.decimals ?? 0;
   const fmt = (n, d = dec) => (Math.abs(n) < .5 * 10 ** -d ? 0 : n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }).replace('-', '−');
   const counterAt = monotone(TL.counter);
-  $('title').innerHTML = TL.title; $('endT').innerHTML = TL.end.title; $('endS').innerHTML = TL.end.lines;
+  $('title').innerHTML = TL.title ?? ''; $('endT').innerHTML = TL.end?.title ?? ''; $('endS').innerHTML = TL.end?.lines ?? '';
   $('lab').textContent = H.label; $('sub').textContent = H.sub || '';
   const B = TL.beats;
   return {

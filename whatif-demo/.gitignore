@@ -16,3 +16,4 @@ topics/*/*-klein.mp4
 .env
 .codex-result.txt
 topics/_*/
+topics/*/kosten.txt

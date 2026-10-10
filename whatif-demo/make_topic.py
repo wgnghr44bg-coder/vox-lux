@@ -25,15 +25,16 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from make_whatif import load_env, auth, TOPICS  # noqa: E402
 
-MODEL = os.environ.get("WHATIF_MODEL", "grok-4.3")
+MODEL = os.environ.get("WHATIF_MODEL", "grok-4.3")                          # writes the story, the scenario and new blocks
+FAST = os.environ.get("WHATIF_FAST_MODEL", "grok-4.20-0309-non-reasoning")   # looks at frames, tags sentences, plans: much cheaper
 ENGINE = HERE / "engine"
 COST = {"usd": 0.0}
 
 
 # ------------------------------------------------------------------ Grok
-def grok(messages, json_mode=False) -> str:
+def grok(messages, json_mode=False, fast=False) -> str:
     import requests
-    body = {"model": MODEL, "messages": messages, "temperature": 0.7}
+    body = {"model": FAST if fast else MODEL, "messages": messages, "temperature": 0.7}
     if json_mode: body["response_format"] = {"type": "json_object"}
     for k in range(4):
         try:
@@ -191,7 +192,7 @@ def review(d: Path) -> str | None:
                     f"xstack=inputs={len(times)}:layout={layout}:fill=black", str(grid)], check=True)
     said = "\n".join(f"frame {k + 1} ({lid}, {t} s): voice says \"{lines[k][1]}\"" for k, (t, (lid, _, _)) in enumerate(zip(times, lines)))
     img = base64.b64encode(grid.read_bytes()).decode()
-    ans = grok([{"role": "user", "content": [
+    ans = grok(fast=True, messages=[{"role": "user", "content": [
         {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}},
         {"type": "text", "text": f"A grid of {len(times)} frames (4 per row, left to right, top to bottom) from a low-poly 3D 'What if' Short. "
          "Each frame is taken at the END of one narration line:\n" + said +
@@ -282,7 +283,7 @@ def look_at(img_paths, question: str) -> list[str]:
     import base64
     content = [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(Path(f).read_bytes()).decode()}} for f in img_paths]
     content.append({"type": "text", "text": question + ' Answer JSON: {"ok": true|false, "problems": ["..."]}'})
-    try: r = json.loads(grok([{"role": "user", "content": content}], json_mode=True))
+    try: r = json.loads(grok([{"role": "user", "content": content}], json_mode=True, fast=True))
     except json.JSONDecodeError: return []
     return [] if r.get("ok") else [p for p in r.get("problems", []) if p] or ["not ok"]
 
@@ -364,6 +365,13 @@ def save_missing(d: Path):
     if new: f.write_text(old + new, encoding="utf-8"); print("ontbreekt nog (in engine/WENSEN.md):\n  " + "\n  ".join(miss))
 
 
+def save_cost(d: Path) -> None:
+    """Add what this run cost (xAI, Grok) to topics/<slug>/kosten.txt; whatif.ps1 shows the total at the end."""
+    if COST["usd"] > 0:
+        with open(d / "kosten.txt", "a", encoding="utf-8") as f: f.write(f"{COST['usd']:.4f}\n")
+        print(f"kosten deze stap: ${COST['usd']:.3f}")
+
+
 def extract_js(text: str) -> str:
     m = re.search(r"```(?:js|javascript)?\s*\n(.*?)```", text, re.S)
     return (m[1] if m else text).strip() + "\n"
@@ -417,7 +425,7 @@ def new_topic(question: str):
     last = max(known, key=lambda s: s["number"]) if known else None
     want_style = "B-gravity" if last and last["stijl"].startswith("A") else "A-pov"
 
-    plan = json.loads(grok([
+    plan = json.loads(grok(fast=True, messages=[
         {"role": "system", "content": "You plan IfScape3D What if Shorts. Answer in JSON only."},
         {"role": "user", "content": f"New topic: {q}\n\nTopics already made or planned (onderwerpen.md):\n{lijst}\n\n"
          f"Existing Short scenarios to use as example:\n{json.dumps(known, indent=0)}\n\n{catalogue()}\n\n"
@@ -463,6 +471,7 @@ def new_topic(question: str):
     if same: text[same[0]] = row                    # a planned topic: its row gets the new status
     else: text.insert(max(i for i, l in enumerate(text) if re.match(r"^\|\s*\d+\s*\|", l)) + 1, row)
     (HERE / "onderwerpen.md").write_text("\n".join(text) + "\n", encoding="utf-8")
+    save_cost(d)
     print(f"topic {num}: topics/{slug}/scenario.js  ({'OK' if ok else 'NOT OK - see the problems above'}), total ~${COST['usd']:.2f}")
     print(f"NUMBER={num}")
     sys.exit(0 if ok else 2)
@@ -491,6 +500,7 @@ def fix_topic(num: int, feedback: str):
     save_missing(d)
     if not ok: backup.replace(d / "scenario.js"); print("kept the previous version")
     else: backup.unlink()
+    save_cost(d)
     print(f"total ~${COST['usd']:.2f}")
     sys.exit(0 if ok else 2)
 

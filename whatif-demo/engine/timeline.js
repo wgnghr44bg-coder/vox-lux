@@ -36,6 +36,8 @@ export function buildTL(scen, timing, o = {}) {
   TL.beats.fade = TL.beats.fade ?? (TL.endStyle === 'card' ? TL.T_END - 1.6 : (TL.beats.end ?? TL.T_END - 4) - .3);
   TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
   TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
+  // forgiving defaults: a scenario that leaves out the end card, captions or the info block still renders
+  TL.end ||= { title: '', lines: '' }; TL.captions ||= []; TL.hud ||= { label: '', unit: '' };
   TL.estimated = !!timing.estimated;
   return TL;
 }
