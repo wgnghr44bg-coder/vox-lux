@@ -233,7 +233,7 @@ try {
 
   $py = PythonExe
   Say "Python-pakketten: $($PyPackages -join ', ') ..."
-  & $py -m pip install --user --quiet --disable-pip-version-check @PyPackages
+  & $py -m pip install --user --quiet --disable-pip-version-check --no-warn-script-location @PyPackages
   if ($LASTEXITCODE -ne 0) { throw "pip install mislukt" }
 
   # the command  whatif  in every new PowerShell window
