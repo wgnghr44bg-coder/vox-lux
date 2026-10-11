@@ -1,0 +1,15 @@
+F01|Cinematic space photo, vertical, a gigantic flat disk-shaped Earth floating in black space, continents and blue oceans on top, white clouds, water pouring over the rim into space like a waterfall, realistic, epic
+F02|Documentary photo, vertical, a lone hiker with a backpack seen from behind walking across an endless perfectly flat plain at sunrise, the horizon dead straight, realistic, cinematic
+F03|Documentary photo, vertical, the same kind of lone hiker seen from far away crossing a vast cracked salt flat at dusk, long shadow, realistic
+F04|Cinematic photo, vertical, the edge of the world: a flat grassy cliff that ends abruptly in starry black space, a waterfall pouring off the edge into the void, a tiny hiker silhouette standing near the edge, realistic, epic
+F05|Documentary photo, vertical, a wide flat plain under a dramatic sky, a blinding white light breaking through the clouds, the landscape lit up, realistic
+F06|Documentary photo, vertical, a person seen from behind standing on a flat plain, hair, scarf and jacket all blown strongly sideways in one direction, dust streaming sideways, realistic
+F07|Documentary photo, vertical, a football rolling by itself across a perfectly flat empty road, motion blur, low angle, realistic
+F08|Documentary photo, vertical, a hiker seen from the side leaning at a steep angle while walking on perfectly flat ground, as if fighting a strong sideways pull, realistic
+F09|Documentary photo, vertical, a row of tall trees all growing at a strong slant in the same direction on a perfectly flat field, realistic, eerie
+F10|Aerial documentary photo, vertical, a huge ocean flowing like a giant river across flat land toward the horizon, white water, realistic, epic
+F11|Documentary photo, vertical, a small harbor town where the sea has drained away, fishing boats stranded on wet mud, realistic
+F12|Space photo, vertical, the real round Earth seen from orbit, curved blue horizon, sunrise on the limb, realistic, NASA style
+F13|Cinematic space art, vertical, a gigantic flat planet disk bending and collapsing inward into a sphere, rocks and oceans folding, glowing cracks, realistic
+F14|Space photo, vertical, several round planets of different colors floating in space in a row, realistic, high detail
+F15|Cinematic photo, vertical, a hiker seen from behind sitting at the edge of a flat world, legs over the rim, looking out at a sky full of stars and a distant round planet, realistic, peaceful
