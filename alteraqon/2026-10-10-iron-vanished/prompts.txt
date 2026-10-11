@@ -1,0 +1,13 @@
+I01|Documentary photo, vertical, a huge rusty steel bridge and city skyline at dawn, cold blue morning light, mist over the river, realistic
+I02|Documentary photo, vertical, view through a car windshield driving across a large steel suspension bridge in the morning, light traffic, realistic
+I03|Documentary photo, vertical, close-up of a driver's hand on a steering wheel and a car radio glowing softly, calm morning light, realistic
+I04|Documentary photo, vertical, a car on a bridge disintegrating into a cloud of rust-colored dust particles, metal body dissolving in mid-air, dramatic, realistic
+I05|Documentary photo, vertical, car seats, rubber tyres, plastic dashboard and broken glass lying in a heap on asphalt, no metal frame left, eerie, realistic
+I06|Documentary photo, vertical, a large suspension bridge collapsing into a river, deck breaking apart, cables gone, debris and spray, realistic
+I07|Documentary photo, vertical, modern skyscrapers crumbling and collapsing in a downtown street, huge cloud of concrete dust, realistic
+I08|Scientific microscopy image, vertical, close-up of red blood cells flowing through a blood vessel, deep red, high detail, realistic
+I09|Documentary photo, vertical, close-up of a pale limp hand resting on a car seat, cold light, moody, faces not visible, realistic
+I10|Cinematic space image, vertical, planet Earth cut open in a wedge showing its glowing molten orange iron core deep inside, black starry space background, no text, no labels, realistic
+I11|Vertical image, planet Earth from space with the solar wind streaming towards it, a faint fading magnetic shield, auroras, NASA style, realistic
+I12|Vertical image, a giant supernova explosion in deep space, glowing shells of gas and dust, vivid, Hubble style, realistic
+I13|Documentary photo, vertical, a single small iron nail resting on an open human palm, warm soft light, dark background, macro, realistic

@@ -18,6 +18,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 ## Video's
 - `2026-10-10-humans-vanish/` – What if all humans vanished? (eindversie: `doc/make-doc-lux.py`)
 - `2026-10-10-struck-by-lightning/` – What if you got struck by lightning? (`make.py`)
+- `2026-10-10-iron-vanished/` – What if every piece of iron vanished? (`make.py` → tools/make_video.py + shots.py)
 - `2026-10-10-asteroid-missed/` – What if the asteroid that killed the dinosaurs had missed? **Lange video**, 16:9 1920x1080, ca. 3 min (`make.py`, `make_thumbnail.py` → `thumbnail.jpg`)
 
 ## Opbouw van elke video (sjabloon = de lightning-video)
