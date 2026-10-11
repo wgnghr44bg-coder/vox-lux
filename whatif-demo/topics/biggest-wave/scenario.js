@@ -27,16 +27,17 @@ export default function (at) {
   const hs = at('house').s, js = at('japan').s, ts = at('tower').s, c0 = at('climb').s;
   const runEnd = at('num').s + .6;
   return {
+    textScale: 1.3, sunbathers: 0,
     T_END, titleOut: at('intro').e + .8, hudIn: at('intro').e + 1, fov: 60,
     hud: { label: 'HEIGHT', fmt: v => Math.round(v) + ' m',
            subAt: [[0, 'A NORMAL WAVE'], [hs, 'A HOUSE'], [js, 'TSUNAMI · JAPAN 2011'], [ts, 'OFFICE TOWER'], [at('lituya').s, 'LITUYA BAY · 1958'], [c0, 'RUN-UP · LITUYA BAY 1958']] },
-    counter: [[0, 2], [hs + .3, 2], [hs + 2.2, 10], [js + .5, 10], [js + 3.5, 40], [ts + .2, 40], [ts + 2.4, 300], [c0, 300], [c0 + .2, 300], [runEnd, 524], [T_END, 524]],
+    counter: [[0, 2], [hs + .3, 2], [hs + 2.2, 10], [js - .4, 10], [js + 1.2, 40], [ts - .3, 40], [ts + 1.6, 300], [c0, 300], [c0 + .2, 300], [runEnd, 524], [T_END, 524]],
     range: [0, 524],
-    captions: [[at('japan').s + .3, at('japan').e + .8, 'Japan, 2011: up to ≈ 40 m.'],
+    captions: [[at('japan').s + 1.3, at('japan').e + .8, 'Japan, 2011: up to 40 m.'],
                [at('lituya').s + .2, at('lituya').e + .6, 'Lituya Bay, Alaska, 1958.'],
                [at('num').s, at('record').e + .6, 'Run-up: 524 m up the mountain slope.']],
     wave: {
-      h: [[0, 2], [hs + .3, 2], [hs + 2.2, 10], [js + .5, 10], [js + 3.5, 40], [T_END, 40]],
+      h: [[0, 2], [hs + .3, 2], [hs + 2.2, 10], [js - .4, 10], [js + 1.2, 40], [T_END, 40]],
       front: -10, x: [-260, 320], label: [at('normal').s, at('tower').e], labelX: -20,
       sizes: [{ kind: 'house', x: -38, z: 49, h: 10, label: [hs, at('tower').e] },
               { kind: 'tower', x: 90, z: 132, h: 300, w: 34, d: 30, label: [ts, T_END] }],
