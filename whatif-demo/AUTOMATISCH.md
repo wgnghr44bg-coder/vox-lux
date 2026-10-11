@@ -30,7 +30,7 @@ Wat er gemaakt wordt, volgt de planning in `USAGE.md` (root); past het niet in h
 
 - Eenheden Europees (eigenaar, 9 okt 2026): °C, m/km, km/u, kg, 24-uursklok; nooit °F, mijl, voet of AM/PM.
 
-- Stem (eigenaar, 7 okt 2026): xAI "atlas" in documentairestijl, tempo 1.00 (eigenaar, 11 okt 2026; was 1.05), mét natuurlijke zins- en kommapauzes; [pause]/[long pause] alleen bij een nieuwe stap,
+- Stem (eigenaar, 11 okt 2026): xAI "lux", tempo 0.9, per zin met vaste pauzes = de stem van de gravity-video (regels/standaard-video.md). Oud (7 okt): "atlas" 1.05, mét natuurlijke zins- en kommapauzes; [pause]/[long pause] alleen bij een nieuwe stap,
   zie `regels/lange-video-opbouw.md` (eigenaar: geen stops tussen het praten), voor Shorts én lange video's (staat vast in make_whatif.py; geen voiceSpeed in scenario.js
   zetten tenzij de eigenaar dat vraagt). Sleep Archives: Lux op 0.9. Niet zelf een andere stem of tempo kiezen.
 

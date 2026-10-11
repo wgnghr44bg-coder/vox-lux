@@ -14,13 +14,24 @@ De eigenaar: "zo wil ik alle video's voor IfScape3D hebben". Voorbeeld: **What i
 - Wat de stem zegt, zie je (lek → water bij putdeksel, scheuren, politie + hekken, kruispunt valt weg, gat groeit).
 - Geen geweld, geen herkenbare personen; mensen en auto's zijn veilig weg (check in de scène: minimale afstand > 5 m).
 
-## Verhaal en stem
-- Engels, ± 45–60 s, ± 130 woorden. Eerste woord "Imagine…" + het onderwerp.
-- Opbouw: rustig begin → oorzaak → kleine tekens → spanning (mensen weg) → climax met ± 3 s stilte →
-  getallen → echte voorbeelden (twist) → slotvraag aan de kijker.
-- Stem: xAI Atlas, **tempo 1.00** (eigenaar, 11 okt 2026), één take, documentairepauzes (make_whatif.one_take).
-- Eenheden Europees (m, km, km/h, °C).
-- Elke feitelijke bewering klopt en is controleerbaar: bronnen in `upload.json` ("bronnen"), voorzichtig formuleren ("roughly").
+## Verhaal en stem: opbouw en stem van de gravity-video (eigenaar, 11 okt 2026)
+Voorbeeld: "What if gravity suddenly doubled?" (branch claude/whatif-gravity-doubled, `whatif-demo/gravity-doubled/script.txt`).
+Elke video volgt die opbouw, aangepast aan het onderwerp (nooit zinnen letterlijk overnemen):
+1. "Imagine… [pause] in a single second/minute, <het onderwerp gebeurt>." + één zin wat dat betekent.
+2. Waar je staat: "You are standing on/at …" (de plek in beeld).
+3. Het normale getal → het nieuwe getal (zoals 9,8 → 19,6 m/s²); de teller loopt mee.
+4. Wat je zelf merkt (lichaam, gewicht, oren), met een getal erbij ("If you weighed …").
+5. Mensen reageren (stoppen, gaan zitten, lopen weg); auto's, bomen, dingen op straat.
+6. Een natuurkundig feit met getal.
+7. Het escaleert: dingen breken/vallen, één groot beeld (de kraan).
+8. Uitleg waarom het misgaat ("Buildings are designed with a safety margin. But …").
+9. Climax met stilte (meerdere [long pause]; in `lines` een getal, ± 3–4 s).
+10. Nasleep: het stof zakt, wat er nog staat.
+11. Slotzin die blijft hangen (geen vraag nodig): de blijvende gevolgen voor "you".
+- Lengte ± 60–90 s (130–200 woorden). Engels, "you", Europese eenheden. Feiten kloppen en staan met bronnen in `upload.json`.
+- Stem: **xAI Lux, tempo 0.9, per zin ingesproken met vaste pauzes** ([pause] 0,5 s, [long pause] 1 s, 0,3 s na een zin):
+  `tools/xai_voiceover.py` (standaard in make_whatif.py: VOICE lux, SPEED 0.9, oneTake uit). Gemeten: zelfde toonhoogte (± 130 Hz)
+  en tempo als de gravity-video. Niet zelf een andere stem kiezen.
 
 ## Werkwijze
 1. Eerst alleen testbeelden (overzichtsplaat ± 6 shots) naar de eigenaar; géén stem of video vóór akkoord.

@@ -31,8 +31,8 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 TOPICS = HERE / "topics"
 STAGES = ["voice", "render", "audio", "final"]
-VOICE = "atlas"  # IfScape3D-stem (eigenaar, 7 okt 2026): xAI Atlas, documentairestijl, tempo 1.00, mét pauzes
-SPEED = 1.00  # standaardtempo IfScape3D (eigenaar, 11 okt 2026; was 1.05) (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
+VOICE = "lux"  # IfScape3D-stem (eigenaar, 11 okt 2026): de stem van de gravity-video = xAI Lux, tempo 0.9, per zin met vaste pauzes
+SPEED = 0.9  # standaardtempo IfScape3D (eigenaar, 11 okt 2026: zoals gravity-video; was Atlas 1.05/1.00) (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
 
 
 def run(cmd, **kw):
@@ -80,8 +80,8 @@ def check_script(lines):
     print(f"script: {words} words")
     if not lines[0][1].startswith("Imagine"):
         print("WARNING: the first line should start with 'Imagine'")
-    if not 110 <= words <= 150:     # standaard-video (eigenaar, 11 okt 2026): 45-60 s
-        print("WARNING: aim for 110-150 words (45-60 s, regels/standaard-video.md)")
+    if not 130 <= words <= 200:     # standaard-video (eigenaar, 11 okt 2026): opbouw zoals gravity, ± 60-90 s
+        print("WARNING: aim for 130-200 words (regels/standaard-video.md)")
 
 
 def parse_tsv(path: Path):
@@ -284,7 +284,7 @@ def main():
     digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", SPEED)) + VOICE).encode()).hexdigest()[:12]
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
-        if sc["topic"].get("oneTake", True):    # eigenaar 7 okt 2026: whole script in one take, the voice makes its own pauses
+        if sc["topic"].get("oneTake", False):   # standaard (11 okt 2026): per zin + vaste pauzes zoals de gravity-video; oneTake: true = oude Atlas-manier
             one_take(d, lines, sc["topic"].get("voiceSpeed", SPEED))
             if sc["topic"].get("padSilence"): pad_silence(d, lines)
         else:
