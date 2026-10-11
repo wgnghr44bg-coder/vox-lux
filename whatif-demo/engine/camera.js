@@ -168,7 +168,9 @@ export function pathCamera(E, TL, F) {
       if (F.shake) shake += F.shake(t);
       shake = Math.min(shake, .45);
       const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
-      cam.fov = (TL.fov ?? 60) * (E.WIDE ? .62 : 1); cam.updateProjectionMatrix();
+      cam.fov = (TL.fov ?? 60) * (E.WIDE ? .62 : 1);
+      if (E.nearFn) cam.near = E.nearFn(pos);       // high above a big landscape: a far near-plane keeps the depth buffer sharp (no flicker)
+      cam.updateProjectionMatrix();
       cam.position.set(pos[0] + sx * shake * .25, pos[1] + sy * shake * .25, pos[2]);
       _l.set(look[0] + sx * shake * 1.2, look[1] + sy * shake * 1.2, look[2]);
       cam.rotation.set(0, 0, 0); cam.lookAt(_l);

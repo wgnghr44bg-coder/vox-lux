@@ -114,7 +114,7 @@ function cameraAt(tv, fixed) {
   const look = camera.apply(tv, fixed);
   if (E.sunOffset) {        // keep the shadow map around what the camera sees
     const c = E.camera.position, dx = look.x - c.x, dz = look.z - c.z, l = Math.hypot(dx, dz) || 1, k2 = Math.min(70, l * .5);
-    const snap = v => Math.round(v / 8) * 8;   // shadow map moves in 8 m steps, not with every handheld wobble (no shimmer)
+    const st = E.shadowStep ?? 8, snap = v => Math.round(v / st) * st;   // shadow map moves in 8 m steps, not with every handheld wobble (no shimmer)
     E.sun.target.position.set(snap(c.x + dx / l * k2), 0, snap(c.z + dz / l * k2));
     E.sun.position.copy(E.sun.target.position).add(E.sunOffset);
   }
