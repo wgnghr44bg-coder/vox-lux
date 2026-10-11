@@ -1,0 +1,48 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:04.00,Sub,,0,0,0,,{\fad(150,150)}What if every human got a random superpower overnight?
+Dialogue: 0,0:00:04.00,0:00:05.00,Sub,,0,0,0,,{\fad(150,150)}You wake up.
+Dialogue: 0,0:00:05.00,0:00:07.90,Sub,,0,0,0,,{\fad(150,150)}Your hands feel warm… too warm.
+Dialogue: 0,0:00:07.90,0:00:08.70,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:08.70,0:00:12.50,Sub,,0,0,0,,{\fad(150,150)}Over eight billion people get a power at the exact same second.
+Dialogue: 0,0:00:12.50,0:00:14.40,Sub,,0,0,0,,{\fad(150,150)}Your neighbor floats above the roof.
+Dialogue: 0,0:00:14.40,0:00:16.60,Sub,,0,0,0,,{\fad(150,150)}A child makes the streetlights flicker.
+Dialogue: 0,0:00:16.60,0:00:18.40,Sub,,0,0,0,,{\fad(150,150)}Some powers are amazing.
+Dialogue: 0,0:00:18.40,0:00:21.40,Sub,,0,0,0,,{\fad(150,150)}Others are useless… like glowing in the dark.
+Dialogue: 0,0:00:21.40,0:00:23.00,Sub,,0,0,0,,{\fad(150,150)}And nobody can control them.
+Dialogue: 0,0:00:23.00,0:00:24.20,Sub,,0,0,0,,{\fad(150,150)}Traffic stops.
+Dialogue: 0,0:00:24.20,0:00:26.80,Sub,,0,0,0,,{\fad(150,150)}Nobody knows who is dangerous.
+Dialogue: 0,0:00:26.80,0:00:28.10,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:28.10,0:00:30.90,Sub,,0,0,0,,{\fad(150,150)}Some humans already have something like superpowers.
+Dialogue: 0,0:00:30.90,0:00:38.60,Sub,,0,0,0,,{\fad(150,150)}The Bajau sea nomads have spleens about fifty percent bigger than nearby non-divers, which may help them stay underwater longer.
+Dialogue: 0,0:00:38.60,0:00:42.60,Sub,,0,0,0,,{\fad(150,150)}A rare change in a single gene means some people feel no pain at all.
+Dialogue: 0,0:00:42.60,0:00:45.20,Sub,,0,0,0,,{\fad(150,150)}And some women have a fourth type of color cone.
+Dialogue: 0,0:00:45.20,0:00:47.80,Sub,,0,0,0,,{\fad(150,150)}A few may see colors we can't.
+Dialogue: 0,0:00:47.80,0:00:48.90,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:48.90,0:00:51.70,Sub,,0,0,0,,{\fad(150,150)}Superpowers might already be hiding in our genes.
+Dialogue: 0,0:00:51.70,0:00:53.50,Sub,,0,0,0,,{\fad(150,150)}Which one would you want?
+Dialogue: 2,0:00:08.70,0:00:11.30,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:08.82,0:00:11.30,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}WORLD POPULATION
+Dialogue: 2,0:00:08.92,0:00:11.30,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}8.2 BILLION
+Dialogue: 2,0:00:30.90,0:00:33.50,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:31.02,0:00:33.50,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}BAJAU SPLEEN
+Dialogue: 2,0:00:31.12,0:00:33.50,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}+50%
+Dialogue: 2,0:00:38.60,0:00:41.20,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:38.72,0:00:41.20,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}FEELS NO PAIN
+Dialogue: 2,0:00:38.82,0:00:41.20,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 GENE
+Dialogue: 2,0:00:42.60,0:00:45.20,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:42.72,0:00:45.20,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}TETRACHROMACY
+Dialogue: 2,0:00:42.82,0:00:45.20,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}4 CONE TYPES
