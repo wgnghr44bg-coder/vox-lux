@@ -16,7 +16,7 @@ import { block } from '../blocks.js';
 
 export const QY = 3.2;
 
-function hullGeo(len, beam, h, bow = .3) {
+export function hullGeo(len, beam, h, bow = .3) {
   const g = new THREE.BoxGeometry(beam, h, len, 1, 2, 8), p = g.attributes.position;
   for (let i = 0; i < p.count; i++) {
     const x = p.getX(i), y = p.getY(i), z = p.getZ(i), f = z / (len / 2);          // f = 1 at the bow (+z)

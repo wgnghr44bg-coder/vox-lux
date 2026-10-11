@@ -29,9 +29,11 @@ Elke video volgt die opbouw, aangepast aan het onderwerp (nooit zinnen letterlij
 10. Nasleep: het stof zakt, wat er nog staat.
 11. Slotzin die blijft hangen (geen vraag nodig): de blijvende gevolgen voor "you".
 - Lengte ± 60–90 s (130–200 woorden). Engels, "you", Europese eenheden. Feiten kloppen en staan met bronnen in `upload.json`.
-- Stem: **xAI Lux, tempo 0.9, per zin ingesproken met vaste pauzes** ([pause] 0,5 s, [long pause] 1 s, 0,3 s na een zin):
-  `tools/xai_voiceover.py` (standaard in make_whatif.py: VOICE lux, SPEED 0.9, oneTake uit). Gemeten: zelfde toonhoogte (± 130 Hz)
-  en tempo als de gravity-video. Niet zelf een andere stem kiezen.
+- Stem (eigenaar, 11 okt 2026 avond, na de oceans-video: Lux 0.9 was "veel te langzaam"): **xAI Atlas, tempo 1.00, in één take**
+  (de stem maakt zijn eigen pauzes; [pause]/[long pause] en de stille climax blijven), zoals de sinkhole-video. Standaard in
+  make_whatif.py (VOICE atlas, SPEED 1.00, oneTake aan). De opbouw van de gravity-video blijft. Niet zelf een andere stem kiezen.
+- Beeld vol genoeg (eigenaar, zelfde avond: "er gebeurt te weinig, heel kaal"): elke ± 5 s iets nieuws dat beweegt of verschijnt
+  (vogels, boten, mensen, iets dat valt of schuift, rook/stof), en de plek gevuld met herkenbare dingen; geen lege vlaktes.
 
 ## Werkwijze
 1. Eerst alleen testbeelden (overzichtsplaat ± 6 shots) naar de eigenaar; géén stem of video vóór akkoord.

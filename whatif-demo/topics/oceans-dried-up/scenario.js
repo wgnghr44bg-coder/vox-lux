@@ -20,7 +20,10 @@ export const lines = [
   ['quiet', 'The waves fall silent.', 'pause'],
   ['hour', 'After one hour, the sea is more than four hundred meters lower.', 'long'],
   ['people', 'People stop. Lifeguards wave everyone off the beach.', 'pause'],
-  ['boats', 'Boats lie on their sides in the mud.', 'long'],
+  ['boats', 'Boats lie on their sides in the mud.', 'pause'],
+  ['pier', 'The pier stands on bare, green legs.', 'long'],
+  ['ship', 'Further out, a container ship tips over, and its cargo slides into the mud.', 'long'],
+  ['rig', 'Oil platforms and old shipwrecks stand high and dry.', 'long'],
   ['volume', 'The oceans hold about one point three billion cubic kilometers of water.', 'pause'],
   ['depth', 'On average, they are about three point seven kilometers deep.', 'long'],
   ['more', 'But the sea was doing much more than holding water.', 'pause'],
@@ -36,12 +39,13 @@ export const lines = [
 export default function (at) {
   const T_END = at('q').e + 2.4, start = at('tide').e, gone = at('trench').e + 3;
   // sea level in the SCENE (compressed: shelf edge ± -110 m, deep plain -1700 m, trench -2700 m)
-  const tide = [[0, 0], [start, 0], [at('now').e, -1.5], [at('hour').e, -9], [at('boats').e, -30], [at('depth').e, -90],
-                [at('more').e, -400], [at('heat').e, -1000], [at('oxygen').e, -1600],
-                [at('last').e, -1820], [at('trench').s + 1, -2050], [gone, -2760], [T_END, -2760]];
+  const tide = [[0, 0], [start, 0], [at('now').e, -1.5], [at('hour').e, -9], [at('boats').e, -20], [at('pier').e, -30],
+                [at('ship').s + 1, -60], [at('rig').e, -120], [at('volume').s + 1, -300], [at('volume').e, -1100], [at('depth').e, -1600], [at('more').e, -1680], [at('heat').e, -1720],
+                [at('oxygen').e, -1760], [at('last').e, -1860], [at('trench').s + 1, -2050], [gone, -2760], [T_END, -2760]];
   // sea level on the COUNTER (the real story): 0 -> -10 900 m in 24 hours
-  const counter = [[0, 0], [start, 0], [at('now').e, 15], [at('hour').e, 455], [at('boats').e, 900], [at('depth').e, 2000],
-                   [at('heat').e, 4500], [at('oxygen').e, 6200], [at('last').e, 8500], [gone, 10900], [T_END, 10900]];
+  const counter = [[0, 0], [start, 0], [at('now').e, 15], [at('hour').e, 455], [at('boats').e, 700], [at('ship').e, 1200],
+                   [at('rig').e, 1700], [at('depth').e, 2400], [at('heat').e, 4500], [at('oxygen').e, 6200], [at('last').e, 8500],
+                   [gone, 10900], [T_END, 10900]];
   const hoursAt = (v) => v / 10900 * 24;
   return {
     T_END, titleOut: at('place').e + .4, hudIn: at('place').e + .7,
@@ -50,7 +54,7 @@ export default function (at) {
     counter, range: [0, 10900],
     forceParams: { tide, calm: 1, top: 6 },
     seabed: { boats: true, salt: [at('salt').s - .5, at('salt').e + 3],
-              fog: [[0, 180, 1600], [at('depth').s, 300, 2600], [at('more').s, 1500, 8000], [at('oxygen').s, 3500, 15000], [T_END, 4000, 16000]] },
+              fog: [[0, 180, 1600], [at('ship').s, 400, 3000], [at('volume').s, 1200, 7000], [at('more').s, 1500, 8000], [at('oxygen').s, 3500, 15000], [T_END, 4000, 16000]] },
     captions: [[at('now').s, at('now').e + .8, '≈ 7.6 m per minute.'],
                [at('hour').s, at('hour').e + .6, '1 hour: −455 m.'],
                [at('volume').s, at('depth').e + .6, '1.3 billion km³ of water.'],
@@ -62,12 +66,15 @@ export default function (at) {
       [at('place').e, [3.8, 5.6, 44], [2, 2, -220]],
       [at('now').e, [3, 8, 39], [0, -1, -200]],
       [at('hour').s + .5, [0, 11, 34], [0, -3, -190]],
-      [at('people').s, [-30, 11, 6], [6, 3, 40]],
-      [at('people').e + .4, [-34, 12, 2], [8, 3, 42]],
-      [at('boats').e + .8, [-14, 30, -10], [10, -6, -140]],
-      [at('depth').s, [0, 60, -20], [0, -20, -500]],
-      [at('more').e, [0, 260, -400], [0, -500, -2000]],
-      [at('oxygen').s, [0, 600, -1100], [0, -1800, -3800]],
+      [at('people').s, [-30, 11, 6], [40, 3, 70]],
+      [at('people').e + .4, [-34, 12, 2], [50, 3, 66]],
+      [at('boats').e, [-6, 24, 4], [40, -6, -90]],
+      [at('pier').e, [-36, 14, -40], [-64, 0, -150]],
+      [at('ship').e, [-90, 55, -360], [-200, -20, -620]],
+      [at('rig').e, [-220, 150, -780], [-420, -20, -1180]],
+      [at('volume').e, [-120, 480, -900], [0, -700, -2600]],
+      [at('more').s, [0, 700, -1200], [0, -1500, -3300]],
+      [at('oxygen').s, [0, 850, -1400], [0, -1900, -3900]],
       [at('last').e, [0, 1100, -1800], [0, -2600, -4300]],
       [gone, [60, 1100, -1950], [0, -2650, -4300]],
       [at('rain').s, [250, 950, -2150], [0, -500, -800]],

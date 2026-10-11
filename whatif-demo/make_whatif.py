@@ -31,8 +31,8 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 TOPICS = HERE / "topics"
 STAGES = ["voice", "render", "audio", "final"]
-VOICE = "lux"  # IfScape3D-stem (eigenaar, 11 okt 2026): de stem van de gravity-video = xAI Lux, tempo 0.9, per zin met vaste pauzes
-SPEED = 0.9  # standaardtempo IfScape3D (eigenaar, 11 okt 2026: zoals gravity-video; was Atlas 1.05/1.00) (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
+VOICE = "atlas"  # IfScape3D-stem (eigenaar, 11 okt 2026 avond: Lux 0.9 "veel te langzaam", terug naar Atlas): xAI Atlas, tempo 1.00, één take mét pauzes
+SPEED = 1.00  # standaardtempo IfScape3D (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
 
 
 def run(cmd, **kw):
@@ -284,7 +284,7 @@ def main():
     digest = hashlib.sha1((script + str(sc["topic"].get("voiceSpeed", SPEED)) + VOICE).encode()).hexdigest()[:12]
     stamp = d / ".voice-hash"
     if stage <= 0 and not (stamp.exists() and stamp.read_text() == digest and (d / "voice.mp3").exists()):
-        if sc["topic"].get("oneTake", False):   # standaard (11 okt 2026): per zin + vaste pauzes zoals de gravity-video; oneTake: true = oude Atlas-manier
+        if sc["topic"].get("oneTake", True):    # eigenaar (11 okt 2026 avond): weer Atlas in één take, de stem maakt zijn eigen pauzes; oneTake: false = per zin met vaste pauzes
             one_take(d, lines, sc["topic"].get("voiceSpeed", SPEED))
             if sc["topic"].get("padSilence"): pad_silence(d, lines)
         else:
