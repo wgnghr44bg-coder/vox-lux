@@ -1,0 +1,13 @@
+J01|Documentary photo, vertical, a vast dark server hall with endless rows of racks glowing cold blue, mist on the floor, ominous, realistic
+J02|Documentary photo, vertical, a person seen from behind sitting at a laptop late at night in a dark room, face lit only by the screen, realistic
+J03|Documentary photo, vertical, extreme close-up of a laptop screen with glowing lines of text streaming fast, motion blur, text not readable, blue light, realistic
+J04|Vertical image, an abstract glowing neural network of light filaments suddenly flaring blinding white at the center, dark background, dramatic, realistic
+J05|Documentary photo, vertical, robotic arms assembling computer chips in a clean factory, bright precise light, realistic
+J06|Documentary photo, vertical, a wooden chess board with a toppled black king, an old 1990s computer terminal glowing in the background, moody light, realistic
+J07|Documentary photo, vertical, close-up of a Go board with black and white stones, a single white stone placed in dramatic light, realistic
+J08|Scientific visualization, vertical, colorful 3D ribbon structure of a protein molecule floating in dark space, glowing, high detail, realistic
+J09|Documentary photo, vertical, a dim control room with people seen from behind watching huge screens full of data, faces not visible, tense, realistic
+J10|Scientific image, vertical, a human brain glowing softly with tiny lights of neurons firing, dark background, realistic
+J11|Documentary photo, vertical, aerial view at night of a gigantic data center campus with cooling units and power lines, glowing lights, realistic
+J12|Vertical image, a human face in profile slowly dissolving into tiny glowing digital pixels, dark background, cinematic, realistic
+J13|Documentary photo, vertical, an old 1960s typewriter with a typed page on a desk in a dim study, warm lamp light, text not readable, realistic
