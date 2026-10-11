@@ -12,6 +12,7 @@ import { palm, lamp, bench, car } from '../props.js';
 import { block } from '../blocks.js';
 import { crowd, sunbathers } from '../crowd.js';
 import { lifebuoy } from '../lifebuoy.js';
+import { seabed } from '../seabed.js';
 
 export function build(E, TL, F) {
   const { scene, lam, shadowed } = E, B = TL.beats;
@@ -22,19 +23,20 @@ export function build(E, TL, F) {
   const groundAt = (x, z) => z < 0 ? Math.max(-12, z * .06) : z < WALL ? z / WALL * 2.4 : z < 90 ? PROM : PROM + (z - 90) * .025;
   E.groundAt = groundAt;
   E.windArea = { x: 80, z0: 120, z1: -40 };
+  if (TL.seabed) seabed(E, TL, F, z => groundAt(0, z));     // the sea drains far away: a deep sea bed (seabed.js)
 
   // sea (big faceted sheet that rises with the water force)
   { const g = new THREE.PlaneGeometry(5000, 2400, 90, 40); g.rotateX(-Math.PI / 2); const p = g.attributes.position, R = rng(4);
     for (let i = 0; i < p.count; i++) p.setY(i, (R() - .5) * .3); g.computeVertexNormals();
     const sea = new THREE.Mesh(g, lam(0x3a7078)); sea.position.set(0, 0, -1150); sea.receiveShadow = true; scene.add(sea);
-    E.floods.push({ mesh: sea, y: 0, wave: true });
+    E.floods.push({ mesh: sea, y: 0, wave: true }); if (TL.seabed) sea.visible = false;
     const inland = new THREE.Mesh(new THREE.PlaneGeometry(5000, 600), lam(0x4a7579)); inland.rotation.x = -Math.PI / 2; inland.position.set(0, -.25, 250); scene.add(inland);
     E.floods.push({ mesh: inland, y: -.25 });
     // surf: white lines that follow the waterline
     const foam = new THREE.Mesh(new THREE.PlaneGeometry(5000, 1.4), new THREE.MeshLambertMaterial({ color: 0xe8ecea, transparent: true, opacity: .7 }));
     foam.rotation.x = -Math.PI / 2; scene.add(foam);
     E.updates.push((t, F, tv) => { const wy = F.field(t).waterY ?? 0, z = wy <= 2.4 ? Math.max(0, wy) / 2.4 * WALL : wy < PROM ? WALL : 90 + (wy - PROM) / .025;
-      foam.position.set(0, wy + .06, z - .7 + Math.sin(tv * .8) * .5); foam.visible = wy < PROM + 4; });
+      foam.position.set(0, wy + .06, z - .7 + Math.sin(tv * .8) * .5); foam.visible = wy < PROM + 4 && wy > -.4; });
   }
   // beach: sloped sand
   { const g = new THREE.PlaneGeometry(5000, WALL + 40, 40, 20); g.rotateX(-Math.PI / 2); const p = g.attributes.position;
