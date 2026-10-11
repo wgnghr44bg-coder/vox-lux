@@ -18,6 +18,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 ## Video's
 - `2026-10-10-humans-vanish/` – What if all humans vanished? (eindversie: `doc/make-doc-lux.py`)
 - `2026-10-10-struck-by-lightning/` – What if you got struck by lightning? (`make.py`)
+- `2026-10-10-asteroid-missed/` – What if the asteroid that killed the dinosaurs had missed? **Lange video**, 16:9 1920x1080, ca. 3 min (`make.py`, `make_thumbnail.py` → `thumbnail.jpg`)
 
 ## Opbouw van elke video (sjabloon = de lightning-video)
 Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca. 18 zinnen, 65–75 s:
@@ -39,6 +40,15 @@ python3 alteraqon/tools/make_voice.py  alteraqon/<datum>-<slug>
 python3 alteraqon/tools/make_video.py  alteraqon/<datum>-<slug> <tmpmap>    # -> <tmpmap>/<slug>.mp4
 ```
 In `shots.py` verwijst het eerste getal naar de regel in `voice-times.tsv` (pas invullen ná make_voice).
+
+## Lange video (16:9, ca. 3 min) – voorbeeld: de asteroid-video
+Zelfde stijl, maar liggend en ca. 40 zinnen / 38 beelden (≈ $0,80 aan beelden + een paar cent stem):
+- `python3 alteraqon/tools/make_images.py <map> 16:9` (beelden 16:9; `T01` = basis voor de thumbnail)
+- `python3 alteraqon/tools/make_voice.py <map> <cachemap buiten repo>` (cache: na inkorten alleen nieuwe zinnen betalen)
+- `make.py`: beelden volgen de kolom `image` in voice-times.tsv; tijdstempels per regelnummer; label linksboven
+  scheidt feiten (`REAL HISTORY`) van speculatie (`ALTERNATE TIMELINE · SPECULATION`).
+- Thumbnail 1280x720 met `make_thumbnail.py` in de videomap (tekst links, YouTube zet de duur rechtsonder).
+- YouTube-tekst als hieronder, maar zonder `#shorts`.
 
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp; niet meer feiten erbij zetten.
