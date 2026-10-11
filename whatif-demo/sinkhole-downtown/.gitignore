@@ -3,3 +3,5 @@ stills/
 silent.mp4
 *-small.mp4
 render.log
+voice-take.mp3
+.voice-cache/

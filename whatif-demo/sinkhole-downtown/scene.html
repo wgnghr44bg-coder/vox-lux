@@ -445,6 +445,8 @@ const cars = [];
     }
     // after the dip: braking distance ~ v^2 / 8
     for (const car of list) { car.sStop = car.sDip + car.dir * car.v * car.v / 8; car.out = Math.sign(car.sStop) === car.dir; }
+    // no car stops between the camera and the crossing (it would block the view)
+    for (let k = list.length - 1; k >= 0; k--) { const c = list[k]; if (!c.out && c.a === 'z' && c.sStop > 26 && c.sStop < 115) { c.m.g.removeFromParent(); list.splice(k, 1); } }
     // backing out: the inner cars of a lane line up behind the outer ones, all beyond SAFE
     const backers = list.filter(c => !c.out && Math.abs(c.sStop) < SAFE).sort((p, q) => Math.abs(q.sStop) - Math.abs(p.sStop));
     let slot = 0; for (const car of list.filter(c => !c.out && Math.abs(c.sStop) >= SAFE)) slot = Math.max(slot, 0);
