@@ -13,40 +13,29 @@ Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.80,0:00:05.50,Sub,,0,0,0,,{\fad(150,150)}Imagine… the Venom symbiote takes over Superman.
-Dialogue: 0,0:00:05.50,0:00:07.20,Sub,,0,0,0,,{\fad(150,150)}What would happen?
-Dialogue: 0,0:00:08.00,0:00:10.20,Sub,,0,0,0,,{\fad(150,150)}You are in Metropolis.
-Dialogue: 0,0:00:10.20,0:00:12.70,Sub,,0,0,0,,{\fad(150,150)}Superman flies overhead.
-Dialogue: 0,0:00:12.70,0:00:16.80,Sub,,0,0,0,,{\fad(150,150)}But his blue suit… starts turning black.
-Dialogue: 0,0:00:17.60,0:00:19.00,Sub,,0,0,0,,{\fad(150,150)}Then.
-Dialogue: 0,0:00:19.80,0:00:23.90,Sub,,0,0,0,,{\fad(150,150)}The symbiote makes every power of its host stronger.
-Dialogue: 0,0:00:23.90,0:00:27.80,Sub,,0,0,0,,{\fad(150,150)}And Superman is already faster than a speeding bullet.
-Dialogue: 0,0:00:27.80,0:00:31.10,Sub,,0,0,0,,{\fad(150,150)}Now add a creature that is always hungry.
-Dialogue: 0,0:00:31.90,0:00:34.20,Sub,,0,0,0,,{\fad(150,150)}He doesn't save the city anymore.
-Dialogue: 0,0:00:34.20,0:00:35.80,Sub,,0,0,0,,{\fad(150,150)}He hunts it.
-Dialogue: 0,0:00:36.60,0:00:39.50,Sub,,0,0,0,,{\fad(150,150)}Even kryptonite might not reach him.
-Dialogue: 0,0:00:40.30,0:00:43.50,Sub,,0,0,0,,{\fad(150,150)}But the symbiote has two old weaknesses.
-Dialogue: 0,0:00:43.50,0:00:46.30,Sub,,0,0,0,,{\fad(150,150)}Sound… and fire.
-Dialogue: 0,0:00:46.30,0:00:48.60,Sub,,0,0,0,,{\fad(150,150)}And Superman carries both.
-Dialogue: 0,0:00:48.60,0:00:50.50,Sub,,0,0,0,,{\fad(150,150)}Heat vision is fire.
-Dialogue: 0,0:00:50.50,0:00:53.80,Sub,,0,0,0,,{\fad(150,150)}One clap of his hands is a sonic boom.
-Dialogue: 0,0:00:54.60,0:00:58.00,Sub,,0,0,0,,{\fad(150,150)}It chose the one body it can't survive.
-Dialogue: 0,0:00:58.80,0:01:01.90,Sub,,0,0,0,,{\fad(150,150)}Superman first flew in 1938.
-Dialogue: 0,0:01:01.90,0:01:06.00,Sub,,0,0,0,,{\fad(150,150)}A copy of that comic sold for six million dollars.
-Dialogue: 0,0:01:06.80,0:01:08.20,Sub,,0,0,0,,{\fad(150,150)}So remember.
-Dialogue: 0,0:01:08.20,0:01:12.50,Sub,,0,0,0,,{\fad(150,150)}Power is never the danger… it's who controls it.
-Dialogue: 2,0:00:19.80,0:00:22.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
-Dialogue: 2,0:00:19.92,0:00:22.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}VENOM, FIRST FULL ISSUE
-Dialogue: 2,0:00:20.02,0:00:22.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1988
-Dialogue: 2,0:00:40.30,0:00:42.90,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
-Dialogue: 2,0:00:40.42,0:00:42.90,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SYMBIOTE WEAKNESSES
-Dialogue: 2,0:00:40.52,0:00:42.90,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}2
-Dialogue: 2,0:00:50.50,0:00:53.10,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
-Dialogue: 2,0:00:50.62,0:00:53.10,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SPEED OF SOUND
-Dialogue: 2,0:00:50.72,0:00:53.10,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1,235 km/h
-Dialogue: 2,0:00:58.80,0:01:01.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
-Dialogue: 2,0:00:58.92,0:01:01.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}ACTION COMICS #1
-Dialogue: 2,0:00:59.02,0:01:01.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1938
-Dialogue: 2,0:01:01.90,0:01:04.50,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
-Dialogue: 2,0:01:02.02,0:01:04.50,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}RECORD SALE, 2024
-Dialogue: 2,0:01:02.12,0:01:04.50,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}$6,000,000
+Dialogue: 0,0:00:00.80,0:00:02.60,Sub,,0,0,0,,{\fad(150,150)}What if Venom took over Superman?
+Dialogue: 0,0:00:02.60,0:00:04.80,Sub,,0,0,0,,{\fad(150,150)}His blue suit… turns black.
+Dialogue: 0,0:00:04.80,0:00:05.50,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:05.50,0:00:07.80,Sub,,0,0,0,,{\fad(150,150)}The symbiote makes every power stronger.
+Dialogue: 0,0:00:07.80,0:00:09.80,Sub,,0,0,0,,{\fad(150,150)}And he was already faster than a bullet.
+Dialogue: 0,0:00:09.80,0:00:11.40,Sub,,0,0,0,,{\fad(150,150)}He doesn't save the city anymore.
+Dialogue: 0,0:00:11.40,0:00:12.30,Sub,,0,0,0,,{\fad(150,150)}He hunts it.
+Dialogue: 0,0:00:12.30,0:00:14.70,Sub,,0,0,0,,{\fad(150,150)}Even kryptonite might not reach him.
+Dialogue: 0,0:00:14.70,0:00:17.00,Sub,,0,0,0,,{\fad(150,150)}But the symbiote has two weaknesses.
+Dialogue: 0,0:00:17.00,0:00:18.60,Sub,,0,0,0,,{\fad(150,150)}Sound… and fire.
+Dialogue: 0,0:00:18.60,0:00:20.10,Sub,,0,0,0,,{\fad(150,150)}And Superman carries both.
+Dialogue: 0,0:00:20.10,0:00:21.30,Sub,,0,0,0,,{\fad(150,150)}Heat vision is fire.
+Dialogue: 0,0:00:21.30,0:00:23.20,Sub,,0,0,0,,{\fad(150,150)}One clap is a sonic boom.
+Dialogue: 0,0:00:23.20,0:00:25.80,Sub,,0,0,0,,{\fad(150,150)}It chose the one body it can't survive.
+Dialogue: 0,0:00:25.80,0:00:31.50,Sub,,0,0,0,,{\fad(150,150)}Superman's first comic, from 1938, sold for six million dollars.
+Dialogue: 0,0:00:31.50,0:00:33.80,Sub,,0,0,0,,{\fad(150,150)}So… who would win?
+Dialogue: 3,0:00:00.00,0:00:02.20,Title,,0,0,0,,{\pos(540,360)\fad(0,300)\fscx112\fscy112\t(0,250,\fscx100\fscy100)}VENOM\Nvs SUPERMAN
+Dialogue: 2,0:00:14.70,0:00:17.30,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:14.82,0:00:17.30,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SYMBIOTE WEAKNESSES
+Dialogue: 2,0:00:14.92,0:00:17.30,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}2
+Dialogue: 2,0:00:21.30,0:00:23.90,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:21.42,0:00:23.90,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SPEED OF SOUND
+Dialogue: 2,0:00:21.52,0:00:23.90,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1,235 km/h
+Dialogue: 2,0:00:25.80,0:00:28.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:25.92,0:00:28.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}ACTION COMICS #1, 1938
+Dialogue: 2,0:00:26.02,0:00:28.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}$6,000,000

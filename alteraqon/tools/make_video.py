@@ -13,6 +13,8 @@ rows=[r for r in csv.reader(open("voice-times.tsv"),delimiter="\t") if not r[0].
 END=float(rows[-1][2])+2.5
 SH=cfg.SH
 BANG=getattr(cfg,"BANG",None)   # index van de shot met flits + donderknal (of None)
+FADE_IN=getattr(cfg,"FADE_IN",0.8)   # 0 = meteen beeld (harde opening)
+HOOK=getattr(cfg,"HOOK",None)        # (tekst, seconden): grote tekst in beeld vanaf 0 s, of None
 starts=[0.0]+[float(rows[r-1][1]) for r,*_ in SH[1:]]
 
 # --- beeld ---
@@ -53,6 +55,8 @@ def stamp(st, label, big, hold=2.6, color=None):
 for i,r in enumerate(rows):
     st=float(r[1]); en=min(float(rows[i+1][1]) if i+1<len(rows) else END-0.8, float(r[2])+0.9)
     ev(0,st,en,"Sub",f"{{\\fad(150,150)}}{r[4]}")
+if HOOK:
+    ev(3,0,HOOK[1],"Title",f"{{\\pos(540,360)\\fad(0,300)\\fscx112\\fscy112\\t(0,250,\\fscx100\\fscy100)}}{HOOK[0]}")
 for i,s in enumerate(SH):
     if s[4]: stamp(starts[i], s[4][0], s[4][1], color="&H4040E8&" if s[4][1]=="0" else None)
 open("subs.ass","w").write("\n".join(ass)+"\n")
@@ -74,7 +78,7 @@ fc+=(f"[1:a]aresample=44100,pan=stereo|c0=c0|c1=c0,adelay={int(LEAD*1000)}|{int(
      "[2:a]volume=0.2,tremolo=f=0.12:d=0.6[s];[3:a]lowpass=f=240,volume=0.28[n];"
      f"[s][n]amix=inputs=2:normalize=0,afade=t=in:d=3,afade=t=out:st={END-4}:d=4,pan=stereo|c0=c0|c1=c0[bg];"
      f"[vo][bg]{L}amix=inputs={len(hits)+3}:duration=longest:normalize=0,alimiter=limit=0.95[a];"
-     f"[0:v]ass=subs.ass,fade=t=in:st=0:d=0.8,fade=t=out:st={END-1.8}:d=1.8[v]")
+     f"[0:v]ass=subs.ass{f',fade=t=in:st=0:d={FADE_IN}' if FADE_IN else ''},fade=t=out:st={END-1.8}:d=1.8[v]")
 subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",f"{S}/list.txt","-i","voice.mp3",
   "-f","lavfi","-t",str(END),"-i","sine=f=55:sample_rate=44100","-f","lavfi","-t",str(END),"-i","anoisesrc=color=brown:sample_rate=44100:amplitude=0.5",
   *ins,"-filter_complex",fc,"-map","[v]","-map","[a]","-t",str(END),"-c:v","libx264","-preset","slow","-b:v","2.9M","-maxrate","3.5M","-bufsize","6M",
