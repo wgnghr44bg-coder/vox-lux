@@ -14,7 +14,6 @@ END=float(rows[-1][2])+2.5
 SH=cfg.SH
 BANG=getattr(cfg,"BANG",None)   # index van de shot met flits + donderknal (of None)
 FADE_IN=getattr(cfg,"FADE_IN",0.8)   # 0 = meteen beeld (harde opening)
-HOOK=getattr(cfg,"HOOK",None)        # (tekst, seconden): grote tekst in beeld vanaf 0 s, of None
 starts=[0.0]+[float(rows[r-1][1]) for r,*_ in SH[1:]]
 
 # --- beeld ---
@@ -55,8 +54,6 @@ def stamp(st, label, big, hold=2.6, color=None):
 for i,r in enumerate(rows):
     st=float(r[1]); en=min(float(rows[i+1][1]) if i+1<len(rows) else END-0.8, float(r[2])+0.9)
     ev(0,st,en,"Sub",f"{{\\fad(150,150)}}{r[4]}")
-if HOOK:
-    ev(3,0,HOOK[1],"Title",f"{{\\pos(540,360)\\fad(0,300)\\fscx112\\fscy112\\t(0,250,\\fscx100\\fscy100)}}{HOOK[0]}")
 for i,s in enumerate(SH):
     if s[4]: stamp(starts[i], s[4][0], s[4][1], color="&H4040E8&" if s[4][1]=="0" else None)
 open("subs.ass","w").write("\n".join(ass)+"\n")
