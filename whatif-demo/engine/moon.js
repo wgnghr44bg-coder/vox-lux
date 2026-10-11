@@ -54,6 +54,61 @@ export function moonTexture() {
   return TEX;
 }
 
+
+// SECOND EARTH (Short #45): TL.moon.earth = { phase: [[t, 0..1]] (0 = full, ~.85 = thin crescent), lights: [[t, 0..1]] city lights
+// on the night side, spin }. Same true-size placement as the Moon but with the Earth's radius; TL.moon.dirs = [[t, [x,y,z]]]
+// moves it between shots (east at moonrise, west at dusk); TL.moon.earthLight = [[t, k]] lights the night like a giant moon.
+let ETEX = null;
+function earthTextures() {
+  if (ETEX) return ETEX;
+  const W = 1024, H = 512, cv = document.createElement('canvas'), lv = document.createElement('canvas');
+  cv.width = lv.width = W; cv.height = lv.height = H;
+  const x = cv.getContext('2d'), lx = lv.getContext('2d'), img = x.createImageData(W, H), li = lx.createImageData(W, H);
+  const h3 = (a, b, c) => { const s = Math.sin(a * 127.1 + b * 311.7 + c * 74.7) * 43758.5453; return s - Math.floor(s); };
+  const vn = (px, py, pz) => { const ix = Math.floor(px), iy = Math.floor(py), iz = Math.floor(pz), fx = px - ix, fy = py - iy, fz = pz - iz;
+    const u = fx * fx * (3 - 2 * fx), v = fy * fy * (3 - 2 * fy), w = fz * fz * (3 - 2 * fz), L = (a, b, t) => a + (b - a) * t;
+    return L(L(L(h3(ix, iy, iz), h3(ix + 1, iy, iz), u), L(h3(ix, iy + 1, iz), h3(ix + 1, iy + 1, iz), u), v),
+             L(L(h3(ix, iy, iz + 1), h3(ix + 1, iy, iz + 1), u), L(h3(ix, iy + 1, iz + 1), h3(ix + 1, iy + 1, iz + 1), u), v), w); };
+  const fbm = (px, py, pz, o = 5) => { let s = 0, a = .5, f = 1; for (let i = 0; i < o; i++) { s += a * vn(px * f, py * f, pz * f); f *= 2.03; a *= .5; } return s; };
+  for (let j = 0; j < H; j++) for (let i = 0; i < W; i++) {
+    const lon = i / W * Math.PI * 2, lat = (.5 - j / H) * Math.PI, cx = Math.cos(lat) * Math.cos(lon), cy = Math.sin(lat), cz = Math.cos(lat) * Math.sin(lon);
+    const e = fbm(cx * 1.6 + 5, cy * 1.6, cz * 1.6), land = e > .53, alat = Math.abs(lat) / (Math.PI / 2);
+    let r, g, b;
+    if (alat > .86 || (land && alat > .74)) { r = 236; g = 242; b = 248; }
+    else if (land) { const dry = fbm(cx * 4, cy * 4 + 9, cz * 4, 3), k = Math.min(1, (e - .53) * 7);
+      if (alat < .4 && dry > .52) { r = 196 + k * 20; g = 166 + k * 10; b = 112; } else { r = 58 + dry * 70 + k * 40; g = 112 + dry * 40; b = 52 + k * 20; } }
+    else { const deep = Math.min(1, (.53 - e) * 5); r = 18 + (1 - deep) * 30; g = 62 + (1 - deep) * 60; b = 128 + (1 - deep) * 50; }
+    const cl = fbm(cx * 3 + 20, cy * 5, cz * 3 + 3, 5), c = Math.max(0, Math.min(1, (cl - .5) * 3.2)) * (alat > .9 ? .3 : 1);
+    r = r + (250 - r) * c; g = g + (252 - g) * c; b = b + (255 - b) * c;
+    const k = (j * W + i) * 4; img.data[k] = r; img.data[k + 1] = g; img.data[k + 2] = b; img.data[k + 3] = 255;
+    // city lights: on land, not on ice, clustered (more near coasts), under thin cloud
+    let L = 0;
+    if (land && alat < .72) { const coast = 1 - Math.min(1, (e - .53) * 9), n = vn(cx * 60, cy * 60, cz * 60), m = fbm(cx * 9 + 3, cy * 9, cz * 9, 3);
+      L = Math.max(0, n - .62 + coast * .22) * 3.2 * (m > .45 ? 1 : .25); L = Math.min(1, L) * (1 - c * .7); }
+    li.data[k] = 255 * L; li.data[k + 1] = 200 * L; li.data[k + 2] = 120 * L; li.data[k + 3] = 255;
+  }
+  x.putImageData(img, 0, 0); lx.putImageData(li, 0, 0);
+  const T = c => { const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
+  return (ETEX = { day: T(cv), lights: T(lv) });
+}
+function earthMat() {
+  const T = earthTextures();
+  return new THREE.ShaderMaterial({
+    fog: false, uniforms: { map: { value: T.day }, lights: { value: T.lights }, sunDir: { value: new THREE.Vector3(0, 0, 1) }, gain: { value: 1 }, lightGain: { value: 0 } },
+    vertexShader: `varying vec2 vUv; varying vec3 vW; varying vec3 vV;
+      void main(){ vUv = uv; vec4 wp = modelMatrix * vec4(position, 1.); vW = normalize(mat3(modelMatrix) * normal); vV = normalize(cameraPosition - wp.xyz); gl_Position = projectionMatrix * viewMatrix * wp; }`,
+    fragmentShader: `uniform sampler2D map; uniform sampler2D lights; uniform vec3 sunDir; uniform float gain; uniform float lightGain; varying vec2 vUv; varying vec3 vW; varying vec3 vV;
+      void main(){ vec3 n = normalize(vW); float mu = max(dot(n, normalize(vV)), 0.); float ld = dot(n, normalize(sunDir));
+        float day = smoothstep(-.04, .22, ld);
+        vec3 c = texture2D(map, vUv).rgb * gain * day * (.75 + .25 * pow(mu, .4));
+        c += texture2D(map, vUv).rgb * vec3(.05, .06, .08) * (1. - day);                                  // faint light from our Earth on its night side
+        c += texture2D(lights, vUv).rgb * lightGain * (1. - smoothstep(-.12, .05, ld)) * 1.6;
+        float rim = pow(1. - mu, 2.6);
+        c += vec3(.35, .6, 1.) * rim * (.15 + .85 * smoothstep(-.25, .3, ld)) * gain * .9;
+        gl_FragColor = vec4(c, 1.); }`,
+  });
+}
+
 // lit-moon shader: texture, limb darkening, glowing cracks (crack 0..1) where it tears
 function moonMat() {
   return new THREE.ShaderMaterial({
@@ -73,14 +128,18 @@ export function createMoon(E, TL) {
   const STOP = TL.beats.stop, km = monotone(M.km), G = M.orbit ? skyGeo(M.orbit.lat) : null;
   E.moonKm = t => km(Math.min(t, STOP));
   const fixed = new THREE.Vector3(...(M.dir || [-.26, .12, -.96])).normalize();
-  const rel = (t, th = M.orbit?.theta) => G ? G.at(E.moonKm(t), th) : fixed.clone().multiplyScalar(E.moonKm(t) - EARTH_R * .95);   // Moon relative to you (km)
+  const BR = M.earth ? EARTH_R : MOON_R;
+  const dirs = (M.dirs || []).map(([ts, v]) => [ts, new THREE.Vector3(...v).normalize()]);
+  const dirAt = t => { let v = fixed; for (const [ts, d] of dirs) if (t >= ts) v = d; return v; };
+  const rel = (t, th = M.orbit?.theta) => G ? G.at(E.moonKm(t), th) : dirAt(t).clone().multiplyScalar(E.moonKm(t) - EARTH_R * .95);   // Moon relative to you (km)
   E.moonDirAt = t => rel(t).normalize();
   E.moonDir = E.moonDirAt(0);
   E.moonBright = t => (MOON_TODAY / E.moonKm(t)) ** 2;
   E.moonBroken = t => M.breakAt ? smooth(M.breakAt[0], M.breakAt[1], Math.min(t, STOP)) : 0;
   E.moonGeo = G;
   const D = 3000;
-  const mat = moonMat();
+  const mat = M.earth ? earthMat() : moonMat();
+  const phaseAt = monotone(M.earth?.phase || [[0, 0]]), lightsAt = monotone(M.earth?.lights || [[0, 0]]);
   const moon = new THREE.Mesh(new THREE.SphereGeometry(1, 48, 32), mat);
   moon.rotation.y = -Math.PI / 2 - .35;          // the maria side towards us
   moon.frustumCulled = false; moon.renderOrder = -1;
@@ -104,7 +163,7 @@ export function createMoon(E, TL) {
   let cur = new THREE.Vector3(1, 0, 0), curT = 0;
   const _t = new THREE.Vector3();
   const place = cam => {
-    const d = cur.length(), dir = _t.copy(cur).normalize(), r = D * MOON_R / d;
+    const d = cur.length(), dir = _t.copy(cur).normalize(), r = D * BR / d;
     moon.position.copy(cam.position).addScaledVector(dir, D); moon.updateMatrixWorld();
     halo.position.copy(cam.position).addScaledVector(dir, D * 1.02); halo.scale.setScalar(r * (M.halo ?? 1) * Math.min(7, 2.6 + 50 / r)); halo.updateMatrixWorld();
     const b = E.moonBroken(curT);
@@ -123,18 +182,32 @@ export function createMoon(E, TL) {
   for (const f of frags) f.m.onBeforeRender = (r, s, cam) => place(cam);
   E.updates.push((t, F, tv) => {
     curT = t; cur = rel(t);
-    const b = E.moonBroken(t), d = cur.length(), r = D * MOON_R / d;
+    const b = E.moonBroken(t), d = cur.length(), r = D * BR / d;
     // stretch along the orbit while it starts to tear, then the whole disc gives way to the pieces
     const st = smooth(0, .25, b);
     moon.scale.set(r * (1 + st * .35), r * (1 - st * .12), r * (1 - st * .1));
     if (G) { const tan = G.e1.clone().multiplyScalar(-Math.sin(M.orbit.theta)).addScaledVector(G.e2, Math.cos(M.orbit.theta)); moon.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), tan); moon.rotateX(-Math.PI / 2 - .35); }
     const gain = (M.gain ?? 1.15) * Math.min(1.6, .9 + .1 * Math.log2(E.moonBright(t)));
-    mat.uniforms.gain.value = gain; mat.uniforms.crack.value = smooth(0, .3, b);
+    if (M.earth) {
+      const dd = cur.clone().normalize(), side = new THREE.Vector3().crossVectors(dd, new THREE.Vector3(0, 1, 0)).normalize(), a = phaseAt(t) * Math.PI;
+      mat.uniforms.sunDir.value.copy(dd).multiplyScalar(-Math.cos(a)).addScaledVector(side, Math.sin(a) * (M.earth.side ?? 1));
+      mat.uniforms.gain.value = M.gain ?? 1.25; mat.uniforms.lightGain.value = lightsAt(t);
+      moon.rotation.set(.41, -Math.PI / 2 + t * (M.earth.spin ?? .004), 0);
+    } else { mat.uniforms.gain.value = gain; mat.uniforms.crack.value = smooth(0, .3, b); }
     for (const f of frags) { f.m.visible = b > .22 && b < .985; f.m.material.uniforms.gain.value = gain * .8; f.m.material.uniforms.crack.value = .6 * (1 - smooth(.5, 1, b)); }
     halo.material.opacity = Math.min(.55, .12 + .05 * Math.log2(E.moonBright(t))) * (M.halo ?? 1) * (1 - b);
     const vis = M.visible ? M.visible(tv) : true;
     moon.visible = vis && b < .3; halo.visible = vis;
   });
+  if (M.earthLight) { const kAt = monotone(M.earthLight);
+    (E.lookMods ||= []).push((t, L) => {
+      const k = kAt(t) * (L.dark ?? 0); if (k <= 0) return; const C = h => new THREE.Color(h);
+      L.top = L.top.clone().lerp(C(0x172744), k * .85); L.hor = L.hor.clone().lerp(C(0x31486c), k * .85); L.stars = (L.stars ?? 1) * (1 - .75 * k);
+      L.fogColor = (L.fogColor || C(0x22324e)).clone().lerp(C(0x2a3c5a), k * .8);
+      L.hemi = Math.max(L.hemi ?? 0, .5 + .8 * k); L.hemiColor = C(0x8fa6cc);
+      if (k > .25) { L.sun = Math.max(L.sun ?? 0, 1.9 * k); L.sunColor = C(0xcfdcff); L.sunDisc = C(0); const d = E.moonDirAt(t); E.sunOffset = d.clone().multiplyScalar(220); if (E.sunOffset.y < 50) E.sunOffset.y = 50; }
+    }); }
+  if (M.earth?.stars) { const sAt = monotone(M.earth.stars); (E.lookMods ||= []).push((t, L) => { L.stars = (L.stars ?? 1) * sAt(t); }); }
   // night lit by the Moon (any place): dark sky with stars, moonlight that grows as it comes closer
   if (M.night) (E.lookMods ||= []).push((t, L) => {
     const k = clamp(Math.log2(E.moonBright(t)) / 9), C = h => new THREE.Color(h);       // 0 today .. 1 at ~250× today's moonlight
