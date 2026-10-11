@@ -48,7 +48,8 @@ export function crowd(E, TL, o) {
 // at which they get up), then some run for the boulevard (they vanish at `exit`, a z value) and
 // the others stay standing, looking up. Uses ground height E.groundAt.
 export function sunbathers(E, TL, o) {
-  const { n, area, exit, seed = 81, runFrac = .55, wake = o.wake || [.25, .55] } = o;
+  const { n, area, exit, seed = 81, wake = o.wake || [.25, .55] } = o, runFrac = o.runFrac ?? TL.sunRun ?? .55;
+  const WA = TL.wakeAt;     // [t0, t1]: get up between these video times (forces whose level never rises, e.g. a draining sea)
   const R = rng(seed);
   for (let i = 0; i < n; i++) {
     const x = area.x[0] + R() * (area.x[1] - area.x[0]), z = area.z[0] + R() * (area.z[1] - area.z[0]);
@@ -59,7 +60,7 @@ export function sunbathers(E, TL, o) {
     let tw = null;
     person(E, seed * 100 + i, { y: 0, coat: [0xd9b9a0, 0xb08a6e, 0x8a6b4e, 0xc9a08a][Math.floor(R() * 4)],
       path(t, F) {
-        tw ??= F.timeOf(w);
+        tw ??= WA ? WA[0] + (w - wake[0]) / ((wake[1] - wake[0]) || 1) * (WA[1] - WA[0]) : F.timeOf(w);
         const gy = E.groundAt(x, z);
         if (t < tw) return { x, z, y: gy + .12, rot: lieRot, lie: true, moving: 0, speed: 0 };
         const a = t - tw, up = Math.min(1, a / 1.2);

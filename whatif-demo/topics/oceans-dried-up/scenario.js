@@ -61,10 +61,10 @@ export default function (at) {
       [0, [3.8, 5.0, 50], [2, 3, -200]],
       [at('place').e, [3.8, 5.6, 44], [2, 2, -220]],
       [at('now').e, [3, 8, 39], [0, -1, -200]],
-      [at('hour').e, [2, 13, 34], [0, -4, -180]],
-      [at('people').s + 1, [-34, 11, 4], [6, 3, 40]],
-      [at('boats').s, [-30, 16, -6], [0, -2, -60]],
-      [at('boats').e + .5, [-14, 30, -10], [10, -6, -140]],
+      [at('hour').s + .5, [0, 11, 34], [0, -3, -190]],
+      [at('people').s, [-30, 11, 6], [6, 3, 40]],
+      [at('people').e + .4, [-34, 12, 2], [8, 3, 42]],
+      [at('boats').e + .8, [-14, 30, -10], [10, -6, -140]],
       [at('depth').s, [0, 60, -20], [0, -20, -500]],
       [at('more').e, [0, 260, -400], [0, -500, -2000]],
       [at('oxygen').s, [0, 600, -1100], [0, -1800, -3800]],
@@ -74,6 +74,7 @@ export default function (at) {
       [T_END, [330, 800, -2300], [0, -60, 0]],
     ],
     fov: 58,
+    wakeAt: [at('people').s - .3, at('people').s + 1.6], sunRun: 1,   // sunbathers get up and leave when the lifeguards wave
     beats: { carsStop: 1e9, shelter: at('people').s + .6, lookUp: at('quiet').s, stop: T_END, climax: at('trench').s + 1 },
   };
 }
