@@ -27,6 +27,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-11-sky-countdown/` – What if the sky displayed a countdown? **Lange video**, 16:9 1920x1080, ca. 3 min 7 s; Atlas-stem
   zoals de snelle shorts (`make_voice.py <map> <cache> --voice atlas --speed 1.0 --pause-ms 300 --long-pause-ms 600 --sentence-pause-ms 200`),
   harde opening, geen titeltekst; aftellende cijfers in de lucht zelf getekend (ASS in `make.py`), `make_music.py`, `make_thumbnail.py`
+  – geüpload 11 okt (privé): https://youtu.be/Cy7LxOLVcPU (thumbnail handmatig in Studio: API mag geen eigen thumbnail zetten)
 
 ## Na elke nieuwe video
 Meld hem bij de verzamelsessie **"mp4 alteraqon shorts"** (`session_0149vZSeTdq1ZbZMfe47EX4e`) met send_message:
