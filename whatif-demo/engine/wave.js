@@ -12,7 +12,7 @@
 //   }
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, monotone } from './util.js';
-import { house, tower } from './blocks.js';
+import { house, tower, block } from './blocks.js';
 
 function tag(E, text, color = '#ffffff') {
   const cv = document.createElement('canvas'); cv.width = 512; cv.height = 128; const x = cv.getContext('2d');
@@ -21,6 +21,16 @@ function tag(E, text, color = '#ffffff') {
   const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false, sizeAttenuation: false, fog: false }));
   s.scale.set(.2, .05, 1); s.renderOrder = 10; E.scene.add(s); return s;
+}
+// a sign: small line (name · year) over a big line (height), always the same size on screen
+function sign(E, top, big, k = 1) {
+  const cv = document.createElement('canvas'); cv.width = 640; cv.height = 240; const x = cv.getContext('2d');
+  x.textAlign = 'center'; x.textBaseline = 'middle'; x.lineJoin = 'round';
+  const line = (txt, font, y) => { x.font = font; x.lineWidth = 12; x.strokeStyle = 'rgba(16,20,24,.8)'; x.strokeText(txt, 320, y); x.fillStyle = '#fff'; x.fillText(txt, 320, y); };
+  line(top, '700 46px "Helvetica Neue", Arial, sans-serif', 58); line(big, '800 104px "Helvetica Neue", Arial, sans-serif', 160);
+  const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false, sizeAttenuation: false, fog: false }));
+  s.scale.set(.36 * k, .135 * k, 1); s.center.set(.5, 0); s.renderOrder = 11; E.scene.add(s); return s;
 }
 const show = (s, [a, b], t) => { const o = smooth(a, a + .8, t) * (1 - smooth(b - .8, b, t)); s.material.opacity = o; s.visible = o > .01; };
 
@@ -32,16 +42,16 @@ export function buildWave(E, TL, F, P) {
   E.skyFollow = true;          // far out at sea: the sky sphere (r 4000) stays around the camera (main.js)
 
   // ---- the breaking wave: profile in (z landward, y up) for height 1, extruded along x ----
-  if (W.h) {
-    const hAt = monotone(W.h), [x0, x1] = W.x || [-420, 260], L = x1 - x0, zf = W.front ?? -8;
+  for (const S of W.waves || (W.h ? [W] : [])) {
+    const hAt = typeof S.h === 'number' ? () => S.h : monotone(S.h), [x0, x1] = S.x || [-420, 260], L = x1 - x0, zf = S.front ?? -8;
     const prof = [[-3.4, 0], [-2.2, .18], [-1.3, .5], [-.7, .8], [-.3, .97], [0, 1], [.25, .96], [.42, .84], [.4, .74], [.28, .7], [.2, .55], [.2, .3], [.3, 0]];
     const sh = new THREE.Shape(); prof.forEach(([u, v], i) => i ? sh.lineTo(u, v) : sh.moveTo(u, v)); sh.closePath();
-    const g = new THREE.ExtrudeGeometry(sh, { depth: L, steps: 90, bevelEnabled: false, curveSegments: 1 });
+    const g = new THREE.ExtrudeGeometry(sh, { depth: L, steps: Math.max(12, Math.min(90, Math.round(L / 4))), bevelEnabled: false, curveSegments: 1 });
     g.translate(0, 0, -L / 2); g.rotateY(-Math.PI / 2);        // shape x -> world z (landward), extrusion -> world x
     const pos = g.attributes.position, base = pos.array.slice(), col = new Float32Array(pos.count * 3);
     const deep = new THREE.Color(0x24606c), mid = new THREE.Color(0x3d8d96), foam = new THREE.Color(0xe9f1ef), c = new THREE.Color();
     for (let i = 0; i < pos.count; i++) { const y = pos.getY(i), z = pos.getZ(i);
-      c.copy(deep).lerp(mid, smooth(.2, .75, y)); if (y > .86 || (z > .15 && y > .6)) c.lerp(foam, .8);
+      c.copy(deep).lerp(mid, smooth(.15, .7, y)); if (y > .93) c.lerp(foam, .85); else if (z > .25 && y > .78) c.lerp(foam, .45);
       c.toArray(col, i * 3); }
     g.setAttribute('color', new THREE.BufferAttribute(col, 3));
     const wave = new THREE.Mesh(g, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
@@ -58,16 +68,18 @@ export function buildWave(E, TL, F, P) {
     });
     E.emitters.push((tv, add) => {       // spray blowing off the crest
       const h = hAt(tv); if (h < .5) return;
-      for (let k = 0; k < 260; k++) {
-        const u = (tv * .45 + hash(k, 1)) % 1, x = x0 + 40 + hash(k, 2) * (L - 80), y = h * (.92 + u * .2) + u * 3;
+      const nk = Math.min(260, Math.round(L * 2.5)), m = Math.min(40, L * .2);
+      for (let k = 0; k < nk; k++) {
+        const u = (tv * .45 + hash(k, 1)) % 1, x = x0 + m + hash(k, 2) * (L - 2 * m), y = h * (.92 + u * .2) + u * 3;
         add(x, y, zf - .1 * h - u * h * .25, h * (.06 + u * .12) + 1, Math.sin(u * Math.PI) * .35, .95, .97, .97, hash(k, 3) * 6);
       }
     });
-    if (W.label) { const s = tag(E, ''), cv = s.material.map.image, cx = cv.getContext('2d'); let last = '';
+    if (S.sign) { const s = sign(E, S.sign.top, S.sign.big); E.updates.push(t => { s.position.set((x0 + x1) / 2, hAt(t) * 1.08 + 1.2 + (S.sign.dy ?? 0), zf - .2 * hAt(t)); show(s, S.sign.at, t); }); }
+    if (S.label) { const s = tag(E, ''), cv = s.material.map.image, cx = cv.getContext('2d'); let last = '';
       E.updates.push((t) => { const h = hAt(t), txt = `${h < 9.5 ? h.toFixed(0) : Math.round(h)} m`;
         if (txt !== last) { cx.clearRect(0, 0, 512, 128); cx.font = '600 64px "Helvetica Neue", Arial, sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
           cx.lineWidth = 10; cx.strokeStyle = 'rgba(20,24,28,.75)'; cx.strokeText(txt, 256, 64); cx.fillStyle = '#fff'; cx.fillText(txt, 256, 64); s.material.map.needsUpdate = true; last = txt; }
-        s.position.set(W.labelX ?? 0, h * 1.12 + 1.5, zf - .3 * h); show(s, W.label, t); });
+        s.position.set(S.labelX ?? 0, h * 1.12 + 1.5, zf - .3 * h); show(s, S.label, t); });
     }
   }
 
@@ -75,15 +87,24 @@ export function buildWave(E, TL, F, P) {
   if (W.farLand !== false) { const y = E.groundAt ? E.groundAt(0, 690) : 0, fl = new THREE.Mesh(new THREE.PlaneGeometry(9000, 5000), lam(0x8f8d80));
     fl.rotation.x = -Math.PI / 2; fl.position.set(0, y - .05, 690 + 2500 - 2); scene.add(fl); }
 
+  // a simple town further inland (seen from far away): boxes of different heights
+  if (W.town) { const T = W.town, R = rng(5), n = T.n ?? 900, gb = new THREE.BoxGeometry(1, 1, 1); gb.translate(0, .5, 0);
+    const im = new THREE.InstancedMesh(gb, lam(0xd8cfbf), n), M = new THREE.Matrix4(), c = new THREE.Color();
+    for (let i = 0; i < n; i++) { const x = T.x[0] + R() * (T.x[1] - T.x[0]), z = T.z[0] + R() * (T.z[1] - T.z[0]), w = 14 + R() * 22, h = 6 + R() ** 2 * 30;
+      M.makeScale(w, h, 12 + R() * 20); M.setPosition(x, E.groundAt ? E.groundAt(x, Math.min(z, 690)) : 0, z); im.setMatrixAt(i, M);
+      im.setColorAt(i, c.set([0xe2d9c8, 0xcfc4b0, 0xbcc4c6, 0xd9cbb0, 0xa9b3b5][i % 5])); }
+    im.castShadow = true; im.receiveShadow = true; scene.add(im); }
+
   // ---- things to compare with ----
   for (const o of W.sizes || []) {
     const y = E.groundAt ? E.groundAt(o.x, o.z) : 0;
     let h;
-    if (o.kind === 'house') h = house(E, { x: o.x, y, z: o.z, w: o.w ?? 9, d: o.d ?? 10, h: o.h - (o.roofH ?? 3.4), roofH: o.roofH ?? 3.4, ry: o.ry ?? 0, color: o.color ?? 0xe6dccb, roof: 0x8a4b3c, chimney: false }).h;
+    if (o.kind === 'flat') h = block(E, { x: o.x, y, z: o.z, w: o.w ?? 18, d: o.d ?? 14, floors: Math.round((o.h - 4.7) / 3.5), color: o.color ?? 0xd2c6ae, balconies: [0, 1], cornice: true }).h;
+    else if (o.kind === 'house') h = house(E, { x: o.x, y, z: o.z, w: o.w ?? 9, d: o.d ?? 10, h: o.h - (o.roofH ?? 3.4), roofH: o.roofH ?? 3.4, ry: o.ry ?? 0, color: o.color ?? 0xe6dccb, roof: 0x8a4b3c, chimney: false }).h;
     else { h = tower(E, { x: o.x, y, z: o.z, w: o.w ?? 34, d: o.d ?? 30, h: o.h, color: o.color ?? 0x9fb2bd }).h;
       const crown = E.shadowed(new THREE.Mesh(new THREE.BoxGeometry((o.w ?? 34) * .6, 6, (o.d ?? 30) * .6), lam(0x6f7d86))); crown.position.set(o.x, y + h + 3, o.z); scene.add(crown);
       const mast = new THREE.Mesh(new THREE.CylinderGeometry(.4, .6, 18, 5), lam(0xb9c0c4)); mast.position.set(o.x, y + h + 15, o.z); scene.add(mast); }
-    if (o.label) { const s = tag(E, `${o.h} m`); s.position.set(o.x + (o.tagDx ?? 0), y + h + (o.tagDy ?? (o.kind === 'house' ? 3 : 34)), o.z); E.updates.push(t => show(s, o.label, t)); }
+    if (o.label) { const s = o.name != null ? sign(E, o.name, `${o.h} m`, o.k ?? .75) : tag(E, `${o.h} m`); s.position.set(o.x + (o.tagDx ?? 0), y + h + (o.tagDy ?? (o.kind === 'tower' ? 14 : 3)), o.z); E.updates.push(t => show(s, o.label, t)); }
   }
   for (const o of W.tags || []) { const s = tag(E, o.text, o.color); s.position.set(...o.pos); E.updates.push(t => show(s, o.at, t)); }
 
@@ -134,7 +155,7 @@ export function buildWave(E, TL, F, P) {
         const u = (tv * .6 + hash(k, 4)) % 1; n++;
         add(x + fx * (6 + u * 14), y + 6 + u * 34, z + fz * (6 + u * 14), 16 + u * 34, Math.sin(u * Math.PI) * .75 * k0, .96, .97, .97, hash(k, 5) * 6); }
     });
-    if (R0.label) { const s = tag(E, `${Math.round(hAt(1e9))} m`, '#ffffff'); const [lx, lz] = R0.labelAt;
+    if (R0.label) { const s = R0.name != null ? sign(E, R0.name, `${Math.round(hAt(1e9))} m`) : tag(E, `${Math.round(hAt(1e9))} m`, '#ffffff'); const [lx, lz] = R0.labelAt;
       s.position.set(lx, hAt(1e9) + 30, lz); E.updates.push(t => show(s, R0.label, t));
       const line = new THREE.Mesh(new THREE.BoxGeometry(1, 1.6, 260), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, fog: false }));
       line.position.set(lx, hAt(1e9) + 2, lz); line.rotation.y = R0.lineRy ?? 0; scene.add(line); E.updates.push(t => { line.material.opacity = .7 * smooth(R0.label[0], R0.label[0] + 1, t); }); }
