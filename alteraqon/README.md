@@ -64,10 +64,11 @@ Zelfde stijl, maar liggend en ca. 40 zinnen / 38 beelden (≈ $0,80 aan beelden 
 - YouTube-tekst als hieronder, maar zonder `#shorts`.
 
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
-Per video invullen met het onderwerp; niet meer feiten erbij zetten.
+Per video invullen met het onderwerp. De beschrijving is **algemeen** (eigenaar okt 2026): ze maakt nieuwsgierig naar het onderwerp,
+maar herhaalt niet wat er letterlijk in de video staat (geen getallen/feiten uit het script, de twist niet verklappen).
 
 - **Titel:** `What if <vraag>? <emoji>`
-- **Beschrijving:** één regel met 2–3 korte, verrassende feiten + twist, een vraag aan de kijker met 👇, dan 4 hashtags.
+- **Beschrijving:** één of twee algemene, prikkelende zinnen over het onderwerp (wat-als-situatie, sfeer), een vraag aan de kijker met 👇, dan 4 hashtags.
 - **Tags:** 4 stuks: `what if`, onderwerp, langere zoekterm, `science`.
 - In Studio: "Gewijzigde of synthetische content" → **Ja**.
 
@@ -76,7 +77,7 @@ Voorbeeld (lightning):
 What if you got struck by lightning? ⚡
 ```
 ```
-300 million volts. Five times hotter than the Sun. And yet, most people survive.
+One flash from the sky, and suddenly it's you. What really happens to the human body when lightning hits?
 
 Would you go outside during a storm? 👇
 
