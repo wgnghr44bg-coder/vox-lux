@@ -1,7 +1,7 @@
 """Alteraqon: video bouwen uit een videomap (opbouw van de lightning-video).
 
 Gebruik:  python3 alteraqon/tools/make_video.py alteraqon/<datum>-<slug> <tmpmap>
-Leest uit de videomap: voice.mp3, voice-times.tsv, afbeeldingen/, shots.py (SH + optioneel BANG).
+Leest uit de videomap: voice.mp3, voice-times.tsv, afbeeldingen/ (.jpg, of .mp4-clip), shots.py (SH + optioneel BANG, FADE_IN).
 Schrijft subs.ass in de videomap en <tmpmap>/<slug>.mp4 (1080x1920).
 """
 import csv, importlib.util, os, subprocess, sys
@@ -17,18 +17,38 @@ FADE_IN=getattr(cfg,"FADE_IN",0.8)   # 0 = meteen beeld (harde opening)
 starts=[0.0]+[float(rows[r-1][1]) for r,*_ in SH[1:]]
 
 # --- beeld ---
+# Een shot mag een 6e veld hebben: gratis effectlaag uit fx.py ("embers", "ash", "dust", "rain", combineren met +).
+# Staat er afbeeldingen/<naam>.mp4 (bijv. een xAI-clip), dan wordt dat bewegende beeld gebruikt i.p.v. <naam>.jpg.
+FX=os.path.join(os.path.dirname(os.path.abspath(__file__)),"fx.py")
+GRADE="eq=contrast=1.08:saturation=0.75,colorbalance=bs=0.06:bh=-0.03"
 segs=[]
-for i,(r,img,mv,extra,stamp) in enumerate(SH):
+for i,shot in enumerate(SH):
+    r,img,mv,extra,stamp=shot[:5]; fx=shot[5] if len(shot)>5 else None
     d=(starts[i+1] if i+1<len(SH) else END)-starts[i]; n=round(d*FPS)
-    cx,cy="iw/2-(iw/zoom/2)","ih/2-(ih/zoom/2)"
-    z={"in":f"1+0.15*on/{n}","out":f"1.15-0.15*on/{n}","up":"1.15","shake":f"1.12+0.05*on/{n}","punch":f"1.25-0.2*min(on/8,1)"}[mv]
-    if mv=="up": cy=f"(ih-ih/zoom)*(1-on/{n})"
-    if mv=="shake": cx+="+12*sin(on*2.1)"; cy+="+12*cos(on*1.7)"
-    vf=f"scale=2160:3840,zoompan=z='{z}':x='{cx}':y='{cy}':d={n}:s=1080x1920:fps={FPS}"
-    if extra: vf+=","+extra
-    vf+=",eq=contrast=1.08:saturation=0.75,colorbalance=bs=0.06:bh=-0.03,noise=alls=4:allf=t,vignette=PI/4.5"
+    clip=f"{A}/{img}.mp4"
+    if os.path.exists(clip):
+        cd=float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",clip],capture_output=True,text=True).stdout)
+        slow=min(max(d/cd,1.0),1.6)          # iets vertragen als de shot langer is, daarna laatste beeld vasthouden
+        base=f"[0:v]scale=1080:1920:flags=lanczos,setsar=1,setpts={slow:.3f}*PTS,fps={FPS},tpad=stop_mode=clone:stop_duration={d}"
+        ins=["-i",clip]
+    else:
+        cx,cy="iw/2-(iw/zoom/2)","ih/2-(ih/zoom/2)"
+        z={"in":f"1+0.15*on/{n}","out":f"1.15-0.15*on/{n}","up":"1.15","shake":f"1.12+0.05*on/{n}","punch":f"1.25-0.2*min(on/8,1)"}[mv]
+        if mv=="up": cy=f"(ih-ih/zoom)*(1-on/{n})"
+        if mv=="shake": cx+="+12*sin(on*2.1)"; cy+="+12*cos(on*1.7)"
+        base=f"[0:v]scale=2160:3840,zoompan=z='{z}':x='{cx}':y='{cy}':d={n}:s=1080x1920:fps={FPS}"
+        ins=["-loop","1","-i",f"{A}/{img}.jpg"]
+    if extra: base+=","+extra
+    base+=","+GRADE
+    if fx:
+        fxf=f"{S}/fx{i:02d}.mov"
+        subprocess.run([sys.executable,FX,fx,str(d+0.2),fxf],check=True)
+        ins+=["-i",fxf]; fc=f"{base}[b];[b][1:v]overlay=format=auto:shortest=0[o];[o]"
+    else:
+        fc=f"{base},"
+    fc+="noise=alls=4:allf=t,vignette=PI/4.5,format=yuv420p[v]"
     out=f"{S}/seg{i:02d}.mp4"
-    subprocess.run(["ffmpeg","-v","error","-y","-loop","1","-i",f"{A}/{img}.jpg","-vf",vf,"-frames:v",str(n),
+    subprocess.run(["ffmpeg","-v","error","-y",*ins,"-filter_complex",fc,"-map","[v]","-frames:v",str(n),"-an",
       "-c:v","libx264","-pix_fmt","yuv420p","-crf","18",out],check=True)
     segs.append(out)
 open(f"{S}/list.txt","w").write("".join(f"file '{s}'\n" for s in segs))

@@ -28,8 +28,16 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
   zoals de snelle shorts (`make_voice.py <map> <cache> --voice atlas --speed 1.0 --pause-ms 300 --long-pause-ms 600 --sentence-pause-ms 200`),
   harde opening, geen titeltekst; aftellende cijfers in de lucht zelf getekend (ASS in `make.py`), `make_music.py`, `make_thumbnail.py`
   – geüpload 11 okt (privé): https://youtu.be/Cy7LxOLVcPU (thumbnail handmatig in Studio: API mag geen eigen thumbnail zetten)
+- `2026-10-11-volcano-city/` – What if a volcano erupted in your city? (**mix-stijl**: 2 xAI-lite-clips + gratis effecten, Atlas-stem, ~51 s)
 
-## Na elke nieuwe video
+## Beweging (mix-stijl, eigenaar okt 2026)
+- **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
+  Effecten uit `tools/fx.py`: `embers`, `ash`, `dust`, `rain` (combineren met `+`).
+- **Echte bewegende clips** (xAI `grok-imagine-video-1.5-lite`, ca. $0,19 per 6 s): zet `NAAM|beweging` in `clips.txt`,
+  dan `python3 alteraqon/tools/make_clips.py <map>` → `afbeeldingen/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
+  Alleen voor de opening en het "Then."-moment (1–2 per Short). Vereist `vidgen.x.ai` in de netwerkinstellingen.
+- Clips (bronmateriaal) mogen in git; de eind-mp4 niet.
+
 Meld hem bij de verzamelsessie **"mp4 alteraqon shorts"** (`session_0149vZSeTdq1ZbZMfe47EX4e`) met send_message:
 `Nieuwe video: alteraqon/<datum>-<slug>` (na commit + push). Die sessie rendert de mp4 en zet hem met de
 kopieerbare titel/beschrijving/tags (uit upload.json) klaar voor de eigenaar.

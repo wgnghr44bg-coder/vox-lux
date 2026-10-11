@@ -1,0 +1,45 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:03.30,Sub,,0,0,0,,{\fad(150,150)}What if a volcano erupted in the middle of your city?
+Dialogue: 0,0:00:03.30,0:00:05.30,Sub,,0,0,0,,{\fad(150,150)}It starts with small earthquakes.
+Dialogue: 0,0:00:05.30,0:00:06.50,Sub,,0,0,0,,{\fad(150,150)}Cracks in the street.
+Dialogue: 0,0:00:06.50,0:00:09.00,Sub,,0,0,0,,{\fad(150,150)}Steam rises from the asphalt.
+Dialogue: 0,0:00:09.00,0:00:09.80,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:09.80,0:00:12.80,Sub,,0,0,0,,{\fad(150,150)}Lava bursts out at over one thousand degrees.
+Dialogue: 0,0:00:12.80,0:00:15.60,Sub,,0,0,0,,{\fad(150,150)}An ash cloud rises kilometers into the sky.
+Dialogue: 0,0:00:15.60,0:00:17.00,Sub,,0,0,0,,{\fad(150,150)}Day turns into night.
+Dialogue: 0,0:00:17.00,0:00:18.50,Sub,,0,0,0,,{\fad(150,150)}That ash isn't smoke.
+Dialogue: 0,0:00:18.50,0:00:21.20,Sub,,0,0,0,,{\fad(150,150)}It's tiny shards of rock and glass.
+Dialogue: 0,0:00:21.20,0:00:28.60,Sub,,0,0,0,,{\fad(150,150)}And the deadliest part… a cloud of hot gas and ash races down the streets at up to seven hundred kilometers per hour.
+Dialogue: 0,0:00:28.60,0:00:29.80,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:29.80,0:00:32.80,Sub,,0,0,0,,{\fad(150,150)}Most lava moves slowly enough to walk away from.
+Dialogue: 0,0:00:32.80,0:00:34.30,Sub,,0,0,0,,{\fad(150,150)}And it has happened before.
+Dialogue: 0,0:00:34.30,0:00:42.00,Sub,,0,0,0,,{\fad(150,150)}In 1943, a volcano was born in a Mexican cornfield… and grew fifty meters in one day.
+Dialogue: 0,0:00:42.00,0:00:43.00,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:43.00,0:00:47.50,Sub,,0,0,0,,{\fad(150,150)}Auckland, New Zealand, is built on top of about fifty volcanoes.
+Dialogue: 0,0:00:47.50,0:00:49.10,Sub,,0,0,0,,{\fad(150,150)}Would you live there?
+Dialogue: 2,0:00:09.00,0:00:11.60,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:09.12,0:00:11.60,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}LAVA
+Dialogue: 2,0:00:09.22,0:00:11.60,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1,000+ °C
+Dialogue: 2,0:00:21.20,0:00:23.80,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:21.32,0:00:23.80,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}PYROCLASTIC FLOW
+Dialogue: 2,0:00:21.42,0:00:23.80,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}700 km/h
+Dialogue: 2,0:00:32.80,0:00:35.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:32.92,0:00:35.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}PARÍCUTIN, 1943
+Dialogue: 2,0:00:33.02,0:00:35.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}50 m IN 1 DAY
+Dialogue: 2,0:00:42.00,0:00:44.60,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:42.12,0:00:44.60,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}AUCKLAND VOLCANIC FIELD
+Dialogue: 2,0:00:42.22,0:00:44.60,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}53 VOLCANOES

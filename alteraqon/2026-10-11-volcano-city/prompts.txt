@@ -1,0 +1,11 @@
+K01|Documentary photo, vertical, a volcano erupting in the middle of a modern city at dusk, lava fountains and a huge ash column rising between skyscrapers, glowing lava flowing down a city street, people fleeing small in the distance, faces not visible, dramatic, realistic
+K02|Documentary photo, vertical, a long fresh crack running across a city street at night, broken asphalt, street lights, a parked car, tense atmosphere, realistic
+K03|Documentary photo, vertical, white steam rising from cracks in the asphalt of a city street at night, orange glow underneath, people seen from behind keeping their distance, faces not visible, realistic
+K04|Documentary photo, vertical, the asphalt of a city street bursting open with a fountain of bright orange lava shooting upward, sparks and debris, night, dramatic, realistic
+K05|Documentary photo, vertical, close-up of glowing molten lava flowing over a city road and a painted crosswalk, intense orange heat, realistic
+K06|Documentary photo, vertical, a gigantic dark ash column rising over a city skyline, the sky turning black in daytime, street lights on, realistic
+K07|Macro photo, vertical, extreme close-up of volcanic ash particles, sharp glassy shards of rock and glass, scientific microscope style, high detail, realistic
+K08|Documentary photo, vertical, a massive grey pyroclastic cloud of hot ash surging down a city avenue between tall buildings, cars abandoned, dramatic, realistic
+K09|Documentary photo, vertical, wide shot at night of a slow glowing lava flow creeping across a road, and far to the side on the safe sidewalk a person seen from behind calmly walking away from it, silhouette, realistic
+K10|Vintage 1940s photo, vertical, a young volcanic cone erupting ash in the middle of a Mexican cornfield, a farmer silhouette in the foreground, black and white with slight sepia, realistic
+K11|Aerial documentary photo, vertical, a large harbor city with many green grassy volcanic cones rising between houses and streets, sunny day, realistic
