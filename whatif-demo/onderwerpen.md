@@ -79,7 +79,7 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 4 | The Sun went out? | Bergdorp, straat, boulevard, rivierstad (lange video) | Steeds donkerder en kouder, alles bevriest | opnieuw in de maak (oude versie verwijderd 7 okt: glitch op straat); bron: ifscape3d-videos/2026-10-07-sun-went-out |
 | 5 | A megaquake hit? | Buitenwijk met huizen | Golvende grond, scheuren, huizen schuiven | gepland |
 | 6 | A world without internet? | Stad bij avond | Lichten gaan blok voor blok uit | gepland |
-| 7 | The oceans disappeared? | Kustdorp met vuurtoren | Zeebodem valt droog, schepen liggen scheef | gepland |
+| 7 | Every ocean dried up? (Short, standaard) | Boulevard/strand → hoog boven de diepzee | Getij zakt: SEA LEVEL 0 → −10.900 m in 24 uur, boten vallen droog, continentrand, laatste water in de trog (baksteen diepe zeebodem: engine/seabed.js) | testbeelden 2026-10-11 naar eigenaar; topics/oceans-dried-up |
 | 8 | A 1 km asteroid hit the ocean? | Kustplaats met pier | Flits aan de horizon, tsunami die nadert | gepland |
 | 9 | Gravity disappeared for 5 seconds? | Pretpark en plein | Alles zweeft omhoog, dan valt alles terug | gepland |
 | 10 | Earth spun twice as fast? | Tropisch eiland | Kortere dagen, harde wind, zee bolt op | gepland |

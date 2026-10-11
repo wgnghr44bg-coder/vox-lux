@@ -29,7 +29,7 @@ function hullGeo(len, beam, h, bow = .3) {
 }
 
 // a ship: group with its pivot on the waterline (keel at -draft), long axis along local z
-function ship(E, o) {
+export function ship(E, o) {
   const { lam, shadowed } = E, g = new THREE.Group(), R = rng(o.seed || 1);
   const { len, beam, h, draft, color } = o;
   const hull = shadowed(new THREE.Mesh(hullGeo(len, beam, h, o.bow), lam(color))); hull.position.y = h / 2 - draft; g.add(hull);
