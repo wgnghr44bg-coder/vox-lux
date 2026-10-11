@@ -31,8 +31,8 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 TOPICS = HERE / "topics"
 STAGES = ["voice", "render", "audio", "final"]
-VOICE = "atlas"  # IfScape3D-stem (eigenaar, 7 okt 2026): xAI Atlas, documentairestijl, tempo 1.05, mét pauzes
-SPEED = 1.05  # standaardtempo IfScape3D (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
+VOICE = "atlas"  # IfScape3D-stem (eigenaar, 7 okt 2026): xAI Atlas, documentairestijl, tempo 1.00, mét pauzes
+SPEED = 1.00  # standaardtempo IfScape3D (eigenaar, 11 okt 2026; was 1.05) (Sleep Archives: Lux op 0.9); per video te overschrijven met topic.voiceSpeed
 
 
 def run(cmd, **kw):

@@ -50,7 +50,7 @@ Deze regels gaan vóór de oudere regels over lengte en opening in AUTOMATISCH.m
 ## Documentairetempo (eigenaar, 10 okt 2026) – geldt voor lange video's én Shorts
 - De stem mag nooit gehaast klinken: het moet klinken als een documentaire. Na elke zin een duidelijke pauze
   (`'pause'`), na een belangrijke zin of bij een nieuwe stap `'long'`, en een stille climax van ± 3 s.
-- Liever een zin minder dan te snel. Tempo blijft 1.05 (atlas); pauzes zorgen voor de rust.
+- Liever een zin minder dan te snel. Tempo 1.00 (atlas, eigenaar 11 okt 2026); pauzes zorgen voor de rust.
 - Luister zelf de stem na vóór het renderen: klinkt het als een opsomming of gehaast → meer pauzes, opnieuw inspreken.
 
 ## Eenheden: Europees (eigenaar, 9 okt 2026)
