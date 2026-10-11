@@ -32,7 +32,7 @@ export function seabed(E, TL, F, shoreAt) {
   // the floor: one big faceted sheet, finer near the shore; colour by depth (sand -> mud -> dark rock)
   { const NX = 150, NZ = 170, XW = 9000, ZL = 7400, g = new THREE.BufferGeometry(), pos = [], col = [];
     const zAt = j => -Math.pow(j / NZ, 1.7) * ZL, xAt = i => (i / NX - .5) * XW;
-    const sand = new THREE.Color(0xcdb98e), mud = new THREE.Color(0x8b8068), rock = new THREE.Color(0x4f4d4a), deep = new THREE.Color(0x3a3c40), c = new THREE.Color();
+    const sand = new THREE.Color(0xcdb98e), mud = new THREE.Color(0x8b8068), rock = new THREE.Color(0x6a645a), deep = new THREE.Color(0x585b60), c = new THREE.Color();
     const P = [];
     for (let j = 0; j <= NZ; j++) for (let i = 0; i <= NX; i++) { const x = xAt(i) + (j && i % NX ? (hash(i, j) - .5) * 14 : 0), z = zAt(j); P.push([x, depth(x, z) - (j ? 0 : .08), z]); }
     const colAt = (y, k) => { const d = -y; c.copy(sand).lerp(mud, smooth(4, 80, d)).lerp(rock, smooth(150, 900, d)).lerp(deep, smooth(1500, 2600, d));
