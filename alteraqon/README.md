@@ -24,6 +24,11 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-11-venom-superman/` – What if Venom took over Superman? (snelle versie: **Atlas-stem**, tempo 1.05, korte pauzes, ~35 s, harde opening zonder fade-in, geen titeltekst; beelden zonder officiële logo's)
 - `2026-10-11-spiders-hunt/` – What if all spiders hunted together? (snelle stijl: Atlas-stem tempo 1.0, ~51 s, harde opening, geen titeltekst)
 
+## Na elke nieuwe video
+Meld hem bij de verzamelsessie **"mp4 alteraqon shorts"** (`session_0149vZSeTdq1ZbZMfe47EX4e`) met send_message:
+`Nieuwe video: alteraqon/<datum>-<slug>` (na commit + push). Die sessie rendert de mp4 en zet hem met de
+kopieerbare titel/beschrijving/tags (uit upload.json) klaar voor de eigenaar.
+
 ## Opbouw van elke video (sjabloon = de lightning-video)
 Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca. 18 zinnen, 65–75 s:
 1. **Opening:** "Imagine… <onderwerp>. What would happen…?" (zegt meteen waar de video over gaat; geen titel in beeld)
