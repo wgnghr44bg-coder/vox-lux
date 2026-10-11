@@ -48,6 +48,9 @@ Zelfde stijl, maar liggend en ca. 40 zinnen / 38 beelden (≈ $0,80 aan beelden 
 - `python3 alteraqon/tools/make_voice.py <map> <cachemap buiten repo>` (cache: na inkorten alleen nieuwe zinnen betalen)
 - `make.py`: beelden volgen de kolom `image` in voice-times.tsv; tijdstempels per regelnummer; label linksboven
   scheidt feiten (`REAL HISTORY`) van speculatie (`ALTERNATE TIMELINE · SPECULATION`).
+- Muziek: `make_music.py` in de videomap maakt een eigen score (`music.mp3`, gesynthetiseerd, geen auteursrecht) die de
+  scènes volgt; make.py mixt die onder de stem (zachter zodra Lux praat, stem ~17 dB boven de muziek).
+  ElevenLabs Music kan niet: vraagt een betaald ElevenLabs-abonnement.
 - Thumbnail 1280x720 met `make_thumbnail.py` in de videomap (tekst links, YouTube zet de duur rechtsonder).
 - YouTube-tekst als hieronder, maar zonder `#shorts`.
 
