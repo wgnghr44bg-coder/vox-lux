@@ -30,6 +30,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
   – geüpload 11 okt (privé): https://youtu.be/Cy7LxOLVcPU (thumbnail handmatig in Studio: API mag geen eigen thumbnail zetten)
 - `2026-10-11-volcano-city/` – What if a volcano erupted in your city? (**mix-stijl**: 2 xAI-lite-clips + gratis effecten, Atlas-stem, ~51 s)
 - `2026-10-11-random-superpower/` – What if every human got a random superpower? (**mix-stijl**: 2 lite-clips K01 + K03, effecten, Atlas-stem, ~55 s; twist: Bajau-milt, SCN9A, tetrachromatie)
+  – geüpload 11 okt (openbaar): https://youtu.be/8ErptEFbUnA
 
 ## Beweging (mix-stijl, eigenaar okt 2026)
 - **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
