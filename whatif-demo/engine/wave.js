@@ -115,24 +115,24 @@ export function buildWave(E, TL, F, P) {
     const place = h => { trees.forEach(([x, y, z, s], i) => { const gone = onFace(x, z) && y < h; S.setScalar(gone ? 0 : s); M.compose(V.set(x, y, z), Q, S); im.setMatrixAt(i, M); }); im.instanceMatrix.needsUpdate = true; };
     place(0);
     // the water sheet: the same slope, a little above it, clipped at the run-up height
-    const sheet = new THREE.Mesh(g.clone(), new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true, transparent: true, opacity: .97,
+    const sheet = new THREE.Mesh(g.clone(), new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true,
       clippingPlanes: [new THREE.Plane(new THREE.Vector3(0, -1, 0), 0), new THREE.Plane(new THREE.Vector3(fx, 0, fz), fc)] }));
     sheet.position.y = 2.5; scene.add(sheet);
     const sc = new Float32Array(p.count * 3); sheet.geometry.setAttribute('color', new THREE.BufferAttribute(sc, 3));
     E.updates.push((t) => {
       const h = hAt(t); sheet.material.clippingPlanes[0].constant = h; sheet.visible = h > 1;
-      for (let i = 0; i < p.count; i++) { const y = p.getY(i), f = smooth(h - 45, h - 5, y); c.set(0x3f8e98).lerp(new THREE.Color(0xf2f6f5), f); c.toArray(sc, i * 3); }
+      for (let i = 0; i < p.count; i++) { const y = p.getY(i), f = smooth(h - 40, h - 8, y); c.set(0x1f5560).lerp(new THREE.Color(0x3d8790), smooth(0, h * .8, y)).lerp(new THREE.Color(0xf2f6f5), f); c.toArray(sc, i * 3); }
       sheet.geometry.attributes.color.needsUpdate = true;
       if (Math.abs(h - lastH) > .5) { place(h); lastH = h; }
     });
     const edge = []; for (let i = 0; i < p.count; i++) if (onFace(p.getX(i), p.getZ(i)) && p.getY(i) > 3) edge.push([p.getX(i), p.getY(i), p.getZ(i)]);
     E.emitters.push((tv, add) => {        // spray and mist at the leading edge while it climbs
       const h = hAt(tv), dh = hAt(tv + .3) - h; if (h < 5) return;
-      const k0 = clamp(dh * 3, .15, 1);
+      const k0 = clamp(dh * 3, .3, 1);
       let n = 0;
       for (let k = 0; k < edge.length && n < 900; k++) { const [x, y, z] = edge[k]; if (y > h || y < h - 60) continue;
         const u = (tv * .6 + hash(k, 4)) % 1; n++;
-        add(x + fx * u * 10, y + 4 + u * 26, z, 14 + u * 30, Math.sin(u * Math.PI) * .5 * k0, .96, .97, .97, hash(k, 5) * 6); }
+        add(x + fx * (6 + u * 14), y + 6 + u * 34, z + fz * (6 + u * 14), 16 + u * 34, Math.sin(u * Math.PI) * .75 * k0, .96, .97, .97, hash(k, 5) * 6); }
     });
     if (R0.label) { const s = tag(E, `${Math.round(hAt(1e9))} m`, '#ffffff'); const [lx, lz] = R0.labelAt;
       s.position.set(lx, hAt(1e9) + 30, lz); E.updates.push(t => show(s, R0.label, t));

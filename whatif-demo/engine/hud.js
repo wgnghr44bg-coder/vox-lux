@@ -8,6 +8,10 @@ export function createHud(TL) {
   const counterAt = monotone(TL.counter);
   $('title').innerHTML = TL.title; $('endT').innerHTML = TL.end.title; $('endS').innerHTML = TL.end.lines;
   $('lab').textContent = H.label; $('sub').textContent = H.sub || '';
+  if (TL.textScale) {   // bigger text on a phone (e.g. 1.3): counter block and captions
+    $('hud').style.transformOrigin = '0 0'; $('hud').style.transform = `scale(${TL.textScale})`;
+    $('cap').style.fontSize = Math.round(42 * TL.textScale) + 'px'; $('cap').style.padding = '0 40px';
+  }
   const B = TL.beats;
   return {
     counterAt,
