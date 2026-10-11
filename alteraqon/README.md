@@ -24,6 +24,9 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-11-venom-superman/` – What if Venom took over Superman? (snelle versie: **Atlas-stem**, tempo 1.05, korte pauzes, ~35 s, harde opening zonder fade-in, geen titeltekst; beelden zonder officiële logo's)
 - `2026-10-11-spiders-hunt/` – What if all spiders hunted together? (snelle stijl: Atlas-stem tempo 1.0, ~51 s, harde opening, geen titeltekst)
 - `2026-10-11-clone-hates-you/` – What if every human had a clone that hated them? (snelle stijl: Atlas-stem tempo 1.0, ~53 s, harde opening, geen titeltekst)
+- `2026-10-11-sky-countdown/` – What if the sky displayed a countdown? **Lange video**, 16:9 1920x1080, ca. 3 min 7 s; Atlas-stem
+  zoals de snelle shorts (`make_voice.py <map> <cache> --voice atlas --speed 1.0 --pause-ms 300 --long-pause-ms 600 --sentence-pause-ms 200`),
+  harde opening, geen titeltekst; aftellende cijfers in de lucht zelf getekend (ASS in `make.py`), `make_music.py`, `make_thumbnail.py`
 
 ## Na elke nieuwe video
 Meld hem bij de verzamelsessie **"mp4 alteraqon shorts"** (`session_0149vZSeTdq1ZbZMfe47EX4e`) met send_message:

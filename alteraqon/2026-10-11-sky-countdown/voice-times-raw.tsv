@@ -1,0 +1,76 @@
+#	start	end	image	text
+1	0:00:00.0	0:00:03.9	S01	Imagine… you wake up, and the sky is counting down.
+2	0:00:04.2	0:00:05.7	S02	Huge glowing numbers.
+3	0:00:05.9	0:00:10.2		Above every city, every ocean, every desert.
+4	0:00:10.5	0:00:14.1	S03	And nobody knows… what happens when they reach zero.
+5	0:00:14.7	0:00:16.3	S04	It starts on an ordinary morning.
+6	0:00:16.5	0:00:18.5		Three hundred and sixty-five days.
+7	0:00:18.8	0:00:21.2	S05	In Tokyo, it's nine at night.
+8	0:00:21.4	0:00:23.4		The numbers burn between the stars.
+9	0:00:23.7	0:00:26.4	S06	In New York, it's breakfast.
+10	0:00:26.6	0:00:28.1		Everyone sees the same number.
+11	0:00:28.4	0:00:32.2	S07	Within minutes, every phone on Earth is pointing up.
+12	0:00:32.8	0:00:34.0	S08	But here's the first problem.
+13	0:00:34.2	0:00:35.7		This is physically impossible.
+14	0:00:36.0	0:00:40.9	S09	Any single object in the sky can only be seen from about half of the planet at a time.
+15	0:00:41.2	0:00:43.6	S10	The full Moon is only about half a degree wide.
+16	0:00:43.8	0:00:47.0		Your fingernail, at arm's length, can cover it.
+17	0:00:47.3	0:00:52.2	S11	At the Moon's distance, a readable countdown would be thousands of kilometres wide.
+18	0:00:52.5	0:00:55.6	S13	Whatever this is… it is not a sign hanging in space.
+19	0:00:56.2	0:00:56.8	S14	Day two.
+20	0:00:57.0	0:00:59.1		Every telescope on Earth is pointed at it.
+21	0:00:59.4	0:01:00.0		Radio.
+22	0:01:00.2	0:01:00.8		Infrared.
+23	0:01:01.0	0:01:01.7		X-rays.
+24	0:01:01.9	0:01:02.4		Nothing.
+25	0:01:02.7	0:01:04.3	S16	Every country suspects another.
+26	0:01:04.6	0:01:06.6	S17	Stock markets crash in the first hour.
+27	0:01:07.2	0:01:08.9	S18	We have feared a date before.
+28	0:01:09.1	0:01:15.5		Before the year two thousand, the world spent an estimated three hundred billion dollars on the Y2K bug.
+29	0:01:15.8	0:01:17.4	S19	That was one date on a calendar.
+30	0:01:17.6	0:01:19.3		This one is written across the sky.
+31	0:01:19.9	0:01:21.3	S20	Governments call it a test.
+32	0:01:21.5	0:01:22.1		A warning.
+33	0:01:22.3	0:01:22.9		A hoax.
+34	0:01:23.2	0:01:27.4	S21	Places of worship fill up, all over the world, all at once.
+35	0:01:28.0	0:01:28.8	S22	Day one hundred.
+36	0:01:29.0	0:01:30.1		The numbers keep falling.
+37	0:01:30.4	0:01:32.0	S23	And something strange happens.
+38	0:01:32.2	0:01:33.1		People get used to it.
+39	0:01:33.4	0:01:35.6	S24	Psychologists call it habituation.
+40	0:01:35.8	0:01:39.2		Our brains stop reacting to a threat that never seems to arrive.
+41	0:01:39.5	0:01:41.6	S25	We even built a clock like this ourselves.
+42	0:01:41.8	0:01:44.1		In nineteen forty-seven: the Doomsday Clock.
+43	0:01:44.4	0:01:46.4	S26	It started at seven minutes to midnight.
+44	0:01:46.6	0:01:50.1		In twenty twenty-six, it was set to eighty-five seconds.
+45	0:01:50.3	0:01:51.9		The closest it has ever been.
+46	0:01:52.2	0:01:54.6	S27	Most people… never even looked at it.
+47	0:01:55.2	0:01:56.2	S28	Thirty days left.
+48	0:01:56.4	0:01:58.2		Now nobody is used to it anymore.
+49	0:01:58.5	0:01:59.6	S29	Some quit their jobs.
+50	0:01:59.8	0:02:01.6		Some fly home to their parents.
+51	0:02:01.9	0:02:03.2	S30	Some build bunkers.
+52	0:02:03.4	0:02:05.5		Others throw the biggest parties in history.
+53	0:02:05.8	0:02:07.5		Strangers start talking on the street.
+54	0:02:08.1	0:02:12.1	S32	A palliative nurse once wrote down the biggest regret of dying patients.
+55	0:02:12.3	0:02:13.9		Not living the life they really wanted.
+56	0:02:14.5	0:02:15.9	S33	Twenty-four hours left.
+57	0:02:16.1	0:02:17.2		The highways are empty.
+58	0:02:17.5	0:02:19.2	S34	Families climb onto rooftops.
+59	0:02:19.4	0:02:20.0		Looking up.
+60	0:02:20.6	0:02:21.4	S35	The last hour.
+61	0:02:21.6	0:02:26.4		Eight billion people… quiet, at exactly the same moment.
+62	0:02:27.0	0:02:27.7	S36	Ten seconds.
+63	0:02:36.7	0:02:37.3	S37	Zero.
+64	0:02:38.5	0:02:39.5	S38	And nothing happens.
+65	0:02:39.7	0:02:40.7		No explosion.
+66	0:02:40.9	0:02:41.7		No aliens.
+67	0:02:41.9	0:02:42.4		No end.
+68	0:02:42.7	0:02:46.1	S39	The numbers fade… and the sky is just the sky again.
+69	0:02:46.7	0:02:48.0	S40	But the world is different.
+70	0:02:48.2	0:02:51.2		For one year, everyone knew their time was limited.
+71	0:02:51.8	0:02:52.8	S41	And here's the twist.
+72	0:02:53.0	0:02:54.3		You already have a countdown.
+73	0:02:54.5	0:02:55.4		You just can't see it.
+74	0:02:55.7	0:02:58.5	S42	An eighty-year life is only about four thousand weeks.
+75	0:02:59.1	0:03:04.1	S43	So… if your numbers were in the sky… what would you do with the time left?
