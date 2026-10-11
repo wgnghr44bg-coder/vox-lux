@@ -2,7 +2,8 @@
 
 Lux-stem (voice.mp3, start op LEAD s), één beeld per zin, tijdstempels als lower-third, een klein
 label linksboven dat feiten ("REAL HISTORY") en speculatie ("ALTERNATE TIMELINE") scheidt,
-witte flits + inslag bij "Then.", drone + lage klap bij elke tijdstempel.
+witte flits + inslag bij "Then.", lage klap bij elke tijdstempel, eigen score
+(music.mp3 uit make_music.py) die onder de stem zachter gaat.
 
 Gebruik (vanuit deze map): python3 make.py <tmpmap>   -> <tmpmap>/what-if-asteroid-missed.mp4
 """
@@ -95,12 +96,14 @@ fc=f"[4:a]adelay={ms}|{ms},volume=1.0[im];"; L="[im]"
 for k,h in enumerate(hits):
     ins+=["-i",f"{S}/boom.wav"]; ms=int(h*1000); fc+=f"[{k+5}:a]adelay={ms}|{ms},volume=0.55[h{k}];"; L+=f"[h{k}]"
 fc+=(f"[1:a]aresample=44100,pan=stereo|c0=c0|c1=c0,adelay={int(LEAD*1000)}|{int(LEAD*1000)}[vo];"
-     "[2:a]volume=0.2,tremolo=f=0.12:d=0.6[s];[3:a]lowpass=f=240,volume=0.28[n];"
-     f"[s][n]amix=inputs=2:normalize=0,afade=t=in:d=3,afade=t=out:st={END-4}:d=4,pan=stereo|c0=c0|c1=c0[bg];"
+     # muziek (make_music.py) gaat zachter zodra de stem klinkt; heel zacht wat lage ruis als 'lucht'
+     "[vo]asplit[vo][sc];[2:a]aresample=44100,highpass=f=40,volume=0.5[mu];"
+     "[mu][sc]sidechaincompress=threshold=0.02:ratio=5:attack=60:release=700:makeup=1[md];[3:a]lowpass=f=240,volume=0.12,pan=stereo|c0=c0|c1=c0[n];"
+     f"[md][n]amix=inputs=2:normalize=0,afade=t=in:d=2,afade=t=out:st={END-4}:d=4[bg];"
      f"[vo][bg]{L}amix=inputs={len(hits)+3}:duration=longest:normalize=0,alimiter=limit=0.89:level=0[a];"
      f"[0:v]ass={S}/subs.ass,fade=t=in:st=0:d=0.8,fade=t=out:st={END-1.8}:d=1.8[v]")
 subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",f"{S}/list.txt","-i","voice.mp3",
-  "-f","lavfi","-t",str(END),"-i","sine=f=55:sample_rate=44100","-f","lavfi","-t",str(END),"-i","anoisesrc=color=brown:sample_rate=44100:amplitude=0.5",
+  "-i","music.mp3","-f","lavfi","-t",str(END),"-i","anoisesrc=color=brown:sample_rate=44100:amplitude=0.5",
   *ins,"-filter_complex",fc,"-map","[v]","-map","[a]","-t",str(END),"-c:v","libx264","-preset","slow","-b:v","8M","-maxrate","10M","-bufsize","16M",
   "-pix_fmt","yuv420p","-r",str(FPS),"-c:a","aac","-b:a","192k","-movflags","+faststart",f"{S}/what-if-asteroid-missed.mp4"],check=True)
 print(f"klaar: {END:.1f}s")
