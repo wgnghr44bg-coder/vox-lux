@@ -155,6 +155,7 @@ function renderScene(tv, fixed) {
   for (const a of E.animals) a.update(t, F, ts);
   poseBodies(E, t, F);
   poseFalls(t);
+  for (const f of E.afterPose || []) f(t, ts);           // e.g. forces/sinkhole.js: cars and props tipping into the hole
   cameraAt(tv, fixed);
   const n = dust.render(ts, E.camera.position);
   if (TL.post && !E.post) E.post = createPost(E, E.renderer.domElement.width, E.renderer.domElement.height, typeof TL.post === 'object' ? TL.post : {});

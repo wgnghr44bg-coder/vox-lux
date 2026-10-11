@@ -31,9 +31,15 @@ export function buildTL(scen, timing, o = {}) {
     place: o.place || topic.place, force: o.force || topic.force,
     title: topic.title, ...cfg,
   };
+  // STANDARD video (eigenaar, 11 okt 2026; regels/standaard-video.md): a scenario with camPath gets the standard look:
+  // one continuous camera move, title on screen at the start, no logo, no end card, no fade (the last picture stays).
+  if (TL.camPath) {
+    TL.showTitle ??= true; TL.brand ??= false; TL.tripod ??= true;
+    TL.shots ??= [[0, '_path']]; TL.captions ??= []; TL.end ??= { title: '', lines: '' };
+    TL.beats.fade ??= 1e9;
+  }
   // clean ending (default): no end card, no text; the picture fades out under the last lines
   TL.beats.fade = TL.beats.fade ?? (TL.endStyle === 'card' ? TL.T_END - 1.6 : (TL.beats.end ?? TL.T_END - 4) - .3);
-  TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
   TL.beats.end = TL.beats.end ?? 1e9;          // no end card unless the scenario asks for one
   TL.estimated = !!timing.estimated;
   return TL;

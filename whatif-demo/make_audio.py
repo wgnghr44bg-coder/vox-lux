@@ -602,6 +602,12 @@ def build_engine(topic: Path):
             if e["kind"] != "quake" or e["t"] >= STOP: continue
             for j in range(int(2 + e["e"] * 8)):
                 place(bed, s_rammel(rng), e["t"] + rng.uniform(.2, max(.4, e.get("dur", 2) * .7)), db(-16) * e["e"], rng.uniform(-.8, .8))
+    elif force == "sinkhole":   # the ground on the move: a deep rumble while the hole grows, plus soft rubble
+        low = layer(lambda r: norm(lp(brown(r, n), 110) * lfo(r, n, .25, .5)), I ** .8)
+        bed += low * db(-6) * alive[:, None]
+        for e in EV:
+            if e["kind"] == "slide" and e["t"] < STOP:
+                place(bed, s_puin(rng), e["t"], db(-10) * e["e"] ** .5, rng.uniform(-.6, .6))
     elif force == "alien":      # a ship overhead: deep, slowly beating hum that grows as it comes closer (baksteen Ufo)
         tt = np.arange(n) / SR
         hum = (np.sin(2 * np.pi * 36 * tt) + .6 * np.sin(2 * np.pi * 36.7 * tt) + .35 * np.sin(2 * np.pi * 72.4 * tt)) * (1 + .25 * np.sin(2 * np.pi * .13 * tt))

@@ -24,6 +24,12 @@ export function crowd(E, TL, o) {
         let moving = t < go ? 1 : 0, speed = v / (1 + 2.2 * d), stoop = clamp(d * .32 + (kind === 'cold' ? F.level(t) * .15 : 0), 0, .45), headUp = 0;
         if (kind === 'wind' && t > look && t < go) { moving = 0; headUp = smooth(look, look + .8, t) * .5; rot += Math.sin((t - look) * .9 + i) * 1.2; }
         else if (t > look && t < go) { moving = 0; headUp = smooth(look, look + 1.2, t) * .7; rot += Math.sin(i * 2.3) * .9 * smooth(look, look + 1.5, t); }   // stop and stare at the sky
+        if (t >= go && TL.flee) {            // TL.flee = [x, z]: hurry away along the pavement from that point (sinkhole), never indoors
+          const c = axis === 'x' ? TL.flee[0] : TL.flee[1], out = Math.sign(along - c) || 1, tr = t - go;
+          along += out * tr * 2.4; rot = axis === 'x' ? (out > 0 ? Math.PI / 2 : -Math.PI / 2) : (out > 0 ? 0 : Math.PI);
+          if (Math.abs(along - c) > 160) return { visible: false };
+          return axis === 'x' ? { x: along, z: acr, rot, moving: 1, speed: 2.4, stoop: 0 } : { x: acr, z: along, rot, moving: 1, speed: 2.4, stoop: 0 };
+        }
         if (t >= go) {                       // walk (or hurry) to the nearest door and go in
           const target = door(along, acr), tr = t - go, vs = kind === 'gravity' ? .9 / (1 + d) : kind === 'wind' ? 4.2 : 2.2;
           const dd = Math.abs(target - acr), mv = Math.min(dd, tr * vs);

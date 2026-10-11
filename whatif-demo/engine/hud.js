@@ -16,11 +16,11 @@ export function createHud(TL) {
       $('num').textContent = H.fmt ? H.fmt(v, t) : (H.prefix || '') + fmt(v) + (H.unit || '');   // H.fmt: own text, e.g. 00:12:40 or HOUR 1
       if (H.subAt) { let s = H.sub || ''; for (const [ts, txt] of H.subAt) if (t >= ts) s = txt; $('sub').textContent = s; }   // e.g. DAY 1 -> WEEK 1
       if (H.second) {
-        const S = H.second, v2 = S.fn ? S.fn(v) : (S.offset ?? 0) + (S.scale ?? 1) * v;
+        const S = H.second, v2 = S.fn ? S.fn(v, t) : (S.offset ?? 0) + (S.scale ?? 1) * v;
         $('second').textContent = `${S.label}  ${S.prefix || ''}${fmt(Math.max(S.min ?? 0, v2), S.decimals ?? 0)}${S.unit || ''}`;
         $('second').style.opacity = smooth(S.showAt ?? 0, (S.showAt ?? 0) + 1.5, t) * .85;
       }
-      $('hud').style.opacity = smooth(.4, 1.4, t) * (1 - smooth(B.end - 1.6, B.end - .4, t)) * (TL.endStyle === 'card' ? 1 : 1 - smooth(B.fade - .5, B.fade + 1, t));
+      $('hud').style.opacity = smooth(TL.hudIn ?? .4, (TL.hudIn ?? .4) + 1, t) * (1 - smooth(B.end - 1.6, B.end - .4, t)) * (TL.endStyle === 'card' ? 1 : 1 - smooth(B.fade - .5, B.fade + 1, t));
       // no title on screen by default: the voice opens with "Imagine …" (TL.showTitle to bring it back)
       $('title').style.opacity = TL.showTitle ? smooth(TL.titleIn, TL.titleIn + 1, t) * (1 - smooth(TL.titleOut - 1.2, TL.titleOut, t)) : 0;
       let ct = '', ca = 0;
