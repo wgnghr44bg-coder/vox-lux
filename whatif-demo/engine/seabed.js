@@ -57,7 +57,7 @@ export function seabed(E, TL, F, shoreAt) {
     const floor = new THREE.Mesh(g, mat); floor.receiveShadow = true; scene.add(floor);
     // the empty floor dries to a white crust of salt
     if (S.salt) { const [a, b] = S.salt, white = new THREE.Color(0xe8e4da), base = new THREE.Color(0xffffff);
-      E.updates.push(t => { const k = smooth(a, b, t); mat.color.copy(base).lerp(white, k * .1); mat.emissive.setRGB(.13 * k, .125 * k, .115 * k); }); }
+      E.updates.push(t => { const k = smooth(a, b, t); mat.color.copy(base).lerp(white, k * .35); mat.emissive.setRGB(.3 * k, .29 * k, .27 * k); }); }
   }
   // rocks and weed on the shelf
   { const R = rng(71), rk = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), lam(0x6d6a63), 420), D = new THREE.Object3D();
@@ -201,15 +201,30 @@ export function seabed(E, TL, F, shoreAt) {
 
   // steam from vents on the deep floor once the water is gone, and salt blowing over the empty floor at the end
   { const vents = [[-300, -2900], [600, -3300], [-900, -3800], [250, -4700]].map(([x, z]) => ({ x, z, y: depth(x, z), t0: firstBelow(depth(x, z) - 5) }));
-    const [sa, sb] = S.salt || [1e9, 1e9];
+    const sa = S.storm ?? (S.salt || [1e9])[0], sb = sa + 4;
     E.emitters.push((tv, add) => {
       const t = Math.min(tv, STOP);
       for (const v of vents) { if (t < v.t0) continue; const k = smooth(v.t0, v.t0 + 3, t);
         for (let i = 0; i < 26; i++) { const u = (tv * .08 + hash(i, v.x)) % 1; add(v.x + u * 60 + (hash(i, 2) - .5) * 30, v.y + u * 520, v.z + (hash(i, 3) - .5) * 30, 40 + u * 160, Math.sin(u * Math.PI) * .32 * k, .93, .93, .92, hash(i, 4) * 6); } }
       if (t > sa) { const k = smooth(sa, sb, t);
-        for (let i = 0; i < 220; i++) { const u = (tv * .05 + hash(i, 7)) % 1, x = -1800 + u * 3600, z = -1300 - hash(i, 8) * 2600, y = depth(x, z) + 8 + hash(i, 9) * 70;
-          add(x, y, z, 50 + hash(i, 10) * 110, Math.sin(u * Math.PI) * .22 * k, .96, .95, .92, hash(i, 11) * 6); } }
+        for (let i = 0; i < 420; i++) { const u = (tv * .06 + hash(i, 7)) % 1, x = -2400 + u * 4800, z = -1000 - hash(i, 8) * 3400, y = depth(x, z) + 10 + hash(i, 9) * (60 + u * 260);
+          add(x, y, z, 80 + hash(i, 10) * 220, Math.sin(u * Math.PI) * .3 * k, .97, .96, .93, hash(i, 11) * 6); } }
     });
+  }
+  // heat: with no sea to cool it, the air turns hot and hazy (TL.seabed.heat = [t0, t1])
+  if (S.heat) { const [a, b] = S.heat;
+    (E.lookMods ||= []).push((t, L) => { const k = smooth(a, b, t); if (!k) return;
+      L.hor.lerp(new THREE.Color(0xeadcbc), .55 * k); L.top.lerp(new THREE.Color(0x9ab4c8), .35 * k); L.sun *= 1 + .2 * k;
+      L.haze = Math.max(L.haze || 0, .16 * k); L.hazeColor = '#e6cf9e'; }); }
+  // clouds over the sea that thin out and vanish (TL.seabed.clouds = [t0, t1])
+  { const R = rng(97), mat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: .92, flatShading: true }), cl = [];
+    for (let i = 0; i < 46; i++) { const g = new THREE.Group(), x = (R() - .5) * 7000, z = -600 - R() * 6500, y = 900 + R() * 500;
+      for (let j = 0; j < 5; j++) { const m = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 0), mat); m.position.set((R() - .5) * 220, (R() - .5) * 30, (R() - .5) * 120);
+        m.scale.set(90 + R() * 90, 35 + R() * 30, 70 + R() * 60); g.add(m); }
+      g.position.set(x, y, z); scene.add(g); cl.push({ g, d: R() }); }
+    const [a, b] = S.clouds || [1e9, 1e9];
+    E.updates.push((t, F_, tv) => { const k = smooth(a, b, t); mat.opacity = .92 * (1 - k);
+      for (const c of cl) { const q = 1 - smooth(a + c.d * (b - a) * .5, b, t); c.g.scale.setScalar(Math.max(.001, q)); c.g.visible = q > .01; c.g.position.x += 0; } });
   }
   // fog keys: the haze opens up when the camera climbs (TL.seabed.fog = [[t, near, far], ...])
   if (S.fog) { const nr = monotone(S.fog.map(([t, n]) => [t, n])), fr = monotone(S.fog.map(([t, , f]) => [t, f]));

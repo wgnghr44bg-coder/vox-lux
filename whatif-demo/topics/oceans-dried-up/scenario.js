@@ -17,35 +17,32 @@ export const lines = [
   ['place', 'You are standing on a beach boulevard.', 'pause'],
   ['tide', 'Normally, the tide moves the water a few meters.', 'long'],
   ['now', 'Now, it drops almost eight meters every minute.', 'long'],
-  ['quiet', 'The waves fall silent.', 'pause'],
   ['hour', 'After one hour, the sea is more than four hundred meters lower.', 'long'],
   ['people', 'People stop. Lifeguards wave everyone off the beach.', 'pause'],
-  ['boats', 'Boats lie on their sides in the mud.', 'pause'],
-  ['pier', 'The pier stands on bare, green legs.', 'long'],
+  ['boats', 'Boats lie on their sides in the mud.', 'long'],
   ['ship', 'Further out, a container ship tips over, and its cargo slides into the mud.', 'long'],
-  ['rig', 'Oil platforms and old shipwrecks stand high and dry.', 'long'],
-  ['volume', 'The oceans hold about one point three billion cubic kilometers of water.', 'pause'],
-  ['depth', 'On average, they are about three point seven kilometers deep.', 'long'],
-  ['more', 'But the sea was doing much more than holding water.', 'pause'],
-  ['heat', 'It soaked up most of the extra heat in our climate.', 'pause'],
-  ['oxygen', 'Its plankton made around half of the oxygen produced on Earth.', 'long'],
+  ['trade', 'About eighty percent of the world\'s goods travel by sea. Today, none of them move.', 'long'],
+  ['white', 'Then, the salt appears. The sea floor turns white.', 'long'],
+  ['layer', 'Spread over all the land on Earth, that salt would be about one hundred and fifty meters deep.', 'long'],
+  ['air', 'With no sea to cool it, the coast heats up like a desert.', 'long'],
+  ['clouds', 'And the clouds start to thin out.', 'pause'],
+  ['rain', 'Most of the rain on Earth begins as water rising from the sea.', 'long'],
   ['last', 'By the end of the day, the last water runs into the Mariana Trench.', 'pause'],
   ['trench', 'Almost eleven kilometers down.', 3.5],
-  ['salt', 'Then, the wind blows salt across the empty sea floor.', 'long'],
-  ['rain', 'Most of the rain on Earth begins as water rising from the sea.', 'pause'],
-  ['q', 'Without it, the sky above you would slowly run dry.', 'none'],
+  ['storm', 'Then, the wind lifts the salt into huge white storms.', 'long'],
+  ['blue', 'The blue planet is not blue anymore.', 'pause'],
+  ['q', 'And the sky above you slowly runs dry.', 'none'],
 ];
 
 export default function (at) {
   const T_END = at('q').e + 2.4, start = at('tide').e, gone = at('trench').e + 3;
   // sea level in the SCENE (compressed: shelf edge ± -110 m, deep plain -1700 m, trench -2700 m)
-  const tide = [[0, 0], [start, 0], [at('now').e, -1.5], [at('hour').e, -9], [at('boats').e, -20], [at('pier').e, -30],
-                [at('ship').s + 1, -60], [at('rig').e, -120], [at('volume').s + 1, -300], [at('volume').e, -1100], [at('depth').e, -1600], [at('more').e, -1680], [at('heat').e, -1720],
-                [at('oxygen').e, -1760], [at('last').e, -1860], [at('trench').s + 1, -2050], [gone, -2760], [T_END, -2760]];
+  const tide = [[0, 0], [start, 0], [at('now').e, -1.5], [at('hour').e, -9], [at('boats').e, -20],                 [at('ship').s + 1, -60], [at('trade').e, -120], [at('white').s, -300], [at('white').e, -1100], [at('layer').e, -1600],
+                [at('air').e, -1700], [at('rain').e, -1770], [at('last').e, -1860], [at('trench').s + 1, -2050], [gone, -2760], [T_END, -2760]];
   // sea level on the COUNTER (the real story): 0 -> -10 900 m in 24 hours
   const counter = [[0, 0], [start, 0], [at('now').e, 15], [at('hour').e, 455], [at('boats').e, 700], [at('ship').e, 1200],
-                   [at('rig').e, 1700], [at('depth').e, 2400], [at('heat').e, 4500], [at('oxygen').e, 6200], [at('last').e, 8500],
-                   [gone, 10900], [T_END, 10900]];
+                   [at('trade').e, 1700], [at('white').e, 3000], [at('layer').e, 4200], [at('air').e, 5500], [at('rain').e, 7000],
+                   [at('last').e, 8500], [gone, 10900], [T_END, 10900]];
   const hoursAt = (v) => v / 10900 * 24;
   return {
     T_END, titleOut: at('place').e + .4, hudIn: at('place').e + .7,
@@ -53,12 +50,14 @@ export default function (at) {
            second: { label: 'TIME', fn: v => hoursAt(v), unit: ' h', decimals: 0, prefix: '+', showAt: at('now').s } },
     counter, range: [0, 10900],
     forceParams: { tide, calm: 1, top: 6 },
-    seabed: { boats: true, salt: [at('salt').s - .5, at('salt').e + 3],
-              fog: [[0, 180, 1600], [at('ship').s, 400, 3000], [at('volume').s, 1200, 7000], [at('more').s, 1500, 8000], [at('oxygen').s, 3500, 15000], [T_END, 4000, 16000]] },
+    seabed: { boats: true, salt: [at('white').s, at('storm').e + 2], storm: at('storm').s - .3,
+              heat: [at('air').s, at('air').e + 3], clouds: [at('clouds').s, at('rain').e + 2],
+              fog: [[0, 180, 1600], [at('ship').s, 400, 3000], [at('white').s, 1200, 7000], [at('white').e, 1500, 8000], [at('air').s, 3500, 15000], [T_END, 4000, 16000]] },
     captions: [[at('now').s, at('now').e + .8, '≈ 7.6 m per minute.'],
                [at('hour').s, at('hour').e + .6, '1 hour: −455 m.'],
-               [at('volume').s, at('depth').e + .6, '1.3 billion km³ of water.'],
-               [at('oxygen').s, at('oxygen').e + .6, '≈ half of Earth\'s oxygen.'],
+               [at('trade').s, at('trade').e + .6, '≈ 80% of world trade goes by sea.'],
+               [at('white').s, at('white').e + .6, '≈ 35 g of salt in every litre.'],
+               [at('layer').s, at('layer').e + .6, 'A layer of salt ≈ 150 m deep.'],
                [at('trench').s, at('trench').e + 1.5, 'Mariana Trench: ≈ 11 km deep.']],
     // one continuous move: [t, camera position, look at]   (shore at z 0, sea toward -z, boulevard at z 38..90, y 3)
     camPath: [
@@ -69,20 +68,21 @@ export default function (at) {
       [at('people').s, [-30, 11, 6], [40, 3, 70]],
       [at('people').e + .4, [-34, 12, 2], [50, 3, 66]],
       [at('boats').e, [-6, 24, 4], [40, -6, -90]],
-      [at('pier').e, [-36, 14, -40], [-64, 0, -150]],
+      [at('boats').e + 2.5, [-36, 16, -40], [-64, 0, -150]],
       [at('ship').e, [-90, 55, -360], [-200, -20, -620]],
-      [at('rig').e, [-220, 150, -780], [-420, -20, -1180]],
-      [at('volume').e, [-120, 480, -900], [0, -700, -2600]],
-      [at('more').s, [0, 700, -1200], [0, -1500, -3300]],
-      [at('oxygen').s, [0, 850, -1400], [0, -1900, -3900]],
+      [at('trade').e, [-230, 140, -760], [-420, -20, -1180]],
+      [at('white').e, [-120, 480, -900], [0, -700, -2600]],
+      [at('layer').e, [0, 700, -1200], [0, -1500, -3300]],
+      [at('air').e, [0, 850, -1400], [0, -1700, -3900]],
+      [at('rain').s, [0, 950, -1600], [0, 200, -5000]],
       [at('last').e, [0, 1100, -1800], [0, -2600, -4300]],
       [gone, [60, 1100, -1950], [0, -2650, -4300]],
-      [at('rain').s, [250, 950, -2150], [0, -500, -800]],
+      [at('blue').s, [250, 950, -2150], [0, -500, -800]],
       [T_END, [330, 800, -2300], [0, -60, 0]],
     ],
     fov: 58,
     wakeAt: [at('people').s - .3, at('people').s + 1.6], sunRun: 1,   // sunbathers get up and leave when the lifeguards wave
-    beats: { carsStop: 1e9, shelter: at('people').s + .6, lookUp: at('quiet').s, stop: T_END, climax: at('trench').s + 1 },
+    beats: { carsStop: 1e9, shelter: at('people').s + .6, lookUp: at('hour').s, stop: T_END, climax: at('trench').s + 1 },
   };
 }
 
@@ -95,8 +95,10 @@ export const upload = {
     'Ocean volume ≈ 1.335 billion km³, mean depth ≈ 3.7 km: NOAA / Charette & Smith (2010), Oceanography 23(2) "The volume of Earth\'s ocean" – https://tos.org/oceanography/article/the-volume-of-earths-ocean',
     'Ocean ≈ 71% of Earth\'s surface: USGS "How much water is there on Earth?" – https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth',
     'Mariana Trench, Challenger Deep ≈ 10,900–10,935 m: NOAA Ocean Exploration – https://oceanexplorer.noaa.gov/facts/mariana-trench.html',
-    'Ocean took up > 90% of the excess heat (IPCC AR6 WG1 SPM A.1 / NASA) and ≈ a quarter of CO2 emissions (Global Carbon Budget): https://www.ipcc.ch/report/ar6/wg1/ – https://globalcarbonbudget.org',
-    'Phytoplankton produce roughly half of Earth\'s oxygen: NOAA Ocean Service "How much oxygen comes from the ocean?" – https://oceanservice.noaa.gov/facts/ocean-oxygen.html',
+    '≈ 80% of world trade by volume goes by sea: UNCTAD Review of Maritime Transport – https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport',
+    'Seawater ≈ 35 g of salt per litre (salinity ≈ 35 ‰): NOAA "Why is the ocean salty?" – https://oceanservice.noaa.gov/facts/whysalty.html',
+    'Salt spread over all land ≈ 150 m thick: USGS "Why is the ocean salty?" (> 500 ft / 166 m) – https://www.usgs.gov/special-topics/water-science-school/science/why-ocean-salty; own check: ≈ 4.8·10^19 kg salt / 2.16 t/m³ ≈ 2.2·10^7 km³ over 1.49·10^8 km² land ≈ 150 m',
+    'The sea moderates coastal temperatures (maritime vs. continental/desert climate): NOAA / NWS "Ocean influence on climate" – https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-currents',
     'Most of Earth\'s evaporation (≈ 86%) and so most precipitation comes from the ocean: NASA Earth Observatory "The Water Cycle" / Trenberth et al. (2007) – https://earthobservatory.nasa.gov/features/Water',
     'Tidal range is typically a few metres on most coasts: NOAA "What are tides?" – https://oceanservice.noaa.gov/facts/tides.html',
     'Fiction: 0 → −10,900 m in 24 h ≈ 7.6 m per minute (≈ 455 m per hour).',
