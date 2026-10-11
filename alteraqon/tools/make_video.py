@@ -14,7 +14,9 @@ END=float(rows[-1][2])+2.5
 SH=cfg.SH
 BANG=getattr(cfg,"BANG",None)   # index van de shot met flits + donderknal (of None)
 FADE_IN=getattr(cfg,"FADE_IN",0.8)   # 0 = meteen beeld (harde opening)
-starts=[0.0]+[float(rows[r-1][1]) for r,*_ in SH[1:]]
+# Startpunt van een shot: regelnummer in voice-times.tsv, of (regel, extra seconden) om binnen een zin te knippen (snelle stijl).
+at=lambda r: float(rows[r[0]-1][1])+r[1] if isinstance(r,tuple) else float(rows[r-1][1])
+starts=[0.0]+[at(r) for r,*_ in SH[1:]]
 
 # --- beeld ---
 # Een shot mag een 6e veld hebben: gratis effectlaag uit fx.py ("embers", "ash", "dust", "rain", combineren met +).
