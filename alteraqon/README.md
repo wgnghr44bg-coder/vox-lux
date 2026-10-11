@@ -20,6 +20,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-10-struck-by-lightning/` – What if you got struck by lightning? (`make.py`)
 - `2026-10-10-iron-vanished/` – What if every piece of iron vanished? (`make.py` → tools/make_video.py + shots.py) – geüpload 11 okt (privé): https://youtu.be/xY-blDzbe7c
 - `2026-10-10-asteroid-missed/` – What if the asteroid that killed the dinosaurs had missed? **Lange video**, 16:9 1920x1080, ca. 3 min (`make.py`, `make_thumbnail.py` → `thumbnail.jpg`)
+- `2026-10-11-ai-smarter/` – What if AI becomes smarter than humans? (`make.py` → tools/make_video.py + shots.py)
 
 ## Opbouw van elke video (sjabloon = de lightning-video)
 Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca. 18 zinnen, 65–75 s:
