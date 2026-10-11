@@ -90,7 +90,7 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 15 | The Moon was twice as close? | Kustplaats met kliffen | Enorme getijden, grote maan | gepland |
 | 16 | Earth lost its magnetic field? | Stad met radiotoren | Kompas draait, satellieten vallen uit, noorderlicht overal | gepland |
 | 17 | Earth stopped orbiting the Sun? | Akkerland met boerderij | Kou die maand na maand toeneemt | gepland |
-| 18 | A sinkhole opened under a city? | Winkelstraat (andere wijk) | Grond zakt weg, straat breekt open | gepland |
+| 18 | A sinkhole opened under a city? | Winkelstraat (andere wijk) | Grond zakt weg, straat breekt open | gemaakt als #46 (sinkhole-downtown) |
 | 19 | The Gulf Stream stopped? | Grachtenstad | Strenge winters, bevroren grachten | gepland |
 | 20 | Earth tilted on its side? | Weiland en dorp | Zon die niet meer ondergaat, extreme seizoenen | gepland |
 | 21 | A giant dam broke? | Dal met stuwmeer en dorp | Vloedgolf door het dal | gepland |
@@ -118,3 +118,4 @@ wachttoren, poort) en geluid (stappen, brullen, oerwoud). Testbeelden: `topics/d
 | 42 | A UFO crashed in your town? | Straat → bos/natuurpark | Vuurstreep, leger zet alles af, wegversperring, helikopters | gepland (bakstenen Ufo, Leger) |
 | 43 | Earth lost its atmosphere for one minute? (Short, stijl B) | Natuurpark (uitkijkpunt boven bergmeer) | Luchtdruk 1.013 → 0 hPa: zwarte lucht met sterren, stilte, meer kookt en bevriest, lucht komt terug | gemaakt 2026-10-10, naar eigenaar (TikTok), niet geüpload; topics/atmosphere-lost |
 | 44 | The Moon moved toward Earth? (Short, stijl A) | Boulevard/strand | Getij: maan 384.400 → 96.100 km, zee trekt terug, overstroomt boulevard tot aan de hotels | gemaakt 2026-10-10 (naar eigenaar, niet geüpload); topics/moon-closer |
+| 46 | A giant sinkhole appeared downtown? (Short, gravity-stijl) | Downtown kruispunt met kantoortorens | Kruispunt zakt weg: DEPTH 0 → 90 m, WIDTH 20 → 100 m, hoekpand zakt in het gat; één doorlopende camerabeweging | klaar 2026-10-11, bij eigenaar (TikTok), niet geüpload; sinkhole-downtown/ |
