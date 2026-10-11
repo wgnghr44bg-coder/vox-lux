@@ -23,6 +23,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-11-ai-smarter/` – What if AI becomes smarter than humans? (`make.py` → tools/make_video.py + shots.py)
 - `2026-10-11-venom-superman/` – What if Venom took over Superman? (snelle versie: **Atlas-stem**, tempo 1.05, korte pauzes, ~35 s, harde opening zonder fade-in, geen titeltekst; beelden zonder officiële logo's)
 - `2026-10-11-spiders-hunt/` – What if all spiders hunted together? (snelle stijl: Atlas-stem tempo 1.0, ~51 s, harde opening, geen titeltekst)
+- `2026-10-11-clone-hates-you/` – What if every human had a clone that hated them? (snelle stijl: Atlas-stem tempo 1.0, ~53 s, harde opening, geen titeltekst)
 
 ## Opbouw van elke video (sjabloon = de lightning-video)
 Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca. 18 zinnen, 65–75 s:
