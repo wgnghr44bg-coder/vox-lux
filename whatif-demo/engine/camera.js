@@ -17,6 +17,7 @@ const WEIGHT = { fire: 2.5, impact: 1, collapse: 4, splash: 2.2, snap: 1.2, tear
 const HOLD = { fire: 3, impact: 1.6, collapse: 3.5, splash: 2.2, snap: 1.6, tear: 2, glass: 2, crack: 1.6, look: 2.5, roar: 2.5 };
 
 export function createCamera(E, TL, P, F) {
+  if (TL.camPath) return pathCamera(E, TL, F);
   const FPS = E.FPS, STOP = TL.beats.stop, N = Math.ceil(TL.T_END * FPS) + 2, cam = E.camera;
   cam.rotation.order = 'YXZ';
   const shotAt = t => { let s = TL.shots[0]; for (const x of TL.shots) if (t >= x[0]) s = x; return { name: s[1], start: s[0], shot: P.shots[s[1]] }; };
@@ -137,6 +138,40 @@ export function createCamera(E, TL, P, F) {
       cam.rotation.set(pa, ya, roll + rollRun + sx * shake * .03);
       // a point 60 m ahead (used to aim the sun's shadow map)
       _l.set(-Math.sin(ya) * Math.cos(pa), Math.sin(pa), -Math.cos(ya) * Math.cos(pa)).multiplyScalar(60).add(cam.position);
+      return _l;
+    },
+  };
+}
+
+// ---------- standard camera (eigenaar, 11 okt 2026): one continuous move along TL.camPath ----------
+// TL.camPath = [[t, [x, y, z] position, [x, y, z] look-at], ...]: Catmull-Rom through the keys, then a short
+// running average (no kinks at the keys); no handheld, no cuts. Shake only on big events (collapse, impact, building).
+export function pathCamera(E, TL, F) {
+  const K = TL.camPath, cam = E.camera, D2R = Math.PI / 180;
+  const cr = (p0, p1, p2, p3, u) => { const u2 = u * u, u3 = u2 * u; return .5 * ((2 * p1) + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u2 + (-p0 + 3 * p1 - 3 * p2 + p3) * u3); };
+  const raw = t => { let i = 0; while (i < K.length - 2 && t > K[i + 1][0]) i++;
+    const k0 = K[Math.max(0, i - 1)], k1 = K[i], k2 = K[Math.min(K.length - 1, i + 1)], k3 = K[Math.min(K.length - 1, i + 2)];
+    const u = k2[0] > k1[0] ? clamp((t - k1[0]) / (k2[0] - k1[0])) : 0;
+    return [1, 2].map(j => [0, 1, 2].map(c => cr(k0[j][c], k1[j][c], k2[j][c], k3[j][c], u)));
+  };
+  const at = t => { const o = [[0, 0, 0], [0, 0, 0]], n = 9;
+    for (let k = 0; k < n; k++) { const p = raw(clamp(t + (k - 4) * .25, 0, TL.T_END)); for (let j = 0; j < 2; j++) for (let c = 0; c < 3; c++) o[j][c] += p[j][c] / n; }
+    return o; };
+  const _l = new THREE.Vector3();
+  return {
+    targetAt: () => -1, speedAt: () => 0, runningAt: () => false, cutNear: () => true,   // cutNear: no motion blur
+    apply(tv) {
+      const [pos, look] = at(tv), t = Math.min(tv, TL.beats.stop);
+      let shake = 0;
+      for (const ev of E.EVENTS) { if (ev.t > t || t - ev.t > 3) continue; const a = t - ev.t;
+        shake += ({ collapse: .5 * (ev.e ?? 1), building: .25, impact: .06 * (ev.e ?? 1), rift: .05, crack: .04 }[ev.kind] || 0) * Math.exp(-a * 2.5); }
+      if (F.shake) shake += F.shake(t);
+      shake = Math.min(shake, .45);
+      const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
+      cam.fov = (TL.fov ?? 60) * (E.WIDE ? .62 : 1); cam.updateProjectionMatrix();
+      cam.position.set(pos[0] + sx * shake * .25, pos[1] + sy * shake * .25, pos[2]);
+      _l.set(look[0] + sx * shake * 1.2, look[1] + sy * shake * 1.2, look[2]);
+      cam.rotation.set(0, 0, 0); cam.lookAt(_l);
       return _l;
     },
   };

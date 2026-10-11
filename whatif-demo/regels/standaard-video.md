@@ -29,3 +29,17 @@ De eigenaar: "zo wil ik alle video's voor IfScape3D hebben". Voorbeeld: **What i
 4. Kijkversie < 30 MB naar de eigenaar (SendUserFile) + TikTok-tekst; die versie gaat in git.
 5. YouTube alleen na akkoord van de eigenaar: kanaal whatif, openbaar, playlist "What If".
    Beschrijving kort en zonder alles te verklappen (begin van het verhaal + vraag aan de kijker + 3–4 hashtags).
+
+## Nieuw onderwerp maken (engine, sinds 11 okt 2026)
+De engine (`engine/`) maakt de standaard vanzelf zodra een scenario een `camPath` heeft: titel in beeld, geen logo,
+geen fade/eindkaart, één doorlopende camerabeweging (Catmull-Rom door de punten). Sjabloon: `topics/standaard-sinkhole/`
+(de sinkhole-video op plek `street` + kracht `sinkhole`).
+1. Kopieer `topics/standaard-sinkhole/` naar `topics/<slug>/`; pas aan: `topic` (slug, place, force, title), `lines`
+   (± 130 woorden, "Imagine…", stille climax als getal), `hud`/`counter` (label + getal, tweede regel via `second.fn(v, t)`),
+   `camPath` ([t, positie, kijkpunt]), `beats`, `captions`, `upload` (beschrijving zonder spoilers).
+2. Kies een bestaande plek (`engine/places/`: street, river-city, boulevard, harbor, mountain-village, nature-park, suburb,
+   airport, colosseum, prehistoric, indoors) en kracht (`engine/forces/`: wind, cold, heat, quake, water, tide, gravity,
+   eruption, alien, day, sinkhole). Alleen bouwen wat echt nog niet bestaat.
+3. Mensen veilig weg: `beats.shelter` (+ `flee: [x, z]` om ze weg te laten lopen in plaats van naar binnen).
+4. `python3 make_whatif.py <nr> --stills` → testbeelden naar de eigenaar; na akkoord `python3 make_whatif.py <nr>`
+   (stem Atlas 1.00, render, geluid, mp4). Render op de achtergrond met lange timeout.

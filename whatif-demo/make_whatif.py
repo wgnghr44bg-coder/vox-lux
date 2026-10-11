@@ -80,8 +80,8 @@ def check_script(lines):
     print(f"script: {words} words")
     if not lines[0][1].startswith("Imagine"):
         print("WARNING: the first line should start with 'Imagine'")
-    if not 170 <= words <= 210:
-        print("WARNING: aim for 170-210 words")
+    if not 110 <= words <= 150:     # standaard-video (eigenaar, 11 okt 2026): 45-60 s
+        print("WARNING: aim for 110-150 words (45-60 s, regels/standaard-video.md)")
 
 
 def parse_tsv(path: Path):
