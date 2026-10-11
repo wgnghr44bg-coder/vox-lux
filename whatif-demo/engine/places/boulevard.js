@@ -109,7 +109,7 @@ export function build(E, TL, F) {
     car(E, 600 + li * 10 + k, { x0: -300 + k * 120 + li * 50, z0: z, dir, v: 9, axis: 'x', a: -320, b: 320, y: PROM + .75, brakeT: (B.carsStop ?? 1e9) + k * .5 + li, F, ground: PROM, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1, water: PROM + .6 } }) });
   }));
   // hotels and apartments
-  { const R = rng(21); let x = -360;
+  if (!TL.noHotels) { const R = rng(21); let x = -360;
     const featured = { '-24': 0, '70': 1 };
     while (x < 360) {
       const w = 16 + R() * 16, cx = x + w / 2, tall = R() < .35;
