@@ -40,6 +40,7 @@ const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 (await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
 if (TL.animals) (await import('./animals.js')).animals(E, TL, P.shots);   // baksteen Dieren (+ Grote dieren: big-animals.js)
 if (TL.beats.vanish != null || TL.traffic || TL.bikes || TL.crashes || TL.smoke || TL.extraShots) (await import('./small.js')).applySmall(E, TL, F, P);   // baksteen Kleine dingen
+if (TL.wave) (await import('./wave.js')).buildWave(E, TL, F, P);   // baksteen Golf + grootte: wave, things to compare, run-up on a mountain
 if (TL.fences || TL.towers || TL.gates || TL.puddles || TL.lightning) (await import('./fences.js')).build(E, TL, P.shots);   // baksteen Hekken: omheining, wachttoren, poort
 E.F = F; E.P = P;
 F.attach?.(P);
@@ -157,6 +158,7 @@ function renderScene(tv, fixed) {
   poseFalls(t);
   for (const f of E.afterPose || []) f(t, ts);           // e.g. forces/sinkhole.js: cars and props tipping into the hole
   cameraAt(tv, fixed);
+  if (E.skyFollow) E.sky.position.copy(E.camera.position);   // far from the origin (wave.js): the sky sphere stays around the camera
   const n = dust.render(ts, E.camera.position);
   if (TL.post && !E.post) E.post = createPost(E, E.renderer.domElement.width, E.renderer.domElement.height, typeof TL.post === 'object' ? TL.post : {});
   if (E.post) E.post.render(); else E.renderer.render(E.scene, E.camera);

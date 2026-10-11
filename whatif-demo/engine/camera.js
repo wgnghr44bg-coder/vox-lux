@@ -157,6 +157,9 @@ export function pathCamera(E, TL, F) {
   const at = t => { const o = [[0, 0, 0], [0, 0, 0]], n = 9;
     for (let k = 0; k < n; k++) { const p = raw(clamp(t + (k - 4) * .25, 0, TL.T_END)); for (let j = 0; j < 2; j++) for (let c = 0; c < 3; c++) o[j][c] += p[j][c] / n; }
     return o; };
+  // optional 4th value per key: field of view (zoom in for a far view); keys without it keep TL.fov
+  const FK = K.map(k => [k[0], k[3] ?? TL.fov ?? 60]);
+  const fovAt = t => { if (t <= FK[0][0]) return FK[0][1]; for (let i = 1; i < FK.length; i++) if (t <= FK[i][0]) { const [a, va] = FK[i - 1], [b, vb] = FK[i], u = (t - a) / (b - a || 1); return va + (vb - va) * u * u * (3 - 2 * u); } return FK[FK.length - 1][1]; };
   const _l = new THREE.Vector3();
   return {
     targetAt: () => -1, speedAt: () => 0, runningAt: () => false, cutNear: () => true,   // cutNear: no motion blur
@@ -168,7 +171,7 @@ export function pathCamera(E, TL, F) {
       if (F.shake) shake += F.shake(t);
       shake = Math.min(shake, .45);
       const sx = Math.sin(tv * 37.1) * .6 + Math.sin(tv * 23.3) * .4, sy = Math.sin(tv * 31.7) * .6 + Math.sin(tv * 19.9) * .4;
-      cam.fov = (TL.fov ?? 60) * (E.WIDE ? .62 : 1);
+      cam.fov = fovAt(tv) * (E.WIDE ? .62 : 1);
       if (E.nearFn) cam.near = E.nearFn(pos);       // high above a big landscape: a far near-plane keeps the depth buffer sharp (no flicker)
       cam.updateProjectionMatrix();
       cam.position.set(pos[0] + sx * shake * .25, pos[1] + sy * shake * .25, pos[2]);
