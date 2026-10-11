@@ -31,7 +31,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - `2026-10-11-volcano-city/` – What if a volcano erupted in your city? (**mix-stijl**: 2 xAI-lite-clips + gratis effecten, Atlas-stem, ~51 s)
 - `2026-10-11-random-superpower/` – What if every human got a random superpower? (**mix-stijl**: 2 lite-clips K01 + K03, effecten, Atlas-stem, ~55 s; twist: Bajau-milt, SCN9A, tetrachromatie)
   – geüpload 11 okt (openbaar): https://youtu.be/8ErptEFbUnA
-- `2026-10-11-flat-earth/` – What if the Earth was flat? (**snelle stijl, test**: alleen foto's, 15 beelden, ca. elke 1–1,5 s een knip, ook binnen een zin; ~24 s)
+- `2026-10-11-flat-earth/` – What if the Earth was flat? (**snelle stijl, test – AFGEWEZEN** door de eigenaar: "te veel en te druk"; niet uploaden)
 
 ## Beweging (mix-stijl, eigenaar okt 2026)
 - **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
@@ -40,7 +40,8 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
   dan `python3 alteraqon/tools/make_clips.py <map>` → `afbeeldingen/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
   Alleen voor de opening en het "Then."-moment (1–2 per Short). Vereist `vidgen.x.ai` in de netwerkinstellingen.
 - Clips (bronmateriaal) mogen in git; de eind-mp4 niet.
-- **Snelle stijl** (alleen foto's, veel beelden): in `shots.py` mag het eerste veld ook `(regel, extra seconden)` zijn,
+- **Snelle stijl: NIET gebruiken** (eigenaar okt 2026: te veel beelden, te druk; houd het rustig, ±1 beeld per zin).
+  Technisch kan het nog (alleen foto's, veel beelden): in `shots.py` mag het eerste veld ook `(regel, extra seconden)` zijn,
   bijv. `((2,0.9),"F03",...)` = 0,9 s na het begin van regel 2; zo wisselt het beeld binnen een zin. Voorbeeld: `2026-10-11-flat-earth/`.
 
 Meld hem bij de verzamelsessie **"mp4 alteraqon shorts"** (`session_0149vZSeTdq1ZbZMfe47EX4e`) met send_message:
