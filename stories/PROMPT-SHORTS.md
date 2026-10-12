@@ -46,7 +46,7 @@ Wat ik wil:
 
 Afspraken:
 - Praat Nederlands met mij, eenvoudig. Ik werk op telefoon en laptop.
-- Alles hierboven is gratis. Vraag altijd eerst als iets geld kost (xAI, ElevenLabs).
+- Alles hierboven is gratis. Vraag altijd eerst als iets geld kost (xAI). ElevenLabs gebruiken we niet meer.
 - Noem tijden in Nederlandse tijd.
 - Nooit muziek van CapCut, TikTok of anderen gebruiken.
 - Test eerst alleen het verversen van de YouTube-token (de Google-app staat op
