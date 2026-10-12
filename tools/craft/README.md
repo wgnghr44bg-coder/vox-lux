@@ -13,6 +13,10 @@ and their commands are on `PATH`:
 | LightCraft | Lightroom | `lightcraft-cli` |
 | DesignCraft | InDesign | `designcraft-cli` |
 | PdfCraft | Acrobat | `pdfcraft-cli` |
+| SoundCraft | Pro Tools (record, edit, mix audio) | `soundcraft-cli` |
+| WordCraft | Word | `wordcraft-cli` |
+| GridCraft | Excel (repo `sheetcraft`) | `gridcraft-cli` |
+| DeckCraft | PowerPoint (repo `slidecraft`) | `deckcraft-cli` |
 
 ArtCraft itself (the AI studio) has no Linux build and is not installed.
 Python libs for the example scripts: `opencv-python-headless`, `numpy`, `pillow` (also installed).
