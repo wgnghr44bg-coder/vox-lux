@@ -2,7 +2,8 @@
 // arms out in front, a slow shuffle, head on one side). No gore, nobody gets touched: they only walk.
 //   TL.zombies = [{ n, path: [[t, x, z], ...], spread: 1.5, lag: .6, speed: .8, hideAfter: true, y }]
 //   path: waypoints in video time (the group shuffles along it, each one `lag` s later and a little to the side);
-//   hideAfter: gone after the last waypoint (e.g. through a door). y: ground height (default E.groundAt).
+//   hideAfter: gone after the last waypoint (e.g. through a door). gather: true = stay there, crowded, arms up (at a door).
+//   y: ground height (default .2).
 import { person } from './props.js';
 import { rng, clamp, lerp } from './util.js';
 
@@ -24,10 +25,10 @@ export function zombies(E, TL) {
       const pts = G.path.map(([t, x, z]) => [t + lag, x, z]);
       person(E, 9000 + gi * 100 + i, { zombie: true, skirt: false, y: G.y ?? .2, path(t) {
         const p = along(pts, t);
-        if (p.after && G.hideAfter !== false) return { visible: false };
+        if (p.after && !G.gather && G.hideAfter !== false) return { visible: false };
         const sx = Math.cos(p.rot), sz = -Math.sin(p.rot);
         return { x: p.x + sx * side + Math.sin(p.rot) * back, z: p.z + sz * side + Math.cos(p.rot) * back, rot: p.rot + Math.sin(t * .7 + i) * .12,
-                 moving: p.moving, speed: (G.speed ?? .8) * .55, arms: 'zombie' };
+                 moving: p.moving, speed: (G.speed ?? .8) * .55, arms: p.after && G.gather ? 'zombieUp' : 'zombie' };
       } });
     }
   });

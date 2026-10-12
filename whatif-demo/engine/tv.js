@@ -52,13 +52,18 @@ export function channel(E, TL) {
     if (mode === 'game') {   // a cartoon first-person zombie game: dusky street, shapes shuffling closer, crosshair, ROUND n (no gore)
       c.fillStyle = '#2b3a33'; c.fillRect(0, 0, W, H * .55); c.fillStyle = '#1d2420'; c.fillRect(0, H * .55, W, H * .45);
       c.fillStyle = '#3d4a42'; for (let i = 0; i < 6; i++) c.fillRect(i * W / 6 + 10, H * .2 - (i % 2) * 30, W / 6 - 20, H * .35 + (i % 2) * 30);
-      for (let i = 0; i < 7; i++) { const ph = (a * .18 + i * .37) % 1, s = .25 + ph * 1.1, x = W * (.12 + (i * .131) % .8) + Math.sin(a * 2 + i) * 6, y = H * .55;
-        c.fillStyle = `rgba(120,140,110,${.5 + ph * .5})`; c.fillRect(x - 14 * s, y - 70 * s, 28 * s, 50 * s); c.beginPath(); c.arc(x, y - 80 * s, 11 * s, 0, 7); c.fill();
-        c.fillRect(x - 26 * s, y - 64 * s, 16 * s, 6 * s); c.fillRect(x + 10 * s, y - 64 * s, 16 * s, 6 * s); c.fillRect(x - 12 * s, y - 20 * s, 9 * s, 20 * s); c.fillRect(x + 3 * s, y - 20 * s, 9 * s, 20 * s); }
+      for (let i = 0; i < 7; i++) { const ph = (a * .18 + i * .37) % 1, s = .3 + ph * 1.2, x = W * (.12 + (i * .131) % .8) + Math.sin(a * 2 + i) * 6, y = H * .58;   // blocky zombies walking closer
+        c.fillStyle = '#3f5670'; c.fillRect(x - 15 * s, y - 62 * s, 30 * s, 34 * s);                                            // shirt
+        c.fillStyle = '#2d3240'; c.fillRect(x - 13 * s, y - 28 * s, 11 * s, 28 * s); c.fillRect(x + 2 * s, y - 28 * s, 11 * s, 28 * s);   // legs
+        c.fillStyle = '#7fb069'; c.fillRect(x - 13 * s, y - 88 * s, 26 * s, 26 * s);                                            // square head
+        c.fillRect(x - 30 * s, y - 60 * s, 15 * s, 7 * s); c.fillRect(x + 15 * s, y - 60 * s, 15 * s, 7 * s);                   // arms out
+        c.fillStyle = '#111'; c.fillRect(x - 8 * s, y - 80 * s, 5 * s, 5 * s); c.fillRect(x + 3 * s, y - 80 * s, 5 * s, 5 * s); c.fillRect(x - 6 * s, y - 70 * s, 12 * s, 3 * s); }
       c.strokeStyle = '#f2f2f2'; c.lineWidth = 3; c.beginPath(); c.moveTo(W / 2 - 18, H / 2); c.lineTo(W / 2 - 6, H / 2); c.moveTo(W / 2 + 6, H / 2); c.lineTo(W / 2 + 18, H / 2);
       c.moveTo(W / 2, H / 2 - 18); c.lineTo(W / 2, H / 2 - 6); c.moveTo(W / 2, H / 2 + 6); c.lineTo(W / 2, H / 2 + 18); c.stroke();
       c.fillStyle = '#c4302b'; c.font = font(46, 800); c.textAlign = 'right'; c.fillText(o.text || 'ROUND 1', W - 24, 56);
       c.fillStyle = '#e8e2cc'; c.font = font(22, 700); c.textAlign = 'left'; c.fillText(o.sub || 'POINTS 1,250', 24, H - 24);
+      c.fillStyle = '#222'; c.fillRect(22, 22, 184, 20); for (let k = 0; k < 8; k++) { c.fillStyle = k < 5 ? '#e06a3a' : '#555'; c.fillRect(25 + k * 22.5, 25, 19, 14); }   // HP bar
+      c.fillStyle = '#f2f2f2'; c.font = font(20, 700); c.fillText(o.hp || 'HP: 64', 24, 66);
       tex.needsUpdate = true; return;
     }
     if (mode === 'text') {
