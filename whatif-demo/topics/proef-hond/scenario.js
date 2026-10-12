@@ -4,12 +4,12 @@ export const lines = [['a', 'Test.', 'none']];
 export default function () {
   const T_END = 12;
   return {
-    T_END, tripod: true, brand: false, look: 'blender',
+    T_END, tripod: true, brand: false, look: 'blender', hudIn: 1e9,
     animals: [
-      { kind: 'dog', path: [[0, -40, 20.3], [12, -26, 20.3]], color: 0xb08a5a, walker: { coat: 0xb8322a, pants: 0x27324f } },
+      { kind: 'dog', path: [[0, -42, 20.3], [12, -28, 20.3]], color: 0xb08a5a, walker: { side: -.45, coat: 0xb8322a, pants: 0x27324f } },
     ],
     extraShots: {
-      walk: { pos: [-31.0, 1.35, 25.0], look: [-34.8, .85, 20.4], drift: [.25, 0, 0], fov: 42 },
+      walk: { pos: [-40.1, 1.2, 24.4], look: [-42.0, .95, 20.1], drift: [11.67, 0, 0], fov: 62 },   // meelopend, zoals de Blender-wandeling
     },
     hud: { label: '', unit: '', decimals: 0, sub: '' }, counter: [[0, 0]], range: [0, 1],
     captions: [], shots: [[0, 'walk']],
