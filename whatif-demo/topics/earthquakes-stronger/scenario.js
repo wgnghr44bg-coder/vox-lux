@@ -1,125 +1,108 @@
-// What if the earthquakes kept getting stronger?  (onderwerpen.md #47; aangeleverd door de eigenaar, passend gemaakt
-// op de engine). Plek 'street' (laan naar zee, wolkenkrabbers bij het water) + kracht 'quake'. Blender-look.
-// Je loopt achter iemand met een hond over de stoep langs de gevels (x ≈ 14,5–15,5; bomen/palmen staan op 12,4/13,6); de magnitude loopt van 3 naar 1000.
-// Engine-feiten: elke hele stap = 10^1,5 ≈ 32× meer energie; E ≈ 10^(1,5·M + 4,8) J.
+// What if the earthquakes kept getting stronger?  (onderwerpen.md #47; tijdlijn van de eigenaar, okt 2026)
+// GEEN STEM, alleen tekst: 83 s, de tijden staan vast in timing.json (VO_OFFSET 0; de ids hieronder = de hoofdstukken).
+// Plek 'newyork' (places/newyork.js) + kracht 'quake'. Eerste persoon (POV), Blender-look.
+// Stap 1 (deze versie): de straat t/m magnitude 12 (0-50 s). Stap 2 (later): de ruimte, de brekende aarde (55-75 s) en de
+// zwarte leegte met gebroken glas (75-83 s); tot die er zijn stijgt de camera na 50 s hoog boven de stad.
 export const topic = {
-  number: 47, slug: 'earthquakes-stronger', place: 'street', force: 'quake',
+  number: 47, slug: 'earthquakes-stronger', place: 'newyork', force: 'quake',
   question: 'What if the earthquakes kept getting stronger?',
-  title: 'What if<br>earthquakes kept<br>getting stronger?',
-  voOffset: 1.0,
+  title: 'What if the<br>earthquakes kept<br>getting stronger?',
+  voOffset: 0, textOnly: true,
 };
 
+// [id, tekst (alleen als ondertitel, niet gesproken), -]; tijden: timing.json
 export const lines = [
-  ['imagine', 'Imagine you are standing on a quiet street in New York, a hot dog cart steaming next to you.', 'pause'],
-  ['intro', 'What if the earthquakes kept getting stronger?', 'pause'],
-  ['normal', 'Normally the ground barely trembles beneath your feet.', 'pause'],
-  ['three', 'At magnitude three, only the pigeons notice.', 'long'],
-  ['five', 'At magnitude five, New York matches its eighteen eighty four record and windows rattle.', 'pause'],
-  ['six', 'Each whole step releases thirty two times more energy.', 'pause'],
-  ['seven', 'At seven, the street is no longer flat and cars stop driving.', 'long'],
-  ['nine', 'Nine point five is the strongest ever recorded, in Chile in nineteen sixty.', 'pause'],
-  ['ten', 'At ten, no known fault is long enough and the ground moves like water.', 'long'],
-  ['twelve', 'At twelve, the street splits wide open.', 'pause'],
-  ['fifteen', 'At fifteen, the ground throws you into space.', 'long'],
-  ['eighteen', 'Past eighteen, Earth cannot hold itself together anymore.', 'pause'],
-  ['fifty', 'At fifty, it releases more energy than the entire universe has.', 'long'],
-  ['scale', 'The scale itself has no upper limit.', 'pause'],
-  ['q', 'So where would it finally stop?', 'none'],
+  ['title', 'What if the earthquakes kept getting stronger?', 'none'],
+  ['three', 'Magnitude 3. Only the pigeons notice.', 'none'],
+  ['five', 'At 5, New York matches its 1884 record.', 'none'],
+  ['six', 'Each step releases 32 times more energy.', 'none'],
+  ['seven', 'At 7, the street is no longer flat.', 'none'],
+  ['nine', '9.5 is the strongest ever recorded.', 'none'],
+  ['ten', 'At 10, the ground moves like water.', 'none'],
+  ['twelve', 'At 12, the street splits wide open.', 'none'],
+  ['fifteen', 'At 15, the ground throws you into space.', 'none'],
+  ['eighteen', 'Past 18, Earth cannot hold itself together.', 'none'],
+  ['fifty', 'At 50, more energy than the universe has.', 'none'],
+  ['scale', 'The scale itself has no upper limit.', 'none'],
 ];
 
-// energie bij magnitude m, als tekst (10-machten zonder Infinity: we rekenen met de exponent)
+// ENERGY zoals in de referentie: 10^(1,5·M − 1,2) (M3 → 2.000, M5 → 2.000.000, M6 → 63.100.000), zonder Infinity
 const energy = m => {
-  const x = 1.5 * m + 4.8;
-  if (x < 6) return Math.round(10 ** x).toLocaleString('en-US') + ' J';
-  const e = Math.floor(x), mant = 10 ** (x - e);
-  return `${mant.toFixed(1)} × 10^${e} J`;
+  const x = 1.5 * m - 1.2;
+  if (x < 15) return Math.round(10 ** x).toLocaleString('en-US');
+  const e = Math.floor(x); return `${(10 ** (x - e)).toFixed(1)} × 10^${e}`;
 };
 
 export default function (at) {
-  const T_END = at('q').e + 4.5;
-  const s3 = at('three').s, s5 = at('five').s, s6 = at('six').s, s7 = at('seven').s, s9 = at('nine').s, s10 = at('ten').s,
-        s12 = at('twelve').s, s15 = at('fifteen').s, s18 = at('eighteen').s;
-  // wandeling over de stoep richting zee (-z); bij magnitude 7 blijven ze staan
-  const z0 = 26, v = 1.15, dogZ = t => z0 - v * Math.min(t, s7);
+  const T_END = 83;
+  const cap = id => [at(id).s + .2, at(id).e - .2, lines.find(l => l[0] === id)[1]];
+  // POV-wandeling over de rechterstoep (vrije strook x 14-15,8), richting -z, 1,15 m/s tot 13 s
+  const X = 14.6, z = t => 24 - 1.15 * Math.min(t, 13);
   return {
-    T_END,
-    look: 'blender',
-
-    // ---- titel en teller ----
-    titleOut: at('intro').e + .4,
-    hudIn: at('three').s - .3,
-    hud: { label: 'MAGNITUDE', unit: '', decimals: 1,
-           second: { label: 'ENERGY', fn: v => v, fmt: m => energy(m), showAt: at('six').s } },
-    counter: [[0, 3], [s3, 3], [s5, 5], [s6, 6], [s7, 7], [s9, 9.5], [s10, 10], [s12, 12], [s15, 15], [s18, 18],
-              [at('fifty').s, 50], [at('scale').s, 100], [at('q').s, 1000], [T_END, 1000]],
+    T_END, look: 'blender', brand: false,
+    titleOut: 5, hudIn: 0,
+    hud: { label: 'MAGNITUDE', unit: '', decimals: 1, second: { label: 'ENERGY', fn: v => v, fmt: m => energy(m), showAt: 0 } },
+    counter: [[0, 3], [5, 3], [6, 3.9], [8, 3.9], [9, 4.5], [12.5, 5], [14, 6], [22, 6], [23, 7], [31, 7.5], [33, 8], [39, 9.5],
+              [41, 10], [46, 10], [47, 12], [50, 12], [51, 15], [55, 15], [56, 18], [61, 20], [63, 32], [73, 50], [76, 100], [80, 1000], [83, 1000]],
     range: [3, 18],
-
-    // ---- de aardbeving: [t, sterkte 0..1, duur s]; daarna houdt het schudden niet meer op ----
     forceParams: {
-      tremors: [[at('normal').s, .03, 3], [s3, .06, 3.5], [s5, .2, 4.5], [s6, .3, 3.5], [s7, .5, 6.5], [s9, .7, 5],
-                [s10, .85, 6.5], [s12, 1, 9], [s15, 1, T_END - s15 + 1]],
-      crackK: 3,
+      tremors: [[0, .01, 5], [5, .04, 3.2], [8, .12, 5.2], [13, .45, 9.2], [22, .55, 10.2], [32, .75, 8.2], [40, .9, 6.2], [46, 1, 40]],
+      crackK: 4,
     },
+    captions: [cap('three'), cap('five'), cap('six'), cap('seven'), cap('nine'), cap('ten'), cap('twelve'), cap('fifteen'),
+               cap('eighteen'), cap('fifty'), [75.2, 79.8, 'The scale itself has no upper limit.'], [80, 83, 'MAGNITUDE 1,000 HERE']],
 
-    captions: [
-      [at('three').s, at('three').e + .8, 'Only the pigeons notice.'],
-      [at('five').s, at('five').e + .8, 'At 5, New York matches its 1884 record.'],
-      [at('six').s, at('six').e + .8, 'Each step releases 32 times more energy.'],
-      [at('seven').s, at('seven').e + .8, 'At 7, the street is no longer flat.'],
-      [at('nine').s, at('nine').e + .8, '9.5 is the strongest ever recorded.'],
-      [at('ten').s, at('ten').e + .8, 'At 10, the ground moves like water.'],
-      [at('twelve').s, at('twelve').e + .8, 'At 12, the street splits wide open.'],
-      [at('fifteen').s, at('fifteen').e + .8, 'At 15, the ground throws you into space.'],
-      [at('eighteen').s, at('eighteen').e + .8, 'Past 18, Earth cannot hold itself together.'],
-      [at('fifty').s, at('fifty').e + .8, 'At 50, more energy than the universe has.'],
-      [at('scale').s, at('q').e, 'The scale itself has no upper limit.'],
-    ],
-
-    // ---- camera: achter de wandelaar aan, omhoog naar de gevels, omlaag naar de scheuren, dan steeds hoger ----
+    // camera: [t, positie, kijkt naar, fov, kanteling°]
     camPath: [
-      [0, [15.1, 1.6, dogZ(0) + 4.4], [13.4, 2.2, dogZ(0) - 30]],
-      [s3, [15.1, 1.6, dogZ(s3) + 4.4], [13.4, 2.2, dogZ(s3) - 30]],
-      [s5, [15.6, 1.65, dogZ(s5) + 4.2], [11, 12, dogZ(s5) - 30]],             // kijkt omhoog naar de gevels
-      [s7, [15.6, 1.5, dogZ(s7) + 4.0], [11, 0, dogZ(s7) - 9]],                 // omlaag: de straat is niet meer vlak
-      [s10, [15.5, 4.5, dogZ(s7) + 9], [4, 0, dogZ(s7) - 25]],
-      [s12, [16, 16, dogZ(s7) + 26], [0, 0, dogZ(s7) - 50]],                   // de straat splijt
-      [s15, [10, 60, dogZ(s7) + 80], [0, 0, -90]],
-      [s18, [0, 140, 150], [0, 0, -110]],
-      [T_END, [-10, 260, 240], [0, 0, -120]],
+      [0, [X, 1.7, z(0)], [13.6, 2, -20], 75, 0],                  // POV ooghoogte, loopt
+      [5, [X, 1.7, z(5)], [13.6, 2, -20], 75, 0],                  // duiven vliegen op
+      [8, [X, 1.7, z(8)], [13.6, 2.2, -20], 60, 0],
+      [9.6, [X, 1.7, z(9.6)], [-16, 9, z(9.6) - 6], 60, -8],        // whip-pan naar links
+      [11.2, [X, 1.7, z(11.2)], [16.6, 26, z(11.2) - 9], 60, 10],   // en rechts omhoog langs de gevels (Dutch angle)
+      [13, [X, 1.7, z(13)], [15, 28, z(13) - 14], 60, 10],
+      [15, [X, 1.7, z(13)], [6, 11, -80], 85, 4],                   // breed: torens storten in
+      [22, [14.4, 1.6, z(13) - .3], [4, 14, -90], 85, -3],
+      [23.5, [14.2, 1.2, z(13) - .4], [8, 0, z(13) - 14], 70, 25],  // laag, kijkt omlaag naar de golvende straat
+      [32, [14.2, 1.0, z(13) - .6], [6, 0, z(13) - 18], 70, 22],
+      [34, [10, .9, z(13) - 3], [2, -1, z(13) - 20], 95, 10],       // duikt naar de scheuren
+      [40, [3, .5, -2], [0, -2, -14], 100, 0],
+      [42, [1, .3, -6], [3, 40, -12], 100, 0],                       // laag in de straat, kijkt omhoog
+      [46, [1, .6, -6], [2, 36, -14], 95, 0],
+      [50, [6, 35, 24], [0, 0, -40], 60, 0],                         // dolly-out naar 35 m: de straat splijt
+      [55, [10, 300, 200], [0, 0, -60], 55, 0],                      // (stap 2: de ruimte in)
+      [T_END, [20, 600, 400], [0, 0, -80], 55, 0],
     ],
-    fov: 62,
+    fov: 75,
+    walkBob: [[0, 13, .035]],
 
-    // ---- mensen en dieren ----
-    groups: [{ at: [13.4, -12], n: 5, spread: 1.6, face: 0, coats: [0x2f5d8a, 0x8a3b2f, 0x3a7a4a], lamp: false }],
+    groups: [{ at: [13.6, -4], n: 5, spread: 1.4, face: 0, coats: [0x2f5d8a, 0x8a3b2f, 0x3a7a4a], lamp: false }],
     animals: [
-      { kind: 'dog', path: [[0, 14.9, dogZ(0)], [s7, 14.9, dogZ(s7)], [T_END, 14.9, dogZ(s7)]], act: 'look', color: 0xb08a5a,
-        walker: { side: -.5, behind: 1.1, coat: 0x27324f, pants: 0x1e2a40 } },
-      { kind: 'birds', n: 14, center: [6, 9, 2], radius: 10 },                // de duiven
+      { kind: 'birds', n: 14, color: 0x8e9094, land: -6, fly: 5.2,     // duiven op de stoep, vliegen op bij 5 s
+        center: [8, 10, 14], radius: 9,
+        perch: Array.from({ length: 14 }, (_, i) => [13.6 + (i % 4) * .45, .26, 19 - Math.floor(i / 4) * .9 - (i % 2) * .3]) },
     ],
-    smoke: [[s10 + 1, -4, 0, -60, 8], [s12 + .5, 6, 0, -120, 12]],
+    smoke: [[16, -4, 0, -60, 8], [20, 6, 0, -110, 12], [33, -2, 0, -20, 6]],
 
-    // ---- momenten ----
     beats: {
-      stop: T_END, climax: s12,
-      lookUp: s5, shelter: s7, carsStop: s6,
-      windows: s5 + .8, walls: s7 + 1, floors: s10 + .5, powerOut: s10,
-      falls: [s12 + .3, s12 + 1.6, s15],
+      stop: T_END, climax: 46,
+      lookUp: 8.5, carsStop: 13, shelter: 13.5,
+      windows: 9.5, walls: 13.5, floors: 15, powerOut: 32,
+      falls: [16.5, 18, 20],
     },
   };
 }
 
 export const upload = {
   title: 'What if the earthquakes kept getting stronger?',
-  description: 'What if magnitude 3 became 5, 7, 10, 15 and kept going? Starting on a quiet street with pigeons, then each step releases 32 times more energy until the street is no longer flat, the ground moves like water and Earth cannot hold itself together.\n\n#whatif #earthquake #science #simulation #shorts',
+  description: 'Magnitude 3: only the pigeons notice. Magnitude 7: the street is no longer flat. And it keeps going… 🌍\n\nWhere do you think it would stop? 👇\n\n#whatif #earthquake #science #simulation #shorts',
   tags: ['what if', 'earthquake', 'magnitude', 'science', 'simulation', '3d animation', 'IfScape3D', 'New York'],
-  tiktok: 'What if earthquakes kept getting stronger? From pigeons to planet shattering #whatif #earthquake #science #fyp',
+  tiktok: 'What if earthquakes kept getting stronger? From pigeons to planet shattering 🌍 #whatif #earthquake #science #fyp',
   sources: [
-    'USGS – Magnitude and energy: each whole magnitude step ≈ 32× more energy – https://www.usgs.gov/programs/earthquake-hazards/how-much-bigger-earthquake',
-    'USGS – 10 August 1884 New York earthquake, magnitude ≈ 5.2 (largest in the New York City area)',
-    'USGS – 1960 Valdivia, Chile, M 9.5: largest earthquake ever recorded – https://earthquake.usgs.gov/earthquakes/eventpage/official19600522191120_30',
-    'Energy: log10 E ≈ 1.5 M + 4.8 (E in joules), Gutenberg–Richter energy relation',
-    'Own check: Earth\'s gravitational binding energy ≈ 2.2 × 10³² J  →  M ≈ (32.35 − 4.8) / 1.5 ≈ 18.4',
-    'Own check: M 50 ≈ 10^79.8 J; mass-energy of the observable universe ≈ 10^70 J (≈ 10^53 kg × c²)',
-    'No magnitude above ≈ 10 is possible on known faults (rupture length limits): USGS FAQ – https://www.usgs.gov/faqs/can-megaquakes-really-happen-a-magnitude-10-or-larger',
+    'USGS – each whole magnitude step ≈ 32× more energy – https://www.usgs.gov/programs/earthquake-hazards/how-much-bigger-earthquake',
+    'USGS – 10 August 1884 New York earthquake, magnitude ≈ 5.2',
+    'USGS – 1960 Valdivia, Chile, M 9.5: largest earthquake ever recorded',
+    'Own check: Earth\'s gravitational binding energy ≈ 2.2 × 10³² J  →  M ≈ 18.4 (log10 E ≈ 1.5 M + 4.8)',
+    'Own check: M 50 ≈ 10^79.8 J; mass-energy of the observable universe ≈ 10^70 J',
+    'ENERGY on screen: relative number 10^(1.5·M − 1.2), as in the reference timeline (not joules)',
   ],
 };

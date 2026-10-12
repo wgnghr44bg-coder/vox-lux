@@ -9,12 +9,12 @@
 // Beats: redLight [a, b], lookUp, shelter, carsStop, powerOut, windows, walls, floors, climax, falls[]
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, colorKeys } from '../util.js';
-import { palm, coneTree, lamp, sign, car } from '../props.js';
+import { palm, coneTree, roundTree, lamp, sign, car } from '../props.js';
 import { crowd } from '../crowd.js';
 
 export function build(E, TL, F) {
   const { scene, lam, shadowed, facadeMats, facadeBox } = E, B = TL.beats, STOP = B.stop;
-  const ROAD = 10, WALK = 16, ZEBRA = 10, SEA = -560;
+  const ROAD = 10, WALK = 16, ZEBRA = 10, NY = TL.streetStyle === 'newyork', SEA = NY ? -1e5 : -560;   // NY: places/newyork.js (no sea)
   E.waterBase = -1.2;
   E.windArea = { x: 30, z0: -20, z1: -180 };
   E.groundAt = (x, z) => z < SEA ? -6 : 0;
@@ -35,7 +35,7 @@ export function build(E, TL, F) {
   paint(0.15, 620, -0.15, -240, 0xc9a94a); paint(0.15, 620, 0.15, -240, 0xc9a94a);
   for (let z = 60; z > -520; z -= 9) { paint(0.15, 4.5, -5, z); paint(0.15, 4.5, 5, z); }
   for (let x = -9; x <= 9; x += 1.6) paint(0.85, 4, x, ZEBRA);
-  { const sea = new THREE.Mesh(new THREE.PlaneGeometry(6000, 3000), lam(0x2d6a72)); sea.rotation.x = -Math.PI / 2; sea.position.set(0, -1.2, SEA - 1500); scene.add(sea);
+  if (!NY) { const sea = new THREE.Mesh(new THREE.PlaneGeometry(6000, 3000), lam(0x2d6a72)); sea.rotation.x = -Math.PI / 2; sea.position.set(0, -1.2, SEA - 1500); scene.add(sea);
     E.floods.push({ mesh: sea, y: -1.2 });
     const flood = new THREE.Mesh(new THREE.PlaneGeometry(400, 800), lam(0x3d6f74)); flood.rotation.x = -Math.PI / 2; flood.position.set(0, -1.6, -200); scene.add(flood);
     E.floods.push({ mesh: flood, y: -1.6 });
@@ -52,15 +52,15 @@ export function build(E, TL, F) {
         lot++;
         const depth = 14 + R() * 10, cz = z - len / 2, cx = s * (WALK + depth / 2), near = cz > -130;
         const floors = cz < -260 ? 0 : near ? 3 + Math.floor(R() * 7) : 5 + Math.floor(R() * 9);
-        const color = E.PALETTE[Math.floor(R() * 8)];
+        const color = NY ? (s < 0 ? [0x6fb7c9, 0xd8c6a5, 0x8fc3cf, 0xcdb994][Math.floor(R() * 4)] : [0xb33a3a, 0xa8443a, 0x9c3a32][Math.floor(R() * 3)]) : E.PALETTE[Math.floor(R() * 8)];
         if (floors === 0) { z -= len; continue; }
         const gf = shadowed(new THREE.Mesh(facadeBox(depth, 4.2, len - .4), facadeMats(color, 'shop'))); gf.position.set(cx, 2.1, cz); scene.add(gf);
-        const b = { s, cz, cx, len, depth, color, floors: [] };
+        const b = { s, cz, cx, len, depth, color, floors: [], gf };
         if (near) { for (let f = 0; f < floors; f++) { const m = shadowed(new THREE.Mesh(facadeBox(depth, 3.5, len - .4), facadeMats(color, 'win'))); m.position.set(cx, 4.2 + 1.75 + f * 3.5, cz); scene.add(m); b.floors.push(m); } floorsNear.push(b); }
         else { const h = floors * 3.5, m = new THREE.Mesh(facadeBox(depth, h, len - .4), facadeMats(color, 'win')); m.position.set(cx, 4.2 + h / 2, cz); m.receiveShadow = true; scene.add(m); }
         z -= len;
       }
-      for (let z2 = 40; z2 > -520; z2 -= 22 + R() * 10) { const h = 14 + R() * 40, m = new THREE.Mesh(facadeBox(20, h, 20), facadeMats(E.PALETTE[Math.floor(R() * 8)], 'win')); m.position.set(s * (WALK + 30 + R() * 10), h / 2, z2); scene.add(m); }
+      for (let z2 = 40; z2 > -520; z2 -= 22 + R() * 10) { const h = (NY ? 30 : 14) + R() * (NY ? 70 : 40), m = new THREE.Mesh(facadeBox(20, h, 20), facadeMats(NY ? [0x6fb7c9, 0xd8c6a5, 0xb33a3a, 0x8e8e8a][Math.floor(R() * 4)] : E.PALETTE[Math.floor(R() * 8)], 'win')); m.position.set(s * (WALK + 30 + R() * 10), h / 2, z2); scene.add(m); }
       for (let i = 0; i < 6; i++) {
         const h = 70 + R() * 110, w = 18 + R() * 12, cz = -280 - i * 42 - R() * 10, cx = s * (WALK + w / 2 + R() * 26);
         const g = new THREE.Group(); g.position.set(cx, 0, cz + w / 2); scene.add(g);
@@ -72,8 +72,9 @@ export function build(E, TL, F) {
   }
 
   // props
-  for (let z = 26, i = 0; z > -200; z -= 17, i++) { palm(E, -13.6, z - (i % 2) * 4, 8 + hash(i, 1) * 3, 100 + i); palm(E, 13.6, z - 8 - (i % 2) * 3, 8 + hash(i, 2) * 3, 200 + i); }
-  for (let z = 18, i = 0; z > -160; z -= 17, i++) { coneTree(E, -12.4, z - 8, 1 + hash(i, 4) * .3, i); coneTree(E, 12.4, z, 1 + hash(i, 5) * .3, i + 50); }
+  if (!NY) for (let z = 26, i = 0; z > -200; z -= 17, i++) { palm(E, -13.6, z - (i % 2) * 4, 8 + hash(i, 1) * 3, 100 + i); palm(E, 13.6, z - 8 - (i % 2) * 3, 8 + hash(i, 2) * 3, 200 + i); }
+  const tree = NY ? roundTree : coneTree;   // NY: small round street trees instead of conifers
+  for (let z = 18, i = 0; z > -160; z -= 17, i++) { tree(E, -12.4, z - 8, (NY ? .7 : 1) + hash(i, 4) * .3, i); tree(E, 12.4, z, (NY ? .7 : 1) + hash(i, 5) * .3, i + 50); }
   for (let z = 34, i = 0; z > -260; z -= 26, i++) for (const s of [-1, 1]) lamp(E, s * 10.8, z - (s > 0 ? 13 : 0), s);
   sign(E, -11.2, 2, 0x2f5d46); sign(E, 11.2, -12, 0x2f5d46); sign(E, -11.2, -30, 0x2d4f7a, 1, 1); sign(E, 11.2, -44, 0x2f5d46);
   sign(E, -11.2, -66, 0x8a3a30, .8, .8, 2.6); sign(E, 11.2, -80, 0x2d4f7a, 1, 1); sign(E, -11.2, -100, 0x2f5d46);
@@ -84,7 +85,7 @@ export function build(E, TL, F) {
     const pole = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(.12, .14, 6, 6), lam(0x3f4245))); pole.position.y = 3; g.add(pole);
     const arm = new THREE.Mesh(new THREE.BoxGeometry(5, .14, .14), lam(0x3f4245)); arm.position.set(-Math.sign(x) * 2.5, 5.9, 0); g.add(arm);
     const head = new THREE.Group(); head.position.set(-Math.sign(x) * 4.6, 5.2, 0); g.add(head);
-    head.add(shadowed(new THREE.Mesh(new THREE.BoxGeometry(.45, 1.3, .35), lam(0x2a2c2e))));
+    head.add(shadowed(new THREE.Mesh(new THREE.BoxGeometry(.45, 1.3, .35), lam(NY ? 0xd9b21f : 0x2a2c2e))));   // NY: yellow housings
     const bulbs = [0, 1, 2].map(i => { const b = new THREE.Mesh(new THREE.CircleGeometry(.13, 10), new THREE.MeshBasicMaterial({ color: 0x222222 }));
       b.position.set(0, .4 - i * .4, face * .18); if (face < 0) b.rotation.y = Math.PI; head.add(b); return b; });
     tl.push({ g, head, bulbs });
@@ -99,7 +100,7 @@ export function build(E, TL, F) {
   if (TL.cars !== false) { const R = rng(44);   // TL.cars: false = no traffic of its own (use TL.traffic, small.js)
     [[-7.4, 1], [-2.6, 1], [2.6, -1], [7.4, -1]].forEach(([x, dir], li) => { for (let k = 0; k < 4; k++) {
       const z0 = dir > 0 ? -20 - k * (30 + R() * 25) : 30 - k * (30 + R() * 25) - 10;
-      car(E, li * 7 + k, { x0: x, z0, dir, v: 9 + R() * 3, axis: 'z', a: -280, b: 60, brakeT: (B.carsStop ?? 1e9) + R() * 2.2, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }) });
+      car(E, li * 7 + k, { ...(NY && { color: R() < .6 ? 0xf2c218 : [0xeeeeea, 0xb8322a, 0x3e5873][Math.floor(R() * 3)] }), x0: x, z0, dir, v: 9 + R() * 3, axis: 'z', a: -280, b: 60, brakeT: (B.carsStop ?? 1e9) + R() * 2.2, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }) });
     } }); }
   // loose things: they go when the force passes their strength
   { const R = rng(51);
@@ -150,6 +151,7 @@ export function build(E, TL, F) {
         p: [s.m.position.x, s.m.position.y, s.m.position.z], r: [0, 0, 0], v0: [-s.b.s * 4.5 + dir[0] * 3, 2, dir[1] * 3], tRel: at });
       if (at < STOP) E.EVENTS.push({ t: at, kind: 'tear', e: .5 }); });
   }
+  E.nearBuildings = floorsNear;   // places/newyork.js dresses them (fire escapes, awnings, water towers)
   crowd(E, TL, { n: 26, axis: 'z', lane: [11, 15], range: [-140, 25], door: (along, acr) => Math.sign(acr || 1) * 16.6, seed: 31 });
   crowd(E, TL, { n: 14, axis: 'z', lane: [-15, -11], range: [-140, 25], door: () => -16.6, seed: 32 });
 
