@@ -136,7 +136,7 @@ const TOPS = [...SHIRTS, 0xb8503e, 0x3f6f9a, 0xd9b04a, 0x6b8f5a, 0xe8e2d4, 0x7a3
 export function person(E, seed, o = {}) {
   const { lam, shadowed } = E, R = rng(seed), g = new THREE.Group(); E.scene.add(g); g.rotation.order = 'YXZ';
   const pick = a => a[Math.floor(R() * a.length)], M = c => lam(c), S = m => shadowed(m);
-  const Z = o.zombie, skin = M(Z ? pick([0x8a9a78, 0x7d8f6e, 0x9aa38a]) : pick(SKIN)), hairC = M(pick(HAIR)), top = M(o.coat ?? (Z ? pick([0x4a4a46, 0x5a4f44, 0x3f4a52, 0x6a5a4a]) : pick(TOPS))), pants = M(o.pants ?? (Z ? pick([0x3a3833, 0x2f3540]) : pick(PANTS))), shoe = M(o.shoe ?? 0x24221f);   // o.zombie: grey-green skin, drab torn clothes
+  const Z = o.zombie, skin = M(Z ? pick([0x6f8f4e, 0x7a9a58, 0x648a52]) : pick(SKIN)), hairC = M(pick(HAIR)), top = M(o.coat ?? (Z ? pick([0x4a4a46, 0x5a4f44, 0x3f4a52, 0x6a5a4a]) : pick(TOPS))), pants = M(o.pants ?? (Z ? pick([0x3a3833, 0x2f3540]) : pick(PANTS))), shoe = M(o.shoe ?? 0x24221f);   // o.zombie: grey-green skin, drab torn clothes
   const skirt = o.skirt ?? R() < .3, hairType = pick(['short', 'short', 'long', 'bun', 'tail', 'short']), big = .92 + R() * .16;
   g.scale.setScalar(big);
   const upper = new THREE.Group(); upper.position.y = .82; g.add(upper);
@@ -186,6 +186,8 @@ export function person(E, seed, o = {}) {
     else if (pose === 'shade') { arms[1].a.rotation.x = -2.1 * k; arms[1].a.rotation.z = -.35 * k; arms[1].el.rotation.x = -1.7 * k; }
     else if (pose === 'head') { for (const [i, A] of arms.entries()) { A.a.rotation.x = -2.7 * k; A.a.rotation.z = (i ? -.5 : .5) * k; A.el.rotation.x = -1.9 * k; } }
     else if (s.lie) { arms[0].a.rotation.z = -.3; arms[1].a.rotation.z = .3; }
+    else if (pose === 'shamble') { for (const [i, A] of arms.entries()) { A.a.rotation.set(-.15 + Math.sin(t * 1.4 + ph + i * 3) * .12, 0, (i ? -1 : 1) * -.05); A.el.rotation.x = -.1; }   // arms hanging: from afar just slow people
+      headG.rotation.x = .35; headG.rotation.z = .15 * Math.sin(ph); upper.rotation.x = .1; }
     else if (pose === 'zombieUp') { for (const [i, A] of arms.entries()) { A.a.rotation.set(-2.7 + Math.sin(t * 3.1 + ph + i * 2) * .25, 0, (i ? -1 : 1) * -.2); A.el.rotation.x = -.3 + Math.sin(t * 4 + i) * .15; }   // arms up at a door
       headG.rotation.x = -.35; upper.rotation.x = -.05; }
     else if (pose === 'zombie') { for (const [i, A] of arms.entries()) { A.a.rotation.set(-1.45 + Math.sin(t * 1.7 + ph + i) * .08, 0, (i ? -1 : 1) * -.08); A.el.rotation.x = -.15; }   // arms out in front

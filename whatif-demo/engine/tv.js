@@ -73,6 +73,7 @@ export function channel(E, TL) {
         c.fillStyle = '#1d1e21'; c.fillRect(gx + 70, gy + 66, 26, 40);                                                                                     // magazine
       }
       c.fillStyle = '#f2f2f2'; c.font = font(26, 800); c.textAlign = 'right'; c.fillText(o.ammo || 'AMMO 12/30', W - 24, 96);
+      if (o.paused) { c.fillStyle = 'rgba(0,0,0,.62)'; c.fillRect(0, 0, W, H); c.fillStyle = '#f2f2f2'; c.font = font(64, 900); c.textAlign = 'center'; c.fillText('PAUSED', W / 2, H / 2 + 20); }
       tex.needsUpdate = true; return;
     }
     if (mode === 'text') {
