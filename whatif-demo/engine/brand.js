@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 
 export function createBrand(E, TL) {
-  const S = E.brandSpot; if (!S || TL.brand === false) return;
+  const S = E.brandSpot; if (!S || TL.brand !== true) return;   // eigenaar, okt 2026: geen logo meer, alleen nog met brand: true
   if (S.type === 'flag') return beachFlag(E, TL, S);
   const cv = document.createElement('canvas'); cv.width = 512; cv.height = 256;
   const x = cv.getContext('2d');
