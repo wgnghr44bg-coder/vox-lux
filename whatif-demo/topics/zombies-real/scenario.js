@@ -11,8 +11,8 @@ export const topic = {
 };
 
 export const lines = [
-  ['imagine', 'Imagine…', 'pause'],
-  ['intro', 'there was a zombie apocalypse. And it starts tonight, while you are playing a video game.', 'pause'],
+  ['imagine', 'Imagine if there was a zombie apocalypse…', 'pause'],          // = de titel in beeld
+  ['intro', 'And it starts tonight, while you are playing a video game.', 'pause'],
   ['mean', 'Just you, the screen, and round twelve.', 'long'],
   ['place', 'Fifth floor. Your apartment is quiet.', 'pause'],
   ['game', 'Then you hear it. Noise outside. Not from the game.', 'long'],
@@ -45,7 +45,7 @@ export default function (at) {
                                   [S('game'), 'game', { text: 'ROUND 12', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }],
                                   [S('behind'), 'game', { text: 'ROUND 13', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }]] },
 
-    showTitle: true, titleIn: .3, titleOut: Ee('intro') + .4, hudIn: Ee('intro') - .6,   // titel bij de start; dan de timer
+    showTitle: true, titleIn: .3, titleOut: Ee('intro') - .2, hudIn: Ee('intro') - .6,   // titel bij de start; dan de timer
     // HUD: eerst een TIMER die aftelt tot jij ze ziet (regel 'street'), daarna DISTANCE: hoe ver ze van je af zijn
     hud: { label: 'TIMER', labelAt: [[SEEN, 'DISTANCE']],
            fmt: (v, t) => { if (t >= SEEN) return `${Math.round(lin(dist, t))} m`; const r = Math.ceil(SEEN - t); return `${String(Math.floor(r / 60)).padStart(2, '0')}:${String(r % 60).padStart(2, '0')}`; } },
