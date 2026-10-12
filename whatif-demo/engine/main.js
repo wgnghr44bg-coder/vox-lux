@@ -59,6 +59,8 @@ E.blender = qs.get('look') === 'blender' || TL.look === 'blender';
 if (E.blender) {
   TL.post = { ...(typeof TL.post === 'object' ? TL.post : {}), tone: 'agx', ao: 1.1, bloom: .15, vignette: .15, saturation: 1.45, contrast: 1.14, softShadows: true };
   if (E.sunOffset) E.sunOffset.multiply(new THREE.Vector3(1.15, .55, 1.15)); else E.sun.position.y *= .55;
+  E.skyMat.uniforms.curve.value = .32;                   // blue overhead starts lower: no grey band above the horizon
+  (await import('./soften.js')).soften(E);               // people and animals: rounded, smooth shapes (trees and houses stay low-poly)
 }
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
@@ -136,7 +138,7 @@ function applyLook(t) {
   if (E.blender && !((L.dark || 0) > .3)) {               // Blender look: clear blue sky, warm low sun, warm green bounce
     const warm = C(0xffc58c);
     L.top = C(0x2a5cc0); L.hor = C(0xa8c8ec).lerp(C(0xffd2a8), .45);
-    L.fogColor = C(0xc9dbee).lerp(C(0xffd8b4), .4); L.fogNear = Math.max(L.fogNear, 160); L.fogFar = Math.max(L.fogFar, 1100);
+    L.fogColor = C(0xc9dbee).lerp(C(0xffd8b4), .4); L.fogNear = Math.max(L.fogNear, 260); L.fogFar = Math.max(L.fogFar, 1800);
     L.sun *= 1.75; L.sunColor = L.sunColor.clone().lerp(C(0xffdcb0), .6);
     L.hemi *= .85; L.hemiColor = C(0xb4ceff); L.groundColor = C(0x6f8a34);
     L.haze = 0;
