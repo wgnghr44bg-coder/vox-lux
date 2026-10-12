@@ -22,6 +22,7 @@ if (slug.startsWith('preview:')) {
 } else { const [s, flag] = slug.split('+'); query = `topic=${s}` + (flag === 'hook' ? '&hook=1' : ''); OUT = path.join(ROOT, 'topics', s); }
 const WIDE = /\bwide:\s*true/.test(slug.startsWith('preview:') ? '' : fs.readFileSync(path.join(OUT, 'scenario.js'), 'utf8')) || process.env.WIDE === '1';
 if (WIDE) query += '&wide=1';
+if (process.env.LOOK) query += `&look=${process.env.LOOK}`;   // LOOK=blender: Blender-like light (main.js)
 fs.mkdirSync(OUT, { recursive: true });
 
 const types = { '.png': 'image/png', '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2' };
