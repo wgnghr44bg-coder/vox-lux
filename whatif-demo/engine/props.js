@@ -186,6 +186,8 @@ export function person(E, seed, o = {}) {
     else if (pose === 'shade') { arms[1].a.rotation.x = -2.1 * k; arms[1].a.rotation.z = -.35 * k; arms[1].el.rotation.x = -1.7 * k; }
     else if (pose === 'head') { for (const [i, A] of arms.entries()) { A.a.rotation.x = -2.7 * k; A.a.rotation.z = (i ? -.5 : .5) * k; A.el.rotation.x = -1.9 * k; } }
     else if (s.lie) { arms[0].a.rotation.z = -.3; arms[1].a.rotation.z = .3; }
+    else if (pose === 'zombieUp') { for (const [i, A] of arms.entries()) { A.a.rotation.set(-2.7 + Math.sin(t * 3.1 + ph + i * 2) * .25, 0, (i ? -1 : 1) * -.2); A.el.rotation.x = -.3 + Math.sin(t * 4 + i) * .15; }   // arms up at a door
+      headG.rotation.x = -.35; upper.rotation.x = -.05; }
     else if (pose === 'zombie') { for (const [i, A] of arms.entries()) { A.a.rotation.set(-1.45 + Math.sin(t * 1.7 + ph + i) * .08, 0, (i ? -1 : 1) * -.08); A.el.rotation.x = -.15; }   // arms out in front
       headG.rotation.z = .28 * Math.sin(ph); headG.rotation.x = .2; upper.rotation.x = .12; }
     else if (pose === 'leash') { arms[1].a.rotation.set(-.55 + sw * .1, 0, .12); arms[1].el.rotation.x = -.35; }   // holds a dog lead (animals.js walker)

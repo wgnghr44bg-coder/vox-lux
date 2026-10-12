@@ -1,10 +1,10 @@
 // What if you were playing zombies and they became real?  (onderwerpen.md #48; idee van de eigenaar, okt 2026)
-// Plek 'indoors' (flat op de 5e verdieping, room.building: eigen gevel + voordeur beneden) + kracht 'day' (avond).
+// Plek 'gameroom' (gamekamer 5e verdieping, nacht, ledstrips, balkon, smalle straat; voorbeeldbeelden eigenaar) + kracht 'calm'.
 // Cartoon-zombies (engine/zombies.js): geen bloed, niemand wordt aangeraakt, alleen vluchten (regels: geen geweld).
 // STAP 1 (deze versie): tv-game -> raam -> de horde gaat het gebouw binnen (± 0-22 s).
 // STAP 2 (later): gang + bonken op je deur, trappenhuis (3 verdiepingen), naar buiten rennen.
 export const topic = {
-  number: 48, slug: 'zombies-real', place: 'indoors', force: 'day',
+  number: 48, slug: 'zombies-real', place: 'gameroom', force: 'calm',
   question: 'What if you were playing zombies and they became real?',
   title: 'What if you were<br>playing zombies and<br>they became real?',
   voOffset: 1.0,
@@ -26,9 +26,8 @@ export const lines = [
 export default function (at) {
   const T_END = at('q').e + 3.0, L = at('look').s, EN = at('enter').s, OUT = -15;
   return {
-    T_END, look: 'blender', brand: false,
-    forceParams: { hours: [[0, 19.3], [T_END, 19.7]] },          // schemer: lampen gaan aan, de straat is nog te zien
-    room: { people: 0, lamp: true, building: true },
+    T_END, brand: false, post: { bloom: .8, ao: 1 },               // nacht: gloed op de ledstrips, de tv en de lantaarns
+    hands: [[0, L - 1.2]],                                         // handen met controller in beeld
     tv: { channel: 'GAME', feed: [[0, 'game', { text: 'ROUND 1', sub: 'POINTS 1,250' }], [at('normal').s, 'game', { text: 'ROUND 5', sub: 'POINTS 8,940' }],
                                   [L, 'game', { text: 'ROUND 12', sub: 'POINTS 21,300' }]] },
 
@@ -48,20 +47,21 @@ export default function (at) {
 
     // camera: [t, positie, kijkt naar, fov, kanteling°]
     camPath: [
-      [0, [.1, 1.2, 1.1], [1.55, 1.0, -2.15], 50],                        // POV vanaf de bank: de game op tv
-      [at('normal').e, [.3, 1.18, .5], [1.55, 1.0, -2.15], 42],
-      [L - .6, [-.4, 1.6, -.6], [-1.6, 1.2, -8], 60],                      // opstaan, naar het raam
-      [L + 1.4, [-1.4, 1.5, -3.2], [-7, OUT, -13], 66],              // leunt uit het raam: de straat en de voordeur                  // naar beneden kijken: straat en voordeur
-      [EN, [-1.4, 1.5, -3.25], [-3, OUT, -8], 52],                    // inzoomen op de voordeur
-      [at('enter').e, [-1.4, 1.5, -3.25], [-1.4, OUT, -4.6], 36, 3],
-      [at('panic').s + .8, [.6, 1.6, .2], [2.6, 1.5, 2.4], 64, -6],        // (stap 2) whip-pan terug de kamer in
-      [T_END, [.6, 1.6, .2], [2.6, 1.5, 2.4], 64, 0],
+      [0, [.4, 1.05, 1.5], [1.4, 1.0, -2.2], 55],                         // POV vanaf de zitplek: game op tv, handen met controller
+      [at('normal').e, [.35, 1.05, 1.2], [1.4, 1.0, -2.2], 50],
+      [L - .8, [-.5, 1.6, .2], [-1.4, 1.3, -6], 62],                       // opstaan, naar de balkondeur
+      [L + 1.4, [-1.4, 1.75, -3.95], [-14, OUT, -13.5], 62],                     // aan de rand van het balkon: over het hek de straat in
+      [EN, [-1.4, 1.75, -4.0], [-5, OUT, -8], 56],                         // naar de voordeur: de horde
+      [at('enter').e, [-1.4, 1.75, -4.0], [-2.6, OUT, -6.2], 48, 3],
+      [at('panic').s + .8, [-.6, 1.6, -1.6], [1.5, 1.4, 2.4], 64, -6],     // (stap 2) whip-pan terug de kamer in
+      [T_END, [-.6, 1.6, -1.6], [1.5, 1.4, 2.4], 64, 0],
     ],
     fov: 60,
 
     zombies: [
-      { n: 12, y: OUT + .4, lag: .9, spread: 1.6, path: [[0, -26, -9.5], [EN + 1.5, -4, -9], [EN + 3, -1.4, -6], [EN + 4.5, -1.4, -3.4]] },
-      { n: 8, y: OUT + .4, lag: 1.1, spread: 1.4, path: [[2, 22, -10], [EN + 2.5, 2, -9], [EN + 4, -1.2, -6], [EN + 5.5, -1.4, -3.4]] },
+      { n: 16, y: OUT + .4, lag: .7, spread: 2.0, gather: true, path: [[0, -30, -8.5], [EN - 2, -6, -6.5], [EN + 2, -1.6, -4.4]] },
+      { n: 12, y: OUT + .4, lag: .8, spread: 1.8, gather: true, path: [[1, 26, -9.5], [EN - 1, 3, -6.8], [EN + 3, -1.2, -4.6]] },
+      { n: 8, y: OUT + .4, lag: 1.2, spread: 2.5, gather: true, path: [[3, -10, -13.5], [EN, -4, -9], [EN + 4, -2.2, -5.4]] },
     ],
 
     beats: { stop: T_END, climax: at('stairs').s, lookUp: 1e9, shelter: 1e9, carsStop: 1e9 },
