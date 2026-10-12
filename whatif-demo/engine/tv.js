@@ -4,7 +4,7 @@
 //   images: { name: url },        // pictures the channel can show (e.g. a still of another chapter), relative to engine/
 //   feed: [[t, mode, opts], ...]  // what is on air from t on. mode: 'news' (picture + BREAKING NEWS band + ticker),
 //                                 //   'market' (red chart, big text), 'nosignal', 'black', 'text' (big centred text),
-//                                 //   'game' (cartoon zombie game: opts.text = 'ROUND 5', opts.sub = points)
+//                                 //   'game' (low-poly zombie game: opts.text = 'ROUND 5', sub = points, hp, ammo, gun: false)
 //                                 //   opts: { img, headline, ticker, text, zoom, live }
 //   channel: 'WORLD NEWS 24',
 // }
@@ -64,6 +64,15 @@ export function channel(E, TL) {
       c.fillStyle = '#e8e2cc'; c.font = font(22, 700); c.textAlign = 'left'; c.fillText(o.sub || 'POINTS 1,250', 24, H - 24);
       c.fillStyle = '#222'; c.fillRect(22, 22, 184, 20); for (let k = 0; k < 8; k++) { c.fillStyle = k < 5 ? '#e06a3a' : '#555'; c.fillRect(25 + k * 22.5, 25, 19, 14); }   // HP bar
       c.fillStyle = '#f2f2f2'; c.font = font(20, 700); c.fillText(o.hp || 'HP: 64', 24, 66);
+      if (o.gun !== false) {   // blocky low-poly gun, bottom right (first person), a little bob
+        const gx = W * .6, gy = H * .66 + Math.sin(a * 3) * 4;
+        c.fillStyle = '#4a3a2c'; c.beginPath(); c.moveTo(gx + 40, H); c.lineTo(gx + 70, gy + 70); c.lineTo(gx + 150, gy + 60); c.lineTo(gx + 190, H); c.fill();   // stock
+        c.fillStyle = '#2b2d31'; c.beginPath(); c.moveTo(gx, gy + 40); c.lineTo(gx + 20, gy + 8); c.lineTo(gx + 160, gy + 18); c.lineTo(gx + 150, gy + 70); c.lineTo(gx + 30, gy + 74); c.fill();   // body
+        c.fillStyle = '#3c3f45'; c.beginPath(); c.moveTo(gx - 40, gy + 22); c.lineTo(gx - 34, gy + 10); c.lineTo(gx + 30, gy + 14); c.lineTo(gx + 26, gy + 30); c.fill();   // barrel
+        c.fillStyle = '#5a5e66'; c.fillRect(gx + 50, gy + 4, 50, 10);                                                                                      // sight rail
+        c.fillStyle = '#1d1e21'; c.fillRect(gx + 70, gy + 66, 26, 40);                                                                                     // magazine
+      }
+      c.fillStyle = '#f2f2f2'; c.font = font(26, 800); c.textAlign = 'right'; c.fillText(o.ammo || 'AMMO 12/30', W - 24, 96);
       tex.needsUpdate = true; return;
     }
     if (mode === 'text') {
