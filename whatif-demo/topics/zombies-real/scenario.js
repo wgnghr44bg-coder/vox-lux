@@ -43,7 +43,7 @@ export default function (at) {
                                   [S('game'), 'game', { text: 'ROUND 12', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }],
                                   [S('behind'), 'game', { text: 'ROUND 13', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }]] },
 
-    titleOut: Ee('mean') + .4, hudIn: S('street'),
+    showTitle: false, hudIn: 1e9,                                   // eigenaar: geen titel en geen teller in beeld, alleen de handen met controller
     hud: { label: 'ZOMBIES', unit: '', decimals: 0,
            second: { label: 'DISTANCE', fn: (v, t) => lin(dist, t), unit: ' m', decimals: 0, showAt: S('inside') } },
     counter: [[0, 0], [S('street'), 0], [Ee('speed'), 60], [S('inside'), 60], [T_END, 60]],
