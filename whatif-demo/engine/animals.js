@@ -5,7 +5,7 @@
 //     leash: [x, z] (dog: an empty leash from its collar to that spot on the ground; leashHand: [x, y, z] + leashDrop: t = held until t),
 //     walker: { side: .45, behind: 1.3, coat, pants } (dog: a person walks along and holds the lead),
 //     acts: [[t, act], ...] (change what it does over time), shot: { name, from: [dx, dy, dz], fov } },
-//   { kind: 'birds', n: 14, center: [x, y, z], radius: 12, perch: [[x, y, z], ...], land: t, fly: t, color },
+//   { kind: 'birds', n: 14, center: [x, y, z], radius: 12, perch: [[x, y, z], ...], land: t, fly: t, color, scale },
 // ]
 // Path: waypoints in video time; between two equal points the animal stands still and does `act`.
 // Before the first and after the last waypoint it stays there (visible: false with `hide: [a, b]`).
@@ -140,7 +140,7 @@ function birds(E, seed, o) {
   const R = rng(seed), n = o.n ?? 12, [cx, cy, cz] = o.center, rad = o.radius ?? 12, col = o.color ?? 0x2c2c30;
   const mat = E.lam(col), wingGeo = new THREE.PlaneGeometry(.26, .1); wingGeo.translate(.13, 0, 0);
   for (let i = 0; i < n; i++) {
-    const g = new THREE.Group(); E.scene.add(g); g.scale.setScalar(.9 + R() * .3);
+    const g = new THREE.Group(); E.scene.add(g); g.scale.setScalar((o.scale ?? 1) * (.9 + R() * .3));   // o.scale: e.g. .8 for pigeons
     const b = new THREE.Mesh(new THREE.SphereGeometry(.07, 6, 4), mat); b.scale.set(1, .9, 2.1); g.add(b);
     const hd = new THREE.Mesh(new THREE.SphereGeometry(.045, 6, 4), mat); hd.position.set(0, .05, .13); g.add(hd);
     const bk = new THREE.Mesh(new THREE.ConeGeometry(.012, .05, 4), E.lam(0x8a7a4a)); bk.rotation.x = Math.PI / 2; bk.position.set(0, .045, .18); g.add(bk);
