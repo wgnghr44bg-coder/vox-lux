@@ -10,6 +10,7 @@ import * as THREE from 'three';
 import { rng, hash } from '../util.js';
 import { lamp as streetLamp, car } from '../props.js';
 import { channel, tvSet } from '../tv.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 export function build(E, TL, F) {
   const { scene, lam, shadowed, facadeMats, facadeBox } = E, R = rng(23), OUT = -15;
@@ -100,19 +101,35 @@ export function build(E, TL, F) {
   if (TL.hands) {
     const cam = E.camera; if (!cam.parent) scene.add(cam);
     cam.near = .05; cam.updateProjectionMatrix(); E.nearFn = () => .05;               // the hands are close: keep them from clipping
-    { const fill = new THREE.PointLight(0xc8b8ff, 2.5, 2, 1.5); fill.position.set(0, .3, .2); cam.add(fill); }
-    const g = new THREE.Group(); g.position.set(0, -.27, -.62); g.rotation.x = .75; g.scale.setScalar(1.7); cam.add(g);
-    const skin = lam(0xc99a78), sleeve = lam(0x2f4f7a), pad = lam(0x1b1c21);
-    const body = new THREE.Mesh(new THREE.BoxGeometry(.2, .035, .09), pad); g.add(body);
+    { const fill = new THREE.PointLight(0xe8d8ff, 1.6, 1.6, 1.5); fill.position.set(0, .25, -.1); cam.add(fill); }
+    // a DualShock-like controller held low in front of you, seen from above; faceted low-poly hands grip it, thumbs on the sticks
+    const g = new THREE.Group(); g.position.set(0, -.115, -.34); g.rotation.x = .62; cam.add(g);
+    const skin = lam(0xd6a27c, { flatShading: true }), knuckle = lam(0xc28e6a, { flatShading: true }), sleeve = lam(0x2c4a74, { flatShading: true }), cuff = lam(0x233b5e, { flatShading: true });
+    const pad = lam(0x1d1e24), padTop = lam(0x2a2c33), rb = (w, h, d, r = .008) => new RoundedBoxGeometry(w, h, d, 2, r);
+    const add = (geo, mat, x, y, z, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.rotation.set(rx, ry, rz); m.scale.set(sx, sy, sz); g.add(m); return m; };
+    add(rb(.14, .032, .066, .012), pad, 0, 0, 0);                                                   // body
+    add(rb(.062, .005, .036, .002), padTop, 0, .017, -.008);                                       // touchpad
+    add(new THREE.BoxGeometry(.07, .004, .006), new THREE.MeshBasicMaterial({ color: C1 }), 0, .008, -.034);   // light bar
     for (const s of [-1, 1]) {
-      const grip = new THREE.Mesh(new THREE.BoxGeometry(.05, .04, .1), pad); grip.position.set(s * .1, -.01, .04); grip.rotation.y = s * .3; g.add(grip);
-      const stick = new THREE.Mesh(new THREE.CylinderGeometry(.012, .012, .02, 8), lam(0x2a2b30)); stick.position.set(s * .04, .025, .015); g.add(stick);
-      const hand = new THREE.Mesh(new THREE.IcosahedronGeometry(.055, 0), skin); hand.scale.set(1, .7, 1.3); hand.position.set(s * .11, .01, .06); g.add(hand);
-      const thumb = new THREE.Mesh(new THREE.BoxGeometry(.02, .02, .06), skin); thumb.position.set(s * .06, .03, .02); thumb.rotation.y = -s * .5; g.add(thumb);
-      const arm = new THREE.Mesh(new THREE.CylinderGeometry(.045, .055, .4, 7), sleeve); arm.rotation.x = Math.PI / 2 - .3; arm.position.set(s * .14, -.05, .27); g.add(arm);
+      add(rb(.048, .036, .092, .016), pad, s * .066, -.006, .04, -.32, s * .32, 0);              // grip, angled toward you
+      add(new THREE.CylinderGeometry(.009, .011, .012, 10), padTop, s * .028, .021, .014);           // stick
+      add(new THREE.CylinderGeometry(.012, .012, .004, 10), lam(0x34363d), s * .028, .028, .014);    // stick cap
+      add(rb(.03, .01, .012, .003), padTop, s * .052, .014, -.036);                                   // shoulder button
     }
-    const bar = new THREE.Mesh(new THREE.BoxGeometry(.08, .006, .01), new THREE.MeshBasicMaterial({ color: C1 })); bar.position.set(0, .02, -.046); g.add(bar);
-    E.updates.push(t => { g.visible = TL.hands.some(([a, b]) => t >= a && t <= b); g.position.y = -.27 + Math.sin(t * 7) * .004; g.rotation.z = Math.sin(t * 3.3) * .03; });
+    for (const [x, z, c] of [[.052, -.016, 0x6fd3c4], [.064, -.004, 0xe0606a], [.052, .008, 0x7d9ee8], [.040, -.004, 0xd889c9]])
+      add(new THREE.SphereGeometry(.0045, 6, 4), lam(c), x, .018, z);                                // face buttons
+    add(new THREE.BoxGeometry(.022, .005, .007), padTop, -.052, .018, -.004); add(new THREE.BoxGeometry(.007, .005, .022), padTop, -.052, .018, -.004);   // d-pad
+    for (const s of [-1, 1]) {
+      const ico = r => new THREE.IcosahedronGeometry(r, 0);
+      add(ico(.04), skin, s * .078, -.004, .058, .2, s * .3, 0, 1.0, .72, 1.45);                     // palm around the grip
+      for (let k = 0; k < 3; k++) add(rb(.016, .016, .046, .006), knuckle, s * (.05 + k * .006), -.026 - k * .004, .035 + k * .016, .5, s * .5, 0);   // fingers under the grip
+      add(rb(.019, .016, .056, .007), skin, s * .045, .022, .036, -.15, -s * .62, 0);                 // thumb on the stick
+      add(rb(.016, .014, .04, .006), skin, s * .064, .016, -.024, 0, s * .2, 0);                      // index on the shoulder button
+      add(new THREE.CylinderGeometry(.03, .036, .1, 7), skin, s * .1, -.02, .13, Math.PI / 2 - .25, 0, s * .15);    // wrist
+      add(new THREE.CylinderGeometry(.044, .046, .03, 7), cuff, s * .108, -.03, .18, Math.PI / 2 - .25, 0, s * .15);  // cuff
+      add(new THREE.CylinderGeometry(.05, .07, .4, 7), sleeve, s * .13, -.07, .38, Math.PI / 2 - .25, 0, s * .15);   // sleeve toward the bottom corner
+    }
+    E.updates.push(t => { g.visible = TL.hands.some(([a, b]) => t >= a && t <= b); g.position.y = -.115 + Math.sin(t * 7) * .003; g.rotation.z = Math.sin(t * 3.3) * .025; });
   }
 
   E.sunOffset = new THREE.Vector3(...(TL.sunOffset || [-60, 70, -150]));
