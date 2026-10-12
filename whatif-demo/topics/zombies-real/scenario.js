@@ -49,11 +49,7 @@ export default function (at) {
     counter: [[0, 0], [S('street'), 0], [Ee('speed'), 60], [S('inside'), 60], [T_END, 60]],
     range: [0, 60],
 
-    captions: [
-      [S('speed'), Ee('speed') + .6, 'Zombie ≈ 3 km/h. You ≈ 20+ km/h.'],
-      [S('floors'), Ee('floors') + .6, '5 floors ≈ 15 m.'],
-      [S('stairs'), Ee('stairs') + .4, '3rd floor. 2nd. 1st.'],
-    ],
+    captions: [],                                                   // eigenaar: geen tekst in beeld (alleen de stem)
 
     // camera: [t, positie, kijkt naar, fov, kanteling°]
     camPath: [
