@@ -23,10 +23,14 @@ export function build(E, TL, F) {
   const RW = 6, RD = 5, RH = 2.7, wall = 0x3d3752, BZ = -RD / 2, W0 = -2.7, W1 = -.1;
   box(RW, .1, RD, 0, -.05, 0, 0x4a3a30);                                          // floor
   box(RW + .2, .1, RD + .2, 0, RH + .05, 0, 0x332e44);                            // ceiling
-  box(.1, RH, RD, -RW / 2, RH / 2, 0, wall);
+  const FIRE = TL.escape?.route === 'fire';
+  if (FIRE) { box(.1, RH, 3.8, -RW / 2, RH / 2, -.6, wall); box(.1, RH, .2, -RW / 2, RH / 2, 2.4, wall); box(.1, .7, 1.0, -RW / 2, .35, 1.8, wall); box(.1, RH - 2.2, 1.0, -RW / 2, (RH + 2.2) / 2, 1.8, wall);
+    box(.08, .06, 1.0, -RW / 2, .72, 1.8, 0x2a2733); }                                           // window sill
+  else box(.1, RH, RD, -RW / 2, RH / 2, 0, wall);
   if (TL.escape) {   // right wall with an opening to the entry hall (z .2..1.1); front wall with a back door to the stairs (x -2.25..-1.35)
     box(.1, RH, 2.7, RW / 2, RH / 2, -1.15, wall); box(.1, RH, 1.4, RW / 2, RH / 2, 1.8, wall); box(.1, RH - 2.1, .9, RW / 2, (RH + 2.1) / 2, .65, wall);
-    box(.75, RH, .1, -2.625, RH / 2, RD / 2, wall); box(4.35, RH, .1, .825, RH / 2, RD / 2, wall); box(.9, RH - 2.1, .1, -1.8, (RH + 2.1) / 2, RD / 2, wall);
+    if (FIRE) box(RW, RH, .1, 0, RH / 2, RD / 2, wall);
+    else { box(.75, RH, .1, -2.625, RH / 2, RD / 2, wall); box(4.35, RH, .1, .825, RH / 2, RD / 2, wall); box(.9, RH - 2.1, .1, -1.8, (RH + 2.1) / 2, RD / 2, wall); }
   } else { box(.1, RH, RD, RW / 2, RH / 2, 0, wall); box(RW, RH, .1, 0, RH / 2, RD / 2, wall); }
   box(W0 + RW / 2, RH, .12, (-RW / 2 + W0) / 2, RH / 2, BZ, wall); box(RW / 2 - W1, RH, .12, (W1 + RW / 2) / 2, RH / 2, BZ, wall);
   box(W1 - W0, RH - 2.4, .12, (W0 + W1) / 2, (RH + 2.4) / 2, BZ, wall);
@@ -81,6 +85,7 @@ export function build(E, TL, F) {
       lampH.intensity = on ? (h > .4 || Math.sin(t * 29) > .6 ? 0 : 3) : 3;
       for (const k of chips) { const a = t - k.t0; k.c.visible = a > 0 && a < 1.2 && t < b1 + 1; if (k.c.visible) k.c.position.set(k.x + k.vx * a, Math.max(.02, k.y + k.vy * a - 4.9 * a * a), k.z); k.c.rotation.set(a * 9, a * 7, 0); } });
     for (let k = 0; k < 16; k++) { const t0 = b0 + k * .385; if (t0 < b1) E.EVENTS.push({ t: t0, kind: 'impact', e: .7 }); }
+    if (!FIRE) {
     { const back = shadowed(new THREE.Mesh(new THREE.BoxGeometry(.86, 2.06, .06), lam(0x6b6e74))); back.position.set(-2.22, 1.03, RD / 2 + .43); back.rotation.y = Math.PI / 2; scene.add(back); }   // back door, open
     // stairwell
     box(.1, -OUT + RH, 3, -3.2, (OUT + RH) / 2, 5.1, 0x8d8b86); box(.1, -OUT + RH - 2.2, 1, -3.2, (OUT + 2.2 + RH) / 2, 3.1, 0x8d8b86);   // left wall with the exit opening at the bottom (z 2.6..3.6)
@@ -105,6 +110,45 @@ export function build(E, TL, F) {
       const bar = new THREE.Mesh(new THREE.BoxGeometry(.08, .06, .7), lam(0xb8bcc0)); bar.position.set(.06, 1.0, .44); exitG.add(bar);
       const sign = glow(.04, .22, .55, -3.12, OUT + 2.35, 3.1, 0x3ad47a); void sign; }
     E.updates.push(t => { exitG.rotation.y = -Math.min(1, Math.max(0, (t - (X.push ?? 1e9)) / .5)) * 1.7; });
+    }   // end inner stairwell (not on the fire route)
+
+    // scratching at the door (X.scratch = [t0, t1]): a faint tremble, the handle jiggles
+    if (X.scratch) { const [s0, s1] = X.scratch; E.updates.push(t => { if (t < s0 || t > s1) return; door.position.x = 6.36 - Math.abs(Math.sin(t * 13)) * .004; door.rotation.z = Math.sin(t * 31) * .002; }); }
+    // the wall around your front door (no gaps: you only see out through the peephole)
+    box(.1, 2.5, .16, 6.42, 1.25, .12, hw); box(.1, 2.5, .16, 6.42, 1.25, 1.18, hw); box(.1, .46, 1.2, 6.42, 2.29, .65, hw);
+    // the corridor outside your front door (x 6.45..18, z -.9..2.2), dim and flickering; TL.zombies put the crowd there
+    { const cw = 0x3d4a40; box(11.6, .1, 3.1, 12.2, -.05, .65, 0x2e3330); box(11.6, .1, 3.1, 12.2, 2.65, .65, 0x2e3330);
+      box(11.6, 2.7, .1, 12.2, 1.35, -.9, cw); box(11.6, 2.7, .1, 12.2, 1.35, 2.2, cw); box(.1, 2.7, 3.1, 18, 1.35, .65, cw);
+      for (const x of [9, 14]) { const L = new THREE.PointLight(0xd8e8b0, 4, 7, 1.5); L.position.set(x, 2.4, .65); scene.add(L); glow(.6, .04, .2, x, 2.58, .65, 0xe8f0d0);
+        if (x === 9) E.updates.push(t => { L.intensity = Math.sin(t * 17) + Math.sin(t * 5.3) > .9 ? .6 : 4; }); }
+      for (const z of [-.85, 2.15]) for (const x of [11, 15.5]) box(.9, 2.05, .06, x, 1.03, z, 0x4a3a2e); }   // the neighbours' doors
+    // peephole view (X.peephole = [t0, t1]): a round, dark-edged lens over the picture
+    if (X.peephole) { const [p0, p1] = X.peephole, ov = document.createElement('div');
+      Object.assign(ov.style, { position: 'absolute', inset: '0', pointerEvents: 'none', zIndex: 5, opacity: 0,
+        background: 'radial-gradient(circle at 50% 46%, rgba(0,0,0,0) 0 31%, rgba(0,0,0,.55) 35%, #000 39%)' });
+      document.body.appendChild(ov);
+      E.updates.push(t => { ov.style.opacity = t >= p0 && t <= p1 ? 1 : 0; }); }
+    // the fire escape on the side wall (x -3.2, z 1.0..3.6): black steel platforms every floor, stairs between them,
+    // a drop ladder at the bottom into the back alley
+    if (FIRE) { const steel = 0x1c1d21;
+      { const w = new THREE.Mesh(facadeBox(6.6, -OUT, .4), facadeMats(0x5a4a44, 'win')); w.position.set(-3.45, OUT / 2, 4.0); w.rotation.y = Math.PI / 2; scene.add(w); }   // your building's side wall behind the fire escape
+      for (let f = 0; f <= 4; f++) { const L = new THREE.PointLight(0xffc27a, 5, 5, 1.5); L.position.set(-3.6, -3 * f + 1.6, 2.3); scene.add(L); }                     // window light on each platform
+      for (let f = 0; f <= 4; f++) { const y = -3 * f;
+        box(1.1, .06, 2.6, -3.75, y - .03, 2.3, steel);                                                  // platform (grating)
+        for (let k = 0; k < 12; k++) box(1.08, .02, .02, -3.75, y + .005, 1.05 + k * .22, 0x34363b);
+        box(.04, .95, 2.6, -4.3, y + .48, 2.3, steel); box(.04, .04, 2.6, -4.3, y + .95, 2.3, 0x2a2c31);        // outer railing
+        for (const z of [1.0, 3.6]) { box(1.1, .04, .04, -3.75, y + .95, z, 0x2a2c31); box(.04, .95, .04, -4.28, y + .48, z, steel); }
+        if (f < 4) {                                                                                      // stairs down to the next platform
+          const a = f % 2 ? 1.3 : 3.3, b = f % 2 ? 3.3 : 1.3, n = 14;
+          for (let i = 0; i < n; i++) { const u = (i + .5) / n; box(.62, .04, .2, -3.55, y - 3 * u, a + (b - a) * u, 0x2a2c31); }
+          const len = Math.hypot(3, b - a);
+          for (const x of [-3.24, -3.86]) { const r = box(.04, .05, len, x, y - 1.5 + .45, (a + b) / 2, steel); r.lookAt(x, y - 3 + .45, b); }   // hand rails along the stairs
+        }
+      }
+      for (let k = 0; k < 9; k++) box(.5, .03, .03, -3.55, -12 - .3 - k * .3, 1.2, steel);                // drop ladder rungs
+      for (const x of [-3.32, -3.78]) box(.03, 2.8, .03, x, -13.4, 1.2, steel);
+    }
+
     // the back alley: walls with lit windows and fire escapes, dumpsters, lamps, snow
     { const g = new THREE.Mesh(new THREE.PlaneGeometry(60, 6.4), lam(0x3a3c44)); g.rotation.x = -Math.PI / 2; g.position.set(-33, OUT + .01, 4); g.receiveShadow = true; scene.add(g); }
     for (const z of [.8, 7.2]) { const w = new THREE.Mesh(facadeBox(60, 22, .4), facadeMats(z < 4 ? 0x5a4a44 : 0x4f4a58, 'win')); w.position.set(-33.2, OUT + 11, z + (z < 4 ? -.2 : .2)); scene.add(w);
