@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Generate a voice-over with xAI or ElevenLabs TTS and exact pause silences.
+"""Generate a voice-over with xAI TTS and exact pause silences.
 
 The script is split at [pause] and [long-pause] / [long pause] (any case).
-Each piece is sent to the TTS API as its own request (xAI: POST
-https://api.x.ai/v1/tts, ElevenLabs: POST /v1/text-to-speech/{voice}), and
-ffmpeg joins the returned MP3s with real silence in between.
+Each piece is sent to the TTS API as its own request (POST
+https://api.x.ai/v1/tts), and ffmpeg joins the returned MP3s with real silence in between.
 
 Usage:
     export XAI_API_KEY=...            # never hardcode or commit the key
@@ -17,10 +16,6 @@ Usage:
 Defaults (voice lux, speed 0.9, pauses 500/1000 ms, 300 ms after sentences,
 natural pause after commas, edge silence trimmed) match the pacing of the
 reference narration this was tuned against.
-
-    export ELEVENLABS_API_KEY=...
-    python3 tools/xai_voiceover.py --engine elevenlabs --list-voices   # British voices
-    python3 tools/xai_voiceover.py script.txt --engine elevenlabs --voice Daniel -o out.mp3
 
 Long productions: put {img:ID} on its own line where an image should start,
 then use --timeline times.tsv (image start times), --cache-dir DIR (resume
@@ -77,11 +72,6 @@ TRIM_EDGE_SILENCE = True
 
 API_URL = "https://api.x.ai/v1/tts"
 
-# ElevenLabs (--engine elevenlabs). --voice takes a voice name or voice_id.
-ELEVEN_VOICE = "Daniel"  # premade deep British male voice
-ELEVEN_MODEL = "eleven_multilingual_v2"
-ELEVEN_STABILITY = 0.5  # higher = calmer, more even delivery
-ELEVEN_URL = "https://api.elevenlabs.io/v1"
 SAMPLE_RATE = 44100  # output sample rate after joining
 OUTPUT_BITRATE = "192k"  # MP3 bitrate (--bitrate); 128k is plenty for speech
 WORKERS = 4  # parallel TTS requests (--workers)
@@ -199,66 +189,14 @@ def find_ffmpeg() -> str:
         sys.exit("ffmpeg not found: install it, set $FFMPEG, or pip install imageio-ffmpeg")
 
 
-ENGINE = "xai"  # "xai" or "elevenlabs" (--engine)
-
-
-def eleven_headers(api_key: str) -> dict[str, str]:
-    # Empty with --proxy-auth: a credential proxy adds the xi-api-key header.
-    return {"xi-api-key": api_key} if api_key else {}
-
-
-def eleven_voices(api_key: str) -> list[dict]:
-    import requests
-
-    res = requests.get(f"{ELEVEN_URL}/voices", headers=eleven_headers(api_key), timeout=60)
-    if not res.ok:
-        raise RuntimeError(f"ElevenLabs HTTP {res.status_code}: {res.text[:300]}")
-    return res.json()["voices"]
-
-
-# Known voices, so names work even when the key lacks "voices_read".
-ELEVEN_PREMADE = {
-    "daniel": "onwK4e9ZLuTAKqWW03F9",  # British, deep, news presenter
-    "george": "JBFqnCBsd6RMkjVDRZzb",  # British, warm, storyteller
-    # Voice Library (needs a paid ElevenLabs plan for API use):
-    "nathaniel": "pFQStpMdprGFILRDrWR2",  # British, deep, meditative
-}
-
-
-def resolve_eleven_voice(name_or_id: str, api_key: str) -> str:
-    """Accept a voice name ("Daniel") or a raw voice_id."""
-    if name_or_id.lower() in ELEVEN_PREMADE:
-        return ELEVEN_PREMADE[name_or_id.lower()]
-    try:
-        voices = eleven_voices(api_key)
-    except RuntimeError:
-        return name_or_id  # e.g. key without "voices_read": treat as voice_id
-    for v in voices:
-        if name_or_id in (v["voice_id"], v["name"]) or v["name"].lower().startswith(
-            name_or_id.lower() + " "
-        ):
-            return v["voice_id"]
-    return name_or_id
-
-
 def synthesize(text: str, api_key: str, out_path: Path, retries: int = 3) -> None:
     import requests
 
     headers = {"Content-Type": "application/json"}
-    if ENGINE == "elevenlabs":
-        url = f"{ELEVEN_URL}/text-to-speech/{VOICE_ID}?output_format=mp3_44100_128"
-        body = {
-            "text": text,
-            "model_id": ELEVEN_MODEL,
-            "voice_settings": {"stability": ELEVEN_STABILITY, "similarity_boost": 0.75,
-                               "speed": SPEED},
-        }
-        headers.update(eleven_headers(api_key))
-    else:
-        url = API_URL
-        body = {"text": text, "voice_id": VOICE_ID, "language": LANGUAGE, "speed": SPEED}
-        if api_key:  # empty with --proxy-auth: a credential proxy adds the header
-            headers["Authorization"] = f"Bearer {api_key}"
+    url = API_URL
+    body = {"text": text, "voice_id": VOICE_ID, "language": LANGUAGE, "speed": SPEED}
+    if api_key:  # empty with --proxy-auth: a credential proxy adds the header
+        headers["Authorization"] = f"Bearer {api_key}"
     for attempt in range(retries + 1):
         res = requests.post(url, json=body, headers=headers, timeout=120)
         if res.ok and res.content:
@@ -266,7 +204,7 @@ def synthesize(text: str, api_key: str, out_path: Path, retries: int = 3) -> Non
             return
         retryable = res.status_code == 429 or res.status_code >= 500
         if not retryable or attempt == retries:
-            raise RuntimeError(f"{ENGINE} TTS HTTP {res.status_code}: {res.text[:300]}")
+            raise RuntimeError(f"xAI TTS HTTP {res.status_code}: {res.text[:300]}")
         time.sleep(2 ** (attempt + 1))
 
 
@@ -332,13 +270,10 @@ def audio_seconds(ffmpeg: str, path: Path) -> float:
 
 
 def main() -> None:
-    global PAUSE_MS, LONG_PAUSE_MS, SENTENCE_PAUSE_MS, SPEED, VOICE_ID, ENGINE, OUTPUT_BITRATE
+    global PAUSE_MS, LONG_PAUSE_MS, SENTENCE_PAUSE_MS, SPEED, VOICE_ID, OUTPUT_BITRATE
 
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("script", type=Path, nargs="?", help="voice script text file")
-    parser.add_argument("--engine", choices=["xai", "elevenlabs"], default="xai")
-    parser.add_argument("--list-voices", action="store_true",
-                        help="ElevenLabs: list available voices (British first)")
     parser.add_argument("-o", "--output", type=Path, default=Path("narration.mp3"))
     parser.add_argument("--lines", type=int, help="only use the first N lines (for testing)")
     wrap = parser.add_mutually_exclusive_group()
@@ -358,8 +293,7 @@ def main() -> None:
     parser.add_argument("--sentence-pause-ms", type=int, default=SENTENCE_PAUSE_MS,
                         help=f"silence after each sentence without a marker "
                              f"(default {SENTENCE_PAUSE_MS}, 0 = off)")
-    parser.add_argument("--voice", help=f"voice (default {VOICE_ID} for xAI, "
-                                        f"{ELEVEN_VOICE} for ElevenLabs)")
+    parser.add_argument("--voice", help=f"voice (default {VOICE_ID})")
     parser.add_argument("--no-trim", action="store_true",
                         help="keep the service's own silence around each piece")
     parser.add_argument("--timeline", type=Path,
@@ -377,55 +311,33 @@ def main() -> None:
                         help="show the pieces and character count; no API calls")
     args = parser.parse_args()
 
-    ENGINE = args.engine
-    eleven = ENGINE == "elevenlabs"
-    key_var = "ELEVENLABS_API_KEY" if eleven else "XAI_API_KEY"
+    key_var = "XAI_API_KEY"
     api_key = os.environ.get(key_var, "").strip()
 
-    if args.list_voices:
-        if not eleven:
-            parser.error("--list-voices needs --engine elevenlabs")
-        voices = eleven_voices(api_key)
-        voices.sort(key=lambda v: (v.get("labels", {}).get("accent", "") != "british",
-                                   v["name"]))
-        for v in voices:
-            labels = v.get("labels", {})
-            desc = ", ".join(str(labels[k]) for k in ("accent", "gender", "age",
-                                                      "description", "use_case")
-                             if labels.get(k))
-            print(f"{v['name']:<28} {v['voice_id']}  {desc}")
-        return
     if not args.script:
         parser.error("the script file is required")
 
-    max_speed = 1.2 if eleven else 1.5
-    if not 0.7 <= args.speed <= max_speed:
-        parser.error(f"--speed must be between 0.7 and {max_speed} for {ENGINE}")
+    if not 0.7 <= args.speed <= 1.5:
+        parser.error("--speed must be between 0.7 and 1.5")
     PAUSE_MS, LONG_PAUSE_MS = args.pause_ms, args.long_pause_ms
     SENTENCE_PAUSE_MS = args.sentence_pause_ms
     OUTPUT_BITRATE = args.bitrate
     SPEED = args.speed
-    VOICE_ID = args.voice or (ELEVEN_VOICE if eleven else VOICE_ID)
+    VOICE_ID = args.voice or VOICE_ID
 
     use_wrap = WRAP_SLOW_SOFT if args.wrap is None else args.wrap
-    if eleven and use_wrap:
-        parser.error("<slow><soft> tags are xAI-only; leave --slow-soft off for ElevenLabs")
     lines = args.script.read_text(encoding="utf-8").splitlines()
     if args.lines:
         lines = lines[: args.lines]
     text = "\n".join(lines)
-    if eleven:  # ElevenLabs would read xAI tags like [breath] or <slow> aloud
-        text = TAG_RE.sub(lambda m: m[0] if MARKER_RE.fullmatch(m[0]) else " ", text)
     use_comma = COMMA_PAUSE if args.comma is None else args.comma
-    if eleven and use_comma:
-        parser.error("--comma-pause uses an xAI tag; it is not available for ElevenLabs")
     pieces = to_requests(split_script(text), MAX_CHARS_PER_REQUEST, use_wrap, use_comma)
     if not pieces:
         sys.exit("No text to speak.")
 
     total_chars = sum(len(p.text) for p in pieces)
     print(f"{len(pieces)} requests, {total_chars} characters billed "
-          f"(engine={ENGINE}, voice={VOICE_ID}, speed={SPEED}, slow/soft={'on' if use_wrap else 'off'})")
+          f"(engine=xai, voice={VOICE_ID}, speed={SPEED}, slow/soft={'on' if use_wrap else 'off'})")
     for i, p in enumerate(pieces, 1):
         pause = f"  + {p.silence_after_ms} ms silence" if p.silence_after_ms else ""
         print(f"  {i:>3}. {p.text[:70]!r}{'…' if len(p.text) > 70 else ''}{pause}")
@@ -435,13 +347,11 @@ def main() -> None:
     if not api_key and not args.proxy_auth:
         sys.exit(f"Set the {key_var} environment variable first (or use --proxy-auth).")
     ffmpeg = find_ffmpeg()
-    if eleven:
-        VOICE_ID = resolve_eleven_voice(VOICE_ID, api_key)
 
     with tempfile.TemporaryDirectory() as tmp:
         cache = args.cache_dir or Path(tmp)
         cache.mkdir(parents=True, exist_ok=True)
-        settings = f"{ENGINE}|{VOICE_ID}|{SPEED}|{LANGUAGE}|{ELEVEN_MODEL if eleven else ''}"
+        settings = f"xai|{VOICE_ID}|{SPEED}|{LANGUAGE}|"  # unchanged key: old caches stay valid
 
         def piece_path(p: Piece) -> Path:
             digest = hashlib.sha1(f"{settings}|{p.text}".encode()).hexdigest()[:16]
