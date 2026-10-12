@@ -159,6 +159,11 @@ export function pathCamera(E, TL, F) {
     return o; };
   // optional 4th value per key: field of view (zoom in for a far view); keys without it keep TL.fov
   const FK = K.map(k => [k[0], k[3] ?? TL.fov ?? 60]);
+  // optional 5th value: roll in degrees (Dutch angle), smooth between keys; TL.walkBob = [[t0, t1, amp], ...]: walking bob
+  const RK = K.map(k => [k[0], k[4] ?? 0]);
+  const rollAt = t => { if (t <= RK[0][0]) return RK[0][1]; for (let i = 1; i < RK.length; i++) if (t <= RK[i][0]) { const [a, va] = RK[i - 1], [b, vb] = RK[i], u = (t - a) / (b - a || 1); return va + (vb - va) * u * u * (3 - 2 * u); } return RK[RK.length - 1][1]; };
+  const bobAt = t => { let y = 0, x = 0; for (const [a, b, amp] of TL.walkBob || []) { if (t < a || t > b) continue; const k = Math.min(1, (t - a) / .5, (b - t) / .5), ph = t * Math.PI * 2 * 1.9;
+    y += Math.abs(Math.sin(ph)) * amp * k; x += Math.sin(ph / 2) * amp * .6 * k; } return [x, y]; };
   const fovAt = t => { if (t <= FK[0][0]) return FK[0][1]; for (let i = 1; i < FK.length; i++) if (t <= FK[i][0]) { const [a, va] = FK[i - 1], [b, vb] = FK[i], u = (t - a) / (b - a || 1); return va + (vb - va) * u * u * (3 - 2 * u); } return FK[FK.length - 1][1]; };
   const _l = new THREE.Vector3();
   return {
@@ -174,9 +179,11 @@ export function pathCamera(E, TL, F) {
       cam.fov = fovAt(tv) * (E.WIDE ? .62 : 1);
       if (E.nearFn) cam.near = E.nearFn(pos);       // high above a big landscape: a far near-plane keeps the depth buffer sharp (no flicker)
       cam.updateProjectionMatrix();
-      cam.position.set(pos[0] + sx * shake * .25, pos[1] + sy * shake * .25, pos[2]);
+      const [bx, by] = bobAt(tv);
+      cam.position.set(pos[0] + sx * shake * .25 + bx, pos[1] + sy * shake * .25 + by, pos[2]);
       _l.set(look[0] + sx * shake * 1.2, look[1] + sy * shake * 1.2, look[2]);
       cam.rotation.set(0, 0, 0); cam.lookAt(_l);
+      const roll = rollAt(tv); if (roll) cam.rotateZ(roll * D2R);
       return _l;
     },
   };
