@@ -62,12 +62,12 @@ export default function (at) {
       [13, [X, 1.7, z(13)], [15, 28, z(13) - 14], 60, 10],
       [15, [X, 1.7, z(13)], [6, 11, -80], 85, 4],                   // breed: torens storten in
       [22, [14.4, 1.6, z(13) - .3], [4, 14, -90], 85, -3],
-      [23.5, [14.2, 1.2, z(13) - .4], [8, 0, z(13) - 14], 70, 25],  // laag, kijkt omlaag naar de golvende straat
-      [32, [14.2, 1.0, z(13) - .6], [6, 0, z(13) - 18], 70, 22],
-      [34, [10, .9, z(13) - 3], [2, -1, z(13) - 20], 95, 10],       // duikt naar de scheuren
-      [40, [3, .5, -2], [0, -2, -14], 100, 0],
-      [42, [1, .3, -6], [3, 40, -12], 100, 0],                       // laag in de straat, kijkt omhoog
-      [46, [1, .6, -6], [2, 36, -14], 95, 0],
+      [23.5, [6, 1.3, 10], [2, 0, -6], 70, 20],                     // naar het midden van de straat: laag, kijkt omlaag, gekanteld
+      [32, [1.5, 1.1, 10], [0, 0, -10], 70, 22],                    // de straat golft
+      [34, [1, 1.0, 8], [0, -1, -12], 95, 10],                      // duikt naar de scheuren
+      [40, [0, .6, 4], [0, -2, -12], 100, 0],
+      [42, [0, .4, 2], [0, 40, -12], 100, 0],                       // laag in de straat, kijkt omhoog
+      [46, [0, .7, 2], [0, 36, -14], 95, 0],
       [50, [6, 35, 24], [0, 0, -40], 60, 0],                         // dolly-out naar 35 m: de straat splijt
       [55, [10, 300, 200], [0, 0, -60], 55, 0],                      // (stap 2: de ruimte in)
       [T_END, [20, 600, 400], [0, 0, -80], 55, 0],
@@ -77,7 +77,7 @@ export default function (at) {
 
     groups: [{ at: [13.6, -4], n: 5, spread: 1.4, face: 0, coats: [0x2f5d8a, 0x8a3b2f, 0x3a7a4a], lamp: false }],
     animals: [
-      { kind: 'birds', n: 14, color: 0x8e9094, land: -6, fly: 5.2,     // duiven op de stoep, vliegen op bij 5 s
+      { kind: 'birds', n: 14, color: 0x4f555e, scale: .8, land: -6, fly: 5.2,     // duiven op de stoep, vliegen op bij 5 s
         center: [8, 10, 14], radius: 9,
         perch: Array.from({ length: 14 }, (_, i) => [13.6 + (i % 4) * .45, .26, 19 - Math.floor(i / 4) * .9 - (i % 2) * .3]) },
     ],
