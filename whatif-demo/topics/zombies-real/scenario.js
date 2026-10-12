@@ -5,30 +5,30 @@
 // STAP 2 (later): bonken op je deur, gang, brandtrap (5 verdiepingen), naar buiten (regels floors-q).
 export const topic = {
   number: 48, slug: 'zombies-real', place: 'gameroom', force: 'calm',
-  question: 'What if you were playing zombies and they became real?',
-  title: 'What if you were<br>playing zombies and<br>they became real?',   // eerste zin: Imagine… (regels/standaard-video.md)
+  question: 'What if your zombie game became real?',
+  title: 'What if your<br>zombie game<br>became real?',   // (niet in beeld: showTitle false)
   voOffset: 1.0,
 };
 
 export const lines = [
   ['imagine', 'Imagine…', 'pause'],
-  ['intro', 'one night, the zombies in your game become real.', 'pause'],
-  ['mean', 'Not on the screen. Outside, in your street.', 'long'],
-  ['place', 'You are sitting in your room on the fifth floor, controller in your hands.', 'pause'],
-  ['game', 'Round twelve. Sixty zombies, and you have not been hit once.', 'long'],
-  ['sound', 'Then you hear something outside. Not from the speakers.', 'long'],
-  ['balcony', 'You step out onto the balcony and look down.', 'pause'],
-  ['street', 'The street is full of them, shuffling slowly between the parked cars.', 'long'],
-  ['speed', 'They walk at about three kilometres an hour. You can sprint at more than twenty.', 'long'],
-  ['door', 'But they are not walking past. They are crowding around your front door.', 'pause'],
-  ['inside', 'The lock gives way. They are inside the building.', 'long'],
-  ['floors', 'Five floors. About fifteen metres of stairs between you and them.', 'long'],
-  ['bang', 'Then it starts. Banging, on your own door.', 3.5],
-  ['keys', 'You grab your keys. The fire stairs are at the end of the hallway.', 'pause'],
+  ['intro', 'you are playing a video game, late at night.', 'pause'],
+  ['mean', 'Just you, the screen, and round twelve.', 'long'],
+  ['place', 'Fifth floor. Your apartment is quiet.', 'pause'],
+  ['game', 'Then you hear it. Noise outside. Not from the game.', 'long'],
+  ['sound', 'Screaming. A car alarm. Something heavy falling over.', 'long'],
+  ['balcony', 'You put the controller down, step onto the balcony, and look outside.', 'pause'],
+  ['street', 'Down in the street, people are walking strangely. Slowly. Arms out in front of them.', 'long'],
+  ['speed', 'These are not players. These are real zombies.', 'long'],
+  ['door', 'And they are not walking past. They are heading for your apartment complex.', 'pause'],
+  ['inside', 'The front door gives way. They are inside.', 'long'],
+  ['floors', 'Five floors between you and them. You need a way out.', 'long'],
+  ['bang', 'Then something bangs on your own door.', 3.5],
+  ['keys', 'No time. You grab your keys and slip out the back, toward the fire stairs.', 'pause'],
   ['stairs', 'Down, two steps at a time. Third floor. Second. First.', 'long'],
-  ['outside', 'You push open the back door into the cold night air.', 'long'],
+  ['outside', 'You push open the emergency exit into the cold night air, and you run.', 'long'],
   ['behind', 'Upstairs, the game is still running. Round thirteen.', 'pause'],
-  ['q', 'And this time, nobody is holding the controller.', 'none'],
+  ['q', 'Would you have found a way out?', 'none'],
 ];
 
 export default function (at) {
@@ -38,7 +38,7 @@ export default function (at) {
   const dist = [[0, 15], [S('inside'), 15], [S('bang'), 1], [S('keys'), 1], [S('stairs'), 3], [Ee('outside'), 25], [T_END, 40]];   // metres between you and them
   return {
     T_END, brand: false, post: { bloom: .8, ao: 1 },               // nacht: gloed op de ledstrips, de tv en de lantaarns
-    hands: [[0, S('sound') + .6]],                                  // handen met controller in beeld
+    hands: [[0, S('balcony') + .4]],                               // handen met controller, tot je hem neerlegt
     tv: { channel: 'GAME', feed: [[0, 'game', { text: 'ROUND 12', sub: 'POINTS 21,300', hp: 'HP: 100', ammo: 'AMMO 24/30' }],
                                   [S('game'), 'game', { text: 'ROUND 12', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }],
                                   [S('behind'), 'game', { text: 'ROUND 13', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }]] },
@@ -77,10 +77,10 @@ export default function (at) {
 }
 
 export const upload = {
-  title: 'What if you were playing zombies and they became real?',
-  description: 'You are alone in your flat playing a zombie game. Then you look down from your window… and they are real. 🧟\n\nWould you make it out? 👇\n\n#whatif #zombie #pov #shorts #gaming',
+  title: 'What if your zombie game became real?',
+  description: 'You are playing a video game late at night. Then you hear noise outside… and the zombies are real. 🧟\n\nWould you have found a way out? 👇\n\n#whatif #zombie #pov #shorts #gaming',
   tags: ['what if', 'zombie', 'pov', 'escape', 'flat', 'gaming', '3d animation', 'IfScape3D'],
-  tiktok: 'POV: you are playing zombies and they become real outside your window 🧟 Would you make it out? #whatif #zombie #pov #fyp',
+  tiktok: 'POV: your zombie game becomes real 🧟 Would you have found a way out? #whatif #zombie #pov #fyp',
   sources: [
     'Average human walking speed ≈ 5 km/h; a slow shuffle ≈ 3 km/h (fiction: zombies) – e.g. Bohannon (1997), Age and Ageing 26(1)',
     'Most adults can sprint at 20–25 km/h for a short distance',
