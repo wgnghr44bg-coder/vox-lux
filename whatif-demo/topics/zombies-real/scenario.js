@@ -35,12 +35,21 @@ export default function (at) {
   const T_END = at('q').e + 2.4, OUT = -15;
   const S = id => at(id).s, Ee = id => at(id).e, BAL = S('balcony'), DOOR = S('door');
   const lin = (pts, t) => { if (t <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) { const [a, va] = pts[i - 1], [b, vb] = pts[i]; return va + (vb - va) * (t - a) / (b - a); } return pts[pts.length - 1][1]; };
+  // trappenhuis: per verdieping 4 punten (overloop A, halverwege trap 1, overloop B, halverwege trap 2), oogpunt 1,6 m
+  const stairs = (t0, t1) => { const K = [], n = 5 * 4, dt = (t1 - t0) / n;
+    for (let f = 0; f < 5; f++) { const y = -3 * f + 1.6;
+      K.push([t0 + (f * 4) * dt, [-1.6, y, 3.1], [-3.2, y - 1.2, 5.2], 72, 0],          // kijkt naar het rode cijfer op de muur
+             [t0 + (f * 4 + 1) * dt, [-2.5, y - .75, 4.8], [-2.5, y - 2, 7], 72, 3],
+             [t0 + (f * 4 + 2) * dt, [-1.8, y - 1.5, 6.2], [-1.1, y - 2.5, 3.5], 72, 0],
+             [t0 + (f * 4 + 3) * dt, [-1.1, y - 2.25, 4.8], [-1.1, y - 3.5, 2.5], 72, -3]); }
+    return K; };
   const SEEN = S('street') + .4;                                    // het moment dat jij ze ziet
   // meters tussen jou en de dichtstbijzijnde zombie: straat beneden (± 15 m hoog, 25 m verderop) -> voordeur -> trappenhuis -> jouw deur; daarna vlucht je
   const dist = [[SEEN, 32], [S('door'), 22], [Ee('door'), 17], [S('inside'), 16], [S('floors'), 12], [S('bang'), 1], [Ee('bang'), 1], [S('stairs'), 4], [Ee('stairs'), 9], [Ee('outside'), 25], [T_END, 45]];
   return {
     T_END, brand: false, post: { bloom: .8, ao: 1 },               // nacht: gloed op de ledstrips, de tv en de lantaarns
-    hands: [[0, S('balcony') + .4]],                               // handen met controller, tot je hem neerlegt
+    hands: [[0, S('balcony') + .4]],
+    escape: { bang: [S('bang'), Ee('bang') + 3.2], push: S('outside') + .3, dropController: S('balcony') + .4 },                               // handen met controller, tot je hem neerlegt
     tv: { channel: 'GAME', feed: [[0, 'game', { text: 'ROUND 12', sub: 'POINTS 21,300', hp: 'HP: 100', ammo: 'AMMO 24/30' }],
                                   [S('game'), 'game', { text: 'ROUND 12', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }],
                                   [S('behind'), 'game', { text: 'ROUND 13', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }]] },
@@ -64,8 +73,20 @@ export default function (at) {
       [Ee('speed'), [-1.4, 1.75, -3.98], [-8, OUT, -11], 60],
       [DOOR + 1, [-1.4, 1.75, -4.0], [-5, OUT, -8], 56],                   // de horde bij de voordeur
       [Ee('inside'), [-1.4, 1.75, -4.0], [-2.6, OUT, -6.2], 48, 3],
-      [S('floors') + 1.2, [-.6, 1.6, -1.6], [1.5, 1.4, 2.4], 64, -6],      // (stap 2) terug de kamer in, naar je voordeur
-      [T_END, [-.6, 1.6, -1.6], [1.5, 1.4, 2.4], 64, 0],
+      [S('floors') + .8, [-.4, 1.6, -1.4], [2.6, 1.4, .7], 62, -4],          // terug de kamer in, naar de gang
+      [S('bang') - .3, [1.9, 1.6, .65], [6.4, 1.1, .65], 58, 0],            // de gang in: je voordeur
+      [Ee('bang') + 1.2, [2.3, 1.6, .65], [6.4, 1.1, .65], 50, 2],          // de deur schokt bij elke klap
+      [S('keys') + 1.0, [.2, 1.6, 1.6], [-1.8, 1.4, 4], 64, -5],            // omdraaien: de achterdeur
+      [S('keys') + 2.4, [-1.8, 1.6, 2.6], [-2.5, .4, 6], 68, 0],            // door de achterdeur, het trappenhuis in
+      ...stairs(S('keys') + 2.9, S('outside') - .4),                       // vijf verdiepingen naar beneden
+      [S('outside') + .2, [-1.9, OUT + 1.6, 3.1], [-3.4, OUT + 1.3, 3.1], 64, 0],   // de groene nooduitgang
+      [S('outside') + 1.2, [-3.6, OUT + 1.6, 3.4], [-30, OUT + 1.4, 3.8], 66, 0],   // erdoor, het steegje in
+      [Ee('outside') + .6, [-12, OUT + 1.65, 3.8], [-40, OUT + 1.4, 3.8], 70, 0],    // rennen
+      [S('behind') - .1, [-13, OUT + 1.65, 3.8], [-40, OUT + 1.4, 3.8], 70, 0],
+      [S('behind') - .05, [-13, OUT + 1.65, 3.8], [-40, OUT + 1.4, 3.8], 70, 0],
+      [S('behind'), [1.2, 1.5, 2.1], [1.2, .7, -2.2], 62, 0],               // knip: de lege kamer, controller op het kleed
+      [S('behind') + .05, [1.2, 1.5, 2.1], [1.2, .7, -2.2], 62, 0],
+      [T_END, [1.0, 1.45, 1.9], [1.3, .85, -2.2], 56, 0],
     ],
     fov: 60,
 
