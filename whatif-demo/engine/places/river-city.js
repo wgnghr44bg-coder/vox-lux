@@ -152,7 +152,7 @@ export function build(E, TL, F) {
     // beats.driver: the first car stops right in front of the 'road' shot and its driver (logo on the jacket) walks off to the houses
     const lead = B.driver != null && li === 0 && k === 0, bt = lead ? B.driver : brake;
     const c = car(E, 100 + li * 10 + k, { x0: lead ? 36 - 10 * (bt + 1.1) : -300 + k * 160 + li * 60, z0: z, dir, v: 10, axis: 'x', a: -400, b: 400, brakeT: bt, F, ...(TL.carWind != null && { strength: { wind: TL.carWind + hash(li, k) * .1 } }),
-      driver: lead ? { out: .3, to: [[39.4, 4.75], [40.6, 20], [41.2, 27]], logo: 'front', speed: 3 } : null });
+      driver: lead ? { out: .3, to: [[39.4, 4.75], [40.6, 20], [41.2, 27]], speed: 3 } : null });
     if (lead) { const tg = bt + 2.2 + .3 + 4.4, p = c.driverAt(tg + .8); (TL.looks ||= []).push([tg, [p.x, 1.5, p.z], 1.6, 9]); }   // glance at the driver (logo) as they hurry past
   }));
   { const road = new THREE.Mesh(new THREE.PlaneGeometry(3000, 12), lam(0x3c3e41, { flatShading: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })); road.rotation.x = -Math.PI / 2; road.position.set(0, .02, 8); road.receiveShadow = true; scene.add(road); }
