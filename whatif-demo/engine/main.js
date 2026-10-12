@@ -54,6 +54,12 @@ createRing(E, TL);         // TL.ring: a debris ring across the sky (needs TL.mo
 createMeteors(E, TL);      // TL.meteors: streaks and fireballs
 createGlows(E, TL);        // TL.glows: a volcano glowing on the horizon
 createBrand(E, TL);
+// look=blender (URL) or TL.look = 'blender': Blender/Cycles-like look (AgX, low warm afternoon sun, soft wide shadows, warm bounce)
+E.blender = qs.get('look') === 'blender' || TL.look === 'blender';
+if (E.blender) {
+  TL.post = { ...(typeof TL.post === 'object' ? TL.post : {}), tone: 'agx', ao: 1.1, bloom: .15, vignette: .15, saturation: 1.45, contrast: 1.14, softShadows: true };
+  if (E.sunOffset) E.sunOffset.multiply(new THREE.Vector3(1.15, .55, 1.15)); else E.sun.position.y *= .55;
+}
 
 // pose of everything that bends (also used by physics to read where a piece is when it breaks off)
 E.poseAll = t => { for (const b of E.bend) b.pose(t, F); E.scene.updateMatrixWorld(true); };
@@ -127,6 +133,14 @@ function applyLook(t) {
   const L = P.look(t);
   F.look?.(t, L);
   for (const f of E.lookMods || []) f(t, L);              // e.g. moon.js: night lit by a (growing) Moon
+  if (E.blender && !((L.dark || 0) > .3)) {               // Blender look: clear blue sky, warm low sun, warm green bounce
+    const warm = C(0xffc58c);
+    L.top = C(0x2a5cc0); L.hor = C(0xa8c8ec).lerp(C(0xffd2a8), .45);
+    L.fogColor = C(0xc9dbee).lerp(C(0xffd8b4), .4); L.fogNear = Math.max(L.fogNear, 160); L.fogFar = Math.max(L.fogFar, 1100);
+    L.sun *= 1.75; L.sunColor = L.sunColor.clone().lerp(C(0xffdcb0), .6);
+    L.hemi *= .85; L.hemiColor = C(0xb4ceff); L.groundColor = C(0x6f8a34);
+    L.haze = 0;
+  }
   E.skyMat.uniforms.top.value.copy(L.top); E.skyMat.uniforms.hor.value.copy(L.hor);
   E.skyMat.uniforms.sunDir.value.copy(E.sunOffset ?? E.sun.position).normalize(); E.skyMat.uniforms.sunCol.value.copy(L.sunDisc || C(0));
   E.skyMat.uniforms.stars.value = L.stars || 0; E.skyMat.uniforms.sunSize.value = L.sunSize || 1;
@@ -141,7 +155,7 @@ function applyLook(t) {
   const PO = TL.beats.powerOff, winOff = (i, tt) => PO && tt > PO[0] + hash(i, 77) * (PO[1] - PO[0]), lampsOff = tt => PO && tt > PO[1] + 1.5;
   E.lights.forEach((l, i) => l.mat.color.setHex(dark > .25 + l.at && !(E.powerOut?.(t)) && !lampsOff(t) ? l.on : l.off));
   E.windowMats.forEach((m, i) => { m.emissiveIntensity = E.powerOut?.(t) || winOff(i, t) ? 0 : smooth(.25, .7, dark) * .85; });
-  E.renderer.toneMappingExposure = E.post ? 1 + (E.dark ?? 0) * (TL.nightExposure ?? 1.1) : 1;   // film look: lift the night a little so it stays readable
+  E.renderer.toneMappingExposure = (E.post ? 1 + (E.dark ?? 0) * (TL.nightExposure ?? 1.1) : 1) * (E.blender ? 1.3 : 1);   // film look: lift the night a little so it stays readable
   document.getElementById('haze').style.opacity = L.haze || 0;
   document.getElementById('haze').style.background = L.hazeColor || '#6e604f';
 }

@@ -21,14 +21,18 @@ const Grade = {
 
 export function createPost(E, W, H, opt = {}) {
   const r = E.renderer;
-  r.shadowMap.type = THREE.PCFSoftShadowMap; r.shadowMap.needsUpdate = true;
-  r.toneMapping = THREE.ACESFilmicToneMapping;
+  r.shadowMap.type = opt.softShadows ? THREE.VSMShadowMap : THREE.PCFSoftShadowMap; r.shadowMap.needsUpdate = true;
+  if (opt.softShadows) { E.sun.shadow.radius = 3; E.sun.shadow.blurSamples = 16; E.sun.shadow.map?.dispose(); E.sun.shadow.map = null; }
+  r.toneMapping = opt.tone === 'agx' ? THREE.AgXToneMapping : THREE.ACESFilmicToneMapping;
   const comp = new EffectComposer(r, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4 }));
   comp.setPixelRatio(1); comp.setSize(W, H);
   comp.addPass(new RenderPass(E.scene, E.camera));
   if (opt.ao !== false) { const ao = new GTAOPass(E.scene, E.camera, W, H); ao.blendIntensity = opt.ao ?? .85; comp.addPass(ao); }
   const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), opt.bloom ?? .45, .55, .82); comp.addPass(bloom);
   comp.addPass(new OutputPass());
-  comp.addPass(new ShaderPass(Grade));
+  const grade = new ShaderPass(Grade); if (opt.vignette != null) grade.uniforms.vignette.value = opt.vignette;
+  if (opt.saturation != null) grade.uniforms.saturation.value = opt.saturation;
+  if (opt.contrast != null) grade.uniforms.contrast.value = opt.contrast;
+  comp.addPass(grade);
   return { render: () => comp.render(), bloom };
 }
