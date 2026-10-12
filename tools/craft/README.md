@@ -17,6 +17,7 @@ and their commands are on `PATH`:
 | WordCraft | Word | `wordcraft-cli` |
 | GridCraft | Excel (repo `sheetcraft`) | `gridcraft-cli` |
 | DeckCraft | PowerPoint (repo `slidecraft`) | `deckcraft-cli` |
+| CADCraft | AutoCAD (2D drafting, DXF/DWG, PDF plot) | `cadcraft-cli` |
 
 ArtCraft itself (the AI studio) has no Linux build and is not installed.
 Python libs for the example scripts: `opencv-python-headless`, `numpy`, `pillow` (also installed).
