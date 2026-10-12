@@ -6,13 +6,13 @@
 export const topic = {
   number: 48, slug: 'zombies-real', place: 'gameroom', force: 'calm',
   question: 'What if your zombie game became real?',
-  title: 'What if your<br>zombie game<br>became real?',   // (niet in beeld: showTitle false)
+  title: 'Imagine if there was<br>a zombie apocalypse…',   // in beeld bij de start
   voOffset: 1.0,
 };
 
 export const lines = [
   ['imagine', 'Imagine…', 'pause'],
-  ['intro', 'you are playing a video game, late at night.', 'pause'],
+  ['intro', 'there was a zombie apocalypse. And it starts tonight, while you are playing a video game.', 'pause'],
   ['mean', 'Just you, the screen, and round twelve.', 'long'],
   ['place', 'Fifth floor. Your apartment is quiet.', 'pause'],
   ['game', 'Then you hear it. Noise outside. Not from the game.', 'long'],
@@ -35,7 +35,9 @@ export default function (at) {
   const T_END = at('q').e + 2.4, OUT = -15;
   const S = id => at(id).s, Ee = id => at(id).e, BAL = S('balcony'), DOOR = S('door');
   const lin = (pts, t) => { if (t <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) { const [a, va] = pts[i - 1], [b, vb] = pts[i]; return va + (vb - va) * (t - a) / (b - a); } return pts[pts.length - 1][1]; };
-  const dist = [[0, 15], [S('inside'), 15], [S('bang'), 1], [S('keys'), 1], [S('stairs'), 3], [Ee('outside'), 25], [T_END, 40]];   // metres between you and them
+  const SEEN = S('street') + .4;                                    // het moment dat jij ze ziet
+  // meters tussen jou en de dichtstbijzijnde zombie: straat beneden (± 15 m hoog, 25 m verderop) -> voordeur -> trappenhuis -> jouw deur; daarna vlucht je
+  const dist = [[SEEN, 32], [S('door'), 22], [Ee('door'), 17], [S('inside'), 16], [S('floors'), 12], [S('bang'), 1], [Ee('bang'), 1], [S('stairs'), 4], [Ee('stairs'), 9], [Ee('outside'), 25], [T_END, 45]];
   return {
     T_END, brand: false, post: { bloom: .8, ao: 1 },               // nacht: gloed op de ledstrips, de tv en de lantaarns
     hands: [[0, S('balcony') + .4]],                               // handen met controller, tot je hem neerlegt
@@ -43,11 +45,12 @@ export default function (at) {
                                   [S('game'), 'game', { text: 'ROUND 12', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }],
                                   [S('behind'), 'game', { text: 'ROUND 13', sub: 'POINTS 24,850', hp: 'HP: 100', ammo: 'AMMO 12/30' }]] },
 
-    showTitle: false, hudIn: 1e9,                                   // eigenaar: geen titel en geen teller in beeld, alleen de handen met controller
-    hud: { label: 'ZOMBIES', unit: '', decimals: 0,
-           second: { label: 'DISTANCE', fn: (v, t) => lin(dist, t), unit: ' m', decimals: 0, showAt: S('inside') } },
-    counter: [[0, 0], [S('street'), 0], [Ee('speed'), 60], [S('inside'), 60], [T_END, 60]],
-    range: [0, 60],
+    showTitle: true, titleIn: .3, titleOut: Ee('intro') + .4, hudIn: Ee('intro') - .6,   // titel bij de start; dan de timer
+    // HUD: eerst een TIMER die aftelt tot jij ze ziet (regel 'street'), daarna DISTANCE: hoe ver ze van je af zijn
+    hud: { label: 'TIMER', labelAt: [[SEEN, 'DISTANCE']],
+           fmt: (v, t) => { if (t >= SEEN) return `${Math.round(lin(dist, t))} m`; const r = Math.ceil(SEEN - t); return `${String(Math.floor(r / 60)).padStart(2, '0')}:${String(r % 60).padStart(2, '0')}`; } },
+    counter: [[0, 0], [T_END, 1]],
+    range: [0, 1],
 
     captions: [],                                                   // eigenaar: geen tekst in beeld (alleen de stem)
 
