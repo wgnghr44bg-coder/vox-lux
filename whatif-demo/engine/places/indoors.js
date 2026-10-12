@@ -32,6 +32,23 @@ export function build(E, TL, F) {
     m.position.set(x, OUT + hh / 2, z); m.receiveShadow = true; scene.add(m);
   }
 
+  // ---------- your own building under the window (TL.room.building): facade, front door with a canopy, pavement, road ----------
+  // The window looks out toward -z; the front door is right below it (x -1.4, street level OUT). Zombies.js etc. walk here.
+  if (TL.room?.building) {
+    const fac = new THREE.Mesh(facadeBox(26, -OUT, .4), facadeMats(0xb9a27e, 'win')); fac.position.set(-2, OUT / 2, -2.82); fac.castShadow = fac.receiveShadow = true; scene.add(fac);
+    box(40, .2, 9.6, -2, OUT + .1, -7.8, 0x9b968c);                                                  // pavement z -3 .. -12.6
+    { const road = new THREE.Mesh(new THREE.PlaneGeometry(400, 9), lam(0x3c3e41)); road.rotation.x = -Math.PI / 2; road.position.set(0, OUT + .02, -17.1); road.receiveShadow = true; scene.add(road); }
+    box(2.2, 2.6, .12, -1.4, OUT + 1.5, -3.06, 0x2a2622);                                             // front door (dark, open)
+    box(3.4, .16, 2.2, -1.4, OUT + 3.0, -4.1, 0x3a3f45);                                              // canopy
+    for (const x of [-2.9, .1]) box(.1, 2.8, .1, x, OUT + 1.6, -5.1, 0x3a3f45);
+    box(26, .25, .3, -2, OUT + 4.2, -3.15, 0x8e8576);                                                  // ledge above the ground floor
+    { const L = new THREE.PointLight(0xffd29a, 0, 12, 1.6); L.position.set(-1.4, OUT + 2.6, -4.0); scene.add(L);
+      const bulb = new THREE.Mesh(new THREE.BoxGeometry(.4, .12, .4), new THREE.MeshBasicMaterial({ color: 0xfff1cf })); bulb.position.set(-1.4, OUT + 2.88, -4.1); scene.add(bulb);
+      E.updates.push(t => { L.intensity = E.powerOut?.(t) ? 0 : 8 + (E.dark ?? 0) * 30; }); }
+    for (const x of [-22, -8, 6, 20]) streetLamp(E, x, -12.2, -1, { y: OUT + .2 });
+    E.entrance = [-1.4, OUT + .2, -3.2];
+  }
+
   // ---------- living room ----------
   const RW = 6, RD = 5, RH = 2.7, wall = 0xd9d2c3, ROOM = { x: 0, z: 0 };
   box(RW, .1, RD, 0, -.05, 0, 0x8a6a4c);                                   // wooden floor

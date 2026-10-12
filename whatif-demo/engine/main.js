@@ -39,6 +39,7 @@ const F = (await import(`./forces/${TL.force}.js`)).create(E, TL);
 const P = (await import(`./places/${TL.place}.js`)).build(E, TL, F);
 (await import('./crowd.js')).groups(E, TL, P.shots);   // TL.groups: people close to the camera
 if (TL.animals) (await import('./animals.js')).animals(E, TL, P.shots);   // baksteen Dieren (+ Grote dieren: big-animals.js)
+if (TL.zombies) (await import('./zombies.js')).zombies(E, TL);   // baksteen Zombies (cartoon, no gore)
 if (TL.beats.vanish != null || TL.traffic || TL.bikes || TL.crashes || TL.smoke || TL.extraShots) (await import('./small.js')).applySmall(E, TL, F, P);   // baksteen Kleine dingen
 if (TL.wave) (await import('./wave.js')).buildWave(E, TL, F, P);   // baksteen Golf + grootte: wave, things to compare, run-up on a mountain
 if (TL.fences || TL.towers || TL.gates || TL.puddles || TL.lightning) (await import('./fences.js')).build(E, TL, P.shots);   // baksteen Hekken: omheining, wachttoren, poort
