@@ -3,14 +3,15 @@
 # Idempotent: apps that are already installed are skipped.
 # Apps: FilmCraft (Premiere), EffectCraft (After Effects), PhotoCraft (Photoshop),
 #       VectorCraft (Illustrator), LightCraft (Lightroom), DesignCraft (InDesign), PdfCraft (Acrobat),
-#       SoundCraft (Pro Tools), WordCraft (Word), GridCraft (Excel), DeckCraft (PowerPoint).
+#       SoundCraft (Pro Tools), WordCraft (Word), GridCraft (Excel), DeckCraft (PowerPoint),
+#       CADCraft (AutoCAD).
 set -uo pipefail
 DEST="${CRAFT_DIR:-/opt/craft}"
 mkdir -p "$DEST" && cd "$DEST" || exit 1
 # repo:binary (some repos were renamed: sheetcraft ships GridCraft, slidecraft ships DeckCraft)
 for pair in filmcraft:filmcraft effectcraft:effectcraft photocraft:photocraft vectorcraft:vectorcraft \
             lightcraft:lightcraft designcraft:designcraft pdfcraft:pdfcraft soundcraft:soundcraft \
-            wordcraft:wordcraft sheetcraft:gridcraft slidecraft:deckcraft; do
+            wordcraft:wordcraft sheetcraft:gridcraft slidecraft:deckcraft cadcraft:cadcraft; do
   repo=${pair%%:*}; app=${pair#*:}
   if command -v "$app-cli" >/dev/null 2>&1; then continue; fi
   tag=$(git ls-remote --tags --sort=-v:refname "https://github.com/storytold/$repo" 2>/dev/null \
