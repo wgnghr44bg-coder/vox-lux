@@ -186,7 +186,9 @@ export function person(E, seed, o = {}) {
     else if (pose === 'shade') { arms[1].a.rotation.x = -2.1 * k; arms[1].a.rotation.z = -.35 * k; arms[1].el.rotation.x = -1.7 * k; }
     else if (pose === 'head') { for (const [i, A] of arms.entries()) { A.a.rotation.x = -2.7 * k; A.a.rotation.z = (i ? -.5 : .5) * k; A.el.rotation.x = -1.9 * k; } }
     else if (s.lie) { arms[0].a.rotation.z = -.3; arms[1].a.rotation.z = .3; }
-  } };
+    else if (pose === 'leash') { arms[1].a.rotation.set(-.55 + sw * .1, 0, .12); arms[1].el.rotation.x = -.35; }   // holds a dog lead (animals.js walker)
+  },
+  handPos() { const v = new THREE.Vector3(0, -.29, 0); g.updateMatrixWorld(true); return arms[1].el.localToWorld(v); } };
   E.people.push(P); return P;
 }
 

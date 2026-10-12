@@ -3,6 +3,7 @@
 //   { kind: 'dog' | 'fox' | 'deer', path: [[t, x, z], ...], n: 1, spread: 1.5, lag: .4, color, scale, y,
 //     act: 'sniff' | 'graze' | 'sit' | 'look'  (what it does when it stands still), antlers: true (deer),
 //     leash: [x, z] (dog: an empty leash from its collar to that spot on the ground; leashHand: [x, y, z] + leashDrop: t = held until t),
+//     walker: { side: .45, behind: 1.3, coat, pants } (dog: a person walks along and holds the lead),
 //     acts: [[t, act], ...] (change what it does over time), shot: { name, from: [dx, dy, dz], fov } },
 //   { kind: 'birds', n: 14, center: [x, y, z], radius: 12, perch: [[x, y, z], ...], land: t, fly: t, color },
 // ]
@@ -10,7 +11,8 @@
 // Before the first and after the last waypoint it stays there (visible: false with `hide: [a, b]`).
 import * as THREE from 'three';
 import { rng, hash, smooth, clamp, lerp } from './util.js';
-import { isBig, bigAnimals } from './big-animals.js';   // dinosaurs, elephants, mammoths (baksteen Grote dieren)
+import { isBig, bigAnimals } from './big-animals.js';
+import { person } from './props.js';   // dinosaurs, elephants, mammoths (baksteen Grote dieren)
 
 const KINDS = {
   dog:  { len: .62, h: .5, leg: .32, neck: .2, head: .2, snout: .12, tail: .32, colors: [0x6b4a32, 0x2a2622, 0xb08a5a, 0xd8cdb8, 0x8a6a48], ears: 'flop', bush: false },
@@ -63,9 +65,11 @@ function quadruped(E, kind, seed, o) {
     return { p, front: sz > 0, side: sx };
   });
   let leash = null;
-  if (o.leash) {            // a lead on the ground: from the collar to its loop where the owner dropped it
+  if (o.leash || o.walkerP) {   // a lead: held by the walker, or on the ground: from the collar to its loop where the owner dropped it
     leash = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]), 12, .012, 4), lam(0xa3352b));
     E.scene.add(leash);
+  }
+  if (o.leash) {
     const loop = new THREE.Mesh(new THREE.TorusGeometry(.09, .012, 4, 10), lam(0xa3352b)); loop.rotation.x = Math.PI / 2; loop.position.set(o.leash[0], .03, o.leash[1]); E.scene.add(loop);
     if (o.leashHand) E.updates.push(t => { loop.visible = t >= (o.leashDrop ?? 1e9) + .4; });
   }
@@ -98,6 +102,8 @@ function quadruped(E, kind, seed, o) {
     if (leash) {               // collar -> ground -> the dropped loop
       leash.visible = true; g.updateMatrixWorld(true);
       const c = new THREE.Vector3(0, K.neck * .3, 0); neck.localToWorld(c);
+      if (o.walkerP) { const end = o.walkerP.handPos(), mid = c.clone().lerp(end, .5); mid.y -= .22;
+        leash.geometry.dispose(); leash.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([c, mid, end]), 14, .012, 4); return; }
       const gEnd = new THREE.Vector3(o.leash[0], .03, o.leash[1]), d = o.leashHand ? smooth(o.leashDrop ?? 1e9, (o.leashDrop ?? 1e9) + .45, t) : 1;
       const end = o.leashHand ? new THREE.Vector3(...o.leashHand).lerp(gEnd, d) : gEnd, mid = c.clone().lerp(end, .45); mid.y = lerp(Math.min(c.y, end.y) - .15, .03, d);   // held in a hand, then dropped
       leash.geometry.dispose(); leash.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([c, c.clone().lerp(mid, .5).setY(c.y * .35), mid, end]), 14, .012, 4);
@@ -172,7 +178,16 @@ export function animals(E, TL, shots) {
     for (let i = 0; i < n; i++) {
       const ox = i ? (hash(ai * 10 + i, 1) - .5) * 2 * (A.spread ?? 1.5) : 0, oz = i ? (hash(ai * 10 + i, 2) - .5) * 2 * (A.spread ?? 1.5) : 0, lag = i * (A.lag ?? .35);
       const wp = waypoints(A.path.map(([t, x, z]) => [t + lag, x + ox, z + oz]), A.hide);
-      quadruped(E, A.kind, 600 + ai * 20 + i, { ...A, leash: i === 0 ? A.leash : null, antlers: A.antlers && i === 0, pathAt: wp, color: A.colors?.[i] ?? A.color });
+      let walkerP = null;
+      if (A.walker && i === 0) {   // the owner: behind the dog and a bit to the side, walks when it walks
+        const Wk = A.walker === true ? {} : A.walker, back = Wk.behind ?? 1.3, side = Wk.side ?? .45;
+        walkerP = person(E, 7000 + ai, { coat: Wk.coat, pants: Wk.pants, skirt: false, path(t) {
+          const p = wp(t); if (p.visible === false) return { visible: false };
+          const fx = Math.sin(p.rot), fz = Math.cos(p.rot), sx = Math.cos(p.rot), sz = -Math.sin(p.rot);
+          return { x: p.x - fx * back - sx * side, z: p.z - fz * back - sz * side, rot: p.rot, moving: p.speed > 0 ? 1 : 0, speed: Math.max(p.speed, .1), arms: 'leash' };
+        } });
+      }
+      quadruped(E, A.kind, 600 + ai * 20 + i, { ...A, walkerP, leash: i === 0 ? A.leash : null, antlers: A.antlers && i === 0, pathAt: wp, color: A.colors?.[i] ?? A.color });
     }
     if (A.shot && shots) { const [, x, z] = A.path[A.shot.at ?? 0], [dx, dy, dz] = A.shot.from, gy = E.groundAt?.(x, z) ?? 0;
       shots[A.shot.name] = { pos: [x + dx, gy + dy, z + dz], look: [x, gy + (A.shot.lookY ?? .5), z], drift: A.shot.drift || [0, 0, 0], fov: A.shot.fov ?? 45 }; }
