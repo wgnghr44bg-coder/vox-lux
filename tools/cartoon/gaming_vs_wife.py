@@ -1,7 +1,7 @@
 """GAMING VS. WIFE: 2D-cartoon (16:9, ± 33 s) zonder tekst of stemmen.
 
-Bram (de gamer) en Lotte (zijn vrouw) uit poppetjes2.py. Alleen gebaren, gezichten,
-emoji's, camerabewegingen (zooms, volgen, harde cuts, freeze frame) en geluidseffecten.
+Bram (de gamer) en Lotte (zijn vrouw) uit poppetjes2.py. Alleen gebaren, overdreven gezichten,
+camerabewegingen (zooms, volgen, harde cuts, freeze frame), zachte muziek en geluidseffecten.
 Alles met code gemaakt: gratis en zonder auteursrecht.
 
 Scènes: 1 gamen  2 ze wil aandacht  3 het bord valt  4 wifi-stekker eruit
@@ -15,12 +15,11 @@ import random
 import subprocess
 import sys
 import wave
-from functools import lru_cache
 from multiprocessing import Pool
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter
 
 sys.path.insert(0, str(Path(__file__).parent))
 from poppetjes2 import INK, bram, lotte  # noqa: E402
@@ -29,7 +28,6 @@ W, H, FPS = 1920, 1080, 30
 Z = 2  # wereld wordt op 2x getekend, de camera snijdt eruit en verkleint
 DUUR = 33.6
 FREEZE = 32.3
-EMOJI_FONT = "/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf"
 VLOER = 760
 
 
@@ -97,43 +95,6 @@ def ik(sch, doel, s, kant):
 def armen_naar(x, y, s, links, rechts, hop=0.0, zak=0.0):
     sl, sr = schouders(x, y, s, hop, zak)
     return (ik(sl, links, s, -1), ik(sr, rechts, s, 1))
-
-
-# ================================================================ emoji's
-@lru_cache(maxsize=None)
-def emoji_basis(ch):
-    f = ImageFont.truetype(EMOJI_FONT, 109)
-    im = Image.new("RGBA", (260, 180), (0, 0, 0, 0))
-    ImageDraw.Draw(im).text((20, 10), ch, font=f, embedded_color=True)
-    return im.crop(im.getbbox())
-
-
-def emoji(frame, ch, x, y, grootte, alpha=1.0, flip=False, rot=0.0):
-    """Emoji op wereldpositie (x, y) = midden, grootte in wereldeenheden."""
-    if grootte <= 1 or alpha <= 0:
-        return
-    im = emoji_basis(ch)
-    h = max(2, int(grootte * Z))
-    im = im.resize((max(2, int(im.width * h / im.height)), h), Image.LANCZOS)
-    if flip:
-        im = im.transpose(Image.FLIP_LEFT_RIGHT)
-    if rot:
-        im = im.rotate(rot, resample=Image.BICUBIC, expand=True)
-    if alpha < 1:
-        a = im.getchannel("A").point(lambda v: int(v * alpha))
-        im.putalpha(a)
-    frame.paste(im, (int(x * Z - im.width / 2), int(y * Z - im.height / 2)), im)
-
-
-def pop(frame, t, a, b, ch, x, y, grootte, flip=False, zweef=True):
-    """Emoji die opploft (met doorschieten), zachtjes zweeft en aan het eind vervaagt."""
-    if not a <= t < b:
-        return
-    u = (t - a) / 0.25
-    k = terug(klem(u)) if u < 1 else 1.0
-    al = klem((b - t) / 0.2)
-    dy = math.sin((t - a) * 5) * 6 if zweef else 0
-    emoji(frame, ch, x, y + dy, grootte * k, al, flip)
 
 
 # ================================================================ decor
@@ -337,12 +298,12 @@ def man(t, seed):
             sl, sr = schouders(x, y, s)
             p["armen"] = (p["armen"][0], ik(sr, (x + 0.9 * s, sr[1] - 0.5 * s), s, 1))
             st["controller"] = "links"
-            st["duim"] = "👍"
+            st["duim"] = "duim"
         elif 9.3 <= t < 9.9:  # 'wacht even'
             sl, sr = schouders(x, y, s)
             p["armen"] = (p["armen"][0], ik(sr, (x + 0.75 * s, sr[1] - 0.65 * s), s, 1))
             st["controller"] = "links"
-            st["duim"] = "☝️"
+            st["duim"] = "vinger"
         elif 11.9 <= t < 12.4:  # ongeduldig gebaar: zet maar neer
             sl, sr = schouders(x, y, s)
             pomp = math.sin(t * 30) * 0.15 * s
@@ -403,7 +364,6 @@ def man(t, seed):
         borst = (kx, sl[1] + 0.35 * s)
         if 23.1 <= t < 23.6:  # handen gevouwen 🙏
             p["armen"] = armen_naar(kx, 965, s, (borst[0] - 0.05 * s, borst[1]), (borst[0] + 0.05 * s, borst[1]), zak=1)
-            st["handen_emoji"] = "🙏"
         elif 23.6 <= t < 24.1:  # biedt de controller aan
             p["armen"] = (ik(sl, (kx - 1.15 * s, sl[1] - 0.1 * s), s, -1), ik(sr, (kx + 0.3 * s, sr[1] + 0.9 * s), s, 1))
             st["controller"] = "links"
@@ -446,6 +406,7 @@ def man(t, seed):
         p.update(bril=u, kijk=(0.6, -0.8), pupil=lerp(0.45, 0.18, fase(t, 31.5, 31.9)),
                  mond=None if t < 31.5 else ("plat" if t < 31.8 else "open"), wenk="op" if t > 31.6 else None)
         st["x"] += math.sin(t * 60) * 2.5 * fase(t, 31.6, 31.9)
+    gezicht_man(t, p, st)
     st["p"] = p
     return st
 
@@ -580,8 +541,86 @@ def vrouw(t, seed):
             p.update(lid=2, mond=None)
         else:
             p.update(lid=0.35, wenk="boos", kijk=(1, 0))
+    gezicht_vrouw(t, p, st)
     st["p"] = p
     return st
+
+
+def gezicht_man(t, p, st):
+    """Overdreven gezichtsuitdrukkingen van Bram, per moment."""
+    def rek(a, b, k=0.18):  # kop en lijf schieten even uit van de schrik
+        if a <= t < b:
+            u = 1 - fase(t, a, b)
+            st["sy"], st["sx"] = 1 + k * u, 1 - k * 0.6 * u
+    if t < 3.0:
+        p.update(mond="tong", zweet=1, zweet_fase=t)
+    elif t < 4.8:
+        p.update(mond="lach", mondk=1.35)
+    elif 10.6 <= t < 13.0:
+        p["mond"] = "tong"
+    elif 13.0 <= t < 13.6:
+        p.update(mond="lach", mondk=1.35)
+    elif 15.8 <= t < 17.0:
+        p.update(oog=1.45, pupil=0.22, mond="plat" if t < 16.2 else "pruil", zweet=2, zweet_fase=t, bleek=0.3, wenk="op")
+        rek(15.8, 16.0, 0.1)
+    elif 20.7 <= t < 21.6:
+        p.update(oog=1.6, pupil=0.14, mond="schreeuw", mondk=1.05, bleek=0.45, wenk="op")
+        rek(20.72, 20.95)
+    elif 21.6 <= t < 22.6:
+        p.update(oog=1.25, lid=0, pupil=0.5, kijk=(0, -0.8), mond="pruil", tranen=t, puppy=1)
+    elif 22.6 <= t < 24.5:
+        p.update(puppy=1, oog=1.4, pupil=0.75, wenk="zielig", mond="pruil", tranen=t)
+    elif 24.5 <= t < 27.3:
+        p.update(blos=1, mond="lach", mondk=1.15)
+    elif 27.3 <= t < 27.8:
+        p.update(mond="gemeen", oog=1.2, pupil=0.35)
+    elif 27.8 <= t < 29.0:
+        p.update(mond="lach", mondk=1.35)
+    elif 29.0 <= t < 31.2:
+        p["mond"] = "tong"
+    elif t >= 31.2:
+        p.update(oog=lerp(1.0, 1.55, fase(t, 31.5, 31.9)), pupil=0.15 if t > 31.5 else 0.4,
+                 bleek=0.65 * fase(t, 31.4, 31.9), zweet=3, zweet_fase=t, wenk="op",
+                 mond=None if t < 31.5 else ("pruil" if t < 31.8 else "schreeuw"))
+        rek(31.95, 32.2, 0.12)
+
+
+def gezicht_vrouw(t, p, st):
+    """Overdreven gezichtsuitdrukkingen van Lotte, per moment."""
+    if 1.5 <= t < 2.6:
+        p.update(lid=2, blos=1)
+    elif 6.3 <= t < 7.5:
+        p["mond"] = "lach"
+    elif 9.6 <= t < 10.6:
+        p.update(mond="plat", lid=0.45)
+        if t >= 9.9:
+            p["wenk"] = "een"
+        if t >= 10.0:
+            p["tril"] = 0.75 if math.sin(t * 60) > 0.2 else 0.1
+    elif 12.1 <= t < 13.3:
+        p.update(mond="boos", lid=0.4, wenk="boos")
+    elif 13.3 <= t < 14.6:
+        p.update(oog=1.5, pupil=0.25, mond="o", mondk=1.4)
+    elif 14.6 <= t < 15.0:
+        p.update(mond="plat", lid=0.5)
+    elif 15.0 <= t < 16.6:
+        p.update(rood=0.65, mond="tanden", ader=1, wenk="woest", lid=0.4, pupil=0.25)
+    elif 16.6 <= t < 22.2:
+        p["mond"] = "gemeen"
+    elif 22.2 <= t < 25.3:
+        p["kijk"] = (-0.9, -0.6)
+    elif 25.3 <= t < 25.7:
+        p.update(oog=1.3, pupil=0.7, blos=1, mond="o")
+    elif 25.7 <= t < 27.9:
+        p.update(lid=2, mond="lach", blos=1)
+    elif 27.9 <= t < 28.9:
+        p.update(oog=1.6, pupil=0.18, mond="o", mondk=1.6, lid=0)
+    elif 28.9 <= t < 29.3:
+        p.update(mond="plat", lid=0.5)
+    elif 29.3 <= t < 31.2:
+        p.update(mond="gemeen", lid=0.35, wenk="boos")
+    elif t >= 31.2:
+        p.update(lid=2, blos=1, mond=None)
 
 
 def bord_vlucht(t):
@@ -707,6 +746,57 @@ def wolk(d, x, y, r, kleur=(110, 110, 125)):
         d.ellipse(R(x + dx * r - rr, y + dy * r - rr, x + dx * r + rr, y + dy * r + rr), fill=kleur, outline=INK, width=3 * Z)
 
 
+def hartje(d, x, y, r, kleur=(235, 50, 70)):
+    if r <= 3:
+        return
+    d.ellipse(R(x - r, y - r * 0.6, x, y + r * 0.35), fill=kleur, outline=INK, width=2 * Z)
+    d.ellipse(R(x, y - r * 0.6, x + r, y + r * 0.35), fill=kleur, outline=INK, width=2 * Z)
+    d.polygon(R(x - r * 0.97, y - r * 0.02, x + r * 0.97, y - r * 0.02, x, y + r * 1.05), fill=kleur, outline=INK)
+    if r > 8:  # naad tussen de rondjes wegwerken
+        d.ellipse(R(x - r * 0.9, y - r * 0.45, x - r * 0.1, y + r * 0.25), fill=kleur)
+        d.ellipse(R(x + r * 0.1, y - r * 0.45, x + r * 0.9, y + r * 0.25), fill=kleur)
+    d.ellipse(R(x - r * 0.65, y - r * 0.35, x - r * 0.35, y - r * 0.1), fill=(255, 200, 210))
+
+
+def ster(d, x, y, r, kleur, alpha=1.0):
+    """Knal-ster met punten."""
+    if r <= 2 or alpha <= 0:
+        return
+    pts = []
+    for k in range(16):
+        a = math.radians(k * 22.5)
+        rr = r if k % 2 == 0 else r * 0.45
+        pts.append((x + math.cos(a) * rr, y + math.sin(a) * rr))
+    d.polygon(R(*sum(pts, ())), fill=kleur, outline=INK)
+
+
+def lamp(d, x, y, r):
+    if r <= 2:
+        return
+    d.ellipse(R(x - r, y - r, x + r, y + r), fill=(255, 235, 90), outline=INK, width=3 * Z)
+    d.rectangle(R(x - r * 0.4, y + r * 0.85, x + r * 0.4, y + r * 1.35), fill=(170, 170, 180), outline=INK, width=3 * Z)
+    d.line(R(x - r * 0.3, y + r * 0.2, x, y - r * 0.2, x + r * 0.3, y + r * 0.2), fill=(230, 150, 30), width=3 * Z)
+    for k in range(7):
+        a = math.radians(-180 + k * 30)
+        d.line(R(x + math.cos(a) * r * 1.3, y + math.sin(a) * r * 1.3, x + math.cos(a) * r * 1.8, y + math.sin(a) * r * 1.8),
+               fill=(255, 210, 40), width=4 * Z)
+
+
+def duim(d, x, y, s, huid, lang=False):
+    """Getekende duim (of wijsvinger) omhoog op de hand."""
+    w, h = 0.09 * s, (0.42 if lang else 0.3) * s
+    d.rounded_rectangle(R(x - w, y - h, x + w, y), radius=w * Z, fill=huid, outline=INK, width=3 * Z)
+
+
+def roosje(d, x, y, s):
+    d.line(R(x, y, x - 0.05 * s, y - 0.55 * s), fill=(60, 140, 60), width=int(0.05 * s * Z))
+    d.ellipse(R(x - 0.18 * s, y - 0.3 * s, x - 0.02 * s, y - 0.2 * s), fill=(80, 170, 80), outline=INK, width=2 * Z)
+    r = 0.16 * s
+    cx, cy = x - 0.05 * s, y - 0.6 * s
+    d.ellipse(R(cx - r, cy - r, cx + r, cy + r), fill=(220, 40, 60), outline=INK, width=3 * Z)
+    d.arc(R(cx - r * 0.55, cy - r * 0.55, cx + r * 0.55, cy + r * 0.55), 200, 470, fill=(140, 20, 40), width=3 * Z)
+
+
 def scene(t, i):
     seed = (i // 4) % 3 * 10
     rng = random.Random(i)
@@ -801,12 +891,13 @@ def scene(t, i):
         controller(d, cx, cy, m["s"], u * 200)
     if 21.3 <= t < 23.6:
         controller(d, 1440, 1000, m["s"], 200)
-    if m.get("duim"):
-        emoji(frame, m["duim"], hr[0], hr[1] - 25, 70)
-    if m.get("handen_emoji"):
-        pop(frame, t, 23.15, 23.6, "🙏", (hl[0] + hr[0]) / 2, (hl[1] + hr[1]) / 2 - 70, 70)
+    huid_b = (226, 168, 122)
+    if m.get("duim") == "duim":  # duim omhoog
+        duim(d, hr[0], hr[1], m["s"], huid_b, lang=False)
+    elif m.get("duim") == "vinger":  # één vinger: 'wacht even'
+        duim(d, hr[0], hr[1], m["s"], huid_b, lang=True)
     if m.get("bloem"):
-        emoji(frame, "🌹", hr[0], hr[1] - 30, 80, rot=20)
+        roosje(d, hr[0], hr[1], m["s"])
     vl, vr = (vi["naar"](*h) for h in vi["handen"])
     if v["houd"] == "bord":
         bp = v.get("bord_pos") or ((vl[0] + vr[0]) / 2, (vl[1] + vr[1]) / 2)
@@ -831,27 +922,20 @@ def scene(t, i):
             r = 16 + k * 3
             d.ellipse(R(ex - r, ey - r, ex + r, ey + r), fill=kl, outline=INK, width=3 * Z)
 
-    # ---------------- emoji's en effecten
-    mk = mi["kop"]
-    mkx, mky = mi["naar"](mk[0], mk[1])
-    mr = mk[2] / Z
+    # ---------------- cartoon-effecten (geen emoji's: de gezichten doen het werk)
     vk = vi["kop"]
     vkx, vky = vi["naar"](vk[0], vk[1])
     vr_ = vk[2] / Z
-    pop(frame, t, 0.4, 2.8, "🎮", mkx - 40, mky - mr - 60, 80)
     for k, (tt, ex, ey) in enumerate(((0.6, 90, 400), (1.2, 410, 450), (1.8, 120, 640), (2.3, 400, 620), (2.8, 250, 395))):
-        pop(frame, t, tt, tt + 0.5, "💥" if k % 2 == 0 else "✨", ex, ey, 70, zweef=False)
-    pop(frame, t, 3.45, 4.8, "🏆", mkx - 120, mky - mr - 40, 100)
-    pop(frame, t, 3.6, 4.8, "🔥", mkx + 120, mky - mr - 30, 90)
-    if t < 2.6:
-        pop(frame, t, 1.7, 2.6, "❤️", vkx + 60, vky - vr_ - 30, 45)
+        if tt <= t < tt + 0.45:  # knallen en sterretjes rond de tv
+            u = fase(t, tt, tt + 0.45)
+            ster(d, ex, ey, 18 + 40 * terug(min(1, u * 2)), (255, 200, 40) if k % 2 == 0 else (255, 255, 160), 1 - u)
     if v.get("hart"):
-        pop(frame, t, 8.55, 9.1, "❤️", v["hart"][0], v["hart"][1] - 30, 60)
-    pop(frame, t, 9.0, 9.4, "➡️", vkx - vr_ - 50, vky, 60, flip=True)
-    pop(frame, t, 9.65, 10.0, "😐", vkx + vr_ + 30, vky - vr_, 55)
-    pop(frame, t, 9.95, 10.6, "💢", vkx + vr_ * 0.7, vky - vr_ * 0.8, 55)
-    pop(frame, t, 13.4, 14.6, "🍽️", 1280, 700, 70)
-    pop(frame, t, 14.6, 15.0, "💥", BORD_VLOER[0], BORD_VLOER[1] - 30, 120, zweef=False)
+        hartje(d, v["hart"][0], v["hart"][1] - 25, 22 * terug(fase(t, 8.5, 8.7)))
+    if m.get("hart"):
+        hartje(d, m["hart"][0], m["hart"][1] - 40, 22 * terug(fase(t, 24.1, 24.3)))
+    if 14.6 <= t < 14.95:  # klap van het bord
+        ster(d, BORD_VLOER[0], BORD_VLOER[1] - 20, 40 + 60 * fase(t, 14.6, 14.75), (255, 230, 120), 1)
     if 15.0 <= t < 16.6:  # onweerswolkje
         cx, cy = vkx, vky - vr_ - 75
         wolk(d, cx, cy, 34)
@@ -862,10 +946,7 @@ def scene(t, i):
             ry = cy + 30 + ((t * 3 + k * 0.2) % 1) * 50
             rx = cx - 40 + k * 20
             d.line(R(rx, ry, rx - 4, ry + 12), fill=(90, 140, 230), width=3 * Z)
-    if 15.8 <= t < 17.0:
-        pop(frame, t, 16.0, 17.0, "💦", mkx + mr + 10, mky - mr * 0.5, 50)
-        pop(frame, t, 16.1, 17.0, "😳", mkx - mr - 40, mky - mr, 55)
-    if 16.65 <= t < 17.6:  # gloeilamp met gloed
+    if 16.65 <= t < 17.6:  # het idee: gloeilamp met gloed
         u = fase(t, 16.65, 16.9)
         gx, gy = vkx, vky - vr_ - 70
         r = 60 * terug(u) * (1 + 0.08 * math.sin(t * 20))
@@ -873,34 +954,20 @@ def scene(t, i):
         ImageDraw.Draw(gl).ellipse((r * Z, r * Z, 3 * r * Z, 3 * r * Z), fill=(255, 240, 120, 110))
         gl = gl.filter(ImageFilter.GaussianBlur(r * Z * 0.35))
         frame.paste(gl, (int(gx * Z - 2 * r * Z), int(gy * Z - 2 * r * Z)), gl)
-        pop(frame, t, 16.65, 17.6, "💡", gx, gy, 85)
-        pop(frame, t, 17.0, 17.6, "😈", gx + 80, gy + 30, 45)
-    if 20.05 <= t < 20.5:
-        pop(frame, t, 20.0, 20.5, "🔌", STOP[0] + 50, STOP[1] - 40, 40)
-    pop(frame, t, 20.8, 21.6, "😱", mkx - mr - 60, mky - mr * 0.6, 70)
-    pop(frame, t, 21.1, 22.2, "💀", mkx + mr + 50, mky - mr * 0.8, 70)
-    pop(frame, t, 23.1, 24.0, "🥺", mkx + mr + 35, mky - mr * 0.6, 55)
-    if m.get("hart"):
-        pop(frame, t, 24.15, 24.6, "❤️", m["hart"][0], m["hart"][1] - 55, 60)
-    if 25.6 <= t < 27.3:  # hartjes en sterretjes
-        for k in range(6):
-            u = ((t - 25.6) * 0.6 + k / 6) % 1
+        lamp(d, gx, gy, 34 * terug(u))
+    if 25.6 <= t < 27.3:  # zwevende hartjes bij de knuffel
+        for k in range(5):
+            u = ((t - 25.6) * 0.6 + k / 5) % 1
             hx = 650 + math.sin(k * 2.1 + t) * 110
             hy = 520 - u * 220
-            emoji(frame, "❤️" if k % 2 == 0 else "✨", hx, hy, 40 + 15 * math.sin(u * math.pi), klem(math.sin(u * math.pi) * 1.5))
-    pop(frame, t, 26.65, 27.0, "📶", 435, 590, 40)
-    pop(frame, t, 26.7, 27.0, "✨", 475, 620, 35)
-    pop(frame, t, 27.8, 28.2, "💨", 680, 860, 90, zweef=False)
-    pop(frame, t, 28.4, 29.4, "🏆", mkx - 120, mky - mr - 40, 90)
-    pop(frame, t, 28.5, 29.4, "🎮", mkx + 120, mky - mr - 30, 80)
-    pop(frame, t, 29.35, 30.3, "😈", vkx + vr_ + 30, vky - vr_, 55)
-    if 31.25 <= t < 31.7:
-        pop(frame, t, 31.25, 31.7, "😇", vkx, vky - vr_ - 50, 55)
-    elif t >= 31.7:
-        pop(frame, t, 31.7, 40, "😈", vkx, vky - vr_ - 50, 55)
-    if t >= 31.6:
-        pop(frame, t, 31.6, 40, "💦", mkx + mr + 5, mky - mr * 0.4, 35)
-    pop(frame, t, 31.95, 40, "💀", mkx, mky - mr - 70, 110)
+            hartje(d, hx, hy, 14 * math.sin(u * math.pi) + 2)
+    if 27.8 <= t < 28.3:  # stofwolkjes bij de duik
+        u = fase(t, 27.8, 28.3)
+        for k in range(3):
+            r = 20 + u * 35 - k * 5
+            cx, cy = 690 - k * 40 - u * 30, 935 - k * 12
+            c = int(240 - u * 30)
+            d.ellipse(R(cx - r, cy - r, cx + r, cy + r * 0.6), fill=(c, c, c - 8), outline=(200, 200, 195))
     return frame
 
 
@@ -935,16 +1002,10 @@ def beeld(i):
     cy = klem(cy, vh / 2, H - vh / 2)
     box = tuple(int(c * Z) for c in (cx - vw / 2, cy - vh / 2, cx + vw / 2, cy + vh / 2))
     out = frame.crop(box).resize((W, H), Image.BICUBIC)
-    if t >= FREEZE:  # freeze frame: witte flits, daarna 😂
+    if t >= FREEZE:  # freeze frame: witte flits
         u = fase(t, FREEZE, FREEZE + 0.15)
         if u < 1:
             out = Image.blend(out, Image.new("RGB", (W, H), (255, 255, 255)), 0.7 * (1 - u))
-        if t >= FREEZE + 0.35:
-            e = emoji_basis("😂")
-            k = terug(fase(t, FREEZE + 0.35, FREEZE + 0.6))
-            hh = max(2, int(200 * k))
-            e = e.resize((int(e.width * hh / e.height), hh), Image.LANCZOS)
-            out.paste(e, (W - 300 - e.width // 2, H - 230 - hh // 2), e)
     return out.tobytes()
 
 
@@ -987,19 +1048,35 @@ def geluid(duur):
         t = tt(d)
         return (np.sin(2 * np.pi * f * t) + 0.35 * np.sin(4 * np.pi * f * t) + 0.15 * np.sin(6 * np.pi * f * t)) * np.exp(-t * demp)
 
-    # chiptune tijdens het gamen
-    akk = [(261.6, 329.6, 392.0), (220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (196.0, 246.9, 293.7)]
-    for a, b in ((0, 5.0), (10.6, 13.3), (27.05, 31.2)):
-        st, k = a, 0
-        while st < b - 0.05:
-            ch = akk[(k // 8) % 4]
-            t = tt(0.11)
-            zet(st, blok(ch[k % 3] * 2, t) * env(0.11, 0.003, 0.04), 0.05)
-            if k % 2 == 0:
-                t = tt(0.2)
-                zet(st, blok(ch[0] / 2, t) * env(0.2, 0.003, 0.05), 0.05)
-            st += 0.125
-            k += 1
+    # zachte achtergrondmuziek: rustige marimba-akkoorden, zachte bas en een licht shakertje (96 bpm)
+    tel = 60 / 96 / 2  # achtste noot
+    akk = [(261.6, 329.6, 392.0, 523.3), (196.0, 246.9, 293.7, 392.0), (220.0, 261.6, 329.6, 440.0),
+           (174.6, 220.0, 261.6, 349.2)]
+    loop_ = np.zeros(int(16 * 8 * tel * SR) + SR)
+    for k in range(32):  # 4 maten van 8 achtsten
+        ch = akk[k // 8]
+        st = int(k * tel * SR)
+        noot = ch[(0, 2, 1, 3, 2, 1, 3, 2)[k % 8]]
+        sig = tokkel(noot * 2, 0.6, 7) * 0.7 + tokkel(noot, 0.6, 9) * 0.3
+        loop_[st:st + len(sig)] += sig * (1.0 if k % 2 == 0 else 0.7)
+        if k % 4 == 0:
+            t = tt(0.9)
+            bas = np.sin(2 * np.pi * ch[0] / 2 * t) * np.exp(-t * 3)
+            loop_[st:st + len(bas)] += bas * 1.2
+        t = tt(0.05)
+        loop_[st:st + len(t)] += np.convolve(ruis(0.05), [1, -1], "same") * np.exp(-t * 60) * (0.12 if k % 2 else 0.06)
+    loop_ = loop_[: int(32 * tel * SR)]
+    bed = np.tile(loop_, int(n / len(loop_)) + 2)[:n]
+    poort = np.zeros(n)  # waar de muziek speelt (stopt hard bij grappige stiltes)
+    for a_, b_, vol, zacht_in in ((0, 5.0, 1.0, False), (10.6, 14.55, 1.0, True), (16.65, 19.45, 0.6, True),
+                                 (27.05, 31.2, 1.0, True)):
+        i0, i1 = int(a_ * SR), min(n, int(b_ * SR))
+        g = np.full(i1 - i0, vol)
+        if zacht_in:
+            f = min(len(g), int(0.4 * SR))
+            g[:f] *= np.linspace(0, 1, f)
+        poort[i0:i1] = g
+    mx += bed * poort * 0.07
     # knopjes rammen
     for a, b, dicht in ((0, 3.0, 0.06), (4.8, 7.5, 0.1), (10.6, 13.0, 0.09), (13.6, 15.8, 0.1), (17.0, 20.0, 0.12),
                         (29.0, 31.2, 0.055)):
