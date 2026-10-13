@@ -7,8 +7,8 @@ Zegt de eigenaar **"software"** → begin hier. Zegt hij **"comfy"** → alles v
 |---|---|---|---|
 | Afbeeldingen | **ComfyUI** – Z-Image Turbo (pc eigenaar) | `tools/comfy/comfy_batch.py` + `tools/comfy/README.md` | Nee |
 | Bewegende clips | **ComfyUI** – Wan 2.2 5B (pc eigenaar) | `tools/comfy/comfy_batch.py`, controle: `tools/comfy/check_clips.py` | Nee |
-| Stem (lokaal, werkt) | **pc** – Kokoro / Chatterbox | `tools/comfy/voice_test_local.py`; proefstemmen: `alteraqon/2026-10-13-donut-earth/stemtest/` (branch `alteraqon`) | Nee |
-| Stem (vast) | xAI TTS (Atlas / Lux) | `tools/xai_voiceover.py`, `alteraqon/tools/make_voice.py` (branch `alteraqon`) | **Ja – eerst vragen** |
+| **Stem (standaard)** | **pc** – Chatterbox als bm_george, rustig | `tools/comfy/make_voice_local.py`, proef: `tools/comfy/stem/standaardstem-proef.mp3` | Nee |
+| Stem (alleen op verzoek) | xAI TTS (Atlas / Lux) | `tools/xai_voiceover.py`, `alteraqon/tools/make_voice.py` (branch `alteraqon`) | **Ja – eerst vragen** |
 | Afbeeldingen / clips (oud) | xAI `grok-imagine` | `tools/xai_images.py` | **Ja – staat uit, alleen na uitdrukkelijk ja** |
 | Montage, effecten, foto, geluid | **Craft-apps** (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, …) | `tools/craft/README.md`, voorbeelden in `tools/craft/examples/` | Nee |
 | Losse bewerking | ffmpeg, OpenCV, Pillow, numpy | overal in `tools/` | Nee |
