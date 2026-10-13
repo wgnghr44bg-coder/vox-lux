@@ -46,7 +46,7 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
 - **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
   Effecten uit `tools/fx.py`: `embers`, `ash`, `dust`, `rain` (combineren met `+`).
 - **Echte bewegende clips:** via ComfyUI/Wan (zie hieronder) → `clips/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
-  Short: 1–2 clips (opening en "Then."); lange video: 15–20. In elke clip-prompt: "Everything stays solid and unchanged, no morphing,
+  Short: **alle beelden mogen bewegen** (eigenaar 13 okt 2026: via ComfyUI gratis, max 5 s per beeld; make_video rekt een korte clip vanzelf op); lange video: 15–20+. In elke clip-prompt: "Everything stays solid and unchanged, no morphing,
   no new objects, slow gentle movement". (Vroeger xAI `make_clips.py`, $0,19 per clip – staat uit.)
 - **Eigen ComfyUI (gratis, pc eigenaar: RTX 2080 Super, 8 GB):** `python alteraqon/tools/comfy_batch.py <workflow_api.json> <map>`.
   Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen/NAAM.png` (`--short` = staand: beelden 768x1344, clips 576x1024)
