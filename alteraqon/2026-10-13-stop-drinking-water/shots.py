@@ -1,7 +1,7 @@
 # Shots voor alteraqon/tools/make_video.py
 # (regel in voice-times.tsv, afbeelding, beweging, extra ffmpeg-filter, (label, groot getal) of None, [effectlaag])
 # Nieuwe set W01-W25 (eigenaar 13 okt 2026: elk beeld toont letterlijk wat er gezegd wordt, "wow"-beelden).
-# Mix: clips voor W01 W02 W08 W16 W23 W25 (clips/), de rest foto + Ken Burns + gratis effect uit fx.py.
+# Mix: 13 clips (W01 W02 W03 W04 W08 W09 W11 W14 W16 W22 W23 W24 W25, clips/), de rest foto + Ken Burns + gratis effect uit fx.py.
 # Oude set staat in afbeeldingen-oud/ en clips-ongebruikt/. Harde opening, geen titeltekst.
 # Regelnummers volgen voice-times.tsv (hangen alleen van het script af).
 FLASH = "fade=t=in:st=0:d=0.7:color=white"   # witte flits bij de klap
