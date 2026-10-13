@@ -34,14 +34,22 @@ python3 tools/comfy/check_clips.py <map>/clips      # overzichtsblad per clip in
 Bekijk elk blad, noteer in `<map>/clips/CHECKED.txt`: `naam OK`, `naam USE <seconden>` of `naam STILL`.
 Fout? Opnieuw laten maken met een andere seed (gratis).
 
-## Stem lokaal (werkt)
+## Standaardstem (gratis, op de pc)
+**Chatterbox die Kokoro bm_george nadoet, rustig** (keuze eigenaar 13 okt 2026). Proef: `stem/standaardstem-proef.mp3`.
+```
+python tools/comfy/make_voice_local.py <map>      # <map>/script-cues.txt -> voice.mp3 + voice-times.tsv
+```
+Zelfde scriptopmaak als bij xAI (`{img:ID}`, `[pause]`, `[long pause]`); `--dry-run` toont alleen de zinnen.
+Voorbeeldstem voor Chatterbox: `stem/voorbeeld-george.mp3`, instellingen exaggeration 0.4, cfg 0.5.
+
+### Stemtest (alle proefstemmen)
 Kokoro + Chatterbox, gratis en mag op een kanaal met inkomsten. Installeren in een **aparte** omgeving (uitleg bovenin):
 ```
 python tools/comfy/voice_test_local.py      # -> stemtest/*.wav
 ```
 Werkt op de pc (13 okt 2026): 6 Kokoro- + 3 Chatterbox-stemmen staan als mp3 in
 `alteraqon/2026-10-13-donut-earth/stemtest/` (branch `alteraqon`).
-Tot de eigenaar daar een vaste stem uit kiest blijft xAI (`tools/xai_voiceover.py`) de vaste stem – die kost geld, dus eerst vragen.
+xAI (`tools/xai_voiceover.py`) alleen nog als de eigenaar daar om vraagt: kost geld, dus eerst vragen.
 
 ## Herkomst
 Scripts zijn kopieën: `comfy_batch.py` en `voice_test_local.py` van branch `alteraqon` (`alteraqon/tools/`),
