@@ -1,22 +1,26 @@
-"""Clips maken met Wan 2.2 (image-to-video) in je eigen ComfyUI, in één keer voor een hele lijst.
+"""Beelden of clips in één keer laten maken door je eigen ComfyUI (gratis, op je pc).
 
-Eenmalig in ComfyUI: open het ingebouwde template "Wan 2.2 5B Video Generation" (Workflow > Browse Templates > Video;
-voor de 14B: "Wan 2.2 14B Image to Video"), zet er een startbeeld in,
-controleer dat het één keer werkt, en sla het op via Workflow > Export (API) als `wan_i2v_api.json`.
+Eenmalig in ComfyUI (Workflow > Browse Templates), laat het template één keer met de hand draaien en sla het op
+via Workflow > Export (API):
+  - beelden: template "Z-Image Turbo" (tekst naar beeld)            -> zimage_api.json
+  - clips:   template "Wan 2.2 5B Video Generation" + een startbeeld -> wan_i2v_api.json
 
 Gebruik (ComfyUI moet draaien):
-  python comfy_batch.py wan_i2v_api.json <videomap>
-  bv. python comfy_batch.py wan_i2v_api.json alteraqon/2026-10-13-donut-earth
-Leest <videomap>/comfy-clips.txt ("NAAM|prompt"), neemt <videomap>/afbeeldingen/NAAM.jpg als startbeeld
-en zet de clip in <videomap>/clips/NAAM.mp4. Bestaande clips worden overgeslagen (dus opnieuw starten kan altijd).
-Alleen de standaardbibliotheek van Python nodig.
+  python comfy_batch.py zimage_api.json   <videomap>   # leest prompts.txt     -> <videomap>/afbeeldingen-comfy/NAAM.png
+  python comfy_batch.py wan_i2v_api.json  <videomap>   # leest comfy-clips.txt -> <videomap>/clips/NAAM.mp4
+                                                        #   (startbeeld = <videomap>/afbeeldingen/NAAM.jpg)
+  Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20
+Het script ziet zelf aan de workflow (wel/geen Load Image) of het beelden of clips maakt.
+Bestaande bestanden worden overgeslagen, dus opnieuw starten kan altijd. Alleen standaard-Python nodig.
 """
 import json, os, sys, time, urllib.parse, urllib.request, uuid
 
 SERVER = "http://127.0.0.1:8188"
-WIDTH, HEIGHT, FRAMES, FPS = 1280, 704, 121, 24     # 121 frames / 24 fps = 5 s (Wan 2.2 5B). Voor de 14B: 1280, 720, 81, 16
-NEGATIVE = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
-            "watermark, flicker, blurry, fast motion, jump cut, rainbow")
+IMG_W, IMG_H = 1280, 720                              # beelden (16:9). Geheugenfout? Probeer 1024, 576
+VID_W, VID_H, FRAMES, FPS = 1024, 576, 121, 24        # clips: 121 frames / 24 fps = 5 s (Wan 2.2 5B, 8 GB-kaart)
+NEGATIVE_VID = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
+                "watermark, flicker, blurry, fast motion, jump cut, rainbow")
+NEGATIVE_IMG = "text, logo, watermark, cartoon, illustration, deformed, extra fingers, blurry, low quality"
 
 def api(path, data=None, headers=None):
     req = urllib.request.Request(SERVER + path, data=data, headers=headers or {})
@@ -30,51 +34,58 @@ def upload(img):
            f"\r\n--{b}\r\nContent-Disposition: form-data; name=\"overwrite\"\r\n\r\ntrue\r\n--{b}--\r\n".encode()
     return json.loads(api("/upload/image", body, {"Content-Type": f"multipart/form-data; boundary={b}"}))["name"]
 
-def fill(wf, image, prompt, name):
+def fill(wf, video, image, prompt, name):
     wf = json.loads(json.dumps(wf))
+    w, h = (VID_W, VID_H) if video else (IMG_W, IMG_H)
     pos = neg = None
     for n in wf.values():
         i = n["inputs"]
         if pos is None and "positive" in i and "negative" in i and isinstance(i["positive"], list):
-            pos, neg = i["positive"][0], i["negative"][0]   # sampler/I2V-knooppunt: welke tekst positief is en welke negatief
-        if "start_image" in i or n["class_type"] in ("WanImageToVideo", "Wan22ImageToVideoLatent"):
-            for k, v in (("width", WIDTH), ("height", HEIGHT), ("length", FRAMES)):
+            pos, neg = i["positive"][0], i["negative"][0]   # sampler: welke tekst positief is en welke negatief
+        if "width" in i and "height" in i and ("batch_size" in i or "start_image" in i):   # latent-/I2V-knooppunt
+            for k, v in (("width", w), ("height", h), ("length", FRAMES)):
                 if k in i and not isinstance(i[k], list): i[k] = v
     for nid, n in wf.items():
         c, i = n["class_type"], n["inputs"]
         if c == "LoadImage": i["image"] = image
         elif c == "CLIPTextEncode" and nid == pos: i["text"] = prompt
-        elif c == "CLIPTextEncode" and nid == neg: i["text"] = NEGATIVE
+        elif c == "CLIPTextEncode" and nid == neg: i["text"] = NEGATIVE_VID if video else NEGATIVE_IMG
         elif "fps" in i and not isinstance(i["fps"], list): i["fps"] = FPS
         if "filename_prefix" in i: i["filename_prefix"] = f"alteraqon/{name}"
-        if "noise_seed" in i: i["noise_seed"] = int.from_bytes(os.urandom(6), "big")
-        if "seed" in i and not isinstance(i["seed"], list): i["seed"] = int.from_bytes(os.urandom(6), "big")
-    if pos is None: sys.exit("Geen positieve/negatieve prompt gevonden: is dit de API-export van het Wan 2.2-template?")
+        for k in ("seed", "noise_seed"):
+            if k in i and not isinstance(i[k], list): i[k] = int.from_bytes(os.urandom(6), "big")
+    if pos is None: sys.exit("Geen positieve prompt gevonden: is dit een API-export (Workflow > Export (API))?")
     return wf
 
-def wait_and_download(pid, out):
+def wait_and_download(pid, out, exts):
     while True:
         h = json.loads(api(f"/history/{pid}")).get(pid)
         if h and h.get("status", {}).get("completed"):
             for node in h["outputs"].values():
                 for items in node.values():
                     for f in items if isinstance(items, list) else []:
-                        if isinstance(f, dict) and f.get("filename", "").endswith((".mp4", ".webm")):
+                        if isinstance(f, dict) and f.get("filename", "").lower().endswith(exts):
                             q = urllib.parse.urlencode({"filename": f["filename"], "subfolder": f.get("subfolder", ""), "type": f.get("type", "output")})
                             open(out, "wb").write(api(f"/view?{q}")); return True
             return False
         if h and h.get("status", {}).get("status_str") == "error": return False
-        time.sleep(5)
+        time.sleep(3)
 
-wf_base, folder = json.load(open(sys.argv[1])), sys.argv[2]
-os.makedirs(f"{folder}/clips", exist_ok=True)
-for line in open(f"{folder}/comfy-clips.txt", encoding="utf-8"):
+wf_base, folder, only = json.load(open(sys.argv[1])), sys.argv[2], set(sys.argv[3:])
+video = any(n["class_type"] == "LoadImage" for n in wf_base.values())
+src, outdir, ext = ("comfy-clips.txt", "clips", ".mp4") if video else ("prompts.txt", "afbeeldingen-comfy", ".png")
+os.makedirs(f"{folder}/{outdir}", exist_ok=True)
+print("Modus:", "clips (Wan)" if video else "beelden", "|", src, "->", outdir)
+for line in open(f"{folder}/{src}", encoding="utf-8"):
     if "|" not in line or line.startswith("#"): continue
     name, prompt = line.strip().split("|", 1)
-    out = f"{folder}/clips/{name}.mp4"
+    if only and name not in only: continue
+    out = f"{folder}/{outdir}/{name}{ext}"
     if os.path.exists(out): print(name, "bestaat al"); continue
     t = time.time()
-    wf = fill(wf_base, upload(f"{folder}/afbeeldingen/{name}.jpg"), prompt, name)
+    image = upload(f"{folder}/afbeeldingen/{name}.jpg") if video else None
+    wf = fill(wf_base, video, image, prompt, name)
     pid = json.loads(api("/prompt", json.dumps({"prompt": wf, "client_id": "alteraqon"}).encode(),
                          {"Content-Type": "application/json"}))["prompt_id"]
-    print(name, "klaar" if wait_and_download(pid, out) else "MISLUKT (zie ComfyUI-venster)", f"({time.time()-t:.0f} s)")
+    exts = (".mp4", ".webm") if video else (".png", ".jpg", ".jpeg", ".webp")
+    print(name, "klaar" if wait_and_download(pid, out, exts) else "MISLUKT (zie ComfyUI-venster)", f"({time.time()-t:.0f} s)")

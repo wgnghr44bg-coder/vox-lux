@@ -39,8 +39,9 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
 - **Echte bewegende clips** (xAI `grok-imagine-video-1.5-lite`, ca. $0,19 per 6 s): zet `NAAM|beweging` in `clips.txt`,
   dan `python3 alteraqon/tools/make_clips.py <map>` → `afbeeldingen/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
   Alleen voor de opening en het "Then."-moment (1–2 per Short). Vereist `vidgen.x.ai` in de netwerkinstellingen.
-- **Eigen ComfyUI (Wan 2.2, gratis):** `comfy-clips.txt` in de videomap + `python alteraqon/tools/comfy_batch.py wan_i2v_api.json <map>`
-  op de pc van de eigenaar → `<map>/clips/NAAM.mp4` (uitleg bovenin het script). Voorbeeld: `2026-10-13-donut-earth/`.
+- **Eigen ComfyUI (gratis, pc eigenaar: RTX 2080 Super, 8 GB):** `python alteraqon/tools/comfy_batch.py <workflow_api.json> <map>`.
+  Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen-comfy/NAAM.png`
+  (uitleg bovenin het script). Voorbeeld: `2026-10-13-donut-earth/`.
 - Clips (bronmateriaal) mogen in git; de eind-mp4 niet.
 - **Snelle stijl: NIET gebruiken** (eigenaar okt 2026: te veel beelden, te druk; houd het rustig, ±1 beeld per zin).
   Technisch kan het nog (alleen foto's, veel beelden): in `shots.py` mag het eerste veld ook `(regel, extra seconden)` zijn,
