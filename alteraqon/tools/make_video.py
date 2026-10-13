@@ -20,14 +20,15 @@ starts=[0.0]+[at(r) for r,*_ in SH[1:]]
 
 # --- beeld ---
 # Een shot mag een 6e veld hebben: gratis effectlaag uit fx.py ("embers", "ash", "dust", "rain", combineren met +).
-# Staat er afbeeldingen/<naam>.mp4 (bijv. een xAI-clip), dan wordt dat bewegende beeld gebruikt i.p.v. <naam>.jpg.
+# Staat er clips/<naam>.mp4 (ComfyUI/Wan) of afbeeldingen/<naam>.mp4 (oude xAI-clip), dan wordt dat bewegende beeld gebruikt i.p.v. de foto.
 FX=os.path.join(os.path.dirname(os.path.abspath(__file__)),"fx.py")
 GRADE="eq=contrast=1.08:saturation=0.75,colorbalance=bs=0.06:bh=-0.03"
 segs=[]
 for i,shot in enumerate(SH):
     r,img,mv,extra,stamp=shot[:5]; fx=shot[5] if len(shot)>5 else None
     d=(starts[i+1] if i+1<len(SH) else END)-starts[i]; n=round(d*FPS)
-    clip=f"{A}/{img}.mp4"
+    clip=f"{A}/../clips/{img}.mp4"
+    if not os.path.exists(clip): clip=f"{A}/{img}.mp4"
     if os.path.exists(clip):
         cd=float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",clip],capture_output=True,text=True).stdout)
         slow=min(max(d/cd,1.0),1.6)          # iets vertragen als de shot langer is, daarna laatste beeld vasthouden

@@ -3,11 +3,12 @@
 Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 
 ## Stijl
-> **Vaste regel (eigenaar 13 okt 2026): beelden ALLEEN via ComfyUI (Z-Image Turbo) op de pc van de eigenaar, NIET meer via xAI.**
-> Cloudsessie schrijft `prompts.txt` (+ `comfy-clips.txt`), commit + pusht en vraagt de eigenaar om
-> `python alteraqon/tools/comfy_batch.py zimage_api.json <map>` (Short: `--short`) te draaien → `afbeeldingen/NAAM.png`.
-> Pas na zijn push verder (contactsheet, stem, video). `make_images.py` (xAI) staat uit; alleen na uitdrukkelijk ja.
-> Oude video's houden hun xAI-`.jpg`; een `.png` met dezelfde naam gaat altijd voor.
+> **Vaste regel (eigenaar 13 okt 2026): xAI ALLEEN nog voor de stem.** Beelden én clips uitsluitend via ComfyUI op de pc van de eigenaar
+> (beelden: Z-Image Turbo, clips: Wan 2.2 5B), niet meer via xAI. `make_images.py` en `make_clips.py` (xAI) staan uit; alleen na uitdrukkelijk ja.
+> Werkwijze: cloudsessie schrijft `prompts.txt` + `comfy-clips.txt`, commit + pusht en vraagt de eigenaar op zijn pc te draaien:
+> `python alteraqon/tools/comfy_batch.py zimage_api.json <map>` (Short: `--short`) → `afbeeldingen/NAAM.png`, daarna
+> `python alteraqon/tools/comfy_batch.py wan_i2v_api.json <map>` → `clips/NAAM.mp4`. Pas na zijn push verder (contactsheet, stem, video).
+> Oude video's houden hun xAI-`.jpg`/`.mp4`; een ComfyUI-`.png` of `clips/NAAM.mp4` met dezelfde naam gaat altijd voor.
 
 - Verticaal 1080x1920, ca. 60–70 s, Engels.
 - AI-foto's, één beeld per gesproken zin, langzame zoom/pan, koele documentaire-grade + lichte filmkorrel.
@@ -42,9 +43,9 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
 ## Beweging (mix-stijl, eigenaar okt 2026)
 - **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
   Effecten uit `tools/fx.py`: `embers`, `ash`, `dust`, `rain` (combineren met `+`).
-- **Echte bewegende clips** (xAI `grok-imagine-video-1.5-lite`, ca. $0,19 per 6 s): zet `NAAM|beweging` in `clips.txt`,
-  dan `python3 alteraqon/tools/make_clips.py <map>` → `afbeeldingen/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
-  Alleen voor de opening en het "Then."-moment (1–2 per Short). Vereist `vidgen.x.ai` in de netwerkinstellingen.
+- **Echte bewegende clips:** via ComfyUI/Wan (zie hieronder) → `clips/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
+  Short: 1–2 clips (opening en "Then."); lange video: 15–20. In elke clip-prompt: "Everything stays solid and unchanged, no morphing,
+  no new objects, slow gentle movement". (Vroeger xAI `make_clips.py`, $0,19 per clip – staat uit.)
 - **Eigen ComfyUI (gratis, pc eigenaar: RTX 2080 Super, 8 GB):** `python alteraqon/tools/comfy_batch.py <workflow_api.json> <map>`.
   Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen/NAAM.png` (`--short` = staand 1088x1920)
   (uitleg bovenin het script). Voorbeeld: `2026-10-13-donut-earth/`.
