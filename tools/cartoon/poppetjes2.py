@@ -7,7 +7,9 @@ Elke tekenfunctie krijgt een pose-dict `p` (alles optioneel), zodat dezelfde fun
 beeldje kan animeren:
   armen  ((hoek1, knik1), (hoek2, knik2))  graden, 0 = rechts, 90 = omlaag
   kijk   (x, y) pupilrichting -1..1        lid   0 = open .. 1 = dicht, 2 = blij ^^
-  pupil  pupilgrootte                       mond  None (eigen mond), open, lach, o, boos, plat
+  pupil  pupilgrootte                       mond  None (eigen mond), open, lach, o, boos, plat, schreeuw, tanden, tong, gemeen, pruil
+  mondk  mondgrootte   oog  oog-grootte   bleek 0..1   zweet aantal (+zweet_fase)   tranen fase
+  ader  boze ader   puppy  natte puppy-ogen   blos  dikke blosjes   tril  ooglid van één oog (Lotte)
   wenk   None, boos, op, een (één omhoog)
   zak    0..1 knielen (bovenlijf omlaag)    bril  0..1 zonnebril omhoog (alleen Bram)
                      rood  0..1 (rood aanlopen van boosheid)
@@ -146,10 +148,39 @@ def oog(pen, cx, cy, rx, ry, kijk=(0.3, 0.1), lid=0.0, pupil=0.45, glans=True):
         pen.vorm(pen.ellips(cx, cy, rx, ry, 32), None, schaduw=False)
 
 
-def mond(pen, mx, my, soort):
-    """Algemene monden voor animatie. Geeft False terug als het poppetje zijn eigen mond houdt."""
-    s = pen.s
-    if soort == "open":  # schreeuw / schrik
+def mond(pen, mx, my, soort, k=1.0):
+    """Algemene monden voor animatie (k = grootte). Geeft False terug als het poppetje zijn eigen mond houdt."""
+    s = pen.s * k
+    rood_mond, tong = (120, 30, 45), (235, 105, 120)
+    if soort == "schreeuw":  # enorme openvallende mond
+        pen.vorm(pen.ellips(mx, my + s * 0.22, s * 0.36, s * 0.48, 28), rood_mond, schaduw=False)
+        pen.d.chord((mx - s * 0.3, my - s * 0.2, mx + s * 0.3, my + s * 0.12), 0, 180, fill=pen.k((255, 255, 255)))
+        pen.vorm(pen.ellips(mx, my + s * 0.52, s * 0.22, s * 0.13, 20), tong, schaduw=False, rand=False)
+        pen.vorm(pen.ellips(mx, my + s * 0.22, s * 0.36, s * 0.48, 28), None, schaduw=False)
+    elif soort == "tanden":  # tanden op elkaar van woede
+        pen.d.rounded_rectangle((mx - s * 0.4, my - s * 0.06, mx + s * 0.4, my + s * 0.24), radius=s * 0.08,
+                                fill=pen.k((255, 255, 255)), outline=pen.k(INK), width=pen.w)
+        pen.lijn([(mx - s * 0.38, my + s * 0.09), (mx + s * 0.38, my + s * 0.09)], w=max(2, pen.w // 2))
+        for i in (-2, -1, 0, 1, 2):
+            pen.lijn([(mx + i * s * 0.14, my - s * 0.04), (mx + i * s * 0.14, my + s * 0.22)], w=max(2, pen.w // 2))
+    elif soort == "tong":  # concentratie: tong uit de mondhoek
+        pen.boog(mx, my, s * 0.3, s * 0.15, 15, 165)
+        pen.vorm(pen.ellips(mx + s * 0.22, my + s * 0.18, s * 0.1, s * 0.13, 16), tong, schaduw=False)
+        pen.lijn([(mx + s * 0.22, my + s * 0.1), (mx + s * 0.22, my + s * 0.24)], w=max(2, pen.w // 2))
+    elif soort == "gemeen":  # sluwe grijns, één kant omhoog
+        pts = [(mx - s * 0.38, my + s * 0.02), (mx + s * 0.1, my + s * 0.02), (mx + s * 0.45, my - s * 0.2),
+               (mx + s * 0.3, my + s * 0.14), (mx - s * 0.05, my + s * 0.2)]
+        pen.vorm(pts, (255, 255, 255), schaduw=False)
+        pen.lijn([(mx - s * 0.33, my + s * 0.07), (mx + s * 0.35, my - s * 0.05)], w=max(2, pen.w // 2))
+    elif soort == "pruil":  # trillende pruillip
+        pts = []
+        for i in range(11):
+            u = i / 10
+            pts.append((mx - s * 0.28 + u * s * 0.56,
+                        my + s * 0.1 - math.sin(u * math.pi) * s * 0.12 + pen.rng.uniform(-1, 1) * s * 0.025))
+        pen.lijn(pts)
+        pen.boog(mx, my + s * 0.22, s * 0.14, s * 0.06, 20, 160, w=max(2, pen.w // 2))
+    elif soort == "open":  # schreeuw / schrik
         pen.vorm(pen.ellips(mx, my + s * 0.08, s * 0.28, s * 0.3, 24), (120, 30, 45), schaduw=False)
         pen.stip(mx, my + s * 0.25, s * 0.12, (230, 100, 110))
     elif soort == "lach":  # hard lachen, D-vorm
@@ -168,11 +199,63 @@ def mond(pen, mx, my, soort):
     return True
 
 
+def huidkleur(basis, p):
+    c = mix(basis, (235, 85, 70), p.get("rood", 0))
+    return mix(c, (205, 225, 240), p.get("bleek", 0))
+
+
+def druppel(pen, x, y, r, kleur=(150, 210, 255)):
+    pen.d.polygon([(x, y - r * 2.2), (x - r * 0.9, y - r * 0.3), (x + r * 0.9, y - r * 0.3)], fill=pen.k(kleur))
+    pen.d.ellipse((x - r, y - r, x + r, y + r), fill=pen.k(kleur), outline=pen.k(INK), width=max(2, pen.w // 2))
+    pen.d.line([(x - r * 0.95, y - r * 0.35), (x, y - r * 2.2), (x + r * 0.95, y - r * 0.35)], fill=pen.k(INK),
+               width=max(2, pen.w // 2))
+    pen.d.ellipse((x - r * 0.45, y - r * 0.5, x - r * 0.1, y - r * 0.15), fill=pen.k((255, 255, 255)))
+
+
+def gezicht_extra(pen, p, kx, ky, r, ogen):
+    """Overdreven cartoon-uitdrukkingen: zweet, tranen, boze ader, natte puppy-ogen, blosjes."""
+    s = pen.s
+    if p.get("puppy"):
+        for ox, oy, rx, ry in ogen:
+            pen.d.chord((ox - rx * 0.9, oy - ry * 0.2, ox + rx * 0.9, oy + ry * 0.95), 20, 160, fill=pen.k((170, 215, 255)))
+            pen.stip(ox + rx * 0.3, oy - ry * 0.35, rx * 0.2, (255, 255, 255))
+            pen.stip(ox - rx * 0.25, oy + ry * 0.25, rx * 0.12, (255, 255, 255))
+    if p.get("tranen") is not None:
+        f = p["tranen"]
+        for ox, oy, rx, ry in ogen:
+            pen.lijn([(ox, oy + ry * 0.9), (ox - rx * 0.1, oy + ry * 1.5), (ox + rx * 0.05, oy + ry * 2.3)],
+                     w=int(pen.w * 1.6), kleur=(150, 210, 255))
+            u = (f * 1.5) % 1
+            druppel(pen, ox, oy + ry * (2.4 + u * 1.2), s * 0.07)
+    if p.get("zweet"):
+        f = p.get("zweet_fase", 0)
+        for i in range(int(p["zweet"])):
+            u = (f * 0.8 + i * 0.37) % 1
+            kant = 1 if i % 2 == 0 else -1
+            druppel(pen, kx + kant * r * (0.95 + 0.1 * i), ky - r * 0.35 + u * r * 0.6 + i * s * 0.12, s * 0.09)
+    if p.get("ader"):
+        ax, ay, a = kx + r * 0.55, ky - r * 0.3, s * 0.1
+        for hx, hy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
+            pen.boog(ax + hx * a * 1.2, ay + hy * a * 1.2, a, a, (135 if hx > 0 else 45) + (90 if hy > 0 else 0) - 45,
+                     (135 if hx > 0 else 45) + (90 if hy > 0 else 0) + 45, kleur=(220, 40, 50))
+    if p.get("blos"):
+        for dx in (-0.68, 0.68):
+            pen.d.ellipse((kx + dx * s - s * 0.18, ky + s * 0.42, kx + dx * s + s * 0.18, ky + s * 0.64),
+                          fill=pen.k((255, 120, 140)))
+            for i in range(3):
+                lx = kx + dx * s - s * 0.1 + i * s * 0.1
+                pen.d.line((lx, ky + s * 0.47, lx - s * 0.04, ky + s * 0.58), fill=pen.k((220, 70, 90)), width=max(2, pen.w // 2))
+
+
 def wenkbrauwen(pen, kx, ky, soort, gap=0.38, hoogte=0.45):
     s = pen.s
-    if soort == "boos":
-        pen.lijn([(kx - s * (gap + 0.3), ky - s * (hoogte + 0.15)), (kx - s * 0.08, ky - s * (hoogte - 0.1))])
-        pen.lijn([(kx + s * (gap + 0.3), ky - s * (hoogte + 0.15)), (kx + s * 0.08, ky - s * (hoogte - 0.1))])
+    if soort in ("boos", "woest"):
+        w = int(pen.w * (2.2 if soort == "woest" else 1))
+        pen.lijn([(kx - s * (gap + 0.3), ky - s * (hoogte + 0.15)), (kx - s * 0.08, ky - s * (hoogte - 0.1))], w=w)
+        pen.lijn([(kx + s * (gap + 0.3), ky - s * (hoogte + 0.15)), (kx + s * 0.08, ky - s * (hoogte - 0.1))], w=w)
+    elif soort == "zielig":  # puppy: binnenkant omhoog
+        pen.lijn([(kx - s * (gap + 0.28), ky - s * (hoogte - 0.05)), (kx - s * 0.1, ky - s * (hoogte + 0.22))])
+        pen.lijn([(kx + s * (gap + 0.28), ky - s * (hoogte - 0.05)), (kx + s * 0.1, ky - s * (hoogte + 0.22))])
     elif soort == "op":
         pen.boog(kx - s * gap, ky - s * (hoogte + 0.2), s * 0.25, s * 0.12, 200, 340)
         pen.boog(kx + s * gap, ky - s * (hoogte + 0.2), s * 0.25, s * 0.12, 200, 340)
@@ -246,7 +329,7 @@ def bram(img, x, y, s, p=None):
     """Stoere gast met stekelhaar, zonnebril, rode hoodie en gouden ketting."""
     p = p or {}
     pen = Pen(img, s, 2 + p.get("seed", 0))
-    pen.huid = mix((226, 168, 122), (235, 85, 70), p.get("rood", 0))
+    pen.huid = huidkleur((226, 168, 122), p)
     top, handen = lijf_basis(pen, x, y, (214, 64, 60), (40, 50, 80), (250, 250, 250), p,
                              armen=((160, -70), (20, 70)), hand=pen.huid)
     for i in range(9):  # ketting
@@ -264,8 +347,9 @@ def bram(img, x, y, s, p=None):
     bril = p.get("bril", 0.0)  # 0 = op de ogen, 1 = omhoog op het voorhoofd
     if bril > 0:
         kijk, lid, pu = p.get("kijk", (0, 0)), p.get("lid", 0), p.get("pupil", 0.45)
+        o = p.get("oog", 1.0)
         for dx in (-0.4, 0.4):
-            oog(pen, kx + dx * s, ky + s * 0.08, s * 0.28, s * 0.32, kijk=kijk, lid=lid, pupil=pu)
+            oog(pen, kx + dx * s * (1 + (o - 1) * 0.3), ky + s * 0.08, s * 0.28 * o, s * 0.32 * o, kijk=kijk, lid=lid, pupil=pu)
         if p.get("wenk"):
             wenkbrauwen(pen, kx, ky + s * 0.08, p["wenk"], gap=0.4, hoogte=0.45)
     for dx in (-0.4, 0.4):  # zonnebril
@@ -276,11 +360,14 @@ def bram(img, x, y, s, p=None):
         pen.lijn([(bx - s * 0.18, by - s * 0.08), (bx - s * 0.05, by - s * 0.12)], w=int(pen.w * 0.6), kleur=(255, 255, 255))
     pen.lijn([(kx - s * 0.08, ky - s * 0.08 - bril * s * 0.62), (kx + s * 0.08, ky - s * 0.08 - bril * s * 0.62)])
     mx, my = kx + s * 0.05, ky + s * 0.5
-    if not mond(pen, mx, my, p.get("mond")):  # grote grijns met tanden
+    if not mond(pen, mx, my, p.get("mond"), p.get("mondk", 1.0)):  # grote grijns met tanden
         pts = [(mx - s * 0.42, my - s * 0.05), (mx + s * 0.42, my - s * 0.1), (mx + s * 0.3, my + s * 0.22),
                (mx, my + s * 0.3), (mx - s * 0.3, my + s * 0.2)]
         pen.vorm(pts, (255, 255, 255), schaduw=False)
         pen.lijn([(mx - s * 0.38, my + s * 0.05), (mx + s * 0.38, my + s * 0.02)], w=int(pen.w * 0.6))
+    o = p.get("oog", 1.0)
+    ogen = [(kx + dx * s * (1 + (o - 1) * 0.3), ky + s * 0.08, s * 0.28 * o, s * 0.32 * o) for dx in (-0.4, 0.4)] if bril > 0 else []
+    gezicht_extra(pen, p, kx, ky, r, ogen)
     return {"handen": handen, "kop": (kx, ky, r)}
 
 
@@ -288,7 +375,7 @@ def lotte(img, x, y, s, p=None):
     """Meisje met paardenstaart, grote ogen met wimpers, roze trui."""
     p = p or {}
     pen = Pen(img, s, 3 + p.get("seed", 0))
-    pen.huid = mix((255, 222, 204), (235, 85, 70), p.get("rood", 0))
+    pen.huid = huidkleur((255, 222, 204), p)
     top, handen = lijf_basis(pen, x, y, (240, 130, 170), None, (140, 90, 200), p,
                              armen=((140, -20), (60, -150)), hand=pen.huid)
     kx, ky, r = x, top - s * 0.95, s * 1.08
@@ -301,21 +388,29 @@ def lotte(img, x, y, s, p=None):
               (kx - r * 0.1, ky - r * 0.45), (kx - r * 0.75, ky - r * 0.3)], haar)
     pen.stip(kx + r * 1.0, ky - r * 0.5, s * 0.12, (255, 210, 60))  # haarelastiek
     kijk, lid, pu = p.get("kijk", (-0.2, -0.2)), p.get("lid", 0), p.get("pupil", 0.6)
+    o = p.get("oog", 1.0)
+    ogen = []
     for dx, k in ((-0.38, -1), (0.38, 1)):
-        ox, oy = kx + dx * s, ky + s * 0.12
-        oog(pen, ox, oy, s * 0.3, s * 0.38, kijk=kijk, lid=lid, pupil=pu)
-        if lid < 0.95:
+        ox, oy = kx + dx * s * (1 + (o - 1) * 0.3), ky + s * 0.12
+        lid_k = lid
+        if p.get("tril") and k > 0:  # één oog trilt
+            lid_k = p["tril"]
+        oog(pen, ox, oy, s * 0.3 * o, s * 0.38 * o, kijk=kijk, lid=lid_k, pupil=pu)
+        ogen.append((ox, oy, s * 0.3 * o, s * 0.38 * o))
+        if lid_k < 0.95:
             for i in range(3):  # wimpers
                 a = math.radians(-90 + k * (25 + i * 22))
-                pen.lijn([(ox + math.cos(a) * s * 0.3, oy + math.sin(a) * s * 0.36),
-                          (ox + math.cos(a) * s * 0.44, oy + math.sin(a) * s * 0.5)], w=int(pen.w * 0.6))
+                pen.lijn([(ox + math.cos(a) * s * 0.3 * o, oy + math.sin(a) * s * 0.36 * o),
+                          (ox + math.cos(a) * s * 0.44 * o, oy + math.sin(a) * s * 0.5 * o)], w=int(pen.w * 0.6))
     if p.get("wenk"):
         wenkbrauwen(pen, kx, ky + s * 0.12, p["wenk"], hoogte=0.6)
-    if not mond(pen, kx, ky + s * 0.6, p.get("mond")):
+    if not mond(pen, kx, ky + s * 0.6, p.get("mond"), p.get("mondk", 1.0)):
         pen.boog(kx, ky + s * 0.62, s * 0.18, s * 0.1, 10, 170)
-    for dx in (-0.68, 0.68):
-        pen.d.ellipse((kx + dx * s - s * 0.13, ky + s * 0.48, kx + dx * s + s * 0.13, ky + s * 0.62),
-                      fill=pen.k((255, 150, 160)))
+    if p.get("rood", 0) < 0.3 and p.get("bleek", 0) < 0.3:
+        for dx in (-0.68, 0.68):
+            pen.d.ellipse((kx + dx * s - s * 0.13, ky + s * 0.48, kx + dx * s + s * 0.13, ky + s * 0.62),
+                          fill=pen.k((255, 150, 160)))
+    gezicht_extra(pen, p, kx, ky, r, ogen)
     return {"handen": handen, "kop": (kx, ky, r)}
 
 
