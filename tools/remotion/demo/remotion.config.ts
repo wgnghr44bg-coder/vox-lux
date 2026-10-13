@@ -10,6 +10,8 @@ import { Config } from "@remotion/cli/config";
 Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
+Config.setJpegQuality(95);
+Config.setCrf(16);
 Config.setDefaultPremountInSeconds(2);
 
 // Cloudsessie: gebruik de voorgeïnstalleerde Chromium (geen download nodig).
