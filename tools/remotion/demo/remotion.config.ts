@@ -17,4 +17,5 @@ import fs from "fs";
 const CLOUD_CHROME = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
 if (fs.existsSync(CLOUD_CHROME)) {
   Config.setBrowserExecutable(CLOUD_CHROME);
+  Config.setChromiumOpenGlRenderer("swangle"); // 3D (three.js) zonder GPU
 }
