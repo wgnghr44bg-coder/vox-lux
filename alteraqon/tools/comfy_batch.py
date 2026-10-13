@@ -9,14 +9,14 @@ Gebruik (ComfyUI moet draaien):
   python comfy_batch.py zimage_api.json   <videomap>   # leest prompts.txt     -> <videomap>/afbeeldingen/NAAM.png
   python comfy_batch.py wan_i2v_api.json  <videomap>   # leest comfy-clips.txt -> <videomap>/clips/NAAM.mp4
                                                         #   (startbeeld = afbeeldingen/NAAM.png, anders .jpg)
-  Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20   en --short voor staande beelden (Shorts)
+  Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20   en --short voor staand (Shorts): beelden 768x1344, clips 576x1024
 Het script ziet zelf aan de workflow (wel/geen Load Image) of het beelden of clips maakt.
 Bestaande bestanden worden overgeslagen, dus opnieuw starten kan altijd. Alleen standaard-Python nodig.
 """
 import json, os, sys, time, urllib.parse, urllib.request, uuid
 
 SERVER = "http://127.0.0.1:8188"
-IMG_W, IMG_H = 1280, 720                              # beelden: lange video 16:9; Short: 1088, 1920 (of 768, 1344 + opschalen)
+IMG_W, IMG_H = 1280, 720                              # beelden: lange video 16:9 (Short: --short)
 VID_W, VID_H, FRAMES, FPS = 1024, 576, 121, 24        # clips: 121 frames / 24 fps = 5 s (Wan 2.2 5B, 8 GB-kaart)
 NEGATIVE_VID = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
                 "watermark, flicker, blurry, fast motion, jump cut, rainbow")
@@ -72,7 +72,7 @@ def wait_and_download(pid, out, exts):
         time.sleep(3)
 
 args = [a for a in sys.argv[1:] if a != "--short"]
-if "--short" in sys.argv: IMG_W, IMG_H = 1088, 1920
+if "--short" in sys.argv: IMG_W, IMG_H, VID_W, VID_H = 768, 1344, 576, 1024   # staand; montage schaalt op naar 1080x1920
 wf_base, folder, only = json.load(open(args[0])), args[1], set(args[2:])
 video = any(n["class_type"] == "LoadImage" for n in wf_base.values())
 src, outdir, ext = ("comfy-clips.txt", "clips", ".mp4") if video else ("prompts.txt", "afbeeldingen", ".png")

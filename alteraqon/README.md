@@ -47,7 +47,7 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
   Short: 1–2 clips (opening en "Then."); lange video: 15–20. In elke clip-prompt: "Everything stays solid and unchanged, no morphing,
   no new objects, slow gentle movement". (Vroeger xAI `make_clips.py`, $0,19 per clip – staat uit.)
 - **Eigen ComfyUI (gratis, pc eigenaar: RTX 2080 Super, 8 GB):** `python alteraqon/tools/comfy_batch.py <workflow_api.json> <map>`.
-  Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen/NAAM.png` (`--short` = staand 1088x1920)
+  Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen/NAAM.png` (`--short` = staand: beelden 768x1344, clips 576x1024)
   (uitleg bovenin het script). Voorbeeld: `2026-10-13-donut-earth/`.
 - Clips (bronmateriaal) mogen in git; de eind-mp4 niet.
 - **Snelle stijl: NIET gebruiken** (eigenaar okt 2026: te veel beelden, te druk; houd het rustig, ±1 beeld per zin).
