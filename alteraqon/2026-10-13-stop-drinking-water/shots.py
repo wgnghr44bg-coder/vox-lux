@@ -1,17 +1,17 @@
 # Shots voor alteraqon/tools/make_video.py
 # (regel in voice-times.tsv, afbeelding, beweging, extra ffmpeg-filter, (label, groot getal) of None, [effectlaag])
-# Mix (eigenaar 13 okt 2026): 6 Wan-clips (clips/: S00 S03 S05 S07 S08 S11) + foto's met Ken Burns en gratis effect uit fx.py,
-# plus opvulbeelden (xxb/S09a) waar één beeld anders 6-7 s blijft staan.
-# Clips met vervorming/nieuwe objecten (S02 S04 S09: er schuift een hand in beeld) staan in clips-ongebruikt/.
-# Harde opening zonder fade-in, geen titeltekst. Regelnummers volgen voice-times.tsv (hangen alleen van het script af).
+# Nieuwe set W01-W25 (eigenaar 13 okt 2026: elk beeld toont letterlijk wat er gezegd wordt, "wow"-beelden).
+# Mix: clips voor W01 W02 W08 W16 W23 W25 (clips/), de rest foto + Ken Burns + gratis effect uit fx.py.
+# Oude set staat in afbeeldingen-oud/ en clips-ongebruikt/. Harde opening, geen titeltekst.
+# Regelnummers volgen voice-times.tsv (hangen alleen van het script af).
 FLASH = "fade=t=in:st=0:d=0.7:color=white"   # witte flits bij de klap
-SH = [(1,"S00","in","",None),(4,"S01","in","",None,"dust"),(6,"S01b","out","",None,"dust"),(8,"S02","in",FLASH,None),
- (9,"S03","in","",("NO WATER","6 HOURS")),(11,"S03b","in","",None,"dust"),
- (12,"S04","shake","",("NO WATER","12 HOURS"),"dust"),(15,"S04b","shake","",None),
- (16,"S05","in","",("NO WATER","1 DAY")),(19,"S05b","shake","",None),
- (20,"S06","out","",("NO WATER","3 DAYS"),"dust"),(22,"S06b","in","",None),
- (23,"S07","in","",None),(24,"S08","in","",None),(25,"S08b","in","",None,"dust"),
- (26,"S09a","in","",None,"dust"),(28,"S09","in","",("WORLD RECORD","18 DAYS")),
- (29,"S10","out","",None),(31,"S11","in","",None)]
-BANG = 3       # shot-index (vanaf 0) met flits + klap
+SH = [(1,"W01","in","",None),(2,"W02","in","",None),(3,"W03","in","",None),(4,"W04","in","",None,"dust"),
+ (5,"W05","in","",None),(6,"W06","in","",None),(8,"W07","in",FLASH,None),
+ (9,"W08","in","",("NO WATER","6 HOURS")),(11,"W09","in","",None),
+ (12,"W10","in","",("NO WATER","12 HOURS")),(14,"W11","out","",None),(15,"W12","shake","",None),
+ (16,"W13","in","",("NO WATER","1 DAY")),(18,"W14","in","",None),(19,"W15","shake","",None,"dust"),
+ (20,"W16","in","",("NO WATER","3 DAYS")),(22,"W17","out","",None,"dust"),
+ (23,"W18","in","",None),(24,"W19","in","",None,"dust"),(25,"W20","in","",None,"dust"),(26,"W21","in","",None,"dust"),
+ (28,"W22","in","",("WORLD RECORD","18 DAYS")),(29,"W23","in","",None),(31,"W24","in","",None),(33,"W25","in","",None)]
+BANG = 6       # shot-index (vanaf 0) met flits + klap
 FADE_IN = 0    # meteen beeld
