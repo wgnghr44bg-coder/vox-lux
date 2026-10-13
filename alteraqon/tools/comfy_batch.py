@@ -6,17 +6,17 @@ via Workflow > Export (API):
   - clips:   template "Wan 2.2 5B Video Generation" + een startbeeld -> wan_i2v_api.json
 
 Gebruik (ComfyUI moet draaien):
-  python comfy_batch.py zimage_api.json   <videomap>   # leest prompts.txt     -> <videomap>/afbeeldingen-comfy/NAAM.png
+  python comfy_batch.py zimage_api.json   <videomap>   # leest prompts.txt     -> <videomap>/afbeeldingen/NAAM.png
   python comfy_batch.py wan_i2v_api.json  <videomap>   # leest comfy-clips.txt -> <videomap>/clips/NAAM.mp4
-                                                        #   (startbeeld = <videomap>/afbeeldingen/NAAM.jpg)
-  Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20
+                                                        #   (startbeeld = afbeeldingen/NAAM.png, anders .jpg)
+  Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20   en --short voor staande beelden (Shorts)
 Het script ziet zelf aan de workflow (wel/geen Load Image) of het beelden of clips maakt.
 Bestaande bestanden worden overgeslagen, dus opnieuw starten kan altijd. Alleen standaard-Python nodig.
 """
 import json, os, sys, time, urllib.parse, urllib.request, uuid
 
 SERVER = "http://127.0.0.1:8188"
-IMG_W, IMG_H = 1280, 720                              # beelden (16:9). Geheugenfout? Probeer 1024, 576
+IMG_W, IMG_H = 1280, 720                              # beelden: lange video 16:9; Short: 1088, 1920 (of 768, 1344 + opschalen)
 VID_W, VID_H, FRAMES, FPS = 1024, 576, 121, 24        # clips: 121 frames / 24 fps = 5 s (Wan 2.2 5B, 8 GB-kaart)
 NEGATIVE_VID = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
                 "watermark, flicker, blurry, fast motion, jump cut, rainbow")
@@ -71,9 +71,11 @@ def wait_and_download(pid, out, exts):
         if h and h.get("status", {}).get("status_str") == "error": return False
         time.sleep(3)
 
-wf_base, folder, only = json.load(open(sys.argv[1])), sys.argv[2], set(sys.argv[3:])
+args = [a for a in sys.argv[1:] if a != "--short"]
+if "--short" in sys.argv: IMG_W, IMG_H = 1088, 1920
+wf_base, folder, only = json.load(open(args[0])), args[1], set(args[2:])
 video = any(n["class_type"] == "LoadImage" for n in wf_base.values())
-src, outdir, ext = ("comfy-clips.txt", "clips", ".mp4") if video else ("prompts.txt", "afbeeldingen-comfy", ".png")
+src, outdir, ext = ("comfy-clips.txt", "clips", ".mp4") if video else ("prompts.txt", "afbeeldingen", ".png")
 os.makedirs(f"{folder}/{outdir}", exist_ok=True)
 print("Modus:", "clips (Wan)" if video else "beelden", "|", src, "->", outdir)
 for line in open(f"{folder}/{src}", encoding="utf-8"):
@@ -83,7 +85,8 @@ for line in open(f"{folder}/{src}", encoding="utf-8"):
     out = f"{folder}/{outdir}/{name}{ext}"
     if os.path.exists(out): print(name, "bestaat al"); continue
     t = time.time()
-    image = upload(f"{folder}/afbeeldingen/{name}.jpg") if video else None
+    start = f"{folder}/afbeeldingen/{name}.png"
+    image = upload(start if os.path.exists(start) else start[:-4] + ".jpg") if video else None
     wf = fill(wf_base, video, image, prompt, name)
     pid = json.loads(api("/prompt", json.dumps({"prompt": wf, "client_id": "alteraqon"}).encode(),
                          {"Content-Type": "application/json"}))["prompt_id"]

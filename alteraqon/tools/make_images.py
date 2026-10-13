@@ -1,4 +1,7 @@
-"""Afbeeldingen maken met xAI (grok-imagine-image, 9:16) uit <videomap>/prompts.txt.
+"""NIET MEER GEBRUIKEN (eigenaar 13 okt 2026): beelden alleen nog via ComfyUI (Z-Image Turbo) met tools/comfy_batch.py.
+Alleen na uitdrukkelijk ja van de eigenaar: ALTERAQON_XAI_IMAGES=1 python3 ...
+
+Afbeeldingen maken met xAI (grok-imagine-image, 9:16) uit <videomap>/prompts.txt.
 
 Gebruik: python3 alteraqon/tools/make_images.py alteraqon/<datum>-<slug> [16:9]
 (tweede argument = beeldverhouding, bv. 16:9 voor een lange liggende video)
@@ -7,6 +10,8 @@ prompts.txt: één regel per beeld, "NAAM|prompt". Bestaande afbeeldingen worden
 Kosten: ca. $0,02 per afbeelding.
 """
 import base64, os, sys, time, requests
+if os.environ.get("ALTERAQON_XAI_IMAGES") != "1":
+    sys.exit("Gestopt: xAI-beelden zijn uitgezet door de eigenaar. Gebruik ComfyUI (Z-Image Turbo): alteraqon/tools/comfy_batch.py")
 ASPECT = sys.argv[2] if len(sys.argv) > 2 else "9:16"
 os.chdir(sys.argv[1]); os.makedirs("afbeeldingen", exist_ok=True)
 for line in open("prompts.txt"):
