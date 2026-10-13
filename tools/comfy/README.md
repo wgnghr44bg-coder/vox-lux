@@ -34,12 +34,14 @@ python3 tools/comfy/check_clips.py <map>/clips      # overzichtsblad per clip in
 Bekijk elk blad, noteer in `<map>/clips/CHECKED.txt`: `naam OK`, `naam USE <seconden>` of `naam STILL`.
 Fout? Opnieuw laten maken met een andere seed (gratis).
 
-## Stem lokaal (testfase)
+## Stem lokaal (werkt)
 Kokoro + Chatterbox, gratis en mag op een kanaal met inkomsten. Installeren in een **aparte** omgeving (uitleg bovenin):
 ```
 python tools/comfy/voice_test_local.py      # -> stemtest/*.wav
 ```
-Tot de eigenaar een lokale stem kiest blijft xAI (`tools/xai_voiceover.py`) de vaste stem – die kost geld, dus eerst vragen.
+Werkt op de pc (13 okt 2026): 6 Kokoro- + 3 Chatterbox-stemmen staan als mp3 in
+`alteraqon/2026-10-13-donut-earth/stemtest/` (branch `alteraqon`).
+Tot de eigenaar daar een vaste stem uit kiest blijft xAI (`tools/xai_voiceover.py`) de vaste stem – die kost geld, dus eerst vragen.
 
 ## Herkomst
 Scripts zijn kopieën: `comfy_batch.py` en `voice_test_local.py` van branch `alteraqon` (`alteraqon/tools/`),
