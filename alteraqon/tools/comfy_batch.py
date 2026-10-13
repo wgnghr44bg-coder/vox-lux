@@ -1,6 +1,7 @@
 """Clips maken met Wan 2.2 (image-to-video) in je eigen ComfyUI, in één keer voor een hele lijst.
 
-Eenmalig in ComfyUI: open het ingebouwde template "Wan 2.2 14B Image to Video" (Workflow > Browse Templates > Video),
+Eenmalig in ComfyUI: open het ingebouwde template "Wan 2.2 5B Video Generation" (Workflow > Browse Templates > Video;
+voor de 14B: "Wan 2.2 14B Image to Video"), zet er een startbeeld in,
 controleer dat het één keer werkt, en sla het op via Workflow > Export (API) als `wan_i2v_api.json`.
 
 Gebruik (ComfyUI moet draaien):
@@ -13,7 +14,7 @@ Alleen de standaardbibliotheek van Python nodig.
 import json, os, sys, time, urllib.parse, urllib.request, uuid
 
 SERVER = "http://127.0.0.1:8188"
-WIDTH, HEIGHT, FRAMES, FPS = 1280, 720, 81, 16      # 81 frames / 16 fps = 5 s (Wan 2.2 14B). Voor de 5B: 1280x704, 121, 24
+WIDTH, HEIGHT, FRAMES, FPS = 1280, 704, 121, 24     # 121 frames / 24 fps = 5 s (Wan 2.2 5B). Voor de 14B: 1280, 720, 81, 16
 NEGATIVE = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
             "watermark, flicker, blurry, fast motion, jump cut, rainbow")
 
@@ -32,12 +33,13 @@ def upload(img):
 def fill(wf, image, prompt, name):
     wf = json.loads(json.dumps(wf))
     pos = neg = None
-    for n in wf.values():                      # het I2V-knooppunt vertelt welke tekst positief en welke negatief is
+    for n in wf.values():
         i = n["inputs"]
-        if "positive" in i and "negative" in i and isinstance(i["positive"], list):
-            pos, neg = i["positive"][0], i["negative"][0]
+        if pos is None and "positive" in i and "negative" in i and isinstance(i["positive"], list):
+            pos, neg = i["positive"][0], i["negative"][0]   # sampler/I2V-knooppunt: welke tekst positief is en welke negatief
+        if "start_image" in i or n["class_type"] in ("WanImageToVideo", "Wan22ImageToVideoLatent"):
             for k, v in (("width", WIDTH), ("height", HEIGHT), ("length", FRAMES)):
-                if k in i: i[k] = v
+                if k in i and not isinstance(i[k], list): i[k] = v
     for nid, n in wf.items():
         c, i = n["class_type"], n["inputs"]
         if c == "LoadImage": i["image"] = image
@@ -47,7 +49,7 @@ def fill(wf, image, prompt, name):
         if "filename_prefix" in i: i["filename_prefix"] = f"alteraqon/{name}"
         if "noise_seed" in i: i["noise_seed"] = int.from_bytes(os.urandom(6), "big")
         if "seed" in i and not isinstance(i["seed"], list): i["seed"] = int.from_bytes(os.urandom(6), "big")
-    if pos is None: sys.exit("Geen image-to-video-knooppunt gevonden: is dit de API-export van het Wan 2.2 I2V-template?")
+    if pos is None: sys.exit("Geen positieve/negatieve prompt gevonden: is dit de API-export van het Wan 2.2-template?")
     return wf
 
 def wait_and_download(pid, out):
