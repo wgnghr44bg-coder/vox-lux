@@ -42,6 +42,9 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
   – geüpload 11 okt (openbaar): https://youtu.be/8ErptEFbUnA
 - `2026-10-11-flat-earth/` – What if the Earth was flat? (**snelle stijl, test – AFGEWEZEN** door de eigenaar: "te veel en te druk"; niet uploaden)
 
+- **Omgeving (eigenaar 13 okt 2026):** geen vaste stad; elk beeld toont letterlijk wat er gezegd wordt en past bij het onderwerp
+  ("wow"-beelden: spectaculair, ook wetenschappelijke 3D-renders voor lichaam/natuur).
+
 ## Beweging (mix-stijl, eigenaar okt 2026)
 - **Gratis effecten** op foto's: 6e veld in een shot in `shots.py`, bijv. `(5,"K06","out","",None,"ash")`.
   Effecten uit `tools/fx.py`: `embers`, `ash`, `dust`, `rain` (combineren met `+`).
