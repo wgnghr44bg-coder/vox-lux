@@ -7,8 +7,10 @@ Elke tekenfunctie krijgt een pose-dict `p` (alles optioneel), zodat dezelfde fun
 beeldje kan animeren:
   armen  ((hoek1, knik1), (hoek2, knik2))  graden, 0 = rechts, 90 = omlaag
   kijk   (x, y) pupilrichting -1..1        lid   0 = open .. 1 = dicht, 2 = blij ^^
-  pupil  pupilgrootte                       mond  None (eigen mond), open, lach, o, boos
-  wenk   None, boos, op                     rood  0..1 (rood aanlopen van boosheid)
+  pupil  pupilgrootte                       mond  None (eigen mond), open, lach, o, boos, plat
+  wenk   None, boos, op, een (één omhoog)
+  zak    0..1 knielen (bovenlijf omlaag)    bril  0..1 zonnebril omhoog (alleen Bram)
+                     rood  0..1 (rood aanlopen van boosheid)
   loop   (fase, tilhoogte) voor lopen/rennen
   schaduw False = geen grondschaduw (die tekent de scène dan zelf)
   seed   andere wiebel van de lijnen (bv. elke paar beeldjes, 'kokende' lijnen)
@@ -159,6 +161,8 @@ def mond(pen, mx, my, soort):
         pen.vorm(pen.ellips(mx, my + s * 0.05, s * 0.12, s * 0.15, 16), (120, 30, 45), schaduw=False)
     elif soort == "boos":
         pen.boog(mx, my + s * 0.25, s * 0.3, s * 0.16, 200, 340)
+    elif soort == "plat":
+        pen.lijn([(mx - s * 0.2, my + s * 0.08), (mx + s * 0.2, my + s * 0.08)])
     else:
         return False
     return True
@@ -172,6 +176,9 @@ def wenkbrauwen(pen, kx, ky, soort, gap=0.38, hoogte=0.45):
     elif soort == "op":
         pen.boog(kx - s * gap, ky - s * (hoogte + 0.2), s * 0.25, s * 0.12, 200, 340)
         pen.boog(kx + s * gap, ky - s * (hoogte + 0.2), s * 0.25, s * 0.12, 200, 340)
+    elif soort == "een":  # links plat, rechts hoog opgetrokken
+        pen.lijn([(kx - s * (gap + 0.25), ky - s * hoogte), (kx - s * (gap - 0.25), ky - s * (hoogte - 0.05))])
+        pen.boog(kx + s * gap, ky - s * (hoogte + 0.3), s * 0.27, s * 0.16, 200, 340)
 
 
 def lijf_basis(pen, x, y, shirt, broek, schoenen, p, dik=1.0, armen=((150, -40), (30, 40)), hand=None,
@@ -180,7 +187,8 @@ def lijf_basis(pen, x, y, shirt, broek, schoenen, p, dik=1.0, armen=((150, -40),
     armen = p.get("armen", armen)
     if p.get("schaduw", schaduw_grond):
         pen.d.ellipse((x - s * 0.9, y - s * 0.12, x + s * 0.9, y + s * 0.12), fill=pen.k((222, 214, 200)))
-    heup = y - s * 1.35
+    dz = p.get("zak", 0.0) * s * 0.8  # knielen: bovenlijf zakt omlaag
+    heup = y - s * 1.35 + dz
     fase, til = p.get("loop", (0.0, 0.0))
     for kant in (-1, 1):
         ph = fase + (0 if kant < 0 else math.pi)
@@ -191,7 +199,7 @@ def lijf_basis(pen, x, y, shirt, broek, schoenen, p, dik=1.0, armen=((150, -40),
         pen.lijn([(bx, heup), knie, (vx, vy - s * 0.08)], w=int(pen.w * 1.15), kleur=broek or INK)
         schoen(pen, vx, vy, schoenen, kant)
     bw = s * 0.62 * dik
-    top = y - s * 2.75
+    top = y - s * 2.75 + dz
     pts = [(x - bw * 0.75, top), (x + bw * 0.75, top), (x + bw, top + s * 0.5), (x + bw * 1.02, heup - s * 0.15),
            (x + bw * 0.85, heup + s * 0.12), (x - bw * 0.85, heup + s * 0.12), (x - bw * 1.02, heup - s * 0.15),
            (x - bw, top + s * 0.5)]
@@ -253,13 +261,20 @@ def bram(img, x, y, s, p=None):
         pts.append((kx + math.cos(a) * rr, ky - s * 0.12 + math.sin(a) * rr))
     pts += [(kx + r * 0.95, ky - s * 0.25), (kx - r * 0.95, ky - s * 0.25)]
     pen.vorm(pts, (70, 45, 35))
+    bril = p.get("bril", 0.0)  # 0 = op de ogen, 1 = omhoog op het voorhoofd
+    if bril > 0:
+        kijk, lid, pu = p.get("kijk", (0, 0)), p.get("lid", 0), p.get("pupil", 0.45)
+        for dx in (-0.4, 0.4):
+            oog(pen, kx + dx * s, ky + s * 0.08, s * 0.28, s * 0.32, kijk=kijk, lid=lid, pupil=pu)
+        if p.get("wenk"):
+            wenkbrauwen(pen, kx, ky + s * 0.08, p["wenk"], gap=0.4, hoogte=0.45)
     for dx in (-0.4, 0.4):  # zonnebril
-        bx, by = kx + dx * s, ky + s * 0.05
+        bx, by = kx + dx * s, ky + s * 0.05 - bril * s * 0.62
         pts = [(bx - s * 0.33, by - s * 0.2), (bx + s * 0.33, by - s * 0.2), (bx + s * 0.28, by + s * 0.18),
                (bx - s * 0.28, by + s * 0.18)]
         pen.vorm(pts, (20, 20, 28), schaduw=False)
         pen.lijn([(bx - s * 0.18, by - s * 0.08), (bx - s * 0.05, by - s * 0.12)], w=int(pen.w * 0.6), kleur=(255, 255, 255))
-    pen.lijn([(kx - s * 0.08, ky - s * 0.08), (kx + s * 0.08, ky - s * 0.08)])
+    pen.lijn([(kx - s * 0.08, ky - s * 0.08 - bril * s * 0.62), (kx + s * 0.08, ky - s * 0.08 - bril * s * 0.62)])
     mx, my = kx + s * 0.05, ky + s * 0.5
     if not mond(pen, mx, my, p.get("mond")):  # grote grijns met tanden
         pts = [(mx - s * 0.42, my - s * 0.05), (mx + s * 0.42, my - s * 0.1), (mx + s * 0.3, my + s * 0.22),
