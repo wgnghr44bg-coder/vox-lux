@@ -1,7 +1,7 @@
 """Bewegende clips maken met xAI (image-to-video) uit <videomap>/clips.txt.
 
 Gebruik: python3 alteraqon/tools/make_clips.py alteraqon/<datum>-<slug>
-clips.txt: één regel per clip, "NAAM|beweging-prompt"; startbeeld is afbeeldingen/NAAM.jpg,
+clips.txt: één regel per clip, "NAAM|beweging-prompt"; startbeeld is afbeeldingen/NAAM.png (ComfyUI) of NAAM.jpg,
 resultaat afbeeldingen/NAAM.mp4 (zonder geluid). make_video.py gebruikt dan de clip i.p.v. de foto.
 Bestaande clips worden overgeslagen (nooit dubbel betalen).
 Model: grok-imagine-video-1.5-lite (goedkoopste; okt 2026 ca. $0,19 per clip van 6 s, 720p).
@@ -15,7 +15,8 @@ for line in open("clips.txt"):
     name, prompt = line.strip().split("|", 1)
     out = f"afbeeldingen/{name}.mp4"
     if os.path.exists(out): continue
-    img = "data:image/jpeg;base64," + base64.b64encode(open(f"afbeeldingen/{name}.jpg", "rb").read()).decode()
+    src = f"afbeeldingen/{name}.png" if os.path.exists(f"afbeeldingen/{name}.png") else f"afbeeldingen/{name}.jpg"
+    img = f"data:image/{'png' if src.endswith('png') else 'jpeg'};base64," + base64.b64encode(open(src, "rb").read()).decode()
     r = requests.post("https://api.x.ai/v1/videos/generations", timeout=120, json={
         "model": MODEL, "prompt": prompt, "image": {"url": img}, "duration": 6, "aspect_ratio": "9:16", "resolution": "720p"})
     r.raise_for_status(); rid = r.json()["request_id"]

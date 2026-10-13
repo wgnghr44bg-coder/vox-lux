@@ -1,7 +1,7 @@
 """Alteraqon: video bouwen uit een videomap (opbouw van de lightning-video).
 
 Gebruik:  python3 alteraqon/tools/make_video.py alteraqon/<datum>-<slug> <tmpmap>
-Leest uit de videomap: voice.mp3, voice-times.tsv, afbeeldingen/ (.jpg, of .mp4-clip), shots.py (SH + optioneel BANG, FADE_IN).
+Leest uit de videomap: voice.mp3, voice-times.tsv, afbeeldingen/ (.png van ComfyUI, anders .jpg, of .mp4-clip), shots.py (SH + optioneel BANG, FADE_IN).
 Schrijft subs.ass in de videomap en <tmpmap>/<slug>.mp4 (1080x1920).
 """
 import csv, importlib.util, os, subprocess, sys
@@ -39,7 +39,7 @@ for i,shot in enumerate(SH):
         if mv=="up": cy=f"(ih-ih/zoom)*(1-on/{n})"
         if mv=="shake": cx+="+12*sin(on*2.1)"; cy+="+12*cos(on*1.7)"
         base=f"[0:v]scale=2160:3840,zoompan=z='{z}':x='{cx}':y='{cy}':d={n}:s=1080x1920:fps={FPS}"
-        ins=["-loop","1","-i",f"{A}/{img}.jpg"]
+        ins=["-loop","1","-i",f"{A}/{img}.png" if os.path.exists(f"{A}/{img}.png") else f"{A}/{img}.jpg"]
     if extra: base+=","+extra
     base+=","+GRADE
     if fx:

@@ -3,8 +3,14 @@
 Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 
 ## Stijl
+> **Vaste regel (eigenaar 13 okt 2026): beelden ALLEEN via ComfyUI (Z-Image Turbo) op de pc van de eigenaar, NIET meer via xAI.**
+> Cloudsessie schrijft `prompts.txt` (+ `comfy-clips.txt`), commit + pusht en vraagt de eigenaar om
+> `python alteraqon/tools/comfy_batch.py zimage_api.json <map>` (Short: `--short`) te draaien → `afbeeldingen/NAAM.png`.
+> Pas na zijn push verder (contactsheet, stem, video). `make_images.py` (xAI) staat uit; alleen na uitdrukkelijk ja.
+> Oude video's houden hun xAI-`.jpg`; een `.png` met dezelfde naam gaat altijd voor.
+
 - Verticaal 1080x1920, ca. 60–70 s, Engels.
-- AI-foto's (xAI `grok-imagine-image`, 9:16), één beeld per gesproken zin, langzame zoom/pan, koele documentaire-grade + lichte filmkorrel.
+- AI-foto's, één beeld per gesproken zin, langzame zoom/pan, koele documentaire-grade + lichte filmkorrel.
 - Stem: xAI **Lux**, tempo 0.9, pauzes 900/1700 ms + 600 ms na elke zin (`[pause]` achter elke regel).
 - Tijdstempels als korte lower-third (~2,6 s): goud lijntje schuift in, label in Inter SemiBold, groot getal in Inter Display Light.
 - Ondertitels in Inter SemiBold. Donkere drone + lage klap bij elke tijdstempel.
@@ -13,7 +19,7 @@ Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 Map `<datum>-<slug>/`: `script-cues.txt` (tekst + `{img:Sxx}`), `prompts.txt`, `afbeeldingen/`, `voice.mp3`,
 `voice-times.tsv`, `make.py` (beeld + tekst + eindmix), `upload.json`. Geen mp4 in git.
 
-Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
+Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger ≈13 xAI-beelden à $0,02).
 
 ## Video's
 - `2026-10-10-humans-vanish/` – What if all humans vanished? (eindversie: `doc/make-doc-lux.py`)
@@ -40,7 +46,7 @@ Kosten per video: ca. $0,30 (≈13 afbeeldingen à $0,02 + een paar cent stem).
   dan `python3 alteraqon/tools/make_clips.py <map>` → `afbeeldingen/NAAM.mp4`; make_video gebruikt die clip i.p.v. de foto.
   Alleen voor de opening en het "Then."-moment (1–2 per Short). Vereist `vidgen.x.ai` in de netwerkinstellingen.
 - **Eigen ComfyUI (gratis, pc eigenaar: RTX 2080 Super, 8 GB):** `python alteraqon/tools/comfy_batch.py <workflow_api.json> <map>`.
-  Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen-comfy/NAAM.png`
+  Wan 2.2 5B + `comfy-clips.txt` → `<map>/clips/NAAM.mp4` (1024x576, 5 s); Z-Image Turbo + `prompts.txt` → `<map>/afbeeldingen/NAAM.png` (`--short` = staand 1088x1920)
   (uitleg bovenin het script). Voorbeeld: `2026-10-13-donut-earth/`.
 - Clips (bronmateriaal) mogen in git; de eind-mp4 niet.
 - **Snelle stijl: NIET gebruiken** (eigenaar okt 2026: te veel beelden, te druk; houd het rustig, ±1 beeld per zin).
@@ -61,20 +67,20 @@ Kopieer `_sjabloon/` naar `<datum>-<slug>/` en vul in. Verhaal in 6 stappen, ca.
 6. **Slot:** "So remember." + les of vraag aan de kijker.
 
 Regels: één beeld per (deel)zin, wissel precies op de stem; elke zin eindigt op `[pause]` of `[long pause]`;
-feiten alleen als ze algemeen bekend en controleerbaar zijn; ca. 13 afbeeldingen (≈ $0,30 per video).
+feiten alleen als ze algemeen bekend en controleerbaar zijn; ca. 13 afbeeldingen (ComfyUI, gratis).
 
 Stappen (vanuit de map `vox-lux`):
 ```
 cp -r alteraqon/_sjabloon alteraqon/<datum>-<slug>       # daarna script-cues.txt, prompts.txt, shots.py, upload.json invullen
-python3 alteraqon/tools/make_images.py alteraqon/<datum>-<slug>
+# beelden: eigenaar draait op zijn pc  python alteraqon/tools/comfy_batch.py zimage_api.json alteraqon/<datum>-<slug> --short
 python3 alteraqon/tools/make_voice.py  alteraqon/<datum>-<slug>
 python3 alteraqon/tools/make_video.py  alteraqon/<datum>-<slug> <tmpmap>    # -> <tmpmap>/<slug>.mp4
 ```
 In `shots.py` verwijst het eerste getal naar de regel in `voice-times.tsv` (pas invullen ná make_voice).
 
 ## Lange video (16:9, ca. 3 min) – voorbeeld: de asteroid-video
-Zelfde stijl, maar liggend en ca. 40 zinnen / 38 beelden (≈ $0,80 aan beelden + een paar cent stem):
-- `python3 alteraqon/tools/make_images.py <map> 16:9` (beelden 16:9; `T01` = basis voor de thumbnail)
+Zelfde stijl, maar liggend en ca. 40–48 zinnen/beelden (beelden gratis via ComfyUI + een paar cent stem):
+- beelden: eigenaar draait `comfy_batch.py zimage_api.json <map>` (16:9, 1280x720; `T01` = basis voor de thumbnail)
 - `python3 alteraqon/tools/make_voice.py <map> <cachemap buiten repo>` (cache: na inkorten alleen nieuwe zinnen betalen)
 - `make.py`: beelden volgen de kolom `image` in voice-times.tsv; tijdstempels per regelnummer; label linksboven
   scheidt feiten (`REAL HISTORY`) van speculatie (`ALTERNATE TIMELINE · SPECULATION`).
