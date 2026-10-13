@@ -26,8 +26,10 @@ from poppetjes2 import INK, bram, lotte  # noqa: E402
 
 W, H, FPS = 1920, 1080, 30
 Z = 2  # wereld wordt op 2x getekend, de camera snijdt eruit en verkleint
-DUUR = 33.6
+DUUR = 33.6  # verhaaltijd; de echte video duurt DUUR * TRAAG
 FREEZE = 32.3
+TRAAG = 1.5  # alles 1,5x langzamer (rustiger tempo)
+VERT = False  # True = 9:16 (Shorts/TikTok)
 VLOER = 760
 
 
@@ -661,8 +663,9 @@ def camera(t):
 BG = AANRECHT = BANK = None
 
 
-def init():
-    global BG, AANRECHT, BANK
+def init(vert=False):
+    global BG, AANRECHT, BANK, VERT
+    VERT = vert
     BG, AANRECHT, BANK = achtergrond(), laag_aanrecht(), laag_bank()
 
 
@@ -971,21 +974,51 @@ def scene(t, i):
     return frame
 
 
+def camera_x_vert(t, cx, z):
+    """Smal 9:16-beeld: schuif mee naar de personages (allebei als ze passen, anders de dichtstbijzijnde)."""
+    if z >= 2.0:
+        return cx, z  # close-ups staan al op het gezicht
+    vw = (H / z) * 9 / 16
+    xs = []
+    m, v = man(t, 0), vrouw(t, 0)
+    mx = m["x"] - (210 if m["rot"] > 40 else 0)  # liggend: midden van het lijf
+    for x in (mx, v["x"]):
+        if abs(x - cx) < W / z / 2 + 100:
+            xs.append(x)
+    if not xs:
+        return cx, z
+    if m["rot"] > 40 and mx in xs:  # liggend past alleen als we uitzoomen
+        z = max(1.0, min(z, (H * 9 / 16) / 650))
+    gew = [math.exp(-((x - cx) / 260) ** 2) + 1e-3 for x in xs]
+    focus = sum(x * g for x, g in zip(xs, gew)) / sum(gew)
+    if len(xs) == 2:  # allebei in beeld: iets uitzoomen als het moet
+        nodig = abs(xs[0] - xs[1]) + 300
+        z = max(1.0, min(z, (H * 9 / 16) / nodig))
+        vw = (H / z) * 9 / 16
+        w = klem((vw * 0.95 - abs(xs[0] - xs[1])) / (vw * 0.3))
+        focus = lerp(focus, (xs[0] + xs[1]) / 2, w)
+    return focus, z
+
+
 def beeld(i):
-    t = i / FPS
+    t = i / FPS / TRAAG  # verhaaltijd
     tp = min(t, FREEZE)
     rng = random.Random(i)
+    OW, OH = (1080, 1920) if VERT else (W, H)
     if 20.1 <= t < 20.7 or 27.0 <= t < 27.3:  # harde cut naar het tv-scherm
-        out = Image.new("RGB", (W, H), (30, 26, 34))
-        bw, bh = 1500, 840
+        out = Image.new("RGB", (OW, OH), (30, 26, 34))
+        bw = int(OW * (0.92 if VERT else 0.78))
+        bh = int(bw * 0.56)
         zoom = 1 + 0.06 * fase(t, 20.1, 20.7)
         bw2, bh2 = int(bw * zoom), int(bh * zoom)
-        ImageDraw.Draw(out).rounded_rectangle(((W - bw2) / 2 - 30, (H - bh2) / 2 - 30, (W + bw2) / 2 + 30, (H + bh2) / 2 + 30),
+        ImageDraw.Draw(out).rounded_rectangle(((OW - bw2) / 2 - 30, (OH - bh2) / 2 - 30, (OW + bw2) / 2 + 30, (OH + bh2) / 2 + 30),
                                               radius=30, fill=(18, 18, 24), outline=(0, 0, 0), width=8)
-        out.paste(spel(t, tv_staat(t), bw2, bh2), ((W - bw2) // 2, (H - bh2) // 2))
+        out.paste(spel(t, tv_staat(t), bw2, bh2), ((OW - bw2) // 2, (OH - bh2) // 2))
         return out.tobytes()
     frame = scene(tp, int(tp * FPS))
     cx, cy, z = camera(t)
+    if VERT:
+        cx, z = camera_x_vert(tp, cx, z)
     sch = 0
     if 20.75 <= t < 21.2:
         sch = 14 * (1 - fase(t, 20.75, 21.2))
@@ -997,15 +1030,16 @@ def beeld(i):
         sch = 10 * (1 - fase(t, FREEZE, FREEZE + 0.2))
     cx += rng.uniform(-sch, sch) / z
     cy += rng.uniform(-sch, sch) / z
-    vw, vh = W / z, H / z
+    vh = H / z
+    vw = vh * 9 / 16 if VERT else W / z
     cx = klem(cx, vw / 2, W - vw / 2)
     cy = klem(cy, vh / 2, H - vh / 2)
     box = tuple(int(c * Z) for c in (cx - vw / 2, cy - vh / 2, cx + vw / 2, cy + vh / 2))
-    out = frame.crop(box).resize((W, H), Image.BICUBIC)
+    out = frame.crop(box).resize((OW, OH), Image.BICUBIC)
     if t >= FREEZE:  # freeze frame: witte flits
         u = fase(t, FREEZE, FREEZE + 0.15)
         if u < 1:
-            out = Image.blend(out, Image.new("RGB", (W, H), (255, 255, 255)), 0.7 * (1 - u))
+            out = Image.blend(out, Image.new("RGB", (OW, OH), (255, 255, 255)), 0.7 * (1 - u))
     return out.tobytes()
 
 
@@ -1018,8 +1052,8 @@ def geluid(duur):
     mx = np.zeros(n)
     rng = np.random.default_rng(7)
 
-    def zet(start, sig, vol=1.0):
-        a = int(start * SR)
+    def zet(start, sig, vol=1.0):  # start in verhaaltijd
+        a = int(start * TRAAG * SR)
         b = min(n, a + len(sig))
         if 0 <= a < b:
             mx[a:b] += sig[: b - a] * vol
@@ -1070,7 +1104,7 @@ def geluid(duur):
     poort = np.zeros(n)  # waar de muziek speelt (stopt hard bij grappige stiltes)
     for a_, b_, vol, zacht_in in ((0, 5.0, 1.0, False), (10.6, 14.55, 1.0, True), (16.65, 19.45, 0.6, True),
                                  (27.05, 31.2, 1.0, True)):
-        i0, i1 = int(a_ * SR), min(n, int(b_ * SR))
+        i0, i1 = int(a_ * TRAAG * SR), min(n, int(b_ * TRAAG * SR))
         g = np.full(i1 - i0, vol)
         if zacht_in:
             f = min(len(g), int(0.4 * SR))
@@ -1078,16 +1112,15 @@ def geluid(duur):
         poort[i0:i1] = g
     mx += bed * poort * 0.07
     # knopjes rammen
-    for a, b, dicht in ((0, 3.0, 0.06), (4.8, 7.5, 0.1), (10.6, 13.0, 0.09), (13.6, 15.8, 0.1), (17.0, 20.0, 0.12),
-                        (29.0, 31.2, 0.055)):
+    for a, b, dicht in ((0.6, 2.8, 0.07), (29.0, 30.3, 0.07)):  # alleen kort, niet de hele tijd
         st = a
         while st < b:
             t = tt(0.015)
-            zet(st, ruis(0.015) * np.exp(-t * 300), 0.12)
+            zet(st, ruis(0.015) * np.exp(-t * 300), 0.07)
             st += dicht * rng.uniform(0.7, 1.3)
-    for st in (0.6, 1.2, 1.8, 2.3, 2.8):  # ontploffingen op de tv
+    for st in (1.2, 2.3):  # twee zachte knallen op de tv
         t = tt(0.4)
-        zet(st, np.convolve(ruis(0.4), np.ones(20) / 20, "same") * np.exp(-t * 9) * 3, 0.25)
+        zet(st, np.convolve(ruis(0.4), np.ones(20) / 20, "same") * np.exp(-t * 9) * 3, 0.12)
     def jingle(st, vol=0.18):  # overwinning
         for k, f in enumerate((523.3, 659.3, 784.0, 1046.5)):
             d = 0.12 if k < 3 else 0.45
@@ -1205,26 +1238,28 @@ def schrijf_wav(pad_, sig):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("uit", nargs="?", default="poppetjes/gaming-vs-wife.mp4")
-    ap.add_argument("--beeld", type=float, help="alleen een still op deze tijd (png)")
-    ap.add_argument("--van", type=float, default=0.0)
-    ap.add_argument("--tot", type=float, default=DUUR)
+    ap.add_argument("--beeld", type=float, help="alleen een still op deze verhaaltijd (png)")
+    ap.add_argument("--verticaal", action="store_true", help="9:16 voor Shorts/TikTok")
+    ap.add_argument("--van", type=float, default=0.0, help="echte tijd in de video")
+    ap.add_argument("--tot", type=float, default=DUUR * TRAAG)
     a = ap.parse_args()
     uit = Path(a.uit)
     uit.parent.mkdir(parents=True, exist_ok=True)
+    OW, OH = (1080, 1920) if a.verticaal else (W, H)
     if a.beeld is not None:
-        init()
-        Image.frombytes("RGB", (W, H), beeld(int(round(a.beeld * FPS)))).save(uit)
+        init(a.verticaal)
+        Image.frombytes("RGB", (OW, OH), beeld(int(round(a.beeld * TRAAG * FPS)))).save(uit)
         print(uit)
         return
     wav = uit.with_suffix(".wav")
-    sig = geluid(DUUR)[int(a.van * SR): int(a.tot * SR)]
+    sig = geluid(DUUR * TRAAG)[int(a.van * SR): int(a.tot * SR)]
     schrijf_wav(wav, sig)
     frames = range(int(a.van * FPS), int(a.tot * FPS))
-    ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+    ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{OW}x{OH}",
                            "-r", str(FPS), "-i", "-", "-i", str(wav), "-c:v", "libx264", "-preset", "medium",
                            "-crf", "18", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest",
                            "-movflags", "+faststart", str(uit)], stdin=subprocess.PIPE)
-    with Pool(initializer=init) as pool:
+    with Pool(initializer=init, initargs=(a.verticaal,)) as pool:
         for k, data in enumerate(pool.imap(beeld, frames, chunksize=3)):
             ff.stdin.write(data)
             if k % 150 == 0:
