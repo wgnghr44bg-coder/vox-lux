@@ -1,0 +1,3 @@
+# Wan 2.2 image-to-video: NAAM|beweging + camera (beeld = afbeeldingen/NAAM.png, uitvoer = clips/NAAM.mp4)
+S00|The hand in the yellow sleeve slowly slides the glass of water away across the table, condensation drops glisten, a yellow tram moves slowly in the background. Slow camera push-in. Everything stays solid and unchanged, the hand, glass, buildings and trams keep their exact shape, no morphing, no new objects, slow gentle movement, realistic
+S02|The blinding sun flares brighter, light rays shimmer through the heat haze above the rooftops. Slow camera tilt up. Everything stays solid and unchanged, buildings and trams keep their exact shape, no morphing, no new objects, slow gentle movement, realistic
