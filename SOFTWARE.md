@@ -14,7 +14,7 @@ Zegt de eigenaar **"software"** → begin hier. Zegt hij **"comfy"** → alles v
 | Losse bewerking | ffmpeg, OpenCV, Pillow, numpy | overal in `tools/` | Nee |
 | YouTube | upload / playlist / bereik | `tools/youtube_*.py` | Nee |
 | Reverse engineering | REA | `.mcp.json`, `.claude/skills/reverse-engineer-anything` | Nee |
-| Animatie met code (titels, ondertitels, kaarten) | **Remotion** – skills van `remotion-dev/skills` | `.claude/skills/remotion-*` (bron in `.agents/skills/`), bijwerken: `npx skills add remotion-dev/skills -y` | Nee (voice-gids noemt ElevenLabs: negeren, eigen stem gebruiken) |
+| Animatie met code, ook 3D (handleiding: `tools/remotion/HANDLEIDING.md`) | **Remotion** + three.js – skills van `remotion-dev/skills` | `.claude/skills/remotion-*` (bron in `.agents/skills/`), bijwerken: `npx skills add remotion-dev/skills -y` | Nee (voice-gids noemt ElevenLabs: negeren, eigen stem gebruiken) |
 | ElevenLabs | **niet meer gebruiken** | – | – |
 
 ## Hoe het samenwerkt
