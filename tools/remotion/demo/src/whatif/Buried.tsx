@@ -12,6 +12,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { SCENES } from "./buried-scenes";
+import { Bloom, DPR, Environment, setupRenderer } from "./quality";
 import { DURATION_S, HAS_VOICE, SHOTS, SUBS } from "./buried-timeline";
 
 // Alteraqon: "What happens to you if you're buried or cremated?" – volledig in 3D (three.js).
@@ -143,8 +144,18 @@ export const BuriedOrCremated: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <ThreeCanvas width={width} height={height} shadows camera={{ position: [0, 2, 6], fov: 50, near: 0.05, far: 200 }}>
-        <hemisphereLight args={["#bcd0ff", "#2a2420", 0.9]} />
+      <ThreeCanvas
+        width={width}
+        height={height}
+        shadows
+        dpr={DPR}
+        gl={{ antialias: true }}
+        onCreated={({ gl }) => setupRenderer(gl)}
+        camera={{ position: [0, 2, 6], fov: 50, near: 0.05, far: 200 }}
+      >
+        <Environment intensity={0.3} />
+        <Bloom />
+        <hemisphereLight args={["#bcd0ff", "#2a2420", 0.45]} />
         <Scene key={shot.id} t={t} dur={dur} />
       </ThreeCanvas>
       <Grade />

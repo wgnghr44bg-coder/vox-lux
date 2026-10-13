@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import { random } from "remotion";
+import { Glow, TEX } from "./quality";
 
 // Bouwstenen voor de 3D what-if video's: lichaam onder laken, skelet, kist, grafsteen, urn, vlammen, ...
 // Alles beweegt alleen via de meegegeven tijd t (frames), nooit via useFrame.
@@ -59,7 +60,8 @@ export const Particles: React.FC<{
   return (
     <points geometry={geo}>
       <pointsMaterial
-        size={size}
+        size={size * 2.2}
+        map={TEX.dot()}
         color={color}
         transparent
         opacity={opacity}
@@ -82,10 +84,10 @@ export const Bone: React.FC<{ a: V3; b: V3; r: number; mat: THREE.Material }> = 
   return (
     <group>
       <mesh position={mid} quaternion={q} material={mat} castShadow>
-        <cylinderGeometry args={[r, r * 0.85, len, 8]} />
+        <cylinderGeometry args={[r, r * 0.85, len, 16]} />
       </mesh>
       <mesh position={b} material={mat}>
-        <sphereGeometry args={[r * 1.4, 8, 6]} />
+        <sphereGeometry args={[r * 1.4, 16, 12]} />
       </mesh>
     </group>
   );
@@ -94,22 +96,22 @@ export const Bone: React.FC<{ a: V3; b: V3; r: number; mat: THREE.Material }> = 
 // Liggend lichaam onder een wit laken, lengte langs de x-as (hoofd bij -x).
 export const SheetBody: React.FC<{ opacity?: number; color?: string; scale?: number }> = ({
   opacity = 1,
-  color = "#e6ebf0",
+  color = "#c4ccd6",
   scale = 1,
 }) => (
   <group scale={scale}>
     <mesh position={[0.05, 0.3, 0]} rotation={[0, 0, Math.PI / 2]} scale={[0.95, 1, 0.75]} castShadow>
-      <capsuleGeometry args={[0.42, 1.5, 6, 14]} />
-      <meshStandardMaterial color={color} roughness={0.95} transparent={opacity < 1} opacity={opacity} />
+      <capsuleGeometry args={[0.42, 1.5, 16, 32]} />
+      <meshPhysicalMaterial color={color} roughness={0.85} sheen={0.5} sheenRoughness={0.7} sheenColor="#dfe6ee" transparent={opacity < 1} opacity={opacity} />
     </mesh>
     <mesh position={[-1.2, 0.34, 0]} scale={[1, 0.85, 0.9]} castShadow>
-      <sphereGeometry args={[0.3, 16, 12]} />
-      <meshStandardMaterial color={color} roughness={0.95} transparent={opacity < 1} opacity={opacity} />
+      <sphereGeometry args={[0.3, 32, 24]} />
+      <meshPhysicalMaterial color={color} roughness={0.85} sheen={0.5} sheenRoughness={0.7} sheenColor="#dfe6ee" transparent={opacity < 1} opacity={opacity} />
     </mesh>
     {[-0.16, 0.16].map((z) => (
       <mesh key={z} position={[1.12, 0.42, z]} castShadow>
         <sphereGeometry args={[0.16, 10, 8]} />
-        <meshStandardMaterial color={color} roughness={0.95} transparent={opacity < 1} opacity={opacity} />
+        <meshPhysicalMaterial color={color} roughness={0.85} sheen={0.5} sheenRoughness={0.7} sheenColor="#dfe6ee" transparent={opacity < 1} opacity={opacity} />
       </mesh>
     ))}
   </group>
@@ -118,7 +120,7 @@ export const SheetBody: React.FC<{ opacity?: number; color?: string; scale?: num
 // Skelet op de rug, lengte langs x (schedel bij -x), y = 0 is de ondergrond.
 export const Skeleton: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
   const mat = useMemo(
-    () => new THREE.MeshStandardMaterial({ color: "#e6dcc3", roughness: 0.75, transparent: true }),
+    () => new THREE.MeshPhysicalMaterial({ color: "#e3d6b8", roughness: 0.6, clearcoat: 0.2, transparent: true }),
     [],
   );
   mat.opacity = opacity;
@@ -135,7 +137,7 @@ export const Skeleton: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
   return (
     <group>
       <mesh position={[-1.12, 0.2, 0]} scale={[1.1, 0.9, 0.85]} material={mat} castShadow>
-        <sphereGeometry args={[0.2, 14, 10]} />
+        <sphereGeometry args={[0.2, 32, 24]} />
       </mesh>
       {[-0.07, 0.07].map((z) => (
         <mesh key={z} position={[-1.16, 0.35, z]} material={dark}>
@@ -152,7 +154,7 @@ export const Skeleton: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
       ))}
       {Array.from({ length: 6 }).map((_, i) => (
         <mesh key={i} position={[-0.72 + i * 0.09, 0.1, 0]} rotation={[0, Math.PI / 2, 0]} material={mat}>
-          <torusGeometry args={[0.22 - i * 0.012, 0.016, 5, 14, Math.PI]} />
+          <torusGeometry args={[0.22 - i * 0.012, 0.016, 8, 32, Math.PI]} />
         </mesh>
       ))}
       <mesh position={[0.3, 0.1, 0]} material={mat}>
@@ -175,11 +177,11 @@ export const Coffin: React.FC<{ lidOpen?: number }> = ({ lidOpen = 0 }) => (
   <group>
     <mesh position={[0, 0.28, 0]} castShadow receiveShadow>
       <boxGeometry args={[2.5, 0.56, 0.9]} />
-      <meshStandardMaterial color="#4a2c1a" roughness={0.55} />
+      <meshPhysicalMaterial map={TEX.wood()} roughness={0.45} clearcoat={0.6} clearcoatRoughness={0.25} />
     </mesh>
     <mesh position={[0, 0.6 + lidOpen * 0.5, -lidOpen * 0.8]} rotation={[-lidOpen * 1.2, 0, 0]} castShadow>
       <boxGeometry args={[2.6, 0.1, 0.98]} />
-      <meshStandardMaterial color="#5c3820" roughness={0.5} />
+      <meshPhysicalMaterial map={TEX.wood()} color="#e0c8b0" roughness={0.4} clearcoat={0.7} clearcoatRoughness={0.2} />
     </mesh>
     {[-0.8, 0, 0.8].map((x) =>
       [-1, 1].map((s) => (
@@ -194,12 +196,12 @@ export const Coffin: React.FC<{ lidOpen?: number }> = ({ lidOpen = 0 }) => (
 
 // Doorsnede-kist: voorkant open zodat je naar binnen kijkt (vanaf +z)
 export const OpenCoffin: React.FC = () => {
-  const wood = <meshStandardMaterial color="#3f2516" roughness={0.6} />;
+  const wood = <meshPhysicalMaterial map={TEX.wood(true)} roughness={0.55} clearcoat={0.3} />;
   return (
     <group>
       <mesh position={[0, 0.03, 0]}>
         <boxGeometry args={[2.6, 0.06, 0.9]} />
-        {wood}
+        <meshPhysicalMaterial color="#d8cfc0" roughness={0.7} sheen={1} sheenColor="#fff4e0" />
       </mesh>
       <mesh position={[0, 0.33, -0.42]}>
         <boxGeometry args={[2.6, 0.6, 0.06]} />
@@ -227,11 +229,11 @@ export const Headstone: React.FC<{ position?: V3; rotation?: V3; scale?: number 
   <group position={position} rotation={rotation} scale={scale}>
     <mesh position={[0, 0.5, 0]} castShadow receiveShadow>
       <boxGeometry args={[0.8, 1, 0.18]} />
-      <meshStandardMaterial color="#7d8288" roughness={0.9} />
+      <meshStandardMaterial map={TEX.stone()} roughness={0.85} />
     </mesh>
     <mesh position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow>
-      <cylinderGeometry args={[0.4, 0.4, 0.18, 20, 1, false, -Math.PI / 2, Math.PI]} />
-      <meshStandardMaterial color="#7d8288" roughness={0.9} />
+      <cylinderGeometry args={[0.4, 0.4, 0.18, 40, 1, false, -Math.PI / 2, Math.PI]} />
+      <meshStandardMaterial map={TEX.stone()} roughness={0.85} />
     </mesh>
     <mesh position={[0, 0.72, 0.095]}>
       <boxGeometry args={[0.08, 0.36, 0.01]} />
@@ -280,16 +282,16 @@ export const Urn: React.FC<{ position?: V3; scale?: number }> = ({ position = [0
       [0.29, 1.15],
       [0, 1.17],
     ].map(([x, y]) => new THREE.Vector2(x, y));
-    return new THREE.LatheGeometry(pts, 32);
+    return new THREE.LatheGeometry(new THREE.SplineCurve(pts).getPoints(60), 96);
   }, []);
   return (
     <group position={position} scale={scale}>
       <mesh geometry={geo} castShadow>
-        <meshStandardMaterial color="#8c6a3a" metalness={0.75} roughness={0.32} />
+        <meshPhysicalMaterial color="#9a7442" metalness={1} roughness={0.22} clearcoat={0.8} clearcoatRoughness={0.1} />
       </mesh>
       <mesh position={[0, 1.24, 0]}>
-        <sphereGeometry args={[0.09, 12, 8]} />
-        <meshStandardMaterial color="#a7834c" metalness={0.8} roughness={0.3} />
+        <sphereGeometry args={[0.09, 32, 24]} />
+        <meshPhysicalMaterial color="#b88e50" metalness={1} roughness={0.2} clearcoat={0.8} />
       </mesh>
     </group>
   );
@@ -297,12 +299,27 @@ export const Urn: React.FC<{ position?: V3; scale?: number }> = ({ position = [0
 
 export const Pedestal: React.FC<{ position?: V3 }> = ({ position = [0, 0, 0] }) => (
   <mesh position={[position[0], position[1] + 0.5, position[2]]} receiveShadow castShadow>
-    <cylinderGeometry args={[0.55, 0.62, 1, 24]} />
-    <meshStandardMaterial color="#2d2f35" roughness={0.4} />
+    <cylinderGeometry args={[0.55, 0.62, 1, 64]} />
+    <meshPhysicalMaterial map={TEX.marble()} roughness={0.25} clearcoat={0.6} clearcoatRoughness={0.15} />
   </mesh>
 );
 
-// Vlammen: doorzichtige kegels die oplichten (additief) en flakkeren met t
+// Vlammen: druppelvormige lichtgevende vormen met kleurverloop (additief) + zachte gloed; flakkeren met t
+const flameGeo = (() => {
+  let g: THREE.LatheGeometry | null = null;
+  return () => {
+    if (g) return g;
+    const pts: THREE.Vector2[] = [];
+    for (let i = 0; i <= 24; i++) {
+      const v = i / 24;
+      const r = Math.sin(Math.PI * Math.pow(v, 0.7)) * (1 - v) * 0.9 + 0.001;
+      pts.push(new THREE.Vector2(r, v));
+    }
+    g = new THREE.LatheGeometry(pts, 24);
+    return g;
+  };
+})();
+
 export const Flames: React.FC<{ n: number; w: number; d: number; h: number; t: number; seed?: number; y?: number }> = ({
   n,
   w,
@@ -315,16 +332,21 @@ export const Flames: React.FC<{ n: number; w: number; d: number; h: number; t: n
   <group>
     {Array.from({ length: n }).map((_, i) => {
       const r = (k: string) => random(`${k}${seed}-${i}`);
-      const fl = 0.55 + 0.45 * wobble(t * 0.22 + i * 1.37);
+      const fl = 0.6 + 0.4 * wobble(t * 0.22 + i * 1.37);
       const hh = h * fl * (0.6 + r("h") * 0.6);
-      const colors = ["#ff4a12", "#ff8a1f", "#ffc44a"];
+      const rad = (0.22 + r("rad") * 0.22) * (0.9 + 0.2 * wobble(t * 0.31 + i));
       return (
-        <mesh key={i} position={[(r("x") - 0.5) * w, y + hh / 2, (r("z") - 0.5) * d]} rotation={[0, r("ry") * 6, wobble(t * 0.1 + i) * 0.12]}>
-          <coneGeometry args={[0.16 + r("rad") * 0.18, hh, 6, 1, true]} />
+        <mesh
+          key={i}
+          geometry={flameGeo()}
+          position={[(r("x") - 0.5) * w, y, (r("z") - 0.5) * d]}
+          rotation={[wobble(t * 0.13 + i * 2) * 0.12, r("ry") * 6, wobble(t * 0.1 + i) * 0.15]}
+          scale={[rad, hh, rad]}
+        >
           <meshBasicMaterial
-            color={colors[i % 3]}
+            map={TEX.flame()}
             transparent
-            opacity={0.5}
+            opacity={0.75}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
             side={THREE.DoubleSide}
@@ -332,6 +354,7 @@ export const Flames: React.FC<{ n: number; w: number; d: number; h: number; t: n
         </mesh>
       );
     })}
+    <Glow position={[0, y + h * 0.3, 0]} size={Math.max(w, h) * 1.8} color="#ff6a1a" opacity={0.35 + 0.1 * wobble(t * 0.2)} />
   </group>
 );
 
@@ -345,8 +368,8 @@ export const Thermometer: React.FC<{ level: number; color: string; position?: V3
   return (
     <group position={position} scale={scale}>
       <mesh>
-        <cylinderGeometry args={[0.14, 0.14, 3.1, 20]} />
-        <meshStandardMaterial color="#ffffff" transparent opacity={0.22} roughness={0.1} />
+        <cylinderGeometry args={[0.14, 0.14, 3.1, 40]} />
+        <meshPhysicalMaterial color="#ffffff" transmission={0.9} roughness={0.05} thickness={0.1} ior={1.5} transparent opacity={0.5} />
       </mesh>
       <mesh position={[0, -1.7, 0]}>
         <sphereGeometry args={[0.3, 20, 14]} />

@@ -22,6 +22,7 @@ import {
   Urn,
   wobble,
 } from "./props";
+import { Environment, Glow, TEX } from "./quality";
 
 // De 18 scènes van "What happens if you're buried or cremated?" (één per zin).
 // t = frame binnen de scène, dur = lengte van de scène in frames.
@@ -36,10 +37,16 @@ const Env: React.FC<{ bg: string; fog?: [number, number] }> = ({ bg, fog }) => (
   </>
 );
 
-const Floor: React.FC<{ color: string; y?: number; size?: number }> = ({ color, y = 0, size = 60 }) => (
+const Floor: React.FC<{ color: string; y?: number; size?: number; map?: THREE.Texture; rough?: number }> = ({
+  color,
+  y = 0,
+  size = 60,
+  map,
+  rough = 0.95,
+}) => (
   <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, y, 0]} receiveShadow>
     <planeGeometry args={[size, size]} />
-    <meshStandardMaterial color={color} roughness={0.95} />
+    <meshStandardMaterial color={color} map={map} roughness={rough} />
   </mesh>
 );
 
@@ -132,7 +139,7 @@ const S01: React.FC<SceneProps> = ({ t, dur }) => {
       <ambientLight intensity={0.15} />
       <spotLight position={[0, 5, 1]} angle={0.6} penumbra={0.8} intensity={40} color="#9db8d9" castShadow />
       <pointLight position={[1.6, 1.6, -0.6]} intensity={flat ? 1.5 : 3} color="#57ff9a" distance={4} />
-      <Floor color="#14181e" />
+      <Floor color="#8a929c" map={TEX.concrete()} rough={0.55} />
       <Bed />
       <group position={[0, 0.58, 0]}>
         <SheetBody />
@@ -153,6 +160,7 @@ const S01: React.FC<SceneProps> = ({ t, dur }) => {
         <group position={[0, 1.55, 0.07]}>
           <Ecg t={t} flatAt={flatAt} />
         </group>
+        <Glow position={[0, 1.55, 0.3]} size={2.6} color="#3dff8a" opacity={flat ? 0.12 : 0.3} />
       </group>
     </>
   );
@@ -167,7 +175,7 @@ const S02: React.FC<SceneProps> = ({ t, dur }) => {
       <Cam p={p} from={[0, 1.5, 6.5]} to={[0, 2.8, 8]} look={[0, 1, -3.5]} fov={55} />
       <ambientLight intensity={0.2} />
       <directionalLight position={[-6, 8, 3]} intensity={2.4} color="#8fb3ff" castShadow />
-      <Floor color="#151a21" />
+      <Floor color="#9aa39a" map={TEX.grass()} />
       {[-1, 1].map((s) => (
         <mesh key={s} rotation={[-Math.PI / 2, 0, s * 0.33]} position={[s * 1.6, 0.01, 0]}>
           <planeGeometry args={[1.3, 12]} />
@@ -199,6 +207,7 @@ const S02: React.FC<SceneProps> = ({ t, dur }) => {
           <meshBasicMaterial color="#ff7a1a" />
         </mesh>
         <pointLight position={[0, 1, 2]} intensity={12 + 4 * wobble(t * 0.3)} color="#ff7a1a" distance={8} />
+        <Glow position={[0, 0.8, 1.3]} size={3} color="#ff7a1a" opacity={0.45} />
         <group position={[0, 0.2, 1.05]}>
           <Flames n={10} w={0.9} d={0.1} h={0.8} t={t} />
         </group>
@@ -224,9 +233,9 @@ const S03: React.FC<SceneProps> = ({ t, dur }) => {
         <boxGeometry args={[3, 0.1, 1.3]} />
         <meshStandardMaterial color="#9aa3ad" metalness={0.85} roughness={0.25} />
       </mesh>
-      <Floor color="#101419" />
+      <Floor color="#7a828c" map={TEX.concrete()} rough={0.5} />
       <group position={[0, 0.45, 0]}>
-        <SheetBody color="#e8edf2" />
+        <SheetBody color="#c9d0d8" />
       </group>
       <Thermometer level={lerp(0.85, 0.45, p)} color={`#${c.getHexString()}`} position={[1.3, 2.2, -1.0]} scale={0.7} />
     </>
@@ -242,7 +251,7 @@ const S04: React.FC<SceneProps> = ({ t, dur }) => {
       <Cam p={p} from={[0, 2.2, 5.5]} to={[0.6, 1.8, 4.2]} look={[0, 1.6, 0]} fov={52} />
       <ambientLight intensity={0.15} />
       <spotLight position={[0, 5, 2]} angle={0.6} penumbra={0.8} intensity={50} color="#a9c1e0" castShadow />
-      <Floor color="#0f1216" />
+      <Floor color="#7a828c" map={TEX.concrete()} rough={0.5} />
       <mesh position={[0, 2.5, -1.2]} receiveShadow>
         <planeGeometry args={[12, 8]} />
         <meshStandardMaterial color="#181c22" />
@@ -253,7 +262,7 @@ const S04: React.FC<SceneProps> = ({ t, dur }) => {
         <meshStandardMaterial color="#9aa3ad" metalness={0.85} roughness={0.25} />
       </mesh>
       <group position={[0, 0.45, 0.6]}>
-        <SheetBody color="#d3dbe6" />
+        <SheetBody color="#b9c3cf" />
       </group>
     </>
   );
@@ -261,7 +270,7 @@ const S04: React.FC<SceneProps> = ({ t, dur }) => {
 
 // Grond met een open graf in het midden (gat 2.8 x 1.3)
 const GraveGround: React.FC = () => {
-  const soil = <meshStandardMaterial color="#1d2a1c" roughness={1} />;
+  const soil = <meshStandardMaterial color="#c0c8b8" map={TEX.grass([10, 20])} roughness={1} />;
   return (
     <group>
       <mesh position={[-11.4, -0.1, 0]} receiveShadow>
@@ -283,7 +292,7 @@ const GraveGround: React.FC = () => {
       {/* binnenkant van het gat: box die je alleen van binnen ziet */}
       <mesh position={[0, -1.25, 0]}>
         <boxGeometry args={[2.8, 2.5, 1.3]} />
-        <meshStandardMaterial color="#2a1d14" roughness={1} side={THREE.BackSide} />
+        <meshStandardMaterial color="#d8c8b8" map={TEX.soil([2, 2])} roughness={1} side={THREE.BackSide} />
       </mesh>
     </group>
   );
@@ -305,7 +314,7 @@ const S05: React.FC<SceneProps> = ({ t, dur }) => {
       </group>
       <mesh position={[0, 0, -1.6]} scale={[1.6, 0.45, 0.7]}>
         <sphereGeometry args={[1, 10, 8]} />
-        <meshStandardMaterial color="#3a2a1d" flatShading />
+        <meshStandardMaterial color="#d0b8a0" map={TEX.soil([2, 2])} roughness={1} />
       </mesh>
       <Headstone position={[0, 0, -2.6]} scale={1.1} />
       <Headstone position={[-3.5, 0, -3.5]} rotation={[0, 0.15, 0.05]} />
@@ -399,7 +408,7 @@ const S08: React.FC<SceneProps> = ({ t, dur }) => {
       ].map(([c, y]) => (
         <mesh key={c as string} position={[0, y as number, -0.6]}>
           <boxGeometry args={[9, 1, 0.3]} />
-          <meshStandardMaterial color={c as string} roughness={1} />
+          <meshStandardMaterial color={c as string} map={TEX.soil([4, 1])} roughness={1} />
         </mesh>
       ))}
       <mesh position={[0, -0.05, 0]}>
@@ -435,7 +444,7 @@ const S09: React.FC<SceneProps> = ({ t, dur }) => {
       <Cam p={0} from={[-1.2 + Math.sin(a) * 1.4, 1.1, Math.cos(a) * 1.4]} to={[0, 0, 0]} look={[-0.7, 0.1, 0]} fov={50} />
       <ambientLight intensity={0.2} />
       <spotLight position={[-0.8, 3, 1]} angle={0.5} penumbra={0.9} intensity={22} color="#ffe0b8" castShadow />
-      <Floor color="#2a1d14" y={0} size={10} />
+      <Floor color="#b8a090" map={TEX.soil([3, 3])} y={0} size={10} />
       <Skeleton />
       {Array.from({ length: 9 }).map((_, i) => {
         const x = -1.4 + i * 0.4;
@@ -473,7 +482,7 @@ const Furnace: React.FC<{ t: number; open: number }> = ({ t, open }) => (
     <group position={[0, 0.5, -0.8]}>
       <Flames n={16} w={1.7} d={0.3} h={1.1} t={t} seed={7} />
     </group>
-    <mesh position={[0, 1.1 + open * 1.35, 0.06]}>
+    <mesh position={[0, 1.1 + open * 1.35, -0.25]}>
       <boxGeometry args={[2.1, 1.45, 0.12]} />
       <meshStandardMaterial color="#5b6168" metalness={0.85} roughness={0.35} />
     </mesh>
@@ -489,7 +498,7 @@ const S10: React.FC<SceneProps> = ({ t, dur }) => {
       <Env bg="#070505" fog={[4, 14]} />
       <Cam p={p} from={[0, 1.4, 7.5]} to={[0, 1.2, 4.6]} look={[0, 1.1, 0]} fov={50} />
       <ambientLight intensity={0.12} />
-      <Floor color="#151110" />
+      <Floor color="#6a5a50" map={TEX.concrete()} rough={0.6} />
       <Furnace t={t} open={smooth(t / Math.max(1, dur * 0.6))} />
     </>
   );
@@ -546,7 +555,7 @@ const S13: React.FC<SceneProps> = ({ t, dur }) => {
       <Cam p={p} from={[0, 2.2, 4.4]} to={[0, 2.0, 3.2]} look={[0, 1.4, 0]} fov={48} />
       <ambientLight intensity={0.2} />
       <spotLight position={[0, 5, 1]} angle={0.45} penumbra={0.8} intensity={80} color="#e8e4dc" castShadow />
-      <Floor color="#121317" />
+      <Floor color="#5a6068" map={TEX.concrete()} rough={0.35} />
       <Pedestal />
       <Urn position={[0, 1, 0]} />
       <Particles
@@ -577,7 +586,7 @@ const S14: React.FC<SceneProps> = ({ t, dur }) => {
         <coneGeometry args={[1.25, 5, 32, 1, true]} />
         <meshBasicMaterial color="#fff3dd" transparent opacity={0.06} depthWrite={false} blending={THREE.AdditiveBlending} side={THREE.DoubleSide} />
       </mesh>
-      <Floor color="#0b0b0c" />
+      <Floor color="#3a3e44" map={TEX.concrete()} rough={0.35} />
       <Pedestal />
       <Urn position={[0, 1, 0]} />
       <Particles n={90} size={0.02} color="#fff3dd" opacity={0.6} additive pos={(i) => [(random(`sx${i}`) - 0.5) * 1.6, 1 + ((random(`sy${i}`) * 4 + t * 0.004) % 4), (random(`sz${i}`) - 0.5) * 1.6]} />
@@ -592,6 +601,7 @@ const S15: React.FC<SceneProps> = ({ t, dur }) => {
   return (
     <>
       <Env bg="#03050c" />
+      <Environment intensity={1.6} />
       <Cam p={p} from={[0, 0.5, 6.4]} to={[0, 0.4, 5.0]} look={[0, -0.1, 0]} fov={45} />
       <ambientLight intensity={0.25} />
       <pointLight position={[Math.cos(a) * 3, 2, Math.sin(a) * 3]} intensity={40} color="#9fd2ff" />
@@ -599,12 +609,12 @@ const S15: React.FC<SceneProps> = ({ t, dur }) => {
       <pointLight position={[0, 3, 3]} intensity={25} color="#ffffff" />
       <group rotation={[0.25, t * 0.02, 0]}>
         <mesh position={[0, 0.17, 0]}>
-          <cylinderGeometry args={[0.65, 1, 0.35, 8]} />
-          <meshStandardMaterial color="#dff1ff" metalness={0.2} roughness={0.05} flatShading />
+          <cylinderGeometry args={[0.6, 1, 0.38, 16]} />
+          <meshPhysicalMaterial color="#eef8ff" transmission={1} thickness={1.2} ior={2.42} roughness={0} dispersion={5} specularIntensity={1} envMapIntensity={2.5} flatShading />
         </mesh>
         <mesh position={[0, -0.55, 0]} rotation={[Math.PI, 0, 0]}>
-          <coneGeometry args={[1, 1.1, 8]} />
-          <meshStandardMaterial color="#c9e6ff" metalness={0.2} roughness={0.05} flatShading />
+          <coneGeometry args={[1, 1.1, 16]} />
+          <meshPhysicalMaterial color="#e2f2ff" transmission={1} thickness={1.2} ior={2.42} roughness={0} dispersion={5} specularIntensity={1} envMapIntensity={2.5} flatShading />
         </mesh>
       </group>
       <Particles
@@ -665,7 +675,7 @@ const Choice: React.FC<SceneProps & { end?: boolean }> = ({ t, dur, end }) => {
         fov={50}
       />
       <ambientLight intensity={0.1} />
-      <Floor color="#111419" />
+      <Floor color="#5a6068" map={TEX.concrete()} rough={0.4} />
       <group position={[-1.15, 0, 0]} scale={0.8}>
         <spotLight position={[0, 5, 1.5]} angle={0.5} penumbra={0.8} intensity={110} color="#8fb3ff" castShadow />
         <mesh position={[0, 0, 0.6]} scale={[0.9, 0.3, 1.5]}>
