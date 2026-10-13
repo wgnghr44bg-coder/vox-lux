@@ -1,4 +1,7 @@
-"""Bewegende clips maken met xAI (image-to-video) uit <videomap>/clips.txt.
+"""NIET MEER GEBRUIKEN (eigenaar 13 okt 2026): clips alleen nog via ComfyUI (Wan 2.2) met tools/comfy_batch.py.
+Alleen na uitdrukkelijk ja van de eigenaar: ALTERAQON_XAI_CLIPS=1 python3 ...
+
+Bewegende clips maken met xAI (image-to-video) uit <videomap>/clips.txt.
 
 Gebruik: python3 alteraqon/tools/make_clips.py alteraqon/<datum>-<slug>
 clips.txt: één regel per clip, "NAAM|beweging-prompt"; startbeeld is afbeeldingen/NAAM.png (ComfyUI) of NAAM.jpg,
@@ -8,6 +11,8 @@ Model: grok-imagine-video-1.5-lite (goedkoopste; okt 2026 ca. $0,19 per clip van
 Downloaden kan alleen als vidgen.x.ai in de netwerkinstellingen van de omgeving is toegestaan.
 """
 import base64, os, subprocess, sys, time, requests
+if os.environ.get("ALTERAQON_XAI_CLIPS") != "1":
+    sys.exit("Gestopt: xAI-clips zijn uitgezet door de eigenaar. Gebruik ComfyUI (Wan 2.2): alteraqon/tools/comfy_batch.py")
 MODEL = "grok-imagine-video-1.5-lite"
 os.chdir(sys.argv[1])
 for line in open("clips.txt"):
