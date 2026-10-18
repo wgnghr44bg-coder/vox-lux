@@ -80,11 +80,17 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v err
 - `git commit -m "<slug>: nieuwe short (beelden, stem, shots)"` en `git push origin alteraqon`.
 - **Kijklink voor de iPhone (via Tailscale)**: de eigenaar kijkt op zijn iPhone, alleen binnen zijn Tailscale-netwerk.
   - Tailscale-IP van deze pc: `tailscale ip -4` (begint met 100.).
-  - Draait er nog geen server op poort 8765 (`Test-NetConnection <ip> -Port 8765`), start hem op de achtergrond, ALLEEN op het Tailscale-IP (nooit 0.0.0.0):
-    `Start-Process python -ArgumentList '-m','http.server','8765','--bind','<ip>','--directory','C:\Users\rane\Videos\alteraqon' -WindowStyle Hidden`
-  - Link: `http://<ip>:8765/<slug>.mp4` – open hem zelf even met `curl -I` (moet 200 geven) voordat je hem doorgeeft.
+  - Server: `alteraqon/tools/serve_videos.py` (bekijken + downloaden), ALLEEN op het Tailscale-IP (nooit 0.0.0.0).
+    Test met `curl -s http://<ip>:8765/` of het overzicht "Alteraqon-video's" terugkomt. Zo niet (geen server, of nog de oude
+    `python -m http.server`): stop wat er op poort 8765 draait
+    (`Get-NetTCPConnection -LocalPort 8765 -State Listen | % { Stop-Process -Id $_.OwningProcess -Force }`) en start:
+    `Start-Process python -ArgumentList 'alteraqon\tools\serve_videos.py','<ip>','8765','C:\Users\rane\Videos\alteraqon' -WindowStyle Hidden`
+  - Links (controleer elk met `curl -I`, moet 200 geven; de downloadlink moet `Content-Disposition: attachment` hebben):
+    - Overzicht: `http://<ip>:8765/`
+    - Bekijken: `http://<ip>:8765/<slug>.mp4`
+    - Downloaden: `http://<ip>:8765/<slug>.mp4?download=1` (iPhone: komt in Bestanden > Downloads)
   - Vraagt Windows Firewall om toestemming: meld dat de eigenaar "Privé netwerk" moet toestaan.
-  - Zet de link bovenaan het rapport. (Op de iPhone: link openen in Safari = kijken; deelknop → "Bewaar in Bestanden" = downloaden.)
+  - Zet de drie links bovenaan het rapport.
 - Rapport aan de eigenaar: kijklink, pad van de mp4, duur, kosten (0: alles lokaal), korte samenvatting, feiten met bronnen, twijfels, beelden die niet lukten.
 
 ### 9. Online zetten (alleen als de eigenaar zegt "zet <video> op YouTube" / "zet online")
