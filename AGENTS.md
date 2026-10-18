@@ -43,6 +43,8 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Wissel shots af: totaal – close-up/macro – vogelvlucht – POV; nooit twee keer hetzelfde soort beeld achter elkaar.
 - Elk prompt = onderwerp + actie + schaal + camerahoek + licht + sfeer.
 - Test bij elk beeld: "snapt iemand zónder geluid wat er in deze zin gebeurt?" Zo niet: opnieuw.
+- Het beeld bij "Then." toont HET omslagmoment van dít onderwerp (de maan die breekt, het hoofd dat door het plafond gaat,
+  een zonnevlam …) – NOOIT een lichtflits, starburst, lichtring of lichtstraal: de witte flits zit al in de montage.
 - Het twist-beeld en het slotbeeld krijgen extra drama (dat bepaalt of mensen reageren en blijven hangen).
 
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
