@@ -1,0 +1,61 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:02.34,Sub,,0,0,0,,{\fad(150,150)}What if the Moon disappeared?
+Dialogue: 0,0:00:02.34,0:00:03.22,Sub,,0,0,0,,{\fad(150,150)}Right now.
+Dialogue: 0,0:00:03.22,0:00:04.93,Sub,,0,0,0,,{\fad(150,150)}Without a sound.
+Dialogue: 0,0:00:04.93,0:00:06.19,Sub,,0,0,0,,{\fad(150,150)}You step outside.
+Dialogue: 0,0:00:06.19,0:00:07.11,Sub,,0,0,0,,{\fad(150,150)}You look up.
+Dialogue: 0,0:00:07.11,0:00:08.35,Sub,,0,0,0,,{\fad(150,150)}The sky is empty.
+Dialogue: 0,0:00:08.35,0:00:10.03,Sub,,0,0,0,,{\fad(150,150)}Just stars.
+Dialogue: 0,0:00:10.03,0:00:11.32,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:11.32,0:00:12.03,Sub,,0,0,0,,{\fad(150,150)}One night.
+Dialogue: 0,0:00:12.03,0:00:14.24,Sub,,0,0,0,,{\fad(150,150)}Every night is now pitch black.
+Dialogue: 0,0:00:14.24,0:00:15.47,Sub,,0,0,0,,{\fad(150,150)}No more moonlight.
+Dialogue: 0,0:00:15.47,0:00:16.85,Sub,,0,0,0,,{\fad(150,150)}Ever.
+Dialogue: 0,0:00:16.85,0:00:17.70,Sub,,0,0,0,,{\fad(150,150)}One day.
+Dialogue: 0,0:00:17.70,0:00:19.31,Sub,,0,0,0,,{\fad(150,150)}The oceans feel it first.
+Dialogue: 0,0:00:19.31,0:00:21.44,Sub,,0,0,0,,{\fad(150,150)}The tides shrink to about one third.
+Dialogue: 0,0:00:21.44,0:00:24.32,Sub,,0,0,0,,{\fad(150,150)}Coastlines go strangely still.
+Dialogue: 0,0:00:24.32,0:00:25.20,Sub,,0,0,0,,{\fad(150,150)}One month.
+Dialogue: 0,0:00:25.20,0:00:28.79,Sub,,0,0,0,,{\fad(150,150)}Corals that spawn by the full moon lose their signal.
+Dialogue: 0,0:00:28.79,0:00:31.02,Sub,,0,0,0,,{\fad(150,150)}Night hunters lose their light.
+Dialogue: 0,0:00:31.02,0:00:32.31,Sub,,0,0,0,,{\fad(150,150)}Millions of years.
+Dialogue: 0,0:00:32.31,0:00:36.89,Sub,,0,0,0,,{\fad(150,150)}Without the Moon holding it steady, Earth's tilt could start to wobble.
+Dialogue: 0,0:00:36.89,0:00:39.21,Sub,,0,0,0,,{\fad(150,150)}The seasons could go wild.
+Dialogue: 0,0:00:39.21,0:00:40.73,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:40.73,0:00:42.67,Sub,,0,0,0,,{\fad(150,150)}The Moon is already leaving us.
+Dialogue: 0,0:00:42.67,0:00:46.19,Sub,,0,0,0,,{\fad(150,150)}In nineteen sixty-nine, astronauts left mirrors on it.
+Dialogue: 0,0:00:46.19,0:00:48.48,Sub,,0,0,0,,{\fad(150,150)}Scientists still fire lasers at them.
+Dialogue: 0,0:00:48.48,0:00:52.77,Sub,,0,0,0,,{\fad(150,150)}Every year, the Moon drifts about three point eight centimeters away.
+Dialogue: 0,0:00:52.77,0:00:53.72,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:53.72,0:00:56.10,Sub,,0,0,0,,{\fad(150,150)}Next time you see the Moon… look up.
+Dialogue: 0,0:00:56.10,0:00:58.17,Sub,,0,0,0,,{\fad(150,150)}It won't stay this close forever.
+Dialogue: 0,0:00:58.17,0:00:59.66,Sub,,0,0,0,,{\fad(150,150)}Would you miss it?
+Dialogue: 2,0:00:11.32,0:00:13.92,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:11.44,0:00:13.92,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO MOON
+Dialogue: 2,0:00:11.54,0:00:13.92,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 NIGHT
+Dialogue: 2,0:00:16.85,0:00:19.45,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:16.97,0:00:19.45,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO MOON
+Dialogue: 2,0:00:17.07,0:00:19.45,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 DAY
+Dialogue: 2,0:00:24.32,0:00:26.92,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:24.44,0:00:26.92,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO MOON
+Dialogue: 2,0:00:24.54,0:00:26.92,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 MONTH
+Dialogue: 2,0:00:31.02,0:00:33.62,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:31.14,0:00:33.62,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO MOON FOR MILLIONS OF
+Dialogue: 2,0:00:31.24,0:00:33.62,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}YEARS
+Dialogue: 2,0:00:48.48,0:00:51.08,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:48.60,0:00:51.08,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}DRIFTING AWAY EVERY YEAR
+Dialogue: 2,0:00:48.70,0:00:51.08,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}3.8 CM
