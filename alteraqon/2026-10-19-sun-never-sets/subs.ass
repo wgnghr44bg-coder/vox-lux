@@ -1,0 +1,60 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:03.03,Sub,,0,0,0,,{\fad(150,150)}What if the Sun never set?
+Dialogue: 0,0:00:03.33,0:00:05.33,Sub,,0,0,0,,{\fad(150,150)}You stand on a beach at noon.
+Dialogue: 0,0:00:05.33,0:00:07.16,Sub,,0,0,0,,{\fad(150,150)}The light never fades.
+Dialogue: 0,0:00:07.16,0:00:08.29,Sub,,0,0,0,,{\fad(150,150)}No sunset.
+Dialogue: 0,0:00:08.29,0:00:09.51,Sub,,0,0,0,,{\fad(150,150)}No stars.
+Dialogue: 0,0:00:09.51,0:00:11.02,Sub,,0,0,0,,{\fad(150,150)}No night.
+Dialogue: 0,0:00:11.32,0:00:12.74,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:13.04,0:00:14.44,Sub,,0,0,0,,{\fad(150,150)}After one day.
+Dialogue: 0,0:00:14.44,0:00:17.20,Sub,,0,0,0,,{\fad(150,150)}The ground never gets a chance to cool down.
+Dialogue: 0,0:00:17.20,0:00:19.44,Sub,,0,0,0,,{\fad(150,150)}Heat keeps building up.
+Dialogue: 0,0:00:19.74,0:00:21.05,Sub,,0,0,0,,{\fad(150,150)}After one week.
+Dialogue: 0,0:00:21.05,0:00:22.58,Sub,,0,0,0,,{\fad(150,150)}You can't sleep properly.
+Dialogue: 0,0:00:22.58,0:00:24.44,Sub,,0,0,0,,{\fad(150,150)}Your inner clock breaks.
+Dialogue: 0,0:00:24.44,0:00:27.21,Sub,,0,0,0,,{\fad(150,150)}Crops wilt in the fields.
+Dialogue: 0,0:00:27.51,0:00:28.86,Sub,,0,0,0,,{\fad(150,150)}After one month.
+Dialogue: 0,0:00:28.86,0:00:30.53,Sub,,0,0,0,,{\fad(150,150)}The oceans keep warming.
+Dialogue: 0,0:00:30.53,0:00:33.06,Sub,,0,0,0,,{\fad(150,150)}Monster storms start to form.
+Dialogue: 0,0:00:33.06,0:00:35.33,Sub,,0,0,0,,{\fad(150,150)}Rivers and lakes shrink.
+Dialogue: 0,0:00:35.63,0:00:37.06,Sub,,0,0,0,,{\fad(150,150)}After one year.
+Dialogue: 0,0:00:37.06,0:00:39.32,Sub,,0,0,0,,{\fad(150,150)}Deserts spread across the land.
+Dialogue: 0,0:00:39.32,0:00:42.45,Sub,,0,0,0,,{\fad(150,150)}Night animals have nowhere left to hide.
+Dialogue: 0,0:00:42.75,0:00:44.48,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:44.48,0:00:47.87,Sub,,0,0,0,,{\fad(150,150)}Some people already live with a Sun that never sets.
+Dialogue: 0,0:00:47.87,0:00:52.54,Sub,,0,0,0,,{\fad(150,150)}In Svalbard, Norway, it stays up for about four months every summer.
+Dialogue: 0,0:00:52.54,0:00:54.24,Sub,,0,0,0,,{\fad(150,150)}And it's still cold there.
+Dialogue: 0,0:00:54.24,0:00:57.37,Sub,,0,0,0,,{\fad(150,150)}The Sun just stays low in the sky.
+Dialogue: 0,0:00:57.67,0:00:58.81,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:58.81,0:01:00.60,Sub,,0,0,0,,{\fad(150,150)}Night isn't just darkness.
+Dialogue: 0,0:01:00.60,0:01:02.63,Sub,,0,0,0,,{\fad(150,150)}It's how Earth cools down.
+Dialogue: 0,0:01:02.63,0:01:04.86,Sub,,0,0,0,,{\fad(150,150)}Would you miss the stars?
+Dialogue: 2,0:00:13.04,0:00:15.64,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:13.16,0:00:15.64,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SUNSET
+Dialogue: 2,0:00:13.26,0:00:15.64,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 DAY
+Dialogue: 2,0:00:19.74,0:00:22.34,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:19.86,0:00:22.34,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SUNSET
+Dialogue: 2,0:00:19.96,0:00:22.34,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 WEEK
+Dialogue: 2,0:00:27.51,0:00:30.11,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:27.63,0:00:30.11,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SUNSET
+Dialogue: 2,0:00:27.73,0:00:30.11,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 MONTH
+Dialogue: 2,0:00:35.63,0:00:38.23,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:35.75,0:00:38.23,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SUNSET
+Dialogue: 2,0:00:35.85,0:00:38.23,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 YEAR
+Dialogue: 2,0:00:47.87,0:00:50.47,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:47.99,0:00:50.47,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SVALBARD, NORWAY
+Dialogue: 2,0:00:48.09,0:00:50.47,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}4 MONTHS
