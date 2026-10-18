@@ -42,6 +42,8 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
 - `2026-10-11-random-superpower/` – What if every human got a random superpower? (**mix-stijl**: 2 lite-clips K01 + K03, effecten, Atlas-stem, ~55 s; twist: Bajau-milt, SCN9A, tetrachromatie)
   – geüpload 11 okt (openbaar): https://youtu.be/8ErptEFbUnA
 - `2026-10-11-flat-earth/` – What if the Earth was flat? (**snelle stijl, test – AFGEWEZEN** door de eigenaar: "te veel en te druk"; niet uploaden)
+- `2026-10-18-moon-disappeared/` – What if the Moon disappeared? (`make.py` → tools/make_video.py + shots.py)
+- `2026-10-18-grow-1cm-every-minute/` – What if you grew 1cm every minute? (`make.py` → tools/make_video.py + shots.py)
 
 - **Omgeving (eigenaar 13 okt 2026):** geen vaste stad; elk beeld toont letterlijk wat er gezegd wordt en past bij het onderwerp
   ("wow"-beelden: spectaculair, ook wetenschappelijke 3D-renders voor lichaam/natuur).
