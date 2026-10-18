@@ -11,7 +11,7 @@ Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact
 - Map: `alteraqon/<datum van vandaag>-<korte-slug>/` (bijv. `2026-10-20-sun-vanished`). Kopieer niet het sjabloon blind; volg het voorbeeld `alteraqon/2026-10-18-moon-disappeared/`.
 
 ### 2. Script (`script-cues.txt`)
-- Engels, ±130–150 woorden (≈60 s), korte spannende zinnen. Elke regel eindigt op `[pause]` of `[long pause]`.
+- Engels, ±120–135 woorden (≈60–70 s met het rustige tempo), korte spannende zinnen. Elke regel eindigt op `[pause]` of `[long pause]`.
 - `{img:M01}` op een eigen regel vóór elk stukje tekst; ±1 beeld per zin, 17–20 beelden.
 - Opbouw: opening "What if …?" → POV-opbouw → "Then." (eigen beeld, witte flits + klap) → 3–4 tijdstappen met groot getal
   → "But here's the twist." met een ECHT feit → "So remember." + vraag aan de kijker.
@@ -33,7 +33,8 @@ Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact
 - Geen bewegende clips tenzij de eigenaar erom vraagt.
 
 ### 5. Stem (vaste stem: Chatterbox `chatterbox_als_bm_george_rustig`, gratis)
-`python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 350 --long-pause-ms 800 --sentence-pause-ms 250`
+`python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 500 --long-pause-ms 1200 --sentence-pause-ms 400 --speed 0.95`
+- Tempo (eigenaar 18 okt 2026): rustiger dan eerst, langere pauzes + iets trager. Script dan ±120–135 woorden voor ±60–70 s.
 - Eerst `--dry-run` om de regelnummers te zien. Controleer daarna `voice-times.tsv` (aantal regels, "Then." op de verwachte regel).
 
 ### 6. `shots.py` (zie `alteraqon/2026-10-18-moon-disappeared/shots.py`)
