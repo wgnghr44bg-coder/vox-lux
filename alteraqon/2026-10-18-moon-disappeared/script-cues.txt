@@ -1,5 +1,5 @@
 {img:M01}
-What if the Moon disappeared? Right now. Without a sound. [long pause]
+What if the Moon disappeared? Without a sound. [long pause]
 {img:M02}
 You step outside. You look up. [pause]
 {img:M03}
@@ -7,19 +7,19 @@ The sky is empty. Just stars. [long pause]
 {img:M04}
 Then. [long pause]
 {img:M05}
-One night. Every night is now pitch black. [pause]
+After one night. Every night is now pitch black. [pause]
 {img:M06}
 No more moonlight. Ever. [long pause]
 {img:M07}
-One day. The oceans feel it first. The tides shrink to about one third. [pause]
+After one day. The oceans feel it first. The tides shrink to about one third. [pause]
 {img:M08}
 Coastlines go strangely still. [long pause]
 {img:M09}
-One month. Corals that spawn by the full moon lose their signal. [pause]
+After one month. Corals that spawn by the full moon lose their signal. [pause]
 {img:M10}
 Night hunters lose their light. [long pause]
 {img:M11}
-Millions of years. Without the Moon holding it steady, Earth's tilt could start to wobble. [pause]
+After millions of years. Without the Moon holding it steady, Earth's tilt could start to wobble. [pause]
 {img:M12}
 The seasons could go wild. [long pause]
 {img:M13}

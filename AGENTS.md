@@ -17,6 +17,8 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - `{img:M01}` op een eigen regel vóór elk stukje tekst; ±1 beeld per zin, 17–20 beelden.
 - Opbouw: opening "What if …?" → POV-opbouw → "Then." (eigen beeld, witte flits + klap) → 3–4 tijdstappen met groot getal
   → "But here's the twist." met een ECHT feit → "So remember." + vraag aan de kijker.
+- Tijdstappen altijd met "After": gesproken "After one day.", tijdstempel `("NO MOON","AFTER 1 DAY")` (groot getal max ±13 tekens).
+  Geen opvulzinnen als "Right now." na de openingsvraag.
 - Getallen VOLUIT schrijven ("nineteen sixty-nine", "three point eight"), anders spreekt Chatterbox ze verkeerd uit.
 - Feiten: alleen algemeen bekende, controleerbare feiten. Noteer per feit een bron (URL) voor het eindrapport.
   Twijfel je aan een getal, zeg "about" / "could" of laat het weg.
@@ -46,7 +48,7 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - `(regel in voice-times.tsv, beeld, beweging, filter, (label, groot getal) of None, [effect])`
 - beweging: `in`, `out`, `up`, `shake`, `punch`; effect (optioneel): `dust`, `ash`, `embers`, `rain`.
 - Shot bij "Then.": filter `FLASH`, en `BANG = <index van die shot, vanaf 0>`; `FADE_IN = 0`.
-- Tijdstempels bij de tijdstappen/twist, bijv. `("NO MOON","1 DAY")`. Groot getal max ±12 tekens (anders past het niet).
+- Tijdstempels bij de tijdstappen/twist, bijv. `("NO MOON","AFTER 1 DAY")`. Groot getal max ±13 tekens (anders past het niet).
 
 ### 7. Video renderen (uitvoer BUITEN de repo)
 `python alteraqon/tools/make_video.py alteraqon/<map> C:\Users\rane\Videos\alteraqon`
