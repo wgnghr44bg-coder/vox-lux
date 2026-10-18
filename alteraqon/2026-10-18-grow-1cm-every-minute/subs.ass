@@ -1,0 +1,69 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:04.21,Sub,,0,0,0,,{\fad(150,150)}What if you grew one centimeter every minute?
+Dialogue: 0,0:00:04.51,0:00:06.34,Sub,,0,0,0,,{\fad(150,150)}You stand in your living room.
+Dialogue: 0,0:00:06.34,0:00:08.60,Sub,,0,0,0,,{\fad(150,150)}Something feels strange.
+Dialogue: 0,0:00:08.60,0:00:10.20,Sub,,0,0,0,,{\fad(150,150)}Your shirt pulls tight.
+Dialogue: 0,0:00:10.20,0:00:12.27,Sub,,0,0,0,,{\fad(150,150)}Your sleeves get short.
+Dialogue: 0,0:00:12.57,0:00:13.99,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:14.29,0:00:15.59,Sub,,0,0,0,,{\fad(150,150)}After one hour.
+Dialogue: 0,0:00:15.59,0:00:17.50,Sub,,0,0,0,,{\fad(150,150)}Sixty centimeters taller.
+Dialogue: 0,0:00:17.50,0:00:20.07,Sub,,0,0,0,,{\fad(150,150)}You no longer fit through the door.
+Dialogue: 0,0:00:20.37,0:00:21.77,Sub,,0,0,0,,{\fad(150,150)}After one day.
+Dialogue: 0,0:00:21.77,0:00:23.32,Sub,,0,0,0,,{\fad(150,150)}Fourteen meters.
+Dialogue: 0,0:00:23.32,0:00:25.21,Sub,,0,0,0,,{\fad(150,150)}You tower over the house.
+Dialogue: 0,0:00:25.21,0:00:28.50,Sub,,0,0,0,,{\fad(150,150)}Your heart could struggle to push blood that high.
+Dialogue: 0,0:00:28.80,0:00:30.11,Sub,,0,0,0,,{\fad(150,150)}After one week.
+Dialogue: 0,0:00:30.11,0:00:31.56,Sub,,0,0,0,,{\fad(150,150)}One hundred meters.
+Dialogue: 0,0:00:31.56,0:00:33.66,Sub,,0,0,0,,{\fad(150,150)}Your head is in the clouds.
+Dialogue: 0,0:00:33.66,0:00:35.52,Sub,,0,0,0,,{\fad(150,150)}But your bones can't keep up.
+Dialogue: 0,0:00:35.52,0:00:38.29,Sub,,0,0,0,,{\fad(150,150)}Your weight grows much faster than your strength.
+Dialogue: 0,0:00:38.29,0:00:40.20,Sub,,0,0,0,,{\fad(150,150)}Your legs could snap.
+Dialogue: 0,0:00:40.50,0:00:42.22,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:42.22,0:00:44.76,Sub,,0,0,0,,{\fad(150,150)}The tallest man ever was real.
+Dialogue: 0,0:00:44.76,0:00:45.99,Sub,,0,0,0,,{\fad(150,150)}Robert Wadlow.
+Dialogue: 0,0:00:45.99,0:00:48.23,Sub,,0,0,0,,{\fad(150,150)}Two point seven two meters.
+Dialogue: 0,0:00:48.23,0:00:51.13,Sub,,0,0,0,,{\fad(150,150)}He needed leg braces just to walk.
+Dialogue: 0,0:00:51.13,0:00:54.82,Sub,,0,0,0,,{\fad(150,150)}In nineteen forty, a brace rubbed a small blister.
+Dialogue: 0,0:00:54.82,0:00:56.28,Sub,,0,0,0,,{\fad(150,150)}It got infected.
+Dialogue: 0,0:00:56.28,0:00:58.49,Sub,,0,0,0,,{\fad(150,150)}He died at twenty-two.
+Dialogue: 0,0:00:58.79,0:00:59.94,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:59.94,0:01:02.63,Sub,,0,0,0,,{\fad(150,150)}Being huge isn't a superpower.
+Dialogue: 0,0:01:02.63,0:01:04.75,Sub,,0,0,0,,{\fad(150,150)}Would you still want to grow?
+Dialogue: 2,0:00:14.29,0:00:16.89,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:14.41,0:00:16.89,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}GROWING
+Dialogue: 2,0:00:14.51,0:00:16.89,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 HOUR
+Dialogue: 2,0:00:20.37,0:00:22.97,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:20.49,0:00:22.97,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}GROWING
+Dialogue: 2,0:00:20.59,0:00:22.97,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 DAY
+Dialogue: 2,0:00:25.21,0:00:27.81,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:25.33,0:00:27.81,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}HEART STRUGGLES
+Dialogue: 2,0:00:25.43,0:00:27.81,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}14 M
+Dialogue: 2,0:00:28.80,0:00:31.40,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:28.92,0:00:31.40,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}GROWING
+Dialogue: 2,0:00:29.02,0:00:31.40,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}AFTER 1 WEEK
+Dialogue: 2,0:00:33.66,0:00:36.26,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:33.78,0:00:36.26,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}SQUARE CUBE LAW
+Dialogue: 2,0:00:33.88,0:00:36.26,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}100 M
+Dialogue: 2,0:00:42.22,0:00:44.82,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:42.34,0:00:44.82,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}TALLEST EVER
+Dialogue: 2,0:00:42.44,0:00:44.82,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}2.72 M
+Dialogue: 2,0:00:48.23,0:00:50.83,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:48.35,0:00:50.83,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}BRACES
+Dialogue: 2,0:00:48.45,0:00:50.83,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1940
+Dialogue: 2,0:00:51.13,0:00:53.73,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:51.25,0:00:53.73,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}DIED AT
+Dialogue: 2,0:00:51.35,0:00:53.73,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}22
