@@ -43,6 +43,13 @@ def check(vid: Path) -> list:
         if hits:
             errs.append(f"Prompt {name}: bevat {', '.join(hits)} – geeft onleesbare cijfers/tekst; kies een ander beeld.")
 
+    m_then = re.search(r"\{img:([^}]+)\}[^{]*?\bThen\.", cues)
+    if m_then:
+        name = m_then.group(1)
+        pl = [l for l in (vid / "prompts.txt").read_text(encoding="utf-8").splitlines() if l.startswith(name + "|")]
+        if pl and re.search(r"flash|starburst|burst of light|ring of light|light rays|beam of light|explosion of light", pl[0], re.I):
+            errs.append(f'Prompt {name} (bij "Then."): geen lichtflits/starburst – toon het omslagmoment van dit onderwerp zelf.')
+
     up = json.loads((vid / "upload.json").read_text(encoding="utf-8"))
     if not up.get("title", "").startswith("What if"):
         errs.append('upload.json: titel moet beginnen met "What if".')
