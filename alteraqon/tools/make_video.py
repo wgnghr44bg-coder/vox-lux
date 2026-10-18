@@ -6,6 +6,10 @@ Schrijft subs.ass in de videomap en <tmpmap>/<slug>.mp4 (1080x1920).
 """
 import csv, importlib.util, os, subprocess, sys
 VID=os.path.abspath(sys.argv[1]); S=os.path.abspath(sys.argv[2]); os.chdir(VID)
+# Vaste regels van de eigenaar afdwingen voor nieuwe video's (vanaf 19 okt 2026): bij een FOUT niet renderen.
+if os.path.basename(VID)[:10] >= "2026-10-19":
+    chk=subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),"check_short.py"),VID])
+    if chk.returncode: sys.exit("Niet gerenderd: los eerst de FOUTEN hierboven op (zie AGENTS.md).")
 SLUG=os.path.basename(VID).split("-",3)[-1]
 spec=importlib.util.spec_from_file_location("shots","shots.py"); cfg=importlib.util.module_from_spec(spec); spec.loader.exec_module(cfg)
 FPS=30; A="afbeeldingen"; LEAD=0.8
