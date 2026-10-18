@@ -83,8 +83,16 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v err
   - Zet de link bovenaan het rapport. (Op de iPhone: link openen in Safari = kijken; deelknop → "Bewaar in Bestanden" = downloaden.)
 - Rapport aan de eigenaar: kijklink, pad van de mp4, duur, kosten (0: alles lokaal), korte samenvatting, feiten met bronnen, twijfels, beelden die niet lukten.
 
+### 9. Online zetten (alleen als de eigenaar zegt "zet <video> op YouTube" / "zet online")
+- Vereist de Windows-omgevingsvariabelen `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN_ALTERAQON`. Ontbreken ze: meld dat
+  en stop (vraag NOOIT om de waarden in de chat; nooit in git, logs of rapporten zetten).
+- `python alteraqon/tools/upload_short.py alteraqon/<map> C:\Users\rane\Videos\alteraqon\<slug>.mp4`
+  (standaard openbaar; `--privacy unlisted` of `private` als de eigenaar dat vraagt). Ontbreekt de module requests: `pip install requests`.
+- Het script controleert de video, weigert een tweede upload en zet de YouTube-link in `upload.json`.
+  Commit + push daarna `upload.json` en meld de link aan de eigenaar.
+
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
-- Niet zelf uploaden naar YouTube: dat doet de cloudsessie (Claude) met `alteraqon/tools/upload_short.py`, pas als de eigenaar "zet online" zegt.
+- Nooit uit jezelf uploaden naar YouTube. Alleen als de eigenaar in DEZE sessie letterlijk vraagt om een video online / op YouTube te zetten (zie stap 9).
 - Geen scripts in `alteraqon/tools/` aanpassen. Geen andere branches of video-mappen aanraken.
 - Geen nieuwe branch `alteraqon` aanmaken; hij bestaat op origin.
