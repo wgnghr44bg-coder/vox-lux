@@ -5,6 +5,8 @@ Werk op branch `alteraqon` (deze map: `vox-lux-alteraqon`). Schrijf kort en in h
 
 ## Opdracht "Maak een Alteraqon-short: What if …?"
 Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact wat er misgaat.
+**De eigenaar zit NIET achter de pc** (hij volgt alles op zijn iPhone). Vraag hem nooit om zelf een commando te draaien,
+iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het zelf. Vragen mag alleen over inhoud (onderwerp, keuze).
 
 ### 1. Voorbereiden
 - `git pull origin alteraqon`
@@ -35,6 +37,9 @@ Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact
 ### 5. Stem (vaste stem: Chatterbox `chatterbox_als_bm_george_rustig`, gratis)
 `python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 500 --long-pause-ms 1200 --sentence-pause-ms 400 --speed 0.95`
 - Tempo (eigenaar 18 okt 2026): rustiger dan eerst, langere pauzes + iets trager. Script dan ±120–135 woorden voor ±60–70 s.
+- Draai dit met de Python waarin `chatterbox-tts` staat (niet de gewone python). Staat hieronder nog geen pad: zoek naar
+  `...\Scripts\python.exe` waarmee `python -c "import chatterbox"` lukt (o.a. onder C:\Users\rane), en zet het pad hier:
+  - Chatterbox-python: (nog invullen)
 - Eerst `--dry-run` om de regelnummers te zien. Controleer daarna `voice-times.tsv` (aantal regels, "Then." op de verwachte regel).
 
 ### 6. `shots.py` (zie `alteraqon/2026-10-18-moon-disappeared/shots.py`)
