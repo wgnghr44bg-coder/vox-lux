@@ -33,6 +33,18 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Echte (historische) personen nooit herkenbaar of als nep-"foto": alleen silhouet, van achteren, of een voorwerp van hen.
 - Feiten over oorzaken ("zijn hart faalde") altijd nazoeken; liever weglaten dan gokken.
 
+### 3b. Impact (eigenaar 18 okt 2026: beelden moeten mensen vasthouden)
+- **M01 = de hook**: het meest spectaculaire beeld van de hele video (de eerste seconde beslist of iemand blijft kijken).
+  Toon meteen het extreme gevolg (bijv. een reus die door het dak breekt), niet een rustige opbouwscène.
+- Toon het MOMENT, niet de situatie: iets breekt, barst, valt, explodeert, scheurt, stroomt – midden in de actie.
+- Schaal voelbaar maken: lage camerahoek, kleine mensen/auto's/huizen naast het enorme ding.
+- Eén duidelijk onderwerp, groot in beeld, in het midden/bovenste deel (onderste derde = ondertitels, linksboven = tijdstempel).
+- Sterk licht en contrast: tegenlicht, randlicht, één accentkleur; geen vlak grijs of saai binnenlicht.
+- Wissel shots af: totaal – close-up/macro – vogelvlucht – POV; nooit twee keer hetzelfde soort beeld achter elkaar.
+- Elk prompt = onderwerp + actie + schaal + camerahoek + licht + sfeer.
+- Test bij elk beeld: "snapt iemand zónder geluid wat er in deze zin gebeurt?" Zo niet: opnieuw.
+- Het twist-beeld en het slotbeeld krijgen extra drama (dat bepaalt of mensen reageren en blijven hangen).
+
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
 `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
 - Bekijk ELK beeld. Klopt het niet met de zin (verkeerde/extra objecten, tekst, vervormde mensen): pas het prompt aan,
