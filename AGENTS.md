@@ -66,6 +66,8 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Tijdstempels bij de tijdstappen/twist, bijv. `("NO MOON","AFTER 1 DAY")`. Groot getal max ±13 tekens (anders past het niet).
 
 ### 7. Video renderen (uitvoer BUITEN de repo)
+`make_video.py` draait eerst `alteraqon/tools/check_short.py` en weigert te renderen bij een FOUT. Los elke FOUT op
+(script/prompts/shots/upload.json aanpassen, zo nodig stem opnieuw) – nooit de controle omzeilen of uitzetten.
 `python alteraqon/tools/make_video.py alteraqon/<map> C:\Users\rane\Videos\alteraqon`
 Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v error -i <mp4> -f null -` geeft niets.
 
