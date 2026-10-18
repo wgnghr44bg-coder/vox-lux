@@ -52,7 +52,14 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v err
 - Voeg de video toe onder "Video's" in `alteraqon/README.md` (één regel).
 - `git add alteraqon/<map> alteraqon/README.md` – NOOIT een eind-mp4 in git.
 - `git commit -m "<slug>: nieuwe short (beelden, stem, shots)"` en `git push origin alteraqon`.
-- Rapport aan de eigenaar: pad van de mp4, duur, kosten (0: alles lokaal), korte samenvatting, feiten met bronnen, twijfels, beelden die niet lukten.
+- **Kijklink voor de iPhone (via Tailscale)**: de eigenaar kijkt op zijn iPhone, alleen binnen zijn Tailscale-netwerk.
+  - Tailscale-IP van deze pc: `tailscale ip -4` (begint met 100.).
+  - Draait er nog geen server op poort 8765 (`Test-NetConnection <ip> -Port 8765`), start hem op de achtergrond, ALLEEN op het Tailscale-IP (nooit 0.0.0.0):
+    `Start-Process python -ArgumentList '-m','http.server','8765','--bind','<ip>','--directory','C:\Users\rane\Videos\alteraqon' -WindowStyle Hidden`
+  - Link: `http://<ip>:8765/<slug>.mp4` – open hem zelf even met `curl -I` (moet 200 geven) voordat je hem doorgeeft.
+  - Vraagt Windows Firewall om toestemming: meld dat de eigenaar "Privé netwerk" moet toestaan.
+  - Zet de link bovenaan het rapport. (Op de iPhone: link openen in Safari = kijken; deelknop → "Bewaar in Bestanden" = downloaden.)
+- Rapport aan de eigenaar: kijklink, pad van de mp4, duur, kosten (0: alles lokaal), korte samenvatting, feiten met bronnen, twijfels, beelden die niet lukten.
 
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja. Niet uploaden naar YouTube.
