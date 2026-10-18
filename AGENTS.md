@@ -84,6 +84,7 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v err
 - Rapport aan de eigenaar: kijklink, pad van de mp4, duur, kosten (0: alles lokaal), korte samenvatting, feiten met bronnen, twijfels, beelden die niet lukten.
 
 ## Niet doen
-- Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja. Niet uploaden naar YouTube.
+- Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
+- Niet zelf uploaden naar YouTube: dat doet de cloudsessie (Claude) met `alteraqon/tools/upload_short.py`, pas als de eigenaar "zet online" zegt.
 - Geen scripts in `alteraqon/tools/` aanpassen. Geen andere branches of video-mappen aanraken.
 - Geen nieuwe branch `alteraqon` aanmaken; hij bestaat op origin.

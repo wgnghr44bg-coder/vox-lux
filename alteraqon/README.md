@@ -99,6 +99,15 @@ Zelfde stijl, maar liggend en ca. 40–48 zinnen/beelden (beelden gratis via Com
 - Thumbnail 1280x720 met `make_thumbnail.py` in de videomap (tekst links, YouTube zet de duur rechtsonder).
 - YouTube-tekst als hieronder, maar zonder `#shorts`.
 
+## Online zetten (eigenaar 18 okt 2026)
+Pas als de eigenaar de video goedkeurt en zegt **"zet online"**, in de cloudsessie (daar staat de sleutel van @alteraqon):
+```
+python3 alteraqon/tools/upload_short.py alteraqon/<datum>-<slug> <tmpmap>/<slug>.mp4      # standaard openbaar
+```
+Titel, beschrijving en tags komen uit `upload.json`; categorie Wetenschap & technologie, niet voor kinderen,
+"gewijzigde of synthetische content" = ja. De link wordt in `upload.json` bewaard; nooit twee keer uploaden.
+De agent op de pc (AGENTS.md) uploadt nooit zelf.
+
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp. De beschrijving is **algemeen** (eigenaar okt 2026): ze maakt nieuwsgierig naar het onderwerp,
 maar herhaalt niet wat er letterlijk in de video staat (geen getallen/feiten uit het script, de twist niet verklappen).
