@@ -29,6 +29,9 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Elk beeld toont LETTERLIJK wat er in die zin gezegd wordt; "wow"-beelden. Geen gezichten of handen in close-up; mensen alleen als silhouet/van achteren.
 - Noem iets wat NIET in beeld mag NOOIT bij naam (ook niet als "no moon"): het model tekent het dan juist. Beschrijf alleen wat er wél is.
 - Geen echte merken/logo's.
+- Geen linialen, meetlatten, grafieken, klokken of borden: het model maakt daar onleesbare cijfers/tekst van.
+- Echte (historische) personen nooit herkenbaar of als nep-"foto": alleen silhouet, van achteren, of een voorwerp van hen.
+- Feiten over oorzaken ("zijn hart faalde") altijd nazoeken; liever weglaten dan gokken.
 
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
 `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
