@@ -164,6 +164,10 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
 
 ## Lange YouTube-video (opdracht "Maak een lange Alteraqon-video: What if …?") – eigenaar 19 okt 2026
 Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptschrijver, @beeldcontrole), met deze verschillen:
+- **Voorbeeld = `alteraqon/2026-10-11-sky-countdown/`** (eigenaar: "heel goed voorbeeld"). @scriptschrijver leest eerst
+  `script-cues.txt`, `upload.json` en `thumbnail.jpg` daarvan en volgt die stijl: wereldwijd mysterie, elke scène een andere plek
+  of persoon ("In Tokyo… In New York…"), aftellende spanning met tijdstempels, ±450 woorden / 40 beelden / ±3 min,
+  thumbnail met korte prikkelende tekst links en een gloeiend detail rechts.
 - **Lengte/opbouw**: 3–5 min, ±300–480 woorden, 35–50 beelden. Opbouw in hoofdstukken: hook (eerste 10 s het spannendste
   beeld + de vraag) → opbouw → "Then." → 5–7 tijdstappen met tijdstempels → dieptepunt → "But here's the twist." (echt feit,
   bronnen) → slot met vraag aan de kijker. Spannend blijven: elke 20–30 s iets nieuws.
