@@ -53,7 +53,7 @@ try {
     if ($ip) {
         $ip = $ip.Trim()
         $ok = $false
-        try { $ok = (Invoke-WebRequest "http://${ip}:8765/" -UseBasicParsing -TimeoutSec 5).Content -match "Alteraqon" } catch {}
+        try { $ok = (Invoke-WebRequest "http://${ip}:8765/" -UseBasicParsing -TimeoutSec 5).Content -match "serve-v2" } catch {}   # oude versie? dan herstarten
         if (-not $ok) {
             Get-NetTCPConnection -LocalPort 8765 -State Listen -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
             Start-Process python -ArgumentList 'alteraqon\tools\serve_videos.py', $ip, '8765', $videos -WindowStyle Hidden

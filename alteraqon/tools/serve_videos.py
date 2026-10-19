@@ -33,7 +33,7 @@ class Handler(SimpleHTTPRequestHandler):
             reps = sorted((f for f in os.listdir(DIR) if f.startswith("rapport-") and f.endswith(".txt")), reverse=True)[:14]
             reps = "".join(f'<li><a href="/{quote(f)}">{html.escape(f[8:-4])}</a></li>' for f in reps)
             body = (f'<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width">'
-                    f'<title>Alteraqon</title><style>body{{font:18px system-ui;margin:20px}}li{{margin:14px 0}}'
+                    f'<title>Alteraqon</title><!-- serve-v2 --><style>body{{font:18px system-ui;margin:20px}}li{{margin:14px 0}}'
                     f'a{{display:inline-block;padding:8px 14px;margin-top:6px;background:#222;color:#fff;'
                     f'border-radius:8px;text-decoration:none}}</style><h2>Alteraqon-video\'s</h2><ul>{rows}</ul>'
                     f'<h2>Nachtrapporten</h2><ul>{reps}</ul>').encode()
