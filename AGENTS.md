@@ -193,6 +193,19 @@ Klopt iets niet: NIET uploaden, wel renderen + kijklink, en in het rapport boven
 Na het inplannen: commit + push `upload.json` (met `youtube` en `publish_at`), en rapporteer bovenaan:
 YouTube-link, publicatiedatum/-tijd in Nederlandse tijd, kijk- en downloadlink; bij Shorts ook de TikTok-tekst in een kopieerbaar blok.
 
+### 11. Nachtrun (eigenaar 20 okt 2026: "ik wil alles helemaal automatisch")
+De Windows-taak `Alteraqon-Nachtrun` start elke nacht `alteraqon/tools/auto_run.ps1`. Die doet `git pull`, start ComfyUI en de
+kijkserver, bepaalt met `auto_plan.py` hoeveel video's nodig zijn (Shorts aanvullen tot 3 ingepland, 1 lange video als er geen
+meer ingepland staat) en start per video een verse sessie `opencode run "NACHTRUN …"`.
+In een NACHTRUN:
+- Er is niemand: stel NOOIT een vraag en wacht nergens op; beslis zelf (onderwerp, keuzes). Lukt iets echt niet: sla die video over.
+- Volg alle stappen (0a, 0–8, 10) precies zoals gewoonlijk; inplannen alleen als alles klopt (stap 10).
+- Rapport: voeg ONDERAAN toe aan `C:\Users\rane\Videos\alteraqon\rapport-<datum>.txt` (nooit overschrijven, UTF-8), max ±15 regels:
+  `=== <titel> ===`, ingepland op <datum/tijd NL> + YouTube-link (of `NIET ingepland: <reden>`), kijk- en downloadlink,
+  bronnen van de twist, beelden die niet lukten, en bij Shorts de TikTok-tekst. De eigenaar leest dit op zijn iPhone
+  via `http://<tailscale-ip>:8765/` (kopje "Nachtrapporten").
+- Commit + push zoals gewoonlijk; raak `alteraqon-auto.json` (instellingen van de pc, buiten git) niet aan.
+
 ## Lange YouTube-video (opdracht "Maak een lange Alteraqon-video: What if …?") – eigenaar 19 okt 2026
 Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptschrijver, @beeldcontrole), met deze verschillen:
 - **Voorbeeld = `alteraqon/2026-10-11-sky-countdown/`** (eigenaar: "heel goed voorbeeld"). @scriptschrijver leest eerst
