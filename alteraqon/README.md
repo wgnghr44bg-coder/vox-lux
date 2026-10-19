@@ -3,6 +3,7 @@
 Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 
 ## Stijl
+> **Beeldmodel sinds 19 okt 2026: FLUX.2 [klein] 4B** in ComfyUI (`C:\comfy-workflows\flux2klein_api.json`), Z-Image alleen als reserve.
 > **Vaste regel (eigenaar 13 okt 2026): xAI ALLEEN nog voor de stem.** Beelden én clips uitsluitend via ComfyUI op de pc van de eigenaar
 > (beelden: Z-Image Turbo, clips: Wan 2.2 5B), niet meer via xAI. `make_images.py` en `make_clips.py` (xAI) staan uit; alleen na uitdrukkelijk ja.
 > Werkwijze: cloudsessie schrijft `prompts.txt` + `comfy-clips.txt`, commit + pusht en vraagt de eigenaar op zijn pc te draaien:
