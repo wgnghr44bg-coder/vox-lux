@@ -98,7 +98,10 @@ Alleen JA telt; mooi-maar-iets-anders = NEE = opnieuw met een ander prompt (ande
 **Beelden altijd laten beoordelen door de subagent `@beeldcontrole`** (draait op een gratis model dat beelden
 kan zien). Kun jij zelf geen afbeeldingen bekijken, gebruik hem dan ZEKER; nooit een beeld goedkeuren zonder dat het bekeken is.
 Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" bovenaan.
-`python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
+**Vast beeldmodel (eigenaar 19 okt 2026): FLUX.2 [klein] 4B** (GGUF Q4_K_M, Apache 2.0) – volgt prompts veel beter dan Z-Image:
+`python alteraqon/tools/comfy_batch.py C:\comfy-workflows\flux2klein_api.json alteraqon/<map> --short`
+(Z-Image `zimage_api.json` alleen nog als reserve als Flux niet werkt.) Walvissen/dieren: schrijf "toothless mouth lined with
+baleen" e.d. erbij – Flux tekent anders tanden.
 - Bekijk ELK beeld. Klopt het niet met de zin (verkeerde/extra objecten, tekst, vervormde mensen): pas het prompt aan,
   gooi de png weg en draai opnieuw (alleen ontbrekende worden gemaakt). Max 3 pogingen per beeld.
 - **Geen bewegende clips** (eigenaar 19 okt 2026: "laat die bewegende filmpjes maar zitten"). Alleen foto's + Ken Burns.
