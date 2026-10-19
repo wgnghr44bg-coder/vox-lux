@@ -62,7 +62,7 @@ Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" 
   - Maken – een clip duurt op deze pc (RTX 2080 Super) **10–25 minuten**; dat is normaal (op 13 okt zijn hier 13 Wan-clips gemaakt).
     Start hem daarom op de ACHTERGROND, anders breekt jouw shell-time-out hem af:
     `Start-Process python -ArgumentList 'alteraqon\tools\comfy_batch.py','C:\comfy-workflows\wan_i2v_api.json','alteraqon\<map>','M04','--short','--frames','73' -RedirectStandardOutput alteraqon\<map>\clips\M04.log -WindowStyle Hidden`
-    (73 frames = 3 s, sneller dan 5 s). Ga ondertussen door met de stem; kijk elke paar minuten of `clips\M04.mp4` er is
+    (73 frames = 3 s, sneller dan 5 s). Ga ondertussen door met shots.py en upload.json (de stem pas NA de clip); kijk elke paar minuten of `clips\M04.mp4` er is
     (max 40 min). Start NOOIT een nieuwe poging zolang ComfyUI nog bezig is (`curl -s http://127.0.0.1:8188/queue`:
     queue_running moet leeg zijn); anders stapelen de opdrachten zich op en duurt alles veel langer.
     Daarna verkleinen: `ffmpeg -y -i alteraqon/<map>/clips/M04.mp4 -c:v libx264 -crf 20 -an alteraqon/<map>/clips/M04_k.mp4`, en M04_k.mp4 hernoemen naar M04.mp4.
@@ -77,6 +77,10 @@ Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" 
 - Draai dit met de Python waarin `chatterbox-tts` staat (niet de gewone python). Staat hieronder nog geen pad: zoek naar
   `...\Scripts\python.exe` waarmee `python -c "import chatterbox"` lukt (o.a. onder C:\Users\rane), en zet het pad hier:
   - Chatterbox-python: C:\Users\rane\Documents\Standaardproject\whatif\stem-env\Scripts\python.exe
+- De stem duurt enkele minuten: start hem op de ACHTERGROND (anders kapt jouw shell-time-out hem af), NA de Then-clip
+  (ComfyUI en Chatterbox delen de 8 GB-videokaart; `curl -s http://127.0.0.1:8188/queue` → queue_running leeg):
+  `Start-Process <Chatterbox-python> -ArgumentList 'alteraqon\tools\make_voice_local.py','alteraqon\<map>','..\stem-cache','--pause-ms','700','--long-pause-ms','1600','--sentence-pause-ms','600','--speed','0.92' -RedirectStandardOutput alteraqon\<map>\voice.log -WindowStyle Hidden`
+  en kijk elke minuut of `voice-times.tsv` er is. Afgebroken? Gewoon opnieuw starten: de cache houdt klare zinnen.
 - Eerst `--dry-run` om de regelnummers te zien. Controleer daarna `voice-times.tsv` (aantal regels, "Then." op de verwachte regel).
 
 ### 6. `shots.py` (zie `alteraqon/2026-10-18-moon-disappeared/shots.py`)
