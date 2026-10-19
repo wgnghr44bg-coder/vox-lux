@@ -8,6 +8,15 @@ Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact
 **De eigenaar zit NIET achter de pc** (hij volgt alles op zijn iPhone). Vraag hem nooit om zelf een commando te draaien,
 iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het zelf. Vragen mag alleen over inhoud (onderwerp, keuze).
 
+### 0a. Zelf onderwerpen kiezen (eigenaar 20 okt 2026: "gemixt, over van alles, maar spannend en boeiend")
+Geeft de eigenaar geen onderwerp, dan kies je (met @scriptschrijver) zelf:
+- **Wissel af** tussen categorieën; nooit twee keer achter elkaar dezelfde: ruimte · menselijk lichaam · dieren/natuur ·
+  aarde/weer/rampen · oceaan · techniek/internet · geschiedenis ("what if X never happened") · natuurkunde/tijd · samenleving.
+- **Nooit herhalen**: kijk eerst welke onderwerpen al in `alteraqon/*/upload.json` (titels) staan.
+- **Alleen sterke onderwerpen**: een vraag die iedereen meteen wil weten (eerste 2 seconden!), een beeldbare ramp/verandering,
+  en een ECHT verrassend feit als twist. Geen twist te vinden met bron? Kies een ander onderwerp.
+- Titelvorm: `What if <korte, concrete vraag>?` (max ±50 tekens), bijv. "What if the oceans disappeared?".
+
 ### 0. Wie doet wat (eigenaar 19 okt 2026)
 - **Script, feiten en beeldprompts (stap 2, 3, 3b) laat je ALTIJD schrijven door de subagent `@scriptschrijver`**
   (beste gratis model voor schrijven/kennis). Geef hem het onderwerp + de map; hij schrijft `script-cues.txt`, `prompts.txt`
