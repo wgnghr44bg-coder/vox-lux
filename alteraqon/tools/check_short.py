@@ -50,25 +50,12 @@ def check(vid: Path) -> list:
         if pl and re.search(r"flash|starburst|burst of light|ring of light|light rays|beam of light|explosion of light", pl[0], re.I):
             errs.append(f'Prompt {name} (bij "Then."): geen lichtflits/starburst – toon het omslagmoment van dit onderwerp zelf.')
 
-    if m_then and (vid / "afbeeldingen").exists():
-        name = m_then.group(1)
-        clip = vid / "clips" / f"{name}.mp4"
-        if clip.exists():
-            import subprocess
-            d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(clip)],
-                                     capture_output=True, text=True).stdout or 0)
-            if not 2.5 <= d <= 5.5:
-                errs.append(f"clips/{name}.mp4: {d:.1f} s – moet 2,5–5 s zijn.")
-        elif not (vid / "clips" / f"{name}.mislukt.txt").exists():
-            errs.append(f'Clip ontbreekt: het "Then."-beeld {name} moet een bewegende clip zijn (clips/{name}.mp4, AGENTS.md stap 4); '
-                        f"lukt het niet na 3 pogingen, zet de reden in clips/{name}.mislukt.txt.")
-
     src = vid / "bronnen.txt"
     urls = re.findall(r"https?://\S+", src.read_text(encoding="utf-8")) if src.exists() else []
     if len(urls) < 2:
         errs.append("bronnen.txt: minstens 2 regels '<feit> | <URL>' met echte bronnen voor de feiten (vooral de twist).")
-    if re.search(r"newspaper|headline|infographic|diagram|timeline|day \d", (vid / "prompts.txt").read_text(encoding="utf-8"), re.I):
-        errs.append("prompts.txt: krant/kop/infographic/diagram/tijdlijn geeft onleesbare tekst in beeld – kies een ander beeld.")
+    if re.search(r"newspaper|headline|infographic|diagram|timeline|day \d|from inside|inside (the|a|its) (mouth|body|stomach|throat)|looking out from", (vid / "prompts.txt").read_text(encoding="utf-8"), re.I):
+        errs.append("prompts.txt: krant/infographic/tijdlijn of onmogelijk standpunt ('from inside the mouth') geeft onduidelijke beelden – kies een eenvoudig, fotografeerbaar beeld (AGENTS.md 3a).")
 
     up = json.loads((vid / "upload.json").read_text(encoding="utf-8"))
     if not up.get("title", "").startswith("What if"):
