@@ -231,6 +231,26 @@ Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptsc
   De thumbnail gaat automatisch mee zodra het kanaal geverifieerd is; lukt het niet, meld dat en stuur de eigenaar de
   downloadlink van thumbnail.jpg (kopieer hem naar C:\Users\rane\Videos\alteraqon\<slug>-thumbnail.jpg; link via de kijk-server).
 
+## IfScape3D (tweede kanaal, @ifscape3d) – eigenaar 20 okt 2026: "zelfde manier van filmpjes maar dan in poly 3D"
+Opdracht "Maak een IfScape3D-short / lange IfScape3D-video": ALLES precies zoals Alteraqon hierboven (0a–11, lange video,
+@scriptschrijver, @beeldcontrole, Flux, Chatterbox-stem met dezelfde instellingen, check_short, automatisch inplannen),
+met alleen deze verschillen:
+- **Map**: `ifscape3d/<datum>-<slug>/` (niet in `alteraqon/`). Voorbeeld voor bestanden/opbouw blijft `alteraqon/2026-10-18-moon-disappeared/`
+  (lang: `alteraqon/2026-10-11-sky-countdown/`). README-regel onder "Video's" in `ifscape3d/README.md`.
+- **Onderwerpen (0a)**: nooit herhalen binnen IfScape3D (`ifscape3d/*/upload.json`) én niet hetzelfde onderwerp als een
+  Alteraqon-video (`alteraqon/*/upload.json`).
+- **Beeldstijl = low-poly 3D** (geen foto's). Elk prompt begint met:
+  `Low-poly 3D render, vertical 9:16, faceted geometric polygons, flat-shaded, vibrant saturated colors, dramatic cinematic lighting, soft global illumination, high contrast, clean, no text, no logos,`
+  (lange video: `wide 16:9` i.p.v. `vertical 9:16`). Het woord "low-poly" MOET erin staan. Alle beeldregels 3/3a/3a+/3b gelden,
+  maar i.p.v. fotosoorten gebruik je 3D-camerasoorten: `isometric diorama of …`, `aerial view of …`, `low-angle view of …`,
+  `close-up of …`. @beeldcontrole keurt ook af als het beeld er niet als low-poly 3D uitziet.
+- **Render-uitvoer**: `python alteraqon/tools/make_video.py ifscape3d/<map> C:\Users\rane\Videos\alteraqon\ifscape3d`
+  (maak die map zo nodig aan). Kijklink: `http://<ip>:8765/ifscape3d/<slug>.mp4` (+ `?download=1`).
+- **Upload/inplannen**: hetzelfde commando met `ifscape3d/<map>`; `upload_short.py` kiest zelf het kanaal en het schema uit
+  `ifscape3d/channel.json` en `ifscape3d/schedule.json` (Shorts 11:00/16:00/21:00, lang om de 2 dagen 17:00).
+  Vereist de Windows-omgevingsvariabele `YT_WHATIF_REFRESH_TOKEN`; ontbreekt hij: "NIET ingepland: YT_WHATIF_REFRESH_TOKEN ontbreekt".
+- Commit: `git add ifscape3d/<map> ifscape3d/README.md`. Oude IfScape3D-regels (3D-engine, xAI Atlas) gelden NIET meer.
+
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
 - Niet uploaden als de video NIET aan alle eisen van stap 10 voldoet; dan alleen rapporteren.

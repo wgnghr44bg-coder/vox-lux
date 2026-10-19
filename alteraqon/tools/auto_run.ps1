@@ -61,11 +61,25 @@ try {
         }
     } else { Log "Tailscale-IP niet gevonden (kijkserver niet gestart)" }
 
-    $plan = python alteraqon\tools\auto_plan.py | ConvertFrom-Json
-    Log "Plan: $($plan.shorts) Shorts, $($plan.long) lange video (al ingepland: $($plan.shorts_ingepland) Shorts, $($plan.long_ingepland) lang)"
+    # kanalen: Alteraqon (map alteraqon/, foto's) en IfScape3D (map ifscape3d/, low-poly 3D) - zie AGENTS.md "IfScape3D"
+    $chan = @(
+        @{ naam = 'Alteraqon'; map = 'alteraqon' },
+        @{ naam = 'IfScape3D'; map = 'ifscape3d' }
+    )
+    $plans = @{}
+    foreach ($c in $chan) {
+        $plans[$c.map] = python alteraqon\tools\auto_plan.py $c.map | ConvertFrom-Json
+        $pl = $plans[$c.map]
+        Log "Plan $($c.naam): $($pl.shorts) Shorts, $($pl.long) lange video (al ingepland: $($pl.shorts_ingepland) Shorts, $($pl.long_ingepland) lang)"
+    }
+    # Shorts van beide kanalen om en om, daarna de lange video's
     $jobs = @()
-    for ($i = 1; $i -le $plan.shorts; $i++) { $jobs += "Maak een Alteraqon-short (nr $i van $($plan.shorts) vannacht)" }
-    if ($plan.long -eq 1) { $jobs += "Maak een lange Alteraqon-video" }
+    for ($i = 1; $i -le 3; $i++) {
+        foreach ($c in $chan) {
+            if ($i -le $plans[$c.map].shorts) { $jobs += "Maak een $($c.naam)-short (nr $i van $($plans[$c.map].shorts) vannacht, map $($c.map)/)" }
+        }
+    }
+    foreach ($c in $chan) { if ($plans[$c.map].long -eq 1) { $jobs += "Maak een lange $($c.naam)-video (map $($c.map)/)" } }
     if (-not $jobs) { Rapport "NACHTRUN ${date}: wachtrij is vol genoeg, niets nieuws gemaakt."; exit 0 }
 
     $n = 0
@@ -74,7 +88,7 @@ try {
         git pull origin alteraqon 2>&1 | ForEach-Object { Log "git: $_" }
         $prompt = @"
 NACHTRUN (automatisch gestart; de eigenaar slaapt en kan NIETS beantwoorden - beslis alles zelf, stel geen vragen).
-Lees AGENTS.md (vooral 0a, 10 en 11) en volg alle regels.
+Lees AGENTS.md (vooral 0a, 10, 11 en bij IfScape3D het hoofdstuk "IfScape3D") en volg alle regels.
 Opdracht: $job. Kies zelf het onderwerp volgens 0a (anders dan alle bestaande, ook die van eerder vannacht).
 Doe alle stappen tot en met 8 en daarna stap 10 (automatisch inplannen, alleen als alles klopt).
 Voeg aan het eind je korte rapport ONDERAAN toe aan $rapport (nooit overschrijven, UTF-8) - zie AGENTS.md stap 11.
