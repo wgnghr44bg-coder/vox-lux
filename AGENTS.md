@@ -231,38 +231,11 @@ Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptsc
   De thumbnail gaat automatisch mee zodra het kanaal geverifieerd is; lukt het niet, meld dat en stuur de eigenaar de
   downloadlink van thumbnail.jpg (kopieer hem naar C:\Users\rane\Videos\alteraqon\<slug>-thumbnail.jpg; link via de kijk-server).
 
-## IfScape3D (tweede kanaal, @ifscape3d) – eigenaar 20 okt 2026: "zelfde manier van filmpjes maar dan in poly 3D"
-Opdracht "Maak een IfScape3D-short / lange IfScape3D-video": ALLES precies zoals Alteraqon hierboven (0a–11, lange video,
-@scriptschrijver, @beeldcontrole, Flux, Chatterbox-stem met dezelfde instellingen, check_short, automatisch inplannen),
-met alleen deze verschillen:
-- **Map**: `ifscape3d/<datum>-<slug>/` (niet in `alteraqon/`). Voorbeeld voor bestanden/opbouw blijft `alteraqon/2026-10-18-moon-disappeared/`
-  (lang: `alteraqon/2026-10-11-sky-countdown/`). README-regel onder "Video's" in `ifscape3d/README.md`.
-- **Onderwerpen (0a)**: nooit herhalen binnen IfScape3D (`ifscape3d/*/upload.json`) én niet hetzelfde onderwerp als een
-  Alteraqon-video (`alteraqon/*/upload.json`).
-- **Beeldstijl = low-poly 3D** (geen foto's). Elk prompt begint met:
-  `Low-poly 3D render, vertical 9:16, faceted geometric polygons, flat-shaded, vibrant saturated colors, dramatic cinematic lighting, soft global illumination, high contrast, clean, no text, no logos,`
-  (lange video: `wide 16:9` i.p.v. `vertical 9:16`). Het woord "low-poly" MOET erin staan. Alle beeldregels 3/3a/3a+/3b gelden,
-  maar i.p.v. fotosoorten gebruik je 3D-camerasoorten: `isometric diorama of …`, `aerial view of …`, `low-angle view of …`,
-  `close-up of …`. @beeldcontrole keurt ook af als het beeld er niet als low-poly 3D uitziet.
-- **Beweging (eigenaar 20 okt 2026: "ik wil hier toch wel beweging in")**: bij IfScape3D WEL bewegende Wan-clips (de regel
-  "geen bewegende clips" geldt alleen voor Alteraqon). Short: 5 clips = M01 (hook), het "Then."-beeld, 2 tijdstappen en het
-  twist-beeld; lange video: ±8 clips op de spannendste momenten. De rest blijft beeld + Ken Burns.
-  - `comfy-clips.txt` in de videomap, één regel per clip: `M01|<één concrete actie die doorgaat>, smooth slow camera push-in.
-    The 3D style stays the same, only this one action happens, no morphing, no new objects`
-    (bijv. "the giant wave rolls forward and crashes over the lighthouse", "lava bursts upward and flows down the slope").
-  - Maken NA de beelden (en vóór de stem), op de ACHTERGROND (duurt minuten per clip):
-    `Start-Process python -ArgumentList 'alteraqon\tools\comfy_batch.py','C:\comfy-workflows\wan_i2v_api.json','ifscape3d\<map>','--short','--frames','97' -RedirectStandardOutput ifscape3d\<map>\clips.log -WindowStyle Hidden`
-    (lange video zonder `--short`); kijk elke minuut in `clips.log` tot elke clip "klaar" of "MISLUKT" heeft.
-  - Controle: laat @beeldcontrole 3 frames per clip zien (`ffmpeg -ss 0.5 / 2 / 3.5 -i clips/M01.mp4 -frames:v 1 …png`):
-    "Gebeurt de actie uit de zin duidelijk? Geen vervormingen of smeltende vormen? JA/NEE". NEE: clip weg, actie aanpassen,
-    opnieuw (max 2x); lukt het niet: clip weg, dan gebruikt make_video gewoon het beeld. Meld mislukte clips in het rapport.
-  - `make_video.py` gebruikt `clips/<naam>.mp4` vanzelf in plaats van het beeld; clips gaan mee in git (zoals de beelden).
-- **Render-uitvoer**: `python alteraqon/tools/make_video.py ifscape3d/<map> C:\Users\rane\Videos\alteraqon\ifscape3d`
-  (maak die map zo nodig aan). Kijklink: `http://<ip>:8765/ifscape3d/<slug>.mp4` (+ `?download=1`).
-- **Upload/inplannen**: hetzelfde commando met `ifscape3d/<map>`; `upload_short.py` kiest zelf het kanaal en het schema uit
-  `ifscape3d/channel.json` en `ifscape3d/schedule.json` (Shorts 11:00/16:00/21:00, lang om de 2 dagen 17:00).
-  Vereist de Windows-omgevingsvariabele `YT_WHATIF_REFRESH_TOKEN`; ontbreekt hij: "NIET ingepland: YT_WHATIF_REFRESH_TOKEN ontbreekt".
-- Commit: `git add ifscape3d/<map> ifscape3d/README.md`. Oude IfScape3D-regels (3D-engine, xAI Atlas) gelden NIET meer.
+## IfScape3D (tweede kanaal, @ifscape3d) – eigenaar 19 okt 2026
+IfScape3D wordt NIET in deze repo gemaakt, maar in de repo `ifscape3d-videos` (naast deze map): echte 3D-scènes met de
+gedownloade Kenney/NASA-modellen, via het sjabloon `tools/whatif/autoscene.py`. De nachtrun (`auto_run.ps1`) start daar zelf
+een sessie; regels: `ifscape3d-videos/AGENTS.md`, hoofdstuk NACHTRUN. Uploaden gaat met `upload_short.py` uit deze repo
+(kanaal + schema uit `ifscape3d-videos/channel.json` en `schedule.json`).
 
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
