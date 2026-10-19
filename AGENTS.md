@@ -51,7 +51,16 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
 - Bekijk ELK beeld. Klopt het niet met de zin (verkeerde/extra objecten, tekst, vervormde mensen): pas het prompt aan,
   gooi de png weg en draai opnieuw (alleen ontbrekende worden gemaakt). Max 3 pogingen per beeld.
-- Geen bewegende clips tenzij de eigenaar erom vraagt.
+- **Eén bewegende clip: het "Then."-moment** (eigenaar 19 okt 2026). Alle andere beelden blijven foto's.
+  - Het startbeeld (M04) moet het omslagmoment al duidelijk laten zien, net op het moment dat het begint (de maan die net
+    openbarst, het hoofd dat net door het plafond breekt). Iemand zonder geluid moet direct snappen wat er gebeurt.
+  - `comfy-clips.txt`: één regel `M04|<één concrete actie die doorgaat> Static camera. Only this one action happens, everything
+    else stays solid and unchanged, no morphing, no new objects, realistic physics`
+  - Maken: `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\wan_i2v_api.json alteraqon/<map> M04 --short`
+    daarna verkleinen: `ffmpeg -y -i alteraqon/<map>/clips/M04.mp4 -t 5 -c:v libx264 -crf 20 -an alteraqon/<map>/clips/M04_k.mp4`, daarna M04_k.mp4 hernoemen naar M04.mp4.
+  - Bekijk 4 frames (0 / 1,5 / 3 / 4,5 s): de actie moet duidelijk te zien zijn; geen vervormde mensen/handen/gezichten,
+    geen nieuwe objecten, geen smeltende vormen. Mislukt: clip weg, prompt (startbeeld en/of actie) aanpassen, opnieuw (max 3x).
+  - Lukt het na 3 pogingen niet: zet de reden in `clips/M04.mislukt.txt` (dan wordt de foto gebruikt) en meld het in het rapport.
 
 ### 5. Stem (vaste stem: Chatterbox `chatterbox_als_bm_george_rustig`, gratis)
 `python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 500 --long-pause-ms 1200 --sentence-pause-ms 400 --speed 0.95`
