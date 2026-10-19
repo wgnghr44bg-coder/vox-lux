@@ -1,7 +1,7 @@
 # Shots voor alteraqon/tools/make_video.py
 # (regel in voice-times.tsv, afbeelding, beweging, extra ffmpeg-filter, (label, groot getal) of None, [effectlaag])
 # 19 okt 2026 (cloudsessie): script herschreven – eerst was het tegenstrijdig (eerst verteerd, dan "kan niet") met foute feiten;
-# nu: echte twist Michael Packard (Cape Cod, juni 2021). M04 = Wan-clip (bek klapt dicht). Regelnummers volgen --dry-run (25 regels).
+# nu: echte twist Michael Packard (Cape Cod, juni 2021). geen clips meer (eigenaar 19 okt). Regelnummers volgen --dry-run (25 regels).
 FLASH = "fade=t=in:st=0:d=0.7:color=white"   # witte flits bij de klap
 SH = [(1,"M01","in","",None),(2,"M02","up","",None),(4,"M03","in","",None),(5,"M04","in",FLASH,None),
  (6,"M05","in","",("INSIDE THE WHALE","1 SECOND")),(8,"M06","shake","",None),

@@ -10,9 +10,9 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 
 ### 0. Wie doet wat (eigenaar 19 okt 2026)
 - **Script, feiten en beeldprompts (stap 2, 3, 3b) laat je ALTIJD schrijven door de subagent `@scriptschrijver`**
-  (beste gratis model voor schrijven/kennis). Geef hem het onderwerp + de map; hij schrijft `script-cues.txt`, `prompts.txt`,
-  `comfy-clips.txt` en `bronnen.txt`. Jij (het hoofdmodel) voert daarna uit: beelden, clip, stem, shots, render, push.
-- **Elk beeld en de clip-frames laat je beoordelen door `@beeldcontrole`** (stap 4).
+  (beste gratis model voor schrijven/kennis). Geef hem het onderwerp + de map; hij schrijft `script-cues.txt`, `prompts.txt`
+  en `bronnen.txt`. Jij (het hoofdmodel) voert daarna uit: beelden, stem, shots, render, push.
+- **Elk beeld laat je beoordelen door `@beeldcontrole`** (stap 4).
 - Bestaat een subagent niet: STOP en meld "subagent <naam> ontbreekt" – schrijf het script dan niet zelf.
 
 ### Script-checklist (voor @scriptschrijver; check_short.py controleert een deel automatisch)
@@ -49,6 +49,17 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Echte (historische) personen nooit herkenbaar of als nep-"foto": alleen silhouet, van achteren, of een voorwerp van hen.
 - Feiten over oorzaken ("zijn hart faalde") altijd nazoeken; liever weglaten dan gokken.
 
+### 3a. DUIDELIJK boven alles (eigenaar 19 okt 2026: "zorg alleen voor duidelijke afbeeldingen")
+Het beeldmodel kan alleen eenvoudige, echt fotografeerbare scènes goed maken. Daarom:
+- Eén hoofdonderwerp dat in één oogopslag herkenbaar is (een walvis, een boot, een maan). Liefst GEEN mensen; hoogstens één
+  klein silhouet op afstand als schaal.
+- Geen onmogelijke camerastandpunten ("view from inside the mouth/body", "looking out from inside") en geen combinaties als
+  "mens in/onder/op een dier" – dat geeft rare, vervormde beelden.
+- Abstracte zinnen ("total darkness", "pressure", "you think it's the end") vertalen naar één eenvoudig concreet beeld
+  (zwart water met een paar belletjes, een duikbril die wegdrijft, één luchtbel die naar het licht stijgt).
+- Kort prompt: onderwerp + wat het doet + plek + licht. Geen opsommingen van 6 dingen tegelijk.
+- @beeldcontrole keurt af als je het beeld niet binnen 1 seconde snapt.
+
 ### 3b. Impact (eigenaar 18 okt 2026: beelden moeten mensen vasthouden)
 - **M01 = de hook**: het meest spectaculaire beeld van de hele video (de eerste seconde beslist of iemand blijft kijken).
   Toon meteen het extreme gevolg (bijv. een reus die door het dak breekt), niet een rustige opbouwscène.
@@ -64,28 +75,14 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Het twist-beeld en het slotbeeld krijgen extra drama (dat bepaalt of mensen reageren en blijven hangen).
 
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
-**Beelden en clip-frames altijd laten beoordelen door de subagent `@beeldcontrole`** (draait op een gratis model dat beelden
+**Beelden altijd laten beoordelen door de subagent `@beeldcontrole`** (draait op een gratis model dat beelden
 kan zien). Kun jij zelf geen afbeeldingen bekijken, gebruik hem dan ZEKER; nooit een beeld goedkeuren zonder dat het bekeken is.
 Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" bovenaan.
 `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
 - Bekijk ELK beeld. Klopt het niet met de zin (verkeerde/extra objecten, tekst, vervormde mensen): pas het prompt aan,
   gooi de png weg en draai opnieuw (alleen ontbrekende worden gemaakt). Max 3 pogingen per beeld.
-- **Eén bewegende clip: het "Then."-moment** (eigenaar 19 okt 2026). Alle andere beelden blijven foto's.
-  - Het startbeeld (M04) moet het omslagmoment al duidelijk laten zien, net op het moment dat het begint (de maan die net
-    openbarst, het hoofd dat net door het plafond breekt). Iemand zonder geluid moet direct snappen wat er gebeurt.
-  - `comfy-clips.txt`: één regel `M04|<één concrete actie die doorgaat> Static camera. Only this one action happens, everything
-    else stays solid and unchanged, no morphing, no new objects, realistic physics`
-  - Maken – een clip duurt op deze pc (RTX 2080 Super) **10–25 minuten**; dat is normaal (op 13 okt zijn hier 13 Wan-clips gemaakt).
-    Start hem daarom op de ACHTERGROND, anders breekt jouw shell-time-out hem af:
-    `Start-Process python -ArgumentList 'alteraqon\tools\comfy_batch.py','C:\comfy-workflows\wan_i2v_api.json','alteraqon\<map>','M04','--short','--frames','73' -RedirectStandardOutput alteraqon\<map>\clips\M04.log -WindowStyle Hidden`
-    (73 frames = 3 s, sneller dan 5 s). Ga ondertussen door met shots.py en upload.json (de stem pas NA de clip); kijk elke paar minuten of `clips\M04.mp4` er is
-    (max 40 min). Start NOOIT een nieuwe poging zolang ComfyUI nog bezig is (`curl -s http://127.0.0.1:8188/queue`:
-    queue_running moet leeg zijn); anders stapelen de opdrachten zich op en duurt alles veel langer.
-    Daarna verkleinen: `ffmpeg -y -i alteraqon/<map>/clips/M04.mp4 -c:v libx264 -crf 20 -an alteraqon/<map>/clips/M04_k.mp4`, en M04_k.mp4 hernoemen naar M04.mp4.
-  - Bekijk 4 frames (0 / 1,5 / 3 / 4,5 s): de actie moet duidelijk te zien zijn; geen vervormde mensen/handen/gezichten,
-    geen nieuwe objecten, geen smeltende vormen. Mislukt: clip weg, prompt (startbeeld en/of actie) aanpassen, opnieuw (max 3x).
-  - Alleen een ECHTE mislukking telt (ComfyUI-fout, of na 40 min nog niets / slechte clip) – niet een time-out van je eigen shell.
-  - Lukt het na 3 pogingen niet: zet de reden in `clips/M04.mislukt.txt` (dan wordt de foto gebruikt) en meld het in het rapport.
+- **Geen bewegende clips** (eigenaar 19 okt 2026: "laat die bewegende filmpjes maar zitten"). Alleen foto's + Ken Burns.
+  Maak geen `comfy-clips.txt` en draai Wan niet.
 
 ### 5. Stem (vaste stem: Chatterbox `chatterbox_als_bm_george_rustig`, gratis)
 `python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 700 --long-pause-ms 1600 --sentence-pause-ms 600 --speed 0.92`
@@ -93,8 +90,8 @@ Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" 
 - Draai dit met de Python waarin `chatterbox-tts` staat (niet de gewone python). Staat hieronder nog geen pad: zoek naar
   `...\Scripts\python.exe` waarmee `python -c "import chatterbox"` lukt (o.a. onder C:\Users\rane), en zet het pad hier:
   - Chatterbox-python: C:\Users\rane\Documents\Standaardproject\whatif\stem-env\Scripts\python.exe
-- De stem duurt enkele minuten: start hem op de ACHTERGROND (anders kapt jouw shell-time-out hem af), NA de Then-clip
-  (ComfyUI en Chatterbox delen de 8 GB-videokaart; `curl -s http://127.0.0.1:8188/queue` → queue_running leeg):
+- De stem duurt enkele minuten: start hem op de ACHTERGROND (anders kapt jouw shell-time-out hem af), NA de beelden
+  (wacht tot ComfyUI klaar is: `curl -s http://127.0.0.1:8188/queue` → queue_running leeg):
   `Start-Process <Chatterbox-python> -ArgumentList 'alteraqon\tools\make_voice_local.py','alteraqon\<map>','..\stem-cache','--pause-ms','700','--long-pause-ms','1600','--sentence-pause-ms','600','--speed','0.92' -RedirectStandardOutput alteraqon\<map>\voice.log -WindowStyle Hidden`
   en kijk elke minuut of `voice-times.tsv` er is. Afgebroken? Gewoon opnieuw starten: de cache houdt klare zinnen.
 - Eerst `--dry-run` om de regelnummers te zien. Controleer daarna `voice-times.tsv` (aantal regels, "Then." op de verwachte regel).
