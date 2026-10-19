@@ -2,7 +2,7 @@
 
 Gebruik:  python3 alteraqon/tools/make_video.py alteraqon/<datum>-<slug> <tmpmap>
 Leest uit de videomap: voice.mp3, voice-times.tsv, afbeeldingen/ (.png van ComfyUI, anders .jpg, of .mp4-clip), shots.py (SH + optioneel BANG, FADE_IN).
-Schrijft subs.ass in de videomap en <tmpmap>/<slug>.mp4 (1080x1920).
+Schrijft subs.ass in de videomap en <tmpmap>/<slug>.mp4 (1080x1920; met LONG = True in shots.py: 1920x1080 + music.mp3).
 """
 import csv, importlib.util, os, subprocess, sys
 VID=os.path.abspath(sys.argv[1]); S=os.path.abspath(sys.argv[2]); os.chdir(VID)
@@ -16,6 +16,8 @@ FPS=30; A="afbeeldingen"; LEAD=0.8
 rows=[r for r in csv.reader(open("voice-times.tsv"),delimiter="\t") if not r[0].startswith("#")]
 END=float(rows[-1][2])+2.5
 SH=cfg.SH
+LONG=getattr(cfg,"LONG",False)   # True = lange video, liggend 1920x1080 (+ music.mp3 als die er is)
+W,H=(1920,1080) if LONG else (1080,1920)
 BANG=getattr(cfg,"BANG",None)   # index van de shot met flits + donderknal (of None)
 FADE_IN=getattr(cfg,"FADE_IN",0.8)   # 0 = meteen beeld (harde opening)
 # Startpunt van een shot: regelnummer in voice-times.tsv, of (regel, extra seconden) om binnen een zin te knippen (snelle stijl).
@@ -36,14 +38,14 @@ for i,shot in enumerate(SH):
     if os.path.exists(clip):
         cd=float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",clip],capture_output=True,text=True).stdout)
         slow=min(max(d/cd,1.0),1.6)          # iets vertragen als de shot langer is, daarna laatste beeld vasthouden
-        base=f"[0:v]scale=1080:1920:flags=lanczos,setsar=1,setpts={slow:.3f}*PTS,fps={FPS},tpad=stop_mode=clone:stop_duration={d}"
+        base=f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,setpts={slow:.3f}*PTS,fps={FPS},tpad=stop_mode=clone:stop_duration={d}"
         ins=["-i",clip]
     else:
         cx,cy="iw/2-(iw/zoom/2)","ih/2-(ih/zoom/2)"
         z={"in":f"1+0.15*on/{n}","out":f"1.15-0.15*on/{n}","up":"1.15","shake":f"1.12+0.05*on/{n}","punch":f"1.25-0.2*min(on/8,1)"}[mv]
         if mv=="up": cy=f"(ih-ih/zoom)*(1-on/{n})"
         if mv=="shake": cx+="+12*sin(on*2.1)"; cy+="+12*cos(on*1.7)"
-        base=f"[0:v]scale=2160:3840,zoompan=z='{z}':x='{cx}':y='{cy}':d={n}:s=1080x1920:fps={FPS}"
+        base=f"[0:v]scale={2*W}:{2*H}:force_original_aspect_ratio=increase,crop={2*W}:{2*H},zoompan=z='{z}':x='{cx}':y='{cy}':d={n}:s={W}x{H}:fps={FPS}"
         ins=["-loop","1","-i",f"{A}/{img}.png" if os.path.exists(f"{A}/{img}.png") else f"{A}/{img}.jpg"]
     if extra: base+=","+extra
     base+=","+GRADE
@@ -62,10 +64,10 @@ open(f"{S}/list.txt","w").write("".join(f"file '{s}'\n" for s in segs))
 
 # --- tekst (ASS) ---
 ts=lambda s: f"{int(s//3600)}:{int(s%3600//60):02d}:{s%60:05.2f}"
-GOLD="&H0080C8F2&"; X, Y = 84, 300          # linkerbovenhoek van het tijdstempel-blok
-ass=["[Script Info]","PlayResX: 1080","PlayResY: 1920","WrapStyle: 0","","[V4+ Styles]",
+GOLD="&H0080C8F2&"; X, Y = (84, 110) if LONG else (84, 300)          # linkerbovenhoek van het tijdstempel-blok
+ass=["[Script Info]",f"PlayResX: {W}",f"PlayResY: {H}","WrapStyle: 0","","[V4+ Styles]",
 "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-"Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1",
+f"Style: Sub,Inter SemiBold,{50 if LONG else 56},&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,{240 if LONG else 110},{240 if LONG else 110},{70 if LONG else 430},1",
 "Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1",
 "Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1",
 "Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1",
@@ -87,6 +89,7 @@ open("subs.ass","w").write("\n".join(ass)+"\n")
 
 # --- geluid + eindmix ---
 hits=[starts[i] for i,s in enumerate(SH) if s[4]]
+MUSIC=LONG and os.path.exists("music.mp3")   # eigen score (make_music.py) zacht onder de stem
 
 subprocess.run(["ffmpeg","-v","error","-y","-f","lavfi","-i","sine=f=48:d=2.2","-f","lavfi","-i","anoisesrc=color=brown:d=2.2:amplitude=0.8",
   "-filter_complex","[0]volume=1.2[s];[1]lowpass=f=180,volume=0.8[n];[s][n]amix=2:normalize=0,afade=t=out:st=0.05:d=2.1:curve=exp,aresample=44100,pan=stereo|c0=c0|c1=c0",
@@ -98,13 +101,15 @@ ins=["-i",f"{S}/thunder.wav"]; ms=int(starts[BANG]*1000) if BANG is not None els
 fc=f"[4:a]adelay={ms}|{ms},volume={1.0 if BANG is not None else 0}[th];"; L="[th]"
 for k,h in enumerate(hits):
     ins+=["-i",f"{S}/boom.wav"]; ms=int(h*1000); fc+=f"[{k+5}:a]adelay={ms}|{ms},volume=0.6[h{k}];"; L+=f"[h{k}]"
+if MUSIC: ins+=["-i","music.mp3"]
 fc+=(f"[1:a]aresample=44100,pan=stereo|c0=c0|c1=c0,adelay={int(LEAD*1000)}|{int(LEAD*1000)}[vo];"
      "[2:a]volume=0.2,tremolo=f=0.12:d=0.6[s];[3:a]lowpass=f=240,volume=0.28[n];"
-     f"[s][n]amix=inputs=2:normalize=0,afade=t=in:d=3,afade=t=out:st={END-4}:d=4,pan=stereo|c0=c0|c1=c0[bg];"
+     +(f"[{len(hits)+5}:a]aresample=44100,volume=0.22[mu];[s][n][mu]amix=inputs=3:normalize=0," if MUSIC else "[s][n]amix=inputs=2:normalize=0,")
+     +f"afade=t=in:d=3,afade=t=out:st={END-4}:d=4,pan=stereo|c0=c0|c1=c0[bg];"
      f"[vo][bg]{L}amix=inputs={len(hits)+3}:duration=longest:normalize=0,alimiter=limit=0.95[a];"
      f"[0:v]ass=subs.ass{f',fade=t=in:st=0:d={FADE_IN}' if FADE_IN else ''},fade=t=out:st={END-1.8}:d=1.8[v]")
 subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",f"{S}/list.txt","-i","voice.mp3",
   "-f","lavfi","-t",str(END),"-i","sine=f=55:sample_rate=44100","-f","lavfi","-t",str(END),"-i","anoisesrc=color=brown:sample_rate=44100:amplitude=0.5",
-  *ins,"-filter_complex",fc,"-map","[v]","-map","[a]","-t",str(END),"-c:v","libx264","-preset","slow","-b:v","2.9M","-maxrate","3.5M","-bufsize","6M",
+  *ins,"-filter_complex",fc,"-map","[v]","-map","[a]","-t",str(END),"-c:v","libx264","-preset","slow","-b:v","6M" if LONG else "2.9M","-maxrate","8M" if LONG else "3.5M","-bufsize","12M" if LONG else "6M",
   "-pix_fmt","yuv420p","-c:a","aac","-b:a","160k","-movflags","+faststart",f"{S}/{SLUG}.mp4"],check=True)
 print(f"klaar: {END:.1f}s")
