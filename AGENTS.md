@@ -244,6 +244,19 @@ met alleen deze verschillen:
   (lange video: `wide 16:9` i.p.v. `vertical 9:16`). Het woord "low-poly" MOET erin staan. Alle beeldregels 3/3a/3a+/3b gelden,
   maar i.p.v. fotosoorten gebruik je 3D-camerasoorten: `isometric diorama of …`, `aerial view of …`, `low-angle view of …`,
   `close-up of …`. @beeldcontrole keurt ook af als het beeld er niet als low-poly 3D uitziet.
+- **Beweging (eigenaar 20 okt 2026: "ik wil hier toch wel beweging in")**: bij IfScape3D WEL bewegende Wan-clips (de regel
+  "geen bewegende clips" geldt alleen voor Alteraqon). Short: 5 clips = M01 (hook), het "Then."-beeld, 2 tijdstappen en het
+  twist-beeld; lange video: ±8 clips op de spannendste momenten. De rest blijft beeld + Ken Burns.
+  - `comfy-clips.txt` in de videomap, één regel per clip: `M01|<één concrete actie die doorgaat>, smooth slow camera push-in.
+    The 3D style stays the same, only this one action happens, no morphing, no new objects`
+    (bijv. "the giant wave rolls forward and crashes over the lighthouse", "lava bursts upward and flows down the slope").
+  - Maken NA de beelden (en vóór de stem), op de ACHTERGROND (duurt minuten per clip):
+    `Start-Process python -ArgumentList 'alteraqon\tools\comfy_batch.py','C:\comfy-workflows\wan_i2v_api.json','ifscape3d\<map>','--short','--frames','97' -RedirectStandardOutput ifscape3d\<map>\clips.log -WindowStyle Hidden`
+    (lange video zonder `--short`); kijk elke minuut in `clips.log` tot elke clip "klaar" of "MISLUKT" heeft.
+  - Controle: laat @beeldcontrole 3 frames per clip zien (`ffmpeg -ss 0.5 / 2 / 3.5 -i clips/M01.mp4 -frames:v 1 …png`):
+    "Gebeurt de actie uit de zin duidelijk? Geen vervormingen of smeltende vormen? JA/NEE". NEE: clip weg, actie aanpassen,
+    opnieuw (max 2x); lukt het niet: clip weg, dan gebruikt make_video gewoon het beeld. Meld mislukte clips in het rapport.
+  - `make_video.py` gebruikt `clips/<naam>.mp4` vanzelf in plaats van het beeld; clips gaan mee in git (zoals de beelden).
 - **Render-uitvoer**: `python alteraqon/tools/make_video.py ifscape3d/<map> C:\Users\rane\Videos\alteraqon\ifscape3d`
   (maak die map zo nodig aan). Kijklink: `http://<ip>:8765/ifscape3d/<slug>.mp4` (+ `?download=1`).
 - **Upload/inplannen**: hetzelfde commando met `ifscape3d/<map>`; `upload_short.py` kiest zelf het kanaal en het schema uit
