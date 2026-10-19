@@ -65,6 +65,9 @@ def check(vid: Path) -> list:
         errs.append("upload.json: beschrijving moet eindigen op precies 4 hashtags, waaronder #shorts.")
     if "👇" not in up.get("description", ""):
         errs.append("upload.json: beschrijving mist de vraag aan de kijker met 👇.")
+    tt = up.get("tiktok", "")
+    if not tt or len(re.findall(r"#\w+", tt)) < 3 or len(tt) > 2200:
+        errs.append('upload.json: "tiktok" ontbreekt – korte prikkelende tekst + vraag met 👇 + 3-5 hashtags (incl. #whatif, #fyp), max 2200 tekens.')
     if len(up.get("tags", [])) != 4:
         errs.append("upload.json: precies 4 tags.")
 

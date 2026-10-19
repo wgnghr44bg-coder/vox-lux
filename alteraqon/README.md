@@ -109,7 +109,7 @@ python3 alteraqon/tools/upload_short.py alteraqon/<datum>-<slug> <tmpmap>/<slug>
 ```
 Titel, beschrijving en tags komen uit `upload.json`; categorie Wetenschap & technologie, niet voor kinderen,
 "gewijzigde of synthetische content" = ja. De link wordt in `upload.json` bewaard; nooit twee keer uploaden.
-De agent op de pc (AGENTS.md) uploadt nooit zelf.
+Na de upload wordt ook de TikTok-tekst (`"tiktok"` in upload.json) getoond om zelf bij TikTok te plakken.
 
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp. De beschrijving is **algemeen** (eigenaar okt 2026): ze maakt nieuwsgierig naar het onderwerp,
