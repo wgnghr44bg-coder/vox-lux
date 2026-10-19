@@ -59,6 +59,11 @@ Het beeldmodel kan alleen eenvoudige, echt fotografeerbare scènes goed maken. D
   (zwart water met een paar belletjes, een duikbril die wegdrijft, één luchtbel die naar het licht stijgt).
 - Kort prompt: onderwerp + wat het doet + plek + licht. Geen opsommingen van 6 dingen tegelijk.
 - @beeldcontrole keurt af als je het beeld niet binnen 1 seconde snapt.
+- **Schrijf elk prompt als een bestaande fotosoort**, dan maakt het model de juiste houding/actie:
+  `aerial drone photo of …` (van bovenaf), `wildlife telephoto photo of …`, `macro photo of …`, `underwater photo of …`.
+  Het model heeft vaste gewoontes (bijv. "humpback" = altijd een springende walvis); noem dan expliciet wat er WEL gebeurt
+  ("mouth wide open full of water seen from above") en gebruik een andere fotosoort.
+- Nooit twee keer (bijna) hetzelfde beeld in één video; elk beeld een andere fotosoort of hoek.
 
 ### 3a+. Spectaculair binnen duidelijk (eigenaar 19 okt 2026: "spannender en spectaculairder, maar op basis van het script")
 Elk beeld blijft één duidelijk onderwerp dat precies de zin toont, maar dan op het spannendste moment en in het mooiste licht:
@@ -87,6 +92,9 @@ Elk beeld blijft één duidelijk onderwerp dat precies de zin toont, maar dan op
 - Het twist-beeld en het slotbeeld krijgen extra drama (dat bepaalt of mensen reageren en blijven hangen).
 
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
+**Beeldcontrole = past het beeld bij de ZIN?** Geef `@beeldcontrole` per beeld (max 2 tegelijk) de gesproken zin uit
+`script-cues.txt` mee en vraag letterlijk: "Toont dit beeld wat deze zin zegt? Beschrijf eerst wat je ziet, antwoord dan JA/NEE."
+Alleen JA telt; mooi-maar-iets-anders = NEE = opnieuw met een ander prompt (andere fotosoort/hoek).
 **Beelden altijd laten beoordelen door de subagent `@beeldcontrole`** (draait op een gratis model dat beelden
 kan zien). Kun jij zelf geen afbeeldingen bekijken, gebruik hem dan ZEKER; nooit een beeld goedkeuren zonder dat het bekeken is.
 Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" bovenaan.
