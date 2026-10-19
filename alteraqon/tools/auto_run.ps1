@@ -61,46 +61,51 @@ try {
         }
     } else { Log "Tailscale-IP niet gevonden (kijkserver niet gestart)" }
 
-    # kanalen: Alteraqon (map alteraqon/, foto's) en IfScape3D (map ifscape3d/, low-poly 3D) - zie AGENTS.md "IfScape3D"
+    # kanalen: Alteraqon (deze repo, map alteraqon/) en IfScape3D (repo ifscape3d-videos naast deze repo: echte 3D-scènes
+    # met de gedownloade modellen; regels in die repo, AGENTS.md "NACHTRUN"; eigenaar akkoord 19 okt 2026)
+    $ifs = if ($cfg.ifscape_repo) { $cfg.ifscape_repo } else { Join-Path (Split-Path $cfg.repo) 'ifscape3d-videos' }
     $chan = @(
-        @{ naam = 'Alteraqon'; map = 'alteraqon' },
-        @{ naam = 'IfScape3D'; map = 'ifscape3d' }
+        @{ naam = 'Alteraqon'; repo = $cfg.repo; branch = 'alteraqon'; plan = 'alteraqon';
+           regels = 'Lees AGENTS.md (vooral 0a, 10 en 11) en volg alle regels. Doe alle stappen tot en met 8 en daarna stap 10 (automatisch inplannen, alleen als alles klopt).' },
+        @{ naam = 'IfScape3D'; repo = $ifs; branch = 'main'; plan = $ifs;
+           regels = 'Lees AGENTS.md, vooral het hoofdstuk NACHTRUN bovenaan, en volg het van begin tot eind (alle controles, geen STOP-momenten, inplannen alleen als alles klopt).' }
     )
+    if (-not (Test-Path (Join-Path $ifs 'AGENTS.md'))) { Log "IfScape3D-repo niet gevonden ($ifs) - IfScape3D overgeslagen"; $chan = @($chan[0]) }
     $plans = @{}
     foreach ($c in $chan) {
-        $plans[$c.map] = python alteraqon\tools\auto_plan.py $c.map | ConvertFrom-Json
-        $pl = $plans[$c.map]
+        if ($c.repo -ne $cfg.repo) { Push-Location $c.repo; git pull origin $c.branch 2>&1 | ForEach-Object { Log "git $($c.naam): $_" }; Pop-Location }
+        $plans[$c.naam] = python alteraqon\tools\auto_plan.py $c.plan | ConvertFrom-Json
+        $pl = $plans[$c.naam]
         Log "Plan $($c.naam): $($pl.shorts) Shorts, $($pl.long) lange video (al ingepland: $($pl.shorts_ingepland) Shorts, $($pl.long_ingepland) lang)"
     }
     # Shorts van beide kanalen om en om, daarna de lange video's
     $jobs = @()
     for ($i = 1; $i -le 3; $i++) {
         foreach ($c in $chan) {
-            if ($i -le $plans[$c.map].shorts) { $jobs += "Maak een $($c.naam)-short (nr $i van $($plans[$c.map].shorts) vannacht, map $($c.map)/)" }
+            if ($i -le $plans[$c.naam].shorts) { $jobs += @{ c = $c; wat = "Maak een $($c.naam)-short (nr $i van $($plans[$c.naam].shorts) vannacht)" } }
         }
     }
-    foreach ($c in $chan) { if ($plans[$c.map].long -eq 1) { $jobs += "Maak een lange $($c.naam)-video (map $($c.map)/)" } }
+    foreach ($c in $chan) { if ($plans[$c.naam].long -eq 1) { $jobs += @{ c = $c; wat = "Maak een lange $($c.naam)-video" } } }
     if (-not $jobs) { Rapport "NACHTRUN ${date}: wachtrij is vol genoeg, niets nieuws gemaakt."; exit 0 }
 
     $n = 0
     foreach ($job in $jobs) {
-        $n++
-        git pull origin alteraqon 2>&1 | ForEach-Object { Log "git: $_" }
+        $n++; $c = $job.c
+        Push-Location $c.repo; git pull origin $c.branch 2>&1 | ForEach-Object { Log "git $($c.naam): $_" }; Pop-Location
         $prompt = @"
 NACHTRUN (automatisch gestart; de eigenaar slaapt en kan NIETS beantwoorden - beslis alles zelf, stel geen vragen).
-Lees AGENTS.md (vooral 0a, 10, 11 en bij IfScape3D het hoofdstuk "IfScape3D") en volg alle regels.
-Opdracht: $job. Kies zelf het onderwerp volgens 0a (anders dan alle bestaande, ook die van eerder vannacht).
-Doe alle stappen tot en met 8 en daarna stap 10 (automatisch inplannen, alleen als alles klopt).
-Voeg aan het eind je korte rapport ONDERAAN toe aan $rapport (nooit overschrijven, UTF-8) - zie AGENTS.md stap 11.
+$($c.regels)
+Opdracht: $($job.wat). Kies zelf het onderwerp (anders dan alle bestaande, ook die van eerder vannacht).
+Voeg aan het eind je korte rapport ONDERAAN toe aan $rapport (nooit overschrijven, UTF-8), begin met de kanaalnaam.
 "@
         $out = Join-Path $logDir "nachtrun-$date-$n.log"
-        Log "Start opdracht ${n}: $job"
+        Log "Start opdracht ${n}: $($job.wat)"
         $p = Start-Process -FilePath $cfg.opencode -ArgumentList 'run', ('"' + (($prompt -replace "\r?\n", ' ') -replace '"', '\"') + '"') `
-            -WorkingDirectory $cfg.repo -RedirectStandardOutput $out -RedirectStandardError "$out.err" -WindowStyle Hidden -PassThru
+            -WorkingDirectory $c.repo -RedirectStandardOutput $out -RedirectStandardError "$out.err" -WindowStyle Hidden -PassThru
         if (-not $p.WaitForExit(4 * 3600 * 1000)) {
             Log "Opdracht $n duurt langer dan 4 uur - afgebroken"
             Stop-Process -Id $p.Id -Force
-            Rapport "Opdracht $n ($job): afgebroken na 4 uur. Log: logs/nachtrun-$date-$n.log"
+            Rapport "Opdracht $n ($($job.wat)): afgebroken na 4 uur. Log: logs/nachtrun-$date-$n.log"
         } else { Log "Opdracht $n klaar (exitcode $($p.ExitCode))" }
     }
     Log "Nachtrun klaar"
