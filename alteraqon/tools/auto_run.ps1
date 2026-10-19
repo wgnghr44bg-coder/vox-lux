@@ -8,6 +8,12 @@
 $ErrorActionPreference = 'Continue'
 $cfg = Get-Content (Join-Path $env:USERPROFILE 'alteraqon-auto.json') -Raw | ConvertFrom-Json
 $videos = if ($cfg.videos) { $cfg.videos } else { 'C:\Users\rane\Videos\alteraqon' }
+# OpenCode-desktop zet de CLI in een map per versie (…\cli\2.0.30-x64\); na een update de nieuwste nemen
+if (-not (Test-Path $cfg.opencode)) {
+    $new = Get-ChildItem (Join-Path $env:APPDATA 'ai.opencode.desktop\cli') -Recurse -Filter 'opencode-cli.exe' -ErrorAction SilentlyContinue |
+        Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if ($new) { $cfg.opencode = $new.FullName }
+}
 $date = Get-Date -Format 'yyyy-MM-dd'
 $logDir = Join-Path $videos 'logs'
 New-Item -ItemType Directory -Force $logDir | Out-Null
