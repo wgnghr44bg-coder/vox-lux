@@ -162,6 +162,26 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
   Commit + push daarna `upload.json` en meld de YouTube-link aan de eigenaar, met daaronder de TikTok-tekst (uit `upload.json`)
   in een kopieerbaar blok, plus de downloadlink van de mp4 (om in TikTok te plaatsen).
 
+## Lange YouTube-video (opdracht "Maak een lange Alteraqon-video: What if …?") – eigenaar 19 okt 2026
+Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptschrijver, @beeldcontrole), met deze verschillen:
+- **Lengte/opbouw**: 3–5 min, ±300–480 woorden, 35–50 beelden. Opbouw in hoofdstukken: hook (eerste 10 s het spannendste
+  beeld + de vraag) → opbouw → "Then." → 5–7 tijdstappen met tijdstempels → dieptepunt → "But here's the twist." (echt feit,
+  bronnen) → slot met vraag aan de kijker. Spannend blijven: elke 20–30 s iets nieuws.
+- **Beelden liggend 16:9**: `comfy_batch.py` ZONDER `--short` (1280x720). Prompts beginnen met `… vertical 9:16 …` vervangen
+  door `… wide 16:9 …`. Onderste vijfde = ondertitels, linksboven = tijdstempel.
+- **shots.py**: zet `LONG = True` (make_video maakt dan 1920x1080 en mixt `music.mp3`).
+- **Muziek**: `python alteraqon/tools/make_music.py alteraqon/<map>` (na de stem; `--mood hopeful` voor een lichter onderwerp).
+- **Thumbnail** (verplicht): maak een extra beeld `T01` in `prompts.txt` – het spannendste moment, onderwerp RECHTS, links rustige
+  donkere ruimte – en `thumbnail.json`:
+  `{"image": "T01", "small": "WHAT IF A WHALE…", "lines": ["SWALLOWED", "YOU?"], "accent": "red"}`
+  (2–3 regels, max ±10 tekens per regel, prikkelend, de twist NIET verklappen). Dan
+  `python alteraqon/tools/make_thumbnail.py alteraqon/<map>` → `thumbnail.jpg`; laat @beeldcontrole hem beoordelen
+  ("zou jij hierop klikken? tekst leesbaar op telefoonformaat?").
+- **upload.json**: zonder `#shorts`; beschrijving mag 2–4 zinnen + vraag + 3–4 hashtags; `"tiktok"` hoeft niet.
+- **Controle**: duur 3–5 min, 1920x1080. Kijklink zoals bij Shorts.
+- **Online zetten**: `python alteraqon/tools/upload_short.py alteraqon/<map> <mp4> --long` (zet ook de thumbnail; lukt dat niet,
+  dan meldt het script dat de eigenaar hem in YouTube Studio moet zetten).
+
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
 - Nooit uit jezelf uploaden naar YouTube. Alleen als de eigenaar in DEZE sessie letterlijk vraagt om een video online / op YouTube te zetten (zie stap 9).

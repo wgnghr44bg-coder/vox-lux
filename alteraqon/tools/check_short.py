@@ -15,6 +15,9 @@ TIME_WORDS = r"(second|seconds|minute|minutes|hour|hours|day|days|week|weeks|mon
 
 def check(vid: Path) -> list:
     errs = []
+    _sp = importlib.util.spec_from_file_location("shots0", vid / "shots.py")
+    _m = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(_m)
+    LONG = getattr(_m, "LONG", False)   # lange 16:9-video (3-5 min)
     cues = (vid / "script-cues.txt").read_text(encoding="utf-8")
     spoken = re.sub(r"\{img:[^}]*\}|\[[a-z ]*\]", " ", cues)
     sentences = [s.strip() for s in re.split(r"(?<=[.!?…])\s+", spoken) if s.strip()]
@@ -31,8 +34,8 @@ def check(vid: Path) -> list:
     if "here's the twist" not in spoken.lower():
         errs.append("Script: \"But here's the twist.\" ontbreekt.")
     words = len(spoken.split())
-    if not 95 <= words <= 130:
-        errs.append(f"Script: {words} woorden; houd het op ±105–120 (60–70 s met het trage tempo).")
+    if (not 95 <= words <= 130) if not LONG else (not 280 <= words <= 520):
+        errs.append(f"Script: {words} woorden; houd het op ±105–120 (Short) of ±300–480 (lange video, 3-5 min).")
 
     for line in (vid / "prompts.txt").read_text(encoding="utf-8").splitlines():
         if "|" not in line:
@@ -61,7 +64,10 @@ def check(vid: Path) -> list:
     if not up.get("title", "").startswith("What if"):
         errs.append('upload.json: titel moet beginnen met "What if".')
     tags = re.findall(r"#\w+", up.get("description", ""))
-    if len(tags) != 4 or "#shorts" not in tags:
+    if LONG:
+        if "#shorts" in tags: errs.append("upload.json: lange video zonder #shorts.")
+        if not (vid / "thumbnail.json").exists(): errs.append("thumbnail.json ontbreekt (lange video, zie AGENTS.md \"Lange video\").")
+    elif len(tags) != 4 or "#shorts" not in tags:
         errs.append("upload.json: beschrijving moet eindigen op precies 4 hashtags, waaronder #shorts.")
     if "👇" not in up.get("description", ""):
         errs.append("upload.json: beschrijving mist de vraag aan de kijker met 👇.")

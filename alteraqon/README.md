@@ -90,7 +90,8 @@ python3 alteraqon/tools/make_video.py  alteraqon/<datum>-<slug> <tmpmap>    # ->
 ```
 In `shots.py` verwijst het eerste getal naar de regel in `voice-times.tsv` (pas invullen ná make_voice).
 
-## Lange video (16:9, ca. 3 min) – voorbeeld: de asteroid-video
+## Lange video (16:9, ca. 3 min)
+> **Sinds 19 okt 2026 vaste route** (ook voor OpenCode): `LONG = True` in shots.py + `tools/make_music.py` + `tools/make_thumbnail.py` (thumbnail.json) + `upload_short.py --long` – zie AGENTS.md "Lange YouTube-video". – voorbeeld: de asteroid-video
 Zelfde stijl, maar liggend en ca. 40–48 zinnen/beelden (beelden gratis via ComfyUI + een paar cent stem):
 - beelden: eigenaar draait `comfy_batch.py zimage_api.json <map>` (16:9, 1280x720; `T01` = basis voor de thumbnail)
 - `python3 alteraqon/tools/make_voice.py <map> <cachemap buiten repo>` (cache: na inkorten alleen nieuwe zinnen betalen)
