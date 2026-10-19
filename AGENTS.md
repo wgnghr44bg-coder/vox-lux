@@ -13,7 +13,7 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Map: `alteraqon/<datum van vandaag>-<korte-slug>/` (bijv. `2026-10-20-sun-vanished`). Kopieer niet het sjabloon blind; volg het voorbeeld `alteraqon/2026-10-18-moon-disappeared/`.
 
 ### 2. Script (`script-cues.txt`)
-- Engels, ±120–135 woorden (≈60–70 s met het rustige tempo), korte spannende zinnen. Elke regel eindigt op `[pause]` of `[long pause]`.
+- Engels, ±105–120 woorden (≈60–70 s met het rustige tempo), korte spannende zinnen. Elke regel eindigt op `[pause]` of `[long pause]`.
 - `{img:M01}` op een eigen regel vóór elk stukje tekst; ±1 beeld per zin, 17–20 beelden.
 - Opbouw: opening "What if …?" → POV-opbouw → "Then." (eigen beeld, witte flits + klap) → 3–4 tijdstappen met groot getal
   → "But here's the twist." met een ECHT feit → "So remember." + vraag aan de kijker.
@@ -56,15 +56,21 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
     openbarst, het hoofd dat net door het plafond breekt). Iemand zonder geluid moet direct snappen wat er gebeurt.
   - `comfy-clips.txt`: één regel `M04|<één concrete actie die doorgaat> Static camera. Only this one action happens, everything
     else stays solid and unchanged, no morphing, no new objects, realistic physics`
-  - Maken: `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\wan_i2v_api.json alteraqon/<map> M04 --short`
-    daarna verkleinen: `ffmpeg -y -i alteraqon/<map>/clips/M04.mp4 -t 5 -c:v libx264 -crf 20 -an alteraqon/<map>/clips/M04_k.mp4`, daarna M04_k.mp4 hernoemen naar M04.mp4.
+  - Maken – een clip duurt op deze pc (RTX 2080 Super) **10–25 minuten**; dat is normaal (op 13 okt zijn hier 13 Wan-clips gemaakt).
+    Start hem daarom op de ACHTERGROND, anders breekt jouw shell-time-out hem af:
+    `Start-Process python -ArgumentList 'alteraqon\tools\comfy_batch.py','C:\comfy-workflows\wan_i2v_api.json','alteraqon\<map>','M04','--short','--frames','73' -RedirectStandardOutput alteraqon\<map>\clips\M04.log -WindowStyle Hidden`
+    (73 frames = 3 s, sneller dan 5 s). Ga ondertussen door met de stem; kijk elke paar minuten of `clips\M04.mp4` er is
+    (max 40 min). Start NOOIT een nieuwe poging zolang ComfyUI nog bezig is (`curl -s http://127.0.0.1:8188/queue`:
+    queue_running moet leeg zijn); anders stapelen de opdrachten zich op en duurt alles veel langer.
+    Daarna verkleinen: `ffmpeg -y -i alteraqon/<map>/clips/M04.mp4 -c:v libx264 -crf 20 -an alteraqon/<map>/clips/M04_k.mp4`, en M04_k.mp4 hernoemen naar M04.mp4.
   - Bekijk 4 frames (0 / 1,5 / 3 / 4,5 s): de actie moet duidelijk te zien zijn; geen vervormde mensen/handen/gezichten,
     geen nieuwe objecten, geen smeltende vormen. Mislukt: clip weg, prompt (startbeeld en/of actie) aanpassen, opnieuw (max 3x).
+  - Alleen een ECHTE mislukking telt (ComfyUI-fout, of na 40 min nog niets / slechte clip) – niet een time-out van je eigen shell.
   - Lukt het na 3 pogingen niet: zet de reden in `clips/M04.mislukt.txt` (dan wordt de foto gebruikt) en meld het in het rapport.
 
 ### 5. Stem (vaste stem: Chatterbox `chatterbox_als_bm_george_rustig`, gratis)
-`python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 500 --long-pause-ms 1200 --sentence-pause-ms 400 --speed 0.95`
-- Tempo (eigenaar 18 okt 2026): rustiger dan eerst, langere pauzes + iets trager. Script dan ±120–135 woorden voor ±60–70 s.
+`python alteraqon/tools/make_voice_local.py alteraqon/<map> ..\stem-cache --pause-ms 700 --long-pause-ms 1600 --sentence-pause-ms 600 --speed 0.92`
+- Tempo (eigenaar 19 okt 2026: nog steeds te snel): lange pauzes + trager. Script dan ±105–120 woorden voor ±60–70 s.
 - Draai dit met de Python waarin `chatterbox-tts` staat (niet de gewone python). Staat hieronder nog geen pad: zoek naar
   `...\Scripts\python.exe` waarmee `python -c "import chatterbox"` lukt (o.a. onder C:\Users\rane), en zet het pad hier:
   - Chatterbox-python: C:\Users\rane\Documents\Standaardproject\whatif\stem-env\Scripts\python.exe
@@ -80,7 +86,7 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 `make_video.py` draait eerst `alteraqon/tools/check_short.py` en weigert te renderen bij een FOUT. Los elke FOUT op
 (script/prompts/shots/upload.json aanpassen, zo nodig stem opnieuw) – nooit de controle omzeilen of uitzetten.
 `python alteraqon/tools/make_video.py alteraqon/<map> C:\Users\rane\Videos\alteraqon`
-Controle: `ffprobe` → 1080x1920, video + audio, duur 55–65 s; `ffmpeg -v error -i <mp4> -f null -` geeft niets.
+Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v error -i <mp4> -f null -` geeft niets.
 
 ### 8. Afronden
 - `upload.json` (zie voorbeeld + YouTube-regels in README: titel `What if …? <emoji>`, algemene beschrijving zonder feiten/twist, 4 hashtags incl. #shorts, 4 tags).
