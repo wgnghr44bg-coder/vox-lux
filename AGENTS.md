@@ -8,6 +8,22 @@ Voer alle stappen zelf uit. Stop alleen bij een echte blokkade en meld dan exact
 **De eigenaar zit NIET achter de pc** (hij volgt alles op zijn iPhone). Vraag hem nooit om zelf een commando te draaien,
 iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het zelf. Vragen mag alleen over inhoud (onderwerp, keuze).
 
+### 0. Wie doet wat (eigenaar 19 okt 2026)
+- **Script, feiten en beeldprompts (stap 2, 3, 3b) laat je ALTIJD schrijven door de subagent `@scriptschrijver`**
+  (beste gratis model voor schrijven/kennis). Geef hem het onderwerp + de map; hij schrijft `script-cues.txt`, `prompts.txt`,
+  `comfy-clips.txt` en `bronnen.txt`. Jij (het hoofdmodel) voert daarna uit: beelden, clip, stem, shots, render, push.
+- **Elk beeld en de clip-frames laat je beoordelen door `@beeldcontrole`** (stap 4).
+- Bestaat een subagent niet: STOP en meld "subagent <naam> ontbreekt" – schrijf het script dan niet zelf.
+
+### Script-checklist (voor @scriptschrijver; check_short.py controleert een deel automatisch)
+- Het verhaal is één lijn: wat-als → wat jij meemaakt → "Then." → tijdstappen → twist. De twist mag het verhaal
+  NIET tegenspreken (niet eerst "je wordt verteerd" en daarna "dat kan niet").
+- De twist is een ECHT, nagezocht feit dat bij het onderwerp hoort (echte gebeurtenis/record/persoon), het liefst verrassend.
+- Elk getal en elke oorzaak staat in `bronnen.txt`: één regel per feit: `<feit> | <URL>` (minstens 2 bronnen, echte URL's
+  die je hebt geopend). Niet zeker? Weglaten.
+- Geen gruwel/bloed-details; spannend mag, smerig niet.
+- Elk beeld toont letterlijk de zin; geen tekst/cijfers/kranten/grafieken in beeld (zie stap 3).
+
 ### 1. Voorbereiden
 - `git pull origin alteraqon`
 - Map: `alteraqon/<datum van vandaag>-<korte-slug>/` (bijv. `2026-10-20-sun-vanished`). Kopieer niet het sjabloon blind; volg het voorbeeld `alteraqon/2026-10-18-moon-disappeared/`.
