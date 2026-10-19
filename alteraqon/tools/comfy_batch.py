@@ -10,6 +10,7 @@ Gebruik (ComfyUI moet draaien):
   python comfy_batch.py wan_i2v_api.json  <videomap>   # leest comfy-clips.txt -> <videomap>/clips/NAAM.mp4
                                                         #   (startbeeld = afbeeldingen/NAAM.png, anders .jpg)
   Optioneel daarachter alleen bepaalde namen: ... <videomap> L05 L20   en --short voor staand (Shorts): beelden 768x1344, clips 576x1024
+  --frames 73: kortere clip (3 s), sneller klaar op de 8 GB-kaart
 Het script ziet zelf aan de workflow (wel/geen Load Image) of het beelden of clips maakt.
 Bestaande bestanden worden overgeslagen, dus opnieuw starten kan altijd. Alleen standaard-Python nodig.
 """
@@ -71,7 +72,11 @@ def wait_and_download(pid, out, exts):
         if h and h.get("status", {}).get("status_str") == "error": return False
         time.sleep(3)
 
-args = [a for a in sys.argv[1:] if a != "--short"]
+# --frames N: kortere clip = sneller klaar (bijv. 73 frames = 3 s); standaard 121 (5 s)
+argv = sys.argv[1:]
+if "--frames" in argv:
+    i = argv.index("--frames"); FRAMES = int(argv[i + 1]); del argv[i:i + 2]
+args = [a for a in argv if a != "--short"]
 if "--short" in sys.argv: IMG_W, IMG_H, VID_W, VID_H = 768, 1344, 576, 1024   # staand; montage schaalt op naar 1080x1920
 wf_base, folder, only = json.load(open(args[0])), args[1], set(args[2:])
 video = any(n["class_type"] == "LoadImage" for n in wf_base.values())

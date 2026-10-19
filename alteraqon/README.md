@@ -13,8 +13,8 @@ Apart kanaal, los van IfScape3D (3D-render, Atlas-stem) en Sleep Archives.
 - Verticaal 1080x1920, ca. 60–70 s, Engels.
 - AI-foto's, één beeld per gesproken zin, langzame zoom/pan, koele documentaire-grade + lichte filmkorrel.
 - **Vaste stem (eigenaar 13 okt 2026): Chatterbox lokaal, `chatterbox_als_bm_george_rustig`** → `tools/make_voice_local.py <map> [cache]
-  --pause-ms 500 --long-pause-ms 1200 --sentence-pause-ms 400 --speed 0.95` op zijn pc (stem-env), gratis.
-  (Eigenaar 18 okt 2026: rustiger, was 350/800/250 zonder --speed – "te gehaast".) Getallen voluit schrijven ("nineteen seventy-nine").
+  --pause-ms 700 --long-pause-ms 1600 --sentence-pause-ms 600 --speed 0.92` op zijn pc (stem-env), gratis.
+  (Eigenaar 19 okt 2026: nog rustiger; eerder 350/800/250 en 500/1200/400 – "te snel". Script ±105–120 woorden.) Getallen voluit schrijven ("nineteen seventy-nine").
 - Vroeger: stem xAI **Lux**, tempo 0.9, pauzes 900/1700 ms + 600 ms na elke zin (`[pause]` achter elke regel).
 - Tijdstempels als korte lower-third (~2,6 s): goud lijntje schuift in, label in Inter SemiBold, groot getal in Inter Display Light.
 - Ondertitels in Inter SemiBold. Donkere drone + lage klap bij elke tijdstempel.

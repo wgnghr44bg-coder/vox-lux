@@ -31,8 +31,8 @@ def check(vid: Path) -> list:
     if "here's the twist" not in spoken.lower():
         errs.append("Script: \"But here's the twist.\" ontbreekt.")
     words = len(spoken.split())
-    if not 110 <= words <= 150:
-        errs.append(f"Script: {words} woorden; houd het op ±120–135 (60–70 s).")
+    if not 95 <= words <= 130:
+        errs.append(f"Script: {words} woorden; houd het op ±105–120 (60–70 s met het trage tempo).")
 
     for line in (vid / "prompts.txt").read_text(encoding="utf-8").splitlines():
         if "|" not in line:
