@@ -1,0 +1,1 @@
+Wan 2.2 5B model te zwaar voor RTX 2080 Super (8 GB VRAM). Clip-generatie loopt vast / duurt te lang (>10 min per poging). 3 pogingen gedaan: geen resultaat. Foto M04.png gebruikt als fallback.
