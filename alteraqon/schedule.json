@@ -1,5 +1,5 @@
 {
  "timezone": "Europe/Amsterdam",
- "short": {"days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "time": "18:00"},
- "long":  {"days": ["sat"], "time": "15:00"}
+ "short": {"days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "times": ["09:00", "14:00", "19:00"]},
+ "long":  {"every_days": 2, "start": "2026-10-20", "times": ["15:00"]}
 }

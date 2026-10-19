@@ -169,7 +169,7 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
 ### 9b. Inplannen (eigenaar 20 okt 2026: vast uploadschema)
 - Zegt de eigenaar "zet <video> op het schema" / "plan <video> in": upload met `--schedule` (lange video: `--schedule --long`).
   De video gaat privé naar YouTube en wordt automatisch openbaar op het eerstvolgende vrije tijdstip uit `alteraqon/schedule.json`
-  (nu: Shorts elke dag 18:00, lange video's zaterdag 15:00, Nederlandse tijd). Het tijdstip komt als `publish_at` in upload.json.
+  (nu: Shorts 3x per dag 09:00/14:00/19:00, lange video's om de 2 dagen 15:00, Nederlandse tijd). Het tijdstip komt als `publish_at` in upload.json.
 - Meld de eigenaar: YouTube-link + datum/tijd van publicatie (Nederlandse tijd) + TikTok-tekst/downloadlink (bij Shorts).
 - "Zet online" zonder "schema" = meteen openbaar (stap 9).
 
@@ -192,10 +192,11 @@ Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptsc
   (2–3 regels, max ±10 tekens per regel, prikkelend, de twist NIET verklappen). Dan
   `python alteraqon/tools/make_thumbnail.py alteraqon/<map>` → `thumbnail.jpg`; laat @beeldcontrole hem beoordelen
   ("zou jij hierop klikken? tekst leesbaar op telefoonformaat?").
-- **upload.json**: zonder `#shorts`; beschrijving mag 2–4 zinnen + vraag + 3–4 hashtags; `"tiktok"` hoeft niet.
+- **upload.json**: zonder `#shorts`; beschrijving mag 2–4 zinnen + vraag + 3–4 hashtags; GEEN `"tiktok"` (TikTok-tekst alleen bij Shorts).
 - **Controle**: duur 3–5 min, 1920x1080. Kijklink zoals bij Shorts.
-- **Online zetten**: `python alteraqon/tools/upload_short.py alteraqon/<map> <mp4> --long` (zet ook de thumbnail; lukt dat niet,
-  dan meldt het script dat de eigenaar hem in YouTube Studio moet zetten).
+- **Online zetten**: `python alteraqon/tools/upload_short.py alteraqon/<map> <mp4> --long` (met `--schedule` voor het schema).
+  De thumbnail gaat automatisch mee zodra het kanaal geverifieerd is; lukt het niet, meld dat en stuur de eigenaar de
+  downloadlink van thumbnail.jpg (kopieer hem naar C:\Users\rane\Videos\alteraqon\<slug>-thumbnail.jpg; link via de kijk-server).
 
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.

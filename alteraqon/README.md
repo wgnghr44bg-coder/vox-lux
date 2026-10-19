@@ -115,7 +115,7 @@ Titel, beschrijving en tags komen uit `upload.json`; categorie Wetenschap & tech
 Na de upload wordt ook de TikTok-tekst (`"tiktok"` in upload.json) getoond om zelf bij TikTok te plakken.
 
 ## Uploadschema (eigenaar 20 okt 2026)
-`alteraqon/schedule.json`: Shorts elke dag 18:00, lange video's zaterdag 15:00 (Europe/Amsterdam). `upload_short.py ... --schedule` plant een goedgekeurde video
+`alteraqon/schedule.json`: Shorts 3x per dag 09:00/14:00/19:00, lange video's om de 2 dagen 15:00 (Europe/Amsterdam). `upload_short.py ... --schedule` plant een goedgekeurde video
 in op het eerstvolgende vrije tijdstip (privé + publishAt; YouTube zet hem zelf openbaar). Tijden aanpassen = schedule.json wijzigen.
 
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
