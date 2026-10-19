@@ -51,6 +51,9 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
   (tools/make_video.py + shots.py `LONG = True`, make_music.py, make_thumbnail.py → thumbnail.jpg)
 - `2026-10-19-amazon-burned-down/` – What if the Amazon rainforest burned down? (`make.py` → tools/make_video.py + shots.py;
   twist: het Amazon is nooit onze longen – minder dan 10% van de zuurstof, de helft komt uit oceaanplankton)
+- `2026-10-19-internet-disappeared/` – What if the internet disappeared? (`make.py` → tools/make_video.py + shots.py;
+  twist: het internet zit niet in de lucht maar op de zeebodem – 1,5 miljoen km onderzeese kabel; in 2008 twee kabels bij
+  Alexandrië gekapt (Egypte 70%, India 60%) en in 2011 nam een vrouw met een spade Armenië offline)
 
 - **Omgeving (eigenaar 13 okt 2026):** geen vaste stad; elk beeld toont letterlijk wat er gezegd wordt en past bij het onderwerp
   ("wow"-beelden: spectaculair, ook wetenschappelijke 3D-renders voor lichaam/natuur).
