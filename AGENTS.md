@@ -40,8 +40,8 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
   Twijfel je aan een getal, zeg "about" / "could" of laat het weg.
 
 ### 3. Beeldprompts (`prompts.txt`), één regel per beeld: `M01|<prompt>`
-- Begin foto's met: `Cinematic photo, vertical 9:16, hyperrealistic, dramatic lighting, epic, high detail, no text, no logos,`
-- Wetenschap/ruimte/lichaam: `Scientific 3D render, vertical 9:16, photorealistic, cinematic lighting, epic, high detail, no text, no labels, no logos,`
+- Begin foto's met: `Epic cinematic photo, vertical 9:16, award-winning, hyperrealistic, dramatic volumetric light, high contrast, frozen motion, high detail, no text, no logos,`
+- Wetenschap/ruimte/lichaam: `Epic scientific 3D render, vertical 9:16, photorealistic, dramatic cinematic lighting, glowing highlights, high contrast, high detail, no text, no labels, no logos,`
 - Elk beeld toont LETTERLIJK wat er in die zin gezegd wordt; "wow"-beelden. Geen gezichten of handen in close-up; mensen alleen als silhouet/van achteren.
 - Noem iets wat NIET in beeld mag NOOIT bij naam (ook niet als "no moon"): het model tekent het dan juist. Beschrijf alleen wat er wél is.
 - Geen echte merken/logo's.
@@ -59,6 +59,18 @@ Het beeldmodel kan alleen eenvoudige, echt fotografeerbare scènes goed maken. D
   (zwart water met een paar belletjes, een duikbril die wegdrijft, één luchtbel die naar het licht stijgt).
 - Kort prompt: onderwerp + wat het doet + plek + licht. Geen opsommingen van 6 dingen tegelijk.
 - @beeldcontrole keurt af als je het beeld niet binnen 1 seconde snapt.
+
+### 3a+. Spectaculair binnen duidelijk (eigenaar 19 okt 2026: "spannender en spectaculairder, maar op basis van het script")
+Elk beeld blijft één duidelijk onderwerp dat precies de zin toont, maar dan op het spannendste moment en in het mooiste licht:
+- **Het hoogtepunt van de zin**: niet "een walvis", maar "een walvis die met open bek uit zee knalt, water spat alle kanten op".
+- **Dramatisch licht/weer** dat het model goed kan: tegenlicht bij zonsondergang, onweer met bliksem, lichtbundels door water of
+  wolken, gloed van lava/vuur, maanlicht. Nooit vlak daglicht.
+- **Bevroren actie**: spatten, scherven, stof, vonken, golven, schuim midden in de lucht.
+- **Extreem schaalverschil**: het enorme ding groot in beeld, een klein bootje/huisje/silhouet ernaast.
+- **Spannende hoek**: kikvorsperspectief van onderaf, of vogelvlucht van bovenaf; geen saaie ooghoogte.
+- Voorbeeld: zin "Rivers and lakes shrink." → niet "a dry river", maar "a cracked dry riverbed seen from above at sunset,
+  a lone stranded boat lying in the mud, long dramatic shadows, heat haze".
+- @beeldcontrole beoordeelt ook: "is dit spannend genoeg voor de eerste seconde van een Short?" Saai = opnieuw.
 
 ### 3b. Impact (eigenaar 18 okt 2026: beelden moeten mensen vasthouden)
 - **M01 = de hook**: het meest spectaculaire beeld van de hele video (de eerste seconde beslist of iemand blijft kijken).
