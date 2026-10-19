@@ -10,7 +10,7 @@ Gebruik (vanuit de map vox-lux):
 - Weigert als upload.json al een "youtube"-link heeft (nooit opnieuw uploaden: YouTube ziet het als kopie).
 - Uploadt via tools/youtube_upload.py: categorie Wetenschap & technologie (28), Engels, niet voor kinderen,
   "gewijzigde of synthetische content" = ja.
-- Schrijft de link terug in upload.json ("youtube", "uploaded").
+- Schrijft de link terug in upload.json ("youtube", "uploaded") en toont daarna de TikTok-tekst ("tiktok").
 """
 import argparse, datetime, json, os, re, subprocess, sys, tempfile
 from pathlib import Path
@@ -66,3 +66,5 @@ meta["youtube"] = m.group(0)
 meta["uploaded"] = f"{datetime.date.today().isoformat()} ({a.privacy})"
 meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print(f"Online: {m.group(0)} – opgeslagen in {meta_path}")
+if meta.get("tiktok"):
+    print("\n--- TikTok-tekst (kopiëren bij handmatig posten) ---\n" + meta["tiktok"])

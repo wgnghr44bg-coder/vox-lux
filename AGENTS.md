@@ -133,6 +133,8 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
 
 ### 8. Afronden
 - `upload.json` (zie voorbeeld + YouTube-regels in README: titel `What if …? <emoji>`, algemene beschrijving zonder feiten/twist, 4 hashtags incl. #shorts, 4 tags).
+- In `upload.json` ook `"tiktok"`: 1–2 korte prikkelende zinnen met emoji (de twist niet verklappen, wel "wait for the twist"),
+  een vraag aan de kijker met 👇, en 3–5 hashtags (altijd #whatif en #fyp + onderwerp). Max 2200 tekens.
 - Voeg de video toe onder "Video's" in `alteraqon/README.md` (één regel).
 - `git add alteraqon/<map> alteraqon/README.md` – NOOIT een eind-mp4 in git.
 - `git commit -m "<slug>: nieuwe short (beelden, stem, shots)"` en `git push origin alteraqon`.
@@ -157,7 +159,8 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
 - `python alteraqon/tools/upload_short.py alteraqon/<map> C:\Users\rane\Videos\alteraqon\<slug>.mp4`
   (standaard openbaar; `--privacy unlisted` of `private` als de eigenaar dat vraagt). Ontbreekt de module requests: `pip install requests`.
 - Het script controleert de video, weigert een tweede upload en zet de YouTube-link in `upload.json`.
-  Commit + push daarna `upload.json` en meld de link aan de eigenaar.
+  Commit + push daarna `upload.json` en meld de YouTube-link aan de eigenaar, met daaronder de TikTok-tekst (uit `upload.json`)
+  in een kopieerbaar blok, plus de downloadlink van de mp4 (om in TikTok te plaatsen).
 
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
