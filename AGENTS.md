@@ -173,6 +173,17 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
 - Meld de eigenaar: YouTube-link + datum/tijd van publicatie (Nederlandse tijd) + TikTok-tekst/downloadlink (bij Shorts).
 - "Zet online" zonder "schema" = meteen openbaar (stap 9).
 
+### 10. Automatisch inplannen (eigenaar 20 okt 2026: "hij mag alles automatisch online zetten")
+Na stap 8 zet je ELKE nieuwe video (Short én lange video) zelf op het schema, zonder te vragen:
+`python alteraqon/tools/upload_short.py alteraqon/<map> C:\Users\rane\Videos\alteraqon\<slug>.mp4 --schedule` (lange video: `--schedule --long`).
+Alleen als ALLES klopt:
+- `check_short.py` groen en de render-controle (formaat, duur, geen decodeerfouten) goed;
+- elk beeld JA bij @beeldcontrole (geen beeld met "max pogingen, toch NEE");
+- de twist en elk getal staan met echte bron in `bronnen.txt`; geen twijfel over feiten.
+Klopt iets niet: NIET uploaden, wel renderen + kijklink, en in het rapport bovenaan "NIET ingepland: <reden>".
+Na het inplannen: commit + push `upload.json` (met `youtube` en `publish_at`), en rapporteer bovenaan:
+YouTube-link, publicatiedatum/-tijd in Nederlandse tijd, kijk- en downloadlink; bij Shorts ook de TikTok-tekst in een kopieerbaar blok.
+
 ## Lange YouTube-video (opdracht "Maak een lange Alteraqon-video: What if …?") – eigenaar 19 okt 2026
 Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptschrijver, @beeldcontrole), met deze verschillen:
 - **Voorbeeld = `alteraqon/2026-10-11-sky-countdown/`** (eigenaar: "heel goed voorbeeld"). @scriptschrijver leest eerst
@@ -200,6 +211,6 @@ Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptsc
 
 ## Niet doen
 - Geen betaalde API's (xAI, ElevenLabs) zonder uitdrukkelijk ja.
-- Nooit uit jezelf uploaden naar YouTube. Alleen als de eigenaar in DEZE sessie letterlijk vraagt om een video online / op YouTube te zetten (zie stap 9).
+- Niet uploaden als de video NIET aan alle eisen van stap 10 voldoet; dan alleen rapporteren.
 - Geen scripts in `alteraqon/tools/` aanpassen. Geen andere branches of video-mappen aanraken.
 - Geen nieuwe branch `alteraqon` aanmaken; hij bestaat op origin.
