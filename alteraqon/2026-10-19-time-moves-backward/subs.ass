@@ -1,0 +1,85 @@
+[Script Info]
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,50,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,240,240,70,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:03.72,Sub,,0,0,0,,{\fad(150,150)}What if time started moving backward?
+Dialogue: 0,0:00:04.92,0:00:07.06,Sub,,0,0,0,,{\fad(150,150)}Not in a laboratory.
+Dialogue: 0,0:00:07.16,0:00:09.35,Sub,,0,0,0,,{\fad(150,150)}Everywhere at once.
+Dialogue: 0,0:00:09.35,0:00:13.19,Sub,,0,0,0,,{\fad(150,150)}It starts with small things you almost don't notice.
+Dialogue: 0,0:00:13.19,0:00:17.90,Sub,,0,0,0,,{\fad(150,150)}Rain lifts off the pavement… and climbs back into the storm.
+Dialogue: 0,0:00:17.90,0:00:21.97,Sub,,0,0,0,,{\fad(150,150)}Spilled coffee flows up the table, back into the cup.
+Dialogue: 0,0:00:21.97,0:00:26.26,Sub,,0,0,0,,{\fad(150,150)}A shattered glass pulls itself together on the kitchen floor.
+Dialogue: 0,0:00:26.26,0:00:29.35,Sub,,0,0,0,,{\fad(150,150)}In Tokyo, it is nine at night.
+Dialogue: 0,0:00:29.45,0:00:32.84,Sub,,0,0,0,,{\fad(150,150)}Cars glide backwards down the expressway.
+Dialogue: 0,0:00:32.84,0:00:35.75,Sub,,0,0,0,,{\fad(150,150)}In New York, it is breakfast.
+Dialogue: 0,0:00:35.85,0:00:38.50,Sub,,0,0,0,,{\fad(150,150)}Steam falls back into the street.
+Dialogue: 0,0:00:38.50,0:00:43.03,Sub,,0,0,0,,{\fad(150,150)}In Cape Town, birds fly tail-first over the harbour.
+Dialogue: 0,0:00:43.03,0:00:44.84,Sub,,0,0,0,,{\fad(150,150)}Nobody is hurt.
+Dialogue: 0,0:00:44.94,0:00:46.77,Sub,,0,0,0,,{\fad(150,150)}Nothing is broken.
+Dialogue: 0,0:00:46.77,0:00:49.99,Sub,,0,0,0,,{\fad(150,150)}Everything is simply going back.
+Dialogue: 0,0:00:51.19,0:00:53.74,Sub,,0,0,0,,{\fad(150,150)}And nobody on Earth can stop it.
+Dialogue: 0,0:00:54.94,0:00:56.32,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:56.32,0:00:59.42,Sub,,0,0,0,,{\fad(150,150)}Every river turns around in its bed.
+Dialogue: 0,0:00:59.42,0:01:03.61,Sub,,0,0,0,,{\fad(150,150)}After one hour, the sea pulls back and does not return.
+Dialogue: 0,0:01:03.61,0:01:07.75,Sub,,0,0,0,,{\fad(150,150)}Ships lean over in the empty air where the water used to be.
+Dialogue: 0,0:01:08.95,0:01:13.31,Sub,,0,0,0,,{\fad(150,150)}After one day, every tree takes its leaves back.
+Dialogue: 0,0:01:13.31,0:01:17.41,Sub,,0,0,0,,{\fad(150,150)}Petals climb off the grass, back onto the flowers.
+Dialogue: 0,0:01:17.41,0:01:22.27,Sub,,0,0,0,,{\fad(150,150)}After one week, broken buildings rise back into shape.
+Dialogue: 0,0:01:22.27,0:01:27.20,Sub,,0,0,0,,{\fad(150,150)}Concrete and glass fly upwards, and the dust goes with them.
+Dialogue: 0,0:01:28.40,0:01:31.77,Sub,,0,0,0,,{\fad(150,150)}After one month, the cities go dark.
+Dialogue: 0,0:01:31.77,0:01:36.56,Sub,,0,0,0,,{\fad(150,150)}Eight billion people, moving backwards through their own lives.
+Dialogue: 0,0:01:37.76,0:01:41.71,Sub,,0,0,0,,{\fad(150,150)}After one year, the deserts take back the fields.
+Dialogue: 0,0:01:41.71,0:01:45.79,Sub,,0,0,0,,{\fad(150,150)}Sand moves uphill, and swallows the fences.
+Dialogue: 0,0:01:45.79,0:01:49.86,Sub,,0,0,0,,{\fad(150,150)}After ten years, everything we built is coming apart.
+Dialogue: 0,0:01:49.86,0:01:52.89,Sub,,0,0,0,,{\fad(150,150)}Towers come apart, floor by floor.
+Dialogue: 0,0:01:52.89,0:01:57.09,Sub,,0,0,0,,{\fad(150,150)}After a hundred years, the planet is what it was before us.
+Dialogue: 0,0:01:57.09,0:01:59.52,Sub,,0,0,0,,{\fad(150,150)}Forests cover the roads.
+Dialogue: 0,0:01:59.62,0:02:02.13,Sub,,0,0,0,,{\fad(150,150)}Towers stand in the trees.
+Dialogue: 0,0:02:03.33,0:02:05.63,Sub,,0,0,0,,{\fad(150,150)}Then comes the worst part.
+Dialogue: 0,0:02:05.63,0:02:08.55,Sub,,0,0,0,,{\fad(150,150)}Nothing new can ever happen again.
+Dialogue: 0,0:02:08.55,0:02:11.21,Sub,,0,0,0,,{\fad(150,150)}Every fire burns backwards.
+Dialogue: 0,0:02:11.31,0:02:14.06,Sub,,0,0,0,,{\fad(150,150)}Every meal uncooks itself.
+Dialogue: 0,0:02:14.06,0:02:17.70,Sub,,0,0,0,,{\fad(150,150)}Every chain of events runs backwards, step by step.
+Dialogue: 0,0:02:18.90,0:02:21.66,Sub,,0,0,0,,{\fad(150,150)}There is nothing left to look forward to.
+Dialogue: 0,0:02:22.86,0:02:24.99,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:02:24.99,0:02:27.87,Sub,,0,0,0,,{\fad(150,150)}Time was never one single river.
+Dialogue: 0,0:02:27.87,0:02:32.37,Sub,,0,0,0,,{\fad(150,150)}In orbit, satellites already live in a slightly faster time.
+Dialogue: 0,0:02:32.37,0:02:36.60,Sub,,0,0,0,,{\fad(150,150)}Their clocks gain about thirty-eight microseconds every day.
+Dialogue: 0,0:02:36.60,0:02:39.43,Sub,,0,0,0,,{\fad(150,150)}And it already happened to a man.
+Dialogue: 0,0:02:39.43,0:02:43.62,Sub,,0,0,0,,{\fad(150,150)}Sergei Krikalev spent eight hundred and three days in orbit.
+Dialogue: 0,0:02:43.62,0:02:47.96,Sub,,0,0,0,,{\fad(150,150)}He came home two hundredths of a second younger than the rest of us.
+Dialogue: 0,0:02:49.16,0:02:51.79,Sub,,0,0,0,,{\fad(150,150)}That is real time travel.
+Dialogue: 0,0:02:51.89,0:02:53.85,Sub,,0,0,0,,{\fad(150,150)}We just cannot feel it.
+Dialogue: 0,0:02:55.05,0:03:00.78,Sub,,0,0,0,,{\fad(150,150)}So… if time really started going backwards… which day would you live again?
+Dialogue: 2,0:00:59.42,0:01:02.02,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:59.54,0:01:02.02,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}LOW TIDE
+Dialogue: 2,0:00:59.64,0:01:02.02,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 HOUR
+Dialogue: 2,0:01:08.95,0:01:11.55,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:09.07,0:01:11.55,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}LEAVES BACK
+Dialogue: 2,0:01:09.17,0:01:11.55,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 DAY
+Dialogue: 2,0:01:17.41,0:01:20.01,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:17.53,0:01:20.01,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}THE WALLS
+Dialogue: 2,0:01:17.63,0:01:20.01,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 WEEK
+Dialogue: 2,0:01:28.40,0:01:31.00,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:28.52,0:01:31.00,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}LIGHTS OUT
+Dialogue: 2,0:01:28.62,0:01:31.00,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 MONTH
+Dialogue: 2,0:01:37.76,0:01:40.36,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:37.88,0:01:40.36,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}DESERT
+Dialogue: 2,0:01:37.98,0:01:40.36,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 YEAR
+Dialogue: 2,0:01:45.79,0:01:48.39,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:45.91,0:01:48.39,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}TEN YEARS
+Dialogue: 2,0:01:46.01,0:01:48.39,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}10 YEARS
+Dialogue: 2,0:01:52.89,0:01:55.49,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:53.01,0:01:55.49,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}A CENTURY
+Dialogue: 2,0:01:53.11,0:01:55.49,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}100 YEARS

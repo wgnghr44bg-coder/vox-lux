@@ -1,0 +1,10 @@
+Sergei Krikalev bracht 803 dagen 9 uur 39 minuten in de ruimte door (wereldrecord totaal) | https://en.wikipedia.org/wiki/Sergei_Krikalev
+Krikalev is door tijd dilatatie 0,02 seconde jonger dan mensen die op hetzelfde moment op aarde geboren zijn (FAI, met de berekening) | https://www.fai.org/news/11-october-2005-russian-cosmonaut-krikalev-becomes-absolute-record-holder-accumulated-space
+Ook Universe Today en IOPSpark noemen de 0,02 seconde en de 803 dagen | https://www.universetoday.com/articles/cosmonaut-sergei-krikalev-the-worlds-most-prolific-time-traveler
+Ook IOPSpark (Institute of Physics): 803 dagen in een baan om de aarde, 0,02 seconde jonger | https://spark.iop.org/time-travelling-astronaut
+Klokken in GPS-satellieten lopen 38 microseconden per dag sneller dan klokken op aarde (7 µs langzamer door snelheid, 45 µs sneller door minder zwaartekracht) | https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test
+Door dezelfde relativiteit: zonder correctie loopt de GPS-positie ongeveer 11 km per dag weg; de satellietklokken krijgen voor de lancering een vaste offset | https://en.wikipedia.org/wiki/Error_analysis_for_the_Global_Positioning_System
+NIST 2010: twee atoomklokken met maar 33 cm hoogteverschil lopen al verschillend; de hogere loopt sneller (over 79 jaar is dat ongeveer 90 miljardste seconde) | https://www.nist.gov/news-events/news/2010/09/nist-pair-aluminum-atomic-clocks-reveal-einsteins-relativity-personal-scale
+NIST 2024 (JILA): het effect is zelfs op minder dan een millimeter hoogteverschil gemeten met een optische roosterklok | https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test
+1971 Hafele-Keating: vier cesiumklokken vlogen rond de wereld; oostwaarts verloren ze 59 ns, westwaarts wonnen ze 273 ns, precies zoals voorspeld | https://en.wikipedia.org/wiki/Hafele%E2%80%93Keating_experiment
+Wereldbevolking bereikte 8 miljard op 15 november 2022 (dus "eight billion people" in het script) | https://www.un.org/en/global-issues/population
