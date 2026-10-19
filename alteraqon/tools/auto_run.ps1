@@ -102,10 +102,11 @@ Voeg aan het eind je korte rapport ONDERAAN toe aan $rapport (nooit overschrijve
         Log "Start opdracht ${n}: $($job.wat)"
         $p = Start-Process -FilePath $cfg.opencode -ArgumentList 'run', ('"' + (($prompt -replace "\r?\n", ' ') -replace '"', '\"') + '"') `
             -WorkingDirectory $c.repo -RedirectStandardOutput $out -RedirectStandardError "$out.err" -WindowStyle Hidden -PassThru
-        if (-not $p.WaitForExit(4 * 3600 * 1000)) {
-            Log "Opdracht $n duurt langer dan 4 uur - afgebroken"
+        $uren = if ($job.wat -like '*lange*') { 8 } else { 4 }      # lange video (IfScape3D: 3 hoofdstukken) mag langer
+        if (-not $p.WaitForExit($uren * 3600 * 1000)) {
+            Log "Opdracht $n duurt langer dan $uren uur - afgebroken"
             Stop-Process -Id $p.Id -Force
-            Rapport "Opdracht $n ($($job.wat)): afgebroken na 4 uur. Log: logs/nachtrun-$date-$n.log"
+            Rapport "Opdracht $n ($($job.wat)): afgebroken na $uren uur. Log: logs/nachtrun-$date-$n.log"
         } else { Log "Opdracht $n klaar (exitcode $($p.ExitCode))" }
     }
     Log "Nachtrun klaar"
