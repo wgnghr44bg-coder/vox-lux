@@ -63,6 +63,13 @@ def check(vid: Path) -> list:
             errs.append(f'Clip ontbreekt: het "Then."-beeld {name} moet een bewegende clip zijn (clips/{name}.mp4, AGENTS.md stap 4); '
                         f"lukt het niet na 3 pogingen, zet de reden in clips/{name}.mislukt.txt.")
 
+    src = vid / "bronnen.txt"
+    urls = re.findall(r"https?://\S+", src.read_text(encoding="utf-8")) if src.exists() else []
+    if len(urls) < 2:
+        errs.append("bronnen.txt: minstens 2 regels '<feit> | <URL>' met echte bronnen voor de feiten (vooral de twist).")
+    if re.search(r"newspaper|headline|infographic|diagram|timeline|day \d", (vid / "prompts.txt").read_text(encoding="utf-8"), re.I):
+        errs.append("prompts.txt: krant/kop/infographic/diagram/tijdlijn geeft onleesbare tekst in beeld – kies een ander beeld.")
+
     up = json.loads((vid / "upload.json").read_text(encoding="utf-8"))
     if not up.get("title", "").startswith("What if"):
         errs.append('upload.json: titel moet beginnen met "What if".')
