@@ -49,6 +49,8 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
 - `2026-10-19-whale-swallowed-you/` – What if a whale swallowed you? (`make.py` → tools/make_video.py + shots.py)
 - `2026-10-19-time-moves-backward/` – What if time started moving backward? **Lange video**, 16:9 1920x1080, ca. 3 min
   (tools/make_video.py + shots.py `LONG = True`, make_music.py, make_thumbnail.py → thumbnail.jpg)
+- `2026-10-19-amazon-burned-down/` – What if the Amazon rainforest burned down? (`make.py` → tools/make_video.py + shots.py;
+  twist: het Amazon is nooit onze longen – minder dan 10% van de zuurstof, de helft komt uit oceaanplankton)
 
 - **Omgeving (eigenaar 13 okt 2026):** geen vaste stad; elk beeld toont letterlijk wat er gezegd wordt en past bij het onderwerp
   ("wow"-beelden: spectaculair, ook wetenschappelijke 3D-renders voor lichaam/natuur).
