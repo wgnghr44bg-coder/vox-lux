@@ -1,0 +1,5 @@
+{
+ "timezone": "Europe/Amsterdam",
+ "short": {"days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"], "time": "18:00"},
+ "long":  {"days": ["sat"], "time": "15:00"}
+}

@@ -114,6 +114,10 @@ Titel, beschrijving en tags komen uit `upload.json`; categorie Wetenschap & tech
 "gewijzigde of synthetische content" = ja. De link wordt in `upload.json` bewaard; nooit twee keer uploaden.
 Na de upload wordt ook de TikTok-tekst (`"tiktok"` in upload.json) getoond om zelf bij TikTok te plakken.
 
+## Uploadschema (eigenaar 20 okt 2026)
+`alteraqon/schedule.json`: Shorts elke dag 18:00, lange video's zaterdag 15:00 (Europe/Amsterdam). `upload_short.py ... --schedule` plant een goedgekeurde video
+in op het eerstvolgende vrije tijdstip (privé + publishAt; YouTube zet hem zelf openbaar). Tijden aanpassen = schedule.json wijzigen.
+
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp. De beschrijving is **algemeen** (eigenaar okt 2026): ze maakt nieuwsgierig naar het onderwerp,
 maar herhaalt niet wat er letterlijk in de video staat (geen getallen/feiten uit het script, de twist niet verklappen).

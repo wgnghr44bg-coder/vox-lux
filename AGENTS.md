@@ -166,6 +166,13 @@ Controle: `ffprobe` → 1080x1920, video + audio, duur 60–75 s; `ffmpeg -v err
   Commit + push daarna `upload.json` en meld de YouTube-link aan de eigenaar, met daaronder de TikTok-tekst (uit `upload.json`)
   in een kopieerbaar blok, plus de downloadlink van de mp4 (om in TikTok te plaatsen).
 
+### 9b. Inplannen (eigenaar 20 okt 2026: vast uploadschema)
+- Zegt de eigenaar "zet <video> op het schema" / "plan <video> in": upload met `--schedule` (lange video: `--schedule --long`).
+  De video gaat privé naar YouTube en wordt automatisch openbaar op het eerstvolgende vrije tijdstip uit `alteraqon/schedule.json`
+  (nu: Shorts elke dag 18:00, lange video's zaterdag 15:00, Nederlandse tijd). Het tijdstip komt als `publish_at` in upload.json.
+- Meld de eigenaar: YouTube-link + datum/tijd van publicatie (Nederlandse tijd) + TikTok-tekst/downloadlink (bij Shorts).
+- "Zet online" zonder "schema" = meteen openbaar (stap 9).
+
 ## Lange YouTube-video (opdracht "Maak een lange Alteraqon-video: What if …?") – eigenaar 19 okt 2026
 Zelfde regels als de Short (stap 0–9, beeldregels 3/3a/3a+/3b, Flux, @scriptschrijver, @beeldcontrole), met deze verschillen:
 - **Voorbeeld = `alteraqon/2026-10-11-sky-countdown/`** (eigenaar: "heel goed voorbeeld"). @scriptschrijver leest eerst
