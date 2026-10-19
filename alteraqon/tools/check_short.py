@@ -67,8 +67,8 @@ def check(vid: Path) -> list:
         st = sh[4] if len(sh) > 4 else None
         if st and len(st[1]) > 13:
             errs.append(f'shots.py: groot getal "{st[1]}" is te lang (max 13 tekens).')
-        if st and re.fullmatch(r"1\s*(SECOND|MINUTE|HOUR|DAY|WEEK|MONTH|YEAR)", st[1], re.I):
-            errs.append(f'shots.py: tijdstempel "{st[1]}" moet "AFTER {st[1]}" zijn.')
+        if st and st[1].upper().startswith("AFTER"):
+            errs.append(f'shots.py: tijdstempel "{st[1]}" zonder "AFTER" (alleen de stem zegt "After"); bijv. "{st[1][6:].strip()}".')
     tsv = vid / "voice-times.tsv"
     if tsv.exists():
         rows = [r.split("\t") for r in tsv.read_text(encoding="utf-8").splitlines() if r and not r.startswith("#")]
