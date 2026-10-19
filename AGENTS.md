@@ -64,6 +64,10 @@ Het beeldmodel kan alleen eenvoudige, echt fotografeerbare scènes goed maken. D
   Het model heeft vaste gewoontes (bijv. "humpback" = altijd een springende walvis); noem dan expliciet wat er WEL gebeurt
   ("mouth wide open full of water seen from above") en gebruik een andere fotosoort.
 - Nooit twee keer (bijna) hetzelfde beeld in één video; elk beeld een andere fotosoort of hoek.
+- **Onmogelijke beweging** (iets dat achteruit/omhoog/de verkeerde kant op gaat, tijd die terugloopt): een foto kan geen
+  richting tonen. Toon het als **bevroren moment**: dingen die onmogelijk stil in de lucht hangen (regendruppels, koffie-spat,
+  vogels, scherven, waterval-druppels "suspended in mid-air, frozen in time"). @beeldcontrole keurt zo'n beeld goed als het
+  de zin duidelijk symboliseert ("de tijd is gestopt/omgekeerd") – geef hem dat mee.
 
 ### 3a+. Spectaculair binnen duidelijk (eigenaar 19 okt 2026: "spannender en spectaculairder, maar op basis van het script")
 Elk beeld blijft één duidelijk onderwerp dat precies de zin toont, maar dan op het spannendste moment en in het mooiste licht:
