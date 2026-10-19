@@ -48,6 +48,9 @@ iets te installeren of een omgeving te activeren: zoek het zelf uit en doe het z
 - Het twist-beeld en het slotbeeld krijgen extra drama (dat bepaalt of mensen reageren en blijven hangen).
 
 ### 4. Beelden maken (ComfyUI moet draaien op http://127.0.0.1:8188)
+**Beelden en clip-frames altijd laten beoordelen door de subagent `@beeldcontrole`** (draait op een gratis model dat beelden
+kan zien). Kun jij zelf geen afbeeldingen bekijken, gebruik hem dan ZEKER; nooit een beeld goedkeuren zonder dat het bekeken is.
+Bestaat de subagent niet: meld dat in het rapport en zet "beelden niet bekeken" bovenaan.
 `python alteraqon/tools/comfy_batch.py C:\comfy-workflows\zimage_api.json alteraqon/<map> --short`
 - Bekijk ELK beeld. Klopt het niet met de zin (verkeerde/extra objecten, tekst, vervormde mensen): pas het prompt aan,
   gooi de png weg en draai opnieuw (alleen ontbrekende worden gemaakt). Max 3 pogingen per beeld.
