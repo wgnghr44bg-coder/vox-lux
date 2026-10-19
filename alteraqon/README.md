@@ -54,6 +54,9 @@ Kosten per video: alleen een paar cent stem (beelden gratis via ComfyUI; vroeger
 - `2026-10-19-internet-disappeared/` – What if the internet disappeared? (`make.py` → tools/make_video.py + shots.py;
   twist: het internet zit niet in de lucht maar op de zeebodem – 1,5 miljoen km onderzeese kabel; in 2008 twee kabels bij
   Alexandrië gekapt (Egypte 70%, India 60%) en in 2011 nam een vrouw met een spade Armenië offline)
+- `2026-10-19-oceans-disappeared/` – What if the oceans disappeared? (`make.py` → tools/make_video.py + shots.py;
+  twist: het Middellandse Zee droogde al eens helemaal op – 5,3–6 miljoen jaar geleden (Messiniaanse zoutcrisis);
+  rivieren sneden diepe kloven in de droge zeebodem, daarna vulde de Atlantische oceaan het bekken weer)
 
 - **Omgeving (eigenaar 13 okt 2026):** geen vaste stad; elk beeld toont letterlijk wat er gezegd wordt en past bij het onderwerp
   ("wow"-beelden: spectaculair, ook wetenschappelijke 3D-renders voor lichaam/natuur).

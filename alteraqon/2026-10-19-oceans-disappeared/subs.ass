@@ -1,0 +1,56 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,56,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,110,110,430,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:03.86,Sub,,0,0,0,,{\fad(150,150)}What if the oceans disappeared overnight?
+Dialogue: 0,0:00:04.56,0:00:06.18,Sub,,0,0,0,,{\fad(150,150)}You stand on the beach.
+Dialogue: 0,0:00:06.18,0:00:07.99,Sub,,0,0,0,,{\fad(150,150)}The water pulls back.
+Dialogue: 0,0:00:07.99,0:00:09.97,Sub,,0,0,0,,{\fad(150,150)}Farther and farther.
+Dialogue: 0,0:00:09.97,0:00:12.34,Sub,,0,0,0,,{\fad(150,150)}Until the horizon is mud.
+Dialogue: 0,0:00:12.34,0:00:13.77,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:14.47,0:00:16.01,Sub,,0,0,0,,{\fad(150,150)}After one hour.
+Dialogue: 0,0:00:16.01,0:00:18.44,Sub,,0,0,0,,{\fad(150,150)}Ships lie on their sides.
+Dialogue: 0,0:00:18.44,0:00:21.72,Sub,,0,0,0,,{\fad(150,150)}The seabed is grey ooze and stone.
+Dialogue: 0,0:00:22.42,0:00:24.06,Sub,,0,0,0,,{\fad(150,150)}After one day.
+Dialogue: 0,0:00:24.06,0:00:26.34,Sub,,0,0,0,,{\fad(150,150)}Fish lie still in the salt.
+Dialogue: 0,0:00:26.34,0:00:28.92,Sub,,0,0,0,,{\fad(150,150)}Every port is a dry cliff.
+Dialogue: 0,0:00:29.62,0:00:31.17,Sub,,0,0,0,,{\fad(150,150)}After one week.
+Dialogue: 0,0:00:31.17,0:00:33.25,Sub,,0,0,0,,{\fad(150,150)}Rivers shrink to a trickle.
+Dialogue: 0,0:00:33.25,0:00:35.49,Sub,,0,0,0,,{\fad(150,150)}The air turns to dust.
+Dialogue: 0,0:00:36.19,0:00:37.78,Sub,,0,0,0,,{\fad(150,150)}After one month.
+Dialogue: 0,0:00:37.78,0:00:40.36,Sub,,0,0,0,,{\fad(150,150)}The seabed canyons stand open.
+Dialogue: 0,0:00:40.36,0:00:42.35,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:00:42.35,0:00:44.03,Sub,,0,0,0,,{\fad(150,150)}It already happened.
+Dialogue: 0,0:00:44.03,0:00:47.85,Sub,,0,0,0,,{\fad(150,150)}About six million years ago, the Mediterranean dried up.
+Dialogue: 0,0:00:47.85,0:00:49.86,Sub,,0,0,0,,{\fad(150,150)}It became a salt desert.
+Dialogue: 0,0:00:49.86,0:00:53.56,Sub,,0,0,0,,{\fad(150,150)}Rivers cut canyons into the empty sea floor.
+Dialogue: 0,0:00:54.26,0:00:57.77,Sub,,0,0,0,,{\fad(150,150)}Then the Atlantic broke in and filled it again.
+Dialogue: 0,0:00:57.77,0:00:59.13,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:00:59.13,0:01:01.01,Sub,,0,0,0,,{\fad(150,150)}A sea can vanish.
+Dialogue: 0,0:01:01.01,0:01:02.64,Sub,,0,0,0,,{\fad(150,150)}Would you swim?
+Dialogue: 2,0:00:14.47,0:00:17.07,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:14.59,0:00:17.07,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SEA
+Dialogue: 2,0:00:14.69,0:00:17.07,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 HOUR
+Dialogue: 2,0:00:22.42,0:00:25.02,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:22.54,0:00:25.02,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SEA
+Dialogue: 2,0:00:22.64,0:00:25.02,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 DAY
+Dialogue: 2,0:00:29.62,0:00:32.22,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:29.74,0:00:32.22,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SEA
+Dialogue: 2,0:00:29.84,0:00:32.22,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 WEEK
+Dialogue: 2,0:00:36.19,0:00:38.79,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:36.31,0:00:38.79,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}NO SEA
+Dialogue: 2,0:00:36.41,0:00:38.79,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}1 MONTH
+Dialogue: 2,0:00:44.03,0:00:46.63,Bar,,0,0,0,,{\pos(84,300)\fad(0,350)\clip(84,300,84,304)\t(0,450,\clip(84,300,344,304))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:44.15,0:00:46.63,Label,,0,0,0,,{\move(54,322,84,322,0,400)\fad(250,350)}MEDITERRANEAN DRIED UP
+Dialogue: 2,0:00:44.25,0:00:46.63,Big,,0,0,0,,{\move(44,362,84,362,0,450)\fad(300,350)}6 MILLION YRS
