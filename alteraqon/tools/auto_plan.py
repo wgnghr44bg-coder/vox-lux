@@ -1,13 +1,14 @@
 """Alteraqon nachtrun: hoeveel video's moeten er vannacht gemaakt worden?
 
-Gebruik:  python alteraqon/tools/auto_plan.py   -> {"shorts": 3, "long": 1, "shorts_ingepland": 2, "long_ingepland": 0}
-Kijkt naar "publish_at" in alteraqon/*/upload.json (lange video = map met thumbnail.json) en vult de wachtrij aan:
+Gebruik:  python alteraqon/tools/auto_plan.py [kanaalmap=alteraqon]   -> {"shorts": 3, "long": 1, "shorts_ingepland": 2, "long_ingepland": 0}
+Kijkt naar "publish_at" in <kanaalmap>/*/upload.json (lange video = map met thumbnail.json) en vult de wachtrij aan:
 - Shorts: tot er minstens SHORT_BUFFER Shorts in de toekomst ingepland staan, max 3 per nacht.
 - Lange video: 1 als er geen lange video meer in de toekomst ingepland staat.
 """
-import datetime as dt, glob, json, os
+import datetime as dt, glob, json, os, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.join(REPO, sys.argv[1] if len(sys.argv) > 1 else "alteraqon")
 SHORT_BUFFER = 3      # = 1 dag vooruit bij 3 Shorts per dag
 MAX_SHORTS = 3
 

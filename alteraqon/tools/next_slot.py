@@ -1,7 +1,7 @@
 """Alteraqon: eerstvolgende vrije publicatietijd volgens alteraqon/schedule.json.
 
-Gebruik:  python alteraqon/tools/next_slot.py short|long     -> print RFC3339 UTC-tijd (bijv. 2026-10-21T16:00:00Z)
-Een tijdstip is "bezet" als een upload.json in alteraqon/*/ al "publish_at" met die tijd heeft.
+Gebruik:  python alteraqon/tools/next_slot.py short|long [kanaalmap]     -> print RFC3339 UTC-tijd (bijv. 2026-10-21T16:00:00Z)
+Een tijdstip is "bezet" als een upload.json in <kanaalmap>/*/ (standaard alteraqon/) al "publish_at" met die tijd heeft.
 Minstens 1 uur in de toekomst (YouTube eist dat een inplanning in de toekomst ligt).
 """
 import datetime as dt, glob, json, os, sys
@@ -11,15 +11,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 
-def next_slot(kind: str) -> str:
-    cfg = json.load(open(os.path.join(ROOT, "schedule.json"), encoding="utf-8"))
+def next_slot(kind: str, root: str = ROOT) -> str:
+    cfg = json.load(open(os.path.join(root, "schedule.json"), encoding="utf-8"))
     tz = ZoneInfo(cfg["timezone"]); s = cfg[kind]
     times = s.get("times") or [s["time"]]                 # meerdere tijden per dag mogelijk
     every = int(s.get("every_days", 1))                    # bijv. 2 = om de dag (telt vanaf "start")
     start = dt.date.fromisoformat(s.get("start", "2026-10-20"))
     days = s.get("days", DAYS)
     taken = set()
-    for p in glob.glob(os.path.join(ROOT, "*", "upload.json")):
+    for p in glob.glob(os.path.join(root, "*", "upload.json")):
         try: taken.add(json.load(open(p, encoding="utf-8")).get("publish_at"))
         except Exception: pass
     now = dt.datetime.now(tz) + dt.timedelta(hours=1)
@@ -37,4 +37,5 @@ def next_slot(kind: str) -> str:
 
 
 if __name__ == "__main__":
-    print(next_slot(sys.argv[1] if len(sys.argv) > 1 else "short"))
+    print(next_slot(sys.argv[1] if len(sys.argv) > 1 else "short",
+                    os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else ROOT))

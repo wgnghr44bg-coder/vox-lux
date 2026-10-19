@@ -10,6 +10,8 @@ Gebruik (vanuit de map vox-lux):
 - Weigert als upload.json al een "youtube"-link heeft (nooit opnieuw uploaden: YouTube ziet het als kopie).
 - Uploadt via tools/youtube_upload.py: categorie Wetenschap & technologie (28), Engels, niet voor kinderen,
   "gewijzigde of synthetische content" = ja.
+- Kanaal: staat er channel.json naast de videomap (bijv. ifscape3d/channel.json met "token_env"), dan dat kanaal;
+  anders Alteraqon (YT_REFRESH_TOKEN_ALTERAQON). Schema = schedule.json in dezelfde kanaalmap.
 - Schrijft de link terug in upload.json ("youtube", "uploaded") en toont daarna de TikTok-tekst ("tiktok").
 """
 import argparse, datetime, json, os, re, subprocess, sys, tempfile
@@ -29,8 +31,11 @@ meta_path = vid / "upload.json"
 meta = json.loads(meta_path.read_text(encoding="utf-8"))
 if meta.get("youtube"):
     sys.exit(f"Staat al online: {meta['youtube']} – niet opnieuw uploaden.")
-if not os.environ.get("YT_REFRESH_TOKEN_ALTERAQON"):
-    sys.exit("YT_REFRESH_TOKEN_ALTERAQON ontbreekt (alleen in de cloudsessie aanwezig).")
+chan_file = vid.resolve().parent / "channel.json"
+chan = json.loads(chan_file.read_text(encoding="utf-8")) if chan_file.exists() else {}
+TOKEN_ENV = chan.get("token_env", "YT_REFRESH_TOKEN_ALTERAQON")
+if not os.environ.get(TOKEN_ENV):
+    sys.exit(f"{TOKEN_ENV} ontbreekt (Windows-omgevingsvariabele van de eigenaar).")
 
 # controle van de mp4
 probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_type,width,height",
@@ -55,14 +60,14 @@ publish_at = None
 if a.schedule:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from next_slot import next_slot
-    publish_at = next_slot("long" if a.long else "short")
+    publish_at = next_slot("long" if a.long else "short", str(vid.resolve().parent))
     a.privacy = "private"
     print(f"Ingepland: wordt openbaar op {publish_at} (UTC).")
 
 desc = meta["description"]
 with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as f:
     f.write(desc); desc_file = f.name
-env = dict(os.environ, YT_REFRESH_TOKEN=os.environ["YT_REFRESH_TOKEN_ALTERAQON"])
+env = dict(os.environ, YT_REFRESH_TOKEN=os.environ[TOKEN_ENV])
 out = subprocess.run([sys.executable, str(ROOT / "tools" / "youtube_upload.py"), str(mp4),
                       "--title", meta["title"], "--description-file", desc_file,
                       "--tags", ",".join(meta.get("tags", [])), "--privacy", a.privacy,

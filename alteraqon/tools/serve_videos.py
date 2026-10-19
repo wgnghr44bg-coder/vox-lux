@@ -24,7 +24,8 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         url = urlsplit(self.path)
         if url.path in ("/", "/index.html"):
-            files = sorted((f for f in os.listdir(DIR) if f.lower().endswith(".mp4")),
+            subs = [""] + [d + "/" for d in sorted(os.listdir(DIR)) if os.path.isdir(os.path.join(DIR, d)) and d != "logs"]
+            files = sorted((s + f for s in subs for f in os.listdir(os.path.join(DIR, s)) if f.lower().endswith(".mp4")),
                            key=lambda f: os.path.getmtime(os.path.join(DIR, f)), reverse=True)
             rows = "".join(
                 f'<li><b>{html.escape(f)}</b><br><a href="/{quote(f)}">Bekijk</a> · '

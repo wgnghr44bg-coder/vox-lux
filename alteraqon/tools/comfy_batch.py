@@ -50,7 +50,8 @@ def fill(wf, video, image, prompt, name):
         c, i = n["class_type"], n["inputs"]
         if c == "LoadImage": i["image"] = image
         elif c == "CLIPTextEncode" and nid == pos: i["text"] = prompt
-        elif c == "CLIPTextEncode" and nid == neg: i["text"] = NEGATIVE_VID if video else NEGATIVE_IMG
+        elif c == "CLIPTextEncode" and nid == neg:   # low-poly 3D (IfScape3D) is juist gestileerd: dan geen "cartoon/illustration" weren
+            i["text"] = NEGATIVE_VID if video else (NEGATIVE_IMG.replace("cartoon, illustration, ", "") if "low-poly" in prompt.lower() else NEGATIVE_IMG)
         elif "fps" in i and not isinstance(i["fps"], list): i["fps"] = FPS
         if "filename_prefix" in i: i["filename_prefix"] = f"alteraqon/{name}"
         for k in ("seed", "noise_seed"):
