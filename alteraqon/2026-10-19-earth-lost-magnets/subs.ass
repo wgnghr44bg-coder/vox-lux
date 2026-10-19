@@ -1,0 +1,85 @@
+[Script Info]
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Inter SemiBold,50,&H00F2F2F2,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0.5,0,1,3.5,2.5,2,240,240,70,1
+Style: Label,Inter SemiBold,32,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,9,0,1,0,2,7,0,0,0,1
+Style: Big,Inter Display Light,118,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,4,0,1,0,3,7,0,0,0,1
+Style: Title,Inter Display SemiBold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,0,4,5,80,80,0,1
+Style: Bar,Inter,10,&H0080C8F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.80,0:00:04.54,Sub,,0,0,0,,{\fad(150,150)}What if Earth's magnetic field… simply vanished?
+Dialogue: 0,0:00:05.24,0:00:08.75,Sub,,0,0,0,,{\fad(150,150)}It is the invisible shield around the whole planet.
+Dialogue: 0,0:00:08.75,0:00:12.50,Sub,,0,0,0,,{\fad(150,150)}And every day, it quietly saves your life.
+Dialogue: 0,0:00:13.20,0:00:18.02,Sub,,0,0,0,,{\fad(150,150)}In Reykjavik, the northern lights are the brightest anyone has ever seen.
+Dialogue: 0,0:00:18.02,0:00:23.57,Sub,,0,0,0,,{\fad(150,150)}In Tokyo, a fishing fleet follows one small needle home through the fog.
+Dialogue: 0,0:00:23.57,0:00:28.88,Sub,,0,0,0,,{\fad(150,150)}In Alberta, migrating geese circle the same frozen field all night.
+Dialogue: 0,0:00:28.88,0:00:33.35,Sub,,0,0,0,,{\fad(150,150)}Every sea turtle loses the line it has followed its whole life.
+Dialogue: 0,0:00:33.35,0:00:37.46,Sub,,0,0,0,,{\fad(150,150)}At the South Pole, one research station goes quiet.
+Dialogue: 0,0:00:38.16,0:00:41.41,Sub,,0,0,0,,{\fad(150,150)}And nobody, anywhere, feels a thing.
+Dialogue: 0,0:00:42.11,0:00:43.34,Sub,,0,0,0,,{\fad(150,150)}Then.
+Dialogue: 0,0:00:43.34,0:00:48.03,Sub,,0,0,0,,{\fad(150,150)}After one hour, every compass on Earth spins in circles.
+Dialogue: 0,0:00:48.03,0:00:50.66,Sub,,0,0,0,,{\fad(150,150)}Sailors fall back on the stars.
+Dialogue: 0,0:00:50.66,0:00:54.41,Sub,,0,0,0,,{\fad(150,150)}After one day, the aurora dies over Iceland.
+Dialogue: 0,0:00:54.41,0:00:57.84,Sub,,0,0,0,,{\fad(150,150)}The sky above the poles is only sky.
+Dialogue: 0,0:00:58.54,0:01:02.61,Sub,,0,0,0,,{\fad(150,150)}After one week, satellites begin to die in orbit.
+Dialogue: 0,0:01:02.61,0:01:06.58,Sub,,0,0,0,,{\fad(150,150)}One by one, the world loses its eyes.
+Dialogue: 0,0:01:07.28,0:01:10.91,Sub,,0,0,0,,{\fad(150,150)}After one month, the power grids begin to fail.
+Dialogue: 0,0:01:10.91,0:01:15.27,Sub,,0,0,0,,{\fad(150,150)}Transformers arc in the dark, across three continents.
+Dialogue: 0,0:01:15.27,0:01:18.99,Sub,,0,0,0,,{\fad(150,150)}After one year, the air itself starts to leave.
+Dialogue: 0,0:01:18.99,0:01:22.29,Sub,,0,0,0,,{\fad(150,150)}The sky thins to a hard, empty blue.
+Dialogue: 0,0:01:22.29,0:01:24.87,Sub,,0,0,0,,{\fad(150,150)}And the sun burns straight through.
+Dialogue: 0,0:01:24.87,0:01:28.29,Sub,,0,0,0,,{\fad(150,150)}Cracked fields dry under that hard light.
+Dialogue: 0,0:01:28.99,0:01:32.81,Sub,,0,0,0,,{\fad(150,150)}After a hundred years, the seas are shallow and warm.
+Dialogue: 0,0:01:32.81,0:01:35.37,Sub,,0,0,0,,{\fad(150,150)}Rivers end in white salt.
+Dialogue: 0,0:01:35.37,0:01:39.38,Sub,,0,0,0,,{\fad(150,150)}After a thousand years, the last water is gone.
+Dialogue: 0,0:01:40.08,0:01:43.17,Sub,,0,0,0,,{\fad(150,150)}This is the part nobody wants to say out loud.
+Dialogue: 0,0:01:43.17,0:01:45.49,Sub,,0,0,0,,{\fad(150,150)}Our planet becomes Mars.
+Dialogue: 0,0:01:45.49,0:01:46.53,Sub,,0,0,0,,{\fad(150,150)}Cold.
+Dialogue: 0,0:01:46.53,0:01:47.68,Sub,,0,0,0,,{\fad(150,150)}Silent.
+Dialogue: 0,0:01:47.68,0:01:49.13,Sub,,0,0,0,,{\fad(150,150)}Unbreathable.
+Dialogue: 0,0:01:49.13,0:01:53.41,Sub,,0,0,0,,{\fad(150,150)}A dry wind drags red dust over the empty cities.
+Dialogue: 0,0:01:53.41,0:01:56.61,Sub,,0,0,0,,{\fad(150,150)}Nobody is left to look up at the stars.
+Dialogue: 0,0:01:57.31,0:01:59.29,Sub,,0,0,0,,{\fad(150,150)}But here's the twist.
+Dialogue: 0,0:01:59.29,0:02:02.40,Sub,,0,0,0,,{\fad(150,150)}This has already happened, right next door.
+Dialogue: 0,0:02:02.40,0:02:06.08,Sub,,0,0,0,,{\fad(150,150)}Mars once had a magnetic field as strong as ours.
+Dialogue: 0,0:02:06.08,0:02:09.40,Sub,,0,0,0,,{\fad(150,150)}Four billion years ago, that field died.
+Dialogue: 0,0:02:09.40,0:02:12.97,Sub,,0,0,0,,{\fad(150,150)}And the solar wind stripped its air into space.
+Dialogue: 0,0:02:12.97,0:02:18.47,Sub,,0,0,0,,{\fad(150,150)}Its oceans, its warmth, its sky… all of it, simply blown away.
+Dialogue: 0,0:02:19.17,0:02:22.06,Sub,,0,0,0,,{\fad(150,150)}And our own shield is leaking already.
+Dialogue: 0,0:02:22.06,0:02:26.87,Sub,,0,0,0,,{\fad(150,150)}In the last two hundred years, it lost about nine percent of its strength.
+Dialogue: 0,0:02:26.87,0:02:32.97,Sub,,0,0,0,,{\fad(150,150)}Above the South Atlantic there is a real weak spot, and satellites are hit as they cross it.
+Dialogue: 0,0:02:32.97,0:02:36.83,Sub,,0,0,0,,{\fad(150,150)}The Space Station carries extra shielding to fly through it.
+Dialogue: 0,0:02:36.83,0:02:41.29,Sub,,0,0,0,,{\fad(150,150)}Hubble closes its sensitive eye whenever it passes over that gap.
+Dialogue: 0,0:02:41.99,0:02:43.35,Sub,,0,0,0,,{\fad(150,150)}So remember.
+Dialogue: 0,0:02:43.35,0:02:45.54,Sub,,0,0,0,,{\fad(150,150)}That shield is not a wall.
+Dialogue: 0,0:02:45.54,0:02:50.09,Sub,,0,0,0,,{\fad(150,150)}It is a slow, living thing, and it is already changing.
+Dialogue: 0,0:02:50.09,0:02:54.60,Sub,,0,0,0,,{\fad(150,150)}Mars lost its field first, and then it lost everything else.
+Dialogue: 0,0:02:54.60,0:02:56.62,Sub,,0,0,0,,{\fad(150,150)}So here is my question.
+Dialogue: 0,0:02:56.62,0:03:01.44,Sub,,0,0,0,,{\fad(150,150)}If you could feel it fading… what would you do with the time you have?
+Dialogue: 2,0:00:43.34,0:00:45.94,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:43.46,0:00:45.94,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}COMPASSES SPIN
+Dialogue: 2,0:00:43.56,0:00:45.94,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 HOUR
+Dialogue: 2,0:00:50.66,0:00:53.26,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:50.78,0:00:53.26,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}AURORA DIES
+Dialogue: 2,0:00:50.88,0:00:53.26,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 DAY
+Dialogue: 2,0:00:58.54,0:01:01.14,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:00:58.66,0:01:01.14,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}SATELLITES DIE
+Dialogue: 2,0:00:58.76,0:01:01.14,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 WEEK
+Dialogue: 2,0:01:07.28,0:01:09.88,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:07.40,0:01:09.88,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}GRIDS FAIL
+Dialogue: 2,0:01:07.50,0:01:09.88,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 MONTH
+Dialogue: 2,0:01:15.27,0:01:17.87,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:15.39,0:01:17.87,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}AIR LEAKS
+Dialogue: 2,0:01:15.49,0:01:17.87,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1 YEAR
+Dialogue: 2,0:01:28.99,0:01:31.59,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:29.11,0:01:31.59,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}SEAS SHRINK
+Dialogue: 2,0:01:29.21,0:01:31.59,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}100 YEARS
+Dialogue: 2,0:01:35.37,0:01:37.97,Bar,,0,0,0,,{\pos(84,110)\fad(0,350)\clip(84,110,84,114)\t(0,450,\clip(84,110,344,114))\p1}m 0 0 l 260 0 260 4 0 4{\p0}
+Dialogue: 2,0:01:35.49,0:01:37.97,Label,,0,0,0,,{\move(54,132,84,132,0,400)\fad(250,350)}LAST WATER
+Dialogue: 2,0:01:35.59,0:01:37.97,Big,,0,0,0,,{\move(44,172,84,172,0,450)\fad(300,350)}1,000 YEARS
