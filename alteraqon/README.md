@@ -118,6 +118,10 @@ Na de upload wordt ook de TikTok-tekst (`"tiktok"` in upload.json) getoond om ze
 `alteraqon/schedule.json`: Shorts 3x per dag 09:00/14:00/19:00, lange video's om de 2 dagen 15:00 (Europe/Amsterdam). `upload_short.py ... --schedule` plant een goedgekeurde video
 in op het eerstvolgende vrije tijdstip (privé + publishAt; YouTube zet hem zelf openbaar). Tijden aanpassen = schedule.json wijzigen.
 
+**Volautomatisch (nachtrun):** Windows-taak `Alteraqon-Nachtrun` (01:00) → `tools/auto_run.ps1` → `tools/auto_plan.py` vult de wachtrij aan
+(3 Shorts ingepland + 1 lange video) met een verse `opencode run` per video. Eenmalig installeren: `tools/install_nachtrun.ps1`.
+Rapporten: `rapport-<datum>.txt` in de videomap, op de iPhone onder "Nachtrapporten" op de kijkserver.
+
 ## YouTube-tekst (vaste opzet, eigenaar okt 2026: kort en simpel)
 Per video invullen met het onderwerp. De beschrijving is **algemeen** (eigenaar okt 2026): ze maakt nieuwsgierig naar het onderwerp,
 maar herhaalt niet wat er letterlijk in de video staat (geen getallen/feiten uit het script, de twist niet verklappen).
