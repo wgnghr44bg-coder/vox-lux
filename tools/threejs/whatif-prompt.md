@@ -31,6 +31,8 @@ Make it gripping, not a lecture (owner on the insects video, 21 Oct 2026: "niet 
 niet zien wat voor impact het heeft"):
 - Entertainment first, not a science lesson: fantasy and exaggeration are fine. Use a real fact only where it adds
   punch (the twist is the main place for one).
+- Keep viewers watching: hook in the first 2 seconds, then a varied chain of different events (never the same kind of
+  shot twice in a row), each one a small surprise, with a reason to wait for the next ("But that was only the start…").
 - Every scene SHOWS a consequence happening on screen: things break, crash, collapse, flood, get eaten, people run.
   Facts are told while the viewer watches the damage, never instead of it.
 - Escalate: each chapter is bigger and more dangerous than the last; the viewer's own house, street and city are at stake.
