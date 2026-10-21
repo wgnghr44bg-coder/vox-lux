@@ -30,9 +30,9 @@ Lessons from earlier videos (the owner noticed every one of these, so they are r
 - A cutaway opens on the shot change (the plane is already in place on the first frame), never as a sweep through the camera.
 - The camera never passes through or grazes buildings, wires, trees or creatures; check every shot's path, not only its end.
 - Flashes (lightning, explosions) rise and fall over a few frames; a one-frame jump to white looks like a glitch.
-- Ending: after the last subtitle, hold the final shot about 3 s while the picture fades to dark, the title returns
-  and the sound fades to silence (`ENDING = { fade, title, sound }`, see never-stopped-raining.html). The last
-  subtitle ends before the fade starts.
+- Ending: after the last subtitle, hold the final shot about 3 s while the picture fades to dark and the sound fades
+  to silence (`ENDING = { fade, sound }`, see never-stopped-raining.html). No title card at the end (the owner finds
+  it ugly). The last subtitle ends before the fade starts.
 - Subtitles must leave room for a calm voice: about 2.5 words per second, so a 10-word line needs at least 4 s.
 - Sound effects stay under the narration; `place_voice.py` lowers them (default `--sfx-gain 0.45`) and ducks them
   while the voice speaks.

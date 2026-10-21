@@ -141,7 +141,7 @@ const SCENES = [
 ];
 const ENV_END = { rain: 0.85, wind: [4, 1.5], water: 9.0, fog: 0.007, dark: 0.85, lights: 0, wet: 1 };
 const POWER = { flickerStart: 38.2, off: 39.6 };
-const ENDING = { fade: [77.2, 79.4], title: 77.8, sound: [77, 80] };   // closing: picture fades, title returns, sound fades out
+const ENDING = { fade: [77.2, 79.4], sound: [77, 80] };   // closing: picture fades to dark, sound fades out
 const CUT = { open: 42.5, close: 50, at: -3.8 };   // the ground is cut open for exactly this shot (no sweep through the camera)
 const LIGHTNING = [26.8, 31.9, 37.2, 39.0, 44.6, 53.5, 60.8, 69.2, 76.4];
 
@@ -972,7 +972,7 @@ function overlays(T) {
     subsEl.dataset.text = line; subsEl.classList.remove('on');
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
-  titleEl.classList.toggle('on', (T > 0.2 && T < 4.6) || T > ENDING.title);
+  titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
   const endFade = smooth(ENDING.fade[0], ENDING.fade[1], T);
   fadeEl.style.opacity = endFade;
   const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1];
@@ -982,7 +982,7 @@ function overlays(T) {
     const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
     let sub = 0; for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
     subsEl.style.opacity = sub; subsEl.style.transform = 'none';
-    titleEl.style.opacity = Math.max(fade(0.2, 4.6, 0.6), clamp((T - ENDING.title) / 0.6)); titleEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.2, 4.6, 0.6); titleEl.style.transform = 'none';
     chapterEl.style.opacity = sc.id === 'day1' && T < 4.8 ? 0 : fade(sc.start + 0.3, sc.end - 0.25, 0.45) * (1 - smooth(ENDING.fade[0] - 0.4, ENDING.fade[0], T)); chapterEl.style.transform = 'none';
   }
 }

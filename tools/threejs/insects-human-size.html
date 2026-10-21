@@ -127,7 +127,7 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    builds its camera from a moving subject each frame.
    ===================================================================== */
 const DURATION = 84;
-const ENDING = { fade: [80.4, 82.6], title: 81, sound: [80.2, 84] };   // closing: picture fades, title returns, sound fades out
+const ENDING = { fade: [80.4, 82.6], sound: [80.2, 84] };   // closing: picture fades to dark, sound fades out
 const M0 = { x: 78, z: -56 };            // the ant mound in the park
 const CARB = { x: -700, z: 0 };          // the Carboniferous swamp, far from town
 const SCENES = [
@@ -1107,7 +1107,7 @@ function overlays(T) {
     subsEl.dataset.text = line; subsEl.classList.remove('on');
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
-  titleEl.classList.toggle('on', (T > 0.2 && T < 4.6) || T > ENDING.title);
+  titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
   fadeEl.style.opacity = smooth(ENDING.fade[0], ENDING.fade[1], T);
   const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1], scEnd = sc.labelEnd ?? sc.end;
   if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
@@ -1129,7 +1129,7 @@ function overlays(T) {
   if (RENDER) {
     let sub = 0; for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
     subsEl.style.opacity = sub; subsEl.style.transform = 'none';
-    titleEl.style.opacity = Math.max(fade(0.2, 4.6, 0.6), clamp((T - ENDING.title) / 0.6)); titleEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.2, 4.6, 0.6); titleEl.style.transform = 'none';
     chapterEl.style.opacity = sc.id === 'minute1' && T < 4.8 ? 0 : fade(sc.start + 0.3, scEnd - 0.25, 0.45); chapterEl.style.transform = 'none';
   }
 }
