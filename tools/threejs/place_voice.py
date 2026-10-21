@@ -54,7 +54,11 @@ for i, (cue, gs, ge) in enumerate(groups):
     labels.append(f"[v{i}]")
     print(f"{cue}  {c0:6.2f}s  {dur:4.1f}s{'' if tempo == 1 else f'  x{tempo:.2f}'}  {text[:60]}")
 
-length = a.length or max(c[1] for c in cues.values()) + 1
+def media_length(path):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                                capture_output=True, text=True, check=True).stdout)
+# with a video the voice track lasts exactly as long as the video, so the effects are never cut off
+length = a.length or (media_length(a.video) if a.video else max(c[1] for c in cues.values()) + 1)
 # a silent bed of the full length comes first, so the mix always lasts the whole video
 filters.append(f"[1:a]{''.join(labels)}amix=inputs={len(labels) + 1}:normalize=0:duration=first[out]")
 out = os.path.join(a.map, "voice-placed.mp3")
