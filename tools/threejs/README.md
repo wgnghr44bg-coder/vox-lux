@@ -9,6 +9,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `shark-pool.html` | haai in zwembad + filterinstallatie, 60 s |
 | `never-stopped-raining.html` | What If: het stopt nooit met regenen, 80 s (met geluidseffecten en MP4-export) |
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
+| `asteroid-impact.html` | What If: een asteroïde raakt de aarde, 95 s (countdown, flits, schokgolf, stofmuur, as en kou, "Object two"; harde cut naar zwart) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
