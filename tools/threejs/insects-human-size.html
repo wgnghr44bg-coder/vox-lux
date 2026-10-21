@@ -1,0 +1,1353 @@
+<title>Insects Human Size</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<style>
+  /* Layout: one 9:16 stage scaled to the window; chapter card on top, subtitles in the lower middle, preview controls at the bottom. */
+  :root {
+    --letterbox: #10140c;
+    --sky: #a9c6dc;
+    --ink: #ffffff;
+    --outline: #121509;
+    --hud: rgba(14, 18, 10, 0.72);
+    --accent: #f2c230;
+    --warm: #b8f07a;
+    --ui: "Archivo", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; font-family: var(--ui); }
+  #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .title {
+    position: absolute; left: 7cqw; right: 7cqw; top: 15%;
+    text-align: center; pointer-events: none; color: var(--ink);
+    font: 900 9.6cqw/1.02 var(--ui); letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance;
+    -webkit-text-stroke: 1.2cqw var(--outline); paint-order: stroke fill;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateY(2cqw);
+  }
+  .title small { display: block; margin-bottom: 2cqw; font: 800 3.6cqw/1 var(--ui); letter-spacing: 0.3em; color: var(--accent); -webkit-text-stroke: 0.8cqw var(--outline); }
+  .title.on { opacity: 1; transform: none; }
+
+  .chapter {
+    position: absolute; left: 6cqw; top: calc(6cqw + env(safe-area-inset-top, 0px));
+    pointer-events: none; color: var(--ink);
+    opacity: 0; transform: translateX(-3cqw); transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .chapter.on { opacity: 1; transform: none; }
+  .chapter b { display: block; font: 900 8.4cqw/1 var(--ui); letter-spacing: -0.01em; text-transform: uppercase; -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill; }
+  .chapter span { display: inline-block; margin-top: 1.6cqw; padding: 1cqw 2.4cqw; border-radius: 1cqw; background: rgba(14, 18, 10, 0.55); font: 800 3.3cqw/1 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm); }
+
+  /* oxygen read-out for the twist, and pointers on the diagram shots (both driven by T, also in render mode) */
+  .gauge {
+    position: absolute; left: 0; right: 0; top: 21%; text-align: center; pointer-events: none; color: var(--ink); opacity: 0;
+  }
+  .gauge b { display: block; font: 900 21cqw/0.95 var(--ui); letter-spacing: -0.03em; -webkit-text-stroke: 1.4cqw var(--outline); paint-order: stroke fill; }
+  .gauge span { display: inline-block; margin-top: 1.5cqw; padding: 1cqw 2.6cqw; border-radius: 1cqw; background: rgba(14, 18, 10, 0.6); font: 800 3.4cqw/1 var(--ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .label {
+    position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; white-space: nowrap;
+    transform: translate(-50%, calc(-100% - 3.2cqw));
+    padding: 1.1cqw 2.4cqw; border-radius: 1cqw; background: rgba(14, 18, 10, 0.78); color: var(--accent);
+    font: 800 3.5cqw/1 var(--ui); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .label::after { content: ""; position: absolute; left: 50%; top: 100%; width: 0.5cqw; height: 3.2cqw; margin-left: -0.25cqw; background: var(--accent); }
+
+  .subs {
+    position: absolute; left: 6cqw; right: 6cqw; bottom: 25%;
+    text-align: center; pointer-events: none;
+    font: 900 6.4cqw/1.2 var(--ui); color: var(--ink); letter-spacing: -0.005em; text-wrap: balance;
+    -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill;
+    text-shadow: 0 0.8cqw 2.4cqw rgba(0, 0, 0, 0.45);
+    opacity: 0; transform: translateY(1.5cqw); transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .subs.on { opacity: 1; transform: none; }
+
+  .hud {
+    position: absolute; left: 3cqw; right: 3cqw; bottom: calc(3cqw + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 2.4cqw; padding: 2.2cqw 3cqw; border-radius: 99px;
+    background: var(--hud); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: #eef3e4; font: 800 clamp(11px, 3cqw, 16px)/1 var(--ui); transition: opacity 0.35s ease;
+  }
+  .hud.hide { opacity: 0; pointer-events: none; }
+  .hud button, .hud label {
+    flex: none; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px;
+    border: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.12); color: inherit; font: inherit; cursor: pointer;
+  }
+  .hud button:hover, .hud label:hover { background: rgba(255, 255, 255, 0.22); }
+  .hud button:focus-visible, .hud label:focus-within, .hud input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hud input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .hud .time { flex: none; font-variant-numeric: tabular-nums; min-width: 9ch; text-align: right; }
+  .hud input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .hud svg { width: 16px; height: 16px; fill: currentColor; }
+  .hud button[aria-pressed="true"] { background: var(--accent); color: #2b2104; }
+  @media (prefers-reduced-motion: reduce) { .title, .chapter, .subs { transition: none; } }
+  .render .title, .render .chapter, .render .subs { transition: none; }
+</style>
+
+<div id="stage">
+  <div class="title" id="title"><small>What if</small>Insects became the size of humans?</div>
+  <div class="chapter" id="chapter"><b id="chapter-when">Minute 1</b><span id="chapter-what">It begins</span></div>
+  <div class="gauge" id="gauge"><b id="gauge-val">35%</b><span id="gauge-txt">Oxygen in the air</span></div>
+  <div class="label" id="label0"></div>
+  <div class="label" id="label1"></div>
+  <div class="label" id="label2"></div>
+  <div class="subs" id="subs" aria-live="polite"></div>
+  <div class="hud" id="hud">
+    <button id="play" type="button" aria-label="Pause"><svg viewBox="0 0 16 16" id="play-icon"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <button id="replay" type="button" aria-label="Replay from start"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.6 3.9l1.9.7A4 4 0 1 0 8 4v2.2L4.6 3.1 8 0z"/></svg></button>
+    <input id="scrub" type="range" min="0" max="80" step="0.01" value="0" aria-label="Timeline">
+    <span class="time" id="time">0:00.0</span>
+    <button id="sound" type="button" aria-pressed="false" title="Sound effects">Sound</button>
+    <label title="Add a narration audio file">Voice<input id="voice" type="file" accept="audio/*"></label>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+/* =====================================================================
+   TIMELINE — every scene sets its environment (the values blend toward
+   the next scene), its camera shots and its subtitles.
+   Shot keys: [time, position, target, fov, up?]. A shot with `follow`
+   builds its camera from a moving subject each frame.
+   ===================================================================== */
+const DURATION = 80;
+const M0 = { x: 78, z: -56 };            // the ant mound in the park
+const CARB = { x: -700, z: 0 };          // the Carboniferous swamp, far from town
+const SCENES = [
+  { id: 'minute1', when: 'Minute 1', what: 'It begins', start: 0, end: 12,
+    env: { warm: 1, sun: 1.25, haze: 0, fog: 0.0042 },
+    shots: [{ start: 0, end: 8.3, keys: [[0, [-34, 58, 62], [0, 0, -6], 45], [5, [-22, 13, 12], [-6, 0.6, -2.5], 45], [8.3, [-14, 1.6, -5.4], [-5.3, 0.9, -3.15], 42]] },
+            { start: 8.3, end: 12, keys: [[8.3, [3.3, 1.55, 11.6], [-0.7, 0.85, 5.9], 44], [12, [3.15, 1.3, 11.45], [-0.7, 0.8, 5.9], 41]] }],
+    subtitles: [[0.4, 4.6, 'Imagine waking up to find insects as big as people.'], [4.7, 8.2, 'Ants, beetles, bees and grasshoppers, all human-sized.'], [8.3, 11.8, 'Some are now a hundred times their normal size.']] },
+  { id: 'hour1', when: 'Hour 1', what: 'Gasping for air', start: 12, end: 25,
+    env: { warm: 0.7, sun: 1.35, haze: 0, fog: 0.0045 },
+    shots: [{ start: 12, end: 16, keys: [[12, [11.95, 0.5, -8.0], [11.75, 0.6, -9.3], 34], [16, [11.5, 0.5, -8.05], [11.45, 0.6, -9.3], 34]] },
+            { start: 16, end: 22.2, keys: [[16, [12.45, 0.7, -6.9], [12.45, 0.62, -9.5], 36], [22.2, [11.3, 0.68, -6.8], [11.3, 0.6, -9.5], 36]] },
+            { start: 22.2, end: 25, keys: [[22.2, [-13, 3.0, 5.0], [-4.5, 0.4, -1.8], 44], [25, [-12.2, 4.4, 6.6], [-4.8, 0.3, -1.4], 44]] }],
+    subtitles: [[12.2, 15.9, 'Insects have no lungs. They breathe through tiny holes.'], [16.0, 18.8, 'Air creeps along thin tubes called tracheae.'], [18.9, 22.1, "At this size, oxygen can't reach the middle."], [22.3, 24.9, 'Within an hour, many collapse.']] },
+  { id: 'day1', when: 'Day 1', what: 'Too heavy', start: 25, end: 38,
+    env: { warm: 0.35, sun: 1.3, haze: 0.1, fog: 0.005 },
+    shots: [{ start: 25, end: 31, follow: 'under' },
+            { start: 31, end: 34.4, keys: [[31, [-0.7, 0.32, 6.95], [1.5, 0.7, 9.4], 44], [34.4, [-0.3, 0.42, 6.75], [1.5, 0.5, 9.4], 40]] },
+            { start: 34.4, end: 38, follow: 'roach' }],
+    subtitles: [[25.2, 28.0, 'Weight grows much faster than strength.'], [28.1, 31.0, 'Their armour gets so heavy, thin legs buckle.'], [31.1, 34.3, "The bee's wings are now far too small."], [34.5, 37.8, 'Only tough ones, like cockroaches and beetles, keep crawling.']] },
+  { id: 'week1', when: 'Week 1', what: 'Chaos', start: 38, end: 50,
+    env: { warm: 0.45, sun: 1.1, haze: 0.4, fog: 0.0058 },
+    shots: [{ start: 38, end: 44, keys: [[38, [34, 26, 18], [2, 0, -22], 46], [44, [6, 15, -20], [-14, 0, -48], 46]] },
+            { start: 44, end: 50, keys: [[44, [6, 4.5, 2.6], [36, 1, -1], 46], [50, [12, 3.8, 2.2], [44, 1, -1], 46]] }],
+    subtitles: [[38.2, 41.8, 'The survivors are starving, and they eat everything.'], [41.9, 44.9, 'Gardens and fields are stripped bare.'], [45.0, 49.8, 'Roads jam, cars are abandoned, and people flee.']] },
+  { id: 'month1', when: 'Month 1', what: 'The colony', start: 50, end: 62,
+    env: { warm: 0.8, sun: 1.05, haze: 0.25, fog: 0.0055 },
+    shots: [{ start: 50, end: 55.6, keys: [[50, [M0.x - 22.3, 1.3, M0.z + 11], [M0.x - 28.3, 0.7, M0.z + 6], 44], [55.6, [M0.x - 14, 9, M0.z + 24], [M0.x - 2, 3, M0.z], 46]] },
+            { start: 55.6, end: 62, keys: [[55.6, [M0.x, 5.5, M0.z + 17], [M0.x, 3.5, M0.z], 50], [58.7, [M0.x + 0.5, -2.5, M0.z + 15], [M0.x, -4, M0.z], 50], [62, [M0.x, -8.6, M0.z + 14], [M0.x, -10.2, M0.z], 50]] }],
+    subtitles: [[50.2, 55.4, 'A month later, the last ants survive the only way they can: together.'], [55.6, 58.6, 'Their nest is a city of tunnels.'], [58.7, 61.8, 'Air shafts carry fresh air to the queen.']] },
+  { id: 'twist', when: 'The twist', what: '300 million years ago', start: 62, end: 80, labelEnd: 72.3,
+    env: { warm: 0.9, sun: 1.2, haze: 0, fog: 0.0042 },
+    shots: [{ start: 62, end: 72.5, follow: 'dragonfly' },
+            { start: 72.5, end: 80, follow: 'macro' }],
+    subtitles: [[62.2, 65.0, "Here's the twist: giant insects were real."], [65.1, 69.0, "300 million years ago, this dragonfly's wings spanned 70 centimetres."], [69.1, 72.3, 'Back then, the air held about 35% oxygen.'], [72.6, 76.0, "Today there's only 21%, too little for giants."], [76.1, 79.8, 'Luckily, the air we breathe keeps insects small.']] },
+];
+const ENV_END = { warm: 1, sun: 1.25, haze: 0, fog: 0.0042 };
+const PAST = { start: 62, end: 72.5 };                      // shots in the Carboniferous swamp
+const CUTS = [{ a: 16, b: 22.2, at: -9.5 }, { a: 55.6, b: 62, at: M0.z }];   // cutaway planes, open for exactly one shot each
+const GAUGE = [[69.1, 72.4, '35%', '300 million years ago'], [72.6, 76.0, '21%', 'Oxygen in the air today']];
+
+// ---------- helpers ----------
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const VA = a => V(a[0], a[1], a[2]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+const hash = (a, b = 0) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s); };
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const params = new URLSearchParams(location.search);
+const isMobile = matchMedia('(pointer: coarse)').matches;
+const inPast = T => T >= PAST.start && T < PAST.end;
+// distance travelled for a speed profile v(t), tabulated once
+function track(v, dt = 0.02) {
+  const xs = [0]; for (let t = 0; t <= DURATION + dt; t += dt) xs.push(xs[xs.length - 1] + v(t + dt / 2) * dt);
+  return T => { const f = clamp(T, 0, DURATION) / dt, i = Math.min(xs.length - 2, Math.floor(f)); return lerp(xs[i], xs[i + 1], f - i); };
+}
+
+/* ===================================================================== ENVIRONMENT TIMELINE */
+function envAt(T) {
+  let i = SCENES.findIndex(s => T < s.end); if (i < 0) i = SCENES.length - 1;
+  const s = SCENES[i], next = SCENES[i + 1]?.env ?? ENV_END, a = s.env;
+  const e = smooth(0, 1, clamp((T - s.start) / (s.end - s.start)));
+  const o = {}; for (const k in a) o[k] = lerp(a[k], next[k], e);
+  return o;
+}
+
+/* ===================================================================== RENDERER */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.localClippingEnabled = true;
+const clipPlane = new THREE.Plane(V(0, 0, -1), 1000);
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xdfe7e6);
+scene.fog = new THREE.FogExp2(0xdfe7e6, 0.0042);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(45, 9 / 16, 0.1, 1500);
+const hemi = new THREE.HemisphereLight(0xcfe0f0, 0x5a5040, 1.0);
+scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffe2b8, 1.3);
+sun.castShadow = true;
+sun.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+sun.shadow.bias = -0.0005; sun.shadow.normalBias = 0.04;
+scene.add(sun, sun.target);
+const SUN_DIR = V(0.62, 0.55, 0.36).normalize();   // low morning sun from the east
+
+// sky dome with a soft vertical gradient (follows the camera)
+const skyU = { uTop: { value: new THREE.Color() }, uBottom: { value: new THREE.Color() } };
+const sky = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 12), new THREE.ShaderMaterial({
+  uniforms: skyU, side: THREE.BackSide, depthWrite: false, fog: false,
+  vertexShader: 'varying vec3 vP; void main() { vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+  fragmentShader: `uniform vec3 uTop, uBottom; varying vec3 vP;
+    void main() { float h = normalize(vP).y; gl_FragColor = vec4(mix(uBottom, uTop, smoothstep(-0.02, 0.55, h)), 1.0);
+    #include <tonemapping_fragment>
+    #include <colorspace_fragment>
+    }`,
+}));
+sky.material.userData.noClip = true; sky.renderOrder = -1; sky.frustumCulled = false; scene.add(sky);
+
+/* ===================================================================== MATERIALS + BUILDERS */
+const matCache = new Map();
+function mat(color, o = {}) {
+  const key = JSON.stringify([color, o]);
+  if (!matCache.has(key)) {
+    const m = new THREE.MeshStandardMaterial({ color, roughness: o.rough ?? 0.8, metalness: o.metal ?? 0, flatShading: !!o.flat });
+    if (o.glow) { m.emissive = new THREE.Color(o.glowColor ?? color); m.emissiveIntensity = o.glow; }
+    if (o.side) m.side = o.side;
+    if (o.env) { m.envMap = envTex; m.envMapIntensity = o.env; }
+    if (o.opacity !== undefined) { m.transparent = true; m.opacity = o.opacity; m.depthWrite = !!o.depthWrite; }
+    if (o.noClip) m.userData.noClip = true;
+    matCache.set(key, m);
+  }
+  return matCache.get(key);
+}
+const rbCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d); r = Math.min(r ?? m * 0.12, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  if (!rbCache.has(key)) { const g = new RoundedBoxGeometry(w, h, d, 2, r); g.translate(0, h / 2, 0); rbCache.set(key, g); }
+  return rbCache.get(key);
+}
+function mesh(parent, geo, material, x = 0, y = 0, z = 0, o = {}) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  if (o.s) typeof o.s === 'number' ? m.scale.setScalar(o.s) : m.scale.set(...o.s);
+  m.castShadow = o.shadow !== false; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+const box = (p, w, h, d, color, x, y, z, o = {}) => mesh(p, rbox(w, h, d, o.r), o.m ?? mat(color, o), x, y, z, o);
+function plain(p, w, h, d, material, x, y, z, o = {}) { const g = new THREE.BoxGeometry(w, h, d); g.translate(0, h / 2, 0); return mesh(p, g, material, x, y, z, o); }
+const group = (p, x = 0, y = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, y, z); p.add(g); return g; };
+function cyl(p, rT, rB, h, color, x, y, z, o = {}) { const g = new THREE.CylinderGeometry(rT, rB, h, o.seg ?? 10, 1, !!o.open); g.translate(0, h / 2, 0); return mesh(p, g, o.m ?? mat(color, o), x, y, z, o); }
+function canvasTex(w, h, draw, o = {}) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; if (o.repeat) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(o.repeat, o.repeat); } return t; }
+
+// materials that change over time
+const roadMat = new THREE.MeshStandardMaterial({ color: 0x6b7078, roughness: 0.9, metalness: 0.05 });
+const walkMat = new THREE.MeshStandardMaterial({ color: 0xb4afa4, roughness: 0.92 });
+const grassMat = new THREE.MeshStandardMaterial({ color: 0x7aa457, roughness: 0.95 });
+const yardMat = new THREE.MeshStandardMaterial({ color: 0x84b25c, roughness: 0.95 });
+const glassLit = new THREE.MeshStandardMaterial({ color: 0x4a3a28, roughness: 0.3, emissive: new THREE.Color(0xffc874), emissiveIntensity: 0.5 });
+const glassDark = new THREE.MeshStandardMaterial({ color: 0x2a3c4b, roughness: 0.12, metalness: 0.2, envMap: envTex, envMapIntensity: 0.9 });
+const lampMat = new THREE.MeshStandardMaterial({ color: 0xfff1d0, emissive: new THREE.Color(0xffd89a), emissiveIntensity: 0.3 });
+const hazardMat = new THREE.MeshStandardMaterial({ color: 0xf2a02a, emissive: new THREE.Color(0xffa030), emissiveIntensity: 0 });
+const white = mat(0xf2efe8, { rough: 0.6 });
+const LAWN = new THREE.Color(0x84b25c), DIRT = new THREE.Color(0x8a7350);
+
+const staticRoot = group(scene);   // merged into a few draw calls after building
+const dynamic = group(scene);
+
+/* ===================================================================== GROUND, ROAD, FIELDS */
+plain(staticRoot, 700, 0.02, 700, grassMat, 0, -0.02, 0, { shadow: false });                 // grass, top at 0
+plain(staticRoot, 800, 0.02, 8, roadMat, 0, 0, 0, { shadow: false });                         // road, top at 0.02
+for (const s of [1, -1]) {
+  plain(staticRoot, 800, 0.17, 1.84, walkMat, 0, 0, s * 5.08, { shadow: false });            // sidewalk 4.16..6
+  plain(staticRoot, 800, 0.18, 0.22, mat(0xc4c0b6), 0, 0, s * 4.05, { shadow: false });       // curb, top at 0.18
+  plain(staticRoot, 800, 0.006, 0.3, mat(0x2a2e33, { rough: 0.6 }), 0, 0.02, s * 3.8, { shadow: false });
+  plain(staticRoot, 84, 0.01, 6.2, yardMat, 0, 0, s * 9.4, { shadow: false });                 // front gardens 6.3..12.5
+  plain(staticRoot, 92, 1.4, 1.2, mat(0x4f7a3a, { flat: true, rough: 0.95 }), 0, 0, s * 24.2); // back hedges
+}
+for (let x = -200; x < 200; x += 6) plain(staticRoot, 3, 0.006, 0.18, mat(0xe8e6df, { rough: 0.6 }), x, 0.02, 0, { shadow: false });
+// farmland behind the north houses, and a dirt track
+const FIELD = { x0: -59, x1: 35, z0: -96, z1: -27 };
+plain(staticRoot, FIELD.x1 - FIELD.x0, 0.015, FIELD.z1 - FIELD.z0, mat(0x6e5a3a, { rough: 1 }), (FIELD.x0 + FIELD.x1) / 2, 0, (FIELD.z0 + FIELD.z1) / 2, { shadow: false });
+plain(staticRoot, 130, 0.012, 2.4, mat(0xb09a72, { rough: 1 }), -12, 0, -25.6, { shadow: false });
+// the park (mound appears in month 1)
+const PARK = { x0: 42, x1: 112, z0: -92, z1: -24 };
+plain(staticRoot, PARK.x1 - PARK.x0, 0.008, PARK.z1 - PARK.z0, mat(0x6f9c4c, { rough: 0.95 }), (PARK.x0 + PARK.x1) / 2, 0, (PARK.z0 + PARK.z1) / 2, { shadow: false });
+
+/* ===================================================================== HOUSES (detailed street) */
+const HOUSES = [];
+const WALLS = [0xe7d9bd, 0xd5dde2, 0xe9cfb9, 0xcfd9c4, 0xf0e6d6, 0xd9c7b1, 0xc9d3dc];
+const ROOFS = [0x6c4b42, 0x55606b, 0x7a4a3a, 0x4d5560];
+const HZ = 16;   // house centres at z = ±16; fronts at ±12.5; garden fences at ±6.3
+function window3(p, x, y, z, w = 1.2, h = 1.4, lit = true) {
+  box(p, w + 0.22, h + 0.22, 0.12, 0, x, y - 0.11, z, { m: white, r: 0.04 });
+  box(p, w, h, 0.06, 0, x, y, z + 0.04, { m: lit ? glassLit : glassDark, r: 0.02, shadow: false });
+  box(p, 0.07, h, 0.08, 0, x, y, z + 0.06, { m: white, r: 0.02 });
+  box(p, w + 0.4, 0.08, 0.28, 0, x, y - 0.16, z + 0.1, { m: white, r: 0.03 });
+}
+const fenceSpots = [];
+function house(x, side, floors, wall, roof) {
+  const g = group(staticRoot, x, 0, side * HZ); if (side > 0) g.rotation.y = Math.PI;
+  const W = 8, D = 7, H = floors * 3, base = 0.3;
+  box(g, W + 0.3, 0.45, D + 0.3, 0x8f8a80, 0, 0, 0, { r: 0.04 });
+  box(g, W, H, D, 0, 0, base, 0, { m: mat(wall, { rough: 0.85 }), r: 0.05 });
+  for (let f = 1; f < floors; f++) box(g, W + 0.08, 0.12, D + 0.08, 0, 0, base + f * 3, 0, { m: white, r: 0.04 });
+  for (let f = 0; f < floors; f++) {
+    for (const cx of [-2.6, 0, 2.6]) {
+      if (f === 0 && cx === 0) continue;
+      window3(g, cx, base + f * 3 + 0.9, D / 2, 1.2, 1.4, rnd() > 0.7);
+      window3(g, cx, base + f * 3 + 0.9, -D / 2 - 0.12, 1.2, 1.4, false);
+    }
+    for (const s of [1, -1]) { const w = group(g, s * W / 2, 0, 0); w.rotation.y = s * Math.PI / 2; window3(w, 0, base + f * 3 + 0.9, 0, 1.1, 1.3, false); }
+  }
+  box(g, 1.3, 2.3, 0.14, 0, 0, base, D / 2, { m: white, r: 0.04 });
+  box(g, 1.05, 2.1, 0.12, [0x3b5266, 0x7a3b33, 0x2f5a44][Math.floor(rnd() * 3)], 0, base, D / 2 + 0.04, { r: 0.03 });
+  box(g, 2.2, 0.15, 1.3, 0xbab4a8, 0, 0.0, D / 2 + 0.6, { r: 0.03 });
+  box(g, 2.2, 0.15, 0.8, 0xbab4a8, 0, 0.15, D / 2 + 0.4, { r: 0.03 });
+  box(g, 2.0, 0.12, 1.1, 0, 0, base + 2.55, D / 2 + 0.5, { m: white, r: 0.03 });
+  const rise = 2.4, half = D / 2, ang = Math.atan2(rise, half), slope = Math.hypot(rise, half) + 0.45;
+  const rm = mat(roof, { rough: 0.8 }), rm2 = mat(new THREE.Color(roof).multiplyScalar(0.85).getHex(), { rough: 0.8 });
+  for (const s of [1, -1]) {
+    const slab = group(g, 0, base + H + rise / 2 - 0.05, s * (half / 2 + 0.12)); slab.rotation.x = s * ang;
+    mesh(slab, new THREE.BoxGeometry(W + 0.8, 0.14, slope), rm);
+    for (let i = 0; i < 8; i++) mesh(slab, rbox(W + 0.8, 0.07, slope / 8 + 0.04, 0.025), i % 2 ? rm : rm2, 0, 0.06, s * (-slope / 2 + (i + 0.5) * slope / 8), { rx: s * -0.09 });
+  }
+  box(g, W + 0.9, 0.16, 0.26, 0, 0, base + H + rise - 0.05, 0, { m: rm2, r: 0.05 });
+  const gable = new THREE.Shape(); gable.moveTo(-half, 0); gable.lineTo(half, 0); gable.lineTo(0, rise); gable.closePath();
+  const gg = new THREE.ExtrudeGeometry(gable, { depth: 0.2, bevelEnabled: false }); gg.rotateY(Math.PI / 2);
+  for (const gx of [-W / 2 - 0.1, W / 2 - 0.1]) mesh(g, gg, mat(wall, { rough: 0.85 }), gx, base + H, 0);
+  box(g, 0.8, 2.4, 0.8, 0x8f4733, -2.2, base + H + 0.6, -1.0, { r: 0.05 });
+  box(g, W + 0.7, 0.14, 0.18, 0, 0, base + H - 0.05, D / 2 + 0.25, { m: white, r: 0.04 });
+  cyl(g, 0.07, 0.07, H, 0, W / 2 - 0.2, base, D / 2 + 0.25, { m: white, seg: 8 });
+  for (let px = -W / 2 - 1.6; px <= W / 2 + 1.6; px += 0.26) if (Math.abs(px) > 0.9) {
+    const wp = V(px, 0, HZ - 6.3).applyAxisAngle(V(0, 1, 0), g.rotation.y).add(g.position);
+    fenceSpots.push([wp.x, wp.z, g.rotation.y]);
+  }
+  HOUSES.push({ x, side, z: side * HZ });
+}
+const HX = [-36, -24, -12, 0, 12, 24, 36];
+const FLOORS_N = [2, 2, 3, 2, 2, 3, 2], FLOORS_S = [3, 2, 2, 2, 3, 2, 2];
+HX.forEach((x, i) => { house(x, -1, FLOORS_N[i], WALLS[i % WALLS.length], ROOFS[i % ROOFS.length]); house(x, 1, FLOORS_S[i], WALLS[(i + 3) % WALLS.length], ROOFS[(i + 1) % ROOFS.length]); });
+{
+  const picket = new THREE.InstancedMesh(rbox(0.1, 0.9, 0.05, 0.02), white, fenceSpots.length);
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion();
+  fenceSpots.forEach(([x, z, r], i) => picket.setMatrixAt(i, m4.compose(V(x, 0, z), q.setFromAxisAngle(V(0, 1, 0), r), V(1, 1, 1))));
+  picket.castShadow = picket.receiveShadow = true; dynamic.add(picket);
+  for (const s of [1, -1]) for (const x of HX) for (const d of [-1, 1]) plain(staticRoot, 4.6, 0.06, 0.05, white, x + d * 3.35, 0.62, s * 6.3, { shadow: false });
+}
+
+/* ===================================================================== STREET FURNITURE + TREES */
+const icoG = new THREE.IcosahedronGeometry(1, 0);
+const leafMats = [mat(0x5f8a4a, { flat: true, rough: 0.9 }), mat(0x50783f, { flat: true, rough: 0.9 }), mat(0x6f9a52, { flat: true, rough: 0.9 })];
+const trunkMat = mat(0x6a4c36, { flat: true });
+const LAMPS = [];
+for (let x = -40; x <= 40; x += 16) for (const s of [1, -1]) {
+  const lx = x + (s > 0 ? 12 : 0), g = group(staticRoot, lx, 0.17, s * 5.85);
+  cyl(g, 0.07, 0.1, 5.2, 0x3a4048, 0, 0, 0, { seg: 8 });
+  box(g, 0.08, 0.08, 1.6, 0x3a4048, 0, 5.1, -s * 0.75, { r: 0.03 });
+  box(g, 0.34, 0.14, 0.6, 0, 0, 4.98, -s * 1.4, { m: lampMat, r: 0.05, shadow: false });
+  LAMPS.push([lx, s * 5.85]);
+}
+const TREES = [];
+function tree(x, z, s, parent = staticRoot) {
+  const g = group(parent, x, 0, z); g.scale.setScalar(s);
+  cyl(g, 0.14, 0.22, 2.4, 0, 0, 0, 0, { m: trunkMat, seg: 6 });
+  mesh(g, icoG, leafMats[0], 0, 3.2, 0, { s: 1.35 });
+  mesh(g, icoG, leafMats[1], 0.7, 2.8, 0.4, { s: 0.95 });
+  mesh(g, icoG, leafMats[2], -0.5, 3.9, -0.2, { s: 0.85 });
+  TREES.push([x, z, 0.22 * s]);
+}
+// garden trees sit in the left corner of each front garden, clear of the insects
+HOUSES.forEach(h => tree(h.x - 3.4, Math.sign(h.z) * 8.0, 0.9 + rnd() * 0.25));
+for (let x = -44; x <= 44; x += 22) tree(x + 3, Math.sign(x || 1) * 0 - 21, 1.1), tree(x - 5, 21.5, 1.05);
+// garden bushes: eaten bare in week 1, back to normal at the end
+const BUSHES = [];
+HOUSES.forEach(h => { const s = Math.sign(h.z); for (let k = 0; k < 4; k++) BUSHES.push([h.x - 2.6 + k * 1.15 + (k > 1 ? 1.4 : 0), s * 11.8, 0.5 + rnd() * 0.25, rnd()]); for (const d of [-1, 1]) BUSHES.push([h.x + d * 3.6, s * 6.9, 0.45 + rnd() * 0.2, rnd()]); });
+const bushes = new THREE.InstancedMesh(icoG, mat(0xffffff, { flat: true, rough: 0.9 }), BUSHES.length);
+bushes.castShadow = bushes.receiveShadow = true; scene.add(bushes);
+const BUSH_C = new THREE.Color(0x4f7d3c), BUSH_DRY = new THREE.Color(0x7a6440);
+
+/* ===================================================================== DISTANT TOWN + FIELDS (instanced) */
+const cityHouses = [];
+for (let gx = -260; gx <= 260; gx += 17) for (let gz = -260; gz <= 260; gz += 17) {
+  const x = gx + (hash(gx, gz) - 0.5) * 4, z = gz + (hash(gz, gx) - 0.5) * 4;
+  if (Math.abs(z) < 14) continue;
+  if (Math.abs(x) < 50 && Math.abs(z) < 30) continue;
+  if (x > FIELD.x0 - 8 && x < FIELD.x1 + 6 && z > FIELD.z0 - 8 && z < -22) continue;
+  if (x > PARK.x0 - 8 && x < PARK.x1 + 8 && z > PARK.z0 - 8 && z < -22) continue;
+  const floors = hash(x, z * 3) > 0.75 ? 3 : 2;
+  cityHouses.push({ x, z, w: 7 + hash(x * 2, z) * 2, d: 7 + hash(x, z * 2) * 2, h: floors * 3, rot: hash(x + 3, z) > 0.5 ? 0 : Math.PI / 2, color: WALLS[Math.floor(hash(x, z + 9) * WALLS.length)], roof: ROOFS[Math.floor(hash(z, x + 2) * ROOFS.length)] });
+}
+{
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), c = new THREE.Color();
+  const bodyG = new THREE.BoxGeometry(1, 1, 1); bodyG.translate(0, 0.5, 0);
+  const prism = new THREE.Shape(); prism.moveTo(-0.5, 0); prism.lineTo(0.5, 0); prism.lineTo(0, 1); prism.closePath();
+  const roofG = new THREE.ExtrudeGeometry(prism, { depth: 1, bevelEnabled: false }); roofG.translate(0, 0, -0.5); roofG.rotateY(Math.PI / 2);
+  const bodies = new THREE.InstancedMesh(bodyG, mat(0xffffff, { rough: 0.85 }), cityHouses.length);
+  const roofs = new THREE.InstancedMesh(roofG, mat(0xffffff, { rough: 0.8 }), cityHouses.length);
+  cityHouses.forEach((hs, i) => {
+    q.setFromAxisAngle(V(0, 1, 0), hs.rot);
+    bodies.setMatrixAt(i, m4.compose(V(hs.x, 0, hs.z), q, V(hs.w, hs.h, hs.d))); bodies.setColorAt(i, c.set(hs.color));
+    roofs.setMatrixAt(i, m4.compose(V(hs.x, hs.h, hs.z), q, V(hs.w + 0.6, 2.4, hs.d + 0.6))); roofs.setColorAt(i, c.set(hs.roof));
+  });
+  const ft = [];
+  for (let i = 0; i < 700; i++) {
+    const x = (rnd() - 0.5) * 540, z = (rnd() - 0.5) * 540;
+    if ((Math.abs(x) < 50 && Math.abs(z) < 30) || Math.abs(z) < 9 || (x > FIELD.x0 - 2 && x < FIELD.x1 + 2 && z > FIELD.z0 - 2 && z < -22)) continue;
+    if (x > PARK.x0 && x < PARK.x1 && z > PARK.z0 && z < PARK.z1) continue;
+    if (cityHouses.some(h => Math.abs(h.x - x) < 6 && Math.abs(h.z - z) < 6)) continue;
+    ft.push([x, z, 1.3 + rnd() * 1.4]);
+  }
+  // park trees around the edge, away from the mound and the camera path
+  for (let i = 0; i < 46; i++) {
+    const x = PARK.x0 + 3 + rnd() * (PARK.x1 - PARK.x0 - 6), z = PARK.z0 + 3 + rnd() * (PARK.z1 - PARK.z0 - 6);
+    if (Math.hypot(x - M0.x, z - M0.z) < 19) continue;
+    if (x < M0.x - 4 && z > M0.z - 4) continue;
+    if (z > M0.z && Math.abs(x - M0.x) < 8) continue;           // keep the cutaway view clear
+    ft.push([x, z, 1.4 + rnd() * 0.9]);
+  }
+  const crowns = new THREE.InstancedMesh(icoG, leafMats[1], ft.length), trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.15, 0.22, 1, 6).translate(0, 0.5, 0), trunkMat, ft.length);
+  ft.forEach(([x, z, s], i) => { crowns.setMatrixAt(i, m4.compose(V(x, s * 2.6, z), q.identity(), V(s * 1.3, s * 1.5, s * 1.3))); trunks.setMatrixAt(i, m4.compose(V(x, 0, z), q, V(s, s * 1.6, s))); });
+  for (const im of [bodies, roofs, crowns, trunks]) { im.receiveShadow = true; im.castShadow = im === crowns || im === trunks; scene.add(im); }
+}
+// crops: eaten in patches that grow around the insects in the field
+const CROPS = [];
+for (let x = FIELD.x0 + 1; x < FIELD.x1 - 0.5; x += 1.3) for (let z = FIELD.z0 + 1; z < FIELD.z1 - 0.5; z += 1.3) CROPS.push({ x: x + (hash(x, z) - 0.5) * 0.4, z: z + (hash(z, x) - 0.5) * 0.4, s: 0.8 + hash(x * 3, z) * 0.4, eat: Infinity });
+const cropGeo = new THREE.ConeGeometry(0.42, 1.2, 5); cropGeo.translate(0, 0.6, 0);
+const crops = new THREE.InstancedMesh(cropGeo, mat(0xffffff, { flat: true, rough: 0.9 }), CROPS.length);
+crops.receiveShadow = true; crops.castShadow = false; scene.add(crops);
+const CROP_C = new THREE.Color(0x9cb84a), CROP_STUB = new THREE.Color(0x7d6a43);
+
+/* ===================================================================== CLOUDS */
+const CLOUDS = []; for (let i = 0; i < 60; i++) CLOUDS.push([(rnd() - 0.5) * 900, 90 + rnd() * 30, (rnd() - 0.5) * 900, 12 + rnd() * 16]);
+{
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion();
+  const clouds = new THREE.InstancedMesh(icoG, new THREE.MeshStandardMaterial({ color: 0xffffff, flatShading: true, roughness: 1, emissive: new THREE.Color(0x8a8a8a) }), CLOUDS.length);
+  CLOUDS.forEach(([x, y, z, s], i) => clouds.setMatrixAt(i, m4.compose(V(x, y, z), q, V(s * 1.8, s * 0.45, s))));
+  clouds.frustumCulled = false; scene.add(clouds);
+}
+
+/* ===================================================================== PEOPLE */
+function person({ shirt, pants = 0x2f3a46, hair = 0x3a2a20, s = 1, parent = dynamic }) {
+  const root = group(parent); root.scale.setScalar(s);
+  const P = { root, legs: [], arms: [], s };
+  const f = c => mat(c, { flat: true });
+  for (const lx of [-0.1, 0.1]) { const l = group(root, lx, 0.82, 0); const g = new THREE.CylinderGeometry(0.075, 0.065, 0.82, 6); g.translate(0, -0.41, 0); mesh(l, g, f(pants)); P.legs.push(l); }
+  cyl(root, 0.2, 0.17, 0.62, 0, 0, 0.8, 0, { m: f(shirt), seg: 7 });
+  mesh(root, new THREE.IcosahedronGeometry(0.15, 1), f(0xe0b08a), 0, 1.52, 0);
+  mesh(root, new THREE.IcosahedronGeometry(0.16, 1), f(hair), 0, 1.58, -0.02, { s: [1.02, 0.75, 1.02] });
+  for (const side of [-1, 1]) {
+    const a = group(root, side * 0.25, 1.33, 0); const g = new THREE.CylinderGeometry(0.055, 0.05, 0.6, 6); g.translate(0, -0.3, 0);
+    mesh(a, g, f(shirt)); a.rotation.z = side * 0.1; P.arms.push(a);
+  }
+  return P;
+}
+// each person: a function of T → { x, z, yaw, mode, ph, vis }; yaw +PI/2 faces +x
+const PEOPLE = [
+  // M1: walks along the north sidewalk, sees the ant and backs away
+  { P: person({ shirt: 0x2f6fa3 }), at: T => { const back = smooth(5.5, 7.6, T); return { x: -12.3 + 1.1 * Math.min(T, 5.5) - 2.1 * back, z: -4.75, yaw: Math.PI / 2, mode: T < 5.5 ? 'walk' : T < 7.6 ? 'back' : 'freeze', vis: T < 25 }; } },
+  // M2: south sidewalk, stops at the bee's garden and backs off
+  { P: person({ shirt: 0xd9603a, hair: 0x9a6a3a }), at: T => { const back = smooth(8.8, 10.8, T); return { x: -8.42 + 0.9 * Math.min(T, 8.8) - 1.1 * back, z: 4.75 - 0.25 * back, yaw: Math.PI / 2 - back * 0.9, mode: T < 8.8 ? 'walk' : T < 10.8 ? 'back' : 'freeze', vis: T < 25 }; } },
+  // parent and child by the parked car
+  { P: person({ shirt: 0x6d7b52 }), at: T => ({ x: 8.6 + 1.4 * smooth(3, 6, T), z: 4.9, yaw: -Math.PI / 2, mode: T < 3 ? 'stand' : T < 6 ? 'back' : 'freeze', vis: T < 25 }) },
+  { P: person({ shirt: 0xf2c230, s: 0.62 }), at: T => ({ x: 8.9 + 1.6 * smooth(3.2, 6, T), z: 5.45, yaw: -Math.PI / 2, mode: T < 3.2 ? 'stand' : T < 6 ? 'back' : 'freeze', vis: T < 25 }) },
+  // gardener next door to the grasshopper
+  { P: person({ shirt: 0x3e7c86, hair: 0xd8d0c0 }), at: T => ({ x: 22.4 + 1.8 * smooth(2, 4, T), z: -8.2, yaw: -Math.PI / 2, mode: T < 2 ? 'stand' : T < 4 ? 'back' : 'freeze', vis: T < 25 }) },
+  // the last morning: people walking normally again
+  { P: person({ shirt: 0x8a3b46 }), at: T => ({ x: 4 - 1.05 * (T - 72.5), z: -4.8, yaw: -Math.PI / 2, mode: 'walk', vis: T >= 72.5 }) },
+  { P: person({ shirt: 0x2b6cb0, hair: 0x9a6a3a }), at: T => ({ x: 6.2 - 1.0 * (T - 72.5), z: -5.3, yaw: -Math.PI / 2, mode: 'walk', vis: T >= 72.5 }) },
+];
+// week 1: people run out of town along both sidewalks
+for (let i = 0; i < 10; i++) {
+  const z = (i % 2 ? 1 : -1) * (i % 4 < 2 ? 4.75 : 5.42), x0 = -14 + i * 3.3 + hash(i) * 1.5, v = 3.2 + hash(i, 3) * 0.9;
+  PEOPLE.push({ P: person({ shirt: [0xd9473a, 0x2f4f6f, 0xf2c230, 0x6d7b52, 0x8a3b46, 0x3e7c86][i % 6], s: i === 6 ? 0.65 : 1 }), at: T => ({ x: x0 + v * (T - 38), z, yaw: Math.PI / 2, mode: 'run', vis: T >= 38 && T < 50 }) });
+}
+function posePerson(p, T) {
+  const st = p.at(T), P = p.P;
+  P.root.visible = !!st.vis; if (!st.vis) return st;
+  P.root.position.set(st.x, 0.17, st.z); P.root.rotation.y = st.yaw;
+  const k = st.mode === 'run' ? 1 : st.mode === 'walk' ? 0.45 : st.mode === 'back' ? 0.35 : 0;
+  const sw = Math.sin(T * (st.mode === 'run' ? 11 : st.mode === 'back' ? -7 : 6.5) + st.x * 0.1 + st.z) * k;
+  P.legs[0].rotation.x = sw; P.legs[1].rotation.x = -sw;
+  if (st.mode === 'back' || st.mode === 'freeze') {
+    const up = st.mode === 'back' ? 1.2 : 1.35 + Math.sin(T * 9 + st.x) * 0.04;   // arms raised in front, trembling
+    P.arms[0].rotation.set(-up, 0, -0.25); P.arms[1].rotation.set(-up + 0.15, 0, 0.25);
+  } else { P.arms[0].rotation.set(-sw * 1.1, 0, -0.1); P.arms[1].rotation.set(sw * 1.1, 0, 0.1); }
+  P.root.rotation.x = st.mode === 'run' ? 0.18 : st.mode === 'freeze' || st.mode === 'back' ? -0.08 : 0;
+  return st;
+}
+
+/* ===================================================================== VEHICLES */
+function car(color) {
+  const root = group(dynamic), body = group(root);
+  box(body, 1.8, 0.62, 4.2, color, 0, 0.32, 0, { r: 0.18 });
+  box(body, 1.6, 0.6, 2.2, 0, 0, 0.88, -0.2, { m: glassDark, r: 0.14 });
+  box(body, 1.62, 0.08, 1.9, color, 0, 1.46, -0.25, { r: 0.04 });
+  const wheel = new THREE.CylinderGeometry(0.36, 0.36, 0.26, 12); wheel.rotateZ(Math.PI / 2);
+  for (const [x, z] of [[0.86, 1.3], [-0.86, 1.3], [0.86, -1.3], [-0.86, -1.3]]) mesh(body, wheel, mat(0x1b1d20), x, 0.36, z);
+  for (const x of [0.55, -0.55]) box(body, 0.36, 0.14, 0.06, 0, x, 0.68, 2.1, { m: lampMat, r: 0.03, shadow: false });
+  for (const x of [0.6, -0.6]) box(body, 0.32, 0.12, 0.06, 0xb83a30, x, 0.7, -2.1, { r: 0.03, shadow: false });
+  for (const x of [0.86, -0.86]) for (const z of [1.95, -1.95]) box(body, 0.1, 0.1, 0.18, 0, x, 0.62, z, { m: hazardMat, r: 0.02, shadow: false });
+  return { root, body };
+}
+// car models are long along local +z; yaw +PI/2 drives toward +x
+const brake = track(t => 7 * (1 - smooth(1.2, 4.6, t)));   // stops at x ≈ -20
+const CARS = [
+  { c: car(0x2f6db3), at: () => ({ x: 6, z: -3.0, yaw: -Math.PI / 2, vis: true }) },
+  { c: car(0xd9d4c8), at: () => ({ x: -38, z: 3.0, yaw: -Math.PI / 2, vis: true }) },
+  { c: car(0x3c6e55), at: () => ({ x: 26, z: 3.0, yaw: Math.PI / 2, vis: true }) },
+  // the morning driver who brakes for the ant and leaves the car behind
+  { c: car(0xe2b33c), at: T => ({ x: -40 + brake(T), z: -1.6, yaw: Math.PI / 2, vis: T < 62, drive: T < 4.6 }) },
+];
+// week 1: a jam of abandoned cars on the way out of town, hazard lights blinking
+[16, 22.2, 28.4, 34.6, 40.8, 47].forEach((x, i) => CARS.push({ c: car([0xb5413a, 0x4b5563, 0xd9d4c8, 0x2f6db3, 0x6d4b8a, 0x3c6e55][i]), at: T => ({ x, z: -1.6, yaw: Math.PI / 2 + (hash(i) - 0.5) * 0.12, vis: T >= 38 && T < 62, hazard: true }) }));
+[18.5, 24.7, 30.9, 37.1, 43.3].forEach((x, i) => CARS.push({ c: car([0xe0702e, 0x2a2f36, 0xf2f0ea, 0x8a3b46, 0x2f6db3][i]), at: T => ({ x, z: 1.0, yaw: Math.PI / 2 + (hash(i, 5) - 0.5) * 0.12, vis: T >= 38 && T < 62, hazard: true }) }));
+const SMOKE_AT = V(49.2, 1.0, -1.6), SMOKE_N = 36;
+const smoke = new THREE.InstancedMesh(icoG, new THREE.MeshStandardMaterial({ color: 0x6b6b68, roughness: 1, flatShading: true, transparent: true, opacity: 0.55, depthWrite: false }), SMOKE_N);
+smoke.frustumCulled = false; scene.add(smoke);
+
+/* ===================================================================== INSECTS */
+/* Built from low-poly ellipsoids in body space (x = forward, metres before scaling).
+   Legs are drawn each frame from hip → knee → ankle → toe so feet stay planted and can buckle. */
+const sphG = new THREE.SphereGeometry(1, 12, 8);
+const limbG = (() => { const g = new THREE.CylinderGeometry(0.7, 1, 1, 6); g.translate(0, 0.5, 0); return g; })();
+const mandG = (() => { const g = new THREE.ConeGeometry(1, 1, 5); g.rotateZ(-Math.PI / 2); g.translate(0.5, 0, 0); return g; })();
+const wingG = (() => { const g = new THREE.CircleGeometry(0.5, 20); g.rotateX(-Math.PI / 2); g.translate(0.5, 0, 0); return g; })();
+const veinTex = canvasTex(256, 64, (g, w, h) => {
+  g.fillStyle = '#ffffff'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(40,30,20,0.75)'; g.lineWidth = 1.4;
+  for (let i = 0; i < 6; i++) { g.beginPath(); g.moveTo(0, h / 2 + (i - 2.5) * 3); g.quadraticCurveTo(w * 0.5, h * (0.1 + i * 0.16), w, h * (0.1 + i * 0.16)); g.stroke(); }
+  g.lineWidth = 0.8; for (let x = 10; x < w; x += 9) { g.beginPath(); g.moveTo(x, 4 + hash(x) * 8); g.lineTo(x + 4, h - 4 - hash(x, 1) * 8); g.stroke(); }
+});
+const wingMats = {
+  bee: new THREE.MeshStandardMaterial({ color: 0xe8eef2, map: veinTex, transparent: true, opacity: 0.45, roughness: 0.2, side: THREE.DoubleSide, depthWrite: false }),
+  dragon: new THREE.MeshStandardMaterial({ color: 0xe8c890, map: veinTex, transparent: true, opacity: 0.6, roughness: 0.25, metalness: 0.1, side: THREE.DoubleSide, depthWrite: false, envMap: envTex, envMapIntensity: 0.6 }),
+};
+const SPEC = {
+  ant: { bh: 0.48, stride: 0.7,
+    mats: { a: [0x6e2a18, { rough: 0.4, env: 0.5 }], b: [0x241610, { rough: 0.35, env: 0.6 }], leg: [0x2e1a12, { rough: 0.5 }], eye: [0x080808, { rough: 0.15, env: 1 }] },
+    parts: [['head', 0.64, 0.1, 0.19, 0.17, 0.18, -0.3, 'b'], ['neck', 0.47, 0.06, 0.07, 0.05, 0.05, 0, 'a'], ['thorax', 0.27, 0.02, 0.24, 0.13, 0.12, 0.15, 'a'],
+      ['propod', 0.05, 0.05, 0.11, 0.1, 0.1, 0, 'a'], ['petiole', -0.1, 0.07, 0.05, 0.11, 0.07, 0, 'a'], ['gaster', -0.45, 0.07, 0.33, 0.26, 0.28, 0.15, 'b']],
+    eyes: [0.71, 0.16, 0.135, 0.05], mand: [0.79, -0.01, 0.07, 0.2, 0.035],
+    antenna: { at: [0.74, 0.22, 0.07], scape: [0.1, 0.28, 0.16], flag: [0.42, -0.14, 0.08], r: 0.02 },
+    legs: [[0.36, -0.06, 0.06, 0.88, 0.48, 0.32, 0.038, 0.028], [0.24, -0.07, 0.07, 0.2, 0.72, 0.38, 0.038, 0.028], [0.1, -0.05, 0.07, -0.52, 0.62, 0.4, 0.038, 0.028]], foot: 0.95 },
+  grasshopper: { bh: 0.42, stride: 0.6, pulse: ['abdomen'],
+    mats: { g: [0x6f9a3a, { rough: 0.55, env: 0.3 }], d: [0x557a2c, { rough: 0.55, env: 0.3 }], h: [0x7aa244, { rough: 0.5, env: 0.3 }], w: [0x8f9a58, { rough: 0.7 }], leg: [0x5e8634, { rough: 0.55 }], eye: [0x4a3020, { rough: 0.15, env: 1 }] },
+    parts: [['head', 0.66, 0.06, 0.15, 0.2, 0.15, 0.45, 'h'], ['prono', 0.43, 0.08, 0.2, 0.18, 0.17, 0.05, 'd'], ['thorax', 0.25, 0.0, 0.2, 0.15, 0.14, 0, 'g'],
+      ['abdomen', -0.38, 0.02, 0.62, 0.15, 0.14, 0, 'g'], ['wingL', -0.22, 0.15, 0.62, 0.035, 0.085, 0.07, 'w', { z: 0.065, cap: false }], ['wingR', -0.22, 0.15, 0.62, 0.035, 0.085, 0.07, 'w', { z: -0.065, cap: false }]],
+    eyes: [0.71, 0.16, 0.12, 0.055], mand: [0.72, -0.1, 0.04, 0.08, 0.025],
+    antenna: { at: [0.76, 0.18, 0.05], scape: [0.15, 0.12, 0.1], flag: [0.36, 0.06, 0.13], r: 0.014 },
+    legs: [[0.36, -0.1, 0.06, 0.7, 0.36, 0.26, 0.03, 0.022], [0.22, -0.11, 0.07, 0.24, 0.5, 0.28, 0.03, 0.022], [0.12, -0.06, 0.1, -0.78, 0.34, 0.62, 0.075, 0.03, 0.38]], foot: 0.86 },
+  bee: { bh: 0.52, stride: 0.6,
+    mats: { k: [0x231c14, { rough: 0.6 }], f: [0xb07a2a, { rough: 1 }], y: [0xe2a92a, { rough: 0.85 }], leg: [0x2a2218, { rough: 0.7 }], eye: [0x0c0c0c, { rough: 0.2, env: 1 }] },
+    parts: [['head', 0.56, 0.05, 0.13, 0.19, 0.19, 0, 'k'], ['thorax', 0.22, 0.06, 0.24, 0.23, 0.23, 0, 'f'], ['abd0', -0.06, 0.02, 0.14, 0.22, 0.22, 0, 'y'],
+      ['abd1', -0.22, 0.0, 0.14, 0.26, 0.26, 0, 'k'], ['abd2', -0.38, -0.02, 0.14, 0.26, 0.26, 0, 'y'], ['abd3', -0.54, -0.04, 0.13, 0.22, 0.22, 0, 'k'],
+      ['abd4', -0.68, -0.06, 0.11, 0.16, 0.16, 0, 'y'], ['tip', -0.8, -0.08, 0.07, 0.08, 0.08, 0, 'k']],
+    eyes: [0.58, 0.1, 0.13, 0.07, [1, 1.9, 0.8]], mand: [0.66, -0.1, 0.04, 0.08, 0.025],
+    antenna: { at: [0.66, 0.16, 0.05], scape: [0.08, 0.2, 0.06], flag: [0.26, -0.06, 0.08], r: 0.016 },
+    wings: { mat: 'bee', list: [[0.28, 0.25, 0.08, 0.62, 0.2, 1.45], [0.18, 0.24, 0.08, 0.42, 0.13, 1.75]] },
+    legs: [[0.3, -0.13, 0.06, 0.66, 0.36, 0.3, 0.03, 0.024], [0.18, -0.15, 0.07, 0.14, 0.55, 0.32, 0.03, 0.024], [0.06, -0.13, 0.07, -0.42, 0.5, 0.34, 0.035, 0.03]], foot: 0.8 },
+  beetle: { bh: 0.4, stride: 0.55,
+    mats: { m: [0x1f4a3a, { rough: 0.3, metal: 0.55, env: 1.1 }], k: [0x14161a, { rough: 0.45, env: 0.5 }], leg: [0x15151a, { rough: 0.5 }], eye: [0x080808, { rough: 0.15, env: 1 }] },
+    parts: [['head', 0.6, -0.02, 0.15, 0.11, 0.15, 0, 'k'], ['prono', 0.42, 0.04, 0.17, 0.13, 0.24, 0, 'm'], ['elytra', -0.18, 0.07, 0.56, 0.25, 0.36, 0, 'm'],
+      ['belly', -0.15, -0.04, 0.5, 0.12, 0.3, 0, 'k'], ['seam', -0.2, 0.315, 0.5, 0.012, 0.014, 0, 'k']],
+    eyes: [0.66, 0.03, 0.12, 0.04], mand: [0.72, -0.02, 0.07, 0.24, 0.05],
+    antenna: { at: [0.68, 0.03, 0.1], scape: [0.15, 0.06, 0.12], flag: [0.35, 0.05, 0.18], r: 0.016 },
+    legs: [[0.44, -0.07, 0.12, 0.86, 0.52, 0.22, 0.04, 0.032], [0.12, -0.1, 0.16, 0.12, 0.74, 0.26, 0.042, 0.032], [-0.06, -0.1, 0.16, -0.62, 0.68, 0.26, 0.042, 0.032]], foot: 0.95 },
+  roach: { bh: 0.28, stride: 0.65,
+    mats: { p: [0x7b4a28, { rough: 0.3, env: 0.8 }], r: [0x6a3a1e, { rough: 0.25, env: 0.9 }], k: [0x2a1a10, { rough: 0.5 }], leg: [0x5a3418, { rough: 0.5 }], eye: [0x080808, { rough: 0.15 }] },
+    parts: [['head', 0.68, -0.06, 0.09, 0.1, 0.11, 0.6, 'k'], ['prono', 0.5, 0.03, 0.2, 0.065, 0.3, 0, 'p'], ['wings', -0.15, 0.04, 0.66, 0.1, 0.36, 0, 'r'], ['belly', -0.1, -0.03, 0.58, 0.08, 0.3, 0, 'k']],
+    eyes: [0.72, -0.02, 0.08, 0.035], mand: [0.74, -0.12, 0.03, 0.06, 0.02],
+    antenna: { at: [0.76, -0.02, 0.05], scape: [0.25, 0.15, 0.2], flag: [0.7, -0.05, 0.35], r: 0.012 },
+    legs: [[0.45, -0.04, 0.12, 0.92, 0.55, 0.18, 0.03, 0.024], [0.2, -0.05, 0.14, 0.28, 0.85, 0.24, 0.032, 0.026], [0.0, -0.05, 0.14, -0.72, 0.85, 0.24, 0.034, 0.026]], foot: 1.0 },
+  dragonfly: { bh: 0, stride: 1,
+    mats: { t: [0x3a5a4a, { rough: 0.35, env: 0.8 }], r: [0x22302a, { rough: 0.4 }], e: [0x2a6a7a, { rough: 0.1, env: 1.2 }], leg: [0x22302a, {}], eye: [0x2a6a7a, { rough: 0.1, env: 1.2 }] },
+    parts: [['head', 0.075, 0.0, 0.028, 0.03, 0.036, 0, 'r'], ['thorax', 0.025, 0.0, 0.04, 0.032, 0.03, 0.2, 't'], ['abd', -0.18, 0.0, 0.17, 0.012, 0.012, 0, 't'],
+      ['r1', -0.06, 0, 0.012, 0.014, 0.014, 0, 'r'], ['r2', -0.12, 0, 0.012, 0.014, 0.014, 0, 'r'], ['r3', -0.18, 0, 0.012, 0.014, 0.014, 0, 'r'], ['r4', -0.24, 0, 0.012, 0.014, 0.014, 0, 'r'], ['r5', -0.3, 0, 0.012, 0.013, 0.013, 0, 'r']],
+    eyes: [0.08, 0.012, 0.022, 0.026], wings: { mat: 'dragon', list: [[0.035, 0.026, 0.012, 0.33, 0.065, 1.42], [0.0, 0.026, 0.012, 0.32, 0.078, 1.74]] },
+    legs: [] },
+};
+const YAX = V(0, 1, 0);
+const tA = V(), tB = V(), tC = V(), tD = V(), tE = V();
+function seg(m, a, b, r) { tE.subVectors(b, a); const l = tE.length() || 1e-4; m.position.copy(a); m.quaternion.setFromUnitVectors(YAX, tE.multiplyScalar(1 / l)); m.scale.set(r, l, r); }
+const INSECTS = [];
+function makeInsect(kind, { scale = 1.35, noClip = false, parent = dynamic, at = null, place = 'town' } = {}) {
+  const sp = SPEC[kind];
+  const M = {}; for (const [k, [c, o]] of Object.entries(sp.mats)) M[k] = mat(c, { flat: true, ...o, noClip });
+  const root = group(parent); root.scale.setScalar(scale);
+  const body = group(root);
+  const I = { kind, sp, root, body, scale, parts: {}, legs: [], ants: [], mands: [], wings: [], at, place, seed: rnd() * 10, rollDir: rnd() > 0.5 ? 1 : -1 };
+  let low = 0;
+  for (const p of sp.parts) {
+    const [name, x, y, sx, sy, sz, rz, mk, o = {}] = p;
+    const m = mesh(body, sphG, M[mk], x, y, o.z ?? 0, { s: [sx, sy, sz], rz });
+    m.userData.base = [sx, sy, sz]; m.userData.cap = o.cap !== false; I.parts[name] = m;
+    if (o.cap !== false) low = Math.min(low, y - sy);
+  }
+  sp.rest = sp.rest ?? -low + 0.03;
+  if (sp.eyes) { const [x, y, z, r, sc = [1, 1, 1]] = sp.eyes; for (const s of [1, -1]) mesh(body, sphG, M.eye, x, y, s * z, { s: [r * sc[0], r * sc[1], r * sc[2]] }); }
+  if (sp.mand) { const [x, y, z, l, r] = sp.mand; for (const s of [1, -1]) { const m = mesh(body, mandG, M.leg, x, y, s * z, { s: [l, r, r * 0.7] }); m.userData.s = s; I.mands.push(m); } }
+  if (sp.antenna) for (const s of [1, -1]) { const a = sp.antenna; I.ants.push({ s, base: V(a.at[0], a.at[1], s * a.at[2]), a, m1: mesh(body, limbG, M.leg), m2: mesh(body, limbG, M.leg) }); }
+  if (sp.wings) sp.wings.list.forEach(([x, y, z, len, wid, out], pair) => { for (const s of [1, -1]) {
+    const outer = group(body, x, y, s * z), inner = group(outer);
+    const w = mesh(inner, wingG, wingMats[sp.wings.mat], 0, 0, 0, { s: [len, 1, wid], shadow: true }); w.receiveShadow = false;
+    I.wings.push({ outer, inner, s, pair, out });
+  } });
+  sp.legs.forEach(([hx, hy, hz, fx, fz, lift, rf, rt, kf = 0.42], i) => { for (const s of [1, -1]) {
+    const L = { hip: V(hx, hy, s * hz), foot: V(fx * sp.foot, 0, s * fz * sp.foot), lift, rf, rt, kf, s, ph: rnd() * TAU, group: ((i % 2 === 0) === (s > 0)) ? 0 : 1 };
+    L.fem = mesh(root, limbG, M.leg); L.tib = mesh(root, limbG, M.leg); L.tar = mesh(root, limbG, M.leg); L.knee = mesh(root, sphG, M.leg);
+    I.legs.push(L);
+  } });
+  I.reach = Math.max(...sp.legs.map(l => Math.hypot(l[3] * sp.foot, l[4] * sp.foot)), 0.9) * scale * 1.1;
+  INSECTS.push(I); return I;
+}
+// state: { x, y, z, yaw, dist, walk, collapse, tremble, lift, pitch, droop, act, chew, breathe, spread, flap, flapHz, vis }
+function poseInsect(I, s, T) {
+  const sp = I.sp;
+  I.root.visible = s.vis !== false; if (!I.root.visible) return;
+  I.root.position.set(s.x, s.y ?? 0, s.z); I.root.rotation.set(s.roll ?? 0, s.yaw ?? 0, 0, 'YXZ');
+  const col = clamp(s.collapse ?? 0), act = s.act ?? 1, trem = s.tremble ?? 0;
+  I.body.position.y = lerp(sp.bh, sp.rest, col) + (s.lift ?? 0) + trem * Math.sin(T * 43 + I.seed) * 0.012 - (s.droop ?? 0) * 0.05;
+  I.body.rotation.set(col * 0.07 * I.rollDir, 0, (s.pitch ?? 0) - (s.droop ?? 0) * 0.08 + col * 0.04);
+  I.body.updateMatrix();
+  const pulse = 1 + (s.breathe ?? 0) * 0.07 * Math.sin(T * TAU * 0.9);
+  for (const n of sp.pulse ?? []) { const m = I.parts[n], b = m.userData.base; m.scale.set(b[0], b[1] * pulse, b[2] * pulse); }
+  if (I.spirG) I.spirG.scale.set(1, pulse, pulse);
+  // legs: tripod gait; collapse splays them flat
+  const ph = (s.dist ?? 0) / I.scale / sp.stride, walk = s.walk ?? 0, amp = sp.stride / 4 * walk;
+  for (const L of I.legs) {
+    const c = ((ph + L.group * 0.5) % 1 + 1) % 1;
+    let dx, lift = 0;
+    if (c < 0.5) dx = 1 - 4 * c; else { dx = -1 + 4 * (c - 0.5); lift = Math.sin((c - 0.5) * 2 * Math.PI); }
+    tA.copy(L.hip).applyMatrix4(I.body.matrix);
+    tB.set(L.foot.x * (1 + col * 0.12) + dx * amp, lift * 0.1 * walk * (1 - col), L.foot.z * (1 + col * 0.35));
+    tC.set(lerp(tB.x, tA.x, 0.08), tB.y + 0.07 * (1 - col * 0.6), tB.z * 0.9);
+    tD.copy(tA).lerp(tC, L.kf); tD.y += L.lift * (1 - col * 0.82) + trem * Math.sin(T * 31 + L.ph) * 0.03; tD.z += L.s * 0.06 * (1 + col);
+    seg(L.fem, tA, tD, L.rf); seg(L.tib, tD, tC, L.rt); seg(L.tar, tC, tB, L.rt * 0.65);
+    L.knee.position.copy(tD); L.knee.scale.setScalar(L.rf * 1.05);
+  }
+  // antennae feel around; they droop when the insect weakens
+  const wig = act * 0.3, droop = (s.droop ?? 0) + col;
+  for (const A of I.ants) {
+    const p2 = T * (1.2 + (I.seed % 1)) * (0.25 + 0.75 * act) + A.s;
+    tA.copy(A.base);
+    tB.set(A.a.scape[0], A.a.scape[1] * (1 - droop * 0.5), A.a.scape[2] * A.s).add(tA);
+    tB.y += Math.sin(p2) * wig * 0.06;
+    tC.set(A.a.flag[0], A.a.flag[1] - droop * 0.22, A.a.flag[2] * A.s).applyAxisAngle(YAX, Math.sin(p2 * 1.3) * wig * 0.7).add(tB);
+    seg(A.m1, tA, tB, A.a.r); seg(A.m2, tB, tC, A.a.r * 0.8);
+  }
+  for (const m of I.mands) m.rotation.y = m.userData.s * (0.5 + (s.chew ?? 0) * 0.3 * Math.max(0, Math.sin(T * 7 + I.seed)));
+  for (const W of I.wings) {
+    const out = lerp(Math.PI - 0.2, W.out, s.spread ?? 0);
+    W.inner.rotation.y = -W.s * out;
+    W.outer.rotation.x = -W.s * ((s.flap ?? 0) * Math.sin(T * (s.flapHz ?? 24) * TAU + W.pair * 1.4) * (s.flapAmp ?? 0.8) + (s.spread ?? 0) * 0.12);
+  }
+}
+
+// ---- the cast (all positions are a function of T) ----
+const antA_d = track(t => t < 13 ? 0.35 : lerp(0.35, 0, smooth(13, 21, t)));
+const antA = makeInsect('ant', { at: T => ({ x: 0.5 - antA_d(T), z: -0.9, yaw: Math.PI, dist: antA_d(T), walk: 1 - smooth(19, 21.5, T), act: 1 - smooth(13, 21, T) * 0.8, droop: smooth(16, 22, T), tremble: smooth(20.5, 21.5, T) * (1 - smooth(22.5, 23.4, T)), collapse: smooth(22.0, 23.5, T), chew: 0.3, vis: T < 62 }) });
+const antB_d = track(t => t < 16 ? 0.3 : t < 28.2 ? 0.22 : 0);
+const antB = makeInsect('ant', { at: T => ({ x: -27 + antB_d(T), z: 1.6, yaw: 0, dist: antB_d(T), walk: 1 - smooth(27.6, 28.3, T), act: 1 - smooth(14, 28, T) * 0.6, droop: smooth(14, 28, T) * 0.5,
+  tremble: smooth(26.8, 28, T) * (1 - smooth(29.6, 30.2, T)), collapse: smooth(28.4, 28.9, T) * 0.35 + smooth(29.3, 30.0, T) * 0.65, vis: T < 62 }) });
+const beeFlap = T => smooth(1.4, 1.6, T) * (1 - smooth(2.6, 2.8, T)) + smooth(9.6, 9.8, T) * (1 - smooth(10.9, 11.1, T)) + smooth(31.3, 31.5, T) * (1 - smooth(33.1, 33.4, T));
+const bee = makeInsect('bee', { at: T => ({ x: 1.5, z: 9.4, yaw: Math.PI / 2, flap: beeFlap(T), flapHz: T > 31 ? 19 : 23, flapAmp: T > 31 ? 1.0 : 0.7,
+  spread: Math.max(beeFlap(T), smooth(31, 31.3, T) * (1 - smooth(33.3, 33.8, T))), lift: Math.max(0, Math.sin(clamp((T - 31.85) / 1.25) * Math.PI)) * 0.26 * (1 - smooth(32.9, 33.1, T)),
+  pitch: Math.sin(clamp((T - 31.85) / 1.25) * Math.PI) * 0.15, act: 1 - smooth(14, 24, T) * 0.5, droop: smooth(18, 25, T) * 0.4, collapse: smooth(33.15, 33.55, T), vis: T < 62 }) });
+const hopper = makeInsect('grasshopper', { scale: 1.4, at: T => ({ x: 12, z: -9.5, yaw: 0, chew: T < 12 ? 1 : 0.2, breathe: T >= 11.5 && T < 16 ? 1 : 0, act: 1 - smooth(13, 22, T) * 0.7,
+  droop: T >= 16 && T < 22.2 ? 0 : smooth(18, 23, T), collapse: smooth(22.6, 24.3, T), vis: T < 62 }) });
+const roach_d = track(t => t < 33 ? 0.1 : t < 40 ? 0.42 : 0.1);
+const roach = makeInsect('roach', { scale: 1.25, at: T => ({ x: -18 + roach_d(T), z: 0.9, yaw: 0, dist: roach_d(T), walk: 1, act: 1, vis: T < 62 }) });
+const beetle1 = makeInsect('beetle', { at: T => ({ x: -13.5 + 0.06 * T, z: -9.6, yaw: 0, dist: 0.06 * T, walk: 0.6, chew: 1, vis: T < 62 }) });
+const beetle2 = makeInsect('beetle', { at: T => ({ x: -16 + 0.08 * T, z: 2.95, yaw: 0, dist: 0.08 * T, walk: 0.7, act: 1, vis: T < 62 }) });
+const FIELDERS = [['grasshopper', -30, -38, 0.3, 0.35], ['grasshopper', 8, -52, 2.5, 0.35], ['beetle', -45, -66, -0.4, 0.3], ['beetle', -12, -78, 0.9, 0.25]].map(([k, x0, z0, yaw, v], i) =>
+  makeInsect(k, { scale: 1.6, at: T => { const d = v * T, w = Math.sin(T * 0.3 + i) * 0.25; return { x: x0 + Math.cos(yaw) * d, z: z0 - Math.sin(yaw) * d, yaw: yaw + w * 0.3, dist: d, walk: 1, chew: 1, vis: T < 62 }; } }));
+// eaten time of each crop: when an eater first gets close (the patch grows from week 1 on)
+{
+  const steps = []; for (let t = 0; t <= 62; t += 0.25) steps.push([t, FIELDERS.map(I => I.at(t))]);
+  for (const c of CROPS) { const grow = 0.85 * (0.6 + hash(c.x, c.z) * 0.8);
+    for (const [t, ps] of steps) { const r = 2.2 + Math.max(0, t - 38) * grow; if (ps.some(p => (p.x - c.x) ** 2 + (p.z - c.z) ** 2 < r * r)) { c.eat = t; break; } } }
+}
+
+/* ---- the grasshopper's breathing system (close-up + cutaway) ---- */
+const SPIR_X = [0.32, 0.12, -0.06, -0.22, -0.38, -0.54, -0.7, -0.84];
+{
+  const I = hopper, ab = SPEC.grasshopper.parts.find(p => p[0] === 'abdomen');
+  I.spirG = group(I.body, ab[1], ab[2], 0);
+  const ringM = mat(0xb0782e, { rough: 0.5, flat: true }), holeM = mat(0x050505, { rough: 1 });
+  for (const x of SPIR_X) {
+    const part = x > 0.05 ? SPEC.grasshopper.parts.find(p => p[0] === 'thorax') : ab;
+    const lx = x - part[1], ly = -0.035, k = 1 - (lx / part[3]) ** 2 - (ly / part[4]) ** 2; if (k <= 0) continue;
+    for (const s of [1, -1]) {
+      const z = s * part[5] * Math.sqrt(k), g = group(I.spirG, x - ab[1], ly + part[2] - ab[2], z); if (s < 0) g.rotation.y = Math.PI;
+      g.rotation.x = 0.25 * s;
+      mesh(g, new THREE.TorusGeometry(0.021, 0.008, 6, 14), ringM, 0, 0, 0, { shadow: false });
+      mesh(g, new THREE.CircleGeometry(0.02, 12), holeM, 0, 0, 0.002, { shadow: false });
+    }
+  }
+}
+// tracheae drawn on the cut face (body space, z = 0 plane through the body's midline)
+const trach = group(hopper.body); trach.visible = false;
+const tubeMat = mat(0xf4f6f2, { rough: 0.25, metal: 0.2, env: 1.2, noClip: true });
+const O2_PATHS = [];
+{
+  const P = (x, y) => V(x, y, 0.004);
+  const tube = (pts, r) => mesh(trach, new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 40, r, 5), tubeMat, 0, 0, 0, { shadow: false });
+  tube([P(0.66, 0.06), P(0.5, 0.07), P(0.3, 0.075), P(0.05, 0.07), P(-0.38, 0.085), P(-0.8, 0.06), P(-0.96, 0.025)], 0.011);
+  tube([P(0.62, -0.03), P(0.45, -0.05), P(0.25, -0.065), P(0, -0.07), P(-0.38, -0.07), P(-0.78, -0.07), P(-0.95, -0.04)], 0.011);
+  const ab = SPEC.grasshopper.parts.find(p => p[0] === 'abdomen'), th = SPEC.grasshopper.parts.find(p => p[0] === 'thorax');
+  for (const x of SPIR_X) {
+    const p = x > 0.05 ? th : ab, k = Math.sqrt(Math.max(0, 1 - ((x - p[1]) / p[3]) ** 2)), yb = p[2] - p[4] * k + 0.014;
+    const pts = [P(x, yb), P(x - 0.01, -0.07), P(x + 0.02, -0.035), P(x + 0.035, 0.005)];
+    tube([pts[0], pts[1]], 0.008);
+    tube([pts[1], pts[2], pts[3]], 0.005);
+    tube([P(x + 0.03, 0.08), P(x + 0.01, 0.05), P(x - 0.02, 0.022)], 0.005);
+    for (const d of [-1, 1]) tube([pts[3], P(x + 0.035 + d * 0.035, 0.03)], 0.0028);
+    O2_PATHS.push(new THREE.CatmullRomCurve3(pts));
+    O2_PATHS.push(new THREE.CatmullRomCurve3([P(x, yb), P(x - 0.01, -0.07), P(x + 0.04, -0.07), P(x + 0.03, 0.08), P(x - 0.02, 0.022)]));
+  }
+}
+const O2_N = O2_PATHS.length * 5;
+const o2dots = new THREE.InstancedMesh(new THREE.SphereGeometry(0.009, 8, 6), new THREE.MeshBasicMaterial({ color: 0x6ff0ff }), O2_N);
+o2dots.material.userData.noClip = true; o2dots.frustumCulled = false; trach.add(o2dots);
+// air drifting into the spiracles in the close-up
+const AIR_N = 70;
+const airDots = new THREE.InstancedMesh(new THREE.SphereGeometry(0.003, 6, 4), new THREE.MeshBasicMaterial({ color: 0xe8fbff, transparent: true, opacity: 0.8 }), AIR_N);
+airDots.frustumCulled = false; hopper.body.add(airDots);
+// section caps for the grasshopper: shell (cuticle), tissue, and the oxygen-starved core
+const hopCaps = group(scene); hopCaps.visible = false;
+const hypoTex = canvasTex(128, 128, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 2, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(90,10,40,0.95)'); r.addColorStop(0.55, 'rgba(110,20,50,0.6)'); r.addColorStop(1, 'rgba(110,20,50,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+const capG = new THREE.CircleGeometry(1, 32);
+{ const soil = new THREE.Mesh(new THREE.PlaneGeometry(40, 6), mat(0x6a4e32, { rough: 1, noClip: true })); soil.position.set(12, -3, CUTS[0].at - 0.004); hopCaps.add(soil);
+  const turf = new THREE.Mesh(new THREE.PlaneGeometry(40, 0.12), mat(0x5a7a3a, { rough: 1, noClip: true })); turf.position.set(12, -0.06, CUTS[0].at - 0.0035); hopCaps.add(turf); }
+const CAPS = Object.entries(hopper.parts).filter(([, m]) => m.userData.cap).map(([name, m]) => {
+  const shell = new THREE.Mesh(capG, mat(0x3f5a22, { rough: 0.7, noClip: true })), tissue = new THREE.Mesh(capG, mat(0xe2ab92, { rough: 0.9, noClip: true }));
+  const hypo = ['abdomen', 'thorax'].includes(name) ? new THREE.Mesh(capG, new THREE.MeshBasicMaterial({ map: hypoTex, transparent: true, depthWrite: false })) : null;
+  hopCaps.add(shell, tissue); if (hypo) { hypo.material.userData.noClip = true; hopCaps.add(hypo); }
+  return { m, shell, tissue, hypo };
+});
+
+/* ===================================================================== THE COLONY (park) */
+const MOUND = { R: 13, H: 8 };
+const moundH = r => r >= MOUND.R ? 0 : MOUND.H * Math.pow(1 - (r / MOUND.R) ** 2, 0.85);
+const colony = group(scene, M0.x, 0, M0.z);
+{
+  const pts = []; for (let i = 0; i <= 14; i++) { const r = MOUND.R * i / 14; pts.push(new THREE.Vector2(Math.max(r, 0.001), moundH(r))); }
+  pts.reverse(); pts.reverse();
+  const lathe = new THREE.LatheGeometry(pts.slice().reverse(), 22);
+  mesh(colony, lathe, mat(0x8a6440, { flat: true, rough: 1, side: THREE.DoubleSide }));
+  // twigs and needles on the mound
+  const twigs = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.04, 0.05, 1, 4).translate(0, 0.5, 0), mat(0x6a4a2a, { flat: true }), 260);
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
+  for (let i = 0; i < 260; i++) { const r = Math.sqrt(rnd()) * (MOUND.R - 0.5), a = rnd() * TAU; twigs.setMatrixAt(i, m4.compose(V(Math.cos(a) * r, moundH(r) - 0.05, Math.sin(a) * r), q.setFromEuler(e.set(1.2 + rnd() * 0.5, rnd() * TAU, 0)), V(1, 0.6 + rnd() * 1.2, 1))); }
+  twigs.castShadow = true; colony.add(twigs);
+  for (const [r, a] of [[0, 0], [5, 2.6], [8, 3.4], [6.5, 4.6], [9.5, 1.2], [MOUND.R - 0.3, Math.PI * 0.86]]) {
+    const h = moundH(r), g = group(colony, Math.cos(a) * r, h + 0.02, Math.sin(a) * r);
+    const slope = Math.atan(MOUND.H * 0.85 * 2 * r / MOUND.R ** 2 * Math.pow(Math.max(1e-3, 1 - (r / MOUND.R) ** 2), -0.15));
+    g.rotation.set(0, -a, 0); const d = group(g); d.rotation.z = -slope;
+    mesh(d, new THREE.CircleGeometry(0.75, 12).rotateX(-Math.PI / 2), mat(0x1a120a, { rough: 1 }), 0, 0.03, 0, { shadow: false });
+  }
+}
+// cut face of the mound: soil with layers, chambers and tunnels drawn in front of it
+const moundCap = group(scene, M0.x, 0, M0.z - 0.004); moundCap.visible = false;
+{
+  const soilTex = canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#7d5a37'; g.fillRect(0, 0, w, h); for (let i = 0; i < 1400; i++) { const v = hash(i, 1); g.fillStyle = v > 0.5 ? 'rgba(60,40,22,0.5)' : 'rgba(160,130,90,0.45)'; g.fillRect(hash(i) * w, hash(i, 2) * h, 1 + v * 3, 1 + hash(i, 3) * 2); } }, { repeat: 1 });
+  soilTex.repeat.set(1 / 5, 1 / 5);
+  const outline = (yb, inset = 0) => { const s = new THREE.Shape(); s.moveTo(-40, yb); s.lineTo(40, yb); s.lineTo(40, 0); for (let i = 0; i <= 40; i++) { const x = MOUND.R - i / 40 * 2 * MOUND.R; s.lineTo(x, Math.max(0, moundH(Math.abs(x)) - inset)); } s.lineTo(-40, 0); s.closePath(); return s; };
+  const soil = new THREE.MeshStandardMaterial({ map: soilTex, roughness: 1 }); soil.userData.noClip = true;
+  mesh(moundCap, new THREE.ShapeGeometry(outline(-24)), soil, 0, 0, 0, { shadow: false });
+  // thatch crust of the mound and dark topsoil
+  const crust = new THREE.Shape(); crust.moveTo(MOUND.R, 0);
+  for (let i = 0; i <= 40; i++) { const x = MOUND.R - i / 40 * 2 * MOUND.R; crust.lineTo(x, moundH(Math.abs(x))); }
+  for (let i = 40; i >= 0; i--) { const x = MOUND.R - i / 40 * 2 * MOUND.R; crust.lineTo(x, Math.max(0, moundH(Math.abs(x)) - 0.7)); }
+  mesh(moundCap, new THREE.ShapeGeometry(crust), mat(0x5e4024, { rough: 1, noClip: true }), 0, 0, 0.0005, { shadow: false });
+  const top = new THREE.Shape(); top.moveTo(-40, -1.1); top.lineTo(40, -1.1); top.lineTo(40, 0); top.lineTo(-40, 0); top.closePath();
+  mesh(moundCap, new THREE.ShapeGeometry(top), mat(0x5a3f26, { rough: 1, noClip: true }), 0, 0, 0.0004, { shadow: false });
+}
+const CHAMBERS = [[-2.5, 4.2, 2.4, 1.1], [2.8, 2.0, 2.4, 1.0], [-3, -2.6, 2.6, 1.1], [3.0, -5.6, 2.6, 1.1], [-2.8, -8.6, 2.5, 1.0], [0.5, -12.2, 3.4, 1.6]];
+const TUNNELS = [[[-7.6, moundH(7.6)], [-6, 4.5], [-4.6, 4.0]], [[-0.3, 4.0], [0.2, 4.1]], [[4.8, 2.0], [7.2, moundH(7.2) - 0.2]], [[1.8, 1.4], [0.6, -0.6], [-1.2, -2.0]],
+  [[-5.0, -3.0], [-5.6, -6.0], [-4.0, -8.0]], [[-0.8, -2.9], [1.6, -4.4], [1.8, -5.0]], [[5.0, -6.2], [4.8, -9.0], [3.0, -11.0]], [[-1.2, -9.2], [-1.0, -11.0]],
+  [[0.2, 7.6], [0.15, 4.0], [0.2, 0], [0.15, -10.8]], [[-12.5, 0.5], [-8.5, -0.6], [-5.6, -2.0]], [[12.5, 0.5], [7.5, -1.4], [5.2, -4.8]]];
+{
+  const rim = mat(0x4a3220, { rough: 1, noClip: true }), hole = mat(0x2a1b0e, { rough: 1, noClip: true });
+  const ellG = (rx, ry) => new THREE.ShapeGeometry(new THREE.Shape().absellipse(0, 0, rx, ry, 0, TAU, false, 0), 24);
+  const stroke = (pts, w) => { const gs = []; for (let i = 0; i < pts.length - 1; i++) { const [x1, y1] = pts[i], [x2, y2] = pts[i + 1], l = Math.hypot(x2 - x1, y2 - y1), g = new THREE.PlaneGeometry(l, w); g.rotateZ(Math.atan2(y2 - y1, x2 - x1)); g.translate((x1 + x2) / 2, (y1 + y2) / 2, 0); gs.push(g); } for (const [x, y] of pts) gs.push(new THREE.CircleGeometry(w / 2, 10).translate(x, y, 0)); return mergeGeometries(gs.map(g => g.toNonIndexed()), false); };
+  for (const t of TUNNELS) { mesh(moundCap, stroke(t, 1.25), rim, 0, 0, 0.001, { shadow: false }); mesh(moundCap, stroke(t, 0.95), hole, 0, 0, 0.0016, { shadow: false }); }
+  for (const [x, y, rx, ry] of CHAMBERS) { mesh(moundCap, ellG(rx + 0.18, ry + 0.16), rim, x, y, 0.0011, { shadow: false }); mesh(moundCap, ellG(rx, ry), hole, x, y, 0.0017, { shadow: false }); }
+}
+// fresh air drawn in at the sides and up the central shaft
+const AIR_PATHS = [[[-12.5, 0.5], [-8.5, -0.6], [-5.6, -2.0], [-3, -2.6], [-0.8, -2.9], [0.15, -4], [0.15, 0], [0.2, 4], [0.2, 8.4]], [[12.5, 0.5], [7.5, -1.4], [5.2, -4.8], [5.0, -6.2], [4.8, -9.0], [3, -11], [0.6, -11.6], [0.15, -10.8], [0.15, -4], [0.15, 0], [0.2, 4], [0.2, 8.4]]]
+  .map(p => new THREE.CatmullRomCurve3(p.map(([x, y]) => V(x, y, 0.35)), false, 'centripetal'));
+const MAIR_N = 90;
+const moundAir = new THREE.InstancedMesh(new THREE.SphereGeometry(0.09, 8, 6), new THREE.MeshBasicMaterial({ color: 0xbff4ff }), MAIR_N);
+moundAir.material.userData.noClip = true; moundAir.frustumCulled = false; moundCap.add(moundAir);
+// ants inside (unclipped, standing on the chamber floors just in front of the cut)
+const inside = [];
+for (const [ci, dx, yaw] of [[0, -0.6, 0], [1, 0.4, Math.PI], [2, -1.2, 0], [2, 1.0, Math.PI], [3, -1.1, 0], [4, 0.9, Math.PI], [5, -2.0, 0]]) {
+  const [x, y, , ry] = CHAMBERS[ci];
+  inside.push({ I: makeInsect('ant', { scale: 1.1, noClip: true, parent: moundCap, at: T => ({ x: x + dx + Math.sin(T * 0.6 + ci) * 0.25, y: y - ry * 0.82, z: 0.5, yaw, dist: T * 0.15, walk: 0.5, act: 1 }) }) });
+}
+const queen = makeInsect('ant', { scale: 1.6, noClip: true, parent: moundCap, at: T => ({ x: 1.6, y: CHAMBERS[5][1] - CHAMBERS[5][3] * 0.85, z: 0.6, yaw: Math.PI, breathe: 1, act: 0.5 }) });
+queen.parts.gaster.scale.set(0.62, 0.36, 0.38); queen.parts.gaster.position.x = -0.68; queen.parts.gaster.userData.base = [0.62, 0.36, 0.38];
+{
+  const egg = mat(0xf4efe2, { rough: 0.6, noClip: true }), larva = mat(0xeee0c0, { rough: 0.7, noClip: true }), pupa = mat(0xd8b884, { rough: 0.8, noClip: true });
+  for (const [ci, n, m, s] of [[3, 7, larva, [0.32, 0.2, 0.2]], [4, 6, pupa, [0.38, 0.22, 0.22]], [5, 12, egg, [0.13, 0.1, 0.1]]]) {
+    const [x, y, rx, ry] = CHAMBERS[ci];
+    for (let i = 0; i < n; i++) { const px = x + (ci === 5 ? -1.6 : 0.4) + (i - n / 2) * (ci === 5 ? 0.24 : 0.5) * 0.9, k = Math.sqrt(Math.max(0, 1 - ((px - x) / rx) ** 2)); mesh(moundCap, sphG, m, px, y - ry * k * 0.82 + s[1], 0.4 + (i % 2) * 0.2, { s, rz: (hash(i, ci) - 0.5) * 0.8 }); }
+  }
+}
+// on the surface: three ants carry a log together; others stream into the nest
+const carrier = (dz, ph) => makeInsect('ant', { scale: 1.2, at: T => { const d = 1.1 * (T - 48); return { x: M0.x - 31 + d, z: M0.z + 6 + dz, yaw: 0, dist: d + ph, walk: 1, vis: T >= 50 && T < 62 }; } });
+const CARRIERS = [carrier(-1.85, 0), carrier(0, 0.3), carrier(1.85, 0.15)];
+const logMesh = cyl(dynamic, 0.22, 0.22, 4.8, 0x7a5636, 0, 0, 0, { rx: Math.PI / 2, flat: true, seg: 7 }); logMesh.geometry.translate(0, -2.4, 0);
+const TRAIL = [0, 1, 2, 3, 4].map(i => makeInsect('ant', { scale: 1.2, at: T => {
+  const L = 16, u = ((T - 50) * 1.0 + i * 3.2) % L, a = V(M0.x - 25, 0, M0.z + 0.5), b = V(M0.x - MOUND.R + 0.2, 0, M0.z + 2.6), p = a.lerp(b, u / L);
+  return { x: p.x, z: p.z, yaw: -Math.atan2(b.z - a.z, M0.x - MOUND.R - (M0.x - 25)), dist: u, walk: 1, vis: T >= 50 && T < 62 && u < L - 0.6 }; } }));
+
+/* ===================================================================== THE CARBONIFEROUS SWAMP */
+const past = group(staticRoot, CARB.x, 0, CARB.z);
+{
+  plain(past, 420, 0.02, 420, mat(0x4a4a2a, { rough: 1 }), 0, 0.0, 0, { shadow: false });
+  const pond = new THREE.Mesh(new THREE.CircleGeometry(60, 40).rotateX(-Math.PI / 2), new THREE.MeshStandardMaterial({ color: 0x3e5238, roughness: 0.12, metalness: 0.1, envMap: envTex, envMapIntensity: 0.6 }));
+  pond.position.y = 0.03; pond.receiveShadow = true; past.add(pond);
+  const bark = mat(0x55553a, { flat: true, rough: 0.95 }), bark2 = mat(0x6a6844, { flat: true, rough: 0.95 }), frond = mat(0x4f7a2a, { flat: true, rough: 0.85, side: THREE.DoubleSide }), frond2 = mat(0x6a8a30, { flat: true, rough: 0.85, side: THREE.DoubleSide }), mud = mat(0x5a5234, { flat: true, rough: 1 });
+  const free = (x, z, r) => Math.abs(Math.hypot(x, z) - 9) > r;   // keep the dragonfly's flight ring clear
+  // giant club mosses (Lepidodendron): tall trunks forking into tufted crowns
+  for (let i = 0; i < 70; i++) {
+    const a = rnd() * TAU, d = 16 + rnd() * 120, x = Math.cos(a) * d, z = Math.sin(a) * d, h = 18 + rnd() * 14, g = group(past, x, 0, z);
+    cyl(g, 0.38, 0.75, h, 0, 0, 0, 0, { m: i % 2 ? bark : bark2, seg: 7 });
+    for (const s of [1, -1]) { const b = group(g, 0, h - 0.3, 0); b.rotation.set(0, a + s * 0.6, s * 0.55); cyl(b, 0.16, 0.3, 4, 0, 0, 0, 0, { m: bark, seg: 6 });
+      for (const t of [1, -1]) { const c = group(b, 0, 3.8, 0); c.rotation.z = t * 0.5; cyl(c, 0.08, 0.15, 2.6, 0, 0, 0, 0, { m: bark, seg: 5 }); mesh(c, icoG, frond, 0, 2.9, 0, { s: [0.9, 1.6, 0.9] }); } }
+  }
+  // tree ferns (Psaronius)
+  for (let i = 0; i < 46; i++) {
+    const a = rnd() * TAU, d = 3 + rnd() * 50, x = Math.cos(a) * d, z = Math.sin(a) * d; if (!free(x, z, 4.4)) continue;
+    const h = 3.5 + rnd() * 3, g = group(past, x, 0, z); cyl(g, 0.18, 0.32, h, 0, 0, 0, 0, { m: bark2, seg: 6 });
+    for (let k = 0; k < 9; k++) { const f = group(g, 0, h, 0); f.rotation.set(0, k / 9 * TAU + rnd() * 0.3, 0); const f2 = group(f); f2.rotation.z = -0.35 - rnd() * 0.35; mesh(f2, sphG, k % 2 ? frond : frond2, 1.5, 0, 0, { s: [1.6, 0.05, 0.38] }); }
+  }
+  // horsetails (Calamites)
+  for (let i = 0; i < 60; i++) {
+    const a = rnd() * TAU, d = 5 + rnd() * 60, x = Math.cos(a) * d, z = Math.sin(a) * d; if (!free(x, z, 2.2)) continue;
+    const h = 6 + rnd() * 6, g = group(past, x, 0, z); cyl(g, 0.12, 0.2, h, 0x6f7a48, 0, 0, 0, { seg: 6, flat: true });
+    for (let y = 1.2; y < h; y += 1.1) cyl(g, 0.7 - y / h * 0.5, 0.05, 0.4, 0, 0, y, 0, { m: frond2, seg: 7 });
+  }
+  for (let i = 0; i < 40; i++) { const a = rnd() * TAU, d = 2 + rnd() * 50; mesh(past, icoG, mud, Math.cos(a) * d, -0.2, Math.sin(a) * d, { s: [2 + rnd() * 3, 0.45, 2 + rnd() * 3] }); }
+  for (let i = 0; i < 120; i++) { const a = rnd() * TAU, d = 2 + rnd() * 40, x = Math.cos(a) * d, z = Math.sin(a) * d; if (!free(x, z, 1.4)) continue; mesh(past, icoG, i % 2 ? frond : frond2, x, 0.1, z, { s: [0.5 + rnd() * 0.6, 0.35 + rnd() * 0.4, 0.5 + rnd() * 0.6], shadow: false }); }
+}
+const DRAGON_R = 9;
+const dragonPos = (T, k = 0) => { const a = 0.36 * (T - 62) + 0.4 + k * 2.6, r = DRAGON_R + k * 6; return V(CARB.x + Math.cos(a) * r, 2.6 + k * 1.6 + Math.sin(T * 1.3 + k) * 0.25, CARB.z + Math.sin(a) * r); };
+const dragonState = (T, k) => { const p = dragonPos(T, k), q = dragonPos(T + 0.05, k); return { x: p.x, y: p.y, z: p.z, yaw: Math.atan2(-(q.z - p.z), q.x - p.x), roll: -0.25, spread: 1, flap: 1, flapHz: 6.5 - k * 0.6, flapAmp: 0.55, act: 1, vis: inPast(T) }; };
+const DRAGONS = [0, 1].map(k => makeInsect('dragonfly', { scale: 1, place: 'past', at: T => dragonState(T, k) }));
+
+/* ===================================================================== TODAY: a normal ant on the curb */
+const ANT_AT = { x: -6.0, z: 4.0, y: 0.18 };
+const tinyAnt = makeInsect('ant', { scale: 0.0045, at: T => { const d = 0.012 * (T - 72.5); return { x: ANT_AT.x + d, y: ANT_AT.y, z: ANT_AT.z, yaw: 0, dist: Math.max(0, d), walk: 1, act: 1, vis: T >= 72.5 }; } });
+{
+  const grains = new THREE.InstancedMesh(icoG, mat(0x9a958a, { flat: true, rough: 1 }), 220), m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
+  for (let i = 0; i < 220; i++) { const s = 0.0005 + rnd() * 0.0015; grains.setMatrixAt(i, m4.compose(V(ANT_AT.x - 0.12 + rnd() * 0.36, ANT_AT.y, 3.95 + rnd() * 0.2), q.setFromEuler(e.set(rnd() * 3, rnd() * 3, 0)), V(s, s * 0.6, s))); }
+  grains.receiveShadow = true; scene.add(grains);
+  for (let i = 0; i < 9; i++) { const g = new THREE.ConeGeometry(0.004, 0.09 + rnd() * 0.06, 3); g.translate(0, 0.05, 0); mesh(scene, g, mat(0x6f9a3a, { flat: true }), ANT_AT.x + 0.05 + rnd() * 0.2, 0.17, 4.17 + rnd() * 0.03, { rz: (rnd() - 0.5) * 0.5, rx: rnd() * 0.4 }); }
+}
+
+/* ===================================================================== MERGE STATIC + CLIPPING */
+(function mergeStatic() {
+  staticRoot.updateMatrixWorld(true);
+  const buckets = new Map();
+  staticRoot.traverse(o => {
+    if (!o.isMesh) return;
+    let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+    g.applyMatrix4(o.matrixWorld);
+    for (const n of Object.keys(g.attributes)) if (!['position', 'normal', 'uv'].includes(n)) g.deleteAttribute(n);
+    if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+    g.clearGroups();
+    if (!buckets.has(o.material)) buckets.set(o.material, []);
+    buckets.get(o.material).push({ g, shadow: o.castShadow });
+  });
+  const merged = group(scene);
+  for (const [m, list] of buckets) {
+    const geo = mergeGeometries(list.map(l => l.g), false);
+    list.forEach(l => l.g.dispose());
+    if (!geo) continue;
+    const mm = new THREE.Mesh(geo, m); mm.castShadow = list.some(l => l.shadow); mm.receiveShadow = true; merged.add(mm);
+  }
+  scene.remove(staticRoot);
+})();
+scene.traverse(o => { if (!o.material) return; for (const m of [].concat(o.material)) if (!m.userData.noClip) { m.clippingPlanes = [clipPlane]; m.clipShadows = true; } });
+
+/* ===================================================================== POST-PROCESSING (optional) */
+let composer = null;
+if (params.get('fx') !== '0') {
+  try {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
+    composer.addPass(new RenderPass(scene, camera));
+    composer.addPass(new UnrealBloomPass(new THREE.Vector2(256, 256), 0.3, 0.5, 0.9));
+    composer.addPass(new OutputPass());
+  } catch (e) { console.warn('Bloom unavailable, rendering directly.', e); composer = null; }
+}
+function layout() {
+  const W = innerWidth, H = innerHeight, w = Math.min(W, H * 9 / 16), h = w * 16 / 9;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = 9 / 16; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+/* ===================================================================== CAMERA */
+const FOLLOW = {
+  // low between the legs of the ant whose legs give way
+  under(u, T) { const p = antB.at(T), back = smooth(28.3, 30, T); return { pos: V(p.x + 0.7 - u * 0.6, 0.26 + back * 0.08, p.z + 3.1), target: V(p.x + 0.1, 0.55 - back * 0.22, p.z - 0.4), fov: 48 }; },
+  // ground level beside the cockroach, beetle behind it
+  roach(u, T) { const p = roach.at(T); return { pos: V(p.x + 2.9, 0.36, p.z - 0.8), target: V(p.x - 0.1, 0.34, p.z + 0.35), fov: 44 }; },
+  // flying alongside Meganeura, then pulling out to show the swamp
+  dragonfly(u, T) {
+    const p = dragonPos(T), q = dragonPos(T + 0.1), f = q.clone().sub(p).normalize(), out = V(p.x - CARB.x, 0, p.z - CARB.z).normalize();
+    const d = lerp(1.15, 4.2, smooth(66.3, 70.8, T));
+    return { pos: p.clone().addScaledVector(out, d * 0.85).addScaledVector(f, -d * 0.45).add(V(0, d * 0.42, 0)), target: p.clone().addScaledVector(f, 0.12).add(V(0, -0.05 * d, 0)), fov: 42 };
+  },
+  // macro on a real-size ant, pulling back to the quiet street
+  macro(u, T) {
+    const e = easeInOut(smooth(0.12, 1, u)), a = tinyAnt.at(T), ant = V(a.x + 0.003, a.y + 0.002, a.z);
+    const dir = V(0.62, 0.32, 1).normalize().lerp(V(-0.5, 0.65, 0.42).normalize(), e).normalize();
+    const d = Math.exp(lerp(Math.log(0.042), Math.log(18), e));
+    return { pos: ant.clone().addScaledVector(dir, d), target: ant.clone().lerp(V(12, 0.5, -2), Math.pow(d / 18, 1.6)), fov: lerp(36, 46, e) };
+  },
+};
+const SHOTS = SCENES.flatMap(s => s.shots);
+const upY = V(0, 1, 0);
+function shotAt(T) {
+  const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1];
+  const u = clamp((T - sh.start) / (sh.end - sh.start));
+  if (sh.follow) return { ...FOLLOW[sh.follow](u, T), up: upY };
+  const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
+  const a = k[i], b = k[i + 1], e = easeInOut(clamp((T - a[0]) / (b[0] - a[0])));
+  return { pos: VA(a[1]).lerp(VA(b[1]), e), target: VA(a[2]).lerp(VA(b[2]), e), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY };
+}
+
+/* ===================================================================== FRAME UPDATE */
+const m4 = new THREE.Matrix4(), q4 = new THREE.Quaternion(), e4 = new THREE.Euler(), s4 = V(1, 1, 1), t4 = V(), c4 = new THREE.Color(), c5 = new THREE.Color();
+const SKY = { top: new THREE.Color(0x6fa3d6), bottom: new THREE.Color(0xe9e2d2), warmBottom: new THREE.Color(0xf4d6ae), hazeBottom: new THREE.Color(0xc9bfae), hazeTop: new THREE.Color(0x9aa9b4),
+  pastTop: new THREE.Color(0x9fae86), pastBottom: new THREE.Color(0xc9c792) };
+function update(T) {
+  const env = envAt(T), past = inPast(T);
+
+  // sky, fog and light: golden morning → dusty chaos → calm; hazy green-gold in the swamp
+  if (past) { skyU.uTop.value.copy(SKY.pastTop); skyU.uBottom.value.copy(SKY.pastBottom); }
+  else {
+    skyU.uTop.value.copy(SKY.top).lerp(SKY.hazeTop, env.haze);
+    skyU.uBottom.value.copy(SKY.bottom).lerp(SKY.warmBottom, env.warm * 0.6).lerp(SKY.hazeBottom, env.haze);
+  }
+  scene.fog.color.copy(skyU.uBottom.value); scene.background.copy(skyU.uBottom.value);
+  scene.fog.density = past ? 0.03 : env.fog;
+  sun.color.set(0xfff0dc).lerp(c4.set(0xffcf96), past ? 0.5 : env.warm * 0.7);
+  sun.intensity = past ? 1.1 : env.sun * (1 - env.haze * 0.25);
+  hemi.intensity = past ? 0.9 : 0.95 + env.haze * 0.1;
+  hemi.color.set(past ? 0xd8e0b0 : 0xcfe0f0);
+
+  // gardens and bushes eaten bare in week 1, green again on the final morning
+  const bare = smooth(39, 47, T) * (T < PAST.end ? 1 : 0);
+  yardMat.color.copy(LAWN).lerp(DIRT, bare * 0.85);
+  BUSHES.forEach(([x, z, s, h], i) => {
+    const k = smooth(39 + h * 6, 41 + h * 6, T) * (T < PAST.end ? 1 : 0), sc = s * (1 - 0.7 * k);
+    bushes.setMatrixAt(i, m4.compose(t4.set(x, sc * 0.55, z), q4.identity(), s4.set(sc * 1.15, sc, sc * 1.15)));
+    bushes.setColorAt(i, c4.copy(BUSH_C).lerp(BUSH_DRY, k));
+  });
+  bushes.instanceMatrix.needsUpdate = true; bushes.instanceColor.needsUpdate = true;
+  CROPS.forEach((c, i) => {
+    const k = smooth(c.eat, c.eat + 1.2, T), h = c.s * (1 - 0.88 * k);
+    crops.setMatrixAt(i, m4.compose(t4.set(c.x, 0, c.z), q4.identity(), s4.set(c.s * (1 - 0.4 * k), h, c.s * (1 - 0.4 * k))));
+    crops.setColorAt(i, c4.copy(CROP_C).lerp(CROP_STUB, k).offsetHSL(0, 0, (hash(c.x, c.z) - 0.5) * 0.06));
+  });
+  crops.instanceMatrix.needsUpdate = true; crops.instanceColor.needsUpdate = true;
+  s4.set(1, 1, 1);
+
+  // insects
+  for (const I of INSECTS) poseInsect(I, I.at(T), T);
+  // the log rides on the carriers' mandibles
+  { const c = CARRIERS[1].at(T); logMesh.visible = c.vis; logMesh.position.set(c.x + 1.25, 0.6, M0.z + 6); logMesh.rotation.set(Math.PI / 2, 0, Math.sin(T * 3) * 0.02); }
+
+  // close-up: air drifting into the spiracles
+  airDots.visible = T >= 11.5 && T < 16.2;
+  if (airDots.visible) for (let i = 0; i < AIR_N; i++) {
+    const x = SPIR_X[2 + (i % 6)], k = ((T * 0.35 + hash(i)) % 1), a = hash(i, 2) * TAU;
+    const z = 0.155 + (1 - k) * (0.05 + hash(i, 3) * 0.12);
+    airDots.setMatrixAt(i, m4.compose(t4.set(x + Math.cos(a) * (1 - k) * 0.08, -0.015 + Math.sin(a) * (1 - k) * 0.06, z), q4.identity(), s4.setScalar(k > 0.92 ? 0.001 : 1)));
+  }
+  airDots.instanceMatrix.needsUpdate = true; s4.set(1, 1, 1);
+
+  // cutaway: grasshopper (hour 1)
+  const c = CUT_STATE.c;
+  clipPlane.constant = c;
+  const hopCut = c < 100 && T < 30;
+  trach.visible = hopCaps.visible = hopCut;
+  if (hopCut) {
+    hopper.body.updateWorldMatrix(true, true);
+    for (const C of CAPS) {
+      C.m.getWorldPosition(t4); C.m.getWorldScale(s4);
+      const dz = (c - t4.z) / s4.z, k = Math.sqrt(Math.max(0, 1 - dz * dz)), rz = hopper.body.rotation.z + C.m.rotation.z;
+      C.shell.position.set(t4.x, t4.y, c - 0.0035); C.shell.rotation.set(0, 0, rz); C.shell.scale.set(Math.max(1e-4, s4.x * k), Math.max(1e-4, s4.y * k), 1);
+      C.tissue.position.set(t4.x, t4.y, c - 0.0028); C.tissue.rotation.set(0, 0, rz); C.tissue.scale.set(Math.max(1e-4, s4.x * k - 0.016), Math.max(1e-4, s4.y * k - 0.016), 1);
+      if (C.hypo) { C.hypo.position.set(t4.x, t4.y + 0.012, c - 0.002); C.hypo.rotation.set(0, 0, rz); C.hypo.scale.set(s4.x * k * 0.95, s4.y * k * 0.85, 1); C.hypo.material.opacity = smooth(18.8, 20.8, T); }
+    }
+    s4.set(1, 1, 1);
+    // oxygen moves in from the spiracles but fades out long before the centre
+    const reach = lerp(0.95, 0.5, smooth(17.2, 19.6, T));
+    let n = 0;
+    O2_PATHS.forEach((path, pi) => { for (let j = 0; j < 5; j++) {
+      const u = ((T * 0.22 + j / 5 + hash(pi) * 0.3) % 1), fade = 1 - smooth(reach - 0.2, reach, u);
+      path.getPointAt(u, t4); t4.z = 0.012;
+      o2dots.setMatrixAt(n++, m4.compose(t4, q4.identity(), s4.setScalar(Math.max(0.001, fade))));
+    } });
+    o2dots.instanceMatrix.needsUpdate = true; s4.set(1, 1, 1);
+  }
+  // cutaway: the mound (month 1)
+  const moundCut = c < 100 && T > 50;
+  moundCap.visible = moundCut;
+  colony.visible = T >= 50 && T < 62;
+  if (moundCut) {
+    let n = 0;
+    for (let i = 0; i < MAIR_N; i++) {
+      const path = AIR_PATHS[i % 2], u = (T * 0.07 + i / MAIR_N * 2) % 1;
+      path.getPointAt(u, t4);
+      moundAir.setMatrixAt(n++, m4.compose(t4, q4.identity(), s4.setScalar(0.6 + 0.4 * Math.sin(u * 40))));
+    }
+    moundAir.instanceMatrix.needsUpdate = true; s4.set(1, 1, 1);
+  }
+
+  // people
+  for (const p of PEOPLE) posePerson(p, T);
+  // cars: parked, braking, abandoned with hazard lights
+  hazardMat.emissiveIntensity = Math.floor(T * 1.6) % 2 ? 2.2 : 0.05;
+  for (const cr of CARS) {
+    const st = cr.at(T); cr.c.root.visible = st.vis; if (!st.vis) continue;
+    cr.c.root.position.set(st.x, 0.02, st.z); cr.c.root.rotation.set(0, st.yaw, 0);
+    cr.c.body.rotation.x = st.drive === undefined ? 0 : -0.035 * smooth(1.2, 2.5, T) * (1 - smooth(4.0, 4.8, T));   // nose dips while braking
+    cr.c.body.children.forEach(m => { if (m.material === hazardMat) m.visible = !!st.hazard; });
+  }
+  smoke.visible = T >= 38 && T < 62;
+  if (smoke.visible) for (let i = 0; i < SMOKE_N; i++) {
+    const k = (T * 0.16 + i / SMOKE_N) % 1, s = 0.4 + k * 2.6;
+    smoke.setMatrixAt(i, m4.compose(t4.set(SMOKE_AT.x + k * 5 + Math.sin(i * 2.1 + T) * k, SMOKE_AT.y + k * 14, SMOKE_AT.z - k * 2 + Math.cos(i * 1.7) * k), q4.setFromEuler(e4.set(i, i * 2, 0)), s4.setScalar(s)));
+  }
+  smoke.instanceMatrix.needsUpdate = true; s4.set(1, 1, 1);
+}
+const CUT_STATE = { c: 1000 };
+const CAM_STATE = { target: V(), dist: 10 };
+function cutAt(T) { for (const k of CUTS) if (T >= k.a && T < k.b) return k.at; return 1000; }
+function placeCamera(T) {
+  const s = shotAt(T);
+  camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
+  const d = s.pos.distanceTo(s.target), near = clamp(d * 0.02, 0.002, 0.1), far = near < 0.05 ? 400 : 1500;
+  if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
+  sky.position.copy(camera.position); sky.scale.setScalar(far * 0.8);
+  CAM_STATE.target.copy(s.target); CAM_STATE.dist = d;
+  // the sun's shadow box follows the focus and tightens for close-ups
+  const half = clamp(d * 1.3, 0.25, 48), D = clamp(half * 3, 3, 90);
+  sun.target.position.copy(s.target); sun.position.copy(s.target).addScaledVector(SUN_DIR, D);
+  const sc = sun.shadow.camera;
+  if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.01, far: D * 2 }); sc.updateProjectionMatrix(); }
+  sun.shadow.bias = -0.0005 * clamp(half / 10, 0.02, 1); sun.shadow.normalBias = 0.04 * clamp(half / 30, 0.004, 1);
+}
+
+/* ===================================================================== OVERLAYS */
+const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
+const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
+const gaugeEl = document.getElementById('gauge'), gaugeVal = document.getElementById('gauge-val'), gaugeTxt = document.getElementById('gauge-txt');
+const worldOf = (obj, x, y, z) => { obj.updateWorldMatrix(true, false); return obj.localToWorld(V(x, y, z)); };
+const LABELS = [
+  { el: document.getElementById('label0'), text: 'Spiracles', a: 12.8, b: 15.8, at: () => worldOf(hopper.spirG, SPIR_X[4] - SPEC.grasshopper.parts[3][1], -0.035, 0.14) },
+  { el: document.getElementById('label1'), text: 'Tracheae', a: 16.6, b: 18.8, at: () => worldOf(hopper.body, 0.22, 0.085, 0) },
+  { el: document.getElementById('label1'), text: 'No oxygen', a: 19.4, b: 22.0, at: () => worldOf(hopper.body, -0.42, 0.015, 0) },
+  { el: document.getElementById('label2'), text: 'Queen', a: 60.4, b: 61.9, at: () => worldOf(queen.root, 0, 1.0, 0) },
+  { el: document.getElementById('label2'), text: 'Meganeura', a: 65.4, b: 68.8, at: () => worldOf(DRAGONS[0].root, 0, 0.09, 0) },
+];
+function overlays(T) {
+  let line = '';
+  for (const s of SCENES) for (const [a, b, text] of s.subtitles) if (T >= a && T < b) line = text;
+  if (line !== subsEl.dataset.text) {
+    subsEl.dataset.text = line; subsEl.classList.remove('on');
+    if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
+  }
+  titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
+  const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1], scEnd = sc.labelEnd ?? sc.end;
+  if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
+  chapterEl.classList.toggle('on', T - sc.start > 0.3 && scEnd - T > 0.25 && !(sc.id === 'minute1' && T < 4.8));
+  const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
+  // oxygen read-out and pointers come from T in both modes
+  let g = 0; for (const [a, b, val, txt] of GAUGE) if (T >= a - 0.3 && T < b) { g = fade(a, b, 0.35); if (gaugeVal.textContent !== val) { gaugeVal.textContent = val; gaugeTxt.textContent = txt; } }
+  gaugeEl.style.opacity = g;
+  camera.updateMatrixWorld();
+  const used = new Set();
+  for (const L of LABELS) {
+    const o = T >= L.a - 0.3 && T < L.b + 0.3 ? fade(L.a, L.b, 0.3) : 0;
+    if (o <= 0) { if (!used.has(L.el)) L.el.style.opacity = 0; continue; }
+    used.add(L.el);
+    const p = L.at().project(camera);
+    if (L.el.textContent !== L.text) L.el.textContent = L.text;
+    L.el.style.left = `${(p.x * 0.5 + 0.5) * 100}%`; L.el.style.top = `${(-p.y * 0.5 + 0.5) * 100}%`; L.el.style.opacity = p.z < 1 ? o : 0;
+  }
+  if (RENDER) {
+    let sub = 0; for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
+    subsEl.style.opacity = sub; subsEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.2, 4.6, 0.6); titleEl.style.transform = 'none';
+    chapterEl.style.opacity = sc.id === 'minute1' && T < 4.8 ? 0 : fade(sc.start + 0.3, scEnd - 0.25, 0.45); chapterEl.style.transform = 'none';
+  }
+}
+
+/* ===================================================================== SOUND EFFECTS (Web Audio, generated) */
+const THUDS = [[23.3, 0.7], [24.2, 0.55], [28.9, 0.45], [29.95, 0.9], [33.5, 0.9]];
+const CRACKS = [28.45, 28.85, 29.35, 29.85, 33.45];
+const HITS = [12, 25, 38, 50, 62, 72.5];
+const HORNS = [44.5, 45.8, 47.3, 48.9];
+// One graph builder for live playback and for the offline soundtrack used by the MP4 export.
+function buildSfx(ctx) {
+  const N = { master: ctx.createGain(), muffle: ctx.createBiquadFilter(), bus: ctx.createGain() };
+  N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 18000;
+  N.bus.connect(N.muffle).connect(N.master).connect(ctx.destination);
+  const noise = (sec, brown) => {
+    const b = ctx.createBuffer(1, ctx.sampleRate * sec, ctx.sampleRate), d = b.getChannelData(0); let last = 0;
+    for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+    return b;
+  };
+  N.white = noise(4, false); N.brown = noise(4, true);
+  const loop = (buf, type, freq, Q) => {
+    const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = Q;
+    const g = ctx.createGain(); g.gain.value = 0;
+    src.connect(f).connect(g).connect(N.bus); src.start(0, Math.random() * 3);
+    return { f, g };
+  };
+  const osc = (type, freq, lp) => {
+    const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq;
+    const f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = lp;
+    const g = ctx.createGain(); g.gain.value = 0;
+    o.connect(f).connect(g).connect(N.bus); o.start(0);
+    return { o, f, g };
+  };
+  N.air = loop(N.brown, 'lowpass', 520, 0.5);        // outdoor ambience
+  N.wind = loop(N.brown, 'bandpass', 380, 2.5);
+  N.crowd = loop(N.white, 'bandpass', 650, 0.9);      // panic in the streets
+  N.hiss = loop(N.white, 'bandpass', 3400, 1.4);      // air hissing through spiracles
+  N.under = loop(N.brown, 'lowpass', 190, 4);         // inside the mound
+  N.swamp = loop(N.white, 'bandpass', 5200, 4);       // insect chorus of the swamp
+  N.buzz = osc('sawtooth', 68, 1100);                 // giant bee wings
+  N.whir = osc('sawtooth', 26, 420);                  // dragonfly wings
+  N.droneA = osc('sine', 55, 400); N.droneB = osc('sine', 82.6, 400);   // tension underscore
+  const burst = (t, { type, from, to, dur, gain, buf = N.white }) => {
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(N.bus); src.start(t, Math.random() * 2); src.stop(t + dur + 0.05);
+  };
+  const tone = (t, { type = 'sine', from, to = from, dur, gain }) => {
+    const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type;
+    o.frequency.setValueAtTime(from, t); o.frequency.exponentialRampToValueAtTime(to, t + dur);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(N.bus); o.start(t); o.stop(t + dur + 0.05);
+  };
+  return {
+    N,
+    // continuous layers follow the story and the camera
+    apply(T, at) {
+      const env = envAt(T), past = inPast(T), under = CUT_STATE.c < 100 && T > 50;
+      const close = clamp(1 - CAM_STATE.dist / 6), set = (p, v) => p.setTargetAtTime(v, at, 0.12);
+      set(N.air.g.gain, past ? 0.03 : 0.06 + env.haze * 0.04);
+      set(N.wind.g.gain, 0.03 + env.haze * 0.06 + clamp((camera.position.y - 10) / 40) * 0.08);
+      set(N.wind.f.frequency, 300 + 120 * Math.sin(T * 0.5));
+      set(N.crowd.g.gain, smooth(44, 45, T) * (1 - smooth(49.6, 50, T)) * 0.22 + smooth(4, 5, T) * (1 - smooth(11, 12, T)) * 0.03);
+      const breathing = (T > 11.5 && T < 22.2) ? (0.5 + 0.5 * Math.sin(T * TAU * 0.9)) * lerp(0.14, 0.04, smooth(17, 21, T)) : 0;
+      set(N.hiss.g.gain, breathing);
+      set(N.under.g.gain, under ? 0.45 : 0);
+      set(N.swamp.g.gain, past ? 0.05 * (0.7 + 0.3 * Math.sin(T * 5)) : 0);
+      const bf = beeFlap(T), beeNear = clamp(1 - camera.position.distanceTo(bee.root.position) / 14);
+      set(N.buzz.g.gain, bf * (0.06 + 0.12 * beeNear)); set(N.buzz.o.frequency, T > 31 ? 52 + Math.sin(T * 9) * 6 : 68);
+      set(N.whir.g.gain, past ? 0.16 * clamp(1.6 - CAM_STATE.dist / 3) : 0);
+      const tension = past || T > 72.5 ? 0 : smooth(10, 24, T) * 0.06 + smooth(36, 44, T) * 0.05 - smooth(50, 58, T) * 0.04;
+      set(N.droneA.g.gain, Math.max(0, tension)); set(N.droneB.g.gain, Math.max(0, tension) * (T > 38 ? 0.8 : 0.4));
+      set(N.muffle.frequency, under ? 900 : 18000);
+      return { calm: !past && (T < 11 || T > 72.5), bugs: !past && T < 62 && camera.position.y < 2.5 && CAM_STATE.dist < 5, munch: T > 38 && T < 44, close };
+    },
+    // one-off events between two timeline moments
+    events(T0, T1, at, info) {
+      const dt = T1 - T0, hit = list => list.filter(t => T0 < t && T1 >= t);
+      for (const t of hit(HITS)) { burst(at, { type: 'lowpass', from: 2600, to: 120, dur: 1.1, gain: 0.18 }); burst(at, { type: 'lowpass', from: 140, to: 40, dur: 1.8, gain: 0.6, buf: N.brown }); }
+      for (const [t, g] of THUDS) if (T0 < t && T1 >= t) { burst(at, { type: 'lowpass', from: 220, to: 40, dur: 0.9, gain: 1.1 * g, buf: N.brown }); burst(at, { type: 'bandpass', from: 900, to: 300, dur: 0.25, gain: 0.25 * g }); }
+      for (const t of hit(CRACKS)) { burst(at, { type: 'highpass', from: 1800, to: 3500, dur: 0.09, gain: 0.5 }); burst(at + 0.04, { type: 'bandpass', from: 1200, to: 500, dur: 0.18, gain: 0.3 }); }
+      for (const t of hit(HORNS)) { tone(at, { type: 'square', from: 392, dur: 0.45, gain: 0.05 }); tone(at, { type: 'square', from: 494, dur: 0.45, gain: 0.04 }); }
+      if (info.calm && Math.random() < dt * 1.6) { const f = 2600 + Math.random() * 1800; tone(at, { from: f, to: f * (0.7 + Math.random() * 0.6), dur: 0.09, gain: 0.05 }); if (Math.random() < 0.6) tone(at + 0.12, { from: f * 1.1, to: f * 0.8, dur: 0.07, gain: 0.04 }); }
+      if (info.bugs && Math.random() < dt * 9) burst(at, { type: 'bandpass', from: 2400 + Math.random() * 2000, to: 1500, dur: 0.03, gain: 0.12 });
+      if (info.munch && Math.random() < dt * 6) burst(at, { type: 'bandpass', from: 1700, to: 600, dur: 0.08, gain: 0.14 });
+    },
+  };
+}
+const sfx = (() => {
+  let ctx = null, S = null, enabled = false, lastT = 0;
+  return {
+    get on() { return enabled; },
+    toggle() {
+      if (!ctx) { ctx = new (window.AudioContext || window.webkitAudioContext)(); S = buildSfx(ctx); }
+      enabled = !enabled;
+      enabled && playing ? ctx.resume() : ctx.suspend();
+      return enabled;
+    },
+    pause(p) { if (ctx && enabled) p ? ctx.suspend() : ctx.resume(); },
+    update(T) {
+      if (!ctx || !enabled) { lastT = T; return; }
+      const info = S.apply(T, ctx.currentTime);
+      if (playing && T > lastT && T - lastT < 0.5) S.events(lastT, T, ctx.currentTime, info);
+      lastT = T;
+    },
+  };
+})();
+// Offline soundtrack for the MP4 export: same layers, rendered faster than real time, returned as 16-bit WAV.
+async function renderSoundtrack(rate = 44100) {
+  const ctx = new OfflineAudioContext(1, Math.ceil(DURATION * rate), rate), S = buildSfx(ctx);
+  for (let t = 0, prev = 0; t <= DURATION; prev = t, t += 0.05) {
+    CUT_STATE.c = cutAt(t); placeCamera(t); bee.root.position.set(1.5, 0, 9.4);
+    const info = S.apply(t, t);
+    if (t > 0) S.events(prev, t, t, info);
+  }
+  const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+  const out = new DataView(new ArrayBuffer(44 + d.length * 2)), str = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); out.setUint32(4, 36 + d.length * 2, true); str(8, 'WAVEfmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, 1, true);
+  out.setUint32(24, rate, true); out.setUint32(28, rate * 2, true); out.setUint16(32, 2, true); out.setUint16(34, 16, true); str(36, 'data'); out.setUint32(40, d.length * 2, true);
+  let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+  const norm = peak > 0.89 ? 0.89 / peak : 1;
+  for (let i = 0; i < d.length; i++) out.setInt16(44 + i * 2, clamp(d[i] * norm, -1, 1) * 32767, true);
+  let bin = ''; const bytes = new Uint8Array(out.buffer);
+  for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+  return btoa(bin);
+}
+const soundBtn = document.getElementById('sound');
+function toggleSound() { soundBtn.setAttribute('aria-pressed', String(sfx.toggle())); }
+soundBtn.onclick = toggleSound;
+
+/* ===================================================================== CHECK: nothing walks through anything */
+// window.checkOverlaps() lists moments where insects, cars and people would touch (for testing).
+window.checkOverlaps = () => {
+  // footprints are rotated rectangles (centre, heading, half length, half width), tested with separating axes
+  const out = new Map(), townBugs = INSECTS.filter(I => I.place === 'town' && I.root.parent === dynamic && I.scale > 0.1);
+  const dims = I => { const sp = I.sp, xs = sp.legs.map(l => l[3] * sp.foot).concat(sp.parts.map(p => p[1] + p[3]), sp.parts.map(p => p[1] - p[3]));
+    return { front: Math.max(...xs) * I.scale, back: -Math.min(...xs) * I.scale, w: Math.max(...sp.legs.map(l => l[4])) * sp.foot * I.scale }; };
+  const box = (n, x, z, yaw, f, b, w) => { const c = Math.cos(yaw), s = Math.sin(yaw), ax = [c, -s], az = [s, c], o = (f - b) / 2; return { n, cx: x + ax[0] * o, cz: z + ax[1] * o, ax, az, hl: (f + b) / 2, hw: w }; };
+  const sep = (A, B) => { for (const [ux, uz] of [A.ax, A.az, B.ax, B.az]) { const proj = Q => Math.abs(Q.ax[0] * ux + Q.ax[1] * uz) * Q.hl + Math.abs(Q.az[0] * ux + Q.az[1] * uz) * Q.hw;
+    if (Math.abs((A.cx - B.cx) * ux + (A.cz - B.cz) * uz) > proj(A) + proj(B)) return true; } return false; };
+  const fixed = [...TREES.map(([x, z, r]) => box('tree', x, z, 0, r, r, r)), ...LAMPS.map(([x, z]) => box('lamp', x, z, 0, 0.12, 0.12, 0.12)), ...BUSHES.map(([x, z, s]) => box('bush', x, z, 0, s * 1.1, s * 1.1, s * 1.1))];
+  for (let T = 0; T <= DURATION; T += 0.25) {
+    if (inPast(T)) continue;
+    const ents = [];
+    for (const I of townBugs) { const s = I.at(T); if (s.vis === false) continue; const col = clamp(s.collapse ?? 0), d = dims(I), k = 1 + col * 0.35;
+      const e = box(`${I.kind}@${Math.round(s.x)},${Math.round(s.z)}`, s.x, s.z, s.yaw ?? 0, d.front * (1 + col * 0.12), d.back * (1 + col * 0.12), d.w * k); ents.push(e);
+      const az = Math.abs(s.z), w = d.w * k * Math.abs(Math.cos(s.yaw ?? 0)) + d.front * Math.abs(Math.sin(s.yaw ?? 0));
+      if (az < 4 && az + w > 3.94) out.set(`${e.n} × curb`, T);
+      if (az > 6 && az < 13 && (az - w < 6.35 || az + w > 11.2)) out.set(`${e.n} × fence/porch`, T); }
+    for (const cr of CARS) { const s = cr.at(T); if (s.vis) ents.push(box(`car@${Math.round(s.x)},${s.z}`, s.x, s.z, s.yaw - Math.PI / 2, 2.1, 2.1, 0.9)); }
+    for (const p of PEOPLE) { const s = p.at(T); if (s.vis) ents.push(box(`person@${Math.round(s.x)},${s.z}`, s.x, s.z, 0, 0.26, 0.26, 0.26)); }
+    for (let i = 0; i < ents.length; i++) {
+      const a = ents[i];
+      for (const f of fixed) if (!sep(a, f)) out.set(`${a.n} × ${f.n}`, T);
+      for (let j = i + 1; j < ents.length; j++) if (!sep(a, ents[j])) out.set(`${a.n} × ${ents[j].n}`, T);
+    }
+  }
+  return [...out].map(([k, t]) => `${t.toFixed(2)}  ${k}`);
+};
+
+/* ===================================================================== PLAYBACK */
+const hud = document.getElementById('hud'), playBtn = document.getElementById('play'), scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const playIcon = document.getElementById('play-icon');
+scrub.max = DURATION;
+let T = 0, playing = true, last = null, audio = null;
+const fmtTime = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+function setPlaying(v) {
+  playing = v;
+  playBtn.setAttribute('aria-label', v ? 'Pause' : 'Play');
+  playIcon.innerHTML = v ? '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>' : '<path d="M4 2l10 6-10 6z"/>';
+  if (audio) { if (v) { audio.currentTime = T; audio.play().catch(() => {}); } else audio.pause(); }
+  sfx.pause(!v);
+  poke();
+}
+function seek(t) { T = clamp(t, 0, DURATION); if (audio) audio.currentTime = T; }
+playBtn.onclick = () => { if (!playing && T >= DURATION) seek(0); setPlaying(!playing); };
+document.getElementById('replay').onclick = () => { seek(0); setPlaying(true); };
+scrub.oninput = () => seek(parseFloat(scrub.value));
+function attachAudio(src) {
+  audio?.pause(); audio = new Audio(src); audio.preload = 'auto';
+  audio.addEventListener('ended', () => setPlaying(false));
+  seek(0); setPlaying(true);
+}
+document.getElementById('voice').onchange = e => { const f = e.target.files?.[0]; if (f) attachAudio(URL.createObjectURL(f)); };
+if (params.get('audio')) attachAudio(params.get('audio'));
+let hideTimer = 0, forceHidden = params.get('clean') === '1';
+function poke() {
+  clearTimeout(hideTimer); hud.classList.toggle('hide', forceHidden);
+  if (playing && !forceHidden) hideTimer = setTimeout(() => hud.classList.add('hide'), 2500);
+}
+stage.addEventListener('pointermove', poke); stage.addEventListener('pointerdown', poke);
+stage.addEventListener('pointerdown', e => { if (forceHidden && !sfx.on) toggleSound(); });
+addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') { forceHidden = !forceHidden; poke(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+});
+poke();
+
+function frame(now) {
+  const dt = last === null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) {
+    if (audio && !audio.paused && audio.readyState >= 2) T = Math.min(DURATION, audio.currentTime); else T += dt;
+    if (T >= DURATION) { T = DURATION; setPlaying(false); }
+  }
+  CUT_STATE.c = cutAt(T);
+  placeCamera(T);
+  update(T);
+  sfx.update(T);
+  overlays(T);
+  scrub.value = T; timeEl.textContent = fmtTime(T);
+  composer ? composer.render() : renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+const RENDER = params.get('render') === '1';
+if (RENDER) {
+  forceHidden = true; poke(); playing = false;
+  document.body.classList.add('render');
+  window.renderAt = t => { T = t; CUT_STATE.c = cutAt(T); placeCamera(T); update(T); overlays(T); composer ? composer.render() : renderer.render(scene, camera); };
+  window.renderSoundtrack = renderSoundtrack;
+  window.renderReady = true;
+} else requestAnimationFrame(frame);
+addEventListener('pagehide', () => {
+  audio?.pause();
+  scene.traverse(o => { o.geometry?.dispose(); [].concat(o.material ?? []).forEach(m => m.dispose()); });
+  composer?.dispose?.(); pmrem.dispose(); renderer.dispose();
+});
+</script>
