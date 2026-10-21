@@ -19,6 +19,7 @@
   #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
   #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
+  .fade { position: absolute; inset: 0; background: #070b0f; opacity: 0; pointer-events: none; }
   .title {
     position: absolute; left: 7cqw; right: 7cqw; top: 15%;
     text-align: center; pointer-events: none; color: var(--ink);
@@ -85,6 +86,7 @@
 </style>
 
 <div id="stage">
+  <div class="fade" id="fade"></div>
   <div class="title" id="title"><small>What if</small>Insects became the size of humans?</div>
   <div class="chapter" id="chapter"><b id="chapter-when">Minute 1</b><span id="chapter-what">It begins</span></div>
   <div class="gauge" id="gauge"><b id="gauge-val">35%</b><span id="gauge-txt">Oxygen in the air</span></div>
@@ -124,7 +126,8 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    Shot keys: [time, position, target, fov, up?]. A shot with `follow`
    builds its camera from a moving subject each frame.
    ===================================================================== */
-const DURATION = 80;
+const DURATION = 84;
+const ENDING = { fade: [80.4, 82.6], sound: [80.2, 84] };   // closing: picture fades to dark, sound fades out
 const M0 = { x: 78, z: -56 };            // the ant mound in the park
 const CARB = { x: -700, z: 0 };          // the Carboniferous swamp, far from town
 const SCENES = [
@@ -132,19 +135,19 @@ const SCENES = [
     env: { warm: 1, sun: 1.25, haze: 0, fog: 0.0042 },
     shots: [{ start: 0, end: 8.3, keys: [[0, [-34, 58, 62], [0, 0, -6], 45], [5, [-22, 13, 12], [-6, 0.6, -2.5], 45], [8.3, [-14, 1.6, -5.4], [-5.3, 0.9, -3.15], 42]] },
             { start: 8.3, end: 12, keys: [[8.3, [3.3, 1.55, 11.6], [-0.7, 0.85, 5.9], 44], [12, [3.15, 1.3, 11.45], [-0.7, 0.8, 5.9], 41]] }],
-    subtitles: [[0.4, 4.6, 'Imagine waking up to find insects as big as people.'], [4.7, 8.2, 'Ants, beetles, bees and grasshoppers, all human-sized.'], [8.3, 11.8, 'Some are now a hundred times their normal size.']] },
+    subtitles: [[0.4, 4.6, 'Imagine waking up to find insects as big as people.'], [4.7, 8.2, 'Ants, beetles and bees, as big as us.'], [8.3, 11.8, 'Some are now a hundred times their normal size.']] },
   { id: 'hour1', when: 'Hour 1', what: 'Gasping for air', start: 12, end: 25,
     env: { warm: 0.7, sun: 1.35, haze: 0, fog: 0.0045 },
     shots: [{ start: 12, end: 16, keys: [[12, [11.95, 0.5, -8.0], [11.75, 0.6, -9.3], 34], [16, [11.5, 0.5, -8.05], [11.45, 0.6, -9.3], 34]] },
             { start: 16, end: 22.2, keys: [[16, [12.45, 0.7, -6.9], [12.45, 0.62, -9.5], 36], [22.2, [11.3, 0.68, -6.8], [11.3, 0.6, -9.5], 36]] },
-            { start: 22.2, end: 25, keys: [[22.2, [-13, 3.0, 5.0], [-4.5, 0.4, -1.8], 44], [25, [-12.2, 4.4, 6.6], [-4.8, 0.3, -1.4], 44]] }],
-    subtitles: [[12.2, 15.9, 'Insects have no lungs. They breathe through tiny holes.'], [16.0, 18.8, 'Air creeps along thin tubes called tracheae.'], [18.9, 22.1, "At this size, oxygen can't reach the middle."], [22.3, 24.9, 'Within an hour, many collapse.']] },
+            { start: 22.2, end: 25, keys: [[22.2, [-13.5, 2.6, 2.0], [-4.5, 0.4, -1.8], 44], [25, [-13, 3.6, 2.6], [-4.8, 0.3, -1.4], 44]] }],   // last shot: over the road, looking away from the lamp post at (-12, 5.85)
+    subtitles: [[12.2, 15.9, 'Insects have no lungs, just tiny breathing holes.'], [16.0, 18.8, 'Air creeps in through thin tubes.'], [18.9, 22.1, "At this size, oxygen can't reach the middle."], [22.3, 24.9, 'Within an hour, many collapse.']] },
   { id: 'day1', when: 'Day 1', what: 'Too heavy', start: 25, end: 38,
     env: { warm: 0.35, sun: 1.3, haze: 0.1, fog: 0.005 },
     shots: [{ start: 25, end: 31, follow: 'under' },
             { start: 31, end: 34.4, keys: [[31, [-0.7, 0.32, 6.95], [1.5, 0.7, 9.4], 44], [34.4, [-0.3, 0.42, 6.75], [1.5, 0.5, 9.4], 40]] },
             { start: 34.4, end: 38, follow: 'roach' }],
-    subtitles: [[25.2, 28.0, 'Weight grows much faster than strength.'], [28.1, 31.0, 'Their armour gets so heavy, thin legs buckle.'], [31.1, 34.3, "The bee's wings are now far too small."], [34.5, 37.8, 'Only tough ones, like cockroaches and beetles, keep crawling.']] },
+    subtitles: [[25.2, 28.0, 'Weight grows much faster than strength.'], [28.1, 31.0, 'Heavy armour makes thin legs buckle.'], [31.1, 34.3, "The bee's wings are now far too small."], [34.5, 37.8, 'Only cockroaches and beetles keep crawling.']] },
   { id: 'week1', when: 'Week 1', what: 'Chaos', start: 38, end: 50,
     env: { warm: 0.45, sun: 1.1, haze: 0.4, fog: 0.0058 },
     shots: [{ start: 38, end: 44, keys: [[38, [34, 26, 18], [2, 0, -22], 46], [44, [6, 15, -20], [-14, 0, -48], 46]] },
@@ -155,11 +158,12 @@ const SCENES = [
     shots: [{ start: 50, end: 55.6, keys: [[50, [M0.x - 22.3, 1.3, M0.z + 11], [M0.x - 28.3, 0.7, M0.z + 6], 44], [55.6, [M0.x - 14, 9, M0.z + 24], [M0.x - 2, 3, M0.z], 46]] },
             { start: 55.6, end: 62, keys: [[55.6, [M0.x, 5.5, M0.z + 17], [M0.x, 3.5, M0.z], 50], [58.7, [M0.x + 0.5, -2.5, M0.z + 15], [M0.x, -4, M0.z], 50], [62, [M0.x, -8.6, M0.z + 14], [M0.x, -10.2, M0.z], 50]] }],
     subtitles: [[50.2, 55.4, 'A month later, the last ants survive the only way they can: together.'], [55.6, 58.6, 'Their nest is a city of tunnels.'], [58.7, 61.8, 'Air shafts carry fresh air to the queen.']] },
-  { id: 'twist', when: 'The twist', what: '300 million years ago', start: 62, end: 80, labelEnd: 72.3,
+  { id: 'twist', when: 'The twist', what: '300 million years ago', start: 62, end: 84, labelEnd: 72.3,
     env: { warm: 0.9, sun: 1.2, haze: 0, fog: 0.0042 },
     shots: [{ start: 62, end: 72.5, follow: 'dragonfly' },
-            { start: 72.5, end: 80, follow: 'macro' }],
-    subtitles: [[62.2, 65.0, "Here's the twist: giant insects were real."], [65.1, 69.0, "300 million years ago, this dragonfly's wings spanned 70 centimetres."], [69.1, 72.3, 'Back then, the air held about 35% oxygen.'], [72.6, 76.0, "Today there's only 21%, too little for giants."], [76.1, 79.8, 'Luckily, the air we breathe keeps insects small.']] },
+            { start: 72.5, end: 80, follow: 'macro' },
+            { start: 80, end: 84, follow: 'macroHold' }],
+    subtitles: [[62.2, 65.0, 'But giant insects were real.'], [65.1, 69.0, 'Dragonflies once grew 70 centimetres wide.'], [69.1, 72.3, 'The air then held 35% oxygen.'], [72.6, 76.0, "Today there's only 21%."], [76.1, 79.8, 'Luckily, the air we breathe keeps insects small.']] },
 ];
 const ENV_END = { warm: 1, sun: 1.25, haze: 0, fog: 0.0042 };
 const PAST = { start: 62, end: 72.5 };                      // shots in the Carboniferous swamp
@@ -937,6 +941,8 @@ const FOLLOW = {
     const d = lerp(1.15, 4.2, smooth(66.3, 70.8, T));
     return { pos: p.clone().addScaledVector(out, d * 0.85).addScaledVector(f, -d * 0.45).add(V(0, d * 0.42, 0)), target: p.clone().addScaledVector(f, 0.12).add(V(0, -0.05 * d, 0)), fov: 42 };
   },
+  // last frame of the macro, held while the picture fades out
+  macroHold() { return FOLLOW.macro(1, 80); },
   // macro on a real-size ant, pulling back to the quiet street
   macro(u, T) {
     const e = easeInOut(smooth(0.12, 1, u)), a = tinyAnt.at(T), ant = V(a.x + 0.003, a.y + 0.002, a.z);
@@ -1082,6 +1088,7 @@ function placeCamera(T) {
 }
 
 /* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade');
 const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
 const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
 const gaugeEl = document.getElementById('gauge'), gaugeVal = document.getElementById('gauge-val'), gaugeTxt = document.getElementById('gauge-txt');
@@ -1101,9 +1108,10 @@ function overlays(T) {
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
   titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
+  fadeEl.style.opacity = smooth(ENDING.fade[0], ENDING.fade[1], T);
   const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1], scEnd = sc.labelEnd ?? sc.end;
   if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
-  chapterEl.classList.toggle('on', T - sc.start > 0.3 && scEnd - T > 0.25 && !(sc.id === 'minute1' && T < 4.8));
+  chapterEl.classList.toggle('on', T - sc.start > 0.3 && scEnd - T > 0.25 && T < ENDING.fade[0] && !(sc.id === 'minute1' && T < 4.8));
   const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
   // oxygen read-out and pointers come from T in both modes
   let g = 0; for (const [a, b, val, txt] of GAUGE) if (T >= a - 0.3 && T < b) { g = fade(a, b, 0.35); if (gaugeVal.textContent !== val) { gaugeVal.textContent = val; gaugeTxt.textContent = txt; } }
@@ -1197,6 +1205,7 @@ function buildSfx(ctx) {
       const tension = past || T > 72.5 ? 0 : smooth(10, 24, T) * 0.06 + smooth(36, 44, T) * 0.05 - smooth(50, 58, T) * 0.04;
       set(N.droneA.g.gain, Math.max(0, tension)); set(N.droneB.g.gain, Math.max(0, tension) * (T > 38 ? 0.8 : 0.4));
       set(N.muffle.frequency, under ? 900 : 18000);
+      set(N.master.gain, 0.9 * (1 - smooth(ENDING.sound[0], ENDING.sound[1], T)));
       return { calm: !past && (T < 11 || T > 72.5), bugs: !past && T < 62 && camera.position.y < 2.5 && CAM_STATE.dist < 5, munch: T > 38 && T < 44, close };
     },
     // one-off events between two timeline moments

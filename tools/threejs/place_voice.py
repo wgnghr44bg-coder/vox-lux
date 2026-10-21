@@ -20,7 +20,8 @@ ap.add_argument("--offset", type=float, default=0.15, help="seconden na de onder
 ap.add_argument("--max-tempo", type=float, default=1.15)
 ap.add_argument("--length", type=float, default=None, help="totale lengte (standaard: einde laatste cue + 1 s)")
 ap.add_argument("--video", default=None, help="MP4 met geluidseffecten; maakt <video>-voice.mp4")
-ap.add_argument("--voice-gain", type=float, default=1.6)
+ap.add_argument("--voice-gain", type=float, default=1.8)
+ap.add_argument("--sfx-gain", type=float, default=0.45, help="volume van de geluidseffecten onder de stem")
 a = ap.parse_args()
 
 def rows(path):
@@ -53,7 +54,11 @@ for i, (cue, gs, ge) in enumerate(groups):
     labels.append(f"[v{i}]")
     print(f"{cue}  {c0:6.2f}s  {dur:4.1f}s{'' if tempo == 1 else f'  x{tempo:.2f}'}  {text[:60]}")
 
-length = a.length or max(c[1] for c in cues.values()) + 1
+def media_length(path):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                                capture_output=True, text=True, check=True).stdout)
+# with a video the voice track lasts exactly as long as the video, so the effects are never cut off
+length = a.length or (media_length(a.video) if a.video else max(c[1] for c in cues.values()) + 1)
 # a silent bed of the full length comes first, so the mix always lasts the whole video
 filters.append(f"[1:a]{''.join(labels)}amix=inputs={len(labels) + 1}:normalize=0:duration=first[out]")
 out = os.path.join(a.map, "voice-placed.mp3")
@@ -64,7 +69,8 @@ print(f"\nKlaar: {out}")
 if a.video:
     vout = os.path.splitext(a.video)[0] + "-voice.mp4"
     mix = (f"[1:a]volume={a.voice_gain},asplit=2[v][key];"
-           "[0:a][key]sidechaincompress=threshold=0.03:ratio=5:attack=30:release=500[duck];"
+           f"[0:a]volume={a.sfx_gain}[sfx];"
+           "[sfx][key]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=600[duck];"
            "[duck][v]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.95[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", out, "-filter_complex", mix,
                     "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", vout], check=True)

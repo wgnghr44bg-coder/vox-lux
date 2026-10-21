@@ -19,6 +19,7 @@
   #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
   #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
+  .fade { position: absolute; inset: 0; background: #05090d; opacity: 0; pointer-events: none; }
   .title {
     position: absolute; left: 7cqw; right: 7cqw; top: 15%;
     text-align: center; pointer-events: none; color: var(--ink);
@@ -71,6 +72,7 @@
 </style>
 
 <div id="stage">
+  <div class="fade" id="fade"></div>
   <div class="title" id="title"><small>What if</small>It never stopped raining?</div>
   <div class="chapter" id="chapter"><b id="chapter-when">Day 1</b><span id="chapter-what">The rain begins</span></div>
   <div class="subs" id="subs" aria-live="polite"></div>
@@ -135,10 +137,11 @@ const SCENES = [
     env: { rain: 0.85, wind: [4, 1.5], water: 7.0, fog: 0.006, dark: 0.8, lights: 0.0, wet: 1 },
     shots: [{ start: 64, end: 73, follow: 'towers' },
             { start: 73, end: 80, keys: [[73, [40, 40, 60], [95, 10, -110], 50], [80, [10, 58, 140], [80, 4, -150], 52]] }],
-    subtitles: [[64.2, 72.5, 'Ten years later, the world we knew might be almost unrecognizable.'], [72.8, 79.8, 'But the rain would still be falling.']] },
+    subtitles: [[64.2, 72.5, 'Ten years later, the world we knew might be almost unrecognizable.'], [72.8, 77.4, 'But the rain would still be falling.']] },
 ];
 const ENV_END = { rain: 0.85, wind: [4, 1.5], water: 9.0, fog: 0.007, dark: 0.85, lights: 0, wet: 1 };
 const POWER = { flickerStart: 38.2, off: 39.6 };
+const ENDING = { fade: [77.2, 79.4], sound: [77, 80] };   // closing: picture fades to dark, sound fades out
 const CUT = { open: 42.5, close: 50, at: -3.8 };   // the ground is cut open for exactly this shot (no sweep through the camera)
 const LIGHTNING = [26.8, 31.9, 37.2, 39.0, 44.6, 53.5, 60.8, 69.2, 76.4];
 
@@ -486,14 +489,14 @@ function person({ shirt, pants = 0x2f3a46, umbrella, coat = false, s = 1 }) {
   }
   people.push(P); return P;
 }
-// walkers: x(T) = x0 + v1*min(T,22) + v2*max(T-22,0); they leave as the water arrives
+// walkers: x(T) = x0 + v1*min(T,22) + v2*max(T-22,0); they leave the street at a camera cut
 const WALKERS = [
-  { z: 5.0, x0: -20, v1: 1.3, v2: 2.2, gone: 29.5, o: { shirt: 0x2f4f6f, umbrella: 0xd9473a } },
-  { z: 5.35, x0: -21.4, v1: 1.3, v2: 2.2, gone: 29.5, o: { shirt: 0xf2c230, coat: true, s: 0.7 } },
-  { z: -5.0, x0: 10, v1: -1.1, v2: -2.4, gone: 28.5, o: { shirt: 0x6d7b52, umbrella: 0x2b6cb0 } },
-  { z: 5.4, x0: 25, v1: -1.0, v2: -2.0, gone: 27.8, o: { shirt: 0xf2c230, coat: true } },
-  { z: -5.3, x0: -35, v1: 1.2, v2: 2.5, gone: 26.5, o: { shirt: 0x8a3b46, umbrella: 0x2a2f36 } },
-  { z: 4.75, x0: 6, v1: 0.8, v2: 1.8, gone: 19, o: { shirt: 0x3e7c86, umbrella: 0xf2c230 } },
+  { z: 5.0, x0: -20, v1: 1.3, v2: 2.2, gone: 35, o: { shirt: 0x2f4f6f, umbrella: 0xd9473a } },
+  { z: 5.35, x0: -21.4, v1: 1.3, v2: 2.2, gone: 35, o: { shirt: 0xf2c230, coat: true, s: 0.7 } },
+  { z: -5.0, x0: 10, v1: -1.1, v2: -2.4, gone: 35, o: { shirt: 0x6d7b52, umbrella: 0x2b6cb0 } },
+  { z: 5.4, x0: 25, v1: -1.0, v2: -2.0, gone: 35, o: { shirt: 0xf2c230, coat: true } },
+  { z: -5.3, x0: -35, v1: 1.2, v2: 2.5, gone: 35, o: { shirt: 0x8a3b46, umbrella: 0x2a2f36 } },
+  { z: 4.75, x0: 6, v1: 0.8, v2: 1.8, gone: 22, o: { shirt: 0x3e7c86, umbrella: 0xf2c230 } },
 ].map(w => ({ ...w, P: person(w.o) }));
 const ROOFTOP = [person({ shirt: 0xe0503e }), person({ shirt: 0x2b6cb0, s: 0.8 })];
 const roofHouse = HOUSES.find(h => h.x === 0 && h.side === -1);
@@ -856,7 +859,7 @@ function update(T) {
 
   // people walk, then leave as the water comes
   for (const w of WALKERS) {
-    const x = walkerX(w, T), vis = 1 - smooth(w.gone - 0.5, w.gone, T);
+    const x = walkerX(w, T), vis = T < w.gone ? 1 : 0;   // `gone` is always a camera cut, so nobody vanishes on screen
     w.P.root.position.set(x, 0.17, w.z);
     w.P.root.rotation.y = (T < 22 ? w.v1 : w.v2) > 0 ? Math.PI / 2 : -Math.PI / 2;
     w.P.root.scale.setScalar(Math.max(1e-3, vis * (w.o.s ?? 1)));
@@ -959,6 +962,7 @@ function placeCamera(T) {
 }
 
 /* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade');
 const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
 const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
 function overlays(T) {
@@ -969,15 +973,17 @@ function overlays(T) {
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
   titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
+  const endFade = smooth(ENDING.fade[0], ENDING.fade[1], T);
+  fadeEl.style.opacity = endFade;
   const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1];
   if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
-  chapterEl.classList.toggle('on', T - sc.start > 0.3 && sc.end - T > 0.25 && !(sc.id === 'day1' && T < 4.8));
+  chapterEl.classList.toggle('on', T - sc.start > 0.3 && sc.end - T > 0.25 && T < ENDING.fade[0] && !(sc.id === 'day1' && T < 4.8));
   if (RENDER) {
     const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
     let sub = 0; for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
     subsEl.style.opacity = sub; subsEl.style.transform = 'none';
     titleEl.style.opacity = fade(0.2, 4.6, 0.6); titleEl.style.transform = 'none';
-    chapterEl.style.opacity = sc.id === 'day1' && T < 4.8 ? 0 : fade(sc.start + 0.3, sc.end - 0.25, 0.45); chapterEl.style.transform = 'none';
+    chapterEl.style.opacity = sc.id === 'day1' && T < 4.8 ? 0 : fade(sc.start + 0.3, sc.end - 0.25, 0.45) * (1 - smooth(ENDING.fade[0] - 0.4, ENDING.fade[0], T)); chapterEl.style.transform = 'none';
   }
 }
 
@@ -1026,6 +1032,7 @@ function buildSfx(ctx) {
       set(N.water.g.gain, W > 0.02 ? (0.10 + 0.08 * Math.sin(T * 1.3)) * (1 - high * 0.5) : 0.03 * env.wet);
       set(N.gurgle.g.gain, under ? 0.5 * (0.7 + 0.3 * Math.sin(T * 3.1)) : 0);
       set(N.muffle.frequency, under ? 650 : lerp(18000, 5000, high));
+      set(N.master.gain, 0.9 * (1 - smooth(ENDING.sound[0], ENDING.sound[1], T)));
       return { nearGround: camera.position.y - Math.max(W, 0) < 2.5, rain: r };
     },
     // one-off events between two timeline moments
