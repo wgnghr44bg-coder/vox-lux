@@ -26,6 +26,15 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
   that builds over the whole video, and a strong final wide shot.
 - Keep it smooth on desktop and mobile: instanced meshes for repeated objects, few shadow casters, merged static geometry.
 
+Make it gripping, not a lecture (owner on the insects video, 21 Oct 2026: "niet spannend, er gebeurt niks, het laat
+niet zien wat voor impact het heeft"):
+- Every scene SHOWS a consequence happening on screen: things break, crash, collapse, flood, get eaten, people run.
+  Facts are told while the viewer watches the damage, never instead of it.
+- Escalate: each chapter is bigger and more dangerous than the last; the viewer's own house, street and city are at stake.
+- Action beats every few seconds: impacts with a short camera shake, debris, dust, sudden movement, close calls.
+- Short, punchy subtitles that raise the stakes ("Your car is next.") and a sound bed that builds tension
+  (impact hits, rumbles, rising drone), still kept under the voice.
+
 Lessons from earlier videos (the owner noticed every one of these, so they are requirements):
 - Vehicles and animals face the way they move: check the model's long axis against the direction of travel.
 - Nothing appears, shrinks or vanishes while it is on screen. People, cars and props only leave or appear on a camera cut.
