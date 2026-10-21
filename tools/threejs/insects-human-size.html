@@ -19,6 +19,7 @@
   #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
   #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
+  .fade { position: absolute; inset: 0; background: #070b0f; opacity: 0; pointer-events: none; }
   .title {
     position: absolute; left: 7cqw; right: 7cqw; top: 15%;
     text-align: center; pointer-events: none; color: var(--ink);
@@ -85,6 +86,7 @@
 </style>
 
 <div id="stage">
+  <div class="fade" id="fade"></div>
   <div class="title" id="title"><small>What if</small>Insects became the size of humans?</div>
   <div class="chapter" id="chapter"><b id="chapter-when">Minute 1</b><span id="chapter-what">It begins</span></div>
   <div class="gauge" id="gauge"><b id="gauge-val">35%</b><span id="gauge-txt">Oxygen in the air</span></div>
@@ -124,7 +126,8 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    Shot keys: [time, position, target, fov, up?]. A shot with `follow`
    builds its camera from a moving subject each frame.
    ===================================================================== */
-const DURATION = 80;
+const DURATION = 84;
+const ENDING = { fade: [80.4, 82.6], title: 81, sound: [80.2, 84] };   // closing: picture fades, title returns, sound fades out
 const M0 = { x: 78, z: -56 };            // the ant mound in the park
 const CARB = { x: -700, z: 0 };          // the Carboniferous swamp, far from town
 const SCENES = [
@@ -155,10 +158,11 @@ const SCENES = [
     shots: [{ start: 50, end: 55.6, keys: [[50, [M0.x - 22.3, 1.3, M0.z + 11], [M0.x - 28.3, 0.7, M0.z + 6], 44], [55.6, [M0.x - 14, 9, M0.z + 24], [M0.x - 2, 3, M0.z], 46]] },
             { start: 55.6, end: 62, keys: [[55.6, [M0.x, 5.5, M0.z + 17], [M0.x, 3.5, M0.z], 50], [58.7, [M0.x + 0.5, -2.5, M0.z + 15], [M0.x, -4, M0.z], 50], [62, [M0.x, -8.6, M0.z + 14], [M0.x, -10.2, M0.z], 50]] }],
     subtitles: [[50.2, 55.4, 'A month later, the last ants survive the only way they can: together.'], [55.6, 58.6, 'Their nest is a city of tunnels.'], [58.7, 61.8, 'Air shafts carry fresh air to the queen.']] },
-  { id: 'twist', when: 'The twist', what: '300 million years ago', start: 62, end: 80, labelEnd: 72.3,
+  { id: 'twist', when: 'The twist', what: '300 million years ago', start: 62, end: 84, labelEnd: 72.3,
     env: { warm: 0.9, sun: 1.2, haze: 0, fog: 0.0042 },
     shots: [{ start: 62, end: 72.5, follow: 'dragonfly' },
-            { start: 72.5, end: 80, follow: 'macro' }],
+            { start: 72.5, end: 80, follow: 'macro' },
+            { start: 80, end: 84, follow: 'macroHold' }],
     subtitles: [[62.2, 65.0, "Here's the twist: giant insects were real."], [65.1, 69.0, "300 million years ago, this dragonfly's wings spanned 70 centimetres."], [69.1, 72.3, 'Back then, the air held about 35% oxygen.'], [72.6, 76.0, "Today there's only 21%, too little for giants."], [76.1, 79.8, 'Luckily, the air we breathe keeps insects small.']] },
 ];
 const ENV_END = { warm: 1, sun: 1.25, haze: 0, fog: 0.0042 };
@@ -937,6 +941,8 @@ const FOLLOW = {
     const d = lerp(1.15, 4.2, smooth(66.3, 70.8, T));
     return { pos: p.clone().addScaledVector(out, d * 0.85).addScaledVector(f, -d * 0.45).add(V(0, d * 0.42, 0)), target: p.clone().addScaledVector(f, 0.12).add(V(0, -0.05 * d, 0)), fov: 42 };
   },
+  // last frame of the macro, held while the picture fades out
+  macroHold() { return FOLLOW.macro(1, 80); },
   // macro on a real-size ant, pulling back to the quiet street
   macro(u, T) {
     const e = easeInOut(smooth(0.12, 1, u)), a = tinyAnt.at(T), ant = V(a.x + 0.003, a.y + 0.002, a.z);
@@ -1082,6 +1088,7 @@ function placeCamera(T) {
 }
 
 /* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade');
 const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
 const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
 const gaugeEl = document.getElementById('gauge'), gaugeVal = document.getElementById('gauge-val'), gaugeTxt = document.getElementById('gauge-txt');
@@ -1100,10 +1107,11 @@ function overlays(T) {
     subsEl.dataset.text = line; subsEl.classList.remove('on');
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
-  titleEl.classList.toggle('on', T > 0.2 && T < 4.6);
+  titleEl.classList.toggle('on', (T > 0.2 && T < 4.6) || T > ENDING.title);
+  fadeEl.style.opacity = smooth(ENDING.fade[0], ENDING.fade[1], T);
   const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1], scEnd = sc.labelEnd ?? sc.end;
   if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
-  chapterEl.classList.toggle('on', T - sc.start > 0.3 && scEnd - T > 0.25 && !(sc.id === 'minute1' && T < 4.8));
+  chapterEl.classList.toggle('on', T - sc.start > 0.3 && scEnd - T > 0.25 && T < ENDING.fade[0] && !(sc.id === 'minute1' && T < 4.8));
   const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
   // oxygen read-out and pointers come from T in both modes
   let g = 0; for (const [a, b, val, txt] of GAUGE) if (T >= a - 0.3 && T < b) { g = fade(a, b, 0.35); if (gaugeVal.textContent !== val) { gaugeVal.textContent = val; gaugeTxt.textContent = txt; } }
@@ -1121,7 +1129,7 @@ function overlays(T) {
   if (RENDER) {
     let sub = 0; for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
     subsEl.style.opacity = sub; subsEl.style.transform = 'none';
-    titleEl.style.opacity = fade(0.2, 4.6, 0.6); titleEl.style.transform = 'none';
+    titleEl.style.opacity = Math.max(fade(0.2, 4.6, 0.6), clamp((T - ENDING.title) / 0.6)); titleEl.style.transform = 'none';
     chapterEl.style.opacity = sc.id === 'minute1' && T < 4.8 ? 0 : fade(sc.start + 0.3, scEnd - 0.25, 0.45); chapterEl.style.transform = 'none';
   }
 }
@@ -1197,6 +1205,7 @@ function buildSfx(ctx) {
       const tension = past || T > 72.5 ? 0 : smooth(10, 24, T) * 0.06 + smooth(36, 44, T) * 0.05 - smooth(50, 58, T) * 0.04;
       set(N.droneA.g.gain, Math.max(0, tension)); set(N.droneB.g.gain, Math.max(0, tension) * (T > 38 ? 0.8 : 0.4));
       set(N.muffle.frequency, under ? 900 : 18000);
+      set(N.master.gain, 0.9 * (1 - smooth(ENDING.sound[0], ENDING.sound[1], T)));
       return { calm: !past && (T < 11 || T > 72.5), bugs: !past && T < 62 && camera.position.y < 2.5 && CAM_STATE.dist < 5, munch: T > 38 && T < 44, close };
     },
     // one-off events between two timeline moments
