@@ -20,7 +20,8 @@ ap.add_argument("--offset", type=float, default=0.15, help="seconden na de onder
 ap.add_argument("--max-tempo", type=float, default=1.15)
 ap.add_argument("--length", type=float, default=None, help="totale lengte (standaard: einde laatste cue + 1 s)")
 ap.add_argument("--video", default=None, help="MP4 met geluidseffecten; maakt <video>-voice.mp4")
-ap.add_argument("--voice-gain", type=float, default=1.6)
+ap.add_argument("--voice-gain", type=float, default=1.8)
+ap.add_argument("--sfx-gain", type=float, default=0.45, help="volume van de geluidseffecten onder de stem")
 a = ap.parse_args()
 
 def rows(path):
@@ -64,7 +65,8 @@ print(f"\nKlaar: {out}")
 if a.video:
     vout = os.path.splitext(a.video)[0] + "-voice.mp4"
     mix = (f"[1:a]volume={a.voice_gain},asplit=2[v][key];"
-           "[0:a][key]sidechaincompress=threshold=0.03:ratio=5:attack=30:release=500[duck];"
+           f"[0:a]volume={a.sfx_gain}[sfx];"
+           "[sfx][key]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=600[duck];"
            "[duck][v]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.95[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", out, "-filter_complex", mix,
                     "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", vout], check=True)
