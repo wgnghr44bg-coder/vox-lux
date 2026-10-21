@@ -11,7 +11,7 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
 - Vertical 9:16 stage (1080x1920 composition), 60–90 seconds, deterministic: everything is a function of the time `T`.
 - `const SCENES = [...]` at the top. Every scene has `id`, `when`, `what`, `start`, `end`, `env` (story values that blend
   toward the next scene), `shots` (camera keys `[time, [pos], [target], fov, up?]` or a `follow` shot) and
-  `subtitles: [[start, end, 'text'], ...]`. Subtitles are short, dramatic and scientifically sensible, in English,
+  `subtitles: [[start, end, 'text'], ...]`. Subtitles are short and dramatic, in English,
   and each one describes what is on screen at that moment.
 - A title card at the start, a chapter label per scene, bold white subtitles with a dark outline in the lower middle.
 - Preview controls: play/pause, replay, timeline scrubber, a **Sound** button and a **Voice** button (load an audio file).
@@ -29,6 +29,8 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
 
 Make it gripping, not a lecture (owner on the insects video, 21 Oct 2026: "niet spannend, er gebeurt niks, het laat
 niet zien wat voor impact het heeft"):
+- Entertainment first, not a science lesson: fantasy and exaggeration are fine. Use a real fact only where it adds
+  punch (the twist is the main place for one).
 - Every scene SHOWS a consequence happening on screen: things break, crash, collapse, flood, get eaten, people run.
   Facts are told while the viewer watches the damage, never instead of it.
 - Escalate: each chapter is bigger and more dangerous than the last; the viewer's own house, street and city are at stake.
