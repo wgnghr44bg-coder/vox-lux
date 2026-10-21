@@ -23,3 +23,6 @@ python tools/threejs/place_voice.py tools/threejs/never-stopped-raining --video 
 
 Past een zin niet in zijn tijdvak, dan wordt hij tot 15% versneld en geeft het script een waarschuwing.
 Pas je ondertitels in de HTML aan, pas dan ook `cues.tsv` en `script-cues.txt` aan (zelfde tekst en tijden).
+
+Chatterbox geeft `'NoneType' object is not callable` (watermerk)? Dan mist een hulppakket. In de stem-omgeving:
+`pip install "setuptools<81"`.
