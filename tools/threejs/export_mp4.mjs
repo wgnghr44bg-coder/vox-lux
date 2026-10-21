@@ -2,6 +2,7 @@
 // Needs: node + playwright (npm i playwright), Chromium, ffmpeg on PATH.
 //   node tools/threejs/export_mp4.mjs tools/threejs/never-stopped-raining.html out.mp4 [--fps 30] [--width 1080] [--from 0] [--to 80] [--three node_modules/three]
 // --three serves three.js from a local copy instead of the CDN (for machines without internet access to jsdelivr).
+// --gpu uses the real graphics card (on a pc); without it Chromium renders in software (cloud machines).
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -9,11 +10,13 @@ import path from 'node:path';
 
 const args = process.argv.slice(2);
 const opt = (name, def) => { const i = args.indexOf('--' + name); return i >= 0 ? args[i + 1] : def; };
-const [page_, out] = args.filter((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('--'));
+const flags = ['--gpu'];
+const [page_, out] = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1]?.startsWith('--') && !flags.includes(args[i - 1])));
 const fps = +opt('fps', 30), width = +opt('width', 1080), height = Math.round(width * 16 / 9);
 const three = opt('three', null), exe = opt('chromium', process.env.CHROMIUM_PATH);
 
-const browser = await chromium.launch({ executablePath: exe, args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const gpu = args.includes('--gpu');
+const browser = await chromium.launch({ executablePath: exe, headless: !gpu, args: gpu ? ['--ignore-gpu-blocklist', '--enable-gpu'] : ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 const page = await browser.newPage({ viewport: { width, height } });
 page.on('pageerror', e => console.error('page error:', e.message));
 if (three) await page.route('**/cdn.jsdelivr.net/npm/three@*/**', r => r.fulfill({ path: path.join(three, r.request().url().split(/three@[^/]+\//)[1]), contentType: 'application/javascript' }));

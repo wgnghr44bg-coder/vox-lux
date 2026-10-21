@@ -8,7 +8,8 @@ Die maakt Claude in de cloud. Zelf maken kan ook, met node + playwright + ffmpeg
 ```
 node tools/threejs/export_mp4.mjs tools/threejs/never-stopped-raining.html never-stopped-raining.mp4
 ```
-Duurt ongeveer 1,7 s per beeld op een cloud-CPU; op een pc met videokaart veel sneller.
+Op de pc met videokaart: zet er `--gpu` achter (er gaat dan even een browservenster open). Dat is veel sneller
+dan in de cloud (daar ongeveer 2–4 s per beeld). Eenmalig nodig: `npm i playwright` en `npx playwright install chromium`.
 
 ## Stem erbij (gratis, op de pc)
 Vanuit de map `vox-lux`, in de stem-omgeving (zie `tools/comfy/README.md`):
