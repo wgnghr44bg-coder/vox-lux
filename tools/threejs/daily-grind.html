@@ -1,0 +1,528 @@
+<title>Daily Grind Diorama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  /* Layout: one 9:16 stage, centred and scaled to the window; a frosted stats card floats over the 3D canvas. */
+  :root {
+    --ground: #f1eee8;
+    --letterbox: #e3ded3;
+    --ink: #1c2a52;
+    --ink-soft: #4d5a78;
+    --teal: #0f8f87;
+    --orange: #ff7a1f;
+    --display: "Sora", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: light;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; }
+  #stage { position: relative; background: var(--ground); container-type: inline-size; overflow: hidden; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .card {
+    position: absolute; top: 6cqw; left: 6cqw; right: 6cqw;
+    padding: 4.4cqw 5cqw 4.8cqw;
+    border-radius: 4cqw;
+    background: rgba(255, 255, 255, 0.42);
+    border: 0.25cqw solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 2cqw 6cqw rgba(28, 42, 82, 0.12);
+    -webkit-backdrop-filter: blur(2.4cqw) saturate(1.5);
+    backdrop-filter: blur(2.4cqw) saturate(1.5);
+    color: var(--ink);
+    opacity: 0; transform: translateY(-2cqw);
+    animation: card-in 0.7s 0.6s cubic-bezier(.2,.9,.3,1.2) forwards;
+  }
+  @keyframes card-in { to { opacity: 1; transform: none; } }
+  .card-head { display: flex; align-items: center; justify-content: space-between; gap: 3cqw; }
+  .card h1 { margin: 0; font: 600 5cqw/1.15 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
+  .live {
+    display: inline-flex; align-items: center; gap: 1.4cqw;
+    font: 600 2.3cqw/1 var(--display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .live i { width: 1.8cqw; height: 1.8cqw; border-radius: 50%; background: var(--orange); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 1.4cqw rgba(255, 122, 31, 0); transform: scale(0.8); } 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 122, 31, 0.45); } }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3cqw; margin-top: 4cqw; }
+  .stat { min-width: 0; }
+  .stat span { display: block; font: 600 2.2cqw/1.2 var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .stat b {
+    display: block; margin-top: 1.2cqw;
+    font: 600 5.4cqw/1 var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+    color: var(--ink); transition: color 0.5s;
+  }
+  .stat b.tick { color: var(--teal); transition: none; }
+  @media (prefers-reduced-motion: reduce) { .card { animation-duration: 0.01s; } .live i { animation: none; } }
+</style>
+
+<div id="stage">
+  <section class="card" aria-label="Live sales">
+    <div class="card-head">
+      <h1>Daily Grind · Live Sales</h1>
+      <span class="live"><i></i>Live</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Orders</span><b id="s-orders">1,248</b></div>
+      <div class="stat"><span>Revenue</span><b id="s-revenue">€5,746</b></div>
+      <div class="stat"><span>Cups</span><b id="s-cups">1,912</b></div>
+    </div>
+  </section>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const LOOP = 10;            // seconds; everything below repeats exactly every LOOP
+const C = {
+  ground: 0xf1eee8, slab: 0xe4dfd5, walk: 0xebe7df, road: 0xd2d8e5, line: 0xffffff,
+  blue: 0x2f55d4, blueDeep: 0x1f3a9e, teal: 0x16a39a, tealDeep: 0x0e7a73,
+  green: 0x3daa5c, greenDeep: 0x2a8546, orange: 0xff7a1f,
+  glass: 0xdde8ff, dark: 0x2b3242, skin: 0xe9c29f, white: 0xfbfaf7, trunk: 0x8a7f72,
+};
+
+// ---------- helpers ----------
+let seed = 7;
+const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const easeOut = k => 1 - Math.pow(1 - k, 3);
+const easeIn = k => k * k * k;
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const backOut = k => { const c1 = 2.2, c3 = c1 + 1; return 1 + c3 * Math.pow(k - 1, 3) + c1 * Math.pow(k - 1, 2); };
+const TAU = Math.PI * 2;
+
+const geoCache = new Map(), matCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d);
+  r = Math.min(r ?? m * 0.18, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  let g = geoCache.get(key);
+  if (!g) { g = new RoundedBoxGeometry(w, h, d, 3, r); g.translate(0, h / 2, 0); geoCache.set(key, g); }
+  return g;
+}
+function mat(color, emissive = 0) {
+  const key = `${color}|${emissive}`;
+  let m = matCache.get(key);
+  if (!m) {
+    m = new THREE.MeshStandardMaterial({ color, roughness: 0.62, metalness: 0 });
+    if (emissive) { m.emissive = new THREE.Color(color); m.emissiveIntensity = emissive; }
+    matCache.set(key, m);
+  }
+  return m;
+}
+function block(parent, w, h, d, color, x = 0, y = 0, z = 0, o = {}) {
+  const mesh = new THREE.Mesh(rbox(w, h, d, o.r), mat(color, o.glow));
+  mesh.position.set(x, y, z);
+  if (o.ry) mesh.rotation.y = o.ry;
+  if (o.rx) mesh.rotation.x = o.rx;
+  if (o.rz) mesh.rotation.z = o.rz;
+  mesh.castShadow = o.shadow !== false; mesh.receiveShadow = true;
+  parent.add(mesh);
+  return mesh;
+}
+function group(parent, x = 0, y = 0, z = 0) { const g = new THREE.Group(); g.position.set(x, y, z); parent.add(g); return g; }
+
+// pieces rise and pop in during the first second, and drop away in the last half second
+const pieces = [];
+function piece(obj, delay) {
+  if (delay === undefined) delay = 0.14 + Math.hypot(obj.getWorldPosition(new THREE.Vector3()).x - 2, obj.position.z - 2) / 14 * 0.42 + rnd() * 0.12;
+  pieces.push({ obj, delay, y: obj.position.y, s: obj.scale.x });
+  return obj;
+}
+
+// closed rounded-square loop around the block, sampled as a polyline
+function makeLoop(H, R) {
+  const a = H - R, pts = [];
+  [[a, a], [-a, a], [-a, -a], [a, -a]].forEach(([cx, cz], q) => {
+    for (let i = 0; i <= 24; i++) { const p = (q + i / 24) * Math.PI / 2; pts.push([cx + R * Math.cos(p), cz + R * Math.sin(p)]); }
+  });
+  pts.push(pts[0]);
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  const len = cum[cum.length - 1];
+  return {
+    len,
+    at(u) {
+      const d = (((u % 1) + 1) % 1) * len;
+      let i = 1; while (i < cum.length - 1 && cum[i] < d) i++;
+      const [x0, z0] = pts[i - 1], [x1, z1] = pts[i], k = (d - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
+      return { x: x0 + (x1 - x0) * k, z: z0 + (z1 - z0) * k, ang: Math.atan2(x1 - x0, z1 - z0) };
+    },
+    uOf(x, z) {
+      let best = 0, bd = Infinity;
+      for (let i = 0; i < 2000; i++) { const p = this.at(i / 2000), dd = (p.x - x) ** 2 + (p.z - z) ** 2; if (dd < bd) { bd = dd; best = i / 2000; } }
+      return best;
+    },
+  };
+}
+
+// ---------- renderer / scene ----------
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.setClearColor(C.ground);
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(C.ground);
+const camera = new THREE.PerspectiveCamera(24, 9 / 16, 5, 300);
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd8d1c3, 1.5));
+const sun = new THREE.DirectionalLight(0xfff3e2, 2.4);
+sun.position.set(-9, 20, 11);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -14, right: 14, top: 14, bottom: -14, near: 1, far: 60 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02; sun.shadow.radius = 4;
+scene.add(sun);
+
+const world = group(scene);
+
+// ---------- ground: slab, road ring, block ----------
+piece(block(world, 16.5, 1.0, 16.5, C.slab, 0, -1.0, 0, { r: 0.45 }), 0);
+
+const ROAD_IN = 4.1, ROAD_OUT = 6.3;
+function rrPath(p, h, r) {
+  p.moveTo(h, -h + r); p.lineTo(h, h - r); p.absarc(h - r, h - r, r, 0, Math.PI / 2, false);
+  p.lineTo(-h + r, h); p.absarc(-h + r, h - r, r, Math.PI / 2, Math.PI, false);
+  p.lineTo(-h, -h + r); p.absarc(-h + r, -h + r, r, Math.PI, 1.5 * Math.PI, false);
+  p.lineTo(h - r, -h); p.absarc(h - r, -h + r, r, 1.5 * Math.PI, TAU, false);
+  return p;
+}
+const roadShape = rrPath(new THREE.Shape(), ROAD_OUT, 2.8);
+roadShape.holes.push(rrPath(new THREE.Path(), ROAD_IN, 0.15));
+const roadGeo = new THREE.ExtrudeGeometry(roadShape, { depth: 0.03, bevelEnabled: false, curveSegments: 32 });
+roadGeo.rotateX(-Math.PI / 2);
+const road = group(world, 0, 0.001, 0);
+const roadMesh = new THREE.Mesh(roadGeo, mat(C.road)); roadMesh.receiveShadow = true; road.add(roadMesh);
+const center = makeLoop(5.2, 1.7);
+for (let i = 0, n = Math.floor(center.len / 0.75); i < n; i++) {
+  const p = center.at(i / n);
+  block(road, 0.07, 0.012, 0.34, C.line, p.x, 0.03, p.z, { ry: p.ang, r: 0.005, shadow: false });
+}
+piece(road, 0.06);
+piece(block(world, 8.2, 0.14, 8.2, C.walk, 0, 0, 0, { r: 0.06 }), 0.1);
+
+// ---------- buildings ----------
+const SW = 0.14; // block sidewalk height
+const fans = [];
+function windows(g, w, d, h, color, from = 0.55) {
+  const faces = [[0, d / 2, w, 0], [0, -d / 2, w, 0], [w / 2, 0, d, 1], [-w / 2, 0, d, 1]];
+  for (const [fx, fz, span, side] of faces) {
+    const cols = Math.max(1, Math.floor((span - 0.3) / 0.62));
+    for (let r = from; r < h - 0.45; r += 0.66) for (let c = 0; c < cols; c++) {
+      const o = -span / 2 + (span / cols) * (c + 0.5);
+      const tint = rnd() < 0.12 ? C.white : color;
+      if (side) block(g, 0.08, 0.38, 0.32, tint, fx, r, o, { r: 0.03, glow: 0.08 });
+      else block(g, 0.32, 0.38, 0.08, tint, o, r, fz, { r: 0.03, glow: 0.08 });
+    }
+  }
+}
+function acUnit(g, x, y, z) {
+  block(g, 0.5, 0.3, 0.4, C.white, x, y, z, { r: 0.06 });
+  const fan = block(g, 0.34, 0.03, 0.06, C.dark, x, y + 0.3, z, { r: 0.01 });
+  fans.push(fan);
+}
+function building(cx, cz, w, d, h, color, trim) {
+  const g = group(world, cx, SW, cz);
+  block(g, w, h, d, color, 0, 0, 0, { r: 0.1 });
+  block(g, w + 0.06, 0.14, d + 0.06, trim, 0, h - 0.02, 0, { r: 0.05 });
+  windows(g, w, d, h, C.glass);
+  return g;
+}
+const tower = building(-2.0, -2.0, 2.6, 2.6, 5.2, C.blue, C.blueDeep);
+acUnit(tower, -0.6, 5.3, 0.5);
+block(tower, 0.6, 0.7, 0.6, C.white, 0.5, 5.3, -0.4, { r: 0.25 });
+block(tower, 0.05, 0.9, 0.05, C.dark, -0.7, 5.3, -0.7, { r: 0.02 });
+piece(tower);
+
+const greenB = building(2.2, -2.1, 2.2, 2.4, 3.0, C.green, C.greenDeep);
+for (const [x, z] of [[-0.5, -0.6], [0.4, -0.2], [-0.2, 0.6]]) block(greenB, 0.42, 0.36, 0.42, C.greenDeep, x, 3.1, z, { r: 0.16 });
+piece(greenB);
+
+const tealB = building(-2.3, 1.9, 2.0, 2.4, 3.6, C.teal, C.tealDeep);
+acUnit(tealB, 0.2, 3.7, -0.4);
+piece(tealB);
+
+// ---------- the coffee shop (corner, facing camera) ----------
+const shop = group(world, 2.15, SW, 1.75);
+block(shop, 2.3, 1.6, 2.3, C.teal, 0, 0, 0, { r: 0.1 });
+block(shop, 2.42, 0.14, 2.42, C.white, 0, 1.58, 0, { r: 0.05 });
+// front (+z): door + panes
+block(shop, 0.46, 0.95, 0.08, C.blueDeep, -0.25, 0.02, 1.15, { r: 0.03 });
+block(shop, 0.45, 0.85, 0.08, C.glass, -0.83, 0.15, 1.15, { r: 0.03, glow: 0.25 });
+block(shop, 0.9, 0.85, 0.08, C.glass, 0.55, 0.15, 1.15, { r: 0.03, glow: 0.25 });
+// side (+x): long pane
+block(shop, 0.08, 0.85, 1.7, C.glass, 1.15, 0.15, 0, { r: 0.03, glow: 0.25 });
+// striped awnings
+for (let i = 0; i < 8; i++) {
+  const col = i % 2 ? C.white : C.orange, o = -1.0 + i * 0.2857;
+  block(shop, 0.29, 0.07, 0.62, col, o, 1.18, 1.15, { rx: 0.28, r: 0.02 });
+  block(shop, 0.62, 0.07, 0.29, col, 1.15, 1.18, o, { rz: -0.28, r: 0.02 });
+}
+// rooftop cup sign + steam
+block(shop, 1.0, 0.08, 1.0, C.white, 0.2, 1.72, 0.2, { r: 0.035 });
+block(shop, 0.68, 0.66, 0.68, C.orange, 0.2, 1.8, 0.2, { r: 0.28 });
+block(shop, 0.14, 0.34, 0.12, C.orange, 0.62, 1.95, 0.2, { r: 0.05 });
+block(shop, 0.5, 0.05, 0.5, C.dark, 0.2, 2.44, 0.2, { r: 0.02, shadow: false });
+const steam = [];
+for (let i = 0; i < 3; i++) steam.push(block(shop, 0.18, 0.18, 0.18, C.white, 0.2, 2.5, 0.2, { r: 0.08, shadow: false }));
+piece(shop, 0.12);
+
+// sidewalk tables on the +x side, sandwich board by the door
+for (const z of [0.95, 2.35]) {
+  const t = group(world, 3.72, SW, z);
+  block(t, 0.06, 0.42, 0.06, C.dark, 0, 0, 0, { r: 0.02 });
+  block(t, 0.42, 0.05, 0.42, C.white, 0, 0.42, 0, { r: 0.02 });
+  block(t, 0.04, 0.85, 0.04, C.dark, 0, 0.47, 0, { r: 0.015 });
+  block(t, 0.7, 0.1, 0.7, C.tealDeep, 0, 1.25, 0, { r: 0.05 });
+  block(t, 0.18, 0.24, 0.18, C.blue, 0, 0, 0.38, { r: 0.05 });
+  block(t, 0.18, 0.24, 0.18, C.blue, 0, 0, -0.38, { r: 0.05 });
+  piece(t);
+}
+const board = group(world, 2.95, SW, 3.25);
+block(board, 0.32, 0.42, 0.1, C.dark, 0, 0, 0, { r: 0.03, rx: -0.12 });
+block(board, 0.24, 0.07, 0.11, C.orange, 0, 0.3, 0.02, { r: 0.02 });
+piece(board);
+
+// ---------- trees, lamps, benches ----------
+const sways = [];
+function tree(x, y, z, s = 1) {
+  const g = group(world, x, y, z); g.scale.setScalar(s);
+  block(g, 0.14, 0.55, 0.14, C.trunk, 0, 0, 0, { r: 0.04 });
+  const crown = group(g, 0, 0.45, 0);
+  block(crown, 0.78, 0.62, 0.78, C.green, 0, 0, 0, { r: 0.26 });
+  block(crown, 0.5, 0.42, 0.5, C.greenDeep, 0.05, 0.5, -0.04, { r: 0.18 });
+  sways.push({ crown, ph: rnd() * TAU });
+  return piece(g);
+}
+function lamp(x, z, ang) {
+  const g = group(world, x, 0, z); g.rotation.y = ang;
+  block(g, 0.18, 0.08, 0.18, C.dark, 0, 0, 0, { r: 0.03 });
+  block(g, 0.07, 1.45, 0.07, C.dark, 0, 0.05, 0, { r: 0.03 });
+  block(g, 0.06, 0.06, 0.42, C.dark, 0, 1.45, 0.18, { r: 0.02 });
+  block(g, 0.18, 0.08, 0.22, C.white, 0, 1.38, 0.34, { r: 0.03, glow: 0.6 });
+  return piece(g);
+}
+function bench(x, z, ang) {
+  const g = group(world, x, 0, z); g.rotation.y = ang;
+  block(g, 0.9, 0.08, 0.3, C.blue, 0, 0.22, 0, { r: 0.03 });
+  block(g, 0.9, 0.24, 0.06, C.blue, 0, 0.3, -0.13, { r: 0.03 });
+  block(g, 0.07, 0.22, 0.26, C.dark, -0.36, 0, 0, { r: 0.02 });
+  block(g, 0.07, 0.22, 0.26, C.dark, 0.36, 0, 0, { r: 0.02 });
+  return piece(g);
+}
+// four sides of the outer sidewalk: [unit normal, tangent]
+const sides = [[[1, 0], [0, 1]], [[-1, 0], [0, -1]], [[0, 1], [-1, 0]], [[0, -1], [1, 0]]];
+for (const [[nx, nz], [tx, tz]] of sides) {
+  for (const a of [-2.8, 1.6]) lamp(nx * 6.62 + tx * a, nz * 6.62 + tz * a, Math.atan2(-nx, -nz));
+  for (const a of [-0.6, 3.3]) tree(nx * 7.72 + tx * a, 0, nz * 7.72 + tz * a, 0.9 + rnd() * 0.2);
+}
+for (const [sx, sz] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) {
+  tree(sx * 6.75, 0, sz * 6.75, 1.15);
+  bench(sx * 7.45 - sx * 0.2, sz * 6.1, Math.atan2(-sx, 0));
+}
+tree(0.15, SW, -2.4, 1.0); tree(0.05, SW, -0.5, 0.85); tree(-0.35, SW, 1.6, 0.8);
+bench(0.2, -1.45, Math.PI / 2);
+
+// ---------- people ----------
+const SHIRTS = [C.blue, C.teal, C.green, C.white, C.blueDeep, C.tealDeep];
+const walkers = [];
+function person(shirt, hair = C.dark) {
+  const outer = group(world, 0, SW, 0);
+  const inner = group(outer);
+  const legL = block(inner, 0.09, 0.3, 0.12, C.dark, -0.06, 0, 0, { r: 0.03 });
+  const legR = block(inner, 0.09, 0.3, 0.12, C.dark, 0.06, 0, 0, { r: 0.03 });
+  block(inner, 0.28, 0.34, 0.17, shirt, 0, 0.28, 0, { r: 0.07 });
+  block(inner, 0.18, 0.19, 0.18, C.skin, 0, 0.62, 0, { r: 0.07 });
+  block(inner, 0.2, 0.07, 0.2, hair, 0, 0.77, -0.01, { r: 0.03 });
+  outer.scale.setScalar(0.62);
+  piece(inner);
+  return { outer, legL, legR };
+}
+function stride(p, moving, t, ph = 0) {
+  const a = moving ? Math.sin(t * TAU * 2.5 + ph) * 0.5 : 0;
+  p.legL.rotation.x = a; p.legR.rotation.x = -a;
+}
+
+// queue: 5 customers step forward every 2 s; the front one goes in, a new one walks up
+const Q = [[-1.5, 3.62], [-0.55, 3.62], [0.3, 3.62], [1.12, 3.56], [1.9, 3.28], [1.9, 2.72]];
+const queue = Array.from({ length: 5 }, (_, i) => person(SHIRTS[i]));
+
+// outer-sidewalk strollers (back and forth, period LOOP)
+const strollers = [
+  { p: person(C.green), a: [-3.4, 7.15], b: [3.6, 7.15], ph: 0 },
+  { p: person(C.blue, C.trunk), a: [7.15, 3.4], b: [7.15, -3.4], ph: 0.35 },
+  { p: person(C.white), a: [3.2, -7.15], b: [-3.6, -7.15], ph: 0.6 },
+  { p: person(C.tealDeep, C.trunk), a: [-7.15, -3.0], b: [-7.15, 2.6], ph: 0.15 },
+];
+
+// ---------- cars and scooters ----------
+const outerLane = makeLoop(5.7, 2.2), innerLane = makeLoop(4.7, 1.2);
+function car(color, van = false) {
+  const outer = group(world, 0, 0.03, 0);
+  const inner = group(outer);
+  const L = van ? 1.7 : 1.55;
+  block(inner, 0.84, 0.34, L, color, 0, 0.1, 0, { r: 0.13 });
+  if (van) block(inner, 0.8, 0.42, 1.15, color, 0, 0.4, -0.2, { r: 0.12 });
+  else {
+    block(inner, 0.72, 0.28, 0.82, C.glass, 0, 0.4, -0.12, { r: 0.11, glow: 0.1 });
+    block(inner, 0.74, 0.07, 0.62, color, 0, 0.66, -0.12, { r: 0.03 });
+  }
+  for (const [x, z] of [[0.42, 0.48], [-0.42, 0.48], [0.42, -0.5], [-0.42, -0.5]]) block(inner, 0.14, 0.26, 0.26, C.dark, x, 0, z, { r: 0.1 });
+  block(inner, 0.16, 0.08, 0.05, C.white, 0.26, 0.28, L / 2, { r: 0.02, glow: 0.8, shadow: false });
+  block(inner, 0.16, 0.08, 0.05, C.white, -0.26, 0.28, L / 2, { r: 0.02, glow: 0.8, shadow: false });
+  piece(inner);
+  return outer;
+}
+const cars = [[car(C.blue), 0.06], [car(C.white, true), 0.31], [car(C.green), 0.56], [car(C.teal), 0.81]];
+
+function scooter() {
+  const outer = group(world, 0, 0.03, 0);
+  const inner = group(outer);
+  block(inner, 0.1, 0.18, 0.18, C.dark, 0, 0, 0.3, { r: 0.07 });
+  block(inner, 0.1, 0.18, 0.18, C.dark, 0, 0, -0.3, { r: 0.07 });
+  block(inner, 0.22, 0.18, 0.62, C.white, 0, 0.1, 0, { r: 0.07 });
+  block(inner, 0.07, 0.38, 0.07, C.dark, 0, 0.2, 0.3, { r: 0.03 });
+  block(inner, 0.36, 0.05, 0.05, C.dark, 0, 0.56, 0.3, { r: 0.02 });
+  block(inner, 0.36, 0.32, 0.34, C.orange, 0, 0.3, -0.3, { r: 0.06 });
+  // rider
+  block(inner, 0.24, 0.3, 0.16, C.blue, 0, 0.32, -0.02, { r: 0.07, rx: 0.2 });
+  block(inner, 0.08, 0.08, 0.3, C.dark, -0.07, 0.3, 0.08, { r: 0.03 });
+  block(inner, 0.08, 0.08, 0.3, C.dark, 0.07, 0.3, 0.08, { r: 0.03 });
+  block(inner, 0.2, 0.2, 0.22, C.blueDeep, 0, 0.62, 0.02, { r: 0.09 });
+  piece(inner);
+  return outer;
+}
+const scooters = [
+  { o: scooter(), u0: innerLane.uOf(4.7, 1.45), t0: 2.4, t1: 8.3 },
+  { o: scooter(), u0: innerLane.uOf(4.7, 2.45), t0: 3.4, t1: 9.15 },
+];
+
+// ---------- post-processing ----------
+const rt = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 });
+const composer = new EffectComposer(renderer, rt);
+composer.addPass(new RenderPass(scene, camera));
+const gtao = new GTAOPass(scene, camera, 1, 1);
+gtao.updateGtaoMaterial({ radius: 0.7, distanceExponent: 1.4, thickness: 1.2, scale: 1.1, samples: 16 });
+gtao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 });
+gtao.blendIntensity = 0.9;
+composer.addPass(gtao);
+composer.addPass(new OutputPass());
+
+function layout() {
+  const W = innerWidth, H = innerHeight;
+  const w = Math.min(W, H * 9 / 16), h = w * 16 / 9;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  const pr = Math.min(devicePixelRatio, 2);
+  renderer.setPixelRatio(pr); composer.setPixelRatio(pr);
+  renderer.setSize(w, h, false); composer.setSize(w, h);
+  camera.aspect = 9 / 16; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+// ---------- animation ----------
+const target = new THREE.Vector3(0.6, 4.2, 0.6);
+const hHalf = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect;
+const baseDist = 11.6 / hHalf;
+const tmp = new THREE.Vector3();
+
+function update(t) {
+  // camera: eased orbit + gentle push-in, both back where they started at t = LOOP
+  const w = (1 - Math.cos(TAU * t / LOOP)) / 2;
+  const az = Math.PI / 4 + 0.32 * Math.sin(TAU * t / LOOP);
+  const el = THREE.MathUtils.degToRad(33 + 3 * w);
+  const dist = baseDist * (1 - 0.1 * w);
+  camera.position.set(target.x + dist * Math.cos(el) * Math.sin(az), target.y + dist * Math.sin(el), target.z + dist * Math.cos(el) * Math.cos(az));
+  camera.lookAt(target);
+
+  // build in / drop out
+  for (const p of pieces) {
+    const k = clamp((t - p.delay) / 0.45);
+    const out = clamp((t - (LOOP - 0.62 + p.delay * 0.4)) / 0.32);
+    const s = backOut(k) * (1 - easeIn(out));
+    p.obj.scale.setScalar(Math.max(1e-4, p.s * s));
+    p.obj.position.y = p.y - (1 - easeOut(k)) * 1.4 - easeIn(out) * 0.6;
+  }
+
+  for (const f of fans) f.rotation.y = TAU * 6 * t / LOOP;
+  for (const s of sways) s.crown.rotation.z = 0.035 * Math.sin(TAU * 3 * t / LOOP + s.ph);
+  steam.forEach((m, i) => {
+    const k = ((t / 2 + i / 3) % 1);
+    m.position.set(0.2 + Math.sin(k * 5 + i) * 0.08, 2.5 + k * 0.9, 0.2);
+    m.scale.setScalar(Math.max(1e-4, Math.sin(k * Math.PI) * 1.1));
+  });
+
+  // queue
+  const tau = t / 2, step = Math.floor(tau) + easeInOut(clamp((tau % 1) / 0.45));
+  const moving = (tau % 1) < 0.45;
+  queue.forEach((p, i) => {
+    const q = (i + step) % 5, seg = Math.floor(q), k = q - seg;
+    const [x0, z0] = Q[seg], [x1, z1] = Q[seg + 1];
+    p.outer.position.set(x0 + (x1 - x0) * k, SW + (moving ? Math.abs(Math.sin(k * Math.PI * 3)) * 0.03 : 0), z0 + (z1 - z0) * k);
+    p.outer.rotation.y = Math.atan2(x1 - x0, z1 - z0);
+    const vis = q < 0.5 ? q / 0.5 : q > 4.4 ? (5 - q) / 0.6 : 1;
+    p.outer.scale.setScalar(Math.max(1e-4, 0.62 * easeOut(clamp(vis))));
+    stride(p, moving, t, i);
+  });
+
+  // strollers walk end to end and back
+  for (const s of strollers) {
+    const ph = TAU * (t / LOOP + s.ph), k = (1 - Math.cos(ph)) / 2, dir = Math.sin(ph);
+    s.p.outer.position.set(s.a[0] + (s.b[0] - s.a[0]) * k, 0, s.a[1] + (s.b[1] - s.a[1]) * k);
+    const fwd = Math.atan2(s.b[0] - s.a[0], s.b[1] - s.a[1]);
+    s.p.outer.rotation.y = dir >= 0 ? fwd : fwd + Math.PI;
+    stride(s.p, Math.abs(dir) > 0.15, t, s.ph * 9);
+  }
+
+  // cars: one lap per loop
+  for (const [o, off] of cars) {
+    const p = outerLane.at(t / LOOP + off);
+    o.position.set(p.x, 0.03, p.z); o.rotation.y = p.ang;
+  }
+  // scooters: parked, ride one lap, park again
+  for (const s of scooters) {
+    const p = innerLane.at(s.u0 + easeInOut(clamp((t - s.t0) / (s.t1 - s.t0))));
+    s.o.position.set(p.x, 0.03, p.z); s.o.rotation.y = p.ang;
+  }
+}
+
+// ---------- live sales card ----------
+const els = { orders: document.getElementById('s-orders'), revenue: document.getElementById('s-revenue'), cups: document.getElementById('s-cups') };
+const sales = { orders: 1248, revenue: 5746.4, cups: 1912, next: 1.2 };
+const fmt = new Intl.NumberFormat('en-US');
+function flash(el, text) { el.textContent = text; el.classList.add('tick'); requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove('tick'))); }
+function tickSales(elapsed) {
+  if (elapsed < sales.next) return;
+  sales.next = elapsed + 0.55 + rnd() * 1.1;
+  sales.orders += 1;
+  sales.revenue += 3.2 + rnd() * 6.4;
+  sales.cups += 1 + (rnd() < 0.4 ? 1 : 0);
+  flash(els.orders, fmt.format(sales.orders));
+  flash(els.revenue, '€' + fmt.format(Math.floor(sales.revenue)));
+  flash(els.cups, fmt.format(sales.cups));
+}
+
+const start = performance.now();
+function frame(now) {
+  const elapsed = Math.max(0, (now - start) / 1000);
+  update(elapsed % LOOP);
+  tickSales(elapsed);
+  composer.render();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
