@@ -20,6 +20,8 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
   `renderSoundtrack()` (OfflineAudioContext, returns a base64 16-bit WAV), exactly like the reference.
 - Render mode `?render=1`: no animation loop; expose `window.renderAt(t)`, `window.renderSoundtrack` and set
   `window.renderReady = true`. Subtitle/title/chapter fades must come from `T` in render mode (no CSS transitions).
+- End the story with a twist: a surprising but true fact that turns the story around (the owner likes this; e.g. the
+  insects video: giant insects really lived 300 million years ago, when the air held more oxygen).
 - Multiple locations and time steps, a clear focal point in every shot, eased camera moves, a big environmental change
   that builds over the whole video, and a strong final wide shot.
 - Keep it smooth on desktop and mobile: instanced meshes for repeated objects, few shadow casters, merged static geometry.
