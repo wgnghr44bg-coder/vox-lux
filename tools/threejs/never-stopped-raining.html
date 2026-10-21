@@ -139,7 +139,7 @@ const SCENES = [
 ];
 const ENV_END = { rain: 0.85, wind: [4, 1.5], water: 9.0, fog: 0.007, dark: 0.85, lights: 0, wet: 1 };
 const POWER = { flickerStart: 38.2, off: 39.6 };
-const CUT = { openStart: 42.6, openEnd: 44.2, close: 50, at: -3.8 };
+const CUT = { open: 42.5, close: 50, at: -3.8 };   // the ground is cut open for exactly this shot (no sweep through the camera)
 const LIGHTNING = [26.8, 31.9, 37.2, 39.0, 44.6, 53.5, 60.8, 69.2, 76.4];
 
 // ---------- helpers ----------
@@ -176,7 +176,9 @@ function power(T) {
 }
 function lightning(T) {
   let f = 0;
-  for (const t0 of LIGHTNING) { const d = T - t0; if (d >= 0 && d < 0.6) f = Math.max(f, Math.exp(-d * 14) + 0.7 * Math.exp(-Math.abs(d - 0.18) * 30)); }
+  // soft rise and decay with a second, weaker flicker: reads as lightning, not as a broken frame
+  const pulse = d => d > 0 ? (1 - Math.exp(-d * 30)) * Math.exp(-d * 7) : 0;
+  for (const t0 of LIGHTNING) { const d = T - t0; if (d >= 0 && d < 0.9) f = Math.max(f, pulse(d) + 0.55 * pulse(d - 0.22)); }
   return f;
 }
 
@@ -761,12 +763,12 @@ function update(T) {
   const env = envAt(T), W = env.water, P = power(T), flash = lightning(T);
 
   // sky, fog, light
-  scene.background.copy(SKY_LIGHT).lerp(SKY_DARK, env.dark).lerp(c4.set(0xdfe8ff), flash * 0.5);
+  scene.background.copy(SKY_LIGHT).lerp(SKY_DARK, env.dark).lerp(c4.set(0xdfe8ff), flash * 0.35);
   scene.fog.color.copy(scene.background); scene.fog.density = env.fog;
-  hemi.intensity = lerp(1.15, 0.5, env.dark) + flash * 2.2;
-  sun.intensity = lerp(1.25, 0.35, env.dark) + flash * 1.5;
+  hemi.intensity = lerp(1.15, 0.5, env.dark) + flash * 1.3;
+  sun.intensity = lerp(1.25, 0.35, env.dark) + flash * 0.9;
   renderer.toneMappingExposure = lerp(1.05, 1.25, env.dark);
-  cloudMat.color.set(0x8a95a1).lerp(c4.set(0x3a4552), env.dark).lerp(c4.set(0xc9d6ff), flash * 0.6);
+  cloudMat.color.set(0x8a95a1).lerp(c4.set(0x3a4552), env.dark).lerp(c4.set(0xc9d6ff), flash * 0.45);
 
   // surfaces get wet, gardens turn to mud
   roadMat.color.copy(DRY).lerp(WET, env.wet); roadMat.roughness = lerp(0.9, 0.16, env.wet); roadMat.envMapIntensity = lerp(0.2, 1.1, env.wet);
@@ -799,7 +801,7 @@ function update(T) {
 
   // puddles grow, then the flood swallows them
   PUDDLES.forEach(([x, z, r, d], i) => {
-    const s = r * smooth(1 + d * 6, 16 + d * 6, T) * (W > 0.0 ? 0 : 1);
+    const s = r * smooth(1 + d * 6, 16 + d * 6, T) * (1 - smooth(-0.3, 0.02, W));
     puddles.setMatrixAt(i, m4.compose(t4.set(x, Math.abs(z) < 4 ? 0.026 : 0.176, z), q4.identity(), s4.set(s, 1, s * 0.7)));
   });
   puddles.instanceMatrix.needsUpdate = true;
@@ -948,10 +950,7 @@ function waterWave(x, z, T) {
 }
 const CUT_STATE = { c: 1000 };
 const CAM_STATE = { target: V() };
-function cutAt(T) {
-  if (T < CUT.openStart || T >= CUT.close) return 1000;
-  return lerp(60, CUT.at, easeInOut(clamp((T - CUT.openStart) / (CUT.openEnd - CUT.openStart))));
-}
+function cutAt(T) { return T >= CUT.open && T < CUT.close ? CUT.at : 1000; }
 function placeCamera(T) {
   const s = shotAt(T);
   camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
