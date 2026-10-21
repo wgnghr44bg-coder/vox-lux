@@ -5,8 +5,12 @@ en <map>/cues.tsv (id, start, end, tekst: dezelfde tijden als de ondertitels in 
 Schrijft <map>/voice-placed.mp3: elke cue begint op zijn ondertitel-start (+ --offset).
 Past een zin niet in zijn tijdvak, dan wordt hij iets versneld (max --max-tempo) en volgt een waarschuwing.
 
+Met --video wordt de stem ook meteen onder een MP4 gemixt (geluidseffecten zakken iets weg als de stem praat):
+  -> <video>-voice.mp4
+
 Gebruik (vanuit de map vox-lux, alleen standaard-Python + ffmpeg nodig):
   python tools/threejs/place_voice.py tools/threejs/never-stopped-raining
+  python tools/threejs/place_voice.py tools/threejs/never-stopped-raining --video never-stopped-raining.mp4
 """
 import argparse, os, subprocess, sys
 
@@ -15,6 +19,8 @@ ap.add_argument("map")
 ap.add_argument("--offset", type=float, default=0.15, help="seconden na de ondertitel-start")
 ap.add_argument("--max-tempo", type=float, default=1.15)
 ap.add_argument("--length", type=float, default=None, help="totale lengte (standaard: einde laatste cue + 1 s)")
+ap.add_argument("--video", default=None, help="MP4 met geluidseffecten; maakt <video>-voice.mp4")
+ap.add_argument("--voice-gain", type=float, default=1.6)
 a = ap.parse_args()
 
 def rows(path):
@@ -48,11 +54,21 @@ for i, (cue, gs, ge) in enumerate(groups):
     print(f"{cue}  {c0:6.2f}s  {dur:4.1f}s{'' if tempo == 1 else f'  x{tempo:.2f}'}  {text[:60]}")
 
 length = a.length or max(c[1] for c in cues.values()) + 1
-filters.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0:duration=longest,apad=whole_dur={length:.2f}[out]")
+# a silent bed of the full length comes first, so the mix always lasts the whole video
+filters.append(f"[1:a]{''.join(labels)}amix=inputs={len(labels) + 1}:normalize=0:duration=first[out]")
 out = os.path.join(a.map, "voice-placed.mp3")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", os.path.join(a.map, "voice.mp3"),
-                "-filter_complex", ";".join(filters), "-map", "[out]", "-t", f"{length:.2f}", "-b:a", "192k", out], check=True)
+                "-f", "lavfi", "-t", f"{length:.2f}", "-i", "anullsrc=r=44100:cl=mono",
+                "-filter_complex", ";".join(filters), "-map", "[out]", "-b:a", "192k", out], check=True)
 print(f"\nKlaar: {out}")
+if a.video:
+    vout = os.path.splitext(a.video)[0] + "-voice.mp4"
+    mix = (f"[1:a]volume={a.voice_gain},asplit=2[v][key];"
+           "[0:a][key]sidechaincompress=threshold=0.03:ratio=5:attack=30:release=500[duck];"
+           "[duck][v]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.95[a]")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", out, "-filter_complex", mix,
+                    "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", vout], check=True)
+    print(f"Video met stem: {vout}")
 if problems:
     print("Let op, deze zinnen passen niet helemaal (de volgende zin begint eroverheen):")
     for p in problems:
