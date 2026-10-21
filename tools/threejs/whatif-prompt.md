@@ -11,7 +11,7 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
 - Vertical 9:16 stage (1080x1920 composition), 60–90 seconds, deterministic: everything is a function of the time `T`.
 - `const SCENES = [...]` at the top. Every scene has `id`, `when`, `what`, `start`, `end`, `env` (story values that blend
   toward the next scene), `shots` (camera keys `[time, [pos], [target], fov, up?]` or a `follow` shot) and
-  `subtitles: [[start, end, 'text'], ...]`. Subtitles are short, dramatic and scientifically sensible, in English,
+  `subtitles: [[start, end, 'text'], ...]`. Subtitles are short and dramatic, in English,
   and each one describes what is on screen at that moment.
 - A title card at the start, a chapter label per scene, bold white subtitles with a dark outline in the lower middle.
 - Preview controls: play/pause, replay, timeline scrubber, a **Sound** button and a **Voice** button (load an audio file).
@@ -20,8 +20,37 @@ features, so the existing tools (`make_cues.py`, `export_mp4.mjs`, `place_voice.
   `renderSoundtrack()` (OfflineAudioContext, returns a base64 16-bit WAV), exactly like the reference.
 - Render mode `?render=1`: no animation loop; expose `window.renderAt(t)`, `window.renderSoundtrack` and set
   `window.renderReady = true`. Subtitle/title/chapter fades must come from `T` in render mode (no CSS transitions).
+- End the story with a twist: a surprising but true fact that turns the story around (the owner likes this; e.g. the
+  insects video: giant insects really lived 300 million years ago, when the air held more oxygen). The narration
+  always announces it with its own line "Here's the twist:" (give it enough time) and then tells it.
 - Multiple locations and time steps, a clear focal point in every shot, eased camera moves, a big environmental change
   that builds over the whole video, and a strong final wide shot.
 - Keep it smooth on desktop and mobile: instanced meshes for repeated objects, few shadow casters, merged static geometry.
+
+Make it gripping, not a lecture (owner on the insects video, 21 Oct 2026: "niet spannend, er gebeurt niks, het laat
+niet zien wat voor impact het heeft"):
+- Entertainment first, not a science lesson: fantasy and exaggeration are fine. Use a real fact only where it adds
+  punch (the twist is the main place for one).
+- Keep viewers watching: hook in the first 2 seconds, then a varied chain of different events (never the same kind of
+  shot twice in a row), each one a small surprise, with a reason to wait for the next ("But that was only the start…").
+- Every scene SHOWS a consequence happening on screen: things break, crash, collapse, flood, get eaten, people run.
+  Facts are told while the viewer watches the damage, never instead of it.
+- Escalate: each chapter is bigger and more dangerous than the last; the viewer's own house, street and city are at stake.
+- Action beats every few seconds: impacts with a short camera shake, debris, dust, sudden movement, close calls.
+- Short, punchy subtitles that raise the stakes ("Your car is next.") and a sound bed that builds tension
+  (impact hits, rumbles, rising drone), still kept under the voice.
+
+Lessons from earlier videos (the owner noticed every one of these, so they are requirements):
+- Vehicles and animals face the way they move: check the model's long axis against the direction of travel.
+- Nothing appears, shrinks or vanishes while it is on screen. People, cars and props only leave or appear on a camera cut.
+- A cutaway opens on the shot change (the plane is already in place on the first frame), never as a sweep through the camera.
+- The camera never passes through or grazes buildings, wires, trees or creatures; check every shot's path, not only its end.
+- Flashes (lightning, explosions) rise and fall over a few frames; a one-frame jump to white looks like a glitch.
+- Ending: after the last subtitle, hold the final shot about 3 s while the picture fades to dark and the sound fades
+  to silence (`ENDING = { fade, sound }`, see never-stopped-raining.html). No title card at the end (the owner finds
+  it ugly). The last subtitle ends before the fade starts.
+- Subtitles must leave room for a calm voice: about 2.5 words per second, so a 10-word line needs at least 4 s.
+- Sound effects stay under the narration; `place_voice.py` lowers them (default `--sfx-gain 0.45`) and ducks them
+  while the voice speaks.
 
 Check that the page loads without errors in a browser before you finish. Do not change other files.
