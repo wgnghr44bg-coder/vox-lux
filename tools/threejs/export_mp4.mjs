@@ -7,6 +7,7 @@ import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const args = process.argv.slice(2);
 const opt = (name, def) => { const i = args.indexOf('--' + name); return i >= 0 ? args[i + 1] : def; };
@@ -20,7 +21,7 @@ const browser = await chromium.launch({ executablePath: exe, headless: !gpu, arg
 const page = await browser.newPage({ viewport: { width, height } });
 page.on('pageerror', e => console.error('page error:', e.message));
 if (three) await page.route('**/cdn.jsdelivr.net/npm/three@*/**', r => r.fulfill({ path: path.join(three, r.request().url().split(/three@[^/]+\//)[1]), contentType: 'application/javascript' }));
-await page.goto('file://' + path.resolve(page_) + '?render=1');
+await page.goto(pathToFileURL(path.resolve(page_)).href + '?render=1');
 await page.waitForFunction(() => window.renderReady === true, null, { timeout: 120000 });
 await page.evaluate(() => document.fonts.ready);
 const duration = +opt('to', await page.evaluate(() => +document.getElementById('scrub').max));
