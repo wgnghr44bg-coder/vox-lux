@@ -645,7 +645,7 @@ const mega = (() => {
   plain(S, 640, 0.01, 0.2, mat(0xd8b040, { rough: 0.5 }), -10, 0.0, 0, { shadow: false });
   plain(S, 100, 0.3, 120, mat(0x14161c, { rough: 0.6, metal: 0.3, env: 0.3 }), -345, -0.2, 0, { shadow: false });
   // buildings along the avenue (front faces at |z| = 14.5) and the skyline behind
-  const win = windowTex(30, 150, ['#ff4ad8', '#4ad8ff', '#ffd27a', '#8a6aff', '#ffffff'], 0.2, 3, '#0e1016');
+  const win = windowTex(40, 200, ['#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff', '#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff', '#ff4ad8', '#4ad8ff'], 0.18, 3, '#0e1016');   // mostly warm windows, a few neon
   const bMat = new THREE.MeshStandardMaterial({ map: win.map, emissiveMap: win.emis, emissive: new THREE.Color(0xffffff), emissiveIntensity: 0.5, roughness: 0.6, metalness: 0.3 });
   const B = [];
   for (const side of [-1, 1]) for (let x = -296; x < 330;) {
