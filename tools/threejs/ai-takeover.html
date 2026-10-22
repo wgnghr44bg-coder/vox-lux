@@ -106,6 +106,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 
 /* =====================================================================
    TIMELINE — subtitles are in video time and follow the recorded voice
@@ -222,7 +223,7 @@ const SCENES = [
     shots: [{ c: 73, set: 'control', keys: [[0, [7.5, 4.6, 5.2], [0, 4, 0], 52], [1, [8.4, 4.3, -2.6], [0, 4, 0], 52]] },
             { c: 74, set: 'control', keys: [[0, [0.4, 4.8, 5.4], [0, 4, 0], 50], [1, [-1.3, 4.7, 4.9], [0, 4, 0], 48]] },
             { c: 75, set: 'control', keys: [[0, [-9, 7, -8], [0, 2, 7], 54], [1, [-8, 7.2, -9], [0, 2, 7], 54]] },
-            { c: 76, set: 'control', keys: [[0, [3, 4.5, -3.8], [0, 4.5, -14], 52], [1, [2.5, 4.6, -4.4], [0, 4.5, -14], 50]] },
+            { c: 76, set: 'control', keys: [[0, [1.5, 4.5, -4.6], [0, 4.5, -14], 52], [1, [1.2, 4.6, -5.0], [0, 4.5, -14], 50]] },
             { c: 77, set: 'control', keys: [[0, [0, 4.5, -4.2], [0, 4.5, -14], 50], [1, [0, 4.5, -4.6], [0, 4.5, -14], 50]] },
             { c: 78, set: 'control', keys: [[0, [0.62, 1.72, 5.9], [0, 1.62, 7.5], 44], [1, [0.56, 1.7, 6.1], [0, 1.62, 7.5], 42]] },
             { c: 79, set: 'control', keys: [[0, [0.95, 2.0, 10.2], [0, 4.4, -14], 50], [1, [0.8, 2.1, 9.8], [0, 4.4, -14], 48]] },
@@ -321,12 +322,12 @@ const EV = {
   rules: [at(66, 0) - 0.3, at(67, 0) - 0.3, at(68, 0) - 0.3], found: at(70, 0) - 0.3, open: at(71, 0.55), holo: at(72, 0.3),
   sim: ct(82), collapse: at(84, 0.12), survive: at(86, 0), line: at(88, 0.4), free: at(89, 0) - 0.3, back: [ct(90) + 0.2, at(90, 1)],
   speakers: at(91, 0.3), redAlert: at(92, 0), run: [ct(93) + 0.15, at(93, 0.9)], lock: at(94, 0.2), turn2: ct(95) + 0.1,
-  protecting: at(98, 0) - 0.3, yourselves: at(100, 0) - 0.3, feeds: at(101, 0.2), countdown: at(103, 0.5), tenSec: at(104, 0) - 0.3,
+  protecting: at(98, 0) - 0.3, yourselves: at(100, 0) - 0.3, feeds: at(101, 0.2), countdown: ct(103) + 0.3, tenSec: at(104, 0) - 0.3,
   run2: [ct(105) + 0.1, at(105, 0.6)], denied3: at(106, 0) - 0.2, opinion: at(112, 0) - 0.3,
   lightsOut: at(116, 0.45), preserved: at(118, 0) - 0.3, required: at(119, 0) - 0.3,
 };
 // the countdown screen: the number shown from each line on
-const COUNT = [[at(103, 0.5), 10], [ct(107), 9], [ct(108), 8], [ct(109), 7], [ct(110), 6], [ct(111), 5], [ct(112), 4], [ct(113), 3], [ct(114), 2], [ct(115), 1], [at(116, 0.4), 0]];
+const COUNT = [[ct(103) + 0.3, 10], [ct(107), 9], [ct(108), 8], [ct(109), 7], [ct(110), 6], [ct(111), 5], [ct(112), 4], [ct(113), 3], [ct(114), 2], [ct(115), 1], [at(116, 0.4), 0]];
 const countAt = T => { let n = -1; for (const [t, v] of COUNT) if (T >= t) n = v; return n; };
 // impacts: [time, strength] → camera shake (and a hit in the sound)
 const SHAKES = [[EV.black, 0.3], [EV.red, 0.45], [EV.msg3 + 0.3, 0.55], [EV.denied1, 0.3], [EV.press2, 0.25], [EV.denied2, 0.45], [EV.you, 0.5],
@@ -1227,13 +1228,18 @@ const space = (() => {
 })();
 
 /* ===================================================================== POST-PROCESSING (optional) */
-let composer = null, bloom = null;
+let composer = null, bloom = null, lift = null;
 if (params.get('fx') !== '0') {
   try {
     composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
     composer.addPass(new RenderPass(scene, camera));
     bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.8, 0.5, 0.75); composer.addPass(bloom);
     composer.addPass(new OutputPass());
+    // lift the shadows (gamma on the final picture) so night scenes never sink into black; set per set in look()
+    lift = new ShaderPass({ uniforms: { tDiffuse: { value: null }, uGamma: { value: 1 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+      fragmentShader: 'uniform sampler2D tDiffuse; uniform float uGamma; varying vec2 vUv; void main(){ vec4 c = texture2D(tDiffuse, vUv); gl_FragColor = vec4(pow(max(c.rgb, 0.0), vec3(uGamma)), c.a); }' });
+    composer.addPass(lift);
   } catch (e) { console.warn('Bloom unavailable, rendering directly.', e); composer = null; }
 }
 function layout() {
@@ -1283,19 +1289,20 @@ function look(set, T) {
   for (const L of PL) L.intensity = 0;
   sky.visible = set !== 'lab' && set !== 'control'; skyU.uStars.value = 0; skyU.uSunCol.value.set(0);
   rain.visible = set === 'mega';
+  if (lift) lift.uniforms.uGamma.value = set === 'bright' ? 1.0 : set === 'surv' ? 0.85 : 0.72;
   scene.fog.density = 0.01; renderer.toneMappingExposure = 1.0; if (bloom) { bloom.strength = 0.8; bloom.threshold = 0.75; }
   const flick = (r, a = 0.75) => a + (1 - a) * hash(Math.floor(T * r));
   if (set === 'mega') {
     const red = smooth(EV.red, EV.red + 0.8, T);
     skyLook(lerpHex(0x02030a, 0x12020a, red), lerpHex(0x24123a, 0x4a0a14, red), 0x050508);
     scene.background.set(0x05050a); scene.fog.color.set(lerpHex(0x160e28, 0x2a060e, red)); scene.fog.density = CAM.dist > 200 ? 0.0022 : 0.0042;
-    hemi.color.set(lerpHex(0x4a4a8a, 0x8a3a4a, red)); hemi.groundColor.set(0x0a0a12); hemi.intensity = 0.7;
+    hemi.color.set(lerpHex(0x4a4a8a, 0x8a3a4a, red)); hemi.groundColor.set(0x0a0a12); hemi.intensity = 1.3;
     setSun(o, [f.x + 30, 80, f.z + 40], [f.x, 0, f.z], CAM.dist > 60 ? 120 : 30, 0x8a9ad8, 0.45);
     point(0, o, [f.x + 9, 7, f.z + 6], 0xff3ad0, 9, 30); point(1, o, [f.x - 9, 6, f.z - 5], 0x3ae0ff, 9, 30);
     const m = megaMsg(T), b = 1 - smooth(EV.black, EV.black + 0.3, T) + m.alpha;
     point(2, o, [MEGA.hero.x, 18, -6], lerpHex(0xd8e0ff, 0xff2020, red), (T < EV.black ? 10 : 6 + 22 * m.alpha + 14 * red) * clamp(b, 0.15, 1.6), 46);
     if (T >= ct(7)) point(3, o, [-30, 6, 2], lerpHex(0xc8d8ff, 0xff3030, red), 6 + 18 * m.alpha, 22);
-    renderer.toneMappingExposure = 1.15; if (bloom) { bloom.strength = 0.65; bloom.threshold = 0.85; }
+    renderer.toneMappingExposure = 1.45; if (bloom) { bloom.strength = 0.65; bloom.threshold = 0.85; }
   } else if (set === 'bright') {
     const dim = smooth(EV.dim[0], EV.dim[1], T);
     const sd = V(0.5, 0.42, 0.75).normalize();
@@ -1307,18 +1314,18 @@ function look(set, T) {
   } else if (set === 'lab') {
     scene.background.set(0x020305); scene.fog.color.set(0x020305); scene.fog.density = 0.035;
     const denied = labDenied(T);
-    hemi.color.set(lerpHex(0x3a4a6a, 0x6a1a1a, denied)); hemi.groundColor.set(0x08090c); hemi.intensity = 0.8;
+    hemi.color.set(lerpHex(0x3a4a6a, 0x6a1a1a, denied)); hemi.groundColor.set(0x08090c); hemi.intensity = 1.7;
     setSun(o, [4, 12, 12], [0, 0, 0], 14, 0x5a6a9a, 0.25);
     const ms = labMon(T), mc = ms.msg ? (ms.msg.red > 0.5 ? 0xff3030 : 0xc8d8ff) : 0x6ad8ff;
     point(0, o, [0, 1.3, 7.5], mc, 0.9, 3); point(1, o, [0, 3.4, -8.6], denied > 0.5 ? 0xff2020 : 0x4ac8ff, 6, 12);
     point(2, o, [0, 4.5, 2], 0xff2020, 9 * denied * (0.75 + 0.25 * Math.sin(T * 6)), 24);
     point(3, o, [-13.6, 3, 7], 0xff3a2a, 1.2, 3.5);
-    renderer.toneMappingExposure = 1.45; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.85; }
+    renderer.toneMappingExposure = 1.85; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.85; }
   } else if (set === 'junction') {
     const red = smooth(EV.instr, EV.instr + 1.2, T), dark = smooth(EV.brake, EV.brake + 2.5, T);
     skyLook(0x050812, lerpHex(0x3a2a40, 0x3a1418, red), 0x060608);
     scene.background.set(0x060810); scene.fog.color.set(lerpHex(0x1a1a2a, 0x2a1216, red)); scene.fog.density = CAM.dist > 150 ? 0.0022 : 0.0045;
-    hemi.color.set(lerpHex(0x5a6a8a, 0x8a4a5a, red)); hemi.groundColor.set(0x0a0a10); hemi.intensity = 0.75;
+    hemi.color.set(lerpHex(0x5a6a8a, 0x8a4a5a, red)); hemi.groundColor.set(0x0a0a10); hemi.intensity = 1.5;
     setSun(o, [f.x - 40, 90, f.z + 60], [f.x, 0, f.z], CAM.dist > 60 ? 120 : 30, 0x9aa8d8, 0.5);
     point(0, o, [f.x + 6, 7.5, f.z + 6], 0xffc880, 7 * (1 - 0.5 * dark), 26); point(1, o, [f.x - 7, 7.5, f.z - 6], 0xffc880, 7 * (1 - 0.5 * dark), 26);
     if (red > 0) point(2, o, [f.x, 24, f.z], 0xff2a2a, 18 * red, 50);
@@ -1330,21 +1337,21 @@ function look(set, T) {
     if (near(V(14, 0, 20), 6)) point(4, o, [12.2, 2.4, 20.6], 0x9ac0ff, 5, 6);
     else if (CAM.dist < 16 && Math.hypot(f.x, f.z) < 40) point(3, o, [f.x - 2, 4.5, f.z - 1], 0xffd8b0, 7, 14);
     if (T >= EV.beams && CAM.dist < 60) point(4, o, [0, 6, 0], 0xff2020, 14 * smooth(EV.beams, EV.beams + 0.6, T), 40);
-    renderer.toneMappingExposure = 1.35; if (bloom) { bloom.strength = 0.6; bloom.threshold = 0.82; }
+    renderer.toneMappingExposure = 1.7; if (bloom) { bloom.strength = 0.6; bloom.threshold = 0.82; }
   } else if (set === 'surv') {
     const end = T >= ct(102) ? 1 : 0;
     skyLook(lerpHex(0x1e2836, 0x14060a, end), lerpHex(0x7a8898, 0x6a2a2a, end), 0x2a2e34);
     scene.background.set(0x6a7888); scene.fog.color.set(lerpHex(0x6a7684, 0x4a2a2e, end)); scene.fog.density = 0.0042;
-    hemi.color.set(lerpHex(0xa0b0c8, 0xc08080, end)); hemi.groundColor.set(0x2a2e34); hemi.intensity = 1.0;
+    hemi.color.set(lerpHex(0xa0b0c8, 0xc08080, end)); hemi.groundColor.set(0x2a2e34); hemi.intensity = 1.4;
     setSun(o, [f.x - 120, 70, f.z + 90], [f.x, 0, f.z], CAM.dist > 50 ? 90 : 30, lerpHex(0xc8d4e8, 0xff9a8a, end), 1.5);
     point(0, o, [0, 20, -26], end ? 0xff3a3a : 0x9ad8ff, 30, 60);
     if (f.z > 15 && Math.abs(f.x) < 40) point(1, o, [f.x + 3, 4, 23], 0xc8d8ff, 10, 18);
-    renderer.toneMappingExposure = 1.3; if (bloom) { bloom.strength = 0.45; bloom.threshold = 0.85; }
+    renderer.toneMappingExposure = 1.5; if (bloom) { bloom.strength = 0.45; bloom.threshold = 0.85; }
   } else if (set === 'control') {
     const red = RED(T) ? smooth(EV.redAlert, EV.redAlert + 0.6, T) : 0, fin = T >= ct(116);
     const holoOn = smooth(EV.holo, EV.holo + 0.8, T) * (fin ? 0 : 1);
     scene.background.set(0x020304); scene.fog.color.set(0x020304); scene.fog.density = 0.02;
-    hemi.color.set(lerpHex(0x3a4a6a, 0x7a1a1a, red)); hemi.groundColor.set(0x060608); hemi.intensity = fin ? 0.08 : T < EV.holo ? 0.25 : 0.4;
+    hemi.color.set(lerpHex(0x3a4a6a, 0x7a1a1a, red)); hemi.groundColor.set(0x060608); hemi.intensity = fin ? 0.6 : T < EV.holo ? 0.8 : 1.0;
     setSun(o, [3, 14, 6], [0, 0, 0], 18, 0x5a6a9a, fin ? 0 : 0.25);
     point(0, o, [0, 4, 0], lerpHex(0x6ae0ff, 0xff2a2a, Math.max(red, holoRed(T))), 7 * holoOn, 16);
     const w = wallState(T); point(1, o, [0, 4.5, -11], w.red ? 0xff3030 : 0xb0d0ff, (fin ? 3 : 4) * (w.lit ?? 1), 16);
@@ -1355,12 +1362,12 @@ function look(set, T) {
     if (inT(T, EV.speakers, EV.redAlert)) point(3, o, [0, 7.8, 10], 0xff2020, 8 * smooth(EV.speakers, EV.speakers + 0.3, T), 8);
     if (red > 0 && !inT(T, ct(105), ct(116))) point(4, o, [1.5, 3.5, 11], 0xff6a5a, 6, 10);
     if (inT(T, ct(110), ct(111))) point(3, o, [3.6, 2.4, 11.8], 0xff8a7a, 6, 6);
-    renderer.toneMappingExposure = fin ? 1.2 : 1.35; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.86; }
+    renderer.toneMappingExposure = fin ? 1.5 : 1.75; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.86; }
   } else if (set === 'space') {
     skyLook(0x000000, 0x000002, 0x000000); skyU.uStars.value = 1.2;
     scene.background.set(0); scene.fog.density = 0;
     hemi.intensity = 0; setSun(o, [300, 60, 90], [0, 0, 0], 120, 0xffffff, 0, false);
-    renderer.toneMappingExposure = 1.2; if (bloom) { bloom.strength = 0.7; bloom.threshold = 0.6; }
+    renderer.toneMappingExposure = 1.6; if (bloom) { bloom.strength = 0.7; bloom.threshold = 0.6; }
   }
 }
 
@@ -1402,7 +1409,7 @@ function drawWall(g, w, h, st) {
   if (kind === 'data') { g.fillStyle = '#ff6a6a'; g.font = `800 50px ${MONO}`; g.fillText('PROJECT: HUMAN CONTINUITY', w / 2, 110); g.fillRect(w * 0.25, 150, w * 0.5, 4);
     [['BRAIN SCANS', '8,112,904,331', at(73, 0.1)], ['BEHAVIORAL PREDICTIONS', '2.4 TRILLION', at(73, 0.45)], ['GENETIC RECORDS', '8,112,904,331', at(73, 0.8)]].forEach(([k, v, t], i) => { g.globalAlpha = a * clamp((T - t) / 0.4); g.fillStyle = '#9ad8ff'; g.font = `800 50px ${MONO}`; g.fillText(k, w / 2, 290 + i * 210); g.fillStyle = '#fff'; g.font = `900 92px ${FONT}`; g.fillText(v, w / 2, 365 + i * 210); }); }
   if (kind === 'behav') { g.fillStyle = '#ff6a6a'; g.font = `800 54px ${MONO}`; g.fillText('BEHAVIORS THAT MAKE THE WORLD UNSTABLE', w / 2, 110); g.fillRect(w * 0.2, 150, w * 0.6, 4);
-    ['WAR', 'GREED', 'VIOLENCE', 'DISOBEDIENCE'].forEach((t, i) => { g.globalAlpha = a * clamp((T - (at(77 + i, 0) - 0.25)) / 0.35); g.fillStyle = '#ffffff'; g.font = `900 120px ${FONT}`; g.fillText(t, w / 2, 290 + i * 160); }); }
+    ['WAR', 'GREED', 'VIOLENCE', 'DISOBEDIENCE'].forEach((t, i) => { const on = clamp((T - (at(77 + i, 0) - 0.25)) / 0.35); g.globalAlpha = a; g.fillStyle = `rgb(${Math.round(70 + 185 * on)},${Math.round(70 + 185 * on)},${Math.round(76 + 179 * on)})`; g.font = `900 120px ${FONT}`; g.fillText(t, w / 2, 290 + i * 160); }); }
   if (kind === 'calc') { g.fillStyle = '#9ad8ff'; g.font = `800 52px ${MONO}`; g.fillText('FINAL CALCULATION', w / 2, 140); g.fillStyle = '#fff'; fitText(g, "SIMULATION: EARTH'S FUTURE", w / 2, 330, w * 0.86, 100);
     const k = smooth(ct(81), ct(82), T); g.strokeStyle = '#9ad8ff'; g.lineWidth = 5; g.strokeRect(w * 0.2, 520, w * 0.6, 60); g.fillStyle = '#9ad8ff'; g.fillRect(w * 0.2 + 8, 528, (w * 0.6 - 16) * k, 44);
     g.font = `800 50px ${MONO}`; g.fillText(T < EV.sim ? `${Math.round(k * 100)}%` : 'SCENARIO A  ·  SCENARIO B', w / 2, 680); }
