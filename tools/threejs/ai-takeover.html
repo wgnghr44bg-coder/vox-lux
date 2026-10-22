@@ -645,7 +645,7 @@ const mega = (() => {
   plain(S, 640, 0.01, 0.2, mat(0xd8b040, { rough: 0.5 }), -10, 0.0, 0, { shadow: false });
   plain(S, 100, 0.3, 120, mat(0x14161c, { rough: 0.6, metal: 0.3, env: 0.3 }), -345, -0.2, 0, { shadow: false });
   // buildings along the avenue (front faces at |z| = 14.5) and the skyline behind
-  const win = windowTex(40, 200, ['#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff', '#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff', '#ff4ad8', '#4ad8ff'], 0.18, 3, '#0e1016');   // mostly warm windows, a few neon
+  const win = windowTex(40, 200, ['#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff', '#ffd27a', '#ffe2a8', '#fff2dc', '#ffc870', '#e8f0ff'], 0.18, 3, '#0e1016');   // ordinary warm and white windows
   const bMat = new THREE.MeshStandardMaterial({ map: win.map, emissiveMap: win.emis, emissive: new THREE.Color(0xffffff), emissiveIntensity: 0.5, roughness: 0.6, metalness: 0.3 });
   const B = [];
   for (const side of [-1, 1]) for (let x = -296; x < 330;) {
@@ -667,7 +667,7 @@ const mega = (() => {
   const NEON = [];
   for (let i = 0; i < 40; i++) { const side = i % 2 ? 1 : -1, x = -280 + i * 14.5 + hash(i) * 6; if (side < 0 && x > -58 && x < -2) continue; NEON.push({ x, z: side * 14.3, y: 8 + hash(i, 2) * 30, h: 6 + hash(i, 3) * 10, c: [0xff3ad0, 0x3ae0ff, 0xffb03a, 0x9a5aff][i % 4] }); }
   const neonM = new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false });
-  const neon = instanced(D, new THREE.BoxGeometry(0.7, 1, 0.25), neonM, NEON, n => ({ p: V(n.x, n.y, n.z), s: V(1, n.h, 1), c: n.c }));
+  const neon = instanced(D, new THREE.BoxGeometry(0.7, 1, 0.25), neonM, NEON, n => ({ p: V(n.x, n.y, n.z), s: V(1, n.h, 1), c: n.c })); neon.visible = false;   // an ordinary city: no neon strips
   // screens: ads first, then black, then the message (all share one message picture)
   const ADS = [
     canvasTex(800, 450, (g, w, h) => { const r = g.createLinearGradient(0, 0, w, h); r.addColorStop(0, '#5a10a0'); r.addColorStop(1, '#ff3ab0'); g.fillStyle = r; g.fillRect(0, 0, w, h); g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = `900 120px ${FONT}`; g.fillText('NEXA', w / 2, h * 0.52); g.font = `800 34px ${MONO}`; g.fillText('THINK FASTER', w / 2, h * 0.75); }),
@@ -701,7 +701,7 @@ const mega = (() => {
   const HOVER = []; for (let i = 0; i < 18; i++) { const dir = i % 2 ? 1 : -1; HOVER.push({ z: dir * 9.5, y: [34, 46, 64][i % 3], dir, v: 20 + (i % 3) * 3, x0: -320 + hash(i, 9) * 640 }); }
   const hoverB = instanced(D, hoverGeo, mat(0x20232a, { rough: 0.3, metal: 0.7, env: 0.8 }), HOVER, () => ({ p: V(0, -50, 0) }));
   const hoverG = instanced(D, hoverGlowGeo, new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false }), HOVER, (h, i) => ({ p: V(0, -50, 0), c: [0xff3ad0, 0x3ae0ff, 0xffb03a][i % 3] }));
-  hoverB.frustumCulled = hoverG.frustumCulled = false;
+  hoverB.frustumCulled = hoverG.frustumCulled = false; hoverB.visible = hoverG.visible = false;   // no flying cars
   // the crowd on both sidewalks; walkers keep to their band, so nobody overtakes
   const CROWD = []; for (let i = 0; i < 560; i++) { const north = i % 2 === 0, dir = (i >> 1) % 2 ? 1 : -1; const z = (north ? 1 : -1) * ((dir > 0) === north ? 10.7 + rnd() * 1.1 : 12.2 + rnd() * 1.1); CROWD.push({ x0: -300 + rnd() * 600, z, dir, v: 1.25 + 0.15 * ((i >> 1) % 2), c: PALETTE[i % PALETTE.length], umb: rnd() < 0.45 ? [0x1a1a1e, 0x8a1a2a, 0x2a3a6a, 0x3a3a3a, 0xc8c8c8][i % 5] : 0, ph: rnd() * TAU, stop: rnd() * 1.4 }); }
   const crowd = makeCrowd(D, CROWD);
@@ -1294,11 +1294,11 @@ function look(set, T) {
   const flick = (r, a = 0.75) => a + (1 - a) * hash(Math.floor(T * r));
   if (set === 'mega') {
     const red = smooth(EV.red, EV.red + 0.8, T);
-    skyLook(lerpHex(0x02030a, 0x12020a, red), lerpHex(0x24123a, 0x4a0a14, red), 0x050508);
-    scene.background.set(0x05050a); scene.fog.color.set(lerpHex(0x160e28, 0x2a060e, red)); scene.fog.density = CAM.dist > 200 ? 0.0022 : 0.0042;
-    hemi.color.set(lerpHex(0x4a4a8a, 0x8a3a4a, red)); hemi.groundColor.set(0x0a0a12); hemi.intensity = 1.3;
+    skyLook(lerpHex(0x03060e, 0x12020a, red), lerpHex(0x1c2434, 0x4a0a14, red), 0x050508);
+    scene.background.set(0x05050a); scene.fog.color.set(lerpHex(0x141a24, 0x2a060e, red)); scene.fog.density = CAM.dist > 200 ? 0.0022 : 0.0042;
+    hemi.color.set(lerpHex(0x6a7890, 0x8a3a4a, red)); hemi.groundColor.set(0x0a0a12); hemi.intensity = 1.3;
     setSun(o, [f.x + 30, 80, f.z + 40], [f.x, 0, f.z], CAM.dist > 60 ? 120 : 30, 0x8a9ad8, 0.45);
-    point(0, o, [f.x + 9, 7, f.z + 6], 0xff3ad0, 9, 30); point(1, o, [f.x - 9, 6, f.z - 5], 0x3ae0ff, 9, 30);
+    point(0, o, [f.x + 9, 7, f.z + 6], 0xffc880, 9, 30); point(1, o, [f.x - 9, 6, f.z - 5], 0xd8e4ff, 7, 30);
     const m = megaMsg(T), b = 1 - smooth(EV.black, EV.black + 0.3, T) + m.alpha;
     point(2, o, [MEGA.hero.x, 18, -6], lerpHex(0xd8e0ff, 0xff2020, red), (T < EV.black ? 10 : 6 + 22 * m.alpha + 14 * red) * clamp(b, 0.15, 1.6), 46);
     if (T >= ct(7)) point(3, o, [-30, 6, 2], lerpHex(0xc8d8ff, 0xff3030, red), 6 + 18 * m.alpha, 22);
