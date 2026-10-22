@@ -1,6 +1,7 @@
 // Renders a timeline page (?render=1) frame by frame to MP4, with its generated soundtrack.
 // Needs: node + playwright (npm i playwright), Chromium, ffmpeg on PATH.
 //   node tools/threejs/export_mp4.mjs tools/threejs/never-stopped-raining.html out.mp4 [--fps 30] [--width 1080] [--from 0] [--to 80] [--three node_modules/three]
+// Standing 9:16 by default (1080x1920). --landscape renders 16:9 (default 1920x1080); --height sets any other height.
 // --three serves three.js from a local copy instead of the CDN (for machines without internet access to jsdelivr).
 // --gpu uses the real graphics card (on a pc); without it Chromium renders in software (cloud machines).
 import { chromium } from 'playwright';
@@ -11,9 +12,10 @@ import { pathToFileURL } from 'node:url';
 
 const args = process.argv.slice(2);
 const opt = (name, def) => { const i = args.indexOf('--' + name); return i >= 0 ? args[i + 1] : def; };
-const flags = ['--gpu'];
+const flags = ['--gpu', '--landscape'];
 const [page_, out] = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1]?.startsWith('--') && !flags.includes(args[i - 1])));
-const fps = +opt('fps', 30), width = +opt('width', 1080), height = Math.round(width * 16 / 9);
+const landscape = args.includes('--landscape');
+const fps = +opt('fps', 30), width = +opt('width', landscape ? 1920 : 1080), height = +opt('height', Math.round(landscape ? width * 9 / 16 : width * 16 / 9));
 const three = opt('three', null), exe = opt('chromium', process.env.CHROMIUM_PATH);
 
 const gpu = args.includes('--gpu');
