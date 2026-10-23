@@ -1,0 +1,1403 @@
+<title>Death Is Gone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<style>
+  /* Layout: one 9:16 stage scaled to the window; title card on top, subtitles in the lower middle, preview controls at the bottom. */
+  :root {
+    --letterbox: #030405;
+    --sky: #0a0d12;
+    --ink: #ffffff;
+    --outline: #060708;
+    --hud: rgba(8, 10, 14, 0.72);
+    --accent: #b8362a;
+    --warm: #ffb46a;
+    --ui: "Archivo", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; font-family: var(--ui); }
+  #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.6) 100%); }
+  .flash { position: absolute; inset: 0; background: #fff6e8; opacity: 0; pointer-events: none; }
+  .fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+  .title {
+    position: absolute; left: 7cqw; right: 7cqw; top: 15%;
+    text-align: center; pointer-events: none; color: var(--ink);
+    font: 900 9.2cqw/1.02 var(--ui); letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance;
+    -webkit-text-stroke: 1.2cqw var(--outline); paint-order: stroke fill;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateY(2cqw);
+  }
+  .title small { display: block; margin-bottom: 2cqw; font: 800 3.6cqw/1 var(--ui); letter-spacing: 0.3em; color: var(--accent); -webkit-text-stroke: 0.8cqw var(--outline); }
+  .title.on { opacity: 1; transform: none; }
+
+  .chapter {
+    position: absolute; left: 6cqw; top: calc(6cqw + env(safe-area-inset-top, 0px));
+    pointer-events: none; color: var(--ink);
+    opacity: 0; transform: translateX(-3cqw); transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .chapter.on { opacity: 1; transform: none; }
+  .chapter b { display: block; font: 900 8.4cqw/1 var(--ui); letter-spacing: -0.01em; text-transform: uppercase; -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill; }
+  .chapter span { display: inline-block; margin-top: 1.6cqw; padding: 1cqw 2.4cqw; border-radius: 1cqw; background: rgba(10, 6, 6, 0.6); font: 800 3.3cqw/1 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+  .subs {
+    position: absolute; left: 6cqw; right: 6cqw; bottom: 25%;
+    text-align: center; pointer-events: none;
+    font: 900 6.4cqw/1.2 var(--ui); color: var(--ink); letter-spacing: -0.005em; text-wrap: balance;
+    -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill;
+    text-shadow: 0 0.8cqw 2.4cqw rgba(0, 0, 0, 0.6);
+    opacity: 0; transform: translateY(1.5cqw); transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .subs.on { opacity: 1; transform: none; }
+
+  .hud {
+    position: absolute; left: 3cqw; right: 3cqw; bottom: calc(3cqw + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 2.4cqw; padding: 2.2cqw 3cqw; border-radius: 99px;
+    background: var(--hud); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: #eee6e4; font: 800 clamp(11px, 3cqw, 16px)/1 var(--ui); transition: opacity 0.35s ease;
+  }
+  .hud.hide { opacity: 0; pointer-events: none; }
+  .hud button, .hud label {
+    flex: none; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px;
+    border: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.12); color: inherit; font: inherit; cursor: pointer;
+  }
+  .hud button:hover, .hud label:hover { background: rgba(255, 255, 255, 0.22); }
+  .hud button:focus-visible, .hud label:focus-within, .hud input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hud input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .hud .time { flex: none; font-variant-numeric: tabular-nums; min-width: 9ch; text-align: right; }
+  .hud input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .hud svg { width: 16px; height: 16px; fill: currentColor; }
+  .hud button[aria-pressed="true"] { background: var(--accent); color: #1a0806; }
+  @media (prefers-reduced-motion: reduce) { .title, .chapter, .subs { transition: none; } }
+  .render .title, .render .chapter, .render .subs { transition: none; }
+</style>
+
+<div id="stage">
+  <div class="vignette"></div>
+  <div class="flash" id="flash"></div>
+  <div class="fade" id="fade"></div>
+  <div class="title" id="title"><small>What if</small>Nobody could die?</div>
+  <div class="chapter" id="chapter"><b id="chapter-when">Day 1</b><span id="chapter-what">A man falls</span></div>
+  <div class="subs" id="subs" aria-live="polite"></div>
+  <div class="hud" id="hud">
+    <button id="play" type="button" aria-label="Pause"><svg viewBox="0 0 16 16" id="play-icon"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <button id="replay" type="button" aria-label="Replay from start"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.6 3.9l1.9.7A4 4 0 1 0 8 4v2.2L4.6 3.1 8 0z"/></svg></button>
+    <input id="scrub" type="range" min="0" max="112" step="0.01" value="0" aria-label="Timeline">
+    <span class="time" id="time">0:00.0</span>
+    <button id="sound" type="button" aria-pressed="false" title="Sound effects">Sound</button>
+    <label title="Add a narration audio file">Voice<input id="voice" type="file" accept="audio/*"></label>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+/* =====================================================================
+   TIMELINE — every scene has a mood value (tension, blends toward the next
+   scene), its camera shots and its subtitles. Every shot belongs to one
+   set (a location); only that set is drawn. Shot keys are in the set's
+   own coordinates: [time, position, target, fov, up?].
+   Subtitles are in video time (they follow the recorded voice). Everything
+   else is in story time; WARP maps video time -> story time so each shot
+   lasts as long as its line of narration.
+   ===================================================================== */
+const DURATION = 112;
+const ENDING = { cut: 112 };   // story time of the hard cut to black: picture and sound stop on the same frame
+const WARP = [[0, 0], [112, 112]];
+function storyAt(t) { for (let i = 1; i < WARP.length; i++) { const [r0, s0] = WARP[i - 1], [r1, s1] = WARP[i]; if (t <= r1) return s0 + (Math.max(t, r0) - r0) * (s1 - s0) / (r1 - r0); } return WARP[WARP.length - 1][1]; }
+const SCENES = [
+  { id: 'gone', when: 'Day 1', what: 'A man falls', start: 0, end: 23.5,
+    env: { tension: 0.25 },
+    shots: [
+      { start: 0, end: 3.2, set: 'street', keys: [[0, [-116, 291, 14.5], [-128, 293, -5.6], 46], [1.0, [-108, 205, 15], [-128, 232, -5.6], 52], [2.0, [-100, 100, 15.5], [-128, 122, -5.6], 54], [2.55, [-102, 8, 14], [-128, 3, -4.5], 56], [3.2, [-106, 2.2, 12.5], [-128, 2, -3.5], 58]] },
+      { start: 3.2, end: 7.6, set: 'street', keys: [[3.2, [-108, 1.7, 12.5], [-128, 1.0, -3.5], 48], [7.6, [-110, 1.6, 10.5], [-128, 1.0, -3.5], 46]] },
+      { start: 7.6, end: 13.2, set: 'street', keys: [[7.6, [-116, 1.85, 6.5], [-128, 1.1, -3.6], 40], [9.9, [-115.5, 2.0, 6.2], [-128, 1.5, -3.6], 38], [13.2, [-114, 2.3, 7.8], [-128, 1.7, -3.6], 44]] },
+      { start: 13.2, end: 19.6, set: 'hospital', keys: [[13.2, [8.4, 2.0, 7.4], [-1.6, 2.3, -5.8], 50], [19.6, [7.2, 2.1, 6.2], [-2.6, 2.1, -5.6], 46]] },
+      { start: 19.6, end: 23.5, set: 'hospital', keys: [[19.6, [-0.9, 1.5, 0.9], [-4.6, 0.95, 1.1], 42], [23.5, [-0.7, 1.6, 0.4], [-4.6, 0.95, 1.1], 40]] },
+    ],
+    subtitles: [[0, 3.2, 'Tomorrow, death disappears.'], [3.2, 7.6, 'Car crashes. Fatal diseases. Even old age.'], [7.6, 10.4, 'Nobody dies.'], [10.4, 13.2, 'At first, humanity celebrates.'], [13.2, 16.0, 'Then they discover the terrible truth.'], [16.0, 19.6, 'Nobody can die.'], [19.6, 23.5, 'But everyone can still suffer.']] },
+  { id: 'too-many', when: 'Years pass', what: 'Too many humans', start: 23.5, end: 44,
+    env: { tension: 0.45 },
+    shots: [
+      { start: 23.5, end: 30, set: 'future', keys: [[23.5, [-66, 5, 14], [64, 7, -7], 52], [30, [-52, 6.6, 11], [84, 8, -7], 50]] },
+      { start: 30, end: 32.75, set: 'market', keys: [[30, [24, 2.05, 0.6], [-12, 1.45, -0.9], 50], [32.75, [20, 2.1, 1.2], [-15, 1.4, -1.2], 46]] },
+      { start: 32.75, end: 35.2, set: 'future', keys: [[32.75, [-30, 24, 4], [60, 7, -7], 50], [35.2, [-12, 34, 2], [80, 6, -7], 50]] },
+      { start: 35.2, end: 40.2, set: 'future', keys: [[35.2, [48, 18, 3], [26, 25, -11], 48], [38.8, [46, 16, 2.4], [26, 24.5, -11], 50], [40.2, [44, 14, 2.4], [26, 24, -11], 50]] },
+      { start: 40.2, end: 44, set: 'future', keys: [[40.2, [-95, 120, 65], [75, 5, -25], 48], [44, [-70, 108, 52], [90, 5, -25], 50]] },
+    ],
+    subtitles: [[23.5, 25.6, 'Years pass.'], [25.6, 30, 'Nobody dies, but millions of babies are still born.'], [30, 35.2, 'Cities overflow. Food disappears. Fresh water becomes priceless.'], [35.2, 37.6, 'Governments promise solutions.'], [37.6, 40.2, 'But there is one problem nobody can solve.'], [40.2, 44, 'There is no room left.']] },
+  { id: 'prison', when: 'The collapse', what: 'Walls and graves', start: 44, end: 64,
+    env: { tension: 0.6 },
+    shots: [
+      { start: 44, end: 50, set: 'prison', keys: [[44, [-34, 2.5, 20], [2.5, 2.2, 2], 50], [47.4, [-30, 2.7, 16], [2.6, 3.2, 3.5], 48], [50, [-20, 3.2, 10], [4, 4, 2], 48]] },
+      { start: 50, end: 52.8, set: 'prison', keys: [[50, [-46, 3.2, -44], [-60, 4.5, -62], 50], [52.8, [-52, 3.4, -50], [-60.5, 2.4, -64], 46]] },
+      { start: 52.8, end: 56, set: 'space', keys: [[52.8, [128, 30, 118], [0, 6, 0], 42], [56, [140, 34, 130], [0, 6, 0], 40]] },
+      { start: 56, end: 60.8, set: 'prison', keys: [[56, [-14, 3.4, -46], [2, 6, -22], 48], [60.8, [-6, 2.6, -34], [2, 5, -10], 46]] },
+      { start: 60.8, end: 64, set: 'cemetery', keys: [[60.8, [30, 2.1, 26], [-12, 1.6, -16], 48], [64, [24, 2.4, 20], [-12, 1.6, -16], 44]] },
+    ],
+    subtitles: [[44, 46.6, 'Civilization begins to collapse.'], [46.6, 50, 'People fight for food. Nations fall.'], [50, 52.8, 'The last wild places disappear.'], [52.8, 56, 'Humanity has conquered death.'], [56, 60.8, 'But it has created a world where nobody can escape.'], [60.8, 64, 'Not even through death.']] },
+  { id: 'last-days', when: 'Year 5 billion', what: 'The Sun swells', start: 64, end: 82.8,
+    env: { tension: 0.8 },
+    shots: [
+      { start: 64, end: 70, set: 'space', keys: [[64, [150, -6, 128], [0, 4, 0], 44], [70, [128, -10, 108], [0, 4, 0], 44]] },
+      { start: 70, end: 73.6, set: 'planet', keys: [[70, [-58, 6.5, 48], [-66, 3, -60], 50], [73.6, [-52, 4.6, 36], [-66, 2.6, -60], 48]] },
+      { start: 73.6, end: 76.8, set: 'planet', keys: [[73.6, [-130, 34, 120], [40, 8, -60], 48], [76.8, [-108, 40, 104], [46, 8, -60], 46]] },
+      { start: 76.8, end: 82.8, set: 'planet', keys: [[76.8, [22, 2.2, 22], [0, 1.5, -8], 50], [79.6, [18.5, 2.2, 18], [0, 1.6, -8], 48], [82.8, [15, 6.4, 15.5], [0, 2.2, -8], 46]] },
+    ],
+    subtitles: [[64, 66.6, 'Billions of years pass.'], [66.6, 70, 'The Sun begins to expand.'], [70, 73.6, 'The oceans boil. The atmosphere vanishes.'], [73.6, 76.8, 'Earth becomes a lifeless, burning rock.'], [76.8, 79.6, "But humanity's immortality remains."], [79.6, 82.8, 'And every person is still alive.']] },
+  { id: 'forever', when: 'Forever', what: 'Nobody left', start: 82.8, end: 112,
+    env: { tension: 0.9 },
+    shots: [
+      { start: 82.8, end: 93.4, set: 'planet', keys: [[82.8, [26, 1.8, 9.5], [2, 1.5, 5], 48], [86.2, [18, 1.9, 7.6], [-2, 1.6, 4.6], 46], [87.6, [16.5, 2.1, 7], [-2, 10, 4.6], 44], [89.2, [14.5, 2.5, 6.2], [-2, 15, 4.6], 44], [93.4, [12, 1.9, 5.2], [-2, 1.35, 4.6], 46]] },
+      { start: 93.4, end: 100.6, set: 'planet', keys: [[93.4, [4.6, 1.5, 10.5], [-2, 1.5, 3.4], 42], [96.2, [1.4, 1.4, 7.4], [-2, 1.65, 3.4], 40], [100.6, [2.2, 1.55, 6.6], [-2, 1.7, 3.4], 46]] },
+      { start: 100.6, end: 114, set: 'space', keys: [[100.6, [0, 14, 165], [0, 0, 0], 40], [104, [0, 18, 420], [0, 0, 0], 44], [108, [0, 24, 1500], [0, 0, 0], 46], [112, [0, 30, 3300], [0, 0, 0], 48], [114, [0, 32, 3600], [0, 0, 0], 50]] },
+    ],
+    subtitles: [[82.8, 86.2, 'No food. No water. No escape.'], [86.2, 89, 'The universe grows darker.'], [89, 93.4, 'And humanity faces an eternity it can never end.'], [93.4, 96.2, 'We wanted to live forever.'], [96.2, 112, 'We never asked what forever would feel like.']] },
+];
+const ENV_END = { tension: 0.15 };
+// impacts: [story time, strength]
+const SHAKES = [[2.55, 0.55], [47.45, 0.4], [48.55, 0.5], [51.9, 0.45], [73.9, 0.3], [74.6, 0.3], [75.2, 0.25]];
+const RUMBLES = [[23.5, 44, 0.08], [66.6, 82.8, 0.4]];   // continuous tremble: [from, to, strength]
+const EV = {
+  fall: 0.75, hit: 2.55, rise: 8.2, stand: 9.8, cheer: 10.4, mood: 13.2,
+  board: 15.9, suffer: 19.6, years: 23.5, grow: 25.6,
+  plan: 35.2, glitch: 37.6, full: 40.2, fires: 44.0, push: 47.4,
+  crates: [47.6, 47.95, 48.3], surge: 48.5,
+  grove: 50.0, fell: 51.2, thud: 51.85, orbit: 52.8,
+  lightsOff: [64.0, 66.6], sunGrow: 66.6, boil: 70.0,
+  cracks: [73.85, 74.6, 75.2], gather: 76.8, riseWide: 79.6,
+  walk: 82.8, darken: 86.2, kneel: 89.4, approach: 93.4, lookUp: 96.2, pull: 100.6,
+};
+
+// ---------- helpers ----------
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const VA = a => V(a[0], a[1], a[2]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+const hash = (a, b = 0) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s); };
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const params = new URLSearchParams(location.search);
+const isMobile = matchMedia('(pointer: coarse)').matches;
+const pulse = (d, rise = 30, fall = 6) => d > 0 ? (1 - Math.exp(-d * rise)) * Math.exp(-d * fall) : 0;   // flashes rise and fall over a few frames
+const inT = (T, a, b) => T >= a && T < b;
+// piecewise linear through [t, v] points
+const track = (pts, T) => { if (T <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (T <= pts[i][0]) return lerp(pts[i - 1][1], pts[i][1], (T - pts[i - 1][0]) / (pts[i][0] - pts[i - 1][0])); return pts[pts.length - 1][1]; };
+
+function envAt(T) {
+  let i = SCENES.findIndex(s => T < s.end); if (i < 0) i = SCENES.length - 1;
+  const s = SCENES[i], next = SCENES[i + 1]?.env ?? ENV_END;
+  return { tension: lerp(s.env.tension, next.tension, smooth(0, 1, (T - s.start) / (s.end - s.start))) };
+}
+
+/* ===================================================================== RENDERER */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x06080a);
+scene.fog = new THREE.FogExp2(0x06080a, 0.01);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(45, 9 / 16, 0.1, 6000);
+const hemi = new THREE.HemisphereLight(0x8090a0, 0x202020, 0.6); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1);
+sun.castShadow = true; sun.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+scene.add(sun, sun.target);
+const glow = new THREE.DirectionalLight(0xff7030, 0); scene.add(glow, glow.target);   // light from fires / the dying Sun
+const PL = [0, 1, 2, 3].map(() => { const p = new THREE.PointLight(0xffffff, 0, 30, 1.6); scene.add(p); return p; });
+
+/* ===================================================================== MATERIALS + BUILDERS */
+const matCache = new Map();
+function mat(color, o = {}) {
+  const key = JSON.stringify([color, o]);
+  if (!matCache.has(key)) {
+    const m = new THREE.MeshStandardMaterial({ color, roughness: o.rough ?? 0.8, metalness: o.metal ?? 0, flatShading: !!o.flat });
+    if (o.glow) { m.emissive = new THREE.Color(o.glowColor ?? color); m.emissiveIntensity = o.glow; }
+    if (o.side) m.side = o.side;
+    if (o.env) { m.envMap = envTex; m.envMapIntensity = o.env; }
+    if (o.opacity !== undefined) { m.transparent = true; m.opacity = o.opacity; m.depthWrite = !!o.depthWrite; }
+    matCache.set(key, m);
+  }
+  return matCache.get(key);
+}
+const rbCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d); r = Math.min(r ?? m * 0.12, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  if (!rbCache.has(key)) { const g = new RoundedBoxGeometry(w, h, d, 2, r); g.translate(0, h / 2, 0); rbCache.set(key, g); }
+  return rbCache.get(key);
+}
+function mesh(parent, geo, material, x = 0, y = 0, z = 0, o = {}) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  if (o.s) typeof o.s === 'number' ? m.scale.setScalar(o.s) : m.scale.set(...o.s);
+  m.castShadow = o.shadow !== false; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+const box = (p, w, h, d, color, x, y, z, o = {}) => mesh(p, rbox(w, h, d, o.r), o.m ?? mat(color, o), x, y, z, o);
+function plain(p, w, h, d, material, x, y, z, o = {}) { const g = new THREE.BoxGeometry(w, h, d); g.translate(0, h / 2, 0); return mesh(p, g, material, x, y, z, o); }
+const group = (p, x = 0, y = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, y, z); p.add(g); return g; };
+function cyl(p, rT, rB, h, color, x, y, z, o = {}) { const g = new THREE.CylinderGeometry(rT, rB, h, o.seg ?? 10, 1, !!o.open); g.translate(0, h / 2, 0); return mesh(p, g, o.m ?? mat(color, o), x, y, z, o); }
+function canvasTex(w, h, draw, o = {}) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; if (o.repeat) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...[].concat(o.repeat, o.repeat).slice(0, 2)); } if (o.nearest) t.magFilter = THREE.NearestFilter; t.anisotropy = 4; return t; }
+// a screen whose picture is redrawn when its key changes
+function screenTex(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  let last = null;
+  return { t, set(key, ...a) { if (key === last) return; last = key; draw(g, w, h, ...a); t.needsUpdate = true; } };
+}
+function instanced(parent, geo, material, list, fn, o = {}) {
+  const im = new THREE.InstancedMesh(geo, material, Math.max(1, list.length));
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), c = new THREE.Color();
+  list.forEach((it, i) => { const r = fn(it, i, q.identity(), c); im.setMatrixAt(i, m4.compose(r.p, q, r.s ?? V(1, 1, 1))); if (r.c !== undefined) im.setColorAt(i, c.set(r.c)); });
+  if (!list.length) im.count = 0;
+  im.castShadow = !!o.shadow; im.receiveShadow = true; parent.add(im); return im;
+}
+const sphG = new THREE.SphereGeometry(1, 12, 8);
+const icoG = new THREE.IcosahedronGeometry(1, 0);
+const puffG = new THREE.IcosahedronGeometry(1, 1);
+const headG = new THREE.IcosahedronGeometry(1, 2);
+const addMat = (color, opacity = 1) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false, fog: false });
+// ballistic flight that lands and stays: returns [pos, k] for a piece thrown at t0 from p0 with velocity v
+function throwAt(T, t0, p0, v, floor = 0.03) {
+  const d = Math.max(0, T - t0), g = 9.8, tl = (v.y + Math.sqrt(v.y * v.y + 2 * g * Math.max(0, p0.y - floor))) / g, t = Math.min(d, tl);
+  return [V(p0.x + v.x * t, p0.y + v.y * t - 0.5 * g * t * t, p0.z + v.z * t), t / tl];
+}
+
+/* ===================================================================== SETS (locations, far apart; only the active one is drawn) */
+const SETS = { street: V(0, 0, 0), hospital: V(7000, 0, 0), future: V(-7000, 0, 0), market: V(7000, 0, 7000), prison: V(-7000, 0, 7000), cemetery: V(14000, 0, 0), space: V(0, 12000, 0), planet: V(0, -12000, 0) };
+const G = {}, ST = {};   // G: moving things per set, ST: static things per set (merged after building)
+for (const k in SETS) { G[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); ST[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); }
+
+/* ===================================================================== SKY (follows the camera: gradient, Sun) + CLOUD DOME + STARS */
+const NOISE_GLSL = `
+float h3(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float vnoise(vec3 x){ vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(h3(i), h3(i + vec3(1,0,0)), f.x), mix(h3(i + vec3(0,1,0)), h3(i + vec3(1,1,0)), f.x), f.y),
+             mix(mix(h3(i + vec3(0,0,1)), h3(i + vec3(1,0,1)), f.x), mix(h3(i + vec3(0,1,1)), h3(i + vec3(1,1,1)), f.x), f.y), f.z); }
+float fbm(vec3 p){ float a = 0.5, s = 0.0; for (int i = 0; i < 5; i++) { s += a * vnoise(p); p *= 2.03; a *= 0.5; } return s; }`;
+const skyU = {
+  uTop: { value: new THREE.Color() }, uHor: { value: new THREE.Color() }, uBot: { value: new THREE.Color() },
+  uSunDir: { value: V(0, 1, 0) }, uSunCol: { value: new THREE.Color() }, uSunSize: { value: 0.9993 }, uSunGlow: { value: 1 },
+  uFlashDir: { value: V(-1, 0, 0) }, uFlash: { value: 0 }, uFlashCol: { value: new THREE.Color(1, 0.9, 0.75) },
+  uHaloDir: { value: V(0, 1, 0) }, uHalo: { value: 0 }, uHaloCol: { value: new THREE.Color(1, 0.4, 0.1) },
+};
+const sky = new THREE.Mesh(new THREE.SphereGeometry(3000, 48, 24), new THREE.ShaderMaterial({
+  uniforms: skyU, side: THREE.BackSide, depthWrite: false, depthTest: false, fog: false,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: `uniform vec3 uTop, uHor, uBot, uSunDir, uSunCol, uFlashDir, uFlashCol, uHaloDir, uHaloCol; uniform float uSunSize, uSunGlow, uFlash, uHalo; varying vec3 vD;
+  void main(){ vec3 d = normalize(vD); float h = d.y;
+    vec3 c = h > 0.0 ? mix(uHor, uTop, pow(clamp(h, 0.0, 1.0), 0.55)) : mix(uHor, uBot, pow(clamp(-h, 0.0, 1.0), 0.35));
+    float s = dot(d, uSunDir);
+    c += uSunCol * (smoothstep(uSunSize - 0.00025, uSunSize, s) * 4.0 + (pow(max(s, 0.0), 300.0) * 1.6 + pow(max(s, 0.0), 12.0) * 0.35) * uSunGlow);
+    float f = dot(d, uFlashDir); c += uFlashCol * uFlash * (pow(max(f, 0.0), 8.0) * 5.0 + pow(max(f, 0.0), 2.0) * 1.2 + 0.35) * (1.0 - smoothstep(0.0, 0.6, h) * 0.5);
+    float g = dot(d, uHaloDir); c += uHaloCol * uHalo * (pow(max(g, 0.0), 40.0) * 2.5 + pow(max(g, 0.0), 6.0) * 0.6);
+    gl_FragColor = vec4(c, 1.0); }`,
+}));
+sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
+const cloudU = {
+  uTime: { value: 0 }, uCover: { value: 0.3 }, uAlpha: { value: 0.6 }, uCol: { value: new THREE.Color(0x303030) }, uLit: { value: new THREE.Color(0x804020) },
+  uFire: { value: 0 }, uSeed: { value: 0 }, uSunDir: { value: V(0, 1, 0) },
+};
+const clouds = new THREE.Mesh(new THREE.SphereGeometry(1500, 48, 24), new THREE.ShaderMaterial({
+  uniforms: cloudU, side: THREE.BackSide, transparent: true, depthWrite: false, fog: false,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: NOISE_GLSL + `uniform float uTime, uCover, uAlpha, uFire, uSeed; uniform vec3 uCol, uLit, uSunDir; varying vec3 vD;
+  void main(){ vec3 d = normalize(vD); if (d.y < -0.01) discard;
+    vec2 p = d.xz / (d.y + 0.12) * 1.3;
+    float n = fbm(vec3(p + vec2(uTime * 0.025, uTime * 0.01) + uSeed, uTime * 0.02));
+    float cov = smoothstep(1.0 - uCover - 0.18, 1.0 - uCover + 0.12, n);
+    vec3 col = mix(uCol * 0.6, uCol * 1.3, smoothstep(0.3, 0.8, n)) + uLit * pow(max(dot(d, uSunDir), 0.0), 4.0) * 0.5;
+    float fire = uFire * smoothstep(0.25, 0.75, n);
+    col = mix(col, mix(vec3(0.35, 0.05, 0.0), vec3(1.2, 0.5, 0.1), smoothstep(0.45, 0.9, n)), clamp(fire * 1.4, 0.0, 1.0));
+    float a = clamp(cov * uAlpha + fire * 0.6, 0.0, 1.0) * smoothstep(-0.01, 0.06, d.y);
+    gl_FragColor = vec4(col, a); }`,
+}));
+clouds.renderOrder = -5; clouds.frustumCulled = false; scene.add(clouds);
+// stars: a dome of points, used over the space set
+function makeStars(parent, n = 1300, r = 2800, color = 0x9fb4d8) {
+  const pos = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) { const a = rnd() * TAU, b = Math.acos(2 * rnd() - 1); const rr = r * (0.85 + rnd() * 0.15); pos[i * 3] = Math.sin(b) * Math.cos(a) * rr; pos[i * 3 + 1] = Math.cos(b) * rr; pos[i * 3 + 2] = Math.sin(b) * Math.sin(a) * rr; }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const p = new THREE.Points(g, new THREE.PointsMaterial({ color, size: 3.2, sizeAttenuation: false, transparent: true, opacity: 0.9, depthWrite: false, fog: false }));
+  p.frustumCulled = false; parent.add(p); return p;
+}
+
+/* ===================================================================== PEOPLE */
+function person({ shirt, pants = 0x2f3a46, hair = 0x3a2a20, skin = 0xd9a882, s = 1, coat = false, long = false, parent }) {
+  const root = group(parent); root.scale.setScalar(s);
+  const P = { root, legs: [], arms: [], s };
+  const f = c => mat(c, { flat: true, rough: 0.85 });
+  for (const lx of [-0.1, 0.1]) { const l = group(root, lx, 0.82, 0); const g = new THREE.CylinderGeometry(0.075, 0.065, 0.82, 6); g.translate(0, -0.41, 0); mesh(l, g, f(pants)); box(l, 0.13, 0.08, 0.24, 0x1d1d20, 0, -0.84, 0.04, { r: 0.03 }); P.legs.push(l); }
+  cyl(root, coat ? 0.24 : 0.2, coat ? 0.27 : 0.17, coat ? 0.8 : 0.62, 0, 0, coat ? 0.62 : 0.8, 0, { m: f(shirt), seg: 8 });
+  const head = group(root, 0, 1.42, 0); P.head = head;
+  mesh(head, headG, f(skin), 0, 0.1, 0, { s: 0.15 });
+  mesh(head, headG, f(hair), 0, 0.16, -0.025, { s: [0.158, 0.12, 0.158] });
+  if (long) mesh(head, headG, f(hair), 0, 0.02, -0.08, { s: [0.14, 0.2, 0.09] });
+  for (const sx of [-1, 1]) mesh(head, sphG, mat(0x0c0a08, { rough: 0.1, env: 1.4 }), sx * 0.052, 0.12, 0.13, { s: [0.022, 0.022, 0.012], shadow: false });
+  mesh(head, sphG, f(skin), 0, 0.075, 0.148, { s: [0.022, 0.03, 0.03], shadow: false });
+  for (const side of [-1, 1]) {
+    const a = group(root, side * 0.25, 1.33, 0); const g = new THREE.CylinderGeometry(0.055, 0.05, 0.6, 6); g.translate(0, -0.3, 0);
+    mesh(a, g, f(shirt)); mesh(a, sphG, f(skin), 0, -0.62, 0, { s: 0.055 }); a.rotation.z = side * 0.1; P.arms.push(a);
+  }
+  return P;
+}
+// walking / running gait: legs and arms swing with the phase (distance travelled)
+function gait(P, ph, amt, run = false) {
+  const s = Math.sin(ph) * (run ? 0.8 : 0.45) * amt;
+  P.legs[0].rotation.x = s; P.legs[1].rotation.x = -s;
+  P.arms[0].rotation.x = -s * (run ? 1.1 : 0.7); P.arms[1].rotation.x = s * (run ? 1.1 : 0.7);
+  P.root.children[0] && (P.root.position.y = (P.base ?? 0) + Math.abs(Math.cos(ph)) * (run ? 0.06 : 0.025) * amt);
+}
+const PALETTE = [0x8a3a2a, 0x2a4a6a, 0x5a5a3a, 0x6a6a70, 0x3a2a4a, 0x9a7a4a, 0x2a5a4a, 0x7a2a3a, 0x4a4a4a, 0xa89878];
+const HAIR = [0x2a1a10, 0x3a2a20, 0x1a1410, 0x6a4a2a, 0x8a6a4a, 0x111111];
+const SKIN = [0xd9a882, 0xc08a62, 0x8a5a3a, 0xe8c0a0, 0x6a4028];
+function randPerson(parent, i, o = {}) { return person({ shirt: PALETTE[i % PALETTE.length], pants: [0x2f3a46, 0x2a2a2a, 0x3a3a30, 0x1e2a3a][i % 4], hair: HAIR[(i * 3) % HAIR.length], skin: SKIN[(i * 7) % SKIN.length], long: i % 3 === 1, parent, ...o }); }
+
+/* ===================================================================== CARS */
+function makeCar(parent, color, o = {}) {   // long along local +z, front at +z
+  const root = group(parent), body = group(root);
+  const paint = mat(color, { rough: 0.35, metal: 0.4, env: 0.8 }), dark = mat(0x0e1418, { rough: 0.1, metal: 0.3, env: 1 });
+  box(body, 1.8, 0.62, 4.2, 0, 0, 0.32, 0, { m: paint, r: 0.18 });
+  box(body, 1.6, 0.6, 2.2, 0, 0, 0.88, -0.2, { m: dark, r: 0.14 });
+  box(body, 1.62, 0.08, 1.9, 0, 0, 1.46, -0.25, { m: paint, r: 0.04 });
+  const wheel = new THREE.CylinderGeometry(0.36, 0.36, 0.26, 12); wheel.rotateZ(Math.PI / 2);
+  for (const [x, z] of [[0.86, 1.3], [-0.86, 1.3], [0.86, -1.3], [-0.86, -1.3]]) mesh(body, wheel, mat(0x111214), x, 0.36, z);
+  for (const x of [0.55, -0.55]) box(body, 0.36, 0.14, 0.06, 0, x, 0.68, 2.1, { m: mat(0xfff0d0, { glow: o.lights ? 2.5 : 0.15, glowColor: 0xfff0c0 }), r: 0.03, shadow: false });
+  for (const x of [0.6, -0.6]) box(body, 0.32, 0.12, 0.06, 0, x, 0.7, -2.1, { m: mat(0xb83a30, { glow: o.lights ? 2.2 : 0.2, glowColor: 0xff2010 }), r: 0.03, shadow: false });
+  return { root, body, paint };
+}
+// little crowd figure for instancing: body, head, shoulders
+const crowdGeo = (() => { const a = new THREE.CylinderGeometry(0.2, 0.18, 1.2, 5); a.translate(0, 0.9, 0); const b = new THREE.IcosahedronGeometry(0.15, 0); b.translate(0, 1.65, 0); const c = new THREE.BoxGeometry(0.3, 0.8, 0.2); c.translate(0, 0.4, 0); return mergeGeometries([a.toNonIndexed(), b.toNonIndexed(), c.toNonIndexed()].map(g => { for (const k of Object.keys(g.attributes)) if (k !== 'position' && k !== 'normal') g.deleteAttribute(k); return g; })); })();
+
+/* ===================================================================== SET: STREET (day 1 - the man who falls from the tower) */
+const TOWER = { x: -124, z: -20, w: 30, d: 30, h: 300 };
+const BODY = V(-128, 0, -2.6);   // where the man lies (his feet)
+const street = (() => {
+  const S = ST.street, D = G.street;
+  plain(S, 12000, 0.4, 12000, mat(0x23252a, { rough: 1 }), 0, -0.45, 0, { shadow: false });
+  plain(S, 720, 0.2, 14, mat(0x2a2c30, { rough: 0.85 }), 0, -0.2, 0, { shadow: false });
+  for (let x = -340; x < 340; x += 8) plain(S, 3.5, 0.01, 0.2, mat(0xb8b4a8, { rough: 0.6 }), x, 0.0, 0, { shadow: false });
+  for (const s of [1, -1]) { plain(S, 720, 0.18, 3.5, mat(0x56544f, { rough: 0.9 }), 0, -0.02, s * 8.75, { shadow: false }); plain(S, 720, 0.2, 0.25, mat(0x7a7872), 0, -0.02, s * 7, { shadow: false }); }
+  // buildings with window textures
+  const winT = canvasTex(64, 256, (g, w, h) => { g.fillStyle = '#7a766f'; g.fillRect(0, 0, w, h); for (let r = 0; r < 32; r++) for (let c = 0; c < 6; c++) { g.fillStyle = hash(r * 7.1, c * 3.3) > 0.7 ? '#4a4038' : '#161e28'; g.fillRect(3 + c * 10, 3 + r * 8, 7, 5); } });
+  const winE = canvasTex(64, 256, (g, w, h) => { g.fillStyle = '#000'; g.fillRect(0, 0, w, h); for (let r = 0; r < 32; r++) for (let c = 0; c < 6; c++) if (hash(r * 7.1, c * 3.3) > 0.7) { g.fillStyle = '#c09050'; g.fillRect(3 + c * 10, 3 + r * 8, 7, 5); } });
+  const bMat = new THREE.MeshStandardMaterial({ map: winT, emissiveMap: winE, emissive: new THREE.Color(0xffffff), emissiveIntensity: 0.75, roughness: 0.8 });
+  const B = [];
+  for (const side of [-1, 1]) for (let x = -300; x < 300;) {
+    const w = 16 + hash(x, side) * 12, cx = x + w / 2; x += w + 2;
+    if (side < 0 && cx > -162 && cx < -58) continue;   // the tower
+    B.push({ x: cx, z: side * 19.5, w, d: 18, h: 16 + hash(cx * 1.3, side) * 62 });
+  }
+  for (let i = 0; i < 240; i++) { const a = rnd() * TAU, r = 70 + rnd() * 320, x = Math.cos(a) * r * 1.4, z = Math.sin(a) * r; if (Math.abs(z) < 38) continue; B.push({ x, z, w: 14 + rnd() * 14, d: 14 + rnd() * 14, h: 20 + rnd() * 90 }); }
+  const bodyG = new THREE.BoxGeometry(1, 1, 1); bodyG.translate(0, 0.5, 0);
+  instanced(S, bodyG, bMat, B, b => ({ p: V(b.x, 0, b.z), s: V(b.w, b.h, b.d), c: new THREE.Color().setHSL(0.07, 0.05, 0.4 + hash(b.x) * 0.22) }), { shadow: true });
+  // THE TOWER (300 m)
+  mesh(S, rbox(TOWER.w, TOWER.h, TOWER.d, 0.4), bMat, TOWER.x, 0, TOWER.z);
+  plain(S, TOWER.w + 1.2, 1.1, TOWER.d + 1.2, mat(0x3a3c40), TOWER.x, TOWER.h, TOWER.z);
+  cyl(S, 0.4, 0.7, 9, 0x4a4a50, TOWER.x + 6, TOWER.h + 1, TOWER.z - 6, { seg: 6 });
+  // street lights (away from the camera paths)
+  for (let x = -300; x < 300; x += 26) { if (x > -150 && x < -90) continue; for (const s of [1, -1]) { const p = group(S, x, 0, s * 7.6); cyl(p, 0.09, 0.12, 7.5, 0x3a3c40, 0, 0, 0, { seg: 6 }); box(p, 0.14, 0.12, 1.6, 0x3a3c40, 0, 7.4, -s * 0.7, { r: 0.03 }); box(p, 0.4, 0.1, 0.6, 0, 0, 7.32, -s * 1.3, { m: mat(0xffd8a0, { glow: 2.2, glowColor: 0xffb060 }), r: 0.03, shadow: false }); } }
+  // wrecked cars near the base (aftermath, smoking), one further off
+  const wrecks = [[-117, 0, -8.8, 2.7, 0x7a2a22], [-136, 0, 1.4, 1.7, 0x2f4a6a], [-152, 0, -3.0, -0.4, 0xc8c0a0]].map(([x, y, z, yaw, c]) => { const car = makeCar(S, c, { lights: false }); car.root.position.set(x, 0, z); car.root.rotation.y = yaw; car.root.rotation.z = hash(x) * 0.06; return car; });
+  const SMOKE = []; for (let i = 0; i < 12; i++) SMOKE.push({ i });
+  const smoke = instanced(D, puffG, new THREE.MeshStandardMaterial({ color: 0x242220, roughness: 1, flatShading: true, transparent: true, opacity: 0.5, depthWrite: false }), SMOKE, () => ({ p: V(0, -500, 0) })); smoke.frustumCulled = false;
+  // impact dust
+  const DUST = []; for (let i = 0; i < 34; i++) { const a = rnd() * TAU; DUST.push({ a, r: rnd(), s: 1.6 + rnd() * 3.4 }); }
+  const dust = instanced(D, puffG, new THREE.MeshStandardMaterial({ color: 0x8a7a68, roughness: 1, flatShading: true, transparent: true, opacity: 0.75, depthWrite: false, emissive: new THREE.Color(0x2a2018), emissiveIntensity: 0.5 }), DUST, () => ({ p: V(0, -500, 0) })); dust.frustumCulled = false;
+  // the man
+  const MAN = randPerson(D, 3, { shirt: 0x6a4a2a });
+  // crowd: a close ring around the body + people down the avenue
+  const RING = [[-124.5, -0.6], [-131.3, -1.5], [-121.6, 0.2], [-133.4, 0.4], [-121.0, 3.0], [-135.8, 3.0], [-125.2, 4.6], [-131.4, 5.0], [-128.2, 6.4]];
+  const CROWDPOS = [];
+  RING.forEach(([x, z]) => CROWDPOS.push({ x, z, ring: true }));
+  for (let i = 0; i < 16; i++) CROWDPOS.push({ x: -112 + hash(i) * 34, z: (hash(i, 2) - 0.5) * 11, ring: false });
+  for (let i = 0; i < 10; i++) CROWDPOS.push({ x: -64 - hash(i + 5) * 30, z: (hash(i + 9, 3) - 0.5) * 10, ring: false });
+  const CROWD = CROWDPOS.map((c, i) => { const P = randPerson(D, (i * 3) % 40); P.x0 = c.x; P.z0 = c.z; P.ring = c.ring; P.ph = hash(i) * TAU;
+    P.root.position.set(c.x, 0, c.z); P.root.rotation.y = Math.atan2(BODY.x - c.x, BODY.z - c.z); return P; });
+  // phone flashes for the ones filming the cheering
+  const FL = []; for (let i = 0; i < 12; i++) { const P = CROWD[i], m = mesh(D, new THREE.PlaneGeometry(0.5, 0.34), addMat(0xfff2d8, 0), P.x0, 1.7, P.z0, { shadow: false, rx: 1.15 }); m.raycast = () => {}; FL.push({ m, i }); }
+  FL.forEach(f => f.m.material.transparent = true);
+  // skid marks
+  for (let i = 0; i < 5; i++) plain(S, 12 + hash(i) * 8, 0.02, 0.5, mat(0x141416), -118 - i * 7, 0.0, 3.4 - i * 0.8, { shadow: false, ry: 0.2 });
+  return { bMat, CROWD, MAN, smoke, dust, DUST, SMOKE, FL };
+})();
+
+/* ===================================================================== SET: HOSPITAL (the truth on the board, the suffering) */
+const hospital = (() => {
+  const S = ST.hospital, D = G.hospital;
+  const conc = mat(0x9a9890, { rough: 0.95 }), concD = mat(0x77746a, { rough: 0.95 });
+  plain(S, 21.5, 0.3, 17.5, mat(0x8a9296, { rough: 0.55 }), 0, -0.3, 0);
+  plain(S, 21.5, 4.4, 0.35, conc, 0, 0, -8.3); plain(S, 21.5, 0.3, 17.5, conc, 0, 4.4, 0, { shadow: false });
+  for (const s of [-1, 1]) plain(S, 0.35, 4.4, 17.5, concD, s * 10.4, 0, 0);
+  plain(S, 21.5, 4.4, 0.35, conc, 0, 0, 8.3);
+  for (const x of [-7, -2, 3, 8]) { plain(S, 1.6, 2.6, 0.12, mat(0xd8d4c6, { rough: 0.7 }), x, 0, 8.12, { shadow: false }); box(S, 1.7, 2.7, 0.05, 0x4a5a6a, x, 0, 8.02, { r: 0.02 }); }
+  plain(S, 21.5, 0.06, 0.5, mat(0x0e5a4a, { rough: 0.6 }), 0, 0.01, 7.0, { shadow: false });
+  // ceiling light strips
+  for (let x = -8; x <= 8; x += 4) plain(S, 0.8, 0.06, 12, mat(0xf4f0e0, { glow: 2.4, glowColor: 0xffe8c0 }), x, 4.3, 0, { shadow: false });
+  // THE BOARD
+  const board = screenTex(1024, 360, (g, w, h, lit) => {
+    g.fillStyle = '#060a0c'; g.fillRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.strokeStyle = 'rgba(80,180,240,0.25)'; g.lineWidth = 2; g.strokeRect(6, 6, w - 12, h - 12);
+    g.fillStyle = '#4a565f'; g.font = '800 44px Archivo, Arial, sans-serif';
+    g.fillText('EUROWEST CARE - WARD J', w / 2, 48);
+    g.fillStyle = lit ? '#ff4438' : '#57100b'; g.font = '900 96px Archivo, Arial, sans-serif';
+    g.fillText('DEATHS TODAY', w / 2, 158);
+    g.fillStyle = lit ? '#7ad0ff' : '#1d4657'; g.font = '900 140px Archivo, Arial, sans-serif';
+    g.fillText('0', w / 2, 292);
+  });
+  plain(S, 6.2, 2.3, 0.1, mat(0x0a0d0f), 0.4, 2.25, -8.0, { shadow: false });
+  mesh(D, new THREE.PlaneGeometry(5.8, 2.04), new THREE.MeshBasicMaterial({ map: board.t, toneMapped: false, fog: false }), 0.4, 3.4, -8.06, { shadow: false });
+  // beds with patients + monitors
+  const bedRows = [-5.5, -2.2, 1.1];
+  const econt = canvasTex(64, 128, (g, w, h) => { g.fillStyle = '#c8c4b8'; g.fillRect(0, 0, w, h); });
+  const PATS = [];
+  for (let i = 0; i < 3; i++) {
+    const x = -4.5, z = bedRows[i];
+    box(S, 2.3, 0.42, 1.05, 0x5a5e66, x, 0, z, { r: 0.04 });
+    box(S, 2.1, 0.18, 0.92, 0xe8e6e0, x, 0.42, z, { r: 0.06 });
+    box(S, 0.5, 0.18, 0.8, 0xffffff, x, 0.58, z - 0.02, { r: 0.07 });   // pillow
+    box(D, 1.95, 0.16, 0.9, [0x2a4a6a, 0x5a3a2a, 0x3a5a3a][i], x, 0.52, z + 0.28, { r: 0.05 });  // blanket
+    for (const px of [-0.95, 0.95]) plain(S, 0.08, 0.55, 0.08, mat(0x5a5e66), x + px, 0, z + 0.35, { shadow: false });
+    // monitor on a pole at the foot side
+    const pole = group(S, x + 0.55, 0, z + 1.15);
+    cyl(pole, 0.035, 0.05, 1.6, 0x6a6e74, 0, 0, 0, { seg: 6 });
+    box(pole, 0.56, 0.4, 0.34, 0x14161a, 0.03, 1.55, 0, { r: 0.03 });
+    const ecg = screenTex(256, 160, (g, w, h, k) => {
+      g.fillStyle = '#020604'; g.fillRect(0, 0, w, h);
+      g.strokeStyle = 'rgba(40,255,110,0.16)'; g.lineWidth = 1; for (let y = 20; y < h; y += 20) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); }
+      g.strokeStyle = '#2aff74'; g.lineWidth = 3; g.beginPath();
+      const n = 60, sp = (k * 97) % 1;
+      for (let j = 0; j <= n; j++) { const u = (j / n) - sp; const x = ((u % 1) + 1) % 1 * w; let y = h * 0.62;
+        const bump = ((u * 3.3) % 1 + 1) % 1; if (bump > 0.42 && bump < 0.5) y = h * 0.22; if (bump >= 0.5 && bump < 0.56) y = h * 0.78;
+        g.lineTo(x, y); } g.stroke();
+      g.fillStyle = '#2aff74'; g.font = '700 22px Arial'; g.textAlign = 'left'; g.fillText(k ? 'bpm 167' : 'bpm 74', 10, 24);
+    });
+    mesh(D, new THREE.PlaneGeometry(0.5, 0.31), new THREE.MeshBasicMaterial({ map: ecg.t, toneMapped: false }), x + 0.62, 1.62, z + 1.15, { ry: Math.PI / 2, shadow: false });
+    const P = randPerson(D, i + 2, { s: 0.95 });
+    P.root.rotation.x = -Math.PI / 2; P.root.position.set(x, 0.58, z + 0.92);
+    PATS.push({ P, ecg, z });
+  }
+  // IV drip
+  for (let i = 0; i < 2; i++) { const g2 = group(S, -6.2 + i * 0.4, 0, bedRows[i] - 1.0); cyl(g2, 0.02, 0.03, 2.0, 0x8a8e94, 0, 0, 0, { seg: 5 }); box(g2, 0.16, 0.3, 0.16, 0xe8f0f0, 0.09, 1.75, 0, { r: 0.04 }); }
+  // nurse
+  const NURSE = randPerson(D, 9, { coat: true, shirt: 0xd8dce0, hair: 0x6a4a2a });
+  NURSE.root.position.set(1.1, 0, -1.2); NURSE.root.rotation.y = -2.4;
+  box(NURSE.arms[0], 0.34, 0.03, 0.24, 0xf0ecdc, 0, -0.62, 0.13, { r: 0.02 });
+  return { board, PATS, NURSE };
+})();
+
+/* ===================================================================== SET: FUTURE (years later: the megacity keeps growing) */
+const future = (() => {
+  const S = ST.future, D = G.future;
+  plain(S, 12000, 0.4, 12000, mat(0x26282a, { rough: 1 }), 0, -0.45, 0, { shadow: false });
+  plain(S, 1600, 0.2, 12, mat(0x2c2e32, { rough: 0.8 }), 100, -0.2, 0, { shadow: false });
+  for (let x = -700; x < 900; x += 6) { box(S, 0.5, 0.04, 0.08, 0, x, 0.0, 5.9, { m: mat(0xc8e8ff, { glow: 1.5, glowColor: 0x8ad0ff }), r: 0.01, shadow: false }); box(S, 0.5, 0.04, 0.08, 0, x, 0.0, -5.9, { m: mat(0xc8e8ff, { glow: 1.5, glowColor: 0x8ad0ff }), r: 0.01, shadow: false }); }
+  const winT = canvasTex(64, 256, (g, w, h) => { g.fillStyle = '#55585c'; g.fillRect(0, 0, w, h); for (let r = 0; r < 32; r++) for (let c = 0; c < 6; c++) { g.fillStyle = hash(r * 5.1, c * 7.3) > 0.75 ? '#2a3a44' : '#10161c'; g.fillRect(3 + c * 10, 3 + r * 8, 7, 5); } });
+  const winE = canvasTex(64, 256, (g, w, h) => { g.fillStyle = '#000'; g.fillRect(0, 0, w, h); for (let r = 0; r < 32; r++) for (let c = 0; c < 6; c++) if (hash(r * 5.1, c * 7.3) > 0.62) { g.fillStyle = hash(r, c) > 0.5 ? '#70a0b0' : '#b08850'; g.fillRect(3 + c * 10, 3 + r * 8, 7, 5); } });
+  const bMat = new THREE.MeshStandardMaterial({ map: winT, emissiveMap: winE, emissive: new THREE.Color(0xffffff), emissiveIntensity: 0.85, roughness: 0.7 });
+  // growing towers
+  const B = [];
+  for (const side of [-1, 1]) for (let x = -280; x < 560;) {
+    const w = 15 + hash(x, side) * 11, cx = x + w / 2; x += w + 2.5;
+    if (side < 0 && cx > -26 && cx < 44) continue;   // the two towers with the year screen and the billboard
+    B.push({ x: cx, z: side * 22, w, d: 18, h0: 22 + hash(cx * 1.7, side) * 44 });
+  }
+  for (const row of [-46, 46]) for (let x = -320; x < 620;) {
+    const w = 18 + hash(x, row) * 14, cx = x + w / 2; x += w + 3;
+    B.push({ x: cx, z: row, w, d: 20, h0: 26 + hash(cx * 2.3, row) * 50 });
+  }
+  for (let i = 0; i < 300; i++) { const a = rnd() * TAU, r = 90 + rnd() * 620, x = Math.cos(a) * r * 1.35 + 120, z = Math.sin(a) * r; if (Math.abs(z) < 52) continue; B.push({ x, z, w: 14 + rnd() * 18, d: 14 + rnd() * 18, h0: 18 + rnd() * 70 }); }
+  const bodyG = new THREE.BoxGeometry(1, 1, 1); bodyG.translate(0, 0.5, 0);
+  const towers = instanced(D, bodyG, bMat, B, b => ({ p: V(b.x, 0, b.z), s: V(b.w, b.h0, b.d), c: new THREE.Color().setHSL(0.07, 0.05, 0.38 + hash(b.x) * 0.2) }), { shadow: true });
+  towers.frustumCulled = false;
+  B.forEach(b => { b.dly = hash(b.x, b.z) * 4.5; b.k = 0.6 + hash(b.z, b.x) * 0.9; });
+  // the two special towers
+  mesh(S, rbox(22, 34, 18, 0.4), bMat, -10, 0, -20);   // year tower, front face z -11
+  mesh(S, rbox(18, 44, 18, 0.4), bMat, 26, 0, -20);    // billboard tower, front face z -11
+  const yearS = screenTex(512, 256, (g, w, h, yr) => {
+    g.fillStyle = '#04130a'; g.fillRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#2a9a5a'; g.font = '800 52px Archivo, Arial, sans-serif'; g.fillText('YEAR', w / 2, 52);
+    g.fillStyle = '#7affb0'; g.font = '900 150px Archivo, Arial, sans-serif'; g.fillText(yr, w / 2, 168);
+  });
+  mesh(D, new THREE.PlaneGeometry(9.6, 4.8), new THREE.MeshBasicMaterial({ map: yearS.t, toneMapped: false, fog: false }), -10, 20, -10.94, { shadow: false });
+  const planS = screenTex(1024, 512, (g, w, h, st) => {
+    g.fillStyle = st === 2 ? '#ffffff' : '#061024'; g.fillRect(0, 0, w, h);
+    if (st === 2) { g.fillStyle = '#061024'; for (let i = 0; i < 140; i++) g.fillRect(hash(i, st) * w, hash(i * 3, st) * h, 40, 60); return; }
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#6ab8ff'; g.font = '800 64px Archivo, Arial, sans-serif'; g.fillText('THE PLAN', w / 2, 74);
+    g.fillStyle = '#ffffff'; g.font = '900 88px Archivo, Arial, sans-serif';
+    g.fillText('THERE IS ENOUGH', w / 2, 230); g.fillText('FOR EVERYONE', w / 2, 340);
+    g.fillStyle = '#4a86c8'; g.font = '800 52px Archivo, Arial, sans-serif'; g.fillText('BUILDING UP IS INFINITE SPACE', w / 2, 452);
+  });
+  mesh(D, new THREE.PlaneGeometry(15, 7.5), new THREE.MeshBasicMaterial({ map: planS.t, toneMapped: false, fog: false }), 26, 27, -10.94, { shadow: false });
+  plain(D, 16.4, 8, 0.14, mat(0x08090c), 26, 23, -11.0, { shadow: false });
+  // bridges across the avenue
+  for (const [x, y] of [[-60, 40], [40, 40], [140, 42], [90, 58]]) { plain(S, 3.2, 1.8, 46, mat(0x2e3136, { rough: 0.9 }), x, y, 0, { shadow: false }); box(S, 0.12, 0.9, 44, 0, x, y + 1.8, 0, { m: mat(0x8ad0ff, { glow: 1.0, glowColor: 0x5a9ad0 }), r: 0.02, shadow: false }); }
+  // crowd streams along the avenue
+  const crowd = instanced(D, crowdGeo, mat(0xffffff, { rough: 0.9, flat: true }), new Array(740).fill(0), (it, i) => ({ p: V(0, -600, 0), c: PALETTE[i % PALETTE.length] }));
+  crowd.frustumCulled = false;
+  const LANES = [-4.6, -3.0, -1.6, 1.6, 3.0, 4.6, -6.4, 6.4];
+  const CROWD = []; for (let i = 0; i < 740; i++) { const lane = LANES[Math.floor(hash(i * 3, 1) * LANES.length)]; CROWD.push({ lane, x0: -200 + rnd() * 420, v: 1.4 + rnd() * 1.5, s: 0.9 + rnd() * 0.25, c: PALETTE[i % PALETTE.length] }); }
+  CROWD.forEach((c, i) => { if (c.lane < 0) c.dir = 1; else c.dir = -1; });
+  return { towers, B, yearS, planS, crowd, CROWD, bMat };
+})();
+
+/* ===================================================================== SET: MARKET (interior: empty shelves, water rationing) */
+const market = (() => {
+  const S = ST.market, D = G.market;
+  const wallM = mat(0x8a8e94, { rough: 0.95 }), tileM = mat(0x9aa0a4, { rough: 0.4 });
+  plain(S, 64, 0.3, 24, tileM, 0, -0.3, 0);
+  plain(S, 64, 4.2, 0.35, wallM, 0, 0, -11.8); plain(S, 64, 0.35, 24, wallM, 0, 0, 11.8);
+  for (const s of [-1, 1]) plain(S, 0.35, 4.2, 24, wallM, s * 31.8, 0, 0);
+  plain(S, 64, 0.35, 24, mat(0x6a6e74, { rough: 0.95 }), 0, 4.2, 0, { shadow: false });
+  // ceiling light strips
+  for (let x = -28; x <= 28; x += 7) plain(S, 1.0, 0.06, 18, mat(0xf8f6ea, { glow: 2.6, glowColor: 0xfff0d0 }), x, 4.1, 0, { shadow: false });
+  // shelves: two long units along the aisle, bare with sparse leftovers
+  const shelfM = mat(0x4a5058, { rough: 0.7 }), itemColors = [0x8a6a4a, 0x4a6a8a, 0x6a8a5a, 0xa08a5a, 0x7a4a6a];
+  for (const side of [-1, 1]) {
+    plain(S, 52, 0.12, 1.3, shelfM, 4, 0.0, side * 4.6);
+    for (const y of [0.95, 1.65, 2.35]) plain(S, 52, 0.08, 1.0, shelfM, 4, y, side * 4.6, { shadow: false });
+    for (let x = -21; x <= 29; x += 4) plain(S, 0.1, 2.5, 1.3, shelfM, x, 0.0, side * 4.6, { shadow: false });
+    for (let i = 0; i < 8; i++) { const x = -19 + hash(i * 7, side) * 45, y = [1.0, 1.7, 2.4][Math.floor(hash(i * 3, side) * 3)]; box(S, 0.35, 0.3, 0.3, itemColors[i % 5], x, y, side * 4.6 + (hash(i, 9) - 0.5) * 0.5, { r: 0.04 }); }
+    for (let i = 0; i < 6; i++) { const x = -17 + hash(i * 11, side) * 40; box(S, 0.5, 0.24, 0.42, itemColors[(i + 2) % 5], x, 1.03, side * 4.6, { r: 0.05 }); }
+  }
+  // price signs on the shelf edges: most things gone
+  box(S, 2.4, 0.7, 0.06, 0x101214, 2, 2.9, -3.95, { r: 0.02 });
+  const goneS = screenTex(512, 160, (g, w, h) => {
+    g.fillStyle = '#0a0c10'; g.fillRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#ffb040'; g.font = '900 64px Archivo, Arial, sans-serif'; g.fillText('EMPTY', w / 2, h / 2 - 10);
+    g.fillStyle = '#707880'; g.font = '800 30px Archivo, Arial, sans-serif'; g.fillText('NO RESTOCK OF WEEK 41', w / 2, h / 2 + 46);
+  });
+  mesh(D, new THREE.PlaneGeometry(2.3, 0.62), new THREE.MeshBasicMaterial({ map: goneS.t, toneMapped: false, fog: false }), 2, 3.26, -3.92, { ry: Math.PI / 2, shadow: false });
+  // water crates at the far end + the ration sign
+  for (let i = 0; i < 15; i++) { const row = i % 3, lay = Math.floor(i / 3); box(S, 0.8, 0.55, 0.8, 0x2a4a6a, -23 + row * 0.85, lay * 0.57, -2.4 + Math.floor(hash(i * 5) * 4) * 0.9, { r: 0.05 }); }
+  const waterS = screenTex(640, 340, (g, w, h) => {
+    g.fillStyle = '#04203a'; g.fillRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#8ad0ff'; g.font = '800 44px Archivo, Arial, sans-serif'; g.fillText('DRINKING WATER', w / 2, 56);
+    g.fillStyle = '#ffe270'; g.font = '900 110px Archivo, Arial, sans-serif'; g.fillText('25 CREDITS', w / 2, 170);
+    g.fillStyle = '#5a8ab0'; g.font = '800 34px Archivo, Arial, sans-serif'; g.fillText('2 CRATES PER HOUSEHOLD - GOV. RATION', w / 2, 260);
+  });
+  plain(S, 0.12, 2.8, 0.12, mat(0x5a5e66), -19.6, 0, 0.9, { shadow: false }); plain(S, 0.12, 2.8, 0.12, mat(0x5a5e66), -20.4, 0, 0.9, { shadow: false });
+  mesh(D, new THREE.PlaneGeometry(3.4, 1.8), new THREE.MeshBasicMaterial({ map: waterS.t, toneMapped: false, fog: false }), -20, 3.2, 0.85, { ry: Math.PI / 2, shadow: false });
+  plain(D, 3.5, 0.1, 0.1, mat(0x8ad0ff, { glow: 1.4, glowColor: 0x5ab0ff }), -20, 4.15, 0.9, { r: 0.02, shadow: false });
+  goneS.set('boot'); waterS.set('boot');
+  // the queue: single file, hugging the left shelves, waiting
+  const Q = []; for (let i = 0; i < 18; i++) Q.push({ x0: 19 - i * 1.15, i });
+  const QUEUE = Q.map(q => { const P = randPerson(D, q.i * 2); return { P, ...q }; });
+  // dirty floor patch in front of the crates
+  plain(S, 6, 0.02, 3, mat(0x6a6a62, { rough: 1 }), -21, 0.02, -1.2, { shadow: false });
+  return { goneS, waterS, QUEUE };
+})();
+
+/* ===================================================================== SET: PRISON (the wall between rich and poor, fires, the last grove) */
+const prison = (() => {
+  const S = ST.prison, D = G.prison;
+  plain(S, 12000, 0.4, 12000, mat(0x2a2622, { rough: 1 }), 0, -0.45, 0, { shadow: false });
+  // the raised rich side
+  plain(S, 56, 6, 180, mat(0x5a544c, { rough: 0.95 }), 34, 0, 0, { shadow: false });
+  for (let z = -70; z < 80; z += 7) for (let i = 0; i < 2; i++) box(S, 2.2, 0.8 + hash(z, i) * 0.7, 2.0, [0x3a5a2a, 0x4a6a32][i], 8 + i * 3.2, 6, z, { r: 0.3 });   // hedges on the edge
+  const B2 = []; for (let i = 0; i < 26; i++) { const z = -80 + hash(i) * 170; if (Math.abs(z) < 18 && false) continue; B2.push({ x: 20 + hash(i, 2) * 34, z, w: 7 + hash(i, 3) * 5, d: 7 + hash(i, 4) * 5, h: 12 + hash(i, 5) * 24 }); }
+  const bodyG = new THREE.BoxGeometry(1, 1, 1); bodyG.translate(0, 0.5, 0);
+  instanced(S, bodyG, mat(0xd8d0c4, { rough: 0.85 }), B2, b => ({ p: V(b.x, 6, b.z), s: V(b.w, b.h, b.d) }), { shadow: true });
+  // THE WALL
+  plain(S, 3.2, 13.5, 180, mat(0x38352f, { rough: 0.9 }), 4.2, 0, 0, { shadow: false });
+  plain(S, 3.6, 0.25, 180, mat(0x4a463e), 4.2, 13.5, 0, { shadow: false });
+  for (let z = -88; z <= 88; z += 8) cyl(S, 0.05, 0.05, 1.3, 0x55524a, 5.7, 13.7, z, { seg: 5, shadow: false });
+  // (no ugly red strips along the wall top — the wall stays a wall)
+  // shanties on the poor side
+  const SH = []; for (let i = 0; i < 74; i++) { const x = -42 + rnd() * 26, z = -52 + rnd() * 104; if (x > -16 && z > -30 && z < 30) continue; SH.push({ x, z, w: 3.5 + rnd() * 3.5, d: 3.5 + rnd() * 3.5, h: 2 + rnd() * 2.4 }); }
+  instanced(S, bodyG, mat(0x4a423a, { rough: 1, flat: true }), SH, (sh, i) => ({ p: V(sh.x, 0, sh.z), s: V(sh.w, sh.h, sh.d), c: new THREE.Color().setHSL(0.07, 0.12, 0.14 + hash(i) * 0.08) }), { shadow: true });
+  // fires on the poor side
+  const FIRES = []; for (const p of [[-30, -36, 3.2], [-24, 12, 2.6], [-34, -8, 2.2], [-27, 26, 2.8], [-19, 38, 2.0], [-33, -22, 2.4], [-22, -48, 2.2], [-37, 48, 2.6], [-29, 2, 2.2], [-25, -26, 2.0]]) FIRES.push({ x: p[0], z: p[1], s: p[2] });
+  const FL2 = FIRES.flatMap((f, k) => [0, 1, 2].map(i => ({ ...f, k, i })));
+  const flames = instanced(D, icoG, new THREE.MeshStandardMaterial({ color: 0x401000, emissive: new THREE.Color(0xff6a1a), emissiveIntensity: 2.6, flatShading: true, transparent: true, opacity: 0.9, depthWrite: false, fog: false }), FL2, f => ({ p: V(f.x, 0, f.z) })); flames.frustumCulled = false;
+  // the crowd pressed against the wall
+  const WALLC = []; for (let i = 0; i < 46; i++) { const z = -26 + (i % 23) * 2.3 + hash(i) * 1.2; WALLC.push({ x0: 2.05 + hash(i, 3) * 0.4, z, i }); }
+  const WALLCROWD = WALLC.map(w => { const P = randPerson(D, w.i * 2 + 1); return { P, ...w }; });
+  // guards up on the wall
+  const GUARDS = [0, 1].map(i => { const P = person({ shirt: 0x2a3a4a, pants: 0x1e2833, skin: SKIN[i], hair: 0x111111, parent: D }); P.root.position.set(4.6, 13.75, i ? 8 : -10); P.root.rotation.y = Math.PI; box(P.head, 0.34, 0.12, 0.36, 0x2a3846, 0, 0.26, 0, { r: 0.03 }); return P; });
+  // crates waiting on the wall top, thrown over at 47.6
+  const CRATES = [0, 1, 2].map(i => { const m = box(D, 0.55, 0.5, 0.55, 0x6a5a3a, 4.3, 14.0, 5.2 + i * 0.7, { r: 0.04 }); return m; });
+  // thin drift smoke over the poor side
+  const PSM = []; for (let i = 0; i < 20; i++) PSM.push({ i });
+  const psmoke = instanced(D, puffG, new THREE.MeshStandardMaterial({ color: 0x2a2622, roughness: 1, flatShading: true, transparent: true, opacity: 0.4, depthWrite: false }), PSM, () => ({ p: V(0, -600, 0) })); psmoke.frustumCulled = false;
+  // THE LAST GROVE, far from the wall
+  for (let i = 0; i < 30; i++) { const x = -72 + Math.floor(rnd() * 18) * 1.1, z = -76 + Math.floor(rnd() * 17) * 1.3, h = 4.5 + rnd() * 3.5; const t = group(S, x, 0, z); cyl(t, 0.3, 0.55, h, 0x241e18, 0, 0, 0, { seg: 5 }); if (rnd() < 0.75) mesh(t, sphG, mat(0x2e2a1c, { rough: 1, flat: true }), 0, h + 0.1, 0, { s: 1.6 + rnd() * 1.6, shadow: false }); }
+  for (let i = 0; i < 8; i++) box(S, 0.7, 0.4, 0.7, 0x241e18, -70 + rnd() * 18, 0, -75 + rnd() * 18, { r: 0.15 });
+  for (let z = -76; z <= -55; z += 2.2) plain(S, 0.1, 0.09, 0.09, mat(0x3a3026), -52, 0.9, z, { shadow: false });
+  for (let x = -72; x <= -52; x += 2.2) plain(S, 0.09, 0.09, 0.1, mat(0x3a3026), x, 0.9, -55.6, { shadow: false });
+  plain(S, 22, 0.03, 22, mat(0x352e24, { rough: 1 }), -62, -0.2, -66, { shadow: false });
+  const TREE = group(D, -62, 0, -66);
+  cyl(TREE, 0.2, 0.38, 7.5, 0x2e261e, 0, 0, 0, { seg: 6 });
+  mesh(TREE, sphG, mat(0x2e2a1c, { rough: 1, flat: true }), 0, 7.4, 0, { s: 2.2, shadow: false });
+  const stump = cyl(D, 0.2, 0.28, 0.4, 0x8a7a5a, -62, 0, -66, { seg: 6 });
+  // stumps around (the loggers were here)
+  for (let i = 0; i < 14; i++) { const x = -80 + rnd() * 34, z = -84 + rnd() * 40; if (Math.hypot(x + 62, z + 66) < 6) continue; cyl(S, 0.14, 0.22, 0.3 + rnd() * 0.3, 0x8a7a5a, x, 0, z, { seg: 5 }); }
+  return { flames, FL2, WALLCROWD, CRATES, psmoke, PSM, TREE, GUARDS };
+})();
+
+/* ===================================================================== SET: CEMETERY (graves everywhere, no room left) */
+const upYv = V(0, 1, 0);
+const cemetery = (() => {
+  const S = ST.cemetery, D = G.cemetery;
+  plain(S, 12000, 0.4, 12000, mat(0x2c2e2a, { rough: 1 }), 0, -0.45, 0, { shadow: false });
+  plain(S, 300, 0.12, 260, mat(0x32342e, { rough: 1 }), 0, -0.3, 0, { shadow: false });
+  // crosses: dense grid
+  const CROSS = (() => { const a = box(new THREE.Group(), 0.14, 1.05, 0.1, 0).geometry.clone(); const b = box(new THREE.Group(), 0.62, 0.14, 0.1, 0).geometry.clone(); b.translate(0, 0.72, 0); return mergeGeometries([a, b]); })();
+  const GY = []; for (let x = -44; x < 38; x += 2.6) for (let z = -38; z < 28; z += 2.6) { if (Math.hypot(x + 12, z + 16) < 4) continue; if (x > 4 && x < 22 && z > -30 && z < -12) continue; if (hash(x * 7, z * 3) < 0.12) continue; GY.push({ x: x + hash(x, z), z, h: 0.75 + hash(x * 3, z) * 0.5, c: 0.35 + hash(x, z * 2) * 0.3 }); }
+  const crossIM = instanced(S, CROSS, mat(0xffffff, { rough: 0.9, flat: true }), GY, (g, i, q, c) => { q.setFromAxisAngle(upYv, hash(i) * 0.1); c.setHex(0xffffff).multiplyScalar(g.c * 0.32); return { p: V(g.x, 0, g.z), s: V(1, g.h, 1) }; });
+  // fresh mounds near the camera side
+  const MOUNTS = []; for (let x = -20; x < 36; x += 2.6) for (let z = 18; z < 28; z += 2.6) if (hash(x * 3, z) > 0.3) MOUNTS.push({ x, z, s: 0.45 + hash(x, z * 3) * 0.3 });
+  instanced(S, sphG, mat(0x4a4438, { rough: 1, flat: true }), MOUNTS, m => ({ p: V(m.x, -0.06, m.z), s: V(m.s, m.s * 0.45, m.s) }));
+  // stone crypts: death stacks up
+  for (const [x, z, w, h, d] of [[3, -21, 5, 4.5, 5], [-6, -24, 4, 3.6, 4], [12, -18, 6, 5.5, 6], [20, -24, 4.5, 4, 4.5], [-14, -21, 5, 4.2, 5], [-22, -18, 4, 3.4, 4], [28, -20, 5, 4.6, 5], [-30, -24, 6, 5, 6]]) {
+    const c = group(S, x, 0, z); box(c, w, h, d, 0x5a5c58, 0, 0, 0, { r: 0.18 });
+    box(c, w - 1.6, h + 0.7, 0.4, 0x6a6a64, 0, h, z === -21 ? (z - 21 + d / 2 - d / 2) : d / 2, { r: 0.05, shadow: false });
+    plain(c, 2.2, 0.5, 0.1, mat(0x77797b), -0.2, 1.1, d / 2 + 0.03, { shadow: false });
+  }
+  // low wall around the yard
+  plain(S, 96, 1.1, 0.8, mat(0x494b46, { rough: 0.9 }), 0, 0, 29.5, { shadow: false });
+  plain(S, 0.8, 1.1, 70, mat(0x494b46, { rough: 0.9 }), -47, 0, -5, { shadow: false });
+  // the sign
+  const signS = screenTex(760, 260, (g, w, h) => {
+    g.fillStyle = '#12140f'; g.fillRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#9aa88a'; g.font = '800 52px Archivo, Arial, sans-serif'; g.fillText('MEMORIAL PARK', w / 2, 62);
+    g.fillStyle = '#ff4438'; g.font = '900 92px Archivo, Arial, sans-serif'; g.fillText('FULL', w / 2, 172);
+    g.fillStyle = '#6a7868'; g.font = '800 36px Archivo, Arial, sans-serif'; g.fillText('NO BURIALS POSSIBLE', w / 2, 226);
+  });
+  plain(S, 0.14, 3.2, 0.14, mat(0x55554f), -15.4, 0, -38.5, { shadow: false }); plain(S, 0.14, 3.2, 0.14, mat(0x55554f), -8.6, 0, -38.5, { shadow: false });
+  mesh(D, new THREE.PlaneGeometry(7.4, 2.55), new THREE.MeshBasicMaterial({ map: signS.t, toneMapped: false, fog: false }), -12, 3.6, -38.4, { shadow: false });
+  return {};
+})();
+
+/* ===================================================================== SET: SPACE (the endless city seen from orbit, the Sun grows) */
+const spaceSet = (() => {
+  const S0 = G.space, D = G.space;
+  // the Earth as one endless city: dark ground, dense golden light blocks
+  const earthM = new THREE.MeshStandardMaterial({ roughness: 0.88, metalness: 0, color: 0x18202c, flatShading: false });
+  earthM.emissive = new THREE.Color(0xffc070);
+  const nightT = canvasTex(1024, 512, (g, w, h) => {
+    g.fillStyle = '#06090f'; g.fillRect(0, 0, w, h);
+    // continents: blobs of dark land
+    g.fillStyle = '#141a1c';
+    for (let i = 0; i < 26; i++) { const cx = hash(i, 1) * w, cy = 0.18 * h + hash(i, 2) * 0.64 * h, r = 30 + hash(i, 3) * 95; g.beginPath(); for (let a = 0; a < TAU; a += TAU / 9) { const rr = r * (0.6 + hash(i * 10 + a * 3) * 0.7); g.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr * 0.7); } g.closePath(); g.fill(); }
+  });
+  const lightsT = canvasTex(1024, 512, (g, w, h) => {
+    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
+    // city lights: dense blocks everywhere, thicker on the coasts (near landblob edges): just scatter heavily
+    for (let i = 0; i < 5200; i++) { const x = hash(i, 7) * w, y = hash(i, 11) * 0.2 * h + hash(i, 13) * 0.6 * h, s = hash(i, 3) > 0.92 ? 2.6 : 1.4; g.fillStyle = hash(i, 5) > 0.72 ? '#ffd890' : hash(i, 17) > 0.4 ? '#ffc060' : '#c8a850'; g.fillRect(x, y, s, s); }
+    for (let i = 0; i < 320; i++) { const x = hash(i, 23) * w, y = hash(i, 29) * h; if (hash(i, 31) > 0.75) { g.fillStyle = '#e8f4ff'; g.fillRect(x, y, 3, 9); } }
+  });
+  earthM.map = nightT; earthM.emissiveMap = lightsT; earthM.emissiveIntensity = 1.9;
+  const EARTH = mesh(D, new THREE.SphereGeometry(60, 48, 32), earthM, 0, 0, 0, { shadow: false });
+  EARTH.receiveShadow = false;
+  // atmosphere rim: a backside glow shell
+  const atmo = mesh(D, new THREE.SphereGeometry(62.5, 48, 32), new THREE.MeshBasicMaterial({ color: 0x4a80b8, transparent: true, opacity: 0.16, blending: THREE.AdditiveBlending, side: THREE.BackSide, depthWrite: false }), 0, 0, 0, { shadow: false });
+  atmo.onBeforeRender = () => atmo.quaternion.identity();
+  // sun: small for now, grows in the last-days chapter
+  const SUNM = mesh(D, new THREE.SphereGeometry(16, 24, 16), new THREE.MeshBasicMaterial({ color: 0xffd08a, fog: false, toneMapped: false }), Math.cos(2.03) * 2600 * -0.42, 2600 * 0.28, Math.sin(2.03) * 2600 * -1 || -2600, { shadow: false });
+  SUNM.position.set(-0.42, 0.28, -1).normalize().multiplyScalar(2600);
+  const sunHaloT = canvasTex(128, 128, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 4, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(255,190,110,0.9)'); r.addColorStop(0.35, 'rgba(255,140,60,0.30)'); r.addColorStop(1, 'rgba(255,120,40,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+  const HALO = mesh(D, new THREE.PlaneGeometry(560, 560), new THREE.MeshBasicMaterial({ map: sunHaloT, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, fog: false, toneMapped: false, opacity: 0.4 }), 0, 0, 0, { shadow: false });
+  HALO.position.copy(SUNM.position);
+  // stars
+  const stars = makeStars(D, 1300, 2800);
+  D.visible = S0.visible = false;
+  return { earthM, EARTH, SUNM, HALO, stars };
+})();
+
+/* ===================================================================== SET: DEAD PLANET (the Sun huge, the sea boiling, one person) */
+function terrainY(x, z) {
+  let y = Math.sin(x * 0.012) * 2.6 + Math.cos(z * 0.010) * 2.2 + Math.sin((x + z) * 0.0055) * 3.4 + Math.sin(x * 0.05) * 0.35 + Math.cos(z * 0.043) * 0.3;
+  const dFig = Math.hypot(x + 8, z - 4), dSea = Math.hypot(x + 70, z + 85);
+  y = lerp(y, 0.15, 1 - smooth(28, 75, dFig));
+  y = lerp(y, -2.4, 1 - smooth(24, 40, dSea));
+  return y;
+}
+const planetSet = (() => {
+  // planet: the Sun huge, the sea boiling, one person
+  const S = ST.planet, D = G.planet;
+  // terrain
+  const g = new THREE.PlaneGeometry(1800, 1300, 130, 90); g.rotateX(-Math.PI / 2);
+  const pos = g.attributes.position;
+  for (let i = 0; i < pos.count; i++) pos.setY(i, terrainY(pos.getX(i), pos.getZ(i)));
+  g.computeVertexNormals();
+  const TERRAIN = mesh(D, g, mat(0x33261e, { rough: 1, flat: true }), 0, -0.1, 0);
+  TERRAIN.castShadow = false;
+  // the boiling sea (shrinks over time)
+  const seaM = new THREE.MeshStandardMaterial({ color: 0x30100a, roughness: 0.35, metalness: 0.1, emissive: new THREE.Color(0xcf3410), emissiveIntensity: 2.6 });
+  const SEA = mesh(D, new THREE.CircleGeometry(26, 36), seaM, -70, -0.55, -85, { rx: -Math.PI / 2, shadow: false });
+  SEA.castShadow = false;
+  // dark crags
+  const CRAGS = []; for (let i = 0; i < 150; i++) { const x = -850 + rnd() * 1700, z = -620 + rnd() * 1240; if (Math.hypot(x + 8, z - 4) < 85 || Math.hypot(x + 70, z + 85) < 80) continue; CRAGS.push({ x, z, s: 2 + rnd() * 9, r: rnd() }); }
+  instanced(D, icoG, mat(0x2a1c14, { rough: 1, flat: true }), CRAGS, c => ({ p: V(c.x, terrainY(c.x, c.z) - c.s * 0.25, c.z), s: V(c.s * 1.3, c.s * 0.9, c.s * 1.2) }), { shadow: true });
+  // glowing lava cracks
+  const CRACKS = [];
+  for (let c = 0; c < 6; c++) {
+    const a0 = rnd() * TAU, r0 = 130 + rnd() * 240, dx = Math.cos(a0 + 1.5) - Math.cos(a0), dz = Math.sin(a0 + 1.5) - Math.sin(a0), n = Math.hypot(dx, dz), ux = dx / n, uz = dz / n;
+    let x = -8 + Math.cos(a0) * r0 * 0.8, z = 4 + Math.sin(a0) * r0 * 0.8, yaw = Math.atan2(uz, ux);
+    for (let j = 0; j < 30; j++) { x += ux * 9 + (hash(c * 91 + j, 3) - 0.5) * 6; z += uz * 9 + (hash(c * 91 + j, 7) - 0.5) * 6; CRACKS.push({ x, z, yaw: yaw + (hash(c * 33 + j, 1) - 0.5) * 0.8, s: 0.8 + hash(j, c) * 0.9 }); }
+  }
+  const crackM = new THREE.MeshStandardMaterial({ color: 0x180a06, roughness: 0.9, emissive: new THREE.Color(0xff5412), emissiveIntensity: 2.2 });
+  const crackIM = instanced(D, new THREE.BoxGeometry(4.4, 0.3, 1.5), crackM, CRACKS, k => ({ p: V(k.x, terrainY(k.x, k.z) + 0.08, k.z), s: V(k.s, 1, k.s) }), { shadow: false });
+  crackIM.castShadow = false;
+  // steam over the sea
+  const STEAM = []; for (let i = 0; i < 26; i++) STEAM.push({ i, a: rnd() * TAU, r: rnd() * 34 });
+  const steam = instanced(D, puffG, new THREE.MeshStandardMaterial({ color: 0xd8cec2, roughness: 1, flatShading: true, transparent: true, opacity: 0.10, depthWrite: false }), STEAM, () => ({ p: V(0, -600, 0) }));
+  steam.frustumCulled = false;
+  // distant figures on the ridge, facing the dead sea
+  const SILS = [];
+  for (let i = 0; i < 7; i++) { const P = person({ shirt: 0x14161a, pants: 0x101216, skin: 0x4a352a, parent: D, s: 1 }); const x = -14 + i * 4.6, z = -18 - (i % 2) * 4; P.root.position.set(x, terrainY(x, z), z); P.root.rotation.y = Math.atan2(-70 - x, -85 - z); SILS.push(P); }
+  // the lone figure
+  const LONE = person({ shirt: 0x7a3a2a, pants: 0x2a2624, hair: 0x352520, skin: 0xd9a882, parent: D, coat: true });
+  LONE.root.visible = false;
+  return { SEA, seaM, crackM, crackIM, steam, STEAM, SILS, LONE, TERRAIN };
+})();
+
+/* ===================================================================== MERGE STATIC */
+(function mergeStatic() {
+  for (const k in ST) {
+    const root = ST[k]; root.updateMatrixWorld(true);
+    const buckets = new Map(), keep = [];
+    root.traverse(o => {
+      if (!o.isMesh || o.isInstancedMesh || o === root) { if (o.isInstancedMesh) keep.push(o); return; }
+      let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+      g.applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(o.matrixWorld));
+      for (const n of Object.keys(g.attributes)) if (!['position', 'normal', 'uv'].includes(n)) g.deleteAttribute(n);
+      if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+      g.clearGroups();
+      if (!buckets.has(o.material)) buckets.set(o.material, []);
+      buckets.get(o.material).push({ g, shadow: o.castShadow });
+    });
+    const merged = new THREE.Group();
+    for (const [m, list] of buckets) {
+      const geo = mergeGeometries(list.map(l => l.g), false); list.forEach(l => l.g.dispose()); if (!geo) continue;
+      const mm = new THREE.Mesh(geo, m); mm.castShadow = list.some(l => l.shadow); mm.receiveShadow = true; merged.add(mm);
+    }
+    root.clear(); root.add(merged); keep.forEach(im => root.add(im));
+  }
+})();
+
+/* ===================================================================== POST-PROCESSING (optional) */
+let composer = null, bloom = null;
+if (params.get('fx') !== '0') {
+  try {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
+    composer.addPass(new RenderPass(scene, camera));
+    bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.7, 0.55, 0.78); composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+  } catch (e) { console.warn('Bloom unavailable, rendering directly.', e); composer = null; }
+}
+function layout() {
+  const W = innerWidth, H = innerHeight, w = Math.min(W, H * 9 / 16), h = w * 16 / 9;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = 9 / 16; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+/* ===================================================================== SKY DIRECTIONS (per set: the sky is turned so the action is in front of the camera) */
+const SKY_YAW = { street: 0, future: 0, prison: 0, cemetery: 0, planet: -0.15, space: 0 };
+const yawDir = (set, v) => v.clone().applyAxisAngle(upYv, SKY_YAW[set] ?? 0).normalize();
+const SUN0 = V(-0.85, 0.5, -0.12).normalize();
+
+/* ===================================================================== CAMERA */
+const SHOTS = SCENES.flatMap(s => s.shots);
+function shotAt(T) {
+  const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
+  const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
+  const a = k[i], b = k[i + 1], e = easeInOut(clamp((T - a[0]) / (b[0] - a[0])));
+  const s = { set: sh.set, pos: VA(a[1]).lerp(VA(b[1]), e).add(o), target: VA(a[2]).lerp(VA(b[2]), e).add(o), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upYv };
+  return s;
+}
+function shake(T) {
+  let s = 0; for (const [t0, k] of SHAKES) { const d = T - t0; if (d >= 0 && d < 1.2) s += k * Math.exp(-d * 5) * (1 - Math.exp(-d * 60)); }
+  for (const [a, b, k] of RUMBLES) if (inT(T, a, b)) s += k * smooth(a, a + 0.8, T) * (0.6 + 0.4 * Math.sin(T * 7));
+  return s;
+}
+const CAM = { set: 'street', target: V(), dist: 1 };
+function placeCamera(T) {
+  const s = shotAt(T), d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.12, d * 0.02 + 0.03);
+  const f = Math.floor(T * 40);
+  s.pos.x += (hash(f, 1) - 0.5) * k; s.pos.y += (hash(f, 2) - 0.5) * k; s.target.x += (hash(f, 3) - 0.5) * k * 3 * Math.max(1, d / 30); s.target.y += (hash(f, 4) - 0.5) * k * 3 * Math.max(1, d / 30);
+  camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
+  const near = clamp(d * 0.01, 0.02, 0.2), far = 6000;
+  if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
+  CAM.set = s.set; CAM.target.copy(s.target); CAM.dist = d;
+}
+
+/* ===================================================================== LIGHT + LOOK PER SET */
+const c4 = new THREE.Color(), c5 = new THREE.Color();
+function setSun(o, pos, target, half, color, intensity) {
+  sun.position.copy(o).add(VA(pos)); sun.target.position.copy(o).add(VA(target)); sun.color.set(color); sun.intensity = intensity;
+  const sc = sun.shadow.camera; if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.5, far: VA(pos).distanceTo(VA(target)) + half * 2 }); sc.updateProjectionMatrix(); }
+  sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02 * Math.max(1, half / 20);
+}
+function point(i, o, p, color, intensity, dist = 30) { const L = PL[i]; L.position.copy(o).add(VA(p)); L.color.set(color); L.intensity = intensity; L.distance = dist; }
+const lerpHex = (a, b, k) => c5.set(a).lerp(c4.set(b), clamp(k)).getHex();
+function skyLook(top, hor, bot) { skyU.uTop.value.set(top); skyU.uHor.value.set(hor); skyU.uBot.value.set(bot); }
+function look(set, T) {
+  const o = SETS[set];
+  for (const L of PL) L.intensity = 0;
+  glow.intensity = 0; skyU.uFlash.value = 0; skyU.uHalo.value = 0; skyU.uSunGlow.value = 1;
+  cloudU.uFire.value = 0; cloudU.uTime.value = T; cloudU.uSeed.value = 0;
+  sky.visible = clouds.visible = set === 'street' || set === 'future' || set === 'prison' || set === 'cemetery' || set === 'planet';
+  scene.background.set(0x06080a); scene.fog.color.set(0x06080a); scene.fog.density = 0.0016;
+  hemi.color.set(0x8a92a0); hemi.groundColor.set(0x2a2c30); hemi.intensity = 0.6;
+  if (bloom) bloom.strength = 0.7;
+  const flick = (r, a = 0.75) => a + (1 - a) * hash(Math.floor(T * r));
+  const sunDir = yawDir(set, SUN0);
+  skyU.uSunDir.value.copy(sunDir); cloudU.uSunDir.value.copy(sunDir); skyU.uSunSize.value = 0.9993;
+  if (set === 'street') {
+    const smoke = smooth(EV.hit, EV.hit + 3, T);
+    skyLook(lerpHex(0x2c3550, 0x1e1a22, smoke), lerpHex(0xd07840, 0x9a6a52, smoke), 0x2a2420);
+    skyU.uSunCol.value.set(0xffd098).multiplyScalar(1 - 0.55 * smoke); skyU.uSunGlow.value = 1.4;
+    scene.background.set(lerpHex(0x35405c, 0x24222a, smoke)); scene.fog.color.set(lerpHex(0x8a6a54, 0x54483e, smoke)); scene.fog.density = CAM.dist > 80 ? 0.0014 : 0.0019;
+    cloudU.uCover.value = 0.38; cloudU.uAlpha.value = 0.5 + 0.3 * smoke; cloudU.uCol.value.set(lerpHex(0x5a4a46, 0x3a3230, smoke)); cloudU.uLit.value.set(0xff8a40);
+    hemi.color.set(0xd8a884); hemi.intensity = 1.15;
+    const L = sunDir.clone().multiplyScalar(400);
+    setSun(o, [CAM.target.x - o.x + L.x, Math.max(70, CAM.target.y + 90), CAM.target.z - o.z + L.z], [CAM.target.x - o.x, 0, CAM.target.z - o.z], CAM.dist > 60 ? 180 : 36, 0xffc890, 1.9 * (1 - 0.5 * smoke));
+    // impact glow: the fall of the body shone for a moment by the tower lights
+    if (inT(T, EV.hit - 0.15, EV.hit + 1.1)) {
+      glow.position.copy(camera.position).add(V(-500, 80, 0)); glow.target.position.copy(camera.position);
+      glow.color.set(0xfff0c0); glow.intensity = 2.6 * pulse(T - EV.hit, 14, 5);
+    }
+    street.bMat.emissiveIntensity = 0.6 - 0.25 * smoke;
+    point(0, o, [-128, 6.5, 2.5], 0xffc880, 3.2, 18); point(1, o, [-140, 6.5, 3.5], 0xffc880, 2.4, 18);
+    renderer.toneMappingExposure = 1.25;
+  } else if (set === 'hospital') {
+    scene.background.set(0x04070a); scene.fog.color.set(0x04070a); scene.fog.density = 0.02;
+    hemi.color.set(0x7a90b0); hemi.groundColor.set(0x14161a); hemi.intensity = 0.7;
+    setSun(o, [4, 9, 5], [0, 0, 0], 10, 0x9fb2d8, 0.4);
+    point(0, o, [0.4, 3.2, -6.5], 0x7ad0ff, 4.5 * (T >= EV.board ? 1.4 : 1), 12);
+    point(1, o, [0, 3.6, 0], 0xe8ecf0, 3, 16);
+    point(2, o, [-4.6, 1.4, 1.1], T >= EV.suffer ? 0xffc080 : 0xd8e0e8, T >= EV.suffer ? 2.4 : 1.2, 7);
+    point(3, o, [-4.6, 1.2, -2.2], 0x8ad0ff, 0.8, 6);
+    renderer.toneMappingExposure = 1.3;
+  } else if (set === 'market') {
+    scene.background.set(0x0a0c0e); scene.fog.color.set(0x090b0c); scene.fog.density = 0.016;
+    hemi.color.set(0x9a9a90); hemi.groundColor.set(0x1a1a16); hemi.intensity = 0.85;
+    setSun(o, [2, 9, 3], [0, 0, 0], 14, 0xb0b4a8, 0.4);
+    point(0, o, [0, 3.9, 0], 0xfff0d0, 7, 24);
+    point(1, o, [-20, 3.4, 0.8], 0x9adcff, 4, 10);
+    point(2, o, [12, 3.9, 0], 0xfff0d0, 5, 18);
+    renderer.toneMappingExposure = 1.25;
+  } else if (set === 'future') {
+    const gg = smooth(EV.grow, 44, T), glitchy = inT(T, EV.glitch, EV.glitch + 0.8);
+    skyLook(lerpHex(0x363c44, 0x1e2026, gg), lerpHex(0xb8b0a0, 0x8a8070, gg), 0x26241f);
+    skyU.uSunCol.value.set(0xfff0d8).multiplyScalar(0.55 - 0.3 * gg); skyU.uSunGlow.value = 1.2;
+    scene.background.set(lerpHex(0x40464e, 0x26262a, gg)); scene.fog.color.set(lerpHex(0x8a8478, 0x5a564e, gg)); scene.fog.density = CAM.dist > 200 ? 0.0009 : 0.0016 + 0.0006 * gg;
+    cloudU.uCover.value = 0.55 + 0.25 * gg; cloudU.uAlpha.value = 0.55 + 0.25 * gg; cloudU.uCol.value.set(lerpHex(0x6a6258, 0x4a4440, gg)); cloudU.uLit.value.set(0xffb060);
+    hemi.color.set(lerpHex(0xcabfa8, 0x9a94a0, gg)); hemi.intensity = 1.0 + 0.3 * gg;
+    const L = sunDir.clone().multiplyScalar(500);
+    setSun(o, [CAM.target.x - o.x + L.x, 260, CAM.target.z - o.z + L.z], [CAM.target.x - o.x, 0, CAM.target.z - o.z], CAM.dist > 150 ? 260 : 60, 0xffe0b0, 1.5 * (1 - 0.5 * gg));
+    if (glitchy) {
+      glow.position.copy(camera.position).add(V(200, 90, 80)); glow.target.position.copy(camera.position);
+      glow.color.set(0x9adfff); glow.intensity = 3 * pulse(T - EV.glitch, 20, 8);
+    }
+    future.bMat.emissiveIntensity = 0.9 - 0.35 * gg - (glitchy ? 0.4 * hash(Math.floor(T * 30)) : 0);
+    renderer.toneMappingExposure = 1.15;
+  } else if (set === 'prison') {
+    skyLook(0x180a04, 0xa84214, 0x20100a);
+    skyU.uSunDir.value.copy(V(-0.5, 0.3, 0.8).normalize()); skyU.uSunCol.value.set(0xff7038).multiplyScalar(0.35); skyU.uSunGlow.value = 1.8;
+    cloudU.uCover.value = 0.7; cloudU.uAlpha.value = 0.85; cloudU.uCol.value.set(0x2c140c); cloudU.uLit.value.set(0xff5a20); cloudU.uFire.value = 0.8;
+    scene.background.set(0x40160a); scene.fog.color.set(0x6a2c14); scene.fog.density = CAM.dist > 60 ? 0.0022 : 0.004;
+    hemi.color.set(0xffa070); hemi.groundColor.set(0x2a1a12); hemi.intensity = 1.1;
+    const f = CAM.target.clone().sub(o);
+    setSun(o, [f.x + 60, 200, f.z - 160], [f.x, 0, f.z], CAM.dist > 60 ? 180 : 40, 0xff8a50, 0.7);
+    glow.position.copy(camera.position).add(V(400, 120, -100)); glow.target.position.copy(camera.position);
+    glow.color.set(0xff5a20); glow.intensity = 0.9;
+    point(0, o, [-30, 2, -36], 0xff7a2a, 12 * flick(15), 26);
+    point(1, o, [-24, 2, 12], 0xff7a2a, 9 * flick(13), 30);
+    point(2, o, [12, 3, 24], 0xffc070, 3, 20);
+    point(3, o, [1.4, 2.4, 0], 0xff8a3a, 2.2, 18);
+    renderer.toneMappingExposure = 1.2;
+  } else if (set === 'cemetery') {
+    skyLook(0x0a0c12, 0x3a3c44, 0x0c0c10);
+    skyU.uSunCol.value.multiplyScalar(0); skyU.uSunSize.value = 0.9998; skyU.uSunGlow.value = 0.4;
+    scene.background.set(0x14161c); scene.fog.color.set(0x1c2026); scene.fog.density = CAM.dist > 60 ? 0.0018 : 0.005;
+    cloudU.uCover.value = 0.85; cloudU.uAlpha.value = 0.9; cloudU.uCol.value.set(0x1c1e24); cloudU.uLit.value.set(0x000000);
+    hemi.color.set(0x707a90); hemi.groundColor.set(0x14140f); hemi.intensity = 0.7;
+    const f = CAM.target.clone().sub(o);
+    setSun(o, [f.x - 200, 300, f.z + 60], [f.x, 0, f.z], CAM.dist > 60 ? 200 : 40, 0x8a94b8, 0.3);
+    if (bloom) bloom.strength = 0.4;
+    renderer.toneMappingExposure = 1.8;
+  } else if (set === 'space') {
+    sky.visible = clouds.visible = false;
+    scene.background.set(0x000000); scene.fog.density = 0;
+    hemi.color.set(0x8aa0c8); hemi.groundColor.set(0x060a10); hemi.intensity = 0.5;
+    setSun(o, [-630, 420, -1500], [0, 0, 0], 220, 0xffd8a8, 1.7 + 1.2 * smooth(EV.sunGrow, 71, T));
+    renderer.toneMappingExposure = 1.25;
+  } else if (set === 'planet') {
+    const dk = smooth(EV.darken, EV.darken + 4, T);
+    skyLook(lerpHex(0x300e04, 0x0c0304, dk), lerpHex(0xe86a20, 0x35100a, dk), lerpHex(0x200a04, 0x0c0404, dk));
+    skyU.uSunDir.value.copy(V(-0.04, 0.12, -0.99).normalize()); skyU.uSunSize.value = 0.9982;
+    skyU.uSunCol.value.set(0xffb060).multiplyScalar(1.4 * (1 - 0.55 * dk)); skyU.uSunGlow.value = 2.2;
+    skyU.uSunDir.value.copy(V(-0.04, 0.12, -0.99).normalize()); cloudU.uSunDir.value.copy(skyU.uSunDir.value);
+    scene.background.set(lerpHex(0x54200a, 0x140606, dk)); scene.fog.color.set(lerpHex(0x8a3a16, 0x24100c, dk)); scene.fog.density = CAM.dist > 60 ? 0.0018 : 0.0038;
+    cloudU.uCover.value = 0.8; cloudU.uAlpha.value = 0.9; cloudU.uCol.value.set(lerpHex(0x3c160a, 0x1a0c08, dk)); cloudU.uLit.value.set(0xff5a20); cloudU.uFire.value = 0.7;
+    hemi.color.set(lerpHex(0xff8a4a, 0x402018, dk)); hemi.groundColor.set(0x1c0e08); hemi.intensity = 0.9 * (1 - 0.4 * dk);
+    const f = CAM.target.clone().sub(o), sd = V(-0.35, 0.16, -0.92).normalize();
+    setSun(o, [f.x + sd.x * 400, Math.max(120, f.y + sd.y * 400), f.z + sd.z * 400], [f.x, 0, f.z], CAM.dist > 80 ? 260 : 50, 0xff9a58, 0.9 * (1 - 0.5 * dk));
+    glow.position.copy(camera.position).addScaledVector(sd, 600); glow.target.position.copy(camera.position);
+    glow.color.set(0xff7a30); glow.intensity = 1.1 * (1 - 0.6 * dk) + 0.8 * pulse(T - EV.boil, 4, 1.2);
+    renderer.toneMappingExposure = 1.25 - 0.25 * dk;
+  }
+}
+
+/* ===================================================================== FRAME UPDATE */
+const m4 = new THREE.Matrix4(), q4 = new THREE.Quaternion(), e4 = new THREE.Euler(), s4 = V(1, 1, 1), t4 = V();
+function update(T) {
+  const set = CAM.set;
+  for (const k in SETS) { G[k].visible = ST[k].visible = k === set; }
+  sky.position.copy(camera.position); clouds.position.copy(camera.position);
+  look(set, T);
+  if (set === 'street') updateStreet(T); else if (set === 'hospital') updateHospital(T);
+  else if (set === 'future') updateFuture(T); else if (set === 'market') updateMarket(T);
+  else if (set === 'prison') updatePrison(T); else if (set === 'space') updateSpace(T);
+  else if (set === 'planet') updatePlanet(T);
+}
+function updateStreet(T) {
+  const P = street, M = P.MAN;
+  // the man: stands on the roof, falls (0.75-2.55), lies, sits up (8.2), rises (9.8)
+  M.base = 0;
+  if (T < EV.fall) {
+    M.root.position.set(-128, 300, -5.6); M.root.rotation.set(0, Math.PI, 0);
+    M.arms[0].rotation.x = M.arms[1].rotation.x = -0.4 - 0.1 * Math.sin(T * 2);
+    M.head.rotation.x = 0.08;
+  } else if (T < EV.hit) {
+    const k = clamp((T - EV.fall) / (EV.hit - EV.fall));
+    M.root.position.set(-128, Math.max(0.4, 299 * (1 - k * k)) + 0.5 * Math.sin(k * 7) * (1 - k), -5.6);
+    M.root.rotation.set(0, Math.PI, 0.4 * Math.sin(k * 5));
+    M.arms[0].rotation.x = -2.6 + 0.3 * Math.sin(T * 13); M.arms[1].rotation.x = -2.3 + 0.3 * Math.sin(T * 14 + 1);
+    M.legs[0].rotation.x = 0.55 * Math.sin(T * 11); M.legs[1].rotation.x = -0.5 * Math.sin(T * 12);
+    M.head.rotation.x = 0.35;
+  } else {
+    const sit = smooth(EV.rise, EV.rise + 0.5, T) * (1 - smooth(EV.stand, EV.stand + 0.6, T)), rise = smooth(EV.stand, EV.stand + 0.6, T);
+    const lying = 1 - Math.max(sit, rise);
+    M.root.position.set(-128, 0.28 * lying, -3.4);
+    M.root.rotation.set(-1.57 * lying - 0.95 * sit, 0, 0.04 * Math.sin(T * 1.7));
+    if (T > EV.cheer) { M.head.rotation.x = -0.2; M.arms[0].rotation.x = -2.5 + 0.2 * Math.sin(T * 7); M.arms[1].rotation.x = -2.5 + 0.2 * Math.sin(T * 7.3 + 1); }
+    else { M.head.rotation.x = 0.05; M.arms[0].rotation.x = (0.31 * Math.sin(T * 2.0) - 0.9 * (sit + rise)) * (1 - lying) + 0.05 * Math.sin(T * 2.2) * lying; M.arms[1].rotation.x = (0.24 * Math.sin(T * 1.6 + 1) - 0.9 * (sit + rise)) * (1 - lying) + 0.04 * Math.sin(T * 1.8) * lying; }
+  }
+  // the crowd: watches, steps closer, cheers
+  const gather = smooth(EV.rise + 0.6, EV.cheer, T), cheer = inT(T, EV.cheer, EV.cheer + 3.4);
+  P.CROWD.forEach((c, i) => {
+    c.root.position.set(c.x0 + (c.ring ? Math.sign(BODY.x - c.x0) * 0.6 * gather : 0), cheer ? Math.abs(Math.sin(T * 5 + c.ph)) * 0.14 : 0, c.z0 + (c.ring ? Math.sign(BODY.z - c.z0) * 0.5 * gather : 0));
+    c.root.rotation.z = 0.02 * Math.sin(T * 1.3 + i);
+    if (cheer) { c.arms[0].rotation.x = -2.4 + 0.2 * Math.sin(T * 6 + i); c.arms[1].rotation.x = -2.4 + 0.2 * Math.sin(T * 6 + i + 2); c.head.rotation.x = -0.15; }
+    else c.head.rotation.x = T < EV.hit ? 0.005 * Math.sin(T + i) : 0.1;
+  });
+  // phone flashes while the world films the cheering
+  P.FL.forEach(f => { const on = inT(T, EV.cheer - 0.2, EV.cheer + 3.4) && ((T * 1.7 + f.i * 0.61) % 1) < 0.16; f.m.material.opacity = on ? 0.75 : 0; });
+  // smoke from the wrecked cars, drifting up
+  P.SMOKE.forEach((f, i) => { const n = i % 4, age = (T * 0.09 + i / 12 + hash(i) * 0.4) % 1, y = age * 26, s = (0.6 + age * 4) * (0.6 + n * 0.25); P.smoke.setMatrixAt(i, m4.compose(t4.set(n === 0 ? -119 : -151, y + 1, n === 0 ? 4 : -3 + n), q4.setFromAxisAngle(upYv, i), s4.set(s, s * 0.8, s))); });
+  P.smoke.instanceMatrix.needsUpdate = true;
+  // impact dust: one burst, gone within two seconds
+  const dh = T - EV.hit;
+  P.DUST.forEach((d, i) => {
+    if (dh < 0 || dh > 2.1) { P.dust.setMatrixAt(i, m4.compose(t4.set(0, -600, 0), q4.identity(), s4.set(1, 1, 1))); return; }
+    const r = d.r * (1 + dh * 3.4), y = 0.4 + dh * 9 * (0.4 + d.s * 0.2), s = d.s * (0.4 + dh * 3);
+    P.dust.setMatrixAt(i, m4.compose(t4.set(BODY.x + Math.cos(d.a) * r, y, BODY.z + Math.sin(d.a) * r), q4.identity(), s4.set(s, s * 0.7, s)));
+  });
+  P.dust.instanceMatrix.needsUpdate = true;
+}
+function updateHospital(T) {
+  const H = hospital;
+  H.board.set(T >= 15.95 ? 'on' : 'off', T >= 15.95);
+  H.PATS.forEach((p, i) => {
+    const suffer = i === 2 && T >= EV.suffer;
+    p.ecg.set(`${Math.floor(T * (suffer ? 14 : 6))}|${suffer ? 1 : 0}`, suffer ? 1 : 0);
+    const wr = suffer ? 0.5 + 0.5 * Math.sin(T * 2.4) : 0;
+    p.P.root.rotation.set(-Math.PI / 2, 0, wr * 0.16 * Math.sin(T * 3.1));
+    p.P.root.position.y = 0.58 + wr * 0.04 * Math.abs(Math.sin(T * 2.2));
+    p.P.arms[0].rotation.x = wr * 0.8 * Math.sin(T * 3.7) + (1 - wr) * 0.05;
+    p.P.arms[1].rotation.x = -wr * 0.9 - (1 - wr) * 0.05;
+    p.P.legs[0].rotation.x = wr * 0.3 * Math.sin(T * 2.9);
+    p.P.head.rotation.x = suffer ? -0.25 : i === 0 ? -0.1 : 0;
+  });
+  const N = H.NURSE;
+  N.head.rotation.x = -0.3;
+  N.arms[0].rotation.x = -1.1 + 0.15 * Math.sin(T * 4.2);
+  N.arms[1].rotation.x = -0.9 + 0.25 * Math.sin(T * 2.8);
+}
+function updateFuture(T) {
+  const F = future, glitchy = inT(T, EV.glitch - 0.05, EV.glitch + 0.75), stop = smooth(EV.glitch, EV.glitch + 0.7, T);
+  // the towers keep growing; the city eats itself upward
+  F.B.forEach((b, i) => { const gr = smooth(EV.grow + b.dly, 44, T), h = Math.min(b.h0 * (1 + 2.3 * gr * b.k), 96); F.towers.setMatrixAt(i, m4.compose(t4.set(b.x, 0, b.z), q4.identity(), s4.set(b.w, h, b.d))); });
+  F.towers.instanceMatrix.needsUpdate = true;
+  // the year counter on the tower
+  const yr = 2038 + Math.round(track([[EV.years, 0], [EV.plan, 3], [44, 9]], T));
+  F.yearS.set(`${yr}|${Math.floor(T * 2)}`, yr);
+  // the billboard glitches after the promise breaks
+  F.planS.set(T < EV.glitch ? 'ok' : 'glitch', T < EV.glitch ? 0 : Math.floor(hash(Math.floor(T * 24), 1) * 3));
+  // the endless crowd streams, then freezes mid-step at the glitch
+  F.CROWD.forEach((c, i) => {
+    let x = c.x0 + c.dir * c.v * T * (1 - stop);
+    if (x > 210) x -= 430; if (x < -220) x += 430;
+    F.crowd.setMatrixAt(i, m4.compose(t4.set(x, 0, c.lane), q4.setFromAxisAngle(upYv, c.dir > 0 ? Math.PI / 2 : -Math.PI / 2), s4.set(c.s, c.s, c.s)));
+  });
+  F.crowd.instanceMatrix.needsUpdate = true;
+  return glitchy;
+}
+function updateMarket(T) {
+  market.QUEUE.forEach(q => {
+    const creep = 0.35 * Math.pow(Math.max(0, Math.sin(T * 0.42 + q.i * 1.7)), 3);
+    q.P.base = 0;
+    q.P.root.position.set(q.x0 - creep, 0, -2.2);
+    q.P.root.rotation.set(0, -Math.PI / 2, 0.02 * Math.sin(T * 1.1 + q.i));
+    gait(q.P, T * 2.2 + q.i, 0.25);
+    q.P.head.rotation.x = 0.12 + 0.04 * Math.sin(T * 0.9 + q.i);
+  });
+}
+function updatePrison(T) {
+  const W = prison;
+  // flames flicker along the shantytown
+  W.FL2.forEach((f, i) => { const k = 0.6 + 0.4 * hash(Math.floor(T * 12), i), s = f.s * (0.5 + 0.15 * f.i) * k; W.flames.setMatrixAt(i, m4.compose(t4.set(f.x + Math.sin(f.i * 2.1) * f.s * 0.3, f.i * 0.22 * f.s + k * 0.2, f.z + Math.cos(f.i * 1.7) * f.s * 0.3), q4.setFromAxisAngle(upYv, T * 2 + i), s4.set(s, s * 1.5, s))); });
+  W.flames.instanceMatrix.needsUpdate = true;
+  // smoke drifts backward over the roofs
+  W.PSM.forEach((f, i) => { const age = (T * 0.035 + i / 20 + hash(i) * 0.5) % 1, y = 2 + age * 46, s = (1.5 + age * 9) * 0.9; W.psmoke.setMatrixAt(i, m4.compose(t4.set(-24 + age * 16 + Math.sin(i) * 6, y, -18 + (hash(i, 2) - 0.5) * 44 - age * 8), q4.setFromAxisAngle(upYv, i), s4.set(s, s * 0.7, s))); });
+  W.psmoke.instanceMatrix.needsUpdate = true;
+  // the crowd at the wall: pressed, pushed, then thrown back
+  const push = pulse(T - EV.push, 8, 2.5) + smooth(EV.push, EV.push + 1, T) * 0.4;
+  const surge = 3.4 * smooth(EV.surge, EV.surge + 0.8, T) * (1 - 0.25 * smooth(EV.surge + 3, EV.surge + 7, T));
+  W.WALLCROWD.forEach((w, i) => {
+    const P = w.P, pressed = smooth(44.2, 45.2, T) * (1 - 0.85 * clamp(surge / 3.4));
+    P.base = 0;
+    P.root.rotation.set(0, Math.PI / 2, 0);
+    if (push) P.root.rotateOnWorldAxis(t4.set(0, 0, 1), -0.15 * push + 0.03 * Math.sin(T * 1.4 + i));
+    P.root.position.set(w.x0 - surge - hash(i, 8) * 0.5 * surge, i % 7 === 3 && push > 0.6 ? Math.abs(Math.sin(T * 6 + i)) * 0.1 : 0, w.z);
+    P.arms[0].rotation.x = -1.95 * pressed; P.arms[1].rotation.x = -1.95 * pressed + 0.15 * Math.sin(T * 2 + i);
+    if (!pressed) { P.arms[0].rotation.x = -0.2 + 0.1 * Math.sin(T * 2 + i); P.arms[1].rotation.x = -0.3 + 0.1 * Math.sin(T * 2.3 + i); P.legs[0].rotation.x = P.legs[1].rotation.x = 0; }
+  });
+  // crates get thrown over the wall (the rich side gives, with force)
+  W.CRATES.forEach((m, i) => {
+    const t0 = EV.crates[i]; if (T < t0) return;
+    const [p, k] = throwAt(T, t0, V(4.3, 14.4, 5.2 + i * 0.7), V(-7, 3.5, -0.2 - i * 0.25), 0.02);
+    m.position.copy(p); m.rotation.set(3 * k, 2 * k + i, k * 2);
+  });
+  // the last tree falls
+  W.TREE.rotation.z = -1.5 * smooth(EV.fell, EV.thud, T);
+  W.GUARDS.forEach((P, i) => { P.root.rotation.y = Math.PI + 0.06 * Math.sin(T * 0.9 + i * 3); });
+}
+function updateSpace(T) {
+  const S = spaceSet;
+  S.EARTH.rotation.y = 2.4 + T * 0.025;
+  const off = smooth(EV.lightsOff[0], EV.lightsOff[1], T);
+  S.earthM.emissiveIntensity = 1.9 * (1 - off) + 0.04;
+  const grown = smooth(EV.sunGrow, 71, T);
+  S.SUNM.scale.setScalar(1 + 9 * grown);
+  S.SUNM.material.color.set(grown > 0.5 ? 0xffa050 : 0xffd08a);
+  S.HALO.quaternion.copy(camera.quaternion);
+  S.HALO.material.opacity = 0.35 + 0.4 * grown + 0.2 * pulse(T - EV.boil, 3, 1);
+  S.HALO.scale.setScalar(1 + 2.6 * grown);
+  S.stars.material.opacity = 0.9 * (1 - 0.75 * smooth(EV.darken, EV.darken + 3, T));
+}
+function updatePlanet(T) {
+  const W = planetSet, sk = smooth(EV.boil, 82, T), rs = Math.max(0.1, 1 - 0.6 * sk);
+  // the sea shrinks and burns
+  W.SEA.scale.setScalar(rs);
+  W.seaM.emissiveIntensity = 1.4 + 1.6 * sk;
+  // lava cracks breathe; the big cracks flash at the shakes
+  W.crackM.emissiveIntensity = 2.0 + 0.7 * Math.sin(T * 3.1) + 2.5 * pulse(T - EV.cracks[0], 6, 2.4) + 2.0 * pulse(T - EV.cracks[1], 6, 2.4) + 2.0 * pulse(T - EV.cracks[2], 6, 2.4);
+  // steam climbs off the shrinking rim
+  W.STEAM.forEach((f, i) => {
+    const age = (T * 0.07 + i / 40 + hash(i, 5) * 0.4) % 1, a = f.a, r = f.r * rs * (0.85 + age * 0.5);
+    const x = -70 + Math.cos(a) * r, z = -85 + Math.sin(a) * r * 0.9, y = -0.3 + age * 18 * (1 - 0.4 * sk), s = (0.7 + age * 6) * (0.7 + hash(i) * 0.6);
+    const fadeSteam = 1 - 0.92 * smooth(86.2, 90, T);
+    if (fadeSteam < 0.05) { W.steam.setMatrixAt(i, m4.compose(t4.set(0, -600, 0), q4.identity(), s4.set(1, 1, 1))); return; }
+    W.steam.setMatrixAt(i, m4.compose(t4.set(x, y, z), q4.setFromAxisAngle(upYv, a + T), s4.set(s * fadeSteam, s * 0.85 * fadeSteam, s * fadeSteam)));
+  });
+  W.steam.instanceMatrix.needsUpdate = true;
+  // the last crowd watches the sea die
+  W.SILS.forEach((P, i) => { P.head.rotation.x = -0.12 - 0.05 * Math.sin(T * 0.8 + i * 2); P.root.rotation.z = 0.02 * Math.sin(T * 0.9 + i); });
+  // the lone figure: walks the last plain, kneels, looks up
+  const L = W.LONE; L.root.visible = T >= EV.walk;
+  if (L.root.visible) {
+    const wd = Math.min(13, (T - EV.walk) * 2.6), kneeling = smooth(EV.kneel, EV.kneel + 0.8, T);
+    const xa = 12, za = 6, xd = -14, zd = -2.2, lenB = Math.hypot(xd, zd), fx = xd / lenB, fz = zd / lenB;
+    const px = xa + fx * wd, pz = za + fz * wd;
+    L.base = 0;
+    L.root.rotation.set(0, Math.atan2(xd, zd), 0);
+    L.root.position.set(px, terrainY(px, pz) - 0.62 * kneeling + 0.03 * Math.sin(T * 2), pz);
+    if (wd < 13) gait(L, wd * 2.2 + 2, 1); else { L.legs[0].rotation.x = lerp(0, 1.35, kneeling); L.legs[1].rotation.x = lerp(0, -0.25, kneeling); }
+    L.arms[0].rotation.x = -0.5 * kneeling - (wd < 13 ? 0.3 * Math.sin(T * 3) : 0);
+    L.arms[1].rotation.x = -0.5 * kneeling - 0.25 * kneeling * Math.sin(T * 1.1);
+    if (kneeling) { L.root.rotateOnWorldAxis(t4.set(fz, 0, -fx).normalize(), 0.2 * kneeling); }
+    L.head.rotation.x = -0.9 * smooth(EV.lookUp, EV.lookUp + 0.7, T) - 0.15 * (1 - smooth(EV.kneel, EV.kneel + 0.6, T));
+  }
+}
+
+/* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash');
+const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
+const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
+function overlays(T) {
+  const S = storyAt(T), cut = S >= ENDING.cut;
+  let line = '';
+  if (!cut) for (const s of SCENES) for (const [a, b, text] of s.subtitles) if (T >= a && T < b) line = text;
+  if (line !== subsEl.dataset.text) {
+    subsEl.dataset.text = line; subsEl.classList.remove('on');
+    if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
+  }
+  titleEl.classList.toggle('on', T > 0.2 && T < 4.4);
+  fadeEl.style.opacity = cut ? 1 : 0;
+  // the impact flash: rises over a few frames, then sinks away
+  flashEl.style.opacity = clamp(pulse(S - EV.hit, 7, 1.6) * 0.85) * (CAM.set === 'street' ? 1 : 0);
+  const sc = SCENES.find(s => S < s.end) ?? SCENES[SCENES.length - 1];
+  if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
+  const hideChapter = sc.id === 'gone' && T < 4.8;
+  chapterEl.classList.toggle('on', S - sc.start > 0.3 && sc.end - S > 0.25 && !cut && !hideChapter);
+  if (RENDER) {
+    const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
+    let sub = 0; if (!cut) for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
+    subsEl.style.opacity = sub; subsEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.2, 4.4, 0.6); titleEl.style.transform = 'none';
+    chapterEl.style.opacity = hideChapter || cut ? 0 : clamp(Math.min((S - sc.start - 0.3) / 0.45, (Math.min(sc.end, ENDING.cut) - 0.25 - S) / 0.45)); chapterEl.style.transform = 'none';
+  }
+}
+
+/* ===================================================================== SOUND EFFECTS (Web Audio, generated) */
+function buildSfx(ctx) {
+  const N = { master: ctx.createGain(), bus: ctx.createGain(), muffle: ctx.createBiquadFilter() };
+  N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 16000;
+  N.bus.connect(N.muffle).connect(N.master).connect(ctx.destination);
+  const noise = (sec, brown) => {
+    const b = ctx.createBuffer(1, ctx.sampleRate * sec, ctx.sampleRate), d = b.getChannelData(0); let last = 0;
+    for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+    return b;
+  };
+  N.white = noise(4, false); N.brown = noise(4, true);
+  const loop = (buf, type, freq, Q) => {
+    const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = Q;
+    const g = ctx.createGain(); g.gain.value = 0;
+    src.connect(f).connect(g).connect(N.bus); src.start(0, Math.random() * 3);
+    return { f, g };
+  };
+  const osc = (type, freq, gain = 0) => { const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq; const g = ctx.createGain(); g.gain.value = gain; o.connect(g); o.start(0); return { o, g }; };
+  // drone: two detuned saws through a slow lowpass, rising with the tension
+  N.droneF = ctx.createBiquadFilter(); N.droneF.type = 'lowpass'; N.droneF.frequency.value = 300; N.droneF.Q.value = 4; N.droneG = ctx.createGain(); N.droneG.gain.value = 0;
+  N.droneF.connect(N.droneG).connect(N.bus);
+  N.d1 = osc('sawtooth', 49); N.d2 = osc('sawtooth', 49.5); N.d3 = osc('sine', 36.7, 1); [N.d1, N.d2, N.d3].forEach(d => d.g.connect(N.droneF)); N.d1.g.gain.value = N.d2.g.gain.value = 0.5;
+  N.rumble = loop(N.brown, 'lowpass', 140, 0.8);
+  N.wind = loop(N.brown, 'bandpass', 420, 2.5);
+  N.roar = loop(N.white, 'bandpass', 700, 0.5);
+  N.crowd = loop(N.white, 'bandpass', 900, 1.4);
+  N.fire = loop(N.white, 'highpass', 3000, 0.7);
+  N.room = loop(N.white, 'bandpass', 900, 0.4);
+  N.static = loop(N.white, 'bandpass', 2600, 0.7);
+  N.siren = osc('sine', 500, 0); N.siren2 = osc('triangle', 503, 0); N.sirenG = ctx.createGain(); N.sirenG.gain.value = 0; N.siren.g.gain.value = 1; N.siren2.g.gain.value = 0.4; N.siren.g.connect(N.sirenG); N.siren2.g.connect(N.sirenG); N.sirenG.connect(N.bus);
+  const burst = (t, { type, from, to, dur, gain, buf = N.white, q = 0.7, out = N.bus }) => {
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(out); src.start(t, Math.random() * 2); src.stop(t + dur + 0.05);
+  };
+  const tone = (t, type, f0, f1, dur, gain) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(Math.max(f1, 1), t + dur); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g).connect(N.bus); o.start(t); o.stop(t + dur + 0.05); };
+  const boom = (t, k) => { burst(t, { type: 'lowpass', from: 2500, to: 60, dur: 3.2, gain: 0.9 * k, buf: N.brown }); tone(t, 'sine', 80, 26, 2.4, 1.0 * k); burst(t, { type: 'bandpass', from: 1800, to: 200, dur: 0.7, gain: 0.4 * k }); };
+  const clunk = (t, k) => { tone(t, 'sine', 70, 40, 0.6, 0.8 * k); burst(t, { type: 'bandpass', from: 900, to: 300, dur: 0.25, gain: 0.5 * k, q: 3 }); for (const f of [523, 811, 1307]) tone(t, 'triangle', f, f * 0.98, 1.4, 0.05 * k); };
+  const wood = (t, k = 1) => { burst(t, { type: 'bandpass', from: 800, to: 140, dur: 0.18, gain: 0.38 * k, q: 2 }); tone(t, 'triangle', 190, 62, 0.28, 0.42 * k); for (let i = 0; i < 5; i++) burst(t + 0.03 + i * 0.05, { type: 'highpass', from: 1400, to: 3000, dur: 0.04, gain: 0.1 * k }); };
+  const blip = (t, f = 980) => tone(t, 'square', f, f, 0.07, 0.05);
+  return {
+    N,
+    // continuous layers follow the set and the story
+    apply(T, at) {
+      const set = CAM.set, ten = envAt(T).tension, set_ = (p, v, k = 0.12) => p.setTargetAtTime(v, at, k);
+      const interior = set === 'hospital' || set === 'market';
+      set_(N.droneG.gain, 0.04 + 0.13 * ten + (set === 'space' ? 0.03 : 0) + (T >= EV.darken ? 0.1 * smooth(EV.darken, EV.darken + 4, T) : 0));
+      set_(N.droneF.frequency, 160 + 460 * ten + 60 * Math.sin(T * 0.4));
+      // rumble: the tremor of each place; the world shakes harder once the Sun turns
+      let rum = { street: 0.06, hospital: 0.02, future: 0.1, market: 0.05, prison: 0.12, cemetery: 0.05, space: 0.02, planet: 0.14 }[set] ?? 0.06;
+      if (T >= EV.sunGrow) rum += 0.45 * smooth(EV.sunGrow, EV.walk, T) * (set === 'planet' || set === 'space' ? 1 : 0.4);
+      if (inT(T, EV.boil, EV.boil + 6.6)) rum += 0.3 * (1 - smooth(EV.boil + 5, EV.boil + 6.6, T));
+      set_(N.rumble.g.gain, rum);
+      const wind = set === 'planet' ? 0.22 * (1 - 0.6 * smooth(EV.darken, EV.darken + 3, T)) : set === 'prison' ? 0.08 : set === 'cemetery' ? 0.05 : set === 'street' || set === 'future' ? 0.05 : set === 'space' ? 0.015 : 0;
+      set_(N.wind.g.gain, wind);
+      // crowd: the cheer drifts into panic; then the wall crowd; then the market line
+      let crowd = 0;
+      if (set === 'street') crowd = inT(T, 2.6, 7.6) ? 0.14 : inT(T, EV.cheer - 0.3, EV.cheer + 3) ? 0.1 : 0;
+      else if (set === 'prison') crowd = T < 64 ? 0.14 : 0.04;
+      else if (set === 'market') crowd = 0.03;
+      else if (set === 'future') crowd = T < EV.glitch ? 0.05 : 0;
+      set_(N.crowd.g.gain, crowd);
+      set_(N.fire.g.gain, set === 'planet' && inT(T, EV.boil, EV.boil + 3.6) ? 0.16 : 0);
+      set_(N.room.g.gain, interior ? 0.012 : 0);
+      set_(N.static.g.gain, set === 'future' && inT(T, EV.glitch, EV.glitch + 0.8) ? 0.14 : 0);
+      set_(N.muffle.frequency, interior ? 7000 : 16000);
+      // hard cut: everything stops on the frame the picture goes black
+      N.master.gain.setTargetAtTime(T >= ENDING.cut ? 0 : 0.9, at, T >= ENDING.cut ? 0.004 : 0.05);
+    },
+    events(T0, T1, at) {
+      if (T1 >= ENDING.cut) return;
+      const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set;
+      for (const [t, k] of SHAKES) if (hit(t)) boom(at, 0.4 + 0.5 * k);
+      if (hit(EV.fall)) burst(at, { type: 'bandpass', from: 700, to: 2400, dur: 0.5, gain: 0.05 });
+      if (hit(EV.hit)) { burst(at, { type: 'highpass', from: 800, to: 6000, dur: 0.35, gain: 0.4 }); for (let i = 0; i < 4; i++) burst(at + 0.1 + i * 0.22, { type: 'bandpass', from: 900 + Math.random() * 1300, to: 500, dur: 0.22, gain: 0.07, q: 2 }); }
+      if (hit(EV.rise + 0.5)) clunk(at, 0.3);   // he sits up: the whole world hears it
+      if (hit(EV.board + 0.05)) blip(at, 980); if (hit(EV.board + 0.33)) blip(at, 980); if (hit(EV.board + 0.6)) blip(at, 740); if (hit(EV.board + 0.8)) tone(at, 'square', 500, 240, 0.28, 0.06);
+      if (set === 'hospital' && T1 < 23.5) { const step = T1 >= EV.suffer ? 0.42 : 0.8; for (let t = Math.floor(T0 / step) * step + step; t < T1 && t > EV.board; t += step) tone(at, 'sine', 1180, 1160, 0.09, 0.035); }
+      if (hit(EV.years)) { tone(at, 'sine', 55, 31, 2.4, 0.5); burst(at, { type: 'lowpass', from: 300, to: 60, dur: 2.4, gain: 0.3, buf: N.brown }); }
+      if (T1 > EV.grow && T1 < EV.glitch) { const step = 0.12; for (let t = Math.ceil((Math.max(T0, EV.grow) - EV.grow) / step) * step + EV.grow; t < Math.min(T1, EV.glitch); t += step) tone(at, 'square', Math.max(500, 1400 - 700 * clamp((t - EV.grow) / 12)), 1300, 0.03, 0.016); }
+      if (hit(EV.plan)) { tone(at, 'sine', 330, 330, 0.7, 0.06); tone(at + 0.05, 'sine', 415, 415, 0.7, 0.06); tone(at + 0.1, 'sine', 660, 660, 0.5, 0.04); }
+      if (hit(EV.glitch)) { burst(at, { type: 'bandpass', from: 4000, to: 900, dur: 0.4, gain: 0.4 }); tone(at, 'sawtooth', 220, 60, 0.7, 0.09); }
+      if (set === 'future' && T1 > EV.glitch + 0.8 && T1 < 44 && Math.random() < dt * 3) tone(at, 'square', 300 + Math.random() * 400, 200, 0.1, 0.02);
+      if (hit(EV.full)) boom(at, 0.35);
+      if (hit(EV.fires)) { boom(at, 0.5); for (let i = 0; i < 6; i++) burst(at + 0.15 + i * 0.2, { type: 'lowpass', from: 700, to: 90, dur: 0.6, gain: 0.28, buf: N.brown }); }
+      if (set === 'prison' && T1 < 64 && Math.random() < dt * 6) burst(at, { type: 'highpass', from: 1800 + Math.random() * 2400, to: 5000, dur: 0.04 + Math.random() * 0.05, gain: 0.05 });
+      for (const t0 of EV.crates) if (hit(t0)) { wood(at + 1.95, 1); for (let i = 0; i < 5; i++) burst(at + 0.05 + i * 0.06, { type: 'highpass', from: 1200, to: 3600, dur: 0.05, gain: 0.1 }); }
+      if (hit(EV.surge)) boom(at, 0.3);
+      if (hit(EV.fell)) burst(at, { type: 'bandpass', from: 2400, to: 3200, dur: 0.6, gain: 0.2, q: 3 });
+      if (hit(EV.thud)) { boom(at, 0.7); burst(at, { type: 'lowpass', from: 900, to: 70, dur: 0.9, gain: 0.4, buf: N.brown }); }
+      if (hit(EV.orbit)) tone(at, 'sine', 250, 60, 1.6, 0.12);
+      if (hit(EV.lightsOff[1])) tone(at, 'sine', 48, 30, 1.6, 0.3);
+      if (hit(EV.boil)) burst(at, { type: 'lowpass', from: 900, to: 120, dur: 2.2, gain: 0.5, buf: N.brown });
+      if (set === 'planet' && inT(T1, EV.boil, EV.boil + 3.6) && Math.random() < dt * 4) burst(at, { type: 'bandpass', from: 2500 + Math.random() * 2500, to: 6000, dur: 0.06, gain: 0.07 });
+      if (hit(EV.gather)) burst(at, { type: 'bandpass', from: 400, to: 900, dur: 1.2, gain: 0.12, q: 0.6 });
+      if (hit(EV.riseWide)) tone(at, 'sine', 60, 38, 1.4, 0.25);
+      if (hit(EV.walk)) tone(at, 'sine', 116, 110, 2.4, 0.07);
+      if (hit(EV.lookUp)) tone(at, 'sine', 660, 658, 0.6, 0.035);
+      if (hit(EV.pull)) tone(at, 'sine', 40, 28, 5, 0.14);
+    },
+  };
+}
+const sfx = (() => {
+  let ctx = null, S = null, enabled = false, lastT = 0;
+  return {
+    get on() { return enabled; },
+    toggle() {
+      if (!ctx) { ctx = new (window.AudioContext || window.webkitAudioContext)(); S = buildSfx(ctx); }
+      enabled = !enabled;
+      enabled && playing ? ctx.resume() : ctx.suspend();
+      return enabled;
+    },
+    pause(p) { if (ctx && enabled) p ? ctx.suspend() : ctx.resume(); },
+    update(T) {
+      if (!ctx || !enabled) { lastT = T; return; }
+      S.apply(storyAt(T), ctx.currentTime);
+      if (playing && T > lastT && T - lastT < 0.5) S.events(storyAt(lastT), storyAt(T), ctx.currentTime);
+      lastT = T;
+    },
+  };
+})();
+// Offline soundtrack for the MP4 export: same layers, rendered faster than real time, returned as 16-bit WAV.
+async function renderSoundtrack(rate = 44100) {
+  const ctx = new OfflineAudioContext(1, Math.ceil(DURATION * rate), rate), S = buildSfx(ctx);
+  for (let t = 0, prev = 0; t <= DURATION; prev = t, t += 0.05) {
+    placeCamera(storyAt(t));
+    S.apply(storyAt(t), t);
+    if (t > 0) S.events(storyAt(prev), storyAt(t), t);
+  }
+  const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+  const out = new DataView(new ArrayBuffer(44 + d.length * 2)), str = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); out.setUint32(4, 36 + d.length * 2, true); str(8, 'WAVEfmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, 1, true);
+  out.setUint32(24, rate, true); out.setUint32(28, rate * 2, true); out.setUint16(32, 2, true); out.setUint16(34, 16, true); str(36, 'data'); out.setUint32(40, d.length * 2, true);
+  let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+  const norm = peak > 0.89 ? 0.89 / peak : 1;
+  for (let i = 0; i < d.length; i++) out.setInt16(44 + i * 2, clamp(d[i] * norm, -1, 1) * 32767, true);
+  let bin = ''; const bytes = new Uint8Array(out.buffer);
+  for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+  return btoa(bin);
+}
+const soundBtn = document.getElementById('sound');
+function toggleSound() { soundBtn.setAttribute('aria-pressed', String(sfx.toggle())); }
+soundBtn.onclick = toggleSound;
+
+/* ===================================================================== PLAYBACK */
+const hud = document.getElementById('hud'), playBtn = document.getElementById('play'), scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const playIcon = document.getElementById('play-icon');
+scrub.max = DURATION;
+let T = 0, playing = true, last = null, audio = null;
+const fmtTime = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+function setPlaying(v) {
+  playing = v;
+  playBtn.setAttribute('aria-label', v ? 'Pause' : 'Play');
+  playIcon.innerHTML = v ? '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>' : '<path d="M4 2l10 6-10 6z"/>';
+  if (audio) { if (v) { audio.currentTime = T; audio.play().catch(() => {}); } else audio.pause(); }
+  sfx.pause(!v);
+  poke();
+}
+function seek(t) { T = clamp(t, 0, DURATION); if (audio) audio.currentTime = T; }
+playBtn.onclick = () => { if (!playing && T >= DURATION) seek(0); setPlaying(!playing); };
+document.getElementById('replay').onclick = () => { seek(0); setPlaying(true); };
+scrub.oninput = () => seek(parseFloat(scrub.value));
+function attachAudio(src) {
+  audio?.pause(); audio = new Audio(src); audio.preload = 'auto';
+  audio.addEventListener('ended', () => setPlaying(false));
+  seek(0); setPlaying(true);
+}
+document.getElementById('voice').onchange = e => { const f = e.target.files?.[0]; if (f) attachAudio(URL.createObjectURL(f)); };
+if (params.get('audio')) attachAudio(params.get('audio'));
+let hideTimer = 0, forceHidden = params.get('clean') === '1';
+function poke() {
+  clearTimeout(hideTimer); hud.classList.toggle('hide', forceHidden);
+  if (playing && !forceHidden) hideTimer = setTimeout(() => hud.classList.add('hide'), 2500);
+}
+stage.addEventListener('pointermove', poke); stage.addEventListener('pointerdown', poke);
+stage.addEventListener('pointerdown', e => { if (forceHidden && !sfx.on) toggleSound(); });
+addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') { forceHidden = !forceHidden; poke(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+});
+poke();
+
+function draw(T) { placeCamera(storyAt(T)); update(storyAt(T)); overlays(T); composer ? composer.render() : renderer.render(scene, camera); }
+function frame(now) {
+  const dt = last === null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) {
+    if (audio && !audio.paused && audio.readyState >= 2) T = Math.min(DURATION, audio.currentTime); else T += dt;
+    if (T >= DURATION) { T = DURATION; setPlaying(false); }
+  }
+  placeCamera(storyAt(T)); update(storyAt(T)); sfx.update(T); overlays(T);
+  scrub.value = T; timeEl.textContent = fmtTime(T);
+  composer ? composer.render() : renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+const RENDER = params.get('render') === '1';
+if (RENDER) {
+  forceHidden = true; poke(); playing = false;
+  document.body.classList.add('render');
+  window.renderAt = t => { T = t; draw(T); };
+  window.renderSoundtrack = renderSoundtrack;
+  window.renderReady = true;
+} else requestAnimationFrame(frame);
+addEventListener('pagehide', () => {
+  audio?.pause();
+  scene.traverse(o => { o.geometry?.dispose(); [].concat(o.material ?? []).forEach(m => m.dispose()); });
+  composer?.dispose?.(); pmrem.dispose(); renderer.dispose();
+});
+</script>
