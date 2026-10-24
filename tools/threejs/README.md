@@ -10,6 +10,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `never-stopped-raining.html` | What If: het stopt nooit met regenen, 80 s (met geluidseffecten en MP4-export) |
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
+| `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
@@ -26,7 +27,7 @@ Nodig: Node.js, Python, ffmpeg; Playwright wordt de eerste keer zelf geïnstalle
 
 ## Losse stappen
 - `make_cues.py <pagina> <map>`: ondertitels → `cues.tsv` + `script-cues.txt`
-- `export_mp4.mjs <pagina> <uit.mp4> [--gpu]`: MP4 renderen (met de geluidseffecten van de pagina)
+- `export_mp4.mjs <pagina> <uit.mp4> [--gpu] [--landscape]`: MP4 renderen (met de geluidseffecten van de pagina); `--landscape` = 16:9 (1920x1080), `--height` voor een andere hoogte
 - `place_voice.py <map> [--video <mp4>]`: stem op de ondertiteltijden zetten en onder de video mixen
 
 Een nieuwe animatie werkt met deze tools als ze dezelfde opbouw heeft als `never-stopped-raining.html`
