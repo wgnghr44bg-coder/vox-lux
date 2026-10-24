@@ -9,3 +9,6 @@
   xAI voice (`tools/xai_voiceover.py`) only on request; it costs money.
 - REA (reverse engineering, https://github.com/morluto/rea): MCP server in `.mcp.json`, skill in
   `.claude/skills/reverse-engineer-anything`. Update with `npx rea-agents@latest` and bump the version in `.mcp.json`.
+- Video's (shorts én lange video's) altijd sturen als afspeelbare video (SendUserFile met `display: "render"`), zodat de eigenaar
+  hem in de speler via de deel-knop rechtsboven kan opslaan. Is het bestand groter dan ±50 MB, stuur dan ook een kleinere versie
+  (bv. 720p, ±1,1 Mbit/s) mee.
