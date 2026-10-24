@@ -12,3 +12,7 @@
 - Video's (shorts én lange video's) altijd sturen als afspeelbare video (SendUserFile met `display: "render"`), zodat de eigenaar
   hem in de speler via de deel-knop rechtsboven kan opslaan. Is het bestand groter dan ±50 MB, stuur dan ook een kleinere versie
   (bv. 720p, ±1,1 Mbit/s) mee.
+- Nooit knipperen of flikkeren in beeld (Shorts én lange video's). Twee vlakken op precies dezelfde plek (vloer op een
+  muur-/blokrand, kleed op de vloer) en heel laag strijklicht met schaduwen knipperen: laat vlakken nooit samenvallen en
+  zet de zon minstens ±15° hoog. Controleer vóór het renderen elk beeld (30 per seconde) en daarna de echte MP4 met
+  `python tools/threejs/check_flicker.py` (zie `tools/threejs/README.md`); er mag geen "KNIPPEREN" uitkomen.
