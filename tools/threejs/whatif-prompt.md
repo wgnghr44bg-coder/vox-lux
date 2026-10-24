@@ -53,4 +53,20 @@ Lessons from earlier videos (the owner noticed every one of these, so they are r
 - Sound effects stay under the narration; `place_voice.py` lowers them (default `--sfx-gain 0.45`) and ducks them
   while the voice speaks.
 
+Clean, smooth picture (owner, 24 Oct 2026: "zorg dat alles vloeiend is zonder rare dingen in beeld"; this goes for every
+video, Shorts and long videos alike):
+- No sparkling dots, flicker or stripes on water or other big surfaces. Shade water with smooth normals computed from the
+  waves (not per-pixel `dFdx`/`dFdy` normals), draw a surface from one side only, never let grid cells get smaller than a
+  few centimetres, keep sun glints soft and fade them out with distance.
+- Nothing should show through a surface by accident (half-transparent water that shows a body as stripes underneath).
+- Particles (bubbles, specks, spray) stay small near the camera; never let a few huge blobs cover the picture.
+- Bright light and flashes stay soft: no white blow-outs that hide the action.
+
+Quality check (required, before you render and again on the finished MP4):
+1. `node tools/threejs/check_frames.mjs <page.html> <folder>`: a frame every second, all console errors/warnings per time,
+   contact sheets. Look at every sheet for glitches, popping, the camera inside or through objects, wrong facing, too dark /
+   overexposed shots, sparkles or stripes, subjects that are not in frame. Fix and check again until it is clean.
+2. For water, particle and fast shots also check a few frames 1/30 s apart (`--times 50,50.033,50.067`) for flicker.
+3. After rendering: `node tools/threejs/check_frames.mjs --video <video.mp4> <folder>` and look at the sheets again.
+
 Check that the page loads without errors in a browser before you finish. Do not change other files.
