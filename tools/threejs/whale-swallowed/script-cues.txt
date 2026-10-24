@@ -1,141 +1,150 @@
 {img:c01}
-Imagine being swallowed by a whale…
+Imagine being swallowed by a whale.
 
 {img:c02}
-You're seconds away from becoming its next meal.
+One moment, you're swimming through the ocean.
 
 {img:c03}
-A shadow blocks out the sunlight.
+The next, a gigantic mouth engulfs you.
 
 {img:c04}
-You turn around.
+Everything goes dark.
 
 {img:c05}
-A gigantic mouth rushes toward you…
+You crash through rushing water, surrounded by fish and enormous baleen plates.
 
 {img:c06}
-And suddenly, you're surrounded by darkness.
+Then the mouth closes.
 
 {img:c07}
-You're inside the mouth of a humpback whale.
+And you realize…
 
 {img:c08}
-Water crashes against your body.
+You're trapped inside a living giant.
 
 {img:c09}
-You can barely see anything.
+You try to find an opening.
 
 {img:c10}
-You spot a faint glow near the edge and swim toward it.
+But every direction looks the same.
 
 {img:c11}
-But before you can reach the light…
+Water slams against your body as the whale moves through the ocean.
 
 {img:c12}
-The whale turns.
+You scream, but nobody can hear you.
 
 {img:c13}
-A powerful current throws you backward.
+You try to swim toward the light…
 
 {img:c14}
-Your chance of escape is disappearing.
+Only to be thrown backward by another powerful surge of water.
 
 {img:c15}
-Your lungs begin to burn.
+Then you realize something terrifying.
 
 {img:c16}
-You desperately fight your way toward the opening.
+You don't know when the whale will open its mouth again.
 
 {img:c17}
-Then the whale suddenly surges toward the surface.
+Your chest tightens.
 
 {img:c18}
-You see sunlight.
+Your air supply is running low.
 
 {img:c19}
-You're almost free.
+Every movement costs energy you can no longer afford to waste.
 
 {img:c20}
-But a wall of water slams into you…
+The whale dives deeper, and the sunlight disappears completely.
 
 {img:c21}
-And sends you straight back into the darkness.
+You feel the enormous animal moving around you.
 
 {img:c22}
-For a moment, you think it's over.
+Its muscles shift.
 
 {img:c23}
-Then the whale opens its mouth.
+Its body vibrates with every movement.
 
 {img:c24}
-Water explodes into the air as it breaks the surface.
+You're not inside a cave.
 
 {img:c25}
-You're swept out with the current and thrown into the ocean.
+You're inside a creature that doesn't even know you're there.
 
 {img:c26}
-You tumble underwater, unable to tell which way is up.
+Then, suddenly, everything changes.
 
 {img:c27}
-Your lungs are screaming.
+The whale accelerates toward the surface.
 
 {img:c28}
-You kick as hard as you can…
+Light flashes through the water.
 
 {img:c29}
-And finally break through the surface.
+You fight your way toward the opening as the current drags you forward.
 
 {img:c30}
-You gasp for air.
+For one second, you can see the sky.
 
 {img:c31}
-You survived.
+Then the whale opens its mouth.
 
 {img:c32}
-You look around.
+Water erupts around you.
 
 {img:c33}
-The whale is gone.
+And you're thrown back into the ocean.
 
 {img:c34}
-But something is floating beside you.
+You surface, gasping for air.
 
 {img:c35}
-A broken piece of your diving equipment.
+Your body is exhausted.
 
 {img:c36}
-Your air supply is damaged.
+Your equipment is damaged.
 
 {img:c37}
-Then you hear a deep, distant sound beneath the water.
+The whale disappears beneath the waves, leaving you alone in the open ocean.
 
 {img:c38}
-The ocean around you begins to ripple.
+You survived being trapped inside one of the largest animals on Earth.
 
 {img:c39}
-Something enormous is rising from the depths.
+But now you face a new problem.
 
 {img:c40}
-A giant shape emerges beneath you.
+You have no idea how far you are from shore.
 
 {img:c41}
-It's a sperm whale.
+And your remaining air won't last forever.
 
 {img:c42}
-It isn't trying to swallow you.
+You look down into the dark water.
 
 {img:c43}
-It's hunting something much deeper.
+Something enormous moves beneath you.
 
 {img:c44}
-Then you see what it's chasing…
+For a moment, you freeze.
 
 {img:c45}
-A shadow far larger than the whale itself.
+Then you realize the truth.
 
 {img:c46}
-And suddenly…
+Being swallowed by a whale was never the only danger.
 
 {img:c47}
-The sperm whale turns and flees.
+The ocean is enormous.
+
+{img:c48}
+You're exhausted, stranded, and running out of air.
+
+{img:c49}
+And this time…
+
+{img:c50}
+There may be nobody coming to save you.
 

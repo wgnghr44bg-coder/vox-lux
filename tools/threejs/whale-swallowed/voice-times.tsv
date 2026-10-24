@@ -1,48 +1,51 @@
 #	start	end	image	text
-1	0.98	3.05	c01	Imagine being swallowed by a whale...
-2	3.42	5.91	c02	You're seconds away from becoming its next meal.
-3	6.69	8.44	c03	A shadow blocks out the sunlight.
-4	8.67	9.61	c04	You turn around.
-5	9.98	12.18	c05	A gigantic mouth rushes toward you...
-6	12.68	15.63	c06	And suddenly, you're surrounded by darkness.
-7	15.93	18.19	c07	You're inside the mouth of a humpback whale.
-8	18.56	20.30	c08	Water crashes against your body.
-9	20.66	22.11	c09	You can barely see anything.
-10	22.40	25.41	c10	You spot a faint glow near the edge and swim toward it.
-11	25.91	27.64	c11	But before you can reach the light...
-12	28.05	29.28	c12	The whale turns.
-13	29.66	31.69	c13	A powerful current throws you backward.
-14	32.19	34.21	c14	Your chance of escape is disappearing.
-15	34.58	36.28	c15	Your lungs begin to burn.
-16	36.56	39.15	c16	You desperately fight your way toward the opening.
-17	39.46	42.22	c17	Then the whale suddenly surges toward the surface.
-18	42.43	43.39	c18	You see sunlight.
-19	43.89	44.93	c19	You're almost free.
-20	45.36	47.28	c20	But a wall of water slams into you...
-21	47.70	49.85	c21	And sends you straight back into the darkness.
-22	50.37	51.97	c22	For a moment, you think it's over.
-23	52.42	54.14	c23	Then the whale opens its mouth.
-24	54.71	57.87	c24	Water explodes into the air as it breaks the surface.
-25	58.47	61.21	c25	You're swept out with the current and thrown into the ocean.
-26	61.69	65.07	c26	You tumble underwater, unable to tell which way is up.
-27	65.45	66.87	c27	Your lungs are screaming.
-28	67.55	69.14	c28	You kick as hard as you can...
-29	69.42	71.35	c29	And finally break through the surface.
-30	71.61	73.03	c30	You gasp for air.
-31	73.36	74.35	c31	You survived.
-32	74.60	75.52	c32	You look around.
-33	75.81	76.91	c33	The whale is gone.
-34	77.14	78.93	c34	But something is floating beside you.
-35	79.24	81.19	c35	A broken piece of your diving equipment.
-36	81.51	83.20	c36	Your air supply is damaged.
-37	83.42	86.44	c37	Then you hear a deep, distant sound beneath the water.
-38	86.86	88.85	c38	The ocean around you begins to ripple.
-39	89.11	91.93	c39	Something enormous is rising from the depths.
-40	92.51	94.61	c40	A giant shape emerges beneath you.
-41	94.91	96.15	c41	It's a sperm whale.
-42	96.53	98.07	c42	It isn't trying to swallow you.
-43	98.47	100.60	c43	It's hunting something much deeper.
-44	101.28	102.62	c44	Then you see what it's chasing...
-45	102.95	105.34	c45	A shadow far larger than the whale itself.
-46	105.69	106.52	c46	And suddenly...
-47	106.99	109.51	c47	The sperm whale turns and flees.
+1	0.86	3.19	c01	Imagine being swallowed by a whale.
+2	3.69	6.07	c02	One moment, you're swimming through the ocean.
+3	6.46	9.28	c03	The next, a gigantic mouth engulfs you.
+4	9.64	10.91	c04	Everything goes dark.
+5	11.38	15.68	c05	You crash through rushing water, surrounded by fish and enormous baleen plates.
+6	16.17	17.54	c06	Then the mouth closes.
+7	17.95	19.03	c07	And you realize...
+8	19.22	21.22	c08	You're trapped inside a living giant.
+9	21.59	23.01	c09	You try to find an opening.
+10	23.26	25.13	c10	But every direction looks the same.
+11	25.38	29.59	c11	Water slams against your body as the whale moves through the ocean.
+12	29.87	31.93	c12	You scream, but nobody can hear you.
+13	32.58	34.39	c13	You try to swim toward the light...
+14	34.80	38.54	c14	Only to be thrown backward by another powerful surge of water.
+15	39.06	41.34	c15	Then you realize something terrifying.
+16	41.70	44.19	c16	You don't know when the whale will open its mouth again.
+17	44.62	45.93	c17	Your chest tightens.
+18	46.21	47.72	c18	Your air supply is running low.
+19	48.10	51.92	c19	Every movement costs energy you can no longer afford to waste.
+20	52.33	55.93	c20	The whale dives deeper, and the sunlight disappears completely.
+21	56.30	58.97	c21	You feel the enormous animal moving around you.
+22	59.54	60.80	c22	Its muscles shift.
+23	61.43	63.43	c23	Its body vibrates with every movement.
+24	63.91	65.42	c24	You're not inside a cave.
+25	65.97	68.60	c25	You're inside a creature that doesn't even know you're there.
+26	69.01	71.70	c26	Then, suddenly, everything changes.
+27	72.30	74.56	c27	The whale accelerates toward the surface.
+28	74.80	76.23	c28	Light flashes through the water.
+29	76.66	80.04	c29	You fight your way toward the opening as the current drags you forward.
+30	80.50	82.83	c30	For one second, you can see the sky.
+31	83.26	84.59	c31	Then the whale opens its mouth.
+32	85.04	86.74	c32	Water erupts around you.
+33	87.17	88.84	c33	And you're thrown back into the ocean.
+34	89.31	91.38	c34	You surface, gasping for air.
+35	91.86	93.25	c35	Your body is exhausted.
+36	93.43	94.92	c36	Your equipment is damaged.
+37	95.38	100.16	c37	The whale disappears beneath the waves, leaving you alone in the open ocean.
+38	100.58	104.69	c38	You survived being trapped inside one of the largest animals on Earth.
+39	105.19	106.93	c39	But now you face a new problem.
+40	107.39	109.98	c40	You have no idea how far you are from shore.
+41	110.18	112.52	c41	And your remaining air won't last forever.
+42	112.88	114.70	c42	You look down into the dark water.
+43	115.15	117.26	c43	Something enormous moves beneath you.
+44	117.67	119.13	c44	For a moment, you freeze.
+45	119.72	121.20	c45	Then you realize the truth.
+46	121.47	124.35	c46	Being swallowed by a whale was never the only danger.
+47	124.79	126.34	c47	The ocean is enormous.
+48	126.79	129.48	c48	You're exhausted, stranded, and running out of air.
+49	129.93	130.82	c49	And this time...
+50	131.30	133.40	c50	There may be nobody coming to save you.

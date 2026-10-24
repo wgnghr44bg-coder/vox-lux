@@ -120,89 +120,93 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    video time here (WARP is the identity), but everything else still runs
    on story time.
    ===================================================================== */
-const DURATION = 129.15;
-const ENDING = { cut: 126.65 };   // story time of the hard cut to black: picture and sound stop on the same frame
+const DURATION = 156.28;
+const ENDING = { fade: 152.78, cut: 155.78 };   // story time: the last shot fades to black and the sound fades out between fade and cut
 const WARP = [[0, 0], [DURATION, DURATION]];
 function storyAt(t) { for (let i = 1; i < WARP.length; i++) { const [r0, s0] = WARP[i - 1], [r1, s1] = WARP[i]; if (t <= r1) return s0 + (Math.max(t, r0) - r0) * (s1 - s0) / Math.max(1e-6, r1 - r0); } return WARP[WARP.length - 1][1]; }
 const SCENES = [
-  { id: 'hook', when: 'Open ocean', what: '16 metres down',
-    env: { tension: 0.35 },
+  { id: 'moment', when: 'Open ocean', what: '16 metres down',
+    env: { tension: 0.4 },
     shots: [{ until: 2, set: 'ocean', follow: 'whaleO', local: true, keys: [[0, [6.5, -1.6, 9.5], [0, -0.4, 4.2], 50], [1, [6.8, -1.2, 4.5], [0, -0.2, 2.2], 50]] },
             { until: 3, set: 'ocean', follow: 'diverO', local: true, keys: [[0, [1.5, -0.7, 2.9], [0, -0.1, 0.1], 46], [1, [1.7, -0.5, 2.4], [0, -0.1, 0.1], 44]] },
-            { until: 4, set: 'ocean', keys: [[0, [4.6, -21.5, 5.0], [-3.5, -5, -0.5], 60], [1, [4.2, -21.0, 4.4], [-5, -4.5, -0.5], 60]] },
-            { until: 5, set: 'ocean', follow: 'diverO', keys: [[0, [-2.1, 0.45, 1.0], [0.25, 0.15, 0], 44], [1, [-1.85, 0.5, 0.85], [0.2, 0.2, 0], 42]] },
-            { until: 6, set: 'ocean', follow: 'diverO', aim: 'whaleOHead', keys: [[0, [2.8, -1.6, 3.2], [0, 0, 0], 52], [1, [2.6, -1.5, 2.8], [0, 0, 0], 54]] },
-            { until: 7, set: 'ocean', swallow: true, follow: 'diverO', keys: [[0, [0.85, 0.15, 0.55], [-4, 3.5, -0.2], 56], [1, [0.85, 0.15, 0.55], [-4, 3.5, -0.2], 56]] }],
-    subtitles: [[0.4, 2.77, 'Imagine being swallowed by a whale…'], [2.92, 5.83, 'You\'re seconds away from becoming its next meal.'], [5.98, 8.16, 'A shadow blocks out the sunlight.'],
-                [8.31, 9.55, 'You turn around.'], [9.7, 12.2, 'A gigantic mouth rushes toward you…'], [12.35, 15.6, 'And suddenly, you\'re surrounded by darkness.']] },
-  { id: 'trapped', when: 'Trapped alive', what: 'Inside a humpback whale',
+            { until: 4, set: 'ocean', follow: 'diverO', aim: 'whaleOHead', keys: [[0, [2.8, -1.6, 3.2], [0, 0, 0], 52], [1, [2.6, -1.5, 2.8], [0, 0, 0], 54]] },
+            { until: 5, set: 'ocean', swallow: true, follow: 'diverO', keys: [[0, [0.85, 0.15, 0.55], [-4, 3.5, -0.2], 56], [1, [0.85, 0.15, 0.55], [-4, 3.5, -0.2], 56]] },
+            { until: 6, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.7, 0.3, 1.5], [0, 0, 0.3], 56], [1, [1.5, 0.25, 1.3], [0, 0, 0.3], 54]] },
+            { until: 7, set: 'mouth', keys: [[0, [0.3, -0.55, 1.4], [1.2, -0.15, 6.3], 50], [1, [0.4, -0.5, 1.8], [1.2, -0.15, 6.3], 48]] },
+            { until: 8, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.15, -0.15, 1.05], [0, -0.05, 0.35], 44], [1, [1.0, -0.15, 0.95], [0, -0.05, 0.4], 42]] },
+            { until: 9, set: 'mouth', keys: [[0, [0.45, -0.15, -5.4], [0.3, -0.7, 3], 56], [1, [0.35, -0.2, -4.7], [0.3, -0.7, 3], 54]] }],
+    subtitles: [[0.4, 3.03, 'Imagine being swallowed by a whale.'], [3.18, 5.86, 'One moment, you\'re swimming through the ocean.'], [6.01, 9.13, 'The next, a gigantic mouth engulfs you.'],
+                [9.68, 11.25, 'Everything goes dark.'], [11.4, 16, 'You crash through rushing water, surrounded by fish and enormous baleen plates.'], [16.45, 18.12, 'Then the mouth closes.'],
+                [18.27, 19.65, 'And you realize…'], [20.3, 22.6, 'You\'re trapped inside a living giant.']] },
+  { id: 'first', when: 'The first minutes', what: 'Trapped alive',
     env: { tension: 0.6 },
-    shots: [{ until: 8, set: 'mouth', keys: [[0, [0.45, -0.15, -5.4], [0.3, -0.7, 3], 56], [1, [0.35, -0.2, -4.7], [0.3, -0.7, 3], 54]] },
-            { until: 9, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.5, 0.1, 1.4], [0, 0, 0.3], 52], [1, [1.35, 0.1, 1.2], [0, 0, 0.3], 50]] },
-            { until: 10, set: 'mouth', follow: 'diverM', keys: [[0, [0.1, 0.12, 0.62], [0.9, -0.2, 5], 62], [1, [0.08, 0.12, 0.62], [-0.6, -0.1, 5], 62]] },
-            { until: 11, set: 'mouth', follow: 'diverM', keys: [[0, [-0.9, 0.55, -2.3], [0.3, 0, 2.5], 52], [1, [-0.8, 0.5, -2.2], [0.3, 0, 2.5], 50]] },
-            { until: 12, set: 'mouth', keys: [[0, [0.15, -0.3, 3.3], [2.1, -0.35, 5.6], 48], [1, [0.25, -0.3, 3.5], [2.1, -0.35, 5.6], 46]] },
-            { until: 13, set: 'mouth', keys: [[0, [-0.3, -0.2, -4.9], [0.6, -0.6, 3.5], 56], [1, [-0.3, -0.25, -4.8], [0.6, -0.6, 3.5], 56]] },
-            { until: 14, set: 'mouth', aim: 'diverM', keys: [[0, [0.3, -0.45, -5.5], [0, 0, 0], 52], [1, [0.3, -0.45, -5.6], [0, 0, 0], 54]] },
-            { until: 15, set: 'mouth', keys: [[0, [0.3, -0.55, 1.4], [1.2, -0.15, 6.3], 50], [1, [0.4, -0.5, 1.8], [1.2, -0.15, 6.3], 48]] }],
-    subtitles: [[16.35, 19.26, 'You\'re inside the mouth of a humpback whale.'], [19.41, 21.45, 'Water crashes against your body.'], [21.6, 23.42, 'You can barely see anything.'],
-                [23.57, 27.93, 'You spot a faint glow near the edge and swim toward it.'], [28.08, 30.63, 'But before you can reach the light…'], [31.18, 32.71, 'The whale turns.'],
-                [32.86, 35.19, 'A powerful current throws you backward.'], [35.34, 37.66, 'Your chance of escape is disappearing.']] },
-  { id: 'chance', when: 'The last chance', what: 'Running out of air',
-    env: { tension: 0.75 },
-    shots: [{ until: 16, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.15, -0.15, 1.05], [0, -0.05, 0.35], 44], [1, [1.0, -0.15, 0.95], [0, -0.05, 0.4], 42]] },
-            { until: 17, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [2.4, 0.6, 1.9], [0, 0, 0.1], 48], [1, [2.2, 0.55, 1.6], [0, 0, 0.1], 48]] },
-            { until: 18, set: 'ocean', aim: 'whaleO', keys: [[0, [40, -54, 15], [0, 0, 0], 54], [1, [39, -50, 14], [0, 0, 0], 54]] },
-            { until: 19, set: 'mouth', keys: [[0, [-0.6, -0.3, 0.6], [0.6, 0, 6.5], 52], [1, [-0.45, -0.25, 1.3], [0.6, 0, 6.5], 50]] },
-            { until: 20, set: 'mouth', aim: 'diverM', keys: [[0, [2.0, -0.95, 2.4], [0, 0.1, 0.3], 46], [1, [1.95, -0.9, 2.6], [0, 0.1, 0.3], 44]] },
-            { until: 21, set: 'mouth', keys: [[0, [0.2, -0.6, 1.0], [0.8, -0.3, 5], 54], [1, [0.2, -0.6, 0.9], [0.8, -0.3, 5], 54]] },
-            { until: 22, set: 'mouth', aim: 'diverM', keys: [[0, [0.6, -0.35, 4.6], [0, 0, 0], 50], [1, [0.55, -0.35, 4.4], [0, 0, 0], 48]] },
-            { until: 23, set: 'mouth', aim: 'diverM', keys: [[0, [1.25, -0.4, -1.9], [0, 0, 0], 46], [1, [0.95, -0.55, -2.5], [0, 0, 0], 42]] }],
-    subtitles: [[37.81, 39.81, 'Your lungs begin to burn.'], [39.96, 42.87, 'You desperately fight your way toward the opening.'], [43.02, 46.08, 'Then the whale suddenly surges toward the surface.'],
-                [46.53, 47.79, 'You see sunlight.'], [47.94, 49.28, 'You\'re almost free.'], [49.73, 52.64, 'But a wall of water slams into you…'],
-                [52.79, 55.7, 'And sends you straight back into the darkness.'], [56.35, 58.9, 'For a moment, you think it\'s over.']] },
-  { id: 'escape', when: 'The escape', what: 'Back to the surface',
-    env: { tension: 0.85 },
-    shots: [{ until: 24, set: 'mouth', keys: [[0, [-0.2, -0.65, -5.6], [0, 0.1, 6], 58], [1, [-0.2, -0.6, -5.3], [0, 0.4, 6], 58]] },
-            { until: 25, set: 'breach', keys: [[0, [3.5, 1.3, 19], [0, 4.2, 0], 50], [1, [3.0, 1.2, 16.5], [0, 4.6, 0], 52]] },
-            { until: 26, set: 'breach', aim: 'diverB', keys: [[0, [6, 2.6, 15], [0, 0, 0], 50], [1, [5.2, 1.8, 13.5], [0, 0, 0], 50]] },
-            { until: 27, set: 'sea', follow: 'diverS', keys: [[0, [1.7, 0.7, 2.4], [0, 0, 0], 52, [0.5, 1, 0]], [1, [1.9, 0.5, 2.1], [0, 0, 0], 52, [-0.7, 1, 0.2]]] },
-            { until: 28, set: 'sea', follow: 'diverS', local: true, keys: [[0, [0.15, -0.85, 0.75], [0, -0.05, 0.55], 42], [1, [0.12, -0.8, 0.7], [0, -0.05, 0.55], 40]] },
-            { until: 29, set: 'sea', aim: 'diverS', keys: [[0, [1.6, -10.5, 3.0], [0, 1.2, 0], 56], [1, [1.6, -10.2, 3.0], [0, 1.5, 0], 56]] },
-            { until: 30, set: 'sea', keys: [[0, [2.3, 1.0, 3.4], [0, 0.35, 0], 48], [1, [2.1, 1.0, 3.2], [0, 0.35, 0], 46]] },
-            { until: 31, set: 'sea', keys: [[0, [0.85, 0.62, 1.45], [0, 0.18, 0], 42], [1, [0.8, 0.6, 1.35], [0, 0.18, 0], 40]] },
-            { until: 32, set: 'sea', keys: [[0, [4.5, 5.5, 8], [0, 0, 0], 44], [1, [6, 8, 11], [0, 0, 0], 44]] }],
-    subtitles: [[59.45, 61.63, 'Then the whale opens its mouth.'], [61.78, 65.42, 'Water explodes into the air as it breaks the surface.'], [65.57, 69.57, 'You\'re swept out with the current and thrown into the ocean.'],
-                [69.72, 73.4, 'You tumble underwater, unable to tell which way is up.'], [73.55, 75.27, 'Your lungs are screaming.'], [75.42, 77.97, 'You kick as hard as you can…'],
-                [78.12, 80.35, 'And finally break through the surface.'], [80.5, 82.22, 'You gasp for air.'], [83.27, 84.56, 'You survived.']] },
-  { id: 'discovery', when: 'The discovery', what: 'Alone at sea',
+    shots: [{ until: 10, set: 'mouth', follow: 'diverM', keys: [[0, [0.1, 0.12, 0.62], [0.9, -0.2, 5], 62], [1, [0.08, 0.12, 0.62], [-0.6, -0.1, 5], 62]] },
+            { until: 11, set: 'mouth', follow: 'diverM', keys: [[0, [0.1, 0.12, 0.4], [-4, -0.3, 1.5], 62], [1, [0.1, 0.12, 0.4], [4, -0.3, 1.8], 62]] },
+            { until: 12, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.5, 0.1, 1.4], [0, 0, 0.3], 52], [1, [1.35, 0.1, 1.2], [0, 0, 0.3], 50]] },
+            { until: 13, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [0.45, -0.5, 1.3], [0, -0.06, 0.55], 42], [1, [0.4, -0.45, 1.15], [0, -0.06, 0.55], 40]] },
+            { until: 14, set: 'mouth', follow: 'diverM', keys: [[0, [-0.9, 0.55, -2.3], [0.3, 0, 2.5], 52], [1, [-0.8, 0.5, -2.2], [0.3, 0, 2.5], 50]] },
+            { until: 15, set: 'mouth', aim: 'diverM', keys: [[0, [0.3, -0.45, -5.5], [0, 0, 0], 52], [1, [0.3, -0.45, -5.6], [0, 0, 0], 54]] },
+            { until: 16, set: 'mouth', aim: 'diverM', keys: [[0, [1.25, -0.4, -1.9], [0, 0, 0], 46], [1, [0.95, -0.55, -2.5], [0, 0, 0], 42]] },
+            { until: 17, set: 'mouth', keys: [[0, [0.2, -0.6, 0.6], [1.0, -0.15, 6.3], 50], [1, [0.3, -0.55, 1.2], [1.0, -0.15, 6.3], 48]] }],
+    subtitles: [[23.35, 25.53, 'You try to find an opening.'], [25.68, 27.86, 'But every direction looks the same.'], [28.01, 32.52, 'Water slams against your body as the whale moves through the ocean.'],
+                [32.67, 35.22, 'You scream, but nobody can hear you.'], [35.37, 37.92, 'You try to swim toward the light…'], [38.07, 42.11, 'Only to be thrown backward by another powerful surge of water.'],
+                [42.66, 45.24, 'Then you realize something terrifying.'], [45.39, 49.39, 'You don\'t know when the whale will open its mouth again.']] },
+  { id: 'time', when: 'As time passes', what: 'Running out of air',
+    env: { tension: 0.7 },
+    shots: [{ until: 18, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.15, -0.15, 1.05], [0, -0.05, 0.35], 44], [1, [1.0, -0.15, 0.95], [0, -0.05, 0.4], 42]] },
+            { until: 19, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [-0.75, -0.22, -0.12], [-0.27, -0.07, -0.2], 40], [1, [-0.68, -0.2, -0.15], [-0.27, -0.07, -0.2], 36]] },
+            { until: 20, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [2.4, 0.6, 1.9], [0, 0, 0.1], 48], [1, [2.2, 0.55, 1.6], [0, 0, 0.1], 48]] },
+            { until: 21, set: 'ocean', follow: 'whaleO', local: true, keys: [[0, [5, 7, -11], [0, -1, 5], 56], [1, [5.5, 7.5, -12], [0, -1.5, 6], 56]] },
+            { until: 22, set: 'mouth', keys: [[0, [-0.3, -0.2, -4.9], [0.6, -0.6, 3.5], 56], [1, [-0.3, -0.25, -4.7], [0.6, -0.6, 3.5], 56]] },
+            { until: 23, set: 'mouth', keys: [[0, [1.6, -0.5, -0.2], [0, -1.4, 0.6], 50], [1, [1.5, -0.55, -0.4], [0, -1.4, 0.4], 48]] },
+            { until: 24, set: 'mouth', follow: 'diverM', local: true, keys: [[0, [1.5, 0.2, 1.2], [0, 0, 0.3], 50], [1, [1.4, 0.2, 1.1], [0, 0, 0.3], 50]] },
+            { until: 25, set: 'mouth', keys: [[0, [0.45, -0.15, -5.4], [0.3, -0.7, 3], 58], [1, [0.4, -0.2, -5.0], [0.3, -0.7, 3], 56]] },
+            { until: 26, set: 'ocean', aim: 'whaleO', keys: [[0, [70, -84, 38], [0, 0, 0], 50], [1, [72, -86, 36], [0, 0, 0], 50]] }],
+    subtitles: [[50.14, 51.75, 'Your chest tightens.'], [51.9, 54.08, 'Your air supply is running low.'], [54.23, 58.35, 'Every movement costs energy you can no longer afford to waste.'],
+                [58.5, 62.4, 'The whale dives deeper, and the sunlight disappears completely.'], [62.55, 65.52, 'You feel the enormous animal moving around you.'], [65.97, 67.53, 'Its muscles shift.'],
+                [67.68, 69.98, 'Its body vibrates with every movement.'], [70.63, 72.45, 'You\'re not inside a cave.'], [72.6, 76.24, 'You\'re inside a creature that doesn\'t even know you\'re there.']] },
+  { id: 'last', when: 'Your last chance', what: 'Back to the light',
+    env: { tension: 0.9 },
+    shots: [{ until: 27, set: 'mouth', keys: [[0, [-0.2, -0.3, -5.2], [0.4, -0.5, 4], 58], [1, [-0.2, -0.3, -5.3], [0.4, -0.5, 4], 58]] },
+            { until: 28, set: 'ocean', aim: 'whaleO', keys: [[0, [96, -70, 22], [0, 0, 0], 54], [1, [95, -66, 21], [0, 0, 0], 54]] },
+            { until: 29, set: 'mouth', keys: [[0, [-0.6, -0.3, 0.6], [0.6, 0, 6.5], 52], [1, [-0.45, -0.25, 1.3], [0.6, 0, 6.5], 50]] },
+            { until: 30, set: 'mouth', follow: 'diverM', keys: [[0, [-0.9, 0.55, -2.3], [0.3, 0, 2.5], 52], [1, [-0.8, 0.5, -2.1], [0.3, 0, 2.5], 50]] },
+            { until: 31, set: 'mouth', follow: 'diverM', keys: [[0, [0.05, 0.15, 0.5], [0.2, 0.5, 6], 54], [1, [0.05, 0.15, 0.5], [0.2, 0.6, 6], 52]] },
+            { until: 32, set: 'mouth', keys: [[0, [-0.2, -0.65, -5.6], [0, 0.1, 6], 58], [1, [-0.2, -0.6, -5.3], [0, 0.4, 6], 58]] },
+            { until: 33, set: 'breach', keys: [[0, [3.5, 1.3, 19], [0, 4.2, 0], 50], [1, [3.0, 1.2, 16.5], [0, 4.6, 0], 52]] },
+            { until: 34, set: 'breach', aim: 'diverB', keys: [[0, [6, 2.6, 15], [0, 0, 0], 50], [1, [5.2, 1.8, 13.5], [0, 0, 0], 50]] }],
+    subtitles: [[77.09, 80.08, 'Then, suddenly, everything changes.'], [80.23, 82.79, 'The whale accelerates toward the surface.'], [82.94, 84.76, 'Light flashes through the water.'],
+                [84.91, 89.64, 'You fight your way toward the opening as the current drags you forward.'], [89.79, 92.7, 'For one second, you can see the sky.'], [93.15, 95.33, 'Then the whale opens its mouth.'],
+                [95.48, 97.48, 'Water erupts around you.'], [97.63, 100.18, 'And you\'re thrown back into the ocean.']] },
+  { id: 'surviving', when: 'Surviving the ocean', what: 'Alone at sea',
     env: { tension: 0.5 },
-    shots: [{ until: 33, set: 'sea', keys: [[0, [2.7, 0.85, 1.0], [0, 0.25, 0], 46], [1, [1.3, 0.85, 2.7], [0, 0.25, 0], 46]] },
-            { until: 34, set: 'sea', keys: [[0, [0.35, 0.62, 0.55], [-30, 0.5, -48], 50], [1, [0.3, 0.62, 0.5], [-38, 0.5, -42], 50]] },
-            { until: 35, set: 'sea', keys: [[0, [2.6, 0.75, 2.5], [0.4, 0.15, 0.3], 48], [1, [2.4, 0.72, 2.3], [0.5, 0.1, 0.4], 46]] },
-            { until: 36, set: 'sea', keys: [[0, [1.75, 0.6, 1.55], [1.1, 0.02, 0.85], 40], [1, [1.65, 0.55, 1.45], [1.1, 0.02, 0.85], 36]] },
-            { until: 37, set: 'sea', follow: 'diverS', local: true, keys: [[0, [-0.8, -0.35, -0.1], [-0.27, 0.0, -0.05], 46], [1, [-0.72, -0.32, -0.05], [-0.27, 0.0, -0.05], 42]] },
-            { until: 38, set: 'sea', keys: [[0, [3.5, -15, 6], [0, -0.6, 0], 50], [1, [3.4, -14.5, 5.8], [0, -0.6, 0], 50]] },
-            { until: 39, set: 'sea', keys: [[0, [6, 5.0, 8], [0, 0, 0], 50], [1, [5.5, 4.4, 7.4], [0, 0, 0], 50]] },
-            { until: 40, set: 'sea', keys: [[0, [1.0, -2.8, 0.9], [2, -100, 5], 30, [0, 0, -1]], [1, [1.0, -2.9, 0.9], [2, -100, 5], 24, [0, 0, -1]]] }],
-    subtitles: [[85.21, 86.43, 'You look around.'], [86.58, 88.03, 'The whale is gone.'], [88.18, 90.36, 'But something is floating beside you.'],
-                [90.51, 93.06, 'A broken piece of your diving equipment.'], [93.21, 95.2, 'Your air supply is damaged.'], [95.75, 99.39, 'Then you hear a deep, distant sound beneath the water.'],
-                [99.54, 102.09, 'The ocean around you begins to ripple.'], [102.24, 105.36, 'Something enormous is rising from the depths.']] },
-  { id: 'rising', when: 'From the depths', what: 'Something is coming',
-    env: { tension: 0.95 },
-    shots: [{ until: 41, set: 'sea', aim: 'sperm', keys: [[0, [24, -30, 22], [0, 3, 0], 56], [1, [22, -27, 20], [0, 3, 0], 56]] },
-            { until: 42, set: 'sea', aim: 'spermHead', keys: [[0, [6.5, -13, 7], [0, 0, 0], 50], [1, [6.2, -13.2, 6.6], [0, 0, 0], 50]] },
-            { until: 43, set: 'sea', keys: [[0, [15, -32, 17], [-4, -12, 0], 56], [1, [14, -31, 16], [-6, -14, 0], 56]] },
-            { until: 44, set: 'sea', follow: 'sperm', keys: [[0, [7, 9, 9], [0, -6, 0], 52], [1, [6, 9, 8], [0, -7, 0], 52]] },
-            { until: 45, set: 'sea', follow: 'sperm', keys: [[0, [5, 12, 7], [-14, -110, -20], 50], [1, [4.5, 11, 6.5], [-14, -120, -20], 50]] },
-            { until: 46, set: 'sea', follow: 'sperm', keys: [[0, [14, 24, 18], [-14, -80, -18], 56], [1, [14, 26, 19], [-14, -80, -18], 56]] },
-            { until: 47, set: 'sea', follow: 'sperm', keys: [[0, [7, 10, 10], [-8, -50, -10], 54], [1, [6.5, 9, 9.5], [-8, -50, -10], 52]] },
-            { until: 'cut', set: 'sea', aim: 'spermHead', keys: [[0, [-12, -62, 12], [0, 0, 0], 52], [1, [-12.5, -63, 12.5], [0, 0, 0], 52]] }],
-    subtitles: [[105.51, 107.91, 'A giant shape emerges beneath you.'], [108.96, 110.5, 'It\'s a sperm whale.'], [110.65, 112.83, 'It isn\'t trying to swallow you.'],
-                [112.98, 115.41, 'It\'s hunting something much deeper.'], [115.56, 117.74, 'Then you see what it\'s chasing…'], [117.89, 120.8, 'A shadow far larger than the whale itself.'],
-                [121.75, 122.88, 'And suddenly…'], [123.83, 126.65, 'The sperm whale turns and flees.']] },
+    shots: [{ until: 35, set: 'sea', keys: [[0, [2.3, 1.0, 3.4], [0, 0.35, 0], 48], [1, [2.1, 1.0, 3.2], [0, 0.35, 0], 46]] },
+            { until: 36, set: 'sea', keys: [[0, [0.85, 0.62, 1.45], [0, 0.18, 0], 42], [1, [0.8, 0.6, 1.35], [0, 0.18, 0], 40]] },
+            { until: 37, set: 'sea', keys: [[0, [1.75, 0.6, 1.55], [1.1, 0.02, 0.85], 40], [1, [1.65, 0.55, 1.45], [1.1, 0.02, 0.85], 36]] },
+            { until: 38, set: 'sea', keys: [[0, [1.0, 1.1, 2.0], [-42, -1, -58], 30], [1, [0.9, 1.0, 1.8], [-42, -2, -60], 30]] },
+            { until: 39, set: 'sea', keys: [[0, [4.5, 5.5, 8], [0, 0, 0], 44], [1, [6, 8, 11], [0, 0, 0], 44]] },
+            { until: 40, set: 'sea', keys: [[0, [2.7, 0.85, 1.0], [0, 0.25, 0], 46], [1, [1.3, 0.85, 2.7], [0, 0.25, 0], 46]] },
+            { until: 41, set: 'sea', keys: [[0, [0.35, 0.62, 0.55], [-30, 0.5, -48], 50], [1, [0.3, 0.62, 0.5], [-38, 0.5, -42], 50]] },
+            { until: 42, set: 'sea', follow: 'diverS', local: true, keys: [[0, [-0.8, -0.35, -0.1], [-0.27, 0.0, -0.05], 46], [1, [-0.72, -0.32, -0.05], [-0.27, 0.0, -0.05], 42]] }],
+    subtitles: [[100.93, 103.3, 'You surface, gasping for air.'], [103.45, 105.14, 'Your body is exhausted.'], [105.29, 107.08, 'Your equipment is damaged.'],
+                [107.23, 112.31, 'The whale disappears beneath the waves, leaving you alone in the open ocean.'], [112.86, 117.27, 'You survived being trapped inside one of the largest animals on Earth.'], [117.42, 119.97, 'But now you face a new problem.'],
+                [120.12, 123.76, 'You have no idea how far you are from shore.'], [123.91, 126.55, 'And your remaining air won\'t last forever.']] },
+  { id: 'final', when: 'The final realization', what: 'Nobody is coming',
+    env: { tension: 0.85 },
+    shots: [{ until: 43, set: 'sea', keys: [[0, [1.0, -2.8, 0.9], [2, -100, 5], 50, [0, 0, -1]], [1, [1.0, -2.9, 0.9], [2, -100, 5], 46, [0, 0, -1]]] },
+            { until: 44, set: 'sea', keys: [[0, [6, -30, 8], [0, -160, 0], 62, [0, 0, -1]], [1, [6, -31, 8], [0, -160, 0], 60, [0, 0, -1]]] },
+            { until: 45, set: 'sea', keys: [[0, [3.5, -15, 6], [0, -0.6, 0], 50], [1, [3.4, -14.5, 5.8], [0, -0.6, 0], 50]] },
+            { until: 46, set: 'sea', keys: [[0, [0.7, 0.62, 1.15], [0, 0.05, 0], 42], [1, [0.65, 0.6, 1.05], [0, 0.05, 0], 40]] },
+            { until: 47, set: 'sea', keys: [[0, [0.7, -1.3, 1.0], [-5, -150, -10], 70, [0, 0, -1]], [1, [0.7, -1.35, 1.0], [-5, -150, -10], 66, [0, 0, -1]]] },
+            { until: 48, set: 'sea', keys: [[0, [8, 40, 55], [0, 0, 0], 40], [1, [10, 70, 95], [0, 0, 0], 40]] },
+            { until: 49, set: 'sea', follow: 'diverS', local: true, keys: [[0, [-0.72, -0.32, -0.05], [-0.27, 0.0, -0.05], 40], [1, [-0.66, -0.3, -0.05], [-0.27, 0.0, -0.05], 36]] },
+            { until: 50, set: 'sea', keys: [[0, [8, -22, 8], [0, -0.5, 0], 55], [1, [7, -20, 7], [0, -0.5, 0], 55]] },
+            { until: 'cut', set: 'sea', keys: [[0, [0, 30, 40], [0, 0, 0], 38], [1, [0, 150, 190], [0, 0, 0], 38]] }],
+    subtitles: [[127.4, 129.95, 'You look down into the dark water.'], [130.1, 132.51, 'Something enormous moves beneath you.'], [133.16, 134.98, 'For a moment, you freeze.'],
+                [135.53, 137.35, 'Then you realize the truth.'], [137.5, 141.14, 'Being swallowed by a whale was never the only danger.'], [141.79, 143.64, 'The ocean is enormous.'],
+                [143.79, 146.78, 'You\'re exhausted, stranded, and running out of air.'], [147.53, 148.72, 'And this time…'], [149.47, 152.38, 'There may be nobody coming to save you.']] },
 ];
-const ENV_END = { tension: 0.95 };
+const ENV_END = { tension: 0.6 };
 // every shot runs until its `until` subtitle starts (a beat before it), so the next picture lands with the next line
 const SUBS = SCENES.flatMap(s => s.subtitles);
 const ln = (n, d = 0) => SUBS[n - 1][0] + d;
@@ -221,28 +225,28 @@ const ln = (n, d = 0) => SUBS[n - 1][0] + d;
 }
 // story beats (all tied to the line of narration they belong to)
 const EV = {
-  jaw: [ln(4, 0.2), ln(5, 0.9)],   // the humpback opens its mouth
-  engulf: ln(6, 0.6),              // the mouth passes over you
-  surge: ln(8, 0.1),               // water crashes in
-  swim: [ln(10, 0.2), ln(11, 0.4)],
-  roll: [ln(12, 0.05), ln(12, 1.5)],
-  thrown: [ln(13, 0.05), ln(13, 1.4)], snap: ln(13, 0.35),
-  close: [ln(14, 0.1), ln(14, 2.0)],
-  fight: [ln(16, 0.1), ln(19, 0.8)],
-  surface: [ln(17, -0.3), ln(18, 0.2)],
-  light: [ln(18, -0.25), ln(18, 0.8)],
-  slam: ln(20, 0.35), back: [ln(20, 0.35), ln(21, 1.4)], dark: [ln(21, 0.3), ln(21, 1.6)],
-  open: [ln(23, 0.1), ln(23, 1.7)],
-  breach: ln(24, 0.25), eject: ln(25, 0.35),
-  tumble: [ln(26, -0.2), ln(27, 0.2)],
-  rise: [ln(28, 0.0), ln(29, 0.4)], burst: ln(29, 0.4),
-  gasp: [ln(30, 0.1), ln(30, 0.8)],
-  deep: ln(37, 0.2), ripple: ln(38, 0.0),
-  shift: ln(46, 0.3), flee: ln(47, 0.1),
+  jaw: [ln(3, -0.9), ln(3, 0.9)],   // the humpback opens its mouth
+  engulf: ln(4, 0.2),               // the mouth passes over you
+  surge: ln(5, 0.1),                // you crash through the water rushing in
+  close: [ln(6, 0.0), ln(6, 1.5)],  // the mouth closes
+  slam: ln(11, 0.3),                // water slams against you
+  scream: ln(12, 0.15),
+  swim: [ln(13, 0.1), ln(14, 0.1)],
+  thrown: [ln(14, 0.3), ln(14, 1.7)], snap: ln(14, 0.6),
+  dive: [ln(20, 0), ln(25, 3)],      // the whale dives into the dark
+  muscles: [ln(21, 0), ln(24, 0)],
+  jolt: ln(26, 0.15),
+  surface: [ln(27, -0.3), ln(28, 0.2)],
+  open: [ln(31, 0.1), ln(31, 1.7)],
+  breach: ln(32, 0.2), eject: ln(33, 0.35),
+  rise: [ln(34, -1.6), ln(34, 0.35)], burst: ln(34, 0.35),
+  gasp: [ln(34, 0.6), ln(35, 0.6)],
+  gone: ln(37, 0.0),
+  pass: [ln(42, 0.5), ln(47, 0)],   // the shape passes beneath you
 };
 // impacts: [time, strength] → camera shake (and a hit in the sound)
-const SHAKES = [[EV.engulf, 0.5], [EV.surge, 0.6], [ln(12, 0.15), 0.5], [EV.thrown[0] + 0.1, 0.4], [EV.slam, 1.0], [EV.open[0] + 0.3, 0.4], [EV.breach, 0.9], [EV.burst, 0.35]];
-const RUMBLES = [[EV.roll[0], EV.roll[1], 0.35], [EV.surface[0], EV.surface[1], 0.12], [ln(18, 0.6), ln(20, 0.2), 0.08], [EV.open[0], ln(24, -0.1), 0.25], [EV.tumble[0], EV.tumble[1], 0.1], [EV.ripple, ln(40, 0), 0.06], [EV.shift, EV.shift + 1.6, 0.08]];   // continuous tremble: [from, to, strength]
+const SHAKES = [[EV.engulf, 0.5], [EV.surge, 0.6], [EV.slam, 0.8], [EV.thrown[0] + 0.1, 0.5], [EV.jolt, 0.9], [EV.open[0] + 0.3, 0.4], [EV.breach, 0.9], [EV.burst, 0.35]];
+const RUMBLES = [[EV.slam, EV.slam + 1.6, 0.3], [ln(21, 0), ln(22, 0), 0.06], [ln(23, 0), ln(24, -0.2), 0.22], [EV.jolt, ln(27, 0), 0.25], [EV.surface[0], EV.surface[1], 0.12], [ln(28, 0), ln(31, 0), 0.08], [EV.open[0], ln(32, -0.1), 0.25], [ln(43, 0.2), ln(44, 0), 0.05]];   // continuous tremble: [from, to, strength]
 
 // ---------- helpers ----------
 function lerp(a, b, k) { return a + (b - a) * k; }
@@ -531,31 +535,6 @@ function whalePose(W, T, o) {
   W.pecs.forEach((f, i) => { f.rotation.set(0, 0.5 + 0.08 * Math.sin(ph * 0.5), -(0.55 + 0.12 * Math.sin(ph * 0.5 + i))); });
 }
 
-// the sperm whale: a huge square head, a thin lower jaw underneath, wrinkled skin
-const SW_BODY = smoothRings([[-8.4, 0.02, 0.03, 0.03, 0], [-8.2, 0.2, 0.25, 0.25, 0], [-7.0, 0.4, 0.5, 0.45, 0], [-5.5, 0.72, 0.85, 0.8, 0], [-4.0, 1.02, 1.2, 1.1, 0.05, 2.1],
-  [-2.5, 1.26, 1.55, 1.35, 0.1, 2.2], [-1.0, 1.4, 1.62, 1.5, 0.1, 2.3], [0.5, 1.48, 1.7, 1.6, 0.12, 2.5], [2.0, 1.5, 1.75, 1.65, 0.15, 2.9], [3.5, 1.48, 1.8, 1.65, 0.18, 3.3],
-  [5.0, 1.44, 1.8, 1.6, 0.2, 3.6], [6.5, 1.38, 1.75, 1.5, 0.2, 3.8], [7.6, 1.25, 1.62, 1.3, 0.2, 3.6], [8.1, 0.95, 1.3, 1.0, 0.25, 3], [8.3, 0.4, 0.6, 0.45, 0.25, 2.5], [8.33, 0.01, 0.01, 0.01, 0.25, 2]], 2);
-function makeSperm(parent) {
-  const root = group(parent), W = { root };
-  const skin = mat(0xffffff, { vc: true, flat: true, rough: 0.75, env: 0.25 });
-  const colorFn = (z, s, j, i) => { const h = hash(i * 1.7, j * 2.3); return z > 2 && h > 0.9 ? 0xa8a49e : s < -0.6 && z > 1 ? 0x4a4644 : h > 0.6 ? 0x6e6864 : 0x5c5754; };
-  mesh(root, shell(SW_BODY.filter(r => r[0] >= -4.1), 30, 0, TAU, colorFn, 0.06), skin);
-  W.tail = group(root, 0, 0, -4.0);
-  mesh(W.tail, shell(SW_BODY.filter(r => r[0] <= -3.9).map(r => [r[0] + 4.0, ...r.slice(1)]), 22, 0, TAU, colorFn, 0.06), skin);
-  // the narrow lower jaw (pale) under the front of the head
-  mesh(root, shell(smoothRings([[2.4, 0.01, 0.01, 0.01, -1.36], [2.6, 0.32, 0.14, 0.2, -1.38], [4.5, 0.3, 0.12, 0.18, -1.46], [6.5, 0.25, 0.1, 0.15, -1.46], [7.4, 0.18, 0.08, 0.1, -1.42], [7.6, 0.01, 0.01, 0.01, -1.42]], 2), 12, 0, TAU, () => 0xc8c0b4), mat(0xffffff, { vc: true, flat: true, rough: 0.6 }));
-  for (const sx of [-1, 1]) mesh(root, sphG, mat(0x060606, { rough: 0.15, env: 1.5 }), sx * 1.47, -0.55, 2.6, { s: 0.08, shadow: false });
-  // hump and knuckles on the back
-  mesh(W.tail, new THREE.ConeGeometry(0.42, 0.5, 5), mat(0x3a3736, { flat: true }), 0, 1.15, 0.6, { rx: -0.3 });
-  for (let i = 0; i < 4; i++) mesh(W.tail, icoG, mat(0x3a3736, { flat: true }), 0, 0.82 - i * 0.12, -1.0 - i * 0.7, { s: [0.15, 0.12, 0.25] });
-  const pec = new THREE.BoxGeometry(1.3, 0.1, 0.5).translate(0.65, 0, 0);
-  W.pecs = [-1, 1].map(sx => { const f = group(root, sx * 1.4, -1.0, 2.2); f.scale.x = sx; mesh(f, pec, mat(0x34312f, { flat: true, side: THREE.DoubleSide })); return f; });
-  W.fluke = group(W.tail, 0, 0, -4.3);
-  const half = [[0, 0.1], [0.7, 0.35], [1.6, 0.85], [2.3, 1.3], [2.0, 1.35], [1.2, 1.15], [0.5, 1.15], [0, 0.95]];
-  W.fluke.add(new THREE.Mesh(finGeo([...half, ...half.slice(0, -1).reverse().map(([x, z]) => [-x, z])], 0.14), mat(0x302d2c, { flat: true, side: THREE.DoubleSide })));
-  return W;
-}
-
 /* ===================================================================== WATER (shared by all sea sets)
    The sea is a grid that is dense near its centre; the waves are moved on the CPU, the shading is per face. */
 const WAVES = [[0.13, 0.09, 0.3, 1.0, 0], [0.08, 0.15, 1.2, 1.25, 1.3], [0.05, 0.27, -0.6, 1.7, 2.1], [0.035, 0.55, 2.2, 2.4, 0.4], [0.02, 0.9, -1.8, 3.1, 5.2]];
@@ -716,24 +695,25 @@ function skyLook(top, hor, bot) { skyU.uTop.value.set(top); skyU.uHor.value.set(
 /* ===================================================================== SET: OCEAN (open water, 16 m deep: the humpback comes for you) */
 const OSUN = V(-0.9, 1, 0.1).normalize();                   // toward the sun (underwater the light comes in steep)
 const diverOwn = T => {                                        // the diver's own swim, before the whale takes him
-  const t4 = ln(4, 0.1), x = -1 + 0.38 * Math.min(T, t4) + 0.15 * smooth(t4, t4 + 1.5, T);
+  const t4 = ln(3, -0.6), x = -1 + 0.38 * Math.min(T, t4) + 0.15 * smooth(t4, t4 + 1.5, T);
   return V(x, -16 + 0.12 * Math.sin(T * 0.5), 0);
 };
 const diverOwnQ = T => {
-  const k = smooth(ln(4, 0.05), ln(4, 1.1), T), a = Math.PI * k;
+  const k = smooth(ln(3, -0.7), ln(3, 0.4), T), a = Math.PI * k;
   const fwd = V(Math.cos(a), 0.15 + 0.55 * Math.sin(a * 0.5) * k, Math.sin(a) * 0.9).normalize();
   return lookQ(fwd, V(0, 1, 0).lerp(V(0.6, 0.2, 0), k * 0.6).normalize());
 };
 // the whale's path; at the moment it swallows you, the point in its mouth lands on the camera beside you
 const SWALLOW_CAM = V(0.15, -0.08, 5.55), SWALLOW_DIVER = V(-0.05, -0.5, 4.75);
 const WO_KEYS = (() => {
-  const E = EV.engulf, K = [[0, -48, -13.5, 15], [ln(2), -35, -6.5, 9], [ln(3), -18, -3.6, 3.5], [ln(4), -10.5, -3.3, 1.2], [ln(5), -6.5, -6.2, 0.6]];
+  const E = EV.engulf, K = [[0, -40, -12, 12], [ln(2), -28, -6, 7], [ln(3, -0.8), -14, -4, 2.5], [ln(3, 0.6), -8, -5.5, 0.8]];
   const cam = diverOwn(E).add(V(0.85, 0.15, 0.55)), last = V(K[K.length - 1][1], K[K.length - 1][2], K[K.length - 1][3]);
   const dir = diverOwn(E).sub(last).normalize(), q = lookQ(dir, upFor(dir, V(1, 0, 0)));
   const root = cam.clone().sub(SWALLOW_CAM.clone().applyQuaternion(q));
   K.push([E, root.x, root.y, root.z]);
   const r2 = root.clone().addScaledVector(dir, 6), r3 = root.clone().addScaledVector(dir, 14).add(V(4, -3, 0));
-  K.push([E + 2.2, r2.x, r2.y, r2.z], [E + 6, r3.x, r3.y, r3.z], [ln(17, -1.2), 26, -66, 1], [ln(17, 1.0), 28, -44, 0.5], [ln(18, 0.4), 30, -24, 0]);
+  K.push([E + 2.2, r2.x, r2.y, r2.z], [E + 6, r3.x, r3.y, r3.z], [ln(20, -0.2), 22, -36, -2], [ln(20, 3.4), 30, -64, -3], [ln(25, -0.2), 42, -92, -4], [ln(25, 3.5), 58, -98, -4],
+    [ln(27, -1.2), 70, -88, -3], [ln(27, 1.0), 74, -52, -1], [ln(28, 0.4), 76, -26, 0]);
   return K;
 })();
 function whaleOState(T) {
@@ -771,25 +751,27 @@ const ocean = (() => {
 
 /* ===================================================================== SET: MOUTH (inside the humpback: baleen bars, a slit of light at the lips) */
 const MO = { rx: 3.0, up: 1.8, low: 2.2, rz: 6.5 };   // the mouth cavity: half an ellipsoid above and below the lip line
-const gapAt = T => {            // how far the upper jaw is lifted (radians): a thin slit, closing, light, slammed shut, wide open
-  let a = 0.009 + 0.004 * Math.sin(T * 1.3);
-  a *= 1 - 0.85 * smooth(EV.close[0], EV.close[1], T);
-  a += 0.04 * smooth(EV.light[0], EV.light[1], T) * (1 - smooth(EV.dark[0], EV.dark[1], T));
-  a += 0.24 * smooth(EV.open[0], EV.open[1], T);
+const gapAt = T => {            // how far the upper jaw is lifted (radians): still open as you come in, a thin slit, light, wide open
+  let a = 0.009 + 0.004 * Math.sin(T * 1.3) + 0.11 * (1 - smooth(EV.close[0], EV.close[1], T));
+  a *= 1 - 0.6 * smooth(ln(14, 2), ln(16), T) * (1 - smooth(ln(27), ln(28), T));
+  a += track([[ln(28, -0.3), 0], [ln(28, 0.4), 0.03], [ln(30, -0.2), 0.035], [ln(30, 0.4), 0.08], [EV.open[0], 0.08], [EV.open[1], 0.24]], T);
   return a;
 };
-const rollAt = T => 0.62 * smooth(EV.roll[0], EV.roll[0] + 0.9, T) - 0.4 * smooth(EV.roll[0] + 0.9, EV.close[1] + 1, T) - 0.22 * smooth(EV.fight[0], EV.light[0], T) + 0.12 * smooth(EV.slam - 0.1, EV.slam + 0.6, T) - 0.12 * smooth(EV.dark[0], EV.dark[1] + 1, T);
+// the whale rolls when the water slams in, sways while it swims, lurches when it turns for the surface
+const rollAt = T => 0.5 * smooth(EV.slam, EV.slam + 0.9, T) - 0.5 * smooth(EV.slam + 0.9, ln(13), T)
+  + 0.12 * Math.sin((T - EV.muscles[0]) * 0.9) * smooth(EV.muscles[0], EV.muscles[0] + 1, T) * (1 - smooth(EV.muscles[1] - 1, EV.muscles[1], T))
+  - 0.35 * smooth(EV.jolt, EV.jolt + 0.8, T) + 0.35 * smooth(ln(28), ln(29), T);
 // where the diver is inside the mouth: [t, x, y, z]
-const DM_KEYS = [[0, 0, -0.75, -1.4], [EV.surge, 0.05, -0.75, -1.25], [EV.surge + 1.2, -1.0, -0.85, -1.6], [EV.swim[0], -0.9, -0.8, -1.4], [EV.swim[1], 1.35, -0.62, 4.45], [ln(12, 0.1), 1.45, -0.6, 4.6],
-  [EV.thrown[0] + 0.2, 1.2, -0.6, 3.6], [EV.thrown[1], -0.45, -1.0, -3.4], [ln(15), -0.5, -1.0, -3.5], [EV.fight[0], -0.5, -1.0, -3.4], [ln(18), 0.5, -0.7, 2.6], [EV.fight[1], 0.8, -0.5, 4.4],
-  [EV.slam, 0.82, -0.5, 4.45], [EV.slam + 0.9, 0.0, -0.9, -0.6], [EV.back[1], -0.3, -1.1, -3.7], [EV.open[0], -0.32, -1.15, -3.8], [ln(24), 0.0, -0.4, 3.8]];
+const DM_KEYS = [[0, 0, -0.4, 3.6], [EV.surge, 0, -0.45, 3.4], [EV.surge + 1.6, -0.4, -0.85, -0.8], [ln(9), -0.4, -0.8, -1.0], [EV.slam, -0.2, -0.8, -0.6], [EV.slam + 1.2, -1.1, -0.85, -1.4],
+  [EV.swim[0], -0.9, -0.8, -1.3], [ln(14), 1.2, -0.62, 3.9], [EV.thrown[0], 1.25, -0.6, 4.0], [EV.thrown[1], -0.45, -1.0, -3.4], [ln(19), -0.5, -1.0, -3.3], [ln(20), 0.1, -0.85, -2.2],
+  [EV.jolt, 0.0, -0.9, -2.0], [EV.jolt + 0.8, -0.3, -1.0, -2.6], [ln(29), -0.2, -0.9, -2.2], [ln(30), 0.7, -0.5, 3.6], [ln(31), 0.8, -0.45, 4.3], [ln(32), 0.2, -0.3, 6.0]];
 function diverMState(T) {
   const p = pathAt(DM_KEYS, T), sp = pathSpeed(DM_KEYS, T), dir = pathDir(DM_KEYS, T);
-  // thrown backward: he keeps facing the light and tumbles; otherwise he faces where he swims
-  const thrown = inT(T, EV.thrown[0], EV.thrown[1]) || inT(T, EV.slam, EV.back[1]);
+  // swept back by the water: he keeps facing the light and tumbles; otherwise he faces where he swims
+  const thrown = inT(T, EV.thrown[0], EV.thrown[1]) || inT(T, EV.surge, EV.surge + 1.6);
   const fwd = V(0, -0.1, 1).normalize().lerp(thrown ? V(0, -0.1, 1) : dir, thrown ? 0 : smooth(0.08, 0.4, sp)).normalize();
   let q = lookQ(fwd, V(0, 1, 0));
-  const tumble = (EV.thrown[0] < T ? 4 * smooth(EV.thrown[0], EV.thrown[1], T) : 0) + (T > EV.slam ? -4 * smooth(EV.slam, EV.back[1], T) : 0) + (T > EV.surge ? 0.5 * Math.sin(Math.PI * smooth(EV.surge, EV.surge + 1.2, T)) : 0);
+  const tumble = 4 * smooth(EV.surge, EV.surge + 1.6, T) + 4 * smooth(EV.thrown[0], EV.thrown[1], T);
   q.multiply(_Q.setFromAxisAngle(V(1, 0, 0), -tumble * TAU * 0.25));
   return { p, q, sp };
 }
@@ -798,7 +780,11 @@ const mouth = (() => {
   const jitter = (g, k) => { const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); if (Math.abs(y) < 0.02) continue; const s = 1 + (hash(i * 0.37) - 0.5) * k; p.setXYZ(i, p.getX(i) * s, y * s, p.getZ(i) * s); } g.computeVertexNormals(); return g; };
   const lowG = jitter(new THREE.SphereGeometry(1, 36, 14, 0, TAU, Math.PI / 2, Math.PI / 2), 0.06);
   mesh(S, lowG, mat(0x2e1418, { rough: 0.7, flat: true, side: THREE.BackSide }), 0, 0, 0, { s: [MO.rx, MO.low, MO.rz] });
-  mesh(S, jitter(new THREE.SphereGeometry(1, 20, 10), 0.12), mat(0x3e1a1e, { rough: 0.7, flat: true }), 0, -2.25, -0.6, { s: [2.1, 0.92, 4.6] });   // tongue
+  const tongue = mesh(D, jitter(new THREE.SphereGeometry(1, 20, 10), 0.12), mat(0x3e1a1e, { rough: 0.7, flat: true }), 0, -2.25, -0.6, { s: [2.1, 0.92, 4.6] });   // tongue (it moves)
+  // a school of small fish swept in with you, circling in the dark (each one faces the way it swims)
+  const fishG = mergeGeometries([new THREE.ConeGeometry(0.035, 0.2, 5).rotateX(Math.PI / 2), new THREE.ConeGeometry(0.03, 0.06, 3).rotateX(-Math.PI / 2).translate(0, 0, -0.12).scale(0.3, 1, 1)].map(g => g.toNonIndexed()));
+  const FISH = []; for (let i = 0; i < 110; i++) FISH.push({ r: 0.8 + rnd() * 1.7, y: -0.9 + rnd() * 1.4, w: (0.5 + rnd() * 0.8) * (rnd() < 0.85 ? 1 : -1), ph: rnd() * TAU, b: rnd() * TAU });
+  const fish = instanced(D, fishG, mat(0xc8d4dc, { rough: 0.3, metal: 0.6, env: 1.4, flat: true }), FISH, () => ({ p: V(0, -1e4, 0) })); fish.frustumCulled = false;
   // the upper jaw (palate + baleen) hinges at the back of the mouth
   const U = group(D, 0, 0, -MO.rz);
   const upG = jitter(new THREE.SphereGeometry(1, 36, 12, 0, TAU, 0, Math.PI / 2), 0.05);
@@ -821,13 +807,13 @@ const mouth = (() => {
   const beam = mesh(D, new THREE.ConeGeometry(1, 1, 20, 1, true).translate(0, -0.5, 0).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xfff0d8, transparent: true, opacity: 0.05, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide, fog: false }), 0, 0, 0, { shadow: false });
   const diver = makeDiver(D);
   const bub = bubbles(D, 90, 2.6);
-  return { U, ribbon, ribM, foam, FOAM, foamM, beam, diver, bub };
+  return { U, ribbon, ribM, foam, FOAM, foamM, beam, diver, bub, tongue, fish, FISH };
 })();
 
 /* ===================================================================== SET: BREACH (above the waves: the humpback bursts out, mouth wide open) */
 const BSUN = V(0.32, 0.3, -0.9).normalize();
 const WB_DIR = V(0, 1, -0.26).normalize();
-const whaleBY = T => track([[EV.breach - 1.8, -16], [EV.breach - 0.9, -11.6], [EV.breach, -7.4], [EV.breach + 0.6, -4.2], [EV.breach + 1.3, -1.9], [EV.breach + 2.2, -1.2], [ln(26, 0.0), -2.7], [ln(26, 2.0), -9]], T);
+const whaleBY = T => track([[EV.breach - 1.8, -16], [EV.breach - 0.9, -11.6], [EV.breach, -7.4], [EV.breach + 0.6, -4.2], [EV.breach + 1.3, -1.9], [EV.breach + 2.2, -1.2], [ln(34, 0.0), -2.7], [ln(34, 2.0), -9]], T);
 function whaleBState(T) {
   const p = V(0, 0, 0.6).addScaledVector(WB_DIR, 1).setY(whaleBY(T));
   return { p, q: lookQ(WB_DIR, V(0, 0, -1)), open: 0.92 };
@@ -861,40 +847,37 @@ const breach = (() => {
   return { u, sea, whale, diver, SPRAY, spray, pour, MIST, mist, mistM, SPL, splash };
 })();
 
-/* ===================================================================== SET: SEA (alone at the surface; below: the sperm whale and the shadow) */
+/* ===================================================================== SET: SEA (alone at the surface; the humpback leaves; far below: the shadow) */
 const SSUN = V(-0.55, 0.32, -0.77).normalize();
-const SHADOW = V(-40, -185, -30);
-const rippleAt = (x, z, T) => { const d = T - EV.ripple; if (d <= 0) return 0; const r = Math.hypot(x, z); return 0.06 * smooth(0, 3, d) * Math.sin(r * 2.2 - T * 7) * Math.exp(-r / 22) * smooth(r - 1, r + 1, d * 7); };
+const SHADOW = V(0, -150, -20);
+const rippleAt = (x, z, T) => { const d = T - ln(43, 0.3); if (d <= 0) return 0; const r = Math.hypot(x, z); return 0.06 * smooth(0, 3, d) * Math.sin(r * 2.2 - T * 7) * Math.exp(-r / 22) * smooth(r - 1, r + 1, d * 7); };
 const seaAmp = T => 0.7;
 // the diver here: tumbling down, then kicking up, then treading water (upright, face toward +z, turning)
 function diverSState(T) {
   let p, q, pose = {};
   const ws = waveH(0, 0, T, seaAmp(T), rippleAt);
-  if (T < EV.rise[0]) {
-    const k = smooth(EV.tumble[0], EV.tumble[1], T);
-    p = V(0.4 * Math.sin(T * 0.7), -6.2 - 0.8 * (1 - k), 0.3 * Math.cos(T * 0.6));
-    const sp = 1 - k, a = T * 2.4 * sp + (1 - sp) * 0;
-    q = lookQ(V(Math.sin(a * 0.7) * sp, 1 - 0.0 * sp, Math.cos(a) * sp).normalize().lerp(V(0, 1, 0), k).normalize(), V(Math.cos(a), 0, -Math.sin(a) * sp - k).normalize());
-    pose = { kick: 0.4 + 0.6 * sp, ph: T * 5, armL: -1.2 * sp + 0.3 * Math.sin(T * 3), armR: -0.6 * sp - 0.3 * Math.cos(T * 3.3), pitch: lerp(1.2, 1.5, k), splay: 0.6 };
-  } else if (T < EV.burst) {
+  if (T < EV.burst) {
+    // thrown from the whale's mouth, you come up from below: kicking toward the light
     const k = smooth(EV.rise[0], EV.burst, T);
     p = V(0, lerp(-6.2, ws - 0.43, Math.pow(k, 1.4)), 0);
     q = lookQ(V(0, 1, 0), V(0, 0, -1));
     pose = { kick: 1.4, ph: T * 13, armL: -0.2 + 0.4 * Math.sin(T * 6), armR: -0.2 + 0.4 * Math.sin(T * 6 + 1), pitch: 0.4, splay: 0.5 };
   } else {
+    // treading water: upright, face toward +z; you look around, later down into the water, and freeze
     const d = T - EV.burst, bob = 0.5 * Math.exp(-d * 2.2) * Math.sin(d * 4.5);
-    const yaw = 0.6 * smooth(ln(32), ln(33, 0.3), T) - 0.9 * smooth(ln(33, 0.3), ln(34), T) + 0.5 * smooth(ln(34), ln(35), T);
+    const yaw = 0.6 * smooth(ln(39), ln(40, 0.3), T) - 0.9 * smooth(ln(40, 0.3), ln(41), T) + 0.5 * smooth(ln(41), ln(42), T);
     p = V(0, ws - 0.43 + bob, 0);
     q = lookQ(V(0, 1, 0), V(-Math.sin(yaw), 0, -Math.cos(yaw)));
-    const gasp = inT(T, EV.gasp[0], EV.gasp[1] + 1.2) ? 1 : 0;
-    pose = { kick: 0.6, ph: T * 3, armL: -1.5 + 0.25 * Math.sin(T * 2.2), armR: -1.5 + 0.25 * Math.sin(T * 2.2 + 2), splay: 0.9 + 0.2 * Math.sin(T * 2.2), pitch: Math.PI / 2 - 0.15 * gasp, yaw: 0.8 * Math.sin(Math.PI * smooth(ln(32), ln(33, 0.2), T)) - 0.4 * gasp * 0 };
+    const gasp = inT(T, EV.gasp[0], EV.gasp[1]) ? 1 : 0, down = smooth(ln(42, -0.3), ln(42, 0.5), T) * (1 - smooth(ln(47, 0), ln(48, 0), T)), freeze = inT(T, ln(44), ln(47)) ? 0.25 : 1;
+    pose = { kick: 0.6 * freeze, ph: T * 3 * freeze, armL: -1.5 + 0.25 * Math.sin(T * 2.2) * freeze, armR: -1.5 + 0.25 * Math.sin(T * 2.2 + 2) * freeze, splay: 0.9 + 0.2 * Math.sin(T * 2.2) * freeze, pitch: Math.PI / 2 - 0.15 * gasp + 0.55 * down, yaw: 0.8 * Math.sin(Math.PI * smooth(ln(39), ln(40, 0.2), T)) };
   }
   return { p, q, pose };
 }
-const SP_KEYS = [[ln(39, -0.3), 3, -112, 6], [ln(40), 2, -62, 4], [ln(41), 0.5, -30, 3], [ln(42), -1, -17.5, 2], [ln(43), -8, -19.5, -2], [ln(44), -15, -33, -6], [ln(45), -21, -52, -8], [ln(46), -25.5, -67, -9], [ln(47), -27.5, -76, -9.5], [ln(47, 0.9), -30, -80.5, -6.5], [ln(47, 1.7), -28.5, -79, -1.5], [ln(47, 2.7), -23, -70, 2.5]];
-function spermState(T) {
-  const p = pathAt(SP_KEYS, T), fwd = pathDir(SP_KEYS, T);
-  return { p, q: lookQ(fwd, upFor(fwd, V(0.3, 0, 1).normalize())), sp: pathSpeed(SP_KEYS, T) };
+// the humpback leaves: its back rolls over, the flukes rise out of the water and slide under
+const WS_KEYS = [[EV.gone - 8, -42, -1.6, -46], [EV.gone, -42, -1.7, -55], [EV.gone + 1.4, -42, -4, -60], [EV.gone + 3.2, -42, -13, -63], [EV.gone + 6, -42, -30, -64]];
+function whaleSState(T) {
+  const p = pathAt(WS_KEYS, T), fwd = pathDir(WS_KEYS, T);
+  return { p, q: lookQ(fwd, upFor(fwd, V(0, 0, 1))) };
 }
 const seaSet = (() => {
   const S = ST.sea, D = G.sea;
@@ -908,7 +891,7 @@ const seaSet = (() => {
   mesh(piece, new THREE.CircleGeometry(0.035, 10), mat(0x1e9ab0, { rough: 0.5 }), 0, 0.02, -0.051, { ry: Math.PI, shadow: false });
   mesh(piece, new THREE.TubeGeometry(new THREE.CatmullRomCurve3([V(0.05, 0, -0.03), V(0.22, -0.01, -0.12), V(0.42, 0.0, -0.08), V(0.6, -0.02, -0.2)]), 20, 0.017, 6), mat(0x111214, { rough: 0.6 }));
   for (let i = 0; i < 5; i++) mesh(piece, new THREE.ConeGeometry(0.006, 0.07, 3), mat(0x3a3a3a), 0.6 + (hash(i) - 0.5) * 0.02, -0.02, -0.2, { rz: Math.PI / 2 + (hash(i, 1) - 0.5) * 1.2, ry: (hash(i, 2) - 0.5) * 1.5, shadow: false });
-  const sperm = makeSperm(D);
+  const whale = makeHumpback(D);
   // the shadow far below: never shown clearly, only as a black mass against the faint glow of the deep
   const shadowM = new THREE.MeshBasicMaterial({ color: 0x000000, fog: false });
   const shadow = group(D, SHADOW.x, SHADOW.y, SHADOW.z);
@@ -926,7 +909,7 @@ const seaSet = (() => {
   const bub = bubbles(D, 120, 3.0);
   const SPL = []; for (let i = 0; i < 70; i++) { const a = rnd() * TAU; SPL.push({ v: V(Math.cos(a) * (0.4 + rnd() * 1.6), 1.5 + rnd() * 3, Math.sin(a) * (0.4 + rnd() * 1.6)), s: 0.03 + rnd() * 0.05 }); }
   const splash = instanced(D, icoG, breach.spray.material, SPL, () => ({ p: V(0, -1e4, 0) })); splash.frustumCulled = false;
-  return { u, sea, diver, piece, sperm, shadow, glowPts, glowU, bub, SPL, splash };
+  return { u, sea, diver, piece, whale, shadow, glowPts, glowU, bub, SPL, splash };
 })();
 
 /* ===================================================================== MERGE STATIC */
@@ -978,10 +961,10 @@ const SHOTS = SCENES.flatMap(s => s.shots);
 const upY = V(0, 1, 0);
 const SUBJ = {
   whaleO: T => whaleOState(T).p, diverO: T => diverOwn(T), diverM: T => diverMState(T).p, diverB: T => diverBState(T).p,
-  diverS: T => diverSState(T).p, whaleOHead: T => { const w = whaleOState(T); return V(0, HB_C, 6).applyQuaternion(w.q).add(w.p); }, sperm: T => spermState(T).p, spermHead: T => { const s = spermState(T); return V(0, 0.2, 6).applyQuaternion(s.q).add(s.p); },
+  diverS: T => diverSState(T).p, whaleOHead: T => { const w = whaleOState(T); return V(0, HB_C, 6).applyQuaternion(w.q).add(w.p); },
 };
 // orientation of a subject, for shots that move with it in its own frame (`local: true`)
-const SUBJQ = { whaleO: T => whaleOState(T).q, diverO: T => diverOwnQ(T), diverM: T => diverMState(T).q, diverS: T => diverSState(T).q, sperm: T => spermState(T).q };
+const SUBJQ = { whaleO: T => whaleOState(T).q, diverO: T => diverOwnQ(T), diverM: T => diverMState(T).q, diverS: T => diverSState(T).q };
 function shotAt(T) {
   const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
   const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
@@ -1039,28 +1022,28 @@ function look(set, T) {
   sun.castShadow = true; snowU.uOp.value = 0; seaSet.glowU.uOp.value = 0;
   if (bloom) bloom.strength = 0.5;
   if (set === 'ocean') {
-    const deep = smooth(ln(17, -1.5), ln(17, 0), T) * (1 - smooth(ln(17, 0.3), ln(18), T));
-    skyU.uUnder.value = 1; skyLook(lerpHex(0x3a90ae, 0x2a6a88, deep), lerpHex(0x0d4660, 0x06283a, deep), 0x01060a);
+    const deep = smooth(-18, -85, camera.position.y - o.y);   // the deeper the camera, the less light is left
+    skyU.uUnder.value = 1; skyLook(lerpHex(0x3a90ae, 0x0a2a3a, deep), lerpHex(0x0d4660, 0x03121c, deep), 0x01060a);
     skyU.uSunDir.value.copy(OSUN); skyU.uSunCol.value.set(0x9ae4f4); skyU.uSunGlow.value = 0.3;
-    scene.fog.color.set(lerpHex(0x0c4462, 0x072c40, deep)); scene.fog.density = 0.026;
-    hemi.color.set(0x5ab0d0); hemi.groundColor.set(0x061620); hemi.intensity = 1.5;
-    sunFrom(o, OSUN, 40, CAM.dist > 18 ? 26 : 12, 0xc8eeff, 2.4);
+    scene.fog.color.set(lerpHex(0x0c4462, 0x031822, deep)); scene.fog.density = 0.026 - 0.008 * deep;
+    hemi.color.set(0x5ab0d0); hemi.groundColor.set(0x061620); hemi.intensity = 1.5 - 0.8 * deep;
+    sunFrom(o, OSUN, 40, CAM.dist > 18 ? 26 : 12, 0xc8eeff, 2.4 * (1 - 0.85 * deep));
     waterLook(ocean.u, true, scene.fog.color.getHex(), 0.026); ocean.u.uWin.value.set(0xc8f0ff).multiplyScalar(0.3); ocean.u.uMirror.value.set(0x0a3a50); ocean.u.uTime.value = T;
     snowU.uOp.value = 0.55; snowU.uCol.value.set(0x9fd4e4); snowU.uBox.value = 18; snowU.uSize.value = 0.035;
     renderer.toneMappingExposure = 1.15;
   } else if (set === 'mouth') {
-    const lightK = smooth(EV.light[0], EV.light[1], T) * (1 - smooth(EV.dark[0], EV.dark[1], T)), openK = smooth(EV.open[0], EV.open[1], T);
+    const g = gapAt(T), lightK = clamp((g - 0.012) / 0.07), openK = clamp((g - 0.08) / 0.16), sky = inT(T, ln(30, -0.3), ln(32));
     const out = 0.8 + 0.6 * lightK + 1.0 * openK;
-    skyU.uUnder.value = 1; skyLook(c4.set(0xbfeaff).multiplyScalar(out).getHex(), c4.set(0x3a90b0).multiplyScalar(out).getHex(), c4.set(0x0a3040).multiplyScalar(out).getHex());
-    skyU.uSunDir.value.set(0, 0, 1); skyU.uSunCol.value.set(0xffffff).multiplyScalar(lightK + openK); skyU.uSunGlow.value = 0.8;
+    if (sky) { skyU.uUnder.value = 0; skyLook(0x6a9cc8, 0xd8e4ec, 0x8aa8b8); skyU.uCloud.value = 0.6; skyU.uCloudCol.value.set(0xe8eef2); skyU.uSunDir.value.set(0.2, 0.5, 1).normalize(); skyU.uSunCol.value.set(0xfff0d8).multiplyScalar(0.6); skyU.uSunGlow.value = 0.5; }
+    else { skyU.uUnder.value = 1; skyLook(c4.set(0xbfeaff).multiplyScalar(out).getHex(), c4.set(0x3a90b0).multiplyScalar(out).getHex(), c4.set(0x0a3040).multiplyScalar(out).getHex()); skyU.uSunDir.value.set(0, 0, 1); skyU.uSunCol.value.set(0xffffff).multiplyScalar(lightK + openK); skyU.uSunGlow.value = 0.8; }
     scene.fog.color.set(lerpHex(0x050607, 0x1a4a5a, openK * 0.6 + lightK * 0.3)); scene.fog.density = 0.07 - 0.04 * openK;
     hemi.color.set(0x6a3a3a); hemi.groundColor.set(0x120808); hemi.intensity = 0.45 + 0.25 * lightK + 0.45 * openK;
     sun.intensity = 0; sun.castShadow = false;
     const dp = mouth.diver.torchTip.getWorldPosition(V());
-    const flick = inT(T, ln(9), ln(10)) || inT(T, ln(22), ln(23, 0.4)) ? (hash(Math.floor(T * 14)) > 0.3 ? 1 : 0.15) : 1;
-    torch.intensity = 9 * flick * (T > EV.slam && T < ln(22) ? 0.7 : 1) * (1 - 0.6 * openK); torch.distance = 14;
+    const flick = inT(T, ln(9), ln(11)) || inT(T, ln(18), ln(20)) ? (hash(Math.floor(T * 14)) > 0.3 ? 1 : 0.15) : 1;
+    torch.intensity = 9 * flick * (T > ln(17) ? 0.7 : 1) * (1 - 0.6 * openK); torch.distance = 14;
     torch.position.copy(dp); torch.target.position.copy(mouth.diver.torchTip.localToWorld(V(0, 0, -3)));
-    const g = gapAt(T), glow = clamp(g / 0.012) * 0.7;
+    const glow = clamp(g / 0.012) * 0.7;
     point(0, o, [0.6, -0.1, 5.4], 0x9ad8ff, 2.5 * glow + 7 * lightK + 12 * openK, 12);
     point(1, o, [0, 0.6, -2], 0x6a2a2a, 0.6, 9);
     { const dp2 = diverMState(T).p; point(2, o, [dp2.x + 0.3, dp2.y + 1.0, dp2.z - 0.6], 0xa8b0c0, 2.4 * (1 - openK), 5); }
@@ -1075,7 +1058,7 @@ function look(set, T) {
     waterLook(breach.u, false, 0x9aa8b2, 0.006); breach.u.uSky.value.set(0x8a9aa6); breach.u.uDeep.value.set(0x0a2230); breach.u.uSunDir.value.copy(BSUN); breach.u.uSunCol.value.set(0xffe4c4); breach.u.uTime.value = T;
     renderer.toneMappingExposure = 0.95; if (bloom) bloom.strength = 0.3;
   } else if (set === 'sea') {
-    const late = smooth(ln(36), ln(38), T), deep6 = smooth(ln(40), ln(45), T);
+    const late = smooth(ln(41), ln(43), T), deep6 = smooth(ln(42), ln(46), T);
     if (!CAM.under) {
       skyU.uUnder.value = 0; skyLook(lerpHex(0x34465a, 0x283444, late), lerpHex(0xa4b0b8, 0x7a8692, late), 0x223040); skyU.uCloud.value = 0.9; skyU.uCloudCol.value.set(lerpHex(0x8894a0, 0x5e6a76, late));
       skyU.uSunDir.value.copy(SSUN); skyU.uSunCol.value.set(0xffd8b0).multiplyScalar(0.55 - 0.25 * late); skyU.uSunGlow.value = 0.5;
@@ -1093,7 +1076,7 @@ function look(set, T) {
       sunFrom(o, V(-0.2, 1, 0.1).normalize(), 40, CAM.dist > 18 ? 28 : 8, 0xc8eeff, 2.0);
       waterLook(seaSet.u, true, fogC, scene.fog.density); seaSet.u.uWin.value.set(0xc8f0ff).multiplyScalar(0.32 - 0.1 * late); seaSet.u.uMirror.value.set(0x0a3a50);
       snowU.uOp.value = 0.5; snowU.uCol.value.set(0x9fd4e4); snowU.uBox.value = 18; snowU.uSize.value = 0.035;
-      seaSet.glowU.uOp.value = 0.9 * smooth(ln(43), ln(45), T);
+      seaSet.glowU.uOp.value = 0.9 * smooth(ln(42), ln(43), T);
       renderer.toneMappingExposure = 1.15;
     }
     seaSet.u.uTime.value = T;
@@ -1104,7 +1087,7 @@ function look(set, T) {
 const m4 = new THREE.Matrix4(), s4 = V(1, 1, 1), t4 = V(), q4 = new THREE.Quaternion();
 let snowT = -1, snowOff = V();
 // the current that carries the specks (integrated, so it is the same for any frame order)
-const flowAt = T => CAM.set === 'mouth' ? V(0, 0, -0.2).add(V(0.5, 0, -1).multiplyScalar(2.5 * pulse(T - EV.surge, 8, 1.5))).add(V(0, 0, -3).multiplyScalar(pulse(T - EV.thrown[0], 8, 1.4))).add(V(0, 0, -4).multiplyScalar(pulse(T - EV.slam, 10, 1.2))).add(V(0, 0, 2.5).multiplyScalar(smooth(EV.open[0], EV.open[1], T))).add(V(0, 0, -0.9).multiplyScalar(inT(T, EV.fight[0], EV.fight[1]) ? 1 : 0))
+const flowAt = T => CAM.set === 'mouth' ? V(0, 0, -0.2).add(V(0.5, 0, -1).multiplyScalar(2.5 * pulse(T - EV.surge, 8, 1.5))).add(V(0, 0, -3).multiplyScalar(pulse(T - EV.thrown[0], 8, 1.4))).add(V(0, 0, -4).multiplyScalar(pulse(T - EV.slam, 10, 1.2))).add(V(0, 0, 2.5).multiplyScalar(smooth(EV.open[0], EV.open[1], T))).add(V(0, 0, 1.2).multiplyScalar(inT(T, ln(29), ln(31)) ? 1 : 0))
   : CAM.set === 'sea' ? V(0.05, 0.03, 0) : V(0.1, 0.02, 0);
 function update(T) {
   const set = CAM.set;
@@ -1124,16 +1107,16 @@ function updateOcean(T) {
   W.whale.root.position.copy(w.p); W.whale.root.quaternion.copy(w.q);
   whalePose(W.whale, T, { open: w.open, rate: T > EV.engulf ? 2.0 : 1.3 });
   const d = diverOState(T); placeDiver(W.diver, d);
-  const t4b = ln(4, 0.1), swimming = T < t4b;
+  const t4b = ln(3, -0.6), swimming = T < t4b;
   diverPose(W.diver, { kick: swimming ? 0.8 : 0.5, ph: T * (swimming ? 4 : 6), armL: swimming ? 0.1 : -1.2 - 0.5 * smooth(EV.jaw[0], EV.engulf, T), armR: swimming ? 0.1 : -1.0 - 0.6 * smooth(EV.jaw[0], EV.engulf, T), splay: swimming ? 0.15 : 0.6, pitch: swimming ? 0.65 : 0.9, yaw: 0 });
   W.diver.torchTip.parent.visible = true;
   moveSea(W.sea, T, 1);
   const bl = []; for (let i = -3; i <= 3; i++) bl.push([V(0, 0, i * 2.4).applyQuaternion(w.q).add(w.p), 1.7 - Math.abs(i) * 0.12]);
-  updateRays(W.rays, o, T, 0.13, bl);
+  updateRays(W.rays, o, T, 0.13 * (1 - smooth(-18, -70, camera.position.y - o.y)), bl);
   // breathing out every few seconds; a big burst when he turns and sees it
   W.bub.update(T, (t0, i) => {
     if (t0 > EV.engulf - 0.3) return null;
-    const br = (t0 % 3.6) < 1.0 || inT(t0, ln(4, 0.2), ln(4, 1.2)) || inT(t0, ln(5, 0.5), ln(5, 1.5));
+    const br = (t0 % 3.6) < 1.0 || inT(t0, ln(3, -0.5), ln(3, 0.5));
     if (!br || hash(i, Math.floor(t0)) > 0.8) return null;
     const ds = diverOState(t0); return { p: V(0, -0.08, 0.68).applyQuaternion(ds.q).add(ds.p), size: 0.022, spread: 0.08, rise: 1.0 };
   });
@@ -1143,35 +1126,49 @@ function updateMouth(T) {
   ST.mouth.rotation.z = G.mouth.rotation.z = roll;
   M.U.rotation.x = -gapAt(T);
   const d = diverMState(T); placeDiver(M.diver, d);
-  const reach = inT(T, EV.swim[1] - 0.6, EV.thrown[0] + 0.2) ? 1 : inT(T, ln(19, -0.3), EV.slam + 0.2) ? 1 : 0;
-  const struggle = inT(T, EV.thrown[0], EV.thrown[1]) || inT(T, EV.slam, EV.back[1]);
-  diverPose(M.diver, { kick: d.sp > 0.3 ? 1.1 : 0.45, ph: T * (d.sp > 0.3 ? 9 : 4), armL: struggle ? -2.2 + 0.8 * Math.sin(T * 9) : -0.4 - 0.6 * reach, armR: reach ? -2.75 : struggle ? -1.5 + Math.sin(T * 8) : -2.3 + 0.25 * Math.sin(T * 1.7 + (inT(T, ln(9), ln(10)) ? T * 2 : 0)), splay: struggle ? 0.9 : 0.25, pitch: inT(T, ln(15), ln(17)) ? 0.3 : 0.7, yaw: inT(T, ln(9), ln(10)) ? 0.5 * Math.sin((T - ln(9)) * 2.2) : 0 });
+  const reach = inT(T, ln(14, -0.6), EV.thrown[0] + 0.2) || inT(T, ln(30, -0.3), ln(31, 0.6)) ? 1 : 0;
+  const struggle = inT(T, EV.thrown[0], EV.thrown[1]) || inT(T, EV.surge, EV.surge + 1.6) || inT(T, EV.slam, EV.slam + 1.2);
+  const look = inT(T, ln(9), ln(11)) ? 0.6 * Math.sin((T - ln(9)) * 1.6) : 0, face = inT(T, ln(7), ln(8)) || inT(T, ln(12), ln(13)) || inT(T, ln(17), ln(19));
+  const tired = inT(T, ln(19), ln(26)) ? 0.5 : 1;
+  diverPose(M.diver, { kick: (d.sp > 0.3 ? 1.1 : 0.45) * tired, ph: T * (d.sp > 0.3 ? 9 : 4) * tired, armL: struggle ? -2.2 + 0.8 * Math.sin(T * 9) : -0.4 - 0.6 * reach, armR: reach ? -2.75 : struggle ? -1.5 + Math.sin(T * 8) : -2.3 + 0.25 * Math.sin(T * 1.7) + look * 0.5, splay: struggle ? 0.9 : 0.25, pitch: face ? 0.3 : 0.7, yaw: look });
   // the regulator is torn out of his mouth: it drops and dangles from the hose
   const kk = smooth(EV.snap, EV.snap + 0.5, T); M.diver.reg.position.set(0.04 * kk, -0.07 - 0.12 * kk, 0.13 - 0.1 * kk); M.diver.reg.rotation.set(1.2 * kk + 0.2 * kk * Math.sin(T * 5), 0.4 * kk, 0);
+  // the tongue heaves when the whale's muscles work
+  const mu = smooth(EV.muscles[0], EV.muscles[0] + 0.8, T) * (1 - smooth(EV.muscles[1] - 0.8, EV.muscles[1], T));
+  M.tongue.scale.set(2.1, 0.92 * (1 + 0.04 * Math.sin(T * 0.8) + 0.16 * mu * (0.5 + 0.5 * Math.sin(T * 1.9))), 4.6); M.tongue.position.x = 0.25 * mu * Math.sin(T * 1.1);
+  // the fish circle around the middle of the mouth, faster when the water rushes in
+  const rush = 1 + 2 * (pulse(T - EV.surge, 6, 1) + pulse(T - EV.slam, 6, 1) + pulse(T - EV.thrown[0], 6, 1)) + 1.5 * smooth(EV.open[0], EV.open[1], T);
+  M.FISH.forEach((f, i) => {
+    const a = f.ph + f.w * T * (1 + 0.3 * Math.sin(f.b)) + (rush - 1) * f.w * 0.3;
+    const p = V(Math.cos(a) * f.r * 1.1, f.y + 0.12 * Math.sin(T * 1.5 + f.b), 1.0 + Math.sin(a) * f.r * 1.7);
+    const v = V(-Math.sin(a) * 1.1, 0.06 * Math.cos(T * 1.5 + f.b), Math.cos(a) * 1.7).multiplyScalar(Math.sign(f.w)).normalize();
+    M.fish.setMatrixAt(i, m4.compose(p, lookQ(v, V(0, 1, 0)), s4.set(1, 1, 1)));
+  });
+  M.fish.instanceMatrix.needsUpdate = true;
   // the gap of light along the lips
   const g = gapAt(T), front = 2 * MO.rz * Math.sin(g);
   M.ribbon.scale.set(1, Math.max(0.01, front * 0.9 + 0.05), 1); M.ribM.opacity = clamp(0.35 + front * 3) * 0.9; M.ribM.color.set(0x9adcf0);
-  // white water bursting in through the gap
-  const sl = T - EV.slam;
+  // white water bursting in: when you are swallowed, and when it slams against you
   for (let i = 0; i < M.FOAM.length; i++) {
-    const f = M.FOAM[i], a = sl - f.t * 0.4;
+    const f = M.FOAM[i], sl = T - (i % 2 ? EV.surge - 0.2 : EV.slam), a = sl - f.t * 0.4;
     if (a < 0 || a > 1.4) { M.foam.setMatrixAt(i, HIDE); continue; }
     const r = 1 - a * f.d, p = V(MO.rx * Math.cos(f.ph) * r, f.y + 0.1 - a * 0.4, MO.rz * Math.sin(f.ph) * r * 0.98);
     const s = f.s * (1 + a * 3) * (1 - smooth(1.0, 1.4, a));
     M.foam.setMatrixAt(i, m4.compose(p, IDENT, s4.set(s, s, s)));
   }
-  M.foam.instanceMatrix.needsUpdate = true; M.foamM.opacity = 0.75 * (1 - smooth(0.6, 1.4, sl));
+  M.foam.instanceMatrix.needsUpdate = true; M.foamM.opacity = 0.75 * Math.max(1 - smooth(0.6, 1.4, T - EV.slam), 1 - smooth(0.4, 1.2, T - EV.surge)) * (T > EV.surge - 0.2 ? 1 : 0);
   // torch beam
   M.diver.root.updateMatrixWorld(true);
   const tip = M.diver.torchTip.getWorldPosition(V()), aim = M.diver.torchTip.localToWorld(V(0, 0, -1));
   G.mouth.worldToLocal(tip); G.mouth.worldToLocal(aim);
   M.beam.position.copy(tip); M.beam.lookAt(G.mouth.localToWorld(aim.clone().sub(tip).add(aim)));
-  M.beam.scale.set(1.6, 1.6, 4.5); M.beam.material.opacity = 0.035 * (inT(T, ln(9), ln(10)) ? (hash(Math.floor(T * 14)) > 0.3 ? 1 : 0.2) : 1) * (1 - smooth(EV.open[0], EV.open[1], T));
-  // breathing, then the torn hose: a storm of bubbles that gathers under the palate
+  M.beam.scale.set(1.6, 1.6, 4.5); M.beam.material.opacity = 0.035 * (inT(T, ln(9), ln(11)) ? (hash(Math.floor(T * 14)) > 0.3 ? 1 : 0.2) : 1) * (1 - smooth(EV.open[0], EV.open[1], T));
+  // breathing, a scream, then the torn hose: bubbles that gather under the palate
   const ceil = p => MO.up * Math.sqrt(Math.max(0.02, 1 - (p.x / MO.rx) ** 2 - (p.z / MO.rz) ** 2));
   M.bub.update(T, (t0, i) => {
     const ds = diverMState(t0);
-    if (t0 > EV.snap) { if (t0 > ln(15, -2.7) || hash(i, Math.floor(t0 * 3)) > (t0 < EV.snap + 2 ? 1 : 0.55)) return null; return { p: V(0, 0.27, 0.43).applyQuaternion(ds.q).add(ds.p), size: t0 < EV.snap + 1.5 ? 0.05 : 0.03, spread: 0.12, rise: 0.8 }; }
+    if (t0 > EV.snap) { if (t0 > ln(16) || hash(i, Math.floor(t0 * 3)) > (t0 < EV.snap + 2 ? 1 : 0.5)) return null; return { p: V(0, 0.27, 0.43).applyQuaternion(ds.q).add(ds.p), size: t0 < EV.snap + 1.5 ? 0.05 : 0.03, spread: 0.12, rise: 0.8 }; }
+    if (inT(t0, EV.scream, EV.scream + 1.2)) return { p: V(0, -0.09, 0.67).applyQuaternion(ds.q).add(ds.p), size: 0.045, spread: 0.1, rise: 1.0 };
     if ((t0 % 3.4) > 0.9 || hash(i, Math.floor(t0)) > 0.75) return null;
     return { p: V(0, -0.09, 0.67).applyQuaternion(ds.q).add(ds.p), size: 0.03, spread: 0.06, rise: 0.8 };
   }, ceil);
@@ -1190,7 +1187,7 @@ function updateBreach(T) {
   const n = 240, life = 1.4, jm = jawMat(w);
   for (let i = 0; i < n; i++) {
     const ph = i / n * life, cyc = Math.floor((T - ph) / life), t0 = ph + cyc * life, age = T - t0;
-    if (t0 < EV.breach + 0.1 || t0 > ln(26, 0.5)) { B.pour.setMatrixAt(i, HIDE); continue; }
+    if (t0 < EV.breach + 0.1 || t0 > ln(34, 0.5)) { B.pour.setMatrixAt(i, HIDE); continue; }
     const ws = whaleBState(t0), lip = hash(i, cyc) < 0.55;
     const src = lip ? V((hash(i, cyc + 1) - 0.5) * 2.2, -0.9, 3.8 + hash(i, cyc + 2) * 0.9).applyMatrix4(jawMat(ws)) : V((hash(i, cyc + 1) - 0.5) * 2.4, 0.4 + hash(i, cyc + 5) * 0.6, 3 + hash(i, cyc + 2) * 4).applyMatrix4(whaleMat(ws));
     if (src.y < 0.2) { B.pour.setMatrixAt(i, HIDE); continue; }
@@ -1214,13 +1211,12 @@ function updateSea(T) {
   S.piece.position.set(px, waveH(px, pz, T, seaAmp(T), rippleAt) + 0.01, pz);
   S.piece.rotation.set(0.12 * Math.sin(T * 1.3), 0.6 + 0.1 * Math.sin(T * 0.4), 0.1 * Math.cos(T * 1.1));
   gaugeTex.set(Math.round(gaugeP(T) * 200), gaugeP(T));
-  const sw = spermState(T); S.sperm.root.position.copy(sw.p); S.sperm.root.quaternion.copy(sw.q);
-  whalePose(S.sperm, T, { rate: 1.2 + 0.3 * sw.sp, beat: 0.6 + 0.08 * sw.sp });
-  // the shadow drifts; when it moves, the whole mass rolls a little
+  const wh = whaleSState(T); S.whale.root.position.copy(wh.p); S.whale.root.quaternion.copy(wh.q); whalePose(S.whale, T, { rate: 1.1, beat: 1.4 });
+  // the shape far below glides slowly underneath you (it is only ever a black mass)
   S.shadow.visible = CAM.under;
-  const sh = smooth(EV.shift, EV.shift + 2.5, T);
-  S.shadow.position.set(SHADOW.x + 2 * Math.sin(T * 0.1), SHADOW.y + 18 * sh, SHADOW.z + T * 0.4);
-  S.shadow.rotation.set(0.15 * sh, 0.5 + 0.03 * Math.sin(T * 0.2) - 0.25 * sh, 0.06 * Math.sin(T * 0.15));
+  const sh = smooth(EV.pass[0], EV.pass[1], T);
+  S.shadow.position.set(SHADOW.x + lerp(-130, 140, sh), SHADOW.y + 4 * Math.sin(T * 0.2), SHADOW.z + 10 * Math.sin(T * 0.05));
+  S.shadow.rotation.set(0.04 * Math.sin(T * 0.3), Math.PI / 2 + 0.05 * Math.sin(T * 0.2), 0.06 * Math.sin(T * 0.15));
   S.shadow.arms.forEach((a, i) => { a.rotation.y = 0.05 * Math.sin(T * 0.4 + i); a.rotation.x = 0.04 * Math.cos(T * 0.35 + i * 1.3); });
   // the tank valve leaks after you surface; bubbles while tumbling
   S.bub.update(T, (t0, i) => {
@@ -1234,15 +1230,15 @@ function updateSea(T) {
   S.splash.instanceMatrix.needsUpdate = true;
 }
 // the needle of the pressure gauge: falls into the red after the hose tears
-const gaugeP = T => 0.72 - 0.5 * smooth(ln(36, -0.3), ln(37, 0.5), T) + 0.01 * Math.sin(T * 9);
+const gaugeP = T => 0.75 - 0.4 * smooth(ln(14), ln(19, 1.5), T) - 0.17 * smooth(ln(36), ln(42), T) - 0.1 * smooth(ln(42), ln(49), T) + 0.01 * Math.sin(T * 9);
 
 /* ===================================================================== OVERLAYS */
 const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash'), pulseEl = document.getElementById('pulse');
 const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
 const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
-const heartAt = T => { const per = T < ln(23) ? 0.82 : 0.6, x = (T % per) / per; return Math.exp(-x * 9) + 0.6 * Math.exp(-Math.max(0, x - 0.25) * 10) * (x > 0.25 ? 1 : 0); };
+const heartAt = T => { const per = T < ln(31) ? 0.82 : 0.7, x = (T % per) / per; return Math.exp(-x * 9) + 0.6 * Math.exp(-Math.max(0, x - 0.25) * 10) * (x > 0.25 ? 1 : 0); };
 function overlays(T) {
-  const S = storyAt(T), cut = S >= ENDING.cut;
+  const S = storyAt(T), cut = S >= ENDING.fade, dark = clamp((S - ENDING.fade) / (ENDING.cut - ENDING.fade));
   let line = '';
   if (!cut) for (const s of SCENES) for (const [a, b, text] of s.subtitles) if (T >= a && T < b) line = text;
   if (line !== subsEl.dataset.text) {
@@ -1251,21 +1247,21 @@ function overlays(T) {
   }
   const titleEnd = ln(3, -0.3);
   titleEl.classList.toggle('on', T > 0.15 && T < titleEnd);
-  fadeEl.style.opacity = cut ? 1 : 0;
-  flashEl.style.opacity = cut ? 0 : 0.45 * pulse(S - EV.slam, 30, 3.5) + 0.35 * pulse(S - EV.breach, 25, 3) + 0.25 * pulse(S - EV.surge, 30, 4);
+  fadeEl.style.opacity = dark;
+  flashEl.style.opacity = cut ? 0 : 0.3 * pulse(S - EV.slam, 30, 3.5) + 0.35 * pulse(S - EV.breach, 25, 3) + 0.25 * pulse(S - EV.surge, 30, 4) + 0.3 * pulse(S - ln(28, 0.1), 25, 3) + 0.25 * pulse(S - EV.jolt, 30, 4);
   // lungs burning: a dark red edge that beats with the heart
-  const lungs = (inT(S, ln(15), ln(16, 1)) ? 0.55 : 0) + (inT(S, ln(22), ln(23)) ? 0.3 : 0) + (inT(S, ln(27), ln(29)) ? 0.75 : 0);
+  const lungs = (inT(S, ln(17), ln(20)) ? 0.55 : 0) + (inT(S, ln(29), ln(31)) ? 0.45 : 0) + (inT(S, ln(48), ln(49)) ? 0.4 : 0);
   pulseEl.style.opacity = cut ? 0 : lungs * (0.45 + 0.55 * heartAt(S));
   const sc = SCENES.find(s => S < s.end) ?? SCENES[SCENES.length - 1];
   if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
-  const on = sc.id !== 'hook' && !cut && S - sc.start > 0.3 && S - sc.start < 4.2;
+  const on = sc.id !== 'moment' && !cut && S - sc.start > 0.3 && S - sc.start < 4.2;
   chapterEl.classList.toggle('on', on);
   if (RENDER) {
     const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
     let sub = 0; if (!cut) for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b);
     subsEl.style.opacity = sub; subsEl.style.transform = 'none';
     titleEl.style.opacity = fade(0.15, titleEnd, 0.5); titleEl.style.transform = 'none';
-    chapterEl.style.opacity = sc.id !== 'hook' && !cut ? fade(sc.start + 0.3, Math.min(sc.start + 4.2, ENDING.cut), 0.45) : 0; chapterEl.style.transform = 'none';
+    chapterEl.style.opacity = sc.id !== 'moment' && !cut ? fade(sc.start + 0.3, Math.min(sc.start + 4.2, ENDING.fade), 0.45) : 0; chapterEl.style.transform = 'none';
   }
 }
 
@@ -1320,8 +1316,6 @@ function buildSfx(ctx) {
     g2.gain.value = 0.6; o.connect(bp).connect(g); o2.connect(g2).connect(g); g.connect(N.bus);
     for (const x of [o, o2, v]) { x.start(t); x.stop(t + dur + 0.05); }
   };
-  // sperm whale clicks: short dry ticks in a train
-  const clicks = (t, n, every, gain, speedUp = 1) => { let at = t, e = every; for (let i = 0; i < n; i++) { burst(at, { type: 'highpass', from: 1800, to: 2600, dur: 0.012, gain: gain * (0.7 + 0.3 * Math.random()), q: 1.5 }); tone(at, 'sine', 900, 600, 0.02, gain * 0.4, 0.002); at += e; e *= speedUp; } };
   const bubble = (t, f, gain) => tone(t, 'sine', f, f * 2.4, 0.06, gain, 0.004);
   const bubbleBurst = (t, n, gain) => { for (let i = 0; i < n; i++) bubble(t + Math.random() * 0.8, 300 + Math.random() * 900, gain * (0.5 + Math.random() * 0.5)); };
   const sting = t => { for (const [f, d] of [[220, 0], [233, 0.02], [311, 0.05]]) { const o = ctx.createOscillator(), g = ctx.createGain(), v = ctx.createOscillator(), vg = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = f; v.frequency.value = 6; vg.gain.value = 5; v.connect(vg).connect(o.frequency); const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 300; g.gain.setValueAtTime(0.0001, t + d); g.gain.exponentialRampToValueAtTime(0.06, t + 0.3); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8); o.connect(hp).connect(g).connect(N.bus); o.start(t + d); v.start(t + d); o.stop(t + 1.9); v.stop(t + 1.9); }
@@ -1333,63 +1327,64 @@ function buildSfx(ctx) {
     // continuous layers follow the set and the story
     apply(T, at) {
       const set = CAM.set, under = CAM.under, ten = envAt(T).tension, set_ = (p, v, k = 0.12) => p.setTargetAtTime(v, at, k);
-      const calm = inT(T, ln(31), ln(37)) ? 1 : 0, open = smooth(EV.open[0], EV.open[1], T);
-      set_(N.droneG.gain, (0.05 + 0.15 * ten) * (calm ? 0.4 : 1) * (inT(T, ln(22), ln(23)) ? 0.4 : 1)); set_(N.droneF.frequency, 150 + 520 * ten + 80 * Math.sin(T * 0.4));
+      const calm = inT(T, ln(38), ln(42)) ? 1 : 0, open = smooth(EV.open[0], EV.open[1], T), deep = smooth(ln(42), ln(47), T);
+      set_(N.droneG.gain, (0.05 + 0.15 * ten) * (calm ? 0.45 : 1) * (inT(T, ln(24), ln(26)) ? 0.5 : 1)); set_(N.droneF.frequency, 150 + 520 * ten + 80 * Math.sin(T * 0.4));
       set_(N.d1.o.frequency, 41.2 * (1 + 0.02 * ten * Math.sin(T * 0.2)), 0.5);
-      set_(N.rumble.g.gain, set === 'mouth' ? 0.4 + 0.3 * shake(T) : under ? 0.16 + (inT(T, ln(39), ENDING.cut) ? 0.25 * smooth(ln(39), ln(45), T) : 0) : 0.02);
+      set_(N.rumble.g.gain, set === 'mouth' ? 0.4 + 0.3 * shake(T) + 0.3 * smooth(EV.muscles[0], EV.muscles[0] + 1, T) * (1 - smooth(EV.muscles[1] - 1, EV.muscles[1], T)) : under ? 0.16 + 0.3 * deep : 0.02 + 0.06 * deep);
       set_(N.wash.g.gain, under ? (set === 'mouth' ? 0.12 + 0.3 * open : 0.09) : 0);
       set_(N.waves.g.gain, under ? 0 : 0.3 + 0.12 * Math.sin(T * 0.8)); set_(N.wind.g.gain, under ? 0 : 0.14);
-      const rush = set === 'mouth' ? 0.35 * (pulse(T - EV.surge, 10, 1.4) + pulse(T - EV.thrown[0], 10, 1.4) + pulse(T - EV.slam, 12, 1.2)) + 0.3 * open * (1 - smooth(EV.open[1], ln(24), T)) + (inT(T, EV.fight[0], EV.fight[1]) ? 0.06 : 0)
-        : set === 'ocean' ? (inT(T, ln(5), EV.engulf + 1) ? 0.12 + 0.3 * smooth(ln(5), EV.engulf, T) : 0) + (inT(T, ln(17), ln(18)) ? 0.25 : 0) : set === 'sea' && under ? (inT(T, ln(28), EV.burst) ? 0.2 : 0) + (inT(T, EV.flee, ENDING.cut) ? 0.3 : 0) : 0;
+      const rush = set === 'mouth' ? 0.35 * (pulse(T - EV.surge, 10, 1.4) + pulse(T - EV.thrown[0], 10, 1.4) + pulse(T - EV.slam, 12, 1.2) + pulse(T - EV.jolt, 10, 1.4)) + 0.3 * open * (1 - smooth(EV.open[1], ln(32), T)) + (inT(T, ln(29), ln(31)) ? 0.12 : 0)
+        : set === 'ocean' ? (inT(T, ln(3), EV.engulf + 1) ? 0.12 + 0.3 * smooth(ln(3), EV.engulf, T) : 0) + (inT(T, ln(27), ln(28)) ? 0.25 : 0) + (inT(T, ln(20), ln(21)) ? 0.08 : 0) : set === 'sea' && under ? (inT(T, EV.rise[0], EV.burst) ? 0.2 : 0) : 0;
       set_(N.whoosh.g.gain, rush, 0.05); set_(N.whoosh.f.frequency, 400 + 900 * clamp(rush * 2), 0.05);
       set_(N.hiss.g.gain, set === 'breach' ? 0.06 * (1 - smooth(EV.breach + 1, EV.breach + 4, T)) * (T > EV.breach ? 1 : 0) : set === 'mouth' && T > EV.snap ? 0.03 * (1 - smooth(EV.snap, EV.snap + 3, T)) + 0.008 : 0);
       // underwater everything sounds closed and dull; inside the whale even more
       set_(N.muffle.frequency, set === 'mouth' ? 900 + 3000 * open : under ? 1500 : 16000, 0.05);
-      // hard cut: everything stops on the frame the picture goes black
-      N.master.gain.setTargetAtTime(T >= ENDING.cut ? 0 : 0.9, at, T >= ENDING.cut ? 0.004 : 0.05);
+      // the end: the sound fades out with the picture
+      N.master.gain.setTargetAtTime(0.9 * (1 - clamp((T - ENDING.fade) / (ENDING.cut - ENDING.fade))), at, 0.1);
     },
     events(T0, T1, at) {
-      if (T1 >= ENDING.cut) return;
+      if (T1 >= ENDING.fade) return;
       const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set, rand = k => Math.random() < dt * k;
       // whale calls
-      for (const [t, f0, f1, d, g] of [[0.2, 70, 55, 3.5, 0.18], [ln(3, 0.2), 110, 70, 2.6, 0.12], [ln(5, 0.1), 60, 40, 2.4, 0.22], [ln(12, 0.0), 45, 32, 2.6, 0.2], [ln(17, 0.1), 90, 140, 2.2, 0.16], [ln(37, 0.3), 38, 30, 3.5, 0.2]]) if (hit(t)) moan(at, f0, f1, d, g);
-      if (hit(ln(37, 0.3))) tone(at, 'sine', 34, 28, 4, 0.35, 0.8);
-      // breathing out through the regulator
+      for (const [t, f0, f1, d, g] of [[0.2, 70, 55, 3.5, 0.18], [ln(3, 0.1), 60, 40, 2.4, 0.22], [ln(8, 0.1), 45, 32, 2.8, 0.18], [ln(20, 0.2), 55, 30, 3.5, 0.18], [ln(25, 0.3), 70, 50, 3.0, 0.16], [ln(27, 0.1), 90, 140, 2.2, 0.16], [ln(37, 0.3), 110, 70, 2.6, 0.1]]) if (hit(t)) moan(at, f0, f1, d, g);
+      // breathing out through the regulator; a burst when the mouth comes
       if (set === 'ocean' && T1 < EV.engulf) { const p = 3.6; if (Math.floor(T1 / p) !== Math.floor(T0 / p)) bubbleBurst(at, 10, 0.03); }
-      if (hit(ln(4, 0.25))) { bubbleBurst(at, 22, 0.05); sting(at); }
-      if (hit(ln(3, 0.1))) tone(at, 'sine', 55, 40, 2.5, 0.25, 0.6);
+      if (hit(ln(3, -0.2))) { bubbleBurst(at, 22, 0.05); sting(at); }
       if (hit(EV.engulf)) { boom(at, 0.8); burst(at, { type: 'lowpass', from: 1200, to: 80, dur: 1.5, gain: 0.5, buf: N.brown }); }
-      if (hit(EV.engulf + 0.9)) thud(at, 0.9);
-      if (hit(EV.surge)) { thud(at, 0.9); burst(at, { type: 'lowpass', from: 1500, to: 120, dur: 1.4, gain: 0.5, buf: N.brown }); }
+      if (hit(EV.surge)) { thud(at, 0.9); burst(at, { type: 'lowpass', from: 1500, to: 120, dur: 1.4, gain: 0.5, buf: N.brown }); bubbleBurst(at, 30, 0.04); }
+      if (hit(EV.close[1] - 0.1)) thud(at, 1.0);
+      if (hit(ln(8, 0.05))) sting(at);
       if (set === 'mouth' && rand(0.6)) tone(at, 'sawtooth', 50 + Math.random() * 30, 40, 0.6, 0.03, 0.1);   // the whale's body creaks
-      if (hit(EV.roll[0] + 0.1)) { boom(at, 0.5); sting(at); }
+      if (hit(EV.slam)) { boom(at, 0.9); splash(at, 0.7); }
+      if (hit(EV.scream)) { bubbleBurst(at, 40, 0.06); moan(at, 330, 260, 1.2, 0.04, 1100); }
+      if (hit(EV.thrown[0])) { thud(at, 0.8); burst(at, { type: 'lowpass', from: 1500, to: 120, dur: 1.4, gain: 0.5, buf: N.brown }); }
       if (hit(EV.snap)) { tone(at, 'triangle', 1300, 900, 0.25, 0.08, 0.002); bubbleBurst(at, 40, 0.06); }
-      if (set === 'mouth' && T1 > EV.snap && T1 < ln(23) && rand(5)) bubble(at, 300 + Math.random() * 700, 0.025);
-      // the heart: from the burning lungs on, louder and faster when it is worst
-      const beat = inT(T1, ln(15), ln(24)) ? 0.82 : inT(T1, ln(26), EV.burst) ? 0.55 : 0;
-      if (beat && Math.floor(T1 / beat) !== Math.floor(T0 / beat)) heart(at, inT(T1, ln(27), EV.burst) ? 1.1 : inT(T1, ln(22), ln(23)) ? 0.9 : 0.7);
-      if (hit(EV.light[0] + 0.1)) tone(at, 'sine', 880, 1320, 2.0, 0.02, 0.8);
-      if (hit(EV.slam)) { boom(at, 1.1); splash(at, 0.8); }
+      if (set === 'mouth' && T1 > EV.snap && T1 < ln(16) && rand(5)) bubble(at, 300 + Math.random() * 700, 0.025);
+      if (hit(ln(15, 0.1))) sting(at);
+      // the heart: from the tight chest on, louder when it is worst
+      const beat = inT(T1, ln(17), ln(32)) ? 0.82 : inT(T1, ln(41), ln(50)) ? 0.75 : 0;
+      if (beat && Math.floor(T1 / beat) !== Math.floor(T0 / beat)) heart(at, inT(T1, ln(29), ln(32)) ? 1.1 : 0.7);
+      if (hit(ln(20, 0.1))) tone(at, 'sine', 60, 28, 4, 0.3, 0.8);
+      for (let i = 0; i < 3; i++) if (hit(ln(22, 0.1 + i * 0.5))) tone(at, 'sawtooth', 46 - i * 3, 34, 0.8, 0.06, 0.15);   // its muscles
+      for (let i = 0; i < 5; i++) if (hit(ln(23, 0.1 + i * 0.45))) thud(at, 0.35);                                        // it vibrates
+      if (hit(EV.jolt)) { boom(at, 0.7); sting(at); }
+      if (hit(ln(28, 0.1))) tone(at, 'sine', 880, 1320, 2.0, 0.02, 0.8);
+      if (hit(ln(30, 0.0))) burst(at, { type: 'bandpass', from: 800, to: 2400, dur: 1.4, gain: 0.12 });
       if (hit(EV.open[0] + 0.2)) { boom(at, 0.5); burst(at, { type: 'lowpass', from: 600, to: 3000, dur: 1.5, gain: 0.4, buf: N.brown }); }
       if (hit(EV.breach)) { boom(at, 1.2); splash(at, 1.5); }
       if (hit(EV.breach + 0.4)) moan(at, 120, 80, 1.8, 0.1, 600);
       if (set === 'breach' && T1 > EV.breach && rand(8)) burst(at, { type: 'bandpass', from: 2000 + Math.random() * 2000, to: 800, dur: 0.15, gain: 0.05 });
       if (hit(diverBState(EV.eject).tl)) splash(at, 0.6);
-      if (set === 'sea' && inT(T1, EV.tumble[0], EV.rise[0]) && rand(14)) bubble(at, 250 + Math.random() * 900, 0.03);
-      for (let i = 0; i < 5; i++) if (hit(EV.rise[0] + 0.1 + i * 0.5)) burst(at, { type: 'bandpass', from: 400, to: 200, dur: 0.3, gain: 0.12, buf: N.brown });
+      for (let i = 0; i < 3; i++) if (hit(EV.rise[0] + 0.1 + i * 0.5)) burst(at, { type: 'bandpass', from: 400, to: 200, dur: 0.3, gain: 0.12, buf: N.brown });
       if (hit(EV.burst)) splash(at, 0.9);
       if (hit(EV.gasp[0])) gasp(at, 1.1);
       if (hit(EV.gasp[0] + 1.3)) gasp(at, 0.6);
-      if (set === 'sea' && !CAM.under && T1 > ln(35) && T1 < ln(38) && rand(3)) burst(at, { type: 'highpass', from: 4000, to: 6000, dur: 0.04, gain: 0.03 });
-      if (hit(EV.ripple)) { tone(at, 'sine', 30, 24, 4.5, 0.4, 1.2); sting(at); }
-      if (hit(ln(39, 0.1))) burst(at, { type: 'lowpass', from: 200, to: 900, dur: 3, gain: 0.25, buf: N.brown });
-      // the sperm whale's clicks: slow, then a hunting buzz, then panic
-      if (hit(ln(40, 0.3))) clicks(at, 8, 0.45, 0.12);
-      if (hit(ln(41, 0.05))) clicks(at, 14, 0.18, 0.18);
-      if (hit(ln(43, 0.2))) clicks(at, 30, 0.12, 0.12, 0.93);
-      if (hit(ln(45, 0.1))) { tone(at, 'sine', 26, 20, 5, 0.5, 1.5); moan(at, 28, 22, 4.5, 0.25, 160); }
-      if (hit(EV.shift)) { sting(at); boom(at, 0.4); }
-      if (hit(EV.flee)) { clicks(at, 26, 0.06, 0.16, 0.97); burst(at, { type: 'lowpass', from: 300, to: 1500, dur: 1.2, gain: 0.3, buf: N.brown }); }
+      if (hit(EV.gone + 1.4)) splash(at, 0.35);
+      if (set === 'sea' && !CAM.under && T1 > ln(36) && T1 < ln(42) && rand(3)) burst(at, { type: 'highpass', from: 4000, to: 6000, dur: 0.04, gain: 0.03 });
+      // something enormous below: a pressure you hear more than a sound
+      if (hit(ln(43, 0.1))) { tone(at, 'sine', 30, 22, 6, 0.5, 1.5); moan(at, 28, 22, 5, 0.25, 160); }
+      if (hit(ln(46, 0.1))) sting(at);
+      if (hit(ln(49, 0.1))) tone(at, 'sine', 34, 26, 5, 0.3, 1.5);
     },
   };
 }
