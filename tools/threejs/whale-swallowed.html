@@ -194,7 +194,7 @@ const SCENES = [
   { id: 'final', when: 'The final realization', what: 'Nobody is coming',
     env: { tension: 0.85 },
     shots: [{ until: 43, set: 'sea', keys: [[0, [1.0, -2.8, 0.9], [2, -100, 5], 50, [0, 0, -1]], [1, [1.0, -2.9, 0.9], [2, -100, 5], 46, [0, 0, -1]]] },
-            { until: 44, set: 'sea', keys: [[0, [6, -30, 8], [0, -160, 0], 62, [0, 0, -1]], [1, [6, -31, 8], [0, -160, 0], 60, [0, 0, -1]]] },
+            { until: 44, set: 'sea', keys: [[0, [6, -18, 8], [0, -160, 0], 64, [0, 0, -1]], [1, [6, -19, 8], [0, -160, 0], 62, [0, 0, -1]]] },
             { until: 45, set: 'sea', keys: [[0, [3.5, -15, 6], [0, -0.6, 0], 50], [1, [3.4, -14.5, 5.8], [0, -0.6, 0], 50]] },
             { until: 46, set: 'sea', keys: [[0, [0.7, 0.62, 1.15], [0, 0.05, 0], 42], [1, [0.65, 0.6, 1.05], [0, 0.05, 0], 40]] },
             { until: 47, set: 'sea', keys: [[0, [0.7, -1.3, 1.0], [-5, -150, -10], 70, [0, 0, -1]], [1, [0.7, -1.35, 1.0], [-5, -150, -10], 66, [0, 0, -1]]] },
@@ -494,7 +494,7 @@ const HB_LOW = smoothRings([[2.8, 1.47, 0, 1.55, HB_C], [3.8, 1.4, 0, 1.35, HB_C
 function makeHumpback(parent) {
   const root = group(parent), W = { root };
   const skin = mat(0xffffff, { vc: true, flat: true, rough: 0.55, env: 0.4 });
-  const inner = mat(0x3a1a1e, { rough: 0.6, side: THREE.BackSide }), innerUp = mat(0x221215, { rough: 0.7, side: THREE.BackSide });
+  const inner = mat(0x8a4a50, { rough: 0.6, side: THREE.BackSide }), innerUp = mat(0x6a3a40, { rough: 0.7, side: THREE.BackSide });
   const top = (i, j) => hash(i * 3.1, j * 1.7) > 0.86 ? 0x343a40 : 0x1c2228;
   const colorFn = (z, s, j, i) => s > 0.05 ? top(i, j) : s > -0.4 ? 0x262c32 : z > -1.8 ? (j % 2 ? 0xd2d4ce : 0x5c6062) : (hash(i, j) > 0.7 ? 0x707676 : 0xa4aaa8);
   const bodyG = shell(HB_BODY.filter(r => r[0] >= -3.6), 32, 0, TAU, colorFn);
@@ -780,8 +780,8 @@ const mouth = (() => {
   const S = ST.mouth, D = G.mouth;
   const jitter = (g, k) => { const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); if (Math.abs(y) < 0.02) continue; const s = 1 + (hash(i * 0.37) - 0.5) * k; p.setXYZ(i, p.getX(i) * s, y * s, p.getZ(i) * s); } g.computeVertexNormals(); return g; };
   const lowG = jitter(new THREE.SphereGeometry(1, 36, 14, 0, TAU, Math.PI / 2, Math.PI / 2), 0.06);
-  mesh(S, lowG, mat(0x2e1418, { rough: 0.7, flat: true, side: THREE.BackSide }), 0, 0, 0, { s: [MO.rx, MO.low, MO.rz] });
-  const tongue = mesh(D, jitter(new THREE.SphereGeometry(1, 20, 10), 0.12), mat(0x3e1a1e, { rough: 0.7, flat: true }), 0, -2.25, -0.6, { s: [2.1, 0.92, 4.6] });   // tongue (it moves)
+  mesh(S, lowG, mat(0x7a3a42, { rough: 0.6, flat: true, side: THREE.BackSide }), 0, 0, 0, { s: [MO.rx, MO.low, MO.rz] });
+  const tongue = mesh(D, jitter(new THREE.SphereGeometry(1, 20, 10), 0.12), mat(0xa05058, { rough: 0.5, flat: true }), 0, -2.25, -0.6, { s: [2.1, 0.92, 4.6] });   // tongue (it moves)
   // a school of small fish swept in with you, circling in the dark (each one faces the way it swims)
   const fishG = mergeGeometries([new THREE.ConeGeometry(0.035, 0.2, 5).rotateX(Math.PI / 2), new THREE.ConeGeometry(0.03, 0.06, 3).rotateX(-Math.PI / 2).translate(0, 0, -0.12).scale(0.3, 1, 1)].map(g => g.toNonIndexed()));
   const FISH = []; for (let i = 0; i < 55; i++) FISH.push({ r: 0.8 + rnd() * 1.7, y: -0.9 + rnd() * 1.4, w: (0.5 + rnd() * 0.8) * (rnd() < 0.85 ? 1 : -1), ph: rnd() * TAU, b: rnd() * TAU });
@@ -789,11 +789,11 @@ const mouth = (() => {
   // the upper jaw (palate + baleen) hinges at the back of the mouth
   const U = group(D, 0, 0, -MO.rz);
   const upG = jitter(new THREE.SphereGeometry(1, 36, 12, 0, TAU, 0, Math.PI / 2), 0.05);
-  mesh(U, upG, mat(0x2c1619, { rough: 0.6, env: 0.25, flat: true, side: THREE.BackSide }), 0, 0, MO.rz, { s: [MO.rx, MO.up, MO.rz] });
-  for (let i = 0; i < 11; i++) { const z = -4 + i * 0.85, w = MO.rx * Math.sqrt(Math.max(0, 1 - (z / MO.rz) ** 2)); mesh(U, new THREE.TorusGeometry(1, 0.05, 4, 16, Math.PI), mat(0x3a1c20, { rough: 0.6, flat: true }), 0, 0.05, MO.rz + z, { s: [w * 0.97, MO.up * 0.95 * Math.sqrt(Math.max(0, 1 - (z / MO.rz) ** 2)), 1], shadow: false }); }
+  mesh(U, upG, mat(0x6a3238, { rough: 0.6, env: 0.25, flat: true, side: THREE.BackSide }), 0, 0, MO.rz, { s: [MO.rx, MO.up, MO.rz] });
+  for (let i = 0; i < 11; i++) { const z = -4 + i * 0.85, w = MO.rx * Math.sqrt(Math.max(0, 1 - (z / MO.rz) ** 2)); mesh(U, new THREE.TorusGeometry(1, 0.05, 4, 16, Math.PI), mat(0x8a4048, { rough: 0.6, flat: true }), 0, 0.05, MO.rz + z, { s: [w * 0.97, MO.up * 0.95 * Math.sqrt(Math.max(0, 1 - (z / MO.rz) ** 2)), 1], shadow: false }); }
   const BAL = []; for (let i = 0; i < 150; i++) { const ph = -0.5 + (Math.PI + 1.0) * i / 149, x = MO.rx * 0.93 * Math.cos(ph), z = MO.rz * 0.93 * Math.sin(ph), t = V(-MO.rx * Math.sin(ph), 0, MO.rz * Math.cos(ph)).normalize(); BAL.push({ x, z, yaw: Math.atan2(-t.z, t.x), l: 1.05 + 0.35 * Math.cos(ph * 2) * 0.5 + hash(i) * 0.25 }); }
   const balG = new THREE.BoxGeometry(0.03, 1, 0.3).translate(0, -0.5, 0);
-  instanced(U, balG, mat(0xffffff, { rough: 0.85, flat: true }), BAL, (b, i, q) => ({ p: V(b.x, -0.08, MO.rz + b.z), q: q.setFromAxisAngle(V(0, 1, 0), b.yaw), s: V(1, b.l, 1), c: hash(i, 3) > 0.7 ? 0x4a3e34 : 0x221c18 }), { shadow: true });
+  instanced(U, balG, mat(0xffffff, { rough: 0.85, flat: true }), BAL, (b, i, q) => ({ p: V(b.x, -0.08, MO.rz + b.z), q: q.setFromAxisAngle(V(0, 1, 0), b.yaw), s: V(1, b.l, 1), c: hash(i, 3) > 0.7 ? 0x8a7a64 : 0x5a4a3c }), { shadow: true });
   // the glow where the lips part: a soft ribbon along the front of the rim
   const ribbonT = canvasTex(8, 64, (g, w, h) => { const r = g.createLinearGradient(0, 0, 0, h); r.addColorStop(0, 'rgba(255,255,255,0)'); r.addColorStop(0.5, 'rgba(255,255,255,1)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
   const rib = new THREE.BufferGeometry(), rp = [], ru = [], ri = [];
@@ -894,8 +894,8 @@ const seaSet = (() => {
   for (let i = 0; i < 5; i++) mesh(piece, new THREE.ConeGeometry(0.006, 0.07, 3), mat(0x3a3a3a), 0.6 + (hash(i) - 0.5) * 0.02, -0.02, -0.2, { rz: Math.PI / 2 + (hash(i, 1) - 0.5) * 1.2, ry: (hash(i, 2) - 0.5) * 1.5, shadow: false });
   const whale = makeHumpback(D);
   // the shadow far below: never shown clearly, only as a black mass against the faint glow of the deep
-  const shadowM = new THREE.MeshBasicMaterial({ color: 0x000000, fog: false });
-  const shadow = group(D, SHADOW.x, SHADOW.y, SHADOW.z); shadow.scale.setScalar(1.6);
+  const shadowM = new THREE.MeshBasicMaterial({ color: 0x0e2e3a, fog: false });   // a dark silhouette, not pure black
+  const shadow = group(D, SHADOW.x, SHADOW.y, SHADOW.z); shadow.scale.setScalar(1.3);
   mesh(shadow, new THREE.SphereGeometry(1, 20, 12), shadowM, 0, 0, 0, { s: [34, 20, 95], shadow: false });
   mesh(shadow, new THREE.SphereGeometry(1, 16, 10), shadowM, 0, 6, 60, { s: [26, 16, 40], shadow: false });
   shadow.arms = [];
@@ -1024,33 +1024,34 @@ function look(set, T) {
   sun.castShadow = true; snowU.uOp.value = 0; seaSet.glowU.uOp.value = 0;
   if (bloom) bloom.strength = 0.5;
   if (set === 'ocean') {
-    const deep = smooth(-18, -85, camera.position.y - o.y);   // the deeper the camera, the less light is left
-    skyU.uUnder.value = 1; skyLook(lerpHex(0x3a90ae, 0x0a2a3a, deep), lerpHex(0x0d4660, 0x03121c, deep), 0x01060a);
+    const deep = 0.5 * smooth(-18, -85, camera.position.y - o.y);   // deeper is a little darker, but never dark (daylight)
+    skyU.uUnder.value = 1; skyLook(lerpHex(0x5ab8d4, 0x1a5a76, deep), lerpHex(0x1a6a8a, 0x0a3448, deep), 0x0a2a3a);
     skyU.uSunDir.value.copy(OSUN); skyU.uSunCol.value.set(0x9ae4f4); skyU.uSunGlow.value = 0.3;
-    scene.fog.color.set(lerpHex(0x0c4462, 0x031822, deep)); scene.fog.density = 0.026 - 0.008 * deep;
-    hemi.color.set(0x5ab0d0); hemi.groundColor.set(0x061620); hemi.intensity = 1.5 - 0.8 * deep;
+    scene.fog.color.set(lerpHex(0x1a6a88, 0x0c3a50, deep)); scene.fog.density = 0.022 - 0.008 * deep;
+    hemi.color.set(0x8ad0e8); hemi.groundColor.set(0x1a3a48); hemi.intensity = 2.2 - 0.8 * deep;
     sunFrom(o, OSUN, 40, CAM.dist > 18 ? 26 : 12, 0xc8eeff, 2.4 * (1 - 0.85 * deep));
-    waterLook(ocean.u, true, scene.fog.color.getHex(), 0.026); ocean.u.uWin.value.set(0xc8f0ff).multiplyScalar(0.3); ocean.u.uMirror.value.set(0x0a3a50); ocean.u.uTime.value = T;
+    waterLook(ocean.u, true, scene.fog.color.getHex(), scene.fog.density); ocean.u.uWin.value.set(0xc8f0ff).multiplyScalar(0.55); ocean.u.uMirror.value.set(0x0a3a50); ocean.u.uTime.value = T;
     snowU.uOp.value = 0.55; snowU.uCol.value.set(0x9fd4e4); snowU.uBox.value = 18; snowU.uSize.value = 0.035;
-    renderer.toneMappingExposure = 1.15;
+    if (inT(T, EV.engulf - 0.6, ln(5))) { const c = camera.position.clone().sub(o); point(0, o, [c.x, c.y + 0.3, c.z], 0xe8b0a8, 5, 6); }   // inside the mouth: still see the flesh around you
+    renderer.toneMappingExposure = 1.4;
   } else if (set === 'mouth') {
     const g = gapAt(T), lightK = clamp((g - 0.012) / 0.07), openK = clamp((g - 0.08) / 0.16), sky = inT(T, ln(30, -0.3), ln(32));
-    const out = 0.8 + 0.6 * lightK + 1.0 * openK;
-    if (sky) { skyU.uUnder.value = 0; skyLook(0x6a9cc8, 0xd8e4ec, 0x8aa8b8); skyU.uCloud.value = 0.6; skyU.uCloudCol.value.set(0xe8eef2); skyU.uSunDir.value.set(0.2, 0.5, 1).normalize(); skyU.uSunCol.value.set(0xfff0d8).multiplyScalar(0.6); skyU.uSunGlow.value = 0.5; }
+    const out = 1.3 + 0.6 * lightK + 1.0 * openK;
+    if (sky) { skyU.uUnder.value = 0; skyLook(0x4a7cac, 0x9ab4c8, 0x6a8aa0); skyU.uCloud.value = 0.6; skyU.uCloudCol.value.set(0xe8eef2); skyU.uSunDir.value.set(0.2, 0.5, 1).normalize(); skyU.uSunCol.value.set(0xfff0d8).multiplyScalar(0.6); skyU.uSunGlow.value = 0.5; }
     else { skyU.uUnder.value = 1; skyLook(c4.set(0xbfeaff).multiplyScalar(out).getHex(), c4.set(0x3a90b0).multiplyScalar(out).getHex(), c4.set(0x0a3040).multiplyScalar(out).getHex()); skyU.uSunDir.value.set(0, 0, 1); skyU.uSunCol.value.set(0xffffff).multiplyScalar(lightK + openK); skyU.uSunGlow.value = 0.8; }
-    scene.fog.color.set(lerpHex(0x050607, 0x1a4a5a, openK * 0.6 + lightK * 0.3)); scene.fog.density = 0.07 - 0.04 * openK;
-    hemi.color.set(0x6a3a3a); hemi.groundColor.set(0x120808); hemi.intensity = 0.45 + 0.25 * lightK + 0.45 * openK;
+    scene.fog.color.set(lerpHex(0x2a1418, 0x2a5a6a, openK * 0.6 + lightK * 0.3)); scene.fog.density = 0.05 - 0.03 * openK;
+    hemi.color.set(0xd8a0a0); hemi.groundColor.set(0x4a2828); hemi.intensity = 1.6 + 0.4 * lightK + 0.6 * openK;
     sun.intensity = 0; sun.castShadow = false;
     const dp = mouth.diver.torchTip.getWorldPosition(V());
     const flick = inT(T, ln(9), ln(11)) || inT(T, ln(18), ln(20)) ? (hash(Math.floor(T * 14)) > 0.3 ? 1 : 0.15) : 1;
-    torch.intensity = 9 * flick * (T > ln(17) ? 0.7 : 1) * (1 - 0.6 * openK); torch.distance = 14;
+    torch.intensity = 14 * flick * (T > ln(17) ? 0.8 : 1) * (1 - 0.6 * openK); torch.distance = 14;
     torch.position.copy(dp); torch.target.position.copy(mouth.diver.torchTip.localToWorld(V(0, 0, -3)));
     const glow = clamp(g / 0.012) * 0.7;
-    point(0, o, [0.6, -0.1, 5.4], 0x9ad8ff, 2.5 * glow + 7 * lightK + 12 * openK, 12);
-    point(1, o, [0.8, 0.4, -0.6], 0x8a4a4a, inT(T, ln(21), ln(24)) ? 8 : 0.6, 9);
-    { const dp2 = diverMState(T).p; point(2, o, [dp2.x + 0.3, dp2.y + 1.0, dp2.z - 0.6], 0xa8b0c0, 2.4 * (1 - openK), 5); }
+    point(0, o, [0.6, -0.1, 5.4], 0x9ad8ff, 6 + 2.5 * glow + 7 * lightK + 12 * openK, 14);
+    point(1, o, [0.8, 0.4, -0.6], 0xc87a6a, inT(T, ln(21), ln(24)) ? 12 : 6, 10);
+    { const dp2 = diverMState(T).p; point(2, o, [dp2.x + 0.3, dp2.y + 1.0, dp2.z - 0.6], 0xc8d0e0, 4 * (1 - openK), 5); }
     snowU.uOp.value = 0.7; snowU.uCol.value.set(0xd8a890); snowU.uBox.value = 9; snowU.uSize.value = 0.03;
-    renderer.toneMappingExposure = 1.35; if (bloom) bloom.strength = 0.45;
+    renderer.toneMappingExposure = sky ? 1.0 : 1.7 - 0.8 * clamp(g / 0.12); if (bloom) bloom.strength = 0.4;
   } else if (set === 'breach') {
     skyU.uUnder.value = 0; skyLook(0x3c5266, 0xa8b6be, 0x2a3c48); skyU.uCloud.value = 0.8; skyU.uCloudCol.value.set(0x7a8894);
     skyU.uSunDir.value.copy(BSUN); skyU.uSunCol.value.set(0xffe4c4).multiplyScalar(0.6); skyU.uSunGlow.value = 0.5; skyU.uSunR.value = 0.025;
@@ -1067,19 +1068,19 @@ function look(set, T) {
       scene.fog.color.set(lerpHex(0x94a2ae, 0x6e7c88, late)); scene.fog.density = 0.004;
       hemi.color.set(0xb0c0d0); hemi.groundColor.set(0x1a2a34); hemi.intensity = 1.1;
       sunFrom(o, SSUN, 40, CAM.dist > 12 ? 20 : 6, 0xffe0c0, 2.0 - 0.6 * late);
-      waterLook(seaSet.u, false, scene.fog.color.getHex(), 0.004); seaSet.u.uSky.value.set(lerpHex(0x8a98a4, 0x66737e, late)); seaSet.u.uDeep.value.set(0x0a2230); seaSet.u.uSunDir.value.copy(SSUN); seaSet.u.uSunCol.value.set(0xffd8b0).multiplyScalar(1 - 0.5 * late);
+      waterLook(seaSet.u, false, scene.fog.color.getHex(), 0.004); seaSet.u.uSky.value.set(lerpHex(0x8a98a4, 0x66737e, late)); seaSet.u.uDeep.value.set(0x2a6a84); seaSet.u.uSunDir.value.copy(SSUN); seaSet.u.uSunCol.value.set(0xffd8b0).multiplyScalar(1 - 0.5 * late);
       renderer.toneMappingExposure = 0.95; if (bloom) bloom.strength = 0.3;
     } else {
-      const fogC = lerpHex(lerpHex(0x0e4a60, 0x0a3446, late), 0x062230, deep6);
-      skyU.uUnder.value = 1; skyLook(lerpHex(0x7acce0, 0x5aa0b8, late), fogC, lerpHex(0x020a10, 0x021a1e, deep6));
+      const fogC = lerpHex(lerpHex(0x1a6a88, 0x14566e, late), 0x0e4258, deep6);
+      skyU.uUnder.value = 1; skyLook(lerpHex(0x7acce0, 0x5aa0b8, late), fogC, lerpHex(0x1a5a70, 0x1e6276, deep6));
       skyU.uSunDir.value.set(0, 1, 0); skyU.uSunCol.value.set(0x9ae4f4); skyU.uSunGlow.value = 0.4;
       scene.fog.color.set(fogC); scene.fog.density = lerp(0.03, 0.02, deep6);
-      hemi.color.set(0x5ab0d0); hemi.groundColor.set(0x061620); hemi.intensity = 1.5;
+      hemi.color.set(0x8ad0e8); hemi.groundColor.set(0x1a3a48); hemi.intensity = 2.2;
       sunFrom(o, V(-0.2, 1, 0.1).normalize(), 40, CAM.dist > 18 ? 28 : 8, 0xc8eeff, 2.0);
       waterLook(seaSet.u, true, fogC, scene.fog.density); seaSet.u.uWin.value.set(0xc8f0ff).multiplyScalar(0.32 - 0.1 * late); seaSet.u.uMirror.value.set(0x0a3a50);
       snowU.uOp.value = 0.5; snowU.uCol.value.set(0x9fd4e4); snowU.uBox.value = 18; snowU.uSize.value = 0.035;
       seaSet.glowU.uOp.value = 0.9 * smooth(ln(42), ln(43), T);
-      renderer.toneMappingExposure = 1.15;
+      renderer.toneMappingExposure = 1.45;
     }
     seaSet.u.uTime.value = T;
   }
