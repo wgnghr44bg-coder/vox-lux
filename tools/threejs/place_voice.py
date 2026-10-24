@@ -46,7 +46,7 @@ for i, (cue, gs, ge) in enumerate(groups):
     slot = c1 - c0 - a.offset - 0.1
     dur = ge - gs
     tempo = 1.0 if dur <= slot else min(a.max_tempo, dur / slot)
-    if dur / tempo > slot:
+    if dur / tempo > slot + 1e-6:   # tolerance: dur / (dur / slot) can land a hair above slot
         problems.append(f"{cue}: {dur:.1f} s stem, tijdvak {slot:.1f} s ({text[:50]})")
     delay = int(round((c0 + a.offset) * 1000))
     filters.append(f"[0:a]atrim=start={gs:.3f}:end={ge:.3f},asetpts=PTS-STARTPTS,"
