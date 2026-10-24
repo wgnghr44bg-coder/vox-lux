@@ -11,6 +11,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
 | `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
+| `oceans-dried-up.html` | What If: alle oceanen drooggevallen, Short (slaapkamer bij zonsopgang, gestrand containerschip, stervende walvis, onderzeese kloof, zoutstorm, supermarkt, kraan die droogvalt, stofstorm, aarde vanuit de ruimte, jij aan de rand van de Atlantische Oceaan; eindigt met langzaam naar zwart). Ondertitels volgen de Chatterbox-stem (`oceans-dried-up/voice-times.tsv`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
