@@ -10,7 +10,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `never-stopped-raining.html` | What If: het stopt nooit met regenen, 80 s (met geluidseffecten en MP4-export) |
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
-| `whale-swallowed.html` | Imagine being swallowed by a whale, ±2:09 (bultrug van binnen, ontsnapping naar het oppervlak, potvis en een reusachtige schaduw; cliffhanger met harde cut naar zwart). Ondertitels volgen de Chatterbox-stem (`whale-swallowed/voice-times.tsv`) |
+| `whale-swallowed.html` | Imagine being swallowed by a whale, ±2:36 (in de bek van een bultrug, de walvis duikt de diepte in, ontsnapping naar het oppervlak, alleen op zee met een reusachtige schaduw eronder; eindigt met langzaam naar zwart). Ondertitels volgen de Chatterbox-stem (`whale-swallowed/voice-times.tsv`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
