@@ -611,7 +611,7 @@ function whalePose(W, T, o) {
 
 
 /* ===================================================================== SET: COAST (your town by the sea; the beach; the seabed with the wrecked ship and the dying animals) */
-const CSUN = V(0.42, 0.1, 1).normalize();                    // sunrise over the empty sea
+const CSUN = V(0.4, 0.32, 1).normalize();                    // sunrise over the empty sea (high enough for steady shadows: a grazing sun flickers)
 const coastH0 = (x, z) => {
   const sp = v => Math.log(1 + Math.exp(v / 6)) * 6;
   return 4 - 3.8 * smooth(-2, 45, z) - 0.04 * sp(z - 45) - 55 * smooth(420, 3300, z) + 1.4 * (fbm2(x, z, 0.012) - 0.5) * smooth(50, 140, z) + 0.15 * (fbm2(x, z, 0.08) - 0.5);
@@ -645,7 +645,7 @@ const coast = (() => {
   }
   // your house: ground floor solid, the bedroom upstairs (inside: x ±3.9, y 7..10, z -13.9..-6.1) with its window to the sea
   const wallC = 0xe8dcc4, inC = 0xd8ccb4;
-  box(S, 8.2, 3.1, 8.2, wallC, 0, 3.9, -10, { r: 0.08 });
+  box(S, 8.2, 2.88, 8.2, wallC, 0, 3.9, -10, { r: 0.08 });   // ends below the bedroom floor (two faces at one height flicker)
   box(S, 8.2, 0.2, 8.2, 0x8a6a4a, 0, 6.8, -10);                                  // floor
   box(S, 8.2, 0.25, 8.2, inC, 0, 10, -10);                                       // ceiling
   mesh(S, new THREE.ConeGeometry(6.2, 2.6, 4, 1).rotateY(Math.PI / 4).translate(0, 1.3, 0), roofM, 0, 10.2, -10);
@@ -1198,7 +1198,7 @@ const c4 = new THREE.Color(), c5 = new THREE.Color();
 function setSun(o, pos, target, half, color, intensity) {
   sun.position.copy(o).add(VA(pos)); sun.target.position.copy(o).add(VA(target)); sun.color.set(color); sun.intensity = intensity;
   const sc = sun.shadow.camera; if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.5, far: VA(pos).distanceTo(VA(target)) + half * 2 }); sc.updateProjectionMatrix(); }
-  sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02 * Math.max(1, half / 20);
+  sun.shadow.bias = -0.0008; sun.shadow.normalBias = 0.04 * Math.max(1, half / 20);
 }
 // the sun's shadow box is centred a little in front of the camera
 function sunFrom(o, dir, dist, half, color, intensity, at = null) { const f = at ? VA(at) : CAM.target.clone().sub(o); setSun(o, [f.x + dir.x * dist, f.y + dir.y * dist, f.z + dir.z * dist], [f.x, f.y, f.z], half, color, intensity); }

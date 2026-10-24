@@ -42,6 +42,11 @@ niet zien wat voor impact het heeft"):
 
 Lessons from earlier videos (the owner noticed every one of these, so they are requirements):
 - Vehicles and animals face the way they move: check the model's long axis against the direction of travel.
+- No flicker or blinking, ever (owner, 25 Oct 2026; Shorts and long videos): never let two surfaces lie in the same
+  plane (a floor on top of another block's top face, a rug on the floor: offset them by a few centimetres), and keep the
+  sun at least ~15° high where its shadows are seen (a grazing sun makes shadows jump). Before rendering, render every
+  frame (30 per second, `check_frames.mjs --times`) and run `python tools/threejs/check_flicker.py <frames-folder>`;
+  run it again on the finished MP4. It must not report "KNIPPEREN".
 - Nothing appears, shrinks or vanishes while it is on screen. People, cars and props only leave or appear on a camera cut.
 - A cutaway opens on the shot change (the plane is already in place on the first frame), never as a sweep through the camera.
 - The camera never passes through or grazes buildings, wires, trees or creatures; check every shot's path, not only its end.
