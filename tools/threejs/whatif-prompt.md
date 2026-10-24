@@ -61,12 +61,11 @@ video, Shorts and long videos alike):
 - Nothing should show through a surface by accident (half-transparent water that shows a body as stripes underneath).
 - Particles (bubbles, specks, spray) stay small near the camera; never let a few huge blobs cover the picture.
 - Bright light and flashes stay soft: no white blow-outs that hide the action.
-- Never too dark (owner, 24 Oct 2026: "de video's mogen niet te donker worden"). Even night, deep-sea or "darkness" scenes
-  must stay readable on a phone: the subject is clearly lit (fill light, rim light, a lamp, glow), the background is not
-  pure black, and the viewer can always see what the line of narration is about. `check_frames.mjs` measures every frame
-  and lists those darker than 38 (out of 255); brighten every listed shot unless it is the intended fade at the end.
-- Prefer daylight: scenes may simply play by day (sunny water, daylight streets). Build tension with camera, action,
-  sound and colour, not with darkness. Inside a creature, a cave or at night: light it warmly and clearly anyway.
+- Not too dark without a reason (owner, 24 Oct 2026). Daylight is allowed and often better: a story does not have to play
+  at night. Darkness is fine where it is logical (inside a whale, the deep sea, a power cut), but the viewer must still
+  see what the line of narration is about (a lamp, a glow, a rim light on the subject). `check_frames.mjs` lists frames
+  darker than 38 (out of 255): look at each one and only brighten it if the darkness is not logical for that moment or
+  the subject cannot be seen.
 
 Quality check (required, before you render and again on the finished MP4):
 1. `node tools/threejs/check_frames.mjs <page.html> <folder> [--fade-from <s>]`: a frame every second, all console

@@ -12,7 +12,6 @@
 - Elke video (Short én lange video): controleer vóór het renderen en daarna op de echte MP4 met
   `tools/threejs/check_frames.mjs` (contactbladen + console-fouten). Geen glinsterpuntjes, flikkering, strepen of andere rare
   dingen in beeld; alles moet vloeiend lopen. Zie "Quality check" in `tools/threejs/whatif-prompt.md`.
-- Video's mogen nooit te donker zijn (ook nacht-, diepzee- of "donker"-scènes): het onderwerp is duidelijk belicht en
-  op een telefoon goed te zien. `check_frames.mjs` meldt elk te donker beeld (gemiddelde helderheid < 38/255); maak die
-  shots lichter, behalve het bedoelde vervagen naar zwart aan het eind (`--fade-from`). Daglicht heeft de voorkeur: scènes mogen
-  gewoon overdag spelen; spanning komt uit camera, actie, geluid en kleur, niet uit duisternis.
+- Daglicht mag: een video hoeft niet alleen 's nachts of in het donker te spelen. Donker is goed waar het logisch is (in
+  een walvis, de diepzee), maar je moet altijd kunnen zien waar de zin over gaat. `check_frames.mjs` meldt donkere beelden
+  (< 38/255): bekijk ze en maak ze alleen lichter als het donker daar niet logisch is of het onderwerp niet te zien is.
