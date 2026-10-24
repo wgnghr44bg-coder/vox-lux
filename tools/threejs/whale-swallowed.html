@@ -540,7 +540,7 @@ function whalePose(W, T, o) {
 const WAVES = [[0.13, 0.09, 0.3, 1.0, 0], [0.08, 0.15, 1.2, 1.25, 1.3], [0.05, 0.27, -0.6, 1.7, 2.1], [0.035, 0.55, 2.2, 2.4, 0.4], [0.02, 0.9, -1.8, 3.1, 5.2]];
 function seaGeo(R = 700, N = 140) {
   const g = new THREE.BufferGeometry(), pos = [], idx = [];
-  const f = u => R * Math.sign(u) * u * u;
+  const f = u => R * Math.sign(u) * (0.015 * Math.abs(u) + 0.985 * u * u);   // dense near the middle, but never thinner than ~15 cm (tiny faces would sparkle)
   for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) pos.push(f(j / N * 2 - 1), 0, f(i / N * 2 - 1));
   for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) { const a = i * (N + 1) + j, b = a + N + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
   g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
@@ -550,22 +550,23 @@ function seaGeo(R = 700, N = 140) {
 const seaU = () => ({
   uSky: { value: new THREE.Color(0x8a9aa6) }, uDeep: { value: new THREE.Color(0x0a2230) }, uSunDir: { value: V(0, 1, 0) }, uSunCol: { value: new THREE.Color(0) },
   uFogCol: { value: new THREE.Color() }, uFogD: { value: 0.01 }, uUnder: { value: 0 }, uWin: { value: new THREE.Color(0xd0f0ff) }, uMirror: { value: new THREE.Color(0x06202c) },
-  uTime: { value: 0 }, uFoamC: { value: new THREE.Vector2() }, uFoamR: { value: 0 }, uFoamK: { value: 0 },
+  uTime: { value: 0 }, uFoamC: { value: new THREE.Vector2() }, uFoamR: { value: 0 }, uFoamK: { value: 0 }, uO: { value: new THREE.Vector2() }, uClearR: { value: 0 },
 });
 function makeSea(parent, u) {
   const m = new THREE.Mesh(seaGeo(), new THREE.ShaderMaterial({
     uniforms: u, side: THREE.DoubleSide, fog: false,
-    vertexShader: `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-    fragmentShader: NOISE_GLSL + `uniform vec3 uSky, uDeep, uSunDir, uSunCol, uFogCol, uWin, uMirror; uniform float uFogD, uUnder, uTime, uFoamR, uFoamK; uniform vec2 uFoamC; varying vec3 vW;
+    vertexShader: `varying vec3 vW, vN; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; vN = normal; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: NOISE_GLSL + `varying vec3 vN; uniform vec3 uSky, uDeep, uSunDir, uSunCol, uFogCol, uWin, uMirror; uniform float uFogD, uUnder, uTime, uFoamR, uFoamK, uClearR; uniform vec2 uFoamC, uO; varying vec3 vW;
     void main(){
-      vec3 n = normalize(cross(dFdx(vW), dFdy(vW))); if (n.y < 0.0) n = -n;
-      vec3 v = normalize(cameraPosition - vW); float d = length(cameraPosition - vW); vec3 c;
+      vec3 v = normalize(cameraPosition - vW); float d = length(cameraPosition - vW); vec3 c; vec2 lp = vW.xz - uO;
+      // the facets get calmer with distance, so far-away waves never sparkle or flicker
+      vec3 n = normalize(mix(normalize(vN), vec3(0.0, 1.0, 0.0), 0.9 * smoothstep(3.0, 25.0, d)));
       if (uUnder < 0.5) {
         float fr = 0.03 + 0.97 * pow(1.0 - max(dot(n, v), 0.0), 5.0);
         vec3 r = reflect(-v, n);
         c = mix(uDeep, uSky, clamp(fr * 1.3, 0.0, 1.0));
-        c += uSunCol * pow(max(dot(r, uSunDir), 0.0), 160.0) * 0.35;
-        float fd = length(vW.xz - uFoamC), fo = uFoamK * (1.0 - smoothstep(uFoamR * 0.55, uFoamR, fd)) * smoothstep(0.35, 0.7, fbm(vec3(vW.xz * 0.6, uTime * 0.4)) + 0.25);
+        c += uSunCol * pow(max(dot(r, uSunDir), 0.0), 30.0) * 0.12 * (1.0 - smoothstep(10.0, 40.0, d));
+        float fd = length(lp - uFoamC), fo = uFoamK * (1.0 - smoothstep(uFoamR * 0.55, uFoamR, fd)) * smoothstep(0.35, 0.7, fbm(vec3(vW.xz * 0.6, uTime * 0.4)) + 0.25);
         c = mix(c, vec3(0.82, 0.88, 0.9), clamp(fo, 0.0, 1.0));
       } else {
         float ct = dot(-v, n), win = smoothstep(0.6, 0.74, ct);
@@ -573,10 +574,10 @@ function makeSea(parent, u) {
         c = mix(uMirror, uWin * (0.7 + 0.6 * rip), win);
       }
       c = mix(c, uFogCol, 1.0 - exp(-pow(d * uFogD, 2.0)));
-      gl_FragColor = vec4(c, uUnder < 0.5 ? 0.86 : 1.0); }`,
+      gl_FragColor = vec4(c, uUnder < 0.5 ? 1.0 - 0.18 * (1.0 - smoothstep(uClearR * 0.5, uClearR + 0.01, length(lp))) : 1.0); }`,
     transparent: true,
   }));
-  m.frustumCulled = false; parent.add(m); return m;
+  m.frustumCulled = false; parent.add(m); u.mat = m.material; return m;
 }
 // wave height at (x, z) in a set's own coordinates; `extra` adds ripples
 function waveH(x, z, T, amp = 1, extra = null) {
@@ -586,7 +587,7 @@ function waveH(x, z, T, amp = 1, extra = null) {
 function moveSea(sea, T, amp, extra) {
   const p = sea.geometry.attributes.position, b = sea.geometry.userData.base;
   for (let i = 0; i < p.count; i++) p.array[i * 3 + 1] = waveH(b[i * 3], b[i * 3 + 2], T, amp, extra);
-  p.needsUpdate = true;
+  p.needsUpdate = true; sea.geometry.computeVertexNormals();   // smooth normals from the waves (per-pixel ones sparkle)
 }
 
 // sun rays from the surface: long soft quads that turn around their own axis toward the camera; the part below a whale is cut off
@@ -830,7 +831,7 @@ function diverBState(T) {
 }
 const breach = (() => {
   const S = ST.breach, D = G.breach;
-  const u = seaU(); const sea = makeSea(D, u);
+  const u = seaU(); u.uO.value.set(SETS.breach.x, SETS.breach.z); const sea = makeSea(D, u);
   const whale = makeHumpback(D);
   const diver = makeDiver(D); diver.reg.visible = false;
   const drop = new THREE.MeshStandardMaterial({ color: 0xf2f8fa, roughness: 0.25, transparent: true, opacity: 0.85, depthWrite: false, emissive: 0xc8d8e0, emissiveIntensity: 0.6 });
@@ -881,7 +882,7 @@ function whaleSState(T) {
 }
 const seaSet = (() => {
   const S = ST.sea, D = G.sea;
-  const u = seaU(); const sea = makeSea(D, u);
+  const u = seaU(); u.uO.value.set(SETS.sea.x, SETS.sea.z); u.uClearR.value = 2.5; const sea = makeSea(D, u);
   const diver = makeDiver(D); diver.reg.visible = false;
   // the broken regulator floating beside you (mouthpiece + torn hose)
   const piece = group(D);
@@ -1014,7 +1015,8 @@ function setSun(o, pos, target, half, color, intensity) {
 function sunFrom(o, dir, dist, half, color, intensity) { const f = CAM.target.clone().sub(o); setSun(o, [f.x + dir.x * dist, f.y + dir.y * dist, f.z + dir.z * dist], [f.x, f.y, f.z], half, color, intensity); }
 function point(i, o, p, color, intensity, dist = 30) { const L = PL[i]; L.position.copy(o).add(VA(p)); L.color.set(color); L.intensity = intensity; L.distance = dist; }
 const lerpHex = (a, b, k) => c5.set(a).lerp(c4.set(b), clamp(k)).getHex();
-function waterLook(u, under, fogCol, fogD) { u.uUnder.value = under ? 1 : 0; u.uFogCol.value.set(fogCol); u.uFogD.value = fogD; }
+function waterLook(u, under, fogCol, fogD) { u.uUnder.value = under ? 1 : 0; u.mat.side = under ? THREE.BackSide : THREE.FrontSide;   // one side only: two overlapping sides of a wave fight and sparkle
+  u.uFogCol.value.set(fogCol); u.uFogD.value = fogD; }
 function look(set, T) {
   const o = SETS[set];
   for (const L of PL) L.intensity = 0;
