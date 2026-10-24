@@ -12,3 +12,6 @@
 - Elke video (Short én lange video): controleer vóór het renderen en daarna op de echte MP4 met
   `tools/threejs/check_frames.mjs` (contactbladen + console-fouten). Geen glinsterpuntjes, flikkering, strepen of andere rare
   dingen in beeld; alles moet vloeiend lopen. Zie "Quality check" in `tools/threejs/whatif-prompt.md`.
+- Video's mogen nooit te donker zijn (ook nacht-, diepzee- of "donker"-scènes): het onderwerp is duidelijk belicht en
+  op een telefoon goed te zien. `check_frames.mjs` meldt elk te donker beeld (gemiddelde helderheid < 38/255); maak die
+  shots lichter, behalve het bedoelde vervagen naar zwart aan het eind (`--fade-from`).
