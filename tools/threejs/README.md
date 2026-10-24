@@ -29,6 +29,7 @@ Nodig: Node.js, Python, ffmpeg; Playwright wordt de eerste keer zelf geïnstalle
 - `make_cues.py <pagina> <map>`: ondertitels → `cues.tsv` + `script-cues.txt`
 - `export_mp4.mjs <pagina> <uit.mp4> [--gpu]`: MP4 renderen (met de geluidseffecten van de pagina)
 - `place_voice.py <map> [--video <mp4>]`: stem op de ondertiteltijden zetten en onder de video mixen
+- `check_frames.mjs <pagina> <map>` (of `--video <mp4> <map>`): elke seconde een beeld, console-fouten per tijdstip en contactbladen. Verplicht vóór het renderen en op de echte MP4 (zie `whatif-prompt.md`, "Quality check")
 
 Een nieuwe animatie werkt met deze tools als ze dezelfde opbouw heeft als `never-stopped-raining.html`
 (`SCENES` met `subtitles`, `buildSfx`, `?render=1` met `renderAt`/`renderSoundtrack`); zie `whatif-prompt.md`.

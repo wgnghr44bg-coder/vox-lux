@@ -9,3 +9,6 @@
   xAI voice (`tools/xai_voiceover.py`) only on request; it costs money.
 - REA (reverse engineering, https://github.com/morluto/rea): MCP server in `.mcp.json`, skill in
   `.claude/skills/reverse-engineer-anything`. Update with `npx rea-agents@latest` and bump the version in `.mcp.json`.
+- Elke video (Short én lange video): controleer vóór het renderen en daarna op de echte MP4 met
+  `tools/threejs/check_frames.mjs` (contactbladen + console-fouten). Geen glinsterpuntjes, flikkering, strepen of andere rare
+  dingen in beeld; alles moet vloeiend lopen. Zie "Quality check" in `tools/threejs/whatif-prompt.md`.
