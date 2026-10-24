@@ -9,6 +9,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `shark-pool.html` | haai in zwembad + filterinstallatie, 60 s |
 | `never-stopped-raining.html` | What If: het stopt nooit met regenen, 80 s (met geluidseffecten en MP4-export) |
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
+| `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
 | `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
 
 ## Alles in één keer op de pc (PowerShell)
