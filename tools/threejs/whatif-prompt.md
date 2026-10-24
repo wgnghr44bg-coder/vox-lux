@@ -61,10 +61,14 @@ video, Shorts and long videos alike):
 - Nothing should show through a surface by accident (half-transparent water that shows a body as stripes underneath).
 - Particles (bubbles, specks, spray) stay small near the camera; never let a few huge blobs cover the picture.
 - Bright light and flashes stay soft: no white blow-outs that hide the action.
+- Never too dark (owner, 24 Oct 2026: "de video's mogen niet te donker worden"). Even night, deep-sea or "darkness" scenes
+  must stay readable on a phone: the subject is clearly lit (fill light, rim light, a lamp, glow), the background is not
+  pure black, and the viewer can always see what the line of narration is about. `check_frames.mjs` measures every frame
+  and lists those darker than 38 (out of 255); brighten every listed shot unless it is the intended fade at the end.
 
 Quality check (required, before you render and again on the finished MP4):
-1. `node tools/threejs/check_frames.mjs <page.html> <folder>`: a frame every second, all console errors/warnings per time,
-   contact sheets. Look at every sheet for glitches, popping, the camera inside or through objects, wrong facing, too dark /
+1. `node tools/threejs/check_frames.mjs <page.html> <folder> [--fade-from <s>]`: a frame every second, all console
+   errors/warnings per time, contact sheets, and the list of frames that are too dark or too bright. Look at every sheet for glitches, popping, the camera inside or through objects, wrong facing, too dark /
    overexposed shots, sparkles or stripes, subjects that are not in frame. Fix and check again until it is clean.
 2. For water, particle and fast shots also check a few frames 1/30 s apart (`--times 50,50.033,50.067`) for flicker.
 3. After rendering: `node tools/threejs/check_frames.mjs --video <video.mp4> <folder>` and look at the sheets again.

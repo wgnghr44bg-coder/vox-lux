@@ -2,6 +2,8 @@
 // per time, and contact sheets (10 per row, 4 rows per sheet) to look through for glitches.
 //   node tools/threejs/check_frames.mjs <page.html> <out-folder> [--step 1] [--from 0] [--to <end>] [--width 360] [--times 3,7.5] [--three node_modules/three]
 //   node tools/threejs/check_frames.mjs --video <video.mp4> <out-folder> [--step 1]      (contact sheets from a finished MP4)
+// It also measures the brightness of every frame and lists frames that are too dark (--min-brightness 38) or blown out
+// (--max-brightness 205); --fade-from <s> skips the intended fade to black at the end.
 // Needs playwright (npm i playwright) and ffmpeg. On a cloud machine: CHROMIUM_PATH=/opt/pw-browsers/chromium.
 import fs from 'node:fs'; import path from 'node:path'; import { pathToFileURL } from 'node:url'; import { execFileSync } from 'node:child_process';
 const args = process.argv.slice(2), opt = (n, d) => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : d; };
@@ -43,4 +45,12 @@ for (let s = 0; s * 40 < files.length; s++) {
   const layout = part.map((_, i) => `${(i % cols) * 240}_${Math.floor(i / cols) * 427}`).join('|');
   ff([...inputs, '-filter_complex', `${filters.join(';')};${part.map((_, i) => `[v${i}]`).join('')}xstack=inputs=${part.length}:layout=${layout}:fill=black`, '-frames:v', '1', path.join(out, `sheet${s + 1}.jpg`)]);
 }
-console.log(`${files.length} frames -> ${out}/sheet*.jpg`);
+// brightness per frame (0–255, the average of the whole picture): flag shots that are too dark or blown out
+const bright = execFileSync('ffmpeg', ['-v', 'error', '-i', path.join(out, 'frames', 'f%04d.jpg'), '-vf', 'scale=1:1:flags=area,format=gray', '-f', 'rawvideo', '-']);
+const dark = [], blown = [], minB = +opt('min-brightness', 38), maxB = +opt('max-brightness', 205);
+const endFade = +opt('fade-from', Infinity);   // the intended fade to black at the end is not a problem
+[...bright].forEach((b, i) => { const t = +times[i]; if (t >= endFade) return; if (b < minB) dark.push(`${times[i]} (${b})`); if (b > maxB) blown.push(`${times[i]} (${b})`); });
+fs.writeFileSync(path.join(out, 'brightness.txt'), [...bright].map((b, i) => `${times[i]}\t${b}`).join('\n') + '\n');
+console.log(dark.length ? `TOO DARK (average < ${minB}): ${dark.join(', ')}` : `brightness ok: no frame darker than ${minB}`);
+if (blown.length) console.log(`TOO BRIGHT (average > ${maxB}): ${blown.join(', ')}`);
+console.log(`${files.length} frames -> ${out}/sheet*.jpg (brightness per frame in brightness.txt)`);
