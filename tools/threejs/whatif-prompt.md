@@ -65,6 +65,8 @@ video, Shorts and long videos alike):
   must stay readable on a phone: the subject is clearly lit (fill light, rim light, a lamp, glow), the background is not
   pure black, and the viewer can always see what the line of narration is about. `check_frames.mjs` measures every frame
   and lists those darker than 38 (out of 255); brighten every listed shot unless it is the intended fade at the end.
+- Prefer daylight: scenes may simply play by day (sunny water, daylight streets). Build tension with camera, action,
+  sound and colour, not with darkness. Inside a creature, a cave or at night: light it warmly and clearly anyway.
 
 Quality check (required, before you render and again on the finished MP4):
 1. `node tools/threejs/check_frames.mjs <page.html> <folder> [--fade-from <s>]`: a frame every second, all console

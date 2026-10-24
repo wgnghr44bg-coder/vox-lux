@@ -14,4 +14,5 @@
   dingen in beeld; alles moet vloeiend lopen. Zie "Quality check" in `tools/threejs/whatif-prompt.md`.
 - Video's mogen nooit te donker zijn (ook nacht-, diepzee- of "donker"-scènes): het onderwerp is duidelijk belicht en
   op een telefoon goed te zien. `check_frames.mjs` meldt elk te donker beeld (gemiddelde helderheid < 38/255); maak die
-  shots lichter, behalve het bedoelde vervagen naar zwart aan het eind (`--fade-from`).
+  shots lichter, behalve het bedoelde vervagen naar zwart aan het eind (`--fade-from`). Daglicht heeft de voorkeur: scènes mogen
+  gewoon overdag spelen; spanning komt uit camera, actie, geluid en kleur, niet uit duisternis.
