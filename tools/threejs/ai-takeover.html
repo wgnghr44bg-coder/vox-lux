@@ -1254,11 +1254,13 @@ addEventListener('resize', layout);
 layout();
 
 /* ===================================================================== CAMERA */
+const a0 = (K, i) => K[i][0];
 function shotAt(T) {
   const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
   const k = clamp((T - sh.start) / (Math.min(sh.end, DURATION) - sh.start)), K = sh.keys;
   let i = 0; while (i < K.length - 2 && k > K[i + 1][0]) i++;
-  const a = K[i], b = K[i + 1], e = easeInOut(clamp((k - a[0]) / (b[0] - a[0])));
+  // mostly steady speed with a soft start and end, so the camera keeps moving through the cut instead of stopping
+  const u = clamp((k - a0(K, i)) / (K[i + 1][0] - a0(K, i))), a = K[i], b = K[i + 1], e = lerp(u, easeInOut(u), 0.3);
   return { set: sh.set, pos: VA(a[1]).lerp(VA(b[1]), e).add(o), target: VA(a[2]).lerp(VA(b[2]), e).add(o), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY };
 }
 function shake(T) {
@@ -1269,8 +1271,9 @@ function shake(T) {
 const CAM = { set: 'mega', target: V(), dist: 1, local: V() };
 function placeCamera(T) {
   const s = shotAt(T), d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.1, d * 0.02 + 0.02);
-  const f = Math.floor(T * 40);
-  s.pos.x += (hash(f, 1) - 0.5) * k; s.pos.y += (hash(f, 2) - 0.5) * k; s.target.x += (hash(f, 3) - 0.5) * k * 3 * Math.max(1, d / 30); s.target.y += (hash(f, 4) - 0.5) * k * 3 * Math.max(1, d / 30);
+  // smooth noise (no jumps from frame to frame): the shake trembles instead of jittering
+  const nz = c => { const x = T * 9 + c * 17.3, i = Math.floor(x), f = x - i, w = f * f * (3 - 2 * f); return lerp(hash(i, c), hash(i + 1, c), w) - 0.5; };
+  s.pos.x += nz(1) * k; s.pos.y += nz(2) * k; s.target.x += nz(3) * k * 3 * Math.max(1, d / 30); s.target.y += nz(4) * k * 3 * Math.max(1, d / 30);
   camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
   const near = clamp(d * 0.01, 0.02, 0.2), far = s.set === 'space' ? 9000 : 6000;
   if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
