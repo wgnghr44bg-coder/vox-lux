@@ -10,6 +10,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `never-stopped-raining.html` | What If: het stopt nooit met regenen, 80 s (met geluidseffecten en MP4-export) |
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
+| `death-is-gone.html` | What If: niemand kan meer sterven, 93 s (val van de wolkenkrabber, ziekenhuis, time-lapse megastad, muur, rode reuzenzon, eenzame figuur op de dode aarde; harde cut naar zwart). Stem: Chatterbox bm_george, stiltes weggeknipt |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
