@@ -11,6 +11,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
 | `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
+| `black-plague.html` | What If: de Zwarte Dood ging nooit weg, Short ±63 s (pestdokter in groene mist in een middeleeuwse stad, plein dat leegloopt, sirenes bij dageraad, ambulances in de rij, afgezette wijk, file bij een wegversperring, kalender vol kruisjes, lege supermarkt, rolluiken, opa achter het raam, lege neonstraat, weer opbouwen en spelende kinderen, "NEW CASE" op de ziekenhuismonitor, noodalarm op telefoons en schermen, grens die dichtgaat, pestdokter tussen moderne gebouwen; eindigt met de mist over de stad en langzaam naar zwart). Ondertitels volgen de Chatterbox-stem (`black-plague/voice-times.tsv`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
