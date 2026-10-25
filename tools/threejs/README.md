@@ -11,6 +11,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
 | `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
+| `zombie-apocalypse.html` | What if a zombie apocalypse started tomorrow?, Short ±84 s (slaapkamer, stad op dag één + stroomuitval, telefoonalarm, supermarkt met honderden zombies die zich omdraaien, vlucht naar de schuilkelder, handafdrukken, bijtwond, gil + harde cut naar zwart). Ondertitels volgen de Chatterbox-stem (`zombie-apocalypse/voice-times.tsv`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
