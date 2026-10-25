@@ -29,6 +29,7 @@ Nodig: Node.js, Python, ffmpeg; Playwright wordt de eerste keer zelf geïnstalle
 ## Losse stappen
 - `make_cues.py <pagina> <map>`: ondertitels → `cues.tsv` + `script-cues.txt`
 - `export_mp4.mjs <pagina> <uit.mp4> [--gpu] [--landscape]`: MP4 renderen (met de geluidseffecten van de pagina); `--landscape` = 16:9 (1920x1080), `--height` voor een andere hoogte
+- YouTube: altijd naar IfScape3D met `tools/youtube_upload.py --channel whatif`, zie `YOUTUBE-IFSCAPE3D.md`
 - `check_flicker.py <video.mp4 | map-met-jpgs>`: spoort knipperen/flikkeren op (beelden die heen en weer springen, ook in een deel van het beeld, zoals z-fighting of een springende schaduw). Verplicht op alle beelden vóór het renderen en op de echte MP4
 - `place_voice.py <map> [--video <mp4>]`: stem op de ondertiteltijden zetten en onder de video mixen
 

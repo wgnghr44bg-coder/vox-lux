@@ -16,3 +16,6 @@
   muur-/blokrand, kleed op de vloer) en heel laag strijklicht met schaduwen knipperen: laat vlakken nooit samenvallen en
   zet de zon minstens ±15° hoog. Controleer vóór het renderen elk beeld (30 per seconde) en daarna de echte MP4 met
   `python tools/threejs/check_flicker.py` (zie `tools/threejs/README.md`); er mag geen "KNIPPEREN" uitkomen.
+- YouTube: elke What If-video (Short én lang) gaat naar het kanaal **IfScape3D**, nooit naar Sleep Archives. Upload met
+  `tools/youtube_upload.py --channel whatif` en volg `tools/threejs/YOUTUBE-IFSCAPE3D.md` (titel, beschrijving, tags,
+  instellingen). Sleep Archives (`--channel sleep`) is alleen voor History for Sleep. Alleen uploaden als de eigenaar erom vraagt.

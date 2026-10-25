@@ -12,7 +12,7 @@ Zegt de eigenaar **"software"** → begin hier. Zegt hij **"comfy"** → alles v
 | Afbeeldingen / clips (oud) | xAI `grok-imagine` | `tools/xai_images.py` | **Ja – staat uit, alleen na uitdrukkelijk ja** |
 | Montage, effecten, foto, geluid | **Craft-apps** (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, …) | `tools/craft/README.md`, voorbeelden in `tools/craft/examples/` | Nee |
 | Losse bewerking | ffmpeg, OpenCV, Pillow, numpy | overal in `tools/` | Nee |
-| YouTube | upload / playlist / bereik | `tools/youtube_*.py` | Nee |
+| YouTube | upload / playlist / bereik (`youtube_upload.py --channel sleep` = Sleep Archives, `--channel whatif` = IfScape3D) | `tools/youtube_*.py` | Nee |
 | 3D-animaties (What If, uitleg) | **Three.js** – één HTML per video, eigen geluidseffecten | `tools/threejs/README.md`, pc: `tools/threejs/make-whatif.ps1` | Nee (OpenCode met betaald model wel) |
 | Reverse engineering | REA | `.mcp.json`, `.claude/skills/reverse-engineer-anything` | Nee |
 | ElevenLabs | **niet meer gebruiken** | – | – |

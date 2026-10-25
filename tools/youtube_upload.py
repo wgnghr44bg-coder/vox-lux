@@ -2,7 +2,9 @@
 """Upload a video to YouTube with the YouTube Data API (resumable upload).
 
 Credentials come from environment variables (never hardcode or commit them):
-    YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
+    YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN (Sleep Archives) / YT_WHATIF_REFRESH_TOKEN (IfScape3D)
+Pick the channel with --channel: "sleep" (Sleep Archives, history for sleep) or "whatif" (IfScape3D, all
+What If videos, see tools/threejs/YOUTUBE-IFSCAPE3D.md). The script checks the channel name before uploading.
 The refresh token needs the https://www.googleapis.com/auth/youtube.upload scope
 (or the broader .../auth/youtube scope, which tools/youtube_tidy.py also needs).
 
@@ -32,15 +34,20 @@ THUMB_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
 CHUNK = 16 * 1024 * 1024  # 16 MB, a multiple of 256 KB as the API requires
 
 
+CHANNELS = {"sleep": ("YT_REFRESH_TOKEN", "Sleep Archives"), "whatif": ("YT_WHATIF_REFRESH_TOKEN", "IfScape3D")}
+_channel = "sleep"
+
+
 def access_token() -> str:
-    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
+    token_var = CHANNELS[_channel][0]
+    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", token_var)
                if not os.environ.get(k)]
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
     res = requests.post(TOKEN_URL, data={
         "client_id": os.environ["YT_CLIENT_ID"],
         "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"],
+        "refresh_token": os.environ[token_var],
         "grant_type": "refresh_token",
     }, timeout=60)
     if not res.ok:
@@ -112,6 +119,8 @@ def set_thumbnail(video_id: str, path: Path, token: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("video", type=Path)
+    parser.add_argument("--channel", choices=sorted(CHANNELS), default="sleep",
+                        help="sleep = Sleep Archives, whatif = IfScape3D (every What If video goes there)")
     parser.add_argument("--title", required=True)
     parser.add_argument("--description-file", type=Path)
     parser.add_argument("--tags", default="", help="comma-separated")
@@ -127,6 +136,15 @@ def main() -> None:
     parser.add_argument("--thumbnail", type=Path,
                         help="JPG/PNG up to 2 MB, set after upload (channel must be verified)")
     args = parser.parse_args()
+    global _channel
+    _channel = args.channel
+    # never upload to the wrong channel: check the name the token belongs to
+    mine = requests.get("https://www.googleapis.com/youtube/v3/channels", params={"part": "snippet", "mine": "true"},
+                        headers={"Authorization": f"Bearer {access_token()}"}, timeout=60)
+    name = mine.json()["items"][0]["snippet"]["title"] if mine.ok and mine.json().get("items") else "?"
+    if name != CHANNELS[_channel][1]:
+        sys.exit(f"Token belongs to channel '{name}', expected '{CHANNELS[_channel][1]}': not uploading.")
+    print(f"Channel: {name}")
 
     metadata = {
         "snippet": {
