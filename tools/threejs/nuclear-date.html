@@ -1,0 +1,1467 @@
+<title>Nuclear Date</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<style>
+  /* Layout: one 9:16 stage scaled to the window; chapter card on top, subtitles in the lower middle, preview controls at the bottom. */
+  :root {
+    --letterbox: #050403;
+    --sky: #1a1410;
+    --ink: #ffffff;
+    --outline: #0a0705;
+    --hud: rgba(14, 10, 6, 0.72);
+    --accent: #f0b45a;
+    --ui: "Archivo", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; font-family: var(--ui); }
+  #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 52%, rgba(0, 0, 0, 0.55) 100%); }
+  .flash { position: absolute; inset: 0; background: #fff4e4; opacity: 0; pointer-events: none; }
+  .fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+  .title {
+    position: absolute; left: 7cqw; right: 7cqw; top: 13%;
+    text-align: center; pointer-events: none; color: var(--ink);
+    font: 900 9cqw/1.04 var(--ui); letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance;
+    -webkit-text-stroke: 1.2cqw var(--outline); paint-order: stroke fill;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateY(2cqw);
+  }
+  .title small { display: block; margin-bottom: 2cqw; font: 800 4.4cqw/1 var(--ui); letter-spacing: 0.3em; color: var(--accent); -webkit-text-stroke: 0.8cqw var(--outline); }
+  .title.on { opacity: 1; transform: none; }
+
+  .chapter {
+    position: absolute; left: 6cqw; top: calc(6cqw + env(safe-area-inset-top, 0px));
+    pointer-events: none; color: var(--ink);
+    opacity: 0; transform: translateX(-3cqw); transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .chapter.on { opacity: 1; transform: none; }
+  .chapter b { display: block; font: 900 8.4cqw/1 var(--ui); letter-spacing: -0.01em; text-transform: uppercase; -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill; }
+  .chapter span { display: inline-block; margin-top: 1.6cqw; padding: 1cqw 2.4cqw; border-radius: 1cqw; background: rgba(14, 10, 6, 0.6); font: 800 3.3cqw/1 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+  .subs {
+    position: absolute; left: 6cqw; right: 6cqw; bottom: 25%;
+    text-align: center; pointer-events: none;
+    font: 900 6.4cqw/1.2 var(--ui); color: var(--ink); letter-spacing: -0.005em; text-wrap: balance;
+    -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill;
+    text-shadow: 0 0.8cqw 2.4cqw rgba(0, 0, 0, 0.6);
+    opacity: 0; transform: translateY(1.5cqw); transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .subs.on { opacity: 1; transform: none; }
+
+  .hud {
+    position: absolute; left: 3cqw; right: 3cqw; bottom: calc(3cqw + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 2.4cqw; padding: 2.2cqw 3cqw; border-radius: 99px;
+    background: var(--hud); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: #f0e8de; font: 800 clamp(11px, 3cqw, 16px)/1 var(--ui); transition: opacity 0.35s ease;
+  }
+  .hud.hide { opacity: 0; pointer-events: none; }
+  .hud button, .hud label {
+    flex: none; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px;
+    border: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.12); color: inherit; font: inherit; cursor: pointer;
+  }
+  .hud button:hover, .hud label:hover { background: rgba(255, 255, 255, 0.22); }
+  .hud button:focus-visible, .hud label:focus-within, .hud input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hud input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .hud .time { flex: none; font-variant-numeric: tabular-nums; min-width: 9ch; text-align: right; }
+  .hud input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .hud svg { width: 16px; height: 16px; fill: currentColor; }
+  .hud button[aria-pressed="true"] { background: var(--accent); color: #1a1006; }
+  @media (prefers-reduced-motion: reduce) { .title, .chapter, .subs { transition: none; } }
+  .render .title, .render .chapter, .render .subs { transition: none; }
+</style>
+
+<div id="stage">
+  <div class="vignette"></div>
+  <div class="flash" id="flash"></div>
+  <div class="fade" id="fade"></div>
+  <div class="title" id="title"><small>What if</small>A nuclear bomb exploded during your date?</div>
+  <div class="chapter" id="chapter"><b id="chapter-when">Seconds later</b><span id="chapter-what">The blast</span></div>
+  <div class="subs" id="subs" aria-live="polite"></div>
+  <div class="hud" id="hud">
+    <button id="play" type="button" aria-label="Pause"><svg viewBox="0 0 16 16" id="play-icon"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <button id="replay" type="button" aria-label="Replay from start"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.6 3.9l1.9.7A4 4 0 1 0 8 4v2.2L4.6 3.1 8 0z"/></svg></button>
+    <input id="scrub" type="range" min="0" max="100" step="0.01" value="0" aria-label="Timeline">
+    <span class="time" id="time">0:00.0</span>
+    <button id="sound" type="button" aria-pressed="false" title="Sound effects">Sound</button>
+    <label title="Add a narration audio file">Voice<input id="voice" type="file" accept="audio/*"></label>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+/* =====================================================================
+   TIMELINE — every scene has a mood value (tension, blends toward the next
+   scene), its camera shots and its subtitles. Every shot belongs to one
+   set (a location); only that set is drawn. A shot lasts until the
+   subtitle `until` starts (its keys are fractions of the shot), so the
+   pictures follow the recorded voice; `till: [line, s]` ends a shot that
+   many seconds into a line (one line over two shots). Shot keys are in the
+   set's own coordinates: [fraction, position, target, fov, up?].
+   The voice was recorded before the timings were designed: every
+   subtitle lasts as long as its spoken line (+0.15 s), story time equals
+   video time (WARP is the identity).
+   ===================================================================== */
+const DURATION = 54.77;
+const ENDING = { fade: 51.27, cut: 54.27 };   // the last shot fades to black and the sound fades out between fade and cut
+const WARP = [[0, 0], [DURATION, DURATION]];
+function storyAt(t) { for (let i = 1; i < WARP.length; i++) { const [r0, s0] = WARP[i - 1], [r1, s1] = WARP[i]; if (t <= r1) return s0 + (Math.max(t, r0) - r0) * (s1 - s0) / Math.max(1e-6, r1 - r0); } return WARP[WARP.length - 1][1]; }
+const SCENES = [
+  { id: 'date', when: 'Tonight', what: 'The perfect date',
+    env: { tension: 0.15 },
+    shots: [{ until: 2, set: 'roof', keys: [[0, [1.5, 1.0, -4.3], [-0.1, 0.62, -1.4], 48], [1, [1.3, 0.97, -4.0], [-0.1, 0.64, -1.4], 46]] },
+            { until: 3, set: 'roof', keys: [[0, [0.05, 0.55, 1.4], [40, 640, -1700], 54], [1, [0.05, 0.6, 1.25], [55, 560, -1700], 52]] }],
+    subtitles: [[0.4, 3.34, "You’re on the perfect date, laughing under the stars…"], [3.44, 6.25, "When suddenly, something falls from the sky."]] },
+  { id: 'blast', when: 'Seconds later', what: 'The blast',
+    env: { tension: 0.85 },
+    shots: [{ until: 4, set: 'roof', keys: [[0, [0.0, 0.48, -3.9], [0.0, 0.84, -1.4], 52], [1, [0.0, 0.48, -3.7], [0.0, 0.86, -1.4], 50]] },
+            { until: 5, set: 'roof', keys: [[0, [0.7, 1.2, 2.3], [45, 140, -1700], 54], [1, [0.75, 1.15, 2.6], [45, 160, -1700], 54]] },
+            { until: 6, set: 'roof', keys: [[0, [-3.5, 12, -8.4], [40, -40, -1300], 50], [1, [-3.4, 11.5, -8.2], [40, -45, -1300], 50]] },
+            { until: 7, set: 'street', keys: [[0, [2.0, 3.8, 34], [-0.4, 5.5, -120], 50], [1, [1.8, 3.4, 31], [-0.4, 6.5, -120], 52]] }],
+    subtitles: [[6.35, 7.2, "You look up."], [7.3, 9.76, "A blinding flash turns everything white."], [9.86, 11.78, "Then the shockwave hits."], [11.88, 15.51, "Windows explode. Cars fly through the air."]] },
+  { id: 'rubble', when: 'Minutes later', what: 'Under the rubble',
+    env: { tension: 0.7 },
+    shots: [{ until: 8, set: 'rubble', keys: [[0, [0.75, 1.75, -1.35], [0, 0.1, -0.3], 46, [0, 0, -1]], [1, [0.65, 1.55, -1.25], [0, 0.1, -0.35], 44, [0, 0, -1]]] },
+            { until: 9, set: 'rubble', keys: [[0, [0.08, 0.66, -0.62], [0, 0.12, -0.74], 44, [0, 0, -1]], [1, [0.07, 0.6, -0.63], [0, 0.12, -0.74], 42, [0, 0, -1]]] },
+            { until: 10, set: 'rubble', keys: [[0, [-0.45, 0.9, 0.2], [0.0, 0.52, -0.4], 46], [1, [-0.42, 0.88, 0.12], [0.0, 0.52, -0.4], 44]] },
+            { until: 11, set: 'rubble', keys: [[0, [0.3, 0.62, -1.75], [-1.0, 0.55, -0.95], 48], [1, [0.25, 0.6, -1.7], [-1.0, 0.55, -0.95], 46]] },
+            { until: 12, set: 'rubble', keys: [[0, [0.0, 0.98, -0.6], [-0.95, 0.86, -1.0], 50], [1, [-0.06, 0.98, -0.63], [-0.95, 0.86, -1.0], 48]] },
+            { until: 13, set: 'rubble', keys: [[0, [0.3, 1.75, 1.7], [-12, -14, -300], 52], [1, [0.45, 2.0, 2.4], [-12, -16, -300], 52]] }],
+    subtitles: [[15.61, 17.2, "You wake beneath the rubble."], [17.3, 18.53, "Your ears are ringing."], [18.63, 20.39, "You scream your date’s name."], [20.49, 22.63, "Then a hand reaches through the dust."], [22.73, 23.75, "They’re alive."], [23.85, 25.27, "But the city is burning."]] },
+  { id: 'base', when: 'An hour later', what: 'The basement',
+    env: { tension: 0.65 },
+    shots: [{ until: 14, set: 'base', keys: [[0, [-0.6, 0.9, 1.8], [-2.4, 1.5, -2.8], 52], [1, [-0.7, 0.85, 1.6], [-2.35, 1.2, -2.4], 52]] },
+            { until: 15, set: 'base', keys: [[0, [0.15, 0.95, 0.75], [1.5, 0.62, -0.15], 46], [1, [0.3, 0.92, 0.6], [1.5, 0.62, -0.15], 44]] },
+            { until: 16, set: 'base', keys: [[0, [1.64, 0.75, -0.06], [1.42, 0.6, -0.1], 46, [-0.517, 0.852, -0.078]], [1, [1.62, 0.74, -0.065], [1.42, 0.6, -0.1], 44, [-0.517, 0.852, -0.078]]] },
+            { until: 17, set: 'base', keys: [[0, [-2.15, 1.36, -3.35], [-2.4, 1.24, -4.15], 50], [1, [-2.17, 1.34, -3.42], [-2.4, 1.24, -4.15], 48]] }],
+    subtitles: [[25.37, 27.16, "You escape into a basement."], [27.26, 29.55, "Suddenly, your phone flashes:"], [29.65, 32.84, "“RADIOACTIVE FALLOUT. STAY INSIDE.”"], [32.94, 36.4, "Gray dust begins blowing through a crack beneath the door."]] },
+  { id: 'fallout', when: 'That night', what: 'Fallout',
+    env: { tension: 0.6 },
+    shots: [{ until: 18, set: 'base', keys: [[0, [-1.9, 1.58, -3.5], [-2.65, 1.25, -4.1], 50], [1, [-1.7, 1.56, -3.55], [-2.12, 1.25, -4.1], 50]] },
+            { until: 19, set: 'base', keys: [[0, [1.05, 0.95, -0.1], [1.66, 0.82, 0.5], 42], [1, [1.1, 0.93, -0.05], [1.66, 0.82, 0.5], 40]] },
+            { until: 20, set: 'base', keys: [[0, [1.0, 1.0, 0.05], [1.38, 0.3, -0.44], 46], [1, [1.03, 0.96, 0.02], [1.38, 0.3, -0.44], 44]] },
+            { until: 21, set: 'base', keys: [[0, [0.72, 0.42, -0.38], [0.9, 0.02, -0.55], 46, [-0.56, 0, -0.83]], [1, [0.75, 0.38, -0.4], [0.9, 0.02, -0.55], 44, [-0.56, 0, -0.83]]] },
+            { until: 22, set: 'base', keys: [[0, [0.917, 0.36, -0.525], [0.917, 0.0, -0.525], 40, [-0.56, 0, -0.83]], [1, [0.917, 0.33, -0.525], [0.917, 0.0, -0.525], 40, [-0.56, 0, -0.83]]] },
+            { until: 'cut', set: 'after', keys: [[0, [0, 34, 150], [-20, 0, -700], 50], [1, [0, 30, 110], [-20, 0, -700], 50]] }],
+    subtitles: [[36.5, 37.89, "You seal it shut."], [37.99, 40.4, "Then you notice your date staring at your arm."], [40.5, 42.74, "A strange burn covers your skin."], [42.84, 44.88, "Your phone crackles one last time:"], [44.98, 48.04, "“IF EXPOSED, SEEK MEDICAL HELP IMMEDIATELY.”"], [48.44, 51.07, "Outside, the entire city goes silent."]] },
+];
+const ENV_END = { tension: 0.4 };
+// every shot runs until its `until` subtitle starts (a beat before it), so the next picture lands with the next line
+const SUBS = SCENES.flatMap(s => s.subtitles);
+const ln = (n, d = 0) => SUBS[n - 1][0] + d;
+{
+  let t = 0;
+  for (const s of SCENES) {
+    s.start = t;
+    for (const sh of s.shots) {
+      sh.start = t; sh.end = sh.until === 'cut' ? DURATION + 60 : sh.till ? ln(...sh.till) : ln(sh.until, -0.1);
+      const t1 = sh.until === 'cut' ? ENDING.cut : sh.end;
+      sh.keys = sh.keys.map(k => [lerp(sh.start, t1, k[0]), ...k.slice(1)]);
+      t = sh.end;
+    }
+    s.end = t;
+  }
+}
+// story beats (all tied to the line of narration they belong to)
+const EV = {
+  fall: [ln(2, 0.0), ln(4, 0.1)],     // the bomb falls out of the sky
+  look: [ln(3, -0.1), ln(3, 0.5)],    // you both look up at it
+  flash: ln(4, 0.12),                 // the flash
+  wave: [ln(4, 0.12), ln(6, -0.25)],  // the shock ring races out from ground zero and hits the roof
+  blast: [ln(6, -0.1), ln(7, 0.2)],   // the blast runs down the street
+  wake: [ln(7, 0.4), ln(7, 1.4)],     // you open your eyes
+  scream: ln(9, 0.15),
+  reach: [ln(10, 0.1), ln(10, 1.5)],  // a hand comes through the dust
+  descend: [ln(13, 0.0), ln(14, -0.25)], // down the stairs; the door slams behind you
+  phone1: ln(14, 0.3),                // the first alert
+  dustIn: [ln(16, 0.3), ln(17, 0.0)], // grey dust blows in under the door
+  seal: [ln(17, 0.1), ln(18, -0.35)], // you tape the crack shut
+  crackle: [ln(20, 0.0), ln(21, -0.1)],
+  phone2: ln(21, -0.05),
+};
+// impacts: [time, strength] → camera shake (and a hit in the sound)
+const SHAKES = [[EV.wave[1], 1.0], [EV.blast[1] - 0.15, 1.0], [EV.descend[1], 0.25]];
+const RUMBLES = [[EV.flash + 0.2, EV.wave[1], 0.25], [EV.blast[0], EV.blast[1] + 0.3, 0.7], [ln(8, 0), ln(9, -0.1), 0.15]];   // continuous tremble: [from, to, strength]
+// ---------- helpers ----------
+function lerp(a, b, k) { return a + (b - a) * k; }
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const VA = a => V(a[0], a[1], a[2]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const hash = (a, b = 0) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s); };
+let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const params = new URLSearchParams(location.search);
+const isMobile = matchMedia('(pointer: coarse)').matches;
+const pulse = (d, rise = 30, fall = 6) => d > 0 ? (1 - Math.exp(-d * rise)) * Math.exp(-d * fall) : 0;   // flashes rise and fall over a few frames
+const inT = (T, a, b) => T >= a && T < b;
+// piecewise linear through [t, v] points
+const track = (pts, T) => { if (T <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (T <= pts[i][0]) return lerp(pts[i - 1][1], pts[i][1], (T - pts[i - 1][0]) / (pts[i][0] - pts[i - 1][0])); return pts[pts.length - 1][1]; };
+// ballistic flight that lands and stays: returns [pos, k] for a piece thrown at t0 from p0 with velocity v
+function throwAt(T, t0, p0, v, floor = 0, g = 9.8) {
+  const d = Math.max(0, T - t0), tl = (v.y + Math.sqrt(v.y * v.y + 2 * g * Math.max(0, p0.y - floor))) / g, t = Math.min(d, tl);
+  return [V(p0.x + v.x * t, p0.y + v.y * t - 0.5 * g * t * t, p0.z + v.z * t), t / tl];
+}
+
+function envAt(T) {
+  let i = SCENES.findIndex(s => T < s.end); if (i < 0) i = SCENES.length - 1;
+  const s = SCENES[i], next = SCENES[i + 1]?.env ?? ENV_END;
+  return { tension: lerp(s.env.tension, next.tension, smooth(0, 1, (T - s.start) / (s.end - s.start))) };
+}
+
+/* ===================================================================== RENDERER */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1410);
+scene.fog = new THREE.FogExp2(0xc8b8a0, 0.002);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(50, 9 / 16, 0.05, 8000);
+const hemi = new THREE.HemisphereLight(0x8090a0, 0x202020, 0.6); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1);
+sun.castShadow = true; sun.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+scene.add(sun, sun.target);
+const PL = [0, 1, 2, 3].map(() => { const p = new THREE.PointLight(0xffffff, 0, 30, 1.6); scene.add(p); return p; });
+
+/* ===================================================================== MATERIALS + BUILDERS */
+const matCache = new Map();
+function mat(color, o = {}) {
+  const key = JSON.stringify([color, o]);
+  if (!matCache.has(key)) {
+    const m = new THREE.MeshStandardMaterial({ color, roughness: o.rough ?? 0.85, metalness: o.metal ?? 0, flatShading: !!o.flat, vertexColors: !!o.vc });
+    if (o.glow) { m.emissive = new THREE.Color(o.glowColor ?? color); m.emissiveIntensity = o.glow; }
+    if (o.side) m.side = o.side;
+    if (o.env) { m.envMap = envTex; m.envMapIntensity = o.env; }
+    if (o.opacity !== undefined) { m.transparent = true; m.opacity = o.opacity; m.depthWrite = !!o.depthWrite; }
+    matCache.set(key, m);
+  }
+  return matCache.get(key);
+}
+const rbCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d); r = Math.min(r ?? m * 0.12, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  if (!rbCache.has(key)) { const g = new RoundedBoxGeometry(w, h, d, 2, r); g.translate(0, h / 2, 0); rbCache.set(key, g); }
+  return rbCache.get(key);
+}
+function mesh(parent, geo, material, x = 0, y = 0, z = 0, o = {}) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  if (o.s) typeof o.s === 'number' ? m.scale.setScalar(o.s) : m.scale.set(...o.s);
+  m.castShadow = o.shadow !== false; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+// a rounded box whose bottom sits at y
+const box = (p, w, h, d, color, x, y, z, o = {}) => mesh(p, rbox(w, h, d, o.r), o.m ?? mat(color, o), x, y, z, o);
+const group = (p, x = 0, y = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, y, z); p.add(g); return g; };
+function cyl(p, rT, rB, h, color, x, y, z, o = {}) { const g = new THREE.CylinderGeometry(rT, rB, h, o.seg ?? 10, 1, !!o.open); g.translate(0, h / 2, 0); return mesh(p, g, o.m ?? mat(color, o), x, y, z, o); }
+function canvasTex(w, h, draw) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; }
+// a screen whose picture is redrawn when its key changes
+function screenTex(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  let last = null;
+  return { t, set(key, ...a) { if (key === last) return; last = key; draw(g, w, h, ...a); t.needsUpdate = true; } };
+}
+function instanced(parent, geo, material, list, fn, o = {}) {
+  const im = new THREE.InstancedMesh(geo, material, Math.max(1, list.length));
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), c = new THREE.Color();
+  list.forEach((it, i) => { const r = fn(it, i, q.identity(), c); im.setMatrixAt(i, m4.compose(r.p, r.q ?? q, r.s ?? V(1, 1, 1))); if (r.c !== undefined) im.setColorAt(i, c.set(r.c)); });
+  if (!list.length) im.count = 0;
+  im.castShadow = !!o.shadow; im.receiveShadow = true; parent.add(im); return im;
+}
+const sphG = new THREE.SphereGeometry(1, 12, 8);
+const icoG = new THREE.IcosahedronGeometry(1, 0);
+const puffG = new THREE.IcosahedronGeometry(1, 1);
+const headG = new THREE.IcosahedronGeometry(1, 2);
+const IDENT = new THREE.Quaternion(), HIDE = new THREE.Matrix4().compose(V(0, -1e5, 0), IDENT, V(0.001, 0.001, 0.001));
+const NOISE_GLSL = `
+float h3(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float vnoise(vec3 x){ vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(h3(i), h3(i + vec3(1,0,0)), f.x), mix(h3(i + vec3(0,1,0)), h3(i + vec3(1,1,0)), f.x), f.y),
+             mix(mix(h3(i + vec3(0,0,1)), h3(i + vec3(1,0,1)), f.x), mix(h3(i + vec3(0,1,1)), h3(i + vec3(1,1,1)), f.x), f.y), f.z); }
+float fbm(vec3 p){ float a = 0.5, s = 0.0; for (int i = 0; i < 5; i++) { s += a * vnoise(p); p *= 2.03; a *= 0.5; } return s; }
+`;
+// soft round dot (glows)
+const dotTex = canvasTex(64, 64, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.4, 'rgba(255,255,255,0.45)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+/* ===================================================================== GROUND
+   Terrain is a smooth grid (dense near its centre); fine detail (dried-mud cracks, salt crust) comes from the
+   shader, so no tiny faces sparkle. The crack texture is a tileable Voronoi pattern with soft edges (mipmapped). */
+const crackTex = (() => {
+  const S = 512, n = 8, P = [];
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) P.push([(i + 0.15 + 0.7 * rnd()) / n, (j + 0.15 + 0.7 * rnd()) / n]);
+  const c = document.createElement('canvas'); c.width = c.height = S; const g = c.getContext('2d'), img = g.createImageData(S, S);
+  for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+    const u = x / S, v = y / S; let d1 = 9, d2 = 9;
+    const ci = Math.floor(u * n), cj = Math.floor(v * n);
+    for (let dj = -2; dj <= 2; dj++) for (let di = -2; di <= 2; di++) {
+      const ii = (ci + di + n) % n, jj = (cj + dj + n) % n, p = P[jj * n + ii];
+      const px = p[0] + Math.floor((ci + di) / n) * 1 + (ci + di < 0 ? 0 : 0), py = p[1] + Math.floor((cj + dj) / n);
+      const dx = u - px, dy = v - py, d = Math.sqrt(dx * dx + dy * dy);
+      if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) d2 = d;
+    }
+    const e = (d2 - d1) * S, k = 1 - Math.min(1, Math.max(0, (e - 1.5) / 4.5)), r = Math.min(1, d1 * n * 1.2);
+    const o = (y * S + x) * 4; img.data[o] = 255 * k; img.data[o + 1] = 255 * r; img.data[o + 2] = 0; img.data[o + 3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; return t;
+})();
+// r: 1 on a crack, g: distance from the plate's centre (plates curl up at their edges)
+function groundMat(o = {}) {
+  const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: o.rough ?? 0.96, metalness: 0 });
+  const u = m.userData.u = { uCrack: { value: crackTex }, uCrackS: { value: o.crackS ?? 4 }, uCrackK: { value: o.crack ?? 0 }, uSalt: { value: o.salt ?? 0 },
+    uSaltCol: { value: new THREE.Color(o.saltCol ?? 0xd6d2c6) }, uO: { value: new THREE.Vector2() }, uMottle: { value: o.mottle ?? 0.25 } };
+  m.onBeforeCompile = sh => {
+    Object.assign(sh.uniforms, u);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWp;').replace('#include <project_vertex>', '#include <project_vertex>\nvWp = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 vWp; uniform sampler2D uCrack; uniform float uCrackS, uCrackK, uSalt, uMottle; uniform vec3 uSaltCol; uniform vec2 uO;\n' + NOISE_GLSL)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+        vec2 lp = vWp.xz - uO; float dc = length(cameraPosition - vWp);
+        float mo = vnoise(vec3(lp * 0.08, 0.5)) * 0.6 + vnoise(vec3(lp * 0.6, 1.5)) * 0.4;
+        diffuseColor.rgb *= 1.0 + uMottle * (mo - 0.5) * (1.0 - 0.6 * smoothstep(40.0, 400.0, dc));
+        float sn = vnoise(vec3(lp * 0.025, 3.0)) * 0.65 + vnoise(vec3(lp * 0.2, 4.0)) * 0.35;
+        float sk = smoothstep(sn - 0.12, sn + 0.12, uSalt * 1.25 - 0.1);
+        diffuseColor.rgb = mix(diffuseColor.rgb, uSaltCol * (0.92 + 0.16 * mo), sk);
+        vec4 ck = texture2D(uCrack, lp / uCrackS);
+        float cf = 1.0 - smoothstep(60.0, 260.0, dc);
+        diffuseColor.rgb *= 1.0 - uCrackK * cf * (0.75 * ck.r + 0.12 * ck.g * ck.g);`);
+  };
+  return m;
+}
+// a grid that is dense around (cx, cz): cells about `c0` metres there, growing to reach `R`
+function gridGeo(R, N, c0, h, col, cx = 0, cz = 0) {
+  const g = new THREE.BufferGeometry(), pos = [], cols = [], idx = [], C = new THREE.Color();
+  const A = c0 * N / 2, f = s => Math.sign(s) * (A * Math.abs(s) + (R - A) * Math.abs(s) ** 3);
+  for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) {
+    const x = cx + f(j / N * 2 - 1), z = cz + f(i / N * 2 - 1), y = h(x, z);
+    pos.push(x, y, z); C.set(col(x, z, y)); cols.push(C.r, C.g, C.b);
+  }
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) { const a = i * (N + 1) + j, b = a + N + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+  g.setIndex(idx); g.computeVertexNormals(); return g;
+}
+function terrain(parent, o) {
+  const m = new THREE.Mesh(gridGeo(o.R ?? 3000, o.N ?? 220, o.c0 ?? 1.5, o.h, o.col, o.cx ?? 0, o.cz ?? 0), o.mat);
+  m.receiveShadow = true; m.castShadow = false; parent.add(m); return m;
+}
+const hexC = (a, b, k) => new THREE.Color(a).lerp(new THREE.Color(b), clamp(k)).getHex();
+const vn = (x, z, s = 1) => { const xi = Math.floor(x * s), zi = Math.floor(z * s), fx = x * s - xi, fz = z * s - zi, sx = fx * fx * (3 - 2 * fx), sz = fz * fz * (3 - 2 * fz);
+  return lerp(lerp(hash(xi, zi), hash(xi + 1, zi), sx), lerp(hash(xi, zi + 1), hash(xi + 1, zi + 1), sx), sz); };
+const fbm2 = (x, z, s) => vn(x, z, s) * 0.55 + vn(x, z, s * 2.1) * 0.3 + vn(x, z, s * 4.3) * 0.15;
+
+/* ===================================================================== SKY (follows the camera: gradient, clouds, sun disc; in space: black with stars) */
+const skyU = {
+  uTop: { value: new THREE.Color() }, uHor: { value: new THREE.Color() }, uBot: { value: new THREE.Color() }, uCloudCol: { value: new THREE.Color(0xe8e2d8) },
+  uSunDir: { value: V(0, 1, 0) }, uSunCol: { value: new THREE.Color() }, uSunR: { value: 0.02 }, uSunGlow: { value: 1 }, uCloud: { value: 0 }, uTime: { value: 0 }, uHaze: { value: 0 }, uHazeCol: { value: new THREE.Color() },
+};
+const sky = new THREE.Mesh(new THREE.SphereGeometry(4000, 48, 24), new THREE.ShaderMaterial({
+  uniforms: skyU, side: THREE.BackSide, depthWrite: false, depthTest: false, fog: false,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: NOISE_GLSL + `uniform vec3 uTop, uHor, uBot, uSunDir, uSunCol, uCloudCol, uHazeCol; uniform float uSunR, uSunGlow, uCloud, uTime, uHaze; varying vec3 vD;
+  void main(){ vec3 d = normalize(vD); float h = d.y, a = acos(clamp(dot(d, uSunDir), -1.0, 1.0)); vec3 c;
+    c = h > 0.0 ? mix(uHor, uTop, pow(clamp(h, 0.0, 1.0), 0.55)) : mix(uHor, uBot, pow(clamp(-h, 0.0, 1.0), 0.35));
+    vec2 q = d.xz / max(h + 0.08, 0.05);
+    float cl = uCloud * smoothstep(0.42, 0.75, fbm(vec3(q * 0.9 + vec2(uTime * 0.02, 0.0), 1.7)) - 0.25 * (1.0 - uCloud)) * smoothstep(-0.02, 0.12, h);
+    float disc = 1.0 - smoothstep(uSunR * 0.85, uSunR, a);
+    c += uSunCol * (disc * 2.5 + uSunGlow * (exp(-a * 6.0) * 0.35 + exp(-a * 24.0) * 0.6)) * (1.0 - 0.85 * cl);
+    c = mix(c, uCloudCol * (0.75 + 0.5 * fbm(vec3(q * 2.0, 3.1))) + uSunCol * 0.25 * exp(-a * 4.0), cl);
+    c = mix(c, uHazeCol, uHaze * (0.55 + 0.45 * (1.0 - smoothstep(0.0, 0.5, h))));
+    gl_FragColor = vec4(c, 1.0); }`,
+}));
+sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
+function skyLook(top, hor, bot) { skyU.uTop.value.set(top); skyU.uHor.value.set(hor); skyU.uBot.value.set(bot); }
+
+/* ===================================================================== SPECKS (salt, dust, embers) that wrap around the camera; uOff moves them with the wind */
+const specU = { uCam: { value: V() }, uOff: { value: V() }, uBox: { value: 20 }, uCol: { value: new THREE.Color(0xffffff) }, uOp: { value: 0 }, uPx: { value: 800 }, uSize: { value: 0.02 } };
+const SPEC_VS = `uniform vec3 uCam, uOff; uniform float uBox, uPx, uSize; attribute float aR; varying float vF;
+  void main(){ vec3 p = mod(position * uBox + uOff - uCam + uBox * 0.5, uBox) - uBox * 0.5 + uCam;
+    vec4 mv = viewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv;
+    gl_PointSize = clamp(uSize * (0.5 + aR) * uPx / max(0.1, -mv.z), 1.0, 5.0);
+    vF = (1.0 - smoothstep(uBox * 0.28, uBox * 0.5, length(p - uCam))) * smoothstep(0.4, 1.5, -mv.z); }`;
+const SPEC_FS = `uniform vec3 uCol; uniform float uOp; varying float vF; void main(){ float r = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol, uOp * vF * smoothstep(0.5, 0.15, r)); }`;
+const specks = (() => {
+  const n = isMobile ? 1200 : 2400, g = new THREE.BufferGeometry(), p = new Float32Array(n * 3), r = new Float32Array(n);
+  for (let i = 0; i < n; i++) { p[i * 3] = rnd(); p[i * 3 + 1] = rnd(); p[i * 3 + 2] = rnd(); r[i] = rnd(); }
+  g.setAttribute('position', new THREE.BufferAttribute(p, 3)); g.setAttribute('aR', new THREE.BufferAttribute(r, 1));
+  const pts = new THREE.Points(g, new THREE.ShaderMaterial({ uniforms: specU, vertexShader: SPEC_VS, fragmentShader: SPEC_FS, transparent: true, depthWrite: false, fog: false }));
+  pts.frustumCulled = false; scene.add(pts); return pts;
+})();
+
+/* ===================================================================== STORM WALLS (salt and dust): stacked soft sheets with noise, their front moves;
+   sheets fade near the camera so passing through one never pops */
+const STORM_FS = NOISE_GLSL + `uniform float uTime, uH, uOp, uSeed; uniform vec3 uCol, uShade; varying vec3 vW; varying vec2 vUv;
+  void main(){ float n = fbm(vec3(vW.x * 0.012 + uSeed, vW.y * 0.02 - uTime * 0.35, uTime * 0.12 + uSeed));
+    float top = uH * (0.45 + 0.75 * fbm(vec3(vW.x * 0.006 + uSeed * 3.0, uTime * 0.08, 2.0)));
+    float a = uOp * smoothstep(top, top * 0.35, vW.y - uFloor()) * smoothstep(0.2, 0.62, n + 0.25) * sin(3.14159 * vUv.x);
+    a *= smoothstep(6.0, 45.0, length(cameraPosition - vW));
+    vec3 c = mix(uShade, uCol, smoothstep(0.0, 1.0, (vW.y - uFloor()) / top) * 0.6 + n * 0.5);
+    gl_FragColor = vec4(c, clamp(a, 0.0, 1.0)); }`;
+function makeStorm(parent, o) {
+  const sheets = [];
+  for (let i = 0; i < o.n; i++) {
+    const u = { uTime: { value: 0 }, uH: { value: o.h }, uOp: { value: 0 }, uSeed: { value: i * 1.7 + (o.seed ?? 0) }, uCol: { value: new THREE.Color(o.col) }, uShade: { value: new THREE.Color(o.shade) }, uFloorY: { value: o.floor ?? 0 } };
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(o.w, o.h * 1.6, 1, 1).translate(0, o.h * 0.8, 0), new THREE.ShaderMaterial({
+      uniforms: u, transparent: true, depthWrite: false, side: THREE.DoubleSide, fog: false,
+      vertexShader: `varying vec3 vW; varying vec2 vUv; void main(){ vUv = uv; vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+      fragmentShader: 'uniform float uFloorY; float uFloor(){ return uFloorY; }\n' + STORM_FS,
+    }));
+    m.frustumCulled = false; parent.add(m); sheets.push({ m, u });
+  }
+  // front: distance along the storm's travel direction; the sheets trail behind it
+  return { sheets, set(T, front, op, worldFloor) {
+    sheets.forEach((s, i) => { o.place(s.m, front - i * o.gap, i); s.u.uTime.value = T; s.u.uOp.value = op * (i === 0 ? 0.75 : 0.9); s.u.uFloorY.value = worldFloor; });
+  } };
+}
+/* ===================================================================== PEOPLE
+   A person faces local +z, feet at y = 0. The face has eyes, brows and a mouth that can move (personFace). */
+const P_GEO = {
+  torso: new RoundedBoxGeometry(0.38, 0.56, 0.22, 2, 0.06).translate(0, 0.28, 0),
+  head: new THREE.IcosahedronGeometry(1, 2),
+  hair: new THREE.SphereGeometry(1, 12, 8, 0, TAU, 0, Math.PI * 0.55).translate(0, 0.08, -0.06),
+  leg: new THREE.CylinderGeometry(0.075, 0.058, 0.9, 8).translate(0, -0.45, 0),
+  arm: new THREE.CylinderGeometry(0.055, 0.045, 0.64, 10, 1).translate(0, -0.32, 0),
+  brow: new THREE.BoxGeometry(0.042, 0.009, 0.012),
+  mouth: new THREE.BoxGeometry(0.042, 0.009, 0.01),
+};
+const SHIRTS = [0x8a3a2e, 0x2e4a6a, 0x3a5a3a, 0xc8a05a, 0x6a6a72, 0xa8b0b8, 0x5a3a5a, 0x2a2a30, 0xb85a2a];
+const PANTS = [0x23262e, 0x3a3e4a, 0x4a3a2a, 0x2a3a52];
+const SKINS = [0xd8a888, 0xb07a58, 0x8a5a3e, 0xe8c0a0, 0x6a4430];
+const HAIRS = [0x1a1410, 0x3a2414, 0x6a4a2a, 0x2a2420, 0x9a8a7a];
+function makePerson(parent, o = {}) {
+  const root = group(parent), P = { root, legs: [], arms: [], eyes: [], brows: [] };
+  const shirt = mat(o.shirt ?? 0x4a5a6a, { flat: true }), pants = mat(o.pants ?? 0x2a2e36, { flat: true }), skin = mat(o.skin ?? 0xd8a888, { flat: true, rough: 0.7 }), hair = mat(o.hair ?? 0x2a1c14, { flat: true });
+  P.hips = group(root, 0, 0.92, 0);
+  P.torso = group(P.hips); mesh(P.torso, P_GEO.torso, shirt);
+  P.head = group(P.torso, 0, 0.7, 0);
+  mesh(P.head, P_GEO.head, skin, 0, 0, 0, { s: [0.115, 0.13, 0.12] });
+  mesh(P.head, P_GEO.hair, hair, 0, 0, 0, { s: [0.125, 0.135, 0.13] });
+  if (o.longHair) { box(P.head, 0.25, 0.3, 0.09, 0, 0, -0.27, -0.07, { m: hair, r: 0.04 }); box(P.head, 0.07, 0.2, 0.08, 0, -0.105, -0.17, -0.005, { m: hair, r: 0.03 }); box(P.head, 0.07, 0.2, 0.08, 0, 0.105, -0.17, -0.005, { m: hair, r: 0.03 }); }
+  for (const sx of [-1, 1]) {
+    mesh(P.head, sphG, mat(0xf2eee8, { rough: 0.4 }), sx * 0.042, 0.018, 0.1, { s: [0.024, 0.019, 0.012], shadow: false });   // white of the eye
+    P.eyes.push(mesh(P.head, sphG, mat(0x14100c, { rough: 0.3 }), sx * 0.042, 0.018, 0.108, { s: [0.013, 0.013, 0.008], shadow: false }));
+    P.brows.push(mesh(P.head, P_GEO.brow, hair, sx * 0.043, 0.048, 0.108, { rz: sx * 0.15, shadow: false }));
+  }
+  P.lids = [-1, 1].map(sx => mesh(P.head, sphG, skin, sx * 0.042, 0.018, 0.1, { s: [0.026, 0.02, 0.016], shadow: false }));   // eyelids: closed when they cover the eye
+  P.mouth = mesh(P.head, P_GEO.mouth, mat(0x5a2a26, { rough: 0.6 }), 0, -0.058, 0.106, { shadow: false });
+  mesh(P.head, sphG, skin, 0, -0.01, 0.12, { s: [0.022, 0.03, 0.025], shadow: false });   // nose
+  if (o.skirt) cyl(P.hips, 0.2, 0.3, 0.5, 0, 0, -0.45, 0, { m: mat(o.skirt, { flat: true }), seg: 10 });
+  for (const sx of [-1, 1]) { const l = group(P.hips, sx * 0.1, 0, 0); mesh(l, P_GEO.leg, o.skirt ? skin : pants); mesh(l, sphG, mat(o.shoes ?? 0x1a1a1e, { flat: true }), 0, -0.9, 0.05, { s: [0.07, 0.05, 0.12] }); P.legs.push(l); }
+  for (const sx of [-1, 1]) {
+    const a = group(P.torso, sx * 0.235, 0.5, 0);
+    mesh(a, P_GEO.arm, sx < 0 && o.armMat ? o.armMat : o.sleeves === 'short' ? mat(o.skin ?? 0xd8a888, { rough: 0.7 }) : shirt);
+    if (o.sleeves === 'short') mesh(a, new THREE.CylinderGeometry(0.066, 0.06, 0.22, 10).translate(0, -0.11, 0), shirt);
+    P.hands = P.hands ?? []; P.hands.push(mesh(a, sphG, skin, 0, -0.66, 0, { s: [0.05, 0.06, 0.04] }));
+    P.arms.push(a);
+  }
+  return P;
+}
+// run: phase/amount; lean forward; head pitch (+ looks down, − looks up)
+function personPose(P, o) {
+  const s = Math.sin(o.ph ?? 0) * (o.amp ?? 0);
+  P.hips.position.y = 0.92 + Math.abs(Math.cos(o.ph ?? 0)) * 0.05 * (o.amp ?? 0) + (o.drop ?? 0);
+  P.torso.rotation.set(o.lean ?? 0, o.twist ?? 0, o.roll ?? 0);
+  P.legs[0].rotation.set(s + (o.legs ?? 0) + (o.legL ?? 0), 0, 0.03 + (o.spread ?? 0)); P.legs[1].rotation.set(-s + (o.legs ?? 0) + (o.legR ?? 0), 0, -0.03 - (o.spread ?? 0));
+  P.arms[0].rotation.set(-s * 1.2 + (o.armL ?? 0), o.armLy ?? 0, -0.08 - (o.splay ?? 0) - (o.armLz ?? 0)); P.arms[1].rotation.set(s * 1.2 + (o.armR ?? 0), o.armRy ?? 0, 0.08 + (o.splay ?? 0) + (o.armRz ?? 0));
+  P.head.rotation.set(o.pitch ?? 0, o.yaw ?? 0, o.tilt ?? 0);
+}
+// face: open 0..1 (eyes), mouth 0..1 (closed → wide open), smile, worry (inner brows up)
+function personFace(P, o = {}) {
+  const open = o.open ?? 1, m = o.mouth ?? 0, sm = o.smile ?? 0, w = o.worry ?? 0;
+  P.lids.forEach(l => { l.visible = open < 0.97; l.scale.y = 0.005 + 0.017 * (1 - open); l.position.y = 0.018 + 0.006 * open; });
+  P.mouth.scale.set(1 + 0.25 * sm - 0.1 * m, 1 + 6 * m + 0.6 * sm, 1);
+  P.mouth.position.y = -0.058 - 0.008 * m;
+  P.brows.forEach((b, i) => { const sx = i ? 1 : -1; b.rotation.z = sx * (0.15 - 0.5 * w); b.position.y = 0.048 + 0.006 * w + 0.004 * m; });
+}
+/* ===================================================================== SETS (locations, far apart; only the active one is drawn) */
+const SETS = { roof: V(0, 0, 0), street: V(30000, 0, 0), rubble: V(60000, 0, 0), base: V(90000, 0, 0), after: V(120000, 0, 0) };
+const G = {}, ST = {};   // G: moving things per set, ST: static things per set (merged after building)
+for (const k in SETS) { G[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); ST[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); }
+
+const _m4 = new THREE.Matrix4(), _o3 = V();
+const qYaw = a => new THREE.Quaternion().setFromAxisAngle(V(0, 1, 0), a);
+const qAx = (x, y, z, a) => new THREE.Quaternion().setFromAxisAngle(V(x, y, z).normalize(), a);
+const qEul = (x, y, z) => new THREE.Quaternion().setFromEuler(new THREE.Euler(x, y, z));
+
+// the two of you: the same clothes and hair in every set
+const YOU = { shirt: 0x2e4a6a, pants: 0x3a3e4a, skin: 0xd8a888, hair: 0x3a2414, shoes: 0x2a2420 };
+const DATE = { shirt: 0xb8342e, skirt: 0x2a2430, skin: 0xb88262, hair: 0x1a1210, longHair: true, shoes: 0x1a1214 };
+const dusty = (o, k = 0.3) => Object.assign({}, o, { shirt: hexC(o.shirt, 0x8a8478, k), skin: hexC(o.skin, 0x9a9088, k * 0.6), pants: o.pants && hexC(o.pants, 0x8a8478, k), skirt: o.skirt && hexC(o.skirt, 0x8a8478, k), hair: hexC(o.hair, 0x6a645c, k * 0.8) });
+
+/* ---------- shared: soft billboards (fire, glow) as instanced planes that always face the camera ---------- */
+const FIRE_FS = NOISE_GLSL + `uniform float uTime, uOp; varying vec2 vUv; varying float vSeed;
+  void main(){ vec2 p = vUv - vec2(0.5, 0.0);
+    float n = fbm(vec3(p.x * 3.0 + vSeed, p.y * 2.2 - uTime * 1.3, uTime * 0.25 + vSeed));
+    float shape = smoothstep(0.5, 0.0, abs(p.x) * (1.4 + 1.6 * p.y)) * smoothstep(1.0, 0.25, p.y + 0.35 * n) * smoothstep(0.0, 0.08, p.y);
+    float a = clamp(shape * (0.55 + 0.9 * n), 0.0, 1.0);
+    vec3 c = mix(vec3(1.0, 0.36, 0.06), vec3(1.0, 0.82, 0.45), smoothstep(0.35, 0.95, a));
+    gl_FragColor = vec4(c * (0.7 + 0.6 * a), a * uOp); }`;
+const BILL_VS = `attribute float aSeed; varying vec2 vUv; varying float vSeed;
+  void main(){ vUv = uv; vSeed = aSeed; vec3 s = vec3(length(instanceMatrix[0].xyz), length(instanceMatrix[1].xyz), 1.0);
+    vec4 c = modelViewMatrix * vec4(instanceMatrix[3].xyz, 1.0); c.xy += position.xy * s.xy; gl_Position = projectionMatrix * c; }`;
+function makeFires(parent, list, o = {}) {
+  const u = { uTime: { value: 0 }, uOp: { value: o.op ?? 1 } };
+  const g = new THREE.PlaneGeometry(1, 1).translate(0, 0.5, 0);
+  g.setAttribute('aSeed', new THREE.InstancedBufferAttribute(new Float32Array(list.map((_, i) => hash(i, 7) * 40)), 1));
+  const m = new THREE.ShaderMaterial({ uniforms: u, vertexShader: BILL_VS, fragmentShader: FIRE_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false });
+  const im = new THREE.InstancedMesh(g, m, list.length); im.frustumCulled = false;
+  list.forEach((f, i) => im.setMatrixAt(i, _m4.compose(V(f.x, f.y, f.z), IDENT, V(f.s * 0.7, f.s, 1))));
+  parent.add(im); return { im, u };
+}
+// a soft glow (sprite-like plane facing the camera)
+function glowSprite(parent, color, size, op = 1) {
+  const m = new THREE.SpriteMaterial({ map: dotTex, color, transparent: true, opacity: op, depthWrite: false, blending: THREE.AdditiveBlending, fog: false });
+  const s = new THREE.Sprite(m); s.scale.setScalar(size); parent.add(s); return s;
+}
+
+/* ---------- shared: a city of boxes. mode 'lit' = night with lit windows, 'burn' = dark, broken, on fire, 'dead' = grey ruins at dawn ---------- */
+const WIN_G = new THREE.PlaneGeometry(1.9, 2.3);
+function skyline(S, D, o) {
+  const R = { fires: [], smoke: [] }, WIN = [], gy = o.y ?? 0, BC = o.mode === 'lit' ? [0x3a3a46, 0x46424a, 0x34383e, 0x4a4640, 0x2e3238] : o.mode === 'burn' ? [0x2a2624, 0x322c28, 0x24221f, 0x3a322c] : [0x6a6660, 0x5e5a56, 0x76706a, 0x585450];
+  const tops = [];
+  for (let gx = o.x0; gx <= o.x1; gx += o.cell) for (let gz = o.z0; gz <= o.z1; gz += o.cell) {
+    if (hash(gx * 0.1, gz * 0.1) < 0.14 || (o.skip && o.skip(gx, gz))) continue;
+    const w = o.cell * (0.42 + 0.3 * hash(gx, gz + 1)), d = o.cell * (0.42 + 0.3 * hash(gx + 1, gz));
+    const x = gx + (hash(gx, gz + 5) - 0.5) * o.cell * 0.2, z = gz + (hash(gx + 3, gz) - 0.5) * o.cell * 0.2;
+    const dc = Math.hypot(x - (o.cx ?? 0), z - (o.cz ?? -600));
+    let h = (o.hMin + (o.hMax - o.hMin) * Math.pow(hash(gx + 2, gz + 3), 1.6)) * (1.5 - 0.8 * smooth(0, 800, dc));
+    const broken = o.mode !== 'lit' && hash(gx + 9, gz) < 0.7;
+    if (broken) h *= 0.45 + 0.4 * hash(gx, gz + 9);
+    box(S, w, h, d, BC[Math.floor(hash(gx, gz + 7) * BC.length)], x, gy - 0.5, z, { r: 0.4, rough: 0.9 });
+    if (broken) {   // a jagged, tilted chunk on the broken top
+      box(S, w * 0.6, h * 0.12 + 3, d * 0.55, BC[0], x + (hash(gx, 4) - 0.5) * w * 0.3, gy + h - 1.5, z, { r: 0.3, rz: (hash(gx, gz + 11) - 0.5) * 0.5, rx: (hash(gx + 4, gz) - 0.5) * 0.4 });
+    }
+    tops.push({ x, z, h, w, d });
+    if (o.mode === 'lit') {
+      const nf = Math.floor((h - 3) / 3.6), nx = Math.max(1, Math.floor(w / 3.2)), nzs = Math.max(1, Math.floor(d / 3.2));
+      for (let f = 0; f < nf; f++) {
+        for (let k = 0; k < nx; k++) if (hash(x * 7 + k, z + f) < 0.42) WIN.push({ p: V(x - w / 2 + (k + 0.5) * w / nx, gy + 2.6 + f * 3.6, z + d / 2 + 0.06), ry: 0, c: hash(k, f + x) < 0.75 ? 0xffc890 : 0xbcd0e8 });
+        for (const sx of [-1, 1]) for (let k = 0; k < nzs; k++) if (hash(x + k * 3, z * 7 + f + sx) < 0.3) WIN.push({ p: V(x + sx * (w / 2 + 0.06), gy + 2.6 + f * 3.6, z - d / 2 + (k + 0.5) * d / nzs), ry: sx * Math.PI / 2, c: 0xffc890 });
+      }
+    }
+    if (o.mode === 'burn' && hash(gx + 5, gz + 5) < 0.42) {
+      R.fires.push({ x, y: gy + h * (broken ? 0.92 : 1) - 1, z: z + d * 0.3, s: 10 + w * 0.9 });
+      if (hash(gx, gz + 21) < 0.5) R.fires.push({ x: x + (hash(gx, 3) - 0.5) * w * 0.6, y: gy + h * 0.4, z: z + d / 2 + 0.5, s: 7 + w * 0.4 });
+      R.smoke.push({ x, y: gy + h, z, s: 6 + w * 0.5 });
+    }
+    if (o.mode === 'dead' && hash(gx + 5, gz + 5) < 0.4) R.smoke.push({ x, y: gy + h, z, s: 6 + w * 0.5 });
+  }
+  if (WIN.length) instanced(S, WIN_G, new THREE.MeshBasicMaterial({ color: 0xffffff, fog: true }), WIN, w => ({ p: w.p, q: qYaw(w.ry), c: w.c }));
+  // the ground of the city
+  if (!o.noGround) box(S, (o.x1 - o.x0) + 2400, 1, (o.z1 - o.z0) + 2400, o.mode === 'lit' ? 0x1c1c20 : o.mode === 'burn' ? 0x1e1a18 : 0x5a5650, (o.x0 + o.x1) / 2, gy - 1.02, (o.z0 + o.z1) / 2, { r: 0.1, shadow: false });
+  R.tops = tops;
+  return R;
+}
+// smoke columns: stacks of puffs that drift and sway slowly (they never pop in or out)
+function makeSmoke(parent, cols, o = {}) {
+  const P = [];
+  cols.forEach((c, ci) => { const n = o.n ?? 9; for (let j = 0; j < n; j++) P.push({ c, j, k: j / (n - 1), ph: hash(ci, j) * TAU }); });
+  const m = new THREE.MeshStandardMaterial({ color: o.col ?? 0x2a2624, roughness: 1, flatShading: true, emissive: new THREE.Color(o.glow ?? 0x000000), emissiveIntensity: 1 });
+  const im = new THREE.InstancedMesh(puffG, m, P.length); im.frustumCulled = false; im.castShadow = false;
+  parent.add(im);
+  return { im, set(T) {
+    P.forEach((p, i) => { const h = p.c.y + p.k * (o.H ?? 160) * (p.c.s / 14), lean = p.k * p.k * (o.lean ?? 60) * (p.c.s / 14), s = p.c.s * (0.8 + 2.4 * p.k) * (1 + 0.08 * Math.sin(T * 0.5 + p.ph));
+      im.setMatrixAt(i, _m4.compose(V(p.c.x + lean + 3 * Math.sin(T * 0.3 + p.ph), h + 2 * Math.sin(T * 0.4 + p.ph * 2), p.c.z + 2 * Math.cos(T * 0.35 + p.ph)), qYaw(p.ph + T * 0.04), V(s, s * 0.8, s))); });
+    im.instanceMatrix.needsUpdate = true; } };
+}
+// stars: small soft points on a far sphere (they move with the camera, so they never swim)
+const stars = (() => {
+  const n = 900, g = new THREE.BufferGeometry(), p = [];
+  for (let i = 0; i < n; i++) { const a = rnd() * TAU, y = 0.08 + 0.92 * Math.pow(rnd(), 0.8), r = Math.sqrt(1 - y * y); p.push(Math.cos(a) * r * 3000, y * 3000, Math.sin(a) * r * 3000); }
+  g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
+  const s = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xe8ecff, size: 2.2, sizeAttenuation: false, map: dotTex, transparent: true, opacity: 0.85, depthWrite: false, fog: false }));
+  s.frustumCulled = false; s.renderOrder = -9; scene.add(s); return s;
+})();
+
+/* ===================================================================== SET: ROOF (the date: a picnic on a rooftop over the city, string lights, stars; the bomb, the flash, the shockwave) */
+const GZ = V(90, 470, -1700);   // where the bomb goes off (in the air above the city)
+const roof = (() => {
+  const S = ST.roof, D = G.roof, R = {};
+  box(S, 18, 40, 15, 0x5a5650, 0, -40, -2, { r: 0.15 });                       // our building: the roof deck is its top (y = 0)
+  const par = mat(0x7a746c, { rough: 0.9 });
+  box(S, 18.4, 1.0, 0.35, 0, 0, -0.3, -9.6, { m: par }); box(S, 18.4, 1.0, 0.35, 0, 0, -0.3, 5.6, { m: par });   // parapet (its base sinks 0.3 into the deck)
+  for (const sx of [-1, 1]) box(S, 0.35, 1.0, 15.4, 0, sx * 9.1, -0.3, -2, { m: par });
+  box(S, 3.4, 2.8, 2.6, 0x6a645c, -5, -0.2, 3.4, { r: 0.08 });                 // the stair hut with its door
+  box(S, 1.0, 2.0, 0.08, 0x3a2e26, -5, 0.02, 2.06, { r: 0.02 });
+  for (const [x, z] of [[5.5, 3], [6.5, -6]]) { box(S, 1.6, 1.0, 1.2, 0x8a8a86, x, -0.1, z, { r: 0.06, metal: 0.3, rough: 0.5 }); }
+  // the picnic: a wooden deck, a blanket, cushions, a basket, glasses, candles in jars
+  box(S, 4.6, 0.12, 3.6, 0x7a5a3e, 0, -0.06, -1.6, { r: 0.02 });                // deck top at 0.06
+  box(S, 2.6, 0.02, 2.0, 0xa8323a, 0, 0.055, -1.6, { r: 0.008 });               // blanket top at 0.075
+  for (let i = 0; i < 9; i++) box(S, 2.62, 0.004, 0.06, 0xe8d8c0, 0, 0.074 + 0.0015, -2.5 + i * 0.22, { r: 0.001, shadow: false });   // stripes (1.5 mm above)
+  box(S, 0.5, 0.3, 0.32, 0x8a6a3a, 1.05, 0.07, -0.95, { r: 0.05 });
+  cyl(S, 0.07, 0.07, 0.3, 0x2a4a2a, 0.75, 0.075, -1.0, { metal: 0.2, rough: 0.3, seg: 12 }); cyl(S, 0.025, 0.03, 0.1, 0x2a4a2a, 0.75, 0.37, -1.0, { seg: 8 });
+  for (const [x, z] of [[-0.95, -2.35], [0.95, -2.35], [-0.3, -2.45]]) { cyl(S, 0.05, 0.05, 0.1, 0xd8c8a0, x, 0.075, z, { opacity: 0.55, seg: 12 }); R.candles = R.candles ?? []; R.candles.push(V(x, 0.2, z)); }
+  R.flames = R.candles.map(c => mesh(D, sphG, new THREE.MeshBasicMaterial({ color: 0xffc070 }), c.x, c.y - 0.04, c.z, { s: [0.012, 0.024, 0.012], shadow: false }));
+  for (const [x, z, c] of [[-0.95, -0.9, 0xd8b048], [0.9, -0.85, 0x5a7a8a]]) box(S, 0.5, 0.12, 0.45, c, x, 0.07, z, { r: 0.05 });
+  // string lights between four poles
+  R.BULBS = [];
+  const poles = [[-2.6, -3.6], [2.6, -3.6], [2.6, 0.6], [-2.6, 0.6]];
+  for (const [x, z] of poles) cyl(S, 0.035, 0.04, 2.7, 0x2a2a2a, x, 0, z, { seg: 6 });
+  for (let k = 0; k < 4; k++) {
+    const a = poles[k], b = poles[(k + 1) % 4], n = 9;
+    for (let i = 0; i <= n; i++) { const t = i / n, sag = 0.35 * Math.sin(Math.PI * t); R.BULBS.push(V(lerp(a[0], b[0], t), 2.68 - sag, lerp(a[1], b[1], t))); }
+  }
+  R.bulbM = new THREE.MeshBasicMaterial({ color: 0xffc070 });
+  instanced(S, sphG, R.bulbM, R.BULBS, p => ({ p, s: V(0.045, 0.06, 0.045) }));
+  const wire = []; for (let i = 0; i < R.BULBS.length - 1; i++) if ((i + 1) % 10) wire.push([R.BULBS[i], R.BULBS[i + 1]]);
+  instanced(S, new THREE.CylinderGeometry(0.006, 0.006, 1, 4).translate(0, 0.5, 0), mat(0x1a1a1a), wire, ([a, b]) => ({ p: a, q: new THREE.Quaternion().setFromUnitVectors(V(0, 1, 0), b.clone().sub(a).normalize()), s: V(1, a.distanceTo(b), 1) }));
+  // the city below (its streets are 40 m down)
+  R.city = skyline(S, D, { x0: -900, x1: 900, z0: -2400, z1: -60, cell: 46, hMin: 12, hMax: 58, y: -40, cx: -420, cz: -700, mode: 'lit', skip: (x, z) => Math.abs(x) < 30 && z > -70 });
+  skyline(S, D, { x0: -400, x1: 400, z0: -40, z1: 300, cell: 46, hMin: 10, hMax: 34, y: -40, mode: 'lit', skip: (x, z) => Math.abs(x) < 50 && z < 60, noGround: true });
+  // the two of you, sitting side by side on the blanket, looking out over the city (−z)
+  R.you = makePerson(D, YOU); R.date = makePerson(D, DATE);
+  // the bomb: a falling light with a short trail; then the fireball, its glow, the mushroom and the shock ring
+  R.bomb = group(D); mesh(R.bomb, sphG, new THREE.MeshBasicMaterial({ color: 0xfff2d8, fog: false }), 0, 0, 0, { s: 2.2, shadow: false });
+  R.bombGlow = glowSprite(R.bomb, 0xffe0b0, 60, 0.9);
+  R.trail = mesh(R.bomb, new THREE.ConeGeometry(1.2, 1, 8, 1, true).translate(0, 0.5, 0), new THREE.MeshBasicMaterial({ color: 0xffd8a8, transparent: true, opacity: 0.35, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }), 0, 0, 0, { shadow: false });
+  R.fireball = mesh(D, new THREE.IcosahedronGeometry(1, 3), new THREE.MeshBasicMaterial({ color: 0xffffff, fog: false }), GZ.x, GZ.y, GZ.z, { shadow: false });
+  R.fbGlow = glowSprite(D, 0xffd8a0, 1, 1); R.fbGlow.position.copy(GZ);
+  R.MUSH = []; for (let i = 0; i < 70; i++) { const cap = i >= 30, a = rnd() * TAU; R.MUSH.push({ cap, a, r: cap ? 0.3 + rnd() * 0.7 : rnd() * 0.3, k: cap ? rnd() : i / 30, s: cap ? 0.3 + rnd() * 0.2 : 0.18 + rnd() * 0.08 }); }
+  R.mushM = new THREE.MeshStandardMaterial({ color: 0x6a4a36, emissive: new THREE.Color(0xff6a20), emissiveIntensity: 2, flatShading: true, fog: false });
+  R.mush = instanced(D, puffG, R.mushM, R.MUSH, () => ({ p: V(0, -1e4, 0) })); R.mush.frustumCulled = false;
+  // the shock ring: a wall of dust racing out from ground zero, only the half that comes toward us
+  R.RING = []; for (let i = 0; i < 420; i++) R.RING.push({ a: (hash(i, 1) - 0.5) * 1.3, row: i % 3, j: hash(i, 2), s: 0.6 + hash(i, 3) * 0.8 });
+  R.ringM = new THREE.MeshStandardMaterial({ color: 0xb8a088, roughness: 1, flatShading: true, emissive: new THREE.Color(0x8a4a20), emissiveIntensity: 0.5 });
+  R.ring = instanced(D, puffG, R.ringM, R.RING, () => ({ p: V(0, -1e4, 0) })); R.ring.frustumCulled = false;
+  R.domeU = { uOp: { value: 0 }, uCol: { value: new THREE.Color(0xfff0dc) } };
+  R.dome = mesh(D, new THREE.SphereGeometry(1, 64, 24, 0, TAU, 0, Math.PI / 2), new THREE.ShaderMaterial({ uniforms: R.domeU, transparent: true, depthWrite: false, side: THREE.DoubleSide, fog: false,
+    vertexShader: `varying vec3 vN, vV; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform float uOp; uniform vec3 uCol; varying vec3 vN, vV; void main(){ float r = 1.0 - abs(dot(normalize(vN), normalize(vV))); gl_FragColor = vec4(uCol, uOp * (0.1 + 1.2 * pow(r, 2.0))); }` }), GZ.x, -40, GZ.z, { shadow: false });
+  return R;
+})();
+const GZ_DIR = GZ.clone().normalize();
+const ringToRoof = Math.hypot(GZ.x, GZ.z);
+const shockR = T => ringToRoof * clamp((T - EV.wave[0]) / (EV.wave[1] - EV.wave[0])) ** 0.85 * 0.9 + (T > EV.wave[0] ? 200 : 0);
+
+/* ===================================================================== SET: STREET (night, an orange sky; the blast runs down the street: windows burst, cars fly) */
+const street = (() => {
+  const S = ST.street, D = G.street, R = {};
+  box(S, 60, 0.4, 900, 0x2a2a2c, 0, -0.4, -320, { r: 0.05, rough: 0.9 });       // road (top at 0)
+  for (const sx of [-1, 1]) box(S, 3, 0.16, 900, 0x5a5854, sx * 6, -0.01, -320, { r: 0.03 });   // sidewalks (top at 0.15)
+  for (let z = 40; z > -700; z -= 9) box(S, 0.16, 0.02, 3.2, 0xc8c0a8, 0, -0.01, z, { r: 0.005, shadow: false });   // centre line (top at 0.01)
+  const BC = [0x4a443e, 0x5a524a, 0x3e3a36, 0x544c46, 0x46403c];
+  R.PANES = [];
+  for (const sx of [-1, 1]) for (let z = 50, i = 0; z > -700; i++) {
+    const d = 16 + hash(i, sx) * 12, zc = z - d / 2, h = 14 + Math.pow(hash(i, sx + 4), 1.3) * 26, w = 16;
+    box(S, w, h, d - 0.8, BC[Math.floor(hash(i, sx + 2) * BC.length)], sx * (7.5 + w / 2), 0, zc, { r: 0.2 });
+    for (let f = 0; f < Math.floor((h - 2) / 3.4); f++) for (let k = 0; k < Math.floor((d - 2.4) / 2.6); k++)
+      if (zc - d / 2 + 1.6 + k * 2.6 > -260) R.PANES.push({ x: sx * 7.44, y: 2.6 + f * 3.4, z: zc - d / 2 + 1.7 + k * 2.6, sx, lit: hash(k + i * 3, f + sx) < 0.4 });
+    z -= d;
+  }
+  // window frames (dark recess behind each pane) stay; the panes burst
+  instanced(S, new THREE.BoxGeometry(0.02, 2.0, 1.7), mat(0x14161a, { rough: 0.9 }), R.PANES, p => ({ p: V(p.sx * 7.485, p.y, p.z) }));
+  R.paneLit = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  R.panes = instanced(D, new THREE.BoxGeometry(0.04, 1.8, 1.5), R.paneLit, R.PANES, p => ({ p: V(p.x, p.y, p.z), c: p.lit ? 0xffc890 : 0x2a3440 }));
+  R.panes.frustumCulled = false;
+  R.SHARDS = []; R.PANES.forEach((p, i) => { if (p.z > -150) for (let j = 0; j < 4; j++) R.SHARDS.push({ i, oy: (hash(i, j) - 0.5) * 1.6, oz: (hash(i, j + 4) - 0.5) * 1.3, v: V(-p.sx * (2 + 5 * hash(i, j + 8)), 1 + 3 * hash(i, j + 12), 6 + 10 * hash(i, j + 16)), spin: V(hash(i, j + 20) * 12, hash(i, j + 24) * 9, 0), s: 0.05 + 0.08 * hash(i, j + 28) }); });
+  R.shards = instanced(D, new THREE.TetrahedronGeometry(1), mat(0xa8c8d8, { rough: 0.35 }), R.SHARDS, () => ({ p: V(0, -1e4, 0) })); R.shards.frustumCulled = false;
+  // street lamps
+  R.LAMPS = []; for (let z = 30; z > -400; z -= 26) for (const sx of [-1, 1]) R.LAMPS.push({ x: sx * 6.9, z: z + (sx > 0 ? 13 : 0) });
+  R.LAMPS.forEach(l => { cyl(S, 0.08, 0.1, 6, 0x2a2a2c, l.x, 0.15, l.z, { seg: 6 }); box(S, 1.2, 0.08, 0.1, 0x2a2a2c, l.x - Math.sign(l.x) * 0.55, 6.0, l.z, { r: 0.02 }); });
+  instanced(S, new THREE.BoxGeometry(0.5, 0.12, 0.3), new THREE.MeshBasicMaterial({ color: 0xffd8a0 }), R.LAMPS, l => ({ p: V(l.x - Math.sign(l.x) * 1.0, 5.94, l.z) }));
+  // parked cars along both curbs (they face along the street)
+  const CARC = [0xa82a22, 0x2a4a7a, 0xd8d4cc, 0x3a3a3e, 0x6a7a7a, 0x8a6a3a, 0x2a5a4a];
+  const car = (col) => { const g = group(D); box(g, 1.8, 0.75, 4.3, col, 0, 0.3, 0, { r: 0.2, rough: 0.5 }); box(g, 1.6, 0.6, 2.2, col, 0, 1.0, -0.2, { r: 0.18, rough: 0.5 });
+    box(g, 1.62, 0.45, 2.0, 0, 0, 1.08, -0.2, { m: mat(0x1e242a, { rough: 0.3 }), shadow: false });
+    for (const sz of [-1, 1]) for (const sxx of [-1, 1]) box(g, 0.3, 0.14, 0.06, 0, sxx * 0.6, 0.72, sz * 2.13, { m: new THREE.MeshBasicMaterial({ color: sz > 0 ? 0xfff0d8 : 0xa01810 }), shadow: false });
+    for (const [wx, wz] of [[-0.85, 1.35], [0.85, 1.35], [-0.85, -1.35], [0.85, -1.35]]) mesh(g, new THREE.CylinderGeometry(0.33, 0.33, 0.25, 12).rotateZ(Math.PI / 2), mat(0x141414, { flat: true }), wx, 0.33, wz); return g; };
+  R.CARS = []; for (let i = 0; i < 14; i++) { const sx = i % 2 ? 1 : -1, z = 4 - i * 11 - hash(i, 3) * 4; R.CARS.push({ g: car(CARC[i % CARC.length]), p: V(sx * 3.9, 0, z), yaw: (sx > 0 ? 0 : Math.PI) + (hash(i, 1) - 0.5) * 0.08, v: V(-sx * (1 + 2 * hash(i, 5)), 6 + 4 * hash(i, 6), 9 + 6 * hash(i, 7)), spin: V(-(2 + 3 * hash(i, 8)), (hash(i, 9) - 0.5) * 2, sx * (1.5 + 2 * hash(i, 10))) }); }
+  // the dust front of the blast
+  R.storm = makeStorm(D, { n: 6, w: 70, h: 40, gap: 14, col: 0xc8a07a, shade: 0x5a3a24, seed: 3, place: (m, f) => m.position.set(0, 0, f) });
+  return R;
+})();
+const streetFront = T => lerp(-420, 70, clamp((T - EV.blast[0]) / (EV.blast[1] - EV.blast[0])));
+const paneBreak = p => EV.blast[0] + (p.z + 420) / 490 * (EV.blast[1] - EV.blast[0]);
+
+/* ===================================================================== SET: RUBBLE (you wake under the ruins of the roof; dust; the city burns in the distance) */
+const rubH = (x, z) => 0.1 * (fbm2(x, z, 0.9) - 0.5) + 0.35 * (fbm2(x, z, 0.12) - 0.5) - 40 * smooth(-12, -70, z) + 2.5 * (fbm2(x, z, 0.02) - 0.5) * smooth(-30, -80, z);
+const rubble = (() => {
+  const S = ST.rubble, D = G.rubble, R = {};
+  R.gm = groundMat({ crack: 0.25, crackS: 2.5, mottle: 0.35 });
+  terrain(S, { R: 1200, N: 160, c0: 0.12, h: rubH, mat: R.gm, col: (x, z) => hexC(0x6a645c, 0x8a847a, fbm2(x, z, 0.5)) });
+  // concrete slabs, broken blocks and bricks lying around (none of them lies flat on another)
+  const conc = mat(0x8a847a, { rough: 0.95, flat: true }), dark = mat(0x5a5650, { rough: 0.95, flat: true });
+  const SLABS = [[1.2, -0.2, 2.6, 0.22, 1.6, 0.25, 0.3, 0.12], [-0.4, 1.6, 2.2, 0.2, 1.5, -0.2, -0.6, 0.2], [2.6, -1.8, 1.8, 0.25, 1.2, 0.4, 1.1, -0.15], [-2.8, 0.6, 2.4, 0.22, 1.8, -0.35, 0.4, 0.1],
+    [0.6, -3.2, 3.0, 0.25, 1.4, 0.2, -0.3, 0.3], [-3.4, -2.6, 2.0, 0.2, 1.3, 0.3, 2.2, 0.0], [3.6, 1.8, 2.2, 0.25, 1.6, -0.25, -1.2, 0.18], [-1.6, -4.4, 2.4, 0.22, 1.6, -0.3, 0.9, -0.2]];
+  for (const [x, z, w, h, d, rx, ry, rz] of SLABS) box(S, w, h, d, 0, x, rubH(x, z) + 0.08, z, { m: conc, rx, ry, rz, r: 0.03 });
+  const BR = []; for (let i = 0; i < 260; i++) { const a = rnd() * TAU, r = 0.6 + Math.pow(rnd(), 0.7) * 9; BR.push({ x: Math.cos(a) * r, z: Math.sin(a) * r - 1, a: rnd() * TAU, b: rnd(), s: 0.08 + rnd() * 0.22 }); }
+  instanced(S, new RoundedBoxGeometry(1, 0.6, 0.8, 1, 0.12), mat(0xffffff, { rough: 0.95, flat: true }), BR, b => ({ p: V(b.x, rubH(b.x, b.z) + b.s * 0.2, b.z), q: qEul(b.b * 0.6, b.a, b.b * 0.4), s: V(b.s, b.s, b.s), c: b.b < 0.3 ? 0x8a4a36 : b.b < 0.7 ? 0x8a847a : 0x6a6660 }), { shadow: true });
+  for (let i = 0; i < 16; i++) { const x = (rnd() - 0.5) * 8, z = (rnd() - 0.5) * 8 - 1; if (Math.hypot(x, z + 0.4) < 1.6) continue; cyl(S, 0.012, 0.012, 0.8 + rnd(), 0x4a3a30, x, rubH(x, z), z, { rx: (rnd() - 0.5) * 1.6, rz: (rnd() - 0.5) * 1.6, seg: 4 }); }
+  // what is left of the date: the toppled light pole with its dark bulbs, a piece of the red blanket
+  const pole = group(S, 2.2, rubH(2.2, -0.6) + 0.06, -0.6); pole.rotation.set(0, 0.9, Math.PI / 2 - 0.12);
+  cyl(pole, 0.035, 0.04, 2.7, 0x2a2a2a, 0, 0, 0, { seg: 6 });
+  for (let i = 0; i < 6; i++) mesh(S, sphG, mat(0x5a4a30, { rough: 0.4 }), 1.4 + i * 0.35, rubH(1.4 + i * 0.35, 0.4) + 0.07, 0.4 + Math.sin(i) * 0.12, { s: [0.045, 0.06, 0.045] });
+  box(S, 1.1, 0.012, 0.8, 0x8a2e30, -1.7, rubH(-1.7, 0.9) + 0.03, 0.9, { rz: 0.06, rx: -0.04, r: 0.004 });
+  // the slab over your legs rests on a block beside you
+  box(S, 0.5, 0.5, 0.6, 0, 0.75, rubH(0.75, 0.6) - 0.05, 0.6, { m: dark, r: 0.04 });
+  box(S, 1.6, 0.18, 1.1, 0, 0.2, 0.42, 0.75, { m: conc, rz: -0.32, rx: 0.06, r: 0.03 });
+  // you lie on your back, head toward −z; your date kneels behind the dust to your left
+  R.you = makePerson(D, dusty(YOU)); R.date = makePerson(D, dusty(DATE));
+  // dust: soft puffs that hang in the air, and a thick cloud between you and your date
+  R.DUST = []; for (let i = 0; i < 64; i++) { const c = true; R.DUST.push({ c, p: V(-1.2 + (rnd() - 0.5) * 0.7, 0.15 + rnd() * 1.1, -1.0 + (rnd() - 0.5) * 1.2), s: 0.17 + rnd() * 0.17, ph: rnd() * TAU }); }
+  R.dustM = new THREE.MeshStandardMaterial({ color: 0xb8aea0, roughness: 1, transparent: true, opacity: 0.22, depthWrite: false, flatShading: false });
+  R.dust = instanced(D, new THREE.IcosahedronGeometry(1, 2), R.dustM, R.DUST, d => ({ p: d.p, s: V(d.s, d.s * 0.8, d.s) })); R.dust.frustumCulled = false; R.dust.castShadow = false;
+  // the burning city, far below
+  R.city = skyline(S, D, { x0: -1100, x1: 1100, z0: -2400, z1: -140, cell: 50, hMin: 12, hMax: 70, y: -40, cx: 90, cz: -1500, mode: 'burn', noGround: true });
+  R.fires = makeFires(D, R.city.fires);
+  const near = []; for (let i = 0; i < 10; i++) near.push({ x: -26 + i * 6 + (hash(i, 2) - 0.5) * 4, y: rubH(0, -28) - 0.5, z: -26 - hash(i, 3) * 14, s: 2.5 + hash(i, 4) * 3 });
+  R.nearFires = makeFires(D, near);
+  R.smoke = makeSmoke(D, R.city.smoke.slice(0, 40), { col: 0x2a2220, glow: 0x3a1608, H: 170, lean: 90 });
+  return R;
+})();
+const DATE_RUB = V(-1.15, rubH(-1.15, -1.0) + 0.0, -1.0);
+
+/* ===================================================================== SET: BASEMENT (concrete, a lantern, stairs up to the door with a crack beneath it) */
+const DOOR = { x: -2.4, y: 1.19, z: -4.15, w: 0.9, h: 2.0, gap: 0.045 };
+const base = (() => {
+  const S = ST.base, D = G.base, R = {};
+  const conc = mat(0x7a746c, { rough: 0.95 }), wallM = mat(0x8a847a, { rough: 0.95 });
+  box(S, 7, 0.2, 9, 0, 0, -0.2, -0.3, { m: conc, r: 0.02 });                                    // floor (top at 0)
+  box(S, 7, 0.25, 9, 0, 0, 3.3, -0.3, { m: mat(0x6a645c, { rough: 0.95 }), shadow: false });     // ceiling
+  for (const sx of [-1, 1]) box(S, 0.3, 3.4, 9, 0, sx * 3.15, -0.05, -0.3, { m: wallM, r: 0.02 });
+  box(S, 7, 3.4, 0.3, 0, 0, -0.05, 4.1, { m: wallM, r: 0.02 });
+  // back wall with the door opening (x −2.85 … −1.95, y 1.2 … 3.2)
+  const zb = -4.15;
+  box(S, 5.25, 3.4, 0.3, 0, 0.675, -0.05, zb, { m: wallM, r: 0.01 });                            // right of the door (x −1.95 … 3.3)
+  box(S, 0.45, 3.4, 0.3, 0, -3.075, -0.05, zb, { m: wallM, r: 0.01 });                           // left of the door
+  box(S, 0.9, 0.2, 0.3, 0, DOOR.x, DOOR.y + DOOR.h, zb, { m: wallM, r: 0.01 });                   // above the door
+  box(S, 0.9, 1.24, 0.3, 0, DOOR.x, -0.05, zb, { m: wallM, r: 0.01 });                            // the threshold (top at 1.19)
+  // outside the door: a hazy bright yard (seen when the door is open and through the crack)
+  box(S, 2.2, 3.0, 0.1, 0, DOOR.x, 0.6, -5.4, { m: new THREE.MeshBasicMaterial({ color: 0xc89a70 }), shadow: false });
+  box(S, 2.2, 0.1, 1.2, 0, DOOR.x, 1.07, -4.8, { m: mat(0x8a7a68), shadow: false });
+  // landing and steps along the left wall (each step sits a few mm away from the next)
+  box(S, 1.2, 1.2, 0.98, 0, DOOR.x, 0, -3.51, { m: conc, r: 0.015 });
+  for (let k = 1; k <= 5; k++) box(S, 1.2, 0.2 * k, 0.296, 0, DOOR.x, 0, -3.0 + (5 - k) * 0.3 + 0.152, { m: conc, r: 0.012 });
+  box(S, 0.05, 0.05, 2.2, 0x4a4a4a, -1.85, 1.6, -2.3, { rx: 0.588, metal: 0.4, rough: 0.5 });   // handrail
+  // the door: hinged at its left edge
+  R.door = group(D, DOOR.x - DOOR.w / 2, DOOR.y + DOOR.gap, DOOR.z);
+  box(R.door, DOOR.w - 0.02, DOOR.h - DOOR.gap - 0.02, 0.06, 0x5a4636, DOOR.w / 2, 0, 0, { r: 0.01 });
+  mesh(R.door, sphG, mat(0xb8a878, { metal: 0.6, rough: 0.35 }), DOOR.w - 0.1, 1.0, 0.05, { s: 0.03 });
+  // shelves with cans, jugs and boxes; a crate, an old mattress
+  const shelf = mat(0x6a5038, { rough: 0.8 });
+  for (let l = 0; l < 4; l++) box(S, 0.5, 0.04, 2.4, 0, 2.7, 0.3 + l * 0.55, 0.2, { m: shelf });
+  for (const z of [-0.95, 1.35]) for (const x of [2.47, 2.93]) box(S, 0.04, 2.0, 0.04, 0, x, 0, z, { m: shelf });
+  const CANS = []; for (let l = 0; l < 4; l++) for (let i = 0; i < 12; i++) if (hash(l, i) < 0.7) CANS.push({ x: 2.6 + hash(i, l + 2) * 0.25, y: 0.34 + l * 0.55, z: -0.9 + i * 0.19, c: [0xb8402a, 0xd8c8a0, 0x3a6a8a, 0x8aa83a, 0xe8e4dc][Math.floor(hash(i, l + 5) * 5)], big: hash(i, l + 7) < 0.2 });
+  instanced(S, new THREE.CylinderGeometry(0.05, 0.05, 0.13, 10).translate(0, 0.065, 0), mat(0xffffff, { rough: 0.5, metal: 0.2 }), CANS, c => ({ p: V(c.x, c.y, c.z), s: c.big ? V(1.6, 2.2, 1.6) : V(1, 1, 1), c: c.c }));
+  box(S, 0.8, 0.55, 0.6, 0x7a5a3a, 1.6, 0, -2.9, { r: 0.03 }); box(S, 0.6, 0.4, 0.5, 0x8a6a42, 1.7, 0.555, -2.9, { r: 0.03 });
+  box(S, 1.0, 0.18, 1.9, 0x6a7080, 1.9, 0.0, 2.6, { r: 0.07 });
+  cyl(S, 0.28, 0.28, 1.5, 0x9a9a96, -2.5, 0, 3.4, { metal: 0.4, rough: 0.4, seg: 16 });
+  // the lantern on the floor between you
+  R.lantern = group(S, 0.55, 0, -0.35);
+  cyl(R.lantern, 0.09, 0.1, 0.06, 0x2a3a2a, 0, 0, 0, { seg: 10 }); cyl(R.lantern, 0.075, 0.075, 0.16, 0xfff0c8, 0, 0.06, 0, { m: new THREE.MeshBasicMaterial({ color: 0xffe0a8 }), seg: 10 }); cyl(R.lantern, 0.09, 0.08, 0.04, 0x2a3a2a, 0, 0.22, 0, { seg: 10 });
+  // you (sleeve rolled up: the burn is on your left forearm) and your date
+  R.burnTex = canvasTex(256, 512, (g, w, h) => {
+    g.fillStyle = '#' + hexC(YOU.shirt, 0x8a8478, 0.2).toString(16).padStart(6, '0'); g.fillRect(0, 0, w, h * 0.38);
+    g.fillStyle = '#c89a7c'; g.fillRect(0, h * 0.38, w, h * 0.62);
+    g.fillStyle = 'rgba(40,30,30,0.35)'; g.fillRect(0, h * 0.36, w, h * 0.03);   // the rolled cuff's shadow
+    // the burn: a raw red-pink patch, darker in the middle, with pale peeling skin at its edge (around u = 0, the front)
+    const blot = (cx, cy, r, col) => { const gr = g.createRadialGradient(cx, cy, 0, cx, cy, r); gr.addColorStop(0, col); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, r, 0, TAU); g.fill(); };
+    for (const off of [0, w]) {
+      for (let i = 0; i < 14; i++) blot(off + (hash(i, 1) - 0.5) * 110, h * (0.55 + hash(i, 2) * 0.28), 26 + hash(i, 3) * 26, 'rgba(232,226,214,0.55)');
+      for (let i = 0; i < 18; i++) blot(off + (hash(i, 4) - 0.5) * 95, h * (0.56 + hash(i, 5) * 0.26), 22 + hash(i, 6) * 24, 'rgba(200,58,52,0.75)');
+      for (let i = 0; i < 9; i++) blot(off + (hash(i, 7) - 0.5) * 60, h * (0.6 + hash(i, 8) * 0.18), 14 + hash(i, 9) * 16, 'rgba(120,34,44,0.7)');
+    }
+  });
+  R.burnTex.wrapS = THREE.RepeatWrapping;
+  const armMat = new THREE.MeshStandardMaterial({ map: R.burnTex, roughness: 0.6 });
+  R.you = makePerson(D, Object.assign(dusty(YOU, 0.2), { armMat })); R.date = makePerson(D, dusty(DATE, 0.2));
+  // the phone (screen redrawn when its picture changes) and the hand that holds it
+  R.screen = screenTex(256, 512, drawPhone);
+  R.phone = group(D);
+  box(R.phone, 0.074, 0.152, 0.009, 0x16181c, 0, -0.076, -0.0045, { r: 0.008, rough: 0.3 });
+  R.screenM = new THREE.MeshBasicMaterial({ map: R.screen.t, toneMapped: false });
+  mesh(R.phone, new THREE.PlaneGeometry(0.066, 0.138), R.screenM, 0, 0, 0.0008, { shadow: false });
+  R.phoneHand = mesh(R.phone, new RoundedBoxGeometry(0.09, 0.08, 0.035, 2, 0.015), mat(hexC(YOU.skin, 0x9a9088, 0.12), { rough: 0.7 }), 0, -0.07, -0.026, { shadow: false });
+  R.phoneLight = new THREE.PointLight(0xd8e4ff, 0, 2.5, 1.5); R.phone.add(R.phoneLight); R.phoneLight.position.set(0, 0, 0.12);
+  // the tape that seals the crack (grows along the bottom of the door)
+  R.tape = group(D, DOOR.x - DOOR.w / 2 + 0.01, DOOR.y + 0.006, DOOR.z + 0.05);
+  box(R.tape, 1, 0.085, 0.012, 0x9a9a98, 0.5, 0, 0, { r: 0.004, rough: 0.6 });
+  // your hand pressing the tape down (seen close up; the arm comes in from the side of the picture)
+  R.tapeHand = group(D);
+  const skinM = mat(hexC(YOU.skin, 0x9a9088, 0.12), { rough: 0.7, flat: true });
+  mesh(R.tapeHand, new RoundedBoxGeometry(0.1, 0.045, 0.09, 2, 0.02), skinM, 0, 0, 0);
+  const fa = group(R.tapeHand, 0, 0.01, 0.03); fa.quaternion.setFromUnitVectors(V(0, 1, 0), V(-0.45, 0.85, 0.28).normalize());
+  mesh(fa, new THREE.CylinderGeometry(0.042, 0.048, 0.5, 10).translate(0, 0.25, 0), skinM);
+  mesh(fa, new THREE.CylinderGeometry(0.056, 0.056, 0.4, 10).translate(0, 0.62, 0), mat(hexC(YOU.shirt, 0x8a8478, 0.2), { flat: true }));
+  mesh(R.tapeHand, new THREE.TorusGeometry(0.04, 0.018, 8, 16), mat(0x9a9a98, { rough: 0.6 }), 0.07, 0.0, 0.03, { rx: Math.PI / 2 });
+  // grey dust blowing in under the door: soft points born at the crack
+  const n = 1600, g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 3), 3)); g.setAttribute('aA', new THREE.BufferAttribute(new Float32Array(n), 1)); g.setAttribute('aS', new THREE.BufferAttribute(new Float32Array(n).map(() => 0.5 + rnd()), 1));
+  R.puffU = { uPx: { value: 800 }, uCol: { value: new THREE.Color(0x9a968e) } };
+  R.puffs = new THREE.Points(g, new THREE.ShaderMaterial({ uniforms: R.puffU, transparent: true, depthWrite: false,
+    vertexShader: `uniform float uPx; attribute float aA, aS; varying float vA; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_Position = projectionMatrix * mv; gl_PointSize = clamp(0.013 * aS * uPx / max(0.05, -mv.z), 1.0, 9.0); vA = aA; }`,
+    fragmentShader: `uniform vec3 uCol; varying float vA; void main(){ float r = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol, vA * smoothstep(0.5, 0.0, r)); }` }));
+  R.puffs.frustumCulled = false; D.add(R.puffs); R.PN = n;
+  return R;
+})();
+// the phone's screen: off, the alert, the alert breaking up ("crackles"), the second alert
+function drawPhone(g, w, h, state, k = 0) {
+  g.fillStyle = '#05070a'; g.fillRect(0, 0, w, h);
+  if (state === 'off') return;
+  const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, '#2a0c0e'); bg.addColorStop(1, '#120608'); g.fillStyle = bg; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#d8241e'; g.fillRect(0, 60, w, 64);
+  g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '900 22px Archivo, sans-serif'; g.fillText('⚠ EMERGENCY ALERT', w / 2, 100);
+  const lines = state === 'alert1' ? ['RADIOACTIVE', 'FALLOUT.', '', 'STAY', 'INSIDE.'] : ['IF EXPOSED,', 'SEEK', 'MEDICAL', 'HELP', 'IMMEDIATELY.'];
+  g.font = '900 30px Archivo, sans-serif';
+  lines.forEach((l, i) => g.fillText(l, w / 2, 200 + i * 44));
+  g.font = '700 15px Archivo, sans-serif'; g.fillStyle = '#e8b0a8'; g.fillText(state === 'alert1' ? 'Civil Defence · now' : 'Civil Defence · 2 h ago', w / 2, 460);
+  if (state === 'crackle') {   // soft bands of interference that drift down the screen (smooth, no on/off)
+    for (let i = 0; i < 5; i++) { const y = ((k * 140 + i * 113) % (h + 60)) - 30, a = 0.18 + 0.12 * Math.sin(k * 3 + i); const gr = g.createLinearGradient(0, y - 22, 0, y + 22); gr.addColorStop(0, 'rgba(200,200,210,0)'); gr.addColorStop(0.5, `rgba(200,200,210,${a})`); gr.addColorStop(1, 'rgba(200,200,210,0)'); g.fillStyle = gr; g.fillRect(0, y - 22, w, 44); }
+  }
+}
+
+/* ===================================================================== SET: AFTER (the city at grey dawn: ruins, smoke, ash falling, silence) */
+const after = (() => {
+  const S = ST.after, D = G.after, R = {};
+  R.gm = groundMat({ crack: 0.2, crackS: 3, mottle: 0.3 });
+  terrain(S, { R: 3000, N: 160, c0: 0.6, cz: -40, h: (x, z) => 0.6 * (fbm2(x, z, 0.05) - 0.5) + 0.25 * (fbm2(x, z, 0.4) - 0.5), mat: R.gm, col: (x, z) => hexC(0x6a665e, 0x8a847a, fbm2(x, z, 0.08)) });
+  R.city = skyline(S, D, { x0: -900, x1: 900, z0: -2000, z1: -30, cell: 44, hMin: 12, hMax: 60, y: 0, cx: 0, cz: -900, mode: 'dead', noGround: true });
+  R.smoke = makeSmoke(D, R.city.smoke.slice(0, 30), { col: 0x3a3634, H: 260, lean: 140 });
+  // a burnt-out car and a fallen lamp post in the foreground
+  const cg = group(S, 4, 0.05, 6); cg.rotation.y = 0.6; box(cg, 1.8, 0.75, 4.3, 0x2a2624, 0, 0.3, 0, { r: 0.2, rough: 0.95 }); box(cg, 1.6, 0.55, 2.0, 0x221e1c, 0, 1.0, -0.2, { r: 0.16 });
+  const lp = group(S, -5, 0.08, 2); lp.rotation.set(0, -0.4, Math.PI / 2 - 0.1); cyl(lp, 0.08, 0.1, 6, 0x2a2a2c, 0, 0, 0, { seg: 6 });
+  const BR = []; for (let i = 0; i < 160; i++) BR.push({ x: (rnd() - 0.5) * 40, z: 14 - rnd() * 40, a: rnd() * TAU, s: 0.2 + rnd() * 0.8 });
+  instanced(S, new RoundedBoxGeometry(1, 0.5, 0.8, 1, 0.1), mat(0x7a746c, { rough: 0.95, flat: true }), BR, b => ({ p: V(b.x, 0.05 + b.s * 0.15, b.z), q: qEul(0.2, b.a, 0.15), s: V(b.s, b.s, b.s) }));
+  return R;
+})();
+/* ===================================================================== MERGE STATIC */
+(function mergeStatic() {
+  for (const k in ST) {
+    const root = ST[k]; root.updateMatrixWorld(true);
+    const buckets = new Map(), keep = [];
+    root.traverse(o => {
+      if (!o.isMesh || o.isInstancedMesh || o === root) { if (o.isInstancedMesh) keep.push(o); return; }
+      if (o.material.userData?.u) { keep.push(o); return; }   // terrain keeps its own shader
+      let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+      g.applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(o.matrixWorld));
+      for (const n of Object.keys(g.attributes)) if (!['position', 'normal', 'uv', 'color'].includes(n)) g.deleteAttribute(n);
+      if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+      const vc = !!o.material.vertexColors;
+      if (vc && !g.attributes.color) g.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 3).fill(1), 3));
+      if (!vc && g.attributes.color) g.deleteAttribute('color');
+      g.clearGroups();
+      if (!buckets.has(o.material)) buckets.set(o.material, []);
+      buckets.get(o.material).push({ g, shadow: o.castShadow });
+    });
+    const merged = new THREE.Group();
+    for (const [m, list] of buckets) {
+      const geo = mergeGeometries(list.map(l => l.g), false); list.forEach(l => l.g.dispose()); if (!geo) continue;
+      const mm = new THREE.Mesh(geo, m); mm.castShadow = list.some(l => l.shadow); mm.receiveShadow = true; merged.add(mm);
+    }
+    const kept = keep.map(o => { const w = new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(o.matrixWorld); return [o, w]; });
+    root.clear(); root.add(merged);
+    for (const [o, w] of kept) { o.removeFromParent(); w.decompose(o.position, o.quaternion, o.scale); root.add(o); }
+  }
+})();
+for (const k in SETS) for (const r of [G[k], ST[k]]) r.traverse(o => { const u = o.material?.userData?.u; if (u) u.uO.value.set(SETS[k].x, SETS[k].z); });
+
+/* ===================================================================== POST-PROCESSING (optional) */
+let composer = null, bloom = null;
+if (params.get('fx') !== '0') {
+  try {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
+    composer.addPass(new RenderPass(scene, camera));
+    bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.35, 0.5, 0.88); composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+  } catch (e) { console.warn('Bloom unavailable, rendering directly.', e); composer = null; }
+}
+function layout() {
+  const W = innerWidth, H = innerHeight, w = Math.min(W, H * 9 / 16), h = w * 16 / 9;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = 9 / 16; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+/* ===================================================================== CAMERA */
+const SHOTS = SCENES.flatMap(s => s.shots);
+const upY = V(0, 1, 0);
+const SUBJ = {}, SUBJQ = {};
+function shotAt(T) {
+  const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
+  const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
+  const a = k[i], b = k[i + 1], e = easeInOut(clamp((T - a[0]) / (b[0] - a[0])));
+  const s = { set: sh.set, shot: sh, pos: VA(a[1]).lerp(VA(b[1]), e), target: VA(a[2]).lerp(VA(b[2]), e), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY.clone() };
+  if (sh.follow) { const p = SUBJ[sh.follow](T); if (sh.local) { const q = SUBJQ[sh.follow](T); s.pos.applyQuaternion(q); s.target.applyQuaternion(q); } s.pos.add(p); s.target.add(p); }
+  if (sh.aim) s.target = VA(a[2]).lerp(VA(b[2]), e).add(SUBJ[sh.aim](T));
+  const DB = window.__dbg ?? DBG;
+  if (DB) { s.set = DB.set; s.pos = VA(DB.c); s.target = VA(DB.c.slice(3)); s.fov = DB.c[6] ?? 50; s.up = upY.clone(); return Object.assign(s, { pos: s.pos.add(SETS[s.set]), target: s.target.add(SETS[s.set]) }); }
+  s.pos.add(o); s.target.add(o);
+  return s;
+}
+const DBG = params.get('dbg') ? { c: params.get('dbg').split(',').map(Number), set: params.get('set') ?? 'roof' } : null;
+function shake(T) {
+  let s = 0; for (const [t0, k] of SHAKES) { const d = T - t0; if (d >= 0 && d < 1.2) s += k * Math.exp(-d * 5) * (1 - Math.exp(-d * 60)); }
+  for (const [a, b, k] of RUMBLES) if (inT(T, a, b)) s += k * smooth(a, a + 0.6, T) * (1 - smooth(b - 0.4, b, T)) * (0.6 + 0.4 * Math.sin(T * 7));
+  return s;
+}
+const CAM = { set: 'roof', target: V(), dist: 1, local: V() };
+function placeCamera(T) {
+  const s = shotAt(T), d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.12, d * 0.01 + 0.02);
+  const f = Math.floor(T * 40), f1 = T * 40 - f, n = (j, f) => hash(f, j) - 0.5, sm = (j) => lerp(n(j, f), n(j, f + 1), f1 * f1 * (3 - 2 * f1));
+  s.pos.x += sm(1) * k; s.pos.y += sm(2) * k; s.target.x += sm(3) * k * 3 * Math.max(1, d / 30); s.target.y += sm(4) * k * 3 * Math.max(1, d / 30);
+  camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
+  const near = s.set === 'base' ? 0.02 : s.set === 'rubble' && d < 2 ? 0.03 : s.set === 'roof' && d < 4 ? 0.05 : 0.15, far = 9000;
+  if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
+  CAM.set = s.set; CAM.target.copy(s.target); CAM.dist = d; CAM.local.copy(s.pos).sub(SETS[s.set]);
+}
+/* ===================================================================== LIGHT + LOOK PER SET */
+const c4 = new THREE.Color(), c5 = new THREE.Color();
+function setSun(o, pos, target, half, color, intensity) {
+  sun.position.copy(o).add(VA(pos)); sun.target.position.copy(o).add(VA(target)); sun.color.set(color); sun.intensity = intensity;
+  const sc = sun.shadow.camera; if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.5, far: VA(pos).distanceTo(VA(target)) + half * 2 }); sc.updateProjectionMatrix(); }
+  sun.shadow.bias = -0.0008; sun.shadow.normalBias = 0.04 * Math.max(1, half / 20);
+}
+// the sun's shadow box is centred a little in front of the camera
+function sunFrom(o, dir, dist, half, color, intensity, at = null) { const f = at ? VA(at) : CAM.target.clone().sub(o); setSun(o, [f.x + dir.x * dist, f.y + dir.y * dist, f.z + dir.z * dist], [f.x, f.y, f.z], half, color, intensity); }
+function point(i, o, p, color, intensity, dist = 30) { const L = PL[i]; L.position.copy(o).add(VA(p)); L.color.set(color); L.intensity = intensity; L.distance = dist; }
+const lerpHex = (a, b, k) => c5.set(a).lerp(c4.set(b), clamp(k)).getHex();
+// the flash: rises over ~8 frames, then sinks back over about two seconds (never a one-frame jump)
+const flashK = T => { const d = T - EV.flash; return d <= 0 ? 0 : smooth(0, 0.28, d) * Math.exp(-Math.max(0, d - 0.28) * 1.6); };
+const glowK = T => T < EV.flash ? 0 : 0.35 + 0.65 * Math.exp(-(T - EV.flash) * 0.35);   // the fireball keeps glowing orange
+const MOON = V(-0.35, 0.62, 0.55).normalize();
+function look(set, T) {
+  const o = SETS[set];
+  for (const L of PL) L.intensity = 0;
+  sky.visible = true; skyU.uTime.value = T; skyU.uCloud.value = 0; skyU.uSunR.value = 0.012; skyU.uHaze.value = 0; skyU.uSunGlow.value = 0.6;
+  sun.castShadow = true; specU.uOp.value = 0; stars.visible = false;
+  scene.background.set(0x0a0a10);
+  if (bloom) { bloom.strength = 0.35; bloom.threshold = 0.85; }
+  renderer.toneMappingExposure = 1.0;
+  if (set === 'roof') {
+    const fl = flashK(T), gl = glowK(T), post = T >= EV.flash;
+    // night: deep blue sky, a warm glow of city light on the horizon, stars; after the flash an orange sky toward the blast
+    skyLook(lerpHex(0x0e1834, 0x4a2a2a, gl * 0.8), lerpHex(0x4a3a52, 0xd06a30, gl), 0x1a1418);
+    skyU.uSunDir.value.copy(post ? GZ_DIR : MOON); skyU.uSunCol.value.set(post ? 0xffa060 : 0xc8d4ff).multiplyScalar(post ? 0.4 + 1.5 * gl : 0.5); skyU.uSunR.value = post ? 0.0 : 0.012; skyU.uSunGlow.value = post ? 1.2 : 0.25;
+    skyU.uCloud.value = 0.12; skyU.uCloudCol.value.set(post ? 0x8a4a30 : 0x3a3a4a);
+    stars.visible = true; stars.material.opacity = 0.85 * (1 - gl);
+    scene.fog.color.set(lerpHex(0x2a2a3a, 0x8a4a2a, gl)); scene.fog.density = 0.00045 + 0.0004 * gl;
+    hemi.color.set(lerpHex(0x6a7aa8, 0xffb070, gl)); hemi.groundColor.set(0x2a2018); hemi.intensity = 0.7 + 0.5 * gl + 3 * fl;
+    if (post) sunFrom(o, GZ_DIR, 60, CAM.dist > 40 ? 60 : 8, 0xffd0a0, 1.2 + 5 * fl + 1.2 * gl, CAM.dist > 40 ? null : [0, 0.6, -1.5]);
+    else sunFrom(o, MOON, 40, 8, 0xb8c8ff, 0.55, [0, 0.6, -1.5]);
+    // warm string lights and candles on the two of you
+    const lit = 1 - smooth(EV.wave[1] - 0.2, EV.wave[1], T);
+    point(0, o, [-0.9, 2.3, -0.6], 0xffb060, 4.5 * lit, 8); point(1, o, [1.0, 2.2, -3.0], 0xffb868, 4.5 * lit, 8); point(2, o, [0, 0.35, -2.25], 0xff9a48, 1.2 * lit, 3);
+    // the falling bomb lights your faces as it comes down
+    if (inT(T, EV.fall[0], EV.flash)) point(3, o, [0, 3, -4], 0xffe8d0, 2.2 * smooth(EV.fall[0], EV.flash, T), 9);
+    renderer.toneMappingExposure = 1.4 - 0.3 * fl;
+    if (bloom) { bloom.strength = 0.4 + 0.4 * fl; bloom.threshold = 0.8; }
+    // the shockwave arrives: dust fills the air
+    const dust = smooth(EV.wave[1] - 0.35, EV.wave[1] + 0.3, T);
+    if (dust > 0) { scene.fog.color.set(lerpHex(scene.fog.color.getHex(), 0xb8865a, dust)); scene.fog.density += 0.08 * dust; specU.uOp.value = 0.6 * dust; specU.uCol.value.set(0x6a5040); specU.uBox.value = 10; specU.uSize.value = 0.02; }
+  } else if (set === 'street') {
+    // the sky over the far end of the street glows orange; the dust front comes down the street
+    skyLook(0x2a1a22, 0xe0783a, 0x2a1a14); skyU.uSunDir.value.set(0.02, 0.3, -1).normalize(); skyU.uSunCol.value.set(0xffa060).multiplyScalar(1.4); skyU.uSunR.value = 0; skyU.uSunGlow.value = 1.4;
+    scene.fog.color.set(0x8a4a2a); scene.fog.density = 0.004;
+    hemi.color.set(0xffa868); hemi.groundColor.set(0x3a2418); hemi.intensity = 1.1;
+    sunFrom(o, V(0.12, 0.33, -1).normalize(), 120, 40, 0xffb070, 2.2);
+    point(0, o, [-5, 5.5, 22], 0xffd0a0, 4, 24); point(1, o, [5, 5.5, 8], 0xffd0a0, 3, 22);
+    const f = streetFront(T), near = 1 - smooth(4, 140, f < CAM.local.z ? CAM.local.z - f : 0);
+    scene.fog.color.set(lerpHex(0x8a4a2a, 0xb08058, near)); scene.fog.density = 0.004 + 0.06 * near * near;
+    specU.uOp.value = 0.2 + 0.6 * near; specU.uCol.value.set(0x4a3426); specU.uBox.value = 12; specU.uSize.value = 0.02;
+    renderer.toneMappingExposure = 1.2;
+  } else if (set === 'rubble') {
+    // night, dust in the air; the burning city lights everything orange from below the horizon
+    skyLook(0x1a1418, 0xc0542a, 0x3a1a10); skyU.uSunDir.value.set(0.05, 0.08, -1).normalize(); skyU.uSunCol.value.set(0xff7a3a).multiplyScalar(0.8); skyU.uSunR.value = 0; skyU.uSunGlow.value = 1.0;
+    skyU.uHaze.value = 0.25; skyU.uHazeCol.value.set(0x7a4a34);
+    scene.fog.color.set(0x7a5240); scene.fog.density = 0.006;
+    hemi.color.set(0xd8a080); hemi.groundColor.set(0x4a3024); hemi.intensity = 1.1;
+    sunFrom(o, V(0.25, 0.32, -1).normalize(), 30, CAM.dist > 20 ? 30 : 5, 0xff9a5a, 1.6, CAM.dist > 20 ? null : [-0.3, 0.3, -0.8]);
+    point(0, o, [1.6, 1.4, 0.8], 0xffb880, 2.0, 6); point(1, o, [-2.5, 2.0, -3.0], 0x9ab0d8, 1.3, 7); point(2, o, [-0.3, 1.3, -0.5], 0xffc090, 1.6, 3);
+    specU.uOp.value = 0.45; specU.uCol.value.set(0xb8aa98); specU.uBox.value = 8; specU.uSize.value = 0.012;
+    renderer.toneMappingExposure = 1.25;
+  } else if (set === 'base') {
+    sky.visible = false; scene.background.set(0x0a0806); scene.fog.color.set(0x1a1612); scene.fog.density = 0.02;
+    hemi.color.set(0xc8a888); hemi.groundColor.set(0x3a3028); hemi.intensity = 0.55;
+    const open = doorOpen(T), ph = phoneOn(T);
+    sun.castShadow = false; sunFrom(o, V(0.3, 1, 0.4).normalize(), 6, 5, 0xffd8b0, 0.25, [0, 0, 0]);
+    point(0, o, [1.05, 0.5, 0.15], 0xffb468, 3.2, 7);                                       // the lantern
+    point(1, o, [-2.4, 2.3, -3.4], 0xffa060, 0.4 + 3.0 * open, 6);                            // light from the yard (through the crack, or the open door)
+    point(2, o, [-1.2, 2.6, -1.4], 0xd8c0a0, 1.0, 6);                                         // soft fill so the stairs and the door can be seen
+    base.phoneLight.intensity = (T >= ln(20, -0.1) ? 0.12 : 0.9) * ph;
+    if (CAM.local.z < -2.3 && CAM.local.x < -1) point(3, o, [-1.7, 1.9, -3.4], 0xffc890, 4.5, 4);   // a lamp on the stairs for the close-ups at the door
+    renderer.toneMappingExposure = 1.3; if (bloom) { bloom.strength = 0.3; bloom.threshold = 0.9; }
+  } else if (set === 'after') {
+    // grey dawn: a pale, low sun behind the haze, ash drifting down
+    const AS = V(0.5, 0.4, 0.75).normalize();
+    skyLook(0x5a6070, 0xb0a498, 0x6a645c); skyU.uSunDir.value.copy(AS); skyU.uSunCol.value.set(0xffe0c0).multiplyScalar(0.35); skyU.uSunR.value = 0.02; skyU.uSunGlow.value = 0.5;
+    skyU.uHaze.value = 0.35; skyU.uHazeCol.value.set(0xa8a098); skyU.uCloud.value = 0.5; skyU.uCloudCol.value.set(0x8a8680);
+    scene.fog.color.set(0xa09890); scene.fog.density = 0.0009;
+    hemi.color.set(0xc8ccd4); hemi.groundColor.set(0x5a5450); hemi.intensity = 1.1;
+    sunFrom(o, AS, 120, 70, 0xffe8d0, 1.3);
+    specU.uOp.value = 0.5; specU.uCol.value.set(0xd8d4cc); specU.uBox.value = 14; specU.uSize.value = 0.016;
+    renderer.toneMappingExposure = 1.0;
+  }
+}
+
+/* ===================================================================== FRAME UPDATE */
+const m4 = new THREE.Matrix4(), s4 = V(1, 1, 1), q4 = new THREE.Quaternion(), t4 = V(), e4 = new THREE.Euler();
+const windAt = T => CAM.set === 'street' ? V(0, 1, 30) : CAM.set === 'after' ? V(0.6, -0.8, 0.3) : CAM.set === 'rubble' ? V(0.25, 0.05, 0.1) : V(0.2, 0, 0.1);
+let specOff = V();
+function update(T) {
+  const set = CAM.set;
+  for (const k in SETS) { G[k].visible = ST[k].visible = k === set; }
+  sky.position.copy(camera.position); stars.position.copy(camera.position);
+  specOff.set(0, 0, 0); for (let t = Math.max(0, T - 30); t < T; t += 0.1) specOff.addScaledVector(windAt(t), Math.min(0.1, T - t));
+  specU.uOff.value.copy(specOff); specU.uCam.value.copy(camera.position);
+  specU.uPx.value = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360));
+  ({ roof: updateRoof, street: updateStreet, rubble: updateRubble, base: updateBase, after: updateAfter })[set](T);
+  look(set, T);
+}
+// a person sitting on the ground (hips `seat` above their feet's floor)
+function place(P, x, y, z, yaw) { P.root.position.set(x, y, z); P.root.rotation.set(0, yaw, 0); }
+function updateRoof(T) {
+  const R = roof, up = smooth(EV.look[0], EV.look[1], T), post = T >= EV.flash;
+  const laugh = 0.5 + 0.5 * Math.sin(T * 9), giggle = 1 - smooth(ln(2, -0.4), ln(2, 0.4), T);
+  // sitting on the blanket, leaning back on your hands, turned toward each other; then you both look up at the light
+  place(R.you, -0.34, 0.075 + 0.1 - 0.92, -1.45, Math.PI + 0.32 * (1 - up));
+  place(R.date, 0.34, 0.075 + 0.1 - 0.92, -1.45, Math.PI - 0.32 * (1 - up));
+  const fear = smooth(EV.flash - 0.1, EV.flash + 0.6, T);
+  personPose(R.you, { lean: -0.12 + 0.05 * giggle * laugh - 0.1 * up, legs: -Math.PI / 2 + 0.06, armL: 0.55 - 1.0 * fear, armR: 0.55 - 1.0 * fear, splay: 0.12, pitch: lerp(0.05, -0.55, up) - 0.06 * giggle * laugh, yaw: 0.1 * (1 - up), tilt: 0.1 * giggle });
+  personPose(R.date, { lean: -0.1 + 0.06 * giggle * laugh - 0.1 * up, legs: -Math.PI / 2 + 0.06, legL: 0.05, armL: 0.5 - 1.1 * fear, armR: -0.4 + 0.4 * up - 0.7 * fear, splay: 0.1, pitch: lerp(0.0, -0.55, up) - 0.08 * giggle * laugh, yaw: -0.1 * (1 - up), tilt: -0.12 * giggle });
+  personFace(R.you, { smile: giggle * (0.6 + 0.4 * laugh), mouth: 0.15 * giggle * laugh + 0.35 * up * (1 - giggle), worry: up });
+  personFace(R.date, { smile: giggle * (0.7 + 0.3 * laugh), mouth: 0.2 * giggle * laugh + 0.3 * up * (1 - giggle), worry: up, open: post ? 1 - 0.6 * smooth(EV.flash, EV.flash + 0.2, T) : 1 });
+  R.flames.forEach((f, i) => f.scale.set(0.012, 0.024 * (1 + 0.1 * Math.sin(T * 7 + i * 2)), 0.012));
+  // the bomb comes down with a glowing trail
+  const fk = clamp((T - EV.fall[0]) / (EV.flash - EV.fall[0]));
+  const bp = V(lerp(GZ.x - 25, GZ.x, fk), lerp(GZ.y + 900, GZ.y, fk * (0.6 + 0.4 * fk)), lerp(GZ.z + 40, GZ.z, fk));
+  R.bomb.visible = inT(T, EV.fall[0] - 0.01, EV.flash); R.bomb.position.copy(bp);
+  R.trail.scale.set(3, 180, 3); R.trail.quaternion.setFromUnitVectors(V(0, 1, 0), V(-25, 900 * (0.6 + 0.8 * fk), 40).normalize());
+  R.bombGlow.scale.setScalar(70 + 50 * fk);
+  // fireball, its glow, the mushroom cloud
+  const fd = T - EV.flash, fl = flashK(T);
+  R.fireball.visible = post; const fr = 30 + 150 * (1 - Math.exp(-Math.max(0, fd) * 2.2)) + 12 * Math.max(0, fd);
+  R.fireball.scale.setScalar(fr * 0.65); R.fireball.position.set(GZ.x, GZ.y + 20 * Math.max(0, fd), GZ.z);
+  R.fireball.material.color.set(lerpHex(0xffffff, 0xff8a30, smooth(0.1, 2.0, fd)));
+  R.fbGlow.visible = post; R.fbGlow.scale.setScalar(900 + 3000 * fl); R.fbGlow.material.opacity = 0.35 + 0.6 * fl; R.fbGlow.position.copy(R.fireball.position);
+  R.MUSH.forEach((m, i) => {
+    const g = clamp(fd / 10), h = m.cap ? 80 + 260 * g + m.k * 60 : m.k * (80 + 260 * g), r = m.cap ? m.r * (60 + 140 * g) : m.r * 40 + 10;
+    const s = (m.cap ? 60 + 90 * g : 30 + 20 * g) * m.s * 2.4 * smooth(0, 1.2, fd);
+    R.mush.setMatrixAt(i, m4.compose(t4.set(GZ.x + Math.cos(m.a) * r, fd > 0 ? GZ.y + h : -1e4, GZ.z + Math.sin(m.a) * r), q4.setFromAxisAngle(V(0, 1, 0), m.a + fd * 0.05), s4.set(s + 1e-3, s * 0.8 + 1e-3, s + 1e-3)));
+  });
+  R.mush.instanceMatrix.needsUpdate = true;
+  R.mushM.emissiveIntensity = 0.3 + 2.5 * Math.exp(-Math.max(0, fd) * 0.5);
+  // the shock ring: from ground zero out to the roof (only its half toward us)
+  const Rr = shockR(T) * 1.0, a0 = Math.atan2(-GZ.z, -GZ.x);
+  R.RING.forEach((p, i) => {
+    const a = a0 + p.a * (0.6 + 0.4 * clamp(1 - Rr / ringToRoof)) * 0.4, rr = Math.min(Rr, ringToRoof - 260) - p.row * 22 - p.j * 14, s = (p.row === 0 ? 55 : 42) * p.s * clamp(Rr / 500);
+    const on = T > EV.flash + 0.2 && Rr < ringToRoof + 60;
+    R.ring.setMatrixAt(i, m4.compose(t4.set(GZ.x + Math.cos(a) * rr, on ? -40 + s * 0.45 + p.row * 12 : -1e4, GZ.z + Math.sin(a) * rr), q4.setFromAxisAngle(V(0, 1, 0), i), s4.set(s + 1e-3, s * 0.8 + 1e-3, s + 1e-3)));
+  });
+  R.ring.instanceMatrix.needsUpdate = true;
+  R.ringM.emissiveIntensity = 0.6 + 0.6 * glowK(T);
+  const dr = Rr * 1.02 + 30; R.dome.visible = T > EV.flash + 0.05 && dr < ringToRoof + 40; R.dome.scale.set(dr, dr * 0.75, dr);
+  R.domeU.uOp.value = 1.0 * smooth(EV.flash, EV.flash + 0.6, T);
+}
+function updateStreet(T) {
+  const R = street, f = streetFront(T);
+  R.PANES.forEach((p, i) => R.panes.setMatrixAt(i, T < paneBreak(p) ? m4.compose(t4.set(p.x, p.y, p.z), IDENT, s4.set(1, 1, 1)) : HIDE));
+  R.panes.instanceMatrix.needsUpdate = true;
+  R.SHARDS.forEach((s, j) => {
+    const p = R.PANES[s.i], tb = paneBreak(p);
+    if (T < tb) { R.shards.setMatrixAt(j, HIDE); return; }
+    const [pos] = throwAt(T, tb, t4.set(p.x - p.sx * 0.05, p.y + s.oy, p.z + s.oz), s.v, 0.16 * (Math.abs(p.x) > 4.6 ? 1 : 0) + 0.01);
+    const d = Math.min(T - tb, 3);
+    R.shards.setMatrixAt(j, m4.compose(pos, q4.setFromEuler(e4.set(s.spin.x * d, s.spin.y * d, 0)), s4.set(s.s, s.s * 0.6, s.s * 0.2)));
+  });
+  R.shards.instanceMatrix.needsUpdate = true;
+  R.CARS.forEach(c => {
+    const tb = EV.blast[0] + (c.p.z + 420) / 490 * (EV.blast[1] - EV.blast[0]) + 0.05, d = Math.max(0, T - tb);
+    const [pos] = throwAt(T, tb, c.p, c.v, -50);
+    c.g.position.copy(T < tb ? c.p : pos); c.g.quaternion.copy(qYaw(c.yaw)).multiply(q4.setFromEuler(e4.set(c.spin.x * d, c.spin.y * d, c.spin.z * d)));
+  });
+  R.storm.set(T, f, T > EV.blast[0] - 0.2 ? 1 : 0, 0); R.storm.sheets.forEach(s => s.m.visible = T > EV.blast[0] - 0.2);
+}
+function updateRubble(T) {
+  const R = rubble, Y = R.you, Dt = R.date, g0 = rubH(0, -0.4);
+  const wake = smooth(EV.wake[0], EV.wake[1], T), propped = T >= ln(9, -0.1), late = T >= ln(12, -0.1);
+  if (!late) {
+    // you lie on your back (head toward −z); at "scream" you are up on your elbows, shouting toward your date
+    place(Y, 0, g0 + 0.12 - 0.92 + (propped ? 0.04 : 0), 0, 0);
+    const sc = smooth(EV.scream, EV.scream + 0.3, T);
+    personPose(Y, { lean: propped ? -0.6 : -Math.PI / 2 + 0.04, legs: -Math.PI / 2 + 0.05, armL: propped ? 0.55 : 0.25, armR: propped ? 0.55 : 0.3, splay: propped ? 0.25 : 0.12, pitch: propped ? 0.25 : 0.1 * wake, yaw: propped ? -0.6 : 0.15 * Math.sin(T * 0.8) * wake, tilt: 0 });
+    personFace(Y, { open: propped ? 1 : wake * (0.85 + 0.15 * Math.sin(T * 2.3)), worry: propped ? 1 : 0.6 * wake, mouth: propped ? 0.85 * sc * (0.85 + 0.15 * Math.sin(T * 5)) : 0.1 });
+    // your date: kneeling in the dust, reaching for you
+    const reach = smooth(EV.reach[0], EV.reach[1], T), alive = T >= ln(11, -0.1);
+    place(Dt, DATE_RUB.x, DATE_RUB.y - 0.42, DATE_RUB.z, Math.PI / 2 - 0.25);
+    personPose(Dt, { drop: -0.0, lean: 0.35 + 0.25 * reach, legs: 1.25, legL: 0.05, armL: -0.2 - 0.2 * reach, armR: alive ? -1.35 : -0.2 - 1.15 * reach, splay: 0.06, pitch: alive ? 0.05 : -0.1, yaw: alive ? -0.2 : 0 });
+    personFace(Dt, { open: alive ? 0.85 + 0.15 * smooth(ln(11, 0), ln(11, 0.6), T) : 0.6, smile: alive ? 0.4 * smooth(ln(11, 0.1), ln(11, 0.8), T) : 0, worry: alive ? 0.6 : 0.8 });
+  } else {
+    // both of you stand on the ruins and look out over the burning city
+    place(Y, -0.45, rubH(-0.45, -1.6), -1.6, Math.PI - 0.1); place(Dt, 0.35, rubH(0.35, -1.75), -1.75, Math.PI + 0.12);
+    personPose(Y, { pitch: 0.12, armL: -0.1, armR: 0.25, splay: 0.05, armRz: 0.25 }); personPose(Dt, { pitch: 0.1, armL: 0.2, armLz: 0.2, armR: -0.05, splay: 0.04 });
+    personFace(Y, { worry: 1 }); personFace(Dt, { worry: 1 });
+  }
+  // dust: the cloud between you thins out once your date comes through it
+  const thin = 1 - 0.65 * smooth(ln(11, -0.3), ln(11, 1.0), T);
+  R.DUST.forEach((d, i) => { const s = d.s * (1 + 0.15 * Math.sin(T * 0.6 + d.ph)) * (d.c ? (0.5 + 0.5 * thin) : 1); R.dust.setMatrixAt(i, m4.compose(t4.set(d.p.x + 0.25 * Math.sin(T * 0.3 + d.ph), d.p.y + 0.12 * Math.sin(T * 0.4 + d.ph * 2), d.p.z + 0.2 * Math.cos(T * 0.25 + d.ph)), IDENT, s4.set(s, s * 0.8, s))); });
+  R.dust.instanceMatrix.needsUpdate = true; R.dustM.opacity = late ? 0 : 0.45 - 0.25 * (1 - thin) / 0.65;
+  R.fires.u.uTime.value = T; R.nearFires.u.uTime.value = T; R.smoke.set(T);
+}
+// basement helpers: the door (open while you come in), the phone (on/off), the dust under the door, the tape
+const doorOpen = T => T < EV.descend[0] ? 1 : 1 - smooth(EV.descend[1] - 0.9, EV.descend[1], T);
+const phoneOn = T => T < EV.phone1 ? 0 : smooth(EV.phone1, EV.phone1 + 0.25, T);
+const dustRate = T => smooth(EV.dustIn[0], EV.dustIn[0] + 1.2, T) * (1 - tapeK(T));
+const tapeK = T => smooth(EV.seal[0], EV.seal[1], T);
+// the stair path: from the door down the steps to the floor
+const stairAt = k => { const z = lerp(-3.55, -1.0, k), y = z < -3.02 ? 1.2 : z > -1.5 ? 0 : 0.2 * Math.ceil((-1.5 - z) / 0.3 - 1e-6); return V(DOOR.x + 0.12, y, z); };
+function updateBase(T) {
+  const R = base, Y = R.you, Dt = R.date;
+  const walk = inT(T, 0, ln(14, -0.1)), seal = inT(T, ln(17, -0.1), ln(18, -0.1));
+  Y.root.visible = true; R.tapeHand.visible = seal;
+  R.door.rotation.y = -1.7 * doorOpen(T);
+  if (walk) {
+    // you come down the stairs, your date close behind you
+    const k = smooth(EV.descend[0], EV.descend[1], T);
+    const py = stairAt(0.15 + 0.85 * k), pd = stairAt(Math.max(0, 0.85 * k - 0.05));
+    place(Y, py.x + 0.15, py.y + 0.02, py.z, 0); place(Dt, pd.x - 0.15, pd.y + 0.02, pd.z, 0.0);
+    personPose(Y, { ph: T * 7, amp: 0.45, lean: 0.12, pitch: 0.3, armR: -0.3 }); personPose(Dt, { ph: T * 7 + 1.5, amp: 0.45, lean: 0.1, pitch: 0.25, armL: -0.6 });
+    personFace(Y, { worry: 1, mouth: 0.15 }); personFace(Dt, { worry: 1, mouth: 0.2 });
+  } else if (seal) {
+    // you kneel on the landing and tape the crack shut
+    const k = tapeK(T);
+    Y.root.visible = false;   // a close-up of your hand pressing the tape along the crack
+    R.tapeHand.position.set(DOOR.x - DOOR.w / 2 + 0.01 + (DOOR.w - 0.02) * k, DOOR.y + 0.07, DOOR.z + 0.1);
+    place(Dt, 1.75, 0.1 - 0.92, 0.55, -Math.PI / 2 - 0.2); personPose(Dt, { legs: -Math.PI / 2 + 0.06, armL: 0.3, armR: 0.3 });
+  } else {
+    // sitting on the floor by the shelves, the lantern between you
+    place(Y, 1.75, 0.1 - 0.92, -0.2, -Math.PI / 2); place(Dt, 1.72, 0.1 - 0.92, 0.6, -Math.PI / 2 - 0.55);
+    const stare = T >= ln(18, -0.1);
+    personPose(Y, { lean: -0.05, legs: -Math.PI / 2 + 0.06, armL: stare ? -0.95 : -0.2, armLy: stare ? 0.25 : 0, armR: -1.05, armRz: -0.32, pitch: stare ? 0.45 : 0.42, splay: 0.04 });
+    personPose(Dt, { lean: 0.15, legs: -Math.PI / 2 + 0.06, armL: -0.4, armR: 0.2, pitch: stare ? 0.55 : 0.25, yaw: stare ? -0.35 : -0.1, tilt: 0.05 });
+    personFace(Y, { worry: 0.7 }); personFace(Dt, { worry: stare ? 1 : 0.6, mouth: stare ? 0.18 : 0, open: 1 });
+  }
+  // the phone: in your hand, then lying on the floor
+  const onFloor = T >= ln(20, -0.1);
+  if (onFloor) { R.phone.position.set(0.9, 0.012, -0.55); R.phone.quaternion.copy(qEul(-Math.PI / 2, 0, 0.6)); R.phoneHand.visible = false; }
+  else { R.phone.position.set(1.42, 0.62, -0.1); R.phone.quaternion.copy(qYaw(Math.PI / 2 - 0.15)).multiply(qAx(1, 0, 0, -0.55)); R.phoneHand.visible = true; }
+  R.phone.visible = !walk && !seal;
+  const cr = inT(T, EV.crackle[0], EV.crackle[1]);
+  if (T < EV.phone1) R.screen.set('off', 'off');
+  else if (T < EV.crackle[0]) R.screen.set('alert1', 'alert1');
+  else if (cr) { const k = Math.round((T - EV.crackle[0]) * 30) / 30; R.screen.set('c' + k, 'crackle', k); }
+  else R.screen.set('alert2', 'alert2');
+  R.screenM.color.setScalar(cr ? 0.75 + 0.15 * Math.sin(T * 11) : 1);
+  R.tape.scale.set(Math.max(1e-3, (DOOR.w - 0.02) * tapeK(T)), 1, 1); R.tape.visible = T > EV.seal[0];
+  // grey dust blowing in through the crack: every puff is born at the crack and fades as it settles
+  const P = R.puffs.geometry.attributes, life = 2.6, n = R.PN;
+  for (let i = 0; i < n; i++) {
+    const ph = i / n * life, cyc = Math.floor((T - ph) / life), b = ph + cyc * life, age = T - b;
+    const x0 = DOOR.x - DOOR.w / 2 + 0.02 + hash(i, cyc) * (DOOR.w - 0.04), rate = dustRate(b), keep = hash(i, cyc + 3) < rate && x0 > DOOR.x - DOOR.w / 2 + (DOOR.w - 0.02) * tapeK(b);
+    const vz = 0.35 + 0.5 * hash(i, cyc + 1), vx = (hash(i, cyc + 2) - 0.5) * 0.25, z = DOOR.z + 0.05 + vz * age * (1 - 0.25 * age / life);
+    let y = DOOR.y + 0.02 + 0.06 * age + 0.03 * Math.sin(age * 3 + i);
+    const stair = stairAt(clamp((z + 3.55) / 2.55)); y = Math.max(y - (z > -3.02 ? (1.2 - stair.y) * smooth(0, 0.6, z + 3.02) : 0), stair.y + 0.02);
+    P.position.setXYZ(i, x0 + vx * age, y, z);
+    P.aA.setX(i, keep ? 0.8 * smooth(0, 0.25, age) * (1 - smooth(life * 0.55, life, age)) : 0);
+  }
+  P.position.needsUpdate = true; P.aA.needsUpdate = true;
+  R.puffU.uPx.value = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360));
+}
+function updateAfter(T) { after.smoke.set(T); }
+/* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash');
+const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
+const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
+function overlays(T) {
+  const S = storyAt(T), cut = S >= ENDING.fade, dark = clamp((S - ENDING.fade) / (ENDING.cut - ENDING.fade));
+  let line = '';
+  if (!cut) for (const s of SCENES) for (const [a, b, text] of s.subtitles) if (T >= a && T < b) line = text;
+  if (line !== subsEl.dataset.text) {
+    subsEl.dataset.text = line; subsEl.classList.remove('on');
+    if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
+  }
+  const titleEnd = ln(3, -0.3);
+  titleEl.classList.toggle('on', T > 0.15 && T < titleEnd);
+  fadeEl.style.opacity = dark;
+  // the flash turns everything white, then sinks back; the shockwave hits get a short soft flash
+  let fl = 0.74 * flashK(S); for (const [t, k] of SHAKES) if (k > 0.5) fl += 0.1 * pulse(S - t, 25, 5);
+  flashEl.style.opacity = cut ? 0 : Math.min(0.9, fl);
+  const sc = SCENES.find(s => S < s.end) ?? SCENES[SCENES.length - 1];
+  if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
+  const on = sc.id !== 'date' && !cut && S - sc.start > 0.2 && S - sc.start < 2.6;
+  chapterEl.classList.toggle('on', on);
+  if (RENDER) {
+    const fade = (a, b, f = 0.2) => clamp(Math.min((T - a) / f, (b - T) / f));
+    let sub = 0; if (!cut) for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b, 0.12);
+    subsEl.style.opacity = sub; subsEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.15, titleEnd, 0.4); titleEl.style.transform = 'none';
+    chapterEl.style.opacity = sc.id !== 'date' && !cut ? fade(sc.start + 0.2, Math.min(sc.start + 2.6, ENDING.fade), 0.35) : 0; chapterEl.style.transform = 'none';
+  }
+}
+function buildSfx(ctx) {
+  const N = { master: ctx.createGain(), bus: ctx.createGain(), muffle: ctx.createBiquadFilter() };
+  N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 16000;
+  N.bus.connect(N.muffle).connect(N.master).connect(ctx.destination);
+  const noise = (sec, brown) => {
+    const b = ctx.createBuffer(1, ctx.sampleRate * sec, ctx.sampleRate), d = b.getChannelData(0); let last = 0;
+    for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+    return b;
+  };
+  N.white = noise(4, false); N.brown = noise(4, true);
+  const loop = (buf, type, freq, Q) => {
+    const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = Q;
+    const g = ctx.createGain(); g.gain.value = 0;
+    src.connect(f).connect(g).connect(N.bus); src.start(0, Math.random() * 3);
+    return { f, g };
+  };
+  const osc = (type, freq, gain = 0) => { const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq; const g = ctx.createGain(); g.gain.value = gain; o.connect(g); o.start(0); return { o, g }; };
+  // drone: two detuned saws through a slow lowpass, rising with the tension
+  N.droneF = ctx.createBiquadFilter(); N.droneF.type = 'lowpass'; N.droneF.frequency.value = 300; N.droneF.Q.value = 4; N.droneG = ctx.createGain(); N.droneG.gain.value = 0;
+  N.droneF.connect(N.droneG).connect(N.bus);
+  N.d1 = osc('sawtooth', 43.6); N.d2 = osc('sawtooth', 44.1); N.d3 = osc('sine', 32.7, 1); [N.d1, N.d2, N.d3].forEach(d => d.g.connect(N.droneF)); N.d1.g.gain.value = N.d2.g.gain.value = 0.5;
+  N.rumble = loop(N.brown, 'lowpass', 110, 0.8);
+  N.wind = loop(N.brown, 'bandpass', 420, 2.2);
+  N.gust = loop(N.white, 'bandpass', 900, 0.9);      // salt / dust storm hiss
+  N.roar = loop(N.brown, 'lowpass', 260, 0.7);       // storm and fire roar
+  N.crowd = loop(N.white, 'bandpass', 900, 1.4);     // a crowd in panic
+  N.crowd2 = loop(N.brown, 'bandpass', 420, 1.1);
+  N.hum = loop(N.brown, 'bandpass', 120, 6);         // the shop's fridges, the room
+  N.rustle = loop(N.white, 'highpass', 3500, 0.7);   // dry leaves
+  const burst = (t, { type, from, to, dur, gain, buf = N.white, q = 0.7 }) => {
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(N.bus); src.start(t, Math.random() * 2); src.stop(t + dur + 0.05);
+  };
+  const tone = (t, type, f0, f1, dur, gain, attack = 0.015) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + dur); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + attack); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g).connect(N.bus); o.start(t); o.stop(t + dur + 0.05); };
+  const boom = (t, k) => { burst(t, { type: 'lowpass', from: 2200, to: 60, dur: 2.4, gain: 0.9 * k, buf: N.brown }); tone(t, 'sine', 72, 24, 1.8, 1.0 * k); burst(t, { type: 'bandpass', from: 1500, to: 200, dur: 0.6, gain: 0.3 * k }); };
+  const thud = (t, k) => { tone(t, 'sine', 85, 32, 0.5, 0.9 * k, 0.005); burst(t, { type: 'lowpass', from: 800, to: 70, dur: 0.5, gain: 0.6 * k, buf: N.brown }); };
+  const clank = (t, k, f = 620) => { for (const [m, d] of [[1, 0], [2.76, 0.003], [5.4, 0.006]]) tone(t + d, 'triangle', f * m, f * m * 0.98, 0.5 / m + 0.25, 0.08 * k / m, 0.002); };
+  const splash = (t, k) => { burst(t, { type: 'bandpass', from: 1800, to: 500, dur: 0.5, gain: 0.35 * k, q: 0.6 }); burst(t + 0.03, { type: 'highpass', from: 3000, to: 6000, dur: 0.6, gain: 0.15 * k }); };
+  // a groan: a buzzy tone gliding through a formant (whale calls, a ship's hull)
+  const moan = (t, f0, f1, dur, gain, formant = 380) => {
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), v = ctx.createOscillator(), vg = ctx.createGain(), bp = ctx.createBiquadFilter(), g = ctx.createGain(), g2 = ctx.createGain();
+    o.type = 'sawtooth'; o2.type = 'sine';
+    o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f0 * 1.2, t + dur * 0.4); o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    o2.frequency.setValueAtTime(f0 * 0.5, t); o2.frequency.exponentialRampToValueAtTime(f1 * 0.5, t + dur);
+    v.frequency.value = 4.5; vg.gain.value = f0 * 0.025; v.connect(vg).connect(o.frequency);
+    bp.type = 'bandpass'; bp.frequency.setValueAtTime(formant, t); bp.frequency.linearRampToValueAtTime(formant * 1.6, t + dur * 0.5); bp.frequency.linearRampToValueAtTime(formant * 0.8, t + dur); bp.Q.value = 3;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + dur * 0.25); g.gain.setValueAtTime(gain, t + dur * 0.7); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    g2.gain.value = 0.6; o.connect(bp).connect(g); o2.connect(g2).connect(g); g.connect(N.bus);
+    for (const x of [o, o2, v]) { x.start(t); x.stop(t + dur + 0.05); }
+  };
+  const creak = (t, k) => { const o = ctx.createOscillator(), bp = ctx.createBiquadFilter(), g = ctx.createGain(); o.type = 'sawtooth'; o.frequency.setValueAtTime(38, t);
+    for (let i = 1; i < 8; i++) o.frequency.linearRampToValueAtTime(30 + Math.random() * 40, t + i * 0.22);
+    bp.type = 'bandpass'; bp.frequency.value = 520; bp.Q.value = 5; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.14 * k, t + 0.3); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8);
+    o.connect(bp).connect(g).connect(N.bus); o.start(t); o.stop(t + 1.9); };
+  const sting = t => { for (const [f, d] of [[220, 0], [233, 0.02], [311, 0.05]]) { const o = ctx.createOscillator(), g = ctx.createGain(), v = ctx.createOscillator(), vg = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = f; v.frequency.value = 6; vg.gain.value = 5; v.connect(vg).connect(o.frequency); const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 300; g.gain.setValueAtTime(0.0001, t + d); g.gain.exponentialRampToValueAtTime(0.05, t + 0.3); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8); o.connect(hp).connect(g).connect(N.bus); o.start(t + d); v.start(t + d); o.stop(t + 1.9); v.stop(t + 1.9); }
+    tone(t, 'sine', 50, 26, 1.4, 0.6); };
+  const swell = (t, dur, gain) => { burst(t, { type: 'bandpass', from: 200, to: 2400, dur, gain, q: 1.5 }); tone(t, 'sine', 40, 80, dur, gain * 1.5, dur * 0.8); };
+  const cough = (t, k) => { burst(t, { type: 'bandpass', from: 1200, to: 500, dur: 0.12, gain: 0.25 * k, q: 1.2 }); tone(t, 'sine', 180 + Math.random() * 120, 90, 0.1, 0.12 * k, 0.004); };
+  const plink = (t, k) => tone(t, 'sine', 1400, 2200, 0.12, 0.12 * k, 0.003);
+  const shout = (t, k) => { const f = 280 + Math.random() * 260; moan(t, f, f * (0.8 + Math.random() * 0.3), 0.5 + Math.random() * 0.5, 0.035 * k, 900 + Math.random() * 700); };
+  const crackle = (t, k) => burst(t, { type: 'bandpass', from: 2500 + Math.random() * 3000, to: 900, dur: 0.05 + Math.random() * 0.06, gain: 0.12 * k, q: 1.5 });
+  const step = (t, k) => burst(t, { type: 'lowpass', from: 900, to: 120, dur: 0.08, gain: 0.12 * k, buf: N.brown });
+  // a two-tone emergency alert (phone)
+  const alertTone = (t, dur, k = 1) => { for (const f of [853, 960]) { const o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter(); o.type = 'square'; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.value = 2200;
+    g.gain.setValueAtTime(0.0001, t); for (let i = 0; i < dur / 0.5; i++) { g.gain.setTargetAtTime(0.03 * k, t + i * 0.5, 0.01); g.gain.setTargetAtTime(0.0001, t + i * 0.5 + 0.36, 0.02); }
+    o.connect(lp).connect(g).connect(N.bus); o.start(t); o.stop(t + dur + 0.2); } };
+  // a falling whistle: a high tone gliding down, with a little vibrato
+  const whistle = (t, dur, k = 1) => { const o = ctx.createOscillator(), v = ctx.createOscillator(), vg = ctx.createGain(), g = ctx.createGain(); o.type = 'sine';
+    o.frequency.setValueAtTime(2200, t); o.frequency.exponentialRampToValueAtTime(420, t + dur); v.frequency.value = 7; vg.gain.value = 18; v.connect(vg).connect(o.frequency);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.06 * k, t + dur * 0.4); g.gain.exponentialRampToValueAtTime(0.09 * k, t + dur * 0.95); g.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.05);
+    o.connect(g).connect(N.bus); for (const x of [o, v]) { x.start(t); x.stop(t + dur + 0.1); }
+    burst(t, { type: 'bandpass', from: 900, to: 2400, dur, gain: 0.04 * k, q: 2 }); };
+  // glass: many tiny bright ticks and a crash
+  const glass = (t, k) => { burst(t, { type: 'highpass', from: 4000, to: 7000, dur: 0.6, gain: 0.25 * k }); for (let i = 0; i < 9; i++) tone(t + Math.random() * 0.5, 'triangle', 2600 + Math.random() * 3000, 2400 + Math.random() * 2500, 0.12 + Math.random() * 0.2, 0.05 * k, 0.002); };
+  // a car alarm: a wailing square wave, far and muffled
+  const alarm = (t, dur, f0, k) => { const o = ctx.createOscillator(), l = ctx.createOscillator(), lg = ctx.createGain(), g = ctx.createGain(), lp = ctx.createBiquadFilter(); o.type = 'square'; o.frequency.value = f0; l.frequency.value = 2.2; lg.gain.value = f0 * 0.25; l.connect(lg).connect(o.frequency);
+    lp.type = 'lowpass'; lp.frequency.value = 1400; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.012 * k, t + 0.3); g.gain.setValueAtTime(0.012 * k, t + dur - 0.5); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(lp).connect(g).connect(N.bus); for (const x of [o, l]) { x.start(t); x.stop(t + dur + 0.05); } };
+  const laugh = (t, k, f = 260) => { for (let i = 0; i < 4; i++) moan(t + i * 0.16, f * (1.1 - i * 0.04), f * (0.9 - i * 0.04), 0.13, 0.018 * k, 1100); };
+  // ringing ears: a thin high tone that slowly fades, the world muffled underneath
+  N.ring = osc('sine', 5200, 0); N.ring.g.connect(N.master); N.ring2 = osc('sine', 5210, 0); N.ring2.g.connect(N.master);
+  N.fire = loop(N.brown, 'lowpass', 380, 0.7); N.city = loop(N.brown, 'bandpass', 260, 0.8); N.static = loop(N.white, 'bandpass', 2600, 0.6);
+  return {
+    N,
+    // continuous layers follow the set and the story
+    apply(T, at) {
+      const set = CAM.set, ten = envAt(T).tension, set_ = (p, v, k = 0.12) => p.setTargetAtTime(v, at, k);
+      const quiet = T >= ln(22, -0.1);
+      set_(N.droneG.gain, quiet ? 0.02 : (0.03 + 0.14 * ten) * (set === 'roof' && T < EV.fall[0] ? 0.2 : 1)); set_(N.droneF.frequency, 150 + 520 * ten + 80 * Math.sin(T * 0.4));
+      set_(N.d1.o.frequency, 43.6 * (1 + 0.02 * ten * Math.sin(T * 0.2)), 0.5);
+      let wind = 0.05, roar = 0, crowd = 0, hum = 0, fire = 0, city = 0, ring = 0, stat = 0, muffle = 16000;
+      if (set === 'roof' && T < EV.flash) { city = 0.12; crowd = 0.025; }
+      if (set === 'roof' && T >= EV.flash) { roar = 0.25 + 0.4 * smooth(EV.wave[1] - 1.5, EV.wave[1], T); wind = 0.15; }
+      if (set === 'street') { roar = 0.35 + 0.5 * smooth(EV.blast[0], EV.blast[1], T); wind = 0.35; }
+      if (set === 'rubble') { fire = T >= ln(12, -0.1) ? 0.3 : 0.14; wind = 0.12; ring = 0.03 * (1 - smooth(ln(8, 0), ln(10, 0.5), T)) * smooth(ln(7, -0.1), ln(7, 0.8), T); muffle = lerp(900, 16000, smooth(ln(8, 0.5), ln(10, 0), T)); }
+      if (set === 'base') { hum = 0.025; fire = 0.04; wind = 0.06 + 0.12 * dustRate(T); muffle = 2400; if (inT(T, EV.crackle[0], EV.crackle[1] + 0.2)) stat = 0.07 * (0.7 + 0.3 * Math.sin(T * 13)); }
+      if (set === 'after') { wind = 0.05; }
+      if (quiet) { wind = 0.03; fire = 0; roar = 0; hum = 0; stat = 0; }
+      set_(N.wind.g.gain, wind); set_(N.wind.f.frequency, 380 + 120 * Math.sin(T * 0.3)); set_(N.roar.g.gain, roar); set_(N.gust.g.gain, set === 'street' ? 0.25 * smooth(EV.blast[0], EV.blast[1], T) : 0);
+      set_(N.crowd.g.gain, crowd); set_(N.crowd2.g.gain, crowd * 0.5); set_(N.hum.g.gain, hum); set_(N.rustle.g.gain, 0); set_(N.fire.g.gain, fire); set_(N.city.g.gain, city); set_(N.static.g.gain, stat);
+      set_(N.ring.g.gain, ring); set_(N.ring2.g.gain, ring * 0.6);
+      set_(N.rumble.g.gain, 0.04 + 0.3 * shake(T) + (set === 'roof' && T >= EV.flash ? 0.25 : 0) + (set === 'street' ? 0.3 : 0) + (set === 'rubble' ? 0.06 : 0));
+      set_(N.muffle.frequency, muffle, 0.08);
+      // the end: the sound fades out with the picture
+      N.master.gain.setTargetAtTime(0.9 * (1 - clamp((T - ENDING.fade) / (ENDING.cut - ENDING.fade))), at, 0.1);
+    },
+    events(T0, T1, at) {
+      if (T1 >= ENDING.fade) return;
+      const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set, rand = k => Math.random() < dt * k;
+      if (hit(0.15)) { laugh(at, 1, 300); laugh(at + 0.25, 0.8, 210); }
+      if (hit(ln(1, 1.4))) laugh(at, 0.8, 320);
+      if (hit(EV.fall[0] + 0.1)) whistle(at, EV.flash - EV.fall[0] - 0.15, 1);
+      if (hit(ln(2, 0.3))) sting(at);
+      // the flash: a moment of silence, then the blast
+      if (hit(EV.flash)) { tone(at, 'sine', 90, 30, 3.5, 0.6, 0.05); burst(at, { type: 'lowpass', from: 3000, to: 80, dur: 3.5, gain: 0.5, buf: N.brown }); swell(at, 2, 0.12); }
+      if (hit(EV.wave[1] - 0.05)) { boom(at, 1.4); burst(at, { type: 'bandpass', from: 2500, to: 300, dur: 1.6, gain: 0.5 }); }
+      // down the street: glass bursting, cars thrown, alarms
+      if (set === 'street' && inT(T1, EV.blast[0] + 0.3, EV.blast[1]) && rand(10)) glass(at, 0.7);
+      if (set === 'street' && inT(T1, EV.blast[0] + 0.8, EV.blast[1]) && rand(4)) { thud(at, 0.8); clank(at, 0.7, 300 + Math.random() * 300); }
+      if (hit(EV.blast[0] + 0.1)) boom(at, 0.8);
+      if (hit(EV.blast[1] - 0.1)) { boom(at, 1.2); burst(at, { type: 'bandpass', from: 2000, to: 200, dur: 1.2, gain: 0.5 }); }
+      if (hit(ln(7, 0.3))) { alarm(at, ln(13, -0.3) - ln(7, 0.3), 780, 0.6); alarm(at + 1.3, ln(13, -0.6) - ln(7, 1.6), 1040, 0.4); }
+      if (hit(ln(7, 0.1))) { tone(at, 'sine', 46, 32, 4, 0.2, 1); }
+      if (hit(EV.scream + 0.05)) moan(at, 330, 300, 1.1, 0.06, 1200);
+      if (set === 'rubble' && rand(1.2)) burst(at, { type: 'bandpass', from: 800 + Math.random() * 1500, to: 300, dur: 0.3, gain: 0.03, q: 1 });   // stones trickle
+      if (hit(EV.reach[0] + 0.2)) burst(at, { type: 'bandpass', from: 1400, to: 500, dur: 0.6, gain: 0.06, q: 0.8 });
+      if (hit(ln(11, 0.1))) swell(at, 2.2, 0.06);
+      if (hit(ln(12, 0.05))) { sting(at); }
+      if (set === 'rubble' && T1 >= ln(12, -0.1) && rand(9)) crackle(at, 0.9);
+      // the basement: steps, the door slams, the alert
+      if (set === 'base' && inT(T1, EV.descend[0], EV.descend[1] - 0.3) && rand(5)) step(at, 0.8);
+      if (hit(EV.descend[1] - 0.05)) { thud(at, 0.9); clank(at, 0.5, 240); }
+      if (hit(EV.phone1)) alertTone(at, 3.0, 1);
+      if (hit(EV.dustIn[0] + 0.1)) swell(at, 2.5, 0.06);
+      if (hit(EV.seal[0] + 0.05)) burst(at, { type: 'bandpass', from: 2500, to: 1200, dur: 1.4, gain: 0.07, q: 0.6 });   // tape pulled off the roll
+      if (hit(ln(19, 0.1))) sting(at);
+      if (set === 'base' && inT(T1, EV.crackle[0], EV.crackle[1]) && rand(14)) crackle(at, 1.0);
+      if (hit(EV.phone2)) alertTone(at, 2.0, 0.7);
+      if (hit(ln(22, 0.2))) tone(at, 'sine', 55, 41, 5, 0.1, 2);
+    },
+  };
+}
+const sfx = (() => {
+  let ctx = null, S = null, enabled = false, lastT = 0;
+  return {
+    get on() { return enabled; },
+    toggle() {
+      if (!ctx) { ctx = new (window.AudioContext || window.webkitAudioContext)(); S = buildSfx(ctx); }
+      enabled = !enabled;
+      enabled && playing ? ctx.resume() : ctx.suspend();
+      return enabled;
+    },
+    pause(p) { if (ctx && enabled) p ? ctx.suspend() : ctx.resume(); },
+    update(T) {
+      if (!ctx || !enabled) { lastT = T; return; }
+      S.apply(storyAt(T), ctx.currentTime);
+      if (playing && T > lastT && T - lastT < 0.5) S.events(storyAt(lastT), storyAt(T), ctx.currentTime);
+      lastT = T;
+    },
+  };
+})();
+// Offline soundtrack for the MP4 export: same layers, rendered faster than real time, returned as 16-bit WAV.
+async function renderSoundtrack(rate = 44100) {
+  const ctx = new OfflineAudioContext(1, Math.ceil(DURATION * rate), rate), S = buildSfx(ctx);
+  for (let t = 0, prev = 0; t <= DURATION; prev = t, t += 0.05) {
+    placeCamera(storyAt(t));
+    S.apply(storyAt(t), t);
+    if (t > 0) S.events(storyAt(prev), storyAt(t), t);
+  }
+  const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+  const out = new DataView(new ArrayBuffer(44 + d.length * 2)), str = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); out.setUint32(4, 36 + d.length * 2, true); str(8, 'WAVEfmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, 1, true);
+  out.setUint32(24, rate, true); out.setUint32(28, rate * 2, true); out.setUint16(32, 2, true); out.setUint16(34, 16, true); str(36, 'data'); out.setUint32(40, d.length * 2, true);
+  let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+  const norm = peak > 0.89 ? 0.89 / peak : 1;
+  for (let i = 0; i < d.length; i++) out.setInt16(44 + i * 2, clamp(d[i] * norm, -1, 1) * 32767, true);
+  let bin = ''; const bytes = new Uint8Array(out.buffer);
+  for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+  return btoa(bin);
+}
+const soundBtn = document.getElementById('sound');
+function toggleSound() { soundBtn.setAttribute('aria-pressed', String(sfx.toggle())); }
+soundBtn.onclick = toggleSound;
+/* ===================================================================== PLAYBACK */
+const hud = document.getElementById('hud'), playBtn = document.getElementById('play'), scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const playIcon = document.getElementById('play-icon');
+scrub.max = DURATION;
+let T = 0, playing = true, last = null, audio = null;
+const fmtTime = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+function setPlaying(v) {
+  playing = v;
+  playBtn.setAttribute('aria-label', v ? 'Pause' : 'Play');
+  playIcon.innerHTML = v ? '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>' : '<path d="M4 2l10 6-10 6z"/>';
+  if (audio) { if (v) { audio.currentTime = T; audio.play().catch(() => {}); } else audio.pause(); }
+  sfx.pause(!v);
+  poke();
+}
+function seek(t) { T = clamp(t, 0, DURATION); if (audio) audio.currentTime = T; }
+playBtn.onclick = () => { if (!playing && T >= DURATION) seek(0); setPlaying(!playing); };
+document.getElementById('replay').onclick = () => { seek(0); setPlaying(true); };
+scrub.oninput = () => seek(parseFloat(scrub.value));
+function attachAudio(src) {
+  audio?.pause(); audio = new Audio(src); audio.preload = 'auto';
+  audio.addEventListener('ended', () => setPlaying(false));
+  seek(0); setPlaying(true);
+}
+document.getElementById('voice').onchange = e => { const f = e.target.files?.[0]; if (f) attachAudio(URL.createObjectURL(f)); };
+if (params.get('audio')) attachAudio(params.get('audio'));
+let hideTimer = 0, forceHidden = params.get('clean') === '1';
+function poke() {
+  clearTimeout(hideTimer); hud.classList.toggle('hide', forceHidden);
+  if (playing && !forceHidden) hideTimer = setTimeout(() => hud.classList.add('hide'), 2500);
+}
+stage.addEventListener('pointermove', poke); stage.addEventListener('pointerdown', poke);
+stage.addEventListener('pointerdown', e => { if (forceHidden && !sfx.on) toggleSound(); });
+addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') { forceHidden = !forceHidden; poke(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+});
+poke();
+
+function draw(T) { placeCamera(storyAt(T)); update(storyAt(T)); overlays(T); composer ? composer.render() : renderer.render(scene, camera); }
+function frame(now) {
+  const dt = last === null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) {
+    if (audio && !audio.paused && audio.readyState >= 2) T = Math.min(DURATION, audio.currentTime); else T += dt;
+    if (T >= DURATION) { T = DURATION; setPlaying(false); }
+  }
+  placeCamera(storyAt(T)); update(storyAt(T)); sfx.update(T); overlays(T);
+  scrub.value = T; timeEl.textContent = fmtTime(T);
+  composer ? composer.render() : renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+const RENDER = params.get('render') === '1';
+if (RENDER) {
+  forceHidden = true; poke(); playing = false;
+  document.body.classList.add('render');
+  window.renderAt = t => { T = t; draw(T); };
+  window.renderSoundtrack = renderSoundtrack;
+  window.renderReady = true;
+} else { if (params.get('t')) T = +params.get('t'); requestAnimationFrame(frame); }
+addEventListener('pagehide', () => {
+  audio?.pause();
+  scene.traverse(o => { o.geometry?.dispose(); [].concat(o.material ?? []).forEach(m => m.dispose()); });
+  composer?.dispose?.(); pmrem.dispose(); renderer.dispose();
+});
+</script>
