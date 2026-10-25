@@ -11,6 +11,7 @@ en knop **Voice** (eigen stem laden). `H` of `?clean=1` verbergt de knoppen.
 | `insects-human-size.html` | What If: insecten zo groot als mensen, 80 s (doorsnede tracheeën, mierenhoop, Meganeura) |
 | `insects-horror.html` | What If: insecten zo groot als mensen, horrorversie, 90 s (slaapkamer, stad, supermarkt, koningin, schuilkelder; harde cut naar zwart). Ondertitels volgen de stem, `WARP` zet videotijd om naar verhaaltijd |
 | `ai-takeover.html` | What If: AI slimmer dan mensen, **liggend 16:9**, 5 min, eigen script met harde cut naar zwart (`export_mp4.mjs --landscape`) |
+| `black-hole.html` | What If: een zwart gat scheert langs de aarde, **liggend 16:9**, eigen script met harde cut naar zwart. Zes locaties (observatorium, controlekamer, zonnestelsel, aarde, kuststad, melkweg); het zwarte gat zelf is onzichtbaar: gebogen sterrenlicht via een lens in de hemel-shader en een lens-pass over het beeld (`export_mp4.mjs --landscape`) |
 
 ## Alles in één keer op de pc (PowerShell)
 Vanuit de map `vox-lux`:
