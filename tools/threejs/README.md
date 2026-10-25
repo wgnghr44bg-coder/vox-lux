@@ -33,3 +33,13 @@ Nodig: Node.js, Python, ffmpeg; Playwright wordt de eerste keer zelf geïnstalle
 
 Een nieuwe animatie werkt met deze tools als ze dezelfde opbouw heeft als `never-stopped-raining.html`
 (`SCENES` met `subtitles`, `buildSfx`, `?render=1` met `renderAt`/`renderSoundtrack`); zie `whatif-prompt.md`.
+
+## Uploaden (alleen als de eigenaar het vraagt)
+What If-video's horen op het kanaal **IfScape3D**, niet op Sleep Archives. De gewone sleutel `YT_REFRESH_TOKEN` is van
+Sleep Archives; gebruik voor What If de What If-sleutel:
+```
+YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py <video>-voice.mp4 --title "What if …? #shorts" \
+    --description-file description.txt --tags "3d animation,ifscape3d,…,shorts,what if" --privacy public --category 28
+```
+Stijl van titel, beschrijving en tags: zie de laatste Shorts op IfScape3D (bv. https://youtu.be/NnjF2ssIZls). Controleer na
+de upload via de API dat de video op IfScape3D staat.
