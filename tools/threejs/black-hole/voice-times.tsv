@@ -1,0 +1,108 @@
+#	start	end	image	text
+1	0.94	2.57	c01	Imagine waking up tomorrow...
+2	3.00	5.44	c02	And discovering that the stars are moving.
+3	5.73	6.84	c03	Not across the sky.
+4	7.29	8.56	c04	Across space itself.
+5	9.11	13.02	c05	Astronomers notice that distant stars are bending into strange arcs.
+6	13.47	16.20	c06	One star appears to split into several images.
+7	16.58	18.02	c07	Another seems to vanish.
+8	18.52	21.51	c08	At first, they suspect a telescope malfunction.
+9	21.74	25.73	c09	Then observatories on opposite sides of Earth confirm the same impossible pattern.
+10	26.25	30.48	c10	Something invisible is warping the light from entire regions of the galaxy.
+11	30.70	31.65	c11	Something massive.
+12	31.85	32.67	c12	Something dark.
+13	33.23	35.85	c13	A black hole is moving toward our solar system.
+14	36.21	38.60	c14	And nobody knows how close it will come.
+15	39.19	42.29	c15	Within hours, astronomers begin tracking its path.
+16	42.80	44.79	c16	The first prediction seems reassuring.
+17	45.16	46.67	c17	The black hole will pass us.
+18	47.50	48.61	c18	Earth will survive.
+19	49.08	50.87	c19	But then new measurements arrive.
+20	51.33	52.98	c20	The calculations change.
+21	53.54	60.13	c21	The object is moving faster than expected, and its trajectory is more difficult to pin down than anyone anticipated.
+22	60.68	62.48	c22	Scientists run the numbers again.
+23	62.99	63.72	c23	And again.
+24	63.94	70.85	c24	Every model agrees on one thing: the black hole is coming close enough for its gravity to disturb objects in the solar system.
+25	71.30	72.26	c25	But how close?
+26	72.68	78.63	c26	That is the question separating an extraordinary astronomical event from a potential planetary disaster.
+27	78.90	80.50	c27	And the clock is already running.
+28	80.77	86.15	c28	As the black hole approaches, astronomers detect subtle changes in the motion of distant objects.
+29	86.48	88.76	c29	Its gravity is tugging on the solar system.
+30	89.39	92.37	c30	Not like a vacuum cleaner sucking everything into darkness.
+31	92.80	94.65	c31	Something far more complicated.
+32	94.91	98.53	c32	Gravity is changing the paths objects follow through space.
+33	98.79	100.05	c33	A small shift here.
+34	100.48	101.89	c34	A different trajectory there.
+35	102.23	110.10	c35	The black hole's immense gravity also bends the light passing near it, creating ghostly rings and distorted images of distant stars.
+36	110.65	111.91	c36	The sky looks broken.
+37	112.54	115.93	c37	But the most important change cannot be seen with the naked eye.
+38	116.40	120.55	c38	Earth is moving around the Sun at roughly thirty kilometers per second.
+39	121.03	127.16	c39	And the question is whether this invisible visitor will alter that motion enough to threaten our future.
+40	127.69	130.77	c40	The world's leading observatories combine their measurements.
+41	131.30	134.21	c41	The team calculates the black hole's closest approach.
+42	134.66	137.25	c42	One model predicts a relatively minor disturbance.
+43	137.66	140.10	c43	Another suggests a much more serious change.
+44	140.86	142.86	c44	Then a fresh observation arrives.
+45	143.11	144.89	c45	The scientists update the model.
+46	145.32	146.40	c46	The room goes quiet.
+47	146.82	148.65	c47	The predicted path has shifted again.
+48	148.93	151.28	c48	They cannot simply push Earth out of danger.
+49	152.05	157.01	c49	There is no realistic way to move an entire planet away from an approaching black hole.
+50	157.57	163.01	c50	For the first time, the team begins calculating not just whether Earth will survive the encounter...
+51	163.54	165.87	c51	But what kind of orbit it will have afterward.
+52	166.48	169.95	c52	A small change might leave life largely undisturbed.
+53	170.54	176.27	c53	A sufficiently large change could alter Earth's distance from the Sun and reshape its climate over time.
+54	176.68	181.27	c54	And now, there is only one measurement left that can narrow the uncertainty.
+55	181.73	183.96	c55	The closest approach is hours away.
+56	184.27	185.71	c56	Night falls across Earth.
+57	186.29	190.72	c57	Millions of people look up, searching for something they cannot actually see.
+58	191.16	193.72	c58	There is no glowing monster crossing the sky.
+59	194.17	195.64	c59	No giant black sphere.
+60	195.93	199.58	c60	Only stars, their light bent around an invisible point.
+61	200.13	204.31	c61	In control rooms around the world, scientists watch the data arrive.
+62	204.76	205.65	c62	Ten minutes.
+63	205.95	206.73	c63	Five minutes.
+64	206.95	207.64	c64	One minute.
+65	208.02	210.60	c65	The black hole reaches its closest approach.
+66	211.08	213.30	c66	For a moment, nothing seems to happen.
+67	213.95	215.76	c67	The oceans remain where they are.
+68	216.32	218.29	c68	The ground does not split open.
+69	218.75	220.25	c69	Earth does not disappear.
+70	220.59	223.12	c70	Then the new measurements begin coming in.
+71	223.75	225.37	c71	The black hole is moving away.
+72	226.08	228.81	c72	But Earth's motion through space has been altered.
+73	229.18	232.45	c73	The question is no longer whether the black hole will swallow the planet.
+74	232.93	236.01	c74	The question is what the encounter has done to our future.
+75	236.50	238.66	c75	The first calculations appear on the screen.
+76	239.15	241.19	c76	The planet remains bound to the Sun.
+77	241.74	245.43	c77	But the team cannot yet determine the full long-term consequences.
+78	246.12	251.47	c78	They refine the model, accounting for the black hole's trajectory and its gravitational influence.
+79	251.93	253.74	c79	The answer emerges slowly.
+80	253.96	255.64	c80	Earth's orbit has changed.
+81	256.14	265.35	c81	In this hypothetical encounter, the shift is large enough to demand urgent investigation, but it does not automatically mean humanity is doomed.
+82	265.80	272.04	c82	If Earth's distance from the Sun changes significantly, the effects could unfold over years or centuries.
+83	272.38	277.42	c83	Climate patterns, ice sheets, and ecosystems could face enormous pressure.
+84	277.95	282.13	c84	If the orbital change is small, the consequences could be far less dramatic.
+85	282.62	284.90	c85	The difference depends on the exact encounter.
+86	285.36	287.80	c86	And that is what makes the result so terrifying.
+87	288.50	291.54	c87	The universe does not need to destroy Earth in one instant.
+88	292.04	296.25	c88	A change in our planet's path could be enough to alter everything that follows.
+89	296.58	300.14	c89	Weeks later, the black hole is far beyond its closest point.
+90	300.84	303.61	c90	The distorted stars begin to look normal again.
+91	303.95	305.66	c91	The immediate danger has passed.
+92	306.00	307.24	c92	Earth is still here.
+93	307.46	314.22	c93	But astronomers continue studying the data, trying to reconstruct exactly how the encounter changed our solar system.
+94	314.47	316.58	c94	Then they notice something unexpected.
+95	316.98	321.40	c95	The black hole's path through the galaxy was not unusual because it was aimed at Earth.
+96	321.97	324.49	c96	It was unusual because we detected it at all.
+97	325.12	331.89	c97	For millions of years, it travelled through darkness, invisible except for the gravity it exerted on the universe around it.
+98	332.24	333.59	c98	It never needed to chase us.
+99	333.83	336.13	c99	It never needed to know we existed.
+100	336.53	342.11	c100	And if its path had been different by just enough, the future of our planet could have been changed forever.
+101	342.52	344.40	c101	Tonight, the stars look peaceful.
+102	344.93	347.20	c102	The Earth feels permanent beneath our feet.
+103	347.79	352.54	c103	But our planet is racing through a galaxy filled with objects we may never see directly.
+104	353.17	354.33	c104	And somewhere out there...
+105	354.70	357.48	c105	Another invisible shadow is moving through the dark.
+106	358.13	360.98	c106	The question is not whether the universe can surprise us.
+107	361.54	363.60	c107	It's whether we will see the next one coming.

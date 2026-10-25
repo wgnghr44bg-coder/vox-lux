@@ -1,0 +1,1642 @@
+<meta charset="utf-8">
+<title>Black Hole</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=JetBrains+Mono:wght@700;800&display=swap">
+<style>
+  /* Layout: one 16:9 stage scaled to the window; chapter card top left, subtitles low in the middle, preview controls at the bottom. */
+  :root {
+    --letterbox: #030405;
+    --sky: #05070b;
+    --ink: #ffffff;
+    --outline: #05070a;
+    --hud: rgba(8, 10, 14, 0.72);
+    --accent: #ff3b3b;
+    --cold: #6ad8ff;
+    --ui: "Archivo", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; font-family: var(--ui); }
+  #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 48%, transparent 58%, rgba(0, 0, 0, 0.55) 100%); }
+  .flash { position: absolute; inset: 0; background: #ffffff; opacity: 0; pointer-events: none; }
+  .fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+  .title {
+    position: absolute; left: 10cqw; right: 10cqw; top: 13%;
+    text-align: center; pointer-events: none; color: var(--ink);
+    font: 900 5.2cqw/1.04 var(--ui); letter-spacing: -0.015em; text-transform: uppercase; text-wrap: balance;
+    -webkit-text-stroke: 0.6cqw var(--outline); paint-order: stroke fill;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateY(1cqw);
+  }
+  .title small { display: block; margin-bottom: 1cqw; font: 800 1.8cqw/1 var(--mono); letter-spacing: 0.3em; color: var(--cold); -webkit-text-stroke: 0.4cqw var(--outline); }
+  .title.on { opacity: 1; transform: none; }
+
+  .chapter {
+    position: absolute; left: 3cqw; top: calc(2.6cqw + env(safe-area-inset-top, 0px));
+    pointer-events: none; color: var(--ink);
+    opacity: 0; transform: translateX(-1.5cqw); transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .chapter.on { opacity: 1; transform: none; }
+  .chapter b { display: block; font: 900 3.2cqw/1 var(--ui); letter-spacing: -0.01em; text-transform: uppercase; -webkit-text-stroke: 0.45cqw var(--outline); paint-order: stroke fill; }
+  .chapter span { display: inline-block; margin-top: 0.7cqw; padding: 0.45cqw 1.1cqw; border-radius: 0.5cqw; background: rgba(6, 8, 12, 0.62); font: 800 1.3cqw/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--cold); }
+
+  .subs {
+    position: absolute; left: 12cqw; right: 12cqw; bottom: 7.5%;
+    text-align: center; pointer-events: none;
+    font: 900 2.9cqw/1.2 var(--ui); color: var(--ink); letter-spacing: -0.005em; text-wrap: balance;
+    -webkit-text-stroke: 0.45cqw var(--outline); paint-order: stroke fill;
+    text-shadow: 0 0.35cqw 1.1cqw rgba(0, 0, 0, 0.6);
+    opacity: 0; transform: translateY(0.7cqw); transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .subs.on { opacity: 1; transform: none; }
+
+  .hud {
+    position: absolute; left: 1.5cqw; right: 1.5cqw; bottom: calc(1.5cqw + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 1cqw; padding: 0.8cqw 1.4cqw; border-radius: 99px;
+    background: var(--hud); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: #e6eaee; font: 800 clamp(11px, 1.1cqw, 16px)/1 var(--ui); transition: opacity 0.35s ease;
+  }
+  .hud.hide { opacity: 0; pointer-events: none; }
+  .hud button, .hud label {
+    flex: none; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px;
+    border: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.12); color: inherit; font: inherit; cursor: pointer;
+  }
+  .hud button:hover, .hud label:hover { background: rgba(255, 255, 255, 0.22); }
+  .hud button:focus-visible, .hud label:focus-within, .hud input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hud input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .hud .time { flex: none; font-variant-numeric: tabular-nums; min-width: 9ch; text-align: right; }
+  .hud input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .hud svg { width: 16px; height: 16px; fill: currentColor; }
+  .hud button[aria-pressed="true"] { background: var(--accent); color: #1a0606; }
+  @media (prefers-reduced-motion: reduce) { .title, .chapter, .subs { transition: none; } }
+  .render .title, .render .chapter, .render .subs { transition: none; }
+</style>
+
+<div id="stage">
+  <div class="vignette"></div>
+  <div class="flash" id="flash"></div>
+  <div class="title" id="title"><small>What if</small>a black hole passed near Earth?</div>
+  <div class="chapter" id="chapter"><b id="chapter-when">Tomorrow night</b><span id="chapter-what">The stars are moving</span></div>
+  <div class="subs" id="subs" aria-live="polite"></div>
+  <div class="fade" id="fade"></div>
+  <div class="hud" id="hud">
+    <button id="play" type="button" aria-label="Pause"><svg viewBox="0 0 16 16" id="play-icon"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <button id="replay" type="button" aria-label="Replay from start"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.6 3.9l1.9.7A4 4 0 1 0 8 4v2.2L4.6 3.1 8 0z"/></svg></button>
+    <input id="scrub" type="range" min="0" max="240" step="0.01" value="0" aria-label="Timeline">
+    <span class="time" id="time">0:00.0</span>
+    <button id="sound" type="button" aria-pressed="false" title="Sound effects">Sound</button>
+    <label title="Add a narration audio file">Voice<input id="voice" type="file" accept="audio/*"></label>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+/* =====================================================================
+   TIMELINE — subtitles are in video time and follow the recorded voice
+   (voice-times.tsv). Shots and events are written in "cue units": cue 14
+   is the moment its subtitle's shot starts (halfway through the gap
+   before it), 14.5 is halfway through that line.
+   Shot keys: [k (0..1 through the shot), position, target, fov, up?],
+   in the coordinates of the shot's set (a location; only it is drawn).
+   rel: positions follow a moving thing ('bh', 'earth', 'ast', 'comet', 'bhG', 'sunG');
+   aim: [from, to] puts the camera behind `from`, looking past it at `to`
+   (keys are then [k, distance, height, side, lookAt (0 = from … 1 = to), fov]).
+   fx: what the diagram overlays show in that shot.
+   ===================================================================== */
+const SCENES = [
+  { id: 'stars', when: 'Tomorrow night', what: 'The stars are moving', env: { tension: 0.3 },
+    shots: [{ c: 1, set: 'obs', keys: [[0, [36, 7, 34], [0, 9, -8], 50], [1, [30, 6, 28], [0, 9.5, -8], 48]] },
+            { c: 2, set: 'obs', keys: [[0, [9, 1.7, 14], [30, 62, -62], 60], [1, [9, 1.8, 13], [26, 66, -62], 58]] },
+            { c: 3, set: 'obs', keys: [[0, [-4, 1.6, 22], [10, 90, -40], 64], [1, [-4, 1.6, 22], [18, 92, -42], 64]] },
+            { c: 4, set: 'earth', keys: [[0, [60, 30, 330], [-120, 30, 0], 50], [1, [50, 28, 320], [-130, 32, 0], 50]] },
+            { c: 5, set: 'obs', keys: [[0, [7, 1.8, -12.5], [17, 32.8, -50.5], 56], [1, [7.4, 1.9, -12], [17.4, 33.3, -50], 54]] },
+            { c: 6, set: 'obs', keys: [[0, [-3.25, 1.45, 3.45], [-4.55, 1.36, 3.2], 40], [1, [-3.35, 1.43, 3.4], [-4.55, 1.36, 3.2], 38]] },
+            { c: 7, set: 'obs', keys: [[0, [-3.71, 1.8, 1.22], [-4.52, 1.3, 3.2], 44], [1, [-3.75, 1.78, 1.3], [-4.52, 1.3, 3.2], 42]] },
+            { c: 8, set: 'obs', keys: [[0, [-1.2, 1.7, 4.6], [-4.2, 1.35, 2.7], 48], [1, [-1.4, 1.68, 4.5], [-4.2, 1.35, 2.7], 46]] },
+            { c: 9, set: 'earth', fx: { obs2: 1 }, keys: [[0, [0, 60, 330], [0, 0, 0], 46], [1, [-10, 62, 320], [0, 0, 0], 46]] },
+            { c: 10, set: 'obs', keys: [[0, [-14, 1.6, 24], [8, 70, -60], 62], [1, [-13, 1.6, 23], [6, 72, -60], 60]] },
+            { c: 11, set: 'solar', rel: 'bh', keys: [[0, [18, 4, 62], [0, 0, 0], 46], [1, [14, 3, 52], [0, 0, 0], 44]] },
+            { c: 12, set: 'solar', rel: 'bh', keys: [[0, [6, 2, 30], [0, 0, 0], 40], [1, [4, 1.5, 24], [0, 0, 0], 38]] },
+            { c: 13, set: 'solar', aim: ['bh', 'sun'], keys: [[0, 70, 12, 30, 0.35, 44], [1, 62, 10, 26, 0.35, 44]] },
+            { c: 14, set: 'control', keys: [[0, [12, 5.5, 11], [-2, 3.5, -10], 50], [1, [10.5, 5.3, 11], [-2, 3.6, -10], 50]] }],
+    subtitles: [[0.6, 2.53, 'Imagine waking up tomorrow…'], [2.68, 5.42, 'And discovering that the stars are moving.'], [6.02, 7.43, 'Not across the sky.'], [7.58, 9.15, 'Across space itself.'],
+                [9.75, 13.96, 'Astronomers notice that distant stars are bending into strange arcs.'], [14.11, 17.14, 'One star appears to split into several images.'],
+                [17.29, 19.03, 'Another seems to vanish.'], [19.63, 22.92, 'At first, they suspect a telescope malfunction.'], [23.07, 27.36, 'Then observatories on opposite sides of Earth confirm the same impossible pattern.'],
+                [27.51, 32.04, 'Something invisible is warping the light from entire regions of the galaxy.'], [32.64, 33.89, 'Something massive.'], [34.49, 35.61, 'Something dark.'],
+                [36.21, 39.13, 'A black hole is moving toward our solar system.'], [39.28, 41.97, 'And nobody knows how close it will come.']]},
+  { id: 'warning', when: 'Within hours', what: 'The first warning', env: { tension: 0.4 },
+    shots: [{ c: 15, set: 'control', keys: [[0, [0, 6.2, 11.4], [0, 3.8, -10], 52], [1, [0, 5.8, 9.8], [0, 3.9, -10], 50]] },
+            { c: 16, set: 'control', keys: [[0, [-1.5, 4.0, 1.5], [0, 4.6, -10.8], 44], [1, [-1.2, 4.1, 0.8], [0, 4.6, -10.8], 42]] },
+            { c: 17, set: 'solar', fx: { path: 1 }, keys: [[0, [-60, 330, 420], [200, 0, -110], 46], [1, [-50, 320, 400], [205, 0, -110], 46]] },
+            { c: 18, set: 'earth', keys: [[0, [200, 50, 240], [0, 0, 0], 46], [1, [190, 48, 232], [0, 0, 0], 46]] },
+            { c: 19, set: 'control', keys: [[0, [2.15, 1.6, -2.6], [1.2, 1.1, -4.85], 42], [1, [2.0, 1.56, -2.75], [1.2, 1.1, -4.85], 40]] },
+            { c: 20, set: 'control', keys: [[0, [2.5, 4.8, -3.5], [2.5, 4.8, -10.8], 40], [1, [2.4, 4.8, -4.2], [2.4, 4.8, -10.8], 38]] },
+            { c: 21, set: 'solar', fx: { path: 1 }, keys: [[0, [-120, 230, 280], [80, 0, -80], 48], [1, [-110, 220, 270], [80, 0, -80], 48]] },
+            { c: 22, set: 'control', keys: [[0, [3.0, 1.55, -4.5], [1.25, 1.3, -3.7], 42], [1, [2.9, 1.52, -4.35], [1.25, 1.3, -3.7], 40]] },
+            { c: 23, set: 'control', keys: [[0, [8.5, 1.35, -3.75], [8.25, 1.16, -4.85], 38], [1, [8.45, 1.33, -3.9], [8.25, 1.16, -4.85], 36]] },
+            { c: 24, set: 'control', keys: [[0, [0, 4.6, -0.5], [0, 4.6, -10.8], 46], [1, [0, 4.6, -1.4], [0, 4.6, -10.8], 44]] },
+            { c: 25, set: 'control', keys: [[0, [-2.4, 4.4, -5.0], [-2.4, 4.4, -10.8], 40], [1, [-2.4, 4.4, -5.5], [-2.4, 4.4, -10.8], 38]] },
+            { c: 26, set: 'solar', fx: { path: 1 }, keys: [[0, [60, 60, 220], [300, 20, -60], 46], [1, [66, 58, 212], [300, 20, -60], 46]] },
+            { c: 27, set: 'control', keys: [[0, [9, 5.6, -3.5], [10, 6.3, -10.8], 34], [1, [9.2, 5.7, -4.2], [10, 6.3, -10.8], 32]] }],
+    subtitles: [[43.02, 46.42, 'Within hours, astronomers begin tracking its path.'], [46.57, 48.86, 'The first prediction seems reassuring.'], [49.01, 50.82, 'The black hole will pass us.'],
+                [50.97, 52.38, 'Earth will survive.'], [52.98, 55.07, 'But then new measurements arrive.'], [55.22, 57.17, 'The calculations change.'], [57.32, 64.21, 'The object is moving faster than expected, and its trajectory is more difficult to pin down than anyone anticipated.'],
+                [64.36, 66.46, 'Scientists run the numbers again.'], [67.06, 68.09, 'And again.'], [68.24, 75.45, 'Every model agrees on one thing: the black hole is coming close enough for its gravity to disturb objects in the solar system.'],
+                [76.05, 77.31, 'But how close?'], [77.46, 83.71, 'That is the question separating an extraordinary astronomical event from a potential planetary disaster.'],
+                [84.31, 86.21, 'And the clock is already running.']]},
+  { id: 'change', when: 'Weeks later', what: 'The solar system starts to change', env: { tension: 0.5 },
+    shots: [{ c: 28, set: 'solar', aim: ['kb', 'bh'], keys: [[0, 14, 3, 5, 0.0, 50], [1, 12, 2.6, 4.2, 0.0, 50]] },
+            { c: 29, set: 'solar', aim: ['neptune', 'bh'], keys: [[0, 16, 2, 6, 0.02, 46], [1, 15, 1.8, 5.5, 0.02, 46]] },
+            { c: 30, set: 'solar', aim: ['ast', 'bh'], keys: [[0, 2, 3, 12, 0.35, 50], [1, 2, 2.6, 11, 0.35, 50]] },
+            { c: 31, set: 'solar', rel: 'bh', relT: 'ast', keys: [[0, [-22, 7, 26], [0, 0, 0], 48], [1, [-21, 7, 25], [0, 0, 0], 46]] },
+            { c: 32, set: 'control', keys: [[0, [-8.0, 1.7, 0.3], [-8.25, 1.5, -0.85], 40], [1, [-8.05, 1.68, 0.15], [-8.25, 1.5, -0.85], 38]] },
+            { c: 33, set: 'solar', rel: 'kb', fx: { kbTrail: 1 }, keys: [[0, [-9, 4, -6], [0, 0, 2], 46], [1, [-8, 3.6, -5], [0, 0, 2.5], 46]] },
+            { c: 34, set: 'solar', aim: ['comet', 'bh'], keys: [[0, -10, 3, 4, 0, 48], [1, -9, 2.6, 3.5, 0, 48]] },
+            { c: 35, set: 'solar', aim: ['bh', 'uranus'], keys: [[0, 30, 0.6, 2.2, 1, 44], [1, 28, 0.4, -1.6, 1, 44]] },
+            { c: 36, set: 'city', keys: [[0, [-3, 1.0, -8.5], [10, 40, 60], 62], [1, [-3, 1.1, -8.2], [12, 42, 60], 60]] },
+            { c: 37, set: 'earth', keys: [[0, [-60, 80, 310], [0, 0, 0], 46], [1, [-50, 76, 300], [0, 0, 0], 46]] },
+            { c: 38, set: 'solar', rel: 'earth', fx: { arrow: 1 }, keys: [[0, [-4.5, 2, 6], [0, 0, 0], 46], [1, [-3.6, 1.8, 5.4], [0, 0, 0], 46]] },
+            { c: 39, set: 'control', keys: [[0, [1, 4.4, -1], [0, 4.6, -10.8], 44], [1, [0.6, 4.5, -1.8], [0, 4.6, -10.8], 42]] }],
+    subtitles: [[87.26, 92.94, 'As the black hole approaches, astronomers detect subtle changes in the motion of distant objects.'], [93.09, 95.67, 'Its gravity is tugging on the solar system.'],
+                [95.82, 99.1, 'Not like a vacuum cleaner sucking everything into darkness.'], [99.25, 101.4, 'Something far more complicated.'], [101.55, 105.47, 'Gravity is changing the paths objects follow through space.'],
+                [105.62, 107.18, 'A small shift here.'], [107.33, 109.04, 'A different trajectory there.'], [109.19, 117.36, "The black hole's immense gravity also bends the light passing near it, creating ghostly rings and distorted images of distant stars."],
+                [117.96, 119.52, 'The sky looks broken.'], [120.12, 123.81, 'But the most important change cannot be seen with the naked eye.'], [123.96, 128.41, 'Earth is moving around the Sun at roughly thirty kilometers per second.'],
+                [128.56, 134.99, 'And the question is whether this invisible visitor will alter that motion enough to threaten our future.']]},
+  { id: 'number', when: 'The final days', what: 'The number nobody wants', env: { tension: 0.65 },
+    shots: [{ c: 40, set: 'earth', fx: { net: 1 }, keys: [[0, [120, 90, 280], [0, 0, 0], 46], [1, [110, 86, 270], [0, 0, 0], 46]] },
+            { c: 41, set: 'control', keys: [[0, [3.2, 2.2, -5.2], [0, 4.2, -10.8], 50], [1, [2.9, 2.3, -5.6], [0, 4.3, -10.8], 48]] },
+            { c: 42, set: 'control', keys: [[0, [-3, 4.6, -2.6], [-3, 4.6, -10.8], 38], [1, [-3, 4.6, -3.1], [-3, 4.6, -10.8], 36]] },
+            { c: 43, set: 'control', keys: [[0, [3, 4.6, -3.1], [3, 4.6, -10.8], 36], [1, [3, 4.6, -2.6], [3, 4.6, -10.8], 38]] },
+            { c: 44, set: 'obs', keys: [[0, [16, 3, 14], [0, 9, 0], 48], [1, [14, 3.2, 12], [0, 9.4, 0], 46]] },
+            { c: 45, set: 'control', keys: [[0, [-0.4, 1.6, -2.8], [1.25, 1.1, -4.2], 46], [1, [-0.2, 1.55, -2.95], [1.25, 1.1, -4.2], 44]] },
+            { c: 46, set: 'control', keys: [[0, [-12.5, 4.2, -9.6], [2, 1.3, 2], 52], [1, [-12, 4, -9.2], [2, 1.3, 2], 50]] },
+            { c: 47, set: 'control', keys: [[0, [0.5, 4.4, -2], [0, 4.6, -10.8], 42], [1, [0.2, 4.5, -2.8], [0, 4.6, -10.8], 40]] },
+            { c: 48, set: 'solar', aim: ['earth', 'bh'], keys: [[0, 6.5, 1.0, 1.4, 0.0, 44], [1, 5.8, 0.9, 1.1, 0.0, 44]] },
+            { c: 49, set: 'solar', fx: { path: 1 }, keys: [[0, [-150, 200, 260], [60, 0, 40], 46], [1, [-140, 190, 250], [70, 0, 40], 46]] },
+            { c: 50, set: 'control', keys: [[0, [-1.5, 4.0, 0], [0, 4.4, -10.8], 46], [1, [-1.2, 4.1, -0.8], [0, 4.4, -10.8], 44]] },
+            { c: 51, set: 'control', keys: [[0, [0, 4.6, -1.6], [0, 4.6, -10.8], 44], [1, [0, 4.6, -2.3], [0, 4.6, -10.8], 42]] },
+            { c: 52, set: 'earth', keys: [[0, [150, 40, 170], [20, 0, 0], 44], [1, [145, 40, 165], [20, 0, 0], 44]] },
+            { c: 53, set: 'earth', keys: [[0, [80, 230, 160], [0, 30, 0], 44], [1, [70, 225, 150], [0, 30, 0], 44]] },
+            { c: 54, set: 'obs', keys: [[0, [-12, 2, -14], [2, 12, -4], 52], [1, [-11.4, 2.1, -13.4], [2, 12.4, -4], 50]] },
+            { c: 55, set: 'control', keys: [[0, [8.2, 5.4, -2.5], [10, 6.3, -10.8], 36], [1, [8.6, 5.5, -3.4], [10, 6.3, -10.8], 34]] }],
+    subtitles: [[136.04, 139.42, "The world's leading observatories combine their measurements."], [139.57, 142.78, "The team calculates the black hole's closest approach."],
+                [142.93, 145.82, 'One model predicts a relatively minor disturbance.'], [145.97, 148.71, 'Another suggests a much more serious change.'], [149.31, 151.61, 'Then a fresh observation arrives.'],
+                [151.76, 153.84, 'The scientists update the model.'], [154.44, 155.82, 'The room goes quiet.'], [156.42, 158.55, 'The predicted path has shifted again.'],
+                [158.7, 161.35, 'They cannot simply push Earth out of danger.'], [161.5, 166.76, 'There is no realistic way to move an entire planet away from an approaching black hole.'],
+                [167.36, 173.1, 'For the first time, the team begins calculating not just whether Earth will survive the encounter…'], [173.25, 175.88, 'But what kind of orbit it will have afterward.'],
+                [176.03, 179.8, 'A small change might leave life largely undisturbed.'], [179.95, 185.98, "A sufficiently large change could alter Earth's distance from the Sun and reshape its climate over time."],
+                [186.58, 191.47, 'And now, there is only one measurement left that can narrow the uncertainty.'], [192.07, 194.6, 'The closest approach is hours away.']]},
+  { id: 'approach', when: 'Zero hour', what: 'The closest approach', env: { tension: 0.95 },
+    shots: [{ c: 56, set: 'earth', keys: [[0, [0, 40, 240], [0, 0, 0], 48], [1, [10, 40, 236], [0, 0, 0], 48]] },
+            { c: 57, set: 'city', keys: [[0, [30, 9, 22], [-10, 3, -8], 50], [1, [26, 8.5, 20], [-12, 3, -8], 50]] },
+            { c: 58, set: 'city', keys: [[0, [1, 1.3, -7], [12, 50, 60], 58], [1, [1.2, 1.35, -7], [14, 52, 60], 58]] },
+            { c: 59, set: 'city', keys: [[0, [3.6, 1.0, -1.3], [2.3, 1.65, -4], 42], [1, [3.5, 1.05, -1.45], [2.3, 1.65, -4], 40]] },
+            { c: 60, set: 'city', keys: [[0, [0, 1.6, -6], [15, 56.6, 76], 34], [1, [0, 1.6, -6], [15.5, 57, 76], 32]] },
+            { c: 61, set: 'control', keys: [[0, [-11, 5, 10.5], [1, 3, -10], 50], [1, [-10, 4.8, 10], [1, 3.1, -10], 48]] },
+            { c: 62, set: 'control', keys: [[0, [0, 4.5, -1], [0, 4.6, -10.8], 44], [1, [0, 4.5, -2], [0, 4.6, -10.8], 42]] },
+            { c: 63, set: 'control', keys: [[0, [2.1, 1.62, -2.6], [1.2, 1.15, -4.85], 44], [1, [2.0, 1.58, -2.8], [1.2, 1.15, -4.85], 42]] },
+            { c: 64, set: 'control', keys: [[0, [0, 4.6, -1.6], [0, 4.6, -10.8], 40], [1, [0, 4.6, -2.4], [0, 4.6, -10.8], 38]] },
+            { c: 65, set: 'solar', aim: ['bh', 'sun'], keys: [[0, 56, 2, 0.8, 1, 42], [1, 54, 2, -2.4, 1, 42]] },
+            { c: 66, set: 'city', keys: [[0, [-40, 3, -1], [20, 2, -6], 46], [1, [-38, 3, -1.2], [22, 2, -6], 46]] },
+            { c: 67, set: 'city', keys: [[0, [10, 2.5, -0.8], [60, 1, 200], 50], [1, [12, 2.5, -0.8], [64, 1, 200], 50]] },
+            { c: 68, set: 'city', keys: [[0, [-20, 0.4, -18], [20, 1.5, -17], 48], [1, [-19, 0.42, -18], [21, 1.5, -17], 48]] },
+            { c: 69, set: 'earth', keys: [[0, [-120, 60, 300], [0, 0, 0], 46], [1, [-110, 56, 290], [0, 0, 0], 46]] },
+            { c: 70, set: 'control', keys: [[0, [-10.5, 1.7, -2.5], [4, 1.2, -4.8], 50], [1, [-10, 1.7, -2.6], [4, 1.2, -4.8], 48]] },
+            { c: 71, set: 'solar', keys: [[0, [40, 30, 60], [74, 9, 176], 46], [1, [42, 29, 64], [74, 9, 176], 46]] },
+            { c: 72, set: 'control', keys: [[0, [1.5, 4.3, -1.5], [0, 4.6, -10.8], 44], [1, [1.1, 4.4, -2.3], [0, 4.6, -10.8], 42]] },
+            { c: 73, set: 'earth', keys: [[0, [260, 40, 180], [0, 0, 0], 46], [1, [250, 38, 170], [0, 0, 0], 46]] },
+            { c: 74, set: 'control', keys: [[0, [0, 6, 11], [0, 3.6, -10], 54], [1, [0, 6.2, 11.3], [0, 3.6, -10], 56]] }],
+    subtitles: [[195.65, 197.39, 'Night falls across Earth.'], [197.54, 202.27, 'Millions of people look up, searching for something they cannot actually see.'], [202.42, 205.28, 'There is no glowing monster crossing the sky.'],
+                [205.43, 207.2, 'No giant black sphere.'], [207.8, 211.75, 'Only stars, their light bent around an invisible point.'], [211.9, 216.38, 'In control rooms around the world, scientists watch the data arrive.'],
+                [217.38, 218.57, 'Ten minutes.'], [219.57, 220.65, 'Five minutes.'], [221.65, 222.64, 'One minute.'], [223.64, 226.52, 'The black hole reaches its closest approach.'],
+                [227.12, 229.64, 'For a moment, nothing seems to happen.'], [229.79, 231.9, 'The oceans remain where they are.'], [232.05, 234.32, 'The ground does not split open.'],
+                [234.47, 236.27, 'Earth does not disappear.'], [236.87, 239.7, 'Then the new measurements begin coming in.'], [240.3, 242.22, 'The black hole is moving away.'],
+                [242.82, 245.85, "But Earth's motion through space has been altered."], [246, 249.57, 'The question is no longer whether the black hole will swallow the planet.'],
+                [249.72, 253.1, 'The question is what the encounter has done to our future.']]},
+  { id: 'orbit', when: 'The morning after', what: "Earth's new trajectory", env: { tension: 0.6 },
+    shots: [{ c: 75, set: 'control', keys: [[0, [-1, 4.4, -0.5], [0, 4.6, -10.8], 44], [1, [-0.6, 4.5, -1.4], [0, 4.6, -10.8], 42]] },
+            { c: 76, set: 'solar', aim: ['earth', 'sun'], fx: { orbitNew: 1 }, keys: [[0, 8, 2, 1.5, 0.0, 46], [1, 7.2, 1.8, 1.0, 0.0, 46]] },
+            { c: 77, set: 'control', keys: [[0, [13.4, 2.3, 3.4], [11.0, 1.8, 0.2], 44], [1, [13.2, 2.3, 3.1], [11.0, 1.8, 0.2], 42]] },
+            { c: 78, set: 'control', keys: [[0, [0, 4.6, -1.8], [0, 4.6, -10.8], 44], [1, [0, 4.6, -2.6], [0, 4.6, -10.8], 42]] },
+            { c: 79, set: 'control', keys: [[0, [-2, 3.8, -3], [-1, 4.4, -10.8], 40], [1, [-1.8, 3.9, -3.6], [-1, 4.4, -10.8], 38]] },
+            { c: 80, set: 'solar', fx: { orbitNew: 1 }, keys: [[0, [0, 95, 40], [0, 0, 0], 40], [1, [0, 90, 36], [0, 0, 0], 40]] },
+            { c: 81, set: 'control', keys: [[0, [13, 5.5, 10.5], [-3, 3.5, -10], 50], [1, [11.5, 5.3, 10.5], [-3, 3.6, -10], 50]] },
+            { c: 82, set: 'earth', keys: [[0, [60, 100, 300], [0, 0, 0], 46], [1, [56, 96, 290], [0, 0, 0], 46]] },
+            { c: 83, set: 'earth', keys: [[0, [40, 240, 120], [0, 20, 0], 44], [1, [36, 236, 112], [0, 20, 0], 44]] },
+            { c: 84, set: 'solar', fx: { orbitNew: 1 }, keys: [[0, [20, 40, 20], [18, 0, 10], 44], [1, [19, 38, 18], [18, 0, 10], 44]] },
+            { c: 85, set: 'control', keys: [[0, [0.8, 4.5, -1.5], [0, 4.6, -10.8], 44], [1, [0.4, 4.5, -2.3], [0, 4.6, -10.8], 42]] },
+            { c: 86, set: 'control', keys: [[0, [-1.6, 1.9, -10.2], [1.5, 1.5, -7.8], 46], [1, [-1.4, 1.88, -10.1], [1.5, 1.5, -7.8], 44]] },
+            { c: 87, set: 'earth', keys: [[0, [180, 70, 260], [0, 0, 0], 46], [1, [170, 66, 250], [0, 0, 0], 46]] },
+            { c: 88, set: 'solar', fx: { orbitNew: 1 }, keys: [[0, [90, 140, 200], [0, 0, 0], 46], [1, [84, 134, 190], [0, 0, 0], 46]] }],
+    subtitles: [[254.15, 256.61, 'The first calculations appear on the screen.'], [256.76, 259.1, 'The planet remains bound to the Sun.'], [259.25, 263.24, 'But the team cannot yet determine the full long-term consequences.'],
+                [263.39, 269.04, "They refine the model, accounting for the black hole's trajectory and its gravitational influence."], [269.64, 271.75, 'The answer emerges slowly.'],
+                [272.35, 274.33, "Earth's orbit has changed."], [274.93, 284.44, 'In this hypothetical encounter, the shift is large enough to demand urgent investigation, but it does not automatically mean humanity is doomed.'],
+                [284.59, 291.13, "If Earth's distance from the Sun changes significantly, the effects could unfold over years or centuries."], [291.28, 296.62, 'Climate patterns, ice sheets, and ecosystems could face enormous pressure.'],
+                [296.77, 301.25, 'If the orbital change is small, the consequences could be far less dramatic.'], [301.4, 303.98, 'The difference depends on the exact encounter.'],
+                [304.58, 307.32, 'And that is what makes the result so terrifying.'], [307.47, 310.81, 'The universe does not need to destroy Earth in one instant.'], [310.96, 315.47, "A change in our planet's path could be enough to alter everything that follows."]]},
+  { id: 'discovery', when: 'Weeks later', what: 'The final discovery', env: { tension: 0.4 },
+    shots: [{ c: 89, set: 'solar', keys: [[0, [10, 20, 60], [-53, 0, 374], 40], [1, [8, 19, 64], [-53, 0, 374], 40]] },
+            { c: 90, set: 'obs', keys: [[0, [22, 1.8, 26], [-10, 60, -50], 60], [1, [22, 1.9, 25], [-14, 60, -50], 60]] },
+            { c: 91, set: 'city', keys: [[0, [-18, 18, -26], [-30, 16.8, -31], 48], [1, [-19, 18.2, -25], [-30, 16.8, -31], 46]] },
+            { c: 92, set: 'earth', keys: [[0, [-40, 30, 330], [0, 0, 0], 44], [1, [-30, 28, 300], [0, 0, 0], 44]] },
+            { c: 93, set: 'control', keys: [[0, [-4.6, 1.7, -2.9], [-5.9, 1.15, -4.85], 44], [1, [-4.7, 1.68, -3.0], [-5.9, 1.15, -4.85], 42]] },
+            { c: 94, set: 'control', keys: [[0, [0, 4.6, -1.4], [0, 4.6, -10.8], 44], [1, [0, 4.6, -2.2], [0, 4.6, -10.8], 42]] },
+            { c: 95, set: 'galaxy', fx: { gpath: 1 }, keys: [[0, [-200, 520, 780], [120, 0, 40], 44], [1, [-180, 500, 750], [130, 0, 40], 44]] },
+            { c: 96, set: 'galaxy', rel: 'sunG', fx: { gpath: 1 }, keys: [[0, [30, 60, 80], [0, 20, 0], 44], [1, [26, 56, 72], [0, 20, 0], 44]] },
+            { c: 97, set: 'galaxy', rel: 'bhG', keys: [[0, [-30, 12, 40], [20, 0, -20], 50], [1, [-28, 11, 38], [22, 0, -20], 50]] },
+            { c: 98, set: 'galaxy', rel: 'bhG', keys: [[0, [10, 4, 36], [0, 0, 0], 44], [1, [8, 3.5, 30], [0, 0, 0], 42]] },
+            { c: 99, set: 'galaxy', rel: 'bhG', keys: [[0, [-26, 8, 22], [0, 0, 0], 46], [1, [-24, 8, 20], [0, 0, 0], 46]] },
+            { c: 100, set: 'solar', fx: { alt: 1 }, keys: [[0, [-40, 120, 140], [0, 0, 0], 44], [1, [-36, 112, 130], [0, 0, 0], 44]] },
+            { c: 101, set: 'obs', keys: [[0, [40, 4, 52], [0, 30, -60], 56], [1, [38, 4.4, 50], [-4, 32, -60], 56]] },
+            { c: 102, set: 'obs', keys: [[0, [24.5, 0.8, 28.5], [34, 7, 48], 50], [1, [24, 0.9, 28], [34, 7.5, 48], 50]] },
+            { c: 103, set: 'galaxy', keys: [[0, [400, 260, 700], [0, 0, 0], 46], [1, [380, 250, 670], [0, 0, 0], 46]] },
+            { c: 104, set: 'obs', keys: [[0, [0, 2, 30], [0, 120, -20], 70], [1, [0, 2, 30], [8, 120, -22], 70]] },
+            { c: 105, set: 'obs', keys: [[0, [26, 1.6, 30], [60, 40, 140], 54], [1, [26, 1.6, 30], [64, 41, 140], 54]] },
+            { c: 106, set: 'obs', keys: [[0, [8, 0.7, 30], [30, 14, 46], 56], [1, [9, 0.8, 30.5], [30, 15, 46], 56]] },
+            { c: 107, set: 'obs', keys: [[0, [4, 1.5, 36], [20, 40, 80], 58], [1, [4, 1.6, 36], [20, 46, 80], 56]] }],
+    subtitles: [[316.52, 320.38, 'Weeks later, the black hole is far beyond its closest point.'], [320.53, 323.6, 'The distorted stars begin to look normal again.'], [323.75, 325.76, 'The immediate danger has passed.'],
+                [326.36, 327.9, 'Earth is still here.'], [328.5, 335.56, 'But astronomers continue studying the data, trying to reconstruct exactly how the encounter changed our solar system.'],
+                [336.16, 338.57, 'Then they notice something unexpected.'], [338.72, 343.44, "The black hole's path through the galaxy was not unusual because it was aimed at Earth."],
+                [344.04, 346.86, 'It was unusual because we detected it at all.'], [347.46, 354.53, 'For millions of years, it travelled through darkness, invisible except for the gravity it exerted on the universe around it.'],
+                [354.68, 356.33, 'It never needed to chase us.'], [356.48, 359.08, 'It never needed to know we existed.'], [359.23, 365.11, 'And if its path had been different by just enough, the future of our planet could have been changed forever.'],
+                [366.16, 368.34, 'Tonight, the stars look peaceful.'], [368.49, 371.06, 'The Earth feels permanent beneath our feet.'], [371.21, 376.26, 'But our planet is racing through a galaxy filled with objects we may never see directly.'],
+                [376.86, 378.32, 'And somewhere out there…'], [378.92, 382, 'Another invisible shadow is moving through the dark.'], [382.6, 385.75, 'The question is not whether the universe can surprise us.'],
+                [386.35, 388.71, "It's whether we will see the next one coming."]]},
+];
+const ENV_END = { tension: 0 };
+
+// ---------- helpers ----------
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const VA = a => V(a[0], a[1], a[2]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+const hash = (a, b = 0) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s); };
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const params = new URLSearchParams(location.search);
+const isMobile = matchMedia('(pointer: coarse)').matches;
+const inT = (T, a, b) => T >= a && T < b;
+const track = (pts, T) => { if (T <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (T <= pts[i][0]) return lerp(pts[i - 1][1], pts[i][1], (T - pts[i - 1][0]) / (pts[i][0] - pts[i - 1][0])); return pts[pts.length - 1][1]; };
+
+/* ---------- cue units → video time ---------- */
+const SUBS = SCENES.flatMap(s => s.subtitles);
+const NSUB = SUBS.length;
+const ENDING = { cut: +(SUBS[NSUB - 1][1] + 0.55).toFixed(2) };   // the hard cut to black: picture and sound stop on the same frame
+const DURATION = +(ENDING.cut + 2.5).toFixed(2);                  // black and silent until the end
+const cueStart = i => i <= 1 ? 0 : i > NSUB ? ENDING.cut : (SUBS[i - 2][1] + SUBS[i - 1][0]) / 2;
+function ct(x) { x = clamp(x, 1, NSUB + 1); const i = Math.floor(x); return i > NSUB ? ENDING.cut : lerp(cueStart(i), cueStart(i + 1), x - i); }
+const sub = i => SUBS[i - 1];                                      // [start, end, text] of line i (1-based)
+// video time → cue units (the inverse of ct), so story values can be written per line
+function cu(T) { if (T <= 0) return 1; for (let i = 1; i <= NSUB; i++) if (T < cueStart(i + 1)) return i + (T - cueStart(i)) / (cueStart(i + 1) - cueStart(i)); return NSUB + 1; }
+{ let n = 1; for (const s of SCENES) { s.first = n; s.start = ct(n); n += s.subtitles.length; } SCENES.forEach((s, i) => s.end = SCENES[i + 1]?.start ?? DURATION); }
+const SHOTS = SCENES.flatMap(s => s.shots).map(s => ({ ...s, start: ct(s.c) })).sort((a, b) => a.start - b.start);
+SHOTS.forEach((s, i) => s.end = SHOTS[i + 1]?.start ?? DURATION + 1);
+// at(i, f): a moment inside line i (f = 0 its start, 1 its end), for things that happen on a spoken word
+const at = (i, f = 0) => lerp(sub(i)[0], sub(i)[1], f);
+const EV = {
+  title: 0.35, split: at(6, 0.35), vanish: at(7, 0.3), diag: at(8, 0.1), confirm: at(9, 0.6), massive: at(11, 0), dark: at(12, 0), reveal: at(13, 0.15),
+  pred1: at(16, 0.3), safe: at(18, 0), newData: at(19, 0.4), change: at(20, 0.2), run2: at(22, 0.3), run3: at(23, 0.1), models: at(24, 0.25), howClose: at(25, 0), clock: at(27, 0),
+  slingshot: ct(30.9), broken: at(36, 0), speed: at(38, 0.2),
+  combine: at(40, 0.1), compute: at(41, 0.2), modelA: at(42, 0.1), modelB: at(43, 0.1), fresh: at(44, 0.2), update: at(45, 0.3), quiet: at(46, 0), shifted: at(47, 0.1),
+  orbitCalc: at(50, 0.3), orbitAfter: at(51, 0.2), hours: at(55, 0),
+  night: ct(56), tenMin: at(62, 0) - 0.25, fiveMin: at(63, 0) - 0.25, oneMin: at(64, 0) - 0.25, closest: at(65, 0.1), nothing: at(66, 0), newMeas: at(70, 0.3), away: at(71, 0), altered: at(72, 0.2),
+  firstCalc: at(75, 0.1), bound: at(76, 0.2), refine: at(78, 0.2), slowly: at(79, 0), changed: at(80, 0), ice: [ct(83), ct(84)],
+  passed: at(91, 0), stillHere: at(92, 0), unexpected: at(94, 0.2), detected: at(96, 0.2), alt: [ct(100), ct(101)],
+  another: at(105, 0.1),
+};
+// impacts: [time, strength] → camera shake (and a hit in the sound)
+const SHAKES = [[EV.massive, 0.3], [EV.dark, 0.35], [EV.reveal, 0.6], [EV.change, 0.25], [EV.howClose, 0.3], [EV.broken, 0.35], [EV.shifted, 0.45], [EV.closest, 0.7], [EV.changed, 0.4], [EV.another, 0.2]];
+const RUMBLES = [[ct(65), ct(66), 0.22], [ct(29), ct(32), 0.05], [ct(62), ct(65), 0.06]];   // continuous tremble: [from, to, strength]
+
+function envAt(T) {
+  let i = SCENES.findIndex(s => T < s.end); if (i < 0) i = SCENES.length - 1;
+  const s = SCENES[i], next = SCENES[i + 1]?.env ?? ENV_END;
+  return { tension: lerp(s.env.tension, next.tension, smooth(0, 1, (T - s.start) / (s.end - s.start))) };
+}
+
+/* ---------- the black hole: one path through the solar system, written in cue units ---------- */
+const BH_C = V(120, 12, 105), BH_N = BH_C.clone().normalize(), BH_D = V(-105, -6, 120).normalize();
+const BH_U = [[1, -1.0], [13, -0.85], [28, -0.42], [40, -0.3], [56, -0.1], [65, 0], [71, 0.1], [89, 0.45], [NSUB + 1, 0.7]];
+const bhU = T => track(BH_U, cu(T));
+const bhAt = (u, off = 0, out = V()) => out.copy(BH_C).addScaledVector(BH_D, u * 700).addScaledVector(BH_N, Math.abs(u) * 700 * 0.15 + off);
+const BH_RE = 9;                                                    // Einstein radius in the solar-system set (made visible on purpose)
+// how strongly the sky above Earth is bent (radians of Einstein ring), per line
+const SKY_R = [[1, 0.035], [5, 0.08], [10, 0.12], [13, 0.13], [36, 0.17], [56, 0.19], [60, 0.22], [65, 0.26], [72, 0.2], [89, 0.09], [90, 0.07], [91, 0.02], [100, 0.004], [101, 0]];
+const skyR = T => track(SKY_R, cu(T));
+// Earth's orbit after the encounter (0 = unchanged, 1 = fully shifted)
+const orbitK = T => smooth(ct(65.3), ct(71), T);
+// the predicted path swings around the black hole's position: first a reassuring miss, then the real path
+const pathRot = T => { const c = cu(T); return c < 21 ? 0.35 : 0.35 * (1 - smooth(21.1, 21.95, c)); };
+/* ===================================================================== RENDERER */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05070b);
+scene.fog = new THREE.FogExp2(0x05070b, 0.01);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(45, 16 / 9, 0.1, 7000);
+const hemi = new THREE.HemisphereLight(0x8090a0, 0x202020, 0.6); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1);
+sun.castShadow = true; sun.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+scene.add(sun, sun.target);
+const PL = [0, 1, 2, 3, 4].map(() => { const p = new THREE.PointLight(0xffffff, 0, 30, 1.6); scene.add(p); return p; });
+
+/* ===================================================================== MATERIALS + BUILDERS */
+const matCache = new Map();
+function mat(color, o = {}) {
+  const key = JSON.stringify([color, o]);
+  if (!matCache.has(key)) {
+    const m = new THREE.MeshStandardMaterial({ color, roughness: o.rough ?? 0.8, metalness: o.metal ?? 0, flatShading: !!o.flat });
+    if (o.glow) { m.emissive = new THREE.Color(o.glowColor ?? color); m.emissiveIntensity = o.glow; }
+    if (o.side) m.side = o.side;
+    if (o.env) { m.envMap = envTex; m.envMapIntensity = o.env; }
+    if (o.opacity !== undefined) { m.transparent = true; m.opacity = o.opacity; m.depthWrite = !!o.depthWrite; }
+    matCache.set(key, m);
+  }
+  return matCache.get(key);
+}
+const rbCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d); r = Math.min(r ?? m * 0.12, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  if (!rbCache.has(key)) { const g = new RoundedBoxGeometry(w, h, d, 2, r); g.translate(0, h / 2, 0); rbCache.set(key, g); }
+  return rbCache.get(key);
+}
+function mesh(parent, geo, material, x = 0, y = 0, z = 0, o = {}) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  if (o.s) typeof o.s === 'number' ? m.scale.setScalar(o.s) : m.scale.set(...o.s);
+  m.castShadow = o.shadow !== false; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+const box = (p, w, h, d, color, x, y, z, o = {}) => mesh(p, rbox(w, h, d, o.r), o.m ?? mat(color, o), x, y, z, o);
+function plain(p, w, h, d, material, x, y, z, o = {}) { const g = new THREE.BoxGeometry(w, h, d); g.translate(0, h / 2, 0); return mesh(p, g, material, x, y, z, o); }
+const group = (p, x = 0, y = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, y, z); p.add(g); return g; };
+function cyl(p, rT, rB, h, color, x, y, z, o = {}) { const g = new THREE.CylinderGeometry(rT, rB, h, o.seg ?? 10, 1, !!o.open); g.translate(0, h / 2, 0); return mesh(p, g, o.m ?? mat(color, o), x, y, z, o); }
+function canvasTex(w, h, draw, o = {}) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; if (o.repeat) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...[].concat(o.repeat, o.repeat).slice(0, 2)); } if (o.nearest) t.magFilter = THREE.NearestFilter; t.anisotropy = 4; return t; }
+// a screen whose picture is redrawn when its key changes
+function screenTex(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  let last = null;
+  return { t, set(key, ...a) { if (key === last) return; last = key; draw(g, w, h, ...a); t.needsUpdate = true; } };
+}
+const scrMat = (tex, o = {}) => new THREE.MeshBasicMaterial({ map: tex, toneMapped: false, fog: false, color: 0xb4b4b4, ...o });
+function instanced(parent, geo, material, list, fn, o = {}) {
+  const im = new THREE.InstancedMesh(geo, material, Math.max(1, list.length));
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), c = new THREE.Color();
+  list.forEach((it, i) => { const r = fn(it, i, q.identity(), c); im.setMatrixAt(i, m4.compose(r.p, q, r.s ?? V(1, 1, 1))); if (r.c !== undefined) im.setColorAt(i, c.set(r.c)); });
+  if (!list.length) im.count = 0;
+  im.castShadow = !!o.shadow; im.receiveShadow = true; parent.add(im); return im;
+}
+const sphG = new THREE.SphereGeometry(1, 12, 8);
+const icoG = new THREE.IcosahedronGeometry(1, 0);
+const headG = new THREE.IcosahedronGeometry(1, 2);
+const addMat = (color, opacity = 1, o = {}) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false, fog: false, side: o.side ?? THREE.FrontSide, map: o.map ?? null });
+const strip = g => { g = g.index ? g.toNonIndexed() : g; for (const k of Object.keys(g.attributes)) if (k !== 'position' && k !== 'normal') g.deleteAttribute(k); return g; };
+const merged = (...parts) => mergeGeometries(parts.map(strip));
+const tr = (g, x, y, z, o = {}) => { if (o.rx) g.rotateX(o.rx); if (o.ry) g.rotateY(o.ry); if (o.rz) g.rotateZ(o.rz); g.translate(x, y, z); return g; };
+const m4 = new THREE.Matrix4(), q4 = new THREE.Quaternion(), e4 = new THREE.Euler(), s4 = V(1, 1, 1), t4 = V(), c4 = new THREE.Color(), c5 = new THREE.Color();
+const upY = V(0, 1, 0);
+const lerpHex = (a, b, k) => c5.set(a).lerp(c4.set(b), clamp(k)).getHex();
+const FONT = '"Archivo", "Arial Black", sans-serif', MONO = '"JetBrains Mono", "Courier New", monospace';
+// text that shrinks until it fits a width
+function fitText(g, text, x, y, maxW, size, weight = 900, font = FONT) { let s = size; g.font = `${weight} ${s}px ${font}`; while (g.measureText(text).width > maxW && s > 10) { s -= 2; g.font = `${weight} ${s}px ${font}`; } g.fillText(text, x, y); return s; }
+function scanlines(g, w, h, a = 0.12) { g.fillStyle = `rgba(0,0,0,${a})`; for (let y = 0; y < h; y += 4) g.fillRect(0, y, w, 2); }
+
+/* ===================================================================== PEOPLE + ROBOTS (built facing +z) */
+function person({ shirt, pants = 0x2f3a46, hair = 0x3a2a20, skin = 0xd9a882, s = 1, coat = false, long = false, parent }) {
+  const root = group(parent); root.scale.setScalar(s);
+  const P = { root, legs: [], arms: [], s };
+  const f = c => mat(c, { flat: true, rough: 0.85 });
+  for (const lx of [-0.1, 0.1]) { const l = group(root, lx, 0.82, 0); const g = new THREE.CylinderGeometry(0.075, 0.065, 0.82, 6); g.translate(0, -0.41, 0); mesh(l, g, f(pants)); box(l, 0.13, 0.08, 0.24, 0x1d1d20, 0, -0.84, 0.04, { r: 0.03 }); P.legs.push(l); }
+  cyl(root, coat ? 0.24 : 0.2, coat ? 0.27 : 0.17, coat ? 0.8 : 0.62, 0, 0, coat ? 0.62 : 0.8, 0, { m: f(shirt), seg: 8 });
+  const head = group(root, 0, 1.42, 0); P.head = head;
+  mesh(head, headG, f(skin), 0, 0.1, 0, { s: 0.15 });
+  mesh(head, headG, f(hair), 0, 0.16, -0.025, { s: [0.158, 0.12, 0.158] });
+  if (long) mesh(head, headG, f(hair), 0, 0.02, -0.08, { s: [0.14, 0.2, 0.09] });
+  for (const sx of [-1, 1]) mesh(head, sphG, mat(0x0c0a08, { rough: 0.1, env: 1.4 }), sx * 0.052, 0.12, 0.13, { s: [0.022, 0.022, 0.012], shadow: false });
+  mesh(head, sphG, f(skin), 0, 0.075, 0.148, { s: [0.022, 0.03, 0.03], shadow: false });
+  for (const side of [-1, 1]) {
+    const a = group(root, side * 0.25, 1.33, 0); const g = new THREE.CylinderGeometry(0.055, 0.05, 0.6, 6); g.translate(0, -0.3, 0);
+    mesh(a, g, f(shirt)); mesh(a, sphG, f(skin), 0, -0.62, 0, { s: 0.055 }); a.rotation.z = side * 0.1; P.arms.push(a);
+  }
+  return P;
+}
+function seat(P, x, y, z, yaw) { P.root.position.set(x, y - 0.82 * P.s + 0.05, z); P.root.rotation.set(0, yaw, 0); P.legs.forEach(l => l.rotation.x = -Math.PI / 2 + 0.15); }
+// walking / running gait: legs and arms swing with the phase (distance travelled)
+function gait(P, ph, amt, run = false) {
+  const s = Math.sin(ph) * (run ? 0.8 : 0.45) * amt;
+  P.legs[0].rotation.x = s; P.legs[1].rotation.x = -s;
+  P.arms[0].rotation.x = -s * (run ? 1.1 : 0.7); P.arms[1].rotation.x = s * (run ? 1.1 : 0.7);
+  P.root.position.y = (P.base ?? 0) + Math.abs(Math.cos(ph)) * (run ? 0.06 : 0.025) * amt;
+}
+const PALETTE = [0x8a3a2a, 0x2a4a6a, 0x5a5a3a, 0x6a6a70, 0x3a2a4a, 0x9a7a4a, 0x2a5a4a, 0x7a2a3a, 0x4a4a4a, 0xa89878];
+const HAIR = [0x2a1a10, 0x3a2a20, 0x1a1410, 0x6a4a2a, 0x8a6a4a, 0x111111];
+const SKIN = [0xd9a882, 0xc08a62, 0x8a5a3a, 0xe8c0a0, 0x6a4028];
+function randPerson(parent, i, o = {}) { return person({ shirt: PALETTE[i % PALETTE.length], pants: [0x2f3a46, 0x2a2a2a, 0x3a3a30, 0x1e2a3a][i % 4], hair: HAIR[(i * 3) % HAIR.length], skin: SKIN[(i * 7) % SKIN.length], long: i % 3 === 1, parent, ...o }); }
+const scientist = parent => person({ shirt: 0xe8eaec, pants: 0x2a2e36, hair: 0x3a2a20, skin: 0xd9a882, coat: true, parent });
+// crowds: merged little figures, instanced; legs swing (instanced too). list items get { x, z, yaw, walk } each frame from a function
+const crowdBodyG = merged(tr(new THREE.CylinderGeometry(0.2, 0.17, 0.64, 6), 0, 1.14, 0), tr(new THREE.IcosahedronGeometry(0.15, 1), 0, 1.6, 0),
+  tr(new THREE.BoxGeometry(0.1, 0.56, 0.12), 0.25, 1.1, 0, { rz: 0.08 }), tr(new THREE.BoxGeometry(0.1, 0.56, 0.12), -0.25, 1.1, 0, { rz: -0.08 }));
+const crowdLegG = tr(new THREE.BoxGeometry(0.13, 0.82, 0.14), 0, -0.41, 0);
+const umbG = merged(tr(new THREE.ConeGeometry(0.62, 0.28, 8, 1, true), 0, 2.2, 0), tr(new THREE.CylinderGeometry(0.012, 0.012, 0.75, 4), 0, 1.8, 0));
+function makeCrowd(parent, list, o = {}) {
+  const body = instanced(parent, crowdBodyG, mat(0xffffff, { rough: 0.9, flat: true }), list, c => ({ p: V(c.x, 0, c.z), c: c.c }), { shadow: !!o.shadow });
+  const legs = instanced(parent, crowdLegG, mat(0x24272e, { rough: 0.9 }), new Array(list.length * 2).fill(0), () => ({ p: V(0, -50, 0) }));
+  const um = list.filter(c => c.umb);
+  const umbs = um.length ? instanced(parent, umbG, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, side: THREE.DoubleSide }), um, c => ({ p: V(c.x, 0, c.z), c: c.umb })) : null;
+  body.frustumCulled = legs.frustumCulled = false; if (umbs) umbs.frustumCulled = false;
+  return {
+    list, body, legs, umbs,
+    update(fn, T) {
+      let u = 0;
+      list.forEach((c, i) => {
+        const r = fn(c, i, T); c.px = r.x; c.pz = r.z;
+        const bob = Math.abs(Math.cos(r.ph ?? 0)) * 0.03 * (r.walk ?? 0);
+        q4.setFromAxisAngle(upY, r.yaw);
+        body.setMatrixAt(i, m4.compose(t4.set(r.x, bob, r.z), q4, s4.set(1, 1, 1)));
+        const sw = Math.sin(r.ph ?? 0) * 0.45 * (r.walk ?? 0);
+        for (const k of [0, 1]) {
+          const side = k ? 0.1 : -0.1, cx = Math.cos(r.yaw), sx = Math.sin(r.yaw);
+          e4.set(k ? -sw : sw, r.yaw, 0, 'YXZ'); q4.setFromEuler(e4);
+          legs.setMatrixAt(i * 2 + k, m4.compose(t4.set(r.x + side * cx, 0.82 + bob, r.z - side * sx), q4, s4.set(1, 1, 1)));
+        }
+        if (c.umb) { q4.setFromAxisAngle(upY, r.yaw); umbs.setMatrixAt(u++, m4.compose(t4.set(r.x, bob, r.z), q4, s4.set(1, 1, 1))); }
+      });
+      body.instanceMatrix.needsUpdate = legs.instanceMatrix.needsUpdate = true; if (umbs) umbs.instanceMatrix.needsUpdate = true;
+    },
+  };
+}
+/* ===================================================================== MACHINES: cars, drones */
+// one merged car for instanced traffic: long along +x, front at +x
+const carGeo = merged(tr(new THREE.BoxGeometry(4.2, 0.62, 1.8), 0, 0.63, 0), tr(new THREE.BoxGeometry(2.2, 0.56, 1.6), -0.2, 1.22, 0),
+  ...[[1.3, 0.86], [-1.3, 0.86], [1.3, -0.86], [-1.3, -0.86]].map(([x, z]) => tr(new THREE.CylinderGeometry(0.36, 0.36, 0.26, 8), x, 0.36, z, { rx: Math.PI / 2 })));
+const tailGeo = merged(tr(new THREE.BoxGeometry(0.08, 0.14, 0.34), -2.12, 0.78, 0.6), tr(new THREE.BoxGeometry(0.08, 0.14, 0.34), -2.12, 0.78, -0.6));
+const headGeo = merged(tr(new THREE.BoxGeometry(0.08, 0.14, 0.36), 2.12, 0.74, 0.55), tr(new THREE.BoxGeometry(0.08, 0.14, 0.36), 2.12, 0.74, -0.55));
+// building windows: a box texture with lit windows (emissive), tinted per palette
+function windowTex(cols, rows, litColors, density, seedK, base = '#141820', o = {}) {
+  const W = cols * 10, H = rows * 10;
+  const map = canvasTex(W, H, (g, w, h) => { g.fillStyle = base; g.fillRect(0, 0, w, h); for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) { g.fillStyle = o.glass ?? '#1c2430'; g.fillRect(2 + c * 10, 2 + r * 10, 6, 6); } });
+  const emis = canvasTex(W, H, (g, w, h) => { g.fillStyle = '#000'; g.fillRect(0, 0, w, h); for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (hash(r * 7.1 + seedK, c * 3.3) < density) { g.fillStyle = litColors[Math.floor(hash(r, c + seedK) * litColors.length)]; g.fillRect(2 + c * 10, 2 + r * 10, 6, 6); } });
+  return { map, emis };
+}
+
+/* ===================================================================== SCREEN PICTURES */
+// a calm system message: big white words on black (or red), wrapped to fit; alpha fades the words only
+function drawMessage(g, w, h, { text = '', alpha = 1, red = 0, header = 'SYSTEM MESSAGE', size = 0.16, color = '#ffffff', sub = '', subColor = '#ff6a6a', glow = 0 }) {
+  const bg = c4.set(0x020306).lerp(c5.set(0x8a0a12), red);
+  g.fillStyle = `#${bg.getHexString()}`; g.fillRect(0, 0, w, h);
+  if (glow > 0) { const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w * 0.6); r.addColorStop(0, `rgba(255,40,40,${0.35 * glow})`); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); }
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  if (header && alpha > 0) { g.globalAlpha = 0.75 * alpha; g.fillStyle = red > 0.5 ? '#ffd0d0' : '#6ad8ff'; g.font = `800 ${Math.round(h * 0.05)}px ${MONO}`; g.fillText(header, w / 2, h * 0.12); g.fillRect(w * 0.3, h * 0.17, w * 0.4, 3); }
+  if (text && alpha > 0) {
+    g.globalAlpha = alpha; g.fillStyle = color;
+    const words = text.split(' '), lines = []; let s = Math.round(h * size), maxW = w * 0.86;
+    for (;;) { lines.length = 0; g.font = `900 ${s}px ${FONT}`; let cur = ''; for (const wd of words) { const t = cur ? cur + ' ' + wd : wd; if (g.measureText(t).width > maxW && cur) { lines.push(cur); cur = wd; } else cur = t; } lines.push(cur); if (lines.length * s * 1.12 < h * 0.66 || s < 20) break; s -= 4; }
+    const y0 = h * (sub ? 0.5 : 0.55) - (lines.length - 1) * s * 0.56;
+    lines.forEach((l, i) => g.fillText(l, w / 2, y0 + i * s * 1.12));
+    if (sub) { g.fillStyle = subColor; g.font = `800 ${Math.round(h * 0.06)}px ${MONO}`; g.fillText(sub, w / 2, h * 0.86); }
+  }
+  g.globalAlpha = 1; scanlines(g, w, h, 0.1);
+}
+// fade between messages: [[from, text, extra?], ...] → { text, alpha }; each message fades in over 0.45 s, the old one out over 0.3 s
+function msgAt(T, list, fin = 0.45, fout = 0.3) {
+  let cur = null, next = null;
+  for (let i = 0; i < list.length; i++) if (T >= list[i][0]) { cur = list[i]; next = list[i + 1]; }
+  if (!cur) return { text: '', alpha: 0, i: -1 };
+  const a = clamp((T - cur[0]) / fin) * (next ? clamp((next[0] - T) / fout) : 1);
+  return { text: cur[1], alpha: a, extra: cur[2], i: list.indexOf(cur) };
+}
+
+/* ===================================================================== SETS (locations, far apart; only the active one is drawn) */
+const SETS = { obs: V(0, 0, 0), control: V(9000, 0, 0), solar: V(-9000, 0, 0), earth: V(0, 0, 9000), city: V(0, 0, -9000), galaxy: V(9000, 0, 9000) };
+const G = {}, ST = {};   // G: moving things per set, ST: static things per set (merged after building)
+for (const k in SETS) { G[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); ST[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); }
+
+/* ===================================================================== SKY (follows the camera): gradient, Milky Way, stars — and gravitational lensing.
+   A point lens maps every direction d at angle θ from the lens to the source angle β = θ − θE²/θ: stars near the
+   lens are stretched into arcs, a star right behind it becomes a ring, and each star shows a second image on the
+   other side. The black hole itself is not drawn: it is only where the stars are bent. */
+const skyU = { uTop: { value: new THREE.Color() }, uHor: { value: new THREE.Color() }, uBot: { value: new THREE.Color() }, uMoonDir: { value: V(0, 1, 0) }, uMoonCol: { value: new THREE.Color(0) },
+  uStars: { value: 1 }, uBand: { value: 0.12 }, uBandN: { value: V(0, 0, 1) }, uLensDir: { value: V(0, 1, 0) }, uLensR: { value: 0 }, uLens2Dir: { value: V(0, 1, 0) }, uLens2R: { value: 0 }, uHorizon: { value: 1 } };
+const SKY_GLSL = `
+  float h3(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+  float vn(vec3 p){ vec3 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(mix(h3(i), h3(i + vec3(1,0,0)), f.x), mix(h3(i + vec3(0,1,0)), h3(i + vec3(1,1,0)), f.x), f.y),
+               mix(mix(h3(i + vec3(0,0,1)), h3(i + vec3(1,0,1)), f.x), mix(h3(i + vec3(0,1,1)), h3(i + vec3(1,1,1)), f.x), f.y), f.z); }
+  float fbm(vec3 p){ float s = 0.0, a = 0.5; for (int k = 0; k < 4; k++) { s += a * vn(p); p *= 2.07; a *= 0.5; } return s; }
+  // bend a direction around a lens (L, Einstein radius R in radians); w fades the strongly demagnified inner images
+  float ring = 0.0;
+  vec3 bend(vec3 d, vec3 L, float R, inout float w){
+    if (R <= 1e-5) return d;
+    float c = clamp(dot(d, L), -1.0, 1.0), th = acos(c);
+    if (th > 1.2) return d;
+    vec3 p = d - L * c; float pl = length(p); p = pl > 1e-6 ? p / pl : vec3(1.0, 0.0, 0.0);
+    float b = th - R * R / max(th, 1e-4);
+    w *= smoothstep(0.12 * R, 0.55 * R, th);
+    ring += exp(-pow((th - R) / (0.07 * R), 2.0)) * 0.05 + exp(-pow((th - R) / (0.3 * R), 2.0)) * 0.02;
+    return normalize(L * cos(b) + p * sin(b));
+  }
+  vec3 bandCol(vec3 d, float band, vec3 bandN){
+    vec3 col = vec3(0.0);
+    // Milky Way: a soft band of light and dust around one great circle
+    float g = dot(d, bandN), bd = exp(-g * g * 26.0);
+    float n = fbm(d * 5.0 + 3.0), n2 = fbm(d * 13.0);
+    col += band * bd * (0.35 + 0.9 * n) * (0.65 + 0.5 * n2) * vec3(0.62, 0.68, 0.95);
+    col -= band * bd * smoothstep(0.55, 0.8, fbm(d * 9.0 + 7.0)) * 0.5 * vec3(0.6, 0.65, 0.9);
+    col += band * 0.35 * fbm(d * 3.0 + 11.0) * vec3(0.3, 0.32, 0.55);
+    return col;
+  }
+  vec3 starCol(vec3 d, float stars, vec3 bandN){
+    vec3 col = vec3(0.0); float g = dot(d, bandN), bd = exp(-g * g * 26.0);
+    // stars: two layers of soft points (a few pixels wide, so they never shimmer)
+    vec3 q = d * 200.0, i = floor(q); float h = h3(i);
+    if (h > 0.945 - 0.05 * bd) { vec3 c = i + 0.5 + (vec3(h3(i + 1.7), h3(i + 2.3), h3(i + 5.1)) - 0.5) * 0.4; float r = length(q - c);
+      col += stars * (0.25 + 0.75 * h3(i + 9.0)) * exp(-r * r * 22.0) * mix(vec3(1.0, 0.86, 0.7), vec3(0.75, 0.85, 1.0), h3(i + 4.0)) * 1.4; }
+    q = d * 70.0; i = floor(q); h = h3(i + 3.0);
+    if (h > 0.965) { vec3 c = i + 0.5 + (vec3(h3(i + 6.7), h3(i + 8.3), h3(i + 1.1)) - 0.5) * 0.4; float r = length(q - c);
+      col += stars * (exp(-r * r * 60.0) * 3.2 + exp(-r * r * 9.0) * 0.18) * mix(vec3(1.0, 0.9, 0.78), vec3(0.8, 0.88, 1.0), h3(i + 2.0)); }
+    return col;
+  }`;
+const sky = new THREE.Mesh(new THREE.SphereGeometry(3000, 64, 32), new THREE.ShaderMaterial({
+  uniforms: skyU, side: THREE.BackSide, depthWrite: false, depthTest: false, fog: false,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: `uniform vec3 uTop, uHor, uBot, uMoonDir, uMoonCol, uBandN, uLensDir, uLens2Dir; uniform float uStars, uBand, uLensR, uLens2R, uHorizon; varying vec3 vD;
+  ${SKY_GLSL}
+  void main(){ vec3 d = normalize(vD); float h = d.y;
+    vec3 c = h > 0.0 ? mix(uHor, uTop, pow(clamp(h, 0.0, 1.0), 0.45)) : mix(uHor, uBot, pow(clamp(-h, 0.0, 1.0), 0.35));
+    float w = 1.0; vec3 s = bend(d, uLensDir, uLensR, w); s = bend(s, uLens2Dir, uLens2R, w);
+    float fade = mix(1.0, smoothstep(-0.02, 0.16, h), uHorizon);
+    c += (bandCol(normalize(mix(d, s, w)), uBand, uBandN) + starCol(s, uStars, uBandN) * w + ring * vec3(0.7, 0.8, 1.0)) * fade;
+    float m = dot(s, uMoonDir); c += uMoonCol * (smoothstep(0.9994, 0.9997, m) * 4.0 + pow(max(m, 0.0), 300.0) * 0.6 + pow(max(m, 0.0), 12.0) * 0.08);
+    gl_FragColor = vec4(c, 1.0); }`,
+}));
+sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
+function skyLook(top, hor, bot) { skyU.uTop.value.set(top); skyU.uHor.value.set(hor); skyU.uBot.value.set(bot); }
+// the Milky Way band passes through a direction (so the lens sits on the band, where bent light shows best)
+const bandThrough = (L, tilt) => V(1, 0, 0).applyAxisAngle(L, tilt).cross(L).normalize();
+
+/* ===================================================================== SET: OBS (mountain observatory at night; the meadow at the end) */
+const OBS = { L: V(0.2, 0.62, -0.76).normalize(), moon: V(-0.62, 0.42, 0.66).normalize(), tube: V(0, 3.4, 0), hiker: V(28, 0, 34) };
+OBS.band = bandThrough(OBS.L, 0.5);
+const obsH = (x, z) => { const r = Math.hypot(x, z); if (r < 48) return 0; const k = r - 48; return -k * 0.3 - k * k * 0.0007 + (hash(Math.round(x / 11), Math.round(z / 11)) - 0.5) * Math.min(1, k / 25) * 6 + Math.sin(x * 0.021) * Math.cos(z * 0.017) * Math.min(1, k / 60) * 16; };
+// a screen showing the telescope's camera: stars, the split star, the vanishing star, diagnostics
+const TELE_BASE = (() => { const c = document.createElement('canvas'); c.width = 1280; c.height = 720; const g = c.getContext('2d');
+  g.fillStyle = '#04060a'; g.fillRect(0, 0, 1280, 720);
+  for (let i = 0; i < 520; i++) { const x = hash(i, 1) * 1280, y = hash(i, 2) * 720, b = hash(i, 3); g.fillStyle = `rgba(${200 + b * 55},${210 + b * 45},255,${0.25 + 0.75 * b})`; g.beginPath(); g.arc(x, y, 0.8 + b * b * 3.2, 0, TAU); g.fill(); }
+  return c; })();
+function drawTele(g, w, h, st) {
+  g.drawImage(TELE_BASE, 0, 0, w, h);
+  const cx = w * 0.46, cy = h * 0.5;
+  // a faint arc of bent starlight around the field centre
+  g.strokeStyle = `rgba(190,210,255,${0.25 + 0.35 * st.arc})`; g.lineWidth = 4 + 3 * st.arc;
+  for (const [a0, a1, r] of [[-0.9, 0.2, 150], [2.4, 3.3, 150], [0.8, 1.5, 158]]) { g.beginPath(); g.arc(cx, cy, r, a0, a1); g.stroke(); }
+  // the split star: one point becomes four images
+  const k = st.split, s = 6 + 3 * (1 - k);
+  g.fillStyle = '#ffffff';
+  for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { g.globalAlpha = k > 0 ? 1 : (dx === 1 ? 1 : 0); g.beginPath(); g.arc(cx + dx * 150 * k, cy + dy * 150 * k, s, 0, TAU); g.fill(); }
+  g.globalAlpha = 1;
+  if (st.split > 0.02) { g.strokeStyle = '#ffcf5a'; g.lineWidth = 3; g.strokeRect(cx - 200, cy - 200, 400, 400); g.fillStyle = '#ffcf5a'; g.font = `800 30px ${MONO}`; g.textAlign = 'left'; g.fillText('1 STAR · 4 IMAGES', cx - 196, cy - 214); }
+  // the star that vanishes
+  const vx = w * 0.8, vy = h * 0.3;
+  g.fillStyle = `rgba(255,240,220,${1 - st.vanish})`; g.beginPath(); g.arc(vx, vy, 8, 0, TAU); g.fill();
+  if (st.vanishOn) { g.strokeStyle = '#ff6a5a'; g.lineWidth = 3; g.beginPath(); g.arc(vx, vy, 34, 0, TAU); g.stroke(); g.fillStyle = '#ff8a7a'; g.font = `800 30px ${MONO}`; g.textAlign = 'center'; g.fillText(`BRIGHTNESS ${Math.round(-100 * st.vanish)}%`, vx, vy + 70); }
+  g.fillStyle = 'rgba(4,6,10,0.75)'; g.fillRect(0, 0, w, 64); g.fillStyle = '#9ad8ff'; g.font = `800 30px ${MONO}`; g.textAlign = 'left'; g.fillText('● LIVE  ·  MAIN TELESCOPE  ·  FIELD 7', 24, 42);
+  if (st.diag > 0) {
+    g.fillStyle = `rgba(2,4,8,${0.82 * Math.min(1, st.diag * 3)})`; g.fillRect(w * 0.18, h * 0.2, w * 0.64, h * 0.62);
+    ['OPTICS', 'TRACKING', 'CAMERA', 'COOLING'].forEach((t, i) => { const a = clamp((st.diag - i * 0.18) / 0.15); g.globalAlpha = a; g.fillStyle = '#ffffff'; g.font = `800 46px ${MONO}`; g.textAlign = 'left'; g.fillText(t, w * 0.24, h * 0.32 + i * 70); g.fillStyle = '#5aff9a'; g.textAlign = 'right'; g.fillText('OK', w * 0.76, h * 0.32 + i * 70); });
+    g.globalAlpha = clamp((st.diag - 0.8) / 0.15); g.fillStyle = '#ffcf5a'; g.font = `900 52px ${FONT}`; g.textAlign = 'center'; g.fillText('NO FAULT FOUND', w / 2, h * 0.76); g.globalAlpha = 1;
+  }
+  if (st.expo >= 0) { g.fillStyle = 'rgba(2,4,8,0.8)'; g.fillRect(w * 0.18, h * 0.66, w * 0.64, h * 0.2); g.fillStyle = '#ffffff'; g.font = `800 36px ${MONO}`; g.textAlign = 'center'; g.fillText('NEW OBSERVATION · EXPOSURE 120 s', w / 2, h * 0.72); g.strokeStyle = '#9ad8ff'; g.lineWidth = 4; g.strokeRect(w * 0.24, h * 0.76, w * 0.52, 30); g.fillStyle = '#9ad8ff'; g.fillRect(w * 0.24 + 5, h * 0.76 + 5, (w * 0.52 - 10) * st.expo, 20); }
+  scanlines(g, w, h, 0.08);
+}
+const obs = (() => {
+  const S = ST.obs, D = G.obs;
+  // the mountain: a plateau with the observatory, slopes falling away to the valley
+  const tg = new THREE.PlaneGeometry(1800, 1800, 150, 150); tg.rotateX(-Math.PI / 2);
+  const tp = tg.attributes.position; for (let i = 0; i < tp.count; i++) tp.setY(i, obsH(tp.getX(i), tp.getZ(i)));
+  tg.computeVertexNormals();
+  mesh(S, tg, mat(0x2c3a30, { flat: true, rough: 0.95 }), 0, 0, 0, { shadow: false });
+  mesh(S, new THREE.CircleGeometry(30, 40), mat(0x55534e, { rough: 1 }), 0, 0.03, 0, { rx: -Math.PI / 2, shadow: false });
+  // far mountains with snow on top
+  for (let i = 0; i < 18; i++) {
+    const a = i / 18 * TAU + hash(i) * 0.25, r = 700 + hash(i, 2) * 600, R = 160 + hash(i, 3) * 160, H = 160 + hash(i, 4) * 220, x = Math.cos(a) * r, z = Math.sin(a) * r, y0 = -260;
+    cyl(S, 0.01, R, H - y0, 0, x, y0, z, { m: mat(0x1e2636, { flat: true, rough: 1 }), seg: 7, shadow: false });
+    const k = 0.26; cyl(S, 0.01, R * k * 1.02, (H - y0) * k, 0, x, y0 + (H - y0) * (1 - k), z, { m: mat(0xb8c4d8, { flat: true, rough: 0.9 }), seg: 7, shadow: false });
+  }
+  // the town far below in the valley
+  const TOWN = []; for (let i = 0; i < 520; i++) { const x = (rnd() - 0.5) * 900, z = 260 + rnd() * 560; TOWN.push({ x, z, y: obsH(x, z) + 1.5 }); }
+  instanced(S, new THREE.SphereGeometry(1.2, 5, 4), new THREE.MeshBasicMaterial({ color: 0xffc27a, toneMapped: false }), TOWN, t => ({ p: V(t.x, t.y, t.z) }));
+  // the main dome: white base, a dome with an open slit facing the patch of sky the telescope watches
+  const white = mat(0xa4aab2, { rough: 0.6, metal: 0.2, env: 0.25 }), inner = mat(0x2c3036, { rough: 0.8, side: THREE.BackSide });
+  mesh(S, tr(new THREE.CylinderGeometry(7, 7, 6, 48, 1, true), 0, 3, 0), white); mesh(S, tr(new THREE.CylinderGeometry(6.98, 6.98, 6, 48, 1, true), 0, 3, 0), inner);
+  cyl(S, 7.3, 7.3, 0.45, 0, 0, 5.8, 0, { m: mat(0x8a9098, { metal: 0.5, rough: 0.4 }), seg: 48 });
+  mesh(S, new THREE.CircleGeometry(6.95, 48), mat(0x2a2c30, { rough: 0.8 }), 0, 0.04, 0, { rx: -Math.PI / 2, shadow: false });
+  const dg = new THREE.SphereGeometry(7.2, 64, 32, 0, TAU, 0, Math.PI / 2).toNonIndexed(), dp = dg.attributes.position, keepTri = [];
+  for (let t = 0; t < dp.count; t += 3) { const cx = (dp.getX(t) + dp.getX(t + 1) + dp.getX(t + 2)) / 3, cz = (dp.getZ(t) + dp.getZ(t + 1) + dp.getZ(t + 2)) / 3; if (Math.abs(cz) < 1.7 && cx < 2.1) continue; for (let v = 0; v < 3; v++) keepTri.push(dp.getX(t + v), dp.getY(t + v), dp.getZ(t + v)); }
+  const domeGeo = new THREE.BufferGeometry(); domeGeo.setAttribute('position', new THREE.Float32BufferAttribute(keepTri, 3)); domeGeo.computeVertexNormals();
+  const dome = group(D, 0, 6, 0); dome.rotation.y = Math.atan2(OBS.L.z, -OBS.L.x);
+  mesh(dome, domeGeo, mat(0xb4bac2, { rough: 0.55, metal: 0.25, env: 0.3 })); mesh(dome, domeGeo, inner, 0, 0, 0, { s: 0.995 });
+  for (const s of [-1, 1]) { const rg = new THREE.TorusGeometry(Math.sqrt(7.2 * 7.2 - 1.7 * 1.7), 0.13, 6, 48, Math.PI * 0.6); rg.rotateZ(Math.PI * 0.4); mesh(dome, rg, mat(0x6a7078, { metal: 0.6, rough: 0.35 }), 0, 0, s * 1.7); }
+  // door and lamp on the side facing the road
+  const door = group(S, Math.cos(Math.PI / 4) * 7.02, 0, Math.sin(Math.PI / 4) * 7.02); door.rotation.y = Math.PI / 4 + Math.PI / 2;
+  box(door, 1.6, 2.4, 0.2, 0x3a4048, 0, 0, 0, { r: 0.04 });
+  box(door, 0.5, 0.18, 0.25, 0, 0, 2.7, 0.1, { m: mat(0xffd8a0, { glow: 3, glowColor: 0xffc880 }), r: 0.04, shadow: false });
+  // the telescope on its pier, pointing through the slit
+  cyl(S, 0.55, 0.75, 2.3, 0x3a3e46, 0, 0, 0, { seg: 16, metal: 0.4, rough: 0.5 });
+  const fork = group(S, 0, 2.3, 0); fork.rotation.y = Math.atan2(OBS.L.x, OBS.L.z);
+  box(fork, 2.4, 0.35, 1.0, 0x30343c, 0, 0, 0, { r: 0.08 }); for (const s of [-1, 1]) box(fork, 0.3, 1.6, 0.8, 0x30343c, s * 1.05, 0.2, 0, { r: 0.06 });
+  const tube = group(S, OBS.tube.x + OBS.L.x * 0.4, OBS.tube.y + OBS.L.y * 0.4, OBS.tube.z + OBS.L.z * 0.4); tube.quaternion.setFromUnitVectors(V(0, 1, 0), OBS.L);
+  const tubeM = mat(0x24324e, { rough: 0.35, metal: 0.5, env: 0.6, side: THREE.DoubleSide });
+  mesh(tube, tr(new THREE.CylinderGeometry(0.78, 0.78, 6.6, 24, 1, true), 0, 0, 0), tubeM);
+  for (const y of [-3.3, -1.2, 1.4, 3.2]) mesh(tube, new THREE.TorusGeometry(0.82, 0.07, 6, 28), mat(0xa8aeb8, { metal: 0.6, rough: 0.3 }), 0, y, 0, { rx: Math.PI / 2 });
+  mesh(tube, new THREE.CircleGeometry(0.76, 24), mat(0x0a0c10), 0, -3.25, 0, { rx: Math.PI / 2 });
+  cyl(tube, 0.25, 0.25, 1.4, 0x8a8e96, 0, -4.6, 0, { seg: 10, metal: 0.5 });
+  // console with the camera screen, and the astronomer (faces −x, toward the screen)
+  box(S, 0.9, 1.0, 1.9, 0x23262c, -5.0, 0, 3.2, { r: 0.05 });
+  box(S, 0.12, 0.85, 1.42, 0x0a0b0d, -4.6, 0.98, 3.2, { r: 0.02 });
+  const tele = screenTex(1280, 720, drawTele);
+  mesh(D, new THREE.PlaneGeometry(1.3, 0.73), scrMat(tele.t), -4.52, 1.36, 3.2, { ry: Math.PI / 2, shadow: false });
+  const astro = person({ shirt: 0x3a4658, pants: 0x22262e, hair: 0x2a1a10, coat: true, parent: D });
+  astro.root.position.set(-3.8, 0.05, 2.3); astro.root.rotation.y = -0.67;
+  // the hut where the night crew works, a second small dome, a mast with a slow red warning light
+  box(S, 14, 4, 7, 0x9aa0a8, -20, 0, 8, { r: 0.1, rough: 0.7 });
+  box(S, 14.6, 0.4, 7.6, 0x5a6068, -20, 4, 8, { r: 0.05 });
+  const winM = mat(0xffd49a, { glow: 2.2, glowColor: 0xffc070 });
+  for (const x of [-25, -22, -17, -14]) plain(S, 1.6, 1.1, 0.06, winM, x, 1.6, 11.53, { shadow: false });
+  cyl(S, 3.6, 3.6, 3.6, 0xa4aab2, 18, 0, -9, { seg: 32, rough: 0.6 });
+  mesh(S, new THREE.SphereGeometry(3.7, 32, 16, 0, TAU, 0, Math.PI / 2), mat(0xb4bac2, { rough: 0.55, metal: 0.25, env: 0.3 }), 18, 3.6, -9);
+  cyl(S, 0.15, 0.2, 22, 0x6a6e76, -30, 0, -6, { seg: 6 });
+  const warnM = new THREE.MeshBasicMaterial({ color: 0xff2a1a, toneMapped: false }); mesh(D, new THREE.SphereGeometry(0.35, 10, 8), warnM, -30, 22.2, -6, { shadow: false });
+  // pines, rocks, grass on the slope at the meadow; one lone tree
+  const PINES = []; for (let i = 0; i < 160; i++) { const a = rnd() * TAU, r = 52 + rnd() * 160; const x = Math.cos(a) * r, z = Math.sin(a) * r; PINES.push({ x, z, y: obsH(x, z), s: 0.7 + rnd() * 0.9 }); }
+  const pineG = merged(tr(new THREE.CylinderGeometry(0.18, 0.26, 2.2, 5), 0, 1.1, 0), tr(new THREE.ConeGeometry(1.6, 3.2, 6), 0, 3.2, 0), tr(new THREE.ConeGeometry(1.25, 2.6, 6), 0, 4.6, 0), tr(new THREE.ConeGeometry(0.85, 2.0, 6), 0, 5.8, 0));
+  instanced(S, pineG, mat(0x1c2e26, { flat: true, rough: 0.9 }), PINES, p => ({ p: V(p.x, p.y - 0.2, p.z), s: V(p.s, p.s, p.s) }));
+  const tree = group(S, 18, 0, 38); mesh(tree, pineG, mat(0x1c2e26, { flat: true, rough: 0.9 }), 0, -0.2, 0, { s: 1.6 });
+  const ROCKS = []; for (let i = 0; i < 90; i++) { const x = 6 + rnd() * 50, z = 18 + rnd() * 40; ROCKS.push({ x, z, y: obsH(x, z), s: 0.2 + rnd() * 0.7 }); }
+  instanced(S, icoG, mat(0x4a4c50, { flat: true, rough: 1 }), ROCKS, r => ({ p: V(r.x, r.y + r.s * 0.3, r.z), s: V(r.s * 1.3, r.s, r.s) }));
+  const GRASS = []; for (let i = 0; i < 4200; i++) { const x = rnd() * 60 - 4, z = 16 + rnd() * 34; GRASS.push({ x, z, y: obsH(x, z), s: 0.5 + rnd() * 0.8, c: [0x2a3e2a, 0x34482e, 0x263a30][i % 3] }); }
+  instanced(S, tr(new THREE.ConeGeometry(0.05, 0.55, 3), 0, 0.27, 0), mat(0xffffff, { rough: 1 }), GRASS, g => ({ p: V(g.x, g.y, g.z), s: V(1, g.s, 1), c: g.c }));
+  // the person on the hill at the end, looking out over the valley
+  const hiker = person({ shirt: 0x5a3a2a, pants: 0x2a2e36, hair: 0x2a1a10, parent: D });
+  hiker.root.position.set(OBS.hiker.x, obsH(OBS.hiker.x, OBS.hiker.z), OBS.hiker.z); hiker.head.rotation.x = -0.35;
+  return { tele, dome, astro, warnM, hiker };
+})();
+
+/* ===================================================================== SCREEN PICTURES (control room) */
+const C_BLUE = '#9ad8ff', C_AMBER = '#ffcf5a', C_RED = '#ff6a5a', C_GREEN = '#5aff9a';
+// the solar system as a diagram: sun, orbits, the black hole's path (2D: x right, y down)
+const ORB_PX = [16, 27, 40, 54, 92, 128, 166, 200];
+function drawSystem(g, cx, cy, s, o = {}) {
+  g.save(); g.translate(cx, cy); g.scale(s, s);
+  g.lineWidth = 1.6 / s * 1.4;
+  ORB_PX.forEach((r, i) => { g.strokeStyle = i === 2 ? 'rgba(120,200,255,0.9)' : 'rgba(150,170,200,0.45)'; g.beginPath(); g.arc(0, 0, r, 0, TAU); g.stroke(); });
+  g.strokeStyle = 'rgba(150,170,200,0.18)'; g.lineWidth = 22; g.beginPath(); g.arc(0, 0, 232, 0, TAU); g.stroke();
+  const sunG = g.createRadialGradient(0, 0, 0, 0, 0, 14); sunG.addColorStop(0, '#fff6d8'); sunG.addColorStop(0.5, '#ffc84a'); sunG.addColorStop(1, 'rgba(255,160,40,0)'); g.fillStyle = sunG; g.beginPath(); g.arc(0, 0, 14, 0, TAU); g.fill();
+  ORB_PX.forEach((r, i) => { const a = 0.7 + i * 2.1 + (o.T ?? 0) * 0.05 * Math.pow(40 / r, 1.5); g.fillStyle = i === 2 ? '#6ac8ff' : '#c8d0dc'; g.beginPath(); g.arc(Math.cos(a) * r, Math.sin(a) * r, i === 2 ? 4.5 : 3, 0, TAU); g.fill(); });
+  // paths: closest distance d (px), from the upper right
+  const path = (d, col, wid, dash = []) => { g.strokeStyle = col; g.lineWidth = wid; g.setLineDash(dash); g.beginPath(); for (let k = -1; k <= 1.001; k += 0.02) { const sx = k * 420, x = 0.6 * d - 0.8 * sx + 0.6 * Math.abs(sx) * 0.15, y = -0.8 * d - 0.6 * sx - 0.8 * Math.abs(sx) * 0.15; k === -1 ? g.moveTo(x, y) : g.lineTo(x, y); } g.stroke(); g.setLineDash([]); };
+  if (o.spread > 0) path(o.d, `rgba(255,190,80,${0.12 + 0.1 * o.spread})`, 18 + 70 * o.spread);
+  (o.models ?? []).forEach((d, i) => path(d, `rgba(255,${120 + i * 9},90,0.55)`, 2));
+  if (o.ghost) path(o.ghost, 'rgba(200,210,230,0.5)', 2.5, [10, 8]);
+  if (o.d) path(o.d, o.col ?? C_RED, 4);
+  if (o.bh !== undefined) { const sx = o.bh * 420, x = 0.6 * o.d - 0.8 * sx + 0.6 * Math.abs(sx) * 0.15, y = -0.8 * o.d - 0.6 * sx - 0.8 * Math.abs(sx) * 0.15; g.strokeStyle = '#ffffff'; g.lineWidth = 3; g.beginPath(); g.arc(x, y, 9, 0, TAU); g.stroke(); g.beginPath(); g.moveTo(x - 16, y); g.lineTo(x + 16, y); g.moveTo(x, y - 16); g.lineTo(x, y + 16); g.stroke(); }
+  g.restore();
+}
+// right-hand panel: rows of [label, value, colour]
+function drawPanel(g, x, y, rows, a = 1) {
+  rows.forEach(([k, v, c, big], i) => { g.globalAlpha = a; g.textAlign = 'left'; g.fillStyle = '#7a8aa0'; g.font = `800 34px ${MONO}`; g.fillText(k, x, y + i * 150); g.fillStyle = c ?? '#ffffff'; fitText(g, v, x, y + i * 150 + 74, 700, big ?? 76); });
+  g.globalAlpha = 1;
+}
+function header(g, w, text, col = C_BLUE) { g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillStyle = 'rgba(10,16,26,0.9)'; g.fillRect(0, 0, w, 92); g.fillStyle = col; g.font = `800 40px ${MONO}`; g.fillText(text, 40, 48); g.fillStyle = col; g.fillRect(0, 90, w, 3); }
+// Earth's orbit before (dashed) and after (amber)
+function drawOrbit(g, cx, cy, R, k, T, opts = {}) {
+  g.strokeStyle = 'rgba(220,230,245,0.8)'; g.lineWidth = 4; g.setLineDash([16, 12]); g.beginPath(); g.arc(cx, cy, R, 0, TAU); g.stroke(); g.setLineDash([]);
+  const a = R * (1 + 0.1 * k), e = 0.12 * k, b = a * Math.sqrt(1 - e * e), f = a * e;
+  if (k > 0) { g.strokeStyle = opts.col ?? C_AMBER; g.lineWidth = 6; g.beginPath(); g.ellipse(cx + f, cy, a, b, 0, 0, TAU); g.stroke(); }
+  const sunG = g.createRadialGradient(cx, cy, 0, cx, cy, 34); sunG.addColorStop(0, '#fff6d8'); sunG.addColorStop(0.5, '#ffc84a'); sunG.addColorStop(1, 'rgba(255,160,40,0)'); g.fillStyle = sunG; g.beginPath(); g.arc(cx, cy, 34, 0, TAU); g.fill();
+  const ang = T * 0.35; g.fillStyle = '#6ac8ff'; g.beginPath(); g.arc(cx + f * (k > 0 ? 1 : 0) + Math.cos(ang) * (k > 0 ? a : R), cy + Math.sin(ang) * (k > 0 ? b : R), 14, 0, TAU); g.fill();
+}
+// the main wall: [from, kind, data]; each picture fades in over 0.45 s
+const CLOCK = () => [[0, -1], [ct(27), 41 * 86400 + 6 * 3600 + 12 * 60 + 9], [ct(40), 23 * 86400 + 3 * 3600 + 41 * 60 + 5], [ct(55), 5 * 3600 + 47 * 60 + 12], [ct(61), 14 * 60 + 31], [EV.tenMin, 600], [EV.fiveMin, 300], [EV.oneMin, 60], [EV.closest, 0]];
+let CLK = null;
+function clockAt(T) { CLK ??= CLOCK(); let r = CLK[0]; for (const c of CLK) if (T >= c[0]) r = c; if (r[1] < 0) return null; return T >= EV.closest ? -(T - EV.closest) : Math.max(0, r[1] - (T - r[0])); }
+const two = n => String(Math.floor(n)).padStart(2, '0');
+function fmtClock(s) { if (s === null) return 'CALCULATING…'; const neg = s < 0; s = Math.abs(s); const d = Math.floor(s / 86400), h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60, x = Math.floor(s) % 60; return (neg ? '+' : '') + (d ? `${d} DAYS  ` : '') + `${two(h)}:${two(m)}:${two(x)}`; }
+const WALL = () => [
+  [0, 'sky'],
+  [ct(15), 'track', { miss: 'MEASURING…', vel: '31 km/s', status: 'TRACKING', sc: C_BLUE, d: 330, spread: 0.9 }],
+  [EV.pred1, 'track', { miss: '1,400 AU', vel: '31 km/s', status: 'EARTH: SAFE', sc: C_GREEN, d: 330, spread: 0.25 }],
+  [EV.change, 'track', { miss: '210 AU', vel: '48 km/s', status: 'UNCERTAIN', sc: C_AMBER, d: 250, spread: 0.6, ghost: 330 }],
+  [ct(24), 'models'],
+  [ct(25), 'track', { miss: '60 – 240 AU', vel: '48 km/s', status: 'HOW CLOSE?', sc: C_AMBER, d: 236, spread: 1 }],
+  [ct(39), 'orbit', { stage: 'question' }],
+  [ct(41), 'compute', { title: 'CLOSEST APPROACH', from: ct(41) + 0.3, to: at(41, 0.95), result: '≈ 60 AU' }],
+  [ct(42), 'compare', { focus: 'A' }], [ct(43), 'compare', { focus: 'B' }],
+  [ct(47), 'track', { miss: '≈ 60 AU', vel: '48 km/s', status: 'PATH SHIFTED', sc: C_RED, d: 225, spread: 0.35, ghost: 250 }],
+  [ct(50), 'compute', { title: 'EARTH: POST-ENCOUNTER ORBIT', from: ct(50) + 0.3, to: ct(51) + 2, result: 'PRELIMINARY' }],
+  [ct(51), 'orbit', { stage: 'pre' }],
+  [ct(61), 'count', { label: 'TIME TO CLOSEST APPROACH', clock: 1 }],
+  [EV.tenMin, 'count', { label: 'TIME TO CLOSEST APPROACH', big: 'TEN MINUTES', clock: 1 }],
+  [EV.fiveMin, 'count', { label: 'TIME TO CLOSEST APPROACH', big: 'FIVE MINUTES', clock: 1 }],
+  [EV.oneMin, 'count', { label: 'TIME TO CLOSEST APPROACH', big: 'ONE MINUTE', clock: 1 }],
+  [EV.closest, 'count', { label: 'CLOSEST APPROACH', big: 'NOW', clock: 1 }],
+  [ct(70), 'compute', { title: 'NEW MEASUREMENTS', from: ct(70) + 0.3, to: ct(72), result: 'RECEIVED' }],
+  [ct(72), 'orbit', { stage: 'altered' }],
+  [ct(75), 'orbit', { stage: 'bound' }],
+  [ct(78), 'compute', { title: 'REFINING MODEL', from: ct(78) + 0.3, to: ct(80), result: 'DONE', sub: '+ BLACK HOLE TRAJECTORY  + GRAVITY' }],
+  [ct(81), 'orbit', { stage: 'changed' }],
+  [ct(85), 'climate'],
+  [ct(93), 'orbit', { stage: 'changed' }],
+  [ct(94), 'facts'],
+];
+let WALL_L = null;
+function wallState(T) { WALL_L ??= WALL(); const m = msgAt(T, WALL_L.map(w => [w[0], w[1], w[2]]), 0.45, 0.3); return { kind: m.text || 'sky', i: m.i, alpha: m.alpha, data: m.extra ?? {}, t0: WALL_L[Math.max(0, m.i)][0] }; }
+function drawWall(g, w, h, st, T) {
+  const { kind, alpha: a, data: d } = st;
+  g.fillStyle = '#03060b'; g.fillRect(0, 0, w, h); g.textBaseline = 'middle';
+  g.globalAlpha = a;
+  if (kind === 'sky') {
+    g.drawImage(TELE_BASE, 0, 92, w, h - 92); const r = 230 + 60 * clamp(skyR(T) / 0.1);
+    g.strokeStyle = 'rgba(200,215,255,0.8)'; g.lineWidth = 7; for (const [a0, a1] of [[-1, 0.25], [2.2, 3.5], [0.9, 1.6]]) { g.beginPath(); g.arc(w * 0.5, h * 0.56, r, a0, a1); g.stroke(); }
+    g.globalAlpha = a; header(g, w, '● 3 OBSERVATORIES · SAME PATTERN'); g.textAlign = 'center'; g.fillStyle = C_AMBER; g.font = `900 64px ${FONT}`; g.fillText('LIGHT IS BEING BENT', w / 2, h - 90);
+  }
+  if (kind === 'track') {
+    header(g, w, 'BLACK HOLE · PREDICTED PATH');
+    g.save(); g.beginPath(); g.rect(0, 95, w * 0.58, h - 95); g.clip();
+    drawSystem(g, w * 0.32, h * 0.6, 1.75, { d: d.d, spread: d.spread, ghost: d.ghost, bh: -0.55, T });
+    g.restore();
+    drawPanel(g, w * 0.62, 190, [['CLOSEST APPROACH', d.miss], ['VELOCITY', d.vel], ['MASS', '≈ 9 SUNS'], ['STATUS', d.status, d.sc]]);
+  }
+  if (kind === 'models') {
+    header(g, w, '12 INDEPENDENT MODELS', C_AMBER);
+    g.save(); g.beginPath(); g.rect(0, 95, w * 0.58, h - 95); g.clip();
+    drawSystem(g, w * 0.32, h * 0.6, 1.75, { models: [205, 214, 222, 229, 236, 241, 247, 252, 258, 266, 274, 285], T });
+    g.restore();
+    drawPanel(g, w * 0.62, 190, [['MODELS AGREE', '12 / 12', C_AMBER], ['RESULT', 'GRAVITY WILL', '#ffffff', 70], ['', 'DISTURB THE', '#ffffff', 70], ['', 'SOLAR SYSTEM', '#ffffff', 70]]);
+  }
+  if (kind === 'compute') {
+    const k = smooth(d.from, d.to, T);
+    header(g, w, 'CALCULATING'); g.textAlign = 'center'; g.fillStyle = '#ffffff'; fitText(g, d.title, w / 2, 330, w * 0.86, 110);
+    g.strokeStyle = C_BLUE; g.lineWidth = 6; g.strokeRect(w * 0.18, 520, w * 0.64, 70); g.fillStyle = C_BLUE; g.fillRect(w * 0.18 + 10, 530, (w * 0.64 - 20) * k, 50);
+    g.font = `800 56px ${MONO}`; g.fillStyle = k >= 1 ? C_AMBER : C_BLUE; g.fillText(k >= 1 ? d.result : `${Math.floor(k * 100)}%`, w / 2, 700);
+    if (d.sub) { g.fillStyle = '#7a8aa0'; g.font = `800 40px ${MONO}`; g.fillText(d.sub, w / 2, 820); }
+  }
+  if (kind === 'compare') {
+    header(g, w, 'EARTH AFTER THE ENCOUNTER · TWO MODELS');
+    [['A', 'MINOR DISTURBANCE', 0.15, C_GREEN], ['B', 'SERIOUS CHANGE', 0.85, C_RED]].forEach(([n, t, k, c], i) => {
+      const x0 = i * w / 2, on = d.focus === n; g.globalAlpha = a * (on ? 1 : 0.32);
+      drawOrbit(g, x0 + w * 0.25, h * 0.58, 165, k, T, { col: c });
+      g.textAlign = 'center'; g.fillStyle = c; g.font = `800 44px ${MONO}`; g.fillText(`MODEL ${n}`, x0 + w * 0.25, h * 0.16); g.fillStyle = '#ffffff'; fitText(g, t, x0 + w * 0.25, h * 0.26, w * 0.44, 72);
+    });
+    g.globalAlpha = a; g.fillStyle = '#2a3446'; g.fillRect(w / 2 - 2, 120, 4, h - 160);
+  }
+  if (kind === 'orbit') {
+    const S = { question: [0, 'EARTH AROUND THE SUN', [['SPEED', '≈ 30 km/s'], ['AFTER THE BLACK HOLE', '?', C_AMBER]]],
+      pre: [0.5, 'POST-ENCOUNTER ORBIT · PRELIMINARY', [['SMALL CHANGE', 'LIFE GOES ON', C_GREEN], ['LARGE CHANGE', 'CLIMATE SHIFTS', C_RED]]],
+      altered: [0.6, "EARTH'S MOTION · ALTERED", [['SPEED CHANGE', '+ 0.4 km/s', C_AMBER], ['STATUS', 'ORBIT CHANGED', C_AMBER]]],
+      bound: [0.6, 'FIRST CALCULATIONS', [['BOUND TO THE SUN', 'YES ✓', C_GREEN], ['LONG-TERM EFFECT', 'UNKNOWN', C_AMBER]]],
+      changed: [1, "EARTH'S ORBIT HAS CHANGED", [['AVERAGE DISTANCE', '+ 2.4 %', C_AMBER], ['ORBIT SHAPE', '0.017 → 0.05', C_AMBER], ['BOUND TO THE SUN', 'YES ✓', C_GREEN]]] }[d.stage];
+    header(g, w, S[1], S[0] >= 0.6 ? C_AMBER : C_BLUE);
+    drawOrbit(g, w * 0.3, h * 0.56, 300, S[0] * (d.stage === 'pre' ? 0.5 + 0.5 * Math.sin(T * 0.8) : 1), T);
+    drawPanel(g, w * 0.62, 230, S[2]);
+  }
+  if (kind === 'count') {
+    header(g, w, d.label, C_AMBER); g.textAlign = 'center';
+    if (d.big) { g.fillStyle = '#ffffff'; fitText(g, d.big, w / 2, h * 0.44, w * 0.86, 230); }
+    g.fillStyle = d.big ? C_AMBER : '#ffffff'; g.font = `800 ${d.big ? 96 : 170}px ${MONO}`; g.fillText(fmtClock(clockAt(T)), w / 2, d.big ? h * 0.76 : h * 0.55);
+  }
+  if (kind === 'climate') {
+    header(g, w, 'IF THE CHANGE IS LARGE', C_AMBER);
+    ['CLIMATE PATTERNS', 'ICE SHEETS', 'ECOSYSTEMS'].forEach((t, i) => { g.textAlign = 'left'; g.fillStyle = '#ffffff'; g.font = `900 80px ${FONT}`; g.fillText(t, w * 0.1, 250 + i * 170); g.fillStyle = C_RED; g.font = `800 48px ${MONO}`; g.textAlign = 'right'; g.fillText('UNDER PRESSURE', w * 0.9, 250 + i * 170); });
+    g.textAlign = 'center'; g.fillStyle = C_AMBER; g.font = `800 48px ${MONO}`; g.fillText('DEPENDS ON THE EXACT ENCOUNTER', w / 2, h * 0.76);
+  }
+  if (kind === 'facts') {
+    header(g, w, 'BLACK HOLES IN OUR GALAXY');
+    drawPanel(g, w * 0.1, 250, [['ESTIMATED', '≈ 100 MILLION', '#ffffff', 110], ['SEEN ALONE, BEFORE THIS ONE', 'JUST 1', C_AMBER, 110], ['THE REST', 'INVISIBLE', C_RED, 110]]);
+  }
+  g.globalAlpha = 1; scanlines(g, w, h, 0.07);
+}
+// side screens: telescope feed, observatory network, countdown clock, gravity telemetry
+function drawSide(g, w, h, kind, T) {
+  g.fillStyle = '#03060b'; g.fillRect(0, 0, w, h); g.textBaseline = 'middle';
+  if (kind === 0) { g.drawImage(TELE_BASE, 0, 0, w, h); g.strokeStyle = 'rgba(200,215,255,0.75)'; g.lineWidth = 5; const r = 150 + 50 * clamp(skyR(T) / 0.12); for (const [a0, a1] of [[-1, 0.3], [2.2, 3.4]]) { g.beginPath(); g.arc(w * 0.5, h * 0.55, r, a0, a1); g.stroke(); } header(g, w, '● LIVE · LENSING FIELD'); }
+  if (kind === 1) { header(g, w, 'OBSERVATORY NETWORK'); g.fillStyle = '#0e2238'; g.beginPath(); g.arc(w / 2, h * 0.58, 230, 0, TAU); g.fill(); g.strokeStyle = 'rgba(120,200,255,0.5)'; g.lineWidth = 2; for (let i = -2; i <= 2; i++) { g.beginPath(); g.ellipse(w / 2, h * 0.58, 230 * Math.cos(i * 0.5), 230, 0, 0, TAU); g.stroke(); }
+    for (let i = 0; i < 14; i++) { const x = w / 2 + (hash(i, 7) - 0.5) * 380, y = h * 0.58 + (hash(i, 8) - 0.5) * 340; if (Math.hypot(x - w / 2, y - h * 0.58) > 220) continue; g.fillStyle = C_AMBER; g.beginPath(); g.arc(x, y, 9, 0, TAU); g.fill(); }
+    g.fillStyle = '#ffffff'; g.font = `800 40px ${MONO}`; g.textAlign = 'right'; g.fillText('14 SITES', w - 40, h - 50); }
+  if (kind === 2) { header(g, w, 'TIME TO CLOSEST APPROACH', C_AMBER); g.textAlign = 'center'; g.fillStyle = '#ffffff'; fitText(g, fmtClock(clockAt(T)), w / 2, h * 0.58, w * 0.9, 120, 800, MONO); }
+  if (kind === 3) { header(g, w, 'GRAVITY DISTURBANCE · OUTER PLANETS'); g.strokeStyle = C_RED; g.lineWidth = 4; g.beginPath(); const ten = envAt(T).tension;
+    for (let x = 0; x <= w; x += 8) { const t = T - (w - x) / 120, y = h * 0.82 - (0.15 + 0.7 * ten) * h * 0.55 * (0.6 + 0.4 * Math.sin(t * 1.3) * Math.sin(t * 0.37)); x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); }
+  scanlines(g, w, h, 0.08);
+}
+// desk monitors: [A] scrolling graph, [B] bent starlight, [C] the story line at the hero's desk, [D] changed orbits
+const MON_C = () => [[0, 'TRACKING'], [EV.newData, 'NEW MEASUREMENTS RECEIVED'], [EV.run2, 'RUN #2 · RECALCULATING'], [EV.run3, 'RUN #3 · RECALCULATING'], [ct(27), 'TRACKING'],
+  [EV.update, 'MODEL UPDATED'], [ct(56), 'STANDING BY'], [EV.fiveMin, 'FIVE MINUTES'], [EV.oneMin, 'ONE MINUTE'], [ct(66), 'DATA INCOMING'], [ct(75), 'ORBIT CHANGED']];
+let MONC_L = null;
+function drawMon(g, w, h, kind, T) {
+  g.fillStyle = '#03070c'; g.fillRect(0, 0, w, h); g.textBaseline = 'middle'; g.textAlign = 'center';
+  if (kind === 0) { g.strokeStyle = '#3ab0ff'; g.lineWidth = 3; g.beginPath(); for (let x = 0; x <= w; x += 6) { const t = T * 2 - (w - x) / 40, y = h * 0.55 - 70 * Math.sin(t) * Math.sin(t * 0.31 + 1); x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); g.fillStyle = '#9ad8ff'; g.font = `800 26px ${MONO}`; g.fillText('POSITION RESIDUALS', w / 2, 30); }
+  if (kind === 1) { g.drawImage(TELE_BASE, 0, 0, w, h); g.strokeStyle = 'rgba(200,215,255,0.8)'; g.lineWidth = 3; for (const [a0, a1] of [[-1, 0.3], [2.2, 3.4]]) { g.beginPath(); g.arc(w * 0.5, h * 0.5, 90, a0, a1); g.stroke(); } }
+  if (kind === 2) { MONC_L ??= MON_C(); const m = msgAt(T, MONC_L, 0.45, 0.3); g.globalAlpha = m.alpha; g.fillStyle = '#ffffff'; fitText(g, m.text, w / 2, h * 0.5, w * 0.9, 64); g.globalAlpha = 1; g.fillStyle = '#7a8aa0'; g.font = `800 24px ${MONO}`; g.fillText('BLACK HOLE · TRACK 01', w / 2, 30); }
+  if (kind === 3) { g.fillStyle = '#9ad8ff'; g.font = `800 28px ${MONO}`; g.fillText('14 OBJECTS · PATHS CHANGED', w / 2, 34);
+    for (let i = 0; i < 4; i++) { const r = 60 + i * 30, e = 0.12 + i * 0.05; g.strokeStyle = 'rgba(200,210,230,0.6)'; g.setLineDash([8, 6]); g.lineWidth = 2; g.beginPath(); g.ellipse(w / 2, h * 0.58, r * 1.6, r, 0, 0, TAU); g.stroke(); g.setLineDash([]); g.strokeStyle = C_AMBER; g.lineWidth = 3; g.beginPath(); g.ellipse(w / 2 + r * e * 2, h * 0.58 - r * e, r * 1.6 * (1 + e), r * (1 + e * 0.6), 0.12 * i, 0, TAU); g.stroke(); } }
+  scanlines(g, w, h, 0.08);
+}
+
+/* ===================================================================== SET: CONTROL (the room where the numbers arrive) */
+const CTRL = { rows: [[-4.5, 0], [-0.5, 0.35], [3.5, 0.7]], lead: V(1.5, 0, -8) };
+const control = (() => {
+  const S = ST.control, D = G.control;
+  plain(S, 32, 0.1, 24, mat(0x161a22, { rough: 0.7 }), 0, -0.1, 0.5);
+  plain(S, 32, 0.35, 4, mat(0x1c2029, { rough: 0.7 }), 0, 0, -0.25); plain(S, 32, 0.7, 10.25, mat(0x1c2029, { rough: 0.7 }), 0, 0, 6.875);
+  for (const [z, y] of [[1.75, 0.7], [-2.25, 0.35]]) plain(S, 32, 0.04, 0.08, mat(0x3a8ad8, { glow: 1.5, glowColor: 0x3a8ad8 }), 0, y, z, { shadow: false });
+  const wallM = mat(0x1a202c, { rough: 0.8 });
+  plain(S, 32, 9.2, 0.2, wallM, 0, 0, 12.1); plain(S, 32, 9.2, 0.2, mat(0x10141c, { rough: 0.8 }), 0, 0, -11.1);
+  for (const s of [-1, 1]) { plain(S, 0.2, 9.2, 23.4, wallM, s * 16.1, 0, 0.5); for (let z = -8; z <= 10; z += 4.5) plain(S, 0.06, 9, 0.12, mat(0x2a6ab8, { glow: 0.8, glowColor: 0x2a6ab8 }), s * 15.95, 0, z, { shadow: false }); }
+  plain(S, 32.4, 0.2, 23.4, mat(0x0c0e12, { rough: 0.9 }), 0, 9, 0.5, { shadow: false });
+  for (const x of [-8, 0, 8]) plain(S, 0.5, 0.08, 18, mat(0xd8e4ff, { glow: 1.2, glowColor: 0xc8d8ff }), x, 8.9, 1.5, { shadow: false });
+  // wall screens
+  const main = screenTex(1920, 1080, (g, w, h, st, T) => drawWall(g, w, h, st, T));
+  mesh(D, new THREE.PlaneGeometry(12, 6.75), scrMat(main.t), 0, 4.6, -10.86, { shadow: false });
+  plain(S, 12.5, 7.25, 0.15, mat(0x05070a), 0, 4.6 - 3.625, -10.99);
+  const sides = [[-10, 6.3, 0], [-10, 2.7, 1], [10, 6.3, 2], [10, 2.7, 3]].map(([x, y, k]) => {
+    const t = screenTex(1280, 720, (g, w, h, T) => drawSide(g, w, h, k, T));
+    mesh(D, new THREE.PlaneGeometry(5.6, 3.15), scrMat(t.t), x, y, -10.86, { shadow: false }); plain(S, 5.9, 3.45, 0.15, mat(0x05070a), x, y - 1.725, -10.99); return t;
+  });
+  // desks, monitors, chairs, people
+  const mons = [0, 1, 2, 3].map(k => screenTex(640, 360, (g, w, h, T) => drawMon(g, w, h, k, T)));
+  const monM = mons.map(m => scrMat(m.t));
+  const deskM = mat(0x2a2e36, { rough: 0.5, metal: 0.3, env: 0.4 });
+  const MONS = { '1.25|0': 2, '8.25|0': 2, '-8.25|1': 3 };
+  CTRL.rows.forEach(([z, y], r) => [-7, 0, 7].forEach((x, i) => {
+    box(S, 5, 0.76, 1.3, 0, x, y, z, { m: deskM, r: 0.04 });
+    for (const s of [-1, 1]) {
+      const mx = x + s * 1.25, kind = MONS[`${mx}|${r}`] ?? [0, 1, 3, 1, 0, 3, 1, 0, 1][(r * 3 + i + (s > 0 ? 1 : 0)) % 9];
+      box(S, 0.12, 0.3, 0.12, 0x15171c, mx, y + 0.76, z - 0.35, { r: 0.02 });
+      box(S, 1.18, 0.7, 0.06, 0x0a0b0e, mx, y + 0.8, z - 0.42, { r: 0.02 });
+      mesh(D, new THREE.PlaneGeometry(1.1, 0.62), monM[kind], mx, y + 1.15, z - 0.385, { shadow: false });
+      box(S, 0.9, 0.04, 0.3, 0x15171c, mx, y + 0.76, z + 0.15, { r: 0.01 });
+    }
+  }));
+  const SEATS = [[-5.75, 0], [1.25, 0], [-1.25, 0], [5.75, 0], [-5.75, 1], [-1.25, 1], [1.25, 1], [5.75, 1], [-8.25, 2], [-1.25, 2], [5.75, 2], [8.25, 2]];
+  const crew = SEATS.map(([x, r], i) => {
+    const [z, y] = CTRL.rows[r];
+    box(S, 0.6, 0.5, 0.6, 0x20232a, x, y, z + 1.0, { r: 0.05 }); box(S, 0.6, 0.7, 0.1, 0x20232a, x, y + 0.5, z + 1.32, { r: 0.04 });
+    const P = randPerson(D, i + 3); seat(P, x, 0.55 + y, z + 0.92, Math.PI); P.arms.forEach(a => a.rotation.x = -1.05); P.head.rotation.x = 0.12; return P;
+  });
+  const lead = person({ shirt: 0xe8eaec, pants: 0x2a2e36, hair: 0x3a3a3a, skin: 0xc08a62, coat: true, parent: D }); lead.root.position.set(CTRL.lead.x, 0, CTRL.lead.z); lead.root.rotation.y = Math.PI; lead.head.rotation.x = -0.12;
+  const pair = [person({ shirt: 0x2a4a6a, pants: 0x22262e, hair: 0x1a1410, skin: 0x8a5a3a, parent: D }), person({ shirt: 0x8a3a2a, pants: 0x2a2a2a, hair: 0x6a4a2a, long: true, parent: D })];
+  pair[0].root.position.set(10.5, 0.35, 0.7); pair[0].root.rotation.y = 2.31; pair[1].root.position.set(11.6, 0.35, -0.3); pair[1].root.rotation.y = -0.83;
+  return { main, sides, mons, crew, lead, pair };
+})();
+
+/* ===================================================================== SET: SOLAR (the solar system from outside; the black hole is only its bent light) */
+// points on a sphere where there is "land" (Earth texture in the solar system and from space)
+const landAt = (lat, lon) => Math.sin(lon * 1.7 + 0.6) * Math.cos(lat * 2.3 - 0.4) + 0.55 * Math.sin(lon * 3.9 + lat * 2.1) + 0.3 * Math.cos(lon * 7.1 - lat * 5.3) > 0.42;
+const earthDayT = canvasTex(2048, 1024, (g, w, h) => { const img = g.createImageData(w, h); for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const lat = (0.5 - y / h) * Math.PI, lon = x / w * TAU, l = landAt(lat, lon), ice = Math.abs(lat) > 1.25; const i = (y * w + x) * 4; const c = ice ? [230, 236, 244] : l ? (Math.abs(lat) < 0.5 && Math.sin(lon * 6.3 + lat * 4.1) > 0.2 ? [172, 148, 100] : [72 + 30 * Math.sin(lon * 9 + lat * 5), 116 + 20 * Math.cos(lon * 7 - lat * 6), 62]) : [20, 62, 140]; img.data.set([...c, 255], i); } g.putImageData(img, 0, 0); });
+const SOL = {
+  r: [9, 15, 23, 32, 58, 78, 98, 116], size: [0.45, 0.85, 1.0, 0.65, 3.0, 2.5, 1.7, 1.6], ph: [0.6, 2.4, 3.9, 5.1, 1.2, 4.3, 0.2, 2.9],
+  col: [0x9a9490, 0xe8d8b0, 0xffffff, 0xc0603a, 0xffffff, 0xe0c890, 0x9ad8e0, 0x4a7ad8], names: ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'],
+};
+const OM = r => 0.03 * Math.pow(23 / r, 1.5);
+// planet i at time T (Earth follows its new orbit after the encounter)
+function planetAt(i, T, out = V()) {
+  const r = SOL.r[i], E = SOL.ph[i] + OM(r) * T;
+  if (i !== 2) return out.set(Math.cos(E) * r, 0, Math.sin(E) * r);
+  const k = orbitK(T), a = r * (1 + 0.06 * k), e = 0.08 * k, b = a * Math.sqrt(1 - e * e);
+  return out.set(a * (Math.cos(E) - e), 0, b * Math.sin(E));
+}
+const earthOrbitPts = k => { const P = []; const r = 23, a = r * (1 + 0.06 * k), e = 0.08 * k, b = a * Math.sqrt(1 - e * e); for (let i = 0; i <= 256; i++) { const E = i / 256 * TAU; P.push(V(a * (Math.cos(E) - e), 0, b * Math.sin(E))); } return P; };
+// the slingshot asteroid and the comet: hyperbolas around the moving black hole
+function hyper(T, tp, q, e, span, tilt, rot, out) {
+  const nu = span * Math.tanh((T - tp) / 2.2), r = q * (1 + e) / (1 + e * Math.cos(nu));
+  return out.set(r * Math.cos(nu), 0, r * Math.sin(nu)).applyAxisAngle(V(1, 0, 0), tilt).applyAxisAngle(V(0, 1, 0), rot);
+}
+const _v = V(), _w = V();
+const astAt = (T, out = V()) => bhAt(bhU(T), 0, out).add(hyper(T, EV.slingshot, 5, 1.8, 2.0, 0.3, 2.4, _v));
+const cometAt = (T, out = V()) => bhAt(bhU(T), 0, out).add(hyper(T, ct(34.6), 16, 2.6, 1.9, -0.4, 0.8, _v));
+// a small body at the edge of the Kuiper belt: it drifts along a straight line, then its path bends toward the black hole
+const KB = { p: V(165, 3, -70), v: V(0, 0, 2.2), n: V(1, 0, 0.12).normalize() };
+const kbAt = (T, out = V()) => { const t = T - ct(32.8); return out.copy(KB.p).addScaledVector(KB.v, t).addScaledVector(KB.n, 0.35 * Math.max(0, t) ** 2); };
+function sprite(parent, tex, x, y, z, sx, sy, o = {}) { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, toneMapped: false, fog: false, blending: o.add ? THREE.AdditiveBlending : THREE.NormalBlending, sizeAttenuation: o.attn ?? true })); s.position.set(x, y, z); s.scale.set(sx, sy, 1); parent.add(s); return s; }
+const glowTex = canvasTex(256, 256, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.15, 'rgba(255,240,210,0.55)'); r.addColorStop(0.45, 'rgba(255,200,140,0.12)'); r.addColorStop(1, 'rgba(255,180,120,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+const ringTex = canvasTex(256, 256, (g, w, h) => { g.strokeStyle = '#ffffff'; g.lineWidth = 6; g.beginPath(); g.arc(w / 2, h / 2, w / 2 - 8, 0, TAU); g.stroke(); g.lineWidth = 3; for (let i = 0; i < 4; i++) { const a = i * Math.PI / 2; g.beginPath(); g.moveTo(w / 2 + Math.cos(a) * (w / 2 - 30), h / 2 + Math.sin(a) * (w / 2 - 30)); g.lineTo(w / 2 + Math.cos(a) * (w / 2 + 4), h / 2 + Math.sin(a) * (w / 2 + 4)); g.stroke(); } });
+const labelTex = (text, col = '#ffffff', w = 512, h = 128) => canvasTex(w, h, (g) => { g.font = `800 ${Math.round(h * 0.5)}px ${MONO}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 10; g.strokeStyle = 'rgba(0,0,0,0.85)'; g.strokeText(text, w / 2, h / 2); g.fillStyle = col; g.fillText(text, w / 2, h / 2); });
+const solar = (() => {
+  const S = ST.solar, D = G.solar;
+  const sun = mesh(D, new THREE.SphereGeometry(4.5, 48, 24), new THREE.MeshBasicMaterial({ color: 0xfff0c8, toneMapped: false }), 0, 0, 0, { shadow: false });
+  sprite(D, glowTex, 0, 0, 0, 24, 24, { add: true });
+  const light = new THREE.PointLight(0xfff2dc, 3.2, 0, 0); D.add(light);
+  const amb = new THREE.AmbientLight(0x6a7a9a, 0.25); D.add(amb);
+  const jupT = canvasTex(512, 256, (g, w, h) => { for (let y = 0; y < h; y++) { const k = Math.sin(y * 0.11) * 0.5 + Math.sin(y * 0.031 + 1) * 0.5; g.fillStyle = `rgb(${200 + 30 * k},${170 + 30 * k},${130 + 20 * k})`; g.fillRect(0, y, w, 1); } g.fillStyle = '#c0704a'; g.beginPath(); g.ellipse(w * 0.6, h * 0.62, 26, 14, 0, 0, TAU); g.fill(); });
+  const satT = canvasTex(512, 64, (g, w, h) => { for (let x = 0; x < w; x++) { const k = hash(x >> 2); g.fillStyle = `rgba(${210 + 30 * k},${190 + 20 * k},${150},${x < 40 ? 0 : 0.25 + 0.6 * k * (x > w * 0.62 && x < w * 0.66 ? 0.1 : 1)})`; g.fillRect(x, 0, 1, h); } });
+  const planets = SOL.r.map((r, i) => {
+    const m = i === 2 ? new THREE.MeshStandardMaterial({ map: earthDayT, roughness: 0.7 }) : i === 4 ? new THREE.MeshStandardMaterial({ map: jupT, roughness: 0.9 }) : mat(SOL.col[i], { rough: 0.85 });
+    const p = mesh(D, new THREE.SphereGeometry(SOL.size[i], 40, 20), m, 0, 0, 0, { shadow: false });
+    if (i === 5) { const rg = new THREE.RingGeometry(3.3, 5.8, 64); const uv = rg.attributes.uv, pos = rg.attributes.position; for (let k = 0; k < uv.count; k++) uv.setXY(k, (Math.hypot(pos.getX(k), pos.getY(k)) - 3.3) / 2.5, 0.5); mesh(p, rg, new THREE.MeshStandardMaterial({ map: satT, transparent: true, side: THREE.DoubleSide, roughness: 0.9 }), 0, 0, 0, { rx: -Math.PI / 2 + 0.45, shadow: false }); }
+    return p;
+  });
+  const moon = mesh(D, new THREE.SphereGeometry(0.27, 20, 10), mat(0xb8b8b8, { rough: 1 }), 0, 0, 0, { shadow: false });
+  // orbit lines
+  const lineM = new THREE.LineBasicMaterial({ color: 0x6a8ab8, transparent: true, opacity: 0.32, fog: false });
+  SOL.r.forEach((r, i) => { if (i === 2) return; const P = []; for (let k = 0; k <= 160; k++) P.push(V(Math.cos(k / 160 * TAU) * r, 0, Math.sin(k / 160 * TAU) * r)); D.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(P), lineM)); });
+  const eOld = new THREE.Line(new THREE.BufferGeometry().setFromPoints(earthOrbitPts(0)), new THREE.LineBasicMaterial({ color: 0x6ac8ff, transparent: true, opacity: 0.6, fog: false })); D.add(eOld);
+  const eOldDash = new THREE.Line(new THREE.BufferGeometry().setFromPoints(earthOrbitPts(0)), new THREE.LineDashedMaterial({ color: 0xc8d8f0, dashSize: 1.2, gapSize: 0.9, transparent: true, opacity: 0.7, fog: false })); eOldDash.computeLineDistances(); D.add(eOldDash);
+  const eNew = new THREE.Line(new THREE.BufferGeometry().setFromPoints(earthOrbitPts(1)), new THREE.LineBasicMaterial({ color: 0xffb84a, transparent: true, opacity: 0.95, fog: false })); D.add(eNew);
+  // asteroid belt and Kuiper belt
+  const rockG = new THREE.IcosahedronGeometry(1, 0), rockM = mat(0x8a8078, { flat: true, rough: 1 });
+  const belt = group(D); const BELT = []; for (let i = 0; i < 900; i++) { const a = rnd() * TAU, r = 38 + rnd() * 9; BELT.push({ x: Math.cos(a) * r, y: (rnd() - 0.5) * 1.6, z: Math.sin(a) * r, s: 0.08 + rnd() * 0.22 }); }
+  instanced(belt, rockG, rockM, BELT, b => ({ p: V(b.x, b.y, b.z), s: V(b.s, b.s * 0.8, b.s) }));
+  const KUI = []; for (let i = 0; i < 1500; i++) { const a = rnd() * TAU, r = 125 + rnd() * 55; KUI.push({ a, r, y: (rnd() - 0.5) * 7, s: 0.15 + rnd() * 0.4 }); }
+  const kui = instanced(D, rockG, mat(0x9aa0b0, { flat: true, rough: 1 }), KUI, k => ({ p: V(Math.cos(k.a) * k.r, k.y, Math.sin(k.a) * k.r), s: V(k.s, k.s, k.s) }));
+  kui.frustumCulled = false;
+  // when the black hole passes, each Kuiper object gets a kick toward it (precomputed: when, how close, which way)
+  { const N = 260, BHS = []; for (let j = 0; j <= N; j++) { const T = j / N * DURATION; BHS.push([T, bhAt(bhU(T))]); }
+    for (const k of KUI) { let best = 1e9, bt = 0, bp = null; for (const [T, p] of BHS) { const a = k.a + OM(k.r) * T, d = Math.hypot(Math.cos(a) * k.r - p.x, k.y - p.y, Math.sin(a) * k.r - p.z); if (d < best) { best = d; bt = T; bp = p; } }
+      const a = k.a + OM(k.r) * bt; k.tp = bt; k.kick = 0.55 / (1 + (best / 26) ** 2); k.n = bp.clone().sub(V(Math.cos(a) * k.r, k.y, Math.sin(a) * k.r)).normalize(); } }
+  const kick = x => x < -6 ? 0 : x < 6 ? (x + 6) ** 2 / 24 : x;
+  const kbRock = mesh(D, rockG, rockM, 0, 0, 0, { s: [0.9, 0.7, 0.8], shadow: false });
+  const kbOld = [], kbNew = []; for (let t = -8; t <= 9; t += 0.1) { kbOld.push(KB.p.clone().addScaledVector(KB.v, t)); kbNew.push(kbAt(ct(32.8) + t)); }
+  const kbTrail = group(D);
+  const kbL = new THREE.Line(new THREE.BufferGeometry().setFromPoints(kbOld), new THREE.LineDashedMaterial({ color: 0xc8d8f0, dashSize: 0.5, gapSize: 0.35, transparent: true, opacity: 0.8, fog: false })); kbL.computeLineDistances(); kbTrail.add(kbL);
+  kbTrail.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(kbNew), new THREE.LineBasicMaterial({ color: 0xffb84a, fog: false })));
+  const ast = mesh(D, rockG, rockM, 0, 0, 0, { s: [0.7, 0.5, 0.55], shadow: false });
+  const comet = group(D); mesh(comet, icoG, mat(0xc8d0d8, { flat: true }), 0, 0, 0, { s: 0.45, shadow: false });
+  const coma = sprite(comet, glowTex, 0, 0, 0, 7, 7, { add: true }); coma.material.color.set(0x9ad8ff);
+  const tail = mesh(comet, tr(new THREE.ConeGeometry(1.6, 26, 16, 1, true), 0, -13, 0), addMat(0x8ac8ff, 0.12, { side: THREE.DoubleSide }), 0, 0, 0, { shadow: false });
+  // diagram overlays: the predicted path, a marker around the invisible black hole, the alternative path, Earth's speed
+  const pathPts = []; for (let u = -1.2; u <= 1.2; u += 0.01) pathPts.push(bhAt(u));
+  const pivot = group(D);
+  const path = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pathPts), new THREE.LineDashedMaterial({ color: 0xff7a5a, dashSize: 7, gapSize: 5, transparent: true, opacity: 0.85, fog: false })); path.computeLineDistances(); pivot.add(path);
+  const mark = sprite(D, ringTex, 0, 0, 0, 30, 30); mark.material.color.set(0xffb0a0);
+  const altPts = []; for (let u = -1.2; u <= 1.2; u += 0.01) altPts.push(V(18, 1, 14).addScaledVector(BH_D, u * 700).addScaledVector(V(18, 1, 14).normalize(), Math.abs(u) * 700 * 0.15));
+  const alt = new THREE.Line(new THREE.BufferGeometry().setFromPoints(altPts), new THREE.LineDashedMaterial({ color: 0xff3a3a, dashSize: 4, gapSize: 3, transparent: true, opacity: 0.95, fog: false })); alt.computeLineDistances(); D.add(alt);
+  const arrow = group(D); const arrM = new THREE.MeshBasicMaterial({ color: 0x6ad8ff, toneMapped: false });
+  mesh(arrow, tr(new THREE.CylinderGeometry(0.06, 0.06, 2.6, 8), 0, 1.3, 0), arrM, 0, 0, 0, { shadow: false }); mesh(arrow, tr(new THREE.ConeGeometry(0.2, 0.55, 12), 0, 2.85, 0), arrM, 0, 0, 0, { shadow: false });
+  const speed = sprite(D, labelTex('≈ 30 km/s', '#9ae8ff'), 0, 0, 0, 3.2, 0.8);
+  return { sun, planets, moon, belt, kui, KUI, kick, kbRock, kbTrail, ast, comet, tail, path, pivot, mark, alt, arrow, speed, eOld, eOldDash, eNew };
+})();
+
+/* ===================================================================== SET: EARTH (Earth from space; the bent stars behind it) */
+const EAR = { L: V(-0.55, 0.25, -0.8).normalize(), sun: V(1, 0.15, 0.35).normalize() };
+EAR.band = bandThrough(EAR.L, 1.1);
+const earthRot = T => 0.4 + T * 0.003 + 0.55 * smooth(ct(56), ct(57), T);
+const earth = (() => {
+  const D = G.earth;
+  const lightsT = canvasTex(2048, 1024, (g, w, h) => { g.fillStyle = '#000'; g.fillRect(0, 0, w, h); for (let i = 0; i < 46000; i++) { const x = hash(i, 1) * w, y = h * 0.15 + hash(i, 2) * h * 0.7; const lat = (0.5 - y / h) * Math.PI, lon = x / w * TAU; if (!landAt(lat, lon) || hash(i, 3) > 0.5 + 0.5 * Math.sin(lon * 5 + lat * 3)) continue; g.fillStyle = `rgba(255,${190 + hash(i, 4) * 50},${110 + hash(i, 5) * 60},${0.5 + 0.5 * hash(i, 6)})`; g.fillRect(x, y, 4, 4); } });
+  const cloudT = canvasTex(1024, 512, (g, w, h) => { g.clearRect(0, 0, w, h); for (let i = 0; i < 900; i++) { const x = hash(i, 11) * w, y = h * 0.1 + hash(i, 12) * h * 0.8, r = 8 + hash(i, 13) * 34; const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, `rgba(255,255,255,${0.35 + 0.4 * hash(i, 14)})`); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.beginPath(); g.ellipse(x, y, r * 2.2, r, 0, 0, TAU); g.fill(); } });
+  const U = { uDay: { value: earthDayT }, uLights: { value: lightsT }, uClouds: { value: cloudT }, uSun: { value: EAR.sun }, uIce: { value: 0 }, uRot: { value: 0 } };
+  const globe = new THREE.Mesh(new THREE.SphereGeometry(100, 128, 64), new THREE.ShaderMaterial({
+    uniforms: U,
+    vertexShader: `varying vec2 vUv; varying vec3 vN, vO; void main(){ vUv = uv; vO = normal; vN = normalize(mat3(modelMatrix) * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `uniform sampler2D uDay, uLights, uClouds; uniform vec3 uSun; uniform float uIce, uRot; varying vec2 vUv; varying vec3 vN, vO;
+    ${SKY_GLSL}
+    void main(){ float d = dot(normalize(vN), uSun); vec3 day = pow(texture2D(uDay, vUv).rgb, vec3(2.2));
+      float lat = abs(vUv.y - 0.5) * 3.14159, edge = 1.27 - 0.5 * uIce;
+      day = mix(day, vec3(0.78, 0.84, 0.92), smoothstep(edge - 0.03, edge + 0.03, lat + 0.04 * sin(vUv.x * 40.0)));
+      vec3 q = normalize(vO) * vec3(2.2, 4.5, 2.2) + vec3(uRot * 8.0, 0.0, 0.0); float cl = smoothstep(0.52, 0.78, fbm(q * 1.6 + fbm(q * 3.0) * 0.8)) * 0.75;
+      vec3 c = mix(day, vec3(0.92), cl) * max(d, 0.0) * 1.45 + day * 0.03;
+      float night = smoothstep(0.1, -0.15, d);
+      c += pow(texture2D(uLights, vUv).rgb, vec3(2.2)) * night * (1.0 - cl) * 5.0;
+      gl_FragColor = vec4(c, 1.0); }`,
+  }));
+  D.add(globe);
+  const atmo = mesh(D, new THREE.SphereGeometry(104, 64, 32), new THREE.ShaderMaterial({ transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide, uniforms: { uSun: U.uSun },
+    vertexShader: `varying vec3 vN; varying vec3 vW; void main(){ vN = normalize(mat3(modelMatrix) * normal); vW = (modelMatrix * vec4(position, 1.0)).xyz; gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.0); }`,
+    fragmentShader: `uniform vec3 uSun; varying vec3 vN; varying vec3 vW; void main(){ vec3 v = normalize(cameraPosition - vW); float f = pow(1.0 - abs(dot(v, -vN)), 2.0); float s = clamp(dot(-vN, uSun) * 0.8 + 0.3, 0.0, 1.0); gl_FragColor = vec4(vec3(0.25, 0.55, 1.0) * f * s * 1.5, 1.0); }` }), 0, 0, 0, { shadow: false });
+  const moon = mesh(D, new THREE.SphereGeometry(27, 40, 20), mat(0x9a9a9e, { rough: 1, flat: true }), -380, 70, -420, { shadow: false });
+  const sunL = new THREE.DirectionalLight(0xffffff, 2.2); sunL.position.copy(EAR.sun).multiplyScalar(500); D.add(sunL);
+  // observatory markers that turn with the Earth: two on opposite sides (with beams to the same patch of sky) and the network
+  const spin = group(D); const markM = new THREE.MeshBasicMaterial({ color: 0xffcf5a, toneMapped: false, transparent: true });
+  const onEarth = (lat, lon, h = 100.6) => V(Math.cos(lat) * Math.cos(lon) * h, Math.sin(lat) * h, -Math.cos(lat) * Math.sin(lon) * h);
+  const toLocal = (w, T) => w.clone().applyAxisAngle(V(0, 1, 0), -earthRot(T));
+  const T9 = ct(9.5), two_ = [V(-97, 22, 6), V(97, 22, -6)].map(p => toLocal(p.normalize().multiplyScalar(100.6), T9));
+  const obs2 = group(spin); const beamM = addMat(0xffd88a, 0.22, { side: THREE.DoubleSide });
+  for (const p of two_) { mesh(obs2, new THREE.SphereGeometry(1.6, 12, 8), markM, p.x, p.y, p.z, { shadow: false }); sprite(obs2, glowTex, p.x, p.y, p.z, 16, 16, { add: true }).material.color.set(0xffc860);
+    const b = mesh(obs2, tr(new THREE.CylinderGeometry(0.5, 0.5, 340, 8, 1, true), 0, 170, 0), beamM, p.x, p.y, p.z, { shadow: false }); b.quaternion.setFromUnitVectors(V(0, 1, 0), toLocal(EAR.L, T9)); }
+  const net = group(spin), T40 = ct(40.5), NET = [];
+  for (let i = 0; i < 13; i++) { const w = V(hash(i, 21) - 0.5, (hash(i, 22) - 0.5) * 1.2, 0.9).normalize(); const p = toLocal(w.applyAxisAngle(V(0, 1, 0), 0.38).multiplyScalar(100.6), T40); NET.push(p); mesh(net, new THREE.SphereGeometry(1.3, 10, 8), markM, p.x, p.y, p.z, { shadow: false }); }
+  const arcM = new THREE.LineBasicMaterial({ color: 0xffd88a, transparent: true, opacity: 0.8, fog: false });
+  for (let i = 0; i < NET.length; i++) { const a = NET[i], b = NET[(i + 3) % NET.length], P = []; for (let k = 0; k <= 40; k++) { const t = k / 40; P.push(a.clone().lerp(b, t).normalize().multiplyScalar(100.6 + Math.sin(t * Math.PI) * a.distanceTo(b) * 0.18)); } net.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(P), arcM)); }
+  return { globe, U, moon, spin, obs2, net, markM, arcM };
+})();
+
+/* ===================================================================== SET: CITY (a coastal city at night; everyone looks up) */
+const CITY = { L: V(0.15, 0.55, 0.82).normalize(), moon: V(-0.42, 0.3, 0.86).normalize() };
+CITY.band = bandThrough(CITY.L, 2.2);
+const city = (() => {
+  const S = ST.city, D = G.city;
+  plain(S, 1400, 0.2, 700, mat(0x14151a, { rough: 1 }), 0, -0.2, -350, { shadow: false });
+  plain(S, 900, 1.25, 0.6, mat(0x4a4844, { rough: 0.9 }), 0, -1.25, -0.3, { shadow: false });
+  plain(S, 900, 0.15, 12, mat(0x5e5a54, { rough: 0.85 }), 0, -0.05, -6.2, { shadow: false });
+  for (let x = -440; x < 440; x += 3) plain(S, 0.04, 0.16, 12, mat(0x4a4744, { rough: 0.9 }), x, -0.04, -6.2, { shadow: false });
+  plain(S, 900, 0.1, 12, mat(0x17191d, { rough: 0.6, metal: 0.2 }), 0, -0.05, -18.2, { shadow: false });
+  for (let x = -440; x < 440; x += 9) plain(S, 3.4, 0.11, 0.18, mat(0xb8b8b0, { rough: 0.6 }), x, -0.04, -18.2, { shadow: false });
+  plain(S, 900, 0.2, 4, mat(0x4e4b46, { rough: 0.85 }), 0, -0.05, -26.2, { shadow: false });
+  // railing along the water
+  const POSTS = []; for (let x = -440; x < 440; x += 2.5) POSTS.push(x);
+  instanced(S, tr(new THREE.BoxGeometry(0.08, 1.0, 0.08), 0, 0.5, 0), mat(0x2a2c30, { metal: 0.6, rough: 0.4 }), POSTS, x => ({ p: V(x, 0, -0.45) }));
+  plain(S, 880, 0.06, 0.08, mat(0x3a3c40, { metal: 0.6, rough: 0.4 }), 0, 1.0, -0.45, { shadow: false });
+  // the water: dark, with moonlight glitter and soft swell
+  const waterU = { uT: { value: 0 }, uMoon: { value: CITY.moon }, uHor: { value: new THREE.Color(0x2a3a5a) }, uTop: { value: new THREE.Color(0x0a1224) } };
+  const water = mesh(D, new THREE.PlaneGeometry(4000, 2000, 1, 1), new THREE.ShaderMaterial({ uniforms: waterU,
+    vertexShader: `varying vec3 vW; void main(){ vW = (modelMatrix * vec4(position, 1.0)).xyz; gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.0); }`,
+    fragmentShader: `uniform float uT; uniform vec3 uMoon, uHor, uTop; varying vec3 vW;
+    void main(){ vec2 p = vW.xz; float t = uT;
+      vec2 g = vec2(cos(p.x * 0.31 + t * 0.9) * 0.05 + cos((p.x + p.y) * 0.53 - t * 1.3) * 0.035 + cos(p.x * 1.7 + p.y * 0.9 + t * 2.1) * 0.02,
+                    sin(p.y * 0.27 + t * 0.7) * 0.06 + sin((p.y - p.x) * 0.61 + t * 1.1) * 0.03 + sin(p.y * 1.9 - p.x * 0.7 + t * 1.9) * 0.02);
+      vec3 n = normalize(vec3(-g.x, 1.0, -g.y)), v = normalize(cameraPosition - vW), r = reflect(-v, n);
+      float fr = 0.03 + 0.9 * pow(1.0 - max(dot(v, n), 0.0), 5.0);
+      vec3 skyc = mix(uHor, uTop, clamp(r.y * 1.8, 0.0, 1.0));
+      float spec = pow(max(dot(r, uMoon), 0.0), 220.0) * 4.0 + pow(max(dot(r, uMoon), 0.0), 30.0) * 0.12;
+      vec3 c = mix(vec3(0.012, 0.022, 0.04), skyc, fr) + spec * vec3(0.8, 0.86, 1.0);
+      gl_FragColor = vec4(c, 1.0); }` }), 0, -1.2, 1000, { rx: -Math.PI / 2, shadow: false });
+  // buildings: an ordinary city with lit and dark windows
+  const bMats = [['#2a2724', 3], ['#23262c', 9], ['#2e2a26', 13]].map(([base, k]) => { const win = windowTex(8, 8, ['#ffd9a0', '#ffe8c4', '#fff4e4', '#ffcf8a', '#e4ecff'], 0.32, k, base, { glass: '#1c2028' });
+    for (const t of [win.map, win.emis]) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.needsUpdate = true; }
+    return new THREE.MeshStandardMaterial({ map: win.map, emissiveMap: win.emis, emissive: new THREE.Color(0xffffff), emissiveIntensity: 0.5, roughness: 0.75, metalness: 0.1 }); });
+  const bMat = bMats[0];
+  // a box whose texture repeats once per 8 x 8 windows (a window every ~3.4 m), roofs plain
+  const building = (b, m) => { const g = new THREE.BoxGeometry(b.w, b.h, b.d), uv = g.attributes.uv;
+    const size = [[b.d, b.h], [b.d, b.h], [0, 0], [0, 0], [b.w, b.h], [b.w, b.h]];
+    for (let f = 0; f < 6; f++) for (let v = 0; v < 4; v++) { const i = f * 4 + v; if (f === 2 || f === 3) uv.setXY(i, 0.01, 0.01); else uv.setXY(i, uv.getX(i) * size[f][0] / 27, uv.getY(i) * size[f][1] / 26); }
+    g.translate(b.x, b.h / 2, b.z); mesh(S, g, m, 0, 0, 0, { shadow: false }); };
+  const B = [];
+  for (let x = -300; x < 300;) { const w = 10 + hash(x, 3) * 12, cx = x + w / 2; x += w + 1.5; if (cx > -40 && cx < -20) continue; const d = 12 + hash(cx, 4) * 8; B.push({ x: cx, z: -28.5 - d / 2, w, d, h: 12 + hash(cx * 1.7, 5) * 26 }); }
+  for (let i = 0; i < 380; i++) { const x = -420 + rnd() * 840, z = -52 - rnd() * 300; if (Math.abs(x + 30) < 14 && z > -60) continue; B.push({ x, z, w: 12 + rnd() * 16, d: 12 + rnd() * 16, h: 14 + rnd() * (z < -150 ? 70 : 40) }); }
+  B.forEach((b, i) => building(b, bMats[i % 3]));
+  // the building with people on its roof
+  building({ x: -30, z: -36, w: 16, h: 16, d: 14 }, bMats[1]);
+  plain(S, 16.4, 0.9, 0.3, mat(0x6a6660), -30, 16, -29.1); for (const s of [-1, 1]) plain(S, 0.3, 0.9, 14, mat(0x6a6660), -30 + s * 8.05, 16, -36);
+  // street lights on both sides of the road
+  const lampM = mat(0xffe2b8, { glow: 3, glowColor: 0xffd49a });
+  for (let x = -300; x < 300; x += 22) for (const z of [-12.7, -23.8]) { const p = group(S, x + (z < -20 ? 11 : 0), 0, z); cyl(p, 0.08, 0.11, 7, 0x2a2c32, 0, 0, 0, { seg: 6, shadow: false }); const s = z > -20 ? -1 : 1; box(p, 0.12, 0.1, 1.8, 0x2a2c32, 0, 6.9, s * 0.8, { r: 0.03, shadow: false }); box(p, 0.45, 0.1, 0.6, 0, 0, 6.82, s * 1.6, { m: lampM, r: 0.03, shadow: false }); }
+  // parked cars (traffic stopped: the drivers got out to look)
+  const CARS = []; for (let x = -160; x < 160; x += 6.5 + hash(x) * 4) if (hash(x, 2) > 0.25) CARS.push({ x, z: hash(x, 3) > 0.5 ? -21.8 : -14.6, c: [0x1a1c22, 0xb8bcc8, 0x8a1a1a, 0x2a3a5a, 0xd8d8d0, 0x3a3a3a][Math.floor(hash(x, 4) * 6)] });
+  instanced(S, carGeo, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.35, metalness: 0.5, envMap: envTex, envMapIntensity: 0.7 }), CARS, c => ({ p: V(c.x, 0, c.z), c: c.c }));
+  instanced(S, tailGeo, new THREE.MeshBasicMaterial({ color: 0x5a0a08, toneMapped: false }), CARS, c => ({ p: V(c.x, 0, c.z) }));
+  // the crowd on the promenade, facing the sea; a few groups on the far sidewalk
+  const CROWD = []; for (let i = 0; i < 460; i++) { const x = -130 + rnd() * 260, z = -10.8 + rnd() * 9.3; if (x > -3.5 && x < 8 && z > -6.5) continue; CROWD.push({ x, z, yaw: (rnd() - 0.5) * 0.9, c: PALETTE[i % PALETTE.length] }); }
+  for (let i = 0; i < 70; i++) CROWD.push({ x: -120 + rnd() * 240, z: -25.2 - rnd() * 1.6, yaw: (rnd() - 0.5) * 0.9, c: PALETTE[(i * 3) % PALETTE.length] });
+  const crowd = makeCrowd(D, CROWD); crowd.update(c => ({ x: c.x, z: c.z, yaw: c.yaw, walk: 0 }), 0);
+  // the people we see up close: a family, someone filming with a phone, an old man pointing; and on the roof
+  const look = (P, up = -0.55) => { P.head.rotation.x = up; return P; };
+  const phoneM = new THREE.MeshBasicMaterial({ color: 0xd8e8ff, toneMapped: false });
+  const hero = [[2, -4, 0.1, 0, {}], [2.75, -4.2, -0.15, 1, { long: true }], [2.4, -3.55, 0.05, 2, { s: 0.62 }], [-1.5, -3.6, 0.3, 3, {}], [5.4, -3.2, -0.25, 4, { hair: 0xc8c8c8 }], [-3.2, -5.2, 0.2, 5, { long: true }]].map(([x, z, yaw, i, o]) => {
+    const P = randPerson(D, i + 20, o); P.root.position.set(x, 0, z); P.root.rotation.y = yaw; return look(P, i === 2 ? -0.7 : -0.55); });
+  hero[3].arms[1].rotation.x = -2.3; mesh(hero[3].arms[1], new THREE.BoxGeometry(0.08, 0.15, 0.01), phoneM, 0, -0.66, 0.05, { rx: -0.6, shadow: false });
+  hero[4].arms[0].rotation.x = -2.6; hero[4].arms[0].rotation.z = 0.25;
+  hero[2].arms[0].rotation.x = -0.4;
+  const roof = [0, 1, 2, 3, 4, 5].map(i => { const P = randPerson(D, i + 40, { long: i % 2 === 0 }); P.root.position.set(-36 + i * 2.3, 16.05, -30.6 - (i % 2) * 0.8); P.root.rotation.y = (hash(i, 9) - 0.5) * 0.6; return look(P, -0.5); });
+  // the lighthouse on the breakwater, boats, the far shore
+  const bw = group(S, 120, 0, 90); bw.rotation.y = -0.5; plain(bw, 4, 1.4, 110, mat(0x3a3a3c, { flat: true, rough: 1 }), 0, -1.2, 0, { shadow: false });
+  const lh = group(S, 120 + Math.sin(-0.5) * 52, 0, 90 + Math.cos(-0.5) * 52);
+  for (let k = 0; k < 4; k++) cyl(lh, 1.7 - k * 0.12 - 0.12, 1.7 - k * 0.12, 3.4, k % 2 ? 0xb83a2a : 0xe8e4dc, 0, k * 3.4 - 0.2, 0, { seg: 16 });
+  mesh(lh, new THREE.CylinderGeometry(1.0, 1.0, 1.4, 16), mat(0xffe8b0, { glow: 4, glowColor: 0xffe0a0 }), 0, 14.1, 0, { shadow: false });
+  cyl(lh, 0.01, 1.3, 1.2, 0x2a2a2a, 0, 14.8, 0, { seg: 16 });
+  const beam = group(D, lh.position.x, 14.1, lh.position.z); for (const s of [0, Math.PI]) { const c = mesh(beam, tr(new THREE.ConeGeometry(3.2, 90, 24, 1, true), 0, -45, 0), addMat(0xffe8c0, 0.012, { side: THREE.DoubleSide }), 0, 0, 0, { shadow: false }); c.rotation.z = Math.PI / 2; c.rotation.y = s; }
+  const boats = [[40, 70], [-60, 110], [10, 160], [-140, 60]].map(([x, z], i) => { const b = group(D, x, -1.1, z); b.rotation.y = i * 1.3; box(b, 6, 0.9, 2.2, 0xd8d8d0, 0, -0.4, 0, { r: 0.3 }); box(b, 2.2, 0.9, 1.6, 0xb8b8b0, -0.8, 0.5, 0, { r: 0.1 }); cyl(b, 0.05, 0.05, 7, 0x8a8a8a, 0.8, 0.4, 0, { seg: 4 }); mesh(b, new THREE.SphereGeometry(0.15, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false }), 0.8, 7.4, 0, { shadow: false }); return b; });
+  for (let i = 0; i < 14; i++) { const x = -900 + i * 140 + hash(i) * 60, R = 140 + hash(i, 2) * 120; cyl(S, 0.01, R, 60 + hash(i, 3) * 80, 0, x, -10, 950 + hash(i, 4) * 200, { m: mat(0x10141c, { flat: true, rough: 1 }), seg: 7, shadow: false }); }
+  const SHORE = []; for (let i = 0; i < 380; i++) SHORE.push({ x: -800 + rnd() * 1600, z: 860 + rnd() * 60, y: rnd() * 6 });
+  instanced(S, new THREE.SphereGeometry(0.9, 5, 4), new THREE.MeshBasicMaterial({ color: 0xffc27a, toneMapped: false }), SHORE, t => ({ p: V(t.x, t.y, t.z) }));
+  return { water, waterU, beam, boats, hero, roof, crowd };
+})();
+
+/* ===================================================================== SET: GALAXY (the Milky Way from outside; the black hole's long path) */
+const GAL = { sun: V(272, 0, 186), D: V(0.8, -0.03, -0.6).normalize() };
+const GAL_V = [[1, -0.5], [94, -0.3], [95, -0.26], [97, -0.14], [99, -0.03], [100, 0], [NSUB + 1, 0.1]];
+const bhG = (T, out = V()) => out.copy(GAL.sun).add(V(0, 40, 0)).addScaledVector(GAL.D, track(GAL_V, cu(T)) * 400);
+const galaxy = (() => {
+  const D = G.galaxy, N = isMobile ? 40000 : 90000, pos = new Float32Array(N * 3), col = new Float32Array(N * 3), size = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    let x, y, z, c;
+    if (i < N * 0.16) { const r = Math.pow(rnd(), 1.6) * 120, a = rnd() * TAU, ph = Math.acos(rnd() * 2 - 1); x = r * Math.sin(ph) * Math.cos(a) * 1.3; y = r * Math.cos(ph) * 0.45; z = r * Math.sin(ph) * Math.sin(a); c = [1.0, 0.82, 0.6]; }
+    else { const arm = i % 4, r = 40 + Math.pow(rnd(), 0.9) * 600, a = Math.log(r / 40) / 0.28 + arm * Math.PI / 2 + (rnd() - 0.5) * (0.35 + 60 / r); x = Math.cos(a) * r + (rnd() - 0.5) * 24; z = Math.sin(a) * r + (rnd() - 0.5) * 24; y = (rnd() - 0.5) * 14 * (1 - r / 700); c = rnd() < 0.015 ? [1.0, 0.45, 0.6] : rnd() < 0.5 ? [0.65, 0.78, 1.0] : [0.95, 0.92, 0.88]; }
+    pos.set([x, y, z], i * 3); const b = 0.35 + rnd() * 0.65; col.set(c.map(v => v * b), i * 3); size[i] = 1 + rnd() * 2.2;
+  }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('color', new THREE.BufferAttribute(col, 3)); geo.setAttribute('size', new THREE.BufferAttribute(size, 1));
+  const pts = new THREE.Points(geo, new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, uniforms: { uScale: { value: 540 } },
+    vertexShader: `attribute float size; attribute vec3 color; varying vec3 vC; varying float vA; uniform float uScale; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); float s = size * uScale / -mv.z; gl_PointSize = clamp(s, 1.5, 5.0); vA = clamp(s / 1.5, 0.25, 1.0) * smoothstep(12.0, 90.0, -mv.z); vC = color; gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `varying vec3 vC; varying float vA; void main(){ vec2 d = gl_PointCoord - 0.5; float a = exp(-dot(d, d) * 14.0); gl_FragColor = vec4(vC * a * vA * 1.1, 1.0); }` }));
+  pts.frustumCulled = false; D.add(pts);
+  const core = sprite(D, glowTex, 0, 0, 0, 420, 260, { add: true }); core.material.color.set(0xffc890);
+  const sunMark = sprite(D, ringTex, GAL.sun.x, GAL.sun.y, GAL.sun.z, 14, 14); sunMark.material.color.set(0x9ae8ff);
+  sprite(D, glowTex, GAL.sun.x, GAL.sun.y, GAL.sun.z, 6, 6, { add: true }).material.color.set(0xffe8b0);
+  const sunLabel = sprite(D, labelTex('OUR SUN', '#9ae8ff'), GAL.sun.x, GAL.sun.y + 11, GAL.sun.z, 22, 5.5);
+  const gp = []; for (let v = -1.6; v <= 1.6; v += 0.01) gp.push(GAL.sun.clone().add(V(0, 40, 0)).addScaledVector(GAL.D, v * 400));
+  const gpath = new THREE.Line(new THREE.BufferGeometry().setFromPoints(gp), new THREE.LineDashedMaterial({ color: 0xff7a5a, dashSize: 6, gapSize: 5, transparent: true, opacity: 0.8, fog: false })); gpath.computeLineDistances(); D.add(gpath);
+  const gmark = sprite(D, ringTex, 0, 0, 0, 12, 12); gmark.material.color.set(0xffb0a0);
+  return { pts, sunMark, sunLabel, gpath, gmark };
+})();
+/* ===================================================================== MERGE STATIC */
+(function mergeStatic() {
+  for (const k in ST) {
+    const root = ST[k]; root.updateMatrixWorld(true);
+    const buckets = new Map(), keep = [];
+    root.traverse(o => {
+      if (!o.isMesh || o.isInstancedMesh || o === root) { if (o.isInstancedMesh) keep.push(o); return; }
+      let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+      g.applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(o.matrixWorld));
+      for (const n of Object.keys(g.attributes)) if (!['position', 'normal', 'uv'].includes(n)) g.deleteAttribute(n);
+      if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+      g.clearGroups();
+      if (!buckets.has(o.material)) buckets.set(o.material, []);
+      buckets.get(o.material).push({ g, shadow: o.castShadow });
+    });
+    const mg = new THREE.Group();
+    for (const [m, list] of buckets) {
+      const geo = mergeGeometries(list.map(l => l.g), false); list.forEach(l => l.g.dispose()); if (!geo) continue;
+      const mm = new THREE.Mesh(geo, m); mm.castShadow = list.some(l => l.shadow); mm.receiveShadow = true; mg.add(mm);
+    }
+    keep.forEach(im => im.removeFromParent());
+    root.clear(); root.add(mg); keep.forEach(im => root.add(im));
+  }
+})();
+
+/* ===================================================================== POST-PROCESSING: lens (solar system, galaxy), bloom, shadow lift */
+let composer = null, bloom = null, lift = null, lens = null;
+if (params.get('fx') !== '0') {
+  try {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
+    composer.addPass(new RenderPass(scene, camera));
+    // screen-space point lens: every pixel at distance r from the black hole shows what lies at r − rE²/r (the other side for r < rE)
+    lens = new ShaderPass({ uniforms: { tDiffuse: { value: null }, uC: { value: new THREE.Vector2(0.5, 0.5) }, uR: { value: 0 }, uAsp: { value: 16 / 9 }, uSh: { value: 0.12 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+      fragmentShader: `uniform sampler2D tDiffuse; uniform vec2 uC; uniform float uR, uAsp, uSh; varying vec2 vUv;
+      void main(){
+        if (uR <= 0.0) { gl_FragColor = texture2D(tDiffuse, vUv); return; }
+        vec2 d = (vUv - uC) * vec2(uAsp, 1.0); float r = length(d);
+        if (r > uR * 8.0) { gl_FragColor = texture2D(tDiffuse, vUv); return; }
+        float b = r - uR * uR / max(r, 1e-5);
+        vec2 uv = uC + d / max(r, 1e-5) * b / vec2(uAsp, 1.0);
+        uv = 1.0 - abs(1.0 - abs(uv));
+        vec4 c = texture2D(tDiffuse, uv);
+        float w = smoothstep(0.2 * uR, 0.6 * uR, r) * smoothstep(uSh * uR * 0.8, uSh * uR * 1.2, r);
+        gl_FragColor = vec4(c.rgb * w, 1.0); }` });
+    composer.addPass(lens);
+    bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.8, 0.5, 0.75); composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+    // lift the shadows (gamma on the final picture) so night scenes never sink into black; set per set in look()
+    lift = new ShaderPass({ uniforms: { tDiffuse: { value: null }, uGamma: { value: 1 } },
+      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+      fragmentShader: 'uniform sampler2D tDiffuse; uniform float uGamma; varying vec2 vUv; void main(){ vec4 c = texture2D(tDiffuse, vUv); gl_FragColor = vec4(pow(max(c.rgb, 0.0), vec3(uGamma)), c.a); }' });
+    composer.addPass(lift);
+  } catch (e) { console.warn('Post-processing unavailable, rendering directly.', e); composer = null; }
+}
+function layout() {
+  const W = innerWidth, H = innerHeight, w = Math.min(W, H * 16 / 9), h = w * 9 / 16;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = 16 / 9; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+/* ===================================================================== CAMERA */
+const REL = { bh: T => bhAt(bhU(T)), earth: T => planetAt(2, T), ast: T => astAt(T), comet: T => cometAt(T), kb: T => kbAt(T), sun: () => V(), neptune: T => planetAt(7, T), uranus: T => planetAt(6, T), bhG: T => bhG(T), sunG: () => GAL.sun.clone() };
+const a0 = (K, i) => K[i][0];
+function shotAt(T) {
+  const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
+  const k = clamp((T - sh.start) / (Math.min(sh.end, DURATION) - sh.start)), K = sh.keys;
+  let i = 0; while (i < K.length - 2 && k > K[i + 1][0]) i++;
+  // mostly steady speed with a soft start and end, so the camera keeps moving through the cut instead of stopping
+  const u = clamp((k - a0(K, i)) / (K[i + 1][0] - a0(K, i))), a = K[i], b = K[i + 1], e = lerp(u, easeInOut(u), 0.3);
+  if (sh.aim) {
+    const F = REL[sh.aim[0]](T), To = REL[sh.aim[1]](T), dir = F.clone().sub(To).normalize(), side = dir.clone().cross(upY).normalize();
+    const pos = F.clone().addScaledVector(dir, lerp(a[1], b[1], e)).addScaledVector(upY, lerp(a[2], b[2], e)).addScaledVector(side, lerp(a[3], b[3], e));
+    return { sh, set: sh.set, pos: pos.add(o), target: F.clone().lerp(To, lerp(a[4], b[4], e)).add(o), fov: lerp(a[5], b[5], e), up: upY };
+  }
+  const pos = VA(a[1]).lerp(VA(b[1]), e).add(o), target = VA(a[2]).lerp(VA(b[2]), e).add(o);
+  if (sh.rel) pos.add(REL[sh.rel](T));
+  const rt = sh.relT === undefined ? sh.rel : sh.relT; if (rt) target.add(REL[rt](T));
+  return { sh, set: sh.set, pos, target, fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY };
+}
+function shake(T) {
+  let s = 0; for (const [t0, k] of SHAKES) { const d = T - t0; if (d >= 0 && d < 1.2) s += k * Math.exp(-d * 5) * (1 - Math.exp(-d * 60)); }
+  for (const [a, b, k] of RUMBLES) if (inT(T, a, b)) s += k * smooth(a, a + 0.8, T) * (0.6 + 0.4 * Math.sin(T * 7));
+  return T >= ENDING.cut ? 0 : s;
+}
+const CAM = { set: 'obs', target: V(), dist: 1, local: V(), fx: {} };
+const DBGCAM = params.get('cam')?.split(',');
+function placeCamera(T) {
+  const s = shotAt(T);
+  if (DBGCAM) { const n = DBGCAM.slice(0, 7).map(Number), o = SETS[DBGCAM[7]]; s.set = DBGCAM[7]; s.pos = V(n[0], n[1], n[2]).add(o); s.target = V(n[3], n[4], n[5]).add(o); s.fov = n[6]; s.up = upY; }
+  const d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.1, d * 0.02 + 0.02);
+  // smooth noise (no jumps from frame to frame): the shake trembles instead of jittering
+  const nz = c => { const x = T * 9 + c * 17.3, i = Math.floor(x), f = x - i, w = f * f * (3 - 2 * f); return lerp(hash(i, c), hash(i + 1, c), w) - 0.5; };
+  s.pos.x += nz(1) * k; s.pos.y += nz(2) * k; s.target.x += nz(3) * k * 3 * Math.max(1, d / 30); s.target.y += nz(4) * k * 3 * Math.max(1, d / 30);
+  camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
+  const near = clamp(d * 0.01, 0.02, 0.2), far = s.set === 'galaxy' ? 7000 : 6000;
+  if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
+  CAM.set = s.set; CAM.target.copy(s.target); CAM.dist = d; CAM.local.copy(s.target).sub(SETS[s.set]); CAM.fx = s.sh.fx ?? {}; CAM.shot = s.sh;
+  camera.updateMatrixWorld();
+}
+
+/* ===================================================================== LIGHT + LOOK PER SET */
+function setSun(o, pos, target, half, color, intensity, shadows = true) {
+  sun.position.copy(o).add(VA(pos)); sun.target.position.copy(o).add(VA(target)); sun.color.set(color); sun.intensity = intensity; sun.castShadow = shadows;
+  const sc = sun.shadow.camera; if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.5, far: VA(pos).distanceTo(VA(target)) + half * 2 }); sc.updateProjectionMatrix(); }
+  sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02 * Math.max(1, half / 20);
+}
+function point(i, o, p, color, intensity, dist = 30) { const L = PL[i]; L.position.copy(o).add(VA(p)); L.color.set(color); L.intensity = intensity; L.distance = dist; }
+const L2 = V(0.28, 0.33, 0.9).normalize();
+function setLens(L, R, drift = 0) {
+  skyU.uLensDir.value.copy(L).applyAxisAngle(upY, drift); skyU.uLensR.value = R;
+  const c = cu(curT), r2 = c >= 103.5 && c < 106 ? 0.07 : 0; skyU.uLens2Dir.value.copy(L2).applyAxisAngle(upY, (curT - ct(104)) * 0.004); skyU.uLens2R.value = r2;
+}
+let curT = 0;
+function look(set, T) {
+  const o = SETS[set], f = CAM.local;
+  for (const L of PL) L.intensity = 0;
+  sky.visible = set !== 'control'; skyU.uMoonCol.value.set(0); skyU.uHorizon.value = 1; skyU.uLensR.value = 0; skyU.uLens2R.value = 0;
+  hemi.intensity = 0; sun.intensity = 0; sun.castShadow = false;
+  if (lens) lens.uniforms.uR.value = 0;
+  scene.fog.density = 0; renderer.toneMappingExposure = 1.0; if (bloom) { bloom.strength = 0.6; bloom.threshold = 0.8; bloom.radius = 0.5; }
+  if (lift) lift.uniforms.uGamma.value = 0.75;
+  if (set === 'obs') {
+    skyLook(0x0c1734, 0x31446a, 0x0a0c12); skyU.uStars.value = 1.15; skyU.uBand.value = 0.16; skyU.uBandN.value.copy(OBS.band);
+    skyU.uMoonDir.value.copy(OBS.moon); skyU.uMoonCol.value.set(0xc8d0e4);
+    setLens(OBS.L, skyR(T), (T - 30) * 0.0003);
+    scene.background.set(0x0c1220); scene.fog.color.set(0x1e2a44); scene.fog.density = CAM.dist > 60 ? 0.0011 : 0.0016;
+    hemi.color.set(0x6a7aa8); hemi.groundColor.set(0x14161c); hemi.intensity = 1.25;
+    setSun(o, [f.x + OBS.moon.x * 150, OBS.moon.y * 150, f.z + OBS.moon.z * 150], [f.x, 0, f.z], 40, 0xb0c0e8, 1.0);
+    point(0, o, [4.9, 2.6, 4.9], 0xffc880, 7, 12); point(1, o, [0, 5.5, 0.5], 0xff5a48, 6, 13); point(2, o, [-4.0, 1.5, 3.2], 0x9ad8ff, 2.5, 4);
+    point(3, o, [-20, 2, 13], 0xffc070, 8, 14);
+    renderer.toneMappingExposure = 1.35; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.8; }
+    if (lift) lift.uniforms.uGamma.value = 0.7;
+  } else if (set === 'control') {
+    scene.background.set(0x05070b);
+    const w = wallState(T);
+    hemi.color.set(0x5a6a8a); hemi.groundColor.set(0x101216); hemi.intensity = 1.3;
+    setSun(o, [4, 14, 10], [0, 0, 0], 18, 0x8a9ac8, 0.3, false);
+    point(0, o, [0, 4.5, -8.5], w.kind === 'count' ? 0xffd8a0 : 0xb8d4ff, 10 + 8 * w.alpha, 22); point(1, o, [-10, 4.5, -9.2], 0x9ad8ff, 5, 12); point(2, o, [10, 4.5, -9.2], 0x9ad8ff, 5, 12);
+    point(3, o, [0, 8, 3], 0xd8e4ff, 9, 22); point(4, o, [1.25, 1.35, -4.3], 0x9ad8ff, 1.3, 2.6);
+    renderer.toneMappingExposure = 1.5; if (bloom) { bloom.strength = 0.45; bloom.threshold = 0.86; }
+    if (lift) lift.uniforms.uGamma.value = 0.75;
+  } else if (set === 'solar' || set === 'earth' || set === 'galaxy') {
+    skyLook(0x010208, 0x02040c, 0x010208); skyU.uHorizon.value = 0; scene.background.set(0);
+    skyU.uStars.value = set === 'galaxy' ? 0.55 : 1.15; skyU.uBand.value = set === 'galaxy' ? 0 : 0.16;
+    if (set === 'earth') { skyU.uBandN.value.copy(EAR.band); setLens(EAR.L, skyR(T) * 1.3, (T - 30) * 0.0003); }
+    else skyU.uBandN.value.copy(bandThrough(BH_D, 0.6));
+    renderer.toneMappingExposure = set === 'earth' ? 1.0 : 1.25; if (bloom) { bloom.strength = set === 'earth' ? 0.5 : 0.7; bloom.threshold = set === 'earth' ? 0.88 : 0.72; bloom.radius = 0.55; }
+    if (lift) lift.uniforms.uGamma.value = 0.78;
+    if (lens && set !== 'earth') {
+      const P = set === 'solar' ? bhAt(bhU(T)) : bhG(T), R = set === 'solar' ? BH_RE : 2.6; P.add(o);
+      const cp = P.clone().applyMatrix4(camera.matrixWorldInverse);
+      if (cp.z < -1) {
+        const v = P.clone().project(camera), dist = camera.position.distanceTo(P);
+        lens.uniforms.uC.value.set((v.x + 1) / 2, (v.y + 1) / 2);
+        lens.uniforms.uR.value = Math.tan(Math.atan(R / dist)) / (2 * Math.tan(camera.fov * Math.PI / 360));
+        lens.uniforms.uSh.value = set === 'solar' ? 0.14 : 0.1;
+      }
+    }
+  } else if (set === 'city') {
+    skyLook(0x0c1430, 0x3a3e58, 0x101014); skyU.uStars.value = 0.95; skyU.uBand.value = 0.08; skyU.uBandN.value.copy(CITY.band);
+    skyU.uMoonDir.value.copy(CITY.moon); skyU.uMoonCol.value.set(0xd8dce8);
+    setLens(CITY.L, skyR(T), (T - 230) * 0.0003);
+    scene.background.set(0x10141c); scene.fog.color.set(0x262a3a); scene.fog.density = CAM.dist > 50 ? 0.0012 : 0.0018;
+    hemi.color.set(0x7a88b0); hemi.groundColor.set(0x2a2420); hemi.intensity = 1.3;
+    setSun(o, [f.x + CITY.moon.x * 120, CITY.moon.y * 120, f.z + CITY.moon.z * 120], [f.x, 0, f.z], 30, 0xb8c4e4, 0.7);
+    // the street lamps nearest the camera light the crowd
+    const cx = camera.position.x - o.x, lamps = [];
+    for (let x = -300; x < 300; x += 22) { lamps.push([x, -12.7 + 1.6 * -1]); lamps.push([x + 11, -23.8 + 1.6]); }
+    lamps.sort((p, q) => Math.hypot(p[0] - cx, p[1] - f.z) - Math.hypot(q[0] - cx, q[1] - f.z));
+    lamps.slice(0, 4).forEach(([x, z], i) => point(i, o, [x, 6.6, z], 0xffd8a8, 26, 24));
+    renderer.toneMappingExposure = 1.4; if (bloom) { bloom.strength = 0.55; bloom.threshold = 0.82; }
+    if (lift) lift.uniforms.uGamma.value = 0.72;
+  }
+}
+
+/* ===================================================================== STORY STATE (what the telescope screen shows) */
+function teleState(T) {
+  const st = { arc: clamp(skyR(T) / 0.06), split: smooth(EV.split, EV.split + 1.3, T), vanish: smooth(EV.vanish, EV.vanish + 1.8, T), vanishOn: T > EV.vanish - 0.3, diag: 0, expo: -1 };
+  if (inT(T, EV.diag, ct(9))) st.diag = clamp((T - EV.diag) / 2.8);
+  if (T >= ct(54)) st.expo = clamp((T - ct(54)) / 4.5);
+  return st;
+}
+
+/* ===================================================================== FRAME UPDATE */
+function update(T) {
+  curT = T;
+  const set = CAM.set;
+  for (const k in SETS) { G[k].visible = ST[k].visible = k === set; }
+  sky.position.copy(camera.position);
+  look(set, T);
+  if (set === 'obs') updateObs(T); else if (set === 'control') updateControl(T); else if (set === 'solar') updateSolar(T);
+  else if (set === 'earth') updateEarth(T); else if (set === 'city') updateCity(T); else if (set === 'galaxy') updateGalaxy(T);
+}
+function updateObs(T) {
+  const st = teleState(T);
+  obs.tele.set(`${st.arc.toFixed(2)}|${st.split.toFixed(2)}|${st.vanish.toFixed(2)}|${st.vanishOn}|${st.diag.toFixed(2)}|${st.expo.toFixed(3)}`, st);
+  obs.dome.rotation.y = Math.atan2(OBS.L.z, -OBS.L.x) + 0.035 * smooth(ct(44), ct(45), T);
+  obs.warnM.color.setRGB(0.25 + 0.75 * (0.5 + 0.5 * Math.sin(T * 1.6)), 0.04, 0.02);
+  const A = obs.astro; A.arms[0].rotation.x = -0.75 + 0.05 * Math.sin(T * 7); A.arms[1].rotation.x = -0.75 + 0.05 * Math.sin(T * 7 + 2); A.head.rotation.x = 0.05 + 0.03 * Math.sin(T * 0.7);
+  A.head.rotation.y = inT(T, ct(8), ct(9)) ? 0.25 * smooth(ct(8) + 1.2, ct(8) + 2.4, T) : 0;
+}
+function updateControl(T) {
+  const C = control, w = wallState(T), anim = ['track', 'models', 'orbit', 'compare', 'count', 'compute'].includes(w.kind);
+  C.main.set(`${w.kind}|${w.i}|${w.alpha.toFixed(2)}|${anim ? Math.floor(T * 30) : 0}`, w, T);
+  C.sides.forEach((s, k) => s.set(`${k}|${k === 0 ? skyR(T).toFixed(3) : k === 2 ? Math.floor(clockAt(T) ?? -9) : k === 3 ? Math.floor(T * 15) : 'x'}`, T));
+  C.mons.forEach((m, k) => { MONC_L ??= MON_C(); const mm = k === 2 ? msgAt(T, MONC_L, 0.45, 0.3) : null; m.set(`${k}|${k === 0 ? Math.floor(T * 15) : k === 2 ? mm.text + mm.alpha.toFixed(2) : 'x'}`, T); });
+  const still = inT(T, ct(46), ct(47) + 0.5) || inT(T, EV.tenMin, ct(65));
+  C.crew.forEach((P, i) => { const k = still ? 0 : 1; P.arms[0].rotation.x = -1.05 + 0.06 * k * Math.sin(T * 8 + i); P.arms[1].rotation.x = -1.05 + 0.06 * k * Math.sin(T * 8 + i + 1.7); P.head.rotation.y = 0.06 * Math.sin(T * 0.4 + i * 1.3); });
+  C.pair[0].arms[1].rotation.x = -0.4 - 0.25 * (0.5 + 0.5 * Math.sin(T * 1.7)); C.pair[0].head.rotation.y = 0.1 * Math.sin(T * 0.9);
+}
+const _p = V(), _q = V();
+function updateSolar(T) {
+  const S = solar, fx = CAM.fx;
+  S.planets.forEach((p, i) => { planetAt(i, T, p.position); p.rotation.y = T * (i === 2 ? 0.4 : 0.15); });
+  const e = S.planets[2].position; S.moon.position.set(e.x + Math.cos(T * 0.5) * 2.2, 0.2, e.z + Math.sin(T * 0.5) * 2.2);
+  S.sun.rotation.y = T * 0.05; S.belt.rotation.y = -OM(42) * T;
+  const im = S.kui;
+  S.KUI.forEach((k, i) => { const a = k.a + OM(k.r) * T, f = k.kick * S.kick(T - k.tp); _p.set(Math.cos(a) * k.r, k.y, Math.sin(a) * k.r).addScaledVector(k.n, f); m4.compose(_p, q4.identity(), s4.setScalar(k.s)); im.setMatrixAt(i, m4); });
+  im.instanceMatrix.needsUpdate = true;
+  kbAt(T, S.kbRock.position); S.kbRock.rotation.set(T * 0.3, T * 0.2, 0);
+  astAt(T, S.ast.position); S.ast.rotation.set(T * 0.9, T * 0.6, 0);
+  const cc = cu(T); S.comet.visible = cc >= 33.5 && cc < 35.5; S.ast.visible = cc >= 29.5 && cc < 32.5;
+  cometAt(T, S.comet.position); S.tail.quaternion.setFromUnitVectors(V(0, -1, 0), S.comet.position.clone().normalize().negate());
+  const bh = bhAt(bhU(T));
+  S.pivot.visible = S.mark.visible = !!fx.path;
+  if (fx.path) { S.pivot.position.copy(bh); S.path.position.copy(bh).negate(); S.pivot.rotation.y = pathRot(T); S.mark.position.copy(bh); S.mark.scale.setScalar(camera.position.distanceTo(_q.copy(bh).add(SETS.solar)) * 0.05); }
+  S.alt.visible = !!fx.alt; S.kbTrail.visible = !!fx.kbTrail;
+  S.arrow.visible = S.speed.visible = !!fx.arrow;
+  if (fx.arrow) { const v = planetAt(2, T + 0.2, _q).sub(e).normalize(); S.arrow.position.copy(e).addScaledVector(v, 1.2); S.arrow.quaternion.setFromUnitVectors(upY, v); S.speed.position.copy(e).addScaledVector(v, 2.2).add(V(0, -1.1, 0)); }
+  S.eOld.visible = !fx.orbitNew; S.eOldDash.visible = S.eNew.visible = !!fx.orbitNew;
+}
+const iceAt = T => inT(T, ct(53), ct(54)) ? 0.7 * smooth(ct(53) + 0.3, ct(54), T) : inT(T, ct(83), ct(84)) ? smooth(ct(83) + 0.3, ct(84), T) : 0;
+function updateEarth(T) {
+  const E = earth, fx = CAM.fx, r = earthRot(T);
+  E.globe.rotation.y = E.spin.rotation.y = r; E.U.uRot.value = T * 0.002; E.U.uIce.value = iceAt(T);
+  E.obs2.visible = !!fx.obs2; E.net.visible = !!fx.net;
+  if (fx.net) E.arcM.opacity = 0.15 + 0.75 * smooth(ct(40), at(40, 0.8), T);
+}
+function updateCity(T) {
+  const C = city; C.waterU.uT.value = T; C.beam.rotation.y = T * 0.45;
+  C.boats.forEach((b, i) => { b.position.y = -1.1 + 0.12 * Math.sin(T * 0.9 + i * 2); b.rotation.z = 0.04 * Math.sin(T * 0.7 + i); });
+  const relax = smooth(ct(91), ct(92), T);
+  C.roof.forEach((P, i) => P.head.rotation.x = lerp(-0.5, -0.12, relax) + 0.03 * Math.sin(T * 0.5 + i));
+  C.hero.forEach((P, i) => P.head.rotation.y = 0.08 * Math.sin(T * 0.4 + i * 1.7));
+}
+function updateGalaxy(T) {
+  const Gx = galaxy, fx = CAM.fx; Gx.pts.rotation.y = 0; 
+  Gx.gpath.visible = Gx.gmark.visible = Gx.sunMark.visible = Gx.sunLabel.visible = !!fx.gpath; bhG(T, Gx.gmark.position);
+}
+
+/* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash');
+const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
+const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
+function overlays(T) {
+  const cut = T >= ENDING.cut;
+  let line = '';
+  if (!cut) for (const [a, b, text] of SUBS) if (T >= a && T < b) line = text;
+  if (line !== subsEl.dataset.text) {
+    subsEl.dataset.text = line; subsEl.classList.remove('on');
+    if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
+  }
+  titleEl.classList.toggle('on', T > 0.3 && T < 4.8);
+  fadeEl.style.opacity = cut ? 1 : 0;
+  flashEl.style.opacity = 0;
+  const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1];
+  if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
+  const hideChapter = sc.id === 'stars' && T < 5.2;
+  const chapEnd = Math.min(sc.start + 4.2, sc.end);           // the chapter card shows for the first seconds of each chapter
+  chapterEl.classList.toggle('on', T - sc.start > 0.3 && chapEnd - T > 0 && !cut && !hideChapter);
+  if (sc.id === 'stars' && T >= 5.2 && T < 9.4) chapterEl.classList.add('on');
+  if (RENDER) {
+    const fade = (a, b, f = 0.25) => clamp(Math.min((T - a) / f, (b - T) / f));
+    let s = 0; if (!cut) for (const [a, b] of SUBS) if (T >= a && T < b) s = fade(a, b);
+    subsEl.style.opacity = s; subsEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.3, 4.8, 0.6); titleEl.style.transform = 'none';
+    const c0 = sc.id === 'stars' ? 5.2 : sc.start + 0.3, c1 = sc.id === 'stars' ? 9.4 : chapEnd;
+    chapterEl.style.opacity = cut ? 0 : clamp(Math.min((T - c0) / 0.45, (c1 - T) / 0.45)); chapterEl.style.transform = 'none';
+  }
+}
+
+/* ===================================================================== SOUND EFFECTS (Web Audio, generated) */
+// moments of near silence: the room goes quiet, the instant after the closest approach
+const QUIET = () => [[ct(46), at(47, 0) - 0.1, 0.05], [at(66, 0) - 0.3, sub(69)[1] + 0.2, 0.22], [sub(104)[1], at(105, 0.2), 0.12]];
+let QUIET_L = null;
+function buildSfx(ctx) {
+  QUIET_L ??= QUIET();
+  const N = { master: ctx.createGain(), bus: ctx.createGain(), muffle: ctx.createBiquadFilter() };
+  N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 16000;
+  N.bus.connect(N.muffle).connect(N.master).connect(ctx.destination);
+  const noise = (sec, brown) => { const b = ctx.createBuffer(1, ctx.sampleRate * sec, ctx.sampleRate), d = b.getChannelData(0); let last = 0; for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; } return b; };
+  N.white = noise(4, false); N.brown = noise(4, true);
+  const loop = (buf, type, freq, Q) => { const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true; const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = Q; const g = ctx.createGain(); g.gain.value = 0; src.connect(f).connect(g).connect(N.bus); src.start(0, Math.random() * 3); return { f, g }; };
+  const osc = (type, freq, gain = 0) => { const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq; const g = ctx.createGain(); g.gain.value = gain; o.connect(g); o.start(0); return { o, g }; };
+  // deep threatening drone: detuned saws through a slow lowpass, rising with the tension
+  N.droneF = ctx.createBiquadFilter(); N.droneF.type = 'lowpass'; N.droneF.frequency.value = 300; N.droneF.Q.value = 4; N.droneG = ctx.createGain(); N.droneG.gain.value = 0; N.droneF.connect(N.droneG).connect(N.bus);
+  N.d1 = osc('sawtooth', 36.7, 0.5); N.d2 = osc('sawtooth', 37.05, 0.5); N.d3 = osc('sine', 27.5, 1); N.d4 = osc('sawtooth', 55.0 * 1.19, 0.12); [N.d1, N.d2, N.d3, N.d4].forEach(d => d.g.connect(N.droneF));
+  // space: a cold high shimmer over the drone
+  N.shimG = ctx.createGain(); N.shimG.gain.value = 0; N.shimG.connect(N.bus); N.s1 = osc('sine', 1318, 0.5); N.s2 = osc('sine', 1975, 0.3); N.s3 = osc('sine', 1323, 0.4); [N.s1, N.s2, N.s3].forEach(s => s.g.connect(N.shimG));
+  // electronic hum in the control room: 50 Hz family
+  N.humG = ctx.createGain(); N.humG.gain.value = 0; N.humF = ctx.createBiquadFilter(); N.humF.type = 'lowpass'; N.humF.frequency.value = 900; N.humF.connect(N.humG).connect(N.bus);
+  N.h1 = osc('sine', 50, 0.6); N.h2 = osc('sine', 100, 0.35); N.h3 = osc('square', 200, 0.05); [N.h1, N.h2, N.h3].forEach(h => h.g.connect(N.humF));
+  N.fans = loop(N.brown, 'bandpass', 240, 0.9);
+  N.wind = loop(N.brown, 'bandpass', 380, 1.8);
+  N.waves = loop(N.brown, 'lowpass', 520, 0.6);
+  N.crowd = loop(N.white, 'bandpass', 820, 1.4);
+  N.city = loop(N.brown, 'lowpass', 150, 0.7);
+  N.lens = loop(N.brown, 'bandpass', 90, 3);
+  const burst = (t, { type, from, to, dur, gain, buf = N.white, q = 0.7, out = N.bus }) => {
+    const src = ctx.createBufferSource(); src.buffer = buf; const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(out); src.start(t, Math.random() * 2); src.stop(t + dur + 0.05);
+  };
+  const tone = (t, type, f0, f1, dur, gain, out = N.bus, att = 0.012) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + dur); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + att); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g).connect(out); o.start(t); o.stop(t + dur + 0.05); };
+  const boom = (t, k) => { burst(t, { type: 'lowpass', from: 1400, to: 40, dur: 2.8, gain: 0.8 * k, buf: N.brown }); tone(t, 'sine', 62, 22, 2.4, 0.9 * k); };
+  const sting = (t, k = 1) => { for (const [f, d] of [[146.8, 0], [155.6, 0.03], [220, 0.06]]) { const o = ctx.createOscillator(), g = ctx.createGain(), v = ctx.createOscillator(), vg = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = f; v.frequency.value = 5; vg.gain.value = 4; v.connect(vg).connect(o.frequency); const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 700; g.gain.setValueAtTime(0.0001, t + d); g.gain.exponentialRampToValueAtTime(0.08 * k, t + 0.5); g.gain.exponentialRampToValueAtTime(0.0001, t + 3.0); o.connect(bp).connect(g).connect(N.bus); o.start(t + d); v.start(t + d); o.stop(t + 3.1); v.stop(t + 3.1); } tone(t, 'sine', 49, 28, 2.2, 0.7 * k); };
+  const swell = (t, k = 1, dur = 3) => { burst(t, { type: 'bandpass', from: 60, to: 420, dur, gain: 0.25 * k, buf: N.brown, q: 2 }); tone(t, 'sine', 30, 48, dur, 0.5 * k, N.bus, dur * 0.8); };
+  const blip = (t, f = 1000, k = 1, dur = 0.16) => { tone(t, 'sine', f, f, dur, 0.1 * k); tone(t, 'square', f * 2, f * 2, dur * 0.7, 0.012 * k); };
+  const chime = (t, k = 1) => { for (const [f, d] of [[880, 0], [1318, 0.08], [1760, 0.16]]) tone(t + d, 'sine', f, f, 1.4, 0.05 * k); };
+  const tick = (t, k = 1) => { burst(t, { type: 'bandpass', from: 3200, to: 2400, dur: 0.04, gain: 0.12 * k, q: 6 }); tone(t, 'sine', 1800, 1700, 0.03, 0.03 * k); };
+  const whoosh = (t, k = 1, dur = 1.6) => burst(t, { type: 'bandpass', from: 180, to: 1100, dur, gain: 0.14 * k, q: 1.4, buf: N.brown });
+  const countBeep = (t, k = 1) => { tone(t, 'sine', 880, 880, 0.35, 0.16 * k); tone(t + 0.4, 'sine', 880, 880, 0.35, 0.12 * k); tone(t, 'sine', 55, 40, 1.2, 0.3 * k); };
+  return {
+    N,
+    apply(T, at) {
+      const set = CAM.set, ten = envAt(T).tension, set_ = (p, v, k = 0.12) => p.setTargetAtTime(v, at, k);
+      const q = QUIET_L.find(([a, b]) => inT(T, a, b));
+      set_(N.bus.gain, q ? q[2] : 1, q ? 0.1 : 0.2);
+      set_(N.droneG.gain, 0.04 + 0.13 * ten + (inT(T, ct(61), ct(66)) ? 0.06 : 0)); set_(N.droneF.frequency, 120 + 480 * ten + 60 * Math.sin(T * 0.3) + (inT(T, ct(61), ct(65.3)) ? 400 * smooth(ct(61), ct(65.3), T) : 0));
+      set_(N.d1.o.frequency, 36.7 * (1 + (inT(T, ct(61), ct(65.3)) ? 0.2 * smooth(ct(61), ct(65.3), T) : 0)), 0.4);
+      const space = set === 'solar' || set === 'earth' || set === 'galaxy';
+      set_(N.shimG.gain, space ? 0.008 : set === 'obs' ? 0.003 : 0, 0.3);
+      set_(N.humG.gain, set === 'control' ? 0.07 : 0); set_(N.fans.g.gain, set === 'control' ? 0.12 : 0);
+      set_(N.wind.g.gain, set === 'obs' ? 0.11 : set === 'city' ? 0.04 : 0);
+      set_(N.waves.g.gain, set === 'city' ? 0.12 * (0.65 + 0.35 * Math.sin(T * 0.55) * Math.sin(T * 0.21 + 1)) : 0, 0.3);
+      set_(N.crowd.g.gain, set === 'city' ? (T < ct(66) ? 0.035 : 0.012) : 0, 0.3);
+      set_(N.city.g.gain, set === 'city' ? 0.08 : set === 'obs' ? 0.02 : 0);
+      const lensNear = set === 'solar' && CAM.shot?.rel === 'bh' || set === 'solar' && CAM.shot?.aim?.[0] === 'bh';
+      set_(N.lens.g.gain, lensNear ? 0.35 : set === 'solar' || set === 'galaxy' ? 0.08 : 0, 0.3); set_(N.lens.f.frequency, lensNear ? 70 + 40 * Math.sin(T * 0.8) : 90);
+      set_(N.muffle.frequency, set === 'control' ? 9000 : 16000);
+      // hard cut: everything stops on the frame the picture goes black
+      N.master.gain.setTargetAtTime(T >= ENDING.cut ? 0 : 0.9, at, T >= ENDING.cut ? 0.004 : 0.05);
+    },
+    events(T0, T1, at) {
+      if (T1 >= ENDING.cut) return;
+      const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set;
+      if (hit(EV.title)) sting(at, 0.7);
+      if (hit(EV.split)) { blip(at, 1200, 0.6, 0.12); blip(at + 0.15, 1500, 0.5, 0.12); }
+      if (hit(EV.vanish)) tone(at, 'sine', 600, 200, 1.4, 0.06);
+      if (hit(EV.diag)) for (let i = 0; i < 4; i++) blip(at + 0.5 + i * 0.5, 1400, 0.4, 0.07);
+      if (hit(EV.confirm)) { blip(at, 990, 0.6, 0.12); blip(at + 0.2, 990, 0.6, 0.12); }
+      if (hit(EV.massive)) boom(at, 0.55);
+      if (hit(EV.dark)) boom(at, 0.7);
+      if (hit(EV.reveal)) { sting(at, 1.2); boom(at, 0.9); }
+      if (hit(EV.pred1)) blip(at, 880, 0.8, 0.25);
+      if (hit(EV.safe)) chime(at, 0.8);
+      if (hit(EV.newData)) { blip(at, 1300, 0.7, 0.1); blip(at + 0.14, 1300, 0.7, 0.1); }
+      if (hit(EV.change)) { boom(at, 0.35); blip(at, 600, 0.7, 0.3); }
+      if (hit(EV.run2) || hit(EV.run3)) for (let i = 0; i < 5; i++) blip(at + i * 0.12, 1600 + i * 90, 0.3, 0.05);
+      if (hit(EV.models)) sting(at, 0.6);
+      if (hit(EV.howClose)) boom(at, 0.5);
+      if (hit(ct(30.2))) whoosh(at, 1.2, 2.4);
+      if (hit(EV.broken)) sting(at, 0.8);
+      if (hit(EV.speed)) blip(at, 1000, 0.6, 0.2);
+      if (hit(EV.combine)) for (let i = 0; i < 6; i++) blip(at + i * 0.22, 900 + i * 60, 0.35, 0.08);
+      if (hit(EV.modelA)) blip(at, 1100, 0.5, 0.15); if (hit(EV.modelB)) { blip(at, 500, 0.7, 0.4); }
+      if (hit(EV.fresh)) whoosh(at, 0.6);
+      if (hit(EV.update)) blip(at, 1300, 0.6, 0.15);
+      if (hit(EV.shifted)) { sting(at, 1.1); boom(at, 0.7); }
+      if (hit(EV.night)) swell(at, 0.6, 4);
+      for (const t of [EV.tenMin, EV.fiveMin, EV.oneMin]) if (hit(t)) countBeep(at, t === EV.oneMin ? 1.3 : 1);
+      if (set === 'control' && (inT(T1, ct(27), ct(28)) || inT(T1, ct(55), ct(56)) || inT(T1, ct(61), ct(65)))) for (let s = Math.ceil(T0); s <= T1; s++) if (hit(s)) tick(at, 0.8);
+      if (hit(ct(64.6))) swell(at, 1.2, 2.5);
+      if (hit(EV.closest)) { boom(at, 1.3); burst(at, { type: 'lowpass', from: 300, to: 30, dur: 5, gain: 0.6, buf: N.brown }); }
+      if (hit(EV.newMeas)) for (let i = 0; i < 4; i++) blip(at + i * 0.3, 1200, 0.4, 0.08);
+      if (hit(EV.away)) whoosh(at, 0.8, 2.5);
+      if (hit(EV.altered)) sting(at, 0.8);
+      if (hit(EV.firstCalc)) blip(at, 1100, 0.5, 0.15);
+      if (hit(EV.bound)) chime(at, 0.7);
+      if (hit(EV.changed)) { sting(at, 1.0); boom(at, 0.6); }
+      if (hit(EV.passed)) chime(at, 0.5);
+      if (hit(EV.unexpected)) sting(at, 0.7);
+      if (hit(EV.detected)) blip(at, 900, 0.5, 0.2);
+      if (hit(EV.another)) swell(at, 0.8, 3.5);
+      if (set === 'control' && Math.random() < dt * 0.5) blip(at, 1800 + Math.random() * 800, 0.12, 0.05);
+    },
+  };
+}
+const sfx = (() => {
+  let ctx = null, S = null, enabled = false, lastT = 0;
+  return {
+    get on() { return enabled; },
+    toggle() { if (!ctx) { ctx = new (window.AudioContext || window.webkitAudioContext)(); S = buildSfx(ctx); } enabled = !enabled; enabled && playing ? ctx.resume() : ctx.suspend(); return enabled; },
+    pause(p) { if (ctx && enabled) p ? ctx.suspend() : ctx.resume(); },
+    update(T) { if (!ctx || !enabled) { lastT = T; return; } S.apply(T, ctx.currentTime); if (playing && T > lastT && T - lastT < 0.5) S.events(lastT, T, ctx.currentTime); lastT = T; },
+  };
+})();
+// Offline soundtrack for the MP4 export: same layers, rendered faster than real time, returned as 16-bit WAV.
+async function renderSoundtrack(rate = 44100) {
+  const ctx = new OfflineAudioContext(1, Math.ceil(DURATION * rate), rate), S = buildSfx(ctx);
+  for (let t = 0, prev = 0; t <= DURATION; prev = t, t += 0.05) { placeCamera(t); S.apply(t, t); if (t > 0) S.events(prev, t, t); }
+  const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+  const out = new DataView(new ArrayBuffer(44 + d.length * 2)), str = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); out.setUint32(4, 36 + d.length * 2, true); str(8, 'WAVEfmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, 1, true);
+  out.setUint32(24, rate, true); out.setUint32(28, rate * 2, true); out.setUint16(32, 2, true); out.setUint16(34, 16, true); str(36, 'data'); out.setUint32(40, d.length * 2, true);
+  let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+  const norm = peak > 0.89 ? 0.89 / peak : 1;
+  for (let i = 0; i < d.length; i++) out.setInt16(44 + i * 2, clamp(d[i] * norm, -1, 1) * 32767, true);
+  let bin = ''; const bytes = new Uint8Array(out.buffer);
+  for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+  return btoa(bin);
+}
+const soundBtn = document.getElementById('sound');
+function toggleSound() { soundBtn.setAttribute('aria-pressed', String(sfx.toggle())); }
+soundBtn.onclick = toggleSound;
+
+/* ===================================================================== PLAYBACK */
+const hud = document.getElementById('hud'), playBtn = document.getElementById('play'), scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const playIcon = document.getElementById('play-icon');
+scrub.max = DURATION;
+let T = 0, playing = true, last = null, audio = null;
+const fmtTime = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+function setPlaying(v) {
+  playing = v;
+  playBtn.setAttribute('aria-label', v ? 'Pause' : 'Play');
+  playIcon.innerHTML = v ? '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>' : '<path d="M4 2l10 6-10 6z"/>';
+  if (audio) { if (v) { audio.currentTime = T; audio.play().catch(() => {}); } else audio.pause(); }
+  sfx.pause(!v);
+  poke();
+}
+function seek(t) { T = clamp(t, 0, DURATION); if (audio) audio.currentTime = T; }
+playBtn.onclick = () => { if (!playing && T >= DURATION) seek(0); setPlaying(!playing); };
+document.getElementById('replay').onclick = () => { seek(0); setPlaying(true); };
+scrub.oninput = () => seek(parseFloat(scrub.value));
+function attachAudio(src) { audio?.pause(); audio = new Audio(src); audio.preload = 'auto'; audio.addEventListener('ended', () => setPlaying(false)); seek(0); setPlaying(true); }
+document.getElementById('voice').onchange = e => { const f = e.target.files?.[0]; if (f) attachAudio(URL.createObjectURL(f)); };
+if (params.get('audio')) attachAudio(params.get('audio'));
+let hideTimer = 0, forceHidden = params.get('clean') === '1';
+function poke() { clearTimeout(hideTimer); hud.classList.toggle('hide', forceHidden); if (playing && !forceHidden) hideTimer = setTimeout(() => hud.classList.add('hide'), 2500); }
+stage.addEventListener('pointermove', poke); stage.addEventListener('pointerdown', poke);
+stage.addEventListener('pointerdown', () => { if (forceHidden && !sfx.on) toggleSound(); });
+addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') { forceHidden = !forceHidden; poke(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+});
+poke();
+
+function draw(T) { placeCamera(T); update(T); overlays(T); composer ? composer.render() : renderer.render(scene, camera); }
+function frame(now) {
+  const dt = last === null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) {
+    if (audio && !audio.paused && audio.readyState >= 2) T = Math.min(DURATION, audio.currentTime); else T += dt;
+    if (T >= DURATION) { T = DURATION; setPlaying(false); }
+  }
+  placeCamera(T); update(T); sfx.update(T); overlays(T);
+  scrub.value = T; timeEl.textContent = fmtTime(T);
+  composer ? composer.render() : renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+const RENDER = params.get('render') === '1';
+// canvas text needs the fonts before the first screen is drawn
+await Promise.race([Promise.all([document.fonts.load(`900 64px "Archivo"`), document.fonts.load(`800 40px "JetBrains Mono"`)]), new Promise(r => setTimeout(r, 4000))]).catch(() => {});
+if (RENDER) {
+  forceHidden = true; poke(); playing = false;
+  document.body.classList.add('render');
+  window.renderAt = t => { T = t; draw(T); };
+  window.renderSoundtrack = renderSoundtrack;
+  window.__dbg = { SHOTS, SUBS, SCENES, ct, EV, DURATION, ENDING };
+  window.renderReady = true;
+} else requestAnimationFrame(frame);
+addEventListener('pagehide', () => {
+  audio?.pause();
+  scene.traverse(o => { o.geometry?.dispose(); [].concat(o.material ?? []).forEach(m => m.dispose()); });
+  composer?.dispose?.(); pmrem.dispose(); renderer.dispose();
+});
+</script>
