@@ -16,7 +16,7 @@ import xai_voiceover as xv                                   # alleen voor het o
 
 REF = os.path.join(HERE, "stem", "voorbeeld-george.mp3")
 EXAGGERATION, CFG = 0.4, 0.5                                 # "rustig" uit de stemtest
-SPEED = 0.87      # tempo van de Titanic-stem (eigenaar 26 okt 2026): George spreekt ± 5,3 lettergrepen/s, Titanic ± 4,5
+SPEED = 0.94      # tempo van de Titanic-stem (eigenaar 26 okt 2026): gemeten op een Mayflower-proef, 4,6 tegen 4,55 lettergrepen/s
 LEAD = 0.8
 
 ap = argparse.ArgumentParser()
