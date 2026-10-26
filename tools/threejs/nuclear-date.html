@@ -147,7 +147,7 @@ const SCENES = [
     env: { tension: 0.65 },
     shots: [{ until: 14, set: 'base', keys: [[0, [-0.6, 0.9, 1.8], [-2.4, 1.5, -2.8], 52], [1, [-0.7, 0.85, 1.6], [-2.35, 1.2, -2.4], 52]] },
             { until: 15, set: 'base', keys: [[0, [0.15, 0.95, 0.75], [1.5, 0.62, -0.15], 46], [1, [0.3, 0.92, 0.6], [1.5, 0.62, -0.15], 44]] },
-            { until: 16, set: 'base', keys: [[0, [1.64, 0.75, -0.06], [1.42, 0.6, -0.1], 46, [-0.517, 0.852, -0.078]], [1, [1.62, 0.74, -0.065], [1.42, 0.6, -0.1], 44, [-0.517, 0.852, -0.078]]] },
+            { until: 16, set: 'base', follow: 'phone', local: true, keys: [[0, [0, -0.012, 0.23], [0, -0.012, 0], 46, [0, 1, 0]], [1, [0, -0.012, 0.21], [0, -0.012, 0], 44, [0, 1, 0]]] },
             { until: 17, set: 'base', keys: [[0, [-2.15, 1.36, -3.35], [-2.4, 1.24, -4.15], 50], [1, [-2.17, 1.34, -3.42], [-2.4, 1.24, -4.15], 48]] }],
     subtitles: [[28.87, 30.66, "You escape into a basement."], [30.76, 33.05, "Suddenly, your phone flashes:"], [33.15, 36.32, "“RADIOACTIVE FALLOUT. STAY INSIDE.”"], [36.42, 39.88, "Gray dust begins blowing through a crack beneath the door."]] },
   { id: 'fallout', when: 'That night', what: 'Fallout',
@@ -446,7 +446,8 @@ const P_GEO = {
   head: new THREE.IcosahedronGeometry(1, 2),
   hair: new THREE.SphereGeometry(1, 12, 8, 0, TAU, 0, Math.PI * 0.55).translate(0, 0.08, -0.06),
   leg: new THREE.CylinderGeometry(0.075, 0.058, 0.9, 8).translate(0, -0.45, 0),
-  arm: new THREE.CylinderGeometry(0.055, 0.045, 0.64, 10, 1).translate(0, -0.32, 0),
+  upper: new THREE.CylinderGeometry(0.055, 0.05, 0.34, 10, 1).translate(0, -0.16, 0),
+  fore: new THREE.CylinderGeometry(0.05, 0.045, 0.34, 10, 1).translate(0, -0.17, 0),
   brow: new THREE.BoxGeometry(0.042, 0.009, 0.012),
   mouth: new THREE.BoxGeometry(0.042, 0.009, 0.01),
 };
@@ -455,7 +456,7 @@ const PANTS = [0x23262e, 0x3a3e4a, 0x4a3a2a, 0x2a3a52];
 const SKINS = [0xd8a888, 0xb07a58, 0x8a5a3e, 0xe8c0a0, 0x6a4430];
 const HAIRS = [0x1a1410, 0x3a2414, 0x6a4a2a, 0x2a2420, 0x9a8a7a];
 function makePerson(parent, o = {}) {
-  const root = group(parent), P = { root, legs: [], arms: [], eyes: [], brows: [] };
+  const root = group(parent), P = { root, legs: [], arms: [], fores: [], hands: [], eyes: [], brows: [] };
   const shirt = mat(o.shirt ?? 0x4a5a6a, { flat: true }), pants = mat(o.pants ?? 0x2a2e36, { flat: true }), skin = mat(o.skin ?? 0xd8a888, { flat: true, rough: 0.7 }), hair = mat(o.hair ?? 0x2a1c14, { flat: true });
   P.hips = group(root, 0, 0.92, 0);
   P.torso = group(P.hips); mesh(P.torso, P_GEO.torso, shirt);
@@ -474,11 +475,11 @@ function makePerson(parent, o = {}) {
   if (o.skirt) cyl(P.hips, 0.2, 0.3, 0.5, 0, 0, -0.45, 0, { m: mat(o.skirt, { flat: true }), seg: 10 });
   for (const sx of [-1, 1]) { const l = group(P.hips, sx * 0.1, 0, 0); mesh(l, P_GEO.leg, o.skirt ? skin : pants); mesh(l, sphG, mat(o.shoes ?? 0x1a1a1e, { flat: true }), 0, -0.9, 0.05, { s: [0.07, 0.05, 0.12] }); P.legs.push(l); }
   for (const sx of [-1, 1]) {
-    const a = group(P.torso, sx * 0.235, 0.5, 0);
-    mesh(a, P_GEO.arm, sx < 0 && o.armMat ? o.armMat : o.sleeves === 'short' ? mat(o.skin ?? 0xd8a888, { rough: 0.7 }) : shirt);
-    if (o.sleeves === 'short') mesh(a, new THREE.CylinderGeometry(0.066, 0.06, 0.22, 10).translate(0, -0.11, 0), shirt);
-    P.hands = P.hands ?? []; P.hands.push(mesh(a, sphG, skin, 0, -0.66, 0, { s: [0.05, 0.06, 0.04] }));
-    P.arms.push(a);
+    const a = group(P.torso, sx * 0.235, 0.5, 0), f = group(a, 0, -0.32, 0);   // shoulder and elbow
+    mesh(a, P_GEO.upper, shirt);
+    mesh(f, P_GEO.fore, sx < 0 && o.armMat ? o.armMat : shirt);
+    P.hands.push(mesh(f, sphG, skin, 0, -0.34, 0, { s: [0.05, 0.06, 0.04] }));
+    P.arms.push(a); P.fores.push(f);
   }
   return P;
 }
@@ -490,6 +491,7 @@ function personPose(P, o) {
   P.legs[0].rotation.set(s + (o.legs ?? 0) + (o.legL ?? 0), 0, 0.03 + (o.spread ?? 0)); P.legs[1].rotation.set(-s + (o.legs ?? 0) + (o.legR ?? 0), 0, -0.03 - (o.spread ?? 0));
   P.arms[0].rotation.set(-s * 1.2 + (o.armL ?? 0), o.armLy ?? 0, -0.08 - (o.splay ?? 0) - (o.armLz ?? 0)); P.arms[1].rotation.set(s * 1.2 + (o.armR ?? 0), o.armRy ?? 0, 0.08 + (o.splay ?? 0) + (o.armRz ?? 0));
   P.head.rotation.set(o.pitch ?? 0, o.yaw ?? 0, o.tilt ?? 0);
+  P.fores[0].rotation.set(-(o.elbowL ?? 0), 0, 0); P.fores[1].rotation.set(-(o.elbowR ?? 0), 0, 0);   // elbows bend forward
 }
 // face: open 0..1 (eyes), mouth 0..1 (closed → wide open), smile, worry (inner brows up)
 function personFace(P, o = {}) {
@@ -779,20 +781,22 @@ const base = (() => {
   cyl(R.lantern, 0.09, 0.1, 0.06, 0x2a3a2a, 0, 0, 0, { seg: 10 }); cyl(R.lantern, 0.075, 0.075, 0.16, 0xfff0c8, 0, 0.06, 0, { m: new THREE.MeshBasicMaterial({ color: 0xffe0a8 }), seg: 10 }); cyl(R.lantern, 0.09, 0.08, 0.04, 0x2a3a2a, 0, 0.22, 0, { seg: 10 });
   // you (sleeve rolled up: the burn is on your left forearm) and your date
   R.burnTex = canvasTex(256, 512, (g, w, h) => {
-    g.fillStyle = '#' + hexC(YOU.shirt, 0x8a8478, 0.2).toString(16).padStart(6, '0'); g.fillRect(0, 0, w, h * 0.38);
-    g.fillStyle = '#c89a7c'; g.fillRect(0, h * 0.38, w, h * 0.62);
-    g.fillStyle = 'rgba(40,30,30,0.35)'; g.fillRect(0, h * 0.36, w, h * 0.03);   // the rolled cuff's shadow
+    g.fillStyle = '#' + hexC(YOU.shirt, 0x8a8478, 0.2).toString(16).padStart(6, '0'); g.fillRect(0, 0, w, h * 0.06);
+    g.fillStyle = '#c89a7c'; g.fillRect(0, h * 0.06, w, h * 0.94);
+    g.fillStyle = 'rgba(40,30,30,0.35)'; g.fillRect(0, h * 0.05, w, h * 0.03);   // the rolled cuff's shadow
     // the burn: a raw red-pink patch, darker in the middle, with pale peeling skin at its edge (around u = 0, the front)
     const blot = (cx, cy, r, col) => { const gr = g.createRadialGradient(cx, cy, 0, cx, cy, r); gr.addColorStop(0, col); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, r, 0, TAU); g.fill(); };
     for (const off of [0, w]) {
-      for (let i = 0; i < 14; i++) blot(off + (hash(i, 1) - 0.5) * 110, h * (0.55 + hash(i, 2) * 0.28), 26 + hash(i, 3) * 26, 'rgba(232,226,214,0.55)');
-      for (let i = 0; i < 18; i++) blot(off + (hash(i, 4) - 0.5) * 95, h * (0.56 + hash(i, 5) * 0.26), 22 + hash(i, 6) * 24, 'rgba(200,58,52,0.75)');
-      for (let i = 0; i < 9; i++) blot(off + (hash(i, 7) - 0.5) * 60, h * (0.6 + hash(i, 8) * 0.18), 14 + hash(i, 9) * 16, 'rgba(120,34,44,0.7)');
+      for (let i = 0; i < 14; i++) blot(off + (hash(i, 1) - 0.5) * 110, h * (0.3 + hash(i, 2) * 0.45), 26 + hash(i, 3) * 26, 'rgba(232,226,214,0.55)');
+      for (let i = 0; i < 18; i++) blot(off + (hash(i, 4) - 0.5) * 95, h * (0.32 + hash(i, 5) * 0.42), 22 + hash(i, 6) * 24, 'rgba(200,58,52,0.75)');
+      for (let i = 0; i < 9; i++) blot(off + (hash(i, 7) - 0.5) * 60, h * (0.4 + hash(i, 8) * 0.3), 14 + hash(i, 9) * 16, 'rgba(120,34,44,0.7)');
     }
   });
   R.burnTex.wrapS = THREE.RepeatWrapping;
   const armMat = new THREE.MeshStandardMaterial({ map: R.burnTex, roughness: 0.6 });
   R.you = makePerson(D, Object.assign(dusty(YOU, 0.2), { armMat })); R.date = makePerson(D, dusty(DATE, 0.2));
+  // until your date notices it, your sleeve is still down (the burn is hidden)
+  R.burnArm = R.you.fores[0].children[0]; R.armBurn = armMat; R.armSleeve = mat(hexC(YOU.shirt, 0x8a8478, 0.2), { flat: true });
   // the phone (screen redrawn when its picture changes) and the hand that holds it
   R.screen = screenTex(256, 512, drawPhone);
   R.phone = group(D);
@@ -922,7 +926,7 @@ function shotAt(T) {
   const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
   const a = k[i], b = k[i + 1], e = easeInOut(clamp((T - a[0]) / (b[0] - a[0])));
   const s = { set: sh.set, shot: sh, pos: VA(a[1]).lerp(VA(b[1]), e), target: VA(a[2]).lerp(VA(b[2]), e), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY.clone() };
-  if (sh.follow) { const p = SUBJ[sh.follow](T); if (sh.local) { const q = SUBJQ[sh.follow](T); s.pos.applyQuaternion(q); s.target.applyQuaternion(q); } s.pos.add(p); s.target.add(p); }
+  if (sh.follow) { const p = SUBJ[sh.follow](T); if (sh.local) { const q = SUBJQ[sh.follow](T); s.pos.applyQuaternion(q); s.target.applyQuaternion(q); if (a[4]) s.up.applyQuaternion(q); } s.pos.add(p); s.target.add(p); }
   if (sh.aim) s.target = VA(a[2]).lerp(VA(b[2]), e).add(SUBJ[sh.aim](T));
   const DB = window.__dbg ?? DBG;
   if (DB) { s.set = DB.set; s.pos = VA(DB.c); s.target = VA(DB.c.slice(3)); s.fov = DB.c[6] ?? 50; s.up = upY.clone(); return Object.assign(s, { pos: s.pos.add(SETS[s.set]), target: s.target.add(SETS[s.set]) }); }
@@ -1164,17 +1168,16 @@ function updateBase(T) {
     R.tapeHand.position.set(DOOR.x - DOOR.w / 2 + 0.01 + (DOOR.w - 0.02) * k, DOOR.y + 0.07, DOOR.z + 0.1);
     place(Dt, 1.75, 0.1 - 0.92, 0.55, -Math.PI / 2 - 0.2); personPose(Dt, { legs: -Math.PI / 2 + 0.06, armL: 0.3, armR: 0.3 });
   } else {
-    // sitting on the floor by the shelves, the lantern between you
-    place(Y, 1.75, 0.1 - 0.92, -0.2, -Math.PI / 2); place(Dt, 1.72, 0.1 - 0.92, 0.6, -Math.PI / 2 - 0.55);
+    poseSitting(T); place(Dt, 1.72, 0.1 - 0.92, 0.6, -Math.PI / 2 - 0.55);
     const stare = T >= ln(18, -0.1);
-    personPose(Y, { lean: -0.05, legs: -Math.PI / 2 + 0.06, armL: stare ? -0.95 : -0.2, armLy: stare ? 0.25 : 0, armR: -1.05, armRz: -0.32, pitch: stare ? 0.45 : 0.42, splay: 0.04 });
     personPose(Dt, { lean: 0.15, legs: -Math.PI / 2 + 0.06, armL: -0.4, armR: 0.2, pitch: stare ? 0.55 : 0.25, yaw: stare ? -0.35 : -0.1, tilt: 0.05 });
     personFace(Y, { worry: 0.7 }); personFace(Dt, { worry: stare ? 1 : 0.6, mouth: stare ? 0.18 : 0, open: 1 });
   }
-  // the phone: in your hand, then lying on the floor
+  R.burnArm.material = T >= ln(18, -0.1) ? R.armBurn : R.armSleeve;
+  // the phone: in your hand on your lap (screen toward your face), then lying on the floor
   const onFloor = T >= ln(20, -0.1);
   if (onFloor) { R.phone.position.set(0.9, 0.012, -0.55); R.phone.quaternion.copy(qEul(-Math.PI / 2, 0, 0.6)); R.phoneHand.visible = false; }
-  else { R.phone.position.set(1.42, 0.62, -0.1); R.phone.quaternion.copy(qYaw(Math.PI / 2 - 0.15)).multiply(qAx(1, 0, 0, -0.55)); R.phoneHand.visible = true; }
+  else if (!walk && !seal) { const ph = phoneInHand(T); R.phone.position.copy(ph.p); R.phone.quaternion.copy(ph.q); R.phoneHand.visible = false; }
   R.phone.visible = !walk && !seal;
   const cr = inT(T, EV.crackle[0], EV.crackle[1]);
   if (T < EV.phone1) R.screen.set('off', 'off');
@@ -1197,6 +1200,24 @@ function updateBase(T) {
   P.position.needsUpdate = true; P.aA.needsUpdate = true;
   R.puffU.uPx.value = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360));
 }
+// you sit on the floor by the shelves, the phone in your left hand on your lap
+function poseSitting(T) {
+  const Y = base.you, stare = T >= ln(18, -0.1);
+  place(Y, 1.75, 0.1 - 0.92, -0.2, -Math.PI / 2);
+  personPose(Y, { lean: 0.08, legs: -Math.PI / 2 + 0.06, armL: stare ? -0.95 : 0.35, armLy: stare ? 0.25 : 0, armLz: stare ? 0 : 0.12, armR: -0.55, armRz: -0.5, elbowR: 1.85, pitch: stare ? 0.45 : 0.42, splay: 0.04 });
+  personFace(Y, { worry: 0.7 });
+}
+// where the phone is: at your left hand, its screen turned to your face (set coordinates)
+const _hp = V(), _hd = V(), _hm = new THREE.Matrix4();
+function phoneInHand(T) {
+  poseSitting(T); const Y = base.you; Y.root.updateMatrixWorld(true);
+  Y.hands[1].getWorldPosition(_hp); Y.head.getWorldPosition(_hd); _hp.sub(SETS.base); _hd.sub(SETS.base);
+  const fwd = V(-1, 0.4, 0.15).normalize();   // the top of the phone points away from you
+  _hm.lookAt(_hd, _hp, fwd); const q = new THREE.Quaternion().setFromRotationMatrix(_hm);
+  const n = _hd.clone().sub(_hp).normalize();
+  return { p: _hp.clone().addScaledVector(n, 0.035).add(V(0, 0.04, 0)), q };
+}
+SUBJ.phone = T => phoneInHand(T).p; SUBJQ.phone = T => phoneInHand(T).q;
 function updateAfter(T) {
   after.smoke.set(T);
   after.CL.forEach((c, i) => after.cloud.setMatrixAt(i, m4.compose(t4.set(c.p.x + 6 * Math.sin(T * 0.2 + c.ph), c.p.y + 3 * Math.sin(T * 0.25 + c.ph), c.p.z), q4.setFromAxisAngle(V(0, 1, 0), c.ph + T * 0.02), s4.set(c.s, c.s * 0.7, c.s))));
