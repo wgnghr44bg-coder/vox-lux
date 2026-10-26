@@ -120,8 +120,8 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    subtitle lasts as long as its spoken line (+0.15 s), story time equals
    video time (WARP is the identity).
    ===================================================================== */
-const DURATION = 70.95;
-const ENDING = { fade: 67.45, cut: 70.45 };   // story time: the last shot fades to black and the sound fades out between fade and cut
+const DURATION = 70.86;
+const ENDING = { fade: 67.36, cut: 70.36 };   // story time: the last shot fades to black and the sound fades out between fade and cut
 const WARP = [[0, 0], [DURATION, DURATION]];
 function storyAt(t) { for (let i = 1; i < WARP.length; i++) { const [r0, s0] = WARP[i - 1], [r1, s1] = WARP[i]; if (t <= r1) return s0 + (Math.max(t, r0) - r0) * (s1 - s0) / Math.max(1e-6, r1 - r0); } return WARP[WARP.length - 1][1]; }
 // a line spread over two shots: the second shot starts this long after the line starts
@@ -136,7 +136,7 @@ const SCENES = [
             { until: 6, set: 'sea', keys: [[0, [58, 3.5, 96], [92, 5, 300], 50], [1, [58.5, 3.4, 99], [92, 5, 300], 50]] },
             { until: 7, set: 'town', keys: [[0, [15.5, 1.1, 34], [30, 1.2, 44], 50], [1, [16.5, 1.1, 35], [30, 1.2, 44], 50]] }],
     subtitles: [[0.4, 2.14, 'Imagine waking up tomorrow…'], [2.24, 4.77, 'And every animal on Earth is gone.'], [4.87, 6.18, 'Your dog has vanished.'],
-                [6.28, 8.15, 'Birds disappear from the sky.'], [8.25, 9.91, 'The oceans fall silent.'], [10.01, 12.53, 'And not a single creature makes a sound.']] },
+                [6.28, 8.15, 'Birds disappear from the sky.'], [8.25, 9.91, 'The oceans fall silent.'], [10.01, 12.52, 'And not a single creature makes a sound.']] },
   { id: 'days', when: 'The first days', what: 'Nobody misses them',
     env: { tension: 0.3 },
     shots: [{ until: 8, set: 'town', keys: [[0, [0.5, 3.4, 22], [0, 1.6, -6], 52], [1, [0.3, 3.0, 19], [0, 1.6, -6], 52]] },
@@ -147,18 +147,18 @@ const SCENES = [
             { until: 13, set: 'farm', keys: [[0, [13.2, 1.9, 9.5], [26, 0.2, -14], 50], [1, [13.4, 1.8, 8.5], [26, 0.2, -14], 50]] },
             { till: SHOTB13, set: 'farm', keys: [[0, [5.95, 1.75, -1.05], [5.6, 0.8, -1.5], 50], [1, [5.9, 1.6, -1.1], [5.6, 0.8, -1.5], 48]] },
             { until: 14, set: 'farm', keys: [[0, [0.3, 1.85, 5.2], [-0.4, 2.3, 6.2], 40], [1, [0.25, 1.86, 5.3], [-0.4, 2.3, 6.2], 38]] }],
-    subtitles: [[12.63, 14.38, 'At first, people celebrate.'], [14.48, 15.9, 'No dangerous animals.'], [15.99, 17, 'No barking.'], [17.1, 18.33, 'No pests.'],
+    subtitles: [[12.62, 14.37, 'At first, people celebrate.'], [14.47, 15.89, 'No dangerous animals.'], [15.99, 16.99, 'No barking.'], [17.09, 18.32, 'No pests.'],
                 [18.42, 20.75, 'Then farmers discover something terrifying.'], [20.85, 22.13, 'Their crops are failing.'], [22.23, 26.65, 'Without bees and other pollinators, many plants can no longer reproduce.']] },
   { id: 'weeks', when: 'Weeks later', what: 'Out of balance',
     env: { tension: 0.6 },
     shots: [{ until: 15, set: 'market', keys: [[0, [0.2, 1.7, 21], [0, 1.2, -6], 54], [1, [0.1, 1.7, 17.5], [0, 1.2, -8], 54]] },
             { until: 16, set: 'sea', keys: [[0, [-62, 3.4, -5], [-10, 2.2, 6], 48], [1, [-61.85, 3.39, -5.02], [-10, 2.2, 6], 46.5]] },
             { until: 17, set: 'forest', keys: [[0, [3.4, 0.75, 3.6], [0.9, 0.5, 0.6], 52], [1, [3.2, 0.7, 3.4], [0.9, 0.5, 0.6], 52]] },
-            { till: SHOTB17, set: 'farm', keys: [[0, [10, 2.4, -4], [60, 3, -6], 52], [1, [10, 2.3, -3.5], [60, 3.4, -6], 52]] },
+            { till: SHOTB17, set: 'farm', keys: [[0, [13, 3.2, -1.5], [24, 0, -2.4], 50], [1, [13.6, 3.0, -1.6], [24, 0, -2.4], 50]] },
             { until: 18, set: 'farm', keys: [[0, [19.2, 0.75, 2.6], [21.5, 0.5, -1], 48], [1, [19.3, 0.72, 2.2], [21.5, 0.45, -1], 48]] },
             { until: 19, set: 'space', keys: [[0, [3, 2, 19], [0, 0, 0], 46, [0, 1, 0]], [1, [4.5, 2.4, 18.5], [0, 0, 0], 46, [0.38, 0.92, 0]]] }],
-    subtitles: [[26.75, 29.07, 'Supermarkets begin running out of food.'], [29.17, 30.88, 'Fishing fleets sit abandoned.'], [30.98, 33.91, 'Forests lose the creatures that spread seeds.'],
-                [34.01, 39.68, 'And without predators, some insect populations explode, destroying even more crops.'], [39.78, 41.88, 'The world is falling out of balance.']] },
+    subtitles: [[26.75, 29.07, 'Supermarkets begin running out of food.'], [29.17, 30.87, 'Fishing fleets sit abandoned.'], [30.97, 33.9, 'Forests lose the creatures that spread seeds.'],
+                [34, 39.6, 'And without worms and insects, the soil stops breathing, and even more crops die.'], [39.7, 41.8, 'The world is falling out of balance.']] },
   { id: 'months', when: 'Months later', what: 'The collapse',
     env: { tension: 0.85 },
     shots: [{ until: 20, set: 'town', keys: [[0, [-2.2, 2.2, -50], [-6, 1.2, -88], 50], [1, [-2.4, 2.1, -53], [-7, 1.2, -88], 50]] },
@@ -167,8 +167,8 @@ const SCENES = [
             { till: SHOTB22, set: 'forest', keys: [[0, [-3, 1.8, 13], [4, 3, -6], 52], [1, [-2.6, 1.8, 12.4], [4, 3, -6], 52]] },
             { until: 23, set: 'forest', keys: [[0, [20, 4.8, 16], [13.5, 3.6, -3.2], 56], [1, [19.8, 4.6, 15.5], [13.5, 1.6, -3.2], 56]] },
             { until: 24, set: 'town', keys: [[0, [2, 1.7, -82], [0, 17, -104], 50], [1, [1.6, 2.2, -88], [0, 17.5, -104], 46]] }],
-    subtitles: [[41.98, 44.63, 'Millions of people face food shortages.'], [44.73, 46.67, 'Entire industries collapse.'], [46.77, 48.14, 'The oceans change.'],
-                [48.23, 53.11, 'And ecosystems that took millions of years to develop begin breaking apart.'], [53.21, 55.7, 'Humanity is running out of time.']] },
+    subtitles: [[41.9, 44.55, 'Millions of people face food shortages.'], [44.65, 46.59, 'Entire industries collapse.'], [46.69, 48.06, 'The oceans change.'],
+                [48.16, 53.04, 'And ecosystems that took millions of years to develop begin breaking apart.'], [53.14, 55.62, 'Humanity is running out of time.']] },
   { id: 'end', when: 'The realization', what: 'We need them',
     env: { tension: 0.7 },
     shots: [{ until: 25, set: 'space', keys: [[0, [13, 4, 14], [0, 0.5, 0], 46], [1, [11.5, 3.6, 15.5], [0, 0.5, 0], 46]] },
@@ -177,8 +177,8 @@ const SCENES = [
             { until: 28, set: 'home', keys: [[0, [1.25, 1.2, -0.8], [-0.7, 1.0, -1.6], 46], [1, [1.1, 1.18, -0.88], [-0.7, 1.0, -1.6], 44]] },
             { until: 29, set: 'city', keys: [[0, [0.9, 64.4, 11.8], [2.6, 62.4, 40], 50], [1, [1.0, 64.3, 12.3], [2.6, 62.2, 40], 50]] },
             { until: 'cut', set: 'city', keys: [[0, [1.0, 64.3, 12.4], [2.6, 62.2, 40], 50], [1, [-30, 170, -70], [20, 20, 420], 50]] }],
-    subtitles: [[55.8, 57.27, 'The planet is still here.'], [57.37, 59.05, 'The cities are still standing.'], [59.15, 61.57, 'But the world is becoming unrecognizable.'],
-                [61.67, 63.98, 'We thought animals needed us to survive.'], [64.08, 65.48, 'The terrifying truth?'], [65.87, 67.2, 'We need them, too.']] },
+    subtitles: [[55.72, 57.18, 'The planet is still here.'], [57.28, 58.96, 'The cities are still standing.'], [59.06, 61.48, 'But the world is becoming unrecognizable.'],
+                [61.58, 63.89, 'We thought animals needed us to survive.'], [63.99, 65.38, 'The terrifying truth?'], [65.78, 67.11, 'We need them, too.']] },
 ];
 const ENV_END = { tension: 0.5 };
 // every shot runs until its `until` subtitle starts (a beat before it), so the next picture lands with the next line
@@ -206,7 +206,7 @@ const EV = {
   wilt: [ln(12, -0.1), ln(13, -0.1)],      // the field turns yellow
   petals: ln(13, -0.1),
   seeds: [ln(16, -0.1), ln(17, -0.1)],     // seeds fall straight down and stay under the tree
-  swarm: [ln(17, -0.1), ln(18, -0.1)],     // the insect cloud rolls over the field
+  dry: [ln(17, -0.1), ln(18, -0.1)],       // the field dries out and the soil cracks
   tilt: [ln(18, -0.1), ln(19, -0.1)],      // the planet tips
   sign: ln(20, -0.4),                      // the factory sign tips over the roof edge (it lands at EV.signLand)
   bloom: [ln(21, -0.4), ln(22, -0.1)],     // the sea turns green
@@ -999,7 +999,7 @@ const town = (() => {
   return R;
 })();
 
-/* ===================================================================== SET: FARM (an orchard in bloom, the beehives, a crop field; later the insect swarm)
+/* ===================================================================== SET: FARM (an orchard in bloom, the beehives, a crop field that later dries out and cracks)
    Orchard rows along z at x = −27.5 … 2.5 (every 5 m); the hives at x = 5.6; the field starts at x = 12 (rows along z, 0.8 m apart). */
 const FSUN = V(-0.4, 0.66, 0.64).normalize();
 const farmH = (x, z) => 0.05 * (fbm2(x, z, 0.05) - 0.5);
@@ -1075,28 +1075,10 @@ const farm = (() => {
   for (const [x, z, r] of [[-1.1, -1, 0.9], [1.1, -1, 0.9], [-1.0, 1.1, 0.55], [1.0, 1.1, 0.55]]) mesh(tr, new THREE.CylinderGeometry(r, r, 0.45, 12).rotateZ(Math.PI / 2), mat(0x1a1a1a, { flat: true }), x, r, z);
   // the farmer
   R.farmer = makePerson(D, { shirt: 0x4a6a8a, pants: 0x3a3a2a, skin: 0xc89070, hair: 0x5a4a3a }); addHat(R.farmer);
-  // the swarm: a cloud of points (soft, at least 1.5 px, so they never sparkle) + crawling insects for the close shot
-  const n = 7000, g = new THREE.BufferGeometry(), p = new Float32Array(n * 3), r = new Float32Array(n);
-  for (let i = 0; i < n; i++) { const u = rnd() * 2 - 1, a = rnd() * TAU, s = Math.cbrt(rnd()), q = Math.sqrt(1 - u * u); p.set([q * Math.cos(a) * s, u * s, q * Math.sin(a) * s], i * 3); r[i] = rnd(); }
-  g.setAttribute('position', new THREE.BufferAttribute(p, 3)); g.setAttribute('aR', new THREE.BufferAttribute(r, 1));
-  R.swarmU = { uC: { value: V() }, uR: { value: V(30, 6, 40) }, uT: { value: 0 }, uPx: { value: 800 }, uMin: { value: 2 }, uOp: { value: 0 }, uCol: { value: new THREE.Color(0x2a2414) } };
-  R.swarm = new THREE.Points(g, new THREE.ShaderMaterial({ uniforms: R.swarmU, transparent: true, depthWrite: false,
-    vertexShader: `uniform vec3 uC, uR; uniform float uT, uPx, uMin; attribute float aR; varying float vA;
-      void main(){ vec3 o = position; float ph = aR * 40.0;
-        o += 0.18 * vec3(sin(uT * (1.3 + aR) + ph), 0.6 * sin(uT * (1.7 + aR) + ph * 1.3), cos(uT * (1.1 + aR) + ph * 0.7));
-        vec3 p = uC + o * uR; p.y = max(p.y, 0.25 + aR * 0.4);
-        vec4 mv = viewMatrix * modelMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv;
-        float sz = 0.035 * uPx / max(0.1, -mv.z); gl_PointSize = clamp(sz, uMin, uMin * 2.0);
-        vA = clamp(sz / uMin, 0.5, 1.0) * smoothstep(0.5, 1.6, -mv.z); }`,
-    fragmentShader: `uniform vec3 uCol; uniform float uOp; varying float vA; void main(){ float r = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol, uOp * vA * smoothstep(0.5, 0.2, r)); }` }));
-  R.swarm.frustumCulled = false; D.add(R.swarm);
-  const bugG = mergeGeometries([new THREE.SphereGeometry(1, 8, 6).scale(0.009, 0.008, 0.026), new THREE.SphereGeometry(1, 6, 5).scale(0.007, 0.007, 0.008).translate(0, 0.002, 0.03),
-    new THREE.BoxGeometry(0.003, 0.003, 0.034).rotateX(0.5).translate(0.009, 0.008, -0.004), new THREE.BoxGeometry(0.003, 0.003, 0.034).rotateX(0.5).translate(-0.009, 0.008, -0.004)].map(g => g.toNonIndexed()));
-  R.BUGS = []; for (let i = 0; i < 700; i++) { const pl = R.PL[Math.floor(rnd() * R.PL.length)]; if (pl.x > 26 || pl.z < -16 || pl.z > 12) { i--; continue; } R.BUGS.push({ pl, y: 0.25 + rnd() * 0.65, a: rnd() * TAU, ph: rnd() * TAU }); }
-  R.bugs = instanced(D, bugG, mat(0x5a5a2a, { rough: 0.6, flat: true }), R.BUGS, () => ({ p: V(0, -1e4, 0) })); R.bugs.frustumCulled = false;
   return R;
 })();
-const swarmFront = T => lerp(140, 8, smooth(EV.swarm[0] - 0.3, ln(17, 2.6), T));
+// without worms and insects the soil dies: the drying sweeps over the field toward the camera
+const dryFront = T => lerp(80, 6, smooth(EV.dry[0] - 0.3, ln(17, 3.2), T));
 
 /* ===================================================================== SET: SUPERMARKET (half-empty shelves, SOLD OUT signs, a few shoppers with carts) */
 const market = (() => {
@@ -1270,7 +1252,6 @@ function signAt(T) {
 
 EV.signLand = EV.sign + 0.42 + Math.sqrt(2 * (SIGN.y - 0.06) / 9.8);
 SHAKES.push([EV.signLand, 0.7], [EV.fall, 0.45]);
-RUMBLES.push([EV.swarm[0] + 0.5, EV.swarm[1], 0.06]);
 /* ===================================================================== MERGE STATIC */
 (function mergeStatic() {
   for (const k in ST) {
@@ -1425,6 +1406,7 @@ function look(set, T) {
     hemi.color.set(0xc8d8e8); hemi.groundColor.set(0x6a6a40); hemi.intensity = 0.95;
     const close = sh.dist < 3;
     sunFrom(o, FSUN, close ? 12 : 80, close ? 3 : half, 0xfff0dc, late ? 2.0 : 2.7);
+    if (late) { specU.uOp.value = 0.22; specU.uCol.value.set(0xb89a6a); specU.uBox.value = 10; specU.uSize.value = 0.012; }   // dust blowing off the dead field
     renderer.toneMappingExposure = 0.92;
   } else if (set === 'market') {
     sky.visible = false; scene.background.set(0x2a2824);
@@ -1533,12 +1515,13 @@ function updateTown(T) {
 function updateFarm(T) {
   const F = farm, c = new THREE.Color(), cg = new THREE.Color(0x5a9a3a), cy = new THREE.Color(0xb8a24a), cb = new THREE.Color(0x6a5030);
   const wilt = T < ln(12, -0.1) ? 0 : T < ln(17, -0.1) ? smooth(EV.wilt[0], EV.wilt[1], T) * 0.55 : 0.6;
-  const front = T > ln(17, -0.1) ? swarmFront(T) : 1e4;
+  const front = T > ln(17, -0.1) ? dryFront(T) : 1e4;
   farmU.uCrop.value = wilt; farmU.uFront.value = front;
+  F.gm.userData.u.uCrackK.value = T > ln(17, -0.1) ? lerp(0.35, 1.0, smooth(EV.dry[0], EV.dry[1] - 0.5, T)) : 0.25;   // the soil cracks open
   F.PL.forEach((p, i) => {
-    const eaten = smooth(front - 2, front + 3, p.x + p.o * 2), k = clamp(wilt * (0.7 + 0.6 * p.o) + eaten), droop = 0.1 + 0.6 * k + 0.05 * Math.sin(T * 1.3 + p.o * 9) * (1 - k);
+    const dried = smooth(front - 2, front + 3, p.x + p.o * 2), k = clamp(wilt * (0.7 + 0.6 * p.o) + dried), droop = 0.1 + 0.6 * k + 0.05 * Math.sin(T * 1.3 + p.o * 9) * (1 - k);
     q4.setFromEuler(e4.set(droop * Math.cos(p.a), p.a, droop * Math.sin(p.a)));
-    F.plants.setMatrixAt(i, m4.compose(V(p.x, farmH(p.x, p.z), p.z), q4, V(1 - 0.25 * eaten, p.h * (1 - 0.3 * k), 1 - 0.25 * eaten)));
+    F.plants.setMatrixAt(i, m4.compose(V(p.x, farmH(p.x, p.z), p.z), q4, V(1 - 0.25 * dried, p.h * (1 - 0.3 * k), 1 - 0.25 * dried)));
     c.copy(cg).lerp(cy, clamp(k * 1.7)).lerp(cb, clamp(k * 1.7 - 0.7)); F.plants.setColorAt(i, c);
   });
   F.plants.instanceMatrix.needsUpdate = true; F.plants.instanceColor.needsUpdate = true;
@@ -1550,26 +1533,15 @@ function updateFarm(T) {
     personPose(P, { ph: T * 5.2, amp: 0.38 * walk, lean: 0.04, yaw: -0.9 * smooth(EV.farmer[0] + 1.6, EV.farmer[0] + 2.3, T), pitch: 0.1 });
   } else if (T < ln(17, -0.1)) {   // in the field, looking down at the yellow crop
     P.root.position.set(14.6, 0, 4); P.root.rotation.set(0, 0.6, 0); personPose(P, { pitch: 0.6, lean: 0.12, armL: -0.2, armR: -0.4 });
-  } else if (T < ln(...SHOTB17, -0.05)) {   // running from the swarm, toward the camera (−x); gone in the close shot
-    const d = T - EV.swarm[0], x = 34 - d * 4.6;
-    P.root.position.set(x, 0, -2 + 0.6 * Math.sin(d)); P.root.rotation.set(0, -Math.PI / 2, 0); personPose(P, { ph: d * 10, amp: 0.85, lean: 0.3, armUp: 0, pitch: -0.1 });
+  } else if (T < ln(...SHOTB17, -0.05)) {   // walking slowly through the dying field, looking around; gone in the close shot
+    const d = T - EV.dry[0], x = 23 - d * 0.75;
+    P.root.position.set(x, 0, -2.2); P.root.rotation.set(0, -Math.PI / 2, 0); personPose(P, { ph: d * 3.2, amp: 0.3, lean: 0.06, pitch: 0.35, yaw: 0.35 * Math.sin(d * 0.9), armL: -0.1, armR: -0.1 });
   } else P.root.position.set(0, -1e4, 0);
   // petals drifting down past the blossoms (close-up)
   const pd = T - EV.petals;
   F.PETALS.forEach((p, i) => { const d = pd - p.t0 + 0.6; if (!inT(T, ln(13, -0.1), ln(14, 0)) || d < 0) { F.petals.setMatrixAt(i, HIDE); return; }
     const y = p.y0 - d * p.v; F.petals.setMatrixAt(i, m4.compose(V(p.x + 0.06 * Math.sin(d * 2 + p.ph), y, p.z + 0.05 * Math.cos(d * 1.7 + p.ph)), q4.setFromEuler(e4.set(0.6 * Math.sin(d * 1.5 + p.ph), d + p.ph, 0.4 * Math.cos(d + p.ph))), s4.set(1, 1, 1))); });
   F.petals.instanceMatrix.needsUpdate = true;
-  // the swarm
-  const sw = T > ln(17, -0.1) && T < ln(18, -0.05);
-  F.swarm.visible = sw; F.swarmU.uT.value = T; F.swarmU.uMin.value = Math.max(2, renderer.domElement.height * 0.0047);   // same look at every resolution F.swarmU.uPx.value = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360));
-  if (sw) { const close = T > ln(...SHOTB17) - 0.05;
-    if (close) { F.swarmU.uC.value.set(21, 1.2, -1); F.swarmU.uR.value.set(9, 2.2, 9); F.swarmU.uOp.value = 0.9; }
-    else { F.swarmU.uC.value.set(front + 18, 3.5, -4); F.swarmU.uR.value.set(26, 5, 34); F.swarmU.uOp.value = 0.95; } }
-  const bugsOn = sw && T > ln(...SHOTB17) - 0.05;
-  F.BUGS.forEach((b, i) => { if (!bugsOn) { F.bugs.setMatrixAt(i, HIDE); return; }
-    const pl = b.pl, y = farmH(pl.x, pl.z) + b.y * pl.h * 0.8, a = b.a + 0.4 * Math.sin(T * 0.8 + b.ph);
-    F.bugs.setMatrixAt(i, m4.compose(V(pl.x + Math.cos(a) * 0.05, y + 0.01 * Math.sin(T * 2 + b.ph), pl.z + Math.sin(a) * 0.05), q4.setFromEuler(e4.set(-0.6, a + Math.PI / 2, 0.2)), s4.set(1.4, 1.4, 1.4))); });
-  F.bugs.instanceMatrix.needsUpdate = true;
 }
 function updateMarket(T) {
   const d = T - ln(14, -0.1);
@@ -1645,7 +1617,7 @@ function overlays(T) {
 }
 
 /* ===================================================================== SOUND EFFECTS (Web Audio, generated): no animal sounds anywhere —
-   wind and silence, a cheering street, rustling dry crops, the swarm's drone, a murmuring queue, machines that stop, a rising drone */
+   wind and silence, a cheering street, rustling dry crops, cracking soil, a murmuring queue, machines that stop, a rising drone */
 function buildSfx(ctx) {
   const N = { master: ctx.createGain(), bus: ctx.createGain(), muffle: ctx.createBiquadFilter() };
   N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 16000;
@@ -1675,10 +1647,6 @@ function buildSfx(ctx) {
   N.crowd2 = loop(N.brown, 'bandpass', 420, 1.1);    // murmur
   N.hum = loop(N.brown, 'bandpass', 120, 6);         // fridges in the shop
   N.rustle = loop(N.white, 'highpass', 3500, 0.7);   // dry crops and leaves
-  // the swarm: buzzing saws through a bandpass, wobbling
-  N.buzzG = ctx.createGain(); N.buzzG.gain.value = 0; N.buzzF = ctx.createBiquadFilter(); N.buzzF.type = 'bandpass'; N.buzzF.frequency.value = 900; N.buzzF.Q.value = 1.2;
-  N.buzzF.connect(N.buzzG).connect(N.bus);
-  N.bz = [190, 203, 221, 247].map((f, i) => { const o = osc('sawtooth', f, 0.25); const v = ctx.createOscillator(), vg = ctx.createGain(); v.frequency.value = 5 + i * 1.3; vg.gain.value = f * 0.04; v.connect(vg).connect(o.o.frequency); v.start(0); o.g.connect(N.buzzF); return o; });
   const burst = (t, { type, from, to, dur, gain, buf = N.white, q = 0.7 }) => {
     const src = ctx.createBufferSource(); src.buffer = buf;
     const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
@@ -1708,7 +1676,7 @@ function buildSfx(ctx) {
       const space = set === 'space', inside = set === 'home' || set === 'market';
       set_(N.droneG.gain, (0.03 + 0.15 * ten) * (space ? 1.3 : 1)); set_(N.droneF.frequency, 150 + 520 * ten + 80 * Math.sin(T * 0.4));
       set_(N.d1.o.frequency, 43.6 * (1 + 0.02 * ten * Math.sin(T * 0.2)), 0.5);
-      let wind = inside ? 0.0 : space ? 0 : 0.1, air = inside ? 0.02 : 0, lap = 0, crowd = 0, crowd2 = 0, hum = 0, rustle = 0, buzz = 0;
+      let wind = inside ? 0.0 : space ? 0 : 0.1, air = inside ? 0.02 : 0, lap = 0, crowd = 0, crowd2 = 0, hum = 0, rustle = 0;
       if (set === 'city') wind = T > ln(24) ? 0.16 : 0.12;
       if (set === 'sea') { lap = 0.12; wind = 0.08; }
       if (set === 'town' && inT(T, ln(7, -0.2), ln(8, -0.05))) { crowd = 0.2; crowd2 = 0.12; }
@@ -1716,11 +1684,10 @@ function buildSfx(ctx) {
       if (set === 'market') { hum = 0.05; crowd2 = 0.03; }
       if (set === 'farm') rustle = T > ln(12, -0.2) ? 0.035 : 0.012;
       if (set === 'forest') { rustle = T > ln(22, -0.2) ? 0.03 : 0.01; wind = 0.08; }
-      if (set === 'farm' && T > ln(17, -0.3) && T < ln(18, -0.05)) { const close = T > ln(...SHOTB17) - 0.05, near = close ? 1 : smooth(160, 30, swarmFront(T)); buzz = 0.02 + 0.13 * near; rustle = 0.05 * near; wind = 0.14; }
+      if (set === 'farm' && T > ln(17, -0.1) && T < ln(18, -0.05)) { rustle = 0.05; wind = 0.16; }   // dry wind over the dead field
       if (inT(T, ln(6, -0.1), ln(7, -0.1))) wind *= 0.3;   // "not a single creature makes a sound"
       set_(N.wind.g.gain, wind); set_(N.wind.f.frequency, 380 + 120 * Math.sin(T * 0.3)); set_(N.air.g.gain, air); set_(N.lap.g.gain, lap * (0.7 + 0.3 * Math.sin(T * 1.7)));
       set_(N.crowd.g.gain, crowd * (0.7 + 0.3 * Math.sin(T * 3.1))); set_(N.crowd2.g.gain, crowd2); set_(N.hum.g.gain, hum); set_(N.rustle.g.gain, rustle);
-      set_(N.buzzG.gain, buzz); set_(N.buzzF.frequency, 800 + 300 * Math.sin(T * 2.3));
       set_(N.rumble.g.gain, 0.05 + 0.25 * shake(T) + (space ? 0.1 : 0));
       set_(N.muffle.frequency, set === 'home' ? 6000 : 16000, 0.05);
       N.master.gain.setTargetAtTime(0.9 * (1 - clamp((T - ENDING.fade) / (ENDING.cut - ENDING.fade))), at, 0.1);
@@ -1742,7 +1709,8 @@ function buildSfx(ctx) {
       if (hit(ln(14, 0.05))) swell(at, 2.4, 0.05);
       if (hit(ln(15, 0.1))) creak(at, 0.5);
       if (set === 'forest' && inT(T1, EV.seeds[0], EV.seeds[1]) && rand(4)) tone(at, 'triangle', 900 + Math.random() * 400, 600, 0.06, 0.03, 0.002);   // acorns hitting the ground
-      if (hit(EV.swarm[0] + 0.1)) swell(at, 2.5, 0.08);
+      if (hit(EV.dry[0] + 0.1)) swell(at, 2.5, 0.08);
+      if (set === 'farm' && inT(T1, EV.dry[0] + 0.5, EV.dry[1]) && rand(2.5)) burst(at, { type: 'lowpass', from: 900, to: 120, dur: 0.18, gain: 0.07, buf: N.brown });   // the soil cracks
       if (hit(ln(18, 0.05))) { sting(at, 1.1); tone(at, 'sine', 40, 30, 3.5, 0.3, 0.8); }
       if (set === 'town' && T1 > ln(19, -0.2) && T1 < ln(20, -0.1) && rand(1.5)) shout(at, 0.35);
       if (hit(ln(20, -0.05))) { powerDown(at); creak(at, 0.8); }
