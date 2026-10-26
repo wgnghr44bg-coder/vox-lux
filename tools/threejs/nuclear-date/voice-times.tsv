@@ -1,25 +1,26 @@
 #	start	end	image	text
-1	0.94	3.72	c01	You're on the perfect date, laughing under the stars...
-2	4.10	6.77	c02	When suddenly, something falls from the sky.
-3	7.05	7.68	c03	You look up.
-4	7.99	10.31	c04	A blinding flash turns everything white.
-5	10.66	12.42	c05	Then the shockwave hits.
-6	12.82	13.89	c06	Windows explode.
-7	14.71	16.29		Cars fly through the air.
-8	16.64	18.08	c07	You wake beneath the rubble.
-9	18.53	19.57	c08	Your ears are ringing.
-10	20.04	21.65	c09	You scream your date's name.
-11	22.30	24.29	c10	Then a hand reaches through the dust.
-12	24.69	25.52	c11	They're alive.
-13	25.97	27.23	c12	But the city is burning.
-14	27.60	29.24	c13	You escape into a basement.
-15	29.51	31.65	c14	Suddenly, your phone flashes:
-16	31.89	33.07	c15	Radioactive fallout.
-17	33.99	34.92		Stay inside.
-18	35.33	38.65	c16	Gray dust begins blowing through a crack beneath the door.
-19	39.21	40.44	c17	You seal it shut.
-20	41.20	43.47	c18	Then you notice your date staring at your arm.
-21	43.89	45.97	c19	A strange burn covers your skin.
-22	46.28	48.17	c20	Your phone crackles one last time:
-23	48.35	51.26	c21	If exposed, seek medical help immediately.
-24	51.60	54.08	c22	Outside, the entire city goes silent.
+1	0.99	4.17	c01	Imagine... a nuclear bomb exploded during your date.
+2	5.36	8.14	c02	You're on the perfect date, laughing under the stars...
+3	8.52	11.19	c03	When suddenly, something falls from the sky.
+4	11.47	12.11	c04	You look up.
+5	12.41	14.73	c05	A blinding flash turns everything white.
+6	15.08	16.84	c06	Then the shockwave hits.
+7	17.24	18.31	c07	Windows explode.
+8	19.13	20.71		Cars fly through the air.
+9	21.06	22.50	c08	You wake beneath the rubble.
+10	22.95	24.01	c09	Your ears are ringing.
+11	24.46	26.07	c10	You scream your date's name.
+12	26.72	28.71	c11	Then a hand reaches through the dust.
+13	29.11	29.94	c12	They're alive.
+14	30.39	31.65	c13	But the city is burning.
+15	32.02	33.66	c14	You escape into a basement.
+16	33.93	36.07	c15	Suddenly, your phone flashes:
+17	36.31	37.49	c16	Radioactive fallout.
+18	38.41	39.33		Stay inside.
+19	39.75	43.07	c17	Gray dust begins blowing through a crack beneath the door.
+20	43.63	44.86	c18	You seal it shut.
+21	45.62	47.89	c19	Then you notice your date staring at your arm.
+22	48.31	50.39	c20	A strange burn covers your skin.
+23	50.70	52.59	c21	Your phone crackles one last time:
+24	52.77	55.68	c22	If exposed, seek medical help immediately.
+25	56.02	58.49	c23	Outside, the entire city goes silent.
