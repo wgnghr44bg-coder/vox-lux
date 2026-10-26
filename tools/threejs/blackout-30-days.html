@@ -164,7 +164,7 @@ const SCENES = [
       { c: 41, set: 'euro', keys: [[0, [1.5, 2.0, 12], [-5, 1.2, 24], 50], [1, [1.2, 2.0, 12.6], [-5, 1.2, 25], 48]] },
       { c: 42, set: 'base', keys: [[0, [3.2, 1.3, 1.6], [1.3, 0.9, -0.3], 46], [1, [3.0, 1.25, 1.45], [1.3, 0.9, -0.3], 44]] },
       { c: 43, set: 'base', keys: [[0, [2.8, 1.2, 1.4], [1.25, 0.9, -0.3], 44], [1, [2.7, 1.18, 1.3], [1.25, 0.9, -0.3], 42]] },
-      { c: 44, set: 'base', keys: [[0, [1.95, 1.3, 0.6], [1.2, 1.05, -0.38], 38], [1, [1.9, 1.28, 0.55], [1.2, 1.05, -0.38], 36]] },
+      { c: 44, set: 'base', keys: [[0, [2.4, 1.4, 1.0], [1.2, 1.05, -0.38], 40], [1, [2.3, 1.38, 0.9], [1.2, 1.05, -0.38], 38]] },
       { c: 45, set: 'base', keys: [[0, [-7.4, 2.0, 3.4], [-10, 1.3, -2], 50], [1, [-7.6, 1.95, 3.0], [-10, 1.3, -2.4], 48]] },
       { c: 46, set: 'base', keys: [[0, [-8.6, 1.7, -3.5], [-9.95, 1.55, -2.8], 36], [1, [-8.7, 1.68, -3.45], [-9.95, 1.55, -2.8], 34]] },
       { c: 47, set: 'base', keys: [[0, [0.0, 1.8, -3.6], [1.5, 1.4, -6.6], 48], [1, [0.2, 1.8, -3.8], [1.5, 1.4, -6.6], 46]] },
@@ -193,7 +193,7 @@ const SCENES = [
       { c: 66, set: 'road', keys: [[0, [60, 26, 32], [110, 0, -10], 50], [1, [64, 27, 30], [112, 0, -12], 50]] },
       { c: 67, set: 'ward', keys: [[0, [-9, 1.7, 0.9], [0, 1.3, -0.2], 48], [1, [-8.6, 1.7, 0.8], [0, 1.3, -0.2], 46]] },
       { c: 68, set: 'base', keys: [[0, [12.4, 1.6, 3.6], [14.4, 1.4, 4.4], 46], [1, [12.5, 1.6, 3.8], [14.4, 1.4, 4.4], 44]] },
-      { c: 69, set: 'euro', keys: [[0, [66.5, 2.0, -8.5], [72.6, 1.0, -15], 46], [1, [66.8, 2.0, -8.8], [72.6, 1.0, -15], 44]] },
+      { c: 69, set: 'euro', keys: [[0, [83.5, 1.8, -7.0], [85.5, 1.1, -16.8], 48], [1, [83.7, 1.8, -7.4], [85.2, 1.1, -16.8], 46]] },
       { c: 70, set: 'ward', keys: [[0, [3, 1.7, -1.0], [-8, 1.2, 0.4], 50], [1, [2.6, 1.7, -0.9], [-8, 1.2, 0.4], 48]] },
       { c: 71, set: 'ward', keys: [[0, [8.0, 1.5, 5.6], [9.6, 1.4, 3.1], 44], [1, [8.1, 1.5, 5.4], [9.6, 1.4, 3.1], 42]] },
       { c: 72, set: 'ward', keys: [[0, [10.4, 1.5, 3.6], [11.25, 0.95, 4.6], 38], [1, [10.5, 1.48, 3.7], [11.25, 0.95, 4.6], 36]] },
@@ -1809,8 +1809,8 @@ function updateEuro(T) {
   // the father carrying his daughter to the emergency entrance (day one)
   if (ch === 2 && shotCue() === 24) { const w = walkPath([[87, -6.5], [87, -18]], ct(24) - 0.5, ct(25) + 1.5, T); E.father.root.visible = true; E.father.root.position.set(w.x, 0, w.z); E.father.root.rotation.y = Math.PI; gait(E.father, w.ph * 0.8, 0.6); carryPose(E.father, E.girl); E.father.arms.forEach(a => a.rotation.x = -1.15); } else E.father.root.visible = false;
   // paramedics with a stretcher (day seven), the small fuel truck (day fifteen), smoke
-  const med = ch === 4; E.stretcher.visible = med; E.medics.forEach((P, i) => { if (!med) return hide(P); rest(P); place(P, EU.hosp.x - 22.4 + (i ? 1.3 : -1.3), EU.hosp.z + 25, i ? -Math.PI / 2 : Math.PI / 2); P.arms.forEach(a => a.rotation.x = -0.8); });
-  E.stretcher.position.x = EU.hosp.x - 22.4 + (med ? smooth(ct(69), ct(70), T) * 1.6 : 0);
+  const med = ch === 4; E.stretcher.visible = med; E.medics.forEach((P, i) => { if (!med) return hide(P); rest(P); place(P, EU.hosp.x - 9.5 + (i ? 1.3 : -1.3), EU.hosp.z + 22.6, i ? -Math.PI / 2 : Math.PI / 2); P.arms.forEach(a => a.rotation.x = -0.8); });
+  E.stretcher.position.set(EU.hosp.x - 9.5 - (med ? smooth(ct(69), ct(70), T) * 1.2 : 0), 0, EU.hosp.z + 22.6);
   E.medics.forEach((P, i) => { if (med) P.root.position.x = E.stretcher.position.x + (i ? 1.3 : -1.3); });
   E.minitank.visible = ch === 5; E.smoke.visible = ch === 5; E.amb.visible = ch !== 5 && ch !== 3;
   E.ambBlue.color.setRGB(0.2, 0.35, 1).multiplyScalar(ch === 2 || ch === 4 ? 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(T * 9)) : 0.15);
