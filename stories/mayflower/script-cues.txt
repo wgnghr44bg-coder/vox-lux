@@ -1030,7 +1030,7 @@ There was not much light down here.
 
 [pause]
 
-There were a few small openings in the sides of the ship, gun ports and hatches, but in bad weather these had to be closed, and then the only light came from a few lanterns, hanging from the beams and swinging gently with the movement of the ship.
+There were a few small openings in the sides of the ship, gun ports and hatches. But in bad weather these had to be closed, and then the only light came from a few lanterns, hanging from the beams and swinging gently with the movement of the ship.
 
 [pause]
 
@@ -1273,7 +1273,7 @@ They played with dolls made of cloth or wood, and with tops and marbles, and wit
 
 [pause]
 
-And when the weather was fine and they were allowed up on deck, they looked out at the wide blue sea, and watched the sailors high up in the rigging, and sometimes, far away, saw the dark backs of whales, or a group of dolphins racing alongside the ship.
+And when the weather was fine and they were allowed up on deck, they looked out at the wide blue sea, and watched the sailors high up in the rigging. And sometimes, far away, saw the dark backs of whales, or a group of dolphins racing alongside the ship.
 
 [long-pause]
 
@@ -2346,7 +2346,7 @@ After some careful messages back and forth, Edward Winslow went up the hill to g
 
 [pause]
 
-Then Massasoit came down to the settlement with twenty of his men, and Myles Standish met him at the brook with a small group of musketeers, and led him to a house where a green rug and cushions had been laid out on the floor.
+Then Massasoit came down to the settlement with twenty of his men. Myles Standish met him at the brook with a small group of musketeers, and led him to a house where a green rug and cushions had been laid out on the floor.
 
 [pause]
 
@@ -2535,7 +2535,11 @@ Edward Winslow described it in a letter he wrote to a friend in England that Dec
 
 [pause]
 
-He wrote, "Our harvest being gotten in, our governor sent four men on fowling, that so we might after a special manner rejoice together, after we had gathered the fruit of our labours."
+He wrote, "Our harvest being gotten in, our governor sent four men on fowling, that so we might after a special manner rejoice together..."
+
+[pause]
+
+"...after we had gathered the fruit of our labours."
 
 [pause]
 
