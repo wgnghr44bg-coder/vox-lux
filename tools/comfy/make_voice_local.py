@@ -16,12 +16,14 @@ import xai_voiceover as xv                                   # alleen voor het o
 
 REF = os.path.join(HERE, "stem", "voorbeeld-george.mp3")
 EXAGGERATION, CFG = 0.4, 0.5                                 # "rustig" uit de stemtest
+SPEED = 0.87      # tempo van de Titanic-stem (eigenaar 26 okt 2026): George spreekt ± 5,3 lettergrepen/s, Titanic ± 4,5
 LEAD = 0.8
 
 ap = argparse.ArgumentParser()
 ap.add_argument("map"); ap.add_argument("--script", default="script-cues.txt")
 ap.add_argument("--pause-ms", type=int, default=900); ap.add_argument("--long-pause-ms", type=int, default=1700)
 ap.add_argument("--sentence-pause-ms", type=int, default=600); ap.add_argument("--dry-run", action="store_true")
+ap.add_argument("--speed", type=float, default=SPEED, help="1.0 = Chatterbox zelf; lager = langzamer, zelfde toonhoogte")
 a = ap.parse_args()
 xv.PAUSE_MS, xv.LONG_PAUSE_MS, xv.SENTENCE_PAUSE_MS = a.pause_ms, a.long_pause_ms, a.sentence_pause_ms
 pieces = xv.split_script(open(os.path.join(a.map, a.script), encoding="utf-8").read())
@@ -34,9 +36,20 @@ import torch, torchaudio as ta
 from chatterbox.tts import ChatterboxTTS
 model = ChatterboxTTS.from_pretrained(device="cuda" if torch.cuda.is_available() else "cpu")
 sr = model.sr
+tmp_dir = tempfile.mkdtemp()
+
+def slower(wav):
+    """Zelfde toonhoogte, ander tempo (ffmpeg atempo)."""
+    if abs(a.speed - 1) < 1e-3:
+        return wav
+    src, dst = os.path.join(tmp_dir, "in.wav"), os.path.join(tmp_dir, "out.wav")
+    ta.save(src, wav, sr)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af", f"atempo={a.speed}", dst], check=True)
+    return ta.load(dst)[0]
+
 parts, rows, t = [torch.zeros(1, int(LEAD * sr))], [], LEAD
 for i, p in enumerate(pieces, 1):
-    wav = model.generate(p.text, audio_prompt_path=REF, exaggeration=EXAGGERATION, cfg_weight=CFG)
+    wav = slower(model.generate(p.text, audio_prompt_path=REF, exaggeration=EXAGGERATION, cfg_weight=CFG))
     d = wav.shape[1] / sr
     rows.append(f"{i}\t{t:.2f}\t{t + d:.2f}\t{p.cue}\t{p.text}")
     parts += [wav, torch.zeros(1, int(p.silence_after_ms / 1000 * sr))]
