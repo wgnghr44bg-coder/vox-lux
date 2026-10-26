@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 d = Path(__file__).parent
-STYLE = ("Strictly historical scene from the year 1620 with nothing modern at all: no cars, no vehicles, no signs, "
+STYLE = ("Strictly historical scene from the year 1620 with nothing modern at all: no cars or motor vehicles, no signs, "
          "no notice boards, no street lamps, no power lines, no drainpipes, no modern windows, no mown lawns, no modern clothes. "
          "Cinematic realistic photograph, wide 16:9 landscape, soft natural light, gentle atmospheric haze, "
          "calm and peaceful mood, historically accurate early 17th century, highly detailed, "
