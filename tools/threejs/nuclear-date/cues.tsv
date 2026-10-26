@@ -1,23 +1,24 @@
 #id	start	end	text
-c01	0.4	3.34	You’re on the perfect date, laughing under the stars…
-c02	3.44	6.25	When suddenly, something falls from the sky.
-c03	6.35	7.2	You look up.
-c04	7.3	9.76	A blinding flash turns everything white.
-c05	9.86	11.78	Then the shockwave hits.
-c06	11.88	15.51	Windows explode. Cars fly through the air.
-c07	15.61	17.2	You wake beneath the rubble.
-c08	17.3	18.53	Your ears are ringing.
-c09	18.63	20.39	You scream your date’s name.
-c10	20.49	22.63	Then a hand reaches through the dust.
-c11	22.73	23.75	They’re alive.
-c12	23.85	25.27	But the city is burning.
-c13	25.37	27.16	You escape into a basement.
-c14	27.26	29.55	Suddenly, your phone flashes:
-c15	29.65	32.84	“RADIOACTIVE FALLOUT. STAY INSIDE.”
-c16	32.94	36.4	Gray dust begins blowing through a crack beneath the door.
-c17	36.5	37.89	You seal it shut.
-c18	37.99	40.4	Then you notice your date staring at your arm.
-c19	40.5	42.74	A strange burn covers your skin.
-c20	42.84	44.88	Your phone crackles one last time:
-c21	44.98	48.04	“IF EXPOSED, SEEK MEDICAL HELP IMMEDIATELY.”
-c22	48.44	51.07	Outside, the entire city goes silent.
+c01	0.4	3.74	Imagine… a nuclear bomb exploded during your date.
+c02	3.84	6.78	You’re on the perfect date, laughing under the stars…
+c03	6.88	9.69	When suddenly, something falls from the sky.
+c04	9.79	10.65	You look up.
+c05	10.75	13.21	A blinding flash turns everything white.
+c06	13.31	15.23	Then the shockwave hits.
+c07	15.33	18.95	Windows explode. Cars fly through the air.
+c08	19.05	20.65	You wake beneath the rubble.
+c09	20.75	22	Your ears are ringing.
+c10	22.1	23.86	You scream your date’s name.
+c11	23.96	26.1	Then a hand reaches through the dust.
+c12	26.2	27.24	They’re alive.
+c13	27.34	28.77	But the city is burning.
+c14	28.87	30.66	You escape into a basement.
+c15	30.76	33.05	Suddenly, your phone flashes:
+c16	33.15	36.32	“RADIOACTIVE FALLOUT. STAY INSIDE.”
+c17	36.42	39.88	Gray dust begins blowing through a crack beneath the door.
+c18	39.98	41.39	You seal it shut.
+c19	41.49	43.9	Then you notice your date staring at your arm.
+c20	44	46.24	A strange burn covers your skin.
+c21	46.34	48.38	Your phone crackles one last time:
+c22	48.48	51.54	“IF EXPOSED, SEEK MEDICAL HELP IMMEDIATELY.”
+c23	51.94	54.56	Outside, the entire city goes silent.

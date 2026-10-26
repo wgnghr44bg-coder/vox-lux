@@ -116,23 +116,24 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
    subtitle lasts as long as its spoken line (+0.15 s), story time equals
    video time (WARP is the identity).
    ===================================================================== */
-const DURATION = 54.77;
-const ENDING = { fade: 51.27, cut: 54.27 };   // the last shot fades to black and the sound fades out between fade and cut
+const DURATION = 58.26;
+const ENDING = { fade: 54.76, cut: 57.76 };   // the last shot fades to black and the sound fades out between fade and cut
 const WARP = [[0, 0], [DURATION, DURATION]];
 function storyAt(t) { for (let i = 1; i < WARP.length; i++) { const [r0, s0] = WARP[i - 1], [r1, s1] = WARP[i]; if (t <= r1) return s0 + (Math.max(t, r0) - r0) * (s1 - s0) / Math.max(1e-6, r1 - r0); } return WARP[WARP.length - 1][1]; }
 const SCENES = [
   { id: 'date', when: 'Tonight', what: 'The perfect date',
     env: { tension: 0.15 },
-    shots: [{ until: 2, set: 'roof', keys: [[0, [1.5, 1.0, -4.3], [-0.1, 0.62, -1.4], 48], [1, [1.3, 0.97, -4.0], [-0.1, 0.64, -1.4], 46]] },
+    shots: [{ until: 1, set: 'roof', keys: [[0, [26, 16, 44], [0, 0.6, -1.5], 30], [1, [18, 11, 32], [0, 0.6, -1.5], 30]] },
+            { until: 2, set: 'roof', keys: [[0, [1.5, 1.0, -4.3], [-0.1, 0.62, -1.4], 48], [1, [1.3, 0.97, -4.0], [-0.1, 0.64, -1.4], 46]] },
             { until: 3, set: 'roof', keys: [[0, [0.05, 0.55, 1.4], [40, 640, -1700], 54], [1, [0.05, 0.6, 1.25], [55, 560, -1700], 52]] }],
-    subtitles: [[0.4, 3.34, "You’re on the perfect date, laughing under the stars…"], [3.44, 6.25, "When suddenly, something falls from the sky."]] },
+    subtitles: [[0.4, 3.74, "Imagine… a nuclear bomb exploded during your date."], [3.84, 6.78, "You’re on the perfect date, laughing under the stars…"], [6.88, 9.69, "When suddenly, something falls from the sky."]] },
   { id: 'blast', when: 'Seconds later', what: 'The blast',
     env: { tension: 0.85 },
     shots: [{ until: 4, set: 'roof', keys: [[0, [0.0, 0.48, -3.9], [0.0, 0.84, -1.4], 52], [1, [0.0, 0.48, -3.7], [0.0, 0.86, -1.4], 50]] },
             { until: 5, set: 'roof', keys: [[0, [0.7, 1.2, 2.3], [45, 140, -1700], 54], [1, [0.75, 1.15, 2.6], [45, 160, -1700], 54]] },
             { until: 6, set: 'roof', keys: [[0, [-3.5, 12, -8.4], [40, -40, -1300], 50], [1, [-3.4, 11.5, -8.2], [40, -45, -1300], 50]] },
             { until: 7, set: 'street', keys: [[0, [2.0, 3.8, 34], [-0.4, 5.5, -120], 50], [1, [1.8, 3.4, 31], [-0.4, 6.5, -120], 52]] }],
-    subtitles: [[6.35, 7.2, "You look up."], [7.3, 9.76, "A blinding flash turns everything white."], [9.86, 11.78, "Then the shockwave hits."], [11.88, 15.51, "Windows explode. Cars fly through the air."]] },
+    subtitles: [[9.79, 10.65, "You look up."], [10.75, 13.21, "A blinding flash turns everything white."], [13.31, 15.23, "Then the shockwave hits."], [15.33, 18.95, "Windows explode. Cars fly through the air."]] },
   { id: 'rubble', when: 'Minutes later', what: 'Under the rubble',
     env: { tension: 0.7 },
     shots: [{ until: 8, set: 'rubble', keys: [[0, [0.75, 1.75, -1.35], [0, 0.1, -0.3], 46, [0, 0, -1]], [1, [0.65, 1.55, -1.25], [0, 0.1, -0.35], 44, [0, 0, -1]]] },
@@ -141,14 +142,14 @@ const SCENES = [
             { until: 11, set: 'rubble', keys: [[0, [0.3, 0.62, -1.75], [-1.0, 0.55, -0.95], 48], [1, [0.25, 0.6, -1.7], [-1.0, 0.55, -0.95], 46]] },
             { until: 12, set: 'rubble', keys: [[0, [0.0, 0.98, -0.6], [-0.95, 0.86, -1.0], 50], [1, [-0.06, 0.98, -0.63], [-0.95, 0.86, -1.0], 48]] },
             { until: 13, set: 'rubble', keys: [[0, [0.3, 1.75, 1.7], [-12, -14, -300], 52], [1, [0.45, 2.0, 2.4], [-12, -16, -300], 52]] }],
-    subtitles: [[15.61, 17.2, "You wake beneath the rubble."], [17.3, 18.53, "Your ears are ringing."], [18.63, 20.39, "You scream your date’s name."], [20.49, 22.63, "Then a hand reaches through the dust."], [22.73, 23.75, "They’re alive."], [23.85, 25.27, "But the city is burning."]] },
+    subtitles: [[19.05, 20.65, "You wake beneath the rubble."], [20.75, 22.0, "Your ears are ringing."], [22.1, 23.86, "You scream your date’s name."], [23.96, 26.1, "Then a hand reaches through the dust."], [26.2, 27.24, "They’re alive."], [27.34, 28.77, "But the city is burning."]] },
   { id: 'base', when: 'An hour later', what: 'The basement',
     env: { tension: 0.65 },
     shots: [{ until: 14, set: 'base', keys: [[0, [-0.6, 0.9, 1.8], [-2.4, 1.5, -2.8], 52], [1, [-0.7, 0.85, 1.6], [-2.35, 1.2, -2.4], 52]] },
             { until: 15, set: 'base', keys: [[0, [0.15, 0.95, 0.75], [1.5, 0.62, -0.15], 46], [1, [0.3, 0.92, 0.6], [1.5, 0.62, -0.15], 44]] },
             { until: 16, set: 'base', keys: [[0, [1.64, 0.75, -0.06], [1.42, 0.6, -0.1], 46, [-0.517, 0.852, -0.078]], [1, [1.62, 0.74, -0.065], [1.42, 0.6, -0.1], 44, [-0.517, 0.852, -0.078]]] },
             { until: 17, set: 'base', keys: [[0, [-2.15, 1.36, -3.35], [-2.4, 1.24, -4.15], 50], [1, [-2.17, 1.34, -3.42], [-2.4, 1.24, -4.15], 48]] }],
-    subtitles: [[25.37, 27.16, "You escape into a basement."], [27.26, 29.55, "Suddenly, your phone flashes:"], [29.65, 32.84, "“RADIOACTIVE FALLOUT. STAY INSIDE.”"], [32.94, 36.4, "Gray dust begins blowing through a crack beneath the door."]] },
+    subtitles: [[28.87, 30.66, "You escape into a basement."], [30.76, 33.05, "Suddenly, your phone flashes:"], [33.15, 36.32, "“RADIOACTIVE FALLOUT. STAY INSIDE.”"], [36.42, 39.88, "Gray dust begins blowing through a crack beneath the door."]] },
   { id: 'fallout', when: 'That night', what: 'Fallout',
     env: { tension: 0.6 },
     shots: [{ until: 18, set: 'base', keys: [[0, [-1.9, 1.58, -3.5], [-2.65, 1.25, -4.1], 50], [1, [-1.7, 1.56, -3.55], [-2.12, 1.25, -4.1], 50]] },
@@ -156,13 +157,13 @@ const SCENES = [
             { until: 20, set: 'base', keys: [[0, [1.0, 1.0, 0.05], [1.38, 0.3, -0.44], 46], [1, [1.03, 0.96, 0.02], [1.38, 0.3, -0.44], 44]] },
             { until: 21, set: 'base', keys: [[0, [0.72, 0.42, -0.38], [0.9, 0.02, -0.55], 46, [-0.56, 0, -0.83]], [1, [0.75, 0.38, -0.4], [0.9, 0.02, -0.55], 44, [-0.56, 0, -0.83]]] },
             { until: 22, set: 'base', keys: [[0, [0.917, 0.36, -0.525], [0.917, 0.0, -0.525], 40, [-0.56, 0, -0.83]], [1, [0.917, 0.33, -0.525], [0.917, 0.0, -0.525], 40, [-0.56, 0, -0.83]]] },
-            { until: 'cut', set: 'after', keys: [[0, [0, 34, 150], [-20, 0, -700], 50], [1, [0, 30, 110], [-20, 0, -700], 50]] }],
-    subtitles: [[36.5, 37.89, "You seal it shut."], [37.99, 40.4, "Then you notice your date staring at your arm."], [40.5, 42.74, "A strange burn covers your skin."], [42.84, 44.88, "Your phone crackles one last time:"], [44.98, 48.04, "“IF EXPOSED, SEEK MEDICAL HELP IMMEDIATELY.”"], [48.44, 51.07, "Outside, the entire city goes silent."]] },
+            { until: 'cut', set: 'after', keys: [[0, [0.6, 1.9, 1.4], [-20, 70, -700], 50], [1, [1.3, 3.6, 5.6], [-20, 60, -700], 50]] }],
+    subtitles: [[39.98, 41.39, "You seal it shut."], [41.49, 43.9, "Then you notice your date staring at your arm."], [44.0, 46.24, "A strange burn covers your skin."], [46.34, 48.38, "Your phone crackles one last time:"], [48.48, 51.54, "“IF EXPOSED, SEEK MEDICAL HELP IMMEDIATELY.”"], [51.94, 54.56, "Outside, the entire city goes silent."]] },
 ];
 const ENV_END = { tension: 0.4 };
 // every shot runs until its `until` subtitle starts (a beat before it), so the next picture lands with the next line
 const SUBS = SCENES.flatMap(s => s.subtitles);
-const ln = (n, d = 0) => SUBS[n - 1][0] + d;
+const ln = (n, d = 0) => SUBS[n][0] + d;   // line 0 is the opening "Imagine…"; lines 1–22 are the story
 {
   let t = 0;
   for (const s of SCENES) {
@@ -550,18 +551,20 @@ function skyline(S, D, o) {
     const x = gx + (hash(gx, gz + 5) - 0.5) * o.cell * 0.2, z = gz + (hash(gx + 3, gz) - 0.5) * o.cell * 0.2;
     const dc = Math.hypot(x - (o.cx ?? 0), z - (o.cz ?? -600));
     let h = (o.hMin + (o.hMax - o.hMin) * Math.pow(hash(gx + 2, gz + 3), 1.6)) * (1.5 - 0.8 * smooth(0, 800, dc));
-    const broken = o.mode !== 'lit' && hash(gx + 9, gz) < 0.7;
+    const broken = o.mode !== 'lit' && hash(gx + 9, gz) < (o.mode === 'dead' ? 0.45 : 0.7);
     if (broken) h *= 0.45 + 0.4 * hash(gx, gz + 9);
     box(S, w, h, d, BC[Math.floor(hash(gx, gz + 7) * BC.length)], x, gy - 0.5, z, { r: 0.4, rough: 0.9 });
     if (broken) {   // a jagged, tilted chunk on the broken top
       box(S, w * 0.6, h * 0.12 + 3, d * 0.55, BC[0], x + (hash(gx, 4) - 0.5) * w * 0.3, gy + h - 1.5, z, { r: 0.3, rz: (hash(gx, gz + 11) - 0.5) * 0.5, rx: (hash(gx + 4, gz) - 0.5) * 0.4 });
     }
     tops.push({ x, z, h, w, d });
-    if (o.mode === 'lit') {
+    if (o.mode === 'lit' || o.mode === 'dead') {
       const nf = Math.floor((h - 3) / 3.6), nx = Math.max(1, Math.floor(w / 3.2)), nzs = Math.max(1, Math.floor(d / 3.2));
       for (let f = 0; f < nf; f++) {
-        for (let k = 0; k < nx; k++) if (hash(x * 7 + k, z + f) < 0.42) WIN.push({ p: V(x - w / 2 + (k + 0.5) * w / nx, gy + 2.6 + f * 3.6, z + d / 2 + 0.06), ry: 0, c: hash(k, f + x) < 0.75 ? 0xffc890 : 0xbcd0e8 });
-        for (const sx of [-1, 1]) for (let k = 0; k < nzs; k++) if (hash(x + k * 3, z * 7 + f + sx) < 0.3) WIN.push({ p: V(x + sx * (w / 2 + 0.06), gy + 2.6 + f * 3.6, z - d / 2 + (k + 0.5) * d / nzs), ry: sx * Math.PI / 2, c: 0xffc890 });
+        if (gy + 2.6 + f * 3.6 + 1.2 > gy + h - 0.5) break;
+        const dead = o.mode === 'dead', on = dead ? 0.7 : 0.42, col = (k, c) => dead ? (hash(k, f + x * 3) < 0.5 ? 0x1c1a19 : 0x2a2826) : c;
+        for (let k = 0; k < nx; k++) if (hash(x * 7 + k, z + f) < on) WIN.push({ p: V(x - w / 2 + (k + 0.5) * w / nx, gy + 2.6 + f * 3.6, z + d / 2 + 0.06), ry: 0, c: col(k, hash(k, f + x) < 0.75 ? 0xffc890 : 0xbcd0e8) });
+        for (const sx of [-1, 1]) for (let k = 0; k < nzs; k++) if (hash(x + k * 3, z * 7 + f + sx) < (dead ? 0.6 : 0.3)) WIN.push({ p: V(x + sx * (w / 2 + 0.06), gy + 2.6 + f * 3.6, z - d / 2 + (k + 0.5) * d / nzs), ry: sx * Math.PI / 2, c: col(k + 9, 0xffc890) });
       }
     }
     if (o.mode === 'burn' && hash(gx + 5, gz + 5) < 0.42) {
@@ -838,15 +841,25 @@ function drawPhone(g, w, h, state, k = 0) {
 /* ===================================================================== SET: AFTER (the city at grey dawn: ruins, smoke, ash falling, silence) */
 const after = (() => {
   const S = ST.after, D = G.after, R = {};
-  R.gm = groundMat({ crack: 0.2, crackS: 3, mottle: 0.3 });
-  terrain(S, { R: 3000, N: 160, c0: 0.6, cz: -40, h: (x, z) => 0.6 * (fbm2(x, z, 0.05) - 0.5) + 0.25 * (fbm2(x, z, 0.4) - 0.5), mat: R.gm, col: (x, z) => hexC(0x6a665e, 0x8a847a, fbm2(x, z, 0.08)) });
-  R.city = skyline(S, D, { x0: -900, x1: 900, z0: -2000, z1: -30, cell: 44, hMin: 12, hMax: 60, y: 0, cx: 0, cz: -900, mode: 'dead', noGround: true });
-  R.smoke = makeSmoke(D, R.city.smoke.slice(0, 30), { col: 0x3a3634, H: 260, lean: 140 });
-  // a burnt-out car and a fallen lamp post in the foreground
-  const cg = group(S, 4, 0.05, 6); cg.rotation.y = 0.6; box(cg, 1.8, 0.75, 4.3, 0x2a2624, 0, 0.3, 0, { r: 0.2, rough: 0.95 }); box(cg, 1.6, 0.55, 2.0, 0x221e1c, 0, 1.0, -0.2, { r: 0.16 });
-  const lp = group(S, -5, 0.08, 2); lp.rotation.set(0, -0.4, Math.PI / 2 - 0.1); cyl(lp, 0.08, 0.1, 6, 0x2a2a2c, 0, 0, 0, { seg: 6 });
-  const BR = []; for (let i = 0; i < 160; i++) BR.push({ x: (rnd() - 0.5) * 40, z: 14 - rnd() * 40, a: rnd() * TAU, s: 0.2 + rnd() * 0.8 });
-  instanced(S, new RoundedBoxGeometry(1, 0.5, 0.8, 1, 0.1), mat(0x7a746c, { rough: 0.95, flat: true }), BR, b => ({ p: V(b.x, 0.05 + b.s * 0.15, b.z), q: qEul(0.2, b.a, 0.15), s: V(b.s, b.s, b.s) }));
+  // what is left of your roof: the deck, the torn blanket, the fallen light poles, broken parapet, debris and ash
+  box(S, 18, 40, 15, 0x5e5a54, 0, -40, -2, { r: 0.15 });
+  const par = mat(0x6e6a64, { rough: 0.95 });
+  for (const [x, w] of [[-7.2, 3.6], [-1.6, 4.2], [5.6, 4.8]]) box(S, w, 1.0, 0.35, 0, x, -0.3, -9.6, { m: par });
+  box(S, 1.6, 0.4, 0.5, 0, 1.3, 0.0, -8.9, { m: par, rz: 0.3, ry: 0.4 }); box(S, 1.1, 0.35, 0.45, 0, -4.3, 0.0, -8.6, { m: par, rz: -0.2, ry: -0.6 });
+  for (const sx of [-1, 1]) box(S, 0.35, 1.0, 15.4, 0, sx * 9.1, -0.3, -2, { m: par });
+  box(S, 4.6, 0.12, 3.6, 0x5a4a3c, 0, -0.06, -1.6, { r: 0.02 });
+  box(S, 2.4, 0.02, 1.6, 0x7a4a46, 0.2, 0.055, -1.5, { r: 0.008, ry: 0.25 });
+  box(S, 0.5, 0.3, 0.32, 0x5a4a32, 1.6, 0.07, -0.6, { r: 0.05, rz: 1.45 });
+  for (const [x, z, ry] of [[-2.0, -2.9, 0.4], [2.1, -0.2, -2.2]]) { const g = group(S, x, 0.1, z); g.rotation.set(0, ry, Math.PI / 2 - 0.06); cyl(g, 0.035, 0.04, 2.7, 0x2a2a2a, 0, 0, 0, { seg: 6 }); }
+  const BR = []; for (let i = 0; i < 140; i++) { const a = rnd() * TAU, r = 1.2 + Math.pow(rnd(), 0.8) * 7.5; BR.push({ x: Math.cos(a) * r, z: Math.sin(a) * r - 2, a: rnd() * TAU, s: 0.06 + rnd() * 0.22, b: rnd() }); }
+  instanced(S, new RoundedBoxGeometry(1, 0.6, 0.8, 1, 0.12), mat(0xffffff, { rough: 0.95, flat: true }), BR.filter(b => Math.abs(b.x) < 8.6 && b.z > -9.2 && b.z < 5.2), b => ({ p: V(b.x, b.s * 0.25, b.z), q: qEul(b.b * 0.5, b.a, b.b * 0.3), s: V(b.s, b.s, b.s), c: b.b < 0.3 ? 0x7a4a36 : 0x7a766e }), { shadow: true });
+  // the same city as on your date (same blocks), now broken, dark and silent
+  R.city = skyline(S, D, { x0: -900, x1: 900, z0: -2400, z1: -60, cell: 46, hMin: 12, hMax: 58, y: -40, cx: -420, cz: -700, mode: 'dead', skip: (x, z) => Math.abs(x) < 30 && z > -70 });
+  R.smoke = makeSmoke(D, R.city.smoke.filter(c => c.z < -150).slice(0, 26), { col: 0x3a3634, H: 260, lean: 140 });
+  // what is left of the mushroom cloud, far away over ground zero
+  const CL = []; for (let i = 0; i < 46; i++) { const a = rnd() * TAU, r = Math.pow(rnd(), 0.6); CL.push({ p: V(GZ.x + Math.cos(a) * r * 330, 620 + rnd() * 160 - r * 80, GZ.z + Math.sin(a) * r * 260), s: 90 + rnd() * 90, ph: rnd() * TAU }); }
+  for (let i = 0; i < 12; i++) CL.push({ p: V(GZ.x + (rnd() - 0.5) * 60, -40 + i * 52, GZ.z + (rnd() - 0.5) * 60), s: 45 + i * 4, ph: rnd() * TAU });
+  R.CL = CL; R.cloud = instanced(D, puffG, new THREE.MeshStandardMaterial({ color: 0x8a7a6e, roughness: 1, flatShading: true }), CL, c => ({ p: c.p, s: V(c.s, c.s * 0.7, c.s) })); R.cloud.frustumCulled = false;
   return R;
 })();
 /* ===================================================================== MERGE STATIC */
@@ -963,15 +976,15 @@ function look(set, T) {
     skyU.uCloud.value = 0.12; skyU.uCloudCol.value.set(post ? 0x8a4a30 : 0x3a3a4a);
     stars.visible = true; stars.material.opacity = 0.85 * (1 - gl);
     scene.fog.color.set(lerpHex(0x2a2a3a, 0x8a4a2a, gl)); scene.fog.density = 0.00045 + 0.0004 * gl;
-    hemi.color.set(lerpHex(0x6a7aa8, 0xffb070, gl)); hemi.groundColor.set(0x2a2018); hemi.intensity = 0.7 + 0.5 * gl + 3 * fl;
+    hemi.color.set(lerpHex(0x6a7aa8, 0xffb070, gl)); hemi.groundColor.set(0x2a2018); hemi.intensity = 0.95 + 0.3 * gl + 3 * fl;
     if (post) sunFrom(o, GZ_DIR, 60, CAM.dist > 40 ? 60 : 8, 0xffd0a0, 1.2 + 5 * fl + 1.2 * gl, CAM.dist > 40 ? null : [0, 0.6, -1.5]);
-    else sunFrom(o, MOON, 40, 8, 0xb8c8ff, 0.55, [0, 0.6, -1.5]);
+    else sunFrom(o, MOON, 40, 8, 0xb8c8ff, 0.85, [0, 0.6, -1.5]);
     // warm string lights and candles on the two of you
     const lit = 1 - smooth(EV.wave[1] - 0.2, EV.wave[1], T);
     point(0, o, [-0.9, 2.3, -0.6], 0xffb060, 4.5 * lit, 8); point(1, o, [1.0, 2.2, -3.0], 0xffb868, 4.5 * lit, 8); point(2, o, [0, 0.35, -2.25], 0xff9a48, 1.2 * lit, 3);
     // the falling bomb lights your faces as it comes down
     if (inT(T, EV.fall[0], EV.flash)) point(3, o, [0, 3, -4], 0xffe8d0, 2.2 * smooth(EV.fall[0], EV.flash, T), 9);
-    renderer.toneMappingExposure = 1.4 - 0.3 * fl;
+    renderer.toneMappingExposure = (post ? 1.4 : 1.65) - 0.3 * fl;
     if (bloom) { bloom.strength = 0.4 + 0.4 * fl; bloom.threshold = 0.8; }
     // the shockwave arrives: dust fills the air
     const dust = smooth(EV.wave[1] - 0.35, EV.wave[1] + 0.3, T);
@@ -1184,7 +1197,11 @@ function updateBase(T) {
   P.position.needsUpdate = true; P.aA.needsUpdate = true;
   R.puffU.uPx.value = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360));
 }
-function updateAfter(T) { after.smoke.set(T); }
+function updateAfter(T) {
+  after.smoke.set(T);
+  after.CL.forEach((c, i) => after.cloud.setMatrixAt(i, m4.compose(t4.set(c.p.x + 6 * Math.sin(T * 0.2 + c.ph), c.p.y + 3 * Math.sin(T * 0.25 + c.ph), c.p.z), q4.setFromAxisAngle(V(0, 1, 0), c.ph + T * 0.02), s4.set(c.s, c.s * 0.7, c.s))));
+  after.cloud.instanceMatrix.needsUpdate = true;
+}
 /* ===================================================================== OVERLAYS */
 const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash');
 const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
@@ -1197,7 +1214,7 @@ function overlays(T) {
     subsEl.dataset.text = line; subsEl.classList.remove('on');
     if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
   }
-  const titleEnd = ln(3, -0.3);
+  const titleEnd = ln(2, -0.3);
   titleEl.classList.toggle('on', T > 0.15 && T < titleEnd);
   fadeEl.style.opacity = dark;
   // the flash turns everything white, then sinks back; the shockwave hits get a short soft flash
@@ -1327,7 +1344,8 @@ function buildSfx(ctx) {
     events(T0, T1, at) {
       if (T1 >= ENDING.fade) return;
       const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set, rand = k => Math.random() < dt * k;
-      if (hit(0.15)) { laugh(at, 1, 300); laugh(at + 0.25, 0.8, 210); }
+      if (hit(0.1)) tone(at, 'sine', 55, 41, 4, 0.08, 1.5);
+      if (hit(ln(1, 0.1))) { laugh(at, 1, 300); laugh(at + 0.25, 0.8, 210); }
       if (hit(ln(1, 1.4))) laugh(at, 0.8, 320);
       if (hit(EV.fall[0] + 0.1)) whistle(at, EV.flash - EV.fall[0] - 0.15, 1);
       if (hit(ln(2, 0.3))) sting(at);
