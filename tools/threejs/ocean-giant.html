@@ -461,7 +461,7 @@ const SEA_FS = NOISE_GLSL + `varying vec3 vW, vN;
     float rr = length(vec2(d.x / max(uEyeB, 0.1), ty));
     vec3 iris = mix(vec3(1.0, 0.95, 0.35), vec3(0.35, 1.0, 0.55), smoothstep(0.1, 0.9, rr));
     float halo = uEyeOpen * exp(-(d.x * d.x) / (uEyeB * uEyeB * 5.0) - ty * ty * 0.7);
-    return uEyeK * (iris * inside * (1.0 - 0.95 * pup) * 0.75 + vec3(0.15, 0.7, 0.45) * halo * 0.3);
+    return uEyeK * (iris * inside * (1.0 - 0.97 * pup) * 0.38 + vec3(0.15, 0.7, 0.45) * halo * 0.3);
   }
   void main(){
     vec3 v = normalize(cameraPosition - vW); float d = length(cameraPosition - vW); vec3 c; vec3 lw = vW - uO; vec2 lp = lw.xz;
@@ -685,7 +685,7 @@ const sonarTex = screenTex(640, 900, (g, w, h, s) => {
       g.font = '800 30px Archivo, sans-serif'; g.fillText(`DEPTH ${Math.round(s.depth).toLocaleString('en-US')} m`, w * 0.55, cy + H * 3); g.restore();
     }
   }
-  if (s.label) { g.fillStyle = s.labelCol ?? '#ffd24a'; g.font = '900 34px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText(s.label, w * 0.56, h * 0.9 - 40); }
+  if (s.label) { g.fillStyle = s.labelCol ?? '#ffd24a'; g.font = '900 30px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText(s.label, w * 0.5, h * 0.9 - 40); }
   if (s.glitch > 0) {   // the screen stutters when it is tapped
     for (let i = 0; i < 9; i++) { const y = hash(i, s.k) * h, hh = 10 + 40 * hash(i, s.k + 1); g.drawImage(g.canvas, 0, y, w, hh, (hash(i + 2, s.k) - 0.5) * 60 * s.glitch, y, w, hh); }
     g.fillStyle = `rgba(200,255,230,${0.12 * s.glitch})`; g.fillRect(0, 0, w, h);
@@ -1098,7 +1098,7 @@ function look(set, T) {
     const glow = smooth(EV.glow[0], EV.glow[1], T), domeK = smooth(EV.dome[0], EV.dome[1], T);
     u.uGlC.value.set(-2, 0); u.uGlR.value = 26 + 10 * domeK; u.uGlK.value = 0.2 * glow + 0.08 * eyeOpen(T) + 0.25 * domeK;
     u.uEyeOpen.value = eyeOpen(T); u.uEyeK.value = 1.0; const lk = eyeLook(T); u.uPup.value.set(-1.1 * lk, -1.6 * lk);
-    u.uFoamC.value.set(0, 4); u.uFoamR.value = 34; u.uFoamK.value = 0.35 * smooth(EV.dome[0] + 0.4, EV.dome[1], T);
+    u.uFoamC.value.set(0, 4); u.uFoamR.value = 34; u.uFoamK.value = 0.12 * smooth(EV.dome[0] + 0.4, EV.dome[1], T);
     // the glow lights the helicopter's belly and the pilot's face; the panel lights him from the front
     const hp = H.p;
     point(0, o, [hp.x, 2, hp.z], 0x40f0c8, 30 * glow + 30 * eyeOpen(T), 30);
