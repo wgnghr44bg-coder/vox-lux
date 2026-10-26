@@ -195,8 +195,8 @@ const EV = {
   phone2: ln(21, -0.05),
 };
 // impacts: [time, strength] → camera shake (and a hit in the sound)
-const SHAKES = [[EV.wave[1], 1.0], [EV.blast[1] - 0.15, 1.0], [EV.descend[1], 0.25]];
-const RUMBLES = [[EV.flash + 0.2, EV.wave[1], 0.25], [EV.blast[0], EV.blast[1] + 0.3, 0.7], [ln(8, 0), ln(9, -0.1), 0.15]];   // continuous tremble: [from, to, strength]
+const SHAKES = [[EV.wave[1], 1.0], [ln(7, -1.4), 1.0], [EV.descend[1], 0.25]];   // the street shake is over before the cut to the rubble
+const RUMBLES = [[EV.flash + 0.2, EV.wave[1], 0.25], [EV.blast[0], ln(7, -0.15), 0.7], [ln(8, 0), ln(9, -0.1), 0.15]];   // continuous tremble: [from, to, strength]
 // ---------- helpers ----------
 function lerp(a, b, k) { return a + (b - a) * k; }
 const TAU = Math.PI * 2;
@@ -938,7 +938,7 @@ function shake(T) {
 const CAM = { set: 'roof', target: V(), dist: 1, local: V() };
 function placeCamera(T) {
   const s = shotAt(T), d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.12, d * 0.01 + 0.02);
-  const f = Math.floor(T * 40), f1 = T * 40 - f, n = (j, f) => hash(f, j) - 0.5, sm = (j) => lerp(n(j, f), n(j, f + 1), f1 * f1 * (3 - 2 * f1));
+  const f = Math.floor(T * 11), f1 = T * 11 - f, n = (j, f) => hash(f, j) - 0.5, sm = (j) => lerp(n(j, f), n(j, f + 1), f1 * f1 * (3 - 2 * f1));
   s.pos.x += sm(1) * k; s.pos.y += sm(2) * k; s.target.x += sm(3) * k * 3 * Math.max(1, d / 30); s.target.y += sm(4) * k * 3 * Math.max(1, d / 30);
   camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
   const near = s.set === 'base' ? 0.02 : s.set === 'rubble' && d < 2 ? 0.03 : s.set === 'roof' && d < 4 ? 0.05 : 0.15, far = 9000;
