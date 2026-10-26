@@ -1,0 +1,420 @@
+{img:c01}
+At eight forty-seven P M, the world goes dark.
+
+{img:c02}
+In New York, skyscrapers lose their lights.
+
+{img:c03}
+In Tokyo, trains grind to a halt.
+
+{img:c04}
+Across Europe, traffic signals die in the middle of rush hour.
+
+{img:c05}
+And inside a city hospital, a surgeon is halfway through an operation.
+
+{img:c06}
+The operating lights flicker.
+
+{img:c07}
+Then disappear.
+
+{img:c08}
+For one terrifying second, the room is completely black.
+
+{img:c09}
+Emergency lighting activates.
+
+{img:c10}
+A backup generator roars to life.
+
+{img:c11}
+The operation continues.
+
+{img:c12}
+But in the hospital basement, an engineer stares at the generator's control panel.
+
+{img:c13}
+The entire electrical grid is down.
+
+{img:c14}
+And the hospital cannot survive indefinitely on backup power.
+
+{img:c15}
+He checks the fuel supply.
+
+{img:c16}
+Then he makes a call.
+
+{img:c17}
+Nobody answers.
+
+{img:c18}
+Outside, the city has vanished into darkness.
+
+{img:c19}
+Inside, the countdown has begun.
+
+{img:c20}
+By sunrise, the hospital is running on emergency procedures.
+
+{img:c21}
+Elevators are out.
+
+{img:c22}
+Some medical equipment depends on limited backup power.
+
+{img:c23}
+Staff move patients manually while engineers try to conserve fuel.
+
+{img:c24}
+A father arrives carrying his young daughter.
+
+{img:c25}
+She needs urgent treatment.
+
+{img:c26}
+The doctors can help her, but the hospital's systems are under growing pressure.
+
+{img:c27}
+Downstairs, the engineer calculates how long the generator can continue operating under the current load.
+
+{img:c28}
+The number is not reassuring.
+
+{img:c29}
+He needs fuel.
+
+{img:c30}
+But fuel stations cannot pump without electricity, and deliveries are becoming difficult to coordinate.
+
+{img:c31}
+He contacts the emergency authorities again.
+
+{img:c32}
+This time, someone answers.
+
+{img:c33}
+A fuel convoy may be sent.
+
+{img:c34}
+No arrival time is guaranteed.
+
+{img:c35}
+Then the hospital's lights flicker.
+
+{img:c36}
+The generator is still running.
+
+{img:c37}
+But something has gone wrong.
+
+{img:c38}
+Three days pass.
+
+{img:c39}
+Outside, abandoned cars block the roads.
+
+{img:c40}
+Supermarkets struggle to distribute food.
+
+{img:c41}
+People queue for drinking water.
+
+{img:c42}
+Inside the hospital, the engineer discovers a problem with a critical part of the generator system.
+
+{img:c43}
+He can keep it running for now.
+
+{img:c44}
+But he cannot guarantee it will last.
+
+{img:c45}
+A technician searches the maintenance stores.
+
+{img:c46}
+The replacement part isn't there.
+
+{img:c47}
+They try to reach another hospital.
+
+{img:c48}
+No reliable connection.
+
+{img:c49}
+The father sits beside his daughter's bed, watching the monitor.
+
+{img:c50}
+Every few seconds, he looks toward the door, waiting for someone to tell him the situation is under control.
+
+{img:c51}
+Nobody does.
+
+{img:c52}
+Then an alarm sounds in the basement.
+
+{img:c53}
+The generator has stopped.
+
+{img:c54}
+For a moment, the entire hospital is silent.
+
+{img:c55}
+Emergency systems switch to their remaining backup sources.
+
+{img:c56}
+The engineer rushes to the control room.
+
+{img:c57}
+He has minutes to diagnose the fault before the hospital loses another layer of protection.
+
+{img:c58}
+He opens the panel.
+
+{img:c59}
+And sees the problem.
+
+{img:c60}
+The engineer manages to restart the generator.
+
+{img:c61}
+But the failure has consumed precious time.
+
+{img:c62}
+The hospital's fuel supply is dangerously low.
+
+{img:c63}
+A convoy is finally dispatched, carrying fuel and essential equipment.
+
+{img:c64}
+It should arrive before nightfall.
+
+{img:c65}
+But the main road is blocked by wrecked vehicles and a disabled truck.
+
+{img:c66}
+The drivers abandon their planned route and search for a way through.
+
+{img:c67}
+Inside the hospital, staff prepare for the possibility that backup power could become unreliable.
+
+{img:c68}
+Nonessential systems are shut down.
+
+{img:c69}
+Patients who can safely be moved are transferred where possible.
+
+{img:c70}
+Every available resource is stretched.
+
+{img:c71}
+The father hears an announcement asking families to remain calm.
+
+{img:c72}
+He looks at his daughter.
+
+{img:c73}
+Then the lights flicker again.
+
+{img:c74}
+The engineer watches the generator's readings.
+
+{img:c75}
+He knows the machine is working harder than it should.
+
+{img:c76}
+Outside, the fuel convoy is still trying to reach the hospital.
+
+{img:c77}
+And the sun is going down.
+
+{img:c78}
+Two weeks into the blackout, the hospital is not the only place in danger.
+
+{img:c79}
+Water systems are failing in some districts.
+
+{img:c80}
+Food deliveries have broken down.
+
+{img:c81}
+People are travelling long distances to find supplies.
+
+{img:c82}
+The hospital has received another delivery, but it is smaller than expected.
+
+{img:c83}
+The engineer and his team have kept the generator running through repairs and careful fuel management.
+
+{img:c84}
+Yet they cannot repair every system at once.
+
+{img:c85}
+The father has barely left his daughter's bedside.
+
+{img:c86}
+Outside her room, nurses work under emergency lighting.
+
+{img:c87}
+The hospital is quieter than it should be.
+
+{img:c88}
+Then a radio message arrives.
+
+{img:c89}
+A nearby region has begun restoring part of its electrical grid.
+
+{img:c90}
+The engineer listens closely.
+
+{img:c91}
+If power can be restored to the transmission network, the hospital may eventually reconnect.
+
+{img:c92}
+But it is not a simple switch.
+
+{img:c93}
+The grid must be stabilized.
+
+{img:c94}
+Equipment must be checked.
+
+{img:c95}
+Supply and demand must be balanced.
+
+{img:c96}
+The message ends with a warning.
+
+{img:c97}
+Restoration will take time.
+
+{img:c98}
+And time is exactly what the hospital is running out of.
+
+{img:c99}
+On day twenty-one, the engineer hears a sound he has almost forgotten.
+
+{img:c100}
+The steady hum of equipment coming back online.
+
+{img:c101}
+A nearby section of the grid has been restored.
+
+{img:c102}
+The hospital begins preparing to reconnect.
+
+{img:c103}
+The process is slow.
+
+{img:c104}
+Systems are brought back in stages, and the engineers monitor each change carefully.
+
+{img:c105}
+Then the lights come on.
+
+{img:c106}
+Not just the emergency lights.
+
+{img:c107}
+The main lights.
+
+{img:c108}
+The hospital is connected to the grid again.
+
+{img:c109}
+Staff pause in the corridors.
+
+{img:c110}
+The father looks at his daughter, then at the illuminated monitor beside her bed.
+
+{img:c111}
+For the first time in three weeks, he allows himself to believe that the worst may be over.
+
+{img:c112}
+But outside, the city is still struggling.
+
+{img:c113}
+Power has returned to some districts, while others remain dark.
+
+{img:c114}
+Water, food, fuel, and medical supplies are still disrupted.
+
+{img:c115}
+The lights are back.
+
+{img:c116}
+Normal life is not.
+
+{img:c117}
+By day thirty, more regions have restored electricity.
+
+{img:c118}
+The hospital's generator finally falls silent.
+
+{img:c119}
+It no longer needs to carry the entire building.
+
+{img:c120}
+The engineer walks through the basement, looking at the machine that kept the hospital running when the world went dark.
+
+{img:c121}
+Upstairs, the father sits beside his daughter.
+
+{img:c122}
+She is recovering.
+
+{img:c123}
+Outside the window, the city glows again, but the streets still bear the marks of a month without reliable power.
+
+{img:c124}
+Businesses have closed.
+
+{img:c125}
+Supply chains are slowly rebuilding.
+
+{img:c126}
+Families are grieving losses that electricity alone cannot repair.
+
+{img:c127}
+The blackout has exposed a truth that most people never consider.
+
+{img:c128}
+A modern city is not simply a collection of buildings.
+
+{img:c129}
+It is a chain of systems that depend on one another.
+
+{img:c130}
+Water needs pumps.
+
+{img:c131}
+Hospitals need power.
+
+{img:c132}
+Power stations need functioning equipment and people who know how to repair it.
+
+{img:c133}
+Break enough links, and even the strongest systems begin to fail.
+
+{img:c134}
+The engineer turns off the basement lights and walks upstairs.
+
+{img:c135}
+For thirty days, his job was to keep one generator running.
+
+{img:c136}
+Now the city must rebuild everything around it.
+
+{img:c137}
+And somewhere, in another control room, another engineer is checking the grid.
+
+{img:c138}
+Because the most frightening question is not what happens when the lights go out.
+
+{img:c139}
+It's this:
+
+{img:c140}
+What happens if next time... they don't come back?
+
