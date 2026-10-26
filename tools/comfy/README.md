@@ -40,7 +40,8 @@ Fout? Opnieuw laten maken met een andere seed (gratis).
 python tools/comfy/make_voice_local.py <map>      # <map>/script-cues.txt -> voice.mp3 + voice-times.tsv
 ```
 Zelfde scriptopmaak als bij xAI (`{img:ID}`, `[pause]`, `[long pause]`); `--dry-run` toont alleen de zinnen.
-Voorbeeldstem voor Chatterbox: `stem/voorbeeld-george.mp3`, instellingen exaggeration 0.4, cfg 0.5.
+Voorbeeldstem voor Chatterbox: `stem/voorbeeld-george.mp3`, instellingen exaggeration 0.4, cfg 0.5,
+tempo 0.87 (= Titanic-tempo, eigenaar 26 okt 2026; `--speed 1` voor het oude tempo).
 
 ### Stemtest (alle proefstemmen)
 Kokoro + Chatterbox, gratis en mag op een kanaal met inkomsten. Installeren in een **aparte** omgeving (uitleg bovenin):
