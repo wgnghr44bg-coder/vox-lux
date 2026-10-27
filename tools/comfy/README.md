@@ -38,6 +38,7 @@ Fout? Opnieuw laten maken met een andere seed (gratis).
 **Chatterbox die Kokoro bm_george nadoet, rustig** (keuze eigenaar 13 okt 2026). Proef: `stem/standaardstem-proef.mp3`.
 ```
 python tools/comfy/make_voice_local.py <map>      # <map>/script-cues.txt -> voice.mp3 + voice-times.tsv
+# op de pc van de eigenaar met de eigen omgeving: C:\Users\rane\chatterbox-venv\Scripts\python.exe
 ```
 Zelfde scriptopmaak als bij xAI (`{img:ID}`, `[pause]`, `[long pause]`); `--dry-run` toont alleen de zinnen.
 Voorbeeldstem voor Chatterbox: `stem/voorbeeld-george.mp3`, instellingen exaggeration 0.4, cfg 0.5.
