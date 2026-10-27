@@ -75,13 +75,17 @@ Stappen:
    pauzes is dat ± 90.000 tekens script (Tunguska: 113.000 tekens zou nu ± 2 u 40 worden).
    Houd het op ± 2 uur
    (eigenaar): niet bewust langer maken.
+   **Titanic-recept (eigenaar, 27 okt 2026)**: bouw het verhaal op zoals `stories/titanic`
+   (zie OPZET.md daar en "Titanic-recept" in ONDERWERPEN.md): de plek en hoe het begon, het
+   gewone leven met echte, met naam genoemde mensen, de laatste gewone dag, de beroemde
+   dag/nacht stap voor stap, redding en daarna, wat er nu nog van over is.
    Vertel rustig. Begin bij het **dagelijks leven** (wonen, eten, werk, het weer), zodat de
    kijker de plek en de mensen leert kennen. Vertel daarna de **gebeurtenis of het mysterie
    zelf** volledig en duidelijk, kalm en zonder gruwelijke details: dit is de kern en krijgt
    minstens een derde van de video. Sluit af met wat er daarna gebeurde en wat er vandaag
    nog van over is. (Richtlijn, geen vaste verdeling: bij een mysterie is het mysterie het
    grootste deel; bij een dagelijks-leven-onderwerp is er vaak geen gebeurtenis.)
-   **Sleepy Facts (proef, eigenaar okt 2026)**: staat er achter het onderwerp in
+   **Sleepy Facts (proef gestopt 27 okt 2026, eigenaar wil alleen nog het Titanic-recept)**: staat er achter het onderwerp in
    ONDERWERPEN.md "(facts)", schrijf het script dan niet als één doorlopend verhaal maar
    als ± 70-90 losse feitjes over het onderwerp, elk ± 200-250 woorden (± 1,5 min): een
    korte kopzin die het feitje noemt ("A Viking longhouse had no chimney at all."),

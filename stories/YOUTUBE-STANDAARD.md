@@ -119,6 +119,9 @@ Mensen zoeken in deze niche op **"History for Sleep"** en klikken op titels die 
 **beleving** beloven (hoe leefden ze, wat deden ze de hele dag, de laatste rustige
 nacht), niet op een kale onderwerpnaam. Grote kanalen: "How Medieval Peasants Survived
 the Coldest Nights", "What Did Medieval Peasants Do All Day".
+- **Titanic-recept (eigenaar, 27 okt 2026)**: verreweg de beste video is *Life Aboard the
+  Titanic, April 1912* (850 views, 5,9% klikken). Zet daarom altijd **de bekende naam én
+  maand/jaar** in de titel (`Life Aboard the Lusitania, May 1915`); zie `ONDERWERPEN.md`.
 - **Vast patroon (eigenaar, okt 2026), naar de best lopende video's** *Life Before Fire: How
   Early Humans Survived the Night* en *Life in Old San Francisco Before the 1906 Earthquake*
   (langste kijkduur, meeste kijkers via voorgestelde video's):
