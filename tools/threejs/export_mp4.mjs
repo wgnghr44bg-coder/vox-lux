@@ -23,9 +23,10 @@ const browser = await chromium.launch({ executablePath: exe, headless: !gpu, arg
 const page = await browser.newPage({ viewport: { width, height } });
 page.on('pageerror', e => console.error('page error:', e.message));
 if (three) await page.route('**/cdn.jsdelivr.net/npm/three@*/**', r => r.fulfill({ path: path.join(three, r.request().url().split(/three@[^/]+\//)[1]), contentType: 'application/javascript' }));
-await page.goto(pathToFileURL(path.resolve(page_)).href + '?render=1');
+// don't wait for the full load event: blocked or slow web fonts can stall it forever
+await page.goto(pathToFileURL(path.resolve(page_)).href + '?render=1', { waitUntil: 'domcontentloaded', timeout: 120000 });
 await page.waitForFunction(() => window.renderReady === true, null, { timeout: 120000 });
-await page.evaluate(() => document.fonts.ready);
+await page.evaluate(() => Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 15000))]));
 const duration = +opt('to', await page.evaluate(() => +document.getElementById('scrub').max));
 const from = +opt('from', 0);
 
