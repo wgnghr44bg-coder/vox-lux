@@ -57,17 +57,30 @@ Daarom voor elke nieuwe video:
    de stad) in de sfeer van `stories/titanic/thumbnail.jpg`, weinig tekst. Doel: ≥ 5% klikken.
 5. Na upload: eindscherm naar de Titanic-video en in een passende afspeellijst zetten.
 
+## Weekplanning (eigenaar, 27 okt 2026)
+**2 video's per week: woensdag en zaterdag 21:00** (NL-tijd), allemaal volgens het Titanic-recept.
+Een vaste taak ("Sleep Archives – nieuwe video") start elke **zondag en donderdag 08:54** een
+cloud-sessie: onderwerp kiezen (stap 0 + lijst), script en alles wat gratis kan maken, en de
+eigenaar een kant-en-klare prompt geven voor de pc (beelden en stem via comfy, montage, upload).
+Vooruitblik (stap 0 kan een onderwerp naar voren halen):
+- wo 28 / za 31 okt: Life Aboard the Mayflower, 1620 (andere sessie, online zodra klaar)
+- wo 4 nov: Life Aboard the Hindenburg, May 1937
+- za 7 nov: Life Aboard the Lusitania, May 1915
+- wo 11 nov: Life Aboard the Endurance with Shackleton, 1914
+- za 14 nov: Life Aboard Apollo 13, April 1970
+- daarna verder in de lijst hieronder
+
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
 beginnen; uitbrengen vóór Thanksgiving 26 nov 2026).
 
 Eerst deze (Titanic-recept, in deze volgorde):
+- Life Aboard the Hindenburg, May 1937 (Dusk Voyages bracht op 27 okt 2026 een Hindenburg-video uit: liefst vóór ± 17 nov online)
 - Life Aboard the Lusitania, May 1915
 - Life Aboard the Endurance with Shackleton, 1914
 - Life Aboard Apollo 13, April 1970
 - Life in Chicago Before the Great Fire of 1871
 - Life in Jamestown, the Starving Winter of 1609
-- Life Aboard the Hindenburg, May 1937
 - Life in London Before the Great Fire of 1666
 - Life in Johnstown Before the Flood of 1889
 - Life in Galveston Before the Hurricane of 1900
