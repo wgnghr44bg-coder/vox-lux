@@ -1,0 +1,32 @@
+# Sleep Archives – automatische routine op de pc
+
+De eigenaar wil dat alles automatisch gebeurt (27 okt 2026): **2 video's per week, woensdag en
+zaterdag 21:00 NL-tijd**, volgens het Titanic-recept (stories/ONDERWERPEN.md). Deze prompt draait
+op de pc van de eigenaar (Windows Taakplanner start `claude -p` op **zondag en donderdag 09:00**),
+want ComfyUI, de stem en het videobestand staan alleen daar. Niemand kijkt mee: vraag niets,
+werk alles af.
+
+1. `git checkout main && git pull`. Start ComfyUI als `http://127.0.0.1:8188` niet antwoordt en
+   wacht tot hij klaar is.
+2. **Onderwerp**: `python tools/sleep_trends.py` en kies volgens stap 0 en het Titanic-recept in
+   stories/ONDERWERPEN.md; anders het eerste vrije onderwerp uit "Eerst deze" (vrij = nog niet als
+   `onderwerp` in een stories/*/planning.txt op main of origin/claude/*).
+3. **Datum**: de eerste vrije woensdag of zaterdag 21:00, minstens 2 dagen na vandaag. Zet
+   `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
+4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
+   afwijkingen:
+   - Script met de opbouw van stories/titanic (OPZET.md daar), ± 2 uur video.
+   - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md) en stem met
+     Chatterbox als bm_george, rustig (`tools/comfy/make_voice_local.py`). **Nooit xAI of iets
+     anders dat geld kost.**
+   - Titel: bekende naam + maand en jaar + ` | History for Sleep`; thumbnail in de stijl van
+     stories/titanic/thumbnail.jpg.
+   - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
+5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**
+   (`YT_REFRESH_TOKEN`, `tools/youtube_upload.py`), met titel, beschrijving, tags, thumbnail en
+   afspeellijst. Controleer via de API dat `snippet.channelTitle` "Sleep Archives" is; anders
+   meteen verwijderen en stoppen.
+6. Zet de link en de kosten (€0) in planning.txt, commit en push naar main.
+7. Lukt iets niet (ComfyUI start niet, sleutel ontbreekt, schijf vol), verwijder dan je
+   planning.txt van main zodat de volgende run de datum weer kan pakken, en schrijf in
+   `stories/ROUTINE-LOG.md` (op main) in simpel Nederlands wat er misging en wat de eigenaar moet doen.
