@@ -34,7 +34,12 @@ Cijfers 27 okt 2026: Titanic 850 views (± 80% van het kanaal), 9.400 min kijkti
 meest 1-3% klikken.
 
 Daarom voor elke nieuwe video:
-0. **Eerst kijken wat nu groeit** (gratis): `python3 tools/sleep_trends.py`. Waarom: 71 van de
+0. **Nooit dubbel, en kies wat de meeste kans heeft** (gratis): draai
+   `python3 tools/sleep_trends.py --check <kandidaten>` met de eerste ± 10 kandidaten. "AL GEMAAKT"
+   = staat al op Sleep Archives: overslaan. Kies de kandidaat met de meeste views van bestaande
+   slaapvideo's (veel vraag = YouTube heeft veel video's om ons naast te zetten), tenzij een
+   datum (verjaardag, feestdag) een ander onderwerp nu sterker maakt.
+   **Kijk daarna wat nu groeit**: `python3 tools/sleep_trends.py`. Waarom: 71 van de
    164 voorgestelde Titanic-views kwamen van één video, *What Titanic's Survivors Really Saw
    That Night 1912* van Dusk Voyages (uit 10 okt, 146.000 views); Titanic ging van ± 10 naar
    ± 90 views per dag. Staat er bij de grote slaapkanalen (Dusk Voyages, Bedtime & Historian,
@@ -62,41 +67,47 @@ Daarom voor elke nieuwe video:
 Alles gaat automatisch op de pc van de eigenaar: Windows Taakplanner start elke **zondag en
 donderdag 09:00** `stories/PROMPT-ROUTINE-PC.md` (onderwerp, script, comfy-beelden, stem, montage,
 upload). Problemen staan in `stories/ROUTINE-LOG.md`.
-Vooruitblik (stap 0 kan een onderwerp naar voren halen):
-- wo 28 / za 31 okt: Life Aboard the Mayflower, 1620 (andere sessie, online zodra klaar)
-- wo 4 nov: Life Aboard the Hindenburg, May 1937
-- za 7 nov: Life Aboard the Lusitania, May 1915
-- wo 11 nov: Life Aboard the Endurance with Shackleton, 1914
-- za 14 nov: Life Aboard Apollo 13, April 1970
-- daarna verder in de lijst hieronder
+Vooruitblik (gekozen op 27 okt 2026 met `tools/sleep_trends.py --check`: hoeveel views de
+bestaande slaapvideo's over het onderwerp samen hebben; Titanic: ± 5 miljoen):
+- wo 28 / za 31 okt: Life Aboard the Mayflower, 1620 (andere sessie; ± 235.000, 11 nieuwe)
+- wo 4 nov: Life on the Oregon Trail, 1846 (± 500.000, 10 nieuwe)
+- za 7 nov: Life Aboard the Edmund Fitzgerald, November 1975 (± 70.000; gezonken 10 nov)
+- wo 11 nov: Life Aboard Franklin's Lost Expedition, 1845 (± 140.000, 14 nieuwe)
+- za 14 nov: Life in Europe During the Black Death, 1348 (± 640.000)
+- wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)
+- za 21 nov: Life in Salem During the Witch Trials, 1692 (± 115.000)
+- wo 25 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
+- za 28 nov: Life at Pearl Harbor, December 1941 (± 3 miljoen; aanval 7 dec)
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
 beginnen; uitbrengen vóór Thanksgiving 26 nov 2026).
 
-Eerst deze (Titanic-recept, in deze volgorde):
-- Life Aboard the Hindenburg, May 1937 (Dusk Voyages bracht op 27 okt 2026 een Hindenburg-video uit: liefst vóór ± 17 nov online)
-- Life Aboard the Lusitania, May 1915
-- Life Aboard the Endurance with Shackleton, 1914
-- Life Aboard Apollo 13, April 1970
-- Life in Chicago Before the Great Fire of 1871
-- Life in Jamestown, the Starving Winter of 1609
-- Life in London Before the Great Fire of 1666
-- Life in Johnstown Before the Flood of 1889
-- Life in Galveston Before the Hurricane of 1900
-- Life Aboard the Edmund Fitzgerald, November 1975
-- Life Aboard the Andrea Doria, July 1956
-- Life on the Carpathia, the Night of the Titanic, April 1912
-- Life Aboard the Britannic, Titanic's Sister Ship, 1916
-- Life in Roanoke, the Lost Colony, 1587
-- Life in the Klondike Gold Rush, 1898
+Eerst deze (Titanic-recept, in deze volgorde; tussen haakjes: views van bestaande slaapvideo's
+over het onderwerp, 27 okt 2026):
+- Life on the Oregon Trail, 1846 (500.000)
+- Life Aboard the Edmund Fitzgerald, November 1975 (70.000)
+- Life Aboard Franklin's Lost Expedition, 1845 (140.000)
+- Life in Europe During the Black Death, 1348 (640.000)
+- Life in Gettysburg, July 1863 (670.000)
+- Life in Salem During the Witch Trials, 1692 (115.000)
+- Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West 2,8 mln)
+- Life at Pearl Harbor, December 1941 (3 mln; vóór 7 december uitbrengen)
+- Life in Ancient Egypt When Tutankhamun Died, 1323 BC (Ancient Egypt 3,4 mln)
+- Life in Antarctica with Scott's Last Expedition, 1912 (Antarctic 2 mln)
+- Life with Lewis and Clark, 1804 (200.000)
+- Life in London Before the Great Fire of 1666 (80.000)
+- Life Aboard the Hindenburg, May 1937 (weinig slaapvideo's, maar Dusk Voyages bracht er 27 okt 2026 een uit)
+
+Weinig vraag (< 25.000 views samen, alleen als stap 0 iets anders laat zien): Lusitania,
+Shackleton/Endurance, Apollo 13, Great Chicago Fire, Jamestown, Johnstown, Galveston, Andrea Doria,
+Carpathia, Britannic, Roanoke, Klondike.
 
 Daarna (oude lijst): alleen een onderwerp dat als wereldberoemd verhaal in het
 Titanic-recept past (bekende ramp, reis, mysterie of persoon); maak er dan een titel met
 naam + jaar van. Verzin anders zelf nieuwe in de stijl van de lijst hierboven en zet ze erbij.
 - The Tunguska Event
 - What Medieval Monks Did All Day
-- Life in Europe During the Black Death
 - How People Lived Along the Nile in Ancient Egypt
 - What Life Was Like as Rome Fell
 - How Lighthouse Keepers Lived Alone at Sea
@@ -107,7 +118,6 @@ naam + jaar van. Verzin anders zelf nieuwe in de stijl van de lijst hierboven en
 - How Pioneers Survived Winter on the American Frontier
 - The Abandoned Island of Hashima
 - What Life Was Like in Ancient Athens
-- The Curse of Tutankhamun's Tomb
 - A Year on a Medieval Farm
 - How Ancient Romans Ate, Slept and Kept Warm
 - Life Inside a Medieval Monastery Library
@@ -142,7 +152,6 @@ naam + jaar van. Verzin anders zelf nieuwe in de stijl van de lijst hierboven en
 - The Spanish Inquisition
 - The Plague Doctors of Europe
 - Witch Trials of Medieval Europe
-- The Salem Witch Trials
 - The Abandoned Asylums of America
 - The Amityville Horror: The True Story
 - Elizabeth Báthory: The Blood Countess

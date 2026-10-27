@@ -10,6 +10,9 @@ plus a search for "history for sleep", sorted by views per day. Read-only, costs
 Usage:
     python3 tools/sleep_trends.py               # last 45 days, top 30
     python3 tools/sleep_trends.py --days 60 --top 50
+    python3 tools/sleep_trends.py --check Hindenburg Lusitania "Apollo 13"
+        # per topic: do we already have it (our own uploads), and how big are the
+        # existing sleep videos about it (demand). Highest score = best chance.
 """
 
 from __future__ import annotations
@@ -59,12 +62,60 @@ def recent_ids(token: str, since: datetime) -> set[str]:
     return ids
 
 
+def our_titles(token: str) -> list[str]:
+    """Titles of all uploads of the channel of the token (Sleep Archives)."""
+    channel = get(token, "channels", part="contentDetails", mine="true")["items"][0]
+    uploads = channel["contentDetails"]["relatedPlaylists"]["uploads"]
+    titles, page = [], None
+    while True:
+        body = get(token, "playlistItems", part="snippet", playlistId=uploads, maxResults=50,
+                   **({"pageToken": page} if page else {}))
+        titles += [i["snippet"]["title"] for i in body.get("items", [])]
+        page = body.get("nextPageToken")
+        if not page:
+            return titles
+
+
+def check(token: str, topics: list[str]) -> None:
+    """Per topic: our existing videos about it, and the demand for sleep videos about it."""
+    ours = our_titles(token)
+    now = datetime.now(timezone.utc)
+    results = []
+    for topic in topics:
+        mine = [t for t in ours if topic.lower() in t.lower()]
+        ids = [i["id"]["videoId"] for i in get(
+            token, "search", part="id", q=f"{topic} sleep", type="video",
+            videoDuration="long", maxResults=50).get("items", [])]
+        videos = get(token, "videos", part="snippet,statistics",
+                     id=",".join(ids)).get("items", []) if ids else []
+        # only sleep videos that are really about the topic
+        videos = [v for v in videos if topic.lower() in v["snippet"]["title"].lower()
+                  and "sleep" in v["snippet"]["title"].lower()]
+        total = sum(int(v["statistics"].get("viewCount", 0)) for v in videos)
+        recent = [v for v in videos if (now - datetime.fromisoformat(
+            v["snippet"]["publishedAt"].replace("Z", "+00:00"))).days <= 60]
+        best = max(videos, key=lambda v: int(v["statistics"].get("viewCount", 0)), default=None)
+        results.append((0 if mine else total, topic, mine, len(videos), len(recent), total, best))
+    results.sort(key=lambda r: r[0], reverse=True)
+    for _, topic, mine, count, recent, total, best in results:
+        status = f"AL GEMAAKT: {mine[0]}" if mine else "nieuw"
+        top = (f"best: {int(best['statistics'].get('viewCount', 0)):,} "
+               f"({best['snippet']['channelTitle'][:20]})") if best else "best: -"
+        print(f"{topic:<24} {status:<14.60} {count:>2} sleep video's, {recent} recent, "
+              f"{total:>10,} views samen, {top}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--days", type=int, default=45)
     ap.add_argument("--top", type=int, default=30)
+    ap.add_argument("--check", nargs="+", metavar="TOPIC",
+                    help="score these topics instead of listing trends")
     args = ap.parse_args()
     token = access_token()
+    if args.check:
+        check(token, args.check)
+        return
     now = datetime.now(timezone.utc)
     ids = sorted(recent_ids(token, now - timedelta(days=args.days)))
     rows = []

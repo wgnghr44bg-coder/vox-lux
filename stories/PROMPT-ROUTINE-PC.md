@@ -8,9 +8,12 @@ werk alles af.
 
 1. `git checkout main && git pull`. Start ComfyUI als `http://127.0.0.1:8188` niet antwoordt en
    wacht tot hij klaar is.
-2. **Onderwerp**: `python tools/sleep_trends.py` en kies volgens stap 0 en het Titanic-recept in
-   stories/ONDERWERPEN.md; anders het eerste vrije onderwerp uit "Eerst deze" (vrij = nog niet als
-   `onderwerp` in een stories/*/planning.txt op main of origin/claude/*).
+2. **Onderwerp** volgens stap 0 van het Titanic-recept in stories/ONDERWERPEN.md: nooit een
+   onderwerp dat al op Sleep Archives staat (`python tools/sleep_trends.py --check ...` toont
+   "AL GEMAAKT") of al in een stories/*/planning.txt op main of origin/claude/* staat; kies van de
+   rest het onderwerp met de meeste kans (meeste views van bestaande slaapvideo's, of nu hard
+   groeiend bij een groot kanaal volgens `python tools/sleep_trends.py`). Is er geen duidelijke
+   winnaar, neem dan het eerste vrije onderwerp uit "Eerst deze".
 3. **Datum**: de eerste vrije woensdag of zaterdag 21:00, minstens 2 dagen na vandaag. Zet
    `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
