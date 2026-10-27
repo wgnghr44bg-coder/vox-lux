@@ -240,7 +240,7 @@ const SCENES = [
       { c: 107, set: 'euro', keys: [[0, [58, 4, 4], [95, 12, -40], 50], [1, [60, 4.2, 3.5], [95, 12, -40], 48]] },
       { c: 108, set: 'base', keys: [[0, [4.6, 2.3, -5.3], [4.6, 2.3, -7.8], 46], [1, [4.6, 2.3, -5.9], [4.6, 2.3, -7.8], 46]] },
       { c: 109, set: 'ward', keys: [[0, [-8.5, 1.6, 1.1], [-2.5, 1.6, -0.2], 44], [1, [-8.3, 1.6, 1.05], [-2.5, 1.6, -0.2], 42]] },
-      { c: 110, set: 'ward', keys: [[0, [8.2, 1.6, 6.2], [9.8, 1.2, 3.4], 46], [1, [8.3, 1.58, 6.0], [9.8, 1.2, 3.4], 44]] },
+      { c: 110, set: 'ward', keys: [[0, [8.2, 1.6, 6.2], [10.4, 1.15, 3.6], 46], [1, [8.3, 1.58, 6.0], [10.4, 1.15, 3.6], 44]] },
       { c: 111, set: 'ward', keys: [[0, [10.3, 1.42, 3.95], [9.6, 1.35, 3.1], 38], [1, [10.25, 1.42, 3.9], [9.6, 1.35, 3.1], 36]] },
       { c: 112, set: 'euro', keys: [[0, [-6, 12, 30], [0, 2, -20], 50], [1, [-5, 12, 27], [0, 2, -20], 50]] },
       { c: 113, set: 'ny', keys: [[0, [-300, 60, 450], [0, 100, -300], 50], [1, [-280, 58, 430], [0, 100, -300], 50]] },
@@ -254,7 +254,7 @@ const SCENES = [
       { c: 118, set: 'base', keys: [[0, [-6.5, 2.6, 3.0], [0, 1.3, -1.5], 50], [1, [-6.0, 2.5, 2.7], [0, 1.3, -1.5], 48]] },
       { c: 119, set: 'base', keys: [[0, [4.6, 2.3, -5.2], [4.6, 2.3, -7.8], 46], [1, [4.6, 2.3, -5.7], [4.6, 2.3, -7.8], 46]] },
       { c: 120, set: 'base', keys: [[0, [-4.5, 1.7, 3.4], [-2.5, 1.3, 0.2], 50], [1, [1.5, 1.7, 3.4], [3.0, 1.3, 0.2], 50]] },
-      { c: 121, set: 'ward', keys: [[0, [6.0, 1.7, 3.0], [10.6, 1.0, 4.4], 46], [1, [6.3, 1.68, 3.1], [10.6, 1.0, 4.4], 44]] },
+      { c: 121, set: 'ward', keys: [[0, [6.0, 1.7, 3.0], [10.95, 1.0, 4.5], 46], [1, [6.3, 1.68, 3.1], [10.95, 1.0, 4.5], 44]] },
       { c: 122, set: 'ward', keys: [[0, [9.0, 1.3, 5.7], [11.0, 1.15, 4.6], 40], [1, [9.1, 1.3, 5.6], [11.0, 1.15, 4.6], 38]] },
       { c: 123, set: 'ward', keys: [[0, [8.6, 1.6, 4.0], [8.0, 1.7, 8.6], 46], [1, [8.5, 1.62, 4.3], [8.0, 1.7, 8.6], 44]] },
       { c: 124, set: 'euro', keys: [[0, [22, 1.7, 2.5], [40, 1.8, 10.8], 46], [1, [23, 1.7, 2.4], [41, 1.8, 10.8], 44]] },
@@ -1251,7 +1251,7 @@ const ward = (() => {
   const carried = person({ shirt: 0xd88aa8, pants: 0x6a8ab8, hair: 0x5a3a20, skin: 0xe0b090, s: 0.55, long: true, parent: carrier.root });
   carryPose(carrier, carried);
   const doctor = person({ shirt: 0xf2f2ee, pants: 0x2a2e36, hair: 0x6a4a2a, skin: 0xe8c0a0, coat: true, long: true, parent: D });
-  return { panelM, emM, exitM, outM, outside, cartT, lanternM, gurney, STAFF, N2, view, viewM, girl, blanket, mon, roomLampM, roomEmM, father, carrier, carried, doctor, liftLampM };
+  return { panelM, emM, exitM, outM, outside, cartT, lanternM, gurney, STAFF, N2, view, viewM, girl, blanket, pillow, mon, roomLampM, roomEmM, father, carrier, carried, doctor, liftLampM };
 })();
 // what the room window shows: the city at day / dusk / night, dark or lit
 function drawView(g, w, h, { sky = '#9ab8d8', hor = '#e8d8c0', lit = 0, dark = 0 }) {
@@ -1953,8 +1953,10 @@ function updateWard(T) {
   W.cartT.set(Math.floor(T * 30), { t: T, hr: 88, spo2: 96, bat: 1, label: 'ON BACKUP POWER' });
   // the girl in bed (from line 26), the father beside her
   const inRoom = ch > 2 || c >= 26;
-  if (inRoom) { W.girl.root.visible = W.blanket.visible = true; lie(W.girl, WD.bed.x - 0.25, 0.93, WD.bed.z, ch === 7 && c >= 122 ? 1 : 0); if (ch === 7 && c >= 122) { W.girl.root.position.set(WD.bed.x + 0.27, 0.51, WD.bed.z); W.girl.head.rotation.y = -0.35; } } else { W.girl.root.visible = W.blanket.visible = false; }
-  W.blanket.position.set(WD.bed.x - (ch === 7 && c >= 122 ? 0.3 : 0.35), ch === 7 && c >= 122 ? 0.8 : 0.9, WD.bed.z);
+  if (inRoom) { W.girl.root.visible = W.blanket.visible = true; lie(W.girl, WD.bed.x - 0.05, 1.0, WD.bed.z, ch === 7 && c >= 122 ? 1 : 0.15); if (ch === 7 && c >= 122) { W.girl.root.position.set(WD.bed.x + 0.27, 0.51, WD.bed.z); W.girl.head.rotation.y = -0.35; } } else { W.girl.root.visible = W.blanket.visible = false; }
+  W.blanket.position.set(WD.bed.x - (ch === 7 && c >= 122 ? 0.3 : 0.4), ch === 7 && c >= 122 ? 0.8 : 0.98, WD.bed.z);   // lying: head on the pillow, the blanket up to her waist
+  W.pillow.scale.y = ch === 7 && c >= 122 ? 1 : 1.6;
+  W.girl.legs.forEach(l => l.children[1].visible = false);   // no shoes in bed (they would poke through the blanket)   // propped up a little, so her face shows above the blanket
   const F = W.father;
   if (!inRoom) hide(F);
   else if (c === 26) { rest(F); place(F, 9.1, 2.55, 0.5); }
