@@ -34,6 +34,14 @@ Cijfers 27 okt 2026: Titanic 850 views (± 80% van het kanaal), 9.400 min kijkti
 meest 1-3% klikken.
 
 Daarom voor elke nieuwe video:
+0. **Eerst kijken wat nu groeit** (gratis): `python3 tools/sleep_trends.py`. Waarom: 71 van de
+   164 voorgestelde Titanic-views kwamen van één video, *What Titanic's Survivors Really Saw
+   That Night 1912* van Dusk Voyages (uit 10 okt, 146.000 views); Titanic ging van ± 10 naar
+   ± 90 views per dag. Staat er bij de grote slaapkanalen (Dusk Voyages, Bedtime & Historian,
+   History Camp, Sleepy History with Oliver, Sleepy Old World, ...) een geschiedenis-slaapvideo die
+   snel groeit en waarover wij nog niets hebben, en past het in het recept hieronder? Neem dat
+   onderwerp dan vóór de lijst, met dezelfde trefwoorden (naam, jaar) in de titel, en breng
+   hem binnen ± 3 weken uit. Grappige feitjes-compilaties en wetenschap overslaan.
 1. **Wereldberoemd verhaal** waar grote slaapkanalen al goed lopende video's over hebben
    (dan zet YouTube ons ernaast). Liefst één plek/reis + één beroemde dag of nacht, en
    bekend bij Amerikanen. Geen puur dagelijks-leven-onderwerp en geen Sleepy Facts meer.
