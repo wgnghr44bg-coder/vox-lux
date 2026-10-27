@@ -33,6 +33,23 @@ Cijfers 27 okt 2026: Titanic 850 views (± 80% van het kanaal), 9.400 min kijkti
 (naast Titanic-slaapvideo's van grote kanalen) en uit de VS. De andere video's: 1-96 views,
 meest 1-3% klikken.
 
+**Waarom Titanic hard gaat (analyse 27 okt 2026, YouTube Analytics):**
+- *Start (10-19 okt, ± 10 views/dag)*: vooral **voorgesteld** naast *What Titanic's Survivors Really
+  Saw That Night 1912* van Dusk Voyages (uit op 10 okt; vanaf die dag de eerste voorgestelde views).
+- *Doorbraak (20-25 okt)*: YouTube zet hem op de **startpagina** (bron "Browse"): 10 → 18 → 57 →
+  52 → 64 → 114 views per dag. Dat doet YouTube pas als kijkers tevreden zijn.
+- *Waarom tevreden*: kijkers laten hem **doorlopen**. Na 10% kijkt nog 31%, op de helft 24%, op 80%
+  nog 21% (andere video's zakken naar 16-17%). Gemiddeld 36 min per kijker.
+- *Op tv*: 134 views via **tv** (gem. 46 min): mensen zetten hem op in de slaapkamer. Bij de andere
+  video's bijna geen tv-kijkers.
+- *Klikken*: 5,9% op 3.723 vertoningen; titel met dezelfde trefwoorden als de grote video
+  ("Titanic", "1912", "History for Sleep").
+- *Vraag*: slaapvideo's over Titanic hebben samen ± 5 miljoen views.
+Een video gaat dus hard als (1) het onderwerp veel vraag heeft en een groot kanaal er nu een hit
+over heeft, (2) mensen klikken (≥ 5%), en vooral (3) mensen hem de hele nacht laten doorlopen:
+een gelijkmatige, rustige stem en sfeer van begin tot eind, geen harde of drukke stukken, geen
+herhaling of "nu wordt het spannend", en lang genoeg (± 2-2,5 uur).
+
 Daarom voor elke nieuwe video:
 0. **Nooit dubbel, en kies wat de meeste kans heeft** (gratis): draai
    `python3 tools/sleep_trends.py --check <kandidaten>` met de eerste ± 10 kandidaten. "AL GEMAAKT"
