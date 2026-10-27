@@ -1,141 +1,141 @@
 #	start	end	image	text
-1	0.99	3.76	c01	At eight forty-seven P M, the world goes dark.
-2	4.29	6.91	c02	In New York, skyscrapers lose their lights.
-3	7.27	10.12	c03	In Tokyo, trains grind to a halt.
-4	10.53	13.89	c04	Across Europe, traffic signals die in the middle of rush hour.
-5	14.23	18.23	c05	And inside a city hospital, a surgeon is halfway through an operation.
-6	18.72	20.21	c06	The operating lights flicker.
-7	20.54	21.48	c07	Then disappear.
-8	21.98	25.43	c08	For one terrifying second, the room is completely black.
-9	25.89	27.78	c09	Emergency lighting activates.
-10	28.17	30.15	c10	A backup generator roars to life.
-11	30.60	31.97	c11	The operation continues.
-12	32.53	37.18	c12	But in the hospital basement, an engineer stares at the generator's control panel.
-13	37.75	39.88	c13	The entire electrical grid is down.
-14	40.20	43.48	c14	And the hospital cannot survive indefinitely on backup power.
-15	44.11	45.44	c15	He checks the fuel supply.
-16	45.95	47.40	c16	Then he makes a call.
-17	47.85	48.79	c17	Nobody answers.
-18	50.37	53.30	c18	Outside, the city has vanished into darkness.
-19	53.58	55.76	c19	Inside, the countdown has begun.
-20	56.28	59.92	c20	By sunrise, the hospital is running on emergency procedures.
-21	60.43	61.58	c21	Elevators are out.
-22	62.06	65.51	c22	Some medical equipment depends on limited backup power.
-23	65.85	70.05	c23	Staff move patients manually while engineers try to conserve fuel.
-24	70.41	72.94	c24	A father arrives carrying his young daughter.
-25	73.45	75.04	c25	She needs urgent treatment.
-26	75.53	79.60	c26	The doctors can help her, but the hospital's systems are under growing pressure.
-27	80.22	85.98	c27	Downstairs, the engineer calculates how long the generator can continue operating under the current load.
-28	86.48	88.20	c28	The number is not reassuring.
-29	88.64	89.62	c29	He needs fuel.
-30	90.11	95.56	c30	But fuel stations cannot pump without electricity, and deliveries are becoming difficult to coordinate.
-31	95.87	98.43	c31	He contacts the emergency authorities again.
-32	98.93	100.44	c32	This time, someone answers.
-33	100.81	102.50	c33	A fuel convoy may be sent.
-34	102.96	105.12	c34	No arrival time is guaranteed.
-35	105.42	107.07	c35	Then the hospital's lights flicker.
-36	107.53	109.33	c36	The generator is still running.
-37	109.82	111.23	c37	But something has gone wrong.
-38	111.55	112.67	c38	Three days pass.
-39	113.11	116.06	c39	Outside, abandoned cars block the roads.
-40	116.89	119.51	c40	Supermarkets struggle to distribute food.
-41	119.80	121.63	c41	People queue for drinking water.
-42	121.96	127.54	c42	Inside the hospital, the engineer discovers a problem with a critical part of the generator system.
-43	128.07	129.46	c43	He can keep it running for now.
-44	129.96	132.03	c44	But he cannot guarantee it will last.
-45	132.52	134.72	c45	A technician searches the maintenance stores.
-46	135.28	136.98	c46	The replacement part isn't there.
-47	137.51	139.21	c47	They try to reach another hospital.
-48	139.51	141.05	c48	No reliable connection.
-49	141.31	144.91	c49	The father sits beside his daughter's bed, watching the monitor.
-50	145.52	151.15	c50	Every few seconds, he looks toward the door, waiting for someone to tell him the situation is under control.
-51	151.55	152.40	c51	Nobody does.
-52	152.69	154.59	c52	Then an alarm sounds in the basement.
-53	154.99	156.38	c53	The generator has stopped.
-54	156.88	159.56	c54	For a moment, the entire hospital is silent.
-55	160.05	163.42	c55	Emergency systems switch to their remaining backup sources.
-56	163.92	165.89	c56	The engineer rushes to the control room.
-57	166.29	170.92	c57	He has minutes to diagnose the fault before the hospital loses another layer of protection.
-58	171.51	172.73	c58	He opens the panel.
-59	173.22	174.23	c59	And sees the problem.
-60	174.57	177.16	c60	The engineer manages to restart the generator.
-61	177.69	180.20	c61	But the failure has consumed precious time.
-62	180.73	183.48	c62	The hospital's fuel supply is dangerously low.
-63	183.90	188.07	c63	A convoy is finally dispatched, carrying fuel and essential equipment.
-64	188.62	190.39	c64	It should arrive before nightfall.
-65	190.92	194.66	c65	But the main road is blocked by wrecked vehicles and a disabled truck.
-66	195.28	199.15	c66	The drivers abandon their planned route and search for a way through.
-67	199.72	205.30	c67	Inside the hospital, staff prepare for the possibility that backup power could become unreliable.
-68	205.90	207.98	c68	Nonessential systems are shut down.
-69	208.46	211.73	c69	Patients who can safely be moved are transferred where possible.
-70	212.05	214.35	c70	Every available resource is stretched.
-71	214.66	218.21	c71	The father hears an announcement asking families to remain calm.
-72	218.73	219.88	c72	He looks at his daughter.
-73	220.27	221.83	c73	Then the lights flicker again.
-74	222.43	224.92	c74	The engineer watches the generator's readings.
-75	225.32	227.82	c75	He knows the machine is working harder than it should.
-76	228.20	231.66	c76	Outside, the fuel convoy is still trying to reach the hospital.
-77	232.22	233.66	c77	And the sun is going down.
-78	234.01	238.13	c78	Two weeks into the blackout, the hospital is not the only place in danger.
-79	238.60	241.02	c79	Water systems are failing in some districts.
-80	241.51	243.42	c80	Food deliveries have broken down.
-81	243.61	246.64	c81	People are travelling long distances to find supplies.
-82	246.89	250.90	c82	The hospital has received another delivery, but it is smaller than expected.
-83	251.38	256.40	c83	The engineer and his team have kept the generator running through repairs and careful fuel management.
-84	257.06	259.84	c84	Yet they cannot repair every system at once.
-85	260.30	262.71	c85	The father has barely left his daughter's bedside.
-86	263.05	266.55	c86	Outside her room, nurses work under emergency lighting.
-87	266.98	269.09	c87	The hospital is quieter than it should be.
-88	269.50	271.23	c88	Then a radio message arrives.
-89	271.62	275.03	c89	A nearby region has begun restoring part of its electrical grid.
-90	275.64	277.39	c90	The engineer listens closely.
-91	277.68	283.13	c91	If power can be restored to the transmission network, the hospital may eventually reconnect.
-92	283.49	285.36	c92	But it is not a simple switch.
-93	286.00	287.57	c93	The grid must be stabilized.
-94	287.82	289.31	c94	Equipment must be checked.
-95	289.83	291.90	c95	Supply and demand must be balanced.
-96	292.25	293.93	c96	The message ends with a warning.
-97	294.26	295.97	c97	Restoration will take time.
-98	296.36	299.73	c98	And time is exactly what the hospital is running out of.
-99	300.04	304.18	c99	On day twenty-one, the engineer hears a sound he has almost forgotten.
-100	304.54	307.12	c100	The steady hum of equipment coming back online.
-101	307.51	309.87	c101	A nearby section of the grid has been restored.
-102	310.56	313.14	c102	The hospital begins preparing to reconnect.
-103	313.50	314.83	c103	The process is slow.
-104	315.58	320.61	c104	Systems are brought back in stages, and the engineers monitor each change carefully.
-105	321.02	322.13	c105	Then the lights come on.
-106	322.71	324.53	c106	Not just the emergency lights.
-107	324.86	325.85	c107	The main lights.
-108	326.45	328.72	c108	The hospital is connected to the grid again.
-109	329.11	330.92	c109	Staff pause in the corridors.
-110	331.16	335.78	c110	The father looks at his daughter, then at the illuminated monitor beside her bed.
-111	336.25	341.02	c111	For the first time in three weeks, he allows himself to believe that the worst may be over.
-112	341.53	343.82	c112	But outside, the city is still struggling.
-113	344.23	347.79	c113	Power has returned to some districts, while others remain dark.
-114	348.24	352.10	c114	Water, food, fuel, and medical supplies are still disrupted.
-115	352.51	353.34	c115	The lights are back.
-116	353.93	355.25	c116	Normal life is not.
-117	355.58	359.14	c117	By day thirty, more regions have restored electricity.
-118	359.76	362.32	c118	The hospital's generator finally falls silent.
-119	362.69	365.49	c119	It no longer needs to carry the entire building.
-120	365.86	371.58	c120	The engineer walks through the basement, looking at the machine that kept the hospital running when the world went dark.
-121	372.25	375.02	c121	Upstairs, the father sits beside his daughter.
-122	375.48	376.67	c122	She is recovering.
-123	376.94	383.34	c123	Outside the window, the city glows again, but the streets still bear the marks of a month without reliable power.
-124	383.79	385.22	c124	Businesses have closed.
-125	385.59	387.78	c125	Supply chains are slowly rebuilding.
-126	388.07	391.86	c126	Families are grieving losses that electricity alone cannot repair.
-127	392.63	396.12	c127	The blackout has exposed a truth that most people never consider.
-128	396.69	399.67	c128	A modern city is not simply a collection of buildings.
-129	400.03	402.99	c129	It is a chain of systems that depend on one another.
-130	403.40	404.82	c130	Water needs pumps.
-131	405.29	406.90	c131	Hospitals need power.
-132	407.45	411.91	c132	Power stations need functioning equipment and people who know how to repair it.
-133	412.20	415.99	c133	Break enough links, and even the strongest systems begin to fail.
-134	416.28	419.66	c134	The engineer turns off the basement lights and walks upstairs.
-135	420.00	423.51	c135	For thirty days, his job was to keep one generator running.
-136	423.92	426.39	c136	Now the city must rebuild everything around it.
-137	426.91	431.16	c137	And somewhere, in another control room, another engineer is checking the grid.
-138	431.65	435.45	c138	Because the most frightening question is not what happens when the lights go out.
-139	435.84	436.60	c139	It's this:
-140	436.93	439.36	c140	What happens if next time... they don't come back?
+1	0.80	4.09	c01	At eight forty-seven P M, the world goes dark.
+2	4.26	7.06	c02	In New York, skyscrapers lose their lights.
+3	7.52	10.37	c03	In Tokyo, trains grind to a halt.
+4	10.62	13.81	c04	Across Europe, traffic signals die in the middle of rush hour.
+5	14.12	18.37	c05	And inside a city hospital, a surgeon is halfway through an operation.
+6	18.66	20.42	c06	The operating lights flicker.
+7	20.64	21.90	c07	Then disappear.
+8	22.10	26.13	c08	For one terrifying second, the room is completely black.
+9	26.32	28.71	c09	Emergency lighting activates.
+10	29.06	31.53	c10	A backup generator roars to life.
+11	31.72	33.30	c11	The operation continues.
+12	33.38	38.01	c12	But in the hospital basement, an engineer stares at the generator's control panel.
+13	38.28	40.51	c13	The entire electrical grid is down.
+14	40.90	44.29	c14	And the hospital cannot survive indefinitely on backup power.
+15	44.64	46.31	c15	He checks the fuel supply.
+16	46.62	47.72	c16	Then he makes a call.
+17	48.00	49.19	c17	Nobody answers.
+18	49.54	52.58	c18	Outside, the city has vanished into darkness.
+19	52.76	55.11	c19	Inside, the countdown has begun.
+20	55.42	59.10	c20	By sunrise, the hospital is running on emergency procedures.
+21	59.60	60.84	c21	Elevators are out.
+22	61.18	64.65	c22	Some medical equipment depends on limited backup power.
+23	65.08	69.81	c23	Staff move patients manually while engineers try to conserve fuel.
+24	70.18	72.74	c24	A father arrives carrying his young daughter.
+25	73.00	74.56	c25	She needs urgent treatment.
+26	75.14	79.00	c26	The doctors can help her, but the hospital's systems are under growing pressure.
+27	79.20	85.67	c27	Downstairs, the engineer calculates how long the generator can continue operating under the current load.
+28	86.06	87.92	c28	The number is not reassuring.
+29	88.20	89.28	c29	He needs fuel.
+30	89.42	95.02	c30	But fuel stations cannot pump without electricity, and deliveries are becoming difficult to coordinate.
+31	95.32	98.13	c31	He contacts the emergency authorities again.
+32	98.50	100.17	c32	This time, someone answers.
+33	100.28	102.33	c33	A fuel convoy may be sent.
+34	102.66	104.88	c34	No arrival time is guaranteed.
+35	105.24	106.98	c35	Then the hospital's lights flicker.
+36	107.18	108.78	c36	The generator is still running.
+37	109.08	110.80	c37	But something has gone wrong.
+38	110.94	112.33	c38	Three days pass.
+39	112.40	115.58	c39	Outside, abandoned cars block the roads.
+40	115.86	118.58	c40	Supermarkets struggle to distribute food.
+41	118.88	120.69	c41	People queue for drinking water.
+42	121.06	126.83	c42	Inside the hospital, the engineer discovers a problem with a critical part of the generator system.
+43	127.20	128.95	c43	He can keep it running for now.
+44	129.46	131.88	c44	But he cannot guarantee it will last.
+45	132.16	134.76	c45	A technician searches the maintenance stores.
+46	134.98	136.86	c46	The replacement part isn't there.
+47	137.24	139.15	c47	They try to reach another hospital.
+48	139.54	141.11	c48	No reliable connection.
+49	141.40	144.92	c49	The father sits beside his daughter's bed, watching the monitor.
+50	145.10	150.94	c50	Every few seconds, he looks toward the door, waiting for someone to tell him the situation is under control.
+51	151.20	152.10	c51	Nobody does.
+52	152.22	154.11	c52	Then an alarm sounds in the basement.
+53	154.44	155.93	c53	The generator has stopped.
+54	156.14	158.65	c54	For a moment, the entire hospital is silent.
+55	158.88	162.67	c55	Emergency systems switch to their remaining backup sources.
+56	163.14	165.46	c56	The engineer rushes to the control room.
+57	165.64	170.63	c57	He has minutes to diagnose the fault before the hospital loses another layer of protection.
+58	171.14	172.35	c58	He opens the panel.
+59	172.68	174.03	c59	And sees the problem.
+60	174.50	177.70	c60	The engineer manages to restart the generator.
+61	178.00	180.53	c61	But the failure has consumed precious time.
+62	180.70	183.56	c62	The hospital's fuel supply is dangerously low.
+63	183.88	188.68	c63	A convoy is finally dispatched, carrying fuel and essential equipment.
+64	188.98	190.89	c64	It should arrive before nightfall.
+65	191.08	195.09	c65	But the main road is blocked by wrecked vehicles and a disabled truck.
+66	195.58	199.96	c66	The drivers abandon their planned route and search for a way through.
+67	200.24	205.92	c67	Inside the hospital, staff prepare for the possibility that backup power could become unreliable.
+68	206.30	208.57	c68	Nonessential systems are shut down.
+69	208.64	212.20	c69	Patients who can safely be moved are transferred where possible.
+70	212.54	214.84	c70	Every available resource is stretched.
+71	215.24	218.73	c71	The father hears an announcement asking families to remain calm.
+72	219.06	220.57	c72	He looks at his daughter.
+73	220.80	222.34	c73	Then the lights flicker again.
+74	222.74	225.31	c74	The engineer watches the generator's readings.
+75	225.60	228.49	c75	He knows the machine is working harder than it should.
+76	228.94	232.47	c76	Outside, the fuel convoy is still trying to reach the hospital.
+77	232.72	234.30	c77	And the sun is going down.
+78	234.42	238.61	c78	Two weeks into the blackout, the hospital is not the only place in danger.
+79	238.84	241.27	c79	Water systems are failing in some districts.
+80	241.42	243.12	c80	Food deliveries have broken down.
+81	243.44	246.59	c81	People are travelling long distances to find supplies.
+82	246.90	250.90	c82	The hospital has received another delivery, but it is smaller than expected.
+83	251.16	256.90	c83	The engineer and his team have kept the generator running through repairs and careful fuel management.
+84	257.34	260.02	c84	Yet they cannot repair every system at once.
+85	260.28	262.80	c85	The father has barely left his daughter's bedside.
+86	263.10	266.42	c86	Outside her room, nurses work under emergency lighting.
+87	266.64	268.75	c87	The hospital is quieter than it should be.
+88	269.02	270.91	c88	Then a radio message arrives.
+89	271.28	275.03	c89	A nearby region has begun restoring part of its electrical grid.
+90	275.42	277.33	c90	The engineer listens closely.
+91	277.68	283.28	c91	If power can be restored to the transmission network, the hospital may eventually reconnect.
+92	283.70	285.21	c92	But it is not a simple switch.
+93	285.44	287.19	c93	The grid must be stabilized.
+94	287.38	288.95	c94	Equipment must be checked.
+95	289.32	291.48	c95	Supply and demand must be balanced.
+96	291.70	293.93	c96	The message ends with a warning.
+97	294.32	296.52	c97	Restoration will take time.
+98	296.70	299.69	c98	And time is exactly what the hospital is running out of.
+99	300.00	304.75	c99	On day twenty-one, the engineer hears a sound he has almost forgotten.
+100	304.94	307.79	c100	The steady hum of equipment coming back online.
+101	308.28	310.84	c101	A nearby section of the grid has been restored.
+102	311.18	313.54	c102	The hospital begins preparing to reconnect.
+103	313.88	315.42	c103	The process is slow.
+104	315.86	321.08	c104	Systems are brought back in stages, and the engineers monitor each change carefully.
+105	321.44	322.81	c105	Then the lights come on.
+106	323.14	324.99	c106	Not just the emergency lights.
+107	325.32	326.40	c107	The main lights.
+108	326.54	328.73	c108	The hospital is connected to the grid again.
+109	329.00	331.04	c109	Staff pause in the corridors.
+110	331.26	335.79	c110	The father looks at his daughter, then at the illuminated monitor beside her bed.
+111	336.20	341.36	c111	For the first time in three weeks, he allows himself to believe that the worst may be over.
+112	341.74	344.01	c112	But outside, the city is still struggling.
+113	344.20	348.00	c113	Power has returned to some districts, while others remain dark.
+114	348.18	352.19	c114	Water, food, fuel, and medical supplies are still disrupted.
+115	352.56	353.59	c115	The lights are back.
+116	353.78	355.32	c116	Normal life is not.
+117	355.68	359.01	c117	By day thirty, more regions have restored electricity.
+118	359.34	362.08	c118	The hospital's generator finally falls silent.
+119	362.28	364.91	c119	It no longer needs to carry the entire building.
+120	365.22	371.50	c120	The engineer walks through the basement, looking at the machine that kept the hospital running when the world went dark.
+121	371.84	374.68	c121	Upstairs, the father sits beside his daughter.
+122	374.90	376.00	c122	She is recovering.
+123	376.20	383.39	c123	Outside the window, the city glows again, but the streets still bear the marks of a month without reliable power.
+124	383.82	385.45	c124	Businesses have closed.
+125	385.68	388.06	c125	Supply chains are slowly rebuilding.
+126	388.38	392.39	c126	Families are grieving losses that electricity alone cannot repair.
+127	392.72	396.23	c127	The blackout has exposed a truth that most people never consider.
+128	396.66	399.63	c128	A modern city is not simply a collection of buildings.
+129	399.84	403.00	c129	It is a chain of systems that depend on one another.
+130	403.26	404.70	c130	Water needs pumps.
+131	404.80	406.40	c131	Hospitals need power.
+132	406.78	411.85	c132	Power stations need functioning equipment and people who know how to repair it.
+133	412.20	415.98	c133	Break enough links, and even the strongest systems begin to fail.
+134	416.30	419.90	c134	The engineer turns off the basement lights and walks upstairs.
+135	420.32	424.32	c135	For thirty days, his job was to keep one generator running.
+136	424.58	427.44	c136	Now the city must rebuild everything around it.
+137	427.68	432.23	c137	And somewhere, in another control room, another engineer is checking the grid.
+138	432.42	436.39	c138	Because the most frightening question is not what happens when the lights go out.
+139	436.68	437.47	c139	It's this:
+140	437.70	440.37	c140	What happens if next time... they don't come back?
