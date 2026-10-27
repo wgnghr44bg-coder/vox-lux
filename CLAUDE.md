@@ -17,3 +17,5 @@
   `YT_REFRESH_TOKEN_ALTERAQON` = Alteraqon. Upload met het juiste token
   (bv. `YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py ...`) en controleer
   vóór het openbaar zetten via de API (`snippet.channelTitle`) dat de video op het goede kanaal staat.
+- What If-video's (IfScape3D): titel, beschrijving en tags altijd volgens `YOUTUBE-WHATIF.md` in repo `ifscape3d-videos`
+  (`What if …?` + ` #shorts` bij Shorts, korte haak + vraag met 👇, hashtags klein, categorie 28).
