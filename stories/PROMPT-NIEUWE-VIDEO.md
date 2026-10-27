@@ -27,7 +27,9 @@ A. Doe dit als allereerste, vóór het script:
    - Het schema (vaste dagen, ook in het weekend):
        lange video: woensdag en zaterdag om 21:00 Nederlandse tijd (2 per week, eigenaar, 7 okt 2026);
        GEEN Shorts meer (eigenaar, okt 2026): niet maken, niet uploaden, niet op TikTok.
-   - Onderwerp: is het hierboven leeg, neem dan het eerste onderwerp uit
+   - Onderwerp: draai eerst `python3 tools/sleep_trends.py` (stap 0 van het Titanic-recept in
+     stories/ONDERWERPEN.md): groeit er bij een groot slaapkanaal nu een passend verhaal, neem dat.
+     Anders: is het hierboven leeg, neem dan het eerste onderwerp uit
      "Nog te maken" in stories/ONDERWERPEN.md (op main) dat nog niet als
      `onderwerp` in een planning.txt staat (main of origin/claude/*). Schrijf het
      onderwerp in planning.txt zonder " (facts)".
