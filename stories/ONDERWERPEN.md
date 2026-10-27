@@ -59,9 +59,9 @@ Daarom voor elke nieuwe video:
 
 ## Weekplanning (eigenaar, 27 okt 2026)
 **2 video's per week: woensdag en zaterdag 21:00** (NL-tijd), allemaal volgens het Titanic-recept.
-Een vaste taak ("Sleep Archives – nieuwe video") start elke **zondag en donderdag 08:54** een
-cloud-sessie: onderwerp kiezen (stap 0 + lijst), script en alles wat gratis kan maken, en de
-eigenaar een kant-en-klare prompt geven voor de pc (beelden en stem via comfy, montage, upload).
+Alles gaat automatisch op de pc van de eigenaar: Windows Taakplanner start elke **zondag en
+donderdag 09:00** `stories/PROMPT-ROUTINE-PC.md` (onderwerp, script, comfy-beelden, stem, montage,
+upload). Problemen staan in `stories/ROUTINE-LOG.md`.
 Vooruitblik (stap 0 kan een onderwerp naar voren halen):
 - wo 28 / za 31 okt: Life Aboard the Mayflower, 1620 (andere sessie, online zodra klaar)
 - wo 4 nov: Life Aboard the Hindenburg, May 1937
