@@ -11,12 +11,12 @@ What happens to a modern city when the power never comes back on time?
 
 Chapters:
 0:00 8:47 PM – The last lights
-1:00 Day one – Running on borrowed time
-1:59 Day three – The first failure
-3:07 Day seven – The race for fuel
-4:08 Day fifteen – The city that cannot breathe
-5:18 Day twenty-one – The lights return
-6:17 Day thirty – What the darkness left behind
+1:03 Day one – Running on borrowed time
+2:05 Day three – The first failure
+3:17 Day seven – The race for fuel
+4:22 Day fifteen – The city that cannot breathe
+5:34 Day twenty-one – The lights return
+6:36 Day thirty – What the darkness left behind
 
 This is a fictional "What If" scenario, animated in 3D.
 
