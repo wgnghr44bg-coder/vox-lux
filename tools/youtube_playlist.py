@@ -16,6 +16,10 @@ Kinds (--soort):
     mysterie      Dark History & Mysteries   (Somerton Man, Dyatlov Pass, ...)
     oorlog        War & Survival             (Hunger Winter, Leningrad, D-Day, ...)
     verlaten      Lost & Abandoned Places    (Hashima, Centralia, ghost towns, ...)
+    reis          Voyages & Expeditions      (Titanic, Mayflower, Franklin, Oregon Trail, ...)
+
+The owner wants few playlists (28 Oct 2026): never add a kind beyond these seven. A video may
+be in two kinds (e.g. Titanic: ramp and reis): run the script once per kind.
 
 Safe to run more than once: existing playlists (same title) and videos already in a
 playlist are skipped. Scheduled (still private) videos can be added; viewers see them
@@ -47,6 +51,9 @@ KINDS = {
                "documentaries and short stories."),
     "verlaten": ("Lost & Abandoned Places",
                  "Abandoned towns, lost cities and forgotten places: calm history for sleep."),
+    "reis": ("Voyages & Expeditions",
+             "Great voyages, crossings and expeditions, from the Mayflower to the Titanic: "
+             "calm history for sleep."),
 }
 
 
