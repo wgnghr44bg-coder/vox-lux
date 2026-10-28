@@ -28,6 +28,7 @@ werk alles af.
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
    - Titel: bekende naam + maand en jaar + ` | History for Sleep`; thumbnail in de stijl van
      stories/titanic/thumbnail.jpg.
+   - **Geen ondertitels** (eigenaar, 28 okt 2026): niet in beeld en niet als ondertitelbestand op YouTube.
    - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
 5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**
    (`YT_REFRESH_TOKEN`, `tools/youtube_upload.py`), met titel, beschrijving, tags, thumbnail en
