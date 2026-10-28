@@ -122,6 +122,11 @@ the Coldest Nights", "What Did Medieval Peasants Do All Day".
 - **Titanic-recept (eigenaar, 27 okt 2026)**: verreweg de beste video is *Life Aboard the
   Titanic, April 1912* (850 views, 5,9% klikken). Zet daarom altijd **de bekende naam én
   maand/jaar** in de titel (`Life Aboard the Lusitania, May 1915`); zie `ONDERWERPEN.md`.
+- **Altijd zoals Titanic (eigenaar, 28 okt 2026: "Match de titel goed met Titanic titel … zo geldt dat
+  ook voor de rest")**: titel `Life Aboard/on the <naam>, <maand> <jaar> | History for Sleep`
+  (bv. `Life on the Oregon Trail, 1846 | History for Sleep`). Thumbnail: amberregel `<NAAM> · <MAAND JAAR>`,
+  hook = een sfeerzin, niet de titel (Titanic: `TITANIC · APRIL 1912` / `The Last Quiet Night`;
+  Oregon: `OREGON TRAIL · 1846` / `The Long Road West`). Dit gaat vóór de regel hieronder om de vorm af te wisselen.
 - **Vast patroon (eigenaar, okt 2026), naar de best lopende video's** *Life Before Fire: How
   Early Humans Survived the Night* en *Life in Old San Francisco Before the 1906 Earthquake*
   (langste kijkduur, meeste kijkers via voorgestelde video's):
