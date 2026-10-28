@@ -89,12 +89,15 @@ donderdag 09:00** `stories/PROMPT-ROUTINE-PC.md` (onderwerp, script, comfy-beeld
 upload). Problemen staan in `stories/ROUTINE-LOG.md`.
 Vooruitblik (gekozen op 27 okt 2026 met `tools/sleep_trends.py --check`: hoeveel views de
 bestaande slaapvideo's over het onderwerp samen hebben; Titanic: ± 5 miljoen):
+**Elke keer opnieuw kijken** wat bij grote kanalen nu het hardst groeit (`python tools/sleep_trends.py`)
+en een onderwerp dat daar op meelift naar voren halen; plus jubilea, feestdagen en nieuwe films.
 **Nieuwe planning (eigenaar, 28 okt 2026: "echt bekende dingen die veel mensen aantrekken en waar nu
 een hype is")**: alleen wereldberoemde onderwerpen, op een jubileum, feestdag of nieuwe film.
 Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiven naar achteren.
 - wo 28 okt: Life Aboard the Mayflower, 1620 (al openbaar)
 - wo 4 nov: Life on the Oregon Trail, 1846 (klaar, privé geüpload op de pc)
-- za 7 nov: Life in Europe During the Black Death, 1348 (± 640.000)
+- za 7 nov: How Vikings Survived the Long Dark Winter, 900 AD (hype: winter/kou-video's en Vikingen groeien
+  het hardst bij grote kanalen, okt 2026: 19.000-27.000 views per dag)
 - wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
 - za 14 nov: Life in Ancient Egypt When Tutankhamun Died, 1323 BC (± 3,4 miljoen)
 - wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)
@@ -102,12 +105,12 @@ Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiv
 - wo 25 nov: Life in Antarctica with Scott's Last Expedition, 1912 (± 2 miljoen)
 - za 28 nov: Life at Pearl Harbor, December 1941 (± 3 miljoen; 85 jaar op 7 dec)
 - wo 2 dec: Life in Philadelphia, July 1776 (Amerika 250 jaar)
-- za 5 dec: Life in Ancient Troy, 1200 BC (film *The Odyssey*, 2026)
-- wo 9 dec: Life in London Before the Great Fire of 1666 (± 80.000)
+- za 5 dec: Life in Europe During the Black Death, 1348 (± 640.000)
+- wo 9 dec: How Ice Age Humans Survived the Coldest Nights, 20,000 BC (hype, zie 7 nov)
 - za 12 dec: Life in the Trenches, Christmas 1914 (kerstbestand)
 - wo 16 dec: How Medieval Peasants Survived Winter, 1300 (film *Werwulf* 25 dec)
 - za 19 dec: Life in Bethlehem, the First Christmas (kerst)
-Later: Edmund Fitzgerald (met "Lake Superior" in de titel), Franklin ("Arctic"), Salem (vóór Halloween 2027).
+Later: Troje (*The Odyssey*), Londen 1666, Edmund Fitzgerald (met "Lake Superior" in de titel), Franklin ("Arctic"), Salem (vóór Halloween 2027).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
