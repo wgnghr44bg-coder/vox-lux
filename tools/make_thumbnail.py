@@ -35,6 +35,9 @@ FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
 TITLE_FONT = FONT_DIR / "DejaVuSerif-Bold.ttf"
 SUB_FONT = FONT_DIR / "DejaVuSerif.ttf"
 LABEL_FONT = FONT_DIR / "DejaVuSans-Bold.ttf"
+if not FONT_DIR.exists():  # Windows (pc van de eigenaar): de lettertypes die er het meest op lijken
+    WIN = Path("C:/Windows/Fonts")
+    TITLE_FONT, SUB_FONT, LABEL_FONT = WIN / "georgiab.ttf", WIN / "georgia.ttf", WIN / "verdanab.ttf"
 
 
 def cover(img: Image.Image) -> Image.Image:
