@@ -211,8 +211,11 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
     kaars), warm oranje licht tegen een koele blauwe/paarse avond. De mensen en hun
     gezichten staan **rechts of in het midden**, links onderin moet rustig zijn voor de
     tekst. Bekijk het resultaat: staat de tekst over een gezicht, kies een ander beeld.
+  - **Altijd mensen** (eigenaar, 28 okt 2026): de best lopende thumbnail (Titanic,
+    `stories/titanic/thumbnail-v2.jpg`) toont het orkest en passagiers aan dek. Nooit alleen een
+    schip, gebouw of landschap.
   - Kies eerst een passend beeld uit de video (gratis). Is er geen goed beeld met mensen,
-    maak dan één aparte thumbnail-afbeelding via xAI (`grok-imagine-image`, $0,02):
+    maak dan één aparte thumbnail-afbeelding via comfy (gratis; xAI alleen met toestemming):
     filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en
     donkerder, 16:9, geen tekst.
   - Na publicatie: test in Studio met **Test & Compare** twee varianten (andere hook
