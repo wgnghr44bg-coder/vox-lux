@@ -3,3 +3,10 @@ lang   zodra klaar (eigenaar 26 okt: "zet hem online zodra die klaar is"); was g
 (publishAt 2026-10-28T20:00:00Z = wo 28 okt 2026 21:00 NL-tijd, wintertijd UTC+1; schuift naar za 31 okt als beelden/stem niet op tijd klaar zijn)
 Waarom dit onderwerp: Titanic liftte mee op de hit van Dusk Voyages; hun Mayflower-video (86.000 weergaven in 20 dagen) loopt nu.
 Productie: alles gratis. Beelden via comfy (Z-Image Turbo, pc eigenaar), stem Chatterbox George 94% (Titanic-tempo).
+
+YouTube (Sleep Archives, zoals Titanic)
+titel      Life Aboard the Mayflower, 1620 | History for Sleep
+thumbnail  thumbnail.jpg (084, hook "The Mayflower", "September 1620 · Atlantic Ocean"); tweede variant voor Test & Compare: thumbnail-b-sterren.jpg
+beschrijving youtube-beschrijving.txt (hoofdstuktijden mét pauzes)
+tags       history for sleep, boring history for sleep, sleep documentary, bedtime story, relaxing history, sleep story, 432hz, mayflower, mayflower 1620, pilgrims, plymouth colony, colonial history, maritime history
+ONLINE     28 okt 2026, openbaar op Sleep Archives: https://youtu.be/_duWLxwIEss (2:03:35, 4K; check_video GOED; 5 piepkleine tikjes na zinseinden stilgemaakt)
