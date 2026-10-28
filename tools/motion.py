@@ -47,6 +47,8 @@ FF = imageio_ffmpeg.get_ffmpeg_exe()
 ROOT = Path(__file__).resolve().parent.parent
 LIB = "/usr/share/fonts/truetype/liberation/"
 FB, FR, FI = LIB + "LiberationSerif-Bold.ttf", LIB + "LiberationSerif-Regular.ttf", LIB + "LiberationSerif-Italic.ttf"
+if not Path(LIB).exists():  # Windows (pc van de eigenaar): Times New Roman heeft dezelfde maten als Liberation Serif
+    FB, FR, FI = "C:/Windows/Fonts/timesbd.ttf", "C:/Windows/Fonts/times.ttf", "C:/Windows/Fonts/timesi.ttf"
 CREAM = np.array([245, 238, 222], np.float32) / 255
 INK = (0.30, 0.20, 0.12)
 LAND_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson"

@@ -1,0 +1,268 @@
+{
+ "onderwerp": "Life Aboard the Mayflower, 1620",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "Scrooby"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 458.0,
+   "nummer": 2,
+   "titel": "From England to Holland"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 935.4,
+   "nummer": 3,
+   "titel": "Time to Leave Leiden"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1290,
+   "regel1": "July 1620",
+   "regel2": "Delfshaven, Holland"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 1358,
+   "tekst": "But they knew they were pilgrims, and looked not much on those things, but lifted up their eyes to the heavens, their dearest country, and quieted their spirits.",
+   "bron": "William Bradford, Of Plymouth Plantation"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1402.6,
+   "nummer": 4,
+   "titel": "The Mayflower"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1883.1,
+   "nummer": 5,
+   "titel": "The Passengers"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1900,
+   "regel1": "6 September 1620",
+   "regel2": "Plymouth, England"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 1925,
+   "titel": "The Voyage of the Mayflower, 1620",
+   "gebied": [
+    -76,
+    6,
+    38.5,
+    56
+   ],
+   "plaatsen": [
+    {
+     "naam": "Leiden",
+     "lon": 4.49,
+     "lat": 52.16,
+     "kant": "boven"
+    },
+    {
+     "naam": "Southampton",
+     "lon": -1.4,
+     "lat": 50.9,
+     "kant": "boven"
+    },
+    {
+     "naam": "Plymouth",
+     "lon": -4.14,
+     "lat": 50.37,
+     "kant": "onder"
+    },
+    {
+     "naam": "Cape Cod",
+     "lon": -70.19,
+     "lat": 42.05,
+     "kant": "boven"
+    },
+    {
+     "naam": "New Plymouth",
+     "lon": -70.66,
+     "lat": 41.96,
+     "kant": "onder"
+    }
+   ],
+   "route": [
+    [
+     -1.4,
+     50.85
+    ],
+    [
+     -1.3,
+     50.7
+    ],
+    [
+     -2.5,
+     50.4
+    ],
+    [
+     -3.5,
+     50.2
+    ],
+    [
+     -4.14,
+     50.3
+    ],
+    [
+     -6,
+     49.8
+    ],
+    [
+     -15,
+     48.6
+    ],
+    [
+     -25,
+     47.0
+    ],
+    [
+     -35,
+     45.6
+    ],
+    [
+     -45,
+     44.4
+    ],
+    [
+     -55,
+     43.4
+    ],
+    [
+     -63,
+     42.6
+    ],
+    [
+     -69.9,
+     42.1
+    ],
+    [
+     -70.19,
+     42.05
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2300.8,
+   "nummer": 6,
+   "titel": "Between the Decks"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2679.2,
+   "nummer": 7,
+   "titel": "Days at Sea"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3148.6,
+   "nummer": 8,
+   "titel": "One Night Aboard"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3538.9,
+   "nummer": 9,
+   "titel": "The Autumn Storms"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3935.3,
+   "nummer": 10,
+   "titel": "Land in Sight"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4176,
+   "regel1": "9 November 1620  ·  Daybreak",
+   "regel2": "Off Cape Cod"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 4203,
+   "tekst": "Being thus arrived in a good harbor, and brought safe to land, they fell upon their knees and blessed the God of Heaven, who had brought them over the vast and furious ocean.",
+   "bron": "William Bradford, Of Plymouth Plantation"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4337.5,
+   "nummer": 11,
+   "titel": "The Mayflower Compact"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4673.7,
+   "nummer": 12,
+   "titel": "First Steps Ashore"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5155.5,
+   "nummer": 13,
+   "titel": "The First Winter"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5523.8,
+   "nummer": 14,
+   "titel": "Spring, 1621"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5540,
+   "regel1": "March 1621",
+   "regel2": "Plymouth, New England"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5993.8,
+   "nummer": 15,
+   "titel": "Planting and Harvest"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6418.6,
+   "nummer": 16,
+   "titel": "Daily Life in Plymouth"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6840.6,
+   "nummer": 17,
+   "titel": "What Became of Them"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6865,
+   "punten": [
+    [
+     "1620",
+     "The Mayflower crosses the Atlantic"
+    ],
+    [
+     "1621",
+     "The first harvest at Plymouth"
+    ],
+    [
+     "1957",
+     "Mayflower II sails the same way"
+    ],
+    [
+     "Today",
+     "Remembered in Plymouth and Leiden"
+    ]
+   ]
+  }
+ ]
+}
