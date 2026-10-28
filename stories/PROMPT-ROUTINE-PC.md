@@ -31,8 +31,10 @@ werk alles af.
    - **Geen ondertitels** (eigenaar, 28 okt 2026): niet in beeld en niet als ondertitelbestand op YouTube.
    - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
 5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**
-   (`YT_REFRESH_TOKEN`, `tools/youtube_upload.py`), met titel, beschrijving, tags, thumbnail en
-   afspeellijst. Controleer via de API dat `snippet.channelTitle` "Sleep Archives" is; anders
+   (`YT_REFRESH_TOKEN`, `tools/youtube_upload.py`), met titel, beschrijving, tags en thumbnail.
+   Zet hem meteen in de afspeellijsten: `python tools/youtube_playlist.py --soort <soort> <id>`
+   (zet hem ook in "Full Documentaries"); hooguit 2 soorten, bv. reizen `reis`, rampen `ramp`,
+   oorlog `oorlog`. **Nooit nieuwe afspeellijsten maken** (eigenaar). Controleer dat hij erin staat. Controleer via de API dat `snippet.channelTitle` "Sleep Archives" is; anders
    meteen verwijderen en stoppen.
 6. Zet de link en de kosten (€0) in planning.txt, commit en push naar main.
 7. Lukt iets niet (ComfyUI start niet, sleutel ontbreekt, schijf vol), verwijder dan je
