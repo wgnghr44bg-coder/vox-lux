@@ -162,8 +162,7 @@ Chapters
 0:00:00 <eerste hoofdstuk>
 <tijd> <hoofdstuk>   ← uit tijdlijn-pauzes.tsv (de tijden mét extra pauzes!), 10–15 stuks
 
-Narration and images were created with the help of AI. The story is based on
-historical sources<, noem de belangrijkste bron>.
+The story is based on historical sources<, noem de belangrijkste bron>.
 
 #sleepdocumentary #<onderwerp> #history
 ```
@@ -176,7 +175,8 @@ relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
 ## Instellingen
 - Categorie: Education (`--category 27`)
 - Niet voor kinderen (`selfDeclaredMadeForKids: false`)
-- AI-inhoud gemarkeerd (`containsSyntheticMedia: true`, standaard in het script)
+- AI-inhoud gemarkeerd (`containsSyntheticMedia: true`, standaard in het script). Daarom **geen
+  AI-zin in de beschrijving** (eigenaar, 28 okt 2026): het vinkje is genoeg.
 - Privé
 - Thumbnail: **altijd in hetzelfde ontwerp (v2, sinds okt 2026)**, zodat kijkers de serie
   herkennen. Maak hem met `tools/make_thumbnail.py` (niet zelf een ander ontwerp maken):
@@ -266,7 +266,7 @@ bekeken); mysterie-Shorts die meteen spannend beginnen het best (tot 145%).
    kinderen, AI gemarkeerd. Titel:
    spannend en nieuwsgierig makend, met hoofdletters per woord en eventueel één emoji
    (zoals de best lopende Shorts), + ` | <korte naam + jaar>`, bv.
-   "His Shirt Caught Fire 60 km From the Blast 🔥 | Tunguska 1908" (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video, de AI-regel,
+   "His Shirt Caught Fire 60 km From the Blast 🔥 | Tunguska 1908" (NIET "#Shorts" in de titel; #shorts alleen in de beschrijving). Beschrijving: 1–2 zinnen, link naar de volledige video,
    `#shorts #sleepdocumentary #<onderwerp> #history`. Teksten in `shorts-teksten/`.
 6. TikTok-bijschrift: begint net als de Short meteen met het spannendste (geen "Did you
    know?"), max. ± 100 tekens + 4-5 hashtags, bv. "60 km from the blast, his shirt caught
