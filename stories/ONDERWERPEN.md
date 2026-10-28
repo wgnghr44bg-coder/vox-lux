@@ -104,6 +104,9 @@ Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiv
 - za 21 nov: Life in Dallas, November 1963 (Kennedy, 22 nov; film *November 1963* 4 dec)
 - wo 25 nov: Life in Antarctica with Scott's Last Expedition, 1912 (± 2 miljoen)
 - za 28 nov: Life at Pearl Harbor, December 1941 (± 3 miljoen; 85 jaar op 7 dec)
+  Vast (eigenaar, 28 okt): titel `Life at Pearl Harbor, December 1941 | History for Sleep`; thumbnail
+  amberregel `PEARL HARBOR · DECEMBER 1941`, hook `The Last Sunday Morning`; beeld: matrozen aan dek in
+  zacht ochtendlicht met de schepen in de haven erachter, geen vliegtuigen of rook.
 - wo 2 dec: Life in Philadelphia, July 1776 (Amerika 250 jaar)
 - za 5 dec: Life in Europe During the Black Death, 1348 (± 640.000)
 - wo 9 dec: How Ice Age Humans Survived the Coldest Nights, 20,000 BC (hype, zie 7 nov)
