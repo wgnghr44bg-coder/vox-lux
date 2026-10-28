@@ -14,6 +14,13 @@ werk alles af.
    rest het onderwerp met de meeste kans (meeste views van bestaande slaapvideo's, of nu hard
    groeiend bij een groot kanaal volgens `python tools/sleep_trends.py`). Is er geen duidelijke
    winnaar, neem dan het eerste vrije onderwerp uit "Eerst deze".
+   **Planning bijsturen op hype (eigenaar, 28 okt 2026)**: neem standaard het onderwerp dat in de
+   "Nieuwe planning" in ONDERWERPEN.md op die datum staat. Draai eerst `python tools/sleep_trends.py --days 30`:
+   groeit er nu een **wereldberoemd** onderwerp hard bij een groot kanaal (≥ 10.000 views per dag) dat
+   nog niet bij ons staat, maak dat dan in plaats van het geplande, en schuif het geplande en de rest
+   één plek op in de lijst (commit + push). **Nooit** vervangen of verschuiven: een onderwerp met een
+   vaste datum (jubileum, feestdag, filmpremière, bv. Kennedy 21 nov, Pearl Harbor 28 nov, kerst);
+   schuif dan de flexibele onderwerpen eromheen. Zet in ROUTINE-LOG.md welke hype je zag en wat je koos.
 3. **Datum**: de eerste vrije woensdag of zaterdag 21:00, minstens 2 dagen na vandaag. Zet
    `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
