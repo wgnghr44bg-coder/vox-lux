@@ -37,7 +37,7 @@ Wat ik wil:
 4. **YouTube**: upload alleen de goedgekeurde Shorts, elk apart, met `tools/youtube_upload.py`: privé, categorie Education,
    niet voor kinderen, AI gemarkeerd. Titel: een korte, rustige zin over het stukje +
    ` | <korte naam van het onderwerp>` (max. 100 tekens; NIET "#Shorts" in de titel). Beschrijving: 1–2 zinnen, een link naar de
-   volledige video (link hierboven), de AI-regel en `#shorts #sleepdocumentary #<onderwerp> #history`.
+   volledige video (link hierboven) en `#shorts #sleepdocumentary #<onderwerp> #history`.
    Tags zoals in de standaard. Geen aparte thumbnail nodig.
 5. **TikTok**: de goedgekeurde Shorts download ik uit de chat.
    Geef per goedgekeurde Short een TikTok-bijschrift (kort, rustig, 3–5 hashtags zoals
