@@ -26,3 +26,5 @@ This is a fictional "What If" scenario, animated in 3D.
 power grid, grid failure, hospital generator, emergency power, survival, documentary, 3d animation, ifscape3d
 
 **TikTok (kort):** What if the entire world lost electricity for 30 days? ⚡🌑 #whatif #blackout #powergrid #3danimation
+
+**Geüpload:** https://youtu.be/3iGK04LK-b8 (IfScape3D, privé, 28 okt 2026)
