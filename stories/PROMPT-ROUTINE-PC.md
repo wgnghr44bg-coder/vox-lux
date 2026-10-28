@@ -26,8 +26,11 @@ werk alles af.
      `C:\Users\rane\chatterbox-venv\Scripts\python.exe tools/comfy/make_voice_local.py <map>`
      (het gewone `python` heeft geen chatterbox). De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
-   - Titel: bekende naam + maand en jaar + ` | History for Sleep`; thumbnail in de stijl van
-     stories/titanic/thumbnail.jpg.
+   - Titel: bekende naam + maand en jaar + ` | History for Sleep`.
+   - Thumbnail: ontwerp v2 (`tools/make_thumbnail.py`, YOUTUBE-STANDAARD.md) zoals
+     `stories/titanic/thumbnail-v2.jpg`: **mensen van dat moment** dichtbij in warm licht (rechts of
+     in het midden), het onderwerp eromheen; nooit alleen een schip of gebouw. Geen goed beeld met
+     mensen in de video? Maak er één extra via comfy (gratis). Bekijk het resultaat zelf.
    - **Geen ondertitels** (eigenaar, 28 okt 2026): niet in beeld en niet als ondertitelbestand op YouTube.
    - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
 5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**

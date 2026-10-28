@@ -75,8 +75,11 @@ Daarom voor elke nieuwe video:
    Molly Brown). Het begin volgt de huidige regels in PROMPT-NIEUWE-VIDEO.md.
 3. **Titel met de bekende naam + maand en jaar**, als beleving: bv.
    `Life Aboard the Lusitania, May 1915`, `Life in Chicago Before the Great Fire of 1871`.
-4. **Thumbnail**: één groot, meteen herkenbaar beeld van het beroemde onderwerp (het schip,
-   de stad) in de sfeer van `stories/titanic/thumbnail.jpg`, weinig tekst. Doel: ≥ 5% klikken.
+4. **Thumbnail met mensen** (eigenaar, 28 okt 2026): zoals de huidige Titanic-thumbnail
+   `stories/titanic/thumbnail-v2.jpg`: **mensen van dat moment** dichtbij en herkenbaar (het
+   orkest en passagiers aan dek in warm lamplicht), het beroemde onderwerp eromheen (schip,
+   stad), warm licht tegen een koele avond, ontwerp v2 uit YOUTUBE-STANDAARD.md. **Nooit alleen
+   een schip of gebouw zonder mensen** (de Mayflower-thumbnail was alleen een schip). Doel: ≥ 5% klikken.
 5. Na upload: eindscherm naar de Titanic-video en in een passende afspeellijst zetten.
 
 ## Weekplanning (eigenaar, 27 okt 2026)
