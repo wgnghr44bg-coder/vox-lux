@@ -1,0 +1,1478 @@
+<title>Something Beneath the Ocean</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<style>
+  /* Layout: one 9:16 stage scaled to the window; chapter card on top, subtitles in the lower middle, preview controls at the bottom. */
+  :root {
+    --letterbox: #030507;
+    --sky: #04121a;
+    --ink: #ffffff;
+    --outline: #05080a;
+    --hud: rgba(6, 10, 14, 0.72);
+    --accent: #5af0c8;
+    --ui: "Archivo", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--letterbox); overflow: hidden; display: grid; place-items: center; font-family: var(--ui); }
+  #stage { position: relative; background: var(--sky); container-type: inline-size; overflow: hidden; touch-action: manipulation; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 52%, rgba(0, 0, 0, 0.55) 100%); }
+  .alarm { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(ellipse at 50% 48%, transparent 35%, rgba(150, 0, 6, 0.6) 100%); }
+  .flash { position: absolute; inset: 0; background: #c8fff0; opacity: 0; pointer-events: none; }
+  .fade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+  .title {
+    position: absolute; left: 7cqw; right: 7cqw; top: 12%;
+    text-align: center; pointer-events: none; color: var(--ink);
+    font: 900 8.6cqw/1.04 var(--ui); letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance;
+    -webkit-text-stroke: 1.2cqw var(--outline); paint-order: stroke fill;
+    opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; transform: translateY(2cqw);
+  }
+  .title small { display: block; margin-bottom: 2cqw; font: 800 4.2cqw/1 var(--ui); letter-spacing: 0.3em; color: var(--accent); -webkit-text-stroke: 0.8cqw var(--outline); }
+  .title.on { opacity: 1; transform: none; }
+
+  .chapter {
+    position: absolute; left: 6cqw; top: calc(6cqw + env(safe-area-inset-top, 0px));
+    pointer-events: none; color: var(--ink);
+    opacity: 0; transform: translateX(-3cqw); transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .chapter.on { opacity: 1; transform: none; }
+  .chapter b { display: block; font: 900 8.4cqw/1 var(--ui); letter-spacing: -0.01em; text-transform: uppercase; -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill; }
+  .chapter span { display: inline-block; margin-top: 1.6cqw; padding: 1cqw 2.4cqw; border-radius: 1cqw; background: rgba(4, 10, 14, 0.6); font: 800 3.3cqw/1 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+  .subs {
+    position: absolute; left: 6cqw; right: 6cqw; bottom: 25%;
+    text-align: center; pointer-events: none;
+    font: 900 6.4cqw/1.2 var(--ui); color: var(--ink); letter-spacing: -0.005em; text-wrap: balance;
+    -webkit-text-stroke: 1cqw var(--outline); paint-order: stroke fill;
+    text-shadow: 0 0.8cqw 2.4cqw rgba(0, 0, 0, 0.6);
+    opacity: 0; transform: translateY(1.5cqw); transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .subs.on { opacity: 1; transform: none; }
+
+  .hud {
+    position: absolute; left: 3cqw; right: 3cqw; bottom: calc(3cqw + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 2.4cqw; padding: 2.2cqw 3cqw; border-radius: 99px;
+    background: var(--hud); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    color: #e4eef0; font: 800 clamp(11px, 3cqw, 16px)/1 var(--ui); transition: opacity 0.35s ease;
+  }
+  .hud.hide { opacity: 0; pointer-events: none; }
+  .hud button, .hud label {
+    flex: none; display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 10px;
+    border: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.12); color: inherit; font: inherit; cursor: pointer;
+  }
+  .hud button:hover, .hud label:hover { background: rgba(255, 255, 255, 0.22); }
+  .hud button:focus-visible, .hud label:focus-within, .hud input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hud input[type="range"] { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .hud .time { flex: none; font-variant-numeric: tabular-nums; min-width: 9ch; text-align: right; }
+  .hud input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .hud svg { width: 16px; height: 16px; fill: currentColor; }
+  .hud button[aria-pressed="true"] { background: var(--accent); color: #031418; }
+  @media (prefers-reduced-motion: reduce) { .title, .chapter, .subs { transition: none; } }
+  .render .title, .render .chapter, .render .subs { transition: none; }
+</style>
+
+<div id="stage">
+  <div class="vignette"></div>
+  <div class="alarm" id="alarm"></div>
+  <div class="flash" id="flash"></div>
+  <div class="fade" id="fade"></div>
+  <div class="title" id="title"><small>What if</small>Something gigantic lived beneath the ocean?</div>
+  <div class="chapter" id="chapter"><b id="chapter-when">The deep</b><span id="chapter-what">4,000 metres down</span></div>
+  <div class="subs" id="subs" aria-live="polite"></div>
+  <div class="hud" id="hud">
+    <button id="play" type="button" aria-label="Pause"><svg viewBox="0 0 16 16" id="play-icon"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <button id="replay" type="button" aria-label="Replay from start"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.6 3.9l1.9.7A4 4 0 1 0 8 4v2.2L4.6 3.1 8 0z"/></svg></button>
+    <input id="scrub" type="range" min="0" max="100" step="0.01" value="0" aria-label="Timeline">
+    <span class="time" id="time">0:00.0</span>
+    <button id="sound" type="button" aria-pressed="false" title="Sound effects">Sound</button>
+    <label title="Add a narration audio file">Voice<input id="voice" type="file" accept="audio/*"></label>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+/* =====================================================================
+   TIMELINE — every scene has a mood value (tension, blends toward the next
+   scene), its camera shots and its subtitles. Every shot belongs to one
+   set (a location); only that set is drawn. A shot lasts until the
+   subtitle `until` starts (or [line, seconds into that line]); its keys
+   are fractions of the shot. Shot keys are in the set's own coordinates:
+   [fraction, position, target, fov, up?]; `follow` adds a moving subject
+   to position and target (`local` turns them with it), `aim` only to the
+   target. The voice was recorded before the timings were designed, so
+   the subtitles follow it and story time equals video time.
+   The end is a hard cut to black: picture and sound stop on the same frame.
+   ===================================================================== */
+const DURATION = 66.48;
+const ENDING = { cut: 64.48 };   // the hard cut to black; then about 2 s of black and silence
+const SCENES = [
+  { id: 'hook', when: 'The deep', what: '4,000 metres down',
+    env: { tension: 0.35 },
+    shots: [{ until: 2, set: 'deep', follow: 'rov', keys: [[0, [3.2, 0.9, 4.4], [0, 0.1, 0], 46], [0.45, [3.4, 1.6, 3.6], [0, -0.4, 0.4], 48], [1, [2.2, 4.2, 2.0], [0, -9, 2.4], 54]] },
+            { until: 3, set: 'deep', keys: [[0, [58, -10, 110], [0, -95, 20], 50], [1, [52, -12, 102], [0, -100, 20], 50]] }],
+    subtitles: [[0.4, 4.09, 'Imagine scientists discover something moving beneath the ocean…'], [4.19, 7.12, 'Something bigger than any animal ever seen.']] },
+  { id: 'discovery', when: 'The discovery', what: 'Sonar room',
+    env: { tension: 0.5 },
+    shots: [{ until: [3, 2.0], set: 'deep', follow: 'rov', keys: [[0, [-4.5, -1.2, 6.2], [0, -0.3, 0.4], 48], [1, [-5.0, -1.8, 7.0], [0, -0.8, 0.4], 50]] },
+            { until: 4, set: 'control', keys: [[0, [-1.15, 1.85, -1.55], [0.1, 1.7, -3.9], 42], [1, [-1.05, 1.85, -1.75], [0.1, 1.7, -3.9], 40]] },
+            { until: 5, set: 'control', keys: [[0, [2.3, 1.55, -1.25], [-0.25, 1.6, -3.4], 48], [1, [2.1, 1.55, -1.45], [-0.25, 1.6, -3.4], 46]] },
+            { until: 6, set: 'control', keys: [[0, [0.05, 1.75, -1.55], [0, 1.75, -3.9], 50], [1, [0.05, 1.75, -1.85], [0, 1.75, -3.9], 50]] },
+            { until: 7, set: 'control', keys: [[0, [0.55, 1.75, 0.4], [0, 1.6, -3.9], 50], [1, [0.45, 1.75, -0.1], [0, 1.6, -3.9], 50]] },
+            { until: 8, set: 'deep', follow: 'rov', keys: [[0, [30, -6, 42], [-10, -150, 0], 54], [1, [27, -5, 38], [-10, -120, 0], 54]] }],
+    subtitles: [[7.22, 11.41, 'Deep-sea sensors detect a massive shape moving in complete darkness.'], [11.51, 13.72, 'At first, they blame the equipment.'], [13.82, 14.82, 'Then it moves again.'],
+                [15.22, 17.03, 'It\'s over three kilometers long.'], [17.13, 18.93, 'And it\'s heading toward the surface.']] },
+  { id: 'wrong', when: 'Something is wrong', what: 'Ships go missing',
+    env: { tension: 0.7 },
+    shots: [{ until: [8, 1.5], set: 'cargo', keys: [[0, [58, 9, 64], [0, 3, 0], 44], [1, [55, 8.5, 60], [0, 1, 0], 44]] },
+            { until: 9, set: 'control', keys: [[0, [-1.5, 1.75, -2.25], [-1.5, 1.75, -3.9], 50], [1, [-1.5, 1.75, -2.4], [-1.5, 1.75, -3.9], 50]] },
+            { until: 10, set: 'control', keys: [[0, [0.25, 1.5, -2.2], [0, 1.8, -3.9], 50], [1, [0.25, 1.5, -2.35], [0, 1.8, -3.9], 48]] },
+            { until: 11, set: 'control', keys: [[0, [2.9, 2.2, 1.6], [-0.4, 1.5, -3.6], 52], [1, [2.7, 2.15, 1.3], [-0.4, 1.5, -3.6], 52]] },
+            { until: 12, set: 'deep', follow: 'rov', keys: [[0, [20, 7, 26], [0, -62, 0], 50], [1, [17, 6, 22], [0, -62, 0], 48]] },
+            { until: 13, set: 'deep', follow: 'rov', keys: [[0, [2.5, 6.5, -2.2], [0, -30, 3], 52], [1, [2.3, 6.0, -2.0], [0, -30, 3], 48]] }],
+    subtitles: [[19.03, 21.23, 'Ships begin disappearing from the area.'], [21.33, 24.3, 'Sonar detects a massive shape beneath the waves.'], [24.4, 27.36, 'Then every sensor suddenly goes silent.'],
+                [27.46, 28.68, 'Whatever is down there…'], [29.08, 30.79, 'It knows it\'s being watched.']] },
+  { id: 'surface', when: 'The surface', what: 'Research vessel',
+    env: { tension: 0.75 },
+    shots: [{ until: 14, set: 'vessel', keys: [[0, [62, 46, -58], [-6, 0, 4], 46], [1, [57, 43, -53], [-6, 0, 4], 46]] },
+            { until: 15, set: 'vessel', keys: [[0, [44, 4, 40], [0, 5, 0], 46], [1, [41, 4, 37], [0, 8, 0], 46]] },
+            { until: 16, set: 'heli', aim: 'heli', keys: [[0, [-24, 3, -20], [0, 0, 0], 52], [1, [-24, 3, -20], [0, -1, 0], 58]] },
+            { until: 17, set: 'heli', follow: 'heli', local: true, keys: [[0, [0.42, 1.62, 3.3], [0.42, 1.48, 1.55], 46], [1, [0.42, 1.6, 3.1], [0.42, 1.45, 1.55], 44]] },
+            { until: 18, set: 'heli', keys: [[0, [-30, 40, -36], [-3, 2, -1], 50], [1, [-28, 38, -34], [-3, 1, -1], 50]] }],
+    subtitles: [[30.89, 33.98, 'A research vessel spots a shadow beneath the water.'], [34.08, 36.34, 'The ocean begins to rise around the ship.'], [36.44, 40.58, 'A helicopter rushes overhead, searching the darkness with its spotlight.'],
+                [40.68, 43.08, 'Then the pilot notices something strange.'], [43.18, 44.92, 'The water beneath him is glowing.']] },
+  { id: 'reveal', when: 'The reveal', what: 'Below the helicopter',
+    env: { tension: 0.95 },
+    shots: [{ until: 19, set: 'heli', aim: 'heli', keys: [[0, [26, 3, -22], [0, -4, 0], 50], [1, [24, 3, -20], [0, -5, 0], 50]] },
+            { until: 20, set: 'heli', keys: [[0, [-3, 6.5, -12], [1, 0, 0], 48], [1, [-3, 6.2, -11], [1, 0, 0], 46]] },
+            { until: 21, set: 'heli', keys: [[0, [-6, 46, -46], [0, 0, 0], 54], [1, [-5.5, 44, -44], [0, 0, 0], 54]] },
+            { until: 22, set: 'below', keys: [[0, [22, -12, 54], [0, -27, 0], 50], [1, [20, -12.5, 50], [0, -27, 0], 50]] },
+            { until: 23, set: 'heli', follow: 'heli', local: true, keys: [[0, [0.42, 1.6, 3.0], [0.42, 1.45, 1.55], 42], [1, [0.42, 1.6, 2.9], [0.42, 1.45, 1.55], 40]] },
+            { until: 24, set: 'heli', keys: [[0, [0, 50, 24], [-2, 0, -2], 54], [1, [0, 48, 22], [-2, 0, -2], 54]] },
+            { until: 25, set: 'below', keys: [[0, [26, -18, -6], [0, -95, -110], 54], [1, [24, -19, -9], [0, -95, -110], 54]] },
+            { until: 'cut', set: 'heli', aim: 'heli', keys: [[0, [36, 6, 32], [0, -6, 0], 52], [1, [33, 7, 29], [0, -3, 0], 52]] }],
+    subtitles: [[45.02, 49.06, 'The helicopter descends, sweeping its spotlight across the waves.'], [49.16, 49.8, 'Then…'], [50.0, 53.04, 'Two enormous eyes open beneath the ocean.'],
+                [53.14, 55.02, 'They glow through the darkness.'], [55.12, 56.43, 'The pilot freezes.'], [56.53, 59.16, 'The eyes slowly turn toward the helicopter.'],
+                [59.26, 61.07, 'And deep below the surface…'], [61.47, 63.18, 'Something begins to rise.']] },
+];
+const ENV_END = { tension: 1 };
+// every shot runs until its `until` subtitle starts (a beat before it), so the next picture lands with the next line
+const SUBS = SCENES.flatMap(s => s.subtitles);
+const ln = (n, d = 0) => SUBS[n - 1][0] + d;
+const lnEnd = n => SUBS[n - 1][1];
+{
+  let t = 0;
+  for (const s of SCENES) {
+    s.start = t;
+    for (const sh of s.shots) {
+      sh.start = t; sh.end = sh.until === 'cut' ? DURATION + 60 : Array.isArray(sh.until) ? ln(sh.until[0], sh.until[1]) - 0.1 : ln(sh.until, -0.1);
+      const t1 = sh.until === 'cut' ? ENDING.cut : sh.end;
+      sh.keys = sh.keys.map(k => [lerp(sh.start, t1, k[0]), ...k.slice(1)]);
+      t = sh.end;
+    }
+    s.end = t;
+  }
+}
+// story beats (all tied to the line of narration they belong to)
+const EV = {
+  ping: ln(3, 0.25),                    // the ROV's sonar ping
+  appear: [ln(3, 2.1), ln(3, 3.6)],     // the shape appears on the screen
+  tap: [ln(4, 0.3), ln(4, 1.5)],        // the scientist taps the screen
+  moves: ln(5, 0.35),                   // the shape moves again
+  rise: [ln(7, 0), ln(8, 0)],           // it heads for the surface
+  sink: ln(8, -1.2),                    // the cargo ship goes down (it already lists when we see it)
+  lost: ln(8, 1.9),                     // its dot goes out on the radar
+  alarm: ln(9, 0.6),
+  dark: [ln(10, 0.3), ln(10, 0.75), ln(10, 1.15), ln(10, 1.5), ln(10, 1.8), ln(10, 2.1)],   // the screens go black one by one
+  look: [ln(12, 0.1), ln(12, 1.6)],     // the head lifts toward the ROV
+  bulge: [ln(14, 0), ln(15, 0.2)],      // the sea rises around the ship
+  glow: [ln(17, -0.3), ln(17, 1.2)],
+  open: [ln(20, 0.25), ln(20, 1.4)],    // the eyes open
+  turn: [ln(23, 0.2), ln(23, 2.4)],     // the eyes turn toward the helicopter
+  dome: [ln(25, -0.4), ENDING.cut],     // something rises: the water bulges up
+};
+// impacts: [time, strength] → camera shake (and a hit in the sound)
+const SHAKES = [[EV.moves, 0.25], [EV.alarm, 0.15], [EV.bulge[0] + 0.4, 0.5], [EV.open[0] + 0.1, 0.35]];
+const RUMBLES = [[EV.rise[0], EV.rise[1], 0.12], [ln(8, -0.1), ln(8, 1.4), 0.25], [EV.bulge[0], EV.bulge[1], 0.35], [ln(15, -0.2), ln(17, -0.1), 0.06], [ln(18, 0), ln(19, -0.1), 0.05], [EV.dome[0], ENDING.cut + 1, 0.4]];   // continuous tremble: [from, to, strength]
+
+// ---------- helpers ----------
+function lerp(a, b, k) { return a + (b - a) * k; }
+const TAU = Math.PI * 2;
+const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const VA = a => V(a[0], a[1], a[2]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const easeInOut = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const hash = (a, b = 0) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s); };
+let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const params = new URLSearchParams(location.search);
+const isMobile = matchMedia('(pointer: coarse)').matches;
+const pulse = (d, rise = 30, fall = 6) => d > 0 ? (1 - Math.exp(-d * rise)) * Math.exp(-d * fall) : 0;   // flashes rise and fall over a few frames
+const inT = (T, a, b) => T >= a && T < b;
+const track = (pts, T) => { if (T <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (T <= pts[i][0]) return lerp(pts[i - 1][1], pts[i][1], (T - pts[i - 1][0]) / (pts[i][0] - pts[i - 1][0])); return pts[pts.length - 1][1]; };
+// smooth path through [t, x, y, z] keys (Hermite); outside the keys it keeps going straight
+function pathAt(K, T) {
+  const n = K.length, P = i => V(K[i][1], K[i][2], K[i][3]);
+  const vel = i => i === 0 ? P(1).sub(P(0)).divideScalar(K[1][0] - K[0][0]) : i === n - 1 ? P(n - 1).sub(P(n - 2)).divideScalar(K[n - 1][0] - K[n - 2][0]) : P(i + 1).sub(P(i - 1)).divideScalar(K[i + 1][0] - K[i - 1][0]);
+  if (T <= K[0][0]) return P(0).add(vel(0).multiplyScalar(T - K[0][0]));
+  if (T >= K[n - 1][0]) return P(n - 1).add(vel(n - 1).multiplyScalar(T - K[n - 1][0]));
+  let i = 0; while (T > K[i + 1][0]) i++;
+  const h = K[i + 1][0] - K[i][0], s = (T - K[i][0]) / h, s2 = s * s, s3 = s2 * s;
+  return P(i).multiplyScalar(2 * s3 - 3 * s2 + 1).add(vel(i).multiplyScalar((s3 - 2 * s2 + s) * h)).add(P(i + 1).multiplyScalar(-2 * s3 + 3 * s2)).add(vel(i + 1).multiplyScalar((s3 - s2) * h));
+}
+const pathDir = (K, T) => pathAt(K, T + 0.06).sub(pathAt(K, T - 0.06)).normalize();
+const pathSpeed = (K, T) => pathAt(K, T + 0.06).distanceTo(pathAt(K, T - 0.06)) / 0.12;
+const _m4 = new THREE.Matrix4(), _o3 = V();
+function lookQ(fwd, up) { _m4.lookAt(fwd, _o3, up); return new THREE.Quaternion().setFromRotationMatrix(_m4); }
+
+function envAt(T) {
+  let i = SCENES.findIndex(s => T < s.end); if (i < 0) i = SCENES.length - 1;
+  const s = SCENES[i], next = SCENES[i + 1]?.env ?? ENV_END;
+  return { tension: lerp(s.env.tension, next.tension, smooth(0, 1, (T - s.start) / (s.end - s.start))) };
+}
+
+/* ===================================================================== RENDERER */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x04121a);
+scene.fog = new THREE.FogExp2(0x0c4058, 0.03);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(50, 9 / 16, 0.05, 6000);
+const hemi = new THREE.HemisphereLight(0x8090a0, 0x202020, 0.6); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1);
+sun.castShadow = true; sun.shadow.mapSize.set(isMobile ? 1024 : 2048, isMobile ? 1024 : 2048);
+scene.add(sun, sun.target);
+const PL = [0, 1, 2, 3].map(() => { const p = new THREE.PointLight(0xffffff, 0, 30, 1.6); scene.add(p); return p; });
+// one real spotlight: the ROV's lamps or the helicopter's searchlight
+const spot = new THREE.SpotLight(0xfff0dc, 0, 60, 0.4, 0.6, 1.2); scene.add(spot, spot.target);
+
+/* ===================================================================== MATERIALS + BUILDERS */
+const matCache = new Map();
+function mat(color, o = {}) {
+  const key = JSON.stringify([color, o]);
+  if (!matCache.has(key)) {
+    const m = new THREE.MeshStandardMaterial({ color, roughness: o.rough ?? 0.8, metalness: o.metal ?? 0, flatShading: !!o.flat, vertexColors: !!o.vc });
+    if (o.glow) { m.emissive = new THREE.Color(o.glowColor ?? color); m.emissiveIntensity = o.glow; }
+    if (o.side) m.side = o.side;
+    if (o.env) { m.envMap = envTex; m.envMapIntensity = o.env; }
+    if (o.opacity !== undefined) { m.transparent = true; m.opacity = o.opacity; m.depthWrite = !!o.depthWrite; }
+    matCache.set(key, m);
+  }
+  return matCache.get(key);
+}
+const rbCache = new Map();
+function rbox(w, h, d, r) {
+  const m = Math.min(w, h, d); r = Math.min(r ?? m * 0.12, m / 2 - 1e-4);
+  const key = `${w}|${h}|${d}|${r}`;
+  if (!rbCache.has(key)) { const g = new RoundedBoxGeometry(w, h, d, 2, r); g.translate(0, h / 2, 0); rbCache.set(key, g); }
+  return rbCache.get(key);
+}
+function mesh(parent, geo, material, x = 0, y = 0, z = 0, o = {}) {
+  const m = new THREE.Mesh(geo, material);
+  m.position.set(x, y, z);
+  if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  if (o.s) typeof o.s === 'number' ? m.scale.setScalar(o.s) : m.scale.set(...o.s);
+  m.castShadow = o.shadow !== false; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+// a rounded box whose bottom sits at y
+const box = (p, w, h, d, color, x, y, z, o = {}) => mesh(p, rbox(w, h, d, o.r), o.m ?? mat(color, o), x, y, z, o);
+const group = (p, x = 0, y = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, y, z); p.add(g); return g; };
+function cyl(p, rT, rB, h, color, x, y, z, o = {}) { const g = new THREE.CylinderGeometry(rT, rB, h, o.seg ?? 10, 1, !!o.open); g.translate(0, h / 2, 0); return mesh(p, g, o.m ?? mat(color, o), x, y, z, o); }
+function canvasTex(w, h, draw) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; }
+// a screen whose picture is redrawn when its key changes
+function screenTex(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  let last = null;
+  return { t, set(key, ...a) { if (key === last) return; last = key; draw(g, w, h, ...a); t.needsUpdate = true; } };
+}
+function instanced(parent, geo, material, list, fn, o = {}) {
+  const im = new THREE.InstancedMesh(geo, material, Math.max(1, list.length));
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), c = new THREE.Color();
+  list.forEach((it, i) => { const r = fn(it, i, q.identity(), c); im.setMatrixAt(i, m4.compose(r.p, r.q ?? q, r.s ?? V(1, 1, 1))); if (r.c !== undefined) im.setColorAt(i, c.set(r.c)); });
+  if (!list.length) im.count = 0;
+  im.castShadow = !!o.shadow; im.receiveShadow = true; parent.add(im); return im;
+}
+const sphG = new THREE.SphereGeometry(1, 12, 8);
+const icoG = new THREE.IcosahedronGeometry(1, 0);
+const headG = new THREE.IcosahedronGeometry(1, 2);
+const NOISE_GLSL = `
+float h3(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float vnoise(vec3 x){ vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(h3(i), h3(i + vec3(1,0,0)), f.x), mix(h3(i + vec3(0,1,0)), h3(i + vec3(1,1,0)), f.x), f.y),
+             mix(mix(h3(i + vec3(0,0,1)), h3(i + vec3(1,0,1)), f.x), mix(h3(i + vec3(0,1,1)), h3(i + vec3(1,1,1)), f.x), f.y), f.z); }
+float fbm(vec3 p){ float a = 0.5, s = 0.0; for (int i = 0; i < 5; i++) { s += a * vnoise(p); p *= 2.03; a *= 0.5; } return s; }
+`;
+const IDENT = new THREE.Quaternion(), HIDE = new THREE.Matrix4().compose(V(0, -1e4, 0), IDENT, V(0.001, 0.001, 0.001));
+
+/* ===================================================================== SHELL GEOMETRY (hulls and bodies are rings of half-ellipses, low-poly)
+   ring: [z, half width, height above the centre line, depth below it, centre line y, squareness (2 = ellipse), x offset] */
+function smoothRings(R, sub = 3) {
+  const out = [];
+  for (let i = 0; i < R.length - 1; i++) for (let s = 0; s < sub; s++) {
+    const k = s / sub, a = R[Math.max(0, i - 1)], b = R[i], c = R[i + 1], d = R[Math.min(R.length - 1, i + 2)];
+    out.push(b.map((_, j) => { const p0 = a[j] ?? 0, p1 = b[j] ?? 0, p2 = c[j] ?? 0, p3 = d[j] ?? 0; return 0.5 * (2 * p1 + (-p0 + p2) * k + (2 * p0 - 5 * p1 + 4 * p2 - p3) * k * k + (-p0 + 3 * p1 - 3 * p2 + p3) * k * k * k); }));
+  }
+  out.push(R[R.length - 1]); return out;
+}
+function shell(rings, n, a0, a1, colorFn, jitter = 0) {
+  const pos = [], col = [], idx = [], c3 = new THREE.Color();
+  rings.forEach(([z, w, hu, hl, c = 0, e = 2, xo = 0], i) => {
+    for (let j = 0; j <= n; j++) {
+      const th = a0 + (a1 - a0) * j / n, cs = Math.cos(th), sn = Math.sin(th), pw = 2 / e;
+      const jt = 1 + jitter * (hash(i * 13.1, (j % n) * 7.7) - 0.5) * (i > 0 && i < rings.length - 1 ? 1 : 0);
+      const x = xo + w * Math.sign(cs) * Math.pow(Math.abs(cs), pw) * jt, y = c + (sn >= 0 ? hu : hl) * Math.sign(sn) * Math.pow(Math.abs(sn), pw) * jt;
+      pos.push(x, y, z); c3.set(colorFn(z, sn, j, i, cs)); col.push(c3.r, c3.g, c3.b);
+    }
+  });
+  for (let i = 0; i < rings.length - 1; i++) for (let j = 0; j < n; j++) { const a = i * (n + 1) + j, b = a + n + 1; idx.push(a, a + 1, b, a + 1, b + 1, b); }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  g.setIndex(idx); g.computeVertexNormals(); return g;
+}
+function finGeo(pts, depth = 0.1) {
+  const s = new THREE.Shape(); pts.forEach(([x, z], i) => i ? s.lineTo(x, -z) : s.moveTo(x, -z));
+  const g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: false }); g.rotateX(-Math.PI / 2); g.translate(0, -depth / 2, 0); g.computeVertexNormals(); return g;
+}
+
+/* ===================================================================== THE CREATURE (never seen whole)
+   One unit = half its length; head at +z, back at +y. As a silhouette it is plain black; at the end it has skin and eyes. */
+const LEV_R = smoothRings([[-1.0, 0.004, 0.004, 0.004, 0], [-0.92, 0.025, 0.022, 0.02, 0], [-0.7, 0.055, 0.05, 0.045, 0], [-0.4, 0.09, 0.08, 0.075, 0], [-0.1, 0.125, 0.105, 0.1, 0],
+  [0.25, 0.145, 0.12, 0.115, 0], [0.55, 0.15, 0.12, 0.115, -0.005], [0.78, 0.14, 0.1, 0.1, -0.01], [0.92, 0.115, 0.075, 0.08, -0.015], [0.99, 0.065, 0.04, 0.05, -0.02], [1.02, 0.01, 0.01, 0.01, -0.02]]);
+const EYE = { x: 0.09, y: 0.071, z: 0.86 };   // eye position (per side), in creature units
+function makeLev(parent, material, o = {}) {
+  const root = group(parent), L = { root, fins: [] };
+  const body = mesh(root, shell(LEV_R, 28, 0, TAU, () => 0xffffff, 0.05), material, 0, 0, 0, { shadow: false });
+  // a ridge of plates along the back
+  const RID = []; for (let i = 0; i < 30; i++) { const z = 0.75 - i * 0.055, h = 0.03 + 0.03 * Math.sin(Math.PI * i / 30); RID.push({ z, h, y: (z > -0.4 ? 0.105 + 0.015 * Math.cos(z * 2) : 0.06 + (z + 0.4) * 0.05) }); }
+  instanced(root, new THREE.ConeGeometry(1, 1, 4).translate(0, 0.5, 0), material, RID, r => ({ p: V(0, r.y, r.z), s: V(0.012, r.h, 0.03) }));
+  // long side fins in pairs
+  const finG = finGeo([[0, 0.06], [0.18, 0.0], [0.42, -0.06], [0.5, -0.04], [0.32, 0.03], [0.12, 0.12], [0, 0.14]], 0.012);
+  for (const [z, s] of [[0.5, 1], [0.05, 0.85], [-0.4, 0.65]]) for (const sx of [-1, 1]) {
+    const f = group(root, sx * 0.12, -0.03, z); f.scale.set(sx * s, s, s); mesh(f, finG, material, 0, 0, 0, { shadow: false }); L.fins.push(f);
+  }
+  // tail fluke
+  const fl = group(root, 0, 0, -0.98); mesh(fl, finGeo([[0, 0], [0.2, -0.08], [0.32, -0.16], [0.18, -0.1], [0, -0.06], [-0.18, -0.1], [-0.32, -0.16], [-0.2, -0.08]], 0.01), material, 0, 0, 0, { shadow: false }); L.fluke = fl;
+  if (o.eyes) {
+    // glowing eyes: an almond of light with a slit pupil and two lids that close over it (lids scale the eye flat)
+    L.eyes = [-1, 1].map(sx => {
+      const e = group(root, sx * EYE.x, EYE.y, EYE.z); e.rotation.set(-0.35, sx * 0.3, 0);
+      const ball = mesh(e, new THREE.SphereGeometry(1, 24, 12), o.eyeMat, 0, 0, 0, { s: [0.022, 0.012, 0.04], shadow: false });
+      const pupil = mesh(e, new THREE.SphereGeometry(1, 12, 8), new THREE.MeshBasicMaterial({ color: 0x050805 }), 0, 0.009, 0, { s: [0.0035, 0.004, 0.032], shadow: false });
+      const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotTex, color: 0x6affc0, transparent: true, opacity: 0.5, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
+      halo.scale.set(0.07, 0.07, 1); e.add(halo);
+      return { e, ball, pupil, halo };
+    });
+  }
+  return L;
+}
+function levPose(L, T, o = {}) {
+  L.fins.forEach((f, i) => { f.rotation.z = (i % 2 ? -1 : 1) * (0.15 * Math.sin(T * 0.5 + i * 0.7)); f.rotation.y = 0.1 * Math.sin(T * 0.4 + i); });
+  L.fluke.rotation.x = 0.12 * Math.sin(T * 0.45);
+  if (L.eyes) L.eyes.forEach((E, i) => {
+    const op = o.open ?? 1;
+    E.ball.scale.set(0.022, 0.012 * Math.max(0.03, op), 0.04);
+    E.pupil.visible = op > 0.05; E.pupil.position.set(clamp(o.lookX ?? 0, -1, 1) * 0.012, 0.012 * op - 0.002, (o.lookZ ?? 0) * 0.012);
+    E.pupil.scale.set(0.0035, 0.004 * Math.max(0.1, op), 0.03);
+    E.halo.material.opacity = 0.35 * op;
+  });
+}
+// a soft round dot texture (glows)
+const dotTex = canvasTex(64, 64, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.4, 'rgba(255,255,255,0.45)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+
+/* ===================================================================== LIGHT BEAMS (visible cones: the ROV's lamps, the helicopter's searchlight)
+   apex at the origin, the cone opens along +z to radius 1 at z = 1; scale it with (radius, radius, length) */
+const beamG = (() => { const g = new THREE.CylinderGeometry(0.03, 1, 1, 28, 1, true); g.translate(0, -0.5, 0); g.rotateX(-Math.PI / 2); return g; })();
+function makeBeam(parent, color, alpha) {
+  const u = { uA: { value: alpha }, uCol: { value: new THREE.Color(color) } };
+  const m = new THREE.Mesh(beamG, new THREE.ShaderMaterial({
+    uniforms: u, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, fog: false,
+    vertexShader: `varying float vT; varying vec3 vN, vV; void main(){ vT = position.z; vec4 mv = modelViewMatrix * vec4(position, 1.0); vV = -mv.xyz; vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform float uA; uniform vec3 uCol; varying float vT; varying vec3 vN, vV;
+      void main(){ float edge = pow(abs(dot(normalize(vN), normalize(vV))), 1.6); float a = uA * pow(1.0 - vT, 1.4) * edge * smoothstep(0.0, 0.08, vT) * smoothstep(0.6, 3.5, length(vV));
+        gl_FragColor = vec4(uCol * a, 1.0); }`,
+  }));
+  m.frustumCulled = false; m.renderOrder = 5; parent.add(m); return { m, u };
+}
+function aimBeam(b, from, to, halfAngle, maxLen = 1e9) {
+  const L = Math.min(maxLen, from.distanceTo(to)), r = L * Math.tan(halfAngle);
+  b.m.position.copy(from); b.m.lookAt(to); b.m.scale.set(r, r, L);
+}
+
+/* ===================================================================== WATER (shared by the sea sets)
+   The sea is a grid that is dense near its centre; the waves are moved on the CPU and get smooth normals from them.
+   Under the surface the shader can draw a dark shadow, a blue-green glow, two glowing eyes and the searchlight's pool. */
+const WAVES = [[0.13, 0.09, 0.3, 1.0, 0], [0.08, 0.15, 1.2, 1.25, 1.3], [0.05, 0.27, -0.6, 1.7, 2.1], [0.035, 0.55, 2.2, 2.4, 0.4], [0.02, 0.9, -1.8, 3.1, 5.2]];
+function seaGeo(R = 700, N = 140) {
+  const g = new THREE.BufferGeometry(), pos = [], idx = [];
+  const f = u => R * Math.sign(u) * (0.015 * Math.abs(u) + 0.985 * u * u);   // dense near the middle, but never thinner than ~15 cm (tiny faces would sparkle)
+  for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) pos.push(f(j / N * 2 - 1), 0, f(i / N * 2 - 1));
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) { const a = i * (N + 1) + j, b = a + N + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
+  g.userData.base = Float32Array.from(pos);
+  return g;
+}
+const seaU = () => ({
+  uSky: { value: new THREE.Color(0x8a9aa6) }, uDeep: { value: new THREE.Color(0x0a2230) }, uSunDir: { value: V(0, 1, 0) }, uSunCol: { value: new THREE.Color(0) },
+  uFogCol: { value: new THREE.Color() }, uFogD: { value: 0.01 }, uUnder: { value: 0 }, uWin: { value: new THREE.Color(0xd0f0ff) }, uMirror: { value: new THREE.Color(0x06202c) },
+  uTime: { value: 0 }, uFoamC: { value: new THREE.Vector2() }, uFoamR: { value: 0 }, uFoamK: { value: 0 }, uO: { value: V() },
+  uShC: { value: new THREE.Vector2() }, uShAx: { value: new THREE.Vector2(1, 1) }, uShAng: { value: 0 }, uShK: { value: 0 },
+  uGlC: { value: new THREE.Vector2() }, uGlR: { value: 20 }, uGlK: { value: 0 }, uGlCol: { value: new THREE.Color(0x30e0c0) },
+  uE1: { value: new THREE.Vector2() }, uE2: { value: new THREE.Vector2() }, uEyeOpen: { value: 0 }, uEyeK: { value: 0 }, uPup: { value: new THREE.Vector2() }, uEyeA: { value: 4.5 }, uEyeB: { value: 2.0 },
+  uSpotP: { value: V() }, uSpotD: { value: V(0, -1, 0) }, uSpotK: { value: 0 }, uSpotCos: { value: 0.97 },
+});
+const SEA_FS = NOISE_GLSL + `varying vec3 vW, vN;
+  uniform vec3 uSky, uDeep, uSunDir, uSunCol, uFogCol, uWin, uMirror, uO, uGlCol, uSpotP, uSpotD; uniform float uFogD, uUnder, uTime, uFoamR, uFoamK;
+  uniform vec2 uFoamC, uShC, uShAx, uGlC, uE1, uE2, uPup; uniform float uShAng, uShK, uGlR, uGlK, uEyeOpen, uEyeK, uEyeA, uEyeB, uSpotK, uSpotCos;
+  // one eye seen through the water: an almond along z with a slit pupil; every edge is soft (the water blurs it)
+  vec3 eye(vec2 lp, vec2 E){
+    vec2 d = lp - E; float a = uEyeA, ty = d.y / a;
+    float bb = uEyeB * uEyeOpen * max(0.0, 1.0 - ty * ty);
+    float inside = (1.0 - smoothstep(bb - 0.3, bb + 0.45, abs(d.x))) * (1.0 - smoothstep(0.9, 1.08, abs(ty))) * smoothstep(0.0, 0.12, uEyeOpen);
+    float pz = (d.y - uPup.y) / (a * 0.85), w = 0.5 * max(0.0, 1.0 - pz * pz);
+    float pup = 1.0 - smoothstep(w * 0.5, w + 0.35, abs(d.x - uPup.x));
+    float rr = length(vec2(d.x / max(uEyeB, 0.1), ty));
+    vec3 iris = mix(vec3(1.0, 0.95, 0.35), vec3(0.35, 1.0, 0.55), smoothstep(0.1, 0.9, rr));
+    float halo = uEyeOpen * exp(-(d.x * d.x) / (uEyeB * uEyeB * 5.0) - ty * ty * 0.7);
+    return uEyeK * (iris * inside * (1.0 - 0.97 * pup) * 0.38 + vec3(0.15, 0.7, 0.45) * halo * 0.3);
+  }
+  void main(){
+    vec3 v = normalize(cameraPosition - vW); float d = length(cameraPosition - vW); vec3 c; vec3 lw = vW - uO; vec2 lp = lw.xz;
+    // the facets get calmer with distance, so far-away waves never sparkle or flicker
+    vec3 n = normalize(mix(normalize(vN), vec3(0.0, 1.0, 0.0), 0.9 * smoothstep(6.0, 60.0, d)));
+    vec3 L = lw - uSpotP; float pool = uSpotK * smoothstep(uSpotCos, uSpotCos + 0.03, dot(normalize(L), uSpotD)) / (1.0 + dot(L, L) * 0.0015);
+    if (uUnder < 0.5) {
+      float fr = 0.03 + 0.97 * pow(1.0 - max(dot(n, v), 0.0), 5.0);
+      vec3 r = reflect(-v, n);
+      vec3 deep = uDeep;
+      // a dark shape under the water
+      vec2 q = lp - uShC; float cs = cos(uShAng), sn = sin(uShAng); q = vec2(cs * q.x + sn * q.y, -sn * q.x + cs * q.y);
+      float sh = uShK * (1.0 - smoothstep(0.55, 1.0, length(q / uShAx)));
+      deep *= 1.0 - 0.8 * sh;
+      c = mix(deep, uSky, clamp(fr * 1.3, 0.0, 1.0) * (1.0 - 0.5 * sh));
+      c += uSunCol * pow(max(dot(r, uSunDir), 0.0), 30.0) * 0.12 * (1.0 - smoothstep(20.0, 120.0, d));
+      // the glow from below and the eyes
+      vec2 gd = lp - uGlC; float gl = uGlK * exp(-dot(gd, gd) / (uGlR * uGlR)) * (0.75 + 0.5 * fbm(vec3(lp * 0.035, uTime * 0.12)));
+      c += uGlCol * gl * (1.0 - 0.5 * fr);
+      c += eye(lp, uE1) + eye(lp, uE2);
+      // the searchlight's pool
+      c += vec3(1.0, 0.95, 0.85) * pool * (0.35 + 0.65 * max(dot(n, -normalize(L)), 0.0));
+      float fd = length(lp - uFoamC), fo = uFoamK * smoothstep(uFoamR * 0.6, uFoamR * 0.9, fd) * (1.0 - smoothstep(uFoamR * 0.9, uFoamR * 1.25, fd)) * smoothstep(0.5, 0.8, fbm(vec3(lp * 0.12, uTime * 0.4)) + 0.15);
+      c = mix(c, vec3(0.82, 0.88, 0.9), clamp(fo, 0.0, 1.0));
+    } else {
+      float ct = dot(-v, n), win = smoothstep(0.6, 0.74, ct);
+      float rip = fbm(vec3(lp * 0.06, uTime * 0.35));
+      c = mix(uMirror, uWin * (0.7 + 0.6 * rip), win) + vec3(0.85, 0.95, 1.0) * pool * 0.9;
+    }
+    c = mix(c, uFogCol, 1.0 - exp(-pow(d * uFogD, 2.0)));
+    gl_FragColor = vec4(c, 1.0); }`;
+function makeSea(parent, u) {
+  const m = new THREE.Mesh(seaGeo(), new THREE.ShaderMaterial({
+    uniforms: u, side: THREE.FrontSide, fog: false,
+    vertexShader: `varying vec3 vW, vN; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; vN = normal; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: SEA_FS,
+  }));
+  m.frustumCulled = false; parent.add(m); u.mat = m.material; return m;
+}
+// wave height at (x, z) in a set's own coordinates; `extra` adds a swell
+function waveH(x, z, T, amp = 1, extra = null) {
+  let h = 0; for (const [a, k, ang, w, ph] of WAVES) h += a * Math.sin(k * (x * Math.cos(ang) + z * Math.sin(ang)) - w * T + ph);
+  return h * amp + (extra ? extra(x, z, T) : 0);
+}
+function moveSea(sea, T, amp, extra) {
+  const p = sea.geometry.attributes.position, b = sea.geometry.userData.base;
+  for (let i = 0; i < p.count; i++) p.array[i * 3 + 1] = waveH(b[i * 3], b[i * 3 + 2], T, amp, extra);
+  p.needsUpdate = true; sea.geometry.computeVertexNormals();   // smooth normals from the waves (per-pixel ones sparkle)
+}
+// a boat riding the waves: height from the middle, pitch and roll from the water under bow, stern and both sides
+function ride(obj, x, z, yaw, half, beam, T, amp, extra, sink = 0, extraPitch = 0, extraRoll = 0) {
+  const f = V(Math.sin(yaw), 0, Math.cos(yaw)), s = V(Math.cos(yaw), 0, -Math.sin(yaw));
+  const h = (dx, dz) => waveH(x + dx, z + dz, T, amp, extra);
+  const hb = h(f.x * half, f.z * half), hs = h(-f.x * half, -f.z * half), hp = h(-s.x * beam, -s.z * beam), hst = h(s.x * beam, s.z * beam);
+  obj.position.set(x, (hb + hs + hp + hst) / 4 - sink, z);
+  obj.rotation.set(0, 0, 0); obj.rotateY(yaw);
+  obj.rotateX(-Math.atan2(hb - hs, 2 * half) + extraPitch); obj.rotateZ(Math.atan2(hp - hst, 2 * beam) * -1 + extraRoll);
+}
+
+// sun rays from the surface: long soft quads that turn around their own axis toward the camera
+const RAY_VS = `varying vec2 vUv; varying vec3 vW; void main(){ vUv = uv; vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`;
+const RAY_FS = `uniform float uA, uTime, uSeed; uniform vec3 uCol; varying vec2 vUv; varying vec3 vW;
+  void main(){ float e = sin(3.14159 * vUv.x); e *= e;
+    float a = uA * pow(vUv.y, 1.5) * e * (0.75 + 0.25 * sin(uTime * 0.7 + uSeed * 9.0 + vUv.y * 3.0));
+    a *= smoothstep(1.0, 7.0, length(cameraPosition - vW));
+    gl_FragColor = vec4(uCol * a, 1.0); }`;
+function makeRays(parent, n, area, len, dir, color) {
+  const geo = new THREE.PlaneGeometry(1, 1).translate(0, -0.5, 0);
+  const R = [];
+  for (let i = 0; i < n; i++) {
+    const u = { uA: { value: 0 }, uTime: { value: 0 }, uSeed: { value: rnd() }, uCol: { value: new THREE.Color(color) } };
+    const m = new THREE.Mesh(geo, new THREE.ShaderMaterial({ uniforms: u, vertexShader: RAY_VS, fragmentShader: RAY_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, fog: false }));
+    m.frustumCulled = false; parent.add(m);
+    const a = rnd() * TAU, r = Math.sqrt(rnd()) * area.r;
+    R.push({ m, u, top: V(area.x + Math.cos(a) * r, 0, area.z + Math.sin(a) * r), w: area.w * (0.4 + rnd() * 0.8), len: len * (0.6 + rnd() * 0.5), a: 0.5 + rnd() * 0.5 });
+  }
+  return { R, dir: dir.clone().normalize() };
+}
+const _x = V(), _y = V(), _t = V(), _z = V();
+function updateRays(rays, setO, T, strength) {
+  const cam = camera.position.clone().sub(setO), D = rays.dir;
+  for (const r of rays.R) {
+    _y.copy(D).negate(); _t.copy(cam).sub(r.top); _x.crossVectors(_y, _t).normalize(); _z.crossVectors(_x, _y);
+    r.m.matrix.makeBasis(_x.clone().multiplyScalar(r.w), _y.clone().multiplyScalar(r.len), _z).setPosition(r.top);
+    r.m.matrixAutoUpdate = false; r.m.matrixWorldNeedsUpdate = true;
+    r.u.uA.value = strength * r.a; r.u.uTime.value = T;
+  }
+}
+
+// floating specks that wrap around the camera (marine snow)
+const snowU = { uCam: { value: V() }, uOff: { value: V() }, uBox: { value: 20 }, uCol: { value: new THREE.Color(0xa0d0e0) }, uOp: { value: 0 }, uPx: { value: 800 }, uSize: { value: 0.03 } };
+const SNOW_VS = `uniform vec3 uCam, uOff; uniform float uBox, uPx, uSize; attribute float aR; varying float vF;
+  void main(){ vec3 p = mod(position * uBox + uOff - uCam + uBox * 0.5, uBox) - uBox * 0.5 + uCam;
+    vec4 mv = viewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv;
+    gl_PointSize = clamp(uSize * (0.5 + aR) * uPx / max(0.1, -mv.z), 1.0, 6.0);
+    vF = (1.0 - smoothstep(uBox * 0.28, uBox * 0.5, length(p - uCam))) * smoothstep(0.4, 1.5, -mv.z); }`;
+const SNOW_FS = `uniform vec3 uCol; uniform float uOp; varying float vF; void main(){ float r = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol * uOp * vF * smoothstep(0.5, 0.1, r), 1.0); }`;
+function pointCloud(n, u) {
+  const g = new THREE.BufferGeometry(), p = new Float32Array(n * 3), r = new Float32Array(n);
+  for (let i = 0; i < n; i++) { p[i * 3] = rnd(); p[i * 3 + 1] = rnd(); p[i * 3 + 2] = rnd(); r[i] = rnd(); }
+  g.setAttribute('position', new THREE.BufferAttribute(p, 3)); g.setAttribute('aR', new THREE.BufferAttribute(r, 1));
+  const pts = new THREE.Points(g, new THREE.ShaderMaterial({ uniforms: u, vertexShader: SNOW_VS, fragmentShader: SNOW_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
+  pts.frustumCulled = false; return pts;
+}
+const snow = pointCloud(isMobile ? 900 : 1800, snowU); scene.add(snow);
+// glowing plankton far below (the creature blocks it); one cloud, moved to the set that needs it
+const glowU = { uCam: { value: V() }, uOff: { value: V() }, uBox: { value: 700 }, uCol: { value: new THREE.Color(0x4ae8d0) }, uOp: { value: 0 }, uPx: { value: 800 }, uSize: { value: 1.6 } };
+const glowPts = pointCloud(7000, glowU); scene.add(glowPts);
+
+/* ===================================================================== SETS (locations, far apart; only the active one is drawn) */
+const SETS = { deep: V(0, 0, 0), control: V(9000, 0, 0), cargo: V(-9000, 0, 0), vessel: V(0, 0, 9000), heli: V(0, 0, -9000), below: V(9000, 0, 9000) };
+const G = {}, ST = {};   // G: moving things per set, ST: static things per set (merged after building)
+for (const k in SETS) { G[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); ST[k] = group(scene, SETS[k].x, SETS[k].y, SETS[k].z); }
+
+/* ===================================================================== SKY (follows the camera; above water: gradient, clouds, sun or moon; below: the glow of the water) */
+const skyU = {
+  uTop: { value: new THREE.Color() }, uHor: { value: new THREE.Color() }, uBot: { value: new THREE.Color() }, uCloudCol: { value: new THREE.Color(0x8a96a2) },
+  uSunDir: { value: V(0, 1, 0) }, uSunCol: { value: new THREE.Color() }, uSunR: { value: 0.02 }, uSunGlow: { value: 1 }, uCloud: { value: 0 }, uUnder: { value: 1 }, uTime: { value: 0 },
+};
+const sky = new THREE.Mesh(new THREE.SphereGeometry(3000, 48, 24), new THREE.ShaderMaterial({
+  uniforms: skyU, side: THREE.BackSide, depthWrite: false, depthTest: false, fog: false,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: NOISE_GLSL + `uniform vec3 uTop, uHor, uBot, uSunDir, uSunCol, uCloudCol; uniform float uSunR, uSunGlow, uCloud, uUnder, uTime; varying vec3 vD;
+  void main(){ vec3 d = normalize(vD); float h = d.y, a = acos(clamp(dot(d, uSunDir), -1.0, 1.0)); vec3 c;
+    if (uUnder > 0.5) {
+      c = h > 0.0 ? mix(uHor, uTop, pow(clamp(h, 0.0, 1.0), 1.3)) : mix(uHor, uBot, pow(clamp(-h, 0.0, 1.0), 0.45));
+      c += uSunCol * uSunGlow * (exp(-a * 4.0) * 0.6 + exp(-a * 14.0));
+    } else {
+      c = h > 0.0 ? mix(uHor, uTop, pow(clamp(h, 0.0, 1.0), 0.55)) : mix(uHor, uBot, pow(clamp(-h, 0.0, 1.0), 0.35));
+      vec2 q = d.xz / max(h + 0.08, 0.05);
+      float cl = uCloud * smoothstep(0.42, 0.75, fbm(vec3(q * 0.9 + vec2(uTime * 0.01, 0.0), 1.7))) * smoothstep(-0.02, 0.12, h);
+      float disc = 1.0 - smoothstep(uSunR * 0.85, uSunR, a);
+      c += uSunCol * (disc * 2.5 + uSunGlow * (exp(-a * 6.0) * 0.35 + exp(-a * 24.0) * 0.6)) * (1.0 - 0.85 * cl);
+      c = mix(c, uCloudCol * (0.75 + 0.5 * fbm(vec3(q * 2.0, 3.1))) + uSunCol * 0.25 * exp(-a * 4.0), cl);
+    }
+    gl_FragColor = vec4(c, 1.0); }`,
+}));
+sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
+function skyLook(top, hor, bot) { skyU.uTop.value.set(top); skyU.uHor.value.set(hor); skyU.uBot.value.set(bot); }
+
+/* ===================================================================== SET: DEEP (the abyss: a small ROV with its lamps; far below, something moves) */
+// the ROV: long along +z (lamps at the front), drifting slowly down
+const rovAt = T => V(0.4 * Math.sin(T * 0.21), -0.12 * T + 0.25 * Math.sin(T * 0.6), 0.18 * T);
+function makeRov(parent) {
+  const root = group(parent), R = { root };
+  const yel = mat(0xffa010, { rough: 0.45, flat: true }), dark = mat(0x1a1d22, { rough: 0.5, metal: 0.4, env: 0.6 }), grey = mat(0x6a7078, { rough: 0.5, metal: 0.5, env: 0.6 });
+  box(root, 2.0, 0.55, 2.4, 0, 0, 0.55, 0, { m: yel, r: 0.12 });                                // buoyancy block
+  for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(root, 0.09, 0.85, 0.09, 0, sx * 0.9, -0.3, sz * 1.1, { m: dark, r: 0.02 });   // frame posts
+  for (const sx of [-1, 1]) box(root, 0.09, 0.09, 2.3, 0, sx * 0.9, -0.34, 0, { m: dark, r: 0.02 });
+  box(root, 1.6, 0.4, 1.8, 0, 0, -0.1, 0, { m: grey, r: 0.06 });                                  // electronics pods
+  for (const sx of [-1, 1]) { cyl(root, 0.14, 0.14, 0.42, 0, sx * 1.1, 0.25, -0.9, { m: dark, seg: 12, rx: Math.PI / 2 }); cyl(root, 0.12, 0.12, 0.3, 0, sx * 0.55, 0.55, 0, { m: dark, seg: 12 }); }
+  mesh(root, new THREE.SphereGeometry(0.2, 14, 10, 0, TAU, 0, Math.PI / 2), mat(0x0c1a22, { rough: 0.05, metal: 0.3, env: 2 }), 0, 0.12, 1.2, { rx: Math.PI / 2 });   // camera dome
+  R.lenses = [-1, 1].map(sx => { cyl(root, 0.11, 0.11, 0.18, 0, sx * 0.55, 0.35, 1.15, { m: dark, seg: 12, rx: Math.PI / 2 }); return mesh(root, new THREE.CircleGeometry(0.095, 14), new THREE.MeshBasicMaterial({ color: 0xfff4dc }), sx * 0.55, 0.35, 1.34, { shadow: false }); });
+  // the arm, folded in front
+  const arm = group(root, 0.45, -0.35, 1.0); box(arm, 0.08, 0.08, 0.6, 0, 0, 0, 0.3, { m: grey, r: 0.02, rx: 0.5 });
+  // the tether up to the ship
+  cyl(root, 0.035, 0.035, 300, 0, 0, 0.9, -0.6, { m: mat(0xe0a020, { rough: 0.6 }), seg: 5, shadow: false });
+  R.beams = [-1, 1].map(sx => makeBeam(parent, 0xfff0d0, 0.1));
+  return R;
+}
+// the shape below: glides across, rises at "heading toward the surface", then hangs still under the ROV and lifts its head
+const LEV_DEEP_S = 170;
+function levDeep(T) {
+  if (T < ln(8)) {
+    const x = lerp(-230, 120, T / ln(8)), up = smooth(EV.rise[0], EV.rise[1], T);
+    return { p: V(x, -265 + 95 * up, 18), yaw: Math.PI / 2, pitch: -0.32 * smooth(EV.rise[0], EV.rise[0] + 1.6, T) };
+  }
+  const head = smooth(EV.look[0], EV.look[1], T);
+  return { p: V(-LEV_DEEP_S * 0.9 + 4, -185 + 2 * Math.sin(T * 0.3), 4), yaw: Math.PI / 2 - 0.05 * head, pitch: -0.12 * head };
+}
+const deep = (() => {
+  const S = ST.deep, D = G.deep;
+  const rov = makeRov(D);
+  const lev = makeLev(D, new THREE.MeshBasicMaterial({ color: 0x010406, fog: false })); lev.root.scale.setScalar(LEV_DEEP_S);
+  // the sonar ping: a ring of light that grows out from the ROV
+  const pingM = new THREE.MeshBasicMaterial({ color: 0x7affe0, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide, fog: false });
+  const ping = mesh(D, new THREE.RingGeometry(0.96, 1, 64), pingM, 0, 0, 0, { rx: -Math.PI / 2, shadow: false });
+  // a blue whale swimming past, for scale
+  const whale = makeLev(D, mat(0x5a7488, { flat: true, rough: 0.5 })); whale.root.scale.setScalar(13);
+  return { rov, lev, ping, pingM, whale };
+})();
+
+/* ===================================================================== SET: CONTROL (the ship's sonar room: screens, two scientists, an alarm light) */
+const SC = {   // screen positions on the back wall (z = -3.9): x, y, w, h
+  sonar: [0, 1.75, 1.15, 1.6], radar: [-1.5, 1.75, 1.0, 1.0], wave: [1.45, 2.1, 0.92, 0.56], data: [1.45, 1.4, 0.92, 0.56], top: [-1.5, 2.72, 0.92, 0.46],
+};
+// one of the screens that go dark: [screen, time] (the sonar last)
+const DARK = { top: EV.dark[0], radar: EV.dark[1], wave: EV.dark[2], data: EV.dark[3], side1: EV.dark[4], sonar: EV.dark[5] };
+const noSignal = (g, w, h, k) => {
+  g.fillStyle = '#05070a'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 260; i++) { const x = hash(i, k) * w, y = hash(i + 7, k) * h, b = 40 + 60 * hash(i + 3, k); g.fillStyle = `rgb(${b},${b},${b})`; g.fillRect(x, y, 2 + 3 * hash(i, 1), 2); }
+  g.fillStyle = '#e8eef0'; g.font = `900 ${Math.round(w * 0.1)}px Archivo, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('NO SIGNAL', w / 2, h / 2);
+};
+// the sonar: depth runs down the screen, the surface at the top, the sea floor at the bottom
+const sonarTex = screenTex(640, 900, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, '#04261e'); bg.addColorStop(1, '#021410'); g.fillStyle = bg; g.fillRect(0, 0, w, h);
+  g.strokeStyle = 'rgba(80,255,190,0.16)'; g.lineWidth = 2; for (let i = 1; i < 8; i++) { g.beginPath(); g.moveTo(70, i * h / 8); g.lineTo(w, i * h / 8); g.stroke(); } for (let i = 1; i < 6; i++) { g.beginPath(); g.moveTo(70 + i * (w - 70) / 6, 70); g.lineTo(70 + i * (w - 70) / 6, h); g.stroke(); }
+  g.fillStyle = 'rgba(120,255,200,0.75)'; g.font = '700 22px Archivo, sans-serif'; g.textAlign = 'left'; g.textBaseline = 'middle';
+  for (let i = 1; i < 8; i++) g.fillText(`${i * 500}`, 8, i * h / 8);
+  g.font = '800 28px Archivo, sans-serif'; g.fillText('DEEP SONAR · ARRAY 3', 80, 36);
+  // speckle (fixed for a moment, so it does not flicker)
+  for (let i = 0; i < 160; i++) { g.fillStyle = `rgba(90,255,190,${0.1 + 0.25 * hash(i, s.k)})`; g.fillRect(70 + hash(i * 3, s.k) * (w - 70), 70 + hash(i * 5, s.k) * (h - 70), 3, 3); }
+  // the surface line (waves) at the top and the sea floor at the bottom
+  g.strokeStyle = 'rgba(140,255,220,0.9)'; g.lineWidth = 4; g.beginPath(); for (let x = 70; x <= w; x += 8) g.lineTo(x, 84 + 6 * Math.sin(x * 0.05 + s.ph)); g.stroke();
+  g.fillStyle = 'rgba(70,180,120,0.55)'; g.beginPath(); g.moveTo(70, h); for (let x = 70; x <= w; x += 10) g.lineTo(x, h - 50 - 22 * Math.sin(x * 0.013) - 12 * Math.sin(x * 0.05)); g.lineTo(w, h); g.fill();
+  if (s.shape > 0) {
+    // the shape: a long glowing mass with a tail
+    const cx = s.x * w, cy = s.y * h, L = w * 0.36, H = h * 0.045;
+    g.save(); g.globalAlpha = s.shape; g.shadowColor = '#5affc8'; g.shadowBlur = 24; g.fillStyle = 'rgba(140,255,215,0.92)';
+    g.translate(cx, cy); g.rotate(s.tilt); g.beginPath(); g.moveTo(L * 0.55, 0); g.quadraticCurveTo(L * 0.45, -H * 1.1, 0, -H); g.quadraticCurveTo(-L * 0.45, -H * 0.8, -L * 0.75, -H * 0.15);
+    g.lineTo(-L, -H * 0.5); g.lineTo(-L * 0.92, 0); g.lineTo(-L, H * 0.5); g.lineTo(-L * 0.75, H * 0.15); g.quadraticCurveTo(-L * 0.45, H * 0.9, 0, H * 1.05); g.quadraticCurveTo(L * 0.45, H * 1.1, L * 0.55, 0); g.fill();
+    g.restore();
+    if (s.scale > 0) {
+      g.save(); g.globalAlpha = s.scale; g.strokeStyle = '#ffffff'; g.lineWidth = 4; const y = cy + H * 2.4;
+      g.beginPath(); g.moveTo(cx - L, y - 14); g.lineTo(cx - L, y); g.lineTo(cx + L * 0.55, y); g.lineTo(cx + L * 0.55, y - 14); g.stroke();
+      g.fillStyle = '#ffffff'; g.font = '900 64px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText('3 KM', cx - L * 0.22, y + 48); g.restore();
+    }
+    if (s.up > 0) {
+      g.save(); g.globalAlpha = s.up; g.fillStyle = '#ffd24a'; g.font = '900 40px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText('▲ ASCENDING', w * 0.55, cy - H * 3);
+      g.font = '800 30px Archivo, sans-serif'; g.fillText(`DEPTH ${Math.round(s.depth).toLocaleString('en-US')} m`, w * 0.55, cy + H * 3); g.restore();
+    }
+  }
+  if (s.label) { g.fillStyle = s.labelCol ?? '#ffd24a'; g.font = '900 30px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText(s.label, w * 0.5, h * 0.9 - 40); }
+  if (s.glitch > 0) {   // the screen stutters when it is tapped
+    for (let i = 0; i < 9; i++) { const y = hash(i, s.k) * h, hh = 10 + 40 * hash(i, s.k + 1); g.drawImage(g.canvas, 0, y, w, hh, (hash(i + 2, s.k) - 0.5) * 60 * s.glitch, y, w, hh); }
+    g.fillStyle = `rgba(200,255,230,${0.12 * s.glitch})`; g.fillRect(0, 0, w, h);
+  }
+});
+// the radar: ships as dots; one goes out
+const radarTex = screenTex(512, 512, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  g.fillStyle = '#031a12'; g.fillRect(0, 0, w, h);
+  const cx = w / 2, cy = h / 2 + 10, R = w * 0.42;
+  g.strokeStyle = 'rgba(80,255,170,0.3)'; g.lineWidth = 2; for (let i = 1; i <= 4; i++) { g.beginPath(); g.arc(cx, cy, R * i / 4, 0, TAU); g.stroke(); }
+  g.beginPath(); g.moveTo(cx - R, cy); g.lineTo(cx + R, cy); g.moveTo(cx, cy - R); g.lineTo(cx, cy + R); g.stroke();
+  const sw = g.createConicGradient ? g.createConicGradient(s.a - 0.9, cx, cy) : null;
+  if (sw) { sw.addColorStop(0, 'rgba(80,255,170,0)'); sw.addColorStop(0.14, 'rgba(80,255,170,0.35)'); sw.addColorStop(0.145, 'rgba(80,255,170,0)'); g.fillStyle = sw; g.beginPath(); g.arc(cx, cy, R, 0, TAU); g.fill(); }
+  const dots = [[0.55, -0.3, 1], [-0.4, 0.45, 1], [0.2, 0.6, 1], [-0.6, -0.5, 1], [0.32, -0.62, s.target]];
+  dots.forEach(([x, y, k], i) => { if (k <= 0) return; g.fillStyle = i === 4 ? `rgba(255,220,90,${k})` : 'rgba(150,255,200,0.95)'; g.beginPath(); g.arc(cx + x * R, cy + y * R, i === 4 ? 9 : 7, 0, TAU); g.fill(); });
+  g.fillStyle = 'rgba(150,255,200,0.8)'; g.font = '700 22px Archivo, sans-serif'; g.textAlign = 'left'; g.fillText('SURFACE RADAR', 14, 28);
+  if (s.target > 0) { g.fillStyle = `rgba(255,220,90,${s.target})`; g.fillText('MV ORION', cx + 0.32 * R + 14, cy - 0.62 * R + 6); }
+  if (s.lost > 0) { g.globalAlpha = s.lost; g.fillStyle = '#ff4a3a'; g.font = '900 40px Archivo, sans-serif'; g.textAlign = 'center'; g.fillText('CONTACT LOST', cx, h - 40); g.globalAlpha = 1; }
+});
+const waveTex = screenTex(512, 312, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  g.fillStyle = '#04141e'; g.fillRect(0, 0, w, h);
+  g.strokeStyle = 'rgba(90,200,255,0.9)'; g.lineWidth = 3; g.beginPath();
+  for (let x = 0; x <= w; x += 4) { const t = x / w * 10 + s.ph; g.lineTo(x, h / 2 + (Math.sin(t * 3.1) * 0.4 + Math.sin(t * 7.3) * 0.25) * h * 0.18 * s.amp); } g.stroke();
+  g.fillStyle = 'rgba(150,220,255,0.8)'; g.font = '700 24px Archivo, sans-serif'; g.fillText('HYDROPHONE 2', 12, 30);
+});
+const dataTex = screenTex(512, 312, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  g.fillStyle = '#0c1018'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 12; i++) { const v = 0.3 + 0.6 * hash(i, Math.floor(s.ph)); g.fillStyle = i % 3 ? 'rgba(120,200,255,0.8)' : 'rgba(255,200,90,0.85)'; g.fillRect(20 + i * 39, h - 20 - v * (h - 70), 26, v * (h - 70)); }
+  g.fillStyle = 'rgba(200,220,240,0.85)'; g.font = '700 24px Archivo, sans-serif'; g.fillText('PRESSURE / TEMP', 12, 30);
+});
+const topTex = screenTex(512, 256, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  g.fillStyle = '#0a121a'; g.fillRect(0, 0, w, h);
+  g.fillStyle = s.alarm ? '#ff5a4a' : 'rgba(150,230,200,0.9)'; g.font = '900 40px Archivo, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.fillText(s.alarm ? '⚠ PROXIMITY ALERT' : 'ROV LINK: OK', w / 2, h / 2);
+});
+const sideTex = screenTex(512, 320, (g, w, h, s) => {
+  if (s.off) return noSignal(g, w, h, s.k);
+  const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, '#0c2a3a'); bg.addColorStop(1, '#020a10'); g.fillStyle = bg; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(255,240,200,0.18)'; g.beginPath(); g.moveTo(w * 0.3, 0); g.lineTo(w * 0.7, 0); g.lineTo(w * 0.95, h); g.lineTo(w * 0.05, h); g.fill();
+  g.fillStyle = 'rgba(220,240,255,0.85)'; g.font = '700 22px Archivo, sans-serif'; g.fillText('ROV CAM 1 · 3,850 m', 12, 28);
+});
+// a standing person (long along +y, face toward +z); arms hang from the shoulders, rotation.x swings them forward (negative)
+function makePerson(parent, o) {
+  const root = group(parent), P = { root, arms: [], legs: [] };
+  const top = mat(o.top, { rough: 0.8, flat: true }), pants = mat(o.pants ?? 0x23262e, { flat: true }), skin = mat(o.skin ?? 0xd0a080, { flat: true }), hair = mat(o.hair ?? 0x2a1c14, { flat: true });
+  for (const sx of [-1, 1]) { const l = group(root, sx * 0.1, 0.92, 0); box(l, 0.15, 0.9, 0.17, 0, 0, -0.9, 0, { m: pants, r: 0.05 }); box(l, 0.15, 0.08, 0.26, 0, 0, -0.92, 0.04, { m: mat(0x15161a), r: 0.03 }); P.legs.push(l); }
+  P.body = group(root, 0, 0.9, 0);
+  box(P.body, 0.42, 0.62, 0.24, 0, 0, 0, 0, { m: top, r: 0.08 });
+  if (o.coat) box(P.body, 0.46, 0.5, 0.27, 0, 0, -0.18, 0, { m: top, r: 0.07 });
+  P.head = group(P.body, 0, 0.66, 0);
+  mesh(P.head, headG, skin, 0, 0.12, 0, { s: [0.105, 0.125, 0.115] });
+  mesh(P.head, headG, hair, 0, 0.17, -0.02, { s: [0.11, 0.1, 0.11] });
+  for (const sx of [-1, 1]) mesh(P.head, sphG, mat(0x101010), sx * 0.038, 0.13, 0.1, { s: 0.012, shadow: false });
+  if (o.glasses) box(P.head, 0.15, 0.03, 0.02, 0, 0, 0.115, 0.11, { m: mat(0x101010), r: 0.01, shadow: false });
+  for (const sx of [-1, 1]) { const a = group(P.body, sx * 0.27, 0.56, 0); const g = new THREE.CylinderGeometry(0.055, 0.045, 0.58, 6); g.translate(0, -0.29, 0); mesh(a, g, top); mesh(a, sphG, skin, 0, -0.62, 0, { s: [0.05, 0.06, 0.045] }); P.arms.push(a); }
+  return P;
+}
+const control = (() => {
+  const S = ST.control, D = G.control;
+  const wall = mat(0x2c3a48, { rough: 0.85, flat: true }), panel = mat(0x3a4a5a, { rough: 0.7, flat: true }), floor = mat(0x1c2228, { rough: 0.9 }), desk = mat(0x232a32, { rough: 0.5, metal: 0.3, env: 0.4 });
+  box(S, 9, 0.1, 8, 0, 0, -0.1, -0.5, { m: floor });
+  box(S, 9, 3.2, 0.2, 0, 0, 0, -4.1, { m: wall }); box(S, 0.2, 3.2, 8, 0, -4.1, 0, -0.5, { m: wall }); box(S, 0.2, 3.2, 8, 0, 4.1, 0, -0.5, { m: wall });
+  box(S, 9, 0.12, 8, 0, 0, 3.2, -0.5, { m: panel });
+  for (let i = -3; i <= 3; i++) box(S, 0.06, 3.0, 0.06, 0, i * 1.2, 0, -3.98, { m: panel, r: 0.02 });
+  // ceiling lamps (cool panels)
+  for (const [x, z] of [[-1.6, -2.4], [1.6, -2.4], [-1.6, 0.4], [1.6, 0.4]]) box(S, 1.0, 0.04, 0.4, 0, x, 3.14, z, { m: mat(0xdfefff, { glow: 0.9, glowColor: 0xcfe6ff }), shadow: false });
+  // portholes on the side wall (dusk outside)
+  for (const z of [-2.4, -0.6, 1.2]) { mesh(S, new THREE.TorusGeometry(0.32, 0.06, 6, 20), mat(0x8a96a0, { metal: 0.6, rough: 0.4, env: 0.8 }), 4.0, 1.8, z, { ry: Math.PI / 2 }); mesh(S, new THREE.CircleGeometry(0.31, 20), mat(0x26405a, { glow: 0.8, glowColor: 0x3a5a7a }), 3.99, 1.8, z, { ry: -Math.PI / 2, shadow: false }); }
+  // the desk with keyboards and lamps
+  box(S, 6.4, 0.08, 0.9, 0, 0, 0.8, -3.35, { m: desk }); box(S, 6.4, 0.8, 0.1, 0, 0, 0, -3.75, { m: desk });
+  for (const x of [-1.5, -0.1, 1.3]) box(S, 0.55, 0.03, 0.2, 0, x, 0.88, -3.15, { m: mat(0x15181c), r: 0.01 });
+  for (let i = 0; i < 18; i++) box(S, 0.03, 0.01, 0.03, 0, -2.8 + i * 0.32, 0.885, -3.6, { m: mat([0x3aff7a, 0xffb43a, 0x3ab4ff][i % 3], { glow: 1.5 }), shadow: false });
+  // chairs
+  for (const x of [-1.9, 2.0]) { cyl(S, 0.03, 0.03, 0.45, 0, x, 0, -2.4, { m: desk }); box(S, 0.48, 0.08, 0.48, 0, x, 0.45, -2.4, { m: mat(0x1a1c20), r: 0.03 }); box(S, 0.48, 0.55, 0.07, 0, x, 0.5, -2.15, { m: mat(0x1a1c20), r: 0.03 }); }
+  // screens (their own light; the frame around each)
+  const screens = {};
+  const scr = (name, tex, x, y, w, h, z = -3.88, ry = 0) => {
+    const g = group(D, x, y, z); g.rotation.y = ry;
+    box(g, w + 0.08, h + 0.08, 0.06, 0, 0, -h / 2 - 0.04, -0.04, { m: mat(0x0c0e12, { rough: 0.4 }), r: 0.02 });
+    const m = new THREE.MeshBasicMaterial({ map: tex.t, toneMapped: false });
+    screens[name] = { mesh: mesh(g, new THREE.PlaneGeometry(w, h), m, 0, 0, 0.005, { shadow: false }), m };
+  };
+  for (const n of ['sonar', 'radar', 'wave', 'data', 'top']) scr(n, { sonar: sonarTex, radar: radarTex, wave: waveTex, data: dataTex, top: topTex }[n], ...SC[n]);
+  scr('side1', sideTex, -3.98, 1.75, 1.0, 0.62, -1.9, Math.PI / 2);
+  // the alarm beacon on the ceiling
+  const beacon = mesh(D, new THREE.SphereGeometry(0.12, 12, 8), new THREE.MeshBasicMaterial({ color: 0x401010 }), 0, 3.05, -1.0, { shadow: false });
+  // two scientists: A at the sonar, B beside him
+  const A = makePerson(D, { top: 0xb8c0c6, coat: true, skin: 0xc89070, hair: 0x2a1e18, glasses: true });
+  const B = makePerson(D, { top: 0x2a4a6a, skin: 0x8a5a3e, hair: 0x101010 });
+  A.root.position.set(-0.35, 0, -2.5); A.root.rotation.y = Math.PI; B.root.position.set(0.85, 0, -2.25); B.root.rotation.y = Math.PI - 0.25;
+  return { screens, beacon, A, B };
+})();
+
+/* ===================================================================== SET: CARGO (a cargo ship at dusk goes down) */
+const cargo = (() => {
+  const S = ST.cargo, D = G.cargo;
+  const u = seaU(); u.uO.value.copy(SETS.cargo); const sea = makeSea(D, u);
+  const ship = group(D);
+  const hullR = [[-30, 6.5, 6, 6, 0, 5], [-24, 7.2, 6.2, 6, 0, 5], [10, 7.2, 6.2, 6, 0, 5], [22, 6.4, 6.4, 5.4, 0, 4], [28, 4, 6.8, 4, 0, 3], [31, 0.6, 7, 1, 0, 2.5]];
+  const colorFn = (z, s) => s < -0.35 ? 0x7a1e1a : s < 0.9 ? 0x1c2a44 : 0x2a3448;
+  mesh(ship, shell(smoothRings(hullR), 24, 0, TAU, colorFn), mat(0xffffff, { vc: true, flat: true, rough: 0.6 }), 0, 0, 0);
+  box(ship, 13, 0.3, 54, 0x3a3a3a, 0, 5.9, -2);
+  // containers in stacks
+  const CON = []; for (let r = 0; r < 7; r++) for (let c = 0; c < 4; c++) for (let l = 0; l < 2 + (hash(r, c) > 0.4 ? 1 : 0); l++) CON.push({ x: -4.5 + c * 3, y: 6.2 + l * 2.6, z: -16 + r * 6.2, c: [0xb83a2a, 0x2a6ab8, 0xd8a028, 0x3a8a4a, 0xc8c8c8, 0x8a3a8a][Math.floor(hash(r * 7 + c, l) * 6)] });
+  instanced(ship, new THREE.BoxGeometry(2.8, 2.5, 6).translate(0, 1.25, 0), mat(0xffffff, { flat: true, rough: 0.7 }), CON, k => ({ p: V(k.x, k.y, k.z), c: k.c }), { shadow: true });
+  // the bridge at the stern with lit windows
+  box(ship, 12, 9, 6, 0xe8e8e2, 0, 6, -25);
+  const win = mat(0xffd890, { glow: 1.4, glowColor: 0xffc070 });
+  for (let l = 0; l < 3; l++) box(ship, 11, 0.7, 0.1, 0, 0, 8 + l * 2.4, -21.95, { m: win, shadow: false });
+  cyl(ship, 1.3, 1.5, 5, 0x2a2a2a, 0, 15, -27);
+  ship.lights = [[-6, 15, -22], [6, 15, -22], [0, 16, 30]].map(p => mesh(ship, sphG, new THREE.MeshBasicMaterial({ color: 0xfff0c0 }), ...p, { s: 0.35, shadow: false }));
+  return { u, sea, ship, win };
+})();
+const cargoSwell = (x, z, T) => -2.5 * smooth(EV.sink, EV.sink + 3, T) * Math.exp(-((x - 5) ** 2 + (z - 10) ** 2) / 900);
+
+/* ===================================================================== SET: VESSEL (the research ship at dusk; a shadow under it; the sea rises) */
+const VSUN = V(-0.6, 0.12, 0.8).normalize();
+const bulgeV = (x, z, T) => 9.5 * smooth(EV.bulge[0], EV.bulge[1] + 0.6, T) * Math.exp(-((x - 7) ** 2 + (z - 4) ** 2) / (32 * 32));
+const vessel = (() => {
+  const S = ST.vessel, D = G.vessel;
+  const u = seaU(); u.uO.value.copy(SETS.vessel); const sea = makeSea(D, u);
+  const ship = group(D);
+  const hullR = [[-15, 4.6, 3.2, 2.6, 0, 5], [-12, 5.0, 3.2, 3.0, 0, 5], [6, 5.0, 3.2, 3.0, 0, 5], [12, 4.0, 3.4, 2.6, 0, 4], [15.5, 1.6, 3.8, 1.8, 0, 3], [16.8, 0.3, 4, 0.4, 0, 2.5]];
+  const colorFn = (z, s) => s < -0.25 ? 0x1c3a6a : s < 0.55 ? 0xe8eaea : 0xf2f2ee;
+  mesh(ship, shell(smoothRings(hullR), 24, 0, TAU, colorFn), mat(0xffffff, { vc: true, flat: true, rough: 0.5 }), 0, 0, 0);
+  box(ship, 9.4, 0.2, 28, 0x6a6e70, 0, 3.0, -1);
+  // superstructure: two decks and the bridge with lit windows
+  box(ship, 8, 3, 11, 0xf4f4f0, 0, 3.2, 3); box(ship, 7, 2.6, 7, 0xf4f4f0, 0, 6.2, 4.5);
+  const win = mat(0xffe0a0, { glow: 1.3, glowColor: 0xffcc80 });
+  box(ship, 6.6, 0.9, 0.1, 0, 0, 7.3, 8.05, { m: win, shadow: false }); for (const sx of [-1, 1]) box(ship, 0.1, 0.8, 9, 0, sx * 4.02, 4.6, 3, { m: win, shadow: false });
+  cyl(ship, 0.15, 0.15, 5, 0xdadada, 0, 8.8, 4); mesh(ship, sphG, mat(0xf0f0f0, { flat: true }), 0, 10.6, 3.2, { s: [0.9, 0.7, 0.9] });   // mast and radome
+  // the orange A-frame at the stern and a crane
+  const orange = mat(0xf07a1a, { rough: 0.5, flat: true });
+  for (const sx of [-1, 1]) box(ship, 0.5, 7, 0.5, 0, sx * 3.5, 3, -13.2, { m: orange, rz: -sx * 0.18 });
+  box(ship, 8, 0.6, 0.6, 0, 0, 9.6, -13.2, { m: orange });
+  box(ship, 0.5, 0.5, 9, 0, -2.5, 5.5, -6, { m: orange, rx: 0.45 });
+  ship.lights = [[3.8, 9.8, -13.2], [-3.8, 9.8, -13.2], [0, 12.6, 4], [4.2, 3.6, 12], [-4.2, 3.6, 12]].map(p => mesh(ship, sphG, new THREE.MeshBasicMaterial({ color: 0xfff2d0 }), ...p, { s: 0.22, shadow: false }));
+  // spray thrown off the rising water
+  const drop = new THREE.MeshStandardMaterial({ color: 0xf2f8fa, roughness: 0.3, transparent: true, opacity: 0.8, depthWrite: false, emissive: 0x8a9aa8, emissiveIntensity: 0.4 });
+  const SPR = []; for (let i = 0; i < 220; i++) { const a = rnd() * TAU; SPR.push({ a, r: 20 + rnd() * 14, v: V(Math.cos(a) * (1 + rnd() * 3), 3 + rnd() * 6, Math.sin(a) * (1 + rnd() * 3)), t: EV.bulge[0] + 0.3 + rnd() * 2.2, s: 0.12 + rnd() * 0.25 }); }
+  const spray = instanced(D, icoG, drop, SPR, () => ({ p: V(0, -1e4, 0) })); spray.frustumCulled = false;
+  return { u, sea, ship, SPR, spray };
+})();
+
+/* ===================================================================== SET: HELI (night: the search helicopter over the glowing water) */
+const MOON = V(0.45, 0.42, -0.79).normalize();
+const EYES_Z = 2;   // where the eyes lie under the water (set coordinates): x = ±EYE_X
+const LEV_S = 120, EYE_X = EYE.x * LEV_S;
+const HELI_YAW = 0.9;
+const HK = [[ln(15, -0.6), -88, 26, -72], [ln(16, 0), -16, 19.5, -15.5], [ln(17, 0), -9, 18.3, -10], [ln(18, 0), -7, 18, -8.5], [ln(19, 0), -5.5, 13.5, -7], [ln(20, 0), -5, 11.5, -6.6], [ln(22), -5, 11, -6.5], [ENDING.cut + 2, -5, 11, -6.5]];
+function heliState(T) {
+  const p = pathAt(HK, T), sp = pathSpeed(HK, T), frozen = inT(T, ln(22), ln(23)) ? 0.25 : 1;
+  p.y += 0.25 * Math.sin(T * 1.1) * frozen; p.x += 0.2 * Math.sin(T * 0.7) * frozen;
+  const pitch = 0.17 * clamp(sp / 30) - 0.05 * smooth(ln(16, -0.4), ln(16, 1), T) * (1 - smooth(ln(18), ln(19), T)), roll = 0.04 * Math.sin(T * 0.9) * frozen;
+  const q = new THREE.Quaternion().setFromEuler(new THREE.Euler(pitch, HELI_YAW, roll, 'YXZ'));
+  return { p, q, sp };
+}
+// where the searchlight points on the water
+function spotTarget(T) {
+  const h = heliState(T).p, fwd = V(Math.sin(HELI_YAW), 0, Math.cos(HELI_YAW));
+  if (T < ln(17)) return h.clone().addScaledVector(fwd, 18 + 4 * Math.sin(T * 0.9)).setY(0).add(V(5 * Math.sin(T * 1.3), 0, 0));
+  if (T < ln(18)) return h.clone().addScaledVector(fwd, 9).setY(0);
+  if (T < ln(19)) { const k = (T - ln(18)) / (ln(19) - ln(18)); return V(-14 + 22 * Math.sin(k * Math.PI * 0.9), 0, 6 * Math.cos(k * 4) - 2); }
+  return V(1.5 + 1.2 * Math.sin(T * 0.4), 0, 1.5);
+}
+const eyeOpen = T => smooth(EV.open[0], EV.open[1], T);
+const eyeLook = T => smooth(EV.turn[0], EV.turn[1], T);
+const domeH = (x, z, T) => 10 * Math.pow(smooth(EV.dome[0], EV.dome[1] + 0.3, T), 1.4) * Math.exp(-(x * x + (z - 4) ** 2) / (38 * 38));
+function makeHeli(parent) {
+  const root = group(parent), H = { root };
+  const white = mat(0xeef0f0, { rough: 0.45, flat: true }), red = mat(0xd8261e, { rough: 0.45, flat: true }), dark = mat(0x16181c, { rough: 0.4, metal: 0.4, env: 0.6 });
+  // cabin: the floor, the back, the roof and the side walls (open at the front so we can see the pilot)
+  box(root, 2.2, 0.35, 4.2, 0, 0, 0.35, 0.1, { m: white, r: 0.12 });
+  box(root, 2.2, 1.6, 2.2, 0, 0, 0.6, -0.9, { m: white, r: 0.2 });
+  box(root, 2.0, 0.3, 3.0, 0, 0, 2.05, 0.2, { m: white, r: 0.12 });
+  for (const sx of [-1, 1]) { box(root, 0.08, 1.5, 1.4, 0, sx * 1.06, 0.62, 0.9, { m: red, r: 0.03 }); box(root, 0.06, 0.06, 1.5, 0, sx * 1.0, 0.62, 2.0, { m: dark, rx: -0.5 }); }
+  box(root, 2.1, 0.7, 0.7, 0, 0, 0.42, 2.0, { m: red, r: 0.2 });                                  // nose
+  box(root, 0.06, 1.3, 0.06, 0, 0, 0.95, 2.1, { m: dark, rx: -0.55 });                             // windshield post
+  mesh(root, new THREE.PlaneGeometry(1.95, 1.25), new THREE.MeshStandardMaterial({ color: 0x8ab0c8, roughness: 0.05, metalness: 0.2, transparent: true, opacity: 0.12, depthWrite: false, envMap: envTex, envMapIntensity: 0.6 }), 0, 1.45, 2.05, { rx: -0.55, shadow: false });
+  // instrument panel (it lights the pilot's face)
+  box(root, 1.8, 0.35, 0.3, 0, 0, 0.95, 1.95, { m: dark, r: 0.05, rx: 0.4 });
+  H.panel = mesh(root, new THREE.PlaneGeometry(1.5, 0.22), new THREE.MeshBasicMaterial({ map: canvasTex(256, 40, (g, w, h) => { g.fillStyle = '#071008'; g.fillRect(0, 0, w, h); for (let i = 0; i < 6; i++) { g.fillStyle = ['#2aff8a', '#ffb43a', '#3ac8ff'][i % 3]; g.beginPath(); g.arc(22 + i * 42, h / 2, 13, 0, TAU); g.fill(); g.fillStyle = '#071008'; g.beginPath(); g.arc(22 + i * 42, h / 2, 9, 0, TAU); g.fill(); } }), toneMapped: false }), 0, 1.24, 1.86, { rx: -0.75, shadow: false });
+  // tail boom, fin and tail rotor
+  const boom = new THREE.CylinderGeometry(0.22, 0.5, 6.4, 8); boom.rotateX(Math.PI / 2); mesh(root, boom, white, 0, 1.45, -4.6);
+  box(root, 0.12, 1.6, 1.0, 0, 0, 1.3, -7.6, { m: red, r: 0.05, rx: -0.3 });
+  H.tailRotor = group(root, 0.2, 2.2, -7.9);
+  mesh(H.tailRotor, new THREE.CircleGeometry(0.75, 20), new THREE.MeshBasicMaterial({ color: 0x202428, transparent: true, opacity: 0.25, depthWrite: false, side: THREE.DoubleSide }), 0, 0, 0, { ry: Math.PI / 2, shadow: false });
+  // skids
+  for (const sx of [-1, 1]) { box(root, 0.1, 0.1, 3.6, 0, sx * 1.2, -0.4, 0.2, { m: dark, r: 0.04 }); for (const z of [-0.6, 1.0]) box(root, 0.08, 0.8, 0.08, 0, sx * 1.1, -0.35, z, { m: dark, rz: sx * 0.25 }); }
+  // main rotor: hub, slow blades and a blur disc
+  cyl(root, 0.18, 0.25, 0.4, 0, 0, 2.3, 0, { m: dark });
+  H.rotor = group(root, 0, 2.72, 0);
+  for (let i = 0; i < 4; i++) box(H.rotor, 0.32, 0.05, 5.4, 0, 0, 0, 2.7, { m: mat(0x202226, { rough: 0.5 }), r: 0.02, ry: i * Math.PI / 2, shadow: false }).geometry;
+  H.rotor.children.forEach((b, i) => { b.position.set(Math.sin(i * Math.PI / 2) * 2.7, 0, Math.cos(i * Math.PI / 2) * 2.7); b.position.multiplyScalar(0); b.rotation.y = i * Math.PI / 2; b.geometry = rbox(0.32, 0.05, 5.4, 0.02).clone().translate(0, 0, 2.7); });
+  const discT = canvasTex(256, 256, (g, w, h) => { const r = g.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, w / 2); r.addColorStop(0, 'rgba(40,44,50,0.5)'); r.addColorStop(0.92, 'rgba(40,44,50,0.25)'); r.addColorStop(1, 'rgba(40,44,50,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); });
+  H.disc = mesh(root, new THREE.CircleGeometry(5.5, 40), new THREE.MeshBasicMaterial({ map: discT, transparent: true, depthWrite: false, side: THREE.DoubleSide }), 0, 2.74, 0, { rx: -Math.PI / 2, shadow: false });
+  // lights: the searchlight under the nose, a red beacon, navigation lights
+  H.lamp = group(root, 0, 0.05, 2.15);
+  cyl(H.lamp, 0.16, 0.16, 0.22, 0, 0, -0.1, 0, { m: dark, seg: 12 });
+  H.lens = mesh(H.lamp, new THREE.CircleGeometry(0.14, 14), new THREE.MeshBasicMaterial({ color: 0xfff6e0 }), 0, -0.12, 0, { rx: Math.PI / 2, shadow: false });
+  H.beacon = mesh(root, sphG, new THREE.MeshBasicMaterial({ color: 0xff2a1a }), 0, 2.25, -1.8, { s: 0.12, shadow: false });
+  mesh(root, sphG, new THREE.MeshBasicMaterial({ color: 0xff3020 }), -1.12, 0.7, 1.4, { s: 0.07, shadow: false });
+  mesh(root, sphG, new THREE.MeshBasicMaterial({ color: 0x30ff60 }), 1.12, 0.7, 1.4, { s: 0.07, shadow: false });
+  H.beam = makeBeam(parent, 0xfff2d8, 0.2);
+  // the pilot in the right seat (helmet, visor up)
+  const P = H.pilot = group(root, 0.45, 0.72, 0.85);
+  const suit = mat(0x3a4a2a, { flat: true }), skin = mat(0xd4a484, { flat: true });
+  box(P, 0.6, 0.12, 0.6, 0, 0, -0.05, -0.15, { m: dark, r: 0.04 }); box(P, 0.6, 0.85, 0.12, 0, 0, -0.05, -0.45, { m: dark, r: 0.04 });   // seat
+  box(P, 0.44, 0.6, 0.26, 0, 0, 0.06, -0.25, { m: suit, r: 0.08 });
+  for (const sx of [-1, 1]) { box(P, 0.15, 0.15, 0.5, 0, sx * 0.11, 0.04, 0.05, { m: suit, r: 0.05 }); box(P, 0.14, 0.5, 0.15, 0, sx * 0.11, -0.4, 0.3, { m: suit, r: 0.05 }); }
+  H.head = group(P, 0, 0.76, -0.24);
+  mesh(H.head, headG, skin, 0, 0, 0.01, { s: [0.1, 0.12, 0.11] });
+  mesh(H.head, headG, mat(0xe8e8e0, { rough: 0.35, env: 0.6 }), 0, 0.05, -0.02, { s: [0.135, 0.13, 0.14] });
+  box(H.head, 0.24, 0.06, 0.05, 0, 0, 0.115, 0.07, { m: mat(0x101418, { rough: 0.1, env: 1 }), r: 0.02, rx: -0.9, shadow: false });   // visor, pushed up
+  H.eyes = [-1, 1].map(sx => mesh(H.head, sphG, mat(0xf4f4f0, { rough: 0.3 }), sx * 0.038, 0.005, 0.1, { s: [0.018, 0.012, 0.01], shadow: false }));
+  H.irises = [-1, 1].map(sx => mesh(H.head, sphG, mat(0x0a0a0a), sx * 0.038, 0.005, 0.108, { s: 0.008, shadow: false }));
+  mesh(H.head, new THREE.TorusGeometry(0.03, 0.006, 4, 10), mat(0x101010), 0.06, -0.07, 0.09, { ry: 0.5, shadow: false });   // headset mic
+  H.arms = [-1, 1].map(sx => { const a = group(P, sx * 0.24, 0.32, -0.22); const g = new THREE.CylinderGeometry(0.05, 0.045, 0.52, 6); g.translate(0, -0.26, 0); mesh(a, g, suit); mesh(a, sphG, mat(0x202020), 0, -0.55, 0, { s: 0.05 }); return a; });
+  return H;
+}
+const heli = (() => {
+  const S = ST.heli, D = G.heli;
+  const u = seaU(); u.uO.value.copy(SETS.heli); const sea = makeSea(D, u);
+  u.uE1.value.set(-EYE_X, EYES_Z); u.uE2.value.set(EYE_X, EYES_Z); u.uEyeA.value = 5.2; u.uEyeB.value = 2.4;
+  const H = makeHeli(D);
+  // a moon and the far lights of the research vessel on the horizon (the night is never pitch black)
+  const shipLights = instanced(S, sphG, new THREE.MeshBasicMaterial({ color: 0xffe0a0, fog: false }), [[-0.5, 3, 0], [0.5, 3.4, 0], [1.5, 3, 0], [0.2, 6, 0]], p => ({ p: V(-420 + p[0] * 3, p[1] * 1.5, 380), s: V(0.9, 0.9, 0.9) }));
+  return { u, sea, H, shipLights };
+})();
+
+/* ===================================================================== SET: BELOW (night, under the helicopter: the head with the eyes, the body going down into the dark) */
+const LEV_BELOW = { p: V(0, -62, -98), pitch: -0.32 };   // the eyes near (0, -22, 0), on top of the head; the body slopes down behind it into the dark
+function levBelowState(T) {
+  const rise = Math.pow(smooth(ln(24, 0.4), ENDING.cut, T), 1.6);
+  const p = LEV_BELOW.p.clone(); p.y += 26 * rise;
+  return { p, pitch: LEV_BELOW.pitch };
+}
+const below = (() => {
+  const S = ST.below, D = G.below;
+  const u = seaU(); u.uO.value.copy(SETS.below); u.uUnder.value = 1; const sea = makeSea(D, u);
+  const skin = mat(0x1e2c30, { flat: true, rough: 0.55, env: 0.3 });
+  const eyeMat = new THREE.MeshBasicMaterial({ color: 0xc8f060 });
+  const lev = makeLev(D, skin, { eyes: true, eyeMat }); lev.root.scale.setScalar(LEV_S);
+  const rays = makeRays(D, 18, { x: 1, z: 1.5, r: 5, w: 1.6 }, 60, V(0.1, -1, 0.08), 0xd8f0ff);
+  return { u, sea, lev, rays, eyeMat };
+})();
+
+/* ===================================================================== MERGE STATIC */
+(function mergeStatic() {
+  for (const k in ST) {
+    const root = ST[k]; root.updateMatrixWorld(true);
+    const buckets = new Map(), keep = [];
+    root.traverse(o => {
+      if (!o.isMesh || o.isInstancedMesh || o === root) { if (o.isInstancedMesh) keep.push(o); return; }
+      let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+      g.applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(o.matrixWorld));
+      for (const n of Object.keys(g.attributes)) if (!['position', 'normal', 'uv'].includes(n)) g.deleteAttribute(n);
+      if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+      g.clearGroups();
+      if (!buckets.has(o.material)) buckets.set(o.material, []);
+      buckets.get(o.material).push({ g, shadow: o.castShadow });
+    });
+    const merged = new THREE.Group();
+    for (const [m, list] of buckets) {
+      const geo = mergeGeometries(list.map(l => l.g), false); list.forEach(l => l.g.dispose()); if (!geo) continue;
+      const mm = new THREE.Mesh(geo, m); mm.castShadow = list.some(l => l.shadow); mm.receiveShadow = true; merged.add(mm);
+    }
+    root.clear(); root.add(merged); keep.forEach(im => root.add(im));
+  }
+})();
+
+/* ===================================================================== POST-PROCESSING (optional) */
+let composer = null, bloom = null;
+if (params.get('fx') !== '0') {
+  try {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: isMobile ? 0 : 4 }));
+    composer.addPass(new RenderPass(scene, camera));
+    bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.5, 0.55, 0.82); composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+  } catch (e) { console.warn('Bloom unavailable, rendering directly.', e); composer = null; }
+}
+function layout() {
+  const W = innerWidth, H = innerHeight, w = Math.min(W, H * 9 / 16), h = w * 16 / 9;
+  stage.style.width = `${w}px`; stage.style.height = `${h}px`;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = 9 / 16; camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+
+/* ===================================================================== CAMERA */
+const SHOTS = SCENES.flatMap(s => s.shots);
+const upY = V(0, 1, 0);
+const SUBJ = { rov: T => rovAt(T), heli: T => heliState(T).p };
+const SUBJQ = { rov: () => IDENT.clone(), heli: T => heliState(T).q };
+function shotAt(T) {
+  const sh = SHOTS.find(s => T < s.end) ?? SHOTS[SHOTS.length - 1], o = SETS[sh.set];
+  const k = sh.keys; let i = 0; while (i < k.length - 2 && T > k[i + 1][0]) i++;
+  const a = k[i], b = k[i + 1], e = easeInOut(clamp((T - a[0]) / (b[0] - a[0])));
+  const s = { set: sh.set, pos: VA(a[1]).lerp(VA(b[1]), e), target: VA(a[2]).lerp(VA(b[2]), e), fov: lerp(a[3], b[3], e), up: a[4] ? VA(a[4]).lerp(VA(b[4] ?? a[4]), e).normalize() : upY.clone() };
+  if (sh.follow) { const p = SUBJ[sh.follow](T); if (sh.local) { const q = SUBJQ[sh.follow](T); s.pos.applyQuaternion(q); s.target.applyQuaternion(q); } s.pos.add(p); s.target.add(p); }
+  if (sh.aim) s.target = VA(a[2]).lerp(VA(b[2]), e).add(SUBJ[sh.aim](T));
+  const DB = window.__dbg ?? DBG;
+  if (DB) { const p = DB.subj ? SUBJ[DB.subj](T) : V(); s.set = DB.set; s.pos = VA(DB.c).add(p); s.target = VA(DB.c.slice(3)).add(p); s.fov = DB.c[6] ?? 50; s.up = upY.clone(); return Object.assign(s, { pos: s.pos.add(SETS[s.set]), target: s.target.add(SETS[s.set]) }); }
+  s.pos.add(o); s.target.add(o);
+  return s;
+}
+const DBG = params.get('dbg') ? { c: params.get('dbg').split(',').map(Number), set: params.get('set') ?? 'deep', subj: params.get('subj') } : null;
+function shake(T) {
+  let s = 0; for (const [t0, k] of SHAKES) { const d = T - t0; if (d >= 0 && d < 1.2) s += k * Math.exp(-d * 5) * (1 - Math.exp(-d * 60)); }
+  for (const [a, b, k] of RUMBLES) if (inT(T, a, b)) s += k * smooth(a, a + 0.6, T) * (1 - smooth(b - 0.4, b, T));
+  return s;
+}
+const CAM = { set: 'deep', target: V(), dist: 1, under: true };
+function placeCamera(T) {
+  const s = shotAt(T), d = s.pos.distanceTo(s.target), k = shake(T) * Math.min(0.12, d * 0.02 + 0.02);
+  // a smooth wobble (sums of slow sines), never a jitter from frame to frame
+  const w = (a, b) => Math.sin(T * a + b) * 0.6 + Math.sin(T * a * 1.7 + b * 2.3) * 0.4;
+  s.pos.x += w(17, 1) * k; s.pos.y += w(19, 2) * k; s.target.x += w(15, 3) * k * 2 * Math.max(1, d / 30); s.target.y += w(18, 4) * k * 2 * Math.max(1, d / 30);
+  camera.up.copy(s.up); camera.position.copy(s.pos); camera.lookAt(s.target);
+  const near = s.set === 'control' ? 0.05 : d < 6 ? 0.04 : 0.2, far = 6000;
+  if (camera.fov !== s.fov || camera.near !== near || camera.far !== far) { camera.fov = s.fov; camera.near = near; camera.far = far; camera.updateProjectionMatrix(); }
+  CAM.set = s.set; CAM.target.copy(s.target); CAM.dist = d;
+  CAM.under = s.set === 'deep' || s.set === 'below';
+}
+
+/* ===================================================================== LIGHT + LOOK PER SET */
+const c4 = new THREE.Color(), c5 = new THREE.Color();
+function setSun(o, pos, target, half, color, intensity) {
+  sun.position.copy(o).add(VA(pos)); sun.target.position.copy(o).add(VA(target)); sun.color.set(color); sun.intensity = intensity;
+  const sc = sun.shadow.camera; if (sc.right !== half) { Object.assign(sc, { left: -half, right: half, top: half, bottom: -half, near: 0.5, far: VA(pos).distanceTo(VA(target)) + half * 2 }); sc.updateProjectionMatrix(); }
+  sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02 * Math.max(1, half / 20);
+}
+function sunFrom(o, dir, dist, half, color, intensity) { const f = CAM.target.clone().sub(o); setSun(o, [f.x + dir.x * dist, f.y + dir.y * dist, f.z + dir.z * dist], [f.x, f.y, f.z], half, color, intensity); }
+function point(i, o, p, color, intensity, dist = 30) { const L = PL[i]; L.position.copy(o).add(VA(p)); L.color.set(color); L.intensity = intensity; L.distance = dist; }
+const lerpHex = (a, b, k) => c5.set(a).lerp(c4.set(b), clamp(k)).getHex();
+function look(set, T) {
+  const o = SETS[set];
+  for (const L of PL) L.intensity = 0;
+  spot.intensity = 0; sky.visible = true; skyU.uTime.value = T; skyU.uCloud.value = 0; skyU.uSunR.value = 0.02;
+  sun.castShadow = true; snowU.uOp.value = 0; glowU.uOp.value = 0;
+  if (bloom) { bloom.strength = 0.5; bloom.threshold = 0.82; }
+  if (set === 'deep') {
+    // the abyss: deep blue, never black; plankton glows far below; the ROV brings its own light
+    skyU.uUnder.value = 1; skyLook(0x16607a, 0x0e4a62, 0x08303f); skyU.uSunDir.value.set(0, 1, 0); skyU.uSunCol.value.set(0x4ab0d0); skyU.uSunGlow.value = 0.25;
+    scene.fog.color.set(0x082a3a); scene.fog.density = 0.012;
+    hemi.color.set(0x4a9ac0); hemi.groundColor.set(0x05141c); hemi.intensity = 1.3;
+    sunFrom(o, V(0.2, 1, 0.3).normalize(), 30, CAM.dist > 20 ? 40 : 8, 0x8ad0f0, 1.0);
+    const r = rovAt(T), flick = inT(T, ln(12, 1.0), ln(13, -0.3)) ? (hash(Math.floor(T * 12)) > 0.35 ? 1 : 0.35) : 1;
+    spot.color.set(0xfff0d8); spot.intensity = 260 * flick; spot.distance = 70; spot.angle = 0.45; spot.penumbra = 0.7;
+    spot.position.copy(o).add(r).add(V(0, 0.35, 1.4)); spot.target.position.copy(o).add(r).add(V(0, -6, 12));
+    point(0, o, [r.x, r.y + 2.5, r.z - 2], 0x8ac8e0, 3, 9);   // a soft fill so the ROV reads against the dark
+    deep.rov.beams.forEach(b => { b.u.uA.value = 0.1 * flick; }); deep.rov.lenses.forEach(l => l.material.color.setScalar(flick));
+    snowU.uOp.value = 0.6; snowU.uCol.value.set(0x9fd4e4); snowU.uBox.value = 16; snowU.uSize.value = 0.03;
+    glowU.uOp.value = 1.0; glowU.uCam.value.set(o.x + 40, o.y - 360, o.z); glowU.uBox.value = 700; glowU.uSize.value = 2.0;
+    renderer.toneMappingExposure = 1.25; if (bloom) bloom.strength = 0.55;
+  } else if (set === 'control') {
+    const al = smooth(EV.alarm, EV.alarm + 0.4, T), blink = al * (0.5 + 0.5 * Math.sin((T - EV.alarm) * 7));
+    const dimmed = smooth(EV.dark[0], EV.dark[5] + 0.4, T);
+    skyU.uUnder.value = 0; skyLook(0x0a1218, 0x0a1218, 0x0a1218); sky.visible = false; scene.background.set(0x0a1218);
+    scene.fog.color.set(0x0a1218); scene.fog.density = 0.01;
+    hemi.color.set(0x8ab0d0); hemi.groundColor.set(0x1a1e24); hemi.intensity = 1.1 - 0.35 * dimmed;
+    sun.castShadow = false; sun.intensity = 0;
+    point(0, o, [-1.6, 2.9, -1.6], 0xd8ecff, 14 * (1 - 0.6 * dimmed), 9);
+    point(1, o, [1.6, 2.9, -0.4], 0xd8ecff, 12 * (1 - 0.6 * dimmed), 9);
+    point(2, o, [0, 1.8, -3.0], 0x6affd0, 5 * (1 - 0.8 * smooth(DARK.sonar, DARK.sonar + 0.2, T)), 5);   // the glow of the sonar
+    point(3, o, [0, 2.9, -1.0], 0xff2a1a, 16 * blink, 10);                                               // the alarm
+    control.beacon.material.color.set(lerpHex(0x401010, 0xff3a2a, blink));
+    renderer.toneMappingExposure = 1.15; if (bloom) bloom.strength = 0.4;
+  } else if (set === 'cargo') {
+    const MSUN = V(-0.7, 0.07, 0.7).normalize();
+    skyU.uUnder.value = 0; skyLook(0x24324a, 0xd8885a, 0x1a2430); skyU.uCloud.value = 0.7; skyU.uCloudCol.value.set(0x5a5a6a);
+    skyU.uSunDir.value.copy(MSUN); skyU.uSunCol.value.set(0xff9a5a).multiplyScalar(0.7); skyU.uSunGlow.value = 0.8; skyU.uSunR.value = 0.03;
+    scene.fog.color.set(0x8a6a62); scene.fog.density = 0.0035;
+    hemi.color.set(0xb0a0b0); hemi.groundColor.set(0x1a2230); hemi.intensity = 1.2;
+    sunFrom(o, MSUN, 90, 45, 0xffb070, 2.4);
+    const u = cargo.u; u.uUnder.value = 0; u.uFogCol.value.copy(scene.fog.color); u.uFogD.value = 0.0035; u.uSky.value.set(0x9a7a7a); u.uDeep.value.set(0x0e1e2a); u.uSunDir.value.copy(MSUN); u.uSunCol.value.set(0xffa060); u.uTime.value = T;
+    u.uShC.value.set(4, 8); u.uShAx.value.set(28, 70); u.uShAng.value = 0.2; u.uShK.value = 0.9;
+    point(0, o, [0, 18, -18], 0xffd8a0, 30, 40);
+    renderer.toneMappingExposure = 1.05; if (bloom) bloom.strength = 0.4;
+  } else if (set === 'vessel') {
+    skyU.uUnder.value = 0; skyLook(0x30466a, 0xf0a46a, 0x2a3440); skyU.uCloud.value = 0.65; skyU.uCloudCol.value.set(0x8a7a86);
+    skyU.uSunDir.value.copy(VSUN); skyU.uSunCol.value.set(0xffb070).multiplyScalar(0.7); skyU.uSunGlow.value = 0.8; skyU.uSunR.value = 0.03;
+    scene.fog.color.set(0xc09080); scene.fog.density = 0.0022;
+    hemi.color.set(0xc0b4c0); hemi.groundColor.set(0x1e2a36); hemi.intensity = 1.25;
+    sunFrom(o, VSUN, 80, 40, 0xffc080, 2.6);
+    const u = vessel.u; u.uUnder.value = 0; u.uFogCol.value.copy(scene.fog.color); u.uFogD.value = 0.0022; u.uSky.value.set(0xe0a888); u.uDeep.value.set(0x0c3448); u.uSunDir.value.copy(VSUN); u.uSunCol.value.set(0xffb070); u.uTime.value = T;
+    // the shadow under the water slides in under the ship
+    const k = smooth(ln(13), ln(14, 0.5), T);
+    u.uShC.value.set(lerp(-34, 4, k), lerp(-10, 2, k)); u.uShAx.value.set(26, 75); u.uShAng.value = 0.5; u.uShK.value = smooth(ln(13, -0.3), ln(13, 0.8), T) * (1 - 0.4 * smooth(EV.bulge[0], EV.bulge[1], T));
+    const bt = T - EV.bulge[0]; u.uFoamC.value.set(7, 4); u.uFoamR.value = 30 + 6 * smooth(0, 3, bt); u.uFoamK.value = 0.3 * smooth(0.2, 1.4, bt);
+    point(0, o, [0, 14, 4], 0xffe0b0, 24 * 1, 30);
+    renderer.toneMappingExposure = 1.0; if (bloom) bloom.strength = 0.35;
+  } else if (set === 'heli') {
+    // night under the moon: a blue sky with the moon, moonlight on the waves, the searchlight, the glow below
+    skyU.uUnder.value = 0; skyLook(0x0e1a34, 0x34507a, 0x0a1220); skyU.uCloud.value = 0.55; skyU.uCloudCol.value.set(0x3a4a66);
+    skyU.uSunDir.value.copy(MOON); skyU.uSunCol.value.set(0xc8d8ff).multiplyScalar(0.7); skyU.uSunGlow.value = 0.6; skyU.uSunR.value = 0.022;
+    scene.fog.color.set(0x1a2a44); scene.fog.density = 0.004;
+    hemi.color.set(0x7a90c0); hemi.groundColor.set(0x0a1420); hemi.intensity = 1.25;
+    sunFrom(o, MOON, 60, CAM.dist > 20 ? 30 : 8, 0xb8c8ff, 1.4);
+    const H = heliState(T), lamp = heli.H.lamp.getWorldPosition(V()), tgt = spotTarget(T).add(o);
+    spot.color.set(0xfff0d8); spot.intensity = 900; spot.distance = 80; spot.angle = 0.2; spot.penumbra = 0.5; spot.position.copy(lamp); spot.target.position.copy(tgt);
+    const u = heli.u; u.uUnder.value = 0; u.uFogCol.value.copy(scene.fog.color); u.uFogD.value = 0.004; u.uSky.value.set(0x40587e); u.uDeep.value.set(0x07141e); u.uSunDir.value.copy(MOON); u.uSunCol.value.set(0xc8d8ff); u.uTime.value = T;
+    u.uSpotP.value.copy(lamp).sub(o); u.uSpotD.value.copy(tgt).sub(lamp).normalize(); u.uSpotK.value = 0.3; u.uSpotCos.value = Math.cos(0.17);
+    const glow = smooth(EV.glow[0], EV.glow[1], T), domeK = smooth(EV.dome[0], EV.dome[1], T);
+    u.uGlC.value.set(-2, 0); u.uGlR.value = 26 + 10 * domeK; u.uGlK.value = 0.2 * glow + 0.08 * eyeOpen(T) + 0.25 * domeK;
+    u.uEyeOpen.value = eyeOpen(T); u.uEyeK.value = 1.0; const lk = eyeLook(T); u.uPup.value.set(-1.1 * lk, -1.6 * lk);
+    u.uFoamC.value.set(0, 4); u.uFoamR.value = 34; u.uFoamK.value = 0.12 * smooth(EV.dome[0] + 0.4, EV.dome[1], T);
+    // the glow lights the helicopter's belly and the pilot's face; the panel lights him from the front
+    const hp = H.p;
+    point(0, o, [hp.x, 2, hp.z], 0x40f0c8, 30 * glow + 30 * eyeOpen(T), 30);
+    point(1, o, heli.H.head.getWorldPosition(V()).sub(o).add(V(0.4, -0.35, 0.6).applyQuaternion(H.q)).toArray(), 0xffc890, 1.6, 2.2);
+    renderer.toneMappingExposure = 1.2; if (bloom) bloom.strength = 0.4;
+  } else if (set === 'below') {
+    const fogC = 0x0a2a3a;
+    skyU.uUnder.value = 1; skyLook(0x2a6a80, fogC, 0x03121a); skyU.uSunDir.value.set(-0.1, 1, -0.1).normalize(); skyU.uSunCol.value.set(0xd8f0ff); skyU.uSunGlow.value = 0.35;
+    scene.fog.color.set(fogC); scene.fog.density = 0.0085;
+    hemi.color.set(0x5aa0c0); hemi.groundColor.set(0x041018); hemi.intensity = 1.2;
+    sunFrom(o, V(-0.1, 1, -0.1).normalize(), 60, 60, 0xc8e8ff, 1.0);
+    const u = below.u; u.uUnder.value = 1; u.uFogCol.value.set(fogC); u.uFogD.value = 0.006; u.uWin.value.set(0x9ad0e0).multiplyScalar(0.35); u.uMirror.value.set(0x0a3446); u.uTime.value = T;
+    u.uSpotP.value.set(-5, 11, -6.5); u.uSpotD.value.set(1.5 + 5, -11, 1.5 + 6.5).normalize(); u.uSpotK.value = 1.0; u.uSpotCos.value = Math.cos(0.2);
+    point(0, o, [0, -20, 10], 0x60ffc0, 60 * eyeOpen(T), 45);   // the eyes light the water around them
+    glowU.uOp.value = 0.8; glowU.uCam.value.set(o.x, o.y - 260, o.z - 160); glowU.uBox.value = 600; glowU.uSize.value = 1.4;
+    snowU.uOp.value = 0.5; snowU.uCol.value.set(0xa0e0d0); snowU.uBox.value = 22; snowU.uSize.value = 0.04;
+    renderer.toneMappingExposure = 1.25; if (bloom) bloom.strength = 0.7;
+  }
+  if (set !== 'control') scene.background.set(0x04121a);
+}
+
+/* ===================================================================== FRAME UPDATE */
+function update(T) {
+  const set = CAM.set;
+  for (const k in SETS) { G[k].visible = ST[k].visible = k === set; }
+  glowPts.visible = set === 'deep' || set === 'below'; snow.visible = CAM.under;
+  sky.position.copy(camera.position);
+  snowU.uOff.value.set(0.08 * T, 0.03 * T, 0.02 * T); snowU.uCam.value.copy(camera.position);
+  const px = renderer.domElement.height / (2 * Math.tan(camera.fov * Math.PI / 360)); snowU.uPx.value = px; glowU.uPx.value = px;
+  ({ deep: updateDeep, control: updateControl, cargo: updateCargo, vessel: updateVessel, heli: updateHeli, below: updateBelow })[set](T);
+  look(set, T);
+}
+function updateDeep(T) {
+  const D = deep, o = SETS.deep, r = rovAt(T);
+  D.rov.root.position.copy(r); D.rov.root.rotation.set(0.03 * Math.sin(T * 0.7), 0.05 * Math.sin(T * 0.3), 0.04 * Math.sin(T * 0.5));
+  D.rov.beams.forEach((b, i) => aimBeam(b, D.rov.lenses[i].getWorldPosition(V()).sub(o), r.clone().add(V((i ? 1 : -1) * 1.5, -6, 14)), 0.22));
+  const s = levDeep(T); D.lev.root.position.copy(s.p); D.lev.root.rotation.set(s.pitch, s.yaw, 0, 'YXZ'); levPose(D.lev, T);
+  // the ping ring
+  const pd = T - EV.ping; D.ping.position.copy(r).add(V(0, -1.5 - pd * 6, 0)); D.ping.scale.setScalar(1 + pd * 28); D.pingM.opacity = pd > 0 && pd < 2 ? 0.7 * (1 - smooth(0, 1.9, pd)) * smooth(0, 0.08, pd) : 0;
+  // the whale crosses above the shape (only in the scale shot)
+  const wx = lerp(-34, 26, clamp((T - ln(2, -0.3)) / (lnEnd(2) - ln(2, -0.3)))); D.whale.root.position.set(wx, -44 + 2 * Math.sin(T * 0.4), 40); D.whale.root.rotation.set(0, Math.PI / 2, 0.05 * Math.sin(T)); levPose(D.whale, T * 4);
+  D.whale.root.visible = inT(T, ln(2, -0.2), ln(3));
+}
+function sonarState(T) {
+  const k = Math.floor(T * 6);
+  const ap = smooth(EV.appear[0], EV.appear[1], T);
+  const mv = smooth(EV.moves, EV.moves + 1.0, T), up = smooth(EV.rise[0] - 1.2, ln(8, -0.1), T);
+  let x = 0.5 + 0.12 * mv + 0.04 * smooth(ln(6), ln(7), T), y = 0.72 - 0.08 * mv * 0, tilt = -0.05 * mv;
+  // later (the second visit): the shape lies just under the waves
+  const late = T > ln(9, -0.2);
+  if (late) { x = 0.52; y = 0.17; tilt = 0.02; }
+  return {
+    k, ph: T * 2, off: T >= DARK.sonar, x, y, tilt, shape: late ? 1 : ap * (inT(T, EV.tap[0] + 0.3, EV.tap[1] + 0.3) ? 0.25 : 1), scale: late ? 0 : smooth(ln(6, 0.2), ln(6, 0.8), T),
+    up: late ? 0 : up, depth: 3200 - 2400 * up, glitch: inT(T, EV.tap[0] + 0.15, EV.tap[1] + 0.3) ? 1 : 0,
+    label: late ? 'CONTACT · DEPTH 40 m' : inT(T, EV.tap[0], ln(5)) ? 'CHECKING EQUIPMENT…' : '', labelCol: late ? '#ff5a4a' : '#ffd24a',
+  };
+}
+function updateControl(T) {
+  const C = control, k = Math.floor(T * 8);
+  sonarTex.set(JSON.stringify(sonarState(T)), sonarState(T));
+  const tgt = 1 - smooth(EV.lost - 0.5, EV.lost + 0.5, T), lost = smooth(EV.lost + 0.4, EV.lost + 0.8, T);
+  const rs = { k, a: T * 2.2, off: T >= DARK.radar, target: tgt, lost }; radarTex.set(JSON.stringify(rs), rs);
+  const ws = { k, ph: T * 3, amp: 1 + 1.5 * smooth(EV.alarm, EV.alarm + 1, T), off: T >= DARK.wave }; waveTex.set(JSON.stringify([Math.floor(T * 15), ws.off, ws.amp.toFixed(2)]), ws);
+  const ds = { k, ph: T * 3, off: T >= DARK.data }; dataTex.set(JSON.stringify([Math.floor(T * 3), ds.off, ds.off ? k : 0]), ds);
+  const ts = { k, off: T >= DARK.top, alarm: T > EV.alarm }; topTex.set(JSON.stringify([ts.off, ts.alarm, ts.off ? k : 0]), ts);
+  const ss = { k, off: T >= DARK.side1 }; sideTex.set(JSON.stringify([ss.off, ss.off ? k : 0]), ss);
+  // scientist A taps the screen, then both lean in; when the screens die they step back
+  const tap = smooth(EV.tap[0], EV.tap[0] + 0.35, T) * (1 - smooth(EV.tap[1] - 0.2, EV.tap[1] + 0.3, T)), knock = inT(T, EV.tap[0] + 0.35, EV.tap[1] - 0.2) ? 0.08 * Math.max(0, Math.sin((T - EV.tap[0]) * 18)) : 0;
+  const lean = smooth(EV.moves, EV.moves + 0.4, T) * (1 - smooth(ln(7), ln(8), T)) + smooth(ln(9), ln(9, 0.6), T);
+  const back = smooth(EV.dark[0], EV.dark[5], T);
+  const A = C.A, B = C.B;
+  A.root.position.set(-0.35, 0, -2.5 + 0.35 * back); B.root.position.set(0.85, 0, -2.25 + 0.5 * back);
+  A.body.rotation.x = 0.12 * lean - 0.05 * back; B.body.rotation.x = 0.08 * lean;
+  A.arms[1].rotation.set(-1.25 * tap - knock, 0, -0.15 * tap); A.arms[0].rotation.set(-0.3 * lean, 0, 0.1);
+  B.arms[0].rotation.set(-0.2 - 0.5 * smooth(ln(6), ln(6, 0.5), T) * (1 - smooth(ln(7), ln(8), T)), 0, 0.2); B.arms[1].rotation.set(-0.2, 0, -0.2);
+  B.head.rotation.y = 0.4 * Math.sin(Math.PI * smooth(EV.tap[0], EV.tap[1], T)) * Math.sin((T - EV.tap[0]) * 9) * 0.6;   // shakes his head
+  A.head.rotation.x = -0.12; B.head.rotation.x = -0.1;
+}
+function updateCargo(T) {
+  const C = cargo;
+  moveSea(C.sea, T, 1.8, cargoSwell);
+  const sk = smooth(EV.sink, EV.sink + 4, T);
+  ride(C.ship, 0, 0.6 * T, 0, 26, 6, T, 1.8, cargoSwell, 1 + 7 * sk, 0.14 * sk + 0.08 * Math.pow(sk, 2), 0.22 * sk);
+  const on = inT(T, ln(8, 0.6), ln(8, 0.75)) || inT(T, ln(8, 0.9), ln(8, 1.0)) ? 0.2 : 1;   // the lights stutter
+  C.ship.lights.forEach(l => l.material.color.setRGB(on, on * 0.94, on * 0.75)); C.win.emissiveIntensity = 1.4 * on;
+}
+function updateVessel(T) {
+  const S = vessel;
+  moveSea(S.sea, T, 1.6, bulgeV);
+  ride(S.ship, 0, 0, 0.0, 14, 4.5, T, 1.6, bulgeV);
+  const sp = (T - EV.bulge[0]);
+  S.SPR.forEach((s, i) => { if (T < s.t) { S.spray.setMatrixAt(i, HIDE); return; }
+    const d = T - s.t, x0 = 7 + Math.cos(s.a) * s.r, z0 = 4 + Math.sin(s.a) * s.r, y0 = waveH(x0, z0, s.t, 1.6, bulgeV);
+    const tl = 2 * s.v.y / 9.8, t = Math.min(d, tl), sc = s.s * (1 - smooth(0.8, 1, d / tl));
+    S.spray.setMatrixAt(i, new THREE.Matrix4().compose(V(x0 + s.v.x * t, y0 + s.v.y * t - 4.9 * t * t, z0 + s.v.z * t), IDENT, V(sc, sc * 1.4, sc))); });
+  S.spray.instanceMatrix.needsUpdate = true;
+  const on = 1; S.ship.lights.forEach(l => l.material.color.setScalar(on));
+}
+function updateHeli(T) {
+  const S = heli, Hs = heliState(T), H = S.H, o = SETS.heli;
+  moveSea(S.sea, T, 0.9, domeH);
+  H.root.position.copy(Hs.p); H.root.quaternion.copy(Hs.q);
+  H.rotor.rotation.y = T * 2.1; H.disc.rotation.z = T * 0.5; H.tailRotor.rotation.x = T * 9;
+  H.beacon.material.color.setScalar(0.25 + 0.75 * Math.pow(Math.max(0, Math.sin(T * 5.5)), 4)).multiply(c4.set(0xff2a1a));
+  // the searchlight beam to the water
+  const lamp = H.lamp.getWorldPosition(V()).sub(o), tgt = spotTarget(T);
+  aimBeam(H.beam, lamp, tgt, 0.2);
+  // the pilot: looks around, then down at the water; freezes; his eyes follow the eyes
+  const down = smooth(ln(16, 0.3), ln(16, 1.4), T), frozen = inT(T, ln(22), ln(23)) ? 1 : 0;
+  H.head.rotation.set(0.35 * down + 0.1 * smooth(ln(22), ln(22, 0.3), T), 0.25 * Math.sin(T * 0.8) * (1 - down) * (1 - frozen) + 0.2 * down, 0);
+  H.irises.forEach(e => { e.position.y = 0.005 - 0.004 * down; });
+  H.eyes.forEach(e => e.scale.set(0.018, 0.012 + 0.005 * frozen, 0.01));
+  H.arms.forEach((a, i) => a.rotation.set(-1.0 - 0.15 * frozen, 0, (i ? -1 : 1) * 0.12));
+}
+function updateBelow(T) {
+  const B = below, s = levBelowState(T), o = SETS.below;
+  moveSea(B.sea, T, 0.9, null);
+  B.lev.root.position.copy(s.p); B.lev.root.rotation.set(s.pitch, 0, 0);
+  const lk = eyeLook(T);
+  levPose(B.lev, T, { open: eyeOpen(T), lookX: -0.6 * lk, lookZ: -0.5 * lk });
+  updateRays(B.rays, o, T, 0.12);
+}
+
+/* ===================================================================== OVERLAYS */
+const fadeEl = document.getElementById('fade'), flashEl = document.getElementById('flash'), alarmEl = document.getElementById('alarm');
+const subsEl = document.getElementById('subs'), titleEl = document.getElementById('title'), chapterEl = document.getElementById('chapter');
+const whenEl = document.getElementById('chapter-when'), whatEl = document.getElementById('chapter-what');
+function overlays(T) {
+  const cut = T >= ENDING.cut;
+  let line = '';
+  if (!cut) for (const s of SCENES) for (const [a, b, text] of s.subtitles) if (T >= a && T < b) line = text;
+  if (line !== subsEl.dataset.text) {
+    subsEl.dataset.text = line; subsEl.classList.remove('on');
+    if (line) { subsEl.textContent = line; void subsEl.offsetWidth; subsEl.classList.add('on'); }
+  }
+  const titleEnd = lnEnd(1) - 0.1;
+  titleEl.classList.toggle('on', T > 0.15 && T < titleEnd);
+  fadeEl.style.opacity = cut ? 1 : 0;
+  flashEl.style.opacity = cut ? 0 : 0.18 * pulse(T - EV.moves, 25, 4) + 0.3 * pulse(T - EV.open[0] - 0.15, 18, 2.5) + 0.12 * pulse(T - EV.dome[0], 12, 2);
+  alarmEl.style.opacity = !cut && CAM.set === 'control' && T > EV.alarm ? 0.55 * (0.5 + 0.5 * Math.sin((T - EV.alarm) * 7)) * smooth(EV.alarm, EV.alarm + 0.4, T) : 0;
+  const sc = SCENES.find(s => T < s.end) ?? SCENES[SCENES.length - 1];
+  if (whenEl.textContent !== sc.when) { whenEl.textContent = sc.when; whatEl.textContent = sc.what; }
+  const on = sc.id !== 'hook' && !cut && T - sc.start > 0.3 && T - sc.start < 3.2;
+  chapterEl.classList.toggle('on', on);
+  if (RENDER) {
+    const fade = (a, b, f = 0.2) => clamp(Math.min((T - a) / f, (b - T) / f));
+    let sub = 0; if (!cut) for (const s of SCENES) for (const [a, b] of s.subtitles) if (T >= a && T < b) sub = fade(a, b, 0.12);
+    subsEl.style.opacity = sub; subsEl.style.transform = 'none';
+    titleEl.style.opacity = fade(0.15, titleEnd, 0.4); titleEl.style.transform = 'none';
+    chapterEl.style.opacity = sc.id !== 'hook' && !cut ? fade(sc.start + 0.3, Math.min(sc.start + 3.2, sc.end), 0.35) : 0; chapterEl.style.transform = 'none';
+  }
+}
+
+/* ===================================================================== SOUND EFFECTS (Web Audio, generated) */
+function buildSfx(ctx) {
+  const N = { master: ctx.createGain(), bus: ctx.createGain(), muffle: ctx.createBiquadFilter() };
+  N.master.gain.value = 0.9; N.muffle.type = 'lowpass'; N.muffle.frequency.value = 16000;
+  N.bus.connect(N.muffle).connect(N.master).connect(ctx.destination);
+  const noise = (sec, brown) => {
+    const b = ctx.createBuffer(1, ctx.sampleRate * sec, ctx.sampleRate), d = b.getChannelData(0); let last = 0;
+    for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+    return b;
+  };
+  N.white = noise(4, false); N.brown = noise(4, true);
+  const loop = (buf, type, freq, Q, dest = N.bus) => {
+    const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = Q;
+    const g = ctx.createGain(); g.gain.value = 0;
+    src.connect(f).connect(g).connect(dest); src.start(0, Math.random() * 3);
+    return { f, g };
+  };
+  const osc = (type, freq, gain = 0) => { const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq; const g = ctx.createGain(); g.gain.value = gain; o.connect(g); o.start(0); return { o, g }; };
+  // drone: two detuned saws through a slow lowpass, rising with the tension
+  N.droneF = ctx.createBiquadFilter(); N.droneF.type = 'lowpass'; N.droneF.frequency.value = 300; N.droneF.Q.value = 4; N.droneG = ctx.createGain(); N.droneG.gain.value = 0;
+  N.droneF.connect(N.droneG).connect(N.bus);
+  N.d1 = osc('sawtooth', 36.7); N.d2 = osc('sawtooth', 37.1); N.d3 = osc('sine', 27.5, 1); [N.d1, N.d2, N.d3].forEach(d => d.g.connect(N.droneF)); N.d1.g.gain.value = N.d2.g.gain.value = 0.5;
+  N.rumble = loop(N.brown, 'lowpass', 90, 0.8);       // the weight of the deep / the final rumble
+  N.wash = loop(N.brown, 'bandpass', 300, 0.7);       // underwater wash
+  N.waves = loop(N.brown, 'bandpass', 600, 0.6);      // waves at the surface
+  N.room = loop(N.brown, 'bandpass', 180, 1.2);       // the hum of the ship's engines in the sonar room
+  N.hiss = loop(N.white, 'bandpass', 2500, 0.5);      // static when the sensors fail
+  // helicopter: noise chopped by a fast LFO (the blades) plus the turbine whine
+  N.rotorAmp = ctx.createGain(); N.rotorAmp.gain.value = 0.5; N.rotorG = ctx.createGain(); N.rotorG.gain.value = 0;
+  N.rotorAmp.connect(N.rotorG).connect(N.bus);
+  const rot = loop(N.brown, 'lowpass', 420, 0.9, N.rotorAmp); rot.g.gain.value = 1;
+  N.lfo = osc('sine', 17, 0.5); N.lfo.g.connect(N.rotorAmp.gain);
+  N.whine = osc('sawtooth', 1650, 0); const wf = ctx.createBiquadFilter(); wf.type = 'bandpass'; wf.frequency.value = 1650; wf.Q.value = 8; N.whine.g.connect(wf).connect(N.rotorG);
+  const burst = (t, { type, from, to, dur, gain, buf = N.white, q = 0.7 }) => {
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(N.bus); src.start(t, Math.random() * 2); src.stop(t + dur + 0.05);
+  };
+  const tone = (t, type, f0, f1, dur, gain, attack = 0.015) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + dur); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + attack); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g).connect(N.bus); o.start(t); o.stop(t + dur + 0.05); };
+  const boom = (t, k) => { burst(t, { type: 'lowpass', from: 1600, to: 50, dur: 2.6, gain: 0.8 * k, buf: N.brown }); tone(t, 'sine', 60, 22, 2.2, 0.9 * k); };
+  const thud = (t, k) => { tone(t, 'sine', 80, 30, 0.5, 0.8 * k, 0.005); burst(t, { type: 'lowpass', from: 700, to: 60, dur: 0.5, gain: 0.5 * k, buf: N.brown }); };
+  // sonar ping: a clean high tone with a long, fading echo
+  const ping = (t, k = 1) => { for (let i = 0; i < 4; i++) tone(t + i * 0.32, 'sine', 1180, 1150, 1.1, 0.12 * k * Math.pow(0.45, i), 0.004); };
+  // a call from something enormous: a buzzy tone far below hearing, gliding through a low formant, with slow vibrato
+  const moan = (t, f0, f1, dur, gain, formant = 140) => {
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), v = ctx.createOscillator(), vg = ctx.createGain(), bp = ctx.createBiquadFilter(), g = ctx.createGain(), g2 = ctx.createGain();
+    o.type = 'sawtooth'; o2.type = 'sine';
+    o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f0 * 1.2, t + dur * 0.4); o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    o2.frequency.setValueAtTime(f0 * 0.5, t); o2.frequency.exponentialRampToValueAtTime(f1 * 0.5, t + dur);
+    v.frequency.value = 3.2; vg.gain.value = f0 * 0.03; v.connect(vg).connect(o.frequency);
+    bp.type = 'bandpass'; bp.frequency.setValueAtTime(formant, t); bp.frequency.linearRampToValueAtTime(formant * 1.7, t + dur * 0.5); bp.frequency.linearRampToValueAtTime(formant * 0.8, t + dur); bp.Q.value = 3;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + dur * 0.3); g.gain.setValueAtTime(gain, t + dur * 0.7); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    g2.gain.value = 0.8; o.connect(bp).connect(g); o2.connect(g2).connect(g); g.connect(N.bus);
+    for (const x of [o, o2, v]) { x.start(t); x.stop(t + dur + 0.05); }
+  };
+  const creak = (t, k = 1) => { const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter(); o.type = 'sawtooth'; o.frequency.setValueAtTime(70 + Math.random() * 30, t); o.frequency.linearRampToValueAtTime(45 + Math.random() * 20, t + 0.9); f.type = 'bandpass'; f.frequency.value = 420; f.Q.value = 5; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.09 * k, t + 0.2); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.0); o.connect(f).connect(g).connect(N.bus); o.start(t); o.stop(t + 1.05); };
+  const alarm = (t, dur) => { for (let i = 0; i < dur / 0.5; i++) { const f = i % 2 ? 660 : 880; const o = ctx.createOscillator(), g = ctx.createGain(), bp = ctx.createBiquadFilter(); o.type = 'square'; o.frequency.value = f; bp.type = 'bandpass'; bp.frequency.value = f; bp.Q.value = 2; const t0 = t + i * 0.5; g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(0.025, t0 + 0.02); g.gain.setValueAtTime(0.025, t0 + 0.42); g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.48); o.connect(bp).connect(g).connect(N.bus); o.start(t0); o.stop(t0 + 0.5); } };
+  const blip = t => { tone(t, 'square', 140, 60, 0.12, 0.05, 0.003); burst(t, { type: 'highpass', from: 3000, to: 5000, dur: 0.25, gain: 0.08 }); };
+  const sting = t => { for (const [f, d] of [[110, 0], [116.5, 0.02], [155.6, 0.05]]) { const o = ctx.createOscillator(), g = ctx.createGain(), v = ctx.createOscillator(), vg = ctx.createGain(); o.type = 'sawtooth'; o.frequency.value = f; v.frequency.value = 5; vg.gain.value = 3; v.connect(vg).connect(o.frequency); const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900; g.gain.setValueAtTime(0.0001, t + d); g.gain.exponentialRampToValueAtTime(0.07, t + 0.3); g.gain.exponentialRampToValueAtTime(0.0001, t + 2.0); o.connect(lp).connect(g).connect(N.bus); o.start(t + d); v.start(t + d); o.stop(t + 2.1); v.stop(t + 2.1); }
+    tone(t, 'sine', 46, 24, 1.6, 0.6); };
+  return {
+    N,
+    // continuous layers follow the set and the story
+    apply(T, at) {
+      const set = CAM.set, under = CAM.under, ten = envAt(T).tension, set_ = (p, v, k = 0.12) => p.setTargetAtTime(v, at, k);
+      const dome = smooth(EV.dome[0], EV.dome[1], T);
+      set_(N.droneG.gain, 0.06 + 0.16 * ten + 0.1 * dome); set_(N.droneF.frequency, 140 + 420 * ten + 60 * Math.sin(T * 0.4));
+      set_(N.d1.o.frequency, 36.7 * (1 + 0.02 * ten * Math.sin(T * 0.2)), 0.5);
+      set_(N.rumble.g.gain, (set === 'deep' || set === 'below' ? 0.22 : set === 'vessel' ? 0.1 + 0.6 * smooth(EV.bulge[0], EV.bulge[0] + 1, T) : set === 'cargo' ? 0.4 : 0.02) + 0.9 * dome + 0.3 * shake(T));
+      set_(N.wash.g.gain, under ? 0.12 : 0);
+      set_(N.waves.g.gain, set === 'cargo' || set === 'vessel' || set === 'heli' ? 0.25 + 0.1 * Math.sin(T * 0.8) : 0);
+      set_(N.room.g.gain, set === 'control' ? 0.08 : 0);
+      const dead = set === 'control' ? smooth(EV.dark[0], EV.dark[5], T) : 0;
+      set_(N.hiss.g.gain, set === 'control' && T > EV.dark[0] ? 0.03 + 0.04 * dead : 0, 0.05);
+      const heliOn = set === 'heli' ? 1 : set === 'below' ? 0.3 : 0;
+      set_(N.rotorG.gain, heliOn * (0.32 + 0.18 * smooth(ln(15, -0.5), ln(15, 1.2), T) * (1 - smooth(ln(15, 1.5), ln(16), T))));
+      set_(N.whine.g.gain, 0.012 * heliOn);
+      set_(N.lfo.o.frequency, 17 + 2 * smooth(ln(15), ln(15, 1.4), T) * (1 - smooth(ln(15, 1.5), ln(16), T)));
+      // underwater everything sounds closed and dull
+      set_(N.muffle.frequency, under ? 1400 : set === 'control' ? 9000 : 16000, 0.05);
+      // hard cut: everything stops on the frame the picture goes black
+      N.master.gain.setTargetAtTime(T >= ENDING.cut ? 0 : 0.9, at, T >= ENDING.cut ? 0.004 : 0.05);
+    },
+    events(T0, T1, at) {
+      if (T1 >= ENDING.cut) return;
+      const hit = t => T0 < t && T1 >= t, dt = T1 - T0, set = CAM.set, rand = k => Math.random() < dt * k;
+      // calls from the deep: very low and enormous
+      for (const [t, f0, f1, d, g] of [[ln(1, 1.2), 34, 24, 4.5, 0.22], [ln(2, 0.4), 30, 20, 4, 0.25], [ln(7, 0.2), 38, 26, 3.5, 0.24], [ln(11, 0.2), 28, 19, 4, 0.26], [ln(12, 0.6), 24, 30, 2.6, 0.2], [ln(21, 0.1), 26, 18, 3.5, 0.26], [ln(24, 0.2), 22, 16, 4, 0.3]]) if (hit(t)) moan(at, f0, f1, d, g);
+      if (hit(0.3)) ping(at, 0.7);
+      if (hit(EV.ping)) ping(at, 1.1);
+      if (hit(ln(3, 2.2)) || hit(ln(4, 0.2))) ping(at, 0.8);
+      for (let i = 0; i < 3; i++) if (hit(EV.tap[0] + 0.4 + i * 0.17)) tone(at, 'triangle', 900, 700, 0.06, 0.06, 0.002);   // knock knock knock on the glass
+      if (hit(EV.tap[0] + 0.2)) burst(at, { type: 'bandpass', from: 1800, to: 900, dur: 0.6, gain: 0.08 });
+      if (hit(EV.moves)) { sting(at); ping(at, 1); }
+      if (hit(ln(6, 0.3))) tone(at, 'sine', 55, 30, 2.5, 0.35, 0.3);
+      if (hit(EV.rise[0] + 0.2)) { boom(at, 0.5); }
+      if (set === 'cargo' && rand(1.6)) creak(at, 1.2);
+      if (hit(ln(8, 0.1))) { creak(at, 1.6); boom(at, 0.4); }
+      if (hit(EV.lost)) { blip(at); tone(at, 'sine', 880, 440, 0.6, 0.05); }
+      if (hit(EV.alarm)) alarm(at, ln(11, -0.2) - EV.alarm);
+      if (hit(ln(9, 0.2))) ping(at, 1);
+      EV.dark.forEach(t => { if (hit(t)) blip(at); });
+      if (hit(ln(11, 0.1))) tone(at, 'sine', 40, 26, 3.4, 0.3, 0.8);
+      if (hit(EV.look[0] + 0.2)) sting(at);
+      if (set === 'vessel' && T1 > EV.bulge[0] && rand(2.2)) creak(at, 1.4);
+      if (hit(EV.bulge[0] + 0.3)) boom(at, 0.7);
+      if (hit(ln(16, 0.2))) tone(at, 'sine', 70, 52, 2.4, 0.08, 0.6);
+      if (hit(EV.glow[0] + 0.4)) tone(at, 'sine', 880, 1320, 2.6, 0.02, 1.0);
+      if (hit(ln(19, 0.1))) tone(at, 'sine', 44, 30, 2.0, 0.2, 0.4);
+      if (hit(EV.open[0])) { boom(at, 0.6); sting(at); }
+      if (hit(ln(22, 0.1))) tone(at, 'sine', 62, 58, 1.4, 0.12, 0.05);
+      if (hit(EV.turn[0] + 0.3)) moan(at, 20, 26, 3, 0.2, 110);
+      if (hit(EV.dome[0])) { boom(at, 0.9); moan(at, 18, 14, 4, 0.3, 90); }
+    },
+  };
+}
+const sfx = (() => {
+  let ctx = null, S = null, enabled = false, lastT = 0;
+  return {
+    get on() { return enabled; },
+    toggle() {
+      if (!ctx) { ctx = new (window.AudioContext || window.webkitAudioContext)(); S = buildSfx(ctx); }
+      enabled = !enabled;
+      enabled && playing ? ctx.resume() : ctx.suspend();
+      return enabled;
+    },
+    pause(p) { if (ctx && enabled) p ? ctx.suspend() : ctx.resume(); },
+    update(T) {
+      if (!ctx || !enabled) { lastT = T; return; }
+      S.apply(T, ctx.currentTime);
+      if (playing && T > lastT && T - lastT < 0.5) S.events(lastT, T, ctx.currentTime);
+      lastT = T;
+    },
+  };
+})();
+// Offline soundtrack for the MP4 export: same layers, rendered faster than real time, returned as 16-bit WAV.
+async function renderSoundtrack(rate = 44100) {
+  const ctx = new OfflineAudioContext(1, Math.ceil(DURATION * rate), rate), S = buildSfx(ctx);
+  for (let t = 0, prev = 0; t <= DURATION; prev = t, t += 0.05) {
+    placeCamera(t);
+    S.apply(t, t);
+    if (t > 0) S.events(prev, t, t);
+  }
+  const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+  const out = new DataView(new ArrayBuffer(44 + d.length * 2)), str = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); out.setUint32(4, 36 + d.length * 2, true); str(8, 'WAVEfmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, 1, true);
+  out.setUint32(24, rate, true); out.setUint32(28, rate * 2, true); out.setUint16(32, 2, true); out.setUint16(34, 16, true); str(36, 'data'); out.setUint32(40, d.length * 2, true);
+  let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+  const norm = peak > 0.89 ? 0.89 / peak : 1;
+  const cutAt = Math.floor(ENDING.cut * rate);   // silence after the cut (exactly on the frame)
+  for (let i = 0; i < d.length; i++) out.setInt16(44 + i * 2, i >= cutAt ? 0 : clamp(d[i] * norm, -1, 1) * 32767, true);
+  let bin = ''; const bytes = new Uint8Array(out.buffer);
+  for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+  return btoa(bin);
+}
+const soundBtn = document.getElementById('sound');
+function toggleSound() { soundBtn.setAttribute('aria-pressed', String(sfx.toggle())); }
+soundBtn.onclick = toggleSound;
+/* ===================================================================== PLAYBACK */
+const hud = document.getElementById('hud'), playBtn = document.getElementById('play'), scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const playIcon = document.getElementById('play-icon');
+scrub.max = DURATION;
+let T = 0, playing = true, last = null, audio = null;
+const fmtTime = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+function setPlaying(v) {
+  playing = v;
+  playBtn.setAttribute('aria-label', v ? 'Pause' : 'Play');
+  playIcon.innerHTML = v ? '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>' : '<path d="M4 2l10 6-10 6z"/>';
+  if (audio) { if (v) { audio.currentTime = T; audio.play().catch(() => {}); } else audio.pause(); }
+  sfx.pause(!v);
+  poke();
+}
+function seek(t) { T = clamp(t, 0, DURATION); if (audio) audio.currentTime = T; }
+playBtn.onclick = () => { if (!playing && T >= DURATION) seek(0); setPlaying(!playing); };
+document.getElementById('replay').onclick = () => { seek(0); setPlaying(true); };
+scrub.oninput = () => seek(parseFloat(scrub.value));
+function attachAudio(src) {
+  audio?.pause(); audio = new Audio(src); audio.preload = 'auto';
+  audio.addEventListener('ended', () => setPlaying(false));
+  seek(0); setPlaying(true);
+}
+document.getElementById('voice').onchange = e => { const f = e.target.files?.[0]; if (f) attachAudio(URL.createObjectURL(f)); };
+if (params.get('audio')) attachAudio(params.get('audio'));
+let hideTimer = 0, forceHidden = params.get('clean') === '1';
+function poke() {
+  clearTimeout(hideTimer); hud.classList.toggle('hide', forceHidden);
+  if (playing && !forceHidden) hideTimer = setTimeout(() => hud.classList.add('hide'), 2500);
+}
+stage.addEventListener('pointermove', poke); stage.addEventListener('pointerdown', poke);
+stage.addEventListener('pointerdown', e => { if (forceHidden && !sfx.on) toggleSound(); });
+addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') { forceHidden = !forceHidden; poke(); }
+  if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+});
+poke();
+
+function draw(T) { placeCamera(T); update(T); overlays(T); composer ? composer.render() : renderer.render(scene, camera); }
+function frame(now) {
+  const dt = last === null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) {
+    if (audio && !audio.paused && audio.readyState >= 2) T = Math.min(DURATION, audio.currentTime); else T += dt;
+    if (T >= DURATION) { T = DURATION; setPlaying(false); }
+  }
+  placeCamera(T); update(T); sfx.update(T); overlays(T);
+  scrub.value = T; timeEl.textContent = fmtTime(T);
+  composer ? composer.render() : renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+const RENDER = params.get('render') === '1';
+if (RENDER) {
+  forceHidden = true; poke(); playing = false;
+  document.body.classList.add('render');
+  window.renderAt = t => { T = t; draw(T); };
+  window.renderSoundtrack = renderSoundtrack;
+  window.renderReady = true;
+} else { if (params.get('t')) T = +params.get('t'); requestAnimationFrame(frame); }
+addEventListener('pagehide', () => {
+  audio?.pause();
+  scene.traverse(o => { o.geometry?.dispose(); [].concat(o.material ?? []).forEach(m => m.dispose()); });
+  composer?.dispose?.(); pmrem.dispose(); renderer.dispose();
+});
+</script>
