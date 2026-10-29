@@ -12,6 +12,7 @@ Zegt de eigenaar **"software"** → begin hier. Zegt hij **"comfy"** → alles v
 | Afbeeldingen / clips (oud) | xAI `grok-imagine` | `tools/xai_images.py` | **Ja – staat uit, alleen na uitdrukkelijk ja** |
 | Montage, effecten, foto, geluid | **Craft-apps** (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, …) | `tools/craft/README.md`, voorbeelden in `tools/craft/examples/` | Nee |
 | Losse bewerking | ffmpeg, OpenCV, Pillow, numpy | overal in `tools/` | Nee |
+| Websites uitlezen (scrapen) | **Scrapling** (`from scrapling.fetchers import Fetcher`) – automatisch geïnstalleerd | https://github.com/D4Vinci/Scrapling | Nee |
 | YouTube | upload / playlist / bereik | `tools/youtube_*.py` | Nee |
 | YouTube | snelgroeiende slaapvideo's van grote kanalen (onderwerp kiezen) | `tools/sleep_trends.py` | Nee |
 | 3D-animaties (What If, uitleg) | **Three.js** – één HTML per video, eigen geluidseffecten | `tools/threejs/README.md`, pc: `tools/threejs/make-whatif.ps1` | Nee (OpenCode met betaald model wel) |

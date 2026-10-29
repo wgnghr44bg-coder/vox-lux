@@ -28,4 +28,5 @@ for pair in filmcraft:filmcraft effectcraft:effectcraft photocraft:photocraft ve
   rm -f "$f" sums.txt
 done
 python3 -c "import cv2, numpy, PIL" 2>/dev/null || pip install -q opencv-python-headless numpy pillow 2>/dev/null
+python3 -c "import scrapling" 2>/dev/null || pip install -q "scrapling[fetchers]" 2>/dev/null  # web scraping (D4Vinci/Scrapling)
 exit 0
