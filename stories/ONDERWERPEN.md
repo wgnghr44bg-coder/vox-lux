@@ -95,7 +95,8 @@ en een onderwerp dat daar op meelift naar voren halen; plus jubilea, feestdagen 
 een hype is")**: alleen wereldberoemde onderwerpen, op een jubileum, feestdag of nieuwe film.
 Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiven naar achteren.
 - wo 28 okt: Life Aboard the Mayflower, 1620 (al openbaar)
-- wo 4 nov: Life on the Oregon Trail, 1846 (klaar, privé geüpload op de pc)
+- za 31 okt: Life on the Oregon Trail, 1846 (klaar, ingepland op Sleep Archives; eigenaar 29 okt)
+- wo 4 nov: vrij, de routine kiest het onderwerp op hype
 - za 7 nov: How Vikings Survived the Long Dark Winter, 900 AD (hype: winter/kou-video's en Vikingen groeien
   het hardst bij grote kanalen, okt 2026: 19.000-27.000 views per dag)
 - wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
