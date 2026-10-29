@@ -1,0 +1,318 @@
+{
+ "onderwerp": "Life on the Oregon Trail, 1846",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "Independence, Missouri"
+  },
+  {
+   "soort": "datum",
+   "tijd": 142.5,
+   "regel1": "May 1846",
+   "regel2": "Independence, Missouri"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 423.03,
+   "nummer": 2,
+   "titel": "Who Goes West"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 655.3,
+   "tekst": "Last spring, 1846, was a busy season in the City of St. Louis.",
+   "bron": "Francis Parkman, The Oregon Trail"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 817.54,
+   "nummer": 3,
+   "titel": "On the Way"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 846.0,
+   "titel": "The Oregon Trail, 1846",
+   "gebied": [
+    -128,
+    -90,
+    37,
+    49
+   ],
+   "plaatsen": [
+    {
+     "naam": "Independence",
+     "lon": -94.42,
+     "lat": 39.09,
+     "kant": "onder"
+    },
+    {
+     "naam": "Fort Laramie",
+     "lon": -104.56,
+     "lat": 42.21,
+     "kant": "onder"
+    },
+    {
+     "naam": "South Pass",
+     "lon": -108.9,
+     "lat": 42.36,
+     "kant": "boven"
+    },
+    {
+     "naam": "Fort Hall",
+     "lon": -112.45,
+     "lat": 43.02,
+     "kant": "onder"
+    },
+    {
+     "naam": "The Dalles",
+     "lon": -121.18,
+     "lat": 45.6,
+     "kant": "boven"
+    },
+    {
+     "naam": "Oregon City",
+     "lon": -122.6,
+     "lat": 45.36,
+     "kant": "links"
+    }
+   ],
+   "route": [
+    [
+     -94.42,
+     39.09
+    ],
+    [
+     -95.7,
+     39.05
+    ],
+    [
+     -97.0,
+     39.8
+    ],
+    [
+     -98.9,
+     40.67
+    ],
+    [
+     -100.8,
+     41.05
+    ],
+    [
+     -103.0,
+     41.7
+    ],
+    [
+     -104.56,
+     42.21
+    ],
+    [
+     -106.3,
+     42.85
+    ],
+    [
+     -107.13,
+     42.49
+    ],
+    [
+     -108.9,
+     42.36
+    ],
+    [
+     -110.1,
+     42.1
+    ],
+    [
+     -111.6,
+     42.65
+    ],
+    [
+     -112.45,
+     43.02
+    ],
+    [
+     -114.8,
+     42.6
+    ],
+    [
+     -116.95,
+     43.8
+    ],
+    [
+     -118.1,
+     45.3
+    ],
+    [
+     -119.5,
+     45.7
+    ],
+    [
+     -121.18,
+     45.6
+    ],
+    [
+     -122.6,
+     45.36
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1191.99,
+   "nummer": 4,
+   "titel": "A Day on the Trail"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1537.67,
+   "nummer": 5,
+   "titel": "Women and Children"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1911.1,
+   "nummer": 6,
+   "titel": "The Animals"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2308.04,
+   "nummer": 7,
+   "titel": "Along the Platte"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2667.03,
+   "nummer": 8,
+   "titel": "A Night on the Prairie"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3016.26,
+   "nummer": 9,
+   "titel": "Music and Friendship"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3371.88,
+   "nummer": 10,
+   "titel": "The Great Rocks"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3582.9,
+   "regel1": "June 1846",
+   "regel2": "Fort Laramie"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3732.97,
+   "nummer": 11,
+   "titel": "Independence Rock"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3970.6,
+   "regel1": "4 July 1846",
+   "regel2": "Independence Rock"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4099.8,
+   "nummer": 12,
+   "titel": "South Pass"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4447.81,
+   "nummer": 13,
+   "titel": "Two Roads"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 4561.9,
+   "tekst": "Never take no cutoffs, and hurry along as fast as you can.",
+   "bron": "Virginia Reed, letter, 1847"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4780.76,
+   "nummer": 14,
+   "titel": "Along the Snake"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5126.37,
+   "nummer": 15,
+   "titel": "Mending and Trading"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5517.51,
+   "nummer": 16,
+   "titel": "The Blue Mountains"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5864.02,
+   "nummer": 17,
+   "titel": "The Last Miles"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6191.6,
+   "regel1": "Autumn 1846",
+   "regel2": "Oregon City"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6225.36,
+   "nummer": 18,
+   "titel": "Tabitha Brown"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6473.2,
+   "regel1": "Christmas Day 1846",
+   "regel2": "Salem, Oregon"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6605.65,
+   "nummer": 19,
+   "titel": "A New Home"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7027.44,
+   "nummer": 20,
+   "titel": "What Remains"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 7131.4,
+   "punten": [
+    [
+     "1843",
+     "The first large wagon trains"
+    ],
+    [
+     "1846",
+     "Tabitha Brown and Parkman go west"
+    ],
+    [
+     "1869",
+     "The railroad crosses the continent"
+    ],
+    [
+     "Today",
+     "The wagon ruts can still be seen"
+    ]
+   ]
+  }
+ ]
+}

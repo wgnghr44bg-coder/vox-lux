@@ -26,3 +26,4 @@ stories/*/video/
 __pycache__/
 tools/.cache/
 stories/vikings-winter/stemcache/
+stories/oregon-trail/audio/
