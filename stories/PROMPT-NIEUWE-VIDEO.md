@@ -55,7 +55,12 @@ Stappen:
    years back, to <plek>." (geen welkom/hallo ervoor; bv. "Tonight we are going about a hundred and twenty
    years back, to San Francisco, a city of steep hills and soft grey fog by the Pacific
    Ocean."), dan [long-pause] en meteen het verhaal met een concreet
-   beeld. GEEN vraag en GEEN abonneren aan het begin. add_pauses.py zonder --welkom (de
+   beeld. GEEN vraag aan het begin. **Abonneer-zin (eigenaar, 29 okt 2026; vervangt "geen
+   abonneren aan het begin")**: na de eerste 2-4 zinnen van het verhaal (± 30-60 s na de start)
+   één korte, rustige zin, bv. "If you enjoy calm stories like this, you're welcome to
+   subscribe. [pause] Now, let's begin." en dan [long-pause]. Formuleer hem per video net iets
+   anders (geen vaste zin, zie hieronder), nooit langer dan 2 korte zinnen, nooit "like" of
+   "bell". add_pauses.py zonder --welkom (de
    welkomst zit al in het script). Bij Sleepy Facts precies hetzelfde begin. **Einde**: een korte afronding, nog één keer
    vragen om te abonneren, een zin dat er een volgende video op het scherm staat ("There
    should be another quiet story waiting on the screen now, if you are still awake.") en

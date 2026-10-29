@@ -38,6 +38,8 @@ werk alles af.
      `stories/titanic/thumbnail-v2.jpg`: **mensen van dat moment** dichtbij in warm licht (rechts of
      in het midden), het onderwerp eromheen; nooit alleen een schip of gebouw. Geen goed beeld met
      mensen in de video? Maak er één extra via comfy (gratis). Bekijk het resultaat zelf.
+   - **Abonneer-zin** na de eerste 2-4 zinnen (± 30-60 s), kort en rustig, per video iets anders
+     verwoord (PROMPT-NIEUWE-VIDEO.md stap 2); het einde vraagt zoals altijd nog één keer.
    - **Geen ondertitels** (eigenaar, 28 okt 2026): niet in beeld en niet als ondertitelbestand op YouTube.
    - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
 5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**
