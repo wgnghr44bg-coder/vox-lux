@@ -26,12 +26,17 @@ werk alles af.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
    afwijkingen:
    - Script met de opbouw van stories/titanic (OPZET.md daar), ± 2 uur video.
-   - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md) en stem met
-     Chatterbox als bm_george, rustig (`tools/comfy/make_voice_local.py`). **Nooit xAI of iets
+   - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
-   - Pc-paden (test 27 okt 2026): de stem altijd met
-     `C:\Users\rane\chatterbox-venv\Scripts\python.exe tools/comfy/make_voice_local.py <map>`
-     (het gewone `python` heeft geen chatterbox). De beelden-workflow is `tools/comfy/zimage_api.json`
+   - **Stem: Slaap 3** (eigenaar, 31 okt 2026; vervangt George): eigen ontworpen OmniVoice-stem, oudere
+     Britse man, heel laag, langzaam met lange pauzes. Altijd met
+     `C:\Users\rane\omnivoice-venv\Scripts\python.exe tools/comfy/make_voice_omni.py <map>`
+     (de standaardinstellingen zijn goed; het gewone `python` heeft geen omnivoice). Na
+     `tools/add_pauses.py --niet-zwaarder <map>` altijd `python tools/zachte_stem.py <map>` en monteer met
+     `make_video.py ... --muziek-db -16.6` (ook bij check_video/qc). Meet daarna het volume
+     (ffmpeg `ebur128`): ± -23 LUFS, zodat mensen met hun telefoon zacht het ook horen. Door de lange
+     pauzes wordt de video langer: ± 15.000 woorden script geeft ± 2 uur.
+   - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
    - Titel: bekende naam + maand en jaar + ` | History for Sleep`.
    - Thumbnail: ontwerp v2 (`tools/make_thumbnail.py`, YOUTUBE-STANDAARD.md) zoals

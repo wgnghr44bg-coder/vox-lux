@@ -5,7 +5,9 @@
 - Free video tools (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, … plus OpenCV/ffmpeg) are installed at session
   start. See `tools/craft/README.md` for commands, costs and reusable example scripts.
 - Talk Dutch with the user, simply. Always ask before anything that costs money (xAI images, voice, video).
-- ElevenLabs is no longer used. Standard voice (free, owner's pc): Chatterbox imitating Kokoro bm_george, calm – `tools/comfy/make_voice_local.py`.
+- ElevenLabs is no longer used. Standard voice (free, owner's pc, since 31 Oct 2026): **Slaap 3** via OmniVoice –
+  `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>`, then `tools/zachte_stem.py` and
+  `make_video.py --muziek-db -16.6` (soft timbre, long pauses, ± -23 LUFS). George/Chatterbox (`make_voice_local.py`) only on request.
   xAI voice (`tools/xai_voiceover.py`) only on request; it costs money.
 - REA (reverse engineering, https://github.com/morluto/rea): MCP server in `.mcp.json`, skill in
   `.claude/skills/reverse-engineer-anything`. Update with `npx rea-agents@latest` and bump the version in `.mcp.json`.
