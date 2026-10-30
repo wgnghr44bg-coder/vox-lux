@@ -33,7 +33,7 @@ werk alles af.
      `C:\Users\rane\omnivoice-venv\Scripts\python.exe tools/comfy/make_voice_omni.py <map>`
      (de standaardinstellingen zijn goed; het gewone `python` heeft geen omnivoice). Na
      `tools/add_pauses.py --niet-zwaarder <map>` altijd `python tools/zachte_stem.py <map>` en monteer met
-     `make_video.py ... --muziek-db -16.6` (ook bij check_video/qc). Meet daarna het volume
+     `make_video.py ... --muziek-db -24.6` (ook bij check_video/qc). Meet daarna het volume
      (ffmpeg `ebur128`): ± -23 LUFS, zodat mensen met hun telefoon zacht het ook horen. Door de lange
      pauzes wordt de video langer: ± 15.000 woorden script geeft ± 2 uur.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`

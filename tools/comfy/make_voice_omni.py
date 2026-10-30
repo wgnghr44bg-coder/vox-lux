@@ -3,7 +3,7 @@
 Zelfde in- en uitvoer als make_voice_local.py: leest <map>/script-cues.txt en schrijft
 <map>/voice.mp3 + <map>/voice-times.tsv (stem start op 0,8 s), dus de rest van de routine blijft gelijk.
 Standaardstem sinds 31 okt 2026: "Slaap 3" (eigen ontworpen stem: oudere Britse man, heel laag; ref
-stem/slaapstem-3.wav), langzaam (speed 0.8) met lange pauzes. Daarna tools/zachte_stem.py en muziek op -16.6 dB.
+stem/slaapstem-3.wav), langzaam (speed 0.8) met lange pauzes. Daarna tools/zachte_stem.py en muziek op -24.6 dB.
 
 Installeren: aparte omgeving C:\\Users\\rane\\omnivoice-venv met torch 2.8 cu128 + `pip install omnivoice`.
 Gebruik (vanuit de map vox-lux):
