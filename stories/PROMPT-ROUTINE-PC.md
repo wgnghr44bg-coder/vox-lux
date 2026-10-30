@@ -40,6 +40,9 @@ werk alles af.
      mensen in de video? Maak er één extra via comfy (gratis). Bekijk het resultaat zelf.
    - **Abonneer-zin** na de eerste 2-4 zinnen (± 30-60 s), kort en rustig, per video iets anders
      verwoord (PROMPT-NIEUWE-VIDEO.md stap 2); het einde vraagt zoals altijd nog één keer.
+   - **Avondeffect v2** (eigenaar, 30 okt 2026): `tools/make_video.py` maakt het beeld standaard iets donkerder
+     met zachte donkere randen, kleuren gewoon (geen gele lucht). Niet uitzetten; de thumbnail blijft helder.
+     Vraag in de beeldprompts liefst om avondlicht (kampvuur, lamp, schemering).
    - **Geen ondertitels** (eigenaar, 28 okt 2026): niet in beeld en niet als ondertitelbestand op YouTube.
    - Kwaliteitscontrole zoals in de prompt (`tools/qc_video.py`); fouten zelf herstellen.
 5. **Uploaden**: privé met publishAt op de geplande tijd naar **Sleep Archives**
