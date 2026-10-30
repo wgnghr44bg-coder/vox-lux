@@ -542,7 +542,7 @@ def main():
     w, h, fps, dur = probe(a.inp)
     c = Canvas(w, h)
     rng = np.random.default_rng(a.seed)
-    plan = json.load(open(a.plan)) if a.plan else {}
+    plan = json.load(open(a.plan, encoding="utf-8")) if a.plan else {}
     parts = build(plan, c, dur, rng)
     systems = read_list(a.effecten, w, h, rng) if a.effecten else []
 

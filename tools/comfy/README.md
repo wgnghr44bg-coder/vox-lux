@@ -34,7 +34,18 @@ python3 tools/comfy/check_clips.py <map>/clips      # overzichtsblad per clip in
 Bekijk elk blad, noteer in `<map>/clips/CHECKED.txt`: `naam OK`, `naam USE <seconden>` of `naam STILL`.
 Fout? Opnieuw laten maken met een andere seed (gratis).
 
-## Standaardstem (gratis, op de pc)
+## Standaardstem (gratis, op de pc) – Slaap 3 sinds 31 okt 2026
+**OmniVoice "Slaap 3"**: eigen ontworpen stem (oudere Britse man, heel lage stem), speed 0.8, zinpauze 1,1 s,
+[pause] 1,5 s, [long-pause] 2,8 s. Ref: `stem/slaapstem-3.wav` (zelf gemaakt met voice design, geen opname van iemand).
+```
+C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>   # -> voice.mp3 + voice-times.tsv
+python tools/add_pauses.py --niet-zwaarder <map> && python tools/zachte_stem.py <map>
+python tools/make_video.py <map> ... --muziek-db -16.6                                    # ± -23 LUFS
+```
+Omgeving: `C:\Users\rane\omnivoice-venv` (torch 2.8 cu128 + `pip install omnivoice`, engine van VoiceStudio).
+Proefstemmen maken: `tools/comfy/omnivoice_proef.py`. **Geen ElevenLabs-stemmen klonen** (hun voorwaarden).
+
+## Oude standaardstem (George, alleen op verzoek)
 **Chatterbox die Kokoro bm_george nadoet, rustig** (keuze eigenaar 13 okt 2026). Proef: `stem/standaardstem-proef.mp3`.
 ```
 python tools/comfy/make_voice_local.py <map>      # <map>/script-cues.txt -> voice.mp3 + voice-times.tsv

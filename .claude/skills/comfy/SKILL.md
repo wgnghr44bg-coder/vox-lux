@@ -7,5 +7,5 @@ Volg `tools/comfy/README.md`. Kort:
 2. Vraag de eigenaar op zijn pc te draaien: `python tools/comfy/comfy_batch.py zimage_api.json <map>` (beelden, `--short` voor staand)
    en daarna `python tools/comfy/comfy_batch.py wan_i2v_api.json <map>` (clips). ComfyUI is vanuit de cloud niet bereikbaar.
 3. Na zijn push: pull, controleer elke clip met `python3 tools/comfy/check_clips.py <map>/clips` en noteer `clips/CHECKED.txt`.
-4. Monteer met de Craft-apps (`tools/craft/README.md`). Stem: standaard `python tools/comfy/make_voice_local.py <map>` op de pc (Chatterbox, rustig, gratis); xAI alleen op verzoek (kost geld).
+4. Monteer met de Craft-apps (`tools/craft/README.md`). Stem: standaard Slaap 3 op de pc (`tools/comfy/make_voice_omni.py`, daarna `tools/zachte_stem.py`; zie tools/comfy/README.md, gratis); xAI alleen op verzoek (kost geld).
 Gebruik nooit xAI voor beelden of clips als de eigenaar "comfy" zegt.

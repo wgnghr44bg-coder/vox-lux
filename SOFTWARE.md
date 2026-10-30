@@ -7,7 +7,8 @@ Zegt de eigenaar **"software"** → begin hier. Zegt hij **"comfy"** → alles v
 |---|---|---|---|
 | Afbeeldingen | **ComfyUI** – Z-Image Turbo (pc eigenaar) | `tools/comfy/comfy_batch.py` + `tools/comfy/README.md` | Nee |
 | Bewegende clips | **ComfyUI** – Wan 2.2 5B (pc eigenaar) | `tools/comfy/comfy_batch.py`, controle: `tools/comfy/check_clips.py` | Nee |
-| **Stem (standaard)** | **pc** – Chatterbox als bm_george, rustig | `tools/comfy/make_voice_local.py`, proef: `tools/comfy/stem/standaardstem-proef.mp3` | Nee |
+| **Stem (standaard)** | **pc** – OmniVoice "Slaap 3" (oudere Britse man, heel laag, rustig; sinds 31 okt 2026) | `tools/comfy/make_voice_omni.py` + `tools/zachte_stem.py`, ref `tools/comfy/stem/slaapstem-3.wav` | Nee |
+| Stem (oud, op verzoek) | **pc** – Chatterbox als bm_george | `tools/comfy/make_voice_local.py` | Nee |
 | Stem (alleen op verzoek) | xAI TTS (Atlas / Lux) | `tools/xai_voiceover.py`, `alteraqon/tools/make_voice.py` (branch `alteraqon`) | **Ja – eerst vragen** |
 | Afbeeldingen / clips (oud) | xAI `grok-imagine` | `tools/xai_images.py` | **Ja – staat uit, alleen na uitdrukkelijk ja** |
 | Montage, effecten, foto, geluid | **Craft-apps** (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, …) | `tools/craft/README.md`, voorbeelden in `tools/craft/examples/` | Nee |
