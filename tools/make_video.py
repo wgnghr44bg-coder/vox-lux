@@ -17,6 +17,10 @@ FPS = 25
 XFADE = 1.5      # seconden overgang tussen afbeeldingen
 FOG_SPEED = 20   # pixels per seconde
 FOG_OPACITY = 0.4
+# Avondeffect v2 (eigenaar, 30 okt 2026): iets donkerder, kleuren gewoon (geen gele "ansichtkaart"-lucht),
+# randen zacht donker. Alleen het beeld; titels/kaarten van motion.py en de thumbnail blijven zoals ze zijn.
+AVOND = ("format=yuv444p,eq=brightness=-0.02:gamma=0.85:contrast=1.02,format=gbrp,"
+         "colorbalance=rs=0.04:bs=-0.03:rm=0.03:bm=-0.03,vignette=angle=PI/5,")
 
 
 def run(args):
@@ -107,6 +111,7 @@ def main():
     ap.add_argument("--muziek-db", type=float, default=-20, help="volume van de muziek in dB")
     ap.add_argument("--geluid", type=Path,
                     help="natuurgeluiden per scène (van tools/ambient_sfx.py, al op het goede niveau)")
+    ap.add_argument("--geen-avond", action="store_true", help="zonder avondeffect (oude video's)")
     ap.add_argument("--naam", help="naam van de eindvideo (zonder .mp4)")
     ap.add_argument("--preset", default="medium",
                     help="x264-preset van de eindvideo (veryfast: ± 3x sneller, iets groter bestand)")
@@ -170,7 +175,8 @@ def main():
     graph.append(f"[{n}:v]format=gray,crop=1920:1080:x='mod(t*{FOG_SPEED},7680)':y=0,"
                  f"format=gbrp,colorchannelmixer=rr=1:gg=0.97:bb=0.92[fog]")
     graph.append(f"{last}format=gbrp[img]")
-    graph.append(f"[img][fog]blend=all_mode=screen:all_opacity={FOG_OPACITY},format=yuv420p[v]")
+    graph.append(f"[img][fog]blend=all_mode=screen:all_opacity={FOG_OPACITY},"
+                 f"{'' if a.geen_avond else AVOND}format=yuv420p[v]")
 
     if a.audio:
         inputs += ["-i", str(a.audio)]
