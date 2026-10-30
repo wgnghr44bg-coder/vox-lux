@@ -94,11 +94,14 @@ en een onderwerp dat daar op meelift naar voren halen; plus jubilea, feestdagen 
 **Nieuwe planning (eigenaar, 28 okt 2026: "echt bekende dingen die veel mensen aantrekken en waar nu
 een hype is")**: alleen wereldberoemde onderwerpen, op een jubileum, feestdag of nieuwe film.
 Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiven naar achteren.
+**Geen dubbele video's (eigenaar, 30 okt 2026)**: leg elk onderwerp eerst naast alle video's op Sleep Archives
+(ook privé); lijkt het op iets wat er al staat (zelfde onderwerp of bijna dezelfde titel), kies dan een ander.
+Extra, privé zonder datum (eigenaar, 30 okt 2026): `Quiet WW2 Facts to Fall Asleep To, 1939–1945 | History for Sleep`
+(feitenvorm, ± 90 feiten, ± 3 uur; datum kiest de eigenaar, niet rond Pearl Harbor 28 nov).
 - wo 28 okt: Life Aboard the Mayflower, 1620 (al openbaar)
 - za 31 okt: Life on the Oregon Trail, 1846 (klaar, ingepland op Sleep Archives; eigenaar 29 okt)
 - wo 4 nov: vrij, de routine kiest het onderwerp op hype
-- za 7 nov: How Vikings Survived the Long Dark Winter, 900 AD (hype: winter/kou-video's en Vikingen groeien
-  het hardst bij grote kanalen, okt 2026: 19.000-27.000 views per dag)
+- za 7 nov: vrij, de routine kiest het onderwerp op hype (Vikingen stond hier, maar staat al sinds 10 okt op het kanaal)
 - wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
 - za 14 nov: Life in Ancient Egypt When Tutankhamun Died, 1323 BC (± 3,4 miljoen)
 - wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)
@@ -110,7 +113,8 @@ Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiv
   zacht ochtendlicht met de schepen in de haven erachter, geen vliegtuigen of rook.
 - wo 2 dec: Life in Philadelphia, July 1776 (Amerika 250 jaar)
 - za 5 dec: Life in Europe During the Black Death, 1348 (± 640.000)
-- wo 9 dec: How Ice Age Humans Survived the Coldest Nights, 20,000 BC (hype, zie 7 nov)
+- wo 9 dec: vrij, de routine kiest het onderwerp op hype (IJstijd stond hier, maar lijkt te veel op
+  "Life Before Fire: How Early Humans Survived the Night" van 24 sep)
 - za 12 dec: Life in the Trenches, Christmas 1914 (kerstbestand)
 - wo 16 dec: How Medieval Peasants Survived Winter, 1300 (film *Werwulf* 25 dec)
 - za 19 dec: Life in Bethlehem, the First Christmas (kerst)
