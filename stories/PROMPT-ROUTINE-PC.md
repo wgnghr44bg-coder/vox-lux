@@ -58,6 +58,11 @@ werk alles af.
    oorlog `oorlog`. **Nooit nieuwe afspeellijsten maken** (eigenaar). Controleer dat hij erin staat. Controleer via de API dat `snippet.channelTitle` "Sleep Archives" is; anders
    meteen verwijderen en stoppen.
 6. Zet de link en de kosten (€0) in planning.txt, commit en push naar main.
+   **Opruimen** (eigenaar, 31 okt 2026: "doe dit zo elke keer"): staat de video gecontroleerd op YouTube
+   (juiste kanaal, thumbnail, afspeellijsten), verwijder dan de grote bestanden van die video op de pc:
+   alle `*.mp4` en `*.wav` in `stories/<map>/video/` (ook `clips/`). Beelden, script, stem-mp3 en tekstbestanden blijven.
+   Vervang je een oude video op YouTube door een nieuwe, verwijder dan ook het oude bestand. Nooit iets anders
+   (games, eigen opnames) aanraken.
 7. Lukt iets niet (ComfyUI start niet, sleutel ontbreekt, schijf vol), verwijder dan je
    planning.txt van main zodat de volgende run de datum weer kan pakken, en schrijf in
    `stories/ROUTINE-LOG.md` (op main) in simpel Nederlands wat er misging en wat de eigenaar moet doen.
