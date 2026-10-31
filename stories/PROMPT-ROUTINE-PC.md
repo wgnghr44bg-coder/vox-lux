@@ -33,8 +33,8 @@ werk alles af.
      `C:\Users\rane\omnivoice-venv\Scripts\python.exe tools/comfy/make_voice_omni.py <map>`
      (de standaardinstellingen zijn goed; het gewone `python` heeft geen omnivoice). Na
      `tools/add_pauses.py --niet-zwaarder --kort <map>` altijd `python tools/zachte_stem.py <map>` en monteer met
-     `make_video.py ... --muziek-db -35` (ook bij check_video/qc). **Achtergrond** (eigenaar 31 okt 2026, "helder 4", daarna "zachter 4"): de 432 Hz-
-     muziek (`tools/ambient_432.py`) met zachte heldere regen erdoor: direct daarna `python tools/regen_432.py <map>/video/muziek432.wav`. Meet daarna het volume
+     `make_video.py ... --muziek-db -26` (ook bij check_video/qc). **Achtergrond** (eigenaar 31 okt 2026, "helder 4", daarna "zachter 4"): de 432 Hz-
+     muziek (`tools/ambient_432.py ... --rond`: hoge tonen eraf, eigenaar "432 mid harder") met zachte heldere regen erdoor: direct daarna `python tools/regen_432.py <map>/video/muziek432.wav`. Meet daarna het volume
      (ffmpeg `ebur128`). Meldt check_video "stem blijft hangen" (bij OmniVoice: adem-tikjes vóór een zin), draai dan
      `python tools/stil_tikjes.py <map> <video>-motion.mp4 <video>-schoon.mp4` en controleer opnieuw.
      **Tekstcontrole (verplicht, eigenaar 31 okt 2026: "Tonight we we are going")**: draai

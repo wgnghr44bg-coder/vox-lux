@@ -6,7 +6,7 @@ Werkwijze: in <map>/video/stem-met-pauzes.wav wordt elk geluidje (≤ 0,2 s, aan
 het origineel blijft als stem-met-pauzes-voor-tikjes.wav. Daarna stem + muziek (zelfde mix als make_video.py)
 opnieuw onder het beeld van <video> (beeld wordt gekopieerd). Draai daarna tools/check_video.py en tools/eind_volume.py.
 
-Gebruik: python tools/stil_tikjes.py stories/<map> <video>-motion.mp4 <uit>.mp4 [--muziek-db -35] [--max-piek 0.3]
+Gebruik: python tools/stil_tikjes.py stories/<map> <video>-motion.mp4 <uit>.mp4 [--muziek-db -26] [--max-piek 0.3]
 """
 import argparse, shutil, subprocess, sys, wave
 from pathlib import Path
@@ -18,7 +18,7 @@ import check_video as cv
 
 ap = argparse.ArgumentParser()
 ap.add_argument("story", type=Path); ap.add_argument("video"); ap.add_argument("uit")
-ap.add_argument("--muziek-db", type=float, default=-35)
+ap.add_argument("--muziek-db", type=float, default=-26)
 ap.add_argument("--max-piek", type=float, default=0.1, help="hardere geluidjes niet aanraken (kan een woord zijn: bij 0,3 viel \"On a\" weg, Oregon 31 okt)")
 a = ap.parse_args()
 v = a.story / "video"
