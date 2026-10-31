@@ -19,7 +19,7 @@ import check_video as cv
 ap = argparse.ArgumentParser()
 ap.add_argument("story", type=Path); ap.add_argument("video"); ap.add_argument("uit")
 ap.add_argument("--muziek-db", type=float, default=-24.6)
-ap.add_argument("--max-piek", type=float, default=0.3, help="hardere geluidjes niet aanraken (kan een woord zijn)")
+ap.add_argument("--max-piek", type=float, default=0.1, help="hardere geluidjes niet aanraken (kan een woord zijn: bij 0,3 viel \"On a\" weg, Oregon 31 okt)")
 a = ap.parse_args()
 v = a.story / "video"
 stem, orig, muziek = v / "stem-met-pauzes.wav", v / "stem-met-pauzes-voor-tikjes.wav", v / "muziek432.wav"
