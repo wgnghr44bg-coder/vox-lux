@@ -31,8 +31,11 @@ PROGRESSIONS = [["Am", "F", "C", "G"], ["Am", "Em", "F", "C"], ["Dm", "Am", "Fma
 PENTA = [57, 60, 62, 64, 67, 69, 72, 74, 76, 79, 81]  # A-mineur pentatonisch
 
 
+TRANSPOSE = 0      # --laag: alles een octaaf lager (blijft 432 Hz-stemming)
+
+
 def hz(m):
-    return A4 * 2 ** ((m - 69) / 12)
+    return A4 * 2 ** ((m + TRANSPOSE - 69) / 12)
 
 
 def pad_note(f, n, t, rng):
@@ -137,16 +140,22 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--duur", type=float, default=120, help="lengte in seconden (niet minuten)")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--laag", action="store_true", help="een octaaf lager en zonder hoge tonen, wel beweging")
+    ap.add_argument("--rond", action="store_true",
+                    help="zelfde hoogte, hoge tonen eraf (eigenaar 31 okt 2026: \"432 mid\", vaste keuze)")
     ap.add_argument("--slaap", action="store_true", help="geen melodie en minder zwevende tonen: alleen zachte akkoorden")
     a = ap.parse_args()
     raw = a.out + ".raw.wav"
+    global TRANSPOSE
+    TRANSPOSE = -12 if a.laag else 0
     data = render(a.duur, a.seed, a.slaap)
     with wave.open(raw, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(data.tobytes())
     # galm en een zachte fade-in/uit
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
                     "-i", raw, "-af",
-                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f=1100,"
+                    f"aecho=0.8:0.6:90|170|290|430:0.3|0.22|0.15|0.1,lowpass=f={600 if a.laag or a.rond else 1100},"
+                    f"{'highpass=f=45,' if a.laag else ''}"
                     f"afade=t=in:d=6,afade=t=out:st={max(a.duur - 8, 0)}:d=8",
                     "-ar", "44100", a.out], check=True)
     import os; os.remove(raw)

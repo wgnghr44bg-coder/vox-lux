@@ -1,7 +1,7 @@
 """Zachte klank voor de standaardstem Slaap 3 (eigenaar, 30 okt 2026): na tools/add_pauses.py, vóór make_video.py.
 
 Haalt het scherpe randje van <map>/video/stem-met-pauzes.wav (warm, rond) en bewaart het origineel als
-stem-met-pauzes-ruw.wav. Monteer daarna met `make_video.py ... --muziek-db -35`: dan staat de muziek
+stem-met-pauzes-ruw.wav. Monteer daarna met `make_video.py ... --muziek-db -26`: dan staat de muziek
 heel zacht onder de stem (eigenaar 31 okt: "zachter 4 is perfect"). Zet de video daarna met tools/eind_volume.py op -14 LUFS (net zo hard als andere sleep history video's).
 Zacht komt van de klank en de rust, niet van een laag volume.
 

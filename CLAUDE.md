@@ -7,7 +7,7 @@
 - Talk Dutch with the user, simply. Always ask before anything that costs money (xAI images, voice, video).
 - ElevenLabs is no longer used. Standard voice (free, owner's pc, since 31 Oct 2026): **Slaap 3** via OmniVoice –
   `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>`, then `tools/zachte_stem.py` and
-  background = 432 Hz music + soft rain (`tools/regen_432.py` on muziek432.wav), `make_video.py --muziek-db -35` (soft timbre), then `tools/eind_volume.py in.mp4 uit.mp4` as last step: -14 LUFS, as loud as most sleep history videos (owner, 31 Oct 2026). George/Chatterbox (`make_voice_local.py`) only on request.
+  background = 432 Hz music + soft rain (`tools/regen_432.py` on muziek432.wav), `make_video.py --muziek-db -26` (soft timbre), then `tools/eind_volume.py in.mp4 uit.mp4` as last step: -14 LUFS, as loud as most sleep history videos (owner, 31 Oct 2026). George/Chatterbox (`make_voice_local.py`) only on request.
   xAI voice (`tools/xai_voiceover.py`) only on request; it costs money.
 - REA (reverse engineering, https://github.com/morluto/rea): MCP server in `.mcp.json`, skill in
   `.claude/skills/reverse-engineer-anything`. Update with `npx rea-agents@latest` and bump the version in `.mcp.json`.
