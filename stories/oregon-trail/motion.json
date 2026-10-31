@@ -11,31 +11,31 @@
   },
   {
    "soort": "datum",
-   "tijd": 152.4,
+   "tijd": 128.1,
    "regel1": "May 1846",
    "regel2": "Independence, Missouri"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 455.66,
+   "tijd": 362.05,
    "nummer": 2,
    "titel": "Who Goes West"
   },
   {
    "soort": "citaat",
-   "tijd": 708.1,
+   "tijd": 562.8,
    "tekst": "Last spring, 1846, was a busy season in the City of St. Louis.",
    "bron": "Francis Parkman, The Oregon Trail"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 888.87,
+   "tijd": 703.6,
    "nummer": 3,
    "titel": "On the Way"
   },
   {
    "soort": "kaart",
-   "tijd": 917.4,
+   "tijd": 732.1,
    "titel": "The Oregon Trail, 1846",
    "gebied": [
     -128,
@@ -162,139 +162,139 @@
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1300.01,
+   "tijd": 1030.06,
    "nummer": 4,
    "titel": "A Day on the Trail"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1688.69,
+   "tijd": 1336.12,
    "nummer": 5,
    "titel": "Women and Children"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2090.62,
+   "tijd": 1653.16,
    "nummer": 6,
    "titel": "The Animals"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2523.81,
+   "tijd": 1999.01,
    "nummer": 7,
    "titel": "Along the Platte"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2916.88,
+   "tijd": 2312.96,
    "nummer": 8,
    "titel": "A Night on the Prairie"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3295.51,
+   "tijd": 2610.63,
    "nummer": 9,
    "titel": "Music and Friendship"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3691.8,
+   "tijd": 2928.36,
    "nummer": 10,
    "titel": "The Great Rocks"
   },
   {
    "soort": "datum",
-   "tijd": 3921.0,
+   "tijd": 3116.3,
    "regel1": "June 1846",
    "regel2": "Fort Laramie"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4086.21,
+   "tijd": 3243.7,
    "nummer": 11,
    "titel": "Independence Rock"
   },
   {
    "soort": "datum",
-   "tijd": 4347.0,
+   "tijd": 3452.4,
    "regel1": "4 July 1846",
    "regel2": "Independence Rock"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4485.23,
+   "tijd": 3561.59,
    "nummer": 12,
    "titel": "South Pass"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4869.09,
+   "tijd": 3866.25,
    "nummer": 13,
    "titel": "Two Roads"
   },
   {
    "soort": "citaat",
-   "tijd": 4994.4,
+   "tijd": 3972.0,
    "tekst": "Never take no cutoffs, and hurry along as fast as you can.",
    "bron": "Virginia Reed, letter, 1847"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5236.33,
+   "tijd": 4158.21,
    "nummer": 14,
    "titel": "Along the Snake"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5620.82,
+   "tijd": 4467.1,
    "nummer": 15,
    "titel": "Mending and Trading"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6058.24,
+   "tijd": 4815.88,
    "nummer": 16,
    "titel": "The Blue Mountains"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6430.39,
+   "tijd": 5116.47,
    "nummer": 17,
    "titel": "The Last Miles"
   },
   {
    "soort": "datum",
-   "tijd": 6788.4,
+   "tijd": 5406.9,
    "regel1": "Autumn 1846",
    "regel2": "Oregon City"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6826.67,
+   "tijd": 5431.84,
    "nummer": 18,
    "titel": "Tabitha Brown"
   },
   {
    "soort": "datum",
-   "tijd": 7098.8,
+   "tijd": 5646.6,
    "regel1": "Christmas Day 1846",
    "regel2": "Salem, Oregon"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 7243.21,
+   "tijd": 5759.65,
    "nummer": 19,
    "titel": "A New Home"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 7709.24,
+   "tijd": 6130.45,
    "nummer": 20,
    "titel": "What Remains"
   },
   {
    "soort": "tijdlijn",
-   "tijd": 7817.1,
+   "tijd": 6220.2,
    "punten": [
     [
      "1843",
