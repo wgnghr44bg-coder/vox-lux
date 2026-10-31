@@ -1,0 +1,270 @@
+{
+ "onderwerp": "Quiet WW2 Facts to Fall Asleep To",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "The War Comes Home"
+  },
+  {
+   "soort": "datum",
+   "tijd": 40.0,
+   "regel1": "3 September 1939",
+   "regel2": "Britain"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 709.27,
+   "nummer": 2,
+   "titel": "Gardens and Shelters"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1026.2,
+   "regel1": "Autumn 1940",
+   "regel2": "London"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1101.74,
+   "nummer": 3,
+   "titel": "Evenings by the Wireless"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1493.66,
+   "nummer": 4,
+   "titel": "Letters and Rations"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2067.15,
+   "nummer": 5,
+   "titel": "Life at Sea and in the Air"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2553.39,
+   "nummer": 6,
+   "titel": "Bears, Songs and Christmas"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2846.17,
+   "nummer": 7,
+   "titel": "Women at Work"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3137.54,
+   "nummer": 8,
+   "titel": "Secrets and Inventions"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3475.9,
+   "regel1": "1939  ·  Chain Home",
+   "regel2": "The English coast"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3658.56,
+   "nummer": 9,
+   "titel": "Making Do in America"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4367.05,
+   "nummer": 10,
+   "titel": "Occupied Europe"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 4495.8,
+   "titel": "Europe, 1939–1945",
+   "gebied": [
+    -11,
+    40,
+    36,
+    61
+   ],
+   "plaatsen": [
+    {
+     "naam": "London",
+     "lon": -0.13,
+     "lat": 51.51,
+     "kant": "links"
+    },
+    {
+     "naam": "Bletchley Park",
+     "lon": -0.74,
+     "lat": 52.0,
+     "kant": "boven"
+    },
+    {
+     "naam": "Dunkirk",
+     "lon": 2.38,
+     "lat": 51.03,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Paris",
+     "lon": 2.35,
+     "lat": 48.86,
+     "kant": "onder"
+    },
+    {
+     "naam": "Amsterdam",
+     "lon": 4.9,
+     "lat": 52.37,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Copenhagen",
+     "lon": 12.57,
+     "lat": 55.68,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Leningrad",
+     "lon": 30.32,
+     "lat": 59.94,
+     "kant": "onder"
+    },
+    {
+     "naam": "Moscow",
+     "lon": 33.0,
+     "lat": 55.76,
+     "kant": "onder"
+    },
+    {
+     "naam": "Lisbon",
+     "lon": -9.14,
+     "lat": 38.72,
+     "kant": "rechts"
+    }
+   ]
+  },
+  {
+   "soort": "datum",
+   "tijd": 4899.4,
+   "regel1": "9 August 1942",
+   "regel2": "Leningrad"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5085.82,
+   "nummer": 11,
+   "titel": "Far from the Fighting"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5323.0,
+   "regel1": "19 January 1943",
+   "regel2": "Ottawa, Canada"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5899.99,
+   "nummer": 12,
+   "titel": "Famous Voices"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 6151.6,
+   "tekst": "Go out into the darkness and put your hand into the Hand of God.",
+   "bron": "Minnie Louise Haskins, read by King George VI, Christmas 1939"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6208.6,
+   "regel1": "May 1940",
+   "regel2": "Dunkirk"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6381.82,
+   "nummer": 13,
+   "titel": "The Road to Peace"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6410.3,
+   "regel1": "6 June 1944",
+   "regel2": "Normandy"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6807.7,
+   "regel1": "24 August 1944",
+   "regel2": "Paris"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6988.61,
+   "nummer": 14,
+   "titel": "Victory"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7012.1,
+   "regel1": "5 May 1945",
+   "regel2": "The Netherlands"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7115.8,
+   "regel1": "8 May 1945",
+   "regel2": "London"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7489.38,
+   "nummer": 15,
+   "titel": "After the War"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7613.7,
+   "regel1": "4 July 1954",
+   "regel2": "The last ration book"
+  },
+  {
+   "soort": "citaat",
+   "tijd": 7841.9,
+   "tekst": "We the peoples of the United Nations, determined to save succeeding generations from the scourge of war.",
+   "bron": "Charter of the United Nations, 1945"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 8404.3,
+   "nummer": 16,
+   "titel": "What Remains"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 8417.8,
+   "punten": [
+    [
+     "1939",
+     "The war begins"
+    ],
+    [
+     "1940",
+     "Dunkirk and the Blitz"
+    ],
+    [
+     "1944",
+     "D-Day in Normandy"
+    ],
+    [
+     "1945",
+     "Peace returns"
+    ]
+   ]
+  }
+ ]
+}
