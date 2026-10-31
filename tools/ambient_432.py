@@ -63,8 +63,7 @@ def flute(f, dur):
 def render(duration, seed):
     rng = np.random.default_rng(seed)
     n = int(duration * SR)
-    left, right = np.zeros(n), np.zeros(n)
-    t_all = np.arange(n) / SR
+    left, right = np.zeros(n, np.float32), np.zeros(n, np.float32)   # float32: 3 uur past in het geheugen
 
     # 1. akkoorden
     chords, prog = [], []
@@ -82,7 +81,7 @@ def render(duration, seed):
         if start >= n:
             break
         end = min(start + seg, n)
-        t = t_all[start:end]
+        t = np.arange(start, end) / SR
         sig = sum(pad_note(hz(m), end - start, t, rng) for m in CHORDS[name]) / 4
         sig += 0.35 * np.sin(2 * np.pi * hz(CHORDS[name][0] - 12) * t)  # grondtoon
         # de brom zacht op de achtergrond, langzaam aanzwellend en wegzakkend (golf van ~50 s)
@@ -125,8 +124,11 @@ def render(duration, seed):
             pos += dur
         pos += rng.uniform(4, 10)
 
-    stereo = np.stack([left, right], axis=1)
-    return stereo * GAIN
+    data = np.empty((n, 2), "<i2")
+    for k, ch in enumerate((left, right)):
+        ch *= GAIN * 32767
+        data[:, k] = ch
+    return data
 
 
 def main():
@@ -136,7 +138,7 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     a = ap.parse_args()
     raw = a.out + ".raw.wav"
-    data = (render(a.duur, a.seed) * 32767).astype("<i2")
+    data = render(a.duur, a.seed)
     with wave.open(raw, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(data.tobytes())
     # galm en een zachte fade-in/uit
