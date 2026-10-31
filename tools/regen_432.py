@@ -1,9 +1,9 @@
 """Zachte, heldere regen onder de 432 Hz-muziek (eigenaar, 31 okt 2026: "helder 4 is prima"; vaste achtergrond).
 
 Maakt 5 minuten natuurlijke regen (ruisend waas + duizenden druppels van verschillende grootte, links/rechts los,
-naadloos herhaalbaar) en mengt die door <muziek>.wav, 13,4 dB zachter dan de muziek. Het origineel blijft als
+naadloos herhaalbaar) en mengt die door <muziek>.wav, 8 dB zachter dan de muziek. Het origineel blijft als
 <muziek>-zonder-regen.wav. Draai dit na tools/ambient_432.py en vóór make_video.py (of vóór stil_tikjes.py, dat de
-muziek opnieuw onder de stem zet). make_video.py --muziek-db -24.6 blijft gelijk.
+muziek opnieuw onder de stem zet). make_video.py --muziek-db -35 blijft gelijk.
 
 Gebruik: python tools/regen_432.py stories/<map>/video/muziek432.wav
 """
@@ -16,7 +16,7 @@ from scipy.signal import butter, sosfilt
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 SR, D, NAAD = 44100, 300, 10                   # 5 min regen, 10 s overlap voor een naadloze herhaling
-ONDER_MUZIEK = 13.4                            # dB (proef "helder 4")
+ONDER_MUZIEK = 8.0                             # dB (eigenaar 31 okt 2026, proef "zachter 4": muziek -35, regen 8 dB eronder)
 DICHT, WAAS, LAAG, GROOTTE = 350, 0.25, 5000, 3.5
 
 
