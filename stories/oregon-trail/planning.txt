@@ -1,6 +1,6 @@
 onderwerp Life on the Oregon Trail, 1846
-lang   2026-10-31 21:00
+lang   2026-10-31 21:14 (openbaar)
 (handmatig op de pc gemaakt, eigenaar 28 okt: "maak hem hier", privé uploaden; kosten €0: comfy-beelden en Chatterbox-stem)
-link   https://youtu.be/4JZrWzmDj3o (1:47:14, pauze D, 5 zinnen opnieuw ingesproken, TEKST GOED, 432 Hz + zachte regen; privé, gepland 31 okt 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Voyages & Expeditions)
-oud    p503iUA-a7I (George) 31 okt van YouTube verwijderd (eigenaar: "Verwijderen zodra nieuwe erop staat"); BjKyV851GHE (lange pauzes) 31 okt verwijderd, eigenaar: pauzes korter, "Pauze D is perfect"; j8300gAPPQ4 31 okt verwijderd (eigenaar hoorde "Tonight we are, we are going"); ozq-SswVjWM 31 okt verwijderd (nieuwe achtergrond: 432 + regen, eigenaar "En Oregon ook toch")
+link   https://youtu.be/qFRyJ6twOzY (1:47:14, pauze D, 5 zinnen opnieuw ingesproken, TEKST GOED, 432 Hz --rond -26 + regen 13 dB eronder; OPENBAAR 31 okt 2026 21:14 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Voyages & Expeditions)
+oud    p503iUA-a7I (George) 31 okt van YouTube verwijderd (eigenaar: "Verwijderen zodra nieuwe erop staat"); BjKyV851GHE (lange pauzes) 31 okt verwijderd, eigenaar: pauzes korter, "Pauze D is perfect"; j8300gAPPQ4 31 okt verwijderd (eigenaar hoorde "Tonight we are, we are going"); ozq-SswVjWM 31 okt verwijderd (nieuwe achtergrond: 432 + regen, eigenaar "En Oregon ook toch"); 4JZrWzmDj3o 31 okt verwijderd (achtergrond 432 mid harder, eigenaar: "Zodra klaar is zet hem online")
 stem   31 okt: opnieuw met Slaap 3 (OmniVoice, speed 0.8, langere pauzes, zachte klank; eindvolume -14 LUFS met tools/eind_volume.py; 52 adem-tikjes stil met tools/stil_tikjes.py, check_video GOED); eigenaar: "Ja Oregon ook aanpassen". George-versie bewaard als voice-george.mp3 / voice-192k-george.mp3
