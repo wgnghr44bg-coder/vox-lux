@@ -5,7 +5,7 @@ zwevende tonen die heel langzaam aanzwellen en weer wegebben. Geen aanslagen
 of scherpe geluiden: bedoeld om slaperig bij weg te dromen. Elke run met hetzelfde
 zaadje (--seed) geeft precies hetzelfde resultaat.
 
-Gebruik: python3 tools/ambient_432.py uit.wav --duur 120 [--seed 7]
+Gebruik: python3 tools/ambient_432.py uit.wav --duur 7200 [--seed 7]     (duur in SECONDEN, dus 2 uur = 7200)
 """
 import argparse, subprocess, wave
 
@@ -132,7 +132,7 @@ def render(duration, seed):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("out")
-    ap.add_argument("--duur", type=float, default=120)
+    ap.add_argument("--duur", type=float, default=120, help="lengte in seconden (niet minuten)")
     ap.add_argument("--seed", type=int, default=7)
     a = ap.parse_args()
     raw = a.out + ".raw.wav"

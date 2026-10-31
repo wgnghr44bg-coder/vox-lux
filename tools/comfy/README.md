@@ -40,7 +40,8 @@ Fout? Opnieuw laten maken met een andere seed (gratis).
 ```
 C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>   # -> voice.mp3 + voice-times.tsv
 python tools/add_pauses.py --niet-zwaarder <map> && python tools/zachte_stem.py <map>
-python tools/make_video.py <map> ... --muziek-db -24.6                                    # ± -23 LUFS
+python tools/make_video.py <map> ... --muziek-db -24.6
+python tools/eind_volume.py <video>.mp4 <video>-14.mp4                                    # laatste stap: -14 LUFS
 ```
 Omgeving: `C:\Users\rane\omnivoice-venv` (torch 2.8 cu128 + `pip install omnivoice`, engine van VoiceStudio).
 Proefstemmen maken: `tools/comfy/omnivoice_proef.py`. **Geen ElevenLabs-stemmen klonen** (hun voorwaarden).
