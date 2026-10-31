@@ -60,7 +60,7 @@ def flute(f, dur):
     return np.sin(2 * np.pi * f * t) * env
 
 
-def render(duration, seed):
+def render(duration, seed, slaap=False):
     rng = np.random.default_rng(seed)
     n = int(duration * SR)
     left, right = np.zeros(n, np.float32), np.zeros(n, np.float32)   # float32: 3 uur past in het geheugen
@@ -89,15 +89,16 @@ def render(duration, seed):
         left[start:end] += sig
         right[start:end] += sig
 
-    # 2. zwevende tonen: af en toe één of twee, die traag op- en wegkomen
+    # 2. zwevende tonen: af en toe één of twee, die traag op- en wegkomen (--slaap: minder vaak, zachter)
     pos = rng.uniform(6, 12)
+    zweef, gat = (0.5, (16, 28)) if slaap else (1.0, (7, 14))
     while pos < duration - 1:
         chord = CHORDS[chords[int(pos // CHORD_LEN)]]
         pitch_class = {m % 12 for m in chord}
         choices = [m for m in PENTA if m % 12 in pitch_class] or PENTA
         for k in range(rng.integers(1, 3)):
             p = choices[rng.integers(len(choices))] - 12
-            b = swell(hz(p), rng.uniform(7, 12)) * rng.uniform(0.18, 0.28)
+            b = swell(hz(p), rng.uniform(7, 12)) * rng.uniform(0.18, 0.28) * zweef
             s = int((pos + k * rng.uniform(2.5, 4.5)) * SR)
             e = min(s + len(b), n)
             if s >= n:
@@ -105,12 +106,12 @@ def render(duration, seed):
             pan = rng.uniform(0.25, 0.75)
             left[s:e] += b[: e - s] * (1 - pan) * 2
             right[s:e] += b[: e - s] * pan * 2
-        pos += rng.uniform(7, 14)
+        pos += rng.uniform(*gat)
 
-    # 3. zachte melodie: korte frasen van glijdende noten (fluitachtig, zachte inzet)
+    # 3. zachte melodie (niet bij --slaap: een melodie trekt de aandacht): korte frasen van glijdende noten (fluitachtig, zachte inzet)
     pos = rng.uniform(4, 8)
     idx = 5
-    while pos < duration - 4:
+    while pos < duration - 4 and not slaap:
         for _ in range(rng.integers(4, 8)):
             idx = int(np.clip(idx + rng.choice([-2, -1, -1, 1, 1, 2]), 3, len(PENTA) - 1))
             dur = rng.uniform(1.8, 3.5)
@@ -136,9 +137,10 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--duur", type=float, default=120, help="lengte in seconden (niet minuten)")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--slaap", action="store_true", help="geen melodie en minder zwevende tonen: alleen zachte akkoorden")
     a = ap.parse_args()
     raw = a.out + ".raw.wav"
-    data = render(a.duur, a.seed)
+    data = render(a.duur, a.seed, a.slaap)
     with wave.open(raw, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(data.tobytes())
     # galm en een zachte fade-in/uit
