@@ -40,6 +40,7 @@ Fout? Opnieuw laten maken met een andere seed (gratis).
 ```
 C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>   # -> voice.mp3 + voice-times.tsv
 python tools/add_pauses.py --niet-zwaarder --kort <map> && python tools/zachte_stem.py <map>
+python tools/ambient_432.py <map>/video/muziek432.wav --duur <sec> && python tools/regen_432.py <map>/video/muziek432.wav   # 432 + zachte regen
 python tools/make_video.py <map> ... --muziek-db -24.6
 python tools/eind_volume.py <video>.mp4 <video>-14.mp4                                    # laatste stap: -14 LUFS
 ```
