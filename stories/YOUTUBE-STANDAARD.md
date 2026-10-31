@@ -161,21 +161,23 @@ Drift off to the story of <onderwerp in één zin: wat, waar, wanneer>.
 
 A calm, slow-paced history documentary for sleep and relaxation. No loud
 sounds, no jump scares, just a gentle voice, soft 432 Hz background music
-and softly changing images.
+with smooth, gentle rain sounds and softly changing images.
 
 Chapters
 0:00:00 <eerste hoofdstuk>
 <tijd> <hoofdstuk>   ← uit tijdlijn-pauzes.tsv (de tijden mét extra pauzes!), 10–15 stuks
 
-The story is based on historical sources<, noem de belangrijkste bron>.
-
-#sleepdocumentary #<onderwerp> #history
+#sleepdocumentary #<onderwerp> #historyforsleep #sleepstory #rainsounds #432hz #boringhistory #bedtimestory #fallasleep #relaxinghistory #sleepsounds #sleepmusic #<3 onderwerp-hashtags, samen precies 15>
 ```
 - Eerste hoofdstuk altijd op 0:00:00, minstens 3 hoofdstukken, elk ≥ 10 s.
+- **Geen bronnenzin** ("The story is based on historical sources ...") meer (eigenaar, 31 okt 2026).
+- **Precies 15 hashtags** (eigenaar 31 okt 2026: "zet er wat meer virale # bij"): bij meer dan 15 negeert
+  YouTube ze allemaal. Altijd #rainsounds en #432hz erin (de achtergrond is 432 Hz + regen).
 
 ## Tags
 Altijd: `history for sleep, boring history for sleep, sleep documentary, bedtime story,
-relaxing history, sleep story, 432hz` + 4–6 onderwerp-tags.
+relaxing history, sleep story, 432hz, 432 hz sleep music, rain sounds, smooth rain sounds, sleep sounds,
+history for sleep with rain` + 4–6 onderwerp-tags.
 
 ## Instellingen
 - Categorie: Education (`--category 27`)
