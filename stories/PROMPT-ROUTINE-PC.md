@@ -34,7 +34,8 @@ werk alles af.
      (de standaardinstellingen zijn goed; het gewone `python` heeft geen omnivoice). Na
      `tools/add_pauses.py --niet-zwaarder <map>` altijd `python tools/zachte_stem.py <map>` en monteer met
      `make_video.py ... --muziek-db -24.6` (ook bij check_video/qc). Meet daarna het volume
-     (ffmpeg `ebur128`) en zet hem als laatste stap op -14 LUFS met `python tools/eind_volume.py <video>.mp4 <video>-14.mp4`
+     (ffmpeg `ebur128`). Meldt check_video "stem blijft hangen" (bij OmniVoice: adem-tikjes vóór een zin), draai dan
+     `python tools/stil_tikjes.py <map> <video>-motion.mp4 <video>-schoon.mp4` en controleer opnieuw. Zet hem als laatste stap op -14 LUFS met `python tools/eind_volume.py <video>.mp4 <video>-14.mp4`
      (eigenaar, 31 okt 2026: "net zo hard als de meeste sleep history video's"); upload die versie. Door de lange
      pauzes wordt de video langer: ± 15.000 woorden script geeft ± 2 uur.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
