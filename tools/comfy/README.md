@@ -39,7 +39,7 @@ Fout? Opnieuw laten maken met een andere seed (gratis).
 [pause] 1,5 s, [long-pause] 2,8 s. Ref: `stem/slaapstem-3.wav` (zelf gemaakt met voice design, geen opname van iemand).
 ```
 C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/comfy/make_voice_omni.py <map>   # -> voice.mp3 + voice-times.tsv
-python tools/add_pauses.py --niet-zwaarder <map> && python tools/zachte_stem.py <map>
+python tools/add_pauses.py --niet-zwaarder --kort <map> && python tools/zachte_stem.py <map>
 python tools/make_video.py <map> ... --muziek-db -24.6
 python tools/eind_volume.py <video>.mp4 <video>-14.mp4                                    # laatste stap: -14 LUFS
 ```
