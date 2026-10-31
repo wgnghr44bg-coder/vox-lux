@@ -1,4 +1,6 @@
 onderwerp Life on the Oregon Trail, 1846
-lang   2026-11-04 21:00
+lang   2026-10-31 21:00
 (handmatig op de pc gemaakt, eigenaar 28 okt: "maak hem hier", privé uploaden; kosten €0: comfy-beelden en Chatterbox-stem)
-link   https://youtu.be/p503iUA-a7I (privé, nog niet gepland; Sleep Archives, playlists Full Documentaries + Voyages & Expeditions)
+link   https://youtu.be/BjKyV851GHE (privé, gepland 31 okt 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Voyages & Expeditions)
+oud    p503iUA-a7I (George) 31 okt van YouTube verwijderd (eigenaar: "Verwijderen zodra nieuwe erop staat")
+stem   31 okt: opnieuw met Slaap 3 (OmniVoice, speed 0.8, langere pauzes, zachte klank; eindvolume -14 LUFS met tools/eind_volume.py; 52 adem-tikjes stil met tools/stil_tikjes.py, check_video GOED); eigenaar: "Ja Oregon ook aanpassen". George-versie bewaard als voice-george.mp3 / voice-192k-george.mp3
