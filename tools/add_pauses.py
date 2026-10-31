@@ -20,6 +20,7 @@ SR = 44100
 PAUZE_BASIS = 0.6     # eigenaar, okt 2026: iets kortere pauzes dan eerst (0.7 / 0.1 / 2.2)
 PAUZE_PER_SEC = 0.08
 PAUZE_MAX = 1.8
+KORT = 0.4            # --kort (Slaap 3, eigenaar 31 okt 2026 "pauze D is perfect"): elke zinpauze 0,4 s korter
 KOMMA_PAUZE = 0.25    # kleine extra pauze bij elke adempauze binnen een zin (komma's)
 KOMMA_MIN = 0.22      # zo lang moet zo'n stilte binnen een zin al zijn (s)
 WELKOM = Path(__file__).resolve().parent.parent / "branding" / "welkom.mp3"
@@ -52,6 +53,7 @@ def main():
     ap.add_argument("story", type=Path)
     ap.add_argument("--welkom", action="store_true", help="begin met branding/welkom.mp3")
     ap.add_argument("--niet-zwaarder", action="store_true", help="stem niet zwaarder maken")
+    ap.add_argument("--kort", action="store_true", help=f"geen extra stilte: elke zinpauze {KORT} s korter, geen kommapauzes")
     a = ap.parse_args()
     story = a.story
 
@@ -69,7 +71,7 @@ def main():
     stil = env < 0.03 * np.percentile(env, 90)
 
     def stilte_bij(t, zoek=2.5, min_len=0.15):
-        """Midden van de echte stilte die het dichtst bij t ligt. De tijden in tijdlijn.tsv lopen
+        """(midden, lengte) van de echte stilte die het dichtst bij t ligt. De tijden in tijdlijn.tsv lopen
         bij lange opnames tot een paar seconden uit de pas met het geluid (eigenaar, okt 2026:
         "de stem blijft hangen" = pauze midden in een woord); daarom altijd op de stilte zetten."""
         a, b = max(int((t - zoek) * 100), 0), min(int((t + zoek) * 100), len(stil))
@@ -81,8 +83,8 @@ def main():
                     m += 1
                 if (m - k) / 100 >= min_len:
                     mid = (k + m) / 200
-                    if best is None or abs(mid - t) < abs(best - t):
-                        best = mid
+                    if best is None or abs(mid - t) < abs(best[0] - t):
+                        best = mid, (m - k) / 100
                 k = m
             else:
                 k += 1
@@ -93,10 +95,13 @@ def main():
     for i in range(len(rows) - 1):
         start, end, nxt = sec(rows[i][1]), sec(rows[i][2]), sec(rows[i + 1][1])
         extra = min(PAUZE_MAX, PAUZE_BASIS + PAUZE_PER_SEC * (end - start))
-        t = stilte_bij((end + nxt) / 2)
-        if t is None:
+        b = stilte_bij((end + nxt) / 2)
+        if b is None:
             print(f"let op: geen stilte gevonden na zin {rows[i][0]}, geen extra pauze")
             continue
+        t, lengte = b
+        if a.kort:                       # negatief = stilte eruit, maar er blijft altijd 0,3 s over
+            extra = -min(KORT, max(lengte - 0.3, 0))
         cuts.append((t, extra))
         drift_t.append((end + nxt) / 2)
         drift.append(t - (end + nxt) / 2)
@@ -116,7 +121,7 @@ def main():
         n_komma = len(re.findall(r"[,;:\u2014\u2013]", r[4]))
         a0, a1 = int(sec(r[1]) * 100) + 5, int(sec(r[2]) * 100) - 5
         seg = env[a0:a1]
-        if len(seg) < 20 or not n_komma:
+        if len(seg) < 20 or not n_komma or a.kort:
             continue
         quiet = seg < 0.08 * np.percentile(seg, 90)
         kandidaten, k = [], 0
@@ -152,8 +157,13 @@ def main():
     pieces, prev = [lead], 0
     for t, extra in cuts:
         k = int(round(t * SR))
-        pieces += [audio[prev:k], np.zeros(int(round(extra * SR)), dtype="<i2")]
-        prev = k
+        if extra >= 0:
+            pieces += [audio[prev:k], np.zeros(int(round(extra * SR)), dtype="<i2")]
+            prev = k
+        else:                            # --kort: midden uit de stilte knippen
+            h = int(round(-extra * SR / 2))
+            pieces.append(audio[prev:k - h])
+            prev = k + h
     pieces.append(audio[prev:])
     out = np.concatenate(pieces)
     if not a.niet_zwaarder:
