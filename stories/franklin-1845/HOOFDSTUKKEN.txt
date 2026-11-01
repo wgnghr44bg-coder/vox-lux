@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Sir John and Lady Franklin" = 02-sir-john-franklin.txt + 03-lady-jane.txt
+# "Erebus, Terror and their men" = 04-de-schepen.txt + 05-de-mannen.txt
+# "The first winter, and the animals of the north" = 08-beechey-island.txt + 08b-de-dieren-van-het-noorden.txt
+# "The second winter, and the Netsilik" = 10-de-tweede-winter.txt + 10b-de-netsilik.txt
+# "The note at Victory Point, and Captain Crozier" = 11-het-briefje.txt + 11b-francis-crozier.txt
+# "John Rae and McClintock" = 14-john-rae.txt + 15-mcclintock.txt
+# "The memories of the Inuit, and the ships found" = 16-de-herinneringen-van-de-inuit.txt + 17-de-schepen-gevonden.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
