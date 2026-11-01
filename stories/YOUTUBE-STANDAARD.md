@@ -216,6 +216,12 @@ history for sleep with rain` + 4–6 onderwerp-tags.
       thumbnail herhaalt de titel niet".
     - Voorbeelden: `stories/ww2-facts/thumbnail-v3.jpg` (nieuw), oudere stijl
       `stories/san-francisco-1906/thumbnail-v2.jpg`, `stories/pompeii/thumbnail-v4.jpg`.
+  - **Kenmerkend beeld** (eigenaar, 1 nov 2026: "gebruik afbeelding thumbnail iets dat kenmerkend is voor
+    de video"): kies het ding of moment dat iedereen meteen met het onderwerp verbindt, groot in beeld.
+    Voorbeelden: Hindenburg = het zilveren luchtschip, Egypte = het gouden masker, Philadelphia = de Liberty
+    Bell, Kerst 1914 = soldaten die voetballen in niemandsland, Bethlehem = de ster en de wijzen.
+    Mensen mogen erbij, maar het kenmerkende beeld komt eerst. Blijf rustig: geen vuur, rook, wapens of
+    angst, en altijd het moment vóór de ramp.
   - **Elke thumbnail anders, maar wel pakkend** (eigenaar, 1 nov 2026: "zet dit vast dat elke
     thumbnail anders is maar wel pakkend moet zijn"). Het beeld moet **passen bij de titel**:
     één helder onderwerp dat de kijker meteen koppelt aan de titel. De vorm wisselt per video, dus
