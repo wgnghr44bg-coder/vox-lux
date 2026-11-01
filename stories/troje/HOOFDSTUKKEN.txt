@@ -1,0 +1,5 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Troy and the songs of Homer" = 01-de-stad-op-de-heuvel.txt + 02-homerus.txt
+# "The city of fine walls, and a day in Troy" = 03-de-stad.txt + 04-een-dag-in-troje.txt
+# "The Odyssey, and home to Ithaca" = 14-de-odyssee.txt + 14b-thuis-op-ithaka.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
