@@ -257,7 +257,8 @@ history for sleep with rain` + 4–6 onderwerp-tags.
     - **kleur en licht**: niet weer een donkerblauwe nacht met oranje vuur als de vorige dat ook had
       (afwisselen met warm binnenlicht, schemer in de stad, roze of gouden avond);
     - **tekst**: een andere soort amberregel en hook dan de vorige (zie hierboven).
-    Toon de eigenaar altijd 2–3 proeven naast de vorige thumbnail.
+    Maak altijd 3 proeven en leg ze naast de vorige thumbnail. De routine kiest zelf de beste (eigenaar, 1 nov 2026:
+    "automatisch instellen bij elke nieuwe video"); in een gewone sessie mag de eigenaar kiezen.
   - Kies eerst een passend beeld uit de video (gratis). Is er geen goed beeld met mensen,
     maak dan één aparte thumbnail-afbeelding via comfy (gratis; xAI alleen met toestemming):
     filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en
