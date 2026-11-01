@@ -1,0 +1,5 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Craftsmen, wharves and ships" = 04-ambachten.txt + 04b-de-haven.txt
+# "June 1776 and a summer day" = 09-juni.txt + 09b-een-zomerdag.txt
+# "Two old friends, and Philadelphia today" = 15-vriendschap.txt + 16-philadelphia-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
