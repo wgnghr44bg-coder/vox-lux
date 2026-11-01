@@ -1,5 +1,6 @@
 # Notes for Claude sessions
 
+- **"script vooruit"** of "schrijf het volgende script" → `stories/PROMPT-SCRIPT-VOORUIT.md` (tweede account schrijft scripts vooruit; de pc-routine pakt ze op).
 - **"software"** → read `SOFTWARE.md` (overview of all tools and where they live).
   **"comfy"** → images, clips and local voice go via ComfyUI on the owner's pc: follow `tools/comfy/README.md`, never xAI.
 - Free video tools (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, … plus OpenCV/ffmpeg) are installed at session
