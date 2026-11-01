@@ -8,6 +8,17 @@ werk alles af.
 
 1. `git checkout main && git pull`. Start ComfyUI als `http://127.0.0.1:8188` niet antwoordt en
    wacht tot hij klaar is.
+   **Eerst: ligt er een script klaar?** (eigenaar, 1 nov 2026: een tweede Claude-account schrijft de scripts
+   vooruit, zie `stories/PROMPT-SCRIPT-VOORUIT.md`.) Zoek op main naar `stories/*/planning.txt` met
+   `status   script-klaar`. Neem daarvan die met de vroegste `datum` die minstens 2 dagen na vandaag ligt.
+   - Dat is je video. Sla stap 2 en 3 over: onderwerp, datum, titel, thumbnail en soort staan in die planning.txt.
+   - Schrijf geen nieuw script. Draai `python stories/<map>/bouw_script.py` en lees het script één keer
+     na volgens stap 2 van PROMPT-NIEUWE-VIDEO.md (begin, abonneer-zin, einde, ± 17.000 woorden,
+     ± 90 beelden). Herstel kleine fouten zelf.
+   - Zet de status op `bezig (<datum>, routine)` (commit + push), zodat een volgende run hem niet ook pakt.
+     Na de upload wordt het `klaar` met de link (stap 6).
+   - Een `datum` uit zo'n planning.txt telt als bezet. Een hype verschuift een klaar script niet.
+   Is er geen klaar script, ga dan gewoon verder met stap 2.
 2. **Onderwerp** volgens stap 0 van het Titanic-recept in stories/ONDERWERPEN.md: nooit een
    onderwerp dat al op Sleep Archives staat (`python tools/sleep_trends.py --check ...` toont
    "AL GEMAAKT") of al in een stories/*/planning.txt op main of origin/claude/* staat; kies van de
