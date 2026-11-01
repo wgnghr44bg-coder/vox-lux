@@ -1,0 +1,11 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Aelred, and Walter Daniel" = 03-aelred.txt + 03b-walter-daniel.txt
+# "The buildings, and the builders" = 04-de-gebouwen.txt + 04b-de-bouw.txt
+# "The night office, and telling the time" = 05-de-nacht.txt + 05b-de-tijd.txt
+# "The day, and the chant" = 06-de-dag.txt + 06b-de-zang.txt
+# "Food, water and iron" = 08-eten.txt + 08b-water-en-ijzer.txt
+# "The lay brothers, and a day on the grange" = 09-de-lekenbroeders.txt + 09b-een-dag-op-de-grange.txt
+# "Becoming a monk, clothes and washing" = 12-de-novice.txt + 12b-kleding-en-wassen.txt
+# "The world outside, and the guest house" = 14-de-wereld-buiten.txt + 14b-het-gastenhuis.txt
+# "What came after, and Rievaulx today" = 15-wat-er-gebeurde.txt + 16-rievaulx-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
