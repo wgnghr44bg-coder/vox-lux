@@ -1,0 +1,12 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Setting out, and Acre" = 03-het-vertrek.txt + 03b-acre.txt
+# "Caravans and caravanserais" = 06-karavanserai.txt + 06b-eten-onderweg.txt
+# "Balkh, Badakhshan and the Pamirs" = 08-balkh-en-badakhshan.txt + 09-de-pamir.txt
+# "Kashgar, Khotan and the desert of Lop" = 10-kashgar-en-khotan.txt + 11-de-woestijn-van-lop.txt
+# "The Mongols, and an evening in a ger" = 12-de-mongolen.txt + 12b-in-een-ger.txt
+# "Xanadu and Kublai Khan" = 13-xanadu.txt + 14-kublai-khan.txt
+# "Khanbaliq, silk and paper money" = 15-khanbaliq.txt + 15b-de-zijde.txt + 16-papiergeld.txt
+# "In the service of the Khan, and Hangzhou" = 17-in-dienst-van-de-khan.txt + 18-hangzhou.txt
+# "The voyage home" = 19-de-thuisreis.txt + 19b-de-haven-van-zaiton.txt
+# "The book, and the Silk Road today" = 20-het-boek.txt + 21-de-zijderoute-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
