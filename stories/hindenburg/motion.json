@@ -1,0 +1,296 @@
+{
+ "onderwerp": "Life Aboard the Hindenburg, May 1937",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "Evening at Frankfurt"
+  },
+  {
+   "soort": "datum",
+   "tijd": 60.0,
+   "regel1": "3 May 1937  ·  Evening",
+   "regel2": "Frankfurt, Germany"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 312.3,
+   "nummer": 2,
+   "titel": "The Count and the Dream"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 713.7,
+   "nummer": 3,
+   "titel": "Building the Hindenburg"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1114.9,
+   "nummer": 4,
+   "titel": "The First Year"
+  },
+  {
+   "soort": "datum",
+   "tijd": 1131.9,
+   "regel1": "4 March 1936",
+   "regel2": "Lake Constance"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1488.2,
+   "nummer": 5,
+   "titel": "How an Airship Floats"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1745.7,
+   "nummer": 6,
+   "titel": "The Road to Brazil"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2019.3,
+   "nummer": 7,
+   "titel": "Boarding the Ship"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2336.0,
+   "regel1": "3 May 1937  ·  8 pm",
+   "regel2": "The airfield at Frankfurt"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2359.1,
+   "nummer": 8,
+   "titel": "The Passenger Decks"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2691.2,
+   "nummer": 9,
+   "titel": "Below Deck"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3027.1,
+   "nummer": 10,
+   "titel": "The Crew"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3423.0,
+   "nummer": 11,
+   "titel": "The First Night"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3798.6,
+   "nummer": 12,
+   "titel": "Tuesday over the Atlantic"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3810.6,
+   "regel1": "4 May 1937  ·  Morning",
+   "regel2": "The North Atlantic"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 3955.6,
+   "titel": "Frankfurt to Lakehurst, 1937",
+   "gebied": [
+    -82,
+    36,
+    16,
+    58
+   ],
+   "plaatsen": [
+    {
+     "naam": "Frankfurt",
+     "lon": 8.68,
+     "lat": 50.11,
+     "kant": "onder"
+    },
+    {
+     "naam": "Ireland",
+     "lon": -8.2,
+     "lat": 52.9,
+     "kant": "boven"
+    },
+    {
+     "naam": "Newfoundland",
+     "lon": -55.5,
+     "lat": 48.5,
+     "kant": "boven"
+    },
+    {
+     "naam": "Boston",
+     "lon": -71.06,
+     "lat": 42.36,
+     "kant": "boven"
+    },
+    {
+     "naam": "New York",
+     "lon": -74.0,
+     "lat": 40.71,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Lakehurst",
+     "lon": -74.33,
+     "lat": 40.03,
+     "kant": "onder"
+    }
+   ],
+   "route": [
+    [
+     8.68,
+     50.11
+    ],
+    [
+     2.0,
+     52.0
+    ],
+    [
+     -8.2,
+     52.5
+    ],
+    [
+     -30,
+     50.5
+    ],
+    [
+     -52.5,
+     47.0
+    ],
+    [
+     -63,
+     44.5
+    ],
+    [
+     -71.06,
+     42.36
+    ],
+    [
+     -74.0,
+     40.71
+    ],
+    [
+     -74.33,
+     40.03
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4181.4,
+   "nummer": 13,
+   "titel": "The Second Night"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4411.6,
+   "regel1": "5 May 1937  ·  Afternoon",
+   "regel2": "Newfoundland"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4553.0,
+   "nummer": 14,
+   "titel": "Thursday Morning"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4878.3,
+   "nummer": 15,
+   "titel": "Over New York"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4895.3,
+   "regel1": "6 May 1937  ·  Afternoon",
+   "regel2": "New York"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5163.7,
+   "nummer": 16,
+   "titel": "Waiting for the Storm"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5371.4,
+   "nummer": 17,
+   "titel": "Lakehurst"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5393.4,
+   "regel1": "6 May 1937  ·  Evening",
+   "regel2": "Lakehurst, New Jersey"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5583.1,
+   "nummer": 18,
+   "titel": "The Landing"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5882.9,
+   "nummer": 19,
+   "titel": "The Days After"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6151.6,
+   "nummer": 20,
+   "titel": "What Remains"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6188.6,
+   "punten": [
+    [
+     "1900",
+     "The first Zeppelin flies"
+    ],
+    [
+     "1929",
+     "Around the world"
+    ],
+    [
+     "1936",
+     "The Hindenburg's first flight"
+    ],
+    [
+     "1937",
+     "The last crossing"
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6367.9,
+   "nummer": 21,
+   "titel": "Friedrichshafen Today"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6595.2,
+   "nummer": 22,
+   "titel": "Remembering the Airships"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6787.9,
+   "nummer": 23,
+   "titel": "Goodnight, Hindenburg"
+  }
+ ]
+}
