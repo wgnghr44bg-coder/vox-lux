@@ -104,7 +104,7 @@ Extra (eigenaar, 30 okt 2026; ingepland za 7 nov): `Quiet WW2 Facts to Fall Asle
   van Dusk Voyages, 83 via hun Titanic- en 54 via hun Mayflower-video; hun *The Hindenburg's Last Voyage* (27 okt) groeit ± 9.000 per dag.
   Nu maken zolang die video groeit; "Hindenburg" en "1937" in de titel, net als bij hen. Niet vervangen door een andere hype.)
 - za 7 nov: 2+ Hours of Quiet WW2 Facts to Fall Asleep To (al klaar en ingepland op Sleep Archives voor za 7 nov 21:00, https://youtu.be/sUXxj9qy3SA; eigenaar 1 nov 2026). De routine maakt voor deze dag niets.
-- wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
+- wo 11 nov: Life in the Wild West: Tombstone, 1881 (Wild West ± 2,8 miljoen; "Tombstone" alleen maar 1.500)
 - za 14 nov: Life in Ancient Egypt When Tutankhamun Died, 1323 BC (± 3,4 miljoen)
 - wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)
 - za 21 nov: Life in Dallas, November 1963 (Kennedy, 22 nov; film *November 1963* 4 dec)
@@ -113,24 +113,24 @@ Extra (eigenaar, 30 okt 2026; ingepland za 7 nov): `Quiet WW2 Facts to Fall Asle
   Vast (eigenaar, 28 okt): titel `Life at Pearl Harbor, December 1941 | History for Sleep`; thumbnail
   amberregel `PEARL HARBOR · DECEMBER 1941`, hook `The Last Sunday Morning`; beeld: matrozen aan dek in
   zacht ochtendlicht met de schepen in de haven erachter, geen vliegtuigen of rook.
-- wo 2 dec: Life in Philadelphia, July 1776 (Amerika 250 jaar)
+- wo 2 dec: Life in Ancient Rome When Caesar Died, 44 BC (Caesar 1,3 mln; eigenaar 1 nov: sterke onderwerpen naar voren)
 - za 5 dec: Life in Europe During the Black Death, 1348 (± 640.000)
 - wo 9 dec: vrij, de routine kiest het onderwerp op hype (IJstijd stond hier, maar lijkt te veel op
   "Life Before Fire: How Early Humans Survived the Night" van 24 sep)
-- za 12 dec: Life in the Trenches, Christmas 1914 (kerstbestand)
+- za 12 dec: Christmas in the Trenches of World War I, 1914 (kerst; "World War 1" 104.000)
 - wo 16 dec: How Medieval Peasants Survived Winter, 1300 (film *Werwulf* 25 dec)
 - za 19 dec: Life in Bethlehem, the First Christmas (kerst)
 Na kerst (eigenaar 1 nov 2026, akkoord; het tweede account schrijft deze vooruit). Tussen haakjes: views van
 bestaande slaapvideo's over het onderwerp (`tools/sleep_trends.py --check`, 1 nov 2026). Zet het woord met de
 meeste vraag in de titel (bv. "Aztec" i.p.v. alleen "Tenochtitlan", "Ancient Greece" i.p.v. alleen "Athens"):
 - wo 23 dec: Life in Victorian London at Christmas, 1843 (63.000; *A Christmas Carol*; vaste datum)
-- za 26 dec: Life in London Before the Great Fire of 1666 (81.000)
-- wo 30 dec: Life with Lewis and Clark, 1804 (204.000)
-- za 2 jan: Life in Ancient Rome When Caesar Died, 44 BC (Caesar 1,3 mln, Rome 1,1 mln)
+- za 26 dec: Life in Japan in the Age of the Samurai, 1600 (samurai 2,4 mln; kerstvakantie)
+- wo 30 dec: Life Aboard a Pirate Ship with Blackbeard, 1718 (pirates 1,8 mln; kerstvakantie)
+- za 2 jan: Life in Philadelphia During the American Revolution, 1776 (American Revolution 549.000)
 - wo 6 jan: Life in Troy, the Last Days of the City (253.000; film *The Odyssey*)
 - za 9 jan: Life Aboard Franklin's Lost Expedition, Arctic 1845 (125.000, 14 recente video's)
-- wo 13 jan: Life Aboard a Pirate Ship with Blackbeard, 1718 (pirates 1,8 mln)
-- za 16 jan: Life in Japan in the Age of the Samurai, 1600 (samurai 2,4 mln)
+- wo 13 jan: Life with Lewis and Clark, 1804 (204.000)
+- za 16 jan: Life in London Before the Great Fire of 1666 (81.000)
 - wo 20 jan: Life in the Aztec Capital Tenochtitlan, 1519 (Aztec 439.000)
 - za 23 jan: How Medieval Monks Lived, 1150 (monks 94.000; "monastery" maar 33.000)
 - wo 27 jan: Life Inside a Medieval Castle, 1250 (medieval castle 7,4 mln; vervangt Edmund Fitzgerald, 70.000)

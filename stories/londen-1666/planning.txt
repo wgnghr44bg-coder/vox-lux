@@ -1,6 +1,6 @@
 onderwerp Life in London Before the Great Fire of 1666
 status   script-klaar (2026-11-01, tweede account)
-datum    za 2026-12-26 21:00 NL
+datum    za 2027-01-16 21:00 NL
 titel    Life in London Before the Great Fire of 1666 | <N> Hours of History for Sleep
 thumbnail amberregel "LONDON · SUMMER 1666", hook "Before the Great Fire", beeld (kenmerkend): de oude London Bridge vol houten huizen boven de Theems in gouden avondlicht, met de grote oude kathedraal van Sint-Paulus op de heuvel erachter, op de voorgrond Samuel Pepys met pruik in een roeibootje; geen vuur of rook
 soort    ramp
