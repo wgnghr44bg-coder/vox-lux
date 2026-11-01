@@ -57,7 +57,8 @@ werk alles af.
      pauzes wordt de video langer: ± 15.000 woorden script geeft ± 1 u 47 (Oregon, pauze D); mik op ± 17.000 woorden voor ± 2 uur.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
-   - Titel: bekende naam + maand en jaar + ` | History for Sleep`.
+   - Titel: bekende naam + maand en jaar + ` | <N> Hours of History for Sleep` (N = lengte van de eindvideo,
+     afgerond op hele uren; eigenaar 1 nov 2026). Staat in planning.txt een titel met alleen ` | History for Sleep`, zet de uren er dan zelf in.
    - Thumbnail: ontwerp v2 (`tools/make_thumbnail.py`, YOUTUBE-STANDAARD.md) zoals
      `stories/titanic/thumbnail-v2.jpg`: **mensen van dat moment** dichtbij in warm licht (rechts of
      in het midden), het onderwerp eromheen; nooit alleen een schip of gebouw. Geen goed beeld met

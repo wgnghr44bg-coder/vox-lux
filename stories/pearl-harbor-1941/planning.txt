@@ -1,6 +1,6 @@
 onderwerp Life at Pearl Harbor, December 1941
 status   script-klaar (2026-11-01, tweede account)
 datum    za 2026-11-28 21:00 NL
-titel    Life at Pearl Harbor, December 1941 | History for Sleep (vast, eigenaar 28 okt)
+titel    Life at Pearl Harbor, December 1941 | <N> Hours of History for Sleep (vast, eigenaar 28 okt)
 thumbnail amberregel "PEARL HARBOR · DECEMBER 1941", hook "The Last Sunday Morning", beeld: matrozen in wit uniform aan dek, achter hen groot de grijze slagschepen van Battleship Row (USS Arizona) in de haven, zacht zondagochtendlicht, palmen en groene heuvels; geen vliegtuigen of rook (vast, eigenaar 28 okt, schepen groter) (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog

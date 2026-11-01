@@ -1,6 +1,6 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
 status   script-klaar (2026-11-01, tweede account)
 datum    wo 2026-11-25 21:00 NL
-titel    Life in Antarctica with Captain Scott, 1912 | History for Sleep (62 tekens)
+titel    Life in Antarctica with Captain Scott, 1912 | <N> Hours of History for Sleep (62 tekens)
 thumbnail amberregel "ANTARCTICA · 1912", hook "With Captain Scott", beeld: vijf poolreizigers in wol en bont die een houten slee met de Britse vlag trekken over het witte ijs, lage gouden poolzon en lange schaduwen, de bergen van Antarctica erachter (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    reis

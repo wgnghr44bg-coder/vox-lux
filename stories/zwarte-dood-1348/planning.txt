@@ -1,6 +1,6 @@
 onderwerp Life in Europe During the Black Death, 1348
 status   script-klaar (2026-11-01, tweede account)
 datum    za 2026-12-05 21:00 NL
-titel    Life in Europe During the Black Death, 1348 | History for Sleep (63 tekens)
+titel    Life in Europe During the Black Death, 1348 | <N> Hours of History for Sleep (63 tekens)
 thumbnail amberregel "FLORENCE · 1348", hook "Life in Europe", beeld: een rustige pestdokter met de bekende snavelmasker en lange zwarte mantel op afstand in een stil kaarsverlicht middeleeuws straatje van Florence, de koepel van de Duomo in de schemering erachter; geen zieken, niets griezeligs (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    middeleeuwen
