@@ -96,14 +96,14 @@ een hype is")**: alleen wereldberoemde onderwerpen, op een jubileum, feestdag of
 Edmund Fitzgerald, Franklin en Salem (minder bekend of Halloween voorbij) schuiven naar achteren.
 **Geen dubbele video's (eigenaar, 30 okt 2026)**: leg elk onderwerp eerst naast alle video's op Sleep Archives
 (ook privé); lijkt het op iets wat er al staat (zelfde onderwerp of bijna dezelfde titel), kies dan een ander.
-Extra (eigenaar, 30 okt 2026; ingepland wo 4 nov): `Quiet WW2 Facts to Fall Asleep To, 1939–1945 | History for Sleep`
+Extra (eigenaar, 30 okt 2026; ingepland za 7 nov): `Quiet WW2 Facts to Fall Asleep To, 1939–1945 | History for Sleep`
 (feitenvorm, ± 90 feiten, ± 3 uur; datum kiest de eigenaar, niet rond Pearl Harbor 28 nov).
 - wo 28 okt: Life Aboard the Mayflower, 1620 (al openbaar)
 - za 31 okt: Life on the Oregon Trail, 1846 (openbaar)
-- wo 4 nov: 2+ Hours of Quiet WW2 Facts to Fall Asleep To (al klaar en ingepland op Sleep Archives, https://youtu.be/sUXxj9qy3SA; eigenaar 1 nov 2026). De routine maakt voor deze dag niets.
-- za 7 nov: Life Aboard the Hindenburg, May 1937 (eigenaar 1 nov 2026, na de cijfercheck: bijna al onze voorgestelde views komen
+- wo 4 nov: Life Aboard the Hindenburg, May 1937 (eigenaar 1 nov 2026, vervroegd van 7 naar 4 nov om met de hype mee te gaan; cijfercheck: bijna al onze voorgestelde views komen
   van Dusk Voyages, 83 via hun Titanic- en 54 via hun Mayflower-video; hun *The Hindenburg's Last Voyage* (27 okt) groeit ± 9.000 per dag.
   Nu maken zolang die video groeit; "Hindenburg" en "1937" in de titel, net als bij hen. Niet vervangen door een andere hype.)
+- za 7 nov: 2+ Hours of Quiet WW2 Facts to Fall Asleep To (al klaar en ingepland op Sleep Archives voor za 7 nov 21:00, https://youtu.be/sUXxj9qy3SA; eigenaar 1 nov 2026). De routine maakt voor deze dag niets.
 - wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
 - za 14 nov: Life in Ancient Egypt When Tutankhamun Died, 1323 BC (± 3,4 miljoen)
 - wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)

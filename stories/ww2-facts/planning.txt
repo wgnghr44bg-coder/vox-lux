@@ -1,7 +1,7 @@
 onderwerp Quiet WW2 Facts to Fall Asleep To, 1939-1945
-link   https://youtu.be/sUXxj9qy3SA (2:30:53, pauze D, 4 zinnen opnieuw ingesproken, TEKST GOED, 432 Hz --rond -26 + regen 13 dB eronder, -14 LUFS; geüpload 1 nov 2026, ingepland wo 4 nov 2026 21:00 NL (eigenaar 1 nov); Sleep Archives gecontroleerd; playlists Full Documentaries + War & Survival; kosten €0); thumbnail-v3 (soldaat, titel erbij) gezet 1 nov
+link   https://youtu.be/sUXxj9qy3SA (2:30:53, pauze D, 4 zinnen opnieuw ingesproken, TEKST GOED, 432 Hz --rond -26 + regen 13 dB eronder, -14 LUFS; geüpload 1 nov 2026, ingepland za 7 nov 2026 21:00 NL (eigenaar 1 nov, omgedraaid met Hindenburg); Sleep Archives gecontroleerd; playlists Full Documentaries + War & Survival; kosten €0); thumbnail-v3 (soldaat, titel erbij) gezet 1 nov
 vorm facts
-lang   wo 4 nov 2026 21:00 NL (eigenaar 1 nov)
+lang   za 7 nov 2026 21:00 NL (eigenaar 1 nov, omgedraaid met Hindenburg)
 (eigenaar 30 okt 2026: "Ja begin aan de ww2 video"; gratis: comfy-beelden en Chatterbox-stem George, avondeffect v2)
 titel  2+ Hours of Quiet WW2 Facts to Fall Asleep To | History for Sleep (eigenaar 30 okt: uren vooraan zoals de grote kanalen)
 stem   Slaap 3: eigen ontworpen stem via OmniVoice (oudere Britse man, heel laag, speed 0.8; ref tools/comfy/stem/slaapstem-3.wav). Eigenaar 30 okt: "Doe maar gewoon zoals hij was zonder deeper". Theo (ElevenLabs) niet gebruikt vanwege hun voorwaarden.
