@@ -120,7 +120,18 @@ Extra (eigenaar, 30 okt 2026; ingepland za 7 nov): `Quiet WW2 Facts to Fall Asle
 - za 12 dec: Life in the Trenches, Christmas 1914 (kerstbestand)
 - wo 16 dec: How Medieval Peasants Survived Winter, 1300 (film *Werwulf* 25 dec)
 - za 19 dec: Life in Bethlehem, the First Christmas (kerst)
-Later: Troje (*The Odyssey*), Londen 1666, Edmund Fitzgerald (met "Lake Superior" in de titel), Franklin ("Arctic"), Salem (vóór Halloween 2027).
+Na kerst (eigenaar 1 nov 2026, akkoord; het tweede account schrijft deze vooruit):
+- wo 23 dec: Life in Victorian London at Christmas, 1843 (*A Christmas Carol*; vaste datum)
+- za 26 dec: Life in London Before the Great Fire of 1666
+- wo 30 dec: Life with Lewis and Clark, 1804 (± 200.000)
+- za 2 jan: Life in Ancient Rome When Caesar Died, 44 BC
+- wo 6 jan: Life in Troy, the Last Days of the City (film *The Odyssey*)
+- za 9 jan: Life Aboard Franklin's Lost Expedition, Arctic 1845
+- wo 13 jan: Life Aboard a Pirate Ship with Blackbeard, 1718
+- za 16 jan: Life in Japan in the Age of the Samurai, 1600
+- wo 20 jan: Life in Tenochtitlan Before Cortés Arrived, 1519
+- za 23 jan: Life in a Medieval Monastery, 1150
+Later: Edmund Fitzgerald (met "Lake Superior" in de titel), Salem (vóór Halloween 2027).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw

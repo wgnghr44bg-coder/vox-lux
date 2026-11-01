@@ -1,0 +1,7 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "A day in Rome, and a dinner" = 03-een-dag-in-rome.txt + 03b-een-romeins-diner.txt
+# "Cicero, books and schools" = 06-cicero.txt + 06b-boeken-en-scholen.txt
+# "Caesar's house and the gods of Rome" = 07-het-huis-van-caesar.txt + 07b-de-goden-van-rome.txt
+# "Cleopatra and the new calendar" = 08-cleopatra.txt + 09-de-nieuwe-kalender.txt
+# "The end of the Republic, and Rome today" = 16-het-einde-van-de-republiek.txt + 17-rome-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
