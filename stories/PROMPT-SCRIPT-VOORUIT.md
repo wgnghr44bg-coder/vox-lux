@@ -41,7 +41,7 @@ Een nieuwe map `stories/<korte-naam>/` (bv. `stories/tombstone-1881/`), net zoal
    onderwerp <onderwerp zoals in ONDERWERPEN.md>
    status   script-klaar (<datum vandaag>, tweede account)
    datum    <wo/za datum uit de planning> 21:00 NL
-   titel    <titel> | History for Sleep
+   titel    <titel> | <N> Hours of History for Sleep   (de routine vult N in na de montage)
    thumbnail amberregel "<...>", hook "<...>", beeld: <korte beschrijving>
    soort    <playlist-soort voor tools/youtube_playlist.py: ramp, oorlog, reis, ...>
    ```

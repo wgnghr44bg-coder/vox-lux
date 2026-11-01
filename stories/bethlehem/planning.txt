@@ -1,6 +1,6 @@
 onderwerp Life in Bethlehem, the First Christmas
 status   script-klaar (2026-11-01, tweede account)
 datum    za 2026-12-19 21:00 NL
-titel    Life in Bethlehem, the First Christmas | History for Sleep (58 tekens)
+titel    Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep (58 tekens)
 thumbnail amberregel "BETHLEHEM · THE FIRST CHRISTMAS", hook "Life in Bethlehem", beeld: de heldere ster van Bethlehem boven het kleine witte stenen dorp op de heuvel, op de voorgrond de drie wijzen op kamelen in rijke mantels, paars-gouden avondlucht (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oudheid
