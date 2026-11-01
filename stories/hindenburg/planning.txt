@@ -3,3 +3,6 @@ lang   wo 4 nov 2026 21:00 NL (publishAt 2026-11-04T20:00:00Z)
 status bezig (4 nov 2026, routine)
 titel  Life Aboard the Hindenburg, May 1937 | History for Sleep
 (ONDERWERPEN.md: vast, eigenaar 1 nov 2026, niet vervangen door een andere hype; gratis: comfy-beelden, Slaap 3)
+stem   Slaap 3 (OmniVoice), pauze D (--kort), 432 Hz --rond -26 + regen 13 dB eronder, -14 LUFS
+script 16.552 woorden, 105 beelden, stem 2:01:31 -> 1:54:42 met pauzes; zin 807 opnieuw ingesproken (Whisper: hangend woord)
+thumbnail-v2: stel op het raam (paar met hoed, zilver luchtschip, zonsondergang), amberregel LIFE ABOARD · MAY 1937, hook THE HINDENBURG
