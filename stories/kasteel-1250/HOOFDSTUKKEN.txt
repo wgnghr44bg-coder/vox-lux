@@ -1,0 +1,10 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The buildings, and the watch" = 04-de-gebouwen.txt + 04b-de-wacht.txt
+# "A day in the castle, light and warmth" = 06-een-dag-in-het-kasteel.txt + 06b-licht-en-warmte.txt
+# "Dinner in the great hall, and the kitchen" = 07-de-maaltijd.txt + 08-de-keuken.txt
+# "Knights, squires and craftsmen" = 09-ridders-en-schildknapen.txt + 09b-de-ambachtslieden.txt
+# "Feasts, music and games" = 11-de-feesten.txt + 11b-muziek-en-spel.txt
+# "The village, and travelling" = 13-het-dorp-en-het-land.txt + 14-op-reis.txt
+# "The Barons' War and the great siege" = 16-de-baronnenoorlog.txt + 17-het-grote-beleg.txt
+# "Later centuries, and Kenilworth today" = 18-latere-eeuwen.txt + 19-kenilworth-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
