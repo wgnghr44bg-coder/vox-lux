@@ -4,3 +4,4 @@ datum    wo 2026-11-11 21:00 NL
 titel    Life in Tombstone Before the O.K. Corral, 1881 | <N> Hours of History for Sleep (66 tekens; "October" staat in de amberregel)
 thumbnail amberregel "TOMBSTONE · OCTOBER 1881", hook "Before the O.K. Corral", beeld: het houten bord "O.K. Corral" boven de poort aan Fremont Street in de schemering, ervoor een lange lawman met snor, hoed en lange zwarte jas, rustig, wapen in de holster; warme lantaarn, koele avond (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    mysterie
+thumbnail gekozen door eigenaar 1 nov: stories/tombstone-1881/thumbnail-gekozen.jpg; deze gebruiken, geen eigen thumbnail maken

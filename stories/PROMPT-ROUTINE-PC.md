@@ -59,10 +59,20 @@ werk alles af.
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
    - Titel: bekende naam + maand en jaar + ` | <N> Hours of History for Sleep` (N = lengte van de eindvideo,
      afgerond op hele uren; eigenaar 1 nov 2026). Staat in planning.txt een titel met alleen ` | History for Sleep`, zet de uren er dan zelf in.
-   - Thumbnail: ontwerp v2 (`tools/make_thumbnail.py`, YOUTUBE-STANDAARD.md) zoals
-     `stories/titanic/thumbnail-v2.jpg`: **mensen van dat moment** dichtbij in warm licht (rechts of
-     in het midden), het onderwerp eromheen; nooit alleen een schip of gebouw. Geen goed beeld met
-     mensen in de video? Maak er één extra via comfy (gratis). Bekijk het resultaat zelf.
+   - **Thumbnail: automatisch** (eigenaar, 1 nov 2026: "nu kun je ze automatisch instellen bij elke nieuwe video").
+     Staat er in planning.txt `thumbnail gekozen door eigenaar: <bestand>`, gebruik dan precies dat bestand.
+     Anders maak je hem zelf, zonder te vragen, volgens YOUTUBE-STANDAARD.md (Thumbnail):
+     - Maak via comfy (gratis) 3 beelden van het **kenmerkende** onderwerp uit de `thumbnail`-regel in planning.txt,
+       groot rechts in beeld, links onderin rustig en donkerder. Zet in de prompt "no text, no letters".
+     - Zet er de tekst op met `tools/make_thumbnail.py <beeld> thumbnail.jpg --hook "<titelwoorden>" --title "<plaats of maand  ·  jaar>"`.
+       Gebruik nooit uren.
+     - **Bekijk alle 3** en kies de beste. Valt een beeld af, dan vervalt hij: rare letters of een fout bord
+       ("TOMBE 881"), een vreemd gevormd voorwerp, tekst over een gezicht, of een beeld dat lijkt op een van de
+       laatste 3 thumbnails van het kanaal.
+       Zijn ze alle 3 slecht, maak er dan 3 nieuwe.
+     - Voorbeelden die de eigenaar koos: `stories/hindenburg/thumbnail-gekozen.jpg` (luchtschip met mensen op de pier),
+       `stories/tombstone-1881/thumbnail-gekozen.jpg` (westernstraat in de avond),
+       `stories/egypte-toetanchamon/thumbnail-gekozen.jpg` (gouden masker).
    - **Abonneer-zin** na de eerste 2-4 zinnen (± 30-60 s), kort en rustig, per video iets anders
      verwoord (PROMPT-NIEUWE-VIDEO.md stap 2); het einde vraagt zoals altijd nog één keer.
    - **Avondeffect v2** (eigenaar, 30 okt 2026): `tools/make_video.py` maakt het beeld standaard iets donkerder
