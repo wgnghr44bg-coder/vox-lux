@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Tokugawa Ieyasu, and the little town of Edo" = 03-tokugawa-ieyasu.txt + 03b-edo-in-1600.txt
+# "A samurai's day, and the seasons" = 05-een-dag-van-een-samoerai.txt + 05b-de-seizoenen.txt
+# "Castles, and food in 1600" = 06-het-kasteel.txt + 06b-eten-in-1600.txt
+# "Farmers, towns and merchants" = 07-de-boeren.txt + 07b-steden-en-kooplieden.txt
+# "The way of tea, and the gods of Japan" = 09-de-theeceremonie.txt + 09b-goden-en-tempels.txt
+# "The long peace" = 14-de-vrede-van-edo.txt + 14b-de-lange-vrede.txt
+# "William Adams, Ieyasu's last years, and Japan today" = 15-william-adams.txt + 15b-de-laatste-jaren-van-ieyasu.txt + 16-japan-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
