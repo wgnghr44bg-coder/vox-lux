@@ -131,7 +131,11 @@ Na kerst (eigenaar 1 nov 2026, akkoord; het tweede account schrijft deze vooruit
 - za 16 jan: Life in Japan in the Age of the Samurai, 1600
 - wo 20 jan: Life in Tenochtitlan Before Cortés Arrived, 1519
 - za 23 jan: Life in a Medieval Monastery, 1150
-Later: Edmund Fitzgerald (met "Lake Superior" in de titel), Salem (vóór Halloween 2027).
+- wo 27 jan: Life Aboard the Edmund Fitzgerald on Lake Superior, November 1975
+- za 30 jan: Life on the Silk Road with Marco Polo, 1271
+- wo 3 feb: Life in Ancient Athens, 432 BC
+- za 6 feb: Life in Machu Picchu, the Inca Empire, 1500
+Later: Salem (vóór Halloween 2027).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
