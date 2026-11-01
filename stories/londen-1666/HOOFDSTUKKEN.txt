@@ -1,0 +1,8 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "A day with Pepys, at home and at work" = 04-een-dag-met-pepys.txt + 04b-het-huishouden.txt
+# "Markets, shops and children" = 06-markten-en-winkels.txt + 06b-kinderen.txt
+# "The King and the theatres" = 09-de-koning.txt + 09b-het-theater.txt
+# "The plague year and a golden summer" = 10-het-pestjaar.txt + 10b-de-zomertuinen.txt
+# "Pudding Lane and Sunday" = 11-pudding-lane.txt + 12-zondag.txt
+# "Pepys's later life, and London today" = 16-pepys-later.txt + 17-londen-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
