@@ -1,0 +1,7 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Autumn and the road to market" = 05-herfst.txt + 05b-naar-de-markt.txt
+# "Winter evenings and a girl's day" = 12-de-avonden.txt + 12b-een-dag-van-alice.txt
+# "Caring for each other, and the snow" = 13-zorg.txt + 14-sneeuw.txt
+# "Candlemas and the coming of spring" = 15-lichtmis.txt + 16-de-lente.txt
+# "The lost village, and Wharram Percy today" = 17-wat-er-gebeurde.txt + 18-wharram-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
