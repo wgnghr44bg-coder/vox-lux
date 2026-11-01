@@ -1,6 +1,6 @@
-onderwerp Life in a Medieval Monastery, 1150
+onderwerp How Medieval Monks Lived, 1150
 status   script-klaar (2026-11-01, tweede account)
 datum    za 2027-01-23 21:00 NL
-titel    Life in a Medieval Monastery, 1150 | <N> Hours of History for Sleep
-thumbnail amberregel "YORKSHIRE · 1150", hook "Life in a Monastery", beeld (kenmerkend): een monnik in wit wollen habijt met kaars loopt 's nachts door de stille kloostergang met rondbogen, in het dal erachter de lichtgevende ramen van de abdijkerk en de mist boven de rivier; warm kaarslicht, rustig
+titel    How Medieval Monks Lived, 1150 | <N> Hours of History for Sleep
+thumbnail amberregel "YORKSHIRE · 1150", hook "How Medieval Monks Lived", beeld (kenmerkend): een monnik in wit wollen habijt met kaars loopt 's nachts door de stille kloostergang met rondbogen, in het dal erachter de lichtgevende ramen van de abdijkerk en de mist boven de rivier; warm kaarslicht, rustig
 soort    middeleeuwen

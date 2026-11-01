@@ -1,6 +1,6 @@
-onderwerp Life in Tenochtitlan Before Cortés Arrived, 1519
+onderwerp Life in the Aztec Capital Tenochtitlan, 1519
 status   script-klaar (2026-11-01, tweede account)
 datum    wo 2027-01-20 21:00 NL
-titel    Life in Tenochtitlan Before Cortés Arrived, 1519 | <N> Hours of History for Sleep
+titel    Life in the Aztec Capital Tenochtitlan, 1519 | <N> Hours of History for Sleep
 thumbnail amberregel "MEXICO · 1519", hook "The Aztec City on the Lake", beeld (kenmerkend): de witte eilandstad Tenochtitlan op het glinsterende meer met de grote dubbele tempelpiramide (rood en blauw heiligdom) in het midden, kano's met bloemen op de voorgrond, besneeuwde vulkanen aan de horizon in gouden ochtendlicht; rustig, geen offers, geen geweld
 soort    oudheid
