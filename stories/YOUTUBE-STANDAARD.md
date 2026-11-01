@@ -210,10 +210,23 @@ history for sleep with rain` + 4–6 onderwerp-tags.
     - hook `--hook` (1–4 woorden), **afwisselend**: de plaatsnaam ("Old San Francisco",
       "Pompeii") of een korte beleving ("Before the First Fire", "A Viking Winter Night").
     - Niet twee video's achter elkaar met dezelfde soort amberregel of hook.
-    - **De thumbnail herhaalt de titel niet** (titel en thumbnail staan naast elkaar op
-      YouTube) en nooit "Quiet"/"Calm".
-    - Voorbeelden: `stories/san-francisco-1906/thumbnail-v2.jpg`,
-      `stories/pompeii/thumbnail-v4.jpg`, `stories/tunguska/thumbnail-v4.jpg`.
+    - **Wél de titel erin** (eigenaar, 1 nov 2026: "meer van de titel van de video in de
+      thumbnail"): de hook is de kern van de titel ("Quiet WW2 Facts"), de amberregel de rest
+      ("2+ Hours  ·  To Fall Asleep To"). "Quiet" mag dus. Dit vervangt de oude regel "de
+      thumbnail herhaalt de titel niet".
+    - Voorbeelden: `stories/ww2-facts/thumbnail-v3.jpg` (nieuw), oudere stijl
+      `stories/san-francisco-1906/thumbnail-v2.jpg`, `stories/pompeii/thumbnail-v4.jpg`.
+  - **Elke thumbnail anders, maar wel pakkend** (eigenaar, 1 nov 2026: "zet dit vast dat elke
+    thumbnail anders is maar wel pakkend moet zijn"). Pakkend betekent:
+    - **één groot gezicht** dicht bij, rechts in beeld, dat de kijker meteen herkent als het
+      onderwerp (soldaat, pionier, matroos, Romein...). De ogen zijn rustig, nooit bang;
+    - sterk licht op dat gezicht (lamp, lantaarn, zonsondergang) tegen een donkere, rustige
+      achtergrond;
+    - de titelwoorden groot en goed leesbaar links.
+    Voorbeeld: WW2 = Amerikaanse soldaat met helm, lantaarnlicht, regen, donkere nacht
+    (`stories/ww2-facts/thumbnail-v3.jpg`, beeld via comfy).
+    Maak zo'n close-up via comfy (gratis), met een prompt als "Close-up portrait of ..., the face
+    on the right third of the frame, the left half calm, dark and empty, no text".
   - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
     kaars), warm oranje licht tegen een koele blauwe/paarse avond. De mensen en hun
     gezichten staan **rechts of in het midden**, links onderin moet rustig zijn voor de
