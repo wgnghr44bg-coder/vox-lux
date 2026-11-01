@@ -217,16 +217,19 @@ history for sleep with rain` + 4–6 onderwerp-tags.
     - Voorbeelden: `stories/ww2-facts/thumbnail-v3.jpg` (nieuw), oudere stijl
       `stories/san-francisco-1906/thumbnail-v2.jpg`, `stories/pompeii/thumbnail-v4.jpg`.
   - **Elke thumbnail anders, maar wel pakkend** (eigenaar, 1 nov 2026: "zet dit vast dat elke
-    thumbnail anders is maar wel pakkend moet zijn"). Pakkend betekent:
-    - **één groot gezicht** dicht bij, rechts in beeld, dat de kijker meteen herkent als het
-      onderwerp (soldaat, pionier, matroos, Romein...). De ogen zijn rustig, nooit bang;
-    - sterk licht op dat gezicht (lamp, lantaarn, zonsondergang) tegen een donkere, rustige
-      achtergrond;
+    thumbnail anders is maar wel pakkend moet zijn"). Het beeld moet **passen bij de titel**:
+    één helder onderwerp dat de kijker meteen koppelt aan de titel. De vorm wisselt per video, dus
+    niet steeds een gezicht (eigenaar: "voor nu is thumbnail gezicht maar de volgende mag iets
+    anders zijn, moet passend zijn de titel"). Pakkend betekent:
+    - één duidelijk onderwerp groot in beeld, rechts: een gezicht, een figuur, een voorwerp of
+      een plek, zolang het bij de titel past (bij "Titanic" het schip met passagiers, bij
+      "WW2 Facts" een soldaat);
+    - sterk licht op dat onderwerp (lamp, lantaarn, zonsondergang) tegen een rustige, donkere
+      achtergrond; mensen hebben rustige gezichten, nooit bang;
     - de titelwoorden groot en goed leesbaar links.
     Voorbeeld: WW2 = Amerikaanse soldaat met helm, lantaarnlicht, regen, donkere nacht
-    (`stories/ww2-facts/thumbnail-v3.jpg`, beeld via comfy).
-    Maak zo'n close-up via comfy (gratis), met een prompt als "Close-up portrait of ..., the face
-    on the right third of the frame, the left half calm, dark and empty, no text".
+    (`stories/ww2-facts/thumbnail-v3.jpg`, beeld via comfy, prompt "Close-up portrait of ...,
+    the face on the right third of the frame, the left half calm, dark and empty, no text").
   - **Beeld**: warm en knus, met **mensen** in beeld (een figuur bij een lamp, vuur of
     kaars), warm oranje licht tegen een koele blauwe/paarse avond. De mensen en hun
     gezichten staan **rechts of in het midden**, links onderin moet rustig zijn voor de
