@@ -1,0 +1,10 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Nassau and the harbour towns" = 03-nassau.txt + 03b-de-havensteden.txt
+# "The Queen Anne's Revenge, and finding the way" = 05-queen-annes-revenge.txt + 05b-zeilen-en-navigeren.txt
+# "The crew, and a day on board" = 06-de-bemanning.txt + 07-een-dag-aan-boord.txt
+# "Stede Bonnet, and the ship's surgeon" = 09-stede-bonnet.txt + 09b-de-scheepsarts.txt
+# "The chase, and Charleston" = 10-de-jacht.txt + 11-charleston.txt
+# "Bath and Ocracoke" = 13-bath-en-ocracoke.txt + 13b-het-leven-aan-de-sounds.txt
+# "The end of Nassau, and the last morning" = 14-het-einde-van-nassau.txt + 15-de-laatste-ochtend.txt
+# "The wreck, and Ocracoke today" = 17-het-wrak.txt + 18-ocracoke-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.

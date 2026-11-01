@@ -1,0 +1,47 @@
+{img:navigator-backstaff-measuring-sun-deck-noon-tropics}
+How do sailors find their way across the sea, in the year 1718?
+
+There is no radio, of course, and no satellites, and no engines. A ship goes where the wind takes it, and the sailors must know, every day, where they are, and which way to go, using only the sun, and the stars, and a few simple instruments, and their own skill and experience.
+
+--
+
+First, there is the compass: a magnetised needle, floating in a little bowl, in a wooden box called the binnacle, beside the wheel, lit at night by a small lamp. The needle always points north, and so the helmsman can steer a steady course.
+
+Then there is latitude: how far north or south of the equator the ship is. This, the sailors can find quite easily, by measuring the height of the sun above the horizon, at noon, when it is at its highest, or of the Pole Star, at night.
+
+They use an instrument called a backstaff, or a quadrant. Standing with their backs to the sun, they line up its shadow with the horizon, and read the angle on a scale. Then, from tables in a book, they can work out the latitude.
+
+--
+
+But longitude, how far east or west the ship is, is much harder.
+
+In 1718, there is no good way to measure it at sea. The sailors must guess, by dead reckoning: by knowing which way they have been sailing, and how fast, and for how long. To measure the speed, they throw a log, a piece of wood, tied to a long line, with knots tied in it, at regular intervals, over the stern of the ship, and count how many knots run out in half a minute, measured by a little sand glass. That is why we still measure the speed of ships in knots.
+
+{img:sailors-throwing-log-line-knots-sandglass-stern}
+Dead reckoning is often wrong, after a long voyage. Many ships are wrecked because they think they are further from land than they really are. It will be another fifty years before an English clockmaker, John Harrison, invents a clock good enough to be taken to sea, to measure longitude properly.
+
+--
+
+So the best sailors rely on their experience, and their knowledge of the sea.
+
+They know the colour of the water, which changes from deep blue to green, as the water becomes shallower, near land. They watch for birds, which fly out from the land in the morning, and back in the evening. They watch the clouds, which often gather over islands. They throw a lead weight on a line, to measure the depth of the water, with a little tallow in the bottom, which brings up sand or mud or shells from the bottom, and tells them where they are.
+
+{img:sailor-sounding-lead-line-bow-turquoise-shallow-water}
+And they have charts: maps of the coasts and the islands, drawn by hand, or printed, and often wrong. Pirates value good charts very highly, and take them from every ship they capture.
+
+--
+
+And there is the wind.
+
+In the Caribbean, the trade winds blow steadily from the east, for most of the year. So it is easy to sail west, and hard to sail east, against the wind. Ships coming from Europe sail south first, to the Canary Islands, and then west, with the trade winds, across the Atlantic, to the Caribbean. And to go home, they sail north, along the coast of America, with the Gulf Stream, a great warm current in the sea, which carries them north, before they turn east, across the Atlantic, with the westerly winds.
+
+The pirates know these routes very well. They know where the ships will pass, and when, and they wait for them there.
+
+--
+
+And they fear the hurricanes.
+
+In the late summer and the autumn, from about August to October, great storms come out of the Atlantic, and sweep across the Caribbean, and up the coast of America. The sailors watch the sky, and the sea, for the signs: a long, slow swell, coming from far away, and high, thin clouds, and a strange, coppery colour in the sky, and a falling barometer, in the ships that have one.
+
+{img:calm-bay-sheltered-anchorage-palms-before-storm-season}
+When they see the signs, they run for shelter, into a deep, sheltered harbour, among the hills, and anchor their ship with every anchor they have, and wait. That is why, in the hurricane season, many pirates leave the Caribbean, and sail north, to the coasts of the American colonies.

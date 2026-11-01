@@ -1,0 +1,6 @@
+onderwerp Life Aboard a Pirate Ship with Blackbeard, 1718
+status   script-klaar (2026-11-01, tweede account)
+datum    wo 2027-01-13 21:00 NL
+titel    Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep
+thumbnail amberregel "CAROLINA COAST · 1718", hook "Blackbeard's Ship", beeld (kenmerkend): de Queen Anne's Revenge met volle zeilen en zwarte vlag op turquoise water bij een eilandje met palmen in gouden avondlicht, Blackbeard met lange zwarte baard en driekante hoed rustig aan de reling; geen wapens in de hand, geen rook
+soort    reis
