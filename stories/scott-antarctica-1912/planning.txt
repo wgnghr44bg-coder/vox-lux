@@ -1,0 +1,6 @@
+onderwerp Life in Antarctica with Scott's Last Expedition, 1912
+status   script-klaar (2026-11-01, tweede account)
+datum    wo 2026-11-25 21:00 NL
+titel    Life in Antarctica with Captain Scott, 1912 | History for Sleep (62 tekens)
+thumbnail amberregel "ANTARCTICA · 1912", hook "With Captain Scott", beeld: twee poolreizigers in wol en bont met berijpte baarden voor de verlichte houten hut van Cape Evans, warm lamplicht uit het raam, groen zuiderlicht en de witte rokende Erebus tegen een koele nachtlucht
+soort    reis
