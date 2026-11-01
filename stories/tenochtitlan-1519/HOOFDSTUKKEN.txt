@@ -1,0 +1,10 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "A day in Tenochtitlan, and the merchants" = 04-een-dag-in-tenochtitlan.txt + 04b-de-pochteca.txt
+# "Children, schools and clothing" = 07-kinderen-en-scholen.txt + 07b-kleding.txt
+# "Moctezuma, and the ball game" = 08-moctezuma.txt + 08b-het-balspel.txt
+# "The gods and the calendar" = 09-de-goden.txt + 09b-de-kalender.txt
+# "Craftsmen and chocolate" = 10-ambachten.txt + 10b-chocolade.txt
+# "Flower and song, and the healers" = 11-bloem-en-lied.txt + 11b-de-genezers.txt
+# "The strangers, and the meeting on the causeway" = 13-de-vreemdelingen.txt + 13b-de-ontmoeting.txt
+# "Mexico City, then and now" = 15-mexico-stad.txt + 16-tenochtitlan-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
