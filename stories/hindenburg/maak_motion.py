@@ -36,7 +36,7 @@ items += [
     {"soort": "datum", "tijd": na("first-flight-over-lake-constance", 20), "regel1": "4 March 1936", "regel2": "Lake Constance"},
     {"soort": "datum", "tijd": na("engines-starting-propellers-turning", 25), "regel1": "3 May 1937  ·  8 pm", "regel2": "The airfield at Frankfurt"},
     {"soort": "datum", "tijd": na("sunrise-over-the-atlantic-from-window", 15), "regel1": "4 May 1937  ·  Morning", "regel2": "The North Atlantic"},
-    {"soort": "datum", "tijd": na("fishing-village-seen-from-above", -20), "regel1": "5 May 1937  ·  Afternoon", "regel2": "Newfoundland"},
+    {"soort": "datum", "tijd": na("fishing-village-seen-from-above", 5), "regel1": "5 May 1937  ·  Afternoon", "regel2": "Newfoundland"},
     {"soort": "datum", "tijd": na("new-york-skyline-from-the-harbour-afternoon", 20), "regel1": "6 May 1937  ·  Afternoon", "regel2": "New York"},
     {"soort": "datum", "tijd": na("lakehurst-naval-air-station-hangar-evening", 25), "regel1": "6 May 1937  ·  Evening", "regel2": "Lakehurst, New Jersey"},
     {"soort": "kaart", "tijd": na("sunrise-over-the-atlantic-from-window", 160), "titel": "Frankfurt to Lakehurst, 1937",
@@ -92,7 +92,7 @@ sounds, no jump scares, just a gentle voice, soft 432 Hz background music
 with smooth, gentle rain sounds and softly changing images.
 
 Chapters
-""" + "\n".join(f"{hms(0 if n == 1 else t)} {titel}" for n, (titel, t) in enumerate(kapitels, 1)) + """
+""" + "\n".join(f"{hms(0 if n == 1 else t + 3)} {titel}" for n, (titel, t) in enumerate(kapitels, 1)) + """
 
 #sleepdocumentary #hindenburg #historyforsleep #sleepstory #rainsounds #432hz #boringhistory #bedtimestory #fallasleep #relaxinghistory #sleepsounds #sleepmusic #zeppelin #airship #calmhistory
 """

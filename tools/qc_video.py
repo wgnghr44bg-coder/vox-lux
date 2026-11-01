@@ -312,8 +312,9 @@ def main():
 
     # ---------- 7. metadata ----------
     tt = a.titel
-    qc.set("title", OK if tt.endswith(" | History for Sleep") and tt.count("| History for Sleep") == 1 and len(tt) <= 100 else FOUT,
-           *([] if tt.endswith(" | History for Sleep") else [(0, "YOUTUBE", f"Titel eindigt niet op '| History for Sleep': {tt}", "HIGH", "Titel aanpassen.")]))
+    titel_ok = re.search(r" \| (\d+ Hours? of )?History for Sleep$", tt) is not None   # sinds 1 nov 2026 met uren erin
+    qc.set("title", OK if titel_ok and len(tt) <= 100 else FOUT,
+           *([] if titel_ok else [(0, "YOUTUBE", f"Titel eindigt niet op '| History for Sleep': {tt}", "HIGH", "Titel aanpassen.")]))
     th = []
     if not a.thumbnail.exists():
         th.append((0, "YOUTUBE", "Thumbnail ontbreekt.", "CRITICAL", "Thumbnail maken."))
@@ -370,7 +371,7 @@ def main():
     L.append("✅ VIDEO APPROVED — READY FOR UPLOAD" if status.startswith("✅") else
              "❌ VIDEO REJECTED — DO NOT UPLOAD" if status.startswith("❌") else "⚠️ NOT VERIFIED — DO NOT UPLOAD")
     rapport = "\n".join(L)
-    (st / "video" / "QC-RAPPORT.txt").write_text(rapport)
+    (st / "video" / "QC-RAPPORT.txt").write_text(rapport, encoding="utf-8")
     print(rapport)
     sys.exit(0 if status.startswith("✅") else 1)
 
