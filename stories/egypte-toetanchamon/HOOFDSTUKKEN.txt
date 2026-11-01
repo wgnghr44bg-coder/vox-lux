@@ -1,0 +1,16 @@
+# Koppeling hoofdstuk in de beschrijving -> bestand in src/ (tijd = begin van het eerste bestand)
+The black land beside the Nile	01-de-nijl.txt
+A farming family	02-de-boeren.txt
+The city of Thebes	03-thebe.txt
+The tomb-makers, the scribes and their children	04-het-dorp.txt (+ 05-schrijvers-en-kinderen.txt)
+The king of the sun	06-de-zonnekoning.txt
+The boy king	07-de-jonge-koning.txt
+The young queen	08-de-koningin.txt
+The Beautiful Feast of Opet	09-het-feest.txt
+The last winter	10-de-laatste-winter.txt
+Seventy days	11-zeventig-dagen.txt
+The funeral in the Valley of the Kings	12-de-begrafenis.txt
+A forgotten king	13-daarna.txt
+Wonderful things	14-howard-carter.txt
+The treasures of the tomb	15-de-schatten.txt
+Goodnight, Egypt	16-nu.txt

@@ -1,0 +1,1 @@
+# Hoofdstuk "June 1863 and the armies on the roads" = 06-juni.txt + 07-de-legers.txt (tijd = begin van 06); de andere hoofdstukken = één bestand in src/, in volgorde.

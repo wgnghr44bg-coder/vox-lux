@@ -1,0 +1,6 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The summer of 1914 and the journey to the front" = 02-zomer-1914.txt + 02b-de-reis.txt
+# "Letters, parcels and Christmas at home" = 05-post-uit-huis.txt + 05b-kerst-thuis.txt
+# "The frost, and Christmas Eve in the villages" = 10-de-vorst.txt + 10b-kerstavond-in-het-dorp.txt
+# "Peace, their lives, and Flanders today" = 15-de-vrede.txt + 16-hun-levens.txt + 17-vlaanderen-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.

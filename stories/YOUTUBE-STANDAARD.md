@@ -115,6 +115,10 @@ Kost alleen de stem (xAI) en de afbeeldingen (xAI, ± $0,05 per stuk); de rest i
    Upload en plaats op de TikTok-pagina het `-fx`-bestand. ± 4 min per Short.
 
 ## Titel (sinds okt 2026)
+- **Uren in de titel (eigenaar, 1 nov 2026: "Die 2 hours hoeft niet in de thumbnail ... Wel in de titel")**:
+  eindig de titel met `| <N> Hours of History for Sleep` (bv. `Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep`).
+  N = de echte lengte van de eindvideo, afgerond op hele uren (1:45–2:29 = 2, 2:30–3:29 = 3). Vul het pas in na de
+  montage. In de thumbnail nooit uren.
 Mensen zoeken in deze niche op **"History for Sleep"** en klikken op titels die een
 **beleving** beloven (hoe leefden ze, wat deden ze de hele dag, de laatste rustige
 nacht), niet op een kale onderwerpnaam. Grote kanalen: "How Medieval Peasants Survived
@@ -211,11 +215,18 @@ history for sleep with rain` + 4–6 onderwerp-tags.
       "Pompeii") of een korte beleving ("Before the First Fire", "A Viking Winter Night").
     - Niet twee video's achter elkaar met dezelfde soort amberregel of hook.
     - **Wél de titel erin** (eigenaar, 1 nov 2026: "meer van de titel van de video in de
-      thumbnail"): de hook is de kern van de titel ("Quiet WW2 Facts"), de amberregel de rest
-      ("2+ Hours  ·  To Fall Asleep To"). "Quiet" mag dus. Dit vervangt de oude regel "de
+      thumbnail"): de hook is de kern van de titel ("Quiet WW2 Facts"), de amberregel plaats of maand en jaar
+      ("May 1937  ·  Across the Atlantic"). "Quiet" mag. **Geen uren** ("2 Hours", "2+ Hours") in de
+      thumbnail (eigenaar, 1 nov 2026): de lengte staat al in de titel en YouTube toont hem rechtsonder. Dit vervangt de oude regel "de
       thumbnail herhaalt de titel niet".
     - Voorbeelden: `stories/ww2-facts/thumbnail-v3.jpg` (nieuw), oudere stijl
       `stories/san-francisco-1906/thumbnail-v2.jpg`, `stories/pompeii/thumbnail-v4.jpg`.
+  - **Kenmerkend beeld** (eigenaar, 1 nov 2026: "gebruik afbeelding thumbnail iets dat kenmerkend is voor
+    de video"): kies het ding of moment dat iedereen meteen met het onderwerp verbindt, groot in beeld.
+    Voorbeelden: Hindenburg = het zilveren luchtschip, Egypte = het gouden masker, Philadelphia = de Liberty
+    Bell, Kerst 1914 = soldaten die voetballen in niemandsland, Bethlehem = de ster en de wijzen.
+    Mensen mogen erbij, maar het kenmerkende beeld komt eerst. Blijf rustig: geen vuur, rook, wapens of
+    angst, en altijd het moment vóór de ramp.
   - **Elke thumbnail anders, maar wel pakkend** (eigenaar, 1 nov 2026: "zet dit vast dat elke
     thumbnail anders is maar wel pakkend moet zijn"). Het beeld moet **passen bij de titel**:
     één helder onderwerp dat de kijker meteen koppelt aan de titel. De vorm wisselt per video, dus
@@ -246,7 +257,8 @@ history for sleep with rain` + 4–6 onderwerp-tags.
     - **kleur en licht**: niet weer een donkerblauwe nacht met oranje vuur als de vorige dat ook had
       (afwisselen met warm binnenlicht, schemer in de stad, roze of gouden avond);
     - **tekst**: een andere soort amberregel en hook dan de vorige (zie hierboven).
-    Toon de eigenaar altijd 2–3 proeven naast de vorige thumbnail.
+    Maak altijd 3 proeven en leg ze naast de vorige thumbnail. De routine kiest zelf de beste (eigenaar, 1 nov 2026:
+    "automatisch instellen bij elke nieuwe video"); in een gewone sessie mag de eigenaar kiezen.
   - Kies eerst een passend beeld uit de video (gratis). Is er geen goed beeld met mensen,
     maak dan één aparte thumbnail-afbeelding via comfy (gratis; xAI alleen met toestemming):
     filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en

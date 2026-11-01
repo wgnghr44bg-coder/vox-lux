@@ -1,0 +1,7 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "At home in Florence" = 03-thuis.txt + 03b-de-wolwerkers.txt
+# "Boccaccio and the chronicler Villani" = 05-boccaccio.txt + 06-villani.txt
+# "The Tuscan countryside in summer" = 07-het-platteland.txt + 07b-zomer-1347.txt
+# "Ten young people and their stories" = 13-de-villa.txt + 13b-twee-verhalen.txt
+# "Their lives, and Florence today" = 16-de-levens.txt + 17-florence-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.

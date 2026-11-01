@@ -1,0 +1,8 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Daily life and the turning year" = 03-dagelijks-leven.txt + 03b-het-jaar.txt
+# "Ruth, David and the children" = 05-ruth-en-david.txt + 05b-kinderen.txt
+# "King Herod and Jerusalem" = 06-herodes.txt + 06b-jeruzalem.txt
+# "Nazareth and a village wedding" = 07-nazareth.txt + 07b-een-bruiloft.txt
+# "The long road south" = 08-de-reis.txt + 08b-de-herberg.txt
+# "Growing up in Nazareth, and the first Christmases" = 12b-in-nazareth.txt + 13-het-eerste-kerstfeest.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
