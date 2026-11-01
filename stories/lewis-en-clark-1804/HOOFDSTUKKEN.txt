@@ -1,0 +1,8 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Two captains and Camp Dubois" = 03-lewis-en-clark.txt + 04-camp-dubois.txt
+# "Setting out, and a day on the river" = 05-vertrek.txt + 06-een-dag-op-de-rivier.txt
+# "Among the Shoshone" = 11-de-shoshone.txt + 11b-bij-de-shoshone.txt
+# "Over the mountains to the Nez Perce" = 12-de-bergen.txt + 12b-de-nez-perce.txt
+# "The Pacific and Fort Clatsop" = 14-de-oceaan.txt + 14b-winter-aan-de-kust.txt
+# "Their later lives" = 16-hun-levens.txt + 16b-de-mannen-en-de-volken.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.

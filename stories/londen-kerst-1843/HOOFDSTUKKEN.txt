@@ -1,0 +1,7 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Poor London and the street sellers" = 05-het-arme-londen.txt + 05b-de-straatverkopers.txt
+# "A clerk's family and a day in the City" = 06-een-huis-in-camden.txt + 06b-een-dag-in-de-city.txt
+# "Christmas customs and the pudding" = 08-kerstgewoonten.txt + 08b-de-pudding.txt
+# "Christmas Eve and Christmas Day, 1843" = 13-kerstavond-1843.txt + 14-kerstdag.txt
+# "Dickens's readings, and London today" = 16-de-voorlezingen.txt + 17-londen-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
