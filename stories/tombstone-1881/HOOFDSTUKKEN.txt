@@ -1,0 +1,16 @@
+# Koppeling hoofdstuk in de beschrijving -> bestand in src/ (tijd = begin van het eerste bestand)
+A streak of silver in the hills	01-de-heuvels.txt
+A town on Goose Flats	02-de-stad.txt
+Down in the silver mines	03-de-mijnen.txt
+Evenings on Allen Street	04-allen-street.txt
+Nellie Cashman and George Parsons	05-nellie-cashman.txt (+ 06-george-parsons.txt)
+The newspaper and the photographer	07-krant-en-fotograaf.txt
+The Earp brothers	08-de-earps.txt
+Doc Holliday	09-doc-holliday.txt
+The ranches of the valleys	10-de-ranches.txt
+October 1881	11-oktober.txt
+The night before	12-de-nacht-ervoor.txt
+A cold afternoon	13-de-middag.txt
+Fremont Street	14-fremont-street.txt
+After the gunfight	15-daarna.txt (+ 16-wat-er-van-hen-werd.txt)
+Goodnight, Tombstone	17-tombstone-nu.txt
