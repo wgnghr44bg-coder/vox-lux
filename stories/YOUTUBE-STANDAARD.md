@@ -221,6 +221,16 @@ history for sleep with rain` + 4–6 onderwerp-tags.
   - **Altijd mensen** (eigenaar, 28 okt 2026): de best lopende thumbnail (Titanic,
     `stories/titanic/thumbnail-v2.jpg`) toont het orkest en passagiers aan dek. Nooit alleen een
     schip, gebouw of landschap.
+  - **Nooit te veel lijken op de vorige** (eigenaar, 1 nov 2026, "zet dit vast"): WW2 met soldaten
+    bij een kampvuur leek te veel op Oregon met pioniers bij een kampvuur. Leg de nieuwe thumbnail
+    vóór de upload naast de laatste 3 van het kanaal. Hij moet op minstens twee punten duidelijk
+    anders zijn:
+    - **soort scène**: niet weer een groep rond een kampvuur of lamp als de vorige dat ook had;
+    - **plek**: binnen of buiten, stad of natuur, zee of land;
+    - **kleur en licht**: niet weer een donkerblauwe nacht met oranje vuur als de vorige dat ook had
+      (afwisselen met warm binnenlicht, schemer in de stad, roze of gouden avond);
+    - **tekst**: een andere soort amberregel en hook dan de vorige (zie hierboven).
+    Toon de eigenaar altijd 2–3 proeven naast de vorige thumbnail.
   - Kies eerst een passend beeld uit de video (gratis). Is er geen goed beeld met mensen,
     maak dan één aparte thumbnail-afbeelding via comfy (gratis; xAI alleen met toestemming):
     filmisch, verzadigd, mensen rechts in warm lamplicht, links onderin rustig en
