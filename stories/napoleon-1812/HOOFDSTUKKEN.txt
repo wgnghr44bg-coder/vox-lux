@@ -1,0 +1,15 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Napoleon, and the King of Rome" = 02-napoleon.txt + 02b-de-koning-van-rome.txt
+# "An army of nations, and the surgeon Larrey" = 03-een-leger-van-volken.txt + 03b-larrey.txt
+# "Crossing the Niemen, and summer in Lithuania" = 04-de-niemen.txt + 04b-zomer-in-litouwen.txt
+# "A day on the march, and letters home" = 05-een-dag-op-mars.txt + 05b-brieven-naar-huis.txt
+# "The bivouac, and the horses" = 06-het-bivak.txt + 07-de-paarden.txt
+# "The Cossacks, and the Russians" = 07b-de-kozakken.txt + 08-de-russen.txt
+# "The Russian winter, and Borodino" = 08b-de-russische-winter.txt + 09-borodino.txt
+# "Moscow" = 10-moskou.txt + 10b-moskou-voor-de-brand.txt
+# "The retreat, the eagles and the music" = 12-de-terugtocht.txt + 12b-de-adelaars-en-de-muziek.txt
+# "The first snow, and how they survived" = 13-de-eerste-sneeuw.txt + 14-overleven-in-de-sneeuw.txt
+# "Marshal Ney and the Berezina" = 15-maarschalk-ney.txt + 16-de-berezina.txt
+# "The end of the road, and Christmas in Königsberg" = 17-het-einde-van-de-tocht.txt + 17b-kerst-in-koningsbergen.txt
+# "The stories, and the road of 1812 today" = 18-de-verhalen.txt + 19-napoleon-1812-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
