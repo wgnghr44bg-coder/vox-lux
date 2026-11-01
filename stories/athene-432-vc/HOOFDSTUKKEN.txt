@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Attica, and an Athenian house" = 02-attica.txt + 02b-het-huis.txt
+# "The Acropolis and the Parthenon" = 05-de-akropolis.txt + 06-het-parthenon.txt
+# "A day in Athens, and what people wore" = 08-een-dag-in-athene.txt + 08b-kleding.txt
+# "The theatre, and the democracy" = 12-het-theater.txt + 13-de-democratie.txt
+# "The Piraeus, the silver owls, and Olympia" = 15-piraeus.txt + 15b-de-uilen-van-athene.txt + 16-olympia.txt
+# "The gods, the thinkers, and the countryside" = 16b-de-goden.txt + 17-denkers-en-artsen.txt + 18-het-platteland.txt
+# "The war comes, and Athens today" = 19-de-oorlog-komt.txt + 20-athene-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
