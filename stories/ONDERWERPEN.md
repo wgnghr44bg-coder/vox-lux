@@ -101,7 +101,9 @@ Extra (eigenaar, 30 okt 2026; ingepland wo 4 nov): `Quiet WW2 Facts to Fall Asle
 - wo 28 okt: Life Aboard the Mayflower, 1620 (al openbaar)
 - za 31 okt: Life on the Oregon Trail, 1846 (openbaar)
 - wo 4 nov: 2+ Hours of Quiet WW2 Facts to Fall Asleep To (al klaar en ingepland op Sleep Archives, https://youtu.be/sUXxj9qy3SA; eigenaar 1 nov 2026). De routine maakt voor deze dag niets.
-- za 7 nov: vrij, de routine kiest het onderwerp op hype (Vikingen stond hier, maar staat al sinds 10 okt op het kanaal)
+- za 7 nov: Life Aboard the Hindenburg, May 1937 (eigenaar 1 nov 2026, na de cijfercheck: bijna al onze voorgestelde views komen
+  van Dusk Voyages, 83 via hun Titanic- en 54 via hun Mayflower-video; hun *The Hindenburg's Last Voyage* (27 okt) groeit ± 9.000 per dag.
+  Nu maken zolang die video groeit; "Hindenburg" en "1937" in de titel, net als bij hen. Niet vervangen door een andere hype.)
 - wo 11 nov: Life in Tombstone, the Gunfight at the O.K. Corral, 1881 (Wild West ± 2,8 miljoen)
 - za 14 nov: Life in Ancient Egypt When Tutankhamun Died, 1323 BC (± 3,4 miljoen)
 - wo 18 nov: Life in Gettysburg, July 1863 (± 670.000; Gettysburg Address 19 nov)
