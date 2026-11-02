@@ -33,7 +33,7 @@ Een nieuwe map `stories/<korte-naam>/` (bv. `stories/tombstone-1881/`), net zoal
      Goed voorbeeld: `stories/tombstone-1881/`. Te druk (niet zo doen): de eerste versies van cleopatra t/m india-boeddha.
    - **Simpel verteld** (eigenaar 2 nov 2026): gewone, makkelijke woorden, alsof je het verhaal rustig aan een vriend
      vertelt. Moeilijke woorden of namen kort uitleggen. Niet te veel jaartallen en namen achter elkaar.
-   - **Simpel mét spanning** (eigenaar 2 nov 2026): in elk hoofdstuk iets van spanning, rustig verteld: iets wat op het spel staat, een vraag die de luisteraar wil weten
+   - **Simpel mét spanning, alleen waar het spannend is** (eigenaar 2 nov 2026: "spannend alleen bij stukken die spannend zijn"; het blijft een slaapvideo). Niets verzinnen: rustige hoofdstukken over het dagelijks leven blijven rustig. Waar het verhaal zelf spannend is, vertel je het zo, rustig: iets wat op het spel staat, een vraag die de luisteraar wil weten
      ("But no one in the town knows yet what the autumn will bring."), een gevaar dat langzaam dichterbij komt.
      Geen schrikmomenten, geen harde woorden, geen cliffhanger-kreten.
    - Check: `python tools/script_leesbaar.py stories/<map>` moet GOED geven.
