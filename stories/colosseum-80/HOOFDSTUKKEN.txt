@@ -1,0 +1,16 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Titus, and the volcano" = 02-titus.txt + 02b-de-vulkaan.txt
+# "The amphitheatre, and a morning in Rome" = 03-het-amfitheater.txt + 03b-een-ochtend-in-rome.txt
+# "How it was built" = 04-de-bouwers.txt + 04b-beton-en-bogen.txt
+# "The great awning, and the water of Rome" = 05-het-zeil.txt + 05b-het-water-van-rome.txt
+# "Who the gladiators were, and their graffiti" = 06-wie-waren-de-gladiatoren.txt + 06b-graffiti.txt
+# "The gladiator school, and Spartacus" = 07-de-ludus-magnus.txt + 07b-spartacus.txt
+# "A day in the school, music and doctors" = 08-een-dag-in-de-school.txt + 08b-de-muziek.txt + 08c-de-artsen.txt
+# "Kinds of gladiators, and the chariot races" = 09-soorten-gladiatoren.txt + 09b-de-wagenrennen.txt
+# "The animals and their keepers" = 10-de-dieren.txt + 10b-de-dierverzorgers.txt
+# "The opening games, and Martial" = 11-de-openingsspelen.txt + 11b-martialis.txt
+# "A day at the games, and Priscus and Verus" = 12-een-dag-bij-de-spelen.txt + 12b-eten-bij-de-spelen.txt + 13-priscus-en-verus.txt
+# "Women and children" = 14-de-vrouwen.txt + 14b-kinderen-in-rome.txt
+# "Around the Colosseum, the baths, and under the arena" = 15-de-buurt-rond-het-colosseum.txt + 15b-de-thermen.txt + 16-onder-de-arena.txt
+# "The end of the games, the centuries, and today" = 17-het-einde-van-de-spelen.txt + 18-door-de-eeuwen.txt + 18b-gladiator-in-de-film.txt + 18c-een-zomeravond.txt + 19-het-colosseum-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
