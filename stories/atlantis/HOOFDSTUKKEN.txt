@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The legend, and Plato's Athens" = 01-de-legende.txt + 02-athene-plato.txt
+# "The Academy, and Solon" = 02b-de-academie.txt + 03-solon.txt
+# "The story of the priests, and old Egypt" = 04-het-verhaal-van-de-priesters.txt + 04b-egypte-oud.txt
+# "Poseidon and Cleito, and the rings" = 05-poseidon-en-cleito.txt + 05b-de-ringen.txt
+# "The city, and the temple" = 06-de-stad.txt + 06b-de-tempel.txt
+# "The harbour, and the great plain" = 07-de-haven.txt + 07b-de-vlakte.txt
+# "The ten kings, and the bulls" = 08-de-koningen.txt + 08b-de-stier.txt
+# "The change, and the night of the sea" = 10-de-verandering.txt + 11-de-nacht-van-de-zee.txt
+# "Aristotle, and Plato's last years" = 12-aristoteles.txt + 12b-plato-oud.txt
+# "Thera, and Akrotiri" = 13-thera.txt + 13b-akrotiri.txt
+# "The Minoans, Helike, and Doggerland" = 14-knossos.txt + 15-helike.txt + 16-doggerland.txt
+# "The searchers, Bacon and Kircher" = 17-de-zoekers.txt + 17b-bacon-en-kircher.txt
+# "Why the story lives on, and Atlantis today" = 18-waarom.txt + 19-atlantis-nu.txt
