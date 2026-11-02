@@ -1,17 +1,17 @@
 {img:atlantis-legend-island-rings-water-temple-sea-dawn-mythical}
-Tonight we listen to one of the oldest and most famous stories in the world. The legend of Atlantis.
+Tonight we listen to one of the oldest and most famous stories in the world. It is the legend of Atlantis.
 
 [pause]
 
-It is the story of a great island in the ocean, long, long ago. An island with rich fields and hot springs and wonderful harbours. With a city built in rings of land and water. With temples covered in silver and gold. With proud kings and many ships. And then, one day and one night, the sea came. And Atlantis was gone.
+It is the story of a great island in the ocean, a very long time ago. It was an island with rich fields, warm springs and wonderful harbours. It had a city built in rings, with rings of land and rings of water. It had temples covered in silver and gold, shining in the sun. It had proud kings and a great many ships. And then, in one day and one night, the sea came. And Atlantis was gone.
 
 [long-pause]
 
-Is it true? Did Atlantis really exist? People have asked that question for more than two thousand years. They have searched for it in every ocean and every sea. They have written thousands of books about it. And still nobody knows for sure.
+Is the story true, and did Atlantis really exist? People have asked that question for more than two thousand years. They have searched for the island in every ocean and every sea. They have written thousands and thousands of books about it. And still, nobody knows the answer for sure.
 
 [pause]
 
-But we do know where the story comes from. It comes from one man. A Greek thinker called Plato. He lived in Athens, about two thousand four hundred years ago. And he wrote it down.
+But we do know where the story comes from. It comes from one man, a Greek thinker called Plato. He lived in the city of Athens, about two thousand four hundred years ago. He was the one who wrote the story down, near the end of his long life.
 
 [pause]
 
@@ -20,17 +20,21 @@ If you enjoy calm journeys into the past like this one, you are warmly welcome t
 [long-pause]
 
 {img:ancient-athens-evening-acropolis-parthenon-lamps-olive-trees}
-Tonight we will go to Athens in the time of Plato. We will sit in his garden school, where young men come to learn. We will hear how the story of Atlantis travelled from priests in Egypt to a wise man of Athens. We will walk through the city of Atlantis as Plato describes it, ring by ring. We will meet its kings and visit its temple. And then we will hear how it ended.
+Tonight we will travel to Athens, in the time when Plato was alive. We will sit in his garden school, where young people come to learn and think. We will hear how the story of Atlantis travelled from priests in Egypt to a wise man of Athens. We will walk through the city of Atlantis as Plato describes it, ring by ring. We will meet its kings and visit its great silver temple. We will imagine a day in the life of a girl who lives by its harbour. And then, gently, we will hear how the story ends.
 
 [pause]
 
 {img:plato-old-teacher-beard-garden-academy-students-listening-shade}
-After that, we will go looking for Atlantis ourselves. Through history and through science. To a volcano in the Aegean Sea that blew apart. To a lost palace full of painted dolphins. To a Greek city that sank in one night, in Plato's own lifetime. And to a land under the North Sea, where people once walked.
+After that, we will go looking for Atlantis ourselves, through history and through science. We will visit a volcano in the Aegean Sea that once broke apart. We will walk through a buried town full of painted swallows and dolphins. We will find a Greek town that sank in one night, in Plato's own lifetime. And we will travel to a green land under the North Sea, where people once walked and fished.
+
+[pause]
+
+Along the way, we will meet a young student at Plato's school. He has come from a small rocky island far away, and he loves the sea. He is shy and quiet, and he listens to everything. He will hear the story of Atlantis for the very first time, just as we do tonight. And he will wonder about it, just as people have wondered ever since.
 
 [long-pause]
 
 {img:sea-waves-dusk-calm-horizon-ancient-ship-sail-distant-mystery}
-So let us begin in Athens, on a warm evening. The sun is setting over the sea. The marble temples on the hill glow pink and gold. Olive trees whisper in the breeze. And in a quiet garden outside the city walls, an old man is about to tell a story.
+So let us begin in Athens, on a warm summer evening. The sun is setting slowly over the sea. The marble temples on the hill glow pink and gold in the last light. Olive trees whisper softly in the evening breeze. Swallows dart over the rooftops, and somewhere a donkey brays. And in a quiet garden outside the city walls, an old man is about to tell a story.
 
 [long-pause]
 
@@ -39,282 +43,302 @@ It is Athens, around the year 360 before Christ.
 
 [pause]
 
-Athens is a famous Greek city. It lies near the sea, in a dry land of hills and olive trees. On a rocky hill in the middle of the city stands the Acropolis. On top of it are white marble temples. The greatest is the Parthenon, the temple of the goddess Athena. It was built about eighty years before our story. It shines in the sun.
+Athens is a famous Greek city, not far from the sea. It lies in a dry and sunny land of hills and olive trees. On a rocky hill in the middle of the city stands the Acropolis. On top of it are temples of white marble, gleaming in the sun. The greatest of them is the Parthenon, the temple of the goddess Athena. It was built about eighty years before our story. From almost anywhere in the city, you can look up and see it shining.
 
 [long-pause]
 
-Athens is a city of talkers. In the market square, people gather to buy and sell. But also to argue and discuss. About politics. About the gods. About what is good and what is true. Athens is a democracy. That means the citizens vote on the laws themselves. So everybody has an opinion. And everybody wants to share it.
+Athens is a city of talkers. In the big market square, people gather every morning to buy and sell. Farmers bring olives and figs, cheese and honey and onions. Fishermen shout about the fish they caught at dawn. Potters lay out their painted jars and cups on the ground. But people come to the market for something else, too. They come to talk and to argue. They talk about politics, about the gods, about what is good and what is true. Athens is a democracy, which means the citizens vote on the laws themselves. So everybody has an opinion, and everybody wants to share it.
 
 [pause]
 
-In this city lives Plato. He is about sixty-five years old. He comes from a rich old family. When he was young, he was a student of a famous thinker called Socrates. Socrates walked around Athens asking people questions. Simple questions that turned out to be very hard. What is justice? What is courage? What is a good life? People found him annoying. Or wonderful. Usually both.
+In this busy city lives Plato. He is about sixty-five years old, with a grey beard and broad shoulders. He comes from a rich and old Athenian family. When he was young, he was the student of a famous thinker called Socrates. Socrates walked around Athens all day, asking people questions. They were simple questions that turned out to be very hard. What is justice, he asked, and what is courage? What is a good life? Some people found him annoying, and some found him wonderful. Usually they found him both at the same time.
 
 [pause]
 
 {img:socrates-talking-young-men-street-athens-barefoot-questions}
-Socrates never wrote anything down. But Plato did. He wrote dozens of books. Most of them are written as conversations. People talking and asking questions and searching for answers together. Socrates is often the main speaker. These books are still read all over the world. Plato is one of the most important thinkers who ever lived.
+Socrates walked barefoot, even in winter, and he wore the same old cloak every day. He did not care about money or fine clothes. Young men followed him around the streets to listen to his questions. Plato was one of them, and he never forgot his old teacher.
+
+[pause]
+
+Socrates never wrote a single word down himself. But Plato did, and he wrote a great deal. He wrote dozens of books over his long life. Most of them are written as conversations between people. In them, people talk and ask questions and search for answers together. Socrates is often the main speaker in these books. They are still read all over the world today. Plato is one of the most important thinkers who ever lived.
 
 [long-pause]
 
-Plato loved stories. He used them to explain his ideas. A story about a cave and its shadows. A story about a ring that makes you invisible. A story about the soul as a chariot pulled by two horses. And in his old age, he wrote down the story of Atlantis.
+Plato loved stories, and he used them to explain his ideas. He told a story about people in a cave who see only shadows on the wall. He told a story about a magic ring that makes you invisible. He told a story about the soul as a chariot pulled by two horses. And when he was old, he wrote down the story of Atlantis.
 
 [pause]
 
 {img:plato-writing-scroll-papyrus-oil-lamp-study-night-athens}
-He put it in two of his books. They are called Timaeus and Critias, after the people who speak in them. And in them, the story of Atlantis is told by a man called Critias. Who heard it from his grandfather. Who heard it from a great wise man called Solon. Who heard it from priests in Egypt. A story passed from mouth to mouth across the centuries. Let us follow it back.
+He put the story into two of his books, which are called Timaeus and Critias. They are named after the people who speak in them. In these books, the story of Atlantis is told by a man called Critias. Critias heard it from his grandfather, when he was a boy of ten. His grandfather heard it from a great wise man called Solon. And Solon heard it from priests in Egypt, long before. So it was a story passed from mouth to mouth across many years. Let us follow it back, all the way to the beginning.
 
 [long-pause]
 
 {img:plato-academy-olive-grove-garden-paths-students-walking-talking}
-Outside the walls of Athens, a short walk from the city gate, there is a grove of olive trees. It is called the Academy. It is named after an old hero who was once honoured there. And here, Plato has started a school.
+Outside the walls of Athens, a short walk from the city gate, there is a grove of olive trees. It is called the Academy. It is named after an old hero who was once honoured in this place. And here, among the trees, Plato has started a school.
 
 [pause]
 
-It is not like a school today. There are no classrooms or exams. It is more like a garden where people come to think together. There are shady paths under the olive trees. There is a little shrine. There is a house where Plato lives. And there are benches where people sit and talk.
+It is not like a school of today, with classrooms and bells. There are no tests or exams at all. It is more like a garden where people come to think together. There are shady paths winding under the olive trees. There is a little shrine to the Muses, the goddesses of learning and music. There is a simple house where Plato lives. And there are stone benches where people sit and talk for hours.
 
 [long-pause]
 
-Young men come here from all over Greece. Some come for a few months. Some stay for years. They study mathematics and stars. They study what is good and what is just. They ask how a city should be ruled. They walk up and down the paths, arguing. And they listen to Plato.
+Young men come here from all over Greece to study. Some come for only a few months, and some stay for many years. They study mathematics and the movements of the stars. They study what is good and what is fair. They ask how a city should be ruled, and by whom. They walk slowly up and down the paths, arguing in friendly voices. And most of all, they listen to Plato.
 
 [pause]
 
-Over the entrance, people say, there were words carved in stone. Let nobody who does not know geometry enter here. Geometry is the mathematics of shapes. Plato believed it trained the mind to think clearly. And clear thinking was the first step to wisdom.
+Over the entrance, people say, there were words carved in stone. Let nobody who does not know geometry enter here, the words said. Geometry is the mathematics of shapes, like circles and triangles. Plato believed it trained the mind to think clearly and carefully. And clear thinking, he said, was the first step on the road to wisdom.
 
 [pause]
 
 {img:students-drawing-geometry-sand-stick-circles-triangles-academy}
-In the evenings, when it is cooler, people gather under the trees. Someone reads aloud from a new book. Others listen and then ask questions. They talk until the stars come out. Then they light lamps and talk some more.
+In the mornings, the students often sit in the sand with sharp sticks. They draw circles and triangles and squares, and they try to prove things about them. Sometimes they argue about a drawing until the sun is high. Then someone smooths the sand with his hand, and they start again.
+
+[pause]
+
+In the evenings, when it is cooler, people gather together under the trees. Someone reads aloud from a new book, and the others listen. Then they ask questions and talk about what they have heard. They talk until the first stars come out above the olive trees. Then they light small clay lamps and talk some more.
 
 [long-pause]
 
-Let us imagine one of these evenings. A young student is sitting at the edge of the group. He has come from a small island far away. He is shy. He does not often speak. But he listens to everything. Tonight, someone is reading a new book by Plato. It is called Critias. And it is about a lost island called Atlantis.
+Let us imagine one of these quiet evenings at the Academy. A young student is sitting at the edge of the group, a little apart. He has come from a small island far away across the sea. He is shy, and he does not often speak. But he listens carefully to everything that is said. Tonight, someone is reading aloud from a new book by Plato. It is called Critias. And it is about a lost island called Atlantis.
 
 [pause]
 
 {img:young-student-listening-intently-evening-lamp-olive-trees-academy}
-The student leans forward. He has grown up by the sea. He knows its moods and storms. He has heard old sailors' tales of islands that rose and sank. And now he listens to the most amazing island story of all. Was it real, he wonders? Or is it a story with a lesson? He does not know. But he cannot stop listening.
+The young student leans forward, with his chin in his hands. He grew up by the sea, and he knows its moods and its storms. He has heard old sailors' tales of islands that rose up and sank again. And now he is listening to the most amazing island story of all. Was it real, he wonders, or is it a story with a lesson? He does not know. But he cannot stop listening.
 
 [long-pause]
 
-The students at the Academy are a mixed group. Some are rich young men from Athens. Some come from far-off cities. There are even a few women, people say, who came dressed as young men so they could study. They eat simple food. They drink water mixed with a little wine. And above all, they talk. About everything. Until late into the night.
+The students at the Academy are a mixed group of people. Some are rich young men from old families in Athens. Some come from cities far away, across the sea. People say there were even a few women, who came to study too. The students eat simple food, like bread and olives, cheese and figs. They drink water mixed with a little wine. They sleep in small rented rooms near the garden. And above all, they talk about everything, until late into the night.
 
 [long-pause]
 
 {img:solon-athenian-lawgiver-older-man-robes-wise-face-agora}
-The story begins with a man called Solon.
+The story of Atlantis begins with a man called Solon.
 
 [pause]
 
-Solon lived in Athens about two hundred and fifty years before Plato. He was one of the wisest men of his time. In those days, Athens was in trouble. The rich had too much. The poor had too little. Many poor farmers owed so much money that they became slaves. People were angry. The city could have fallen apart.
+Solon lived in Athens about two hundred and fifty years before Plato. He was one of the wisest men of his time, and people trusted him. In those days, Athens was in a difficult situation. The rich families had far too much, and the poor had far too little. Many poor farmers owed so much money that they lost their freedom. People were unhappy and worried, and the city was close to falling apart.
 
 [long-pause]
 
-So the people asked Solon to help. He was trusted by both rich and poor. He made new laws. He set free the farmers who had become slaves for debt. He made rules that were fairer for everyone. He gave ordinary people a voice in the government. His laws helped to make Athens the city it became.
+So the people of Athens asked Solon to help them. He was trusted by both the rich and the poor. He sat down and made new laws for the whole city. He set free the farmers who had lost their freedom because of their debts. He made rules that were fairer for everyone, rich and poor. He gave ordinary people a voice in the government of their city. His laws helped to make Athens the great city it would later become.
 
 [pause]
 
-Then Solon did something unusual. He left. He said, I have made the laws. Now you must live with them for ten years without changing them. And I will go away, so you cannot ask me to change them. So he set off on a long journey. To see the world and to learn.
+Then Solon did something rather unusual. He decided to leave Athens for a while. I have made the laws, he said to the people. Now you must live with them for ten years without changing them. And I will go away, so that you cannot ask me to change them. So he packed a few things and set off on a long journey. He wanted to see the world and to learn new things.
 
 [pause]
 
 {img:greek-merchant-ship-sailing-mediterranean-blue-sea-solon-aboard}
-He sailed across the sea. He visited many lands. And one of the places he visited was Egypt.
+He travelled on a merchant ship, with jars of olive oil and wine in the hold. He sat on the deck in the sun and watched the blue sea go by. In the evenings, the sailors told stories of storms and strange islands. Solon listened, and he asked them many questions. He visited many lands on that long journey. And one of the places he visited was Egypt.
 
 [long-pause]
 
-For the Greeks, Egypt was a land of mystery and very old wisdom. Its kings and temples were far older than anything in Greece. Its priests knew writing and stars and history going back thousands of years. Greek travellers went there with great respect. Like going to visit a very old and very wise grandparent.
+For the Greeks, Egypt was a land of mystery and very old wisdom. Its kings and temples were far older than anything in Greece. Its priests knew how to write, and they studied the stars and the past. Their records went back thousands of years. Greek travellers went to Egypt with great respect. It was a little like going to visit a very old and very wise grandparent.
 
 [pause]
 
 {img:egyptian-temple-sais-nile-delta-pillars-priests-white-linen}
-Solon sailed to the delta of the Nile, where the great river splits into many branches before reaching the sea. There, in the city of Saïs, he visited the temple of the goddess Neith. The Egyptian priests welcomed him. They talked for many days. And there, Plato tells us, Solon heard a story he would never forget.
+Solon sailed to the delta of the Nile, where the great river splits into many branches. There the river spreads out like the fingers of a hand before it reaches the sea. In the city of Saïs, he visited the temple of the goddess Neith. The Egyptian priests, dressed in clean white linen, welcomed him kindly. They had heard of the wise man from Athens. They talked together for many days in the shade of the temple. And there, Plato tells us, Solon heard a story he would never forget.
 
 [long-pause]
 
-Solon was also a poet. He wrote poems about his city and his laws and his life. Some of them have survived. In one, he writes that he grows old while always learning many things. That was the kind of man he was. Curious until the end. So when he heard something new and strange in Egypt, he listened very carefully. And he remembered.
+Solon was also a poet, and he loved to write. He wrote poems about his city and his laws and his own life. A few of his poems have survived until today. In one of them, he writes that he grows old while always learning many new things. That was the kind of man he was, curious until the very end. So when he heard something new and strange in Egypt, he listened very carefully. He asked the priests to explain it again. And he remembered every word.
 
 [long-pause]
 
 {img:sais-temple-courtyard-old-priest-greek-visitor-talking-shade}
-Saïs is a busy city in the green delta of the Nile. Canals run between the fields. Palm trees line the river. And in the middle of the city stands a great temple. It is very old, with tall stone columns covered in carvings and painted signs.
+Saïs is a busy city in the green delta of the Nile. Canals run between the fields, full of slow brown water. Palm trees line the river banks, and their leaves rustle in the wind. Farmers lead their donkeys along the paths, loaded with sacks of grain. And in the middle of the city stands a great and very old temple. Its tall stone columns are covered with carvings and painted signs.
 
 [pause]
 
-Solon sits with the priests in the shade of the temple. He wants to impress them. So he tells them the oldest stories of Greece. About the first people. About a great flood long ago. About the families who survived it. He tells them how many generations have passed since then. He is proud of this old history.
+Solon sits with the priests in the cool shade of the temple. He wants to show them that the Greeks have old stories too. So he tells them the oldest stories of Greece that he knows. He tells them about the first people who lived there. He tells them about a great flood long ago, and the family who survived it. He counts how many generations have passed since then. He is rather proud of this old history.
 
 [long-pause]
 
-But one very old priest laughs gently. Oh Solon, he says. You Greeks are always children. There is not one old man among you.
+But one very old priest smiles and laughs gently. Oh Solon, Solon, he says. You Greeks are always children. There is not one old man among you.
 
 [pause]
 
-Solon is surprised. What do you mean, he asks.
+Solon is surprised and a little puzzled. What do you mean by that, he asks.
 
 [pause]
 
-You are young in your souls, the priest says. You have no old knowledge. No old stories. Because again and again, disasters come. Floods and fires. They wipe away cities and people and writing. Only a few survive. Usually the simple people in the mountains, who cannot read or write. And so every time, you must begin again, like children. You forget everything that came before.
+You are young in your hearts and minds, the old priest says kindly. You have no old knowledge, and no truly old stories. Because again and again, great disasters come to your lands. There are floods, and there are times of great heat and drought. They wipe away cities and people and all their writing. Only a few people survive each time. Usually they are the simple shepherds in the mountains, who cannot read or write. And so every time, you must begin again, like children. You forget everything that came before you.
 
 [pause]
 
 {img:egyptian-priest-reading-old-temple-records-carved-walls-lamp}
-But here in Egypt, says the priest, we are protected. The Nile saves us from fire and flood. So our temples are very old. And we have written down everything. For thousands of years. And in our old records, there is a story about your own city. About Athens. A story you have forgotten.
+But here in Egypt, says the priest, we have been protected. The Nile keeps us safe from both fire and flood. So our temples are very old, and they have stood for a very long time. And we have written down everything that happened, for thousands of years. Our records are carved on the walls and written on rolls of papyrus. And in our old records, there is a story about your own city. It is a story about Athens, a story that you have forgotten.
 
 [long-pause]
 
-Solon leans forward. Tell me, he says.
+Solon leans forward on the stone bench. Please tell me, he says.
 
 [pause]
 
 {img:solon-listening-wide-eyes-priest-telling-evening-temple-courtyard}
-And the priest begins. Nine thousand years ago, he says, your city of Athens was great and noble. And there was another great power. Beyond the Pillars of Heracles, in the outer ocean. An island called Atlantis.
+And the old priest begins his story, slowly and carefully. Nine thousand years ago, he says, your city of Athens was great and noble. And there was another great power in the world at that time. It lay beyond the Pillars of Heracles, out in the great outer ocean. It was an island called Atlantis.
 
 [long-pause]
 
-The priest speaks slowly. Outside, the evening birds call over the river. Lamps are lit along the temple walls. Solon does not move. He has travelled far and seen many things. But he has never heard a story like this one. He asks the priest to tell it again, every detail. And the priest smiles, and begins once more. They sit together until long after dark.
+The priest speaks slowly and calmly, choosing each word with care. Outside, the evening birds call softly over the river. A young priest walks along the walls and lights the oil lamps one by one. The smell of incense drifts from inside the temple. Solon does not move at all as he listens. He has travelled far and seen many things in his life. But he has never heard a story quite like this one. When the priest is finished, Solon asks him to tell it again, with every detail. And the old priest smiles and begins once more. They sit together until long after dark, while the stars come out over the Nile.
 
 [long-pause]
 
 {img:pillars-of-heracles-strait-gibraltar-rocks-ocean-beyond-ancient}
-The priest tells Solon about the Pillars of Heracles.
+The old priest tells Solon about the Pillars of Heracles.
 
 [pause]
 
-The Pillars of Heracles are two great rocks. They stand on each side of a narrow strait of water. Today we call it the Strait of Gibraltar. It is the place where the Mediterranean Sea meets the great Atlantic Ocean. For the Greeks, this was the edge of the known world. Beyond it lay the outer ocean. Wide and wild and unknown.
+The Pillars of Heracles are two great rocks, standing on either side of a narrow strait. Today we call that strait the Strait of Gibraltar. It is the place where the Mediterranean Sea meets the great Atlantic Ocean. For the Greeks, this was the very edge of the known world. Beyond it lay the outer ocean, wide and wild and unknown. Few Greek sailors had ever been out there, and those who had told strange tales.
 
 [long-pause]
 
-Beyond those pillars, says the priest, in the ocean, there was once a great island. It was bigger than Libya and Asia together. That is what the Greeks called North Africa and the lands to the east. A huge island. From it, ships could sail to other islands. And from those islands, to a great continent on the other side of the ocean.
+Beyond those pillars, says the priest, out in the ocean, there was once a great island. It was bigger than Libya and Asia put together. That is what the Greeks called North Africa and the lands to the east. So it was a truly huge island, the priest says. From it, ships could sail on to other islands further out. And from those islands, they could reach a great continent on the far side of the ocean.
 
 [pause]
 
-On this island there was a great and wonderful kingdom. Atlantis. Its kings were powerful. They ruled the whole island and many other islands. And they ruled lands inside the Pillars too. Parts of Libya as far as Egypt. Parts of Europe as far as Italy.
+On this island there was a great and wonderful kingdom, called Atlantis. Its kings were rich and powerful, and they ruled the whole island. They also ruled many of the smaller islands around it. And they ruled lands inside the Pillars, too, around the inner sea. They ruled parts of Libya as far as Egypt, and parts of Europe as far as Italy.
 
 [pause]
 
 {img:atlantean-fleet-many-ships-ocean-sails-island-distant-mythical}
-Then, the priest says, the kings of Atlantis grew greedy. They wanted more. They gathered their armies and their ships. And they tried to conquer all the lands around the sea. Greece and Egypt too. With one great blow.
+Then, the priest says, the kings of Atlantis grew greedy, and they wanted more. They were no longer content with what they had. They gathered their armies and their many ships together. And they tried to take all the lands around the inner sea for themselves. They wanted Greece, and they wanted Egypt too.
 
 [long-pause]
 
-But Athens stood against them. The Athenians of that ancient time were brave and good. They led the other Greeks. And when the others gave up, Athens stood alone. It faced the great power of Atlantis. And it won. It freed the peoples who had been conquered. And it protected Egypt too.
+But Athens stood against them, the priest tells Solon. The Athenians of that ancient time were brave and good and fair. They led the other Greeks against the great power of Atlantis. And when the others gave up, Athens stood alone. It faced the great power of Atlantis, and in the end it won. It set free the peoples who had been taken over. And it protected Egypt too, says the priest, and for that we remember it.
 
 [pause]
 
 {img:ancient-warriors-standing-on-hill-sea-dawn-mythic-courage-calm}
-Then, says the priest, came a terrible time. There were great earthquakes and floods. And in one day and one night, the island of Atlantis sank into the sea. It disappeared. And the ancient army of Athens was swallowed by the earth too. That is why the sea beyond the Pillars is still hard to sail, says the priest. Because there is mud, just below the surface, where the island went down.
+Then, says the priest, a very hard time came to the world. There were great earthquakes and great floods. And in one day and one night, the island of Atlantis sank into the sea. It disappeared beneath the waves. The ancient army of Athens was swallowed by the earth as well. That is why the sea beyond the Pillars is still hard to sail, the priest says. There is mud lying just below the surface, where the island went down.
 
 [long-pause]
 
-Solon is amazed. He has never heard this story. He goes home to Athens. He plans to write it as a great poem. But he is old and busy with the troubles of his city. He never finishes it. He tells it to a friend. The friend tells it to his son. And the son tells it to his grandson, Critias. A boy of ten. Who remembers it all his life. And who tells it, at last, to Plato.
+Solon is amazed by this story, and he thinks about it for days. When he finally goes home to Athens, he plans to turn it into a great poem. But he is getting old, and he is busy with the troubles of his city. He never finishes the poem. Instead, he tells the story to a good friend. The friend tells it to his son, at home by the fire. And the son tells it to his grandson, Critias, a boy of ten. The boy listens with wide eyes and remembers it all his life. And many years later, Critias tells it at last to Plato.
 
 [long-pause]
 
 {img:ancient-egypt-temple-wall-hieroglyphs-carvings-sunlight-old-stones}
-Why would the Greeks believe a story from Egypt?
+Why would the Greeks believe a story that came from Egypt?
 
 [pause]
 
-Because for the Greeks, Egypt was the land of the deepest past. When Plato was alive, Egypt was already incredibly old. Its pyramids had been standing for two thousand years. Its kings had ruled for three thousand years. Its priests could read writing that no Greek could understand. Their temples held records going back for ages.
+Because for the Greeks, Egypt was the land of the deepest past. When Plato was alive, Egypt was already incredibly old. Its great pyramids had been standing for two thousand years by then. Its kings had ruled the land for three thousand years. Its priests could read old writing that no Greek could understand. And their temples held records going back for longer than anyone could imagine.
 
 [long-pause]
 
-Many Greek wise men travelled to Egypt to learn. Thinkers and mathematicians and historians. A famous Greek traveller called Herodotus spent a long time there. He wrote that the Egyptians had kept records longer than any other people. The priests showed him statues of their high priests. One after another. Three hundred and forty-five of them, father to son, he wrote. All the way back to the beginning.
+Many Greek wise men travelled to Egypt to learn from the priests. Thinkers and mathematicians and writers of history all made the journey. A famous Greek traveller called Herodotus spent a long time there. He walked around the temples and asked the priests endless questions. He wrote that the Egyptians had kept records longer than any other people. The priests showed him a long row of statues of their high priests. There was one statue after another, each son following his father. There were three hundred and forty-five of them, he wrote. And they went all the way back to the beginning.
 
 [pause]
 
-So when a Greek heard that a story came from the Egyptian priests, he took it seriously. It sounded old and true. Like something only the oldest people in the world would know.
+So when a Greek heard that a story came from the Egyptian priests, he took it seriously. It sounded old and wise and true. It sounded like something only the oldest people in the world would know.
 
 [pause]
 
 {img:greek-travellers-visiting-egyptian-temple-awe-columns-priests}
-Did the priests at Saïs really tell Solon about Atlantis? Nobody knows. No Egyptian writing about Atlantis has ever been found. And the Egyptians wrote down a great deal. If such a story existed, you might expect to find it somewhere. But there is nothing.
+Greek visitors walked through the temple halls with their heads tipped back. The columns were as thick as old trees and covered with painted pictures. There were birds and cattle and boats, and gods with the heads of animals. The visitors could not read the writing, but they knew it was very old. Some of them felt very small and very young in those great halls.
+
+[pause]
+
+Did the priests at Saïs really tell Solon about Atlantis? Nobody knows for certain. No Egyptian writing about Atlantis has ever been found. And the Egyptians wrote down a very great deal about their world. If such a story had existed, you might expect to find it somewhere. But so far, there is nothing at all.
 
 [long-pause]
 
-Some people think Plato made up the Egyptian part. To give his story a feeling of old truth. Writers do that. Even today, stories often begin with an old manuscript found in an attic. Or a tale told by a mysterious stranger. It makes the story feel real.
+Some people think that Plato made up the Egyptian part of the story himself. He may have done it to give his story a feeling of old truth. Writers have always done this, and they still do it today. Many stories begin with an old letter found in a dusty attic. Or they begin with a tale told by a mysterious stranger at an inn. It makes the story feel real, and it makes us want to listen.
 
 [pause]
 
 {img:old-scroll-unrolled-mysterious-text-lamp-dark-room-ancient}
-Others think there might be a real old story behind it. Changed and mixed up as it passed from mouth to mouth. Over two hundred years. From Egyptian to Greek. From grandfather to grandson. Perhaps a memory of a real island and a real disaster. Grown bigger and stranger with every telling.
+Other people think there might be a real old story hidden behind it. It may have changed and grown as it passed from mouth to mouth. It travelled for two hundred years, from Egyptian to Greek. It passed from grandfather to grandson, by the fire on winter nights. Perhaps it began as the memory of a real island and a real disaster. And perhaps it grew a little bigger and stranger with every telling.
 
 [pause]
 
-We will come back to that question. But first, let us hear what Plato says Atlantis was like. Because he describes it in wonderful detail.
+We will come back to that question later tonight. But first, let us hear what Plato says Atlantis was like. Because he describes it in wonderful detail.
 
 [long-pause]
 
-Either way, the story worked. For more than two thousand years, people have wondered whether those old priests in Saïs really kept a secret about a lost island. Somewhere in a dusty temple archive, written on papyrus, now crumbled to dust. If it ever existed, it is gone. And so we only have Plato's words.
+Either way, the story did its work very well. For more than two thousand years, people have wondered about those old priests in Saïs. Did they really keep a secret about a lost island? Was it written on papyrus somewhere, in a dusty temple archive? If it ever existed, it is gone now, crumbled into dust long ago. And so all we have left are Plato's own words.
 
 [long-pause]
 
 {img:poseidon-god-sea-trident-island-shore-waves-mythic-calm}
-In the beginning, Plato writes, the gods shared out the earth among themselves. Each god received a land to care for. And the god Poseidon received the island of Atlantis.
+In the very beginning, Plato writes, the gods shared out the earth among themselves. Each god received a land of his own to care for. And the god Poseidon received the island of Atlantis.
 
 [pause]
 
-Poseidon is the Greek god of the sea. He rules the waves and the storms. He also causes earthquakes. When the earth shakes, the Greeks say, it is Poseidon striking it with his great three-pointed spear, the trident. And he loves horses. Some old stories say he made the first horse.
+Poseidon is the Greek god of the sea. He rules the waves and the winds and the storms. The Greeks also believed that he made the earth shake. When the ground trembles, they said, Poseidon is striking it with his great spear. His spear has three points, and it is called a trident. Poseidon also loves horses very much. Some old stories say that he made the very first horse.
 
 [long-pause]
 
-On the island of Atlantis, near the middle of the coast, there was a wide plain. It was the most beautiful plain in the world, Plato says. Very fertile. And at the edge of the plain, about nine kilometres from the sea, there was a low hill.
+On the island of Atlantis, near the middle of the coast, there was a wide plain. It was the most beautiful plain in the whole world, Plato says. The soil was rich and dark, and everything grew well there. At the edge of the plain, about nine kilometres from the sea, there was a low hill.
 
 [pause]
 
-On this hill lived a man and a woman who had been born from the earth. They had one daughter. Her name was Cleito. When she was young, her parents passed away. And she lived alone on the hill.
+On this hill lived a man and a woman who had been born from the earth itself. They had one daughter, and her name was Cleito. When Cleito was still young, her parents passed away. After that, she lived alone on the hill, among the flowers and the grass.
 
 [pause]
 
 {img:cleito-young-woman-hill-island-flowers-alone-gentle-light}
-Poseidon saw her. And he fell in love with her. He married her. And he wanted to keep her safe. So he made the hill into a protected place. He did it with his great power. He made rings around the hill. Rings of land and rings of water, one inside the other. Two rings of land and three rings of water. Perfectly round. Like the rings on a target.
-
-[long-pause]
-
-No ship could reach the hill. In those days, Plato writes, there were no ships yet and no sailors. So the hill was safe from everyone. An island inside an island.
+Cleito spent her days quietly on the hill. She gathered fruit and flowers, and she watched the birds fly over the plain. In the evenings she sat on the grass and looked out toward the distant sea. She was gentle and kind, and she was not afraid of being alone.
 
 [pause]
 
-Then Poseidon made two springs come up out of the ground on the hill. One of warm water. And one of cold water. And he made the earth grow every kind of food in plenty.
+Poseidon saw her one day, and he fell in love with her. He married her, and he wanted to keep her safe always. So he made the hill into a protected place, using his great power. He made rings all around the hill, one inside the other. There were rings of land and rings of water. There were two rings of land and three rings of water. They were perfectly round, like the rings on a target.
+
+[long-pause]
+
+No ship could reach the hill in the middle. In those days, Plato writes, there were no ships yet, and no sailors. So the hill was safe from everyone in the world. It was like an island inside an island.
+
+[pause]
+
+Then Poseidon made two springs come bubbling up out of the ground on the hill. One spring gave warm water, and the other gave cold water. And he made the earth around them grow every kind of food in plenty.
 
 [pause]
 
 {img:two-springs-hot-cold-water-hill-steam-garden-mythic-island}
-Poseidon and Cleito had children. Five pairs of twin boys. Ten sons. When they grew up, Poseidon divided the island into ten parts. One for each son. The eldest son got the best part, around the hill with the rings. He was made king over the others. His name was Atlas. And from his name, the whole island was called Atlantis. And the ocean around it, the Atlantic.
+Poseidon and Cleito had children together, five pairs of twin boys. So they had ten sons in all. When the boys grew up, Poseidon divided the whole island into ten parts. He gave one part to each of his sons. The eldest son got the best part, around the hill with the rings. And he was made king over all his brothers. His name was Atlas. From his name, the whole island was called Atlantis. And the great ocean around it was called the Atlantic.
 
 [long-pause]
 
-Plato tells us the names of the other sons too. Strange old names. Gadeirus, the twin of Atlas, who ruled the part of the island nearest the Pillars of Heracles. Ampheres and Euaemon. Mneseus and Autochthon. Elasippus and Mestor. Azaes and Diaprepes. Plato says he translated them into Greek from the Egyptian, which had translated them from the language of Atlantis. Names passed through three languages, across thousands of years. Like whispers down a very long line.
+Plato tells us the names of the other sons as well. They are strange old names. Gadeirus was the twin of Atlas, and he ruled the part nearest the Pillars of Heracles. Then there were Ampheres and Euaemon, and Mneseus and Autochthon. There were Elasippus and Mestor, and Azaes and Diaprepes. Plato says these names were translated into Greek from the Egyptian. And the Egyptians had translated them from the language of Atlantis. So these names passed through three languages, across thousands of years. They are like whispers passed down a very long line.
 
 [long-pause]
 
 {img:atlantis-concentric-rings-water-land-bridges-aerial-view-mythic}
-The children of Atlas and his brothers ruled Atlantis for many generations. And they turned Poseidon's rings into a great city.
+The children of Atlas and his brothers ruled Atlantis for many generations. And slowly, they turned Poseidon's rings into a great city.
 
 [pause]
 
-The rings of water became canals. Wide enough for ships. The kings dug a great canal from the sea, straight through the land, to the outer ring of water. It was about ninety metres wide and very deep. Big ships could sail right in from the ocean. And from the outer ring, they could sail on to the inner rings.
+The rings of water became canals, wide enough for big ships. The kings had a great canal dug from the sea, straight through the land. It reached all the way to the outer ring of water. This canal was about ninety metres wide, and very deep. Big ships could sail right in from the open ocean. And from the outer ring, they could sail on to the inner rings.
 
 [long-pause]
 
-The rings of land had walls around them. Over the rings of water, the kings built bridges. And under the bridges, there were tunnels, so ships could pass from one ring to the next. Each tunnel had a roof over it. So the ships sailed under the land, as if into a cave.
+The rings of land had strong walls built all around them. Over the rings of water, the kings built wide bridges. And underneath the bridges, there were tunnels cut through the land. These tunnels let ships pass from one ring of water to the next. Each tunnel had a roof over it. So the ships sailed right under the land, as if they were sailing into a cave.
 
 [pause]
 
-Plato gives exact sizes. The outer ring of water was about five hundred metres wide. The ring of land inside it was the same. The next ring of water was about three hundred and fifty metres. And so on, getting smaller toward the centre. The island in the middle, with Poseidon's hill, was about nine hundred metres across.
+Plato gives us the exact sizes of everything. The outer ring of water was about five hundred metres wide. The ring of land just inside it was the same width. The next ring of water was about three hundred and fifty metres wide. And so it went on, each ring a little smaller, toward the centre. The island in the very middle, with Poseidon's hill on it, was about nine hundred metres across.
 
 [pause]
 
 {img:ships-sailing-through-covered-tunnel-under-land-ring-atlantis}
-The walls around the rings were made of stone. Stone of three colours, Plato says. White and black and red. It was dug up from under the island itself. And the stone was used in patterns. Some walls were plain. Others were made in stripes and patterns of colour, for pleasure. Beautiful to look at.
+Imagine sailing through one of those tunnels on a hot afternoon. The bright sunlight disappears behind you, and it is suddenly cool and dim. The sound of the oars echoes off the stone walls. Water drips from the roof, and the sailors' voices sound strange and hollow. Then there is a circle of light ahead. And the ship glides out into the sunshine again.
+
+[pause]
+
+The walls around the rings were made of stone of three colours, Plato says. There was white stone, black stone and red stone. It was dug up from under the island itself. The builders used the stones in lovely patterns. Some of the walls were plain and simple. Others were made in stripes and patterns of colour, just for the pleasure of looking at them.
 
 [long-pause]
 
-And the walls were covered in metal. The outer wall was covered with bronze. It shone like gold in the sun. The next wall was covered with tin. Silver and grey. And the wall around the central island was covered with a metal called orichalcum. Plato says it glowed like fire. Red and gold.
+And the walls were covered in metal, which shone in the sun. The outer wall was covered with bronze, which glowed like gold. The next wall was covered with tin, silver and grey. And the wall around the central island was covered with a metal called orichalcum. Plato says it glowed like fire, red and gold together.
 
 [pause]
 
 {img:walls-bronze-tin-orichalcum-gleaming-sunset-rings-water-city}
-Imagine sailing into the city from the sea. Down the great canal. Through the first tunnel. Past the shining bronze wall. Through the next tunnel. Past the silver wall. And then, ahead, the central island with its walls glowing red like fire. And above them, rising on the hill, the great temple of Poseidon. No wonder people have dreamed about it for two thousand years.
+Imagine sailing into the city from the sea at sunset. You sail down the great canal, with fields and houses on either side. You pass through the first cool tunnel and come out beside the shining bronze wall. You pass through the next tunnel and come out beside the silver wall. And then, straight ahead, you see the central island, with its walls glowing red like fire. Above them, rising on the hill, stands the great temple of Poseidon. No wonder people have dreamed about this city for two thousand years.
 
 [long-pause]
 
@@ -323,38 +347,42 @@ On the central island, in the middle of all the rings, stood the palace of the k
 
 [pause]
 
-It was built where the house of Poseidon and Cleito had been. Each new king tried to make it even more beautiful than the king before. So over the generations, it grew and grew. Plato says it became a wonder to look at. So big and so beautiful.
+It was built in the very place where the house of Poseidon and Cleito had once stood. Each new king tried to make it even more beautiful than the king before him. So over the generations, the palace grew and grew. Plato says it became a true wonder to look at. It was so big and so beautiful that visitors stood still and stared.
 
 [long-pause]
 
-Around the palace were gardens. Thanks to the hot and cold springs, there was always fresh water. The kings built pools and baths. Some baths were open to the sky. Some were indoors, for winter. There were separate baths for the kings, for ordinary people, for women. And even baths for the horses and the cattle. The water ran from the baths into the gardens. Trees of every kind grew there. Tall and beautiful in the rich wet soil.
+Around the palace there were wide green gardens. Thanks to the warm and cold springs, there was always plenty of fresh water. The kings built pools and baths of every kind. Some baths were open to the sky, for the warm summer days. Others were indoors, for the cooler days of winter. There were baths for the kings and baths for ordinary people. There were separate baths for women, too. And there were even baths for the horses and the cattle. From the baths, the water ran on into the gardens. Trees of every kind grew there, tall and beautiful in the rich, wet soil.
 
 [pause]
 
-On the rings of land, there were temples to many gods. There were gardens and places for exercise. Places where young men ran and wrestled. And on the larger ring, there was a racetrack. A great track for racing horses, going all the way around the island. Remember, Poseidon loves horses. So the people of Atlantis love horses too.
+On the rings of land, there were temples to many different gods. There were gardens, and there were places for exercise and play. Young men ran races there and wrestled on soft sand. And on the largest ring of land, there was a great racetrack for horses. It went all the way around the island, in one long circle. Remember that Poseidon loves horses. So the people of Atlantis loved horses too.
 
 [pause]
 
 {img:atlantis-horse-racetrack-ring-island-crowds-chariots-mythic}
-The guards of the king lived on the rings. The most trusted ones lived on the inner ring, closest to the palace. The kings could always call on them.
+On race days, the people crowded along the track to watch. Children sat on their fathers' shoulders to see better. Sellers walked through the crowd with baskets of figs and little honey cakes. And when the horses came thundering past, everyone cheered.
+
+[pause]
+
+The guards of the king lived on the rings of land. The most trusted ones lived on the inner ring, closest to the palace. The kings could always call on them, by day or by night.
 
 [long-pause]
 
-And beyond the rings, where the great canal reached the sea, there were the harbours. Full of ships. Big warships and trading ships. And there were docks where ships were built and repaired. Plato says the harbours were so crowded that day and night you could hear the noise of people. Shouting and talking and working and trading.
+Beyond the rings, where the great canal reached the sea, there were the harbours. They were always full of ships. There were big warships and wide trading ships, with tall masts and coloured sails. There were docks where new ships were built and old ones were repaired. Plato says the harbours were so busy that you could hear the noise day and night. People were shouting and talking, working and buying and selling, at every hour.
 
 [pause]
 
 {img:atlantis-harbours-crowded-ships-docks-workers-noise-busy-sea}
-Around the whole city, there was one more wall. A great wall that went in a circle around everything, about nine kilometres from the centre. It started at the sea and came back to the sea. Inside it, there were houses. Thousands of houses, packed close together. And people from all over the world.
+Around the whole city, there was one more great wall. It went in a wide circle around everything, about nine kilometres from the centre. It began at the sea and came back to the sea. Inside this wall, there were houses, thousands and thousands of them. They stood close together along narrow streets. People from all over the world lived in them. You could hear many different languages spoken in those streets.
 
 [long-pause]
 
-Plato tells it all with such detail. The sizes. The colours. The baths for horses. It feels as if he had been there. Maybe that is why so many people believe it was real. A made-up city usually is not described so carefully. Or maybe Plato was simply a very good storyteller.
+Plato tells us all of this in such careful detail. He gives us the sizes and the colours. He even tells us about the baths for horses. It feels as if he had been there himself and seen it all. Maybe that is one reason why so many people believe it was real. A made-up city is not usually described so carefully. Or maybe Plato was simply a very good storyteller.
 
 [pause]
 
 {img:student-imagining-city-eyes-closed-lamp-academy-night-dreaming}
-At the Academy, the young student from the island has stopped breathing for a moment. He is imagining it all. The rings. The shining walls. The ships. He can almost hear the harbour. He opens his eyes. Around him, the other students are quiet too. The reader goes on.
+At the Academy, the young student from the island has closed his eyes. He is imagining it all, as clearly as he can. He sees the rings of water and the shining walls. He sees the ships gliding in from the sea. He can almost hear the noise of the harbour and the shouts of the sailors. Then he opens his eyes again. The lamps are flickering, and moths are dancing around them. Around him, the other students are very quiet too. And the reader goes on.
 
 [long-pause]
 
@@ -363,72 +391,80 @@ At the very centre of everything stood the temple of Poseidon.
 
 [pause]
 
-It was built on the old hill where Cleito had lived. It was a holy place. Ordinary people could not go in. There was a smaller shrine for Cleito and Poseidon too. Surrounded by a wall of gold. That was where the ten sons were born. Every year, people brought gifts there from all ten kingdoms.
+It was built on the old hill where Cleito had lived long ago. It was a holy place, and ordinary people could not go inside. There was also a smaller shrine for Cleito and Poseidon nearby. It was surrounded by a wall of gold. That was the place where the ten sons had been born. Every year, people brought gifts to that shrine from all ten kingdoms of the island.
 
 [long-pause]
 
-The great temple was huge. About one hundred and eighty metres long and ninety metres wide. And very tall. Plato says it looked a little foreign. Not quite like a Greek temple. More strange and grand.
+The great temple was enormous. It was about one hundred and eighty metres long and ninety metres wide. It was very tall as well. Plato says it looked a little foreign, not quite like a Greek temple. It was stranger and grander than anything the Greeks had built.
 
 [pause]
 
-The outside of the temple was covered with silver. All of it. Except the pointed decorations on the roof. Those were covered with gold. So in the sun, the temple shone silver and gold on top of its hill. You could see it from far out at sea.
+The whole outside of the temple was covered with silver. Only the pointed decorations on the roof were different. Those were covered with gold. So in the sunlight, the temple shone silver and gold on top of its hill. Sailors could see it gleaming from far out at sea. When they saw it, they knew they were nearly home.
 
 [pause]
 
 {img:temple-interior-ivory-ceiling-gold-poseidon-statue-chariot-horses}
-Inside, the ceiling was made of ivory. White and smooth. Decorated with gold and silver and orichalcum. The walls and the columns and the floor were covered with orichalcum. Glowing red and gold.
+Inside, the ceiling was made of ivory, white and smooth. It was decorated with gold and silver and orichalcum. The walls and the columns and the floor were covered with orichalcum too. So the whole inside of the temple glowed red and gold in the lamplight.
 
 [long-pause]
 
-And in the middle stood a statue of Poseidon. Made of gold. So tall that his head touched the ceiling. He stood in a chariot pulled by six winged horses. Around him, riding on dolphins, were a hundred sea nymphs. Spirits of the sea. And around the outside of the temple stood golden statues of all the kings and queens of Atlantis. Rows and rows of them.
+In the middle of the temple stood a statue of Poseidon, made of gold. It was so tall that his head touched the ceiling. He stood in a chariot pulled by six horses with wings. Around him, riding on dolphins, were a hundred sea nymphs. These were the gentle spirits of the sea. And around the outside of the temple stood golden statues of all the kings and queens of Atlantis. There were rows and rows of them, glittering in the sun.
 
 [pause]
 
-There was also a great altar. Fit for such a temple, Plato says. And the palace beside it was just as grand.
+There was also a great altar, fit for such a temple, Plato says. And the palace beside it was just as grand and beautiful.
 
 [pause]
 
 {img:golden-statues-kings-queens-around-temple-silver-gleaming-dusk}
-It is a dazzling picture. Silver and gold and ivory. Golden horses with wings. A god whose head touches the ceiling. It sounds like a dream. And perhaps that is exactly what it is. A dream of a perfect, wealthy, shining city. Too perfect, maybe. Because in Plato's stories, things that are too perfect and too proud often come to a bad end.
+In the evenings, the priests of the temple walked slowly among the golden statues. They swept the steps and filled the lamps with oil. They burned sweet incense, and the smoke drifted up into the sky. The silver walls turned pink and then grey as the sun went down.
+
+[pause]
+
+It is a dazzling picture, full of silver and gold and ivory. There are golden horses with wings, and a god whose head touches the ceiling. It sounds almost like a dream. And perhaps that is exactly what it is. It is a dream of a perfect, rich and shining city. Perhaps it is a little too perfect. In Plato's stories, things that are too perfect and too proud often do not last.
 
 [long-pause]
 
-The young student at the Academy tries to picture the golden Poseidon. Six winged horses. A hundred sea nymphs on dolphins. He has seen the great temple of Athena in Athens, with its tall statue of gold and ivory. He thinks Poseidon's statue must have been like that, only bigger. Much bigger. He shakes his head in wonder. Could people really have made such a thing?
+The young student at the Academy tries hard to picture the golden Poseidon. He imagines the six winged horses and the hundred sea nymphs on their dolphins. He has seen the great temple of Athena in Athens many times. Inside it stands a tall statue of the goddess, made of gold and ivory. He thinks Poseidon's statue must have been something like that, only bigger. Much, much bigger. He shakes his head slowly in wonder. Could people really have made such a thing, he asks himself?
 
 [long-pause]
 
 {img:atlantis-merchant-ships-arriving-goods-amphorae-quay-busy-morning}
-Atlantis was rich. Very rich. Where did all its wealth come from?
+Atlantis was rich, very rich indeed. So where did all its wealth come from?
 
 [pause]
 
-From the island itself, Plato says. And from trade. The island had everything. It had metals, dug from under the ground. Gold and silver and copper and tin. And orichalcum, which they dug from the earth in many places. In Plato's day, nobody knew what orichalcum was. It was only a name. A precious metal, valued more than anything except gold.
+It came from the island itself, Plato says, and from trade across the sea. The island had nearly everything a people could want. It had metals, dug from deep under the ground. There was gold and silver, copper and tin. And there was orichalcum, which was dug from the earth in many places. In Plato's day, nobody really knew what orichalcum was. It was only a name in old stories. People said it was a precious metal, worth more than anything except gold.
 
 [long-pause]
 
-There were forests full of good timber for building houses and ships. There were wild animals of every kind. Even elephants, Plato says. Lots of them. Because the island had food for all animals, big and small.
+There were great forests on the island, full of good timber. The wood was used for building houses and ships. There were wild animals of every kind, living in the forests and on the plains. There were even elephants, Plato says, and a great many of them. The island had enough food for all the animals, big and small.
 
 [pause]
 
-There were sweet-smelling plants. Roots and herbs and flowers and fruits and nuts. There were fruits you could eat and fruits you could drink and fruits that gave oil. Everything grew there, in plenty. The sun shone. The springs flowed. The earth gave and gave.
+There were sweet-smelling plants and herbs and flowers. There were roots and nuts, and fruits of every kind. There were fruits you could eat and fruits you could press for juice. There were fruits that gave oil for cooking and for lamps. Everything grew there in plenty. The sun shone warmly, and the springs never stopped flowing. The earth gave and gave, year after year.
 
 [pause]
 
 {img:elephants-in-lush-forest-island-atlantis-river-mythic-abundant}
-And what the island did not have, came by sea. Ships from Atlantis sailed everywhere. To the islands around them. To the great continent on the other side of the ocean. And through the Pillars into the inner sea. They brought back goods from every land. The harbours were full of foreign ships too. Traders from everywhere came to buy and sell.
+And whatever the island did not have came to it by sea. Ships from Atlantis sailed in every direction. They sailed to the islands around them and to the great continent beyond. They sailed through the Pillars of Heracles into the inner sea. They came back loaded with goods from every land. And the harbours were full of foreign ships as well. Traders came from everywhere to buy and sell in Atlantis.
 
 [long-pause]
 
-Plato says the kings of Atlantis had more wealth than any kings before them. Or any kings after them. They had everything they could want. Food and gold and ships and power.
+Plato says the kings of Atlantis had more wealth than any kings before them. And they had more than any kings who came after them. They had everything they could wish for. They had food and gold, ships and power.
 
 [pause]
 
 {img:atlantis-shipyard-builders-hull-timber-workers-sun-harbour}
-The young student at the Academy thinks about his own island at home. It is small and rocky. The goats eat thorny bushes. The fishermen go out every day in little boats. Nobody is rich. But everyone knows everyone. And everyone helps everyone. He wonders. Would he rather live in Atlantis? With all its gold? Or at home? He is not sure. He decides to keep listening.
+In the shipyards, the builders worked from dawn until dusk. They cut long planks from the great trees of the forest. They bent them carefully with steam and fitted them together. They sealed the cracks with hot black tar that smelled sharp and sweet. The sound of their hammers rang out across the water all day long.
+
+[pause]
+
+The young student at the Academy thinks about his own island at home. It is small and rocky, with thin soil and thorny bushes. The goats climb everywhere, looking for something to eat. The fishermen go out every morning in their little wooden boats. Nobody there is rich, not even the headman of the village. But everyone knows everyone, and everyone helps everyone. The student wonders about it for a moment. Would he rather live in Atlantis, with all its gold, or at home? He is not quite sure. So he decides to keep listening.
 
 [long-pause]
 
-Plato does not say much about the ordinary people of Atlantis. But we can imagine the harbour at dawn. Fishermen hauling nets. Sailors coiling ropes. Traders arguing over prices in a dozen languages. Children running between bales and barrels. The smell of tar and salt and fresh bread. And over it all, on the hill, the silver temple catching the first light of the sun.
+Plato does not say very much about the ordinary people of Atlantis. But we can imagine the harbour early in the morning. Fishermen are hauling in their nets, heavy with silver fish. Sailors are coiling ropes on the decks and calling to each other. Traders are arguing over prices in a dozen different languages. Children are running between the bales and barrels, playing hide and seek. The air smells of tar and salt and fresh bread from the bakers. And over it all, on the hill, the silver temple catches the first light of the sun.
 
 [long-pause]
 
@@ -437,165 +473,185 @@ Behind the city of Atlantis lay the great plain.
 
 [pause]
 
-It stretched far inland from the sea. It was flat and smooth and very fertile. And it was shaped like a long rectangle. About five hundred kilometres long and about three hundred and fifty kilometres wide. On three sides, mountains surrounded it. High and beautiful, with many villages and rivers and lakes and meadows. The mountains protected the plain from the cold north wind. The plain faced south, toward the sun.
+It stretched far inland from the sea, flat and smooth and very fertile. It was shaped like a long rectangle, Plato says. It was about five hundred kilometres long and about three hundred and fifty kilometres wide. On three sides, mountains surrounded the plain. They were high and beautiful, with many villages, rivers, lakes and meadows. The mountains protected the plain from the cold north wind. And the plain faced south, toward the warm sun.
 
 [long-pause]
 
-All around the plain, the people dug a great ditch. A canal so wide and deep that it was hard to believe. Plato says himself that it sounds too big to be true. But he tells us anyway. It was about thirty metres deep and almost two hundred metres wide. And it went all the way around the plain. About two thousand kilometres long.
+All around the plain, the people dug a great ditch. It was a canal so wide and deep that it was hard to believe. Plato says himself that it sounds too big to be true. But he tells us about it anyway, because that is what he heard. It was about thirty metres deep and almost two hundred metres wide. And it went all the way around the plain. It was about two thousand kilometres long.
 
 [pause]
 
-Water from the mountain rivers flowed into this great canal. Then smaller canals went straight across the plain, in a grid, like the lines on a chess board. From one side to the other. The water flowed through them to all the fields. And at the end, it flowed out to the sea near the city.
+Water from the mountain rivers flowed down into this great canal. From it, smaller canals ran straight across the plain, from one side to the other. They made a pattern of lines, like the squares on a game board. The water flowed through these canals to all the fields. And at the very end, it flowed out into the sea near the city.
 
 [pause]
 
 {img:farmers-atlantis-plain-harvest-two-crops-canals-boats-timber}
-With all this water, the farmers could grow two harvests a year. In winter, the rain watered the fields. In summer, the canals did. And the canals were roads too. Boats carried wood from the mountains and crops from the fields down to the city.
+With all this water, the farmers could bring in two harvests every year. In winter, the rain watered their fields. In summer, the canals did the work instead. And the canals were roads as well as waterways. Flat boats carried wood down from the mountains and crops in from the fields. They floated slowly down to the city by the sea.
+
+[pause]
+
+The farmers' days began early, before the sun was hot. They walked out to their fields with wooden ploughs over their shoulders. Oxen pulled the ploughs through the dark soil, slowly and steadily. Behind them, children scattered seeds from baskets and chased away the birds. At midday everyone rested in the shade of the fig trees.
 
 [long-pause]
 
-The plain was divided into thousands of plots. Each one with a leader. And each leader had to provide soldiers for the king. Chariots and horses and archers and sailors. Atlantis had a huge army and twelve hundred ships. Plato counts them all. Carefully. As if reading from a record.
+The plain was divided into thousands of small plots of land. Each plot had its own leader. And each leader had to provide soldiers for the king when he asked. They provided chariots and horses, archers and sailors. Atlantis had a huge army and twelve hundred ships. Plato counts them all very carefully, as if he were reading from an old record.
 
 [pause]
 
 {img:atlantis-plain-evening-villages-canals-golden-light-mountains}
-For the people living on the plain, life was mostly about farming. Ploughing and sowing and harvesting. Herding cattle. Tending gardens. It was a good life in a good land. In the evening, they sat outside their houses and watched the sun set over the canals. The water turned gold. Boats drifted home. And far away, on the coast, the silver temple of Poseidon caught the last of the light.
+But for the people living on the plain, life was mostly about farming. They ploughed and sowed and harvested, season after season. They herded cattle and tended their vegetable gardens. They picked olives and grapes, and pressed them for oil and wine. It was a good life in a good and gentle land. In the evenings, they sat outside their small houses and watched the sun go down. The water in the canals turned to gold. Boats drifted slowly home in the soft light. And far away on the coast, the silver temple of Poseidon caught the last rays of the sun.
 
 [long-pause]
 
-In autumn, after the harvest, the farmers of the plain hold a feast. They bring the first fruits to the shrines in their villages. They thank the gods for the water and the sun. Young people dance in the squares. Old people sit and watch and remember other harvests. And the boats on the canals are decorated with flowers, as they carry the grain down to the city by the sea.
+In autumn, after the harvest, the farmers of the plain held a great feast. They brought the first fruits to the shrines in their villages. They thanked the gods for the water and the sun and the good soil. Young people danced in the village squares to the music of pipes and drums. Old people sat on benches and watched and remembered other harvests. Children ran about with sticky faces, full of grapes and honey. And the boats on the canals were decorated with flowers, as they carried the grain down to the city by the sea.
 
 [long-pause]
 
 {img:ten-kings-atlantis-gathered-temple-robes-crowns-council-solemn}
-Atlantis was ruled by ten kings. One for each of the ten parts of the island. Each king ruled his own part. But they were all joined by one law. The law of Poseidon.
+Atlantis was ruled by ten kings, one for each of the ten parts of the island. Each king ruled over his own part of the land. But they were all joined together by one law, the law of Poseidon.
 
 [pause]
 
-The eldest line, the family of Atlas, ruled the central part. They were the most important. The other nine kings were like their brothers. Equal in some ways. But they all looked to the king of the centre.
+The eldest family, the family of Atlas, ruled the central part of the island. They were the most important of all the kings. The other nine kings were like their younger brothers. In some ways they were equal to each other. But they all looked to the king of the centre for guidance.
 
 [long-pause]
 
-Poseidon's law was carved on a pillar of orichalcum. It stood in the middle of the island, in the temple of Poseidon. It told the kings how to rule. They must never make war on each other. If anyone attacked one of them, the others must all help. They must make decisions together, in council. And the law said something else. No king could put any of his own people to death without the agreement of more than half of the ten kings.
+Poseidon's law was carved on a tall pillar of orichalcum. It stood in the middle of the island, inside the temple of Poseidon. The law told the kings how they should rule their lands. They must never make war on each other, it said. If anyone attacked one of them, all the others must help. They must make their important decisions together, in council. And the law said one more thing. No king could take the life of any of his own people unless more than half of the ten kings agreed.
 
 [pause]
 
-Every five or six years, the ten kings met at the temple. They took turns. Once after five years. Once after six. Plato says this was to show respect equally to odd and even numbers. They met to talk about what each king had done. To judge whether anyone had broken the law. And to make decisions for the whole island together.
+Every five or six years, the ten kings met together at the temple. They took turns, first after five years and then after six. Plato says this was to honour odd and even numbers equally. They met to talk about what each king had done since the last meeting. They met to judge whether anyone had broken the law. And they met to make decisions for the whole island, together.
 
 [pause]
 
 {img:orichalcum-pillar-carved-law-temple-glowing-red-gold-lamplight}
-In the early days, Plato says, the kings were good and wise. They were part god, because they were descended from Poseidon. They cared little for their gold. They did not let wealth make them drunk with pride. They were kind to each other and to their people. They knew that goodness and friendship mattered more than riches.
+In the early days, Plato says, the kings were good and wise. They were partly divine, because they came from the family of Poseidon. They did not care very much for their gold. They did not let their great wealth make them proud and foolish. They were kind to each other and kind to their people. They knew that goodness and friendship mattered more than riches.
 
 [long-pause]
 
-And so for a long time, Atlantis was happy. Its people were rich and safe. Its kings were wise. Its laws were good. Everything went well.
+And so, for a very long time, Atlantis was a happy place. Its people were rich and safe and well fed. Its kings were wise, and its laws were good. Everything went well, year after year.
 
 [pause]
 
 {img:peaceful-atlantis-people-markets-gardens-harmony-golden-afternoon}
-But Plato tells us there was a danger hidden inside this happiness. The part of the kings that came from the god was slowly getting smaller. Every generation, the god in them grew a little weaker. And the human part grew a little stronger. Little by little, without anyone quite noticing.
+In those happy years, the markets were full of good things to eat. People walked in the gardens in the cool of the evening. Children played by the fountains and splashed each other with water. Neighbours helped each other build their houses and bring in their harvests. Nobody went hungry, and nobody was afraid.
+
+[pause]
+
+But Plato tells us there was a danger hidden inside all this happiness. The part of the kings that came from the god was slowly getting smaller. In every generation, the divine part grew a little weaker. And the ordinary human part grew a little stronger. It happened little by little, without anyone quite noticing.
 
 [long-pause]
 
-Plato is careful here. He does not say the kings became bad overnight. He says it happened slowly. So slowly that nobody noticed. A little more gold here. A little more pride there. A small unkindness, forgotten the next day. Until one day the kings looked in the mirror and did not see what had changed. That, perhaps, is the most worrying part of the story. Because it could happen to anyone.
+Plato is very careful when he tells this part of the story. He does not say the kings became bad overnight. He says it happened slowly, over a very long time. It happened so slowly that nobody really noticed it at all. There was a little more gold here, and a little more pride there. There was a small unkindness, forgotten the next day. Until one day, the kings looked at themselves and did not see what had changed. That, perhaps, is the most thoughtful part of the whole story. Because it is something that could happen to anyone, anywhere.
 
 [long-pause]
 
 {img:sacred-bulls-grazing-temple-grounds-atlantis-evening-calm}
-When the ten kings met at the temple of Poseidon, there was a special ceremony. It was about bulls.
+When the ten kings met at the temple of Poseidon, there was a special ceremony. It was a ceremony with bulls.
 
 [pause]
 
-In the grounds of the temple, there were bulls that roamed free. They were sacred to Poseidon. Nobody could harm them. Except once, at the meeting of the kings.
+In the grounds around the temple, there were bulls that wandered freely. They grazed on the soft grass and rested in the shade of the trees. They were sacred to Poseidon, and nobody was allowed to disturb them. Only once, at the meeting of the kings, did anyone go near them.
 
 [long-pause]
 
-Plato describes it carefully. The ten kings went into the sacred grounds alone. No guards. No servants. No weapons of iron. Only wooden staffs and ropes. They prayed to the god. And then they tried to catch one of the bulls with their hands and ropes. It was a test. Not of strength alone. But of whether the god was willing. If the god was pleased, they would catch a bull.
+Plato describes this ceremony very carefully. The ten kings went into the sacred grounds alone. They brought no guards, no servants and no iron weapons. They carried only wooden staffs and long ropes. First they prayed to the god together. Then they tried to catch one of the bulls with their ropes and their bare hands. It was a test, and not only a test of strength. It showed whether the god was willing and pleased with them. If the god was pleased, Plato says, they would catch a bull.
 
 [pause]
 
-When they caught one, they led it to the pillar of orichalcum, where the law was written. They offered it to the god there. We will leave the details gently aside. Then they filled a great bowl with a mix of wine and the offering. They each took a cup from the bowl. And they made a promise.
+When they had caught one, they led it to the pillar of orichalcum, where the law was written. There they offered it to the god, in the old way. We will leave the details of that gently aside. Then they filled a great bowl with wine. They each dipped a golden cup into the bowl. And they made a solemn promise together.
 
 [pause]
 
 {img:ten-kings-golden-cups-oath-pillar-night-fire-solemn-promise}
-They promised to judge fairly, according to the law on the pillar. To never break the law. To never obey any king who broke it. They drank from their golden cups. And they placed the cups in the temple, as a sign of their promise.
+They promised to judge fairly, following the law on the pillar. They promised never to break the law themselves. And they promised never to obey any king who broke it. Then they drank from their golden cups. Afterwards, they placed the cups in the temple, as a sign of their promise.
 
 [long-pause]
 
-Then, as night fell, they put on beautiful dark blue robes. They sat on the ground by the dying fire of the altar. They put out all the other lights in the temple. And there, in the dark, they judged each other. If any king had broken the law, it was decided that night. At dawn, they wrote down their judgements on golden tablets. And they hung their robes in the temple, as a memory.
+Then, as night fell, they put on beautiful dark blue robes. They sat down on the ground beside the glowing embers of the altar fire. They put out all the other lights in the temple. And there, in the dark, they judged each other. If any king had broken the law, it was decided on that night. At dawn, they wrote down their judgements on tablets of gold. And they hung their dark blue robes in the temple, as a memory of that night.
 
 [pause]
 
 {img:kings-dark-blue-robes-sitting-dark-temple-dying-embers-night-judging}
-It is a strange and solemn picture. Ten kings in dark blue robes, sitting in the dark, judging each other by the glow of embers. Many people think Plato was thinking of old ceremonies he had heard of. On the island of Crete, there were old stories about bulls and kings. We will come back to Crete later. It may be an important clue.
+It is a strange and solemn picture. Ten kings in dark blue robes sit in the darkness, judging each other by the soft glow of the embers. Outside, the bulls are sleeping in the grass, and the stars are shining. The only sounds are the crackle of the fire and the quiet voices of the kings. Many people think Plato was thinking of old ceremonies he had heard about. On the island of Crete, there were old stories about bulls and kings. We will come back to Crete later tonight. It may be an important clue.
 
 [long-pause]
 
-The young student from the island has heard of Crete. His grandfather once sailed there. He told stories of huge ruined palaces with red columns, older than anyone could remember. Of painted walls with leaping bulls. The student thinks about it. Maybe, he thinks, there is a little bit of truth hidden in Plato's story after all. Like a pearl in an oyster.
+The young student from the island has heard of Crete before. His grandfather once sailed there, when he was a young man. He came home with stories of huge old palaces with red columns. They were older than anyone could remember, he said. He told of painted walls with young people leaping over bulls. The student thinks about those stories now. Maybe, he thinks, there is a little bit of truth hidden in Plato's story after all. Maybe it is like a pearl hidden inside an oyster.
 
 [long-pause]
 
 {img:atlantis-dawn-harbour-fishermen-boats-temple-silver-gleaming-hill}
-Plato tells us about the kings and the temples and the canals. But he does not tell us about ordinary people. So let us imagine. What might a day in Atlantis have been like?
+Plato tells us about the kings and the temples and the great canals. But he does not tell us about the ordinary people of Atlantis. So let us imagine for a while. What might an ordinary day in Atlantis have been like?
 
 [pause]
 
-It is early morning in the outer city. The sun rises over the sea. Its first light touches the silver temple on the hill at the centre. It shines like a star. Down by the harbour, fishermen are already coming in with their catch. Gulls scream and circle. The market is opening.
+It is early morning in the outer city, near the harbour. The sun rises slowly out of the sea. Its first light touches the silver temple on the hill at the centre. The temple shines like a bright star above the rooftops. Down by the harbour, the fishermen are already coming in with their catch. Gulls scream and circle over the boats, hoping for a fish. And the market stalls are opening, one by one.
 
 [long-pause]
 
-A girl called Nerea lives in a house near the harbour. Her father is a ship's carpenter. Her mother weaves sails. Nerea is twelve. Every morning she goes to the warm spring baths with her mother. It is the best part of the day. The water is warm and soft and smells a little of minerals. Women chat and children splash. Then they walk home through the streets as the city wakes up.
+A girl called Nerea lives in a small house near the harbour. Her father is a ship's carpenter, and her mother weaves sails from strong linen. Nerea is twelve years old, with dark curly hair and quick brown eyes. Every morning, she walks with her mother to the warm spring baths. It is the best part of her day. The water is warm and soft, and it smells a little of stone and minerals. Women chat together on the steps, and small children splash in the shallow end. Then Nerea and her mother walk home through the streets, as the city slowly wakes up.
 
 [pause]
 
 {img:girl-and-mother-public-warm-baths-steam-morning-mosaic-pool}
-Her father goes to the shipyard. He is building a big new ship for trade. It will sail through the Pillars to the inner sea. Nerea sometimes brings him his lunch. She loves the shipyard. The smell of fresh wood and tar. The sound of hammers and saws. The great half-built ships like the skeletons of whales.
+On the way home, they stop at the bakery for warm round loaves. The baker gives Nerea a small honey cake, as he always does. She eats it slowly, making it last all the way home. Her mother buys a few olives and a piece of white cheese at the market.
+
+[pause]
+
+Her father goes to the shipyard early, with his tools in a leather bag. He is helping to build a big new trading ship. It will sail through the Pillars of Heracles into the inner sea. Sometimes Nerea brings him his lunch in a little basket. She loves going to the shipyard. She loves the smell of fresh wood and warm tar. She loves the sound of the hammers and the long saws. The great half-built ships look like the skeletons of whales, lying on the shore.
 
 [long-pause]
 
-In the afternoon, there are horse races on the great track. Nerea and her friends run to watch from the wall. The horses are beautiful. Their manes fly in the wind. The crowd roars. Nerea always cheers for the grey horses. They are her favourite.
+At home, Nerea helps her mother at the big loom in the courtyard. Her mother weaves, and Nerea winds the thread onto wooden spools. They talk about small things while they work. They talk about the neighbours, and the weather, and what to cook tonight.
+
+[pause]
+
+In the afternoon, there are horse races on the great track around the island. Nerea and her friends run all the way to watch from the wall. The horses are beautiful, with long legs and shining coats. Their manes fly out in the wind as they gallop past. The crowd roars and stamps their feet. Nerea always cheers for the grey horses, because they are her favourite.
 
 [pause]
 
 {img:children-watching-horse-race-wall-atlantis-cheering-afternoon}
-In the evening, the family eats on the roof of their house. Fish and bread and olives and fruit. From the roof, they can see the rings of the city. The walls glowing bronze and silver and red in the setting sun. The temple on its hill. The ships in the harbour. The great plain behind, turning gold.
+In the evening, the family eats their supper on the flat roof of their house. They eat grilled fish and bread, olives and ripe figs. From the roof, they can see the rings of the city spread out around them. The walls glow bronze and silver and red in the setting sun. The temple shines on its hill. The ships rock gently in the harbour. And behind it all, the great plain is turning gold.
 
 [long-pause]
 
-Nerea asks her father, will Atlantis always be here? He laughs. Of course, he says. It has been here for a thousand years. It will be here for a thousand more. The god protects us. And she believes him. Because how could anything so big and beautiful ever disappear?
+Nerea leans against her father and asks him a question. Will Atlantis always be here, she asks? He laughs softly and strokes her hair. Of course it will, he says. It has been here for a thousand years. It will be here for a thousand more. The god looks after us. And Nerea believes him completely. Because how could anything so big and so beautiful ever disappear?
 
 [pause]
 
 {img:family-rooftop-dinner-sunset-view-rings-walls-glowing-atlantis}
-But Nerea is only a girl we have imagined. And Plato's story is not finished. He has one more thing to tell us. And it is not about gold or horses or ships. It is about what happens when people forget what really matters.
+But Nerea is only a girl we have imagined, on a warm evening long ago. And Plato's story is not quite finished yet. He has one more thing to tell us. It is not about gold, or horses, or ships. It is about what happens when people forget what really matters.
 
 [long-pause]
 
 {img:atlantis-kings-feast-excess-gold-everywhere-proud-faces-palace}
-For many generations, the kings of Atlantis were good. But slowly, things changed.
+For many generations, the kings of Atlantis were good and wise. But slowly, very slowly, things began to change.
 
 [pause]
 
-The part of them that came from the god grew smaller. Mixed with ordinary human nature, again and again, Plato says. Until the human part was strongest. And then they could no longer carry their great wealth wisely. They began to behave badly.
+The part of them that came from the god grew smaller with each generation. Plato says it was mixed with ordinary human nature again and again. In the end, the human part was the strongest. And then the kings could no longer carry their great wealth wisely. They began to behave in ways that were not good.
 
 [long-pause]
 
-To people who could see clearly, Plato writes, the kings now looked ugly. Because they had lost the most precious things of all. Goodness and wisdom and friendship. But to people who could not see clearly, the kings looked more wonderful than ever. Richer and more powerful and more splendid. They were filled with greed and the wish for power. And they did not even know it.
+To people who could see clearly, Plato writes, the kings now looked rather sad and poor. That was because they had lost the most precious things of all. They had lost their goodness and their wisdom and their friendship. But to people who could not see clearly, the kings looked more wonderful than ever. They looked richer and more powerful and more splendid than before. They were full of greed and the wish for power. And they did not even know it themselves.
 
 [pause]
 
-They wanted more. More land. More gold. More people under their rule. Atlantis was not enough anymore. They looked across the sea at the lands of the inner sea. At Greece and Egypt and all the rest. And they wanted it all.
+They wanted more and more of everything. They wanted more land and more gold. They wanted more people to rule over. Atlantis, with all its riches, was not enough for them anymore. They looked across the sea at the lands around the inner sea. They looked at Greece and Egypt and all the rest. And they wanted all of it for themselves.
 
 [pause]
 
 {img:atlantis-fleet-gathering-harbour-many-warships-dark-clouds-gathering}
-Then Zeus, the king of the gods, saw what was happening. He saw that a noble family had fallen into a sad state. And he wanted to help them become wise again. To teach them a lesson. So he called all the gods together. In his great home in the middle of the heavens. From where you can look down on everything that happens on earth.
+In the harbours, more and more warships were built. The shipyards worked day and night, and the hammers never stopped. The ordinary people watched and wondered. Some of them were proud of the great fleet. But others shook their heads quietly. Why do we need so many ships, they asked each other? We already have everything we need.
+
+[pause]
+
+Then Zeus, the king of all the gods, saw what was happening. He saw that a noble family had fallen into a sad state. And he wanted to help them become wise and good again. He wanted to teach them a lesson. So he called all the gods together, in his great home in the middle of the heavens. From there, you can look down on everything that happens on the earth.
 
 [long-pause]
 
-And when they had all gathered, Zeus spoke to them. He said...
+And when all the gods had gathered, Zeus spoke to them. He said...
 
 [pause]
 
@@ -604,93 +660,105 @@ And there, Plato's book stops.
 [pause]
 
 {img:unfinished-scroll-ending-mid-sentence-lamp-dark-desk-mystery}
-That is really how it ends. In the middle of a sentence. Zeus is about to speak. And then nothing. The book was never finished. Nobody knows why. Maybe Plato grew too old. Maybe he got busy with another book. Maybe he lost interest. Or maybe the rest was lost. We will never know what Zeus said.
+That is really how the book ends, right in the middle of a sentence. Zeus is just about to speak. And then there is nothing more. The book was never finished, and nobody knows why. Maybe Plato grew too old and too tired. Maybe he got busy with another book. Maybe he simply lost interest in the story. Or maybe the rest of it was lost long ago. We will never know what Zeus said to the gods.
 
 [long-pause]
 
-At the Academy, the reader stops too. The students look at each other. Is that it? Is there no more? The young student from the island feels a strange disappointment. He wanted to know. But in his other book, Plato has already told us how it ends. In one day and one night. The sea.
+At the Academy, the reader stops too and lowers the scroll. The students look at each other in surprise. Is that it, they ask? Is there no more? The young student from the island feels a strange disappointment. He wanted so much to know how it ended. But in Plato's other book, he has already told us the ending. It came in one day and one night, from the sea.
 
 [pause]
 
-People have tried to guess what Zeus said. Some have written their own endings. In some, Zeus sends the earthquake as a punishment. In others, he gives the kings one last chance, and they do not take it. In others still, he speaks gently, like a father. But Plato's own words end in silence. And perhaps that silence is the most mysterious part of all.
+People have tried to guess what Zeus said ever since. Some have written their own endings to the story. In some of them, Zeus sends the earthquake as a lesson to the kings. In others, he gives the kings one last chance, and they do not take it. In still others, he speaks gently to them, like a father to his children. But Plato's own words end in silence. And perhaps that silence is the most mysterious part of all.
 
 [long-pause]
 
 {img:atlantis-sky-darkening-sea-rising-gentle-mythic-distant-island}
-The end of Atlantis is told in just a few words. In Plato's other book. The one the Egyptian priest told Solon.
+The end of Atlantis is told in just a few short words. It is told in Plato's other book, in the story the Egyptian priest told Solon.
 
 [pause]
 
-Later, says the priest, there were great earthquakes and floods. And in one terrible day and night, the island of Atlantis sank into the sea and disappeared.
+Later, says the priest, there were great earthquakes and floods. And in one hard day and one night, the island of Atlantis sank into the sea and disappeared.
 
 [long-pause]
 
-That is all. One sentence. But people have imagined it ever since. We will imagine it gently. From far away.
+That is all he says, just one sentence. But people have imagined it ever since. We will imagine it gently tonight, from far away.
 
 [pause]
 
-Perhaps it began with the earth trembling. A small shaking at first. People stopped and looked at each other. Then went on with their day. Earthquakes happened sometimes. Poseidon was restless. That was all.
+Perhaps it began with the earth trembling a little. It was only a small shaking at first, like a cart passing in the street. People stopped what they were doing and looked at each other. Then they shrugged and went on with their day. Small earthquakes happened now and then on the island. Poseidon is restless today, they said, and that was all.
 
 [pause]
 
-Then the sea went strange. It pulled back from the harbours. The ships were left lying on the mud. Fish flapped on the sand. People came down to look. They had never seen anything like it.
+Then the sea began to behave strangely. It pulled back from the harbours, slowly and quietly. The ships were left lying on their sides in the mud. Fish flapped about on the wet sand. People came down to the shore to look. They had never seen anything like it before.
 
 [pause]
 
 {img:people-on-hills-watching-sea-from-distance-dusk-ships-sailing-away}
-And the old people remembered the stories. When the sea pulls back, run to the hills. Some ran. Some took to their ships and sailed away. Some stayed and wondered. And then the sea came back. And it did not stop.
+And then the old people remembered the old stories. When the sea pulls back, they said, you must go to the hills. Some people listened and went up into the hills. Some took to their ships and sailed out to the open sea. Some stayed by the shore and wondered what to do. And then the sea came back. And this time, it did not stop.
 
 [long-pause]
 
-We will leave Atlantis there. In the dark, under the waves. Its silver temple and its golden statues. Its rings and its canals. Its horses and its ships. Everything gone, in one day and one night. As if it had never been.
+We will leave Atlantis there, quietly, under the waves. Its silver temple and its golden statues are gone. Its rings and its canals and its bridges are gone. Its horses and its ships are gone. Everything disappeared in one day and one night, as if it had never been.
 
 [pause]
 
 {img:calm-sea-morning-after-empty-horizon-gulls-soft-light-peace}
-And the next morning, the sun rose over a calm sea. Gulls flew over the water where the island had been. And there was nothing there but waves. Plato says that for a long time afterwards, the sea there was hard to cross. Because of the mud just below the surface. Where the island had sunk.
+And the next morning, the sun rose over a calm and quiet sea. Gulls flew slowly over the water where the island had been. There was nothing there now but gentle waves, sparkling in the light. Plato says that for a long time afterwards, the sea there was hard to sail across. That was because of the mud lying just below the surface, where the island had sunk.
 
 [long-pause]
 
-Did anyone survive? Plato does not say. But people have always liked to imagine that some did. That some ships got away in time. That some people fled to the mountains of other lands. And carried with them the memory of their lost home. Stories have been told about it ever since. Of the people who escaped. And of the island under the sea.
+Did anyone survive? Plato does not tell us. But people have always liked to imagine that some did. They imagine that some ships got away in time, out to the open sea. They imagine that some people reached the hills of other lands, and started again. They carried with them the memory of their lost home.
+
+[pause]
+
+Perhaps, in some faraway village, an old woman sat by the fire with her grandchildren. Perhaps she told them about a city of rings, with walls of bronze and silver. She told them about a silver temple on a hill, and horses racing around the island. The children listened, half believing and half not. And when they grew old, they told the story to their own grandchildren.
+
+[pause]
+
+Stories have been told about Atlantis ever since that time. They are stories of the people who escaped, and of the island under the sea. And the story still travels on tonight, gently, from one listener to the next.
 
 [long-pause]
 
 {img:aristotle-young-student-academy-arguing-plato-garden-olive}
-So was Atlantis real?
+So was Atlantis real, or was it only a story?
 
 [pause]
 
-Even in Plato's own school, people did not agree. One of Plato's students was a young man from the north of Greece. His name was Aristotle. He studied at the Academy for twenty years. He became one of the greatest thinkers in history. And he did not believe in Atlantis.
+Even in Plato's own school, people did not agree about it. One of Plato's students was a young man from the north of Greece. His name was Aristotle. He studied at the Academy for twenty years, among the olive trees. He became one of the greatest thinkers in all of history. And he did not believe in Atlantis at all.
 
 [long-pause]
 
-Old writers tell us what Aristotle said, or something like it. The man who made it up, made it sink. In other words, Plato invented Atlantis. And then he made it disappear, so nobody could ever check. Very clever.
+Old writers tell us what Aristotle said, or something very like it. The man who made it up, he said, also made it sink. In other words, Plato invented Atlantis himself. And then he made it disappear under the sea, so nobody could ever go and check. That was very clever of him, Aristotle thought.
 
 [pause]
 
-Many people today agree with Aristotle. They think Plato invented Atlantis as a lesson. Plato liked to teach with stories. And the story of Atlantis has a clear lesson. A people that becomes too rich and too proud will fall. Goodness and wisdom matter more than gold. A small brave city that does what is right can stand against a great proud power.
+Many people today agree with Aristotle about this. They think Plato invented Atlantis to teach a lesson. Plato liked to teach with stories, and the story of Atlantis has a clear lesson. A people that becomes too rich and too proud will not last. Goodness and wisdom matter much more than gold. And a small, brave city that does what is right can stand against a great proud power.
 
 [pause]
 
 {img:ancient-athens-navy-triremes-harbour-piraeus-proud-city}
-Plato may have been thinking about his own city. Athens had once been brave and good. It had stood against the great empire of Persia and won. But then Athens became rich and powerful. It built a great navy. It ruled over other Greek cities. It grew proud. And then it lost a long terrible war. Plato saw all this happen. Maybe Atlantis is a picture of what happens to a city like that. A warning.
+Plato may have been thinking about his own city of Athens. Long before, Athens had been brave and good. It had stood against the great empire of Persia, and it had won. But after that, Athens became rich and powerful. It built a great navy of fast ships with three rows of oars. It ruled over many other Greek cities and took their money. It grew rather proud of itself. And then it lost a long and difficult war. Plato saw all of this happen when he was young. Maybe Atlantis is a picture of what happens to a city like that. Maybe it is a gentle warning.
 
 [long-pause]
 
-But not everyone agreed with Aristotle. A few hundred years later, another Greek thinker wrote that the story might be true. And some people said they had travelled to Egypt and seen the old records themselves. Though nobody could ever show them.
+But not everyone agreed with Aristotle, even then. A few hundred years later, another Greek thinker wrote that the story might be true. Some people even said they had travelled to Egypt and seen the old records themselves. But nobody could ever show these records to anyone else.
 
 [pause]
 
 {img:scholars-debating-library-alexandria-scrolls-shelves-columns}
-And so the arguing began. In Plato's own school. Between his students. And it has never stopped. For two thousand four hundred years, people have taken sides. Was it real? Was it a lesson? Was it a bit of both? A lesson built on an old, half-remembered true story?
-
-[long-pause]
-
-The young student from the island walks home that night under the stars. He thinks about it. He thinks Aristotle is probably right. It is a made-up story. With a lesson. And yet. He thinks about the old fishermen at home. Their stories of islands that rose from the sea. And sank again. Of the sea pulling back before a great wave. He is not quite sure.
+In the great library of Alexandria, in Egypt, scholars sat among the shelves of scrolls. They read Plato's books and talked about them, just like the students in Athens. Some said the story was true, and some said it was not. They argued politely, and then they went for a walk by the harbour.
 
 [pause]
 
-The next day, he asks his teacher about it. The old man thinks for a moment. Then he says, a story does not have to be true to be true. The student does not understand. Not yet. It will take him many years. But he never forgets those words.
+And so the arguing began, in Plato's own school, between his own students. And it has never stopped since then. For two thousand four hundred years, people have taken sides. Was it real? Was it a lesson? Or was it a little bit of both? Perhaps it was a lesson built on an old, half-remembered true story.
+
+[long-pause]
+
+The young student from the island walks home that night under the stars. He thinks about everything he has heard. He thinks that Aristotle is probably right. It is a made-up story, with a lesson in it. And yet, he is not completely sure. He thinks about the old fishermen in his village at home. They told stories of islands that rose from the sea and sank again. They told of the sea pulling back before a great wave came. Perhaps there is something true in it after all.
+
+[pause]
+
+The next day, he goes to his teacher and asks him about it. The old man thinks quietly for a long moment. Then he says something strange. A story does not have to be true to be true, he says. The young student does not understand those words. Not yet, anyway. It will take him many years to understand. But he never forgets them.
 
 [long-pause]
 
@@ -699,65 +767,69 @@ Plato wrote the story of Atlantis near the end of his long life.
 
 [pause]
 
-He was about seventy-five then. He had seen a lot. He had seen his teacher Socrates condemned by the people of Athens. He had travelled to Egypt, some people say, and to Italy and to the island of Sicily. In Sicily, he tried to help a young ruler become a wise king. It went badly. He was even sold as a slave for a time. Friends had to buy his freedom. He came home to Athens disappointed. But not bitter.
+He was about seventy-five years old by then, and he had seen a great deal. He had seen his old teacher Socrates condemned by the people of Athens. He had travelled widely, to Italy and to the island of Sicily, and perhaps to Egypt too. In Sicily, he tried to help a young ruler become a wise king. It did not go well at all. He even lost his freedom there for a while, and friends had to help him come home. He returned to Athens disappointed. But he was not bitter, and he went back to his garden.
 
 [long-pause]
 
-At the Academy, he went on teaching and writing. His later books are about how a good city should be run. About laws and justice. About what makes people good or bad. And the story of Atlantis is part of these thoughts. It was meant to be the start of a series of books. One about the beginning of the world. One about Atlantis and ancient Athens. And a third about something else. But only the first was finished. The second stops in the middle. The third was never written.
+At the Academy, he went on teaching and writing, day after day. His later books are about how a good city should be run. They are about laws and justice, and about what makes people good or bad. The story of Atlantis is part of these thoughts. It was meant to be the beginning of a series of three books. One book was about the beginning of the world. The second was about Atlantis and ancient Athens. And the third was about something else. But only the first book was ever finished. The second stops in the middle of a sentence. And the third was never written at all.
 
 [pause]
 
-Why did Plato stop? Some think he started on a much bigger book instead. His last book is very long. It is called the Laws. It is about how to make good laws for a new city. He worked on it until he passed away.
+Why did Plato stop writing the story? Some people think he started a much bigger book instead. His last book is very long indeed. It is called the Laws. It is about how to make good laws for a new city. He worked on it, slowly and carefully, for the rest of his life.
 
 [pause]
 
 {img:plato-desk-many-scrolls-final-years-lamp-writing-slowly}
-Plato passed away when he was about eighty. The story goes that he died peacefully, at a wedding feast. Or perhaps while writing. His students buried him in the garden of the Academy. Among the olive trees where he had taught for forty years.
+In his last years, Plato worked mostly in the early morning, when the air was cool. He sat at a wooden table with his scrolls and his pens. A young student often sat beside him to help with the writing. In the afternoons, Plato walked slowly under the olive trees. He stopped to talk with the students and to answer their questions. In the evenings, he sat with his old friends and listened to the crickets.
+
+[pause]
+
+Plato passed away when he was about eighty years old. The old stories say he passed away peacefully, perhaps at a wedding feast with his friends. Others say he was writing, with his pen still in his hand. His students buried him in the garden of the Academy. He rests there among the olive trees, where he had taught for forty years.
 
 [long-pause]
 
-The Academy went on after him. For hundreds of years. Teachers came and went. Students came from everywhere. It was one of the longest-lasting schools in history. And the word academy is still used for schools and places of learning all over the world. Because of that garden of olive trees outside Athens.
+The Academy went on after him, for hundreds and hundreds of years. Teachers came and went, and students came from everywhere. It was one of the longest-lasting schools in all of history. And the word academy is still used today for schools and places of learning all over the world. That is all because of a quiet garden of olive trees outside Athens.
 
 [pause]
 
 {img:academy-ruins-athens-today-low-stones-olive-trees-quiet-later}
-And Plato's books survived. Copied by hand, again and again, for nearly two thousand years. All of them. Every one he wrote. That is very rare for an ancient writer. Including the two books with the story of Atlantis. The story Plato never finished. The story that has puzzled the world ever since.
+And Plato's books survived as well. They were copied out by hand, again and again, for nearly two thousand years. Every single book he wrote has come down to us. That is very rare for a writer from so long ago. Among them are the two books with the story of Atlantis. It is the story Plato never finished. And it is the story that has puzzled the world ever since.
 
 [long-pause]
 
 {img:thera-santorini-bronze-age-island-round-volcano-town-sea-before}
-If Atlantis was not completely made up, what could it be? People have looked for answers in many places. One of the most exciting is an island in the Aegean Sea. Today it is called Santorini. In ancient times it was called Thera.
+If Atlantis was not completely made up, what could it have been? People have looked for answers in many different places. One of the most exciting is an island in the Aegean Sea. Today it is called Santorini. In ancient times, it was called Thera.
 
 [long-pause]
 
-Santorini is a beautiful island today. White houses with blue doors cling to the top of high cliffs. Below them, there is a great bay of deep blue water. In the middle of the bay there are small dark islands. Visitors come from all over the world to watch the sunset there.
+Santorini is a very beautiful island today. White houses with blue doors cling to the tops of high cliffs. Below them, there is a great bay of deep blue water. In the middle of the bay there are a few small, dark islands. Visitors come from all over the world to watch the sunset there.
 
 [pause]
 
-But that bay was not always there. Long ago, Thera was a round island. With a volcano in the middle. And around it, people lived and farmed and fished. It was a green and pleasant place. With a busy harbour town.
+But that great bay was not always there. Long ago, Thera was a round island, with a volcano in the middle. People lived all around it, farming and fishing and trading. It was a green and pleasant place, with vineyards and olive trees. There was a busy harbour town on its southern shore. Children played on the beaches, and fishermen mended their nets in the sun.
 
 [pause]
 
 {img:volcano-smoke-rising-thera-island-people-boats-leaving-calm-sea}
-Then, about three thousand six hundred years ago, the volcano woke up. First there were small earthquakes. Then smoke. The people saw the signs. And it seems they left in time. Because archaeologists have found their town, but almost no people. They took their valuable things. And they sailed away.
+Then, about three thousand six hundred years ago, the volcano woke up. First there were small earthquakes that shook the houses. Then smoke began to rise from the mountain. The people saw the signs, and it seems they understood them. They packed up their most precious things and loaded their boats. And they sailed away to safety, across the calm blue sea. We know this because archaeologists have found their town, but almost no people in it.
 
 [long-pause]
 
-Then the volcano erupted. It was one of the biggest eruptions in the history of humans. Ash and stone shot high into the sky. The ash spread across the whole sea. It fell on islands far away. It is found in the ground on Crete and in Turkey and even in Egypt. The sky went dark for days.
+Then the volcano erupted. It was one of the biggest eruptions since people have lived on the earth. Ash and stone rose high into the sky in a great grey cloud. The ash drifted across the whole sea. It fell on islands far away. It has been found in the ground on Crete and in Turkey, and even in Egypt. The sky was dim for many days.
 
 [pause]
 
 {img:great-ash-cloud-over-aegean-sea-distant-islands-dim-sun-gentle}
-And the middle of the island collapsed. The volcano emptied itself and then fell in. The sea rushed into the great hole. Where there had been a round island with a mountain, there was now a ring of cliffs around a deep bay. And waves raced out across the sea toward other islands.
+And the middle of the island fell in. The volcano had emptied itself, and the ground above it sank down. The sea rushed into the great hollow it left behind. Where there had been a round island with a mountain, there was now a ring of cliffs around a deep bay. And big waves rolled out across the sea toward other islands.
 
 [long-pause]
 
-Doesn't that sound like Atlantis? A round island. Rings of land and water. Earthquakes. A great disaster. Part of the island sinking into the sea. Many people have thought so. And the bay of Santorini today looks a little like a ring of land around a ring of water.
+Doesn't that sound a little like Atlantis? There was a round island, and rings of land and water. There were earthquakes, and a great disaster, and part of the island sank into the sea. Many people have thought so. And the bay of Santorini today does look a little like a ring of land around a ring of water.
 
 [pause]
 
 {img:santorini-caldera-today-white-houses-cliffs-blue-bay-sunset-later}
-But there are problems. Plato says Atlantis was beyond the Pillars of Heracles, in the outer ocean. Thera is inside the inner sea. Plato says Atlantis was huge. Thera is small. Plato says it happened nine thousand years before Solon. Thera erupted about a thousand years before Solon. Some people think the numbers got mixed up as the story was told and retold. Perhaps nine hundred became nine thousand. Who knows?
+But there are some problems with this idea. Plato says Atlantis lay beyond the Pillars of Heracles, in the outer ocean. Thera lies inside the inner sea. Plato says Atlantis was huge, but Thera is quite small. Plato says it happened nine thousand years before Solon. But Thera erupted only about a thousand years before Solon. Some people think the numbers got mixed up as the story was told and retold. Perhaps nine hundred became nine thousand along the way. Who can say?
 
 [long-pause]
 
@@ -766,116 +838,124 @@ On the island of Santorini, under the ash, archaeologists found a whole town. It
 
 [pause]
 
-In 1967, a Greek archaeologist called Spyridon Marinatos began to dig there. He had a theory. He believed the eruption of Thera might be linked to the story of Atlantis. And he hoped to find something under the ash. He did.
+In 1967, a Greek archaeologist called Spyridon Marinatos began to dig there. He had an idea that he wanted to test. He believed the eruption of Thera might be linked to the story of Atlantis. And he hoped to find something under the thick layers of ash. He was right, and he did.
 
 [long-pause]
 
-Under many metres of ash and pumice, there was a town. Streets and squares. Houses two and three storeys high. Stairs and doorways and windows. Store rooms full of big clay jars. Beds and tables, preserved as moulds in the ash. It was like a town frozen in time. Like Pompeii in Italy, but much older.
+Under many metres of ash and pumice, there was a whole town. There were streets and little squares, and houses two and three storeys high. There were stairs and doorways and windows, still in their places. There were storerooms full of big clay jars for oil and grain. There were even the shapes of beds and tables, kept as hollow moulds in the ash. It was like a town frozen in time. It was a little like Pompeii in Italy, but much, much older.
 
 [pause]
 
-And on the walls, there were paintings. Beautiful, bright paintings. They were found in pieces and carefully put together again. And they are some of the loveliest paintings of the ancient world.
+And on the walls of the houses, there were paintings. They were beautiful, bright paintings, full of colour. They were found broken into many small pieces. Patient workers put them carefully together again, piece by piece, over many years. They are some of the loveliest paintings of the ancient world.
 
 [pause]
 
 {img:akrotiri-fresco-spring-swallows-lilies-red-rocks-bright-colours}
-One room is painted all around with spring. Red rocks and lilies. And swallows. Pairs of swallows flying and swooping and kissing in the air. It is so happy and full of life. Another painting shows two boys boxing, wearing just a single glove each. Another shows a fisherman holding up strings of fish. Another shows antelopes. And another shows monkeys.
+One room is painted all around with a picture of spring. There are red rocks and tall lilies, swaying in the breeze. And there are swallows, pairs of swallows flying and swooping and playing in the air. It is a happy picture, full of life and sunshine. Another painting shows two boys boxing, each wearing a single glove. Another shows a young fisherman, holding up strings of fresh fish. Others show gentle antelopes, and playful blue monkeys.
 
 [long-pause]
 
-And one long painting shows a fleet of ships. They sail from one town to another. People watch from the windows and the roofs. Dolphins leap around the ships. It is a festival, maybe. A celebration of the sea. Some people looked at it and thought of the ships of Atlantis.
+One long painting shows a fleet of ships. They sail slowly from one town to another, across a blue sea. People watch them from the windows and the flat roofs. Dolphins leap and play around the ships. Perhaps it shows a festival, a celebration of the sea. Some people looked at this painting and thought of the ships of Atlantis.
 
 [pause]
 
 {img:akrotiri-ship-fresco-fleet-dolphins-towns-people-watching-ancient}
-The people of Akrotiri were rich. They traded across the sea. Their houses had toilets and drains. Their walls had paintings. They lived well. And then the volcano warned them. And they left. Where did they go? Nobody knows. Perhaps to Crete, the big island to the south. Perhaps further.
+The people of Akrotiri were rich, and they traded across the sea. Their houses had toilets and drains, which was unusual in those days. Their walls were decorated with paintings. They lived comfortable and pleasant lives. We can imagine a mother grinding grain in the kitchen, while her children play on the stairs. We can imagine a father unloading jars of oil from a boat in the harbour. And then the volcano gave its warnings, and the people left. Where did they go? Nobody knows for sure. Perhaps to Crete, the big island to the south. Perhaps even further away.
 
 [long-pause]
 
-Marinatos dug at Akrotiri for many years. He loved it. He passed away there in an accident, in the middle of his work. He is buried there, in the town he found. Archaeologists still dig at Akrotiri today. They have uncovered only a small part of it. There is much more under the ash. Waiting.
+Marinatos dug at Akrotiri for many years, and he loved the place. He passed away there, in the middle of his work, after an accident. He rests there now, in the town he found. Archaeologists still dig at Akrotiri today. They have uncovered only a small part of the town so far. There is much more still under the ash, waiting quietly.
 
 [pause]
 
-Visitors can walk through the excavated streets today, under a great roof that protects them from the sun and rain. It is cool and quiet in there. You walk past doorways and staircases and big storage jars still standing where they were left. And you can almost hear the voices of the people who lived there, three and a half thousand years ago. Calling to each other across the street. Laughing. Packing up in a hurry, and sailing away.
+Visitors can walk through the uncovered streets today, under a great roof. The roof protects the old houses from the sun and the rain. It is cool and quiet in there. You walk past doorways and staircases, and big storage jars still standing where they were left. And you can almost hear the voices of the people who lived there, three and a half thousand years ago. You can almost hear them calling to each other across the street, and laughing. And then packing up their things in a hurry, and sailing away.
 
 [long-pause]
 
 {img:knossos-palace-crete-red-columns-courtyards-minoan-people-sunny}
-South of Santorini lies a big island. Crete. And on Crete, long ago, lived a people we now call the Minoans.
+South of Santorini lies a big island called Crete. And on Crete, long ago, lived a people we now call the Minoans.
 
 [pause]
 
-The Minoans built great palaces. The biggest was at Knossos. It was huge and complicated. Hundreds of rooms on several floors. Courtyards and staircases and corridors and light wells. Store rooms with giant clay jars. It was so complicated that some people think it gave rise to the old Greek story of the labyrinth. A maze where nobody could find their way out.
+The Minoans built great palaces, and the biggest one was at Knossos. It was huge and full of twists and turns. It had hundreds of rooms, spread over several floors. There were courtyards and staircases, long corridors and wells of light. There were storerooms with giant clay jars, taller than a man. The palace was so complicated that some people think it started the old Greek story of the labyrinth. That was a great maze where nobody could ever find their way out.
 
 [long-pause]
 
-The Minoans were a people of the sea. Their ships sailed everywhere. To Egypt and to the islands and to Greece. They were rich from trade. Their towns did not have big walls. Maybe they did not need them. The sea was their wall. And their ships were their protection.
+The Minoans were a people of the sea, like the people of Atlantis. Their ships sailed everywhere, to Egypt and to the islands and to Greece. They grew rich from their trade across the water. Their towns did not have big walls around them. Perhaps they did not need them. The sea was their wall, and their ships kept them safe.
 
 [pause]
 
-And the Minoans loved bulls. Bulls appear everywhere in their art. There are paintings of young men and women leaping over charging bulls. Grabbing the horns and somersaulting over the bull's back. It is not clear if this really happened or was a kind of dream. But it looks amazing. Bulls' horns were carved in stone on the walls of the palaces. Cups were shaped like bulls' heads.
+The Minoans also loved bulls very much. Bulls appear everywhere in their art. There are paintings of young men and women leaping over running bulls. They grab the horns and somersault right over the bull's back. Nobody knows if this really happened, or if it was a kind of dream. But it looks amazing in the paintings. Bulls' horns were carved in stone along the palace walls. And drinking cups were made in the shape of bulls' heads.
 
 [pause]
 
 {img:minoan-bull-leaping-fresco-acrobat-somersault-bull-colours-knossos}
-Remember the ceremony of the kings of Atlantis? The bulls roaming free in the temple. The kings catching them without weapons. Some people think this is a faint memory of the Minoans and their bulls.
+Do you remember the ceremony of the kings of Atlantis? The bulls wandered freely in the temple grounds. And the kings caught them without any weapons. Some people think this is a faint memory of the Minoans and their bulls.
 
 [long-pause]
 
-The Minoans were also great painters. Their walls show dolphins and fish and lilies and birds. Ladies with curly hair and fine dresses. Princes with feathered crowns. Their art is full of joy and nature and movement.
+The Minoans were also wonderful painters, full of joy. Their walls show dolphins and fish, lilies and birds. They show ladies with curly hair and fine, colourful dresses. They show princes wearing crowns of feathers. Their art is full of nature and movement and happiness.
+
+[pause]
+
+In the palace kitchens, cooks baked bread and boiled lentils in big pots. Servants carried jars of olive oil and honey down the long corridors. Children played in the courtyards, and old men sat in the sun. Life in the palace was busy and cheerful, most days.
 
 [pause]
 
 {img:minoan-dolphins-fresco-blue-sea-fish-queens-room-knossos-light}
-And then, the Minoans faded. After the eruption of Thera, their world was damaged. Ash fell on their fields. Waves hit their coasts. Their ships may have been destroyed. They went on for a time. But they grew weaker. Later, people from mainland Greece took over their palaces. And slowly, the Minoan world disappeared. Forgotten for three thousand years.
+And then, slowly, the Minoans faded away. After the eruption of Thera, their world was badly damaged. Ash fell on their fields, and big waves reached their coasts. Many of their ships may have been lost. They went on for a while, but they grew weaker. Later, people from mainland Greece took over their palaces. And slowly, the whole Minoan world disappeared. It was forgotten for three thousand years.
 
 [long-pause]
 
-Until about a hundred and twenty years ago, when a British archaeologist called Arthur Evans dug at Knossos. He found the palace and its paintings. He gave the people their name, the Minoans, after a king in an old Greek story. And people began to wonder. Could the Minoans be the people of Atlantis? A rich sea people on an island. With bulls and palaces and ships. Who were struck by a terrible disaster from the sea. Some people believe it still.
+Then, about a hundred and twenty years ago, a British archaeologist called Arthur Evans dug at Knossos. He found the great palace and its beautiful paintings. He gave the people their name, the Minoans, after a king in an old Greek story. And people began to wonder about them. Could the Minoans have been the people of Atlantis? They were a rich sea people, living on an island. They had bulls and palaces and many ships. And they were struck by a great disaster from the sea. Some people still believe it today.
 
 [long-pause]
 
 {img:helike-greek-town-gulf-corinth-temple-poseidon-coast-373bc}
-There is another sunken city that Plato may have known about. Because it sank in his own lifetime.
+There is another sunken town that Plato may have known about. That is because it sank during his own lifetime.
 
 [pause]
 
-Its name was Helike. It was a Greek town on the north coast of the Peloponnese. On the shore of a long narrow sea called the Gulf of Corinth. It was a proud old town. And it had a famous temple. A temple of Poseidon. With a great bronze statue of the god.
+Its name was Helike, and it was a Greek town on the north coast of the Peloponnese. It lay on the shore of a long and narrow sea called the Gulf of Corinth. It was a proud old town, with a busy little harbour. And it had a famous temple of Poseidon. Inside stood a great bronze statue of the god.
 
 [long-pause]
 
-In the winter of the year 373 before Christ, when Plato was about fifty years old, something terrible happened. One night, there was a great earthquake. And then a huge wave came from the sea. In one night, Helike was gone. The town sank. The sea covered it. In one night.
+In the winter of the year 373 before Christ, Plato was about fifty years old. And in that winter, something very sad happened at Helike. One night, there was a great earthquake. And then a huge wave came in from the sea. By the morning, Helike was gone. The town had sunk, and the sea had covered it, all in one night.
 
 [pause]
 
-For hundreds of years afterwards, travellers came to see the place. Greek and Roman writers say that you could still see the ruins under the water. The tops of the walls. The bronze statue of Poseidon standing on the sea floor. Fishermen complained that their nets got caught on it.
+For hundreds of years afterwards, travellers came to see the place. Greek and Roman writers say you could still see the ruins under the water. You could see the tops of the walls on a calm day. And you could see the bronze statue of Poseidon, standing on the sea floor. Fishermen said that their nets often got caught on it.
 
 [pause]
 
 {img:ruins-under-shallow-water-statue-faint-sunlight-rays-fishermen-boat}
-Plato must have heard about it. Everyone in Greece did. A whole town, with a temple of Poseidon, swallowed by the sea in one night. It must have made a deep impression. Some people think it gave Plato the idea for the end of Atlantis.
+Imagine a fisherman rowing out in the early morning, when the water is still and clear. He looks down over the side of his boat. Far below, in the green light, he can see old walls and the shape of a street. And there, standing among the weeds, is the bronze god, with his arm raised. The fisherman says a quiet prayer and rows on.
+
+[pause]
+
+Plato must have heard about Helike, because everyone in Greece did. A whole town, with a temple of Poseidon, went under the sea in one night. It must have made a deep impression on him. Some people think it gave Plato the idea for the end of Atlantis.
 
 [long-pause]
 
-Later, people forgot exactly where Helike was. The ruins were covered by mud and sand. The coast changed. For a long time, archaeologists searched for it. They looked in the sea. They found nothing.
+Later, people forgot exactly where Helike had been. The ruins were slowly covered with mud and sand. The coastline changed over the centuries. For a long time, archaeologists searched for Helike. They looked carefully in the sea, but they found nothing.
 
 [pause]
 
 {img:archaeologists-digging-helike-olive-groves-coast-trenches-today}
-Then, about twenty-five years ago, they found it. But not in the sea. On land. Under fields and olive groves near the coast. The sea had pulled back over the centuries. The lagoon where Helike sank had filled with mud. Now it was dry land. And under the mud, the archaeologists found walls and streets and coins and pots. And even an older town, from an even earlier time. Also buried.
+Then, about twenty-five years ago, they finally found it. But it was not in the sea at all. It was on dry land, under fields and olive groves near the coast. Over the centuries, the sea had pulled back from the shore. The lagoon where Helike sank had slowly filled up with mud. Now it was dry land, with farms on top of it. And under the mud, the archaeologists found walls and streets, coins and pots. They even found an older town underneath, from an even earlier time.
 
 [long-pause]
 
-So Helike was real. A town of Poseidon that sank in one night. Plato knew of it. And perhaps, when he sat down to write about Atlantis, he was thinking of the fishermen's nets catching on a bronze god at the bottom of the sea.
+So Helike was real, a town of Poseidon that sank in one night. Plato knew about it. And perhaps, when he sat down to write about Atlantis, he was thinking of it. Perhaps he was thinking of the fishermen's nets, catching on a bronze god at the bottom of the sea.
 
 [pause]
 
-Today you can walk among the olive groves near the coast where Helike lay. It looks like ordinary farmland. Peaceful and green, with the blue gulf beyond. Only a few trenches and signs show where the town was found. Under your feet, Poseidon's lost town lies sleeping.
+Today you can walk among the olive groves near the coast where Helike lay. It looks like ordinary farmland, peaceful and green. Goats graze between the trees, and bees hum in the wild thyme. Beyond the fields, the blue gulf sparkles in the sun. Only a few trenches and signs show where the town was found. And under your feet, Poseidon's lost town lies sleeping.
 
 [long-pause]
 
 {img:doggerland-ancient-landscape-hunters-rivers-marsh-deer-north-sea-before}
-There is one more lost land. Not in the warm Mediterranean. But in the cold north. Under the North Sea. Between England and the Netherlands.
+There is one more lost land we will visit tonight. It is not in the warm Mediterranean, but in the cool north. It lies under the North Sea, between England and the Netherlands.
 
 [pause]
 
@@ -883,38 +963,42 @@ It is called Doggerland.
 
 [long-pause]
 
-About ten thousand years ago, at the end of the last great ice age, the sea was much lower than it is now. A lot of the world's water was frozen in huge sheets of ice. And where the North Sea is today, there was land. Green rolling land with rivers and lakes and marshes and hills. You could walk from England to the Netherlands and Denmark. No boat needed.
+About ten thousand years ago, at the end of the last great ice age, the sea was much lower than it is now. A great deal of the world's water was frozen in huge sheets of ice. And where the North Sea is today, there was land. It was green, rolling land, with rivers and lakes, marshes and low hills. You could walk all the way from England to the Netherlands and Denmark. You did not need a boat at all.
 
 [pause]
 
-People lived there. Hunters and fishers and gatherers. They hunted deer and wild boar and aurochs, huge wild cattle. They fished in the rivers. They gathered nuts and berries. They camped by the lakes. It was a rich land. Full of animals and birds and fish.
+People lived there, in small family groups. They were hunters and fishers and gatherers. They hunted deer and wild boar, and huge wild cattle called aurochs. They fished in the rivers and set traps for eels. They gathered hazelnuts and berries and wild apples. They made their camps beside the lakes. It was a rich and pleasant land, full of animals and birds and fish.
 
 [pause]
 
 {img:hunter-family-camp-lake-doggerland-fire-reed-hut-evening-mist}
-But the ice was melting. Slowly, year by year, the sea rose. Just a little each year. Perhaps not enough to notice in one lifetime. But over hundreds of years, the sea crept in. The marshes became lagoons. The lagoons became bays. Hills became islands. People moved to higher ground. Again and again.
+Imagine a family camp on the shore of a lake, on an autumn evening. There is a small hut made of reeds and branches. A fire burns in front of it, and fish are cooking on sticks. The mother is scraping a deer skin to make it soft. The children are sorting hazelnuts into a basket. A dog lies by the fire, and mist drifts slowly over the water.
+
+[pause]
+
+But the great ice was slowly melting, far away in the north. Year by year, the sea crept a little higher. It rose only a little each year, perhaps not enough to notice in one lifetime. But over hundreds of years, the sea moved in. The marshes became lagoons, and the lagoons became bays. Hills became islands. The families moved to higher ground, again and again.
 
 [long-pause]
 
-About eight thousand years ago, there may have been a sudden blow too. A huge underwater landslide off the coast of Norway sent a great wave across the sea. And soon after, the last of Doggerland disappeared under the waves. It was gone.
+About eight thousand years ago, there may have been a sudden change as well. A huge landslide under the sea, off the coast of Norway, sent a big wave across the water. And not long after that, the last of Doggerland disappeared under the waves. The land was gone.
 
 [pause]
 
 {img:fishing-trawler-net-old-bones-tools-north-sea-grey-later-find}
-For a long time, nobody knew. Then fishermen started finding strange things in their nets. Bones of mammoths and lions and woolly rhinos. Old tools made of stone and bone. A spear point carved from antler. They came from the bottom of the North Sea. From a land that had once been there.
+For a very long time, nobody knew that this land had ever existed. Then fishermen started finding strange things in their nets. They found bones of mammoths and woolly rhinos and cave lions. They found old tools made of stone and bone. Once they found a spear point carved from deer antler. All of these came up from the bottom of the North Sea. They came from a land that had once been there.
 
 [long-pause]
 
-Today, scientists use ships with special equipment to map the sea floor. They can see the old river valleys and lake shores and hills under the mud. They are drawing maps of a country that drowned. Some people call Doggerland Britain's Atlantis. It was not a city of gold. It was something more ordinary. A green land where families lived. Until the sea came. Slowly. And then, completely.
+Today, scientists use ships with special equipment to map the sea floor. They can see the old river valleys and lake shores and hills, hidden under the mud. They are drawing maps of a country that lies under the water. Some people call Doggerland Britain's Atlantis. It was not a city of gold and silver. It was something more ordinary and more gentle. It was a green land where families lived, until the sea came in. Slowly at first, and then completely.
 
 [pause]
 
-Imagine a family living there, long ago. A grandmother who remembered when the lake was a meadow. A father who had to move the camp every few years, further from the water. Children who grew up with the sound of waves where their grandparents had heard only wind in the grass. They did not write anything down. But perhaps they told stories. About the old land, now under the sea. And perhaps, somewhere, faint echoes of those stories still drift through our own.
+Imagine one family living there, long ago. There is a grandmother who remembers when the lake was a meadow. There is a father who has to move the camp every few years, a little further from the water. There are children who grow up with the sound of waves, where their grandparents heard only wind in the grass. They did not write anything down. But perhaps they told stories about the old land, now under the sea. And perhaps, somewhere, faint echoes of those stories still drift through our own.
 
 [long-pause]
 
 {img:victorian-writer-desk-maps-books-atlantis-theory-candle-1880s}
-After Plato, people kept wondering about Atlantis. But for many centuries, most of them agreed with Aristotle. It was a story. A nice one, with a good lesson. Nothing more.
+After Plato, people kept on wondering about Atlantis. But for many centuries, most of them agreed with Aristotle. They said it was a story, a nice one with a good lesson, and nothing more.
 
 [pause]
 
@@ -922,33 +1006,37 @@ Then, about a hundred and fifty years ago, everything changed.
 
 [long-pause]
 
-In 1882, an American politician called Ignatius Donnelly wrote a book. It was called Atlantis, the Antediluvian World. That means the world before the flood. In it, he said Atlantis was real. It had been a great continent in the middle of the Atlantic Ocean. And it was the mother of all civilisations. From Atlantis, he said, people had sailed to Egypt and to America and everywhere else. That is why the pyramids of Egypt and the pyramids of Mexico look a bit alike, he said. They both came from Atlantis.
+In 1882, an American politician called Ignatius Donnelly wrote a book. It was called Atlantis, the Antediluvian World, which means the world before the flood. In his book, Donnelly said that Atlantis had been completely real. He said it had been a great continent in the middle of the Atlantic Ocean. He said it was the mother of all the old civilisations of the world. From Atlantis, he wrote, people had sailed to Egypt and to America and everywhere else. That was why the pyramids of Egypt and the pyramids of Mexico look a little alike, he said. They had both come from Atlantis.
 
 [pause]
 
-The book was a huge success. Millions of people read it. And suddenly, everyone was talking about Atlantis again.
+His book was a huge success, and millions of people read it. People read it by the fire in the evenings and talked about it at dinner. And suddenly, everyone was talking about Atlantis again.
 
 [pause]
 
 {img:explorers-ship-searching-ocean-atlantic-sonar-map-early-modern}
-After Donnelly, the floodgates opened. People found Atlantis everywhere. In the Atlantic and the Mediterranean. In the Caribbean and the Arctic. In Africa and South America. Under the ice of Antarctica. In Spain and in Ireland and in Sweden. Every few years, someone says they have found it. And every time, it turns out not to be.
+After Donnelly's book, people began to find Atlantis everywhere they looked. They found it in the Atlantic and in the Mediterranean. They found it in the Caribbean and in the cold Arctic. They found it in Africa and in South America, and even under the ice of Antarctica. They found it in Spain and in Ireland and in Sweden. Every few years, someone says they have found it at last. And every time, it turns out not to be Atlantis after all.
 
 [long-pause]
 
-Scientists who study the sea floor say there was never a big continent in the middle of the Atlantic. The ocean floor there is spreading apart, very slowly. New sea floor is made in the middle. There is no room for a sunken continent. And no sign of one.
+Scientists who study the sea floor say there was never a big continent in the middle of the Atlantic. The floor of the ocean there is slowly spreading apart. New sea floor is made in the middle, very slowly, year after year. There is simply no room for a sunken continent there. And there is no sign of one.
 
 [pause]
 
-But people keep looking. Because the idea is so wonderful. A lost world. A great civilisation forgotten under the sea. Secrets waiting to be found. It is one of the best stories ever told.
+But people keep looking, because the idea is so wonderful. A lost world, a great civilisation forgotten under the sea, and secrets waiting to be found. It is one of the best stories ever told.
 
 [pause]
 
 {img:diver-underwater-ancient-stones-sea-floor-light-rays-searching}
-Atlantis has appeared in countless books and films and games and cartoons. Underwater cities with domes. People with gills. Crystals and lost technology. Mermaids and sea kings. Most of it has nothing to do with Plato at all. But all of it began with his unfinished story. In a garden of olive trees outside Athens.
+Atlantis has appeared in countless books and films and games and cartoons. There are underwater cities with glass domes, and people who can breathe under water. There are glowing crystals and lost machines, mermaids and sea kings. Most of it has nothing to do with Plato at all. But all of it began with his unfinished story, in a garden of olive trees outside Athens.
 
 [long-pause]
 
-Some searchers have been very serious. They have spent years and fortunes. They have hired ships and divers and planes. In the Bahamas, divers found a long line of flat stones under the water. Some called it the road to Atlantis. Geologists looked at it and said it was a natural rock formation. The searchers were disappointed. But they kept searching somewhere else.
+Some of the searchers have been very serious about it. They have spent years of their lives and a great deal of money. They have hired ships and divers and aeroplanes. In the Bahamas, divers once found a long line of flat stones under the clear water. Some people called it the road to Atlantis. But geologists looked at it carefully and said it was a natural rock formation. The searchers were disappointed for a while. And then they packed their bags and went searching somewhere else.
+
+[pause]
+
+Many of these searchers were quite happy people, in their own way. They loved the sea and the sunshine and the long days on the boat. They loved reading old maps by lamplight in the evenings. Even if they never found Atlantis, they found adventures and friends along the way.
 
 [long-pause]
 
@@ -957,78 +1045,90 @@ Long before Donnelly, people had already been dreaming about Atlantis. And some 
 
 [pause]
 
-About three hundred and fifty years ago, a German priest and scholar called Athanasius Kircher drew a map of Atlantis. He was a man who wanted to know everything. Volcanoes and magnets and music and ancient languages. He had himself lowered into the crater of a smoking volcano in Italy, just to look inside.
+About three hundred and fifty years ago, a German priest and scholar called Athanasius Kircher drew a map of Atlantis. Kircher was a man who wanted to know about everything in the world. He studied volcanoes and magnets, music and ancient languages. He collected strange objects from all over the world in a big museum. Once he even had himself lowered into the crater of a smoking volcano in Italy, just to look inside.
 
 [long-pause]
 
-His map of Atlantis is famous. It shows a big island in the middle of the ocean, between Africa and Spain on one side, and America on the other. The strange thing is that the map is drawn upside down. South is at the top. People looking at it today often turn it around to understand it. It is a beautiful map. With little ships and waves and sea monsters. But it was all imagination.
+His map of Atlantis is very famous. It shows a big island in the middle of the ocean. On one side are Africa and Spain, and on the other side is America. The strange thing is that the map is drawn upside down. South is at the top of the map, and north is at the bottom. People looking at it today often turn it around to understand it. It is a beautiful map, with little ships and curling waves and sea monsters. But all of it came from Kircher's imagination.
 
 [pause]
 
 {img:new-atlantis-bacon-island-utopia-scholars-college-ships-engraving}
-A few years before that, an English thinker called Francis Bacon wrote a short book called New Atlantis. It was not about the old Atlantis. It was about a new imaginary island in the Pacific Ocean. A perfect place where everyone was wise and good. And where scientists worked together in a great college to understand nature. To invent new things for the good of everyone.
+A few years before that, an English thinker called Francis Bacon wrote a short book. It was called New Atlantis. It was not really about the old Atlantis of Plato. It was about a new, imaginary island in the Pacific Ocean. It was a perfect place, where everyone was wise and kind. On this island, scientists worked together in a great college to understand nature. They worked to invent new things that would help everyone.
 
 [long-pause]
 
-Bacon's island had amazing inventions. Machines to fly and to go under water. Ways to make the weather. Ways to talk across long distances. In the year 1627, that all sounded like magic. Today, much of it is real. Bacon dreamed of a world where science would make life better. And his little book inspired real scientists. Some say it helped to start one of the first great science societies in England.
+In Bacon's story, some sailors are lost at sea and find this island by chance. The people there welcome them kindly and look after them. They show them gardens and workshops and tall towers for watching the stars. The sailors are amazed by everything they see.
+
+[pause]
+
+Bacon's island had many amazing inventions. There were machines that could fly through the air and travel under the water. There were ways to change the weather and to talk across long distances. In the year 1627, all of this sounded like magic. Today, a great deal of it is real. Bacon dreamed of a world where science would make life better for everyone. And his little book inspired real scientists. Some people say it helped to start one of the first great science societies in England.
 
 [pause]
 
 {img:scholars-gathered-early-science-society-instruments-candles-room}
-So Atlantis did not only inspire dreams of the past. It inspired dreams of the future too. Of better worlds. Of new knowledge. Of places where people live wisely and well. Plato would have liked that. Because in the end, that was what his story was really about. Not gold and ships. But how to live well. And what happens when we forget.
+In that society, curious people met every week in a candlelit room. They brought their new instruments, telescopes and microscopes and glass tubes. They showed each other their experiments and talked late into the night. They wrote everything down carefully and shared it with others.
+
+[pause]
+
+So Atlantis did not only inspire dreams about the past. It inspired dreams about the future too. It inspired dreams of better worlds and new knowledge. It inspired dreams of places where people live wisely and well together. Plato would have liked that very much. Because in the end, that was what his story was really about. It was not about gold and ships. It was about how to live well, and what happens when we forget.
 
 [long-pause]
 
 {img:old-storyteller-fire-children-listening-night-village-sea-behind}
-Why has the story of Atlantis lasted so long?
+Why has the story of Atlantis lasted so very long?
 
 [pause]
 
-Many stories from Plato's time have been forgotten. Many great cities that really existed are only remembered by experts. But everyone has heard of Atlantis. A city that may never have been real. Why?
+Many stories from Plato's time have been forgotten long ago. Many great cities that really existed are now only remembered by experts. But nearly everyone in the world has heard of Atlantis. It is a city that may never have been real at all. So why do we still remember it?
 
 [long-pause]
 
-Perhaps because it is a story about loss. Everyone knows that feeling. Something beautiful that is gone forever. A childhood home. A person we loved. A place that has changed. Atlantis is like all of those things together. A beautiful world that sank under the waves. And we can never go back.
+Perhaps it is because Atlantis is a story about loss. Everyone knows that feeling, deep inside. It is the feeling of something beautiful that is gone forever. It might be a childhood home, or a person we loved, or a place that has changed. Atlantis is like all of those things together. It is a beautiful world that sank under the waves. And we can never go back to it.
 
 [pause]
 
-Perhaps because it is a story about pride. About what happens when people become too rich and too greedy and forget what is good. Every age has seen that happen. Every age needs that warning. Plato wrote it for Athens. But it fits every time and every place.
+Perhaps it is because Atlantis is a story about pride. It tells what happens when people become too rich and too greedy, and forget what is good. Every age in history has seen that happen somewhere. And every age needs that gentle warning. Plato wrote it for the people of Athens. But it fits every time and every place.
 
 [pause]
 
 {img:sunken-columns-underwater-blue-light-fish-swimming-dreamlike-calm}
-And perhaps because it is a mystery. People love a mystery. A question with no answer. Was it real? Where was it? What did Zeus say? Every time we think we know, another possibility appears. Thera. Crete. Helike. Doggerland. Spain. The middle of the ocean. Or only in Plato's head.
+And perhaps it is because Atlantis is a mystery. People love a good mystery, a question that has no answer. Was it real, and where was it? What did Zeus say to the gods? Every time we think we know, another possibility appears. Was it Thera, or Crete, or Helike? Was it Doggerland, or Spain, or the middle of the ocean? Or was it only in Plato's head, all along?
 
 [long-pause]
 
-There is also something true behind it. The sea really does take land. Islands really do sink. Towns really have been swallowed by waves. Coasts really do change. Long ago, people really did live on land that is now under the sea. And they really did have to move, as the water rose.
+There is also something true behind the story of Atlantis. The sea really does take land, now and then. Islands really do sink, and towns really have been covered by the waves. Coasts really do change over time. Long ago, people really did live on land that is now under the sea. And they really did have to move, slowly, as the water rose.
 
 [pause]
 
 {img:coastline-changing-sea-rising-old-village-ruins-shoreline-gentle}
-In our own time, the sea is rising again. Slowly. Some low islands and coasts are worried about the future. People are building dykes and walls. Planning and preparing. The old story of Atlantis feels a little closer than it used to. A reminder that the sea is patient and powerful. And that we should look after the world we have.
+In our own time, the sea is slowly rising again. Some low islands and coasts are thinking carefully about the future. People are building dykes and sea walls and planning ahead. In the Netherlands, people have lived beside the sea and behind their dykes for a thousand years. They have learned to live with the water, patiently and cleverly. The old story of Atlantis feels a little closer than it used to. It reminds us that the sea is patient and powerful. And it reminds us that we should look after the world we have.
 
 [long-pause]
 
-But for tonight, Atlantis is a story. A beautiful old story, told by a wise man in a garden under the olive trees. About rings of land and water. About silver temples and golden horses. About kings in dark blue robes, sitting in the dark. And about one day and one night, when the sea came.
+Stories like Atlantis have always been told around fires, in the evenings. Imagine an old storyteller in a fishing village, long ago, with the sea behind him. The children sit close together on the sand, with blankets around their shoulders. The fire crackles, and the waves whisper on the beach. And the old man begins, in a low voice. Long, long ago, he says, there was an island in the sea.
+
+[pause]
+
+But for tonight, Atlantis is simply a story. It is a beautiful old story, told by a wise man in a garden under the olive trees. It is about rings of land and water, and silver temples and golden horses. It is about kings in dark blue robes, sitting quietly in the dark. And it is about one day and one night, when the sea came.
 
 [long-pause]
 
 {img:santorini-sunset-today-caldera-white-village-visitors-watching}
-Today, people still look for Atlantis. And they still find it everywhere. In books and films and dreams.
+Today, people still look for Atlantis, and they still find it everywhere. They find it in books and films, and in their dreams.
 
 [pause]
 
-On Santorini, every evening, thousands of visitors gather on the cliffs to watch the sunset. The sun sinks into the sea behind the dark little islands in the bay. The sky turns gold and pink and purple. The white houses glow. Some of the visitors think about Atlantis. About a round island and a terrible eruption. About a town under the ash with painted swallows on its walls.
+On Santorini, every evening, thousands of visitors gather on the high cliffs to watch the sunset. The sun sinks slowly into the sea, behind the dark little islands in the bay. The sky turns gold, then pink, then purple. The white houses glow softly in the fading light. Some of the visitors think about Atlantis as they watch. They think about a round island and a great eruption. They think about a town under the ash, with painted swallows on its walls.
 
 [long-pause]
 
-In Athens, you can still visit the place where Plato's Academy stood. It is a quiet park now, in the middle of the busy modern city. There are olive trees again. A few old stones. Children play there. Old people sit on benches. Nobody would guess that the greatest school of the ancient world once stood here. Or that the story of Atlantis was first read aloud here.
+In Athens, you can still visit the place where Plato's Academy once stood. It is a quiet park now, in the middle of the busy modern city. There are olive trees growing there again, and a few old stones in the grass. Children play on the paths, and old people sit on the benches in the shade. Nobody would guess that the greatest school of the ancient world once stood here. Or that the story of Atlantis was first read aloud in this place.
 
 [pause]
 
 {img:plato-academy-park-athens-today-olive-trees-benches-evening-later}
-And Plato's books are still read everywhere. In schools and universities all over the world. People still argue about what he meant. They still ask the questions he asked. What is justice? What is a good life? How should a city be ruled? And was Atlantis real?
+And Plato's books are still read everywhere, all over the world. They are read in schools and universities, and by people at home in their armchairs. People still argue about what he really meant. They still ask the same questions that he asked. What is justice? What is a good life? How should a city be ruled? And was Atlantis real?
 
 [long-pause]
 
@@ -1036,7 +1136,15 @@ So we leave Atlantis tonight, as the evening falls.
 
 [pause]
 
-The sun sets over a calm sea. The water turns gold and then silver. Somewhere far out, beyond the Pillars of Heracles, the waves roll gently over the place where an island may once have been. In the garden of the Academy, the lamps are being lit. The old teacher has gone to rest. The students are walking home under the olive trees, still talking. The young student from the island stops by the gate. He looks up at the stars. He thinks about rings of land and water. About a silver temple on a hill. About a girl on a rooftop asking if her city would last forever. And then he smiles, and walks home through the quiet streets of Athens. Somewhere a dog barks. The olive leaves whisper. And the stars shine down on the sleeping city and the dark, calm, endless sea.
+The sun sets slowly over a calm sea. The water turns gold, and then silver, and then a deep soft blue. Somewhere far out, beyond the Pillars of Heracles, the waves roll gently. They roll over the place where an island may once have been.
+
+[pause]
+
+In the garden of the Academy, the lamps are being lit one by one. The old teacher has gone to rest in his little house. The students are walking home under the olive trees, still talking quietly. The young student from the island stops for a moment by the gate. He looks up at the stars, which are coming out above the city. He thinks about rings of land and water, and a silver temple on a hill. He thinks about a girl on a rooftop, asking if her city would last forever. And then he smiles to himself and walks home through the quiet streets of Athens.
+
+[pause]
+
+Somewhere a dog barks, far away, and then is quiet again. The olive leaves whisper softly in the night breeze. And the stars shine down on the sleeping city and on the dark, calm, endless sea.
 
 [pause]
 
