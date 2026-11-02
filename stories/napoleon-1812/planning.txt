@@ -1,6 +1,6 @@
 onderwerp Life with Napoleon's Army in the Russian Winter, 1812
 status   script-klaar (2026-11-01, tweede account)
-datum    za 2027-02-06 21:00 NL
+datum    wo 2027-02-10 21:00 NL
 titel    Life with Napoleon's Army in the Russian Winter, 1812 | <N> Hours of History for Sleep
 thumbnail amberregel "RUSSIA · WINTER 1812", hook "Napoleon in the Russian Winter", beeld (kenmerkend): Napoleon in grijze overjas en steek rustig te paard in vallende sneeuw, achter hem een lange rij soldaten met berenmutsen tussen berkenbomen, warm licht van een kampvuur op de voorgrond; kalm, niets grimmigs
 soort    oorlog
