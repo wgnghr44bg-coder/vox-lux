@@ -1,0 +1,11 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "London in 1888, and the railway stations" = 01-londen-1888.txt + 02-de-grootste-stad.txt + 02b-de-stations.txt
+# "The streets, the sewers, and the Embankment" = 03-de-straten.txt + 03b-de-riolen.txt
+# "The docks, and Tower Bridge" = 05-de-thames-en-de-dokken.txt + 05b-tower-bridge.txt
+# "A home in Kensington, the housemaid, and the kitchen" = 06-een-huis-in-kensington.txt + 06b-de-dienstmeid.txt + 06c-de-keuken.txt
+# "Markets and shops" = 08-de-markten.txt + 08b-de-winkels.txt
+# "The parks, and a trip up the river" = 11-de-parken.txt + 11b-de-rivier-op.txt
+# "Music halls, theatres, and the pubs" = 13-music-hall-en-theater.txt + 13b-de-koffiekraam.txt
+# "Sherlock Holmes, the fog, and gaslight" = 14-sherlock-holmes.txt + 15-de-mist.txt + 15b-de-lantaarnaansteker.txt
+# "The Queen, and sport and bicycles" = 16-de-koningin.txt + 17-sport-en-fietsen.txt
+# "What came later, and London today" = 18-wat-later-kwam.txt + 19-londen-nu.txt
