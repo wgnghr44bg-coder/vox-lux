@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 FPS = 25
 XFADE = 1.5      # seconden overgang tussen afbeeldingen
-FOG_SPEED = 20   # pixels per seconde
+FOG_SPEED = 25   # pixels per seconde; = 1 pixel per beeldje, anders schokt de mist (0-1-1-1-0)
 FOG_OPACITY = 0.4
 # Avondeffect v2 (eigenaar, 30 okt 2026): iets donkerder, kleuren gewoon (geen gele "ansichtkaart"-lucht),
 # randen zacht donker. Alleen het beeld; titels/kaarten van motion.py en de thumbnail blijven zoals ze zijn.
@@ -49,36 +49,35 @@ STANDEN = [(1.04, 0.50, 0.50), (1.18, 0.50, 0.38), (1.18, 0.12, 0.45), (1.10, 0.
 
 def make_clip(img, out, dur, n):
     """Een afbeelding met langzame, steeds wisselende zoom- en schuifbewegingen."""
+    # Elk beeldje wordt zelf berekend met fracties van een pixel (Pillow, bicubisch). zoompan schoof in
+    # hele pixels: bij deze trage beweging stond het beeld dan even stil en sprong het, en dat zag je op
+    # een groot tv-scherm als trillen (eigenaar, 2 nov 2026). Gemeten: zoompan 59% stilstaande beeldjes.
     frames = round(dur * FPS)
     segf = BEWEGING * FPS
-    k = f"mod(floor(on/{segf})+{n},{len(STANDEN)})"
-    k1 = f"mod(floor(on/{segf})+{n + 1},{len(STANDEN)})"
-    p = f"((on-floor(on/{segf})*{segf})/{segf})"
-    e = f"({p}*{p}*(3-2*{p}))"
-
-    def sel(idx, i):
-        v = [s[i] for s in STANDEN]
-        expr = str(v[-1])
-        for j in range(len(v) - 2, -1, -1):
-            expr = f"if(eq({idx},{j}),{v[j]},{expr})"
-        return expr
-
-    def lerp(i):
-        return f"({sel(k, i)}+({sel(k1, i)}-{sel(k, i)})*{e})"
-    zoom, x, y = lerp(0), f"(iw-iw/zoom)*{lerp(1)}", f"(ih-ih/zoom)*{lerp(2)}"
-    # Groot (4K) en in RGB, anders verspringt het beeld zichtbaar (zoompan schuift in hele
-    # pixels, in YUV zelfs per 2). Het vergroten gebeurt één keer met Pillow, niet per beeldje.
-    big = Path(out).with_suffix(".png")
+    zmax = max(s[0] for s in STANDEN)
     im = Image.open(img).convert("RGB")
-    s = max(3840 / im.width, 2160 / im.height)
+    s = max(1920 * zmax / im.width, 1080 * zmax / im.height)
     im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    l, t = (im.width - 3840) // 2, (im.height - 2160) // 2
-    im.crop((l, t, l + 3840, t + 2160)).save(big)
-    run(["-loop", "1", "-framerate", str(FPS), "-i", str(big), "-filter_complex",
-         f"[0]format=rgb24,zoompan=z='{zoom}':x='{x}':y='{y}':d=1:s=1920x1080:fps={FPS},format=yuv420p",
-         "-frames:v", str(frames), "-c:v", "libx264", "-preset", "veryfast", "-crf", "16",
-         str(out)])
-    big.unlink()
+    W, H = round(1920 * zmax), round(1080 * zmax)      # midden 16:9, zoals vroeger; bij zoom zmax 1 op 1
+    l, t = (im.width - W) // 2, (im.height - H) // 2
+    im = im.crop((l, t, l + W, t + H))
+    proc = subprocess.Popen([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
+                             "-s", "1920x1080", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "veryfast",
+                             "-crf", "16", "-pix_fmt", "yuv420p", str(out)], stdin=subprocess.PIPE)
+    for on in range(frames):
+        k, p = divmod(on, segf)
+        a, b = STANDEN[(k + n) % len(STANDEN)], STANDEN[(k + n + 1) % len(STANDEN)]
+        p /= segf
+        e = p * p * (3 - 2 * p)
+        z, fx, fy = (a[i] + (b[i] - a[i]) * e for i in range(3))
+        cw, ch = W / z, H / z                       # zichtbaar stuk van de bron
+        x0, y0 = (W - cw) * fx, (H - ch) * fy
+        sc = cw / 1920
+        fr = im.transform((1920, 1080), Image.AFFINE, (sc, 0, x0, 0, sc, y0), Image.BICUBIC)
+        proc.stdin.write(fr.tobytes())
+    proc.stdin.close()
+    if proc.wait():
+        raise RuntimeError(f"ffmpeg faalde voor {out}")
 
 
 GROEP = 20      # max. aantal clips per ffmpeg-stap (geheugen)
@@ -147,7 +146,7 @@ def main():
         tmp = out.with_name("tmp-" + out.name)
         make_clip(img, tmp, dur, i)
         tmp.replace(out)
-    with ThreadPoolExecutor(4) as ex:
+    with ThreadPoolExecutor(8) as ex:   # Pillow rekent buiten de GIL, 8 tegelijk is ± 3x zo snel
         list(ex.map(one, todo))
 
     # 1b. Veel afbeeldingen tegelijk openen kost te veel geheugen (75 clips: ffmpeg gestopt
