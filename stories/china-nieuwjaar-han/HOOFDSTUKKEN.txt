@@ -1,0 +1,13 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Luoyang in winter, and the Han" = 01-luoyang-in-de-winter.txt + 02-de-han.txt
+# "The city, and the palace" = 03-luoyang.txt + 03b-het-paleis.txt
+# "A family, and their house" = 05-een-familie.txt + 05b-het-huis.txt
+# "The twelfth month, and the stove god" = 06-de-twaalfde-maand.txt + 06b-de-keukengod.txt
+# "Cleaning, and the market" = 08-schoonmaken-en-kopen.txt + 08b-de-markt.txt
+# "Silk, and paper" = 09-zijde.txt + 09b-papier.txt
+# "The last night of the year, and the bamboo" = 10-de-laatste-avond.txt + 10b-de-bamboe.txt
+# "New Year's morning, and the ancestors" = 12-nieuwjaarsochtend.txt + 12b-de-voorouders.txt
+# "The New Year's court, and the food" = 13-het-hof.txt + 14-het-eten.txt
+# "The twelve animals, and visiting" = 15-de-dieren.txt + 16-bezoek.txt
+# "The Academy, the Lantern Festival, and the Silk Road" = 16b-de-academie.txt + 17-het-lantaarnfeest.txt + 17b-de-zijderoute.txt
+# "Zhang Heng, what came later, and New Year today" = 18-zhang-heng.txt + 19-wat-later-kwam.txt + 20-nieuwjaar-nu.txt
