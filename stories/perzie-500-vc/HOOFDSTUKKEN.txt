@@ -1,0 +1,15 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Cyrus the Great, and the fall of Babylon" = 02-cyrus.txt + 02b-babylon-valt.txt
+# "Darius, and his Greek doctor" = 03-darius.txt + 03b-democedes.txt
+# "Persepolis, and the writing of the empire" = 04-persepolis.txt + 04b-het-schrift.txt
+# "The Royal Road, and the eyes and ears of the king" = 06-de-koninklijke-weg.txt + 06b-de-ogen-en-oren.txt
+# "The builders, and the carpets" = 07-de-bouwers.txt + 07b-tapijten.txt
+# "Gardens, horses and lions" = 08-de-paradijzen.txt + 08b-jacht-en-paarden.txt + 08c-leeuwen-en-griffioenen.txt
+# "The Wise Lord, and the stars" = 09-ahura-mazda.txt + 09b-de-sterren.txt
+# "A Persian boyhood, and the market" = 10-een-perzische-jeugd.txt + 10b-de-markt-van-susa.txt
+# "The king's table, and the travelling court" = 11-de-tafel-van-de-koning.txt + 12-de-reizende-hofhouding.txt
+# "The Jews of the empire, water and ice" = 12b-de-joden-in-het-rijk.txt + 13-qanaten-en-boeren.txt + 13b-ijs-in-de-woestijn.txt
+# "Queens and Immortals" = 14-de-koninginnen.txt + 15-de-onsterfelijken.txt
+# "The Greeks, the philosophers, and Xerxes" = 16-de-grieken.txt + 16b-de-filosofen-van-ionie.txt + 17-xerxes-en-daarna.txt
+# "An evening at Persepolis, the end, and Persia today" = 17b-een-avond-in-persepolis.txt + 18-het-einde-van-het-rijk.txt + 19-perzie-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
