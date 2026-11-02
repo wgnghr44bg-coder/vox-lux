@@ -1,0 +1,11 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Babylon, the land between the rivers, and arriving" = 01-babylon.txt + 02-mesopotamie.txt + 02b-de-reis.txt
+# "Nebuchadnezzar, and his palace" = 03-nebukadnezar.txt + 03b-het-paleis.txt
+# "The walls, the Ishtar Gate, and the Processional Way" = 04-de-muren-en-de-poort.txt + 04b-de-processieweg.txt
+# "The great tower, and the temple of Marduk" = 05-de-toren.txt + 05b-esagila.txt
+# "A house in Babylon, a family's day, and the women" = 07-een-huis.txt + 07b-een-dag.txt + 07c-de-vrouwen.txt
+# "Date palms, canals, beer, and bread" = 08-dadels-en-kanalen.txt + 08b-bier-en-brood.txt
+# "Trade, and the law" = 09-handel.txt + 09b-recht.txt
+# "Writing on clay, and school" = 10-kleitabletten.txt + 10b-de-school.txt
+# "The Hanging Gardens, the exiles, and the craftsmen" = 15-de-hangende-tuinen.txt + 16-de-ballingen.txt + 16b-ambachten.txt
+# "What came later, the rediscovery, and Babylon today" = 17-wat-later-kwam.txt + 18-de-ontdekking.txt + 19-babylon-nu.txt
