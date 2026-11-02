@@ -1,0 +1,16 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Jerusalem in the spring of 33, and pilgrims from the world" = 01-jeruzalem.txt + 01b-pelgrims-uit-de-wereld.txt
+# "The Temple, and King Herod" = 02-de-tempel.txt + 02b-herodes.txt
+# "The city, water and purity" = 03-de-stad.txt + 03b-water-en-baden.txt
+# "Passover, and the Passover meal" = 04-pesach.txt + 04b-de-pesachmaaltijd.txt
+# "A day in Jerusalem, clothes and food" = 05-een-dag-in-jeruzalem.txt + 05b-kleding-en-eten.txt
+# "Pilate, and the Roman soldiers" = 06-pilatus.txt + 06b-de-soldaten.txt
+# "Jesus of Galilee, Nazareth, and the road from Jericho" = 08-jezus-uit-galilea.txt + 08b-nazaret.txt + 08c-de-weg-van-jericho.txt
+# "Palm Sunday, and the Mount of Olives" = 09-de-intocht.txt + 09b-de-olijfberg.txt
+# "In the Temple, its music, and Bethany" = 10-in-de-tempel.txt + 10b-de-tempelmuziek.txt + 11-bethanie.txt
+# "The Last Supper, and the scrolls of the desert" = 12-het-laatste-avondmaal.txt + 12b-de-rollen-van-de-dode-zee.txt
+# "Gethsemane, and the night" = 13-gethsemane.txt + 14-de-nacht-en-de-ochtend.txt
+# "Golgotha, the quiet Sabbath, and the tombs" = 15-golgotha.txt + 16-de-stille-sabbat.txt + 16b-de-rotsgraven.txt
+# "Easter morning, Mary Magdalene, and Emmaus" = 17-de-paasmorgen.txt + 17b-maria-magdalena.txt + 18-emmaus.txt
+# "What followed, and Jerusalem today" = 19-wat-volgde.txt + 20-jeruzalem-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
