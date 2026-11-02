@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Ur, and the land of Sumer" = 01-ur.txt + 02-sumer.txt
+# "The marshes, and the city" = 02b-de-rivieren-en-moerassen.txt + 03-de-stad-ur.txt
+# "The ziggurat, and the moon god" = 03b-de-ziggurat.txt + 04-nanna-de-maangod.txt
+# "King Shulgi, and his great run" = 05-koning-shulgi.txt + 05b-de-hardloper.txt
+# "A house in Ur, and a day with a family" = 06-een-huis-in-ur.txt + 06b-een-dag.txt
+# "The first writing, and school" = 07-het-eerste-schrift.txt + 07b-de-tabletschool.txt
+# "Barley, dates, and beer" = 08-gerst-en-dadels.txt + 08b-bier-en-ninkasi.txt
+# "Ships to Dilmun and Meluhha" = 10-handel-dilmun.txt + 10b-meluhha.txt
+# "Homecoming, wool, and craftsmen" = 11-de-thuiskomst-en-de-wol.txt + 11b-de-ambachten.txt
+# "Gilgamesh, and the flood" = 13-gilgamesh.txt + 13b-de-vloed.txt
+# "Music, and the Royal Game of Ur" = 14-muziek-de-lier.txt + 14b-het-spel-van-ur.txt
+# "Laws, and the festival of the moon god" = 15-de-wetten-van-ur-nammu.txt + 16-het-feest-van-nanna.txt
+# "The royal tombs, what came later, and Ur today" = 17-de-koningsgraven.txt + 18-wat-later-kwam.txt + 19-ur-nu.txt
