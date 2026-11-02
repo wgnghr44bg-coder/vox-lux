@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Henry, and Greenwich" = 02-henry.txt + 02b-greenwich.txt
+# "Wolsey, Hampton Court, and Tudor gardens" = 04-wolsey.txt + 05-hampton-court.txt + 05b-tuinen.txt
+# "London, a day in the city, and the sweating sickness" = 07-londen.txt + 08-een-dag-in-londen.txt + 08b-de-zweetziekte.txt
+# "Thomas More, and Erasmus" = 09-thomas-more.txt + 09b-erasmus.txt
+# "The village, and the children" = 10-het-dorp.txt + 10b-kinderen.txt
+# "Food, feasts and Christmas" = 11-eten-en-feesten.txt + 11b-kerstmis-aan-het-hof.txt
+# "Clothes, and the New World" = 12-kleding.txt + 12b-de-nieuwe-wereld.txt
+# "The old church, printed books, and the crossing to France" = 13-de-oude-kerk.txt + 13b-gedrukte-boeken.txt + 13c-de-oversteek.txt
+# "The Field of the Cloth of Gold" = 14-het-veld-van-goud.txt + 14b-twee-koningen.txt
+# "The joust, and the lions of the Tower" = 15-het-toernooi.txt + 15b-de-leeuwen-van-de-tower.txt
+# "Music, dance and archery, and the Mary Rose" = 16-muziek-en-dans.txt + 16b-boogschieten.txt + 17-de-mary-rose.txt
+# "What came later, and Tudor England today" = 18-wat-er-later-gebeurde.txt + 19-tudor-engeland-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
