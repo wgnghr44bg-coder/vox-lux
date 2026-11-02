@@ -1,0 +1,15 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The boy Patricius, and Roman Britain" = 02-de-jongen-patricius.txt + 02b-romeins-brittannie.txt
+# "The ringfort, and the bog" = 04-de-ringfort.txt + 04b-het-moeras.txt
+# "Cattle, and the sea" = 05-koeien.txt + 05b-curraghs.txt
+# "Kings, and a feast in the hall" = 06-koningen.txt + 06b-een-feest-bij-de-koning.txt
+# "Druids, poets, and the Children of Lir" = 07-druiden-en-dichters.txt + 07b-de-kinderen-van-lir.txt
+# "The old law, and clothing" = 08-de-wet.txt + 08b-kleding-en-broches.txt
+# "Ogham, and the four festivals" = 09-ogham.txt + 10-de-vier-feesten.txt
+# "A day in a ringfort, and the fairy hills" = 11-een-dag-in-de-ringfort.txt + 11b-de-elfenheuvels.txt
+# "Children, fosterage, and the animals of Ireland" = 12-kinderen-en-pleegouders.txt + 12b-dieren-van-ierland.txt
+# "Patrick on the road, and the first churches" = 13-patrick-op-reis.txt + 13b-de-eerste-kerken.txt
+# "The Easter fire, Tara, and the legends" = 14-het-paasvuur.txt + 14b-de-heuvel-van-tara.txt + 15-de-legenden.txt
+# "The Confession, the last years, Columba and Brigid" = 16-de-confessio.txt + 17-de-laatste-jaren.txt + 17b-columba.txt + 18-brigid.txt
+# "Monasteries, the monks of Europe, and Ireland today" = 19-de-kloosters-en-de-boeken.txt + 19b-ierse-monniken-in-europa.txt + 20-ierland-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
