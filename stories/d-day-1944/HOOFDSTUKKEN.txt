@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "June 1944, and the south of England" = 01-juni-1944.txt + 02-zuid-engeland.txt
+# "The Americans, and the children" = 02b-de-amerikanen.txt + 02c-de-kinderen.txt
+# "The sealed camps, and the animals" = 03-de-kampen.txt + 03b-de-dieren.txt
+# "The great secret, and the harbours" = 04-het-geheim.txt + 05-de-havens.txt
+# "The weather, and the lighthouse in Ireland" = 06-het-weer.txt + 06b-blacksod.txt
+# "The day of waiting, and the letters" = 08-de-dag-van-wachten.txt + 08b-brieven.txt
+# "The women, and Eisenhower" = 08c-de-vrouwen.txt + 09-eisenhower.txt
+# "The poem on the radio, and a farm in Normandy" = 10-verlaine.txt + 10b-normandie.txt
+# "The crossing, and the aircraft" = 11-de-overtocht.txt + 12-de-vliegtuigen.txt
+# "Pegasus Bridge, and the dawn" = 12b-pegasus-brug.txt + 13-de-dageraad.txt
+# "The news, and waiting at home" = 14-het-nieuws.txt + 15-thuis.txt
+# "The weeks after, and Bayeux" = 16-de-weken-daarna.txt + 16b-bayeux.txt
+# "Remembering, Normandy today, and the night" = 17-herinnering.txt + 18-normandie-nu.txt + 19-de-nacht.txt
