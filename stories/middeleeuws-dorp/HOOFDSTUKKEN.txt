@@ -1,0 +1,11 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The village, the smith, and the carpenter" = 02-het-dorp.txt + 02b-de-smid-en-de-timmerman.txt
+# "Spring, and the children" = 05-de-lente.txt + 05b-de-kinderen.txt
+# "The reeve, and the manor house" = 06-de-reeve.txt + 06b-het-manorhuis.txt
+# "The mill, and the river" = 07-de-molen.txt + 07b-de-rivier.txt
+# "A day in May, and the women of the village" = 08-een-dag-in-mei.txt + 08b-de-vrouwen.txt
+# "May Day, haymaking, and the shepherd" = 09-meidag.txt + 10-het-hooien.txt + 10b-de-herder.txt
+# "The church, a pilgrimage, and the priest" = 12-de-kerk.txt + 12b-pelgrimstocht.txt + 13-de-priester.txt
+# "The manor court, and keeping the peace" = 14-het-hof.txt + 14b-de-tiendeling.txt
+# "The fair at St Ives, travellers, Michaelmas, and the orchard" = 16-st-ives-fair.txt + 16b-reizigers.txt + 17-michaelmas.txt + 17b-de-boomgaard.txt
+# "What came later, and Elton today" = 18-wat-later-kwam.txt + 19-elton-nu.txt
