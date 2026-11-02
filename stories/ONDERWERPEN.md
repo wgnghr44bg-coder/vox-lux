@@ -136,9 +136,16 @@ meeste vraag in de titel (bv. "Aztec" i.p.v. alleen "Tenochtitlan", "Ancient Gre
 - wo 27 jan: Life Inside a Medieval Castle, 1250 (medieval castle 7,4 mln; vervangt Edmund Fitzgerald, 70.000)
 - za 30 jan: Life on the Silk Road with Marco Polo, 1271 (234.000)
 - wo 3 feb: Life in Ancient Greece, Athens 432 BC (Ancient Greece 1,2 mln)
-- za 6 feb: Life with Napoleon's Army in the Russian Winter, 1812 (Napoleon 4,2 mln; vervangt Machu Picchu, 65.000)
-Daarna sterk volgens de cijfers: piramides (1,5 mln), Mongolen (1,0 mln), het oude China (1,3 mln).
-Later: Salem (vóór Halloween 2027), Edmund Fitzgerald (met "Lake Superior" in de titel), Machu Picchu.
+Februari: mix van drie soorten (eigenaar 2 nov 2026): veel bekeken, hype van nu, en iets dat bij de tijd van het jaar past.
+- za 6 feb: Chinese New Year in Ancient China, Han Dynasty (Chinees Nieuwjaar valt op 6 feb 2027; Ancient China 1,3 mln) – script door 2e account
+- wo 10 feb: Life with Napoleon's Army in the Russian Winter, 1812 (Napoleon 4,2 mln; was za 6 feb)
+- za 13 feb: nog kiezen, iets met Valentijnsdag (cijfers checken zodra de YouTube-zoeklimiet weer vrij is)
+- wo 17 feb: Building the Great Pyramid of Giza, 2560 BC (piramides 1,5 mln) – 2e account
+- za 20 feb: Life Among the Sumerians, the First Civilization (hype okt 2026: ±10.000 views/dag) – 2e account
+- wo 24 feb: Who Built Machu Picchu? Life in the Inca Empire (hype okt 2026: ±8.000 views/dag) – 2e account
+- za 27 feb: Life in the Mongol Empire of Genghis Khan, 1220 (Mongolen ±1 mln) – 2e account
+- wo 3 mrt: The Legend of Atlantis (2,4 mln) – 2e account
+Later: Salem (vóór Halloween 2027), Edmund Fitzgerald (met "Lake Superior" in de titel).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
