@@ -1,0 +1,13 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "India in 500 BC, and the plain of the Ganges" = 01-india.txt + 02-de-ganges-vlakte.txt
+# "The kingdoms, and Rajagriha" = 03-de-koninkrijken.txt + 04-rajagriha.txt
+# "A village, the monsoon, and the elephants" = 05-een-dorp.txt + 05b-de-moesson.txt + 05c-de-olifanten.txt
+# "A family's day, and food" = 06-een-dag.txt + 06b-het-eten.txt
+# "The city, the caravans, and Varanasi" = 07-de-stad.txt + 07b-karavanen.txt + 07c-varanasi.txt
+# "The seekers, and Taxila" = 09-de-zoekers.txt + 09b-taxila.txt
+# "The Great Going Forth, and the king and the wanderer" = 11-het-vertrek.txt + 11b-de-koning-en-de-zwerver.txt
+# "Under the Bodhi tree" = 12-onder-de-boom.txt + 12b-de-bodhiboom.txt
+# "The monks, and a monk's day" = 14-de-sangha.txt + 14b-een-dag-van-een-monnik.txt
+# "The nuns, and festivals" = 15-de-nonnen.txt + 15b-feesten.txt
+# "Old stories, and the last journey" = 16-verhalen.txt + 17-de-laatste-reis.txt
+# "What came later, and India today" = 18-wat-later-kwam.txt + 19-india-nu.txt
