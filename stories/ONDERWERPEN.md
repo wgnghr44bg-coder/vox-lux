@@ -146,6 +146,40 @@ Februari: mix van drie soorten (eigenaar 2 nov 2026): veel bekeken, hype van nu,
 - za 27 feb: Life in the Mongol Empire of Genghis Khan, 1220 (Mongolen ±1 mln) – 2e account
 - wo 3 mrt: The Legend of Atlantis (2,4 mln) – 2e account
 Later: Salem (vóór Halloween 2027), Edmund Fitzgerald (met "Lake Superior" in de titel).
+Maart t/m juni (eigenaar 2 nov 2026): events op vaste datum, veelbekeken onderwerpen (tweede account schrijft ze
+vooruit), en vrije plekken voor hype. Cijfers: `tools/sleep_trends.py --check`, 2 nov 2026, views van bestaande slaapvideo's samen:
+- za 6 mrt: Life in Ancient Egypt in the Time of Cleopatra, 31 BC (Cleopatra 204.000) – map cleopatra
+- wo 10 mrt: vrij, de routine kiest het onderwerp op hype
+- za 13 mrt: Life in Ancient Persia, Persepolis 500 BC (Ancient Persia 113.000) – map perzie-500-vc
+- wo 17 mrt: Life in Ireland in the Time of Saint Patrick, 432 AD (Sint-Patrick, vaste datum; Saint Patrick maar 39.000) – map ierland-patrick
+- za 20 mrt: vrij, de routine kiest het onderwerp op hype
+- wo 24 mrt: Life in the Roman Colosseum and the Gladiators, 80 AD (Colosseum 294.000; dagelijks leven, anders dan "Dark History of the Roman Colosseum") – map colosseum-80
+- za 27 mrt: Jerusalem at the First Easter, 33 AD (Pasen 28 mrt; Jerusalem 591.000) – map jeruzalem-pasen
+- wo 31 mrt: vrij, de routine kiest het onderwerp op hype
+- za 3 apr: vrij, de routine kiest het onderwerp op hype
+- wo 7 apr: Life in Tudor England Under Henry VIII, 1520 (Tudor 749.000) – map tudor-1520
+- wo 14 apr: vrij, de routine kiest het onderwerp op hype
+- za 17 apr: Life in the Maya City of Tikal, 750 AD (Maya 1,8 mln) – map maya-tikal
+- wo 21 apr: vrij, de routine kiest het onderwerp op hype
+- za 24 apr: Life in Victorian London, 1888 (Victorian London 3,4 mln) – map victoriaans-londen-1888
+- wo 28 apr: vrij, de routine kiest het onderwerp op hype
+- za 1 mei: vrij, de routine kiest het onderwerp op hype
+- wo 5 mei: vrij, de routine kiest het onderwerp op hype
+- za 8 mei: The Last Days of World War II in Europe, May 1945 (VE Day / Bevrijding; World War II 830.000) – map ve-day-1945
+- wo 12 mei: vrij, de routine kiest het onderwerp op hype
+- za 15 mei: Life Inside a Medieval Village, 1300 (Medieval Village 2,0 mln) – map middeleeuws-dorp
+- wo 19 mei: vrij, de routine kiest het onderwerp op hype
+- za 22 mei: Life in Ancient Babylon, 600 BC (Babylon 164.000) – map babylon-600-vc
+- wo 26 mei: vrij, de routine kiest het onderwerp op hype
+- za 29 mei: Life in Ancient India in the Time of the Buddha, 500 BC (Ancient India 156.000) – map india-boeddha
+- wo 2 jun: vrij, de routine kiest het onderwerp op hype
+- za 5 jun: The Night Before D-Day, June 1944 (D-Day 6 juni; D-Day 391.000) – map d-day-1944
+- wo 9 jun: vrij, de routine kiest het onderwerp op hype
+- za 12 jun: vrij, de routine kiest het onderwerp op hype
+- wo 16 jun: vrij, de routine kiest het onderwerp op hype
+- za 19 jun: Building Stonehenge, 2500 BC (zonnewende 21 juni; Stonehenge 597.000) – map stonehenge
+Reserve (als een onderwerp toch < 100.000 en zonder hype blijkt): Life in Ancient Sparta; Life on a Spanish Galleon, 1588;
+Life in Medieval Venice; Life in Edo Japan, 1800; Life in Constantinople, 1000 AD.
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
