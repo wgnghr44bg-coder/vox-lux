@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Giza, Egypt, and the Nile" = 01-gizeh.txt + 02-egypte.txt + 02b-de-nijl.txt
+# "King Khufu, and the plan" = 03-koning-choefoe.txt + 03b-het-plan.txt
+# "The site, and the quarry" = 04-de-plek.txt + 05-de-groeve.txt
+# "Copper tools, and the builders" = 05b-koper.txt + 06-de-bouwers.txt
+# "The workers' town, bread and beer" = 06b-het-dorp.txt + 07-brood-en-bier.txt
+# "The doctors, and Merer's diary" = 07b-de-artsen.txt + 08-merer.txt
+# "White stone from Tura, and the flood" = 08b-tura.txt + 09-de-overstroming.txt
+# "The harbour, and the sledges" = 09b-de-haven.txt + 10-sleeen.txt
+# "The ramps, and granite from Aswan" = 11-de-hellingen.txt + 12-graniet-uit-assuan.txt
+# "The passages, and the King's Chamber" = 13-de-kamers.txt + 13b-de-koningskamer.txt
+# "Khufu's boat, the sun and the stars" = 14-de-boot.txt + 14b-de-zon-en-de-sterren.txt
+# "The evening, and the white casing" = 15b-de-avond.txt + 16-de-witte-mantel.txt
+# "What came later, and Giza today" = 18-wat-later-kwam.txt + 19-gizeh-nu.txt
