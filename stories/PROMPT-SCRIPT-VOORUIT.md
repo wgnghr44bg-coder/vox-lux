@@ -28,6 +28,13 @@ Een nieuwe map `stories/<korte-naam>/` (bv. `stories/tombstone-1881/`), net zoal
      `stories/PROMPT-NIEUWE-VIDEO.md` en de opbouw van `stories/titanic/OPZET.md`
      (eerst het gewone leven, dan rustig de gebeurtenis zelf, geen gruwelijke details, geen "nu wordt het spannend").
    - Voorbeeld van de vorm: `stories/oregon-trail/src/`.
+   - **Makkelijk te volgen** (eigenaar 2 nov 2026): korte, gewone zinnen, gemiddeld 15–19 woorden en hooguit ± 2 komma's
+     per zin. Geen lange opsommingen als "the meat, and the milk, and the butter, and the cheese": kies er twee of drie.
+     Goed voorbeeld: `stories/tombstone-1881/`. Te druk (niet zo doen): de eerste versies van cleopatra t/m india-boeddha.
+   - **Een beetje spanning mag**, rustig verteld: iets wat op het spel staat, een vraag die de luisteraar wil weten
+     ("But no one in the town knows yet what the autumn will bring."), een gevaar dat langzaam dichterbij komt.
+     Geen schrikmomenten, geen harde woorden, geen cliffhanger-kreten.
+   - Check: `python tools/script_leesbaar.py stories/<map>` moet GOED geven.
 2. **`src/beelden.tsv`**: per slug één regel `<slug><TAB><Engelse beeldbeschrijving>`. Alleen wat in die
    tijd bestond, mensen in kleding van toen, liefst avondlicht (lamp, vuur, schemering). Geen tekst in beeld.
 3. **`bouw_script.py`**: kopie van `stories/oregon-trail/bouw_script.py`, met `STYLE`, `PLEK` en de kopregel
