@@ -139,7 +139,7 @@ meeste vraag in de titel (bv. "Aztec" i.p.v. alleen "Tenochtitlan", "Ancient Gre
 Februari: mix van drie soorten (eigenaar 2 nov 2026): veel bekeken, hype van nu, en iets dat bij de tijd van het jaar past.
 - za 6 feb: Chinese New Year in Ancient China, Han Dynasty (Chinees Nieuwjaar valt op 6 feb 2027; Ancient China 1,3 mln) – script door 2e account
 - wo 10 feb: Life with Napoleon's Army in the Russian Winter, 1812 (Napoleon 4,2 mln; was za 6 feb)
-- za 13 feb: nog kiezen, iets met Valentijnsdag (cijfers checken zodra de YouTube-zoeklimiet weer vrij is)
+- za 13 feb: vrij, de routine kiest het onderwerp op hype (Valentijn gecheckt 2 nov: 0 slaapvideo's, geen vraag)
 - wo 17 feb: Building the Great Pyramid of Giza, 2560 BC (piramides 1,5 mln) – 2e account
 - za 20 feb: Life Among the Sumerians, the First Civilization (hype okt 2026: ±10.000 views/dag) – 2e account
 - wo 24 feb: Who Built Machu Picchu? Life in the Inca Empire (hype okt 2026: ±8.000 views/dag) – 2e account
