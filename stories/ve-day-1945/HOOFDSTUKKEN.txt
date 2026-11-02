@@ -1,0 +1,12 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Spring 1945" = 01-mei-1945.txt + 02-de-lente-van-1945.txt
+# "Food from the sky, and a Lancaster crew" = 03-voedsel-uit-de-lucht.txt + 03b-de-bemanning.txt
+# "At home in England, the wireless, and the women" = 05-thuis-in-engeland.txt + 05b-de-radio.txt + 05c-vrouwen-in-de-oorlog.txt
+# "Liberation in the Netherlands, and candles in Denmark" = 06-bevrijding-van-nederland.txt + 06b-denemarken.txt
+# "The waiting day, and the church bells" = 08-het-wachten.txt + 08b-de-klokken.txt
+# "The King speaks, and Mr Churchill" = 11-de-koning-spreekt.txt + 11b-churchill.txt
+# "The lights, the children, and midnight" = 12-de-lichten.txt + 12b-de-kinderen.txt + 12c-middernacht.txt
+# "Street parties, and a village on VE Day" = 13-straatfeesten.txt + 13b-een-dorp.txt
+# "Paris, New York, Moscow, and the day after" = 14-parijs-new-york-moskou.txt + 14b-de-dag-erna.txt
+# "The Channel Islands, far away, and coming home" = 15-de-kanaaleilanden.txt + 16-ver-weg.txt + 17-naar-huis.txt + 17b-de-zomer-van-1945.txt
+# "What came later, and remembering today" = 18-wat-later-kwam.txt + 19-herinnering-en-nu.txt
