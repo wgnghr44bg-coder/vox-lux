@@ -1,0 +1,15 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The steppe, and the Mongols" = 01-de-steppe.txt + 02-de-mongolen.txt
+# "The land, and the ger" = 02b-het-land.txt + 03-de-ger.txt
+# "Making felt, and the horses" = 03b-vilt-maken.txt + 04-paarden.txt
+# "Airag, and the young Temüjin" = 04b-airag.txt + 05-temujin.txt
+# "Börte, and Genghis Khan" = 05b-borte.txt + 06-genghis-khan.txt
+# "The laws, and a family on the steppe" = 06b-de-wetten.txt + 07-een-familie.txt
+# "A day in summer, and moving camp" = 07b-een-dag.txt + 08-trekken.txt
+# "The children, and the women" = 08b-de-kinderen.txt + 09-de-vrouwen.txt
+# "The Yam, and the traders" = 10-de-jam.txt + 10b-de-handel.txt
+# "Karakorum, and faith" = 11-karakorum.txt + 12-geloof.txt
+# "The sacred mountain, and the summer games" = 12b-de-heilige-berg.txt + 13-naadam.txt
+# "The monk Changchun, and his journey" = 14-de-monnik-changchun.txt + 14b-de-reis.txt
+# "Winter, and what came later" = 15-winter.txt + 16-wat-later-kwam.txt
+# "The hidden grave, and Mongolia today" = 17-het-graf.txt + 18-mongolie-nu.txt
