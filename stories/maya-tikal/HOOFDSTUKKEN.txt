@@ -1,0 +1,12 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Tikal in 750, and the Maya" = 01-tikal.txt + 02-de-maya.txt
+# "The city, the palace, and the builders" = 03-de-stad.txt + 03b-het-paleis.txt + 03c-de-bouwers.txt
+# "The kings, and the neighbours" = 04-de-koningen.txt + 04b-de-buren.txt
+# "A day in a Maya family, and the children" = 06-een-dag.txt + 06b-kinderen.txt
+# "Corn, cacao, and Maya food" = 07-mais.txt + 08-cacao.txt + 08b-eten.txt
+# "The stars, and night in Tikal" = 11-de-sterren.txt + 11b-de-nacht.txt
+# "Jade, feathers, art, and clothing" = 13-kunst.txt + 13b-kleding.txt
+# "The gods, and the k'atun festival" = 14-goden-en-wereldboom.txt + 14b-het-katun-feest.txt
+# "Water, the rainy season, and trade" = 15-water-en-reservoirs.txt + 15b-de-regentijd.txt + 16-handel-en-wegen.txt
+# "The collapse, and the rediscovery" = 17-de-ineenstorting.txt + 18-ontdekking.txt
+# "The last Maya kingdom, and Tikal today" = 18b-de-laatste-maya-stad.txt + 19-tikal-nu.txt
