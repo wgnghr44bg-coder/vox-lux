@@ -1,30 +1,30 @@
 {img:babylonian-mathematics-tablet-numbers-wedges-scribe-calculating-lamp}
-Every time we look at a clock, we are using something invented in Mesopotamia.
+Every time we look at a clock, we use something from Babylon.
 
-The Babylonians count, not in tens, as we do, but in sixties. Their number system has only two signs: an upright wedge, for one, and a sideways wedge, for ten. And with these, they can write any number, from one to fifty-nine. And then, for sixty, they start again, with a single wedge, in the next column, just as we write ten, with a one, in the next column.
+The Babylonians do not count in tens like we do. They count in sixties. Their number system has only two signs. An upright wedge for one, and a sideways wedge for ten. With these they can write any number from one to fifty-nine. At sixty they start again, with a single wedge in the next column. It is just like how we write ten, with a one in the next column.
 
 --
 
-Why sixty? Nobody knows for certain. But sixty is a wonderful number, for calculating, because it can be divided, evenly, by so many other numbers: by two, and three, and four, and five, and six, and ten, and twelve, and fifteen, and twenty, and thirty. So it is very easy to work with fractions: a half, a third, a quarter, a fifth, a sixth, of sixty, are all whole numbers.
+Why sixty? Nobody knows for certain. But sixty is a wonderful number for sums. You can split it evenly in so many ways. By two and three and four and five and six. By ten and twelve and fifteen and twenty and thirty. So fractions are easy. Half of sixty, a third, a quarter, a fifth, a sixth. They are all whole numbers.
 
-And from the Babylonians, and their sixties, we have inherited our hours, of sixty minutes, and our minutes, of sixty seconds, and our circles, of three hundred and sixty degrees.
+And from the Babylonians and their sixties, we got our hours of sixty minutes. Our minutes of sixty seconds. And our circles of three hundred and sixty degrees.
 
 {img:old-babylonian-tablet-square-diagonal-numbers-plimpton-style-close}
-Babylonian mathematics is very advanced. More than a thousand years before our story, the scribes of Babylon were already solving difficult problems: calculating areas, and volumes, and interest on loans, and the square roots of numbers.
+Babylonian maths is very advanced. More than a thousand years before our story, writers were already solving hard problems. They worked out areas and volumes and interest on loans.
 
 --
 
-There is a famous little tablet, from that time, about the size of a hand, which shows a square, with its two diagonals, and on the diagonal, written in cuneiform, the square root of two, calculated correctly, to about six decimal places, more accurately than anyone else would manage, for more than a thousand years.
+There is a famous little tablet from that time, about the size of a hand. It shows a square with a line across it from corner to corner. On the line, in wedges, is a number that is very hard to work out. And the Babylonians got it right, more exactly than anyone else would for more than a thousand years.
 
-And there is another famous tablet, called Plimpton 322, after the man who collected it, with a table of numbers, which scholars have studied, and argued about, for nearly a hundred years, which seems to show that the Babylonians knew about the special relationship between the sides of a right-angled triangle, more than a thousand years before the Greek, Pythagoras, after whom it is named.
+There is another famous tablet with a table of numbers. Scholars have argued about it for nearly a hundred years. It seems to show that the Babylonians knew a special rule about triangles. Much later, a Greek called Pythagoras became famous for that same rule. But the Babylonians knew it more than a thousand years before him.
 
 {img:babylonian-surveyors-measuring-field-rope-stakes-canal-scribe-notes}
-For the Babylonians, mathematics is practical. They use it, every day, to measure fields, and divide inheritances, and calculate rations, and wages, and the bricks for a wall, and the earth for a canal, and the barley for a temple, and the interest on a loan.
+For the Babylonians, maths is practical. They use it every day. To measure fields and split up what someone leaves behind. To work out wages and food for workers. To count bricks for a wall and earth for a canal. And to work out the interest on a loan.
 
 --
 
 And they use it to measure time.
 
-The Babylonians divide the day, and the night, into twelve double hours, and the circle of the sky into twelve parts, and the year into twelve months, of the moon, twenty-nine, or thirty days each, adding an extra month, every few years, to keep the calendar in step with the sun, and the seasons.
+They divide the day and the night into twelve parts. They divide the sky into twelve parts. They divide the year into twelve months of the moon. Each month has twenty-nine or thirty days. Every few years they add an extra month. That keeps the calendar in step with the sun and the seasons.
 
-So, every time we look at a clock, and see sixty minutes, in an hour, or turn a corner, of ninety degrees, or count the twelve months of the year, we are remembering, without knowing it, the scribes of Babylon, pressing their wedges into clay.
+So every time we see sixty minutes in an hour, or turn a corner of ninety degrees, or count the twelve months of the year, we are remembering the writers of Babylon. Without knowing it. Pressing their wedges into clay.
