@@ -1,0 +1,13 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The Ptolemies, and a festival in Alexandria" = 02-de-ptolemaeen.txt + 02b-feest-in-alexandrie.txt
+# "The city, and the Jews of Alexandria" = 04-de-stad.txt + 04b-de-joden-van-alexandrie.txt
+# "The lighthouse and the harbours" = 05-de-vuurtoren.txt + 05b-de-havens.txt
+# "The Library, and papyrus" = 06-de-bibliotheek.txt + 06b-papyrus.txt
+# "A day in Alexandria, bread and beer" = 07-een-dag-in-alexandrie.txt + 07b-eten-en-bier.txt
+# "The Nile, the pyramids and the animals" = 08-de-nijl.txt + 08b-naar-de-piramiden.txt + 08c-dieren-van-de-nijl.txt
+# "A village on the Nile, and the desert" = 09-het-dorp-aan-de-nijl.txt + 09b-de-woestijn.txt
+# "Gods, temples and the afterlife" = 10-goden-en-tempels.txt + 10b-het-hiernamaals.txt
+# "Antony, and life in the palace" = 12-antonius.txt + 12b-het-paleis.txt
+# "Actium, and the last year" = 14-actium.txt + 15-het-laatste-jaar.txt
+# "Egypt after Cleopatra, and Alexandria today" = 16-de-kinderen.txt + 17-egypte-onder-rome.txt + 17b-de-legende.txt + 18-alexandrie-nu.txt
+# De andere hoofdstukken = één bestand in src/, in volgorde.
