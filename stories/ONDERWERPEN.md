@@ -209,10 +209,10 @@ views van bestaande slaapvideo's samen; allemaal nog niet op Sleep Archives en i
 
 **Oktober 2027**
 - za 2 okt: Life in America During the Great Depression, 1933 (oogst en Dust Bowl; Great Depression 178.000) – map crisis-1933
-- wo 6 okt: nog te kiezen (check-tegoed was op 3 nov op; volgt bij het schrijven)
+- wo 6 okt: The Building of the Taj Mahal, Agra 1643 (Taj Mahal 64.000, eerdere check; YouTube-check gaf op 3 nov alleen 429) – map taj-mahal-1643
 - za 9 okt: vrij, de routine kiest het onderwerp op hype
-- wo 13 okt: nog te kiezen
-- za 16 okt: nog te kiezen (herfst/oogst)
+- wo 13 okt: The Summer Frankenstein Was Born: Mary Shelley at Lake Geneva, 1816 (rustig griezelig, aanloop naar Halloween; Frankenstein 80.000, check 4 nov) – map frankenstein-1816
+- za 16 okt: The Story of Joan of Arc, 1429 (herfst: begint bij de oogst in haar dorp Domrémy; Joan of Arc 68.000, eerdere check) – map jeanne-darc-1429
 - wo 20 okt: vrij, de routine kiest het onderwerp op hype
 - za 23 okt: In Search of Dracula: Bram Stoker, Whitby and Transylvania, 1890 (rustig griezelig; Dracula 825.000, check 4 nov) – map dracula-1890
 - wo 27 okt: The Legend of Sleepy Hollow: Life in the Hudson Valley, 1790 (Halloween; Sleepy Hollow 1,7 mln, check 4 nov) – map sleepy-hollow-1790
