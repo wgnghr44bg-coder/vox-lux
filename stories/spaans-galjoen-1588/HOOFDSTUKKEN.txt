@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The galleon, and Spain in 1588" = 01-het-galjoen.txt + 02-spanje-1588.txt
+# "The ship's boy, and the crew" = 04-de-scheepsjongen.txt + 05-de-bemanning.txt
+# "Setting sail, and A Coruña" = 07-vertrek.txt + 08-a-coruna.txt
+# "Sails, and finding the way" = 12-de-zeilen.txt + 13-navigatie.txt
+# "The Channel, and Calais" = 15-het-kanaal.txt + 16-calais.txt
+# "The North Sea, and around Scotland" = 17-de-noordzee.txt + 18-rond-schotland.txt
+# "Ireland, and coming home" = 19-ierland.txt + 20-thuiskomst.txt
+# "What came later, and the wrecks" = 21-wat-later-kwam.txt + 22-wrakken.txt

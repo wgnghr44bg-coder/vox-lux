@@ -1,0 +1,6 @@
+onderwerp Life on a Spanish Galleon, 1588
+status   script-klaar (2026-11-03, tweede account)
+datum    reserve (geen datum)
+titel    Life on a Spanish Galleon, 1588 | <N> Hours of History for Sleep
+thumbnail amberregel "ATLANTIC · 1588", hook "A Spanish Galleon", beeld (kenmerkend): een groot Spaans galjoen met drie masten en een hoog rood-goud beschilderd achterkasteel onder volle zeilen op een rustige zee bij zonsondergang, op het dek een scheepsjongen en een oude zeeman bij een lantaarn; rustig, warm goudlicht
+soort    reis
