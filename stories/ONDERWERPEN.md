@@ -208,6 +208,11 @@ Nog 3 reserves (2e account, nov 2026): The First Olympic Games in Ancient Greece
 1550 (istanbul-1550); Life on a Mississippi Steamboat, 1850 (mississippi-1850).
 Nog 2 reserves (2e account, nov 2026; `sleep_trends.py --check` 3 nov): Life in London Under Queen Elizabeth I, 1599
 (Elizabeth I 542.000; londen-elizabeth-1599); Life in Sherwood Forest in the Time of Robin Hood, 1190 (Robin Hood 255.000; sherwood-1190).
+Nog 4 reserves (2e account, nov 2026; `sleep_trends.py --check` 3 nov): Life in Regency England in the Time of Jane Austen,
+1811 (Jane Austen 2,4 mln, Regency 1,4 mln; regency-austen-1811); Building a Medieval Cathedral, 1250 (cathedral 1,6 mln;
+kathedraal-1250); Life Among the Celts and the Druids, 60 BC (Druids 281.000; druiden); The Life of a Lighthouse Keeper,
+1880 (lighthouse keeper 152.000; vuurtoren-1880). Niet gekozen: Native American en Hawaii (cijfers komen van muziek- en
+ruisvideo's), Marie Antoinette (te dicht bij Versailles en Parijs 1789), Nero (al twee keer Rome), cowboy (al Tombstone en Oregon Trail).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
