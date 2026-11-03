@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Agra in 1643, and a love story" = 01-agra-1643.txt + 02-shah-jahan-en-mumtaz.txt
+# "The craftsman's family, and the plan" = 04-de-familie.txt + 05-het-plan.txt
+# "The building site, and the marble" = 06-de-bouwplaats.txt + 07-het-marmer.txt
+# "The calligrapher, and the dome" = 10-de-schoonschrijver.txt + 11-de-koepel.txt
+# "The garden, and the city of Agra" = 12-de-tuin.txt + 13-de-stad-agra.txt
+# "The anniversary, and Diwali" = 16-de-herdenking.txt + 17-diwali.txt
+# "What came later, and the legends" = 20-wat-later-kwam.txt + 21-de-legenden.txt
+# "The Taj Mahal today" = 22-taj-nu.txt + 23-de-avond.txt
