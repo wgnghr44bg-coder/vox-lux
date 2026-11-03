@@ -40,8 +40,11 @@ model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", device_map="cuda:0", dtype
 prompt = model.create_voice_clone_prompt(ref_audio=a.ref, ref_text=a.ref_text)
 parts, rows, t = [np.zeros(int(LEAD * SR), np.float32)], [], LEAD
 for i, p in enumerate(pieces, 1):
-    torch.manual_seed(a.seed + i)
-    wav = model.generate(text=p.text, voice_clone_prompt=prompt, speed=a.speed)[0].astype(np.float32)
+    for poging in range(10):                                  # korte zinnen ("Flour.") komen soms leeg terug (WW2, 3 nov 2026)
+        torch.manual_seed(a.seed + i + 1000 * poging)
+        wav = model.generate(text=p.text, voice_clone_prompt=prompt, speed=a.speed)[0].astype(np.float32)
+        if len(wav) > 0.25 * SR:
+            break
     d = len(wav) / SR
     rows.append(f"{i}\t{t:.2f}\t{t + d:.2f}\t{p.cue}\t{p.text}")
     parts += [wav, np.zeros(int(p.silence_after_ms / 1000 * SR), np.float32)]
