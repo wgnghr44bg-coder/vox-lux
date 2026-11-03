@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The river, and its story" = 01-de-rivier.txt + 02-de-mississippi.txt
+# "The steamboat, and the boy" = 03-het-stoomschip.txt + 04-de-jongen.txt
+# "Leaving St. Louis, and learning the river" = 05-vertrek.txt + 06-de-loods.txt
+# "The passengers, and the main deck" = 07-de-passagiers.txt + 08-het-benedendek.txt
+# "Mealtimes, and the woodyards" = 09-het-eten.txt + 10-hout-halen.txt
+# "Cairo, and Memphis" = 12-cairo.txt + 13-memphis.txt
+# "Natchez, and the fog" = 17-natchez.txt + 18-de-mist.txt
+# "The river today" = 22-de-rivier-nu.txt + 23-de-avond.txt
