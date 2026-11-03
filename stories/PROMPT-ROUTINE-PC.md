@@ -47,6 +47,12 @@ werk alles af.
    - Script met de opbouw van stories/titanic (OPZET.md daar), ± 2 uur video.
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
+   - **Elk beeld nakijken op dingen die er toen nog niet waren** (Tombstone 3 nov 2026: 60 van de 90 beelden hadden
+     auto's, campers, moderne huizen, straatlantaarns of plafondventilatoren). Maak overzichtsvellen (12 per vel) en
+     bekijk ze allemaal vóór de montage. Wat helpt in de prompt: beschrijf wat er wél is ("only horses, wagons, wooden
+     false-front buildings, dirt roads; any distance shows only open desert") en bij binnenscènes "an indoor scene,
+     enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
+     "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
    - **Stem: Slaap 3** (eigenaar, 31 okt 2026; vervangt George): eigen ontworpen OmniVoice-stem, oudere
      Britse man, heel laag, langzaam met lange pauzes. Altijd met
      `C:\Users\rane\omnivoice-venv\Scripts\python.exe tools/comfy/make_voice_omni.py <map>`
@@ -61,7 +67,9 @@ werk alles af.
      (Whisper zin voor zin, letterlijk: dubbele, weggevallen en hangende woorden; geeft de zinnummers). Die zinnen
      opnieuw inspreken met `tools/herstel_zinnen.py <map> <nrs>` (zelfde plek,
      geen nieuwe montage), dan stil_tikjes, check_video en check_stem_tekst (op de schone stem) opnieuw. Pas bij TEKST GOED uploaden. Zet hem als laatste stap op -14 LUFS met `python tools/eind_volume.py <video>.mp4 <video>-14.mp4`
-     (eigenaar, 31 okt 2026: "net zo hard als de meeste sleep history video's"); upload die versie. Door de lange
+     (eigenaar, 31 okt 2026: "net zo hard als de meeste sleep history video's"). **Daarna 16mm-look** (eigenaar 3 nov 2026,
+     voor alle lange video's): `python tools/film16.py <video>-14.mp4 <video>-16mm.mp4` (± 80 min); draai qc_video op
+     het 16mm-bestand en upload die versie. Niets aan de look veranderen (geen flikkeren, geen lichtvlek, geen diepte). Door de lange
      pauzes wordt de video langer: ± 15.000 woorden script geeft ± 1 u 47 (Oregon, pauze D); mik op ± 17.000 woorden voor ± 2 uur.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
