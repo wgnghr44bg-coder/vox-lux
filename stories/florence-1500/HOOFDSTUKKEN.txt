@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Florence, and the city" = 01-florence.txt + 02-de-stad.txt
+# "A family, and their house" = 04-een-familie.txt + 05-het-huis.txt
+# "An ordinary day, and the market" = 07-een-dag.txt + 08-de-markt.txt
+# "Michelangelo, and the marble" = 11-michelangelo.txt + 12-het-marmer.txt
+# "Children, and the feast of San Giovanni" = 13-de-kinderen.txt + 14-san-giovanni.txt
+# "The Medici, books and ideas" = 15-de-medici.txt + 16-boeken-en-ideeen.txt
+# "The unveiling, and the great contest" = 19-de-onthulling.txt + 20-de-wedstrijd.txt
+# "Florence today" = 22-florence-nu.txt + 23-de-avond.txt
