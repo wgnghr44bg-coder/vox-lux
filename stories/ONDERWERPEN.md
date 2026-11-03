@@ -189,6 +189,8 @@ venetie-middeleeuwen, edo-japan-1800, constantinopel-1000). De routine pakt er Ã
 Extra reserve (2e account, nov 2026): Life in the California Gold Rush, 1849 (goudkoorts-1849); Life in Renaissance
 Florence, 1500 (florence-1500); Life in Ancient Alexandria and Its Great Library (alexandrie); The Mystery of Easter
 Island (paaseiland).
+Nog 3 reserves (2e account, nov 2026): Life in Ancient Carthage (carthago); Life in New York in the Roaring Twenties,
+1925 (new-york-1925); Life Aboard a Whaling Ship, 1850 (walvisvaarder-1850).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
