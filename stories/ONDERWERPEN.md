@@ -191,6 +191,8 @@ Florence, 1500 (florence-1500); Life in Ancient Alexandria and Its Great Library
 Island (paaseiland).
 Nog 3 reserves (2e account, nov 2026): Life in Ancient Carthage (carthago); Life in New York in the Roaring Twenties,
 1925 (new-york-1925); Life Aboard a Whaling Ship, 1850 (walvisvaarder-1850).
+Nog 3 reserves (2e account, nov 2026): The First Olympic Games in Ancient Greece (olympia); Life in Ottoman Istanbul,
+1550 (istanbul-1550); Life on a Mississippi Steamboat, 1850 (mississippi-1850).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
