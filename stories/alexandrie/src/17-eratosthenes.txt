@@ -1,0 +1,31 @@
+{img:eratosthenes-scholar-library-alexandria-older-man-scrolls-measuring-instruments}
+Around the time of our story, a new head librarian comes to the great library of Alexandria. His name is Eratosthenes. And he is going to do something amazing.
+
+Eratosthenes comes from the city of Cyrene, to the west of Egypt. He is about thirty-five years old. He has studied in Athens, and he knows a great deal about almost everything. He is a mathematician and a geographer, a poet and an astronomer, a historian and a philosopher. Some people tease him, and call him Beta, the second letter. They say he is second best at everything. But in truth, he is one of the cleverest people of his time.
+
+--
+
+Eratosthenes knows that the Earth is round, like a ball. Many Greek scholars already believe this. They have seen that ships disappear over the horizon from the bottom up. They have seen that the shadow of the Earth on the moon, during an eclipse, is always round. But nobody knows how big the Earth is. Eratosthenes decides to find out.
+
+{img:deep-well-syene-sunlight-reaching-bottom-noon-summer-reflection-water}
+He has read in a book, in the library, about a town far to the south of Egypt, called Syene. Today it is called Aswan. In Syene, there is a deep well. And on the longest day of the year, in summer, at exactly midday, the sun shines straight down into the well, all the way to the bottom. That means the sun is directly overhead. There are no shadows at all.
+
+--
+
+But in Alexandria, on the same day, at the same time, things are different. Eratosthenes puts a tall stick in the ground, standing perfectly straight. At midday, the stick has a short shadow. So in Alexandria, the sun is not directly overhead. It is a little to one side. Eratosthenes measures the angle of the shadow very carefully. It is about one fiftieth of a full circle.
+
+{img:eratosthenes-measuring-shadow-stick-noon-alexandria-courtyard-helpers}
+Eratosthenes thinks: the Earth is round. The sun is so far away that its rays come in straight lines, all parallel. So the difference in the shadows must be because of the curve of the Earth. If the angle is one fiftieth of a circle, then the distance from Alexandria to Syene must be one fiftieth of the way around the whole Earth. So all he needs to know is the distance from Alexandria to Syene.
+
+--
+
+That distance is known, because the king's officials have measured it. They used men called bematists, who were trained to walk with very even steps, counting them as they went. The distance is about five thousand stadia, the Greek unit of measurement. So Eratosthenes multiplies five thousand by fifty. And he gets about two hundred and fifty thousand stadia. That, he says, is the distance all the way around the Earth.
+
+{img:globe-earth-diagram-two-cities-sun-rays-angle-papyrus-drawing-lamp}
+Today, we know that the Earth is about forty thousand kilometres around. And Eratosthenes' answer, as far as we can tell, was very close. Perhaps only a little bit off. With just a stick, a shadow, and his clever mind, he measured the whole world. More than two thousand years ago.
+
+When Demetrios hears about it at the library, he comes home and tells the family. He puts a stick in the courtyard and shows the children the shadow. Kallisto understands at once. Her eyes go wide. He measured the whole Earth, she says, with a shadow? Demetrios nods. Kallisto goes out to the courtyard and stands next to the stick for a long time, looking at its shadow. She has never felt so excited in her life.
+
+Eratosthenes also drew a map of the whole known world. He used reports from travellers, sailors and soldiers. He drew lines across the map, from east to west and from north to south, to help find places. These lines were an early form of the lines of latitude and longitude that we still use on maps today. He was one of the first true geographers.
+
+Eratosthenes also found a clever way to find prime numbers. These are numbers that can only be divided by one and by themselves, like two, three, five and seven. His method is called the sieve of Eratosthenes. You write down all the numbers, and then cross out the ones that are not prime, step by step. Schoolchildren still learn it today, more than two thousand years later.
