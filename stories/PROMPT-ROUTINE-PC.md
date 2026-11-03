@@ -19,6 +19,11 @@ werk alles af.
      Na de upload wordt het `klaar` met de link (stap 6).
    - Een `datum` uit zo'n planning.txt telt als bezet. Een hype verschuift een klaar script niet.
    Is er geen klaar script, ga dan gewoon verder met stap 2.
+   **Reservescripts** (eigenaar, 3 nov 2026): planning.txt met `datum    reserve (geen datum)` en
+   `status   script-klaar` zijn klaar geschreven voor de vrije plekken ("vrij, de routine kiest het onderwerp op hype").
+   Is de eerstvolgende plek (minstens 2 dagen na vandaag) zo'n vrije plek en vindt stap 2 daar geen duidelijke hype
+   (wereldberoemd, ≥ 10.000 views per dag, nog niet bij ons), neem dan het eerste reservescript (op mapnaam),
+   zet zijn `datum` op die plek en ga verder zoals bij een klaar script hierboven. Is er wel een hype, maak dan de hype.
 2. **Onderwerp** volgens stap 0 van het Titanic-recept in stories/ONDERWERPEN.md: nooit een
    onderwerp dat al op Sleep Archives staat (`python tools/sleep_trends.py --check ...` toont
    "AL GEMAAKT") of al in een stories/*/planning.txt op main of origin/claude/* staat; kies van de
