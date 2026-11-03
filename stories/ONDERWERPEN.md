@@ -214,8 +214,8 @@ views van bestaande slaapvideo's samen; allemaal nog niet op Sleep Archives en i
 - wo 13 okt: nog te kiezen
 - za 16 okt: nog te kiezen (herfst/oogst)
 - wo 20 okt: vrij, de routine kiest het onderwerp op hype
-- za 23 okt: nog te kiezen
-- wo 27 okt: nog te kiezen (rustig griezelig, richting Halloween)
+- za 23 okt: In Search of Dracula: Bram Stoker, Whitby and Transylvania, 1890 (rustig griezelig; Dracula 825.000, check 4 nov) – map dracula-1890
+- wo 27 okt: The Legend of Sleepy Hollow: Life in the Hudson Valley, 1790 (Halloween; Sleepy Hollow 1,7 mln, check 4 nov) – map sleepy-hollow-1790
 - za 30 okt: Life in Salem During the Witch Trials, 1692 (Halloween; Salem 115.000, check 27 okt 2026; rustig verteld) – map salem-1692
 Niet gekozen: Nero (429.000; al drie keer Rome), Marie Antoinette (238.000; te dicht bij Versailles en Parijs 1789),
 Byzantine (240.000; Constantinopel bestaat al), Mesopotamia (889.000; te dicht bij Sumeriërs en Babylon).
