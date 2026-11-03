@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Edo, and Japan in 1800" = 01-edo.txt + 02-japan-1800.txt
+# "A family, and their house" = 04-een-familie.txt + 05-het-huis.txt
+# "The public bath, and food" = 09-het-badhuis.txt + 10-het-eten.txt
+# "The samurai, and the Tokaido road" = 12-de-samoerai.txt + 13-de-tokaido.txt
+# "Cherry blossoms, and summer fireworks" = 14-kersenbloesem.txt + 15-zomer-vuurwerk.txt
+# "Kabuki, sumo and woodblock prints" = 16-kabuki-en-sumo.txt + 17-hokusai-en-prenten.txt
+# "What came later, and Tokyo today" = 20-wat-later-kwam.txt + 21-tokio-nu.txt
+# "One more ordinary day" = 22-een-gewone-dag.txt + 23-de-avond.txt
