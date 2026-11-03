@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The soldier, and the Roman army" = 01-de-soldaat.txt + 02-het-leger.txt
+# "The recruit, and his training" = 03-de-rekruut.txt + 04-de-training.txt
+# "The equipment, and the tent mates" = 05-de-uitrusting.txt + 06-het-contubernium.txt
+# "The fortress, and a day inside it" = 08-het-fort.txt + 09-een-dag.txt
+# "Food, and the bathhouse" = 10-het-eten.txt + 11-het-badhuis.txt
+# "Letters, and the gods" = 13-de-brieven.txt + 14-de-goden.txt
+# "The people of the frontier, and free time" = 18-de-mensen.txt + 19-vrije-tijd.txt
+# "Hadrian's Wall today" = 22-de-muur-nu.txt + 23-de-avond.txt
