@@ -2,7 +2,7 @@
 video wel heel mooi en past ook echt erbij", zonder de rode lichtvlek; op tv, iPhone en tablet vloeiend).
 
 Warme vale kleuren, zacht contrast (zwart iets opgetild), fijne zachte korrel, donkere randen met ronde hoeken,
-heel licht flikkeren en af en toe een stofje. Geen krassen, geen lichtvlek, geen trillen: de beweging blijft gelijk.
+en af en toe een stofje. Geen flikkeren. Geen krassen, geen lichtvlek, geen trillen: de beweging blijft gelijk.
 Geluid wordt ongewijzigd gekopieerd.
 
 Gebruik: python tools/film16.py in.mp4 uit.mp4
@@ -59,8 +59,8 @@ def main():
         mpad, spad = Path(tmp) / "masker.png", Path(tmp) / "stof.mp4"
         masker(mpad); stof(spad)
         fc = (f"[0:v]format=rgb24,{mixer},lutrgb=r='val*0.88+18':g='val*0.88+18':b='val*0.88+18',"
-              "eq=brightness='0.006*sin(n*0.9)':eval=frame,"           # heel licht flikkeren
-              "noise=c0s=10:c0f=t+u[k];"                                 # fijne korrel (alleen helderheid)
+              # geen flikkeren (eigenaar 3 nov 2026: "ik zie een flikker door het beeld")
+              "format=yuv444p,noise=c0s=6:c0f=t+u[k];"                   # fijne korrel, alleen in de helderheid
               "[k]format=gbrp[k2];[1:v]format=gbrp[m];[k2][m]blend=all_mode=multiply[v];"
               "[2:v]format=gbrp[s];[v][s]blend=all_mode=addition,format=yuv420p[uit]")
         cmd = [FF, "-v", "error", "-y", "-i", str(inp), "-loop", "1", "-framerate", str(FPS), "-i", str(mpad),
