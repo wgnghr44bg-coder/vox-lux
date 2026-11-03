@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The trail, and Texas after the war" = 01-de-trail.txt + 02-texas.txt
+# "The boy, and the longhorns" = 03-de-jongen.txt + 04-de-longhorns.txt
+# "The cowboys, and their gear" = 05-de-cowboys.txt + 06-de-uitrusting.txt
+# "The roundup, and the first day" = 07-de-roundup.txt + 08-het-vertrek.txt
+# "A day on the trail, and the cook" = 09-een-dag.txt + 10-de-kok.txt
+# "The horses, and the night watch" = 11-de-paarden.txt + 12-de-nachtwacht.txt
+# "Kansas, and Abilene" = 18-kansas.txt + 19-abilene.txt
+# "The West today" = 22-het-westen-nu.txt + 23-de-avond.txt
