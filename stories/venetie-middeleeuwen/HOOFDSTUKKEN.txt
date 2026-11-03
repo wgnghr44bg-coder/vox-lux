@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Venice, and the lagoon" = 01-venetie.txt + 02-de-lagune.txt
+# "A family on Murano" = 04-een-familie.txt + 05-murano.txt
+# "A day at the market, and the Rialto" = 07-een-dag.txt + 08-rialto.txt
+# "The Arsenal, and the galleys" = 12-het-arsenaal.txt + 13-de-handel.txt
+# "Children, and the marriage with the sea" = 15-de-kinderen.txt + 16-de-sensa.txt
+# "Autumn, and the late galleys" = 17-de-herfst.txt + 18-de-galeien.txt
+# "High water, and Christmas" = 19-hoog-water.txt + 20-kerstmis.txt
+# "Venice today" = 22-venetie-nu.txt + 23-de-avond.txt
