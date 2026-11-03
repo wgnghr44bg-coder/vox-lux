@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Versailles, and how it was built" = 01-versailles.txt + 02-het-paleis.txt
+# "The Sun King, and a gardener's family" = 03-de-koning.txt + 04-de-familie.txt
+# "The king's rising, and the Hall of Mirrors" = 06-het-ontwaken.txt + 07-de-spiegelzaal.txt
+# "The gardens, and the fountains" = 09-de-tuinen.txt + 10-de-fonteinen.txt
+# "The Grand Canal, and the Orangery" = 11-het-grote-kanaal.txt + 12-de-oranjerie.txt
+# "The king's supper, and the music" = 13-de-maaltijd.txt + 14-de-muziek.txt
+# "The Trianon, and the Menagerie" = 15-trianon.txt + 16-de-menagerie.txt
+# "Versailles today" = 22-versailles-nu.txt + 23-de-avond.txt
