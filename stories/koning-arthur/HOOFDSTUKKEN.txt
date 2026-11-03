@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The legend, and Britain after the Romans" = 01-de-legende.txt + 02-brittannie-na-rome.txt
+# "The hill fort, and Tintagel" = 03-de-heuvelburcht.txt + 04-tintagel.txt
+# "The bards, and the peace after Badon" = 05-de-barden.txt + 06-badon.txt
+# "The first stories, and Geoffrey's book" = 07-de-eerste-verhalen.txt + 08-geoffrey.txt
+# "The sword in the stone, and the Lady of the Lake" = 10-het-zwaard-in-de-steen.txt + 11-de-vrouwe-van-het-meer.txt
+# "Camelot, and the Round Table" = 12-camelot.txt + 13-de-ronde-tafel.txt
+# "The stories travel, and Malory's book" = 19-de-verhalen-reizen.txt + 20-malory.txt
+# "Arthur today" = 22-arthur-nu.txt + 23-de-avond.txt
