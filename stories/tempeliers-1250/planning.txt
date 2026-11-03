@@ -1,0 +1,6 @@
+onderwerp Life Among the Knights Templar, 1250
+status   script-klaar (2026-11-03, tweede account)
+datum    wo 2027-08-18 21:00 NL
+titel    Life Among the Knights Templar, 1250 | <N> Hours of History for Sleep
+thumbnail amberregel "KNIGHTS TEMPLAR · 1250", hook "The Templars' Daily Life", beeld (kenmerkend): een jonge tempelier met witte mantel en rood kruis die zijn grijze paard leidt op het strand voor een stenen kruisvaarderskasteel aan zee bij zonsondergang; rustig, warm goudlicht, geen gevecht
+soort    middeleeuwen

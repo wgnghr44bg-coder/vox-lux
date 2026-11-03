@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The Templars, and how they began" = 01-de-tempeliers.txt + 02-het-begin.txt
+# "The young man, and his vows" = 03-de-jongeman.txt + 04-de-ontvangst.txt
+# "The commandery, and the Rule" = 05-de-commanderij.txt + 06-de-regel.txt
+# "The hours of prayer, and the meals" = 07-de-getijden.txt + 08-de-maaltijd.txt
+# "The call to the east, and the crossing" = 11-de-oproep.txt + 12-de-overtocht.txt
+# "Acre, and the Temple by the sea" = 13-akko.txt + 14-de-tempel-van-akko.txt
+# "Coming home, and the commander" = 19-terugkeer.txt + 20-de-commandeur.txt
+# "The Templars today" = 22-de-tempeliers-nu.txt + 23-de-avond.txt
