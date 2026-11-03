@@ -180,6 +180,8 @@ vooruit), en vrije plekken voor hype. Cijfers: `tools/sleep_trends.py --check`, 
 - za 19 jun: Building Stonehenge, 2500 BC (zonnewende 21 juni; Stonehenge 597.000) – map stonehenge
 Reserve (als een onderwerp toch < 100.000 en zonder hype blijkt): Life in Ancient Sparta; Life on a Spanish Galleon, 1588;
 Life in Medieval Venice; Life in Edo Japan, 1800; Life in Constantinople, 1000 AD.
+Deze 5 zijn als reservescript geschreven (2e account, 3 nov 2026; mappen sparta, spaans-galjoen-1588,
+venetie-middeleeuwen, edo-japan-1800, constantinopel-1000). De routine pakt er één voor een vrije plek als er geen hype is.
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
