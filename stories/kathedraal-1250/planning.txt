@@ -1,0 +1,6 @@
+onderwerp Building a Medieval Cathedral, 1250
+status   script-klaar (2026-11-03, tweede account)
+datum    reserve (geen datum)
+titel    Building a Medieval Cathedral, 1250 | <N> Hours of History for Sleep
+thumbnail amberregel "SALISBURY · 1250", hook "Building a Cathedral", beeld (kenmerkend): de half gebouwde kathedraal van Salisbury van lichtgrijze steen met houten steigers en een groot houten tredwiel-kraanrad tussen groene uiterwaarden en een rivier bij zonsopgang, een jonge leerling-steenhouwer met leren schort op de voorgrond; rustig, warm goudlicht
+soort    middeleeuwen

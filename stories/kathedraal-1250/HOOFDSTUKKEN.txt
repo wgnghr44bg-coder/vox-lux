@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The cathedral, and the windy hill of Old Sarum" = 01-de-kathedraal.txt + 02-old-sarum.txt
+# "A stonemason's family, and the new town" = 04-de-familie.txt + 05-de-nieuwe-stad.txt
+# "The master mason, and the lodge" = 07-de-meester.txt + 08-de-loge.txt
+# "The apprentice, and the great wheel" = 09-de-leerling.txt + 10-de-kranen.txt
+# "Purbeck marble, and the great roof" = 11-purbeck-marmer.txt + 12-het-dak.txt
+# "A day on the building site, and the canons" = 14-een-dag.txt + 15-de-kanunniken.txt
+# "The cloisters, and the spire" = 19-de-kapittelzaal.txt + 20-de-torenspits.txt
+# "Salisbury today" = 22-salisbury-nu.txt + 23-de-avond.txt
