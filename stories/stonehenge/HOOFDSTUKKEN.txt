@@ -1,0 +1,14 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Stonehenge, and the Stone Age" = 01-stonehenge.txt + 02-de-steentijd.txt
+# "The plain, and the first circle" = 02b-het-landschap.txt + 03-de-eerste-cirkel.txt
+# "The bluestones, and their journey from Wales" = 04-de-blauwe-stenen.txt + 04b-de-reis-uit-wales.txt
+# "A family, their house, and the children" = 05-een-familie.txt + 05b-een-rond-huis.txt + 05c-de-kinderen.txt
+# "Durrington Walls, and the midwinter feast" = 06-durrington-walls.txt + 06b-het-midwinterfeest.txt
+# "The sarsens, and the quarry" = 07-de-sarsens.txt + 07b-de-groeve.txt
+# "The great pull, sledges and rope" = 08-de-grote-trek.txt + 08b-sleden-en-touw.txt
+# "The lintels, carpenters in stone" = 10-de-latei.txt + 10b-houtwerkers-in-steen.txt
+# "The sun, the moon and the stars" = 11-de-zon.txt + 11b-de-maan-en-sterren.txt
+# "The Avenue, and the river" = 12-de-laan.txt + 12b-de-rivier.txt
+# "Woodhenge, and the Altar Stone" = 13-woodhenge.txt + 13b-de-altaarsteen.txt
+# "Orkney, and the Amesbury Archer" = 14-orkney.txt + 15-de-boogschutter.txt
+# "What came later, and the researchers" = 16-wat-later-kwam.txt + 17-de-onderzoekers.txt

@@ -1,0 +1,15 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Machu Picchu, and the Inca" = 01-machu-picchu.txt + 02-de-inca.txt
+# "The Andes, and Cusco" = 02b-de-andes.txt + 03-cusco.txt
+# "The Temple of the Sun, and Pachacuti" = 03b-de-zonnetempel.txt + 04-pachacuti.txt
+# "Who built it, and the ridge" = 04b-de-vraag.txt + 05-de-plek.txt
+# "The quarry, and the stonemasons" = 05b-de-groeve.txt + 06-de-steenhouwers.txt
+# "The workers, and the terraces" = 06b-de-werkers-mita.txt + 07-de-terrassen.txt
+# "Water, and potatoes" = 07b-water.txt + 08-aardappels.txt
+# "Llamas, and the royal road" = 08b-lama-en-alpaca.txt + 09-de-weg.txt
+# "The runners, and the grass bridge" = 09b-de-chasqui.txt + 10-de-touwbrug.txt
+# "The quipu, and a day in a village" = 11-quipu.txt + 12-een-dag-in-een-dorp.txt
+# "Chicha, and the weavers" = 12b-chicha-en-het-eten.txt + 13-weefsters.txt
+# "The gods, and Inti Raymi" = 14-de-goden-en-pachamama.txt + 14b-inti-raymi.txt
+# "The Spanish, and the forgotten centuries" = 16-de-spanjaarden.txt + 17-vergeten.txt
+# "Bingham, and Machu Picchu today" = 18-bingham.txt + 19-machu-picchu-nu.txt
