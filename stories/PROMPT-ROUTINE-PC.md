@@ -8,7 +8,10 @@ werk alles af.
 
 1. `git checkout main && git pull`. Start ComfyUI als `http://127.0.0.1:8188` niet antwoordt en
    wacht tot hij klaar is.
-   **Eerst: ligt er een script klaar?** (eigenaar, 1 nov 2026: een tweede Claude-account schrijft de scripts
+   **Eerst: is een vorige run blijven hangen?** Staat er een `stories/*/planning.txt` op `status   bezig (..., routine)`
+   zonder link, ouder dan 1 dag, en is die video nog niet op YouTube? Maak die dan eerst af vanaf de stap waar hij
+   bleef (de bestanden staan nog in deze map) in plaats van een nieuwe te beginnen (Tombstone, 2 nov 2026).
+   **Daarna: ligt er een script klaar?** (eigenaar, 1 nov 2026: een tweede Claude-account schrijft de scripts
    vooruit, zie `stories/PROMPT-SCRIPT-VOORUIT.md`.) Zoek op main naar `stories/*/planning.txt` met
    `status   script-klaar`. Neem daarvan die met de vroegste `datum` die minstens 2 dagen na vandaag ligt.
    - Dat is je video. Sla stap 2 en 3 over: onderwerp, datum, titel, thumbnail en soort staan in die planning.txt.
