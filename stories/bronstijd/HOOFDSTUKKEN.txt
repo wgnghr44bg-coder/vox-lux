@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The Bronze Age, and the new metal" = 01-de-bronstijd.txt + 02-wat-is-brons.txt
+# "The village, and the family" = 04-het-dorp.txt + 05-de-familie.txt
+# "Amber, and the trader from the south" = 07-barnsteen.txt + 08-de-handelaar.txt
+# "The sun, and the sky disc" = 11-de-zon.txt + 12-de-hemelschijf.txt
+# "The rock carvings, and the mounds of the ancestors" = 13-rotstekeningen.txt + 14-grafheuvels.txt
+# "The sea, and the wedding" = 15-de-zee.txt + 16-de-bruiloft.txt
+# "Winter, and midwinter" = 18-de-winter.txt + 19-midwinter.txt
+# "The Bronze Age today" = 22-bronstijd-nu.txt + 23-de-avond.txt
