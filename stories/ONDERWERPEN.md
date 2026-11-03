@@ -182,6 +182,19 @@ vooruit), en vrije plekken voor hype. Cijfers: `tools/sleep_trends.py --check`, 
 **Juli 2027**
 - wo 14 jul: Life in Paris in the Summer of 1789 (Bastille Day 14 juli) – map parijs-1789, script door 2e account
 - za 17 jul: The Journey of Apollo 11, July 1969 (maanlanding 20 juli) – map apollo-11-1969, script door 2e account
+**Augustus 2027** (2e account, 3 nov 2026; zelfde mix als maart–juni. Cijfers: `tools/sleep_trends.py --check`, 3 nov 2026,
+views van bestaande slaapvideo's samen; allemaal nog niet op Sleep Archives en in geen planning.txt):
+- wo 4 aug: Harvest Time in an Anglo-Saxon Village, 700 AD (oogstfeest Lammas 1 aug; Anglo-Saxon 374.000) – map angelsaksen-oogst
+- za 7 aug: Life of a Roman Soldier, 120 AD (Roman soldier 759.000) – map romeinse-soldaat
+- wo 11 aug: vrij, de routine kiest het onderwerp op hype
+- za 14 aug: A Summer at the Palace of Versailles, 1685 (zomer; Versailles 459.000) – map versailles-1685
+- wo 18 aug: Life Among the Knights Templar, 1250 (Knights Templar 627.000) – map tempeliers-1250
+- za 21 aug: The Legend of King Arthur (King Arthur 551.000) – map koning-arthur
+- wo 25 aug: vrij, de routine kiest het onderwerp op hype
+- za 28 aug: Life with the Army of Alexander the Great, 331 BC (Alexander the Great 642.000) – map alexander-331-vc
+Niet gekozen: Ice Age (4,0 mln), Stone Age (1,0 mln) en Neanderthal (557.000) lijken te veel op "Life Before Fire";
+Krakatoa (4.000), Herculaneum (1.400) en Hiroshima (21.000) hebben te weinig vraag.
+
 Reserve (als een onderwerp toch < 100.000 en zonder hype blijkt): Life in Ancient Sparta; Life on a Spanish Galleon, 1588;
 Life in Medieval Venice; Life in Edo Japan, 1800; Life in Constantinople, 1000 AD.
 Deze 5 zijn als reservescript geschreven (2e account, 3 nov 2026; mappen sparta, spaans-galjoen-1588,
