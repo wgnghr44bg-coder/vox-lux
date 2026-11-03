@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The lake, and the year without a summer" = 01-het-meer.txt + 02-het-jaar-zonder-zomer.txt
+# "The boatman's family, and Mary" = 03-de-familie.txt + 04-mary.txt
+# "The travellers arrive, and the Villa Diodati" = 05-de-reizigers.txt + 06-villa-diodati.txt
+# "The boat, and the storms" = 07-de-boot.txt + 08-de-stormen.txt
+# "Writing, and the city of Geneva" = 12-het-schrijven.txt + 13-geneve.txt
+# "The hungry year, and farewell" = 16-de-honger.txt + 17-het-afscheid.txt
+# "The book, and what came later" = 19-het-boek.txt + 20-wat-later-kwam.txt
+# "Lake Geneva today" = 22-het-meer-nu.txt + 23-de-avond.txt
