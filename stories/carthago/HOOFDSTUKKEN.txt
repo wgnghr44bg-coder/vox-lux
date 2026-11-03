@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Carthage, and the Phoenicians" = 01-carthago.txt + 02-de-feniciers.txt
+# "A family, and their house" = 05-een-familie.txt + 06-het-huis.txt
+# "The round harbour, and the shipwrights" = 08-de-ronde-haven.txt + 09-de-scheepsbouw.txt
+# "Purple, and the market" = 10-purper.txt + 11-de-markt.txt
+# "Trade, and Hanno the Navigator" = 12-de-handel.txt + 13-hanno-de-zeevaarder.txt
+# "A voyage beyond the Pillars, and coming home" = 17-de-reis-van-oom.txt + 18-thuiskomst.txt
+# "What came later, and the excavations" = 20-wat-later-kwam.txt + 21-de-opgravingen.txt
+# "Carthage today" = 22-carthago-nu.txt + 23-de-avond.txt
