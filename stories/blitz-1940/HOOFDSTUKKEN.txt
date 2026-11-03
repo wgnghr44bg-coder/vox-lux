@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "London in 1940, and the war" = 01-londen-1940.txt + 02-de-oorlog.txt
+# "The family, and the street" = 03-de-familie.txt + 04-de-straat.txt
+# "The blackout, and the rations" = 06-de-verduistering.txt + 07-de-rantsoenering.txt
+# "The garden shelter, and the Underground" = 09-de-schuilkelder.txt + 10-de-metro.txt
+# "The helpers, and the morning after" = 11-de-helpers.txt + 12-de-ochtend-erna.txt
+# "Music in an empty gallery, and letters from Devon" = 17-muziek.txt + 18-brieven-van-billy.txt
+# "The neighbours, and the autumn" = 19-de-buren.txt + 20-de-herfst.txt
+# "London today" = 22-londen-nu.txt + 23-de-avond.txt
