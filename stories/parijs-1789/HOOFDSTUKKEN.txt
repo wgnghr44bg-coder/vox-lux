@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Paris, and France in 1789" = 01-parijs.txt + 02-frankrijk-1789.txt
+# "A family, and their house" = 04-een-familie.txt + 05-het-huis.txt
+# "An ordinary day, and bread" = 07-een-dag.txt + 08-brood.txt
+# "Les Halles, and the Seine" = 09-les-halles.txt + 10-de-seine.txt
+# "The Palais-Royal, and the printing shop" = 12-palais-royal.txt + 13-de-drukkerij.txt
+# "Children, and August" = 18-de-kinderen.txt + 19-augustus.txt
+# "What came later, and Bastille Day" = 20-wat-later-kwam.txt + 21-bastille-dag.txt
+# "Paris today" = 22-parijs-nu.txt + 23-de-avond.txt
