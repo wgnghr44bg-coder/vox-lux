@@ -195,6 +195,31 @@ views van bestaande slaapvideo's samen; allemaal nog niet op Sleep Archives en i
 Niet gekozen: Ice Age (4,0 mln), Stone Age (1,0 mln) en Neanderthal (557.000) lijken te veel op "Life Before Fire";
 Krakatoa (4.000), Herculaneum (1.400) en Hiroshima (21.000) hebben te weinig vraag.
 
+**September 2027** (2e account, 3 nov 2026; zelfde mix als augustus. Cijfers: `tools/sleep_trends.py --check`, 3 nov 2026,
+views van bestaande slaapvideo's samen; allemaal nog niet op Sleep Archives en in geen planning.txt):
+- wo 1 sep: Life on a Cattle Drive with the Cowboys, 1870 (cowboy 335.000; anders dan Tombstone-stad en Oregon Trail) – map cattle-drive-1870
+- za 4 sep: Life in London During the Blitz, September 1940 (de Blitz begon 7 sep 1940; Blitz 59.000) – map blitz-1940
+- wo 8 sep: vrij, de routine kiest het onderwerp op hype
+- za 11 sep: Life in the Bronze Age, 1500 BC (Bronze Age 264.000) – map bronstijd
+- wo 15 sep: An Autumn at Balmoral with Queen Victoria, 1868 (herfst in de Highlands; Queen Victoria 252.000) – map balmoral-1868
+- za 18 sep: vrij, de routine kiest het onderwerp op hype
+- wo 22 sep: Life in a Mill Town During the Industrial Revolution, 1840 (Industrial Revolution 149.000) – map fabrieksstad-1840
+- za 25 sep: Life in Petra, the Rose-Red City, 100 AD (Petra 107.000) – map petra
+- wo 29 sep: The Polynesian Voyagers: Sailing to Hawaii, 1000 AD (Polynesian 148.000) – map polynesiers
+
+**Oktober 2027**
+- za 2 okt: Life in America During the Great Depression, 1933 (oogst en Dust Bowl; Great Depression 178.000) – map crisis-1933
+- wo 6 okt: nog te kiezen (check-tegoed was op 3 nov op; volgt bij het schrijven)
+- za 9 okt: vrij, de routine kiest het onderwerp op hype
+- wo 13 okt: nog te kiezen
+- za 16 okt: nog te kiezen (herfst/oogst)
+- wo 20 okt: vrij, de routine kiest het onderwerp op hype
+- za 23 okt: nog te kiezen
+- wo 27 okt: nog te kiezen (rustig griezelig, richting Halloween)
+- za 30 okt: Life in Salem During the Witch Trials, 1692 (Halloween; Salem 115.000, check 27 okt 2026; rustig verteld) – map salem-1692
+Niet gekozen: Nero (429.000; al drie keer Rome), Marie Antoinette (238.000; te dicht bij Versailles en Parijs 1789),
+Byzantine (240.000; Constantinopel bestaat al), Mesopotamia (889.000; te dicht bij Sumeriërs en Babylon).
+
 Reserve (als een onderwerp toch < 100.000 en zonder hype blijkt): Life in Ancient Sparta; Life on a Spanish Galleon, 1588;
 Life in Medieval Venice; Life in Edo Japan, 1800; Life in Constantinople, 1000 AD.
 Deze 5 zijn als reservescript geschreven (2e account, 3 nov 2026; mappen sparta, spaans-galjoen-1588,
