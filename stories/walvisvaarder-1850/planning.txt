@@ -1,0 +1,6 @@
+onderwerp Life Aboard a Whaling Ship, 1850
+status   script-klaar (2026-11-03, tweede account)
+datum    reserve (geen datum)
+titel    Life Aboard a Whaling Ship, 1850 | <N> Hours of History for Sleep
+thumbnail amberregel "WHALING SHIP · 1850", hook "Three Years at Sea", beeld (kenmerkend): een houten walvisvaarder met drie masten en volle zeilen op een kalme oceaan bij zonsondergang, sloepen aan de zijkant, een jongen in de uitkijkringen bovenin de mast, in de verte de waterpluim van een potvis; rustig, warm goudlicht
+soort    reis
