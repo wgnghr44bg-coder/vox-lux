@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The Celts of Gaul" = 01-de-kelten.txt + 02-wie-waren-de-kelten.txt
+# "A blacksmith's family, and their house" = 04-de-familie.txt + 05-het-huis.txt
+# "The druids, and the young student" = 07-de-druiden.txt + 08-de-leerling.txt
+# "The mistletoe, and the sacred places" = 11-de-maretak.txt + 12-heilige-plaatsen.txt
+# "The gods, and the great feast" = 13-de-goden.txt + 14-het-feest.txt
+# "Beltane, and the women of the Celts" = 17-beltane.txt + 18-de-vrouwen.txt
+# "Samhain, and the years that followed" = 19-samhain.txt + 20-de-jaren.txt
+# "The Celts today" = 22-de-kelten-nu.txt + 23-de-avond.txt
