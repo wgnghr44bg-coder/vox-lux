@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The island in the middle of the ocean" = 01-het-eiland.txt + 02-midden-in-de-oceaan.txt
+# "The sailors, and the arrival" = 03-de-zeevaarders.txt + 04-de-aankomst.txt
+# "A family, and their house" = 05-een-familie.txt + 06-het-huis.txt
+# "The trees, and the stone gardens" = 13-de-bomen.txt + 14-de-steentuinen.txt
+# "Orongo, and the birdman" = 15-orongo.txt + 16-de-vogelman.txt
+# "Easter Sunday 1722, and later visitors" = 18-paasdag-1722.txt + 19-latere-bezoekers.txt
+# "Hard years, and the researchers" = 20-moeilijke-jaren.txt + 21-de-onderzoekers.txt
+# "Rapa Nui today" = 22-rapa-nui-nu.txt + 23-de-avond.txt
