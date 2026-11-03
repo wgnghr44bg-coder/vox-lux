@@ -206,6 +206,8 @@ Nog 3 reserves (2e account, nov 2026): Life in Ancient Carthage (carthago); Life
 1925 (new-york-1925); Life Aboard a Whaling Ship, 1850 (walvisvaarder-1850).
 Nog 3 reserves (2e account, nov 2026): The First Olympic Games in Ancient Greece (olympia); Life in Ottoman Istanbul,
 1550 (istanbul-1550); Life on a Mississippi Steamboat, 1850 (mississippi-1850).
+Nog 2 reserves (2e account, nov 2026; `sleep_trends.py --check` 3 nov): Life in London Under Queen Elizabeth I, 1599
+(Elizabeth I 542.000; londen-elizabeth-1599); Life in Sherwood Forest in the Time of Robin Hood, 1190 (Robin Hood 255.000; sherwood-1190).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
