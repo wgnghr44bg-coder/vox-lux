@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "England in 1811, and the Regency" = 01-engeland-1811.txt + 02-de-regentschap.txt
+# "Jane Austen, and her cottage at Chawton" = 03-jane-austen.txt + 04-chawton.txt
+# "A vicar's family, and the parsonage" = 05-de-familie.txt + 06-de-pastorie.txt
+# "A Regency day, and Regency clothes" = 07-een-dag.txt + 08-kleding.txt
+# "Letters, and novels" = 09-brieven.txt + 10-de-boeken.txt
+# "The journey, and Bath" = 13-reizen.txt + 14-bath.txt
+# "A sailor home from the sea, and Christmas" = 17-de-zee.txt + 18-kerst.txt
+# "Regency England today" = 22-regency-nu.txt + 23-de-avond.txt
