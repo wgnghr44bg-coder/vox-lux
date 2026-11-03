@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The village, and the Anglo-Saxons" = 01-het-dorp.txt + 02-de-angelsaksen.txt
+# "The family, and their house" = 03-de-familie.txt + 04-het-huis.txt
+# "The fields, and the old months" = 05-de-velden.txt + 06-de-maanden.txt
+# "The harvest begins, and the storm" = 08-de-oogst-begint.txt + 09-het-weer.txt
+# "The animals, and the loom" = 11-de-dieren.txt + 12-het-weven.txt
+# "The lord's hall, and the old stories" = 14-de-hal-van-de-heer.txt + 15-de-verhalen.txt
+# "Threshing, bread and ale" = 17-het-dorsen.txt + 18-brood-en-bier.txt
+# "The Anglo-Saxons today" = 22-de-angelsaksen-nu.txt + 23-de-avond.txt
