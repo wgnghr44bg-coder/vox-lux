@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Alexandria, and Alexander" = 01-alexandrie.txt + 02-alexander.txt
+# "A family, and their house" = 05-een-familie.txt + 06-het-huis.txt
+# "Papyrus, and the copyist" = 09-papyrus.txt + 10-de-kopiist.txt
+# "An ordinary day, and the harbour" = 13-een-dag.txt + 14-de-haven.txt
+# "The Nile, and the children" = 15-de-nijl.txt + 16-de-kinderen.txt
+# "The storm, and the festivals" = 18-de-storm.txt + 19-feesten.txt
+# "What came later, and the discoveries" = 20-wat-later-kwam.txt + 21-onderzoek.txt
+# "Alexandria today" = 22-alexandrie-nu.txt + 23-de-avond.txt
