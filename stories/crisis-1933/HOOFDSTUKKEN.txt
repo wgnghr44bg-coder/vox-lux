@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "America in 1933, and the crash" = 01-amerika-1933.txt + 02-de-crash.txt
+# "The family, and the farm" = 03-de-familie.txt + 04-de-boerderij.txt
+# "The small town, and the bank holiday" = 05-het-stadje.txt + 06-de-bankvakantie.txt
+# "The country school, and the neighbours" = 11-de-school.txt + 12-de-buren.txt
+# "Summer, and the world's fair" = 14-de-zomer.txt + 15-de-wereldtentoonstelling.txt
+# "Thanksgiving, and winter" = 18-thanksgiving.txt + 19-de-winter.txt
+# "What came later, and what they learned" = 20-wat-later-kwam.txt + 21-lessen.txt
+# "Iowa today" = 22-iowa-nu.txt + 23-de-avond.txt
