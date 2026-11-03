@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "London, 1599" = 01-londen.txt + 02-de-stad.txt
+# "The glover's family, and their house" = 04-de-familie.txt + 05-het-huis.txt
+# "Morning, and the markets" = 06-de-ochtend.txt + 07-de-markten.txt
+# "London Bridge, and St Paul's" = 09-london-bridge.txt + 10-sint-paulus.txt
+# "The Royal Exchange, and Elizabethan food" = 11-de-beurs.txt + 12-het-eten.txt
+# "The Globe, and Julius Caesar" = 14-het-theater.txt + 15-julius-caesar.txt
+# "Sunday, and music" = 18-zondag.txt + 19-muziek.txt
+# "London today" = 22-londen-nu.txt + 23-de-avond.txt
