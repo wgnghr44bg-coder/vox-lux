@@ -178,10 +178,17 @@ vooruit), en vrije plekken voor hype. Cijfers: `tools/sleep_trends.py --check`, 
 - za 12 jun: vrij, de routine kiest het onderwerp op hype
 - wo 16 jun: vrij, de routine kiest het onderwerp op hype
 - za 19 jun: Building Stonehenge, 2500 BC (zonnewende 21 juni; Stonehenge 597.000) – map stonehenge
+
+**Juli 2027**
+- wo 14 jul: Life in Paris in the Summer of 1789 (Bastille Day 14 juli) – map parijs-1789, script door 2e account
+- za 17 jul: The Journey of Apollo 11, July 1969 (maanlanding 20 juli) – map apollo-11-1969, script door 2e account
 Reserve (als een onderwerp toch < 100.000 en zonder hype blijkt): Life in Ancient Sparta; Life on a Spanish Galleon, 1588;
 Life in Medieval Venice; Life in Edo Japan, 1800; Life in Constantinople, 1000 AD.
 Deze 5 zijn als reservescript geschreven (2e account, 3 nov 2026; mappen sparta, spaans-galjoen-1588,
 venetie-middeleeuwen, edo-japan-1800, constantinopel-1000). De routine pakt er één voor een vrije plek als er geen hype is.
+Extra reserve (2e account, nov 2026): Life in the California Gold Rush, 1849 (goudkoorts-1849); Life in Renaissance
+Florence, 1500 (florence-1500); Life in Ancient Alexandria and Its Great Library (alexandrie); The Mystery of Easter
+Island (paaseiland).
 
 ## Nog te maken
 In de maak (andere sessie, okt 2026): **Life Aboard the Mayflower, 1620** (niet opnieuw
