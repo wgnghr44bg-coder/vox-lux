@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The forest, and the legend" = 01-het-woud.txt + 02-de-legende.txt
+# "Sherwood, and the forest laws" = 03-sherwood.txt + 04-de-boswet.txt
+# "The family, and the charcoal pit" = 05-de-familie.txt + 06-de-houtskool.txt
+# "The pigs, and the forester" = 07-de-varkens.txt + 08-de-boswachter.txt
+# "Little John, and Friar Tuck" = 13-little-john.txt + 14-friar-tuck.txt
+# "May Day, and the silver arrow" = 15-maid-marian.txt + 16-de-zilveren-pijl.txt
+# "Robin's last arrow, and the years" = 19-robins-einde.txt + 20-de-jaren.txt
+# "Sherwood today" = 22-sherwood-nu.txt + 23-de-avond.txt
