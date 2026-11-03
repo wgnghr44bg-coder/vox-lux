@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Sparta, and the valley" = 01-sparta.txt + 02-lakonie.txt
+# "A family, and their house" = 04-een-familie.txt + 05-het-huis.txt
+# "The helots and the perioikoi" = 07-de-heloten.txt + 08-de-perioiken.txt
+# "Lycurgus, and the two kings" = 13-lycurgus.txt + 14-twee-koningen.txt
+# "Festivals, music and dance" = 15-de-feesten.txt + 16-muziek-en-dans.txt
+# "Thermopylae, and the victory" = 18-thermopylae.txt + 19-de-overwinning.txt
+# "What came later, and the discoverers" = 20-wat-later-kwam.txt + 21-de-ontdekkers.txt
+# "Sparta today" = 22-sparta-nu.txt + 23-de-avond.txt
