@@ -16,7 +16,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
-W, H, FPS = 1920, 1080, 30
+W, H, FPS = 1920, 1080, 25   # zelfde als make_video
 
 
 def masker(pad):
