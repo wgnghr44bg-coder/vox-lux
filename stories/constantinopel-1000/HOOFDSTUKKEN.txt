@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Constantinople, and the empire" = 01-constantinopel.txt + 02-het-rijk.txt
+# "A family of bakers, and their house" = 04-een-familie.txt + 05-het-huis.txt
+# "A day at the markets" = 07-een-dag.txt + 08-de-markten.txt
+# "Hagia Sophia, and the icons" = 10-hagia-sophia.txt + 11-de-iconen.txt
+# "The emperor, and the Varangian Guard" = 13-de-keizer.txt + 14-de-varangen.txt
+# "Children, water and baths" = 17-de-kinderen.txt + 18-water-en-baden.txt
+# "What came later, and the discoveries" = 20-wat-later-kwam.txt + 21-onderzoek.txt
+# "Istanbul today" = 22-istanboel-nu.txt + 23-de-avond.txt
