@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The army, and Macedonia" = 01-het-leger.txt + 02-macedonie.txt
+# "The boy, and the step counters" = 03-de-jongen.txt + 04-de-stappentellers.txt
+# "The camp, and the scholars" = 09-het-kamp.txt + 10-de-geleerden.txt
+# "The Tigris, the eclipse and Gaugamela" = 13-de-tigris.txt + 14-gaugamela.txt
+# "Babylon" = 15-babylon.txt + 16-de-stad-babylon.txt
+# "Susa, and Persepolis" = 17-susa.txt + 18-persepolis.txt
+# "Further east, and home" = 19-verder-naar-het-oosten.txt + 20-thuis.txt
+# "Alexander's world today" = 22-alexander-nu.txt + 23-de-avond.txt
