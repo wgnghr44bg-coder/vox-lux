@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "New York, and the Roaring Twenties" = 01-new-york.txt + 02-de-twintiger-jaren.txt
+# "A family, and their apartment" = 04-een-familie.txt + 05-de-flat.txt
+# "An ordinary day, and the taxi" = 07-een-dag.txt + 08-de-taxi.txt
+# "The garment district, and the newsboy" = 09-de-kledingfabriek.txt + 10-de-krantenjongen.txt
+# "Coney Island, and Babe Ruth" = 14-coney-island.txt + 15-babe-ruth.txt
+# "The children, and Balto" = 16-de-kinderen.txt + 17-balto.txt
+# "Thanksgiving, and Christmas" = 18-thanksgiving.txt + 19-kerst.txt
+# "New York today" = 22-new-york-nu.txt + 23-de-avond.txt
