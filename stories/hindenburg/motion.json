@@ -17,91 +17,91 @@
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 312.3,
+   "tijd": 326.1,
    "nummer": 2,
    "titel": "The Count and the Dream"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 713.7,
+   "tijd": 727.8,
    "nummer": 3,
    "titel": "Building the Hindenburg"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1114.9,
+   "tijd": 1128.4,
    "nummer": 4,
    "titel": "The First Year"
   },
   {
    "soort": "datum",
-   "tijd": 1131.9,
+   "tijd": 1145.4,
    "regel1": "4 March 1936",
    "regel2": "Lake Constance"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1488.2,
+   "tijd": 1510.4,
    "nummer": 5,
    "titel": "How an Airship Floats"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1745.7,
+   "tijd": 1764.3,
    "nummer": 6,
    "titel": "The Road to Brazil"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2019.3,
+   "tijd": 2038.1,
    "nummer": 7,
    "titel": "Boarding the Ship"
   },
   {
    "soort": "datum",
-   "tijd": 2336.0,
+   "tijd": 2354.9,
    "regel1": "3 May 1937  ·  8 pm",
    "regel2": "The airfield at Frankfurt"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2359.1,
+   "tijd": 2385.8,
    "nummer": 8,
    "titel": "The Passenger Decks"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2691.2,
+   "tijd": 2717.4,
    "nummer": 9,
    "titel": "Below Deck"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3027.1,
+   "tijd": 3052.7,
    "nummer": 10,
    "titel": "The Crew"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3423.0,
+   "tijd": 3465.2,
    "nummer": 11,
    "titel": "The First Night"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3798.6,
+   "tijd": 3850.6,
    "nummer": 12,
    "titel": "Tuesday over the Atlantic"
   },
   {
    "soort": "datum",
-   "tijd": 3810.6,
+   "tijd": 3862.6,
    "regel1": "4 May 1937  ·  Morning",
    "regel2": "The North Atlantic"
   },
   {
    "soort": "kaart",
-   "tijd": 3955.6,
+   "tijd": 4007.6,
    "titel": "Frankfurt to Lakehurst, 1937",
    "gebied": [
     -82,
@@ -188,73 +188,73 @@
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4181.4,
+   "tijd": 4244.0,
    "nummer": 13,
    "titel": "The Second Night"
   },
   {
    "soort": "datum",
-   "tijd": 4436.6,
+   "tijd": 4496.6,
    "regel1": "5 May 1937  ·  Afternoon",
    "regel2": "Newfoundland"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4553.0,
+   "tijd": 4623.6,
    "nummer": 14,
    "titel": "Thursday Morning"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4878.3,
+   "tijd": 4967.2,
    "nummer": 15,
    "titel": "Over New York"
   },
   {
    "soort": "datum",
-   "tijd": 4895.3,
+   "tijd": 4984.2,
    "regel1": "6 May 1937  ·  Afternoon",
    "regel2": "New York"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5163.7,
+   "tijd": 5269.4,
    "nummer": 16,
    "titel": "Waiting for the Storm"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5371.4,
+   "tijd": 5484.9,
    "nummer": 17,
    "titel": "Lakehurst"
   },
   {
    "soort": "datum",
-   "tijd": 5393.4,
+   "tijd": 5506.9,
    "regel1": "6 May 1937  ·  Evening",
    "regel2": "Lakehurst, New Jersey"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5583.1,
+   "tijd": 5692.6,
    "nummer": 18,
    "titel": "The Landing"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5882.9,
+   "tijd": 5993.7,
    "nummer": 19,
    "titel": "The Days After"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6151.6,
+   "tijd": 6261.1,
    "nummer": 20,
    "titel": "What Remains"
   },
   {
    "soort": "tijdlijn",
-   "tijd": 6188.6,
+   "tijd": 6298.1,
    "punten": [
     [
      "1900",
@@ -276,19 +276,19 @@
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6367.9,
+   "tijd": 6477.0,
    "nummer": 21,
    "titel": "Friedrichshafen Today"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6595.2,
+   "tijd": 6704.8,
    "nummer": 22,
    "titel": "Remembering the Airships"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 6787.9,
+   "tijd": 6895.3,
    "nummer": 23,
    "titel": "Goodnight, Hindenburg"
   }

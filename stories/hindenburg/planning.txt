@@ -3,10 +3,10 @@ lang   wo 4 nov 2026 21:00 NL (publishAt 2026-11-04T20:00:00Z)
 status klaar
 titel  Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep
 (ONDERWERPEN.md: vast, eigenaar 1 nov 2026, niet vervangen door een andere hype; gratis: comfy-beelden, Slaap 3)
-stem   Slaap 3 (OmniVoice), pauze D (--kort), 432 Hz --rond -26 + regen 13 dB eronder, -14 LUFS
-script 16.552 woorden, 105 beelden, stem 2:01:31 -> 1:54:42 met pauzes; zin 807 opnieuw ingesproken (Whisper: hangend woord)
+stem   Slaap 3 (OmniVoice), pauze D (--kort), 432 Hz --rond -26 + regen 13 dB eronder, -14 LUFS; vloeiende zoom (geen trillen)
+script 3 nov 2026 opnieuw: rustige spanning (vooruitblikken), 1050 zinnen, 105 beelden, stem 2:03:33 -> 1:56:33 met pauzes; zinnen 740 744 846 opnieuw ingesproken
 (eigen thumbnail-v2.jpg gemaakt maar niet gebruikt: de eigenaar koos thumbnail-gekozen.jpg)
 thumbnail amberregel "HINDENBURG · MAY 1937", hook "Life Aboard the Hindenburg", beeld: het enorme zilveren luchtschip Hindenburg groot in de gouden avondlucht boven de oceaan, passagiers achter de schuine ramen van de promenade; rustig, geen vuur (kenmerkend beeld, eigenaar 1 nov 2026)
 thumbnail gekozen door eigenaar 1 nov: stories/hindenburg/thumbnail-gekozen.jpg (mensen op de pier, "May 1937 · Across the Atlantic"); deze gebruiken, geen eigen thumbnail maken
-link   https://youtu.be/zSV1PWQlgxw (1:54:42, Slaap 3 pauze D, zin 807 opnieuw ingesproken, 53 tikjes stil, TEKST GOED, 432 Hz --rond -26 (zacht gecomprimeerd tegen pieken) + regen 13 dB eronder, -14 LUFS; geüpload 2 nov 2026, privé met publishAt wo 4 nov 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Voyages & Expeditions + Disasters & Catastrophes; thumbnail-gekozen.jpg van de eigenaar; QC APPROVED)
+link   https://youtu.be/fFe1GBl_JeA (1:56:33, opnieuw gemaakt 3 nov 2026: simpel en rustig spannend, vloeiende zoom zonder trillen; TEKST GOED, CONTROLE GOED, QC APPROVED; privé met publishAt wo 4 nov 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Voyages & Expeditions + Disasters & Catastrophes; thumbnail-gekozen.jpg; oude versie zSV1PWQlgxw verwijderd met OK van de eigenaar)
 kosten €0 (comfy-beelden, OmniVoice-stem, geen xAI)
