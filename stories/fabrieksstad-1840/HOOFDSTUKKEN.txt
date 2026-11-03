@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Rochdale, and the Industrial Revolution" = 01-de-fabrieksstad.txt + 02-de-industriele-revolutie.txt
+# "The family, and the knocker-up" = 03-de-familie.txt + 04-de-klopper.txt
+# "The mill, and the spinners" = 05-de-molen.txt + 06-het-spinnen.txt
+# "The house, and the Saturday market" = 09-het-huis.txt + 10-eten-en-markt.txt
+# "The street, and the Sunday school" = 12-de-straat.txt + 13-de-zondagsschool.txt
+# "The Rushbearing, and a walk on the moors" = 16-rushbearing.txt + 17-de-heuvels.txt
+# "Autumn and winter" = 19-de-herfst.txt + 20-de-winter.txt
+# "The mill towns today" = 22-de-molens-nu.txt + 23-de-avond.txt
