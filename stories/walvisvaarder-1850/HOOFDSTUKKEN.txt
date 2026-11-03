@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The whaling ship, and New Bedford" = 01-de-walvisvaarder.txt + 02-new-bedford.txt
+# "The ship, and the crew" = 04-het-schip.txt + 05-de-bemanning.txt
+# "A day on board, and the lookout" = 07-een-dag-aan-boord.txt + 08-de-uitkijk.txt
+# "The whales, and the hunt" = 09-de-walvissen.txt + 10-de-jacht.txt
+# "The captain's wife, and scrimshaw" = 12-de-vrouw-van-de-kapitein.txt + 13-scrimshaw.txt
+# "The Galapagos, and the gam" = 15-de-galapagos.txt + 16-gam.txt
+# "Letters, and coming home" = 19-heimwee-en-brieven.txt + 20-thuiskomst.txt
+# "New Bedford today" = 22-new-bedford-nu.txt + 23-de-avond.txt
