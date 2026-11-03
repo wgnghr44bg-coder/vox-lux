@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Olympia, and how it began" = 01-olympia.txt + 02-het-begin.txt
+# "The sacred truce, and training in Elis" = 04-de-wapenstilstand.txt + 05-training-in-elis.txt
+# "The sanctuary, and the statue of Zeus" = 07-het-heiligdom.txt + 08-zeus.txt
+# "The tent camp, and the oath" = 09-het-tentenkamp.txt + 10-de-eed.txt
+# "The horse races, and the pentathlon" = 12-de-paardenrennen.txt + 13-de-vijfkamp.txt
+# "The great race, and the wrestlers" = 15-de-stadionloop.txt + 16-worstelen-en-boksen.txt
+# "The olive wreath, and the feast" = 18-de-olijfkrans.txt + 19-het-feest.txt
+# "Olympia today" = 22-olympia-nu.txt + 23-de-avond.txt
