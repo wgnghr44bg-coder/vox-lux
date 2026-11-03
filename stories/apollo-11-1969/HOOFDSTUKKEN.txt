@@ -1,0 +1,8 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The moon, and the space race" = 01-de-maan.txt + 02-de-ruimtewedloop.txt
+# "Cape Kennedy, and the launch" = 06-cape-kennedy.txt + 07-de-lancering.txt
+# "Life on board, and the children" = 10-het-leven-aan-boord.txt + 11-de-kinderen.txt
+# "On the moon, and alone in Columbia" = 15-op-de-maan.txt + 16-columbia.txt
+# "The way home" = 17-terug.txt + 18-de-thuisreis.txt
+# "Quarantine, and the parades" = 19-quarantaine.txt + 20-de-optocht.txt
+# "What came later, and the moon today" = 21-wat-later-kwam.txt + 22-de-maan-nu.txt + 23-de-avond.txt
