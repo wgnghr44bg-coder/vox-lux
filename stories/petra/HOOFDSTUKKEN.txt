@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Petra, and the Nabataeans" = 01-petra.txt + 02-de-nabateeers.txt
+# "The family, and the Siq" = 03-de-familie.txt + 04-de-siq.txt
+# "Water in the desert, and the house" = 06-het-water.txt + 07-het-huis.txt
+# "Frankincense, and the great caravan" = 08-de-wierook.txt + 09-de-karavaan.txt
+# "The king, and the potters" = 13-de-koning.txt + 14-de-pottenbakker.txt
+# "The stonemasons, and the gardens" = 15-de-steenhouwers.txt + 16-de-tuinen.txt
+# "The Romans, and what came later" = 19-de-romeinen.txt + 20-wat-later-kwam.txt
+# "Petra today" = 22-petra-nu.txt + 23-de-avond.txt

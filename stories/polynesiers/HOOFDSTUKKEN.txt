@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The great ocean, and the ancestors" = 01-de-oceaan.txt + 02-de-voorouders.txt
+# "Raiatea, and the family" = 03-het-eiland.txt + 04-de-familie.txt
+# "Building the canoe, and weaving the sails" = 05-de-kano-bouwen.txt + 06-de-zeilen.txt
+# "The plants, and the departure" = 08-de-planten.txt + 09-het-vertrek.txt
+# "The waves, and food at sea" = 12-de-golven.txt + 13-het-eten.txt
+# "The landing, and a new home" = 18-de-aankomst.txt + 19-het-nieuwe-thuis.txt
+# "What came later, and Hokule'a" = 20-wat-later-kwam.txt + 21-hokulea.txt
+# "Hawaii today" = 22-hawaii-nu.txt + 23-de-avond.txt

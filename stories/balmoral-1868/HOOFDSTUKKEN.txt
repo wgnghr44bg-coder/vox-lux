@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Balmoral, and the queen" = 01-balmoral.txt + 02-de-koningin.txt
+# "Albert, and the Highlands" = 03-albert-en-balmoral.txt + 04-de-highlands.txt
+# "The ghillie's family, and the castle" = 05-de-familie.txt + 06-het-kasteel.txt
+# "The queen's book, and the royal children" = 09-het-dagboek.txt + 10-de-kinderen.txt
+# "The Highland Games, and the harvest ball" = 13-highland-games.txt + 14-ghillies-ball.txt
+# "Sunday at Crathie, and a royal visit" = 15-crathie-kerk.txt + 16-de-cottages.txt
+# "The railway, and the coming winter" = 18-de-trein.txt + 19-de-winter-komt.txt
+# "Balmoral today" = 22-balmoral-nu.txt + 23-de-avond.txt

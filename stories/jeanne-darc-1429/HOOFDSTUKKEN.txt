@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Domrémy, and the long war" = 01-domremy.txt + 02-de-oorlog.txt
+# "The family, and the autumn harvest" = 03-de-familie.txt + 04-de-oogst.txt
+# "The Ladies' Tree, and the voices" = 05-de-feeenboom.txt + 06-de-stemmen.txt
+# "A first try, and Orléans besieged" = 07-de-vlucht.txt + 08-orleans-belegerd.txt
+# "Poitiers, and the white banner" = 12-poitiers.txt + 13-de-banier.txt
+# "Orléans, and the lifting of the siege" = 14-orleans.txt + 15-de-bevrijding.txt
+# "The last months, and Rouen" = 19-de-laatste-maanden.txt + 20-rouen.txt
+# "Joan of Arc today" = 22-jeanne-nu.txt + 23-de-avond.txt
