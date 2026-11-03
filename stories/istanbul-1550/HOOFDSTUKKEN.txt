@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Istanbul, and the story of the city" = 01-istanbul.txt + 02-de-stad.txt
+# "A family, and a morning in the city" = 03-de-familie.txt + 04-de-ochtend.txt
+# "The building site, and Sinan" = 05-de-bouwplaats.txt + 06-sinan.txt
+# "The palace, and the sultan" = 11-het-paleis.txt + 12-de-sultan.txt
+# "The neighbours, and the food" = 13-de-buren.txt + 14-het-eten.txt
+# "Ramadan, and the Sugar Feast" = 17-de-ramadan.txt + 18-het-suikerfeest.txt
+# "Books and art, and the finished mosque" = 19-boeken-en-kunst.txt + 20-de-voltooiing.txt
+# "Istanbul today" = 22-istanbul-nu.txt + 23-de-avond.txt
