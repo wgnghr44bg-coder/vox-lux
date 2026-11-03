@@ -1,0 +1,8 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "Gold, and the news" = 01-goud.txt + 02-het-nieuws.txt
+# "A family in Massachusetts, and the farewell" = 03-een-familie.txt + 04-het-afscheid.txt
+# "Up the rivers, and the mining camp" = 09-naar-de-rivieren.txt + 10-het-mijnkamp.txt
+# "A day in the camp, and the prices" = 12-een-dag-in-het-kamp.txt + 13-de-prijzen.txt
+# "Women, and letters from home" = 15-vrouwen.txt + 16-brieven.txt
+# "Sacramento, and the family comes" = 19-sacramento.txt + 20-het-gezin-komt.txt
+# "What came later, and California today" = 21-wat-later-kwam.txt + 22-californie-nu.txt + 23-de-avond.txt
