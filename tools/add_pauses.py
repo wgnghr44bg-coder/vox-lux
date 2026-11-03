@@ -176,6 +176,9 @@ def main():
     (story / "video").mkdir(exist_ok=True)
     with wave.open(str(story / "video" / "stem-met-pauzes.wav"), "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(out.tobytes())
+    # oude tussenstappen van een vorige stem weg, anders pakt zachte_stem/herstel_zinnen die (WW2, 3 nov 2026)
+    for oud in ("stem-met-pauzes-ruw.wav", "stem-met-pauzes-voor-tikjes.wav", "stem-met-pauzes-voor-herstel.wav"):
+        (story / "video" / oud).unlink(missing_ok=True)
 
     # 2. tijdlijn
     with open(story / "tijdlijn-pauzes.tsv", "w") as f:
