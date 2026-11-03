@@ -1,0 +1,9 @@
+# Hoofdstukken in de beschrijving die uit meer bestanden bestaan (tijd = begin van het eerste bestand):
+# "The lighthouse, and why lighthouses were built" = 01-de-vuurtoren.txt + 02-waarom-vuurtorens.txt
+# "The island, and the keeper's family" = 04-het-eiland.txt + 05-de-familie.txt
+# "The night watch, and the morning work" = 07-de-nachtwacht.txt + 08-de-ochtend.txt
+# "The weather, and the household" = 09-het-weer.txt + 10-het-huishouden.txt
+# "School at home, and the supply boat" = 11-de-school.txt + 12-de-boot.txt
+# "The storm, and the rescue" = 15-de-storm.txt + 16-de-redding.txt
+# "Hogmanay, and the years that followed" = 19-hogmanay.txt + 20-de-jaren.txt
+# "Lighthouses today" = 22-vuurtorens-nu.txt + 23-de-avond.txt
