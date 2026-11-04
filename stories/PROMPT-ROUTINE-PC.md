@@ -1,8 +1,9 @@
 # Sleep Archives – automatische routine op de pc
 
-De eigenaar wil dat alles automatisch gebeurt (27 okt 2026): **2 video's per week, woensdag en
-zaterdag 21:00 NL-tijd**, volgens het Titanic-recept (stories/ONDERWERPEN.md). Deze prompt draait
-op de pc van de eigenaar (Windows Taakplanner start `claude -p` op **zondag en donderdag 09:00**),
+De eigenaar wil dat alles automatisch gebeurt (27 okt 2026): **3 video's per week, maandag, woensdag en
+zaterdag 21:00 NL-tijd** (eigenaar 4 nov 2026; maandag vanaf 16 nov 2026), volgens het Titanic-recept
+(stories/ONDERWERPEN.md). Geen Shorts. Deze prompt draait op de pc van de eigenaar (Windows Taakplanner
+start `claude -p` op **zondag, dinsdag en donderdag 09:00**; elke run maakt één video),
 want ComfyUI, de stem en het videobestand staan alleen daar. Niemand kijkt mee: vraag niets,
 werk alles af.
 
@@ -11,6 +12,11 @@ werk alles af.
    **Eerst: is een vorige run blijven hangen?** Staat er een `stories/*/planning.txt` op `status   bezig (..., routine)`
    zonder link, ouder dan 1 dag, en is die video nog niet op YouTube? Maak die dan eerst af vanaf de stap waar hij
    bleef (de bestanden staan nog in deze map) in plaats van een nieuwe te beginnen (Tombstone, 2 nov 2026).
+   **Welke plek?** Elke run vult de **eerstvolgende open plek**: maandag, woensdag of zaterdag 21:00, minstens
+   2 dagen na vandaag, waarvoor nog geen video op YouTube staat en geen planning.txt op `bezig` of `klaar` staat
+   (3 per week, eigenaar 4 nov 2026). Heeft een `script-klaar` planning.txt precies die datum, maak die. Is de plek
+   vrij (elke maandag, en de "vrij"-plekken in ONDERWERPEN.md), kies dan hype of reservescript (zie hieronder).
+   Pak nooit een script met een latere datum zolang er een eerdere plek open is.
    **Daarna: ligt er een script klaar?** (eigenaar, 1 nov 2026: een tweede Claude-account schrijft de scripts
    vooruit, zie `stories/PROMPT-SCRIPT-VOORUIT.md`.) Zoek op main naar `stories/*/planning.txt` met
    `status   script-klaar`. Neem daarvan die met de vroegste `datum` die minstens 2 dagen na vandaag ligt.
@@ -40,7 +46,7 @@ werk alles af.
    één plek op in de lijst (commit + push). **Nooit** vervangen of verschuiven: een onderwerp met een
    vaste datum (jubileum, feestdag, filmpremière, bv. Kennedy 21 nov, Pearl Harbor 28 nov, kerst);
    schuif dan de flexibele onderwerpen eromheen. Zet in ROUTINE-LOG.md welke hype je zag en wat je koos.
-3. **Datum**: de eerste vrije woensdag of zaterdag 21:00, minstens 2 dagen na vandaag. Zet
+3. **Datum**: de eerste vrije maandag, woensdag of zaterdag 21:00, minstens 2 dagen na vandaag. Zet
    `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
    afwijkingen:

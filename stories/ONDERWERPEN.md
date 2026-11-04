@@ -83,9 +83,11 @@ Daarom voor elke nieuwe video:
 5. Na upload: eindscherm naar de Titanic-video en in een passende afspeellijst zetten.
 
 ## Weekplanning (eigenaar, 27 okt 2026)
-**2 video's per week: woensdag en zaterdag 21:00** (NL-tijd), allemaal volgens het Titanic-recept.
-Alles gaat automatisch op de pc van de eigenaar: Windows Taakplanner start elke **zondag en
-donderdag 09:00** `stories/PROMPT-ROUTINE-PC.md` (onderwerp, script, comfy-beelden, stem, montage,
+**3 video's per week: maandag, woensdag en zaterdag 21:00** (NL-tijd; eigenaar 4 nov 2026: "ik wil er
+dan 3 per week", grote slaapkanalen doen 3-5 lange video's per week en vrijwel geen Shorts), allemaal volgens
+het Titanic-recept. **Geen Shorts.** Maandag is vanaf ma 16 nov 2026 telkens een vrije plek: de routine maakt er
+een hype of anders een reservescript. Alles gaat automatisch op de pc van de eigenaar: Windows Taakplanner
+start elke **zondag, dinsdag en donderdag 09:00** `stories/PROMPT-ROUTINE-PC.md` (onderwerp, script, comfy-beelden, stem, montage,
 upload). Problemen staan in `stories/ROUTINE-LOG.md`.
 Vooruitblik (gekozen op 27 okt 2026 met `tools/sleep_trends.py --check`: hoeveel views de
 bestaande slaapvideo's over het onderwerp samen hebben; Titanic: ± 5 miljoen):
