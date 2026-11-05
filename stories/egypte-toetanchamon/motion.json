@@ -1,0 +1,192 @@
+{
+ "onderwerp": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC",
+ "intro": true,
+ "slot": true,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "The black land beside the Nile"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 417.8,
+   "nummer": 2,
+   "titel": "A farming family"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 860.5,
+   "nummer": 3,
+   "titel": "The city of Thebes"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1299.3,
+   "nummer": 4,
+   "titel": "The tomb-makers, the scribes and their children"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2190.9,
+   "nummer": 5,
+   "titel": "The king of the sun"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 2197.9,
+   "titel": "Egypt, 1323 BC",
+   "gebied": [
+    28.5,
+    35.5,
+    23.8,
+    31.4
+   ],
+   "plaatsen": [
+    {
+     "naam": "Thebes",
+     "lon": 32.64,
+     "lat": 25.72,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Amarna",
+     "lon": 30.9,
+     "lat": 27.64,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Memphis",
+     "lon": 31.25,
+     "lat": 29.85,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Aswan",
+     "lon": 32.9,
+     "lat": 24.09,
+     "kant": "rechts"
+    }
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2638.6,
+   "nummer": 6,
+   "titel": "The boy king"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3089.1,
+   "nummer": 7,
+   "titel": "The young queen"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3491.4,
+   "nummer": 8,
+   "titel": "The Beautiful Feast of Opet"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3912.3,
+   "nummer": 9,
+   "titel": "The last winter"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3929.3,
+   "regel1": "Winter, 1323 BC",
+   "regel2": "Thebes, Egypt"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4375.5,
+   "nummer": 10,
+   "titel": "Seventy days"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4827.9,
+   "nummer": 11,
+   "titel": "The funeral in the Valley of the Kings"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4839.9,
+   "regel1": "Spring, 1323 BC",
+   "regel2": "The Nile at Thebes"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5300.1,
+   "nummer": 12,
+   "titel": "A forgotten king"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5749.3,
+   "nummer": 13,
+   "titel": "Wonderful things"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5766.3,
+   "regel1": "Autumn 1922",
+   "regel2": "The Valley of the Kings"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5907.0,
+   "regel1": "4 November 1922",
+   "regel2": "The Valley of the Kings"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6026.6,
+   "regel1": "26 November 1922  ·  Afternoon",
+   "regel2": "The tomb of Tutankhamun"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6150.2,
+   "nummer": 14,
+   "titel": "The treasures of the tomb"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6242.2,
+   "regel1": "February 1923",
+   "regel2": "The sealed doorway is opened"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6588.3,
+   "nummer": 15,
+   "titel": "Goodnight, Egypt"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6678.8,
+   "punten": [
+    [
+     "1323 BC",
+     "Tutankhamun is buried"
+    ],
+    [
+     "1922",
+     "Howard Carter finds the tomb"
+    ],
+    [
+     "1923",
+     "The sealed doorway is opened"
+    ],
+    [
+     "Today",
+     "The treasures rest in one museum"
+    ]
+   ]
+  }
+ ]
+}
