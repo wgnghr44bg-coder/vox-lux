@@ -10,7 +10,8 @@ import re
 from pathlib import Path
 
 d = Path(__file__).parent
-STYLE = ("A scene from ancient Egypt around 1323 BC, in the time of Tutankhamun, before any modern technology: no modern buildings, no modern clothes, no cars, no power lines. "
+STYLE = ("A scene from ancient Egypt around 1323 BC, in the time of Tutankhamun. Everything is made of mud-brick, sandstone, reeds, wood, linen and gold; "
+         "people wear white linen kilts and dresses; the land around is only green fields, palm trees, open sand and bare rock. "
          "Cinematic realistic photograph, wide 16:9 landscape, soft natural light, gentle atmospheric haze, "
          "calm and peaceful mood, historically accurate ancient Egypt of the 18th dynasty, highly detailed, "
          "no blood, nothing frightening, no text, no words, no letters, no logos")
