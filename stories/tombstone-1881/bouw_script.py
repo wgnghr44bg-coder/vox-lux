@@ -6,12 +6,7 @@ d = Path(__file__).parent
 # Opbouw zoals Sleepy History (eigenaar 6 nov 2026): overzicht, abonneren, kort ontspannen, "Let's begin";
 # einde: samenvatting, beeld laten wegzakken, "niets hoeven onthouden", volgende video + abonneren, adem, slaap.
 # Feitjes-opbouw (eigenaar 6-7 nov 2026), korte intro en outro, per video anders verwoord.
-OPEN = ["Tonight we are going nearly a hundred and fifty years back, to a silver town on a high desert mesa in Arizona.",
-        "[pause]",
-        "In just a few years, Tombstone grew from a lonely prospector's camp into one of the liveliest towns in the West, with mines and theatres, newspapers and saloons, and one famous afternoon in October 1881.",
-        "[pause]",
-        "If you'd like more quiet history like this, you're welcome to subscribe. Now get comfortable, let the day go, and simply drift along.",
-        "[long-pause]"]
+OPEN = []   # eigenaar 7 nov 2026: geen "Tonight..."-intro meer, meteen beginnen met het eerste feitje
 CLOSE = ["And there our quiet visit to Tombstone comes to an end.",
          "[pause]",
          "The lamps along Allen Street are dimming, the wind moves softly over the mesa, and the old town settles into the night.",
