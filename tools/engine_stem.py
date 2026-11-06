@@ -37,8 +37,23 @@ pieces = [xv.Piece(" ".join(xv.TAG_RE.sub("", p.text).split()), p.silence_after_
 print(f"{len(pieces)} zinnen, stem {cfg.voice}, speed {cfg.speed}", flush=True)
 
 clips = [None] * len(pieces)
-for b in range(0, len(pieces), 4):
-    idx = list(range(b, min(b + 4, len(pieces))))
+if "--hergebruik" in sys.argv and (m / "voice-times.tsv").exists():
+    # alleen nieuwe of gewijzigde zinnen inspreken; de rest uit de bestaande voice.mp3 knippen (bv. kortere intro/outro)
+    oud = subprocess.run(["ffmpeg", "-v", "error", "-i", str(m / "voice.mp3"), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    oud = np.frombuffer(oud, np.float32)
+    knip = {}
+    for r in (m / "voice-times.tsv").read_text(encoding="utf-8").splitlines()[1:]:
+        c = r.split("\t")
+        if len(c) >= 5 and c[4] not in knip:
+            knip[c[4]] = oud[int(float(c[1]) * SR): int(float(c[2]) * SR)].copy()
+    for i, p in enumerate(pieces):
+        if p.text in knip:
+            clips[i] = knip[p.text]
+    print(f"hergebruikt: {sum(c is not None for c in clips)} zinnen, nieuw: {sum(c is None for c in clips)}", flush=True)
+nieuw = [i for i, c in enumerate(clips) if c is None]
+for b in range(0, len(nieuw), 4):
+    idx = nieuw[b:b + 4]
     for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], cfg, seed=cfg.seed + b)):
         clips[i] = edge_fade(trim(wav, SR), SR)
     for i in idx:                                          # korte zinnen komen soms leeg terug: los opnieuw

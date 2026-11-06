@@ -51,7 +51,7 @@ items += [
         ["1881", "The afternoon on Fremont Street"], ["1929", "John Clum passes away"]]},
 ]
 items.sort(key=lambda i: i["tijd"])
-json.dump({"onderwerp": "Life in the Wild West: Tombstone, 1881", "intro": True, "slot": True, "items": items},
+json.dump({"onderwerp": "Life in the Wild West: Tombstone, 1881", "intro": False, "slot": False, "items": items},
           open(d / "motion.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
 # beschrijving: tijden mét pauzes

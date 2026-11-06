@@ -5,29 +5,12 @@ from pathlib import Path
 d = Path(__file__).parent
 # Opbouw zoals Sleepy History (eigenaar 6 nov 2026): overzicht, abonneren, kort ontspannen, "Let's begin";
 # einde: samenvatting, beeld laten wegzakken, "niets hoeven onthouden", volgende video + abonneren, adem, slaap.
-OPEN = ["Tonight we are going nearly ninety years back, to the years of the Second World War, from the late summer of 1939 to the quiet spring of 1945.",
-        "[pause]",
-        "It was a time of blackout curtains and ration books, of evacuated children and wireless sets glowing in the dark. Ordinary people found small ways to carry on. They queued, they mended, they grew vegetables in their gardens, and they wrote long letters to the people they missed.",
-        "[pause]",
-        "Over the next few hours, we will move gently from one small fact to the next. There is nothing you need to follow, and nothing you need to remember.",
-        "[long-pause]",
-        "If you enjoy these quiet journeys, you are welcome to subscribe. It helps other sleepy listeners find their way here.",
-        "[pause]",
-        "But for now, all you need to do is settle in. Let your shoulders drop. Let your breathing slow down, and let your eyes grow heavy.",
-        "[long-pause]",
-        "Let's begin.",
-        "[long-pause]"]
-CLOSE = ["And so, our long walk through the war years comes to its quiet end.",
+OPEN = []   # eigenaar 7 nov 2026: geen "Tonight..."-intro meer, meteen beginnen met het eerste feitje
+CLOSE = ["And that brings our quiet journey through the war years to a close.",
          "[pause]",
-         "We have listened to the wireless in small front rooms, waited out the long blackout nights, queued with ration books and watched the children come home again. We have seen how ordinary people kept going, one quiet day after another.",
+         "The wireless sets fall silent, the blackout curtains are drawn back, and the long years settle gently into memory.",
          "[long-pause]",
-         "Now those streets can slowly fade from view. The ration books can close, the curtains can open, and the church bells can ring softly on a Sunday morning, further and further away.",
-         "[pause]",
-         "There is no need to remember any of the names or the dates tonight.",
-         "[long-pause]",
-         "If you are still awake, there should be another quiet story waiting for you on the screen now. And if these journeys help you rest, subscribing helps other sleepy listeners find their way here.",
-         "[long-pause]",
-         "But for now, let your breathing settle into its own slow rhythm.",
+         "If you are still awake, another quiet story is waiting for you on the screen. And if you enjoyed this one, you are always welcome to subscribe.",
          "[pause]",
          "Sleep well, and good night."]
 facts = []

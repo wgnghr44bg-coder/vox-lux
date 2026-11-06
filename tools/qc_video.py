@@ -293,7 +293,8 @@ def main():
     # ---------- 4. timing ----------
     spoken = [r for r in rows if r[4].strip()]
     eerste = spoken[0][4]
-    intro_ok = re.match(r"^Tonight we are going .+ years? back, to .+", eerste) and sec(spoken[0][1]) < 15
+    # eigenaar 7 nov 2026: geen "Tonight we are going..."-intro meer, meteen beginnen; alleen: de stem start snel
+    intro_ok = sec(spoken[0][1]) < 15
     qc.set("intro", OK if intro_ok else FOUT,
            *([] if intro_ok else [(sec(spoken[0][1]), "CONTENT", f"Begin klopt niet: '{eerste[:80]}'", "HIGH", "Eerste regel aanpassen.")]))
     slot = " ".join(r[4] for r in spoken[-8:]).lower()

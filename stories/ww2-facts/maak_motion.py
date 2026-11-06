@@ -56,7 +56,7 @@ items += [
         ["1944", "D-Day in Normandy"], ["1945", "Peace returns"]]},
 ]
 items.sort(key=lambda i: i["tijd"])
-json.dump({"onderwerp": "Quiet WW2 Facts to Fall Asleep To", "intro": True, "slot": True, "items": items},
+json.dump({"onderwerp": "Quiet WW2 Facts to Fall Asleep To", "intro": False, "slot": False, "items": items},
           open(d / "motion.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
 # effecten per beeld, op woorden in de slug
