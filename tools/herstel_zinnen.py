@@ -16,7 +16,8 @@ import numpy as np
 HIER = Path(__file__).parent
 sys.path.insert(0, str(HIER))
 import check_video as cv
-from zachte_stem import KLANK
+from zachte_stem import klank_voor
+import json
 
 ap = argparse.ArgumentParser()
 ap.add_argument("story", type=Path); ap.add_argument("zinnen", type=int, nargs="+")
@@ -39,8 +40,16 @@ import torch
 from omnivoice import OmniVoice
 from transformers import pipeline
 model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", device_map="cuda:0", dtype=torch.float16)
-prompt = model.create_voice_clone_prompt(ref_audio=str(HIER / "comfy" / "stem" / "slaapstem-3.wav"),
-                                         ref_text="The evening is quiet now, and the kettle is warming slowly on the stove.")
+# stem: Slaap 3, of de Audio Engine-stem uit <map>/stem.json (eigenaar 6 nov 2026)
+REF, SPEED = HIER / "comfy" / "stem" / "slaapstem-3.wav", 0.8
+REF_TEXT = "The evening is quiet now, and the kettle is warming slowly on the stove."
+if (a.story / "stem.json").exists():
+    sj = json.loads((a.story / "stem.json").read_text(encoding="utf-8"))
+    vdir = HIER.parent / "audio_engine" / "voices" / sj.get("engine_voice", "narrator-b")
+    REF, SPEED = vdir / "ref.wav", sj.get("speed", 0.62)
+    REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
+KLANK = klank_voor(a.story)
+prompt = model.create_voice_clone_prompt(ref_audio=str(REF), ref_text=REF_TEXT)
 asr = pipeline("automatic-speech-recognition", "openai/whisper-large-v3-turbo", device="cuda:0", torch_dtype=torch.float16)
 LETTERLIJK = asr.tokenizer.get_prompt_ids("Um, so, so we we went, uh, to to the the old house. I I mean, it it was",
                                           return_tensors="pt").to("cuda:0")
@@ -64,7 +73,7 @@ for nr in a.zinnen:
     doel = norm(rows[i][4])
     for p in range(a.pogingen):
         torch.manual_seed(1000 + 37 * nr + p)
-        y = klank(model.generate(text=rows[i][4], voice_clone_prompt=prompt, speed=0.8)[0])
+        y = klank(model.generate(text=rows[i][4], voice_clone_prompt=prompt, speed=SPEED)[0])
         y = y[np.argmax(np.abs(y) > 300):]                       # stilte vooraan eraf: begint op dezelfde tijd
         y16 = np.interp(np.arange(0, len(y), sr / 16000), np.arange(len(y)), y / 32768).astype(np.float32)
         hoor = asr({"raw": y16, "sampling_rate": 16000},

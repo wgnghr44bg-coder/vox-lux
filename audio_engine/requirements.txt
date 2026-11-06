@@ -1,0 +1,9 @@
+# Python 3.12, in the OmniVoice environment (C:\Users\rane\omnivoice-venv)
+# torch with CUDA 12.8 first:  pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+torch==2.8.0
+omnivoice==0.2.1
+numpy>=2.0
+scipy>=1.13
+soundfile>=0.13
+gradio>=5.0
+# plus FFmpeg on the PATH (gyan.dev full build, with afir, loudnorm, sidechain filters)

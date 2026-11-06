@@ -1,0 +1,9 @@
+{
+  "name": "narrator-d",
+  "description": "Designed with OmniVoice (not cloned); measured close to the owner's example voice in pitch and brightness (6 Nov 2026).",
+  "ref_text": "The evening is quiet now, and the kettle is warming slowly on the stove.",
+  "instruct": "male, elderly, moderate pitch, british accent",
+  "seed": 3,
+  "design_speed": 0.8,
+  "default_speed": 0.64
+}
