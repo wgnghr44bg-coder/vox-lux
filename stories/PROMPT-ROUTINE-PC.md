@@ -97,8 +97,9 @@ werk alles af.
      (± 125 woorden/min) geeft ± 20.000 woorden ± 2 u 45.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
-   - Titel: bekende naam + maand en jaar + ` | <N> Hours of History for Sleep` (N = lengte van de eindvideo,
-     afgerond op hele uren; eigenaar 1 nov 2026). Staat in planning.txt een titel met alleen ` | History for Sleep`, zet de uren er dan zelf in.
+   - Titel (eigenaar 7 nov 2026, "zonder uren"): een **vraag** zoals Sleepy History, eindigend op ` | History for Sleep`,
+     zonder aantal uren, bv. "What Was Life Really Like in Tombstone? | History for Sleep". Bekende naam erin, ± 50-70 tekens.
+     Staat er in planning.txt nog een oude titel (met `<N> Hours`), maak er dan zo'n vraag-titel van.
    - **Thumbnail: automatisch** (eigenaar, 1 nov 2026: "nu kun je ze automatisch instellen bij elke nieuwe video").
      Staat er in planning.txt `thumbnail gekozen door eigenaar: <bestand>`, gebruik dan precies dat bestand.
      Anders maak je hem zelf, zonder te vragen, volgens YOUTUBE-STANDAARD.md (Thumbnail):
