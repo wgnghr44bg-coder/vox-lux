@@ -22,7 +22,7 @@ werk alles af.
    `status   script-klaar`. Neem daarvan die met de vroegste `datum` die minstens 2 dagen na vandaag ligt.
    - Dat is je video. Sla stap 2 en 3 over: onderwerp, datum, titel, thumbnail en soort staan in die planning.txt.
    - Schrijf geen nieuw script. Draai `python stories/<map>/bouw_script.py` en lees het script één keer
-     na volgens stap 2 van PROMPT-NIEUWE-VIDEO.md (begin, abonneer-zin, einde, ± 17.000 woorden,
+     na volgens stap 2 van PROMPT-NIEUWE-VIDEO.md (begin, abonneer-zin, einde, ± 20.000 woorden, opbouw zoals hieronder bij "Script-opbouw",
      ± 90 beelden). Herstel kleine fouten zelf.
    - Zet de status op `bezig (<datum>, routine)` (commit + push), zodat een volgende run hem niet ook pakt.
      Na de upload wordt het `klaar` met de link (stap 6).
@@ -50,7 +50,23 @@ werk alles af.
    `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
    afwijkingen:
-   - Script met de opbouw van stories/titanic (OPZET.md daar), ± 2 uur video.
+   - **Script-opbouw (eigenaar 6 nov 2026: "rustiger en ongeveer dezelfde opbouw qua verhaal" als Sleepy History,
+     maar met onze onderwerpen)**. Voorbeeld: stories/ww2-facts (src/deel*.txt met blokken `IMG: slug | beeld` /
+     `HEAD:` / `BODY:`, gescheiden door `===`, omgezet door bouw_script.py; kopieer en pas OPEN/CLOSE aan).
+     Ook een klaar of reservescript eerst zo ombouwen (zelfde onderwerp en feiten, nieuwe opbouw), dan pas beelden en stem.
+     - Begin: "Tonight we are going ... back, to ..." (verplicht voor de QC), dan 4-6 korte zinnen overzicht van het
+       onderwerp (geen scène), "There is nothing you need to follow, and nothing you need to remember.", de
+       abonneer-zin, een kort ontspanningsstukje (schouders, adem, zware ogen) en "Let's begin."
+     - Midden: ± 80-100 losse feitjes, elk ± 1,5-2 min: een **kopzin die zelf al verrast** (HEAD), [pause], dan
+       ± 180-250 woorden rustige uitleg (wat er was of gevonden is, hoe het werkte, een nuance met "Yet..." of
+       "That does not mean...", en een stille slotgedachte), [long-pause]. Geen overgangen tussen feitjes nodig.
+       Korte zinnen (8-15 woorden), weinig namen en jaartallen, niets wat je moet onthouden om verder te kunnen.
+     - Einde: "And so, our long walk through ... comes to its quiet end.", een samenvatting ("We have ... We have
+       seen ..."), het beeld laten wegzakken ("... can slowly fade from view"), "There is no need to remember ...",
+       de volgende-video-zin ("another quiet story waiting for you on the screen") + abonneren, een ademzin en
+       "Sleep well, and good night."
+     - Lengte: ± 20.000 woorden (bij ± 125 woorden/min ± 2 u 45). Elk feitje krijgt een eigen beeld en wordt een
+       hoofdstuk in de beschrijving (veel hoofdstukken, zoals de grote kanalen).
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
    - **Elk beeld nakijken op dingen die er toen nog niet waren** (Tombstone 3 nov 2026: 60 van de 90 beelden hadden
@@ -59,13 +75,16 @@ werk alles af.
      false-front buildings, dirt roads; any distance shows only open desert") en bij binnenscènes "an indoor scene,
      enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
      "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
-   - **Stem: Slaap 3** (eigenaar, 31 okt 2026; vervangt George): eigen ontworpen OmniVoice-stem, oudere
-     Britse man, heel laag, langzaam met lange pauzes. Altijd met
-     `C:\Users\rane\omnivoice-venv\Scripts\python.exe tools/comfy/make_voice_omni.py <map>`
-     (de standaardinstellingen zijn goed; het gewone `python` heeft geen omnivoice). Na
-     `tools/add_pauses.py --niet-zwaarder --kort <map>` altijd `python tools/zachte_stem.py <map>` en monteer met
-     `make_video.py ... --muziek-db -26` (ook bij check_video/qc). **Achtergrond** (eigenaar 31 okt 2026, "helder 4", daarna "zachter 4"): de 432 Hz-
-     muziek (`tools/ambient_432.py ... --rond`: hoge tonen eraf, eigenaar "432 mid harder") met zachte heldere regen erdoor: direct daarna `python tools/regen_432.py <map>/video/muziek432.wav`. Meet daarna het volume
+   - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026, proef "audio-engine-rustiger": "Deze wil ik"; vervangt
+     Slaap 3 en de oude 432-muziek met regen). Zet `stories/<map>/stem.json` neer (kopie van stories/ww2-facts/stem.json:
+     stem `narrator-b`, speed 0.62, klank alleen highpass). Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe
+     tools/engine_stem.py <map>` (zelfde voice.mp3 + voice-times.tsv als vroeger, ± 125 woorden/min). Dan
+     `python tools/add_pauses.py --niet-zwaarder --kort <map>` en `python tools/zachte_stem.py <map>` (leest de klank
+     uit stem.json). **Muziek**: `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_muziek.py <map>`
+     (zacht koor met strijkers in 432 Hz, elke 7 s een ander akkoord, geen regen, al gedukt onder de stem); die
+     schrijft video/muziek432.wav en video/muziek-db.txt. Gebruik dat getal als `--muziek-db` bij make_video,
+     stil_tikjes, check_video en qc_video (niet meer -26). herstel_zinnen.py gebruikt vanzelf de stem uit stem.json.
+     Uitleg en interface: audio_engine/README.md.
      (ffmpeg `ebur128`). Meldt check_video "stem blijft hangen" (bij OmniVoice: adem-tikjes vóór een zin), draai dan
      `python tools/stil_tikjes.py <map> <video>-motion.mp4 <video>-schoon.mp4` en controleer opnieuw.
      **Tekstcontrole (verplicht, eigenaar 31 okt 2026: "Tonight we we are going")**: draai
@@ -75,8 +94,8 @@ werk alles af.
      geen nieuwe montage), dan stil_tikjes, check_video en check_stem_tekst (op de schone stem) opnieuw. Pas bij TEKST GOED uploaden. Zet hem als laatste stap op -14 LUFS met `python tools/eind_volume.py <video>.mp4 <video>-14.mp4`
      (eigenaar, 31 okt 2026: "net zo hard als de meeste sleep history video's"). **Daarna 16mm-look** (eigenaar 3 nov 2026,
      voor alle lange video's): `python tools/film16.py <video>-14.mp4 <video>-16mm.mp4` (± 80 min); draai qc_video op
-     het 16mm-bestand en upload die versie. Niets aan de look veranderen (geen flikkeren, geen lichtvlek, geen diepte). Door de lange
-     pauzes wordt de video langer: ± 15.000 woorden script geeft ± 1 u 47 (Oregon, pauze D); mik op ± 17.000 woorden voor ± 2 uur.
+     het 16mm-bestand en upload die versie. Niets aan de look veranderen (geen flikkeren, geen lichtvlek, geen diepte). Met de Audio Engine-stem
+     (± 125 woorden/min) geeft ± 20.000 woorden ± 2 u 45.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
    - Titel: bekende naam + maand en jaar + ` | <N> Hours of History for Sleep` (N = lengte van de eindvideo,
