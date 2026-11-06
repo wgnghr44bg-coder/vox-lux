@@ -1,0 +1,7 @@
+{
+  "engine_voice": "narrator-b",
+  "speed": 0.62,
+  "seed": 7,
+  "klank": "highpass=f=60",
+  "waarom": "eigenaar 6 nov 2026: 'Deze wil ik' = proef audio-engine-rustiger (stem B, ±125 woorden/min, koor 432 Hz)"
+}

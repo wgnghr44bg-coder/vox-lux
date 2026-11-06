@@ -1,0 +1,9 @@
+{
+  "name": "narrator-b",
+  "description": "Original older British male documentary narrator (designed, not cloned from anyone). Chosen by the owner on 6 Nov 2026 ('B is goed').",
+  "ref_text": "The evening is quiet now, and the kettle is warming slowly on the stove.",
+  "instruct": "male, elderly, moderate pitch, british accent",
+  "seed": 19,
+  "design_speed": 0.8,
+  "default_speed": 0.64
+}
