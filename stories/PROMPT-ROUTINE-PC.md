@@ -54,17 +54,17 @@ werk alles af.
      maar met onze onderwerpen)**. Voorbeeld: stories/ww2-facts (src/deel*.txt met blokken `IMG: slug | beeld` /
      `HEAD:` / `BODY:`, gescheiden door `===`, omgezet door bouw_script.py; kopieer en pas OPEN/CLOSE aan).
      Ook een klaar of reservescript eerst zo ombouwen (zelfde onderwerp en feiten, nieuwe opbouw), dan pas beelden en stem.
-     - Begin: "Tonight we are going ... back, to ..." (verplicht voor de QC), dan 4-6 korte zinnen overzicht van het
-       onderwerp (geen scène), "There is nothing you need to follow, and nothing you need to remember.", de
-       abonneer-zin, een kort ontspanningsstukje (schouders, adem, zware ogen) en "Let's begin."
+     - Begin, **kort (± 30-45 s) en elke video anders verwoord** (eigenaar 7 nov 2026: "variaties aanbrengen, hoeft
+       niet zo lang"): "Tonight we are going ... back, to ..." (verplicht voor de QC), 1-2 zinnen over het onderwerp,
+       één abonneer-zin en één rustige zin om te gaan liggen (bv. "Now get comfortable, let the day go, and simply
+       drift along."). Nooit dezelfde zinnen als de vorige video's; kijk naar OPEN in de laatste 3 bouw_script.py's.
      - Midden: ± 80-100 losse feitjes, elk ± 1,5-2 min: een **kopzin die zelf al verrast** (HEAD), [pause], dan
        ± 180-250 woorden rustige uitleg (wat er was of gevonden is, hoe het werkte, een nuance met "Yet..." of
        "That does not mean...", en een stille slotgedachte), [long-pause]. Geen overgangen tussen feitjes nodig.
        Korte zinnen (8-15 woorden), weinig namen en jaartallen, niets wat je moet onthouden om verder te kunnen.
-     - Einde: "And so, our long walk through ... comes to its quiet end.", een samenvatting ("We have ... We have
-       seen ..."), het beeld laten wegzakken ("... can slowly fade from view"), "There is no need to remember ...",
-       de volgende-video-zin ("another quiet story waiting for you on the screen") + abonneren, een ademzin en
-       "Sleep well, and good night."
+     - Einde, ook **kort (± 30-45 s) en elke keer anders**: één zin dat het bezoek eindigt, één beeld dat zacht
+       wegzakt, dan de volgende-video-zin (moet "another ... story/video ... on the screen" bevatten, voor de QC) met
+       abonneren, en als laatste "Sleep well, and good night."
      - Lengte: ± 20.000 woorden (bij ± 125 woorden/min ± 2 u 45). Elk feitje krijgt een eigen beeld en wordt een
        hoofdstuk in de beschrijving (veel hoofdstukken, zoals de grote kanalen).
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets

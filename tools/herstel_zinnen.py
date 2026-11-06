@@ -22,6 +22,7 @@ import json
 ap = argparse.ArgumentParser()
 ap.add_argument("story", type=Path); ap.add_argument("zinnen", type=int, nargs="+")
 ap.add_argument("--pogingen", type=int, default=8)
+ap.add_argument("--speed", type=float, help="sneller inspreken als de zin niet in zijn plek past (bv. 0.72)")
 a = ap.parse_args()
 v = a.story / "video"
 wav = v / "stem-met-pauzes-voor-tikjes.wav"
@@ -48,6 +49,7 @@ if (a.story / "stem.json").exists():
     vdir = HIER.parent / "audio_engine" / "voices" / sj.get("engine_voice", "narrator-b")
     REF, SPEED = vdir / "ref.wav", sj.get("speed", 0.62)
     REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
+SPEED = a.speed or SPEED
 KLANK = klank_voor(a.story)
 prompt = model.create_voice_clone_prompt(ref_audio=str(REF), ref_text=REF_TEXT)
 asr = pipeline("automatic-speech-recognition", "openai/whisper-large-v3-turbo", device="cuda:0", torch_dtype=torch.float16)
