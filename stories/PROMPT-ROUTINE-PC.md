@@ -109,8 +109,13 @@ werk alles af.
    oorlog `oorlog`. **Nooit nieuwe afspeellijsten maken** (eigenaar). Controleer dat hij erin staat. Controleer via de API dat `snippet.channelTitle` "Sleep Archives" is; anders
    meteen verwijderen en stoppen.
 6. Zet de link en de kosten (€0) in planning.txt, commit en push naar main.
+   **Wacht eerst tot YouTube klaar is met verwerken** (eigenaar, 6 nov 2026; Egypte bleef 8+ uur "processing"
+   terwijl de bestanden al weg waren): `python tools/wacht_verwerkt.py <id> --uren 12`. Bij KLAAR: opruimen.
+   Bij MISLUKT: verwijder de video op YouTube (na controle kanaal, privé en titel), upload het bestand opnieuw
+   (stap 5) en wacht weer. Bij NOG BEZIG: niet opruimen; laat de bestanden staan en schrijf het in
+   `stories/ROUTINE-LOG.md`, dan kijkt een volgende sessie ernaar.
    **Opruimen** (eigenaar, 31 okt 2026: "doe dit zo elke keer"): staat de video gecontroleerd op YouTube
-   (juiste kanaal, thumbnail, afspeellijsten), verwijder dan de grote bestanden van die video op de pc:
+   (juiste kanaal, thumbnail, afspeellijsten) én is hij klaar met verwerken, verwijder dan de grote bestanden van die video op de pc:
    alle `*.mp4` en `*.wav` in `stories/<map>/video/` (ook `clips/`). Beelden, script, stem-mp3 en tekstbestanden blijven.
    Vervang je een oude video op YouTube door een nieuwe, verwijder dan ook het oude bestand. Nooit iets anders
    (games, eigen opnames) aanraken.
