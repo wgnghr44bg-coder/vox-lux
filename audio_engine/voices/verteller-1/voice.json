@@ -1,0 +1,9 @@
+{
+  "name": "verteller-1",
+  "description": "Older British documentary narrator matching the owner's brief (deep, warm, chest resonance, slight breath), chosen by measurement from 60 OmniVoice designs (not cloned), 7 Nov 2026.",
+  "ref_text": "Far beneath the ice, in a world without sunlight, something remarkable was waiting to be found.",
+  "instruct": "male, elderly, very low pitch, british accent",
+  "seed": 104,
+  "design_speed": 0.75,
+  "default_speed": 0.6
+}
