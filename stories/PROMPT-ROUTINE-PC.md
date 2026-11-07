@@ -75,6 +75,7 @@ werk alles af.
      enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
      "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
    - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026; vervangt Slaap 3 en de oude 432-muziek met regen).
+     **Naam: "B1-stem met achtergrondmuziek" (kort "B1")** (eigenaar 7 nov 2026) = stem `narrator-e` + koor `referentie`.
      **Stem: `narrator-e`** (eigenaar 7 nov 2026, proef B1: "Ik wil deze als standaard stem"): een ontworpen oudere
      Britse man (OmniVoice "male, elderly, moderate pitch, british accent", seed 27; niemand gekloond), rustiger en
      warmer dan narrator-b. Zet `stories/<map>/stem.json` neer als kopie van stories/ww2-facts/stem.json:
