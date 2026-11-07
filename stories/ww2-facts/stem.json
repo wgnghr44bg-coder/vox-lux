@@ -3,9 +3,9 @@
     "engine_voice":  "narrator-e",
     "speed":  0.54,
     "seed":  7,
-    "pauze":  1.6,
+    "pauze":  1.4,
     "klank":  "highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
-    "waarom":  "eigenaar 7 nov 2026: proef B1 (\u0027Ik wil deze als standaard stem\u0027): nieuwe Britse oudere man narrator-e, speed 0.54, pauzes x1.4, warme klank, koor 432 Hz eronder; 7 nov avond: iets rustiger (tempo 0.92, pauzes x1.6) en achtergrond zachter (15 LUFS onder de stem)",
-    "tempo":  0.92,
-    "muziek_onder":  15
+    "waarom":  "eigenaar 7 nov 2026: B1-stem zoals gekozen (proef B1): narrator-e, speed 0.54, pauzes x1.4, warme klank, koor 11 LUFS onder de stem. De rustigere versie (tempo 0.92, pauzes x1.6, koor 15) is beluisterd en afgewezen: \u0027B1 zoals hij was\u0027.",
+    "tempo":  1,
+    "muziek_onder":  11
 }
