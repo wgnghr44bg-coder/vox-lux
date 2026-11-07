@@ -1,4 +1,4 @@
-﻿onderwerp Life in Tombstone, the Gunfight at the O.K. Corral, 1881
+onderwerp Life in Tombstone, the Gunfight at the O.K. Corral, 1881
 status   klaar
 link https://youtu.be/4RjjJh-j5a0 (2:04:22, gemaakt 4 nov 2026 met nieuwe beelden en de 16mm-look; TEKST GOED, QC APPROVED na hoofdstuktijden gelijkzetten, beeld stil rond 42:26 = rustig kaartje Southern Arizona, geen bevriezing; privé met publishAt wo 11 nov 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + Dark History & Mysteries; thumbnail-gekozen.jpg)
 datum    wo 2026-11-11 21:00 NL
@@ -6,3 +6,5 @@ titel    What Was Life Really Like in Tombstone? | History for Sleep (eigenaar 7
 thumbnail amberregel "TOMBSTONE Â· OCTOBER 1881", hook "Before the O.K. Corral", beeld: het houten bord "O.K. Corral" boven de poort aan Fremont Street in de schemering, ervoor een lange lawman met snor, hoed en lange zwarte jas, rustig, wapen in de holster; warme lantaarn, koele avond (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    mysterie
 thumbnail gekozen door eigenaar 1 nov: stories/tombstone-1881/thumbnail-gekozen.jpg; deze gebruiken, geen eigen thumbnail maken
+opening   scène
+titelsoort life-really-like

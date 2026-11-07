@@ -18,39 +18,37 @@ in `stories/` bestaat met een `planning.txt` waarin dat onderwerp staat (kijk op
 Controleer dat het onderwerp nog niet op het kanaal staat (`stories/ONDERWERPEN.md` "Al gemaakt").
 
 ## Wat je maakt
-Een nieuwe map `stories/<korte-naam>/` (bv. `stories/tombstone-1881/`), net zoals `stories/oregon-trail/`:
+Een nieuwe map `stories/<korte-naam>/` (bv. `stories/gettysburg-1863/`), precies volgens **`stories/OPBOUW.md`**
+(eigenaar 7 nov 2026: de vaste opbouw van de grote slaapkanalen). Voorbeeld: `stories/egypte-toetanchamon/`.
 
-1. **`src/01-<deel>.txt`, `src/02-<deel>.txt`, …**: het script in rustig Engels, in 15–20 delen (= hoofdstukken).
-   - Een alinea gescheiden door een lege regel = `[pause]`. Een regel met alleen `--` = `[long-pause]`.
-   - `{img:<slug>}` op een eigen regel waar een nieuw beeld begint: ± elke 1,5 minuut, samen **± 85–95 beelden**.
-   - Lengte: **± 17.000 woorden** gesproken tekst (geeft ± 2 uur met de lange pauzes).
-   - Begin, abonneer-zin, einde, toon en verboden dingen: precies volgens stap 2 van
-     `stories/PROMPT-NIEUWE-VIDEO.md` en de opbouw van `stories/titanic/OPZET.md`
-     (eerst het gewone leven, dan rustig de gebeurtenis zelf, geen gruwelijke details, geen "nu wordt het spannend").
-   - Voorbeeld van de vorm: `stories/oregon-trail/src/`.
-   - **Makkelijk te volgen** (eigenaar 2 nov 2026): korte, gewone zinnen, gemiddeld 15–19 woorden en hooguit ± 2 komma's (check-grens: 20 woorden, 3 komma's)
-     per zin. Geen lange opsommingen als "the meat, and the milk, and the butter, and the cheese": kies er twee of drie.
-     Goed voorbeeld: `stories/tombstone-1881/`. Te druk (niet zo doen): de eerste versies van cleopatra t/m india-boeddha.
-   - **Simpel verteld** (eigenaar 2 nov 2026): gewone, makkelijke woorden, alsof je het verhaal rustig aan een vriend
-     vertelt. Moeilijke woorden of namen kort uitleggen. Niet te veel jaartallen en namen achter elkaar.
-   - **Simpel mét spanning, alleen waar het spannend is** (eigenaar 2 nov 2026: "spannend alleen bij stukken die spannend zijn"; het blijft een slaapvideo). Niets verzinnen: rustige hoofdstukken over het dagelijks leven blijven rustig. Waar het verhaal zelf spannend is, vertel je het zo, rustig: iets wat op het spel staat, een vraag die de luisteraar wil weten
-     ("But no one in the town knows yet what the autumn will bring."), een gevaar dat langzaam dichterbij komt.
-     Geen schrikmomenten, geen harde woorden, geen cliffhanger-kreten.
-   - Check: `python tools/script_leesbaar.py stories/<map>` moet GOED geven.
-2. **`src/beelden.tsv`**: per slug één regel `<slug><TAB><Engelse beeldbeschrijving>`. Alleen wat in die
-   tijd bestond, mensen in kleding van toen, liefst avondlicht (lamp, vuur, schemering). Geen tekst in beeld.
-3. **`bouw_script.py`**: kopie van `stories/oregon-trail/bouw_script.py`, met `STYLE`, `PLEK` en de kopregel
-   van `prompts.txt` aangepast aan dit onderwerp. Draai `python stories/<map>/bouw_script.py`: hij maakt
-   `script-cues.txt`, `prompts.txt` en `afbeeldingen-onderwerpen.tsv` en meldt het aantal woorden en beelden.
-4. **`youtube-beschrijving.txt`**: volgens `stories/YOUTUBE-STANDAARD.md` (Beschrijving), met regen-zin en
-   precies 15 hashtags. Bij "Chapters" de hoofdstuknamen **zonder tijden**, één per regel als `0:00:00 <naam>`;
-   de routine vult de echte tijden in na de stem.
+1. **`src-feiten/begin.txt`, `src-feiten/deel1.txt` … `deel3.txt`, `src-feiten/slot.txt`** in rustig Engels:
+   - **Begin** (± 2 min): opening in de jij-vorm (wissel de soort af: scène, mythe, persoon, voorwerp, raadsel; nooit
+     dezelfde soort als de vorige video), de grote vraag, een zachte abonneer-zin zonder druk, een reactievraag
+     ("where are you listening from, and what time is it there?") en settle in. Geen "Tonight" of "Hello".
+   - **Midden**: 8-12 onderwerpen. Elk onderwerp is een blok `TOPIC: <hoofdstuktitel>` met `BRIDGE: <1-2 overgangszinnen>`,
+     gevolgd door 6-10 feitjes `IMG: <slug> | <beeld>` / `HEAD: <verrassende kopzin>` / `BODY: <± 150-220 woorden>`.
+     Blokken gescheiden door een regel `===`. Samen **± 85-95 feitjes** (= beelden), **± 16.000-18.000 woorden**.
+   - **Slot** (± 1 min): uitdoven naar een slaapbeeld, geen nieuwe feiten, de zin "another ... story ... on the screen",
+     kort abonneren, en als laatste "Sleep well, and good night."
+   - **Makkelijk te volgen** (eigenaar 2 nov 2026): korte, gewone zinnen (8-15 woorden, hooguit ± 2 komma's), gewone
+     woorden, alsof je het een vriend vertelt. Weinig jaartallen en namen achter elkaar. Af en toe de jij-vorm en een
+     vraag aan de luisteraar; mythe tegenover werkelijkheid waar het past; echte mensen en bronnen.
+   - **Spanning alleen waar het verhaal zelf spannend is**, en dan rustig. Geen gruwelijke details, geen schrikmomenten.
+2. **`bouw_script.py`**: kopie van `stories/egypte-toetanchamon/bouw_script.py` (roept `tools/bouw_feiten.py` aan).
+   Draai hem: hij maakt `script-cues.txt` en `hoofdstukken.tsv` en meldt feitjes, onderwerpen en woorden.
+3. **`afbeeldingen-onderwerpen.tsv`**: per feitje `NNN.png<TAB><slug><TAB><Engelse beeldprompt>` (001, 002, …).
+   Alleen wat in die tijd bestond, mensen in kleding van toen, liefst avondlicht. Geen tekst in beeld.
+   Beschrijf wat er wél is; schrijf nooit "no cars" (dan tekent het model ze juist).
+4. **`youtube-beschrijving.txt`**: volgens `stories/YOUTUBE-STANDAARD.md`, **zonder regen** (de muziek is een zacht
+   432 Hz-koor), precies 15 hashtags. Bij "Chapters" de TOPIC-titels als `0:00:00 <naam>`; de routine vult de tijden in.
 5. **`planning.txt`**:
    ```
    onderwerp <onderwerp zoals in ONDERWERPEN.md>
    status   script-klaar (<datum vandaag>, tweede account)
-   datum    <wo/za datum uit de planning> 21:00 NL
-   titel    <titel> | <N> Hours of History for Sleep   (de routine vult N in na de montage)
+   datum    <ma/wo/za datum uit de planning> 21:00 NL
+   titel    <vraag-titel> | History for Sleep   (zonder uren; wissel de soort af, zie OPBOUW.md)
+   opening   scène | mythe | persoon | voorwerp | raadsel
+   titelsoort life-really-like | how-survive | what-actually | why | what-happened
    thumbnail amberregel "<...>", hook "<...>", beeld: <korte beschrijving>
    soort    <playlist-soort voor tools/youtube_playlist.py: ramp, oorlog, reis, ...>
    ```
@@ -61,5 +59,5 @@ Commit alleen die map en push naar `main`. Raak niets anders aan, ook niet `ONDE
 
 ## Wat de routine ermee doet
 De routine ziet `status script-klaar` en slaat het onderwerp kiezen en het script schrijven over. Hij leest
-het script nog één keer na (begin, abonneer-zin, einde, lengte), maakt beelden, stem, montage en controles,
+het script nog één keer na (begin, onderwerpen, slot, lengte; zie OPBOUW.md), maakt beelden, stem, montage en controles,
 en uploadt op de datum uit `planning.txt`. Daarna zet hij de status op klaar met de YouTube-link.

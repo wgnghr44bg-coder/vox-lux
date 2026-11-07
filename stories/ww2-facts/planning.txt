@@ -7,3 +7,5 @@ titel    What Was Everyday Life Like During WW2? | History for Sleep (eigenaar 7
 stem   Slaap 3: eigen ontworpen stem via OmniVoice (oudere Britse man, heel laag, speed 0.8; ref tools/comfy/stem/slaapstem-3.wav). Eigenaar 30 okt: "Doe maar gewoon zoals hij was zonder deeper". Theo (ElevenLabs) niet gebruikt vanwege hun voorwaarden.
 rust   eigenaar 30 okt ("zo is het perfect"): speed 0.8, zinpauze 1100 ms, [pause] 1500, [long-pause] 2800
 mix    stem lowpass=f=3800,highshelf=f=2200:g=-6 en +0.4 dB, muziek -24.6 dB; samen ongeveer -23 LUFS zoals Oregon (eigenaar: ook hoorbaar met telefoon op laag volume)
+opening   voorwerp
+titelsoort life-really-like

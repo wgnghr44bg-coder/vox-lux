@@ -7,3 +7,5 @@ thumbnail amberregel "TUTANKHAMUN · 1323 BC", hook "Life in Ancient Egypt", bee
 soort    oudheid
 thumbnail gekozen door eigenaar 1 nov: stories/egypte-toetanchamon/thumbnail-gekozen.jpg; deze gebruiken, geen eigen thumbnail maken
 kosten  EUR 0
+opening   persoon
+titelsoort life-really-like
