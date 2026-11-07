@@ -56,17 +56,37 @@ if "--hergebruik" in sys.argv and (m / "voice-times.tsv").exists():
         if p.text in knip:
             clips[i] = knip[p.text]
     print(f"hergebruikt: {sum(c is not None for c in clips)} zinnen, nieuw: {sum(c is None for c in clips)}", flush=True)
-nieuw = [i for i, c in enumerate(clips) if c is None]
+
+# --opnieuw 8,23,42 (nummers uit check_stem_tekst.py): die zinnen los opnieuw inspreken (7 nov 2026: OmniVoice kapt in een
+# groepje van 4 soms een zin af, bv. 15 woorden in 0,9 s; herstel_zinnen.py kan dat niet, want de goede zin past niet in het gat)
+if "--opnieuw" in sys.argv:
+    for n in sys.argv[sys.argv.index("--opnieuw") + 1].split(","):
+        clips[int(n) - 1] = None
+
+
+def te_kort(i):
+    """Afgekapt of leeg: korter dan 0,25 s, of meer dan 250 woorden/min zonder pauzes (normaal ± 150-210)."""
+    d, w = len(clips[i]) / SR, len(pieces[i].text.split())
+    return d < 0.25 or w / (d / 60) > (250 if w >= 8 else 320)    # korte zinnen klinken vanzelf iets sneller
+
+
+opnieuw = {i for i, c in enumerate(clips) if c is None and "--opnieuw" in sys.argv}
+nieuw = [i for i, c in enumerate(clips) if c is None and i not in opnieuw]
 for b in range(0, len(nieuw), 4):
     idx = nieuw[b:b + 4]
     for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], cfg, seed=cfg.seed + b)):
         clips[i] = edge_fade(trim(wav, SR), SR)
-    for i in idx:                                          # korte zinnen komen soms leeg terug: los opnieuw
-        poging = 0
-        while len(clips[i]) < 0.25 * SR and poging < 10:
-            poging += 1
-            clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
     print(f"klaar {idx[-1] + 1}/{len(pieces)}", flush=True)
+for i in sorted(opnieuw):
+    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 500 + i)[0], SR), SR)
+for i in range(len(pieces)):                               # afgekapte of lege zinnen: los opnieuw, andere seed
+    if not te_kort(i):
+        continue
+    poging = 0
+    while te_kort(i) and poging < 10:
+        poging += 1
+        clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
+    print(f"zin {i + 1} was afgekapt, los opnieuw ({poging}x)", flush=True)
 
 parts, rows, t = [np.zeros(int(LEAD * SR), np.float32)], [], LEAD
 for i, (p, wav) in enumerate(zip(pieces, clips), 1):
