@@ -1,0 +1,9 @@
+{
+  "name": "professor-2",
+  "description": "Older calm British 'professor' narrator, designed with OmniVoice (not cloned), 7 Nov 2026.",
+  "ref_text": "Now, if we look a little more closely, we find that the answer is rather simple, and rather beautiful.",
+  "instruct": "male, elderly, low pitch, british accent",
+  "seed": 5,
+  "design_speed": 0.75,
+  "default_speed": 0.6
+}
