@@ -77,8 +77,9 @@ for b in range(0, len(nieuw), 4):
     for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], cfg, seed=cfg.seed + b)):
         clips[i] = edge_fade(trim(wav, SR), SR)
     print(f"klaar {idx[-1] + 1}/{len(pieces)}", flush=True)
+extra = int(sys.argv[sys.argv.index("--seed-extra") + 1]) if "--seed-extra" in sys.argv else 0   # andere poging
 for i in sorted(opnieuw):
-    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 500 + i)[0], SR), SR)
+    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 500 + i + extra)[0], SR), SR)
 for i in range(len(pieces)):                               # afgekapte of lege zinnen: los opnieuw, andere seed
     if not te_kort(i):
         continue

@@ -76,6 +76,8 @@ for nr in a.zinnen:
     for p in range(a.pogingen):
         torch.manual_seed(1000 + 37 * nr + p)
         y = klank(model.generate(text=rows[i][4], voice_clone_prompt=prompt, speed=SPEED)[0])
+        if len(y) == 0 or not (np.abs(y) > 300).any():            # lege of stille poging: volgende seed
+            continue
         y = y[np.argmax(np.abs(y) > 300):]                       # stilte vooraan eraf: begint op dezelfde tijd
         y16 = np.interp(np.arange(0, len(y), sr / 16000), np.arange(len(y)), y / 32768).astype(np.float32)
         hoor = asr({"raw": y16, "sampling_rate": 16000},
