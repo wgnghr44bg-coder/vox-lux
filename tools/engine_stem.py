@@ -70,6 +70,7 @@ def te_kort(i):
     return d < 0.25 or w / (d / 60) > (250 if w >= 8 else 320)    # korte zinnen klinken vanzelf iets sneller
 
 
+nieuw_of_opnieuw = {i for i, c in enumerate(clips) if c is None}
 opnieuw = {i for i, c in enumerate(clips) if c is None and "--opnieuw" in sys.argv}
 nieuw = [i for i, c in enumerate(clips) if c is None and i not in opnieuw]
 for b in range(0, len(nieuw), 4):
@@ -84,10 +85,31 @@ for i in range(len(pieces)):                               # afgekapte of lege z
     if not te_kort(i):
         continue
     poging = 0
+    nieuw_of_opnieuw.add(i)                                # opnieuw ingesproken: krijgt ook het tempo
     while te_kort(i) and poging < 10:
         poging += 1
         clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
     print(f"zin {i + 1} was afgekapt, los opnieuw ({poging}x)", flush=True)
+
+# "tempo" in stem.json (eigenaar 7 nov 2026: "mag hij iets rustiger vertellen"): nieuw ingesproken zinnen worden met
+# rubberband trager gemaakt (klank blijft gelijk). Hergebruikte zinnen uit voice.mp3 zijn dat al, behalve met
+# --tempo-alles (eenmalig, als het tempo voor een bestaande stem verandert).
+tempo = float(inst.get("tempo", 1.0))
+
+
+def rek(wav):
+    r = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
+                        "-af", f"rubberband=tempo={tempo}:pitchq=quality:window=long", "-f", "f32le", "-"],
+                       input=wav.astype(np.float32).tobytes(), capture_output=True, check=True).stdout
+    return edge_fade(np.frombuffer(r, np.float32).copy(), SR)
+
+
+if tempo != 1.0:
+    hergebruikt = set() if "--tempo-alles" in sys.argv else {i for i in range(len(pieces)) if i not in nieuw_of_opnieuw}
+    for i in range(len(pieces)):
+        if i not in hergebruikt:
+            clips[i] = rek(clips[i])
+    print(f"tempo {tempo}: {len(pieces) - len(hergebruikt)} zinnen trager gemaakt", flush=True)
 
 parts, rows, t = [np.zeros(int(LEAD * SR), np.float32)], [], LEAD
 for i, (p, wav) in enumerate(zip(pieces, clips), 1):

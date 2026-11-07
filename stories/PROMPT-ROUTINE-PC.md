@@ -73,7 +73,7 @@ werk alles af.
      **Stem: `narrator-e`** (eigenaar 7 nov 2026, proef B1: "Ik wil deze als standaard stem"): een ontworpen oudere
      Britse man (OmniVoice "male, elderly, moderate pitch, british accent", seed 27; niemand gekloond), rustiger en
      warmer dan narrator-b. Zet `stories/<map>/stem.json` neer als kopie van stories/ww2-facts/stem.json:
-     `engine_voice` narrator-e, `speed` 0.54, `seed` 7, `pauze` 1.4 (pauzes 40% langer), `klank` warme EQ
+     `engine_voice` narrator-e, `speed` 0.54, `seed` 7, `tempo` 0.92 (± 8% trager, rubberband), `pauze` 1.6, `muziek_onder` 15 (koor 15 LUFS onder de stem; eigenaar 7 nov avond: "iets rustiger" en "achtergrond zachter"), `klank` warme EQ
      (`highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=...`). Stem:
      `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_stem.py <map>` (zelfde voice.mp3 + voice-times.tsv
      als vroeger, ± 110 woorden/min). Dan

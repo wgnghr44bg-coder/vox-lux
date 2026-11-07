@@ -27,6 +27,11 @@ m = Path(sys.argv[1])
 v = m / "video"
 stem = v / "stem-met-pauzes.wav"
 mix = MixConfig()
+# "muziek_onder" in stem.json (eigenaar 7 nov 2026: "het geluid van de achtergrond zachter"): LUFS onder de stem
+import json
+_sj = m / "stem.json"
+if _sj.exists():
+    mix.music_below_voice_db = float(json.loads(_sj.read_text(encoding="utf-8")).get("muziek_onder", mix.music_below_voice_db))
 dur = sf.info(stem).duration + 60
 seed = zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
 werk = v / "engine-muziek"

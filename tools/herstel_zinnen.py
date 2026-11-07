@@ -51,6 +51,8 @@ if (a.story / "stem.json").exists():
     REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
 SPEED = a.speed or SPEED
 KLANK = klank_voor(a.story)
+if (a.story / "stem.json").exists() and float(sj.get("tempo", 1.0)) != 1.0:   # zelfde rustiger tempo als engine_stem.py
+    KLANK = f"rubberband=tempo={float(sj['tempo'])}:pitchq=quality:window=long," + KLANK
 prompt = model.create_voice_clone_prompt(ref_audio=str(REF), ref_text=REF_TEXT)
 asr = pipeline("automatic-speech-recognition", "openai/whisper-large-v3-turbo", device="cuda:0", torch_dtype=torch.float16)
 LETTERLIJK = asr.tokenizer.get_prompt_ids("Um, so, so we we went, uh, to to the the old house. I I mean, it it was",
