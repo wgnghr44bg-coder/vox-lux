@@ -50,22 +50,16 @@ werk alles af.
    `stories/<map>/planning.txt` meteen op main (commit + push), zodat een volgende run hem ziet.
 4. **Maken** volgens stories/PROMPT-NIEUWE-VIDEO.md en stories/YOUTUBE-STANDAARD.md, met deze
    afwijkingen:
-   - **Script-opbouw (eigenaar 6 nov 2026: "rustiger en ongeveer dezelfde opbouw qua verhaal" als Sleepy History,
-     maar met onze onderwerpen)**. Voorbeeld: stories/ww2-facts (src/deel*.txt met blokken `IMG: slug | beeld` /
-     `HEAD:` / `BODY:`, gescheiden door `===`, omgezet door bouw_script.py; kopieer en pas OPEN/CLOSE aan).
+   - **Script-opbouw: precies volgens `stories/OPBOUW.md`** (eigenaar 7 nov 2026: "zoals je zegt houden we het zo";
+     het recept van de grote slaapkanalen). Kort: vraag-titel; begin van ± 2 min zonder "Tonight"/"Hello" (opening in
+     de jij-vorm, grote vraag, zachte abonneer-zin, reactievraag "waar luister je vandaan", settle in); midden met
+     8-12 onderwerpen (TOPIC + BRIDGE) van elk 6-10 feitjes met een eigen beeld; einde dat uitdooft naar een slaapbeeld,
+     volgende-video-zin ("another ... story/video ... on the screen", voor de QC) en "Sleep well, and good night."
+     Wissel de soort opening en titel af (zie OPBOUW.md, "Afwisseling"). Bestanden: `src-feiten/begin.txt`,
+     `deel*.txt` (TOPIC/BRIDGE- en IMG/HEAD/BODY-blokken), `slot.txt`; bouw_script.py zoals stories/ww2-facts.
+     In maak_motion.py staat `"intro": False, "slot": False` (geen Sleep Archives-beeld); hoofdstukken = de TOPICs.
      Ook een klaar of reservescript eerst zo ombouwen (zelfde onderwerp en feiten, nieuwe opbouw), dan pas beelden en stem.
-     - **Geen intro** (eigenaar 7 nov 2026: "Begin de video met tonight niet meer ... ik wil meteen beginnen"): de
-       video begint meteen met de kopzin van het eerste feitje (`OPEN = []` in bouw_script.py), en in maak_motion.py
-       staat `"intro": False, "slot": False` (geen Sleep Archives-beeld aan het begin of einde).
-     - Midden: ± 80-100 losse feitjes, elk ± 1,5-2 min: een **kopzin die zelf al verrast** (HEAD), [pause], dan
-       ± 180-250 woorden rustige uitleg (wat er was of gevonden is, hoe het werkte, een nuance met "Yet..." of
-       "That does not mean...", en een stille slotgedachte), [long-pause]. Geen overgangen tussen feitjes nodig.
-       Korte zinnen (8-15 woorden), weinig namen en jaartallen, niets wat je moet onthouden om verder te kunnen.
-     - Einde, ook **kort (± 30-45 s) en elke keer anders**: één zin dat het bezoek eindigt, één beeld dat zacht
-       wegzakt, dan de volgende-video-zin (moet "another ... story/video ... on the screen" bevatten, voor de QC) met
-       abonneren, en als laatste "Sleep well, and good night."
-     - Lengte: ± 20.000 woorden (bij ± 110 woorden/min ± 3 uur). Elk feitje krijgt een eigen beeld en wordt een
-       hoofdstuk in de beschrijving (veel hoofdstukken, zoals de grote kanalen).
+     Lengte: ± 17.000-20.000 woorden (met de B1-stem ± 2,5-3 uur).
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
    - **Elk beeld nakijken op dingen die er toen nog niet waren** (Tombstone 3 nov 2026: 60 van de 90 beelden hadden
@@ -119,8 +113,8 @@ werk alles af.
      - Voorbeelden die de eigenaar koos: `stories/hindenburg/thumbnail-gekozen.jpg` (luchtschip met mensen op de pier),
        `stories/tombstone-1881/thumbnail-gekozen.jpg` (westernstraat in de avond),
        `stories/egypte-toetanchamon/thumbnail-gekozen.jpg` (gouden masker).
-   - **Abonneer-zin** na de eerste 2-4 zinnen (± 30-60 s), kort en rustig, per video iets anders
-     verwoord (PROMPT-NIEUWE-VIDEO.md stap 2); het einde vraagt zoals altijd nog één keer.
+   - **Abonneer-zin** in het begin (± 1 min, na de grote vraag, zie OPBOUW.md), kort en rustig, zonder druk, per video
+     anders verwoord; het einde vraagt nog één keer kort.
    - **Avondeffect v2** (eigenaar, 30 okt 2026): `tools/make_video.py` maakt het beeld standaard iets donkerder
      met zachte donkere randen, kleuren gewoon (geen gele lucht). Niet uitzetten; de thumbnail blijft helder.
      Vraag in de beeldprompts liefst om avondlicht (kampvuur, lamp, schemering).

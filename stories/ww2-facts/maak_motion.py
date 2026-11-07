@@ -7,13 +7,19 @@ d = Path(__file__).parent
 rows = list(csv.DictReader(open(d / "afbeeldingen-tijden-pauzes.tsv", encoding="utf-8"), delimiter="\t"))
 t = {int(r["slug"][:2]): float(r["start"]) for r in rows}          # feitje-nummer -> start
 
-HOOFDSTUKKEN = [
-    (1, "The War Comes Home"), (8, "Gardens and Shelters"), (12, "Evenings by the Wireless"),
-    (16, "Letters and Rations"), (22, "Life at Sea and in the Air"), (27, "Bears, Songs and Christmas"),
-    (30, "Women at Work"), (33, "Secrets and Inventions"), (38, "Making Do in America"),
-    (45, "Occupied Europe"), (52, "Far from the Fighting"), (60, "Famous Voices"),
-    (65, "The Road to Peace"), (71, "Victory"), (76, "After the War"), (85, "What Remains"),
-]
+# hoofdstukken = de onderwerpen (TOPIC) uit src/deel*.txt, via tools/bouw_feiten.py -> hoofdstukken.tsv (OPBOUW.md)
+HOOFDSTUKKEN = [(int(s[:2]), titel) for titel, s in
+                (l.split("\t") for l in (d / "hoofdstukken.tsv").read_text(encoding="utf-8").split("\n") if l.strip())]
+def _hms(x):
+    x = int(x)
+    return f"{x // 3600}:{x % 3600 // 60:02d}:{x % 60:02d}"
+
+
+_b = (d / "youtube-beschrijving.txt").read_text(encoding="utf-8")
+_kop, _rest = _b.split("Chapters", 1)
+_ch = "\n".join(f"{_hms(0 if n == 0 else t[f])} {titel}" for n, (f, titel) in enumerate(HOOFDSTUKKEN))
+(d / "youtube-beschrijving.txt").write_text(f"{_kop}Chapters\n{_ch}\n\n{_rest.split(chr(10) + chr(10), 1)[1]}", encoding="utf-8")
+
 items = [{"soort": "hoofdstuk", "tijd": 10 if n == 1 else t[f] + 1.5, "nummer": n, "titel": titel}
          for n, (f, titel) in enumerate(HOOFDSTUKKEN, 1)]
 
