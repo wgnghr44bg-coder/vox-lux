@@ -37,10 +37,12 @@ if _sj.exists():
     # "muziek_seed" (eigenaar 7 nov 2026: "de muziek van A0"): elke video dezelfde akkoordenreeks als proef A0 (1939)
     if "muziek_seed" in _j:
         VAST_SEED = int(_j["muziek_seed"])
+# "muziek" in stem.json (eigenaar 7 nov 2026, proef W3 "diep en donker-warm, nog dieper"): instellingen bovenop "referentie"
+KLANK = _j.get("muziek", {}) if _sj.exists() else {}
 dur = sf.info(stem).duration + 60
 seed = VAST_SEED if VAST_SEED is not None else zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
 werk = v / "engine-muziek"
-generate(preset("referentie", duration=dur, seed=seed), werk, stems=False,
+generate(preset("referentie", duration=dur, seed=seed, **KLANK), werk, stems=False,
          progress=lambda f, s="": print(f"\r{f * 100:5.1f}% {s:<30}", end="", flush=True))
 print()
 vorm = v / "_muziek-vorm.wav"

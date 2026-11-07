@@ -69,11 +69,11 @@ werk alles af.
      enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
      "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
    - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026; vervangt Slaap 3 en de oude 432-muziek met regen).
-     **Naam: "B1-stem met achtergrondmuziek" (kort "B1")** (eigenaar 7 nov 2026) = stem `narrator-e` + koor `referentie`.
+     **Naam: "B1-stem met achtergrondmuziek" (kort "B1")** (eigenaar 7 nov 2026) = stem `narrator-e` + muziek W3 (diep en donker-warm, de instellingen staan in stem.json bij "muziek").
      **Stem: `narrator-e`** (eigenaar 7 nov 2026, proef B1: "Ik wil deze als standaard stem"): een ontworpen oudere
      Britse man (OmniVoice "male, elderly, moderate pitch, british accent", seed 27; niemand gekloond), rustiger en
      warmer dan narrator-b. Zet `stories/<map>/stem.json` neer als kopie van stories/ww2-facts/stem.json:
-     `engine_voice` narrator-e, `speed` 0.54, `seed` 7, `pauze` 1.4, `muziek_onder` 11, `muziek_seed` 1939 (koor 11 LUFS onder de stem, elke video dezelfde akkoordenreeks als proef A0; eigenaar 7 nov avond: "B1 zoals hij was", de rustigere versie met tempo 0.92 is afgewezen), `klank` warme EQ
+     `engine_voice` narrator-e, `speed` 0.54, `seed` 7, `pauze` 1.4, `muziek_onder` 11, `muziek_seed` 1939, `muziek` = proef W3 (eigenaar 7 nov 2026: diep en donker-warm, elke 6 s een ander akkoord; muziek 11 LUFS onder de stem, elke video dezelfde akkoordenreeks; eigenaar 7 nov avond: "B1 zoals hij was", de rustigere versie met tempo 0.92 is afgewezen), `klank` warme EQ
      (`highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=...`). Stem:
      `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_stem.py <map>` (zelfde voice.mp3 + voice-times.tsv
      als vroeger, ± 110 woorden/min). Dan
