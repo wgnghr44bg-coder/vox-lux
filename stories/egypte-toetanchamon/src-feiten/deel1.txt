@@ -1,3 +1,5 @@
+TOPIC: The black land beside the Nile
+===
 IMG: nile-dawn-reeds-boat | a fisherman in a papyrus boat on the misty Nile at dawn
 HEAD: Ancient Egyptians built small boats out of the same reeds they used to make paper.
 BODY: Along the edges of the Nile grew thick beds of papyrus, a tall reed with a feathery head. The Egyptians used it for almost everything. They wove it into mats, baskets, sandals and ropes. They pressed thin strips of it together to make sheets for writing. And they tied great bundles of it together to make light little boats. A papyrus boat was easy to build and easy to carry, and it floated well in the calm water near the banks. Fishermen stood in them at dawn, casting their nets while the mist still lay on the river. Hunters used them to glide quietly through the marshes, looking for ducks and geese. Larger wooden boats carried heavy cargo up and down the river, but for everyday work, the simple reed boat was perfect. Thousands of years later, people in some parts of Africa still build boats in almost the same way. The idea was simple, and it lasted.
@@ -38,6 +40,9 @@ IMG: harvest-golden-wheat-sickles | farmers cutting golden wheat with sickles wh
 HEAD: At harvest time, the scribes arrived in the fields to count the grain for taxes.
 BODY: In spring, the wheat and barley turned golden, and the whole village went out to bring in the harvest. The men cut the stalks with curved sickles, made of wood with sharp flint teeth. Women and children followed behind, gathering the fallen ears in baskets. The grain was carried to a threshing floor, where cattle or donkeys walked over it to separate the seeds from the husks. Then the grain was tossed into the air so that the wind could blow the chaff away. But the farmers did not keep all of it. Scribes from the king or the temples came to measure the fields and count the harvest, and a share was taken as tax. The grain was stored in large granaries, which helped feed the kingdom in years of poor floods. Farmers who could not pay were sometimes punished. Even so, harvest time was also a time of songs, festivals and thanks to the gods.
 ===
+TOPIC: The city of Thebes
+BRIDGE: The harvest was carried in, and the fields grew quiet. A little way along the river, a great city was waking up.
+===
 IMG: thebes-street-market-morning | a narrow street in Thebes with whitewashed houses and a small market
 HEAD: There were no coins in Tutankhamun's Egypt, so people traded goods for goods.
 BODY: In the streets and markets of Thebes, people bought and sold all sorts of things, from bread, fish and vegetables to sandals, pots, linen and jewellery. But money as we know it did not yet exist. Instead, people bartered, exchanging one item for another. To make this easier, the value of goods was often measured in units of copper or silver, or in sacks of grain. A pair of sandals might be worth a certain weight of copper, and a goat a little more. Nobody actually had to hand over metal. They simply agreed on a fair exchange, perhaps a jar of oil and some fish for a basket. Records from the time show people carefully noting what they owed and what was owed to them. It sounds complicated, but it worked well for centuries. A morning market in Thebes must have been full of friendly bargaining, as people weighed, compared and argued in the shade of the narrow streets.
@@ -57,6 +62,9 @@ BODY: Karnak was the great temple of the god Amun at Thebes. It was not built al
 IMG: priests-temple-hall-columns | priests with shaved heads walking through a dim hall of painted columns
 HEAD: Egyptian priests shaved their heads and bodies, and washed several times a day, to stay pure for the gods.
 BODY: Priests served the gods in the temples, and they were expected to be very clean. They shaved off all their hair, washed in sacred pools several times a day and wore only fine white linen and simple sandals. Every morning, the most important priests entered the inner shrine, where the statue of the god stood in darkness. They woke the god with hymns, washed and dressed the statue, offered it food and drink, burned incense and sealed the shrine again. Many priests did not serve full time. They worked in shifts, a month at a time, and spent the rest of the year at home with their families and ordinary jobs. There were also priestesses, singers and musicians who served in the temples. The great temple halls were dim and cool, lit only by small windows high in the walls. In the soft light, the painted columns and the smell of incense must have made the place feel truly sacred.
+===
+TOPIC: The tomb-makers, the scribes and their children
+BRIDGE: The temples belonged to the gods and the priests. But across the river lived the people who made the tombs of kings.
 ===
 IMG: deir-el-medina-village-valley | a small walled village of mud-brick houses in a narrow valley
 HEAD: The men who built the royal tombs lived in their own small village, hidden in the desert hills.
@@ -97,6 +105,9 @@ BODY: Children in ancient Egypt had toys much like children today. Archaeologist
 IMG: cat-sleeping-house-niche | a slender cat sleeping on a cushion in a niche of a house
 HEAD: The ancient Egyptians were among the first people in the world to keep cats in their homes.
 BODY: Cats were very welcome in ancient Egypt. They kept mice and rats away from the grain stores, and they hunted snakes and scorpions. But Egyptians also simply liked them. Paintings show cats sitting under their owners' chairs, wearing collars, playing and even helping with bird hunting in the marshes. The Egyptian word for cat was miu, which sounds much like a cat's own voice. Cats were connected with the goddess Bastet, a gentle goddess of the home, of mothers and of joy. In later centuries, millions of cats were mummified and offered to her at her temple. In Tutankhamun's time, a much-loved cat belonging to a prince was even given her own carved stone coffin, with an inscription naming her as the Osiris Tamit, which means she cat. When a family cat died, it is said that the people of the house shaved their eyebrows as a sign of mourning. Few animals have ever been so honoured.
+===
+TOPIC: The king of the sun
+BRIDGE: Those children grew up in a world that seemed settled and old. Yet just before Tutankhamun's time, one king turned it upside down.
 ===
 IMG: amarna-city-desert-river | a new city with long straight streets on an open desert plain by the Nile
 HEAD: Just before Tutankhamun's time, a pharaoh built a completely new capital city in the empty desert.

@@ -1,3 +1,6 @@
+TOPIC: Newspapers and photographs
+BRIDGE: Parsons kept his diary for himself. But Tombstone also had people who recorded its days for everyone to read and see.
+===
 IMG: newspaper-office-printing-press | a frontier newspaper office with a hand printing press
 HEAD: Tombstone's most famous newspaper got its name from a simple joke: every tombstone needs an epitaph.
 BODY: In 1880, a man named John Clum arrived in Tombstone with a printing press. He had once been an agent on an Apache reservation, and he was full of energy and opinions. He started a newspaper and called it the Tombstone Epitaph, because, as he said, every tombstone should have an epitaph. The first issue appeared on the first of May, 1880. Producing a newspaper was slow work. Each letter was a small piece of metal, picked by hand from a wooden case and set in a line, one by one. The pages were printed on a heavy iron press, one sheet at a time. The paper reported on mining news, local events, advertisements, arrivals and departures, and quarrels in the town. There was soon a rival paper, the Nugget, and the two often disagreed sharply. The Epitaph is still published today, which makes it one of the oldest newspapers in Arizona.
@@ -17,6 +20,9 @@ BODY: By 1881, photography had become faster than in the early days, but it stil
 IMG: fly-boarding-house-porch-mollie | a woman sweeping the porch of a long wooden boarding house
 HEAD: Next to the photograph studio, Mollie Fly ran a boarding house that played a part in Tombstone's most famous day.
 BODY: Mollie Fly was a capable and practical woman. While her husband ran the studio, she ran a boarding house in the long, low building on Fremont Street. It had a covered porch along the front and simple rooms for lodgers. She also helped with the photography business, and when her husband was away on long trips, she kept the studio running herself. Doc Holliday rented a room in the Fly boarding house in 1881. Behind the building, and beside it, lay a narrow empty lot, the kind of space found between many buildings in frontier towns. On the afternoon of the twenty-sixth of October, 1881, that small lot would become the scene of the most famous gunfight in the history of the West. It was not, in fact, inside the O.K. Corral. For Mollie, though, most days were simply full of cooking, cleaning and keeping accounts, like the life of almost everyone else in town.
+===
+TOPIC: The Earp brothers and Doc Holliday
+BRIDGE: Some of the people in those photographs would one day become far more famous than they ever expected.
 ===
 IMG: earp-wagons-arriving-1879 | covered wagons arriving into a young frontier town in winter
 HEAD: The Earp brothers came to Tombstone in December 1879, hoping to make money, not to become legends.
@@ -57,6 +63,9 @@ BODY: Holliday grew up in a comfortable home in the South, where children of goo
 IMG: boarding-room-stove-night | a man wrapped in a blanket beside a small iron stove at night
 HEAD: Tuberculosis was one of the most common causes of death in the nineteenth century.
 BODY: Doc Holliday's illness was not unusual. In the 1800s, tuberculosis, often called consumption, killed huge numbers of people in America and Europe. It spread through the air, in crowded homes and towns. There was no cure. Doctors advised rest, fresh air and dry, sunny places, which is one reason why many people with weak lungs travelled west to the deserts and mountains. Some of them recovered, at least for a while. Others grew slowly weaker. On cold nights, a person with tuberculosis might sit up wrapped in a blanket, coughing, beside a small iron stove, unable to sleep. Holliday lived with the disease for about fifteen years. It made him thin and pale and tired, and it gave his life a sense of borrowed time. Only in the twentieth century did scientists develop medicines that could cure the disease. Today, in many countries, it is rare. In Doc Holliday's time, it was simply part of life.
+===
+TOPIC: Ranches, cowboys and lawmen
+BRIDGE: Beyond the edge of town, the land opened out into wide, quiet valleys. And not everyone who lived there saw things the way the town did.
 ===
 IMG: san-pedro-valley-ranch-cattle | an adobe ranch house and corral in a wide grassy river valley
 HEAD: Around Tombstone lay wide grassy valleys, where small ranches raised cattle for the mining towns.
@@ -101,6 +110,9 @@ BODY: As October went on, the days grew shorter, and the evenings in Tombstone g
 IMG: full-moon-over-dragoon-mountains | a pale full moon rising over rocky desert mountains
 HEAD: East of Tombstone rise the Dragoon Mountains, once the stronghold of the Apache leader Cochise.
 BODY: The rocky Dragoon Mountains can be seen from almost everywhere in Tombstone. Their granite cliffs and boulders glow orange at sunset and silver under the moon. For many years, these mountains were the homeland of the Chiricahua Apache, and their great leader, Cochise, used a hidden valley in the Dragoons as his stronghold. It was almost impossible for outsiders to find. In 1872, Cochise made peace with the United States, and he died two years later. He was buried somewhere in the mountains, in a secret place that has never been revealed. The county in which Tombstone stands was named after him. By 1881, the Apache people had been forced onto reservations, though some groups still left them and returned to the mountains. On a quiet night, as the full moon rose over the Dragoons, the people of Tombstone could look out at a landscape with a much longer history than their own young town.
+===
+TOPIC: Two days in October
+BRIDGE: Through the long summer, old quarrels simmered quietly. Then, in late October, they came to the surface.
 ===
 IMG: wagon-arriving-town-evening-wind | a ranch wagon with two men arriving in town on a windy afternoon
 HEAD: On the twenty-fifth of October, 1881, two ranchers drove a wagon into Tombstone on ordinary business.

@@ -1,3 +1,5 @@
+TOPIC: A streak of silver in the hills
+===
 IMG: desert-hills-dawn-prospector | a lone prospector with a pack mule at dawn in the Arizona hills
 HEAD: The richest silver town in Arizona was found by one stubborn man with a mule.
 BODY: In 1877, a young prospector named Ed Schieffelin was wandering through the dry hills of southern Arizona. He was tall and thin, with a long beard and clothes that were mostly patches. He had been looking for ore since he was a boy, in Oregon, in Nevada, in Utah, and he had never found very much. But he had a habit that served him well. He picked up rocks everywhere he went, broke them open with his hammer, and looked closely at what was inside. The hills east of the San Pedro River were dangerous country at the time, and few people went there. Schieffelin went anyway. He walked for weeks with his mule, sleeping under the stars and living on beans and coffee. Most people thought he was wasting his time. Yet he kept going, one ridge after another, with the patience of someone who simply enjoyed the looking. It would turn out to be one of the luckiest walks in the history of the American West.
@@ -14,6 +16,9 @@ IMG: first-claims-tents-hills | an early mining camp of tents among rocky hills
 HEAD: Within a year, the empty hills were covered with tents, piles of stones and men with shovels.
 BODY: The partners could not keep their secret for long. By 1878, news of the silver had spread across the territory and beyond. Prospectors arrived on foot, on horseback and in wagons. They set up canvas tents and little huts made of brush. Each man marked his claim with a pile of stones and a paper notice tucked inside. The claims were given cheerful and hopeful names, like the Tough Nut, the Contention, the Grand Central and the Lucky Cuss. Most of the new arrivals found nothing of value. But a few claims turned out to be very rich, and that was enough to keep everyone else digging. Life in the early camp was simple and hard. Water had to be carried in, food was expensive, and the nights could be cold. Yet in the evenings, the camp was full of small fires and quiet talk about tomorrow's luck. Every great mining town started like this, as a scattering of tents and hope.
 ===
+TOPIC: A town on Goose Flats
+BRIDGE: The hills were full of tents and shovels now. All those people needed somewhere to live.
+===
 IMG: mesa-sunset-mountains-distant | a high desert mesa at sunset with mountains glowing in the distance
 HEAD: The town was built on a high mesa called Goose Flats, almost a mile above the sea.
 BODY: In 1879, the miners needed a proper town, and they chose a wide, flat stretch of high ground near the mines. It was known as Goose Flats, and it stood more than four thousand five hundred feet above sea level. From the edge of the mesa, you could see for many miles in every direction. To the east rose the Dragoon Mountains, and to the south and west, the Huachucas and the Whetstones. In the evenings, the mountains turned pink and then purple as the sun went down. The height of the mesa made the town cooler than the desert below, and the air was dry and clear. Yet there was no river and no spring on Goose Flats. Water would always be a problem. The town was laid out in a neat grid of streets, with numbers going one way and names going the other. Within a few months, the empty grass of the mesa had become a busy little town.
@@ -29,6 +34,9 @@ BODY: Lumber was expensive in southern Arizona, because there were few large tre
 IMG: water-wagon-barrels | a horse-drawn water wagon with wooden barrels in a town street
 HEAD: In early Tombstone, drinking water was delivered by wagon and sold by the barrel.
 BODY: Goose Flats had no river and no spring. In the first years, every drop of water used in the town had to be brought in from wells and springs some distance away. Water wagons with big wooden barrels rolled slowly through the streets, and the drivers sold water to houses, hotels and restaurants. People were careful with it. Dishwater was saved for the garden. Baths were small and not very frequent. People sometimes joked that water was harder to find than whiskey. In 1881, a company finally began to build a long pipeline from the Huachuca Mountains, more than twenty miles away, to bring fresh water to the town. It was a great improvement, and the townspeople were very proud of it. Still, for many years, the sight of the water wagon remained part of everyday life. Today, we turn on a tap without thinking. In Tombstone, every bucket of clean water was a small luxury.
+===
+TOPIC: Down in the silver mines
+BRIDGE: Above ground, the town was growing fast. But the real reason for all of it lay deep beneath the streets.
 ===
 IMG: miners-walking-to-shift-dawn | miners with lunch pails walking up a hillside at dawn
 HEAD: A Tombstone miner earned about four dollars a day, which was good money at the time.
@@ -58,6 +66,9 @@ IMG: stamp-mill-river-cottonwoods | a large wooden mill beside a river lined wit
 HEAD: Along the San Pedro River, giant machines pounded the silver rock into powder, day and night.
 BODY: The mills that processed Tombstone's ore stood in little towns along the river, with names like Charleston and Contention. Inside each mill were rows of heavy iron hammers called stamps. They rose and fell, one after another, crushing the rock into fine sand. Water from the river carried the crushed ore through tanks and pans, where the silver was separated from the rest. The sound of the stamps was tremendous, a steady pounding that could be heard far across the valley. People who lived near the mills said they grew so used to it that they woke up when it stopped. The river itself was a pleasant place, lined with tall cottonwood trees whose leaves turned gold in autumn. The finished silver was cast into heavy bars called bullion and sent away by stagecoach. It is strange to think of it now, but much of the quiet river valley once shook with noise.
 ===
+TOPIC: Evenings on Allen Street
+BRIDGE: When the shift whistle blew and the miners climbed back into the daylight, the town came alive.
+===
 IMG: allen-street-afternoon-boardwalk | a busy main street with people on a shaded wooden boardwalk
 HEAD: Allen Street was the heart of Tombstone, and it was lined with covered wooden sidewalks.
 BODY: The main street of the town was called Allen Street. Along both sides ran wooden boardwalks, raised a little above the dust, with roofs on slender posts to shade people from the sun. Under these awnings, you could walk from shop to shop without stepping into the street. There were general stores and hardware stores, a bank, a stationery shop, a jeweller, a tobacconist, barbers, bakeries and restaurants. Shop windows displayed hats, boots, fabrics and tinned food from far away. In the afternoon, the boardwalks were crowded with people strolling and chatting. Wagons and riders passed slowly along the street, and children ran between the posts. When it rained, the street turned to mud, and the boardwalks became even more important. In summer, the dust rose with every passing wagon. Yet for the people of Tombstone, Allen Street was a proud place. It was where everyone met, and where the town showed its best face.
@@ -78,6 +89,9 @@ IMG: hitching-rail-horses-dusk | horses at a hitching rail in front of lamplit s
 HEAD: Every street in town had wooden hitching rails, where horses waited patiently for their riders.
 BODY: In the 1880s, almost everyone who came into Tombstone from the surrounding country arrived on horseback or by wagon. In front of the shops, saloons and offices stood long wooden rails, and riders tied their horses there while they went about their business. The horses waited quietly, swishing their tails at the flies and dozing in the evening light. Some towns had water troughs beside the rails, so that the animals could drink. Livery stables offered a better place to leave a horse for longer, with hay, water and shelter for the night. As dusk fell, the shopkeepers lit their oil lamps, and squares of yellow light appeared on the boardwalks. The horses stood in the soft glow, their breath steaming a little in the cooler air. It was an ordinary sight at the time, so ordinary that hardly anyone wrote about it. But for a while, it was the sound and smell of every evening in town.
 ===
+TOPIC: Nellie Cashman
+BRIDGE: Among the crowds on those busy streets were a few people that everyone in town seemed to know.
+===
 IMG: nellie-cashman-restaurant-kitchen | a small Irish woman cooking in a busy restaurant kitchen
 HEAD: One of the most respected people in Tombstone was a small Irish woman who ran a restaurant.
 BODY: Nellie Cashman was born in Ireland around 1845, and she came to America as a girl. She had already lived in mining camps in Nevada, British Columbia and other parts of Arizona before she arrived in Tombstone in 1880. There she ran a restaurant and boarding house called the Russ House, on the corner of Fifth and Toughnut Street. She was slim, dark-haired and full of energy, and she worked from early morning until late at night. Her food was known as good and honest, and her prices were fair. But people remembered Nellie most for her kindness. She cared for sick miners, raised money for the poor and helped anyone who was down on their luck. Some people in the town called her the angel of Tombstone. She never married, and she never seemed to slow down. In a town known for rough men and quarrels, her name was spoken with real warmth.
@@ -97,6 +111,9 @@ BODY: As more families came to Tombstone, the town needed a school. The first pu
 IMG: nellie-evening-porch-lamp | a woman sitting quietly on a boarding house porch in the evening
 HEAD: Nellie Cashman did not stay in Tombstone forever. She followed the gold rushes all the way to the Arctic.
 BODY: In 1881, Nellie's sister died, leaving five young children. Nellie took them in and raised them as her own, while still running her business. When Tombstone's mines began to decline a few years later, she moved on, as she had done so often before. She opened restaurants and stores in other mining towns, and in the 1890s, when gold was found in the Klondike in northern Canada, she went north. She was already over fifty. She crossed the snowy mountains on foot, ran a restaurant in Dawson City, and later prospected for gold herself in Alaska, travelling by dog sled. She was still working in the far north when she was nearly eighty. Nellie Cashman died in 1925 in Victoria, British Columbia. She is remembered today in Arizona, in Canada and in Alaska. Few people in the Old West travelled so far, and fewer still left so many grateful people behind them.
+===
+TOPIC: George Parsons and his diary
+BRIDGE: Nellie fed the town. Another newcomer quietly wrote it all down.
 ===
 IMG: parsons-writing-diary-lamp | a young man writing in a diary by lamplight
 HEAD: Much of what we know about daily life in Tombstone comes from one man's private diary.

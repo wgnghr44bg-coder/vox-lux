@@ -1,3 +1,6 @@
+TOPIC: The boy king and his queen
+BRIDGE: The city of the sun disc was emptying. And on the throne of Egypt sat a child.
+===
 IMG: boy-king-coronation-temple | a boy king of about nine wearing the blue crown in a great temple hall
 HEAD: Tutankhamun became king of Egypt when he was only about nine years old.
 BODY: Around the year 1332 before Christ, a young boy was crowned king of the Two Lands. At first, his name was Tutankhaten, which means the living image of the Aten, the sun disc his family had worshipped. He was probably a son of Akhenaten, the king who had turned Egypt's religion upside down. Now that king was gone, and the throne passed to a child. At the coronation, the boy would have worn fine white linen and a broad golden collar. Priests placed crowns on his head and put the crook and the flail in his small hands, the old signs of a king who guides and protects his people. Of course, a nine-year-old could not rule a great kingdom alone. Experienced officials stood close beside him and made most of the decisions. Yet in the eyes of the Egyptians, he was now something more than a boy. He was the living link between the gods and the people, and the whole land depended on him.
@@ -46,6 +49,9 @@ IMG: palace-terrace-sunset-couple | a young king and queen on a palace roof look
 HEAD: In Tutankhamun's tomb lay two tiny coffins, holding the daughters he and his queen had lost.
 BODY: The young royal couple did not have any children who survived. When archaeologists explored the tomb, they found a plain wooden box in the treasury. Inside were two small coffins, each holding the mummy of a baby girl. One was born far too early. The other was born closer to term, but did not live. DNA studies suggest that they were most likely the daughters of Tutankhamun himself. The babies had been carefully preserved and wrapped, just like adults, and placed beside their father for the journey into the afterlife. They had no names, as far as we know. It is a sad discovery, but it is also a tender one. It shows that, even in a world of golden masks and great ceremonies, a young king and queen grieved for their children like any other parents. They kept them close. And they made sure that wherever the king was going, his little daughters would go with him.
 ===
+TOPIC: The Beautiful Feast of Opet
+BRIDGE: Inside the palace, life was private and quiet. But once a year, the whole of Thebes came out to celebrate.
+===
 IMG: opet-festival-crowds-avenue | a festive crowd lining an avenue of stone sphinxes in Thebes
 HEAD: Once a year, the gods of Thebes went on a holiday, and the whole city came out to watch.
 BODY: The Opet Festival took place during the season of the flood, when the fields were under water and there was little farm work to do. It celebrated the god Amun, who travelled from his great temple at Karnak to the temple at Luxor, a little further south. There, his strength and the strength of the king were renewed for another year. For ordinary people, it was one of the happiest times of the year. Crowds lined the processional route, dressed in their best linen. There was music, dancing, singing and food. In early times, the festival lasted about eleven days. Later, it grew to almost a month. Normally, the statues of the gods were hidden away in dark sanctuaries, where only priests could see them. During Opet, the gods came out into the light, carried among the people. For a few days, the great and the ordinary shared the same streets and the same joy.
@@ -70,6 +76,9 @@ IMG: riverbank-night-families-lamps | families sitting on the riverbank at night
 HEAD: At festival time, the temples gave out bread and beer to the crowds.
 BODY: Egyptian temples were not only places of prayer. They were also huge storehouses, with fields, herds, workshops and granaries of their own. Every day, food was offered to the gods. When the gods had finished with it, so to speak, the offerings were shared out among the priests and temple staff. During great festivals, much more was given away. Records from various periods mention thousands of loaves of bread, cakes, jars of beer, meat and fruit, handed out to the people who came to celebrate. Beer in ancient Egypt was thick, mild and nourishing, more like a sort of liquid bread than modern beer. After a long day of processions, families would sit together on the riverbank, eating and talking as the sun went down. Small oil lamps glowed on the boats and along the water's edge. Children fell asleep in their parents' laps. Above them, the stars came out over Thebes, one by one.
 ===
+TOPIC: The last winter
+BRIDGE: After the festival, the flood went down, and the year turned towards the growing season.
+===
 IMG: winter-nile-fields-green-morning | green fields of young wheat along the Nile on a mild winter morning
 HEAD: The Egyptian winter was the season of growing, when the whole valley turned green.
 BODY: When the flood went down in the autumn, the farmers sowed their seed in the damp black earth. Then came the season the Egyptians called Peret, which means coming forth. It ran through our winter months. The days were mild and sunny, and the nights could be surprisingly cold. Farmers sometimes wrapped themselves in woollen or heavy linen cloaks in the early morning. In the fields, the wheat and barley grew tall and green. Flax, used to make linen, came into blue flower. Vegetables such as onions, lentils, cucumbers and lettuce grew in small irrigated gardens. Water was lifted from canals with a simple device called a shaduf, a long pole with a bucket on one end and a weight on the other. For a few months, the valley was at its most beautiful. A bright green ribbon ran through the desert, from the far south all the way to the sea.
@@ -85,6 +94,9 @@ BODY: Walking sticks were common among important men in ancient Egypt. They were
 IMG: palace-room-lamps-night-quiet | a quiet palace room at night with a bed with lion legs and a priest in prayer
 HEAD: Nobody knows for certain how Tutankhamun died.
 BODY: Tutankhamun died young, at about eighteen or nineteen years old, after reigning for around nine years. There is no written record that explains what happened. So, over the past century, people have suggested many possible causes. When his mummy was first examined, a hole in the skull led some to imagine a blow to the head. Later scans showed that this damage probably happened during mummification or when the mummy was studied in the 1920s. A break in his left leg, just above the knee, may have happened shortly before his death, perhaps in a fall or an accident. DNA tests found signs of malaria. Each of these, alone or together, could have been serious in a time without modern medicine. Yet none of them gives a final answer. Perhaps, in a quiet palace room, by the light of small oil lamps, doctors and priests did everything they knew how to do. And then the young king was gone.
+===
+TOPIC: Seventy days
+BRIDGE: The palace fell silent. Now began the long, careful preparations for a royal burial.
 ===
 IMG: mourning-women-palace-courtyard | women of the royal household in plain linen grieving in a palace courtyard
 HEAD: When an Egyptian king died, the official mourning lasted around seventy days.

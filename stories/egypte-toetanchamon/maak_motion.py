@@ -10,16 +10,8 @@ start = {re.sub(r"^\d+-", "", r["slug"]): float(r["start"]) for r in rows}   # c
 eind = float(rows[-1]["end"])
 
 # hoofdstukken van de feitjes-opbouw (7 nov 2026): titel -> eerste beeld van dat deel
-HOOFDSTUKKEN = [
-    ("The black land beside the Nile", "nile-dawn-reeds-boat"), ("A farming family", "farm-village-mud-houses-palms"),
-    ("The city of Thebes", "thebes-street-market-morning"), ("The tomb-makers and the scribes", "deir-el-medina-village-valley"),
-    ("Children of the Nile", "school-boys-writing-boards"), ("The king of the sun", "amarna-city-desert-river"),
-    ("The boy king", "boy-king-coronation-temple"), ("The young queen", "queen-ankhesenamun-palace-garden"),
-    ("The Beautiful Feast of Opet", "opet-festival-crowds-avenue"), ("The last winter", "winter-nile-fields-green-morning"),
-    ("Seventy days", "mourning-women-palace-courtyard"), ("The funeral in the Valley of the Kings", "funeral-boats-crossing-nile-dawn"),
-    ("A forgotten king", "widowed-queen-palace-window"), ("Wonderful things", "howard-carter-valley-1920s"),
-    ("The treasures of the tomb", "antechamber-golden-couches-statues"), ("Tutankhamun today", "valley-of-kings-today-morning"),
-]
+HOOFDSTUKKEN = [(titel, re.sub(r"^\d+-", "", s)) for titel, s in   # onderwerpen uit tools/bouw_feiten.py (OPBOUW.md)
+                (l.split("\t") for l in (d / "hoofdstukken.tsv").read_text(encoding="utf-8").split("\n") if l.strip())]
 kapitels = [(titel, start[slug]) for titel, slug in HOOFDSTUKKEN]
 
 items = [{"soort": "hoofdstuk", "tijd": 10 if n == 1 else round(t + 3, 1), "nummer": n, "titel": titel}

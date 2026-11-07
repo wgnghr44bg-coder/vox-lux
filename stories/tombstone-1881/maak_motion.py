@@ -10,17 +10,8 @@ start = {re.sub(r"^\d+-", "", r["slug"]): float(r["start"]) for r in rows}   # c
 eind = float(rows[-1]["end"])
 
 # hoofdstukken van de feitjes-opbouw (7 nov 2026): titel -> eerste beeld van dat deel
-HOOFDSTUKKEN = [
-    ("A streak of silver in the hills", "desert-hills-dawn-prospector"), ("A town on Goose Flats", "mesa-sunset-mountains-distant"),
-    ("Down in the silver mines", "miners-walking-to-shift-dawn"), ("Evenings on Allen Street", "allen-street-afternoon-boardwalk"),
-    ("Nellie Cashman", "nellie-cashman-restaurant-kitchen"), ("George Parsons and his diary", "parsons-writing-diary-lamp"),
-    ("Newspapers and photographs", "newspaper-office-printing-press"), ("The Earp brothers", "earp-wagons-arriving-1879"),
-    ("Doc Holliday", "doc-holliday-card-table"), ("The ranches of the valleys", "san-pedro-valley-ranch-cattle"),
-    ("October 1881", "october-morning-town-cool"), ("The night before", "wagon-arriving-town-evening-wind"),
-    ("A cold afternoon", "grey-dawn-allen-street-empty"), ("Fremont Street", "four-men-walking-fremont-street"),
-    ("After the gunfight", "morning-after-quiet-town"), ("What became of them", "ed-schieffelin-cabin-oregon-woods"),
-    ("Tombstone today", "tombstone-today-allen-street-boardwalk"),
-]
+HOOFDSTUKKEN = [(titel, re.sub(r"^\d+-", "", s)) for titel, s in   # onderwerpen uit tools/bouw_feiten.py (OPBOUW.md)
+                (l.split("\t") for l in (d / "hoofdstukken.tsv").read_text(encoding="utf-8").split("\n") if l.strip())]
 kapitels = [(titel, start[slug]) for titel, slug in HOOFDSTUKKEN]
 
 items = [{"soort": "hoofdstuk", "tijd": 10 if n == 1 else round(t + 3, 1), "nummer": n, "titel": titel}

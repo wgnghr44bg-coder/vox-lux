@@ -1,3 +1,6 @@
+TOPIC: The funeral in the Valley of the Kings
+BRIDGE: When the seventy days were over, everything was ready. On a spring morning, the young king began his last journey.
+===
 IMG: funeral-boats-crossing-nile-dawn | funeral boats decorated with flowers crossing the calm Nile at dawn
 HEAD: An Egyptian funeral began with a journey across the river, from the land of the living to the land of the dead.
 BODY: The cities and palaces of Thebes lay mostly on the east bank of the Nile, where the sun rises. The tombs lay on the west bank, where it sets. So a funeral began with a crossing. The coffin was carried down to the water and placed on a boat, often decorated with flowers and linen. Priests, family members and mourners followed in other boats. The crossing was short, but it carried deep meaning. It echoed the journey of the sun, and the journey every soul would make from this life into the next. Scenes in Egyptian tombs show these funeral boats in great detail, with oarsmen rowing steadily and mourners kneeling on the decks. Herons and egrets rose from the reeds as the boats passed. On the far side, the golden cliffs of the west bank waited in the morning light. For the young king, this was the last time he would cross the river that had shaped his whole kingdom.
@@ -21,6 +24,9 @@ BODY: One of the most important ceremonies of an Egyptian funeral was called the
 IMG: funeral-feast-desert-evening | mourners with flower collars sharing a quiet funeral meal in a desert valley at evening
 HEAD: Leftovers from Tutankhamun's funeral feast were found in 1907, years before his tomb was discovered.
 BODY: In 1907, an American explorer named Theodore Davis dug in the Valley of the Kings and found a small pit filled with large clay jars. Inside, there was a strange collection of things. There were bags of natron salt, scraps of linen, broken pottery, bones from ducks and geese, wine jars, and collars made of leaves and flowers. Some items carried the name of Tutankhamun. At the time, nobody quite understood what they were. Later, experts realised that these were the remains of the embalming materials and the funeral meal. After the burial, the mourners had shared food and drink near the tomb, wearing flower collars. When they had finished, everything they used was carefully gathered up and buried, because it had touched something sacred. A little later, Davis found a small pit with some gold foil nearby, decided that this had been the king's tomb, and announced that the valley had nothing more to give. In fact, the real tomb lay only a short walk away, waiting under the sand.
+===
+TOPIC: A forgotten king
+BRIDGE: The tomb was sealed, and the mourners went home. But for those left behind, the story was not quite over.
 ===
 IMG: widowed-queen-palace-window | a young widowed queen alone at a palace window looking at the Nile in the evening
 HEAD: After Tutankhamun died, his young widow seems almost to disappear from history.
@@ -46,6 +52,9 @@ IMG: workers-huts-valley-stone-chips | small stone huts of workmen in a rocky va
 HEAD: The huts of the workmen who built a later tomb helped to hide Tutankhamun's tomb from the world.
 BODY: About two hundred years after Tutankhamun's burial, workmen began to cut a large new tomb for a king named Ramesses the Sixth. Its entrance lay just above the place where the young king had been buried. The workmen built simple huts of rough stone near their work, where they could rest, eat and store their tools. They also dumped great heaps of white stone chips from their digging across the valley floor. Without knowing it, they covered the entrance to Tutankhamun's tomb even more deeply. Over the centuries, flash floods carried more rubble and sand down into the valley. Ancient tomb robbers and later explorers searched the valley again and again, and almost every royal tomb there was emptied. But nobody thought to dig beneath the old workmen's huts. They looked like nothing at all. And so, for more than three thousand years, a few humble stone walls stood guard over one of the greatest treasures ever found.
 ===
+TOPIC: Wonderful things
+BRIDGE: For more than three thousand years, the valley kept its secret. Then a stubborn Englishman came looking.
+===
 IMG: howard-carter-valley-1920s | an Englishman in the 1920s in a light suit standing in the rocky Valley of the Kings
 HEAD: Howard Carter first came to Egypt as a teenager, to copy paintings in ancient tombs.
 BODY: Howard Carter was born in London in 1874, the son of an artist. He did not go to university. Instead, at the age of seventeen, he travelled to Egypt to help copy the paintings and inscriptions in ancient tombs. He was good at it, and he learned quickly. Over the years, he worked on many excavations and became an inspector of antiquities. He was careful, stubborn and hard-working, though not always easy to get along with. By the early twentieth century, many experts believed the Valley of the Kings had been fully explored. Carter disagreed. He had noticed that no tomb of Tutankhamun had ever been found, though objects with his name had turned up nearby. He was convinced the tomb was still there. From 1917 onwards, he searched the valley season after season, clearing rubble down to the bedrock. Year after year, he found almost nothing. Yet he kept believing the young king was waiting somewhere close.
@@ -65,6 +74,9 @@ BODY: By the evening of the fifth of November, the workmen had cleared twelve st
 IMG: candlelight-glimpse-gold-dark | the view through a small hole in a doorway by candlelight, gilded objects glinting beyond
 HEAD: When Carter first looked into the tomb by candlelight, he could hardly speak.
 BODY: On the twenty-sixth of November, 1922, after clearing the first door and a corridor full of rubble, Carter reached a second sealed doorway. He made a small hole in the top corner and held up a candle. Warm air from inside the tomb made the flame flicker. At first, he could see nothing. Then, as his eyes got used to the dim light, shapes began to appear out of the darkness: strange animals, statues and gold, everywhere the glint of gold. Behind him, Lord Carnarvon asked whether he could see anything. Carter later wrote that he answered, yes, wonderful things. His own notes from that night record the words slightly differently. But the feeling is the same. For a moment, a man stood at a small hole in a wall, holding a candle, looking at a room that had not seen light for more than three thousand years. And for that moment, he was the only person in the world who knew.
+===
+TOPIC: The treasures of the tomb
+BRIDGE: As the candlelight steadied, the room beyond the wall slowly came into view.
 ===
 IMG: antechamber-golden-couches-statues | a crowded tomb room with gilded couches with animal heads and two black and gold guardian statues
 HEAD: The first room of the tomb was crammed with treasures, piled up like furniture in an attic.
@@ -93,6 +105,9 @@ BODY: Next to the burial chamber was a small room that Carter called the Treasur
 IMG: simple-objects-sandals-boxes-linen | woven sandals, walking sticks, folded linen and a small painted box on a table
 HEAD: Along with gold, Tutankhamun was buried with his underwear, his sandals and a lock of his grandmother's hair.
 BODY: Not everything in the tomb was golden. Many of the objects were ordinary things from daily life. There were woven sandals of reeds and papyrus, gloves, folded shirts and around one hundred and fifty linen loincloths, the underwear of the time. There were board games, writing palettes, boxes of clothes, baskets of bread, dates and grapes, and jars of wine labelled with the year and the vineyard. There was even a small chest with a child's clothes in it, perhaps from the king's own childhood. One small set of nested coffins held a lock of auburn hair, labelled with the name of Queen Tiye, the king's grandmother. Perhaps it was a keepsake. These everyday things show us that the afterlife was imagined as a continuation of this life, with meals, games, clean linen and comfortable shoes. It is strangely comforting. Even a pharaoh, it seems, wanted his favourite slippers with him on the longest journey.
+===
+TOPIC: Tutankhamun today
+BRIDGE: The treasures have left the tomb now. But the valley, the river and the young king's name are still there.
 ===
 IMG: valley-of-kings-today-morning | the Valley of the Kings on an early morning with tomb entrances at the foot of the cliffs
 HEAD: There are more than sixty tombs in the Valley of the Kings, and Tutankhamun's is number sixty-two.
