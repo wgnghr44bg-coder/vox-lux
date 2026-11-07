@@ -1,0 +1,9 @@
+{
+    "name":  "narrator-e",
+    "description":  "Original older British male narrator (designed with OmniVoice, not cloned from anyone). Chosen by the owner on 7 Nov 2026 (proef B1): calmer and warmer than narrator-b.",
+    "ref_text":  "The evening is quiet now, and the kettle is warming slowly on the stove.",
+    "instruct":  "male, elderly, moderate pitch, british accent",
+    "seed":  27,
+    "design_speed":  0.8,
+    "default_speed":  0.54
+}

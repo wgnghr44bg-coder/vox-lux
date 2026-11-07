@@ -1,0 +1,8 @@
+{
+    "engine_voice":  "narrator-e",
+    "speed":  0.54,
+    "seed":  7,
+    "pauze":  1.4,
+    "klank":  "highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
+    "waarom":  "eigenaar 7 nov 2026: proef B1 (\u0027Ik wil deze als standaard stem\u0027): nieuwe Britse oudere man narrator-e, speed 0.54, pauzes x1.4, warme klank, koor 432 Hz eronder"
+}
