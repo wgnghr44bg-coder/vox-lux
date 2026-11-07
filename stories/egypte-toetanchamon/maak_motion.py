@@ -6,17 +6,21 @@ from pathlib import Path
 
 d = Path(__file__).parent
 rows = list(csv.DictReader(open(d / "afbeeldingen-tijden-pauzes.tsv", encoding="utf-8"), delimiter="\t"))
-start = {r["slug"]: float(r["start"]) for r in rows}
+start = {re.sub(r"^\d+-", "", r["slug"]): float(r["start"]) for r in rows}   # cues heten NN-slug (feitjes-opbouw)
 eind = float(rows[-1]["end"])
 
-kapitels = []
-for l in (d / "HOOFDSTUKKEN.txt").read_text(encoding="utf-8").splitlines():
-    if not l.strip() or l.startswith("#"):
-        continue
-    titel, bestand = l.split("\t")
-    p = d / "src" / bestand.split()[0]
-    slug = re.findall(r"\{img:([^}]+)\}", p.read_text(encoding="utf-8"))[0]
-    kapitels.append((titel, start[slug]))
+# hoofdstukken van de feitjes-opbouw (7 nov 2026): titel -> eerste beeld van dat deel
+HOOFDSTUKKEN = [
+    ("The black land beside the Nile", "nile-dawn-reeds-boat"), ("A farming family", "farm-village-mud-houses-palms"),
+    ("The city of Thebes", "thebes-street-market-morning"), ("The tomb-makers and the scribes", "deir-el-medina-village-valley"),
+    ("Children of the Nile", "school-boys-writing-boards"), ("The king of the sun", "amarna-city-desert-river"),
+    ("The boy king", "boy-king-coronation-temple"), ("The young queen", "queen-ankhesenamun-palace-garden"),
+    ("The Beautiful Feast of Opet", "opet-festival-crowds-avenue"), ("The last winter", "winter-nile-fields-green-morning"),
+    ("Seventy days", "mourning-women-palace-courtyard"), ("The funeral in the Valley of the Kings", "funeral-boats-crossing-nile-dawn"),
+    ("A forgotten king", "widowed-queen-palace-window"), ("Wonderful things", "howard-carter-valley-1920s"),
+    ("The treasures of the tomb", "antechamber-golden-couches-statues"), ("Tutankhamun today", "valley-of-kings-today-morning"),
+]
+kapitels = [(titel, start[slug]) for titel, slug in HOOFDSTUKKEN]
 
 items = [{"soort": "hoofdstuk", "tijd": 10 if n == 1 else round(t + 3, 1), "nummer": n, "titel": titel}
          for n, (titel, t) in enumerate(kapitels, 1)]
@@ -45,7 +49,7 @@ items += [
         ["1923", "The sealed doorway is opened"], ["Today", "The treasures rest in one museum"]]},
 ]
 items.sort(key=lambda i: i["tijd"])
-json.dump({"onderwerp": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC", "intro": True, "slot": True, "items": items},
+json.dump({"onderwerp": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC", "intro": False, "slot": False, "items": items},
           open(d / "motion.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
 
