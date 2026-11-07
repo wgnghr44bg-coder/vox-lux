@@ -7,5 +7,6 @@
     "klank":  "highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
     "waarom":  "eigenaar 7 nov 2026: B1-stem zoals gekozen (proef B1): narrator-e, speed 0.54, pauzes x1.4, warme klank, koor 11 LUFS onder de stem. De rustigere versie (tempo 0.92, pauzes x1.6, koor 15) is beluisterd en afgewezen: \u0027B1 zoals hij was\u0027.",
     "tempo":  1,
-    "muziek_onder":  11
+    "muziek_onder":  11,
+    "muziek_seed":  1939
 }

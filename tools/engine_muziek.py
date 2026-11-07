@@ -27,13 +27,18 @@ m = Path(sys.argv[1])
 v = m / "video"
 stem = v / "stem-met-pauzes.wav"
 mix = MixConfig()
+VAST_SEED = None
 # "muziek_onder" in stem.json (eigenaar 7 nov 2026: "het geluid van de achtergrond zachter"): LUFS onder de stem
 import json
 _sj = m / "stem.json"
 if _sj.exists():
-    mix.music_below_voice_db = float(json.loads(_sj.read_text(encoding="utf-8")).get("muziek_onder", mix.music_below_voice_db))
+    _j = json.loads(_sj.read_text(encoding="utf-8"))
+    mix.music_below_voice_db = float(_j.get("muziek_onder", mix.music_below_voice_db))
+    # "muziek_seed" (eigenaar 7 nov 2026: "de muziek van A0"): elke video dezelfde akkoordenreeks als proef A0 (1939)
+    if "muziek_seed" in _j:
+        VAST_SEED = int(_j["muziek_seed"])
 dur = sf.info(stem).duration + 60
-seed = zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
+seed = VAST_SEED if VAST_SEED is not None else zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
 werk = v / "engine-muziek"
 generate(preset("referentie", duration=dur, seed=seed), werk, stems=False,
          progress=lambda f, s="": print(f"\r{f * 100:5.1f}% {s:<30}", end="", flush=True))
