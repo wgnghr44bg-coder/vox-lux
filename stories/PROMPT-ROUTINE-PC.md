@@ -64,7 +64,7 @@ werk alles af.
      - Einde, ook **kort (± 30-45 s) en elke keer anders**: één zin dat het bezoek eindigt, één beeld dat zacht
        wegzakt, dan de volgende-video-zin (moet "another ... story/video ... on the screen" bevatten, voor de QC) met
        abonneren, en als laatste "Sleep well, and good night."
-     - Lengte: ± 20.000 woorden (bij ± 125 woorden/min ± 2 u 45). Elk feitje krijgt een eigen beeld en wordt een
+     - Lengte: ± 20.000 woorden (bij ± 110 woorden/min ± 3 uur). Elk feitje krijgt een eigen beeld en wordt een
        hoofdstuk in de beschrijving (veel hoofdstukken, zoals de grote kanalen).
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
@@ -74,10 +74,14 @@ werk alles af.
      false-front buildings, dirt roads; any distance shows only open desert") en bij binnenscènes "an indoor scene,
      enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
      "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
-   - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026, proef "audio-engine-rustiger": "Deze wil ik"; vervangt
-     Slaap 3 en de oude 432-muziek met regen). Zet `stories/<map>/stem.json` neer (kopie van stories/ww2-facts/stem.json:
-     stem `narrator-b`, speed 0.62, klank alleen highpass). Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe
-     tools/engine_stem.py <map>` (zelfde voice.mp3 + voice-times.tsv als vroeger, ± 125 woorden/min). Dan
+   - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026; vervangt Slaap 3 en de oude 432-muziek met regen).
+     **Stem: `narrator-e`** (eigenaar 7 nov 2026, proef B1: "Ik wil deze als standaard stem"): een ontworpen oudere
+     Britse man (OmniVoice "male, elderly, moderate pitch, british accent", seed 27; niemand gekloond), rustiger en
+     warmer dan narrator-b. Zet `stories/<map>/stem.json` neer als kopie van stories/ww2-facts/stem.json:
+     `engine_voice` narrator-e, `speed` 0.54, `seed` 7, `pauze` 1.4 (pauzes 40% langer), `klank` warme EQ
+     (`highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=...`). Stem:
+     `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_stem.py <map>` (zelfde voice.mp3 + voice-times.tsv
+     als vroeger, ± 110 woorden/min). Dan
      `python tools/add_pauses.py --niet-zwaarder --kort <map>` en `python tools/zachte_stem.py <map>` (leest de klank
      uit stem.json). **Muziek**: `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_muziek.py <map>`
      (zacht koor met strijkers in 432 Hz, elke 7 s een ander akkoord, geen regen, al gedukt onder de stem); die
@@ -93,8 +97,8 @@ werk alles af.
      geen nieuwe montage), dan stil_tikjes, check_video en check_stem_tekst (op de schone stem) opnieuw. Pas bij TEKST GOED uploaden. Zet hem als laatste stap op -14 LUFS met `python tools/eind_volume.py <video>.mp4 <video>-14.mp4`
      (eigenaar, 31 okt 2026: "net zo hard als de meeste sleep history video's"). **Daarna 16mm-look** (eigenaar 3 nov 2026,
      voor alle lange video's): `python tools/film16.py <video>-14.mp4 <video>-16mm.mp4` (± 80 min); draai qc_video op
-     het 16mm-bestand en upload die versie. Niets aan de look veranderen (geen flikkeren, geen lichtvlek, geen diepte). Met de Audio Engine-stem
-     (± 125 woorden/min) geeft ± 20.000 woorden ± 2 u 45.
+     het 16mm-bestand en upload die versie. Niets aan de look veranderen (geen flikkeren, geen lichtvlek, geen diepte). Met stem narrator-e
+     (± 110 woorden/min) geeft ± 20.000 woorden ± 3 uur.
    - Pc-paden (test 27 okt 2026): De beelden-workflow is `tools/comfy/zimage_api.json`
      (staat alleen op de pc, niet in git; ontbreekt hij, kijk dan in de hoofdmap van de repo).
    - Titel (eigenaar 7 nov 2026, "zonder uren"): een **vraag** zoals Sleepy History, eindigend op ` | History for Sleep`,

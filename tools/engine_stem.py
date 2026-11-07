@@ -26,14 +26,19 @@ from voice.batch_generator import edge_fade, trim
 from voice.voice_config import VoiceConfig
 
 LEAD, SR = 0.8, ov.SR
-STANDAARD = {"engine_voice": "narrator-b", "speed": 0.62, "seed": 7, "klank": "highpass=f=60"}
+STANDAARD = {"engine_voice": "narrator-e", "speed": 0.54, "seed": 7, "pauze": 1.4, "klank": "highpass=f=60"}
 
 m = Path(sys.argv[1])
 inst = {**STANDAARD, **(json.loads((m / "stem.json").read_text(encoding="utf-8")) if (m / "stem.json").exists() else {})}
 cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"])
 xv.PAUSE_MS, xv.LONG_PAUSE_MS, xv.SENTENCE_PAUSE_MS = 1500, 2800, 1100
 pieces = xv.split_script((m / "script-cues.txt").read_text(encoding="utf-8"))
-pieces = [xv.Piece(" ".join(xv.TAG_RE.sub("", p.text).split()), p.silence_after_ms, p.cue) for p in pieces]
+# "pauze" in stem.json (eigenaar 7 nov 2026, proef B1: pauzes 40% langer): de stilte die na add_pauses --kort
+# overblijft (alles boven 0,4 s) wordt zoveel keer langer.
+f = float(inst.get("pauze", 1.0))
+pieces = [xv.Piece(" ".join(xv.TAG_RE.sub("", p.text).split()),
+                   round((p.silence_after_ms - 400) * f + 400) if p.silence_after_ms > 400 else p.silence_after_ms, p.cue)
+          for p in pieces]
 print(f"{len(pieces)} zinnen, stem {cfg.voice}, speed {cfg.speed}", flush=True)
 
 clips = [None] * len(pieces)

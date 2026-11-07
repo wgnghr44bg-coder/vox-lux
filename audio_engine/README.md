@@ -2,8 +2,9 @@
 
 Stem en achtergrondmuziek voor documentaires, Shorts en What If-video's, helemaal op de eigen pc:
 
-- **Stem:** OmniVoice op de videokaart (RTX 2080 SUPER). De vaste verteller is **narrator-b**: een oudere Britse man,
-  door de eigenaar gekozen op 6 nov 2026. Hij is ontworpen, niet van iemand gekloond.
+- **Stem:** OmniVoice op de videokaart (RTX 2080 SUPER). De vaste verteller is **narrator-e**: een oudere Britse man,
+  door de eigenaar gekozen op 7 nov 2026 (proef B1), rustiger en warmer dan de vorige (narrator-b). Hij is ontworpen,
+  niet van iemand gekloond. Video-instellingen: speed 0.54, pauzes 40% langer, warme EQ (zie stories/ww2-facts/stem.json).
 - **Muziek:** zelf uitgerekend in Python, in **432 Hz** (A4 = 432 Hz), met elke **7 seconden** een ander akkoord.
   Hij wordt gemaakt uit een drone, strijkers, een synthetisch koor, zachte pianotonen en sfeerlagen.
   Er zit geen AI-muziek, geen samples en geen bestaande muziek in.
