@@ -173,18 +173,42 @@ def opnieuw_maken(map_, namen):
     comfy_vrij()
 
 
+VAST = [(r"boat|ship|vessel", "only small simple wooden boats with plain sails"),
+         (r"light|lamp|glow|electric", "beyond the scene only darkness and stars, the only light from small flames"),
+         (r"pole|wire|line|cable", "open sky above, only trees and simple low buildings on the horizon"),
+         (r"car|vehicle|truck|van", "only people on foot and animals"),
+         (r"build|house|architect|arch|hall", "only the simple buildings of that time, plain walls"),
+         (r"cloth|dress|suit|hat", "everyone in the simple clothing of that time"),
+         (r"text|letter|word|sign", "plain surfaces without any writing")]
+
+
+def kern_van(prompt, st):
+    """Alleen de scène, zonder de vaste stijlzin (die staat soms in de regel zelf, zoals bij Egypte)."""
+    k = prompt.replace(st, "") if st else prompt
+    k = re.split(r",?\s*(A scene from|a scene from|Cinematic realistic|cinematic realistic)", k)[0]
+    return k.strip().rstrip(",")
+
+
 def herschrijf_prompt(map_, naam, oud, fouten):
     sys.path.insert(0, str(HIER / "scriptgen"))
-    import llm
+    import llm, difflib
     st = stijl(map_)
-    kern = oud.replace(st, "").strip().rstrip(",")
+    kern = kern_van(oud, st)
+    staart = oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(", ") if kern in oud else st
     nieuw = llm.vraag(f"An image generator keeps adding mistakes to this picture: {fouten}.\nPicture description: {kern}\n"
                       "Rewrite the description in one sentence so it clearly states what IS there instead (for example "
                       "'only horses, wagons and wooden buildings; open land in the distance', or 'an indoor scene, enclosed "
                       "by walls, a plain ceiling'). Never use the word 'no' or 'without'. Only the sentence.",
                       temp=0.4, max_tokens=120)
+    nieuw = " ".join(nieuw.split()).rstrip(".")
+    if difflib.SequenceMatcher(None, nieuw.lower(), kern.lower()).ratio() > 0.85 or len(nieuw) > 2 * len(kern) + 80:
+        nieuw = kern                                         # model herschreef niet echt: vaste positieve zinnen erbij
+    tekst = " ".join(fouten).lower()
+    extra = [z for pat, z in VAST if re.search(pat, tekst) and z not in nieuw]
+    if extra:
+        nieuw = nieuw + ", " + ", ".join(extra)
     regels = (Path(map_) / "prompts.txt").read_text(encoding="utf-8").splitlines()
-    regels = [f"{naam}|{' '.join(nieuw.split())}, {st}" if r.startswith(naam + "|") else r for r in regels]
+    regels = [f"{naam}|{nieuw}, {staart}" if r.startswith(naam + "|") else r for r in regels]
     (Path(map_) / "prompts.txt").write_text("\n".join(regels) + "\n", encoding="utf-8")
 
 
@@ -221,7 +245,7 @@ def controleer(map_, namen):
     cs = clip_scores(paden, j)
     uit = {}
     for n, p, sc in zip(namen, paden, cs):
-        kern = pr.get(n, "").replace(st, "").strip().rstrip(",")
+        kern = kern_van(pr.get(n, ""), st)
         tijd = tijd_van_beeld(kern, j)
         f = vlm(p, kern, tijd)
         if not f and clip_fout(sc):                         # CLIP twijfelt: het beeldmodel nog één keer extra goed laten kijken
@@ -238,6 +262,8 @@ def controleer(map_, namen):
 if __name__ == "__main__":
     m = Path(sys.argv[1])
     alle = sorted(p.stem for p in (m / "afbeeldingen").glob("*.png"))
+    if "--alleen" in sys.argv:                               # alleen deze beelden (bv. --alleen 049,084)
+        alle = sys.argv[sys.argv.index("--alleen") + 1].split(",")
     comfy_vrij()
     uitslag = controleer(m, alle)
     if "--alleen-kijken" not in sys.argv:
