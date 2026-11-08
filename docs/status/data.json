@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 00:03",
+ "bijgewerkt": "2026-11-09 00:33",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 00:03",
-   "volgende": "2026-11-09 00:33"
+   "laatst": "2026-11-09 00:33",
+   "volgende": "2026-11-09 01:03"
   }
  },
  "kanaal": {
@@ -67,7 +67,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 107,
+    "views": 106,
     "verwerkt": "processed"
    },
    {
@@ -121,7 +121,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1197,
+    "views": 1200,
     "verwerkt": "processed"
    }
   ]
@@ -152,8 +152,8 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 1,
   "stapnaam": "Script schrijven",
-  "voortgang": 0,
-  "detail": "0 van ± 90 feitjes",
+  "voortgang": 3,
+  "detail": "3 van ± 90 feitjes",
   "taken": [
    "script schrijven (Qwen3 lokaal)"
   ]
@@ -165,8 +165,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 6811,
+  "bezig_procent": 31,
+  "geheugen_mb": 6809,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -302,6 +302,12 @@
   {
    "tijd": "2026-11-08 21:53",
    "tekst": "scriptgenerator (lokaal): gettysburg-1863: 15 bronnen, 118 stukken",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 00:22",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 1126 feiten gevonden, 11 onderwerpen",
    "fout": false,
    "klaar": false
   }
