@@ -55,7 +55,9 @@ def vlm(pad, wat_er_moet_zijn, tijd):
                                             "messages": [{"role": "user", "content": vraag, "images": [b64]}]}, timeout=600)
             a = json.loads(r.json()["message"]["content"])
             fout = []
-            ana = [x for x in a.get("anachronisms", []) if isinstance(x, str) and x.strip() and "none" not in x.lower()]
+            lijst = a.get("anachronisms", [])
+            lijst = [lijst] if isinstance(lijst, str) else (lijst if isinstance(lijst, list) else [])
+            ana = [x for x in lijst if isinstance(x, str) and x.strip() and "none" not in x.lower()]
             ana = [x for x in ana if bevestig(b64, x, tijd)]       # tweede, gerichte vraag: is het er echt?
             if ana:
                 fout.append("niet uit die tijd: " + ", ".join(x[:80] for x in ana))
@@ -200,16 +202,34 @@ def vellen(map_, namen, fouten):
         vel.save(Path(map_) / f"beeldcheck-vel-{v // 12 + 1}.jpg", quality=80)
 
 
+def tijd_van_beeld(kern, j):
+    """De tijd die dít beeld moet tonen: uit de beschrijving ("1920s", "1922", "today"), anders het jaar van de video.
+    (Test 8 nov: Carter in 1922 en het museum van nu werden afgekeurd omdat de video in 1323 v.Chr. speelt.)"""
+    k = kern.lower()
+    if re.search(r"\btoday\b|\bnowadays\b|\bmodern[- ]day\b|\bpresent[- ]day\b|\bmuseum\b|\btourists?\b", k):
+        return "today (modern times; modern things are fine)"
+    m = re.search(r"\b(1[0-9]{3})s?\b", k)
+    if m:
+        return f"the year {m.group(1)}" + ("s" if k[m.end() - 1:m.end()] == "s" else "")
+    return f"the year {j}" if j > 0 else f"{-j} BC"
+
+
 def controleer(map_, namen):
     pr, j = prompts(map_), jaar(map_)
-    tijd = f"the year {j}" if j > 0 else f"{-j} BC"
     st = stijl(map_)
     paden = [Path(map_) / "afbeeldingen" / f"{n}.png" for n in namen]
     cs = clip_scores(paden, j)
     uit = {}
     for n, p, sc in zip(namen, paden, cs):
         kern = pr.get(n, "").replace(st, "").strip().rstrip(",")
-        f = clip_fout(sc) + vlm(p, kern, tijd)
+        tijd = tijd_van_beeld(kern, j)
+        f = vlm(p, kern, tijd)
+        if not f and clip_fout(sc):                         # CLIP twijfelt: het beeldmodel nog één keer extra goed laten kijken
+            import base64
+            b64 = base64.b64encode(Path(p).read_bytes()).decode()
+            if bevestig(b64, f"anything at all (vehicle, wire, pole, lamp, building, clothing, object, letters) that did "
+                             f"not exist in {tijd}", tijd):
+                f = clip_fout(sc) + ["bevestigd bij extra controle"]
         uit[n] = {"fouten": f, "clip": sc}
         print(f"  {n}: {'GOED' if not f else 'FOUT ' + '; '.join(f)}", flush=True)
     return uit
