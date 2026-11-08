@@ -33,10 +33,11 @@ VERVORMD = ["a person with a deformed face", "a hand with extra fingers", "a dis
 
 def jaar(map_):
     t = (Path(map_) / "planning.txt").read_text(encoding="utf-8") if (Path(map_) / "planning.txt").exists() else ""
-    j = re.findall(r"\b(1[0-9]{3}|[0-9]{1,3} ?BC)\b", t)
-    if not j:
-        return 1900
-    return -int(re.sub(r"\D", "", j[0])) if "BC" in j[0] else int(j[0])
+    bc = re.search(r"\b(\d{1,4}) ?(BC|v\.? ?Chr)", t)
+    if bc:                                                   # eerst "1323 BC" (anders leest hij 1323 als jaartal na Christus)
+        return -int(bc.group(1))
+    j = re.findall(r"\b(1[0-9]{3})\b", t)
+    return int(j[0]) if j else 1900
 
 
 # ---------- 1. Qwen2.5-VL ----------
@@ -59,8 +60,10 @@ def vlm(pad, wat_er_moet_zijn, tijd):
                 fout.append("niet uit die tijd: " + ", ".join(ana))
             if a.get("text_or_letters") is True:
                 fout.append("tekst/letters")
-            d = str(a.get("deformed", "")).strip()
-            if d and d.lower() not in ("", "none", "no", "empty", "n/a", "nothing"):
+            d = a.get("deformed", "")
+            d = "" if d is False or d is None else str(d).strip()
+            if d and d.lower().rstrip(".") not in ("", "none", "no", "empty", "n/a", "nothing", "false", "no deformities",
+                                                   "none observed", "no deformities observed"):
                 fout.append("vervormd: " + d[:80])
             if a.get("matches_description") is False:
                 fout.append("past niet bij de beschrijving")
