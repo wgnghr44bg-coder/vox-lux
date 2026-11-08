@@ -4,7 +4,7 @@
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
 - **Stem en muziek staan vast in `audio_engine/B1.json`** ("B1-stem met achtergrondmuziek"): stem `narrator-e`
   (speed 0.54, pauzes ×1,4, warme klank) met muziek **W3** "diep en donker-warm" (elke 6 s een ander akkoord, 11 LUFS
-  onder de stem, seed 1939). Alle gereedschap leest dit via `tools/b1.py`. **Niets aan de stem of muziek veranderen
+  onder de stem, seed 1939). Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen
   zonder de eigenaar** ("dat er geen fouten kunnen zijn in stem en geluid"); geen rubberband/tempo/toonhoogte op de stem
   ("anders is het meteen een robot"). Slaap 3, George, regen en de oude 432-muziek worden niet meer gebruikt.
 - **Opbouw van elke video**: `stories/OPBOUW.md` (begin van ± 2 min zonder "Tonight", 8-13 onderwerpen met feitjes,

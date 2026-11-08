@@ -22,5 +22,16 @@
                    "highpass_hz":  40,
                    "width":  1.4
                },
-    "muziek_naam":  "W3: diep en donker-warm, nog dieper (elke 6 s een ander akkoord)"
+    "muziek_naam":  "W3: diep en donker-warm, nog dieper (elke 6 s een ander akkoord)",
+    "model":  {
+                  "naam":  "k2-fsa/OmniVoice",
+                  "revisie":  "c5fdb5ccb189668d56333f77ba2629f4cd7535f4",
+                  "num_step":  32,
+                  "guidance_scale":  2,
+                  "denoise":  true,
+                  "groepje":  4,
+                  "omnivoice":  "0.2.1",
+                  "torch":  "2.8.0+cu128",
+                  "transformers":  "5.22.1"
+              }
 }

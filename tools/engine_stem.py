@@ -31,7 +31,9 @@ STANDAARD = {"engine_voice": "narrator-e", "speed": 0.54, "seed": 7, "pauze": 1.
 m = Path(sys.argv[1])
 import b1                                                  # vaste B1-instellingen (audio_engine/B1.json, eigenaar 8 nov 2026)
 inst = b1.laad(m)
-cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"])
+cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"],      # alles vast uit B1.json
+                  num_step=inst["model"]["num_step"], guidance_scale=inst["model"]["guidance_scale"],
+                  denoise=inst["model"]["denoise"])
 xv.PAUSE_MS, xv.LONG_PAUSE_MS, xv.SENTENCE_PAUSE_MS = 1500, 2800, 1100
 pieces = xv.split_script((m / "script-cues.txt").read_text(encoding="utf-8"))
 # "pauze" in stem.json (eigenaar 7 nov 2026, proef B1: pauzes 40% langer): de stilte die na add_pauses --kort

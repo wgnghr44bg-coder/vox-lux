@@ -40,7 +40,11 @@ with wave.open(str(wav)) as w:
 import torch
 from omnivoice import OmniVoice
 from transformers import pipeline
-model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", device_map="cuda:0", dtype=torch.float16)
+import b1 as _b1
+_M = _b1.standaard()["model"]                              # vaste modelversie en instellingen (B1.json, 8 nov 2026)
+model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", revision=_M["revisie"], device_map="cuda:0", dtype=torch.float16)
+from omnivoice.models.omnivoice import OmniVoiceGenerationConfig
+GEN = OmniVoiceGenerationConfig(num_step=_M["num_step"], guidance_scale=_M["guidance_scale"], denoise=_M["denoise"])
 # stem: de vaste B1-stem uit audio_engine/B1.json (tools/b1.py; eigenaar 8 nov 2026: geen fouten in stem en geluid)
 import b1
 sj = b1.laad(a.story)
@@ -75,7 +79,7 @@ for nr in a.zinnen:
     doel = norm(rows[i][4])
     for p in range(a.pogingen):
         torch.manual_seed(1000 + 37 * nr + p)
-        y = klank(model.generate(text=rows[i][4], voice_clone_prompt=prompt, speed=SPEED)[0])
+        y = klank(model.generate(text=rows[i][4], voice_clone_prompt=prompt, speed=SPEED, generation_config=GEN)[0])
         if len(y) == 0 or not (np.abs(y) > 300).any():            # lege of stille poging: volgende seed
             continue
         y = y[np.argmax(np.abs(y) > 300):]                       # stilte vooraan eraf: begint op dezelfde tijd

@@ -2,6 +2,7 @@
 # torch with CUDA 12.8 first:  pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
 torch==2.8.0
 omnivoice==0.2.1
+transformers==5.22.1   # vast voor B1 (8 nov 2026); het model zelf staat vast op revisie c5fdb5cc in B1.json
 numpy>=2.0
 scipy>=1.13
 soundfile>=0.13

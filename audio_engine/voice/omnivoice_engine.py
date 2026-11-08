@@ -13,12 +13,19 @@ _model = None
 _prompts = {}
 
 
+def model_revisie():
+    """Vaste modelversie uit audio_engine/B1.json (8 nov 2026: precies dezelfde stem, ook als er een nieuwe versie komt)."""
+    from pathlib import Path
+    b1 = Path(__file__).resolve().parent.parent / "B1.json"
+    return json.loads(b1.read_text(encoding="utf-8"))["model"]["revisie"] if b1.exists() else None
+
+
 def model():
     global _model
     if _model is None:
         from omnivoice import OmniVoice
         dev = "cuda:0" if torch.cuda.is_available() else "cpu"
-        _model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", device_map=dev,
+        _model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", revision=model_revisie(), device_map=dev,
                                            dtype=torch.float16 if dev != "cpu" else torch.float32)
     return _model
 
