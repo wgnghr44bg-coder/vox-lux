@@ -91,9 +91,12 @@ if a.oud and a.oud != nieuw:
 v = m / "video"
 for f in list(v.rglob("*.mp4")) + list(v.rglob("*.wav")):
     f.unlink()
-plan = re.sub(r"^link .*$", f"link https://youtu.be/{nieuw} (nieuwe versie {datetime.date.today()}: B1 + W3, nieuwe opbouw, "
-              f"16mm; privé met publishAt {a.publish_at}; Sleep Archives gecontroleerd; verwerkt; oude {a.oud or '-'} "
-              f"verwijderd met OK van de eigenaar; bestanden opgeruimd)\nkosten  EUR 0", plan, count=1, flags=re.M)
+regel = (f"link https://youtu.be/{nieuw} ({datetime.date.today()}: B1 + W3, nieuwe opbouw, 16mm; privé met publishAt "
+         f"{a.publish_at}; Sleep Archives gecontroleerd; verwerkt; "
+         + (f"oude {a.oud} verwijderd met OK van de eigenaar; " if a.oud else "") + "bestanden opgeruimd)\nkosten  EUR 0")
+plan = re.sub(r"^link .*$", regel.replace("\\", "/"), plan, count=1, flags=re.M) if re.search(r"^link ", plan, re.M) \
+    else plan.rstrip() + "\n" + regel + "\n"
+plan = re.sub(r"^status .*$", "status   klaar", plan, count=1, flags=re.M)
 (m / "planning.txt").write_text(plan, encoding="utf-8")
 subprocess.run(["git", "add", str(m / "planning.txt"), str(m / "youtube-beschrijving.txt"), "stories/ROUTINE-LOG.md"],
                cwd=HIER.parent)
