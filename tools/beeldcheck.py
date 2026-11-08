@@ -81,15 +81,17 @@ def vlm(pad, wat_er_moet_zijn, tijd):
 
 def bevestig(b64, ding, tijd):
     """Gerichte tweede vraag (minder onterechte afkeuringen, test 8 nov: 10/30 goede beelden onterecht afgekeurd)."""
+    """Geeft een korte beschrijving van wat er fout is en waar ("" = niets gevonden); die gaat mee naar het herschrijven."""
     vraag = (f"Look very carefully at this image. Is there clearly and visibly {ding}? Only answer yes if you can point "
              f"to it. Note: things that really existed in {tijd} are fine. "
-             'JSON: {"visible": true or false, "where": "..."}')
+             'JSON: {"visible": true or false, "what_and_where": "short: what exactly and where in the image"}')
     try:
         r = requests.post(OLLAMA, json={"model": VLM, "stream": False, "format": "json", "options": {"temperature": 0},
                                         "messages": [{"role": "user", "content": vraag, "images": [b64]}]}, timeout=600)
-        return json.loads(r.json()["message"]["content"]).get("visible") is True
+        a = json.loads(r.json()["message"]["content"])
+        return (str(a.get("what_and_where", "")).strip() or str(ding)) if a.get("visible") is True else ""
     except Exception:
-        return True                                          # bij twijfel: afkeuren (veilig)
+        return str(ding)                                     # bij twijfel: afkeuren (veilig)
 
 
 # ---------- 2. CLIP ----------
@@ -251,9 +253,10 @@ def controleer(map_, namen):
         if not f and clip_fout(sc):                         # CLIP twijfelt: het beeldmodel nog één keer extra goed laten kijken
             import base64
             b64 = base64.b64encode(Path(p).read_bytes()).decode()
-            if bevestig(b64, f"anything at all (vehicle, wire, pole, lamp, building, clothing, object, letters) that did "
-                             f"not exist in {tijd}", tijd):
-                f = clip_fout(sc) + ["bevestigd bij extra controle"]
+            wat = bevestig(b64, f"anything at all (vehicle, wire, pole, lamp, building, boat, clothing, object, letters) "
+                                f"that did not exist in {tijd}", tijd)
+            if wat:
+                f = clip_fout(sc) + [f"bevestigd bij extra controle: {wat[:120]}"]
         uit[n] = {"fouten": f, "clip": sc}
         print(f"  {n}: {'GOED' if not f else 'FOUT ' + '; '.join(f)}", flush=True)
     return uit
