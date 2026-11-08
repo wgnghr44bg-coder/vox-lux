@@ -230,8 +230,11 @@ if __name__ == "__main__":
                 pr = prompts(m)
                 for n in fout:
                     herschrijf_prompt(m, n, pr[n], uitslag[n]["fouten"])
-            for n in fout:
-                (m / "afbeeldingen" / f"{n}.png").unlink(missing_ok=True)
+            (m / "afgekeurd").mkdir(exist_ok=True)
+            for n in fout:                                   # bewaren in afgekeurd/ (leermateriaal voor de detector)
+                p = m / "afbeeldingen" / f"{n}.png"
+                if p.exists():
+                    p.replace(m / "afgekeurd" / f"{n}-check{int(time.time())}.png")
             opnieuw_maken(m, fout)
             uitslag |= controleer(m, fout)
     vlm_vrij()
