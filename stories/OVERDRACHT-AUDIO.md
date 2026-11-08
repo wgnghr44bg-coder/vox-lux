@@ -70,3 +70,16 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
   stem, tekstcontrole, montage, QC, upload (tools/vervang_video.py). Bij een fout niets online en status terug.
 - **Nog niet omgezet**: de Taakplanner-taken draaien nog met Claude (routine.ps1 en tools/script_generator.ps1).
   Pas omzetten als de eigenaar het testscript (Gettysburg, --test) en de beeldcontrole goed vindt.
+
+## Stand 8 nov 2026, 22:00 (laatste update)
+- **Testvolgorde loopt op de pc** (tools/testvolgorde.ps1, log C:\Users\rane\testvolgorde.log), één voor één i.v.m. geheugen:
+  1. test beeldmodel (klaar), 2. Tombstone uploaden en oude 4RjjJh-j5a0 vervangen + generator-test Gettysburg,
+  3. routine-lokaal test tot en met beelden/beeldcontrole/thumbnail op Gettysburg, 4. Egypte maken en oude ctC36HRFIac
+  vervangen. De oude keten (keten_tombstone_egypte.ps1) is hierdoor vervangen.
+- **Uitslag beeldcontrole**: Qwen2.5-VL vangt ± 60-70% van eerder afgekeurde beelden; met bevestigingsvraag ± 20% onterecht
+  (deels terecht: in Egypte 050 stond echt een busje + elektriciteitsdraden). CLIP-detector alleen als signaal voor extra
+  kijken. Egypte: 13 foute beelden vervangen, 049 met de hand positief beschreven (reed boats) en zelf beoordeeld.
+  Les: herschrijven alleen positief ("simple wooden reed boats"), nooit "no ..." (zit nu in tools/beeldcheck.py).
+- **Nog met Claude**: Taakplanner "Sleep Archives routine" (routine.ps1) en "Sleep Archives scriptgenerator"
+  (tools/script_generator.ps1). Omzetten naar tools/routine_lokaal.py en tools/scriptgen/generator.py pas na OK van de
+  eigenaar op het Gettysburg-testscript en de beelden.
