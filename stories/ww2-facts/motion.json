@@ -1,13 +1,13 @@
 {
  "onderwerp": "Quiet WW2 Facts to Fall Asleep To",
- "intro": true,
- "slot": true,
+ "intro": false,
+ "slot": false,
  "items": [
   {
    "soort": "hoofdstuk",
    "tijd": 10,
    "nummer": 1,
-   "titel": "The War Comes Home"
+   "titel": "The first days of the war"
   },
   {
    "soort": "datum",
@@ -17,73 +17,61 @@
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 725.25,
+   "tijd": 706.73,
    "nummer": 2,
-   "titel": "Gardens and Shelters"
+   "titel": "Rations and shelters"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1142.37,
+   "nummer": 3,
+   "titel": "Evenings at home"
   },
   {
    "soort": "datum",
-   "tijd": 1046.6,
+   "tijd": 1165.9,
    "regel1": "Autumn 1940",
    "regel2": "London"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 1119.24,
-   "nummer": 3,
-   "titel": "Evenings by the Wireless"
-  },
-  {
-   "soort": "hoofdstuk",
-   "tijd": 1505.95,
+   "tijd": 1665.48,
    "nummer": 4,
-   "titel": "Letters and Rations"
+   "titel": "Letters, tea and hammocks"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2077.43,
+   "tijd": 2624.28,
    "nummer": 5,
-   "titel": "Life at Sea and in the Air"
+   "titel": "In the air, and far from home"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 2570.95,
+   "tijd": 3178.51,
    "nummer": 6,
-   "titel": "Bears, Songs and Christmas"
-  },
-  {
-   "soort": "hoofdstuk",
-   "tijd": 2862.45,
-   "nummer": 7,
-   "titel": "Women at Work"
-  },
-  {
-   "soort": "hoofdstuk",
-   "tijd": 3158.23,
-   "nummer": 8,
-   "titel": "Secrets and Inventions"
+   "titel": "Women at work, and the secret codes"
   },
   {
    "soort": "datum",
-   "tijd": 3461.4,
+   "tijd": 3820.9,
    "regel1": "1939  ·  Chain Home",
    "regel2": "The English coast"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 3630.59,
-   "nummer": 9,
-   "titel": "Making Do in America"
+   "tijd": 4001.05,
+   "nummer": 7,
+   "titel": "Making do"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 4340.14,
-   "nummer": 10,
-   "titel": "Occupied Europe"
+   "tijd": 4768.11,
+   "nummer": 8,
+   "titel": "Life under occupation"
   },
   {
    "soort": "kaart",
-   "tijd": 4468.7,
+   "tijd": 4912.4,
    "titel": "Europe, 1939–1945",
    "gebied": [
     -11,
@@ -150,103 +138,97 @@
   },
   {
    "soort": "datum",
-   "tijd": 4880.8,
+   "tijd": 5340.6,
    "regel1": "9 August 1942",
    "regel2": "Leningrad"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5054.24,
-   "nummer": 11,
-   "titel": "Far from the Fighting"
+   "tijd": 5644.64,
+   "nummer": 9,
+   "titel": "Far from the fighting"
   },
   {
    "soort": "datum",
-   "tijd": 5291.4,
+   "tijd": 5791.4,
    "regel1": "19 January 1943",
    "regel2": "Ottawa, Canada"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 5845.44,
-   "nummer": 12,
-   "titel": "Famous Voices"
+   "tijd": 6377.03,
+   "nummer": 10,
+   "titel": "Voices in the dark"
   },
   {
    "soort": "citaat",
-   "tijd": 6095.7,
+   "tijd": 6655.1,
    "tekst": "Go out into the darkness and put your hand into the Hand of God.",
    "bron": "Minnie Louise Haskins, read by King George VI, Christmas 1939"
   },
   {
    "soort": "datum",
-   "tijd": 6153.3,
+   "tijd": 6713.4,
    "regel1": "May 1940",
    "regel2": "Dunkirk"
   },
   {
-   "soort": "hoofdstuk",
-   "tijd": 6327.6,
-   "nummer": 13,
-   "titel": "The Road to Peace"
-  },
-  {
    "soort": "datum",
-   "tijd": 6356.1,
+   "tijd": 6925.0,
    "regel1": "6 June 1944",
    "regel2": "Normandy"
   },
   {
+   "soort": "hoofdstuk",
+   "tijd": 7319.56,
+   "nummer": 11,
+   "titel": "Liberation and victory"
+  },
+  {
    "soort": "datum",
-   "tijd": 6754.5,
+   "tijd": 7343.1,
    "regel1": "24 August 1944",
    "regel2": "Paris"
   },
   {
-   "soort": "hoofdstuk",
-   "tijd": 6933.33,
-   "nummer": 14,
-   "titel": "Victory"
-  },
-  {
    "soort": "datum",
-   "tijd": 6956.8,
+   "tijd": 7557.8,
    "regel1": "5 May 1945",
    "regel2": "The Netherlands"
   },
   {
    "soort": "datum",
-   "tijd": 7061.2,
+   "tijd": 7669.2,
    "regel1": "8 May 1945",
    "regel2": "London"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 7435.94,
-   "nummer": 15,
-   "titel": "After the War"
+   "tijd": 8063.19,
+   "nummer": 12,
+   "titel": "After the war"
   },
   {
    "soort": "datum",
-   "tijd": 7561.6,
+   "tijd": 8208.2,
    "regel1": "4 July 1954",
    "regel2": "The last ration book"
   },
   {
    "soort": "citaat",
-   "tijd": 7789.6,
+   "tijd": 8446.7,
    "tekst": "We the peoples of the United Nations, determined to save succeeding generations from the scourge of war.",
    "bron": "Charter of the United Nations, 1945"
   },
   {
    "soort": "hoofdstuk",
-   "tijd": 8335.27,
-   "nummer": 16,
-   "titel": "What Remains"
+   "tijd": 8926.31,
+   "nummer": 13,
+   "titel": "Remembering"
   },
   {
    "soort": "tijdlijn",
-   "tijd": 8348.8,
+   "tijd": 9042.4,
    "punten": [
     [
      "1939",

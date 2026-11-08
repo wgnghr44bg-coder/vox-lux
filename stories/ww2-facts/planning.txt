@@ -1,7 +1,8 @@
 onderwerp Quiet WW2 Facts to Fall Asleep To, 1939-1945
-link   https://youtu.be/hVg9nrutQVI (2:29:32, opnieuw gemaakt 4 nov 2026 met de 16mm-look; CONTROLE GOED, TEKST GOED, QC APPROVED; privé met publishAt za 7 nov 2026 21:00 NL, op 7 nov om 17:55 verzet naar ma 9 nov 21:00 NL (eigenaar: oude privé houden, nieuwe versie met stem narrator-e komt ervoor in de plaats); Sleep Archives gecontroleerd; playlists Full Documentaries + War & Survival; thumbnail-v3.jpg; vorige versie vOBMUH5bEEQ verwijderd met OK van de eigenaar)
+link   https://youtu.be/ZZ5JMtF9kuI (2:42:37, nieuwe versie 8 nov 2026: B1-stem met achtergrondmuziek W3, nieuwe opbouw (begin, 13 onderwerpen, slot), 16mm-look; CONTROLE GOED, TEKST GOED, QC APPROVED; privé met publishAt ma 9 nov 2026 21:00 NL; Sleep Archives gecontroleerd; playlists Full Documentaries + War & Survival; thumbnail-v3.jpg; oude versie hVg9nrutQVI wordt verwijderd na verwerking, met OK van de eigenaar)
+kosten  EUR 0
 vorm facts
-lang   za 7 nov 2026 21:00 NL (eigenaar 1 nov, omgedraaid met Hindenburg)
+lang   ma 9 nov 2026 21:00 NL (was za 7 nov) (eigenaar 1 nov, omgedraaid met Hindenburg)
 (eigenaar 30 okt 2026: "Ja begin aan de ww2 video"; gratis: comfy-beelden en Chatterbox-stem George, avondeffect v2)
 titel    What Was Everyday Life Like During WW2? | History for Sleep (eigenaar 7 nov 2026: vraag-titel zonder uren)
 stem   Slaap 3: eigen ontworpen stem via OmniVoice (oudere Britse man, heel laag, speed 0.8; ref tools/comfy/stem/slaapstem-3.wav). Eigenaar 30 okt: "Doe maar gewoon zoals hij was zonder deeper". Theo (ElevenLabs) niet gebruikt vanwege hun voorwaarden.
