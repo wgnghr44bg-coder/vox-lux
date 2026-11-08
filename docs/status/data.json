@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-08 22:41",
+ "bijgewerkt": "2026-11-08 23:07",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "",
-   "volgende": "—"
+   "laatst": "2026-11-08 23:07",
+   "volgende": "2026-11-08 23:33"
   }
  },
  "kanaal": {
@@ -58,7 +58,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 3,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -67,7 +67,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 105,
+    "views": 106,
     "verwerkt": "processed"
    },
    {
@@ -85,7 +85,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 181,
+    "views": 182,
     "verwerkt": "processed"
    },
    {
@@ -103,7 +103,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 55,
+    "views": 54,
     "verwerkt": "processed"
    },
    {
@@ -165,8 +165,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 30,
-  "geheugen_mb": 6540,
+  "bezig_procent": 32,
+  "geheugen_mb": 6834,
   "totaal_mb": 8192
  },
  "programmas": [
