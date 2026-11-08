@@ -19,7 +19,7 @@
 - De eigenaar geeft altijd toestemming voor PowerShell-opdrachten op de pc; vraag wel altijd eerst als iets geld kost.
 - Lange ketens (stem + montage ± 12 uur) als los proces starten (`Start-Process`), niet als achtergrondtaak (die stopt na 2 uur).
 
-- **"script vooruit"** of "schrijf het volgende script" → `stories/PROMPT-SCRIPT-VOORUIT.md` (tweede account schrijft scripts vooruit; de pc-routine pakt ze op).
+- **"script vooruit"**, "schrijf het volgende script" of "scriptgenerator" → `stories/PROMPT-SCRIPT-PC.md`: één recept voor scriptgenerator, tweede account en routine (eerst oude scripts ombouwen, dan nieuwe schrijven).
 - **"software"** → read `SOFTWARE.md` (overview of all tools and where they live).
   **"comfy"** → images, clips and local voice go via ComfyUI on the owner's pc: follow `tools/comfy/README.md`, never xAI.
 - Free video tools (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, … plus OpenCV/ffmpeg) are installed at session

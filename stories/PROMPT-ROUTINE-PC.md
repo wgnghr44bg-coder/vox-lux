@@ -58,7 +58,7 @@ werk alles af.
      Wissel de soort opening en titel af en verwoord abonneren, reactievraag, settle in, overgangen en slot elke keer helemaal anders (zie OPBOUW.md, "Afwisseling"); `python tools/check_afwisseling.py stories/<map>` moet AFWISSELING GOED geven vóór de stem. Bestanden: `src-feiten/begin.txt`,
      `deel*.txt` (TOPIC/BRIDGE- en IMG/HEAD/BODY-blokken), `slot.txt`; bouw_script.py zoals stories/ww2-facts.
      In maak_motion.py staat `"intro": False, "slot": False` (geen Sleep Archives-beeld); hoofdstukken = de TOPICs.
-     Ook een klaar of reservescript eerst zo ombouwen (zelfde onderwerp en feiten, nieuwe opbouw), dan pas beelden en stem.
+     Staat er in planning.txt nog geen "nieuwe opbouw", bouw het script dan eerst om **precies volgens stap 2 en 3 van stories/PROMPT-SCRIPT-PC.md** (hetzelfde recept als de scriptgenerator en het tweede account), dan pas beelden en stem.
      Lengte: ± 17.000-20.000 woorden (met de B1-stem ± 2,5-3 uur).
    - Beelden via comfy (`tools/comfy/comfy_batch.py`, tools/comfy/README.md). **Nooit xAI of iets
      anders dat geld kost.**
