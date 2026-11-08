@@ -76,7 +76,7 @@ EFF = {
     "vuurvliegjes": ["rose-tree-courtyard-white-blossoms", "schieffelin-monument-hills-sunset", "spring-desert-flowers-town-distance"],
 }
 STERK = {"lichtstralen": 0.7, "stof": 0.6, "kaarslicht": 0.7, "vuur": 0.8, "vonken": 0.6, "mist": 0.5, "sterren": 0.8, "sneeuw": 0.7, "vuurvliegjes": 0.7}
-slugs = [r["slug"] for r in rows]
+slugs = [re.sub(r"^\d+-", "", r["slug"]) for r in rows]   # cues heten NN-slug
 eff = []
 for e, lijst in EFF.items():
     for s in lijst:

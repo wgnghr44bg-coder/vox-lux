@@ -1,0 +1,186 @@
+{
+ "onderwerp": "Life in the Wild West: Tombstone, 1881",
+ "intro": false,
+ "slot": false,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "A streak of silver in the hills"
+  },
+  {
+   "soort": "datum",
+   "tijd": 40.0,
+   "regel1": "1877",
+   "regel2": "The hills of southern Arizona"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 424.9,
+   "nummer": 2,
+   "titel": "A town on Goose Flats"
+  },
+  {
+   "soort": "datum",
+   "tijd": 441.9,
+   "regel1": "Spring 1879",
+   "regel2": "Goose Flats, Arizona Territory"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 760.4,
+   "nummer": 3,
+   "titel": "Down in the silver mines"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1308.5,
+   "nummer": 4,
+   "titel": "Evenings on Allen Street"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1730.6,
+   "nummer": 5,
+   "titel": "Nellie Cashman"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2129.8,
+   "nummer": 6,
+   "titel": "George Parsons and his diary"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 2370.1,
+   "titel": "Southern Arizona, 1881",
+   "gebied": [
+    -113.5,
+    30.8,
+    -106.5,
+    35.3
+   ],
+   "plaatsen": [
+    {
+     "naam": "Tombstone",
+     "lon": -110.07,
+     "lat": 31.71,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Tucson",
+     "lon": -110.97,
+     "lat": 32.22,
+     "kant": "boven"
+    },
+    {
+     "naam": "Phoenix",
+     "lon": -112.07,
+     "lat": 33.45,
+     "kant": "boven"
+    },
+    {
+     "naam": "Bisbee",
+     "lon": -109.93,
+     "lat": 31.45,
+     "kant": "onder"
+    },
+    {
+     "naam": "Mexico",
+     "lon": -110.5,
+     "lat": 31.05,
+     "kant": "onder"
+    }
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2519.1,
+   "nummer": 7,
+   "titel": "Newspapers and photographs"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2536.1,
+   "regel1": "1 May 1880",
+   "regel2": "The first issue of the Epitaph"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2941.3,
+   "nummer": 8,
+   "titel": "The Earp brothers and Doc Holliday"
+  },
+  {
+   "soort": "datum",
+   "tijd": 2963.3,
+   "regel1": "End of 1879",
+   "regel2": "The Earp family arrives in Tombstone"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3746.1,
+   "nummer": 9,
+   "titel": "Ranches, cowboys and lawmen"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4648.9,
+   "nummer": 10,
+   "titel": "Two days in October"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4665.9,
+   "regel1": "25 October 1881  ·  Evening",
+   "regel2": "Tombstone, Arizona Territory"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4918.9,
+   "regel1": "26 October 1881  ·  Morning",
+   "regel2": "Allen Street, Tombstone"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5608.6,
+   "nummer": 11,
+   "titel": "Thirty seconds, and after"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6405.4,
+   "nummer": 12,
+   "titel": "What became of them"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6652.2,
+   "punten": [
+    [
+     "1877",
+     "Ed Schieffelin finds silver"
+    ],
+    [
+     "1879",
+     "The town is laid out"
+    ],
+    [
+     "1881",
+     "The afternoon on Fremont Street"
+    ],
+    [
+     "1929",
+     "John Clum passes away"
+    ]
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6893.1,
+   "nummer": 13,
+   "titel": "Tombstone today"
+  }
+ ]
+}

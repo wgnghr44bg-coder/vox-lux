@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sleep Archives status</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Avond-archief: smalle kolom, kaarten per onderdeel, status als gekleurde labels */
+:root{--bg:#f2f0ec;--vlak:#fbfaf7;--tekst:#22242b;--zacht:#5d606c;--lijn:#dad5cc;--accent:#3d5687;
+--goed:#2f7a4f;--bezig:#a36a12;--fout:#a33a2c;--oud:#6b6f7c;
+--kop:"Fraunces",Georgia,serif;--lijf:"Source Sans 3","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#14161c;--vlak:#1c1f28;--tekst:#e7e4de;--zacht:#a2a5b2;--lijn:#2c303b;--accent:#9fb4e3;
+--goed:#6cc595;--bezig:#e2a94a;--fout:#ee8a7c;--oud:#9a9eab;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tekst);font:16px/1.5 var(--lijf)}
+main{max-width:56rem;margin:0 auto;padding:1.5rem max(16px,env(safe-area-inset-right)) 4rem max(16px,env(safe-area-inset-left));display:grid;gap:1rem}
+h1{font:600 1.8rem/1.15 var(--kop);margin:0}
+h2{font:600 1.15rem/1.2 var(--kop);margin:0 0 .6rem}
+.sub{color:var(--zacht);margin:.2rem 0 0}
+.kaart{background:var(--vlak);border:1px solid var(--lijn);border-radius:10px;padding:1rem 1.1rem;min-width:0}
+.rij{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{display:inline-block;font-size:.82rem;font-weight:600;padding:.15rem .55rem;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.online{color:var(--goed)}.bezig{color:var(--bezig)}.fout{color:var(--fout)}.nieuw{color:var(--accent)}.oud{color:var(--oud)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td,th{text-align:left;padding:.45rem .4rem;border-top:1px solid var(--lijn);vertical-align:top}
+th{font-weight:600;color:var(--zacht);border-top:none;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+td.datum{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tabel{overflow-x:auto}
+a{color:var(--accent)}
+.getal{font:600 1.7rem/1 var(--kop)}
+.klein{font-size:.85rem;color:var(--zacht)}
+.log{font:13px/1.45 var(--mono);white-space:pre-wrap;word-break:break-word;margin:0;max-height:22rem;overflow:auto}
+.meter{height:.5rem;background:var(--lijn);border-radius:99px;overflow:hidden;margin:.35rem 0}
+.meter>span{display:block;height:100%;background:var(--accent)}
+.waarsch{border-color:var(--fout)}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.3rem .8rem}dt{color:var(--zacht)}dd{margin:0}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sleep Archives · status</h1>
+    <p class="sub" id="bijgewerkt">Laden…</p>
+  </header>
+
+  <section class="kaart" id="nu"><h2>Nu op de pc</h2><div class="chips" id="nuChips"></div>
+    <div id="gpu" class="klein"></div></section>
+
+  <section class="rij">
+    <div class="kaart"><h2>Video's</h2><div class="rij" id="tellers" style="grid-template-columns:repeat(2,1fr)"></div></div>
+    <div class="kaart"><h2>Automatische taken</h2><dl id="taken"></dl></div>
+  </section>
+
+  <section class="kaart"><h2>Planning: komende video's</h2><div class="tabel"><table id="komend"></table></div></section>
+  <section class="kaart"><h2>Laatst online</h2><div class="tabel"><table id="online"></table></div></section>
+  <section class="kaart"><h2>Logboek</h2><pre class="log" id="logboek"></pre></section>
+  <section class="kaart"><h2>Tests en ketens op de pc</h2><pre class="log" id="logs"></pre></section>
+  <section class="kaart"><h2>Vaste instellingen</h2><dl id="vast"></dl></section>
+</main>
+<script>
+const dagen=["zo","ma","di","wo","do","vr","za"];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const klasse={"online":"online","gepland":"nieuw","bezig":"bezig","script nieuw":"nieuw","script oud":"oud"};
+const uitleg={"online":"online","gepland":"gepland op YouTube","bezig":"wordt gemaakt","script nieuw":"script klaar (nieuwe opbouw)","script oud":"script klaar (oude opbouw)"};
+function datumTekst(d){if(!d)return"reserve";const x=new Date(d+"T12:00");return dagen[x.getDay()]+" "+x.getDate()+"-"+(x.getMonth()+1)+"-"+x.getFullYear()}
+function chip(s){return `<span class="chip ${klasse[s]||"fout"}">${esc(uitleg[s]||s)}</span>`}
+async function laad(){
+  let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}catch(e){document.getElementById("bijgewerkt").textContent="Kon de gegevens niet laden.";return}
+  const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000);
+  const b=document.getElementById("bijgewerkt");
+  b.textContent=`Bijgewerkt ${d.bijgewerkt} (${min<60?min+" min":Math.round(min/60)+" uur"} geleden). Ververst vanzelf.`;
+  document.getElementById("nu").classList.toggle("waarsch",min>90);
+  if(min>90)b.textContent+=" Let op: de pc stuurt al een tijd geen update (uit, uitgelogd of geen internet?).";
+  document.getElementById("nuChips").innerHTML=(d.nu_bezig.length?d.nu_bezig.map(x=>`<span class="chip bezig">${esc(x)}</span>`).join(""):`<span class="klein">Niets bezig: de pc wacht op de volgende taak.</span>`);
+  const g=d.videokaart;document.getElementById("gpu").innerHTML=g?`Videokaart: ${g.bezig_procent}% bezig, geheugen ${(g.geheugen_mb/1024).toFixed(1)} van ${(g.totaal_mb/1024).toFixed(1)} GB<div class="meter"><span style="width:${Math.round(100*g.geheugen_mb/g.totaal_mb)}%"></span></div>`:"";
+  const v=d.video,tel=k=>v.filter(x=>x.soort===k).length;
+  document.getElementById("tellers").innerHTML=[["online","online"],["gepland","gepland op YouTube"],["bezig","wordt gemaakt"],["script nieuw","script nieuwe opbouw"],["script oud","nog om te bouwen"]]
+    .map(([k,t])=>`<div><div class="getal ${klasse[k]}">${tel(k)}</div><div class="klein">${t}</div></div>`).join("");
+  document.getElementById("taken").innerHTML=Object.entries(d.taken).map(([n,t])=>`<dt>${esc(n.replace("Sleep Archives ",""))}</dt><dd>${t?`laatst ${esc(t.laatst)}, volgende ${esc(t.volgende)}`:"niet gevonden"}</dd>`).join("");
+  const vandaag=new Date().toISOString().slice(0,10);
+  const komend=v.filter(x=>x.datum>=vandaag&&x.soort!=="online"||x.datum>=vandaag&&x.soort==="online").sort((a,b)=>a.datum.localeCompare(b.datum)).slice(0,14);
+  document.getElementById("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+komend.map(x=>`<tr><td class="datum">${datumTekst(x.datum)}</td><td>${x.link?`<a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}<div class="klein">${esc(x.map)}${x.beelden?` · ${x.beelden} beelden`:""}</div></td><td>${chip(x.soort)}</td></tr>`).join("");
+  const on=v.filter(x=>x.soort==="online"&&x.datum).sort((a,b)=>b.datum.localeCompare(a.datum)).slice(0,10);
+  document.getElementById("online").innerHTML="<tr><th>Datum</th><th>Video</th></tr>"+on.map(x=>`<tr><td class="datum">${datumTekst(x.datum)}</td><td><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.titel)}</a></td></tr>`).join("");
+  document.getElementById("logboek").textContent=[...d.logboek].reverse().join("\n")||"Nog niets.";
+  document.getElementById("logs").textContent=Object.entries(d.logs).map(([k,r])=>r.length?`[${k}]\n`+r.join("\n"):"").filter(Boolean).join("\n\n")||"Nog niets.";
+  document.getElementById("vast").innerHTML=Object.entries(d.vast).map(([k,t])=>`<dt>${esc(k)}</dt><dd>${esc(t)}</dd>`).join("");
+}
+laad();setInterval(laad,120000);
+</script>
+</body>
+</html>
