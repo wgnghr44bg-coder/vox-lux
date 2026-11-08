@@ -31,6 +31,8 @@ a{color:var(--accent);text-decoration:none}
 .pil{display:flex;align-items:center;gap:.5rem;padding:.45rem .8rem;border-radius:10px;background:var(--paneel);border:1px solid var(--lijn);font-weight:500;white-space:nowrap}
 .stip{width:10px;height:10px;border-radius:50%;background:var(--goed);box-shadow:0 0 0 4px #2fc27a22}
 .stip.uit{background:var(--fout);box-shadow:0 0 0 4px #f0545c22}
+.update{font-weight:600;border-color:#2f5fb8;background:#13234a}.update.oud{border-color:var(--fout);background:#3a1620;color:#ffb3b8}
+@media (max-width:820px){.update{order:-1;width:100%;justify-content:center;font-size:.95rem}}
 .schakel{width:38px;height:22px;border-radius:99px;background:var(--goed);position:relative}.schakel::after{content:"";position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
 .schakel.uit{background:#3a4560}.schakel.uit::after{right:auto;left:3px}
 .romp{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 64px)}
@@ -134,6 +136,7 @@ section[id]{scroll-margin-top:80px}
   <nav class="tabs" aria-label="Onderdelen">
     <a class="tab aan" href="#dashboard">Dashboard</a><a class="tab" href="#planning">Planning</a><a class="tab" href="#videos">Video's</a><a class="tab" href="#logboek">Logboek</a><a class="tab" href="#instellingen">Instellingen</a>
   </nav>
+  <div class="pil update" id="topUpdate"><svg style="width:16px;height:16px"><use href="#i-klok"/></svg><span>Laatste update: …</span></div>
   <div class="pil"><span class="stip" id="autoStip"></span><span id="autoTekst">Automatisering</span></div>
   <div class="pil">Automatisch <span class="schakel" id="autoSchakel"></span></div>
 </header>
@@ -199,6 +202,9 @@ function tijd(iso){const d=new Date(iso);return isNaN(d)?"":d.toLocaleString("nl
 async function laad(){
   let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}catch(e){$("kpiKanaal").textContent="geen gegevens";return}
   const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000), pcOk=min<=90;
+  const wanneer=min<1?"zojuist":min<60?`${min} min geleden`:`${Math.floor(min/60)} uur ${min%60} min geleden`;
+  $("topUpdate").className="pil update"+(pcOk?"":" oud");
+  $("topUpdate").querySelector("span").textContent=`Laatste update: ${d.bijgewerkt.slice(8,10)}-${d.bijgewerkt.slice(5,7)} om ${d.bijgewerkt.slice(11)} (${wanneer})`+(pcOk?"":" · pc stuurt geen update");
   const auto=d.automatisering;
   $("autoStip").className="stip"+(auto&&pcOk?"":" uit");
   $("autoTekst").innerHTML=`Automatisering: <b style="color:${auto&&pcOk?"var(--goed)":"var(--fout)"}">${!pcOk?"pc geeft geen update":auto?"actief":"staat uit"}</b>`;
