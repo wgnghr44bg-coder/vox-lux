@@ -38,3 +38,14 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
   titel "What Did People Actually Do When Tutankhamun Was King? | History for Sleep", thumbnail-gekozen.jpg,
   oude privéversie ctC36HRFIac pas na verwerking verwijderen.
 - **Gettysburg (wo 18 nov) en verder**: de routine volgt PROMPT-ROUTINE-PC.md (B1 + W3 + OPBOUW.md).
+
+## Wat automatisch op de pc loopt (8 nov 2026, eigenaar: "ik wil alles automatisch en via pc")
+- **Routine** (Taakplanner "Sleep Archives routine", zo/di/do 09:00): maakt de volgende video volgens PROMPT-ROUTINE-PC.md
+  (ombouwen volgens PROMPT-SCRIPT-PC.md als dat nog niet gebeurd is, b1_check, B1 + W3, controles, upload).
+- **Scriptgenerator** (Taakplanner "Sleep Archives scriptgenerator", elke dag 06:00, door de eigenaar aangezet):
+  tools/script_generator.ps1 -> stories/PROMPT-SCRIPT-PC.md, één oud script per dag ombouwen, daarna nieuwe schrijven.
+  Log: C:\Users\rane\sleep-archives-scripts-log.txt.
+- **Keten Tombstone + Egypte** (gestart 8 nov 17:41, tools/keten_tombstone_egypte.ps1, log
+  C:\Users\rane\keten-tombstone-egypte.log): Tombstone uploaden en de oude 4RjjJh-j5a0 vervangen
+  (tools/vervang_video.py), dan Egypte maken (b1_check, afwisseling, stem, tekstcontrole, montage) en de oude
+  ctC36HRFIac vervangen. Wacht als de routine bezig is. Uitslagen ook in stories/ROUTINE-LOG.md.
