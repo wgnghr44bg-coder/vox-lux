@@ -56,16 +56,17 @@ def vlm(pad, wat_er_moet_zijn, tijd):
             a = json.loads(r.json()["message"]["content"])
             fout = []
             ana = [x for x in a.get("anachronisms", []) if isinstance(x, str) and x.strip() and "none" not in x.lower()]
+            ana = [x for x in ana if bevestig(b64, x, tijd)]       # tweede, gerichte vraag: is het er echt?
             if ana:
-                fout.append("niet uit die tijd: " + ", ".join(ana))
-            if a.get("text_or_letters") is True:
+                fout.append("niet uit die tijd: " + ", ".join(x[:80] for x in ana))
+            if a.get("text_or_letters") is True and bevestig(b64, "readable text, letters or words written in the image", tijd):
                 fout.append("tekst/letters")
             d = a.get("deformed", "")
             d = "" if d is False or d is None else str(d).strip()
             if d and d.lower().rstrip(".") not in ("", "none", "no", "empty", "n/a", "nothing", "false", "no deformities",
                                                    "none observed", "no deformities observed"):
                 fout.append("vervormd: " + d[:80])
-            if a.get("matches_description") is False:
+            if a.get("matches_description") is False and fout:    # alleen samen met een echte fout
                 fout.append("past niet bij de beschrijving")
             if a.get("frightening") is True:
                 fout.append("eng")
@@ -74,6 +75,19 @@ def vlm(pad, wat_er_moet_zijn, tijd):
             print("  VLM opnieuw:", e, flush=True)
             time.sleep(10)
     return ["VLM gaf geen antwoord"]
+
+
+def bevestig(b64, ding, tijd):
+    """Gerichte tweede vraag (minder onterechte afkeuringen, test 8 nov: 10/30 goede beelden onterecht afgekeurd)."""
+    vraag = (f"Look very carefully at this image. Is there clearly and visibly {ding}? Only answer yes if you can point "
+             f"to it. Note: things that really existed in {tijd} are fine. "
+             'JSON: {"visible": true or false, "where": "..."}')
+    try:
+        r = requests.post(OLLAMA, json={"model": VLM, "stream": False, "format": "json", "options": {"temperature": 0},
+                                        "messages": [{"role": "user", "content": vraag, "images": [b64]}]}, timeout=600)
+        return json.loads(r.json()["message"]["content"]).get("visible") is True
+    except Exception:
+        return True                                          # bij twijfel: afkeuren (veilig)
 
 
 # ---------- 2. CLIP ----------
