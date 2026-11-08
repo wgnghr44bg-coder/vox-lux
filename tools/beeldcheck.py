@@ -203,6 +203,9 @@ def herschrijf_prompt(map_, naam, oud, fouten):
                       "by walls, a plain ceiling'). Never use the word 'no' or 'without'. Only the sentence.",
                       temp=0.4, max_tokens=120)
     nieuw = " ".join(nieuw.split()).rstrip(".")
+    # "no tourist boats" laat het beeldmodel juist tourist boats tekenen: zulke zinsdelen eruit (test 8 nov, beeld 049)
+    nieuw = ", ".join(d for d in re.split(r",\s*|\s+and\s+(?=no\b|without\b)", nieuw)
+                      if not re.search(r"\b(no|not|without|never|free of|absence)\b", d, re.I))
     if difflib.SequenceMatcher(None, nieuw.lower(), kern.lower()).ratio() > 0.85 or len(nieuw) > 2 * len(kern) + 80:
         nieuw = kern                                         # model herschreef niet echt: vaste positieve zinnen erbij
     tekst = " ".join(fouten).lower()
