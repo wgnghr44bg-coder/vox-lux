@@ -1,37 +1,51 @@
 """Werkt het statusdashboard bij: https://wgnghr44bg-coder.github.io/vox-lux/status/ (eigenaar 8 nov 2026: "een website
-via GitHub zodat ik alles kan zien wat er loopt: script, video, planning, alles via de pc").
+via GitHub zodat ik alles kan zien", "pas dit aan zoals deze afbeelding met de gegevens die wij gebruiken").
 
-Verzamelt op de pc: planning van alle video's (stories/*/planning.txt), wat er nu draait (processen, logs), het
-logboek (stories/ROUTINE-LOG.md) en de videokaart; schrijft docs/status/data.json en pusht ALLEEN dat bestand.
-Geen geheimen: geen sleutels, tokens of wachtwoorden, alleen wat al in de (openbare) repo staat plus de stand van de pc.
+Verzamelt op de pc: kanaalcijfers (YouTube Data + Analytics API, alleen lezen), laatste uploads, de stap van de
+videostraat die nu loopt met voortgang, huidige taak, weekplanning, logboek, fouten en de stand van onze programma's
+(Ollama/Qwen3, ComfyUI, OmniVoice B1, Audio Engine W3, ffmpeg, YouTube API, Taakplanner). Schrijft
+docs/status/data.json (+ thumbnail van de huidige taak) en pusht ALLEEN docs/status. Geen sleutels of tokens.
 
   python tools/dashboard_bijwerken.py            # bijwerken en pushen
   python tools/dashboard_bijwerken.py --niet-pushen
 """
-import datetime, json, re, subprocess, sys
+import datetime, json, re, shutil, subprocess, sys
 from pathlib import Path
+
+import requests
 
 HIER = Path(__file__).resolve().parent
 REPO = HIER.parent
 STORIES = REPO / "stories"
-UIT = REPO / "docs" / "status" / "data.json"
+DOCS = REPO / "docs" / "status"
+UIT = DOCS / "data.json"
+NU = datetime.datetime.now()
+VANDAAG = datetime.date.today()
 LOGS = {"testvolgorde": Path(r"C:\Users\rane\testvolgorde.log"),
         "scriptgenerator": Path(r"C:\Users\rane\sleep-archives-scripts-log.txt"),
         "routine": Path(r"C:\Users\rane\sleep-archives-routine-log.txt")}
+FOUTWOORDEN = r"FOUT|GESTOPT|MISLUKT|NIET GOED|REJECTED|AFWIJKING|Traceback|Error"
 
 
 def lees(p, n=None):
+    """Leest ook logs die PowerShell 5 als UTF-16 schrijft (met '*>')."""
     try:
-        t = p.read_text(encoding="utf-8", errors="replace")
+        b = Path(p).read_bytes()
     except Exception:
-        try:
-            t = p.read_text(encoding="utf-16", errors="replace")
-        except Exception:
-            return []
+        return []
+    if b[:2] in (b"\xff\xfe", b"\xfe\xff") or (len(b) > 1 and b[1:2] == b"\x00"):
+        t = b.decode("utf-16", errors="replace")
+    else:
+        t = b.decode("utf-8", errors="replace")
     regels = [r.rstrip() for r in t.splitlines() if r.strip()]
     return regels[-n:] if n else regels
 
 
+def schoon(r):
+    return re.sub(r"[A-Z]:\\[^\s'\"]+", "…", r.replace("Ã¨", "è").replace("Ã¼", "ü"))[:200]
+
+
+# ---------- planning ----------
 def planning():
     uit = []
     for m in sorted(STORIES.iterdir()):
@@ -41,45 +55,87 @@ def planning():
         t = p.read_text(encoding="utf-8", errors="replace")
         g = lambda k: (re.search(rf"^{k}\s+(.+)$", t, re.M) or [None, ""])[1].strip()
         d = re.search(r"(\d{4}-\d{2}-\d{2})", g("datum"))
-        link = re.search(r"https://youtu\.be/[A-Za-z0-9_-]{11}", t)
+        link = re.search(r"https://youtu\.be/([A-Za-z0-9_-]{11})", t)
         status = g("status") or ("klaar" if link else "")
-        titel = re.sub(r"\s*\(.*$", "", g("titel")) or g("onderwerp")
-        vandaag = datetime.date.today().isoformat()
-        soort = ("gepland" if link and status.startswith("klaar") and d and d.group(1) > vandaag else
+        datum = d.group(1) if d else ""
+        soort = ("gepland" if link and status.startswith("klaar") and datum > VANDAAG.isoformat() else
                  "online" if link and status.startswith("klaar") else
                  "bezig" if status.startswith(("bezig", "in-wording")) else
                  "script nieuw" if "nieuwe opbouw" in status else
                  "script oud" if status.startswith("script-klaar") else status.split(" ")[0] or "?")
-        uit.append({"map": m.name, "datum": d.group(1) if d else "", "reserve": "reserve" in g("datum"),
-                    "titel": titel[:110], "onderwerp": g("onderwerp")[:90], "status": status[:140], "soort": soort,
-                    "link": link.group(0) if link else "", "afspeellijst": g("soort").split(" ")[0],
-                    "opening": g("opening").split(" ")[0], "beelden": len(list((m / "afbeeldingen").glob("*.png")))
-                    if (m / "afbeeldingen").is_dir() else 0})
+        uit.append({"map": m.name, "datum": datum, "reserve": "reserve" in g("datum"),
+                    "titel": re.sub(r"\s*\(.*$", "", g("titel"))[:110] or g("onderwerp")[:110],
+                    "status": status[:140], "soort": soort, "id": link.group(1) if link else "",
+                    "afspeellijst": g("soort").split(" ")[0], "opening": g("opening").split(" ")[0]})
     return uit
 
 
+# ---------- wat draait er ----------
+STAPPEN = ["Onderwerp & planning", "Script schrijven", "Beelden maken", "Stem (B1)", "Video bouwen", "Controles", "YouTube upload"]
+HERKEN = [("scriptgen", 1, "script schrijven (Qwen3 lokaal)"), ("PROMPT-SCRIPT-PC", 1, "script schrijven (Claude)"),
+          ("comfy_batch.py", 2, "beelden maken (ComfyUI)"), ("beeldcheck.py", 2, "beeldcontrole (Qwen2.5-VL + CLIP)"),
+          ("engine_stem.py", 3, "stem inspreken (OmniVoice B1)"), ("prep_engine.sh", 3, "tekstcontrole"),
+          ("check_stem_tekst.py", 3, "tekstcontrole (Whisper)"), ("herstel_zinnen.py", 3, "zinnen herstellen"),
+          ("engine_muziek.py", 4, "muziek maken (Audio Engine W3)"), ("make_video.py", 4, "beelden en geluid samenvoegen"),
+          ("motion.py", 4, "beweging en hoofdstuktitels"), ("stil_tikjes.py", 4, "tikjes weghalen"),
+          ("eind_volume.py", 4, "eindvolume -14 LUFS"), ("film16.py", 4, "16mm-look"),
+          ("check_video.py", 5, "videocontrole"), ("qc_video.py", 5, "kwaliteitscontrole"),
+          ("vervang_video.py", 6, "uploaden en controleren"), ("youtube_upload.py", 6, "uploaden"),
+          ("wacht_verwerkt.py", 6, "wachten op verwerking YouTube"),
+          ("PROMPT-ROUTINE-PC", 0, "routine (Claude) stuurt aan"), ("routine_lokaal.py", 0, "routine zonder Claude")]
+
+
 def processen():
-    """Wat draait er nu op de pc (alleen herkende onderdelen, geen paden of argumenten)."""
     try:
         out = subprocess.run(["powershell", "-NoProfile", "-Command",
                               "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CommandLine }"],
-                             capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60).stdout
+                             capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=90).stdout
     except Exception:
         out = ""
-    namen = {"engine_stem.py": "stem inspreken", "prep_engine.sh": "tekstcontrole", "make_video.py": "montage: beelden",
-             "motion.py": "montage: beweging", "film16.py": "montage: 16mm-look", "qc_video.py": "kwaliteitscontrole",
-             "engine_muziek.py": "muziek maken", "comfy_batch.py": "beelden maken (ComfyUI)", "beeldcheck.py": "beeldcontrole",
-             "vervang_video.py": "uploaden / verwerking", "wacht_verwerkt.py": "wachten op YouTube",
-             "scriptgen\\generator.py": "script schrijven (lokaal)", "scriptgen/generator.py": "script schrijven (lokaal)",
-             "routine_lokaal.py": "routine zonder Claude", "PROMPT-ROUTINE-PC": "routine (met Claude)",
-             "PROMPT-SCRIPT-PC": "scriptgenerator (met Claude)", "testvolgorde.ps1": "testvolgorde",
-             "herstel_zinnen.py": "zinnen herstellen", "check_stem_tekst.py": "tekstcontrole (Whisper)"}
-    gevonden = []
+    gevonden, stap, mapnaam = [], -1, ""
     for regel in out.splitlines():
-        for k, v in namen.items():
-            if k in regel and v not in gevonden:
-                gevonden.append(v)
-    return gevonden
+        for k, s, naam in HERKEN:
+            if k in regel:
+                if naam not in [g["naam"] for g in gevonden]:
+                    gevonden.append({"naam": naam, "stap": s})
+                if s > stap:
+                    stap = s
+                    mm = re.search(r"stories[\\/]([a-z0-9-]+)", regel) or re.search(r"\b([a-z0-9]+-[0-9]{3,4}|[a-z]+-[a-z]+)\b\s", regel)
+                    mapnaam = mm.group(1) if mm and (STORIES / mm.group(1)).is_dir() else mapnaam
+    return gevonden, stap, mapnaam
+
+
+def voortgang(stap, m):
+    """Ruwe voortgang (0-100) van de stap die nu loopt, uit bestanden en logs."""
+    if not m:
+        return None, ""
+    d = STORIES / m
+    try:
+        if stap == 1:
+            n = max([int(x) for x in re.findall(r"feitje (\d+):", "\n".join(lees(LOGS["testvolgorde"], 400)))] or [0])
+            return min(99, round(100 * n / 90)), f"{n} van ± 90 feitjes"
+        if stap == 2:
+            totaal = sum(1 for r in (d / "prompts.txt").read_text(encoding="utf-8").splitlines() if "|" in r and not r.startswith("#"))
+            klaar = len(list((d / "afbeeldingen").glob("*.png")))
+            return min(99, round(100 * klaar / max(totaal, 1))), f"{klaar} van {totaal} beelden"
+        if stap == 3:
+            alles = "\n".join(lees(LOGS["testvolgorde"], 300))
+            k = re.findall(r"klaar (\d+)/(\d+)", alles)
+            if k:
+                a, b = map(int, k[-1])
+                return min(99, round(100 * a / b)), f"{a} van {b} zinnen"
+            return None, "bezig"
+        if stap == 4:
+            v = d / "video"
+            basis = (v / f"{m}.mp4").stat().st_size if (v / f"{m}.mp4").exists() else 0
+            for naam, doel, factor, label in (("-16mm.mp4", "-14.mp4", 4.0, "16mm-look"), ("-motion.mp4", ".mp4", 1.0, "beweging")):
+                f, g = v / f"{m}{naam}", v / f"{m}{doel}"
+                if f.exists() and g.exists() and f.stat().st_mtime > NU.timestamp() - 3 * 3600:
+                    return min(99, round(100 * f.stat().st_size / (g.stat().st_size * factor))), label
+            return None, "bezig"
+    except Exception:
+        pass
+    return None, ""
 
 
 def gpu():
@@ -94,45 +150,161 @@ def gpu():
 
 def taken():
     uit = {}
-    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator"):
+    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard"):
         try:
             r = subprocess.run(["powershell", "-NoProfile", "-Command",
-                                f"$i = Get-ScheduledTask -TaskName '{naam}' | Get-ScheduledTaskInfo; "
-                                "\"$($i.LastRunTime.ToString('yyyy-MM-dd HH:mm'))|$($i.NextRunTime.ToString('yyyy-MM-dd HH:mm'))|$($i.LastTaskResult)\""],
+                                f"$t = Get-ScheduledTask -TaskName '{naam}'; $i = $t | Get-ScheduledTaskInfo; "
+                                "\"$($t.State)|$($i.LastRunTime.ToString('yyyy-MM-dd HH:mm'))|$($i.NextRunTime.ToString('yyyy-MM-dd HH:mm'))\""],
                                capture_output=True, text=True, timeout=60).stdout.strip()
-            laatst, volgend, res = r.split("|")
-            laatst = "nog niet" if laatst.startswith("1999") else laatst
-            uit[naam] = {"laatst": laatst, "volgende": volgend, "resultaat": res}
+            st, laatst, volgend = r.split("|")
+            uit[naam.replace("Sleep Archives ", "")] = {"aan": st != "Disabled", "laatst": "nog niet" if laatst.startswith("1999") else laatst,
+                                                         "volgende": volgend or "—"}
         except Exception:
-            uit[naam] = None
+            uit[naam.replace("Sleep Archives ", "")] = None
     return uit
 
 
-def schoon(regels):
-    """Logregels zonder paden naar de pc."""
-    return [re.sub(r"[A-Z]:\\[^\s'\"]+", "…", r)[:220] for r in regels]
+def programmas(yt_ok):
+    def http(url):
+        try:
+            return requests.get(url, timeout=5).status_code == 200
+        except Exception:
+            return False
+    ollama = http("http://127.0.0.1:11434/api/tags")
+    return [
+        {"naam": "Script", "wat": "Qwen3 14B (Ollama)" if ollama else "Ollama staat uit", "ok": ollama},
+        {"naam": "Beelden", "wat": "ComfyUI Z-Image", "ok": http("http://127.0.0.1:8188/system_stats")},
+        {"naam": "Beeldcontrole", "wat": "Qwen2.5-VL + CLIP", "ok": ollama and (HIER / "beeldcheck_clip.npz").exists()},
+        {"naam": "Stem", "wat": "OmniVoice B1", "ok": Path(r"C:\Users\rane\omnivoice-venv\Scripts\python.exe").exists()
+                                                       and (REPO / "audio_engine" / "B1-referentie" / "maten.json").exists()},
+        {"naam": "Muziek", "wat": "Audio Engine W3", "ok": (REPO / "audio_engine" / "B1.json").exists()},
+        {"naam": "Video", "wat": "ffmpeg", "ok": shutil.which("ffmpeg") is not None},
+        {"naam": "YouTube", "wat": "API", "ok": yt_ok}]
 
+
+# ---------- YouTube (alleen lezen) ----------
+def youtube():
+    try:
+        sys.path.insert(0, str(HIER))
+        import youtube_upload as yu
+        h = {"Authorization": "Bearer " + yu.access_token()}
+        c = requests.get("https://www.googleapis.com/youtube/v3/channels", headers=h,
+                         params={"part": "snippet,statistics,contentDetails", "mine": "true"}, timeout=30).json()["items"][0]
+
+        def periode(b, e):
+            r = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", headers=h, timeout=30, params={
+                "ids": "channel==MINE", "startDate": str(b), "endDate": str(e),
+                "metrics": "views,estimatedMinutesWatched,subscribersGained,subscribersLost"}).json()
+            rij = (r.get("rows") or [[0, 0, 0, 0]])[0]
+            return {"views": rij[0], "uren": round(rij[1] / 60), "abonnees": rij[2] - rij[3]}
+        nu = periode(VANDAAG - datetime.timedelta(days=7), VANDAAG)
+        voor = periode(VANDAAG - datetime.timedelta(days=14), VANDAAG - datetime.timedelta(days=7))
+        uploads = c["contentDetails"]["relatedPlaylists"]["uploads"]
+        items = requests.get("https://www.googleapis.com/youtube/v3/playlistItems", headers=h, timeout=30,
+                             params={"part": "contentDetails", "playlistId": uploads, "maxResults": 10}).json().get("items", [])
+        ids = ",".join(i["contentDetails"]["videoId"] for i in items)
+        vids = requests.get("https://www.googleapis.com/youtube/v3/videos", headers=h, timeout=30,
+                            params={"part": "snippet,status,contentDetails,statistics", "id": ids}).json().get("items", [])
+        recent = []
+        for v in vids:
+            dur = v["contentDetails"]["duration"]
+            u, mi, s = [int(x or 0) for x in re.match(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", dur).groups()]
+            st = v["status"]
+            recent.append({"id": v["id"], "titel": v["snippet"]["title"], "duur": f"{u}:{mi:02d}:{s:02d}",
+                           "privacy": st["privacyStatus"], "publiceer": st.get("publishAt") or v["snippet"]["publishedAt"],
+                           "views": int(v.get("statistics", {}).get("viewCount", 0)), "verwerkt": st.get("uploadStatus")})
+        recent.sort(key=lambda x: x["publiceer"], reverse=True)
+        return {"naam": c["snippet"]["title"], "abonnees": int(c["statistics"]["subscriberCount"]),
+                "views_totaal": int(c["statistics"]["viewCount"]), "video_aantal": int(c["statistics"]["videoCount"]),
+                "week": nu, "vorige_week": voor, "recent": recent}, True
+    except Exception as e:
+        return {"fout": str(e)[:120]}, False
+
+
+# ---------- logboek en fouten ----------
+def logboek():
+    uit = []
+    for r in lees(STORIES / "ROUTINE-LOG.md", 60):
+        m = re.match(r"- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
+        if m:
+            uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
+    for r in lees(LOGS["testvolgorde"], 400):
+        m = re.match(r"=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
+        if m:
+            uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
+    uit.sort(key=lambda x: x["tijd"])
+    for x in uit:
+        x["fout"] = bool(re.search(FOUTWOORDEN, x["tekst"]))
+        x["klaar"] = bool(re.search(r"KLAAR|GOED|geüpload|online", x["tekst"])) and not x["fout"]
+    return uit[-40:]
+
+
+def runs(log):
+    grens = (NU - datetime.timedelta(days=30)).strftime("%Y-%m-%d")
+    r = [x for x in log if x["tijd"] >= grens and (x["fout"] or "KLAAR" in x["tekst"])]
+    goed = sum(1 for x in r if not x["fout"])
+    return {"goed": goed, "totaal": len(r), "procent": round(100 * goed / len(r)) if r else None}
+
+
+# ---------- alles samen ----------
+video = planning()
+draait, stap, actief = processen()
+if not actief:                                              # anders: de video die "bezig" is
+    b = [v for v in video if v["soort"] == "bezig"]
+    actief = b[0]["map"] if b else ""
+proc, proc_tekst = voortgang(stap, actief)
+yt, yt_ok = youtube()
+log = logboek()
+huidig = None
+if actief:
+    v = next((x for x in video if x["map"] == actief), {"titel": actief, "datum": "", "id": ""})
+    thumb = ""
+    bron = STORIES / actief / "thumbnail-gekozen.jpg"
+    if v.get("id"):
+        thumb = f"https://i.ytimg.com/vi/{v['id']}/mqdefault.jpg"
+    elif bron.exists():
+        (DOCS / "thumbs").mkdir(parents=True, exist_ok=True)
+        try:
+            from PIL import Image
+            Image.open(bron).convert("RGB").resize((480, 270)).save(DOCS / "thumbs" / f"{actief}.jpg", quality=75)
+            thumb = f"thumbs/{actief}.jpg"
+        except Exception:
+            pass
+    huidig = {"map": actief, "titel": v["titel"], "datum": v["datum"], "thumb": thumb, "stap": stap,
+              "stapnaam": STAPPEN[stap] if 0 <= stap < len(STAPPEN) else "", "voortgang": proc, "detail": proc_tekst,
+              "taken": [d["naam"] for d in draait]}
+week = []
+for i in range(7):
+    dag = VANDAAG + datetime.timedelta(days=i)
+    plek = dag.weekday() in (0, 2, 5)
+    vs = [v for v in video if v["datum"] == dag.isoformat()]
+    week.append({"datum": dag.isoformat(), "plek": plek, "video": vs[0]["titel"] if vs else "",
+                 "soort": vs[0]["soort"] if vs else ("vrij" if plek else "")})
+grens48 = (NU - datetime.timedelta(hours=72)).strftime("%Y-%m-%d %H:%M")
+fouten = [x for x in log if x["fout"] and x["tijd"] >= grens48][-6:]
+geplande = [r for r in yt.get("recent", []) if r["privacy"] == "private" and r["publiceer"] > NU.isoformat()]
 
 data = {
-    "bijgewerkt": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-    "nu_bezig": processen(),
-    "videokaart": gpu(),
+    "bijgewerkt": NU.strftime("%Y-%m-%d %H:%M"),
+    "automatisering": all(t and t["aan"] for k, t in taken().items() if k != "dashboard") if True else False,
     "taken": taken(),
-    "video": planning(),
-    "logboek": schoon(lees(STORIES / "ROUTINE-LOG.md", 40)),
-    "logs": {k: schoon([r for r in lees(p, 400) if r.startswith("===") or "GOED" in r or "FOUT" in r
-                        or "KLAAR" in r or "MISLUKT" in r or "GESTOPT" in r][-14:]) for k, p in LOGS.items()},
-    "vast": {"stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
-             "muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
-             "opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
-             "planning": "ma, wo en za 21:00 (NL)"},
+    "kanaal": yt,
+    "kpi": {"geplande": len(geplande), "runs": runs(log), "fouten": len(fouten)},
+    "stappen": STAPPEN, "stap": stap, "huidig": huidig,
+    "nu_bezig": draait, "videokaart": gpu(), "programmas": programmas(yt_ok),
+    "week": week, "logboek": log[-14:], "fouten": fouten,
+    "video": video,
+    "vast": {"Stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
+             "Muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
+             "Opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
+             "Planning": "ma, wo en za 21:00 (NL)"},
 }
-UIT.parent.mkdir(parents=True, exist_ok=True)
+DOCS.mkdir(parents=True, exist_ok=True)
 UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
-print("dashboard bijgewerkt:", data["bijgewerkt"], "| nu:", ", ".join(data["nu_bezig"]) or "niets")
+print("dashboard bijgewerkt:", data["bijgewerkt"], "| stap:", stap, actief, proc, "| nu:", ", ".join(d["naam"] for d in draait) or "niets")
 if "--niet-pushen" not in sys.argv:
     g = lambda *a: subprocess.run(["git", *a], cwd=REPO, capture_output=True, text=True)
-    g("add", str(UIT))
+    g("add", str(DOCS))
     if g("diff", "--cached", "--quiet").returncode:
         g("commit", "-q", "-m", f"dashboard {data['bijgewerkt']}")
         g("pull", "-q", "--rebase")

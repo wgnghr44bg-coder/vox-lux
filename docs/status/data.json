@@ -1,1271 +1,1348 @@
 {
- "bijgewerkt": "2026-11-08 22:33",
- "nu_bezig": [
-  "testvolgorde",
-  "script schrijven (lokaal)",
-  "kwaliteitscontrole"
- ],
- "videokaart": {
-  "bezig_procent": 21,
-  "geheugen_mb": 6525,
-  "totaal_mb": 8192
- },
+ "bijgewerkt": "2026-11-08 22:41",
+ "automatisering": true,
  "taken": {
-  "Sleep Archives routine": {
+  "routine": {
+   "aan": true,
    "laatst": "2026-11-08 09:00",
-   "volgende": "2026-11-10 09:00",
-   "resultaat": "0"
+   "volgende": "2026-11-10 09:00"
   },
-  "Sleep Archives scriptgenerator": {
+  "scriptgenerator": {
+   "aan": true,
    "laatst": "nog niet",
-   "volgende": "2026-11-09 06:00",
-   "resultaat": "267011"
+   "volgende": "2026-11-09 06:00"
+  },
+  "dashboard": {
+   "aan": true,
+   "laatst": "",
+   "volgende": "—"
   }
  },
+ "kanaal": {
+  "naam": "Sleep Archives",
+  "abonnees": 13,
+  "views_totaal": 2220,
+  "video_aantal": 14,
+  "week": {
+   "views": 483,
+   "uren": 47,
+   "abonnees": 0
+  },
+  "vorige_week": {
+   "views": 910,
+   "uren": 213,
+   "abonnees": 3
+  },
+  "recent": [
+   {
+    "id": "ctC36HRFIac",
+    "titel": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC | 2 Hours of History for Sleep",
+    "duur": "1:56:00",
+    "privacy": "private",
+    "publiceer": "2026-11-14T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "4RjjJh-j5a0",
+    "titel": "Life in the Wild West: Tombstone, 1881 | 2 Hours of History for Sleep",
+    "duur": "2:04:23",
+    "privacy": "private",
+    "publiceer": "2026-11-11T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "ZZ5JMtF9kuI",
+    "titel": "What Was Everyday Life Like During WW2? | History for Sleep",
+    "duur": "2:42:38",
+    "privacy": "public",
+    "publiceer": "2026-11-08T10:53:11Z",
+    "views": 3,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "OC0WGLbKD8M",
+    "titel": "Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep",
+    "duur": "1:56:34",
+    "privacy": "public",
+    "publiceer": "2026-11-04T20:00:36Z",
+    "views": 105,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "privacy": "public",
+    "publiceer": "2026-10-31T20:18:28Z",
+    "views": 328,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "privacy": "public",
+    "publiceer": "2026-10-28T00:27:13Z",
+    "views": 181,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "3xoYoH3hiYw",
+    "titel": "Dyatlov Pass: A Winter Night in the Urals | History for Sleep",
+    "duur": "2:04:57",
+    "privacy": "public",
+    "publiceer": "2026-10-14T19:00:11Z",
+    "views": 14,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "abgEUwjgRiE",
+    "titel": "How Vikings Survived the Long Dark Winter | History for Sleep",
+    "duur": "2:20:55",
+    "privacy": "public",
+    "publiceer": "2026-10-10T19:00:39Z",
+    "views": 55,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "ud5qSvbZBvM",
+    "titel": "Life in Siberia Before the Tunguska Blast | History for Sleep",
+    "duur": "2:36:14",
+    "privacy": "public",
+    "publiceer": "2026-10-07T19:00:13Z",
+    "views": 24,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "privacy": "public",
+    "publiceer": "2026-10-05T19:00:38Z",
+    "views": 1197,
+    "verwerkt": "processed"
+   }
+  ]
+ },
+ "kpi": {
+  "geplande": 2,
+  "runs": {
+   "goed": 0,
+   "totaal": 1,
+   "procent": 0
+  },
+  "fouten": 1
+ },
+ "stappen": [
+  "Onderwerp & planning",
+  "Script schrijven",
+  "Beelden maken",
+  "Stem (B1)",
+  "Video bouwen",
+  "Controles",
+  "YouTube upload"
+ ],
+ "stap": 1,
+ "huidig": {
+  "map": "gettysburg-1863",
+  "titel": "Life in Gettysburg, July 1863 | <N> Hours of History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
+  "stap": 1,
+  "stapnaam": "Script schrijven",
+  "voortgang": 0,
+  "detail": "0 van ± 90 feitjes",
+  "taken": [
+   "script schrijven (Qwen3 lokaal)"
+  ]
+ },
+ "nu_bezig": [
+  {
+   "naam": "script schrijven (Qwen3 lokaal)",
+   "stap": 1
+  }
+ ],
+ "videokaart": {
+  "bezig_procent": 30,
+  "geheugen_mb": 6540,
+  "totaal_mb": 8192
+ },
+ "programmas": [
+  {
+   "naam": "Script",
+   "wat": "Qwen3 14B (Ollama)",
+   "ok": true
+  },
+  {
+   "naam": "Beelden",
+   "wat": "ComfyUI Z-Image",
+   "ok": true
+  },
+  {
+   "naam": "Beeldcontrole",
+   "wat": "Qwen2.5-VL + CLIP",
+   "ok": true
+  },
+  {
+   "naam": "Stem",
+   "wat": "OmniVoice B1",
+   "ok": true
+  },
+  {
+   "naam": "Muziek",
+   "wat": "Audio Engine W3",
+   "ok": true
+  },
+  {
+   "naam": "Video",
+   "wat": "ffmpeg",
+   "ok": true
+  },
+  {
+   "naam": "YouTube",
+   "wat": "API",
+   "ok": true
+  }
+ ],
+ "week": [
+  {
+   "datum": "2026-11-08",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-09",
+   "plek": true,
+   "video": "",
+   "soort": "vrij"
+  },
+  {
+   "datum": "2026-11-10",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-11",
+   "plek": true,
+   "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
+   "soort": "gepland"
+  },
+  {
+   "datum": "2026-11-12",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-13",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-14",
+   "plek": true,
+   "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+   "soort": "gepland"
+  }
+ ],
+ "logboek": [
+  {
+   "tijd": "2026-11-08 18:17",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel why)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 18:33",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening scène, titel what-happened)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 18:36",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 14 bronnen, 84 stukken",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 19:26",
+   "tekst": "1. TEST beeldmodel (30 foute + 30 goede beelden)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 19:27",
+   "tekst": "2a. Tombstone: wachten op montage",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 21:50",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel what-happened)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 21:50",
+   "tekst": "2a. Tombstone: CONTROLES NIET GOED, niet geüpload",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 21:50",
+   "tekst": "2b. TEST generator op Gettysburg (zonder Claude, testmodus)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-08 21:53",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 15 bronnen, 118 stukken",
+   "fout": false,
+   "klaar": false
+  }
+ ],
+ "fouten": [
+  {
+   "tijd": "2026-11-08 21:50",
+   "tekst": "2a. Tombstone: CONTROLES NIET GOED, niet geüpload",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "video": [
   {
    "map": "alexander-331-vc",
    "datum": "2027-08-28",
    "reserve": false,
    "titel": "Life with the Army of Alexander the Great, 331 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life with the Army of Alexander the Great, 331 BC",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "alexandrie",
    "datum": "",
    "reserve": true,
    "titel": "Life in Ancient Alexandria and Its Great Library | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Alexandria and Its Great Library",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "angelsaksen-oogst",
    "datum": "2027-08-04",
    "reserve": false,
    "titel": "Harvest Time in an Anglo-Saxon Village, 700 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Harvest Time in an Anglo-Saxon Village, 700 AD",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "apollo-11-1969",
    "datum": "2027-07-17",
    "reserve": false,
    "titel": "The Journey of Apollo 11, July 1969 | <N> Hours of History for Sleep",
-   "onderwerp": "The Journey of Apollo 11, July 1969",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "athene-432-vc",
    "datum": "2027-02-03",
    "reserve": false,
    "titel": "Life in Ancient Greece, Athens 432 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Greece, Athens 432 BC",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "atlantis",
    "datum": "2027-03-03",
    "reserve": false,
    "titel": "The Legend of Atlantis | <N> Hours of History for Sleep",
-   "onderwerp": "The Legend of Atlantis",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "babylon-600-vc",
    "datum": "2027-05-22",
    "reserve": false,
    "titel": "Life in Ancient Babylon, 600 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Babylon, 600 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "balmoral-1868",
    "datum": "2027-09-15",
    "reserve": false,
    "titel": "An Autumn at Balmoral with Queen Victoria, 1868 | <N> Hours of History for Sleep",
-   "onderwerp": "An Autumn at Balmoral with Queen Victoria, 1868",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "bethlehem",
    "datum": "2026-12-19",
    "reserve": false,
    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Bethlehem, the First Christmas",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "blackbeard-1718",
    "datum": "2026-12-30",
    "reserve": false,
    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Aboard a Pirate Ship with Blackbeard, 1718",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "blitz-1940",
    "datum": "2027-09-04",
    "reserve": false,
    "titel": "Life in London During the Blitz, September 1940 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in London During the Blitz, September 1940",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "boeren-winter-1300",
    "datum": "2026-12-16",
    "reserve": false,
    "titel": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
-   "onderwerp": "How Medieval Peasants Survived Winter, 1300",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "bronstijd",
    "datum": "2027-09-11",
    "reserve": false,
    "titel": "Life in the Bronze Age, 1500 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Bronze Age, 1500 BC",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "carthago",
    "datum": "",
    "reserve": true,
    "titel": "Life in Ancient Carthage | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Carthage",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "cattle-drive-1870",
    "datum": "2027-09-01",
    "reserve": false,
    "titel": "Life on a Cattle Drive with the Cowboys, 1870 | <N> Hours of History for Sleep",
-   "onderwerp": "Life on a Cattle Drive with the Cowboys, 1870",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "china-nieuwjaar-han",
    "datum": "2027-02-06",
    "reserve": false,
    "titel": "Chinese New Year in Ancient China, Han Dynasty | <N> Hours of History for Sleep",
-   "onderwerp": "Chinese New Year in Ancient China, Han Dynasty",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "cleopatra",
    "datum": "2027-03-06",
    "reserve": false,
    "titel": "Life in Ancient Egypt in the Time of Cleopatra, 31 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Egypt in the Time of Cleopatra, 31 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "colosseum-80",
    "datum": "2027-03-24",
    "reserve": false,
    "titel": "Life in the Roman Colosseum and the Gladiators, 80 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Roman Colosseum and the Gladiators, 80 AD",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "constantinopel-1000",
    "datum": "",
    "reserve": true,
    "titel": "Life in Constantinople, 1000 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Constantinople, 1000 AD",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "crisis-1933",
    "datum": "2027-10-02",
    "reserve": false,
    "titel": "Life in America During the Great Depression, 1933 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in America During the Great Depression, 1933",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "d-day-1944",
    "datum": "2027-06-05",
    "reserve": false,
    "titel": "The Night Before D-Day, June 1944 | <N> Hours of History for Sleep",
-   "onderwerp": "The Night Before D-Day, June 1944",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "dallas-1963",
    "datum": "2026-11-21",
    "reserve": false,
    "titel": "Life in Dallas, November 1963 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Dallas, November 1963",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "druiden",
    "datum": "",
    "reserve": true,
    "titel": "Life Among the Celts and the Druids, 60 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life Among the Celts and the Druids, 60 BC",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "dyatlov-pass",
    "datum": "",
    "reserve": false,
    "titel": "The Dyatlov Pass Mystery",
-   "onderwerp": "The Dyatlov Pass Mystery",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/3xoYoH3hiYw",
+   "id": "3xoYoH3hiYw",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "edo-japan-1800",
    "datum": "",
    "reserve": true,
    "titel": "Life in Edo Japan, 1800 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Edo Japan, 1800",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "egypte-toetanchamon",
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "onderwerp": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC",
    "status": "klaar",
    "soort": "gepland",
-   "link": "https://youtu.be/ctC36HRFIac",
+   "id": "ctC36HRFIac",
    "afspeellijst": "oudheid",
-   "opening": "persoon",
-   "beelden": 92
+   "opening": "persoon"
   },
   {
    "map": "fabrieksstad-1840",
    "datum": "2027-09-22",
    "reserve": false,
    "titel": "Life in a Mill Town During the Industrial Revolution, 1840 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in a Mill Town During the Industrial Revolution, 1840",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "florence-1500",
    "datum": "",
    "reserve": true,
    "titel": "Life in Renaissance Florence, 1500 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Renaissance Florence, 1500",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "frankenstein-1816",
    "datum": "2027-10-13",
    "reserve": false,
    "titel": "The Summer Frankenstein Was Born: Mary Shelley at Lake Geneva, 1816 | <N> Hours of History for Sleep",
-   "onderwerp": "The Summer Frankenstein Was Born: Mary Shelley at Lake Geneva, 1816",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "franklin-1845",
    "datum": "2027-01-09",
    "reserve": false,
    "titel": "Life Aboard Franklin's Lost Expedition, Arctic 1845 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Aboard Franklin's Lost Expedition, Arctic 1845",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "gettysburg-1863",
    "datum": "2026-11-18",
    "reserve": false,
    "titel": "Life in Gettysburg, July 1863 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Gettysburg, July 1863",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "goudkoorts-1849",
    "datum": "",
    "reserve": true,
    "titel": "Life in the California Gold Rush, 1849 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the California Gold Rush, 1849",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "hindenburg",
    "datum": "",
    "reserve": false,
    "titel": "Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep",
-   "onderwerp": "Life Aboard the Hindenburg, May 1937",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/OC0WGLbKD8M",
+   "id": "OC0WGLbKD8M",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 105
+   "opening": ""
   },
   {
    "map": "ierland-patrick",
    "datum": "2027-03-17",
    "reserve": false,
    "titel": "Life in Ireland in the Time of Saint Patrick, 432 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ireland in the Time of Saint Patrick, 432 AD",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "india-boeddha",
    "datum": "2027-05-29",
    "reserve": false,
    "titel": "Life in Ancient India in the Time of the Buddha, 500 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient India in the Time of the Buddha, 500 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "istanbul-1550",
    "datum": "",
    "reserve": true,
    "titel": "Life in Ottoman Istanbul, 1550 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ottoman Istanbul, 1550",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "japan-1600",
    "datum": "2026-12-26",
    "reserve": false,
    "titel": "Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Japan in the Age of the Samurai, 1600",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "jeanne-darc-1429",
    "datum": "2027-10-16",
    "reserve": false,
    "titel": "The Story of Joan of Arc, 1429 | <N> Hours of History for Sleep",
-   "onderwerp": "The Story of Joan of Arc, 1429",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "jeruzalem-pasen",
    "datum": "2027-03-27",
    "reserve": false,
    "titel": "Jerusalem at the First Easter, 33 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Jerusalem at the First Easter, 33 AD",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "kasteel-1250",
    "datum": "2027-01-27",
    "reserve": false,
    "titel": "Life Inside a Medieval Castle, 1250 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Inside a Medieval Castle, 1250",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "kathedraal-1250",
    "datum": "",
    "reserve": true,
    "titel": "Building a Medieval Cathedral, 1250 | <N> Hours of History for Sleep",
-   "onderwerp": "Building a Medieval Cathedral, 1250",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "kerst-loopgraven-1914",
    "datum": "2026-12-12",
    "reserve": false,
    "titel": "Christmas in the Trenches of World War I, 1914 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Trenches, Christmas 1914",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "klooster-1150",
    "datum": "2027-01-23",
    "reserve": false,
    "titel": "How Medieval Monks Lived, 1150 | <N> Hours of History for Sleep",
-   "onderwerp": "How Medieval Monks Lived, 1150",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "koning-arthur",
    "datum": "2027-08-21",
    "reserve": false,
    "titel": "The Legend of King Arthur | <N> Hours of History for Sleep",
-   "onderwerp": "The Legend of King Arthur",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "lewis-en-clark-1804",
    "datum": "2027-01-13",
    "reserve": false,
    "titel": "Life with Lewis and Clark, 1804 | <N> Hours of History for Sleep",
-   "onderwerp": "Life with Lewis and Clark, 1804",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "londen-1666",
    "datum": "2027-01-16",
    "reserve": false,
    "titel": "Life in London Before the Great Fire of 1666 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in London Before the Great Fire of 1666",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "ramp",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "londen-elizabeth-1599",
    "datum": "",
    "reserve": true,
    "titel": "Life in London Under Queen Elizabeth I, 1599 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in London Under Queen Elizabeth I, 1599",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "londen-kerst-1843",
    "datum": "2026-12-23",
    "reserve": false,
    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Victorian London at Christmas, 1843",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "machu-picchu",
    "datum": "2027-02-24",
    "reserve": false,
    "titel": "Who Built Machu Picchu? Life in the Inca Empire | <N> Hours of History for Sleep",
-   "onderwerp": "Who Built Machu Picchu? Life in the Inca Empire",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "maya-tikal",
    "datum": "2027-04-17",
    "reserve": false,
    "titel": "Life in the Maya City of Tikal, 750 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Maya City of Tikal, 750 AD",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "middeleeuws-dorp",
    "datum": "2027-05-15",
    "reserve": false,
    "titel": "Life Inside a Medieval Village, 1300 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Inside a Medieval Village, 1300",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "mississippi-1850",
    "datum": "",
    "reserve": true,
    "titel": "Life on a Mississippi Steamboat, 1850 | <N> Hours of History for Sleep",
-   "onderwerp": "Life on a Mississippi Steamboat, 1850",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "mongolen-1220",
    "datum": "2027-02-27",
    "reserve": false,
    "titel": "Life in the Mongol Empire of Genghis Khan, 1220 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Mongol Empire of Genghis Khan, 1220",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "napoleon-1812",
    "datum": "2027-02-10",
    "reserve": false,
    "titel": "Life with Napoleon's Army in the Russian Winter, 1812 | <N> Hours of History for Sleep",
-   "onderwerp": "Life with Napoleon's Army in the Russian Winter, 1812",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "new-york-1925",
    "datum": "",
    "reserve": true,
    "titel": "Life in New York in the Roaring Twenties, 1925 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in New York in the Roaring Twenties, 1925",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "olympia",
    "datum": "",
    "reserve": true,
    "titel": "The First Olympic Games in Ancient Greece | <N> Hours of History for Sleep",
-   "onderwerp": "The First Olympic Games in Ancient Greece",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "oregon-trail",
    "datum": "",
    "reserve": false,
    "titel": "Life on the Oregon Trail, 1846",
-   "onderwerp": "Life on the Oregon Trail, 1846",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/p503iUA-a7I",
+   "id": "p503iUA-a7I",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "paaseiland",
    "datum": "",
    "reserve": true,
    "titel": "The Mystery of Easter Island | <N> Hours of History for Sleep",
-   "onderwerp": "The Mystery of Easter Island",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "mysterie",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "parijs-1789",
    "datum": "2027-07-14",
    "reserve": false,
    "titel": "Life in Paris in the Summer of 1789 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Paris in the Summer of 1789",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "pearl-harbor-1941",
    "datum": "2026-11-28",
    "reserve": false,
    "titel": "Life at Pearl Harbor, December 1941 | <N> Hours of History for Sleep",
-   "onderwerp": "Life at Pearl Harbor, December 1941",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "perzie-500-vc",
    "datum": "2027-03-13",
    "reserve": false,
    "titel": "Life in Ancient Persia, Persepolis 500 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Persia, Persepolis 500 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "petra",
    "datum": "2027-09-25",
    "reserve": false,
    "titel": "Life in Petra, the Rose-Red City, 100 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Petra, the Rose-Red City, 100 AD",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "philadelphia-1776",
    "datum": "2027-01-02",
    "reserve": false,
    "titel": "Life in Philadelphia During the American Revolution, 1776 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Philadelphia, July 1776",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "piramide-gizeh",
    "datum": "2027-02-17",
    "reserve": false,
    "titel": "Building the Great Pyramid of Giza, 2560 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Building the Great Pyramid of Giza, 2560 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "polynesiers",
    "datum": "2027-09-29",
    "reserve": false,
    "titel": "The Polynesian Voyagers: Sailing to Hawaii, 1000 AD | <N> Hours of History for Sleep",
-   "onderwerp": "The Polynesian Voyagers: Sailing to Hawaii, 1000 AD",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "pompeii",
    "datum": "",
    "reserve": false,
    "titel": "",
-   "onderwerp": "",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/VuTN5ReMzLk",
+   "id": "VuTN5ReMzLk",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "regency-austen-1811",
    "datum": "",
    "reserve": true,
    "titel": "Life in Regency England in the Time of Jane Austen, 1811 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Regency England in the Time of Jane Austen, 1811",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "rome-44-vc",
    "datum": "2026-12-02",
    "reserve": false,
    "titel": "Life in Ancient Rome When Caesar Died, 44 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Rome When Caesar Died, 44 BC",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "romeinse-soldaat",
    "datum": "2027-08-07",
    "reserve": false,
    "titel": "Life of a Roman Soldier, 120 AD | <N> Hours of History for Sleep",
-   "onderwerp": "Life of a Roman Soldier, 120 AD",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "san-francisco-1906",
    "datum": "",
    "reserve": false,
    "titel": "",
-   "onderwerp": "",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/TRcttN943sA",
+   "id": "TRcttN943sA",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "scott-antarctica-1912",
    "datum": "2026-11-25",
    "reserve": false,
    "titel": "Life in Antarctica with Captain Scott, 1912 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Antarctica with Scott's Last Expedition, 1912",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "sherwood-1190",
    "datum": "",
    "reserve": true,
    "titel": "Life in Sherwood Forest in the Time of Robin Hood, 1190 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Sherwood Forest in the Time of Robin Hood, 1190",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "spaans-galjoen-1588",
    "datum": "",
    "reserve": true,
    "titel": "Life on a Spanish Galleon, 1588 | <N> Hours of History for Sleep",
-   "onderwerp": "Life on a Spanish Galleon, 1588",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "sparta",
    "datum": "",
    "reserve": true,
    "titel": "Life in Ancient Sparta | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Ancient Sparta",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "stonehenge",
    "datum": "2027-06-19",
    "reserve": false,
    "titel": "Building Stonehenge, 2500 BC | <N> Hours of History for Sleep",
-   "onderwerp": "Building Stonehenge, 2500 BC",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "sumeriers",
    "datum": "2027-02-20",
    "reserve": false,
    "titel": "Life Among the Sumerians, the First Civilization | <N> Hours of History for Sleep",
-   "onderwerp": "Life Among the Sumerians, the First Civilization",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "taj-mahal-1643",
    "datum": "2027-10-06",
    "reserve": false,
    "titel": "The Building of the Taj Mahal, Agra 1643 | <N> Hours of History for Sleep",
-   "onderwerp": "The Building of the Taj Mahal, Agra 1643",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "tempeliers-1250",
    "datum": "2027-08-18",
    "reserve": false,
    "titel": "Life Among the Knights Templar, 1250 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Among the Knights Templar, 1250",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "tenochtitlan-1519",
    "datum": "2027-01-20",
    "reserve": false,
    "titel": "Life in the Aztec Capital Tenochtitlan, 1519 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in the Aztec Capital Tenochtitlan, 1519",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "titanic",
    "datum": "",
    "reserve": false,
    "titel": "",
-   "onderwerp": "",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/aqbjvsBIQAE",
+   "id": "aqbjvsBIQAE",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "tombstone-1881",
    "datum": "2026-11-11",
    "reserve": false,
    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "onderwerp": "Life in Tombstone, the Gunfight at the O.K. Corral, 1881",
    "status": "klaar",
    "soort": "gepland",
-   "link": "https://youtu.be/4RjjJh-j5a0",
+   "id": "4RjjJh-j5a0",
    "afspeellijst": "mysterie",
-   "opening": "scène",
-   "beelden": 90
+   "opening": "scène"
   },
   {
    "map": "troje",
    "datum": "2027-01-06",
    "reserve": false,
    "titel": "Life in Troy, the Last Days of the City | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Troy, the Last Days of the City (film The Odyssey)",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oudheid",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "tudor-1520",
    "datum": "2027-04-07",
    "reserve": false,
    "titel": "Life in Tudor England Under Henry VIII, 1520 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Tudor England Under Henry VIII, 1520",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "ve-day-1945",
    "datum": "2027-05-08",
    "reserve": false,
    "titel": "The Last Days of World War II in Europe, May 1945 | <N> Hours of History for Sleep",
-   "onderwerp": "The Last Days of World War II in Europe, May 1945",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "oorlog",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "venetie-middeleeuwen",
    "datum": "",
    "reserve": true,
    "titel": "Life in Medieval Venice | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Medieval Venice",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "versailles-1685",
    "datum": "2027-08-14",
    "reserve": false,
    "titel": "A Summer at the Palace of Versailles, 1685 | <N> Hours of History for Sleep",
-   "onderwerp": "A Summer at the Palace of Versailles, 1685",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "victoriaans-londen-1888",
    "datum": "2027-04-24",
    "reserve": false,
    "titel": "Life in Victorian London, 1888 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Victorian London, 1888",
    "status": "script-klaar (2026-11-02, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "vikings-winter",
    "datum": "",
    "reserve": false,
    "titel": "How Vikings Survived the Long Dark Winter",
-   "onderwerp": "How Vikings Survived the Long Dark Winter",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/abgEUwjgRiE",
+   "id": "abgEUwjgRiE",
    "afspeellijst": "",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "vuurtoren-1880",
    "datum": "",
    "reserve": true,
    "titel": "The Life of a Lighthouse Keeper, 1880 | <N> Hours of History for Sleep",
-   "onderwerp": "The Life of a Lighthouse Keeper, 1880",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "nieuwe",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "walvisvaarder-1850",
    "datum": "",
    "reserve": true,
    "titel": "Life Aboard a Whaling Ship, 1850 | <N> Hours of History for Sleep",
-   "onderwerp": "Life Aboard a Whaling Ship, 1850",
    "status": "script-klaar (2026-11-03, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "ww2-facts",
    "datum": "",
    "reserve": false,
    "titel": "What Was Everyday Life Like During WW2? | History for Sleep",
-   "onderwerp": "Quiet WW2 Facts to Fall Asleep To, 1939-1945",
    "status": "klaar",
    "soort": "online",
-   "link": "https://youtu.be/ZZ5JMtF9kuI",
+   "id": "ZZ5JMtF9kuI",
    "afspeellijst": "",
-   "opening": "voorwerp",
-   "beelden": 90
+   "opening": "voorwerp"
   },
   {
    "map": "zijderoute-1271",
    "datum": "2027-01-30",
    "reserve": false,
    "titel": "Life on the Silk Road with Marco Polo, 1271 | <N> Hours of History for Sleep",
-   "onderwerp": "Life on the Silk Road with Marco Polo, 1271",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "reis",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   },
   {
    "map": "zwarte-dood-1348",
    "datum": "2026-12-05",
    "reserve": false,
    "titel": "Life in Europe During the Black Death, 1348 | <N> Hours of History for Sleep",
-   "onderwerp": "Life in Europe During the Black Death, 1348",
    "status": "script-klaar (2026-11-01, tweede account)",
    "soort": "script oud",
-   "link": "",
+   "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "",
-   "beelden": 0
+   "opening": ""
   }
  ],
- "logboek": [
-  "# Routine-log",
-  "## 29 okt 2026 - NIET gelukt (gestopt in stap 3)",
-  "- Wat ik koos: Tutankhamun (\"Life in Ancient Egypt When Tutankhamun Died, 1323 BC\") op wo 4 nov 21:00, vanwege de hype",
-  "  \"The Mummy's Curse that HAUNTED Ancient Egypt\" (History Camp, 31.000 views/dag). \"How Vikings Survived the Long Dark Winter\"",
-  "  (za 7 nov in de planning) staat al op Sleep Archives (vikings-winter), dus die moet uit de planning.",
-  "- Wat misging: `git push` naar GitHub kan niet. De git-credential-helper wijst naar een `gh.exe` in een tijdelijke map",
-  "  (`...\\Temp\\claude\\...\\scratchpad\\ghcli\\x\\bin\\gh.exe`) die niet meer bestaat. Zonder push kan ik de planning niet op main zetten",
-  "  en ziet een volgende run niet dat de datum bezet is, dus ik ben niet begonnen met het maken van de video. Er is niets",
-  "  gemaakt, geüpload of uitgegeven; planning.txt is weer weg.",
-  "- Wat de eigenaar moet doen: zorg dat `git push` op de pc werkt (bv. `gh auth login` en `gh auth setup-git`, of de",
-  "  Git Credential Manager opnieuw inloggen) en start de routine opnieuw. Ook: git had geen naam/e-mail ingesteld; ik heb",
-  "  die alleen voor deze repo gezet (`user.name rane`, `user.email (privé adres)`).",
-  "## 5 nov 2026 - Toetanchamon gemaakt (za 14 nov 21:00)",
-  "- Plek: eerstvolgende open plek (za 7 nov ww2-facts, wo 11 nov Tombstone bezet). Geen hype gezocht/gezien; het klare script van de tweede account genomen.",
-  "- Les: de stijlregel \"no modern buildings, no cars, no power lines\" gaf juist auto's en palen. 57 van 92 beelden afgekeurd en opnieuw gemaakt met een stijl die zegt wat er wel is.",
-  "  Zet \"boats\" niet in een algemene stijlregel: dan staat er in elk beeld een boot.",
-  "- Video: https://youtu.be/0UiruqPVNHE, 1:55:59, privé met publishAt. Kosten EUR 0.",
-  "- 2026-11-08 18:17 scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel why)",
-  "- 2026-11-08 18:33 scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening scène, titel what-happened)",
-  "- 2026-11-08 18:36 scriptgenerator (lokaal): gettysburg-1863: 14 bronnen, 84 stukken",
-  "- 2026-11-08 21:50 scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel what-happened)",
-  "- 2026-11-08 21:53 scriptgenerator (lokaal): gettysburg-1863: 15 bronnen, 118 stukken"
- ],
- "logs": {
-  "testvolgorde": [],
-  "scriptgenerator": [],
-  "routine": []
- },
  "vast": {
-  "stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
-  "muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
-  "opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
-  "planning": "ma, wo en za 21:00 (NL)"
+  "Stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
+  "Muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
+  "Opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
+  "Planning": "ma, wo en za 21:00 (NL)"
  }
 }
