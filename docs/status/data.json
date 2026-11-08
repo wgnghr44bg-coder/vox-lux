@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-08 23:33",
+ "bijgewerkt": "2026-11-09 00:03",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-08 23:33",
-   "volgende": "2026-11-09 00:03"
+   "laatst": "2026-11-09 00:03",
+   "volgende": "2026-11-09 00:33"
   }
  },
  "kanaal": {
@@ -24,13 +24,13 @@
   "views_totaal": 2220,
   "video_aantal": 14,
   "week": {
-   "views": 483,
-   "uren": 47,
+   "views": 418,
+   "uren": 37,
    "abonnees": 0
   },
   "vorige_week": {
-   "views": 910,
-   "uren": 213,
+   "views": 955,
+   "uren": 194,
    "abonnees": 3
   },
   "recent": [
@@ -58,7 +58,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 3,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -165,7 +165,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 31,
+  "bezig_procent": 22,
   "geheugen_mb": 6811,
   "totaal_mb": 8192
  },
@@ -208,12 +208,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-08",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-09",
    "plek": true,
    "video": "",
@@ -248,6 +242,12 @@
    "plek": true,
    "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
    "soort": "gepland"
+  },
+  {
+   "datum": "2026-11-15",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
