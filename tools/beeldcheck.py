@@ -90,22 +90,31 @@ def clip_scores(paden, tijd_jaar):
                                                                        "an electric street lamp", "a road sign"))]
     neutraal = ["a calm realistic historical photograph", "a painting-like realistic scene from the past"]
     labels = neutraal + modern + TEKST + VERVORMD
+    import numpy as np
+    det = np.load(HIER / "beeldcheck_clip.npz") if (HIER / "beeldcheck_clip.npz").exists() else None
     with torch.no_grad():
-        tf = model.get_text_features(**proc(text=labels, return_tensors="pt", padding=True))
-        tf = tf / tf.norm(dim=-1, keepdim=True)
         uit = []
         for p in paden:
-            im = proc(images=Image.open(p).convert("RGB"), return_tensors="pt")
-            f = model.get_image_features(**im)
-            f = f / f.norm(dim=-1, keepdim=True)
-            s = (100 * f @ tf.T).softmax(-1)[0].tolist()
+            inp = proc(text=labels, images=Image.open(p).convert("RGB"), return_tensors="pt", padding=True)
+            o = model(**inp)
+            s = o.logits_per_image.softmax(-1)[0].tolist()
+            kans = None
+            if det is not None:                              # geleerde detector (tools/beeldcheck_train.py)
+                e = o.image_embeds[0].numpy()
+                e = e / np.linalg.norm(e)
+                kans = float(1 / (1 + np.exp(-(e @ det["w"] + float(det["b"])))))
             n = max(s[:2])
             g = lambda grp: max(s[labels.index(x)] for x in grp) - n
-            uit.append({"modern": round(g(modern), 4), "tekst": round(g(TEKST), 4), "vervormd": round(g(VERVORMD), 4)})
+            uit.append({"modern": round(g(modern), 4), "tekst": round(g(TEKST), 4), "vervormd": round(g(VERVORMD), 4),
+                        "afgekeurd_kans": None if kans is None else round(kans, 3),
+                        "drempel": None if det is None else round(float(det["drempel"]), 3)})
     return uit
 
 
 def clip_fout(sc):
+    """Tweede controle: de geleerde detector (lijkt het beeld op eerder afgekeurde beelden?)."""
+    if sc.get("afgekeurd_kans") is not None:
+        return [f"CLIP-detector: lijkt op afgekeurde beelden ({sc['afgekeurd_kans']:.2f})"] if sc["afgekeurd_kans"] > sc["drempel"] else []
     return [f"CLIP {k} {sc[k]:+.2f}" for k in ("modern", "tekst", "vervormd") if sc[k] > DREMPELS[k]]
 
 

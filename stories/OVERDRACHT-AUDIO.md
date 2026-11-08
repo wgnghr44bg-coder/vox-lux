@@ -49,3 +49,24 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
   C:\Users\rane\keten-tombstone-egypte.log): Tombstone uploaden en de oude 4RjjJh-j5a0 vervangen
   (tools/vervang_video.py), dan Egypte maken (b1_check, afwisseling, stem, tekstcontrole, montage) en de oude
   ctC36HRFIac vervangen. Wacht als de routine bezig is. Uitslagen ook in stories/ROUTINE-LOG.md.
+
+## Zonder Claude (eigenaar 8 nov 2026: "iets bouwen dat net zo goed is maar dan zonder Claude", "extra controle op verkeerde beelden") – IN TEST
+- **Lokale modellen** (gratis, op de pc, via Ollama, C:\Users\rane\AppData\Local\Programs\Ollama): qwen3:14b (tekst) en
+  qwen2.5vl:7b (beelden bekijken). Ollama start vanzelf bij het inloggen (http://127.0.0.1:11434).
+- **Scriptgenerator lokaal**: python tools/scriptgen/generator.py [--map stories/<map>] [--test]. Volgt het recept van
+  PROMPT-SCRIPT-PC.md: eerst oude scripts ombouwen, anders nieuw uit de "Nieuwe planning". Feiten **alleen** uit bronnen
+  (Engelse Wikipedia + het oude script, bewaard in <map>/bronnen/), feitencheck per feitje, dezelfde harde controles
+  (aantal feitjes/woorden, leesbaar, AFWISSELING GOED). Half werk krijgt status "in-wording" (de routine slaat dat over).
+  Een script kost het lokale model een paar uur (draait 's nachts).
+- **Dubbele beeldcontrole**: 	ools/beeldcheck.py stories/<map>. (1) Qwen2.5-VL beantwoordt vaste vragen (dingen die er
+  toen niet waren, tekst, vervormd, past bij de beschrijving, eng); (2) een getrainde CLIP-detector
+  (	ools/beeldcheck_train.py, gewichten tools/beeldcheck_clip.npz) die beelden herkent die lijken op eerder afgekeurde.
+  Afgekeurd = opnieuw maken via ComfyUI, na 2 keer de beschrijving herschrijven, na 4 keer stoppen. Overzichtsvellen:
+  <map>/beeldcheck-vel-N.jpg, uitslag <map>/beeldcheck.json. Gemeten: de CLIP-detector vangt ± 26% van de eerder
+  afgekeurde beelden bij 5% onterecht; de meting van Qwen2.5-VL loopt (tools/beeldcheck_vlmtest.py). Nieuwe afgekeurde
+  beelden in <map>/afgekeurd/ zetten en beeldcheck_train.py opnieuw draaien maakt hem beter.
+- **Routine lokaal**: python tools/routine_lokaal.py [--plan]: kiest de plek, bouwt zo nodig om, beelden + beeldcontrole,
+  thumbnail (gekozen thumbnail houden behalve met uren erop, anders 3 maken en de beste kiezen), b1_check, afwisseling,
+  stem, tekstcontrole, montage, QC, upload (tools/vervang_video.py). Bij een fout niets online en status terug.
+- **Nog niet omgezet**: de Taakplanner-taken draaien nog met Claude (routine.ps1 en tools/script_generator.ps1).
+  Pas omzetten als de eigenaar het testscript (Gettysburg, --test) en de beeldcontrole goed vindt.

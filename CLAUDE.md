@@ -17,6 +17,7 @@
 - **Proeven sturen**: lukt SendUserFile niet, zet het geluid dan op een privé Artifact-pagina (mp3 in de pagina);
   de eigenaar luistert op zijn telefoon. Bij stem/muziek liefst alleen geluid, zonder beeld.
 - De eigenaar geeft altijd toestemming voor PowerShell-opdrachten op de pc; vraag wel altijd eerst als iets geld kost.
+- **Zonder Claude (in test)**: lokale modellen via Ollama, `tools/scriptgen/generator.py`, `tools/beeldcheck.py` (dubbele beeldcontrole), `tools/routine_lokaal.py`. Zie `stories/OVERDRACHT-AUDIO.md`, "Zonder Claude".
 - Lange ketens (stem + montage ± 12 uur) als los proces starten (`Start-Process`), niet als achtergrondtaak (die stopt na 2 uur).
 
 - **"script vooruit"**, "schrijf het volgende script" of "scriptgenerator" → `stories/PROMPT-SCRIPT-PC.md`: één recept voor scriptgenerator, tweede account en routine (eerst oude scripts ombouwen, dan nieuwe schrijven).
