@@ -175,15 +175,16 @@ def vlm_cijfer(p):
         return 0
 
 
-def maak_video(m, datum):
+def maak_video(m, datum, test=False):
     plan_t = planning(m)[0]
     if "nieuwe opbouw" not in planning(m)[2] and not (m / "src-feiten" / "begin.txt").exists():
         import generator
         if not generator.maak(m, test=True):
             raise RuntimeError("script ombouwen mislukt")
         plan_t = planning(m)[0]
-    zet_status(m, f"bezig ({datetime.date.today()}, routine-lokaal)")
-    git_push([m], f"{m.name}: bezig (routine-lokaal) voor {datum}")
+    if not test:
+        zet_status(m, f"bezig ({datetime.date.today()}, routine-lokaal)")
+        git_push([m], f"{m.name}: bezig (routine-lokaal) voor {datum}")
 
     if not comfy_aan():
         raise RuntimeError("ComfyUI start niet")
@@ -196,6 +197,9 @@ def maak_video(m, datum):
     thumb = thumbnail(m, plan_t)
     if not thumb:
         raise RuntimeError("geen goede thumbnail")
+    if test:                                                # --test-tot-beelden: hier stoppen, niets online
+        log(f"{m.name}: TEST tot en met beelden en thumbnail GOED ({thumb.name})")
+        return
 
     for cmd, goed in (([OMNI, str(HIER / "b1_check.py")], "B1 GOED"),
                       ([sys.executable, str(HIER / "check_afwisseling.py"), str(m)], "AFWISSELING GOED")):
@@ -228,6 +232,14 @@ def maak_video(m, datum):
 
 
 if __name__ == "__main__":
+    if "--test-tot-beelden" in sys.argv:                    # proef: één map, alleen beelden + controle + thumbnail
+        m = Path(sys.argv[sys.argv.index("--test-tot-beelden") + 1]).resolve()
+        try:
+            maak_video(m, planning(m)[1], test=True)
+        except Exception as e:
+            log(f"{m.name}: TEST GESTOPT ({e})")
+            sys.exit(1)
+        sys.exit(0)
     run(["git", "checkout", "-q", "main"])
     run(["git", "pull", "-q"])
     m, datum = kies(alleen_kijken="--plan" in sys.argv)
