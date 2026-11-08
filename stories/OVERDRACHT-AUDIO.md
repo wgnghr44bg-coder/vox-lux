@@ -1,39 +1,40 @@
-# Overdracht (7 nov 2026, nacht) – nieuwe stem, muziek en opbouw
+# Overdracht (8 nov 2026, middag) – stem, muziek, opbouw en stand van de video's
 
-Lees eerst CLAUDE.md, audio_engine/README.md en stories/PROMPT-ROUTINE-PC.md. Praat Nederlands, simpel. Alles gratis/lokaal.
+Lees eerst CLAUDE.md, audio_engine/README.md, stories/OPBOUW.md en stories/PROMPT-ROUTINE-PC.md.
+Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst als iets geld kost.
 
-## Besluiten van de eigenaar (6-7 nov 2026)
-- **Muziek: klaar en goed** ("de achtergrond muziek is perfect"): Audio Engine-preset `referentie` (zacht koor/strijkers,
-  432 Hz, elke 7 s een ander akkoord, geen regen), in de videostraat via `tools/engine_muziek.py <map>`.
-- **Opbouw** zoals Sleepy History: ± 90 losse feitjes (kopzin + ± 200 woorden), **geen intro** (meteen eerste feitje,
-  geen "Tonight..."), **geen Sleep Archives-begin/-einde** (`"intro": False, "slot": False` in maak_motion.py),
-  kort slot (± 30 s, per video anders, met volgende-video-zin, abonneren, "Sleep well, and good night.").
-- **Titels**: vraag-titels zonder uren, bv. "What Was Life Really Like in Tombstone? | History for Sleep".
-- **Stem: NOG NIET GEKOZEN.** Eigenaar wil: rustiger en warmer, "dat je echt van in slaap valt", zoals de opdracht
-  (Britse man 60-70, diep, warm, borstklank, licht hees/ademend, kalm). Afgewezen: professor-1..4, verteller-1..4
-  (audio_engine/voices/), narrator-c/d. Laatst gestuurd: stem B (narrator-b) nog rustiger, 111 en 104 woorden/min
-  (speed 0.54 + rubberband tempo 0.85/0.80 + warme EQ `lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,
-  acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5`). Daarna vroeg hij: "compleet andere Britse
-  stemmen die lijken op de video" (Sleepy History, https://youtu.be/Ah58uaESJzc: ± 99 Hz, helderheid ± 1000 Hz,
-  ± 130 woorden/min). Plan: veel OmniVoice-ontwerpen (male, middle-aged/elderly, low/moderate pitch, british accent,
-  nieuwe seeds) meten op toonhoogte/helderheid/melodie/tempo (scratchpad-script stond in verteller_zoek.py), beste 4
-  als proef met het koor sturen (zelfde stukje WW2: tweede feitje over de verduistering). **Niet** iemands stem klonen.
-- Zet de gekozen stem daarna in `stories/<map>/stem.json` (engine_voice, speed, klank) en in PROMPT-ROUTINE-PC.md.
+## Vast besloten door de eigenaar (7-8 nov 2026)
+- **"B1-stem met achtergrondmuziek"** (kort B1) staat in `stories/<map>/stem.json` (kopie van stories/ww2-facts/stem.json):
+  - **Stem**: `narrator-e` (audio_engine/voices/narrator-e, OmniVoice "male, elderly, moderate pitch, british accent",
+    seed 27; ontworpen, niemand gekloond), speed 0.54, pauze 1.4, warme klank (EQ in "klank").
+    **Niets aan de stem zelf veranderen** (eigenaar 8 nov: "anders is het meteen een robot"): geen rubberband/tempo,
+    geen toonhoogte. Rustiger kan alleen met langere pauzes; een lagere OmniVoice-speed maakt deze stem niet trager.
+    De rustigere versie (tempo 0.92) is beluisterd en afgewezen: "B1 zoals hij was".
+  - **Muziek W3** "diep en donker-warm" (eigenaar 8 nov): "muziek" in stem.json (chord_len 6, fade 3, drone 1.3,
+    strings 0.6, choir 0.2, atmosphere 0.3, reverb 0.55/6, lowpass 700, highpass 40), muziek_seed 1939,
+    muziek_onder 11 (11 LUFS onder de stem). tools/engine_muziek.py leest dit uit stem.json.
+- **Opbouw** volgens stories/OPBOUW.md: begin van ± 2 min zonder "Tonight"/"Hello" (opening in de jij-vorm, grote vraag,
+  zachte abonneer-zin, reactievraag, settle in), 8-13 onderwerpen (TOPIC + BRIDGE) met feitjes, slot dat uitdooft.
+  Script bouwen met tools/bouw_feiten.py (via bouw_script.py). Soort opening en titel afwisselen.
+- **Titels**: vraag-titels zonder uren. **Thumbnails: nooit uren** (WW2 had nog "2+ Hours", vervangen door thumbnail-v4).
+- Het tweede account schrijft scripts meteen in de nieuwe opbouw (stories/PROMPT-SCRIPT-VOORUIT.md).
+
+## Gereedschap (verbeterd 7-8 nov)
+- `tools/engine_stem.py <map>`: afgekapte zinnen (OmniVoice kapt in een groepje van 4 soms een zin af) worden
+  automatisch los opnieuw ingesproken. `--hergebruik --opnieuw 8,46,60 --seed-extra 3000` spreekt de zinnen die
+  check_stem_tekst meldt opnieuw in (beter dan herstel_zinnen.py als de goede zin niet in het gat past).
+- Keten zoals bij WW2: engine_stem -> prep_engine.sh (tekstcontrole) -> zo nodig --opnieuw en opnieuw prep (max 3x)
+  -> montage_engine.sh. Een video van ± 2u45 kost ± 12 uur (motion ± 5 uur, 16mm ± 1 uur). Draai lange ketens als los
+  proces (Start-Process), niet als achtergrondtaak (die stopt na 2 uur).
 
 ## Stand van de video's
-- **WW2 Facts (za 7 nov 21:00)**: de OUDE versie hVg9nrutQVI (Slaap 3) gaat vanavond online. Nieuwe versie niet af.
-- **Tombstone (wo 11 nov, privé 4RjjJh-j5a0)**: omgeschreven naar 90 feitjes (src-feiten/, bouw_script.py,
-  maak_motion.py, beschrijving zonder regen). Nog te doen: stem (na de stemkeuze), dan
-  `tools/prep_engine.sh`, herstel_zinnen, `tools/montage_engine.sh tombstone-1881 "<titel>" thumbnail-gekozen.jpg`,
-  upload privé (publishAt 2026-11-11T20:00:00Z, playlist mysterie), kanaal Sleep Archives controleren,
-  `tools/wacht_verwerkt.py`, dan pas de oude privéversie verwijderen.
-- **Egypte (za 14 nov, privé ctC36HRFIac)**: src-feiten/deel1.txt klaar (feitjes 1-31 bij beelden 001-031).
-  Nog schrijven: deel2/deel3 (feitjes 32-92, één per beeld 032-092, zie afbeeldingen-onderwerpen.tsv), dan
-  bouw_script.py en maak_motion.py ombouwen zoals bij tombstone-1881, beschrijving zonder regen.
-- **Gettysburg (wo 18) en volgende**: de routine bouwt elk script zelf om (staat in het voorschrift).
-
-## Gereedschap
-- Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/engine_stem.py stories/<map> [--hergebruik]`
-- Montage: `REPO=... bash tools/prep_engine.sh <map>` en `bash tools/montage_engine.sh <map> "<titel>" <thumbnail>`
-- Video bekijken/beluisteren: `.../python.exe tools/kijk_video.py <youtube-link>`
-- Proeven: audio_engine (narrate, generate, mix); interface: audio_engine/start_audio_engine.bat
+- **WW2 (nieuwe versie)**: https://youtu.be/ZZ5JMtF9kuI, **openbaar** sinds 8 nov (eigenaar: "Hij mag wel online"),
+  2:42:37, B1 + W3, nieuwe opbouw, thumbnail-v4. Oude versie hVg9nrutQVI verwijderd. Bestanden op de pc opgeruimd.
+- **Tombstone (wo 11 nov 21:00)**: keten loopt sinds 8 nov 11:10 (stem -> controles -> montage). Daarna: privé uploaden
+  met publishAt 2026-11-11T20:00:00Z, titel "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
+  thumbnail-gekozen.jpg, playlist zoals in planning.txt, kanaal controleren, tools/wacht_verwerkt.py, dan pas de oude
+  privéversie 4RjjJh-j5a0 verwijderen (OK van de eigenaar) en de grote bestanden opruimen.
+- **Egypte (za 14 nov 21:00)**: script klaar in de nieuwe opbouw (92 feitjes, 13 onderwerpen). Daarna zelfde keten,
+  titel "What Did People Actually Do When Tutankhamun Was King? | History for Sleep", thumbnail-gekozen.jpg,
+  oude privéversie ctC36HRFIac pas na verwerking verwijderen.
+- **Gettysburg (wo 18 nov) en verder**: de routine volgt PROMPT-ROUTINE-PC.md (B1 + W3 + OPBOUW.md).
