@@ -10,9 +10,9 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
     **Niets aan de stem zelf veranderen** (eigenaar 8 nov: "anders is het meteen een robot"): geen rubberband/tempo,
     geen toonhoogte. Rustiger kan alleen met langere pauzes; een lagere OmniVoice-speed maakt deze stem niet trager.
     De rustigere versie (tempo 0.92) is beluisterd en afgewezen: "B1 zoals hij was".
-  - **Muziek W3** "diep en donker-warm" (eigenaar 8 nov): "muziek" in stem.json (chord_len 6, fade 3, drone 1.3,
+  - **Muziek W3** "diep en donker-warm" (eigenaar 8 nov): "muziek" in B1.json (chord_len 6, fade 3, drone 1.3,
     strings 0.6, choir 0.2, atmosphere 0.3, reverb 0.55/6, lowpass 700, highpass 40), muziek_seed 1939,
-    muziek_onder 11 (11 LUFS onder de stem). tools/engine_muziek.py leest dit uit stem.json.
+    muziek_onder 11 (11 LUFS onder de stem). tools/engine_muziek.py leest dit via tools/b1.py.
 - **Opbouw** volgens stories/OPBOUW.md: begin van ± 2 min zonder "Tonight"/"Hello" (opening in de jij-vorm, grote vraag,
   zachte abonneer-zin, reactievraag, settle in), 8-13 onderwerpen (TOPIC + BRIDGE) met feitjes, slot dat uitdooft.
   Script bouwen met tools/bouw_feiten.py (via bouw_script.py). Soort opening en titel afwisselen.
