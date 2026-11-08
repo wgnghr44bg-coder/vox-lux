@@ -19,8 +19,10 @@ KLANK = "lowpass=f=3800,highshelf=f=2200:g=-6,volume=0.4dB"
 
 
 def klank_voor(story):
-    sj = Path(story) / "stem.json"
-    return json.loads(sj.read_text(encoding="utf-8")).get("klank", KLANK) if sj.exists() else KLANK
+    """Klank van de vaste B1-stem (audio_engine/B1.json via tools/b1.py; eigenaar 8 nov 2026: geen fouten in stem en geluid)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import b1
+    return b1.laad(story)["klank"]
 
 
 if __name__ == "__main__":

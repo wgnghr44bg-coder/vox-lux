@@ -29,7 +29,8 @@ LEAD, SR = 0.8, ov.SR
 STANDAARD = {"engine_voice": "narrator-e", "speed": 0.54, "seed": 7, "pauze": 1.4, "klank": "highpass=f=60"}
 
 m = Path(sys.argv[1])
-inst = {**STANDAARD, **(json.loads((m / "stem.json").read_text(encoding="utf-8")) if (m / "stem.json").exists() else {})}
+import b1                                                  # vaste B1-instellingen (audio_engine/B1.json, eigenaar 8 nov 2026)
+inst = b1.laad(m)
 cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"])
 xv.PAUSE_MS, xv.LONG_PAUSE_MS, xv.SENTENCE_PAUSE_MS = 1500, 2800, 1100
 pieces = xv.split_script((m / "script-cues.txt").read_text(encoding="utf-8"))

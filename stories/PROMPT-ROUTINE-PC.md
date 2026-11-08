@@ -69,6 +69,7 @@ werk alles af.
      enclosed by walls, a plain ceiling of bare wooden planks with one oil lamp". Schrijf nooit "no ceiling fans" of
      "no cars": dan tekent het model ze juist. Afgekeurde beelden naar `<map>/afgekeurd/` en opnieuw maken.
    - **Stem en muziek: Audio Engine** (eigenaar 6 nov 2026; vervangt Slaap 3 en de oude 432-muziek met regen).
+     **Alle stem- en muziekinstellingen staan vast in `audio_engine/B1.json`** (eigenaar 8 nov 2026: "dat er geen fouten kunnen zijn in stem en geluid"); engine_stem, zachte_stem, herstel_zinnen en engine_muziek lezen dat bestand via tools/b1.py. Niets daaraan veranderen zonder de eigenaar; een stem.json die afwijkt wordt genegeerd (WAARSCHUWING), behalve met `"eigenaar_afwijking": "<wat de eigenaar zei>"`.
      **Naam: "B1-stem met achtergrondmuziek" (kort "B1")** (eigenaar 7 nov 2026) = stem `narrator-e` + muziek W3 (diep en donker-warm, de instellingen staan in stem.json bij "muziek").
      **Stem: `narrator-e`** (eigenaar 7 nov 2026, proef B1: "Ik wil deze als standaard stem"): een ontworpen oudere
      Britse man (OmniVoice "male, elderly, moderate pitch, british accent", seed 27; niemand gekloond), rustiger en

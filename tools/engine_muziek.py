@@ -27,18 +27,15 @@ m = Path(sys.argv[1])
 v = m / "video"
 stem = v / "stem-met-pauzes.wav"
 mix = MixConfig()
-VAST_SEED = None
-# "muziek_onder" in stem.json (eigenaar 7 nov 2026: "het geluid van de achtergrond zachter"): LUFS onder de stem
-import json
-_sj = m / "stem.json"
-if _sj.exists():
-    _j = json.loads(_sj.read_text(encoding="utf-8"))
-    mix.music_below_voice_db = float(_j.get("muziek_onder", mix.music_below_voice_db))
-    # "muziek_seed" (eigenaar 7 nov 2026: "de muziek van A0"): elke video dezelfde akkoordenreeks als proef A0 (1939)
-    if "muziek_seed" in _j:
-        VAST_SEED = int(_j["muziek_seed"])
-# "muziek" in stem.json (eigenaar 7 nov 2026, proef W3 "diep en donker-warm, nog dieper"): instellingen bovenop "referentie"
-KLANK = _j.get("muziek", {}) if _sj.exists() else {}
+# Vaste muziek W3 uit audio_engine/B1.json via tools/b1.py (eigenaar 8 nov 2026: geen fouten in stem en geluid):
+# 11 LUFS onder de stem ("muziek_onder"), elke video dezelfde akkoordenreeks ("muziek_seed" 1939), en de W3-klank
+# "diep en donker-warm" ("muziek": instellingen bovenop de stijl "referentie").
+sys.path.insert(0, str(HIER))
+import b1
+_j = b1.laad(m)
+mix.music_below_voice_db = float(_j["muziek_onder"])
+VAST_SEED = int(_j["muziek_seed"])
+KLANK = _j["muziek"]
 dur = sf.info(stem).duration + 60
 seed = VAST_SEED if VAST_SEED is not None else zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
 werk = v / "engine-muziek"

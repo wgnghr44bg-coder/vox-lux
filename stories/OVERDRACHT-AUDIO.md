@@ -4,7 +4,7 @@ Lees eerst CLAUDE.md, audio_engine/README.md, stories/OPBOUW.md en stories/PROMP
 Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst als iets geld kost.
 
 ## Vast besloten door de eigenaar (7-8 nov 2026)
-- **"B1-stem met achtergrondmuziek"** (kort B1) staat in `stories/<map>/stem.json` (kopie van stories/ww2-facts/stem.json):
+- **"B1-stem met achtergrondmuziek"** (kort B1) staat vast in **`audio_engine/B1.json`** (8 nov: één bron, tools/b1.py; een afwijkende stem.json wordt genegeerd met een WAARSCHUWING, behalve met "eigenaar_afwijking"):
   - **Stem**: `narrator-e` (audio_engine/voices/narrator-e, OmniVoice "male, elderly, moderate pitch, british accent",
     seed 27; ontworpen, niemand gekloond), speed 0.54, pauze 1.4, warme klank (EQ in "klank").
     **Niets aan de stem zelf veranderen** (eigenaar 8 nov: "anders is het meteen een robot"): geen rubberband/tempo,

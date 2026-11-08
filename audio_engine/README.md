@@ -3,7 +3,7 @@
 Stem en achtergrondmuziek voor documentaires, Shorts en What If-video's, helemaal op de eigen pc:
 
 De vaste combinatie heet **"B1-stem met achtergrondmuziek"** (kort **B1**, eigenaar 7 nov 2026): stem `narrator-e`
-met de muziekstijl `referentie` eronder.
+met muziek W3 (diep en donker-warm) eronder. **Alle instellingen staan vast in `B1.json`**; de videostraat leest alleen dat bestand (tools/b1.py), zodat stem en geluid altijd hetzelfde zijn.
 
 - **Stem:** OmniVoice op de videokaart (RTX 2080 SUPER). De vaste verteller is **narrator-e**: een oudere Britse man,
   door de eigenaar gekozen op 7 nov 2026 (proef B1), rustiger en warmer dan de vorige (narrator-b). Hij is ontworpen,

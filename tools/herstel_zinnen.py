@@ -41,17 +41,15 @@ import torch
 from omnivoice import OmniVoice
 from transformers import pipeline
 model = OmniVoice.from_pretrained("k2-fsa/OmniVoice", device_map="cuda:0", dtype=torch.float16)
-# stem: Slaap 3, of de Audio Engine-stem uit <map>/stem.json (eigenaar 6 nov 2026)
-REF, SPEED = HIER / "comfy" / "stem" / "slaapstem-3.wav", 0.8
-REF_TEXT = "The evening is quiet now, and the kettle is warming slowly on the stove."
-if (a.story / "stem.json").exists():
-    sj = json.loads((a.story / "stem.json").read_text(encoding="utf-8"))
-    vdir = HIER.parent / "audio_engine" / "voices" / sj.get("engine_voice", "narrator-b")
-    REF, SPEED = vdir / "ref.wav", sj.get("speed", 0.62)
-    REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
+# stem: de vaste B1-stem uit audio_engine/B1.json (tools/b1.py; eigenaar 8 nov 2026: geen fouten in stem en geluid)
+import b1
+sj = b1.laad(a.story)
+vdir = HIER.parent / "audio_engine" / "voices" / sj["engine_voice"]
+REF, SPEED = vdir / "ref.wav", sj["speed"]
+REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
 SPEED = a.speed or SPEED
 KLANK = klank_voor(a.story)
-if (a.story / "stem.json").exists() and float(sj.get("tempo", 1.0)) != 1.0:   # zelfde rustiger tempo als engine_stem.py
+if float(sj.get("tempo", 1.0)) != 1.0:                    # alleen bij een bewuste afwijking van de eigenaar
     KLANK = f"rubberband=tempo={float(sj['tempo'])}:pitchq=quality:window=long," + KLANK
 prompt = model.create_voice_clone_prompt(ref_audio=str(REF), ref_text=REF_TEXT)
 asr = pipeline("automatic-speech-recognition", "openai/whisper-large-v3-turbo", device="cuda:0", torch_dtype=torch.float16)
