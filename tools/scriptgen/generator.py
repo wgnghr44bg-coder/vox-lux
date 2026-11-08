@@ -363,7 +363,7 @@ def maak(m, test=False):
     if not test:
         subprocess.run(["git", "add", str(m.relative_to(REPO)), "stories/ROUTINE-LOG.md"], cwd=REPO)
         subprocess.run(["git", "commit", "-q", "-m", f"{m.name}: omgebouwd naar de nieuwe opbouw (scriptgenerator lokaal)"], cwd=REPO)
-        subprocess.run(["git", "pull", "-q", "--rebase"], cwd=REPO)
+        subprocess.run(["git", "pull", "-q", "--rebase", "--autostash"], cwd=REPO)
         subprocess.run(["git", "push", "-q", "origin", "main"], cwd=REPO)
     return True
 

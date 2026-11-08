@@ -44,7 +44,7 @@ def run(cmd, **kw):
 def git_push(paden, boodschap):
     run(["git", "add"] + [str(p) for p in paden])
     run(["git", "commit", "-q", "-m", boodschap])
-    run(["git", "pull", "-q", "--rebase"])
+    run(["git", "pull", "-q", "--rebase", "--autostash"])
     run(["git", "push", "-q", "origin", "main"])
 
 

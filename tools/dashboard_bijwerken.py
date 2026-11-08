@@ -307,5 +307,5 @@ if "--niet-pushen" not in sys.argv:
     g("add", str(DOCS))
     if g("diff", "--cached", "--quiet").returncode:
         g("commit", "-q", "-m", f"dashboard {data['bijgewerkt']}")
-        g("pull", "-q", "--rebase")
+        g("pull", "-q", "--rebase", "--autostash")
         g("push", "-q", "origin", "main")

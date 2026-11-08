@@ -102,6 +102,6 @@ subprocess.run(["git", "add", str(m / "planning.txt"), str(m / "youtube-beschrij
                cwd=HIER.parent)
 subprocess.run(["git", "commit", "-q", "-m", f"{m.name}: nieuwe versie {nieuw} geüpload, oude verwijderd\n\n"
                 "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"], cwd=HIER.parent)
-subprocess.run(["git", "pull", "-q", "--rebase"], cwd=HIER.parent)
+subprocess.run(["git", "pull", "-q", "--rebase", "--autostash"], cwd=HIER.parent)
 subprocess.run(["git", "push", "-q", "origin", "main"], cwd=HIER.parent)
 log(m, "KLAAR")
