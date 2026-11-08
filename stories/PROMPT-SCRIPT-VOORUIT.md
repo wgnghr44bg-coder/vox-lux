@@ -36,6 +36,7 @@ Een nieuwe map `stories/<korte-naam>/` (bv. `stories/gettysburg-1863/`), precies
    - **Spanning alleen waar het verhaal zelf spannend is**, en dan rustig. Geen gruwelijke details, geen schrikmomenten.
 2. **`bouw_script.py`**: kopie van `stories/egypte-toetanchamon/bouw_script.py` (roept `tools/bouw_feiten.py` aan).
    Draai hem: hij maakt `script-cues.txt` en `hoofdstukken.tsv` en meldt feitjes, onderwerpen en woorden.
+   Daarna `python tools/check_afwisseling.py stories/<map>`: moet AFWISSELING GOED geven (niet alles hetzelfde laten klinken).
 3. **`afbeeldingen-onderwerpen.tsv`**: per feitje `NNN.png<TAB><slug><TAB><Engelse beeldprompt>` (001, 002, …).
    Alleen wat in die tijd bestond, mensen in kleding van toen, liefst avondlicht. Geen tekst in beeld.
    Beschrijf wat er wél is; schrijf nooit "no cars" (dan tekent het model ze juist).

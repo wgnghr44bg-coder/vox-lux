@@ -50,6 +50,14 @@ In deze volgorde:
 - Als laatste: "Sleep well, and good night."
 
 ## Afwisseling (zodat het niet eentonig wordt)
+**Eigenaar 8 nov 2026: "zorgen dat de opbouw goed blijft maar niet alles hetzelfde klinkt".** De opbouw is altijd gelijk,
+de woorden nooit. Schrijf de abonneer-zin, de reactievraag, settle in, de overgangszinnen en het slot **elke video
+helemaal opnieuw** (andere zinsbouw en andere beelden, niet alleen één woord anders: dus niet steeds "If you enjoy these
+… journeys into the past", "But only if this story earns it", "There is nothing left to follow"). Alleen "Sleep well,
+and good night." blijft altijd hetzelfde.
+**Verplicht vóór een script klaar is**: `python tools/check_afwisseling.py stories/<map>` moet `AFWISSELING GOED`
+geven (vergelijkt begin, slot en overgangszinnen met alle andere video's, en opening/titelsoort met de vorige video).
+
 Kijk naar de laatste 3 video's (planning.txt, regel `opening` en `titelsoort`) en kies een **andere** soort
 opening en titel. Wissel ook het soort onderwerp (dagelijks leven, ramp/mysterie, persoon, plek, oorlog), het aantal
 onderwerpen en het slotbeeld. Zet in planning.txt:

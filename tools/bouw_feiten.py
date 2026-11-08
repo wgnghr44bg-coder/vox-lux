@@ -57,6 +57,23 @@ for p in delen:
         wacht_topic = wacht_bridge = None
         out += [head, "[pause]", body, "[long-pause]"]
 out += alineas(src / "slot.txt")
+
+# Beeldprompts voor comfy (tools/comfy/comfy_batch.py leest prompts.txt): alleen als er src/stijl.txt is (de vaste
+# stijlzin voor dit onderwerp, bv. "A scene from Gettysburg in 1863 ... no text, no letters"). Bestaande video's
+# (ww2-facts, tombstone, egypte) hebben hun beelden al en geen stijl.txt: daar verandert niets.
+if (src / "stijl.txt").exists():
+    stijl = " ".join((src / "stijl.txt").read_text(encoding="utf-8").split())
+    beelden = []
+    for p in delen:
+        for blk in p.read_text(encoding="utf-8").split("\n===\n"):
+            im = re.search(r"^IMG:\s*(.+?)\s*\|\s*(.+)$", blk.strip(), re.M)
+            if im:
+                beelden.append((re.sub(r"[^a-z0-9-]", "", im.group(1).lower().replace(" ", "-")), im.group(2).strip()))
+    (d / "prompts.txt").write_text(f"# {d.name} - Z-Image Turbo, 1280x720\n" + "".join(
+        f"{i:03d}|{b}, {stijl}\n" for i, (s, b) in enumerate(beelden, 1)), encoding="utf-8")
+    (d / "afbeeldingen-onderwerpen.tsv").write_text("file\tslug\tprompt\n" + "".join(
+        f"{i:03d}.png\t{s}\t{b}\n" for i, (s, b) in enumerate(beelden, 1)), encoding="utf-8")
+    print(f"prompts.txt + afbeeldingen-onderwerpen.tsv: {len(beelden)} beelden")
 (d / "script-cues.txt").write_text("\n\n".join(out) + "\n", encoding="utf-8")
 (d / "hoofdstukken.tsv").write_text("".join(f"{t}\t{s}\n" for t, s in hoofdstukken), encoding="utf-8")
 txt = (d / "script-cues.txt").read_text(encoding="utf-8")
