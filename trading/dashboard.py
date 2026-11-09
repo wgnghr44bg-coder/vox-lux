@@ -55,7 +55,7 @@ const getal=v=>Number(v).toLocaleString('nl-NL',{maximumSignificantDigits:6});
 const tijd=t=>new Date(t).toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function zin(l){const m=esc(l.markt||'');switch(l.soort){
- case 'start':return `Bot gestart (${esc(l.stand)})`;
+ case 'start':return `Bot gestart (${esc(l.stand)}${l.strategie?', strategie '+esc(l.strategie==='smc'?'smart money':l.strategie):''})`;
  case 'gekocht':return `<b>Gekocht</b> ${m} voor ${geld(l.eur)} à ${getal(l.prijs)} <span class=klein>(stop ${getal(l.stop)}, doel ${getal(l.doel)})</span>`;
  case 'doel bereikt':return `<b class=plus>Verkocht met winst</b> ${m} à ${getal(l.verkocht)} (${l.R>0?'+':''}${l.R}R)`;
  case 'stop geraakt':return `<b class=min>Stop-loss geraakt</b> ${m} à ${getal(l.stop)} (${l.R}R)`;

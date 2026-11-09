@@ -3,6 +3,7 @@
   python backtest.py BTC-EUR                    # ±5000 uur-candles van Bitvavo (geen sleutel nodig)
   python backtest.py ETH-EUR --kosten-pct 0.15  # andere kosten per order
   python backtest.py BTC-EUR --csv koersen.csv  # of uit een csv met kolommen tijd,o,h,l,c
+  python backtest.py BTC-EUR --vergelijk        # smart money én trend naast elkaar
 Alleen koopsignalen, 0,25% kosten per aan- en verkoop meegerekend.
 
 Uitkomst in R: 1R = het bedrag dat je per trade riskeert (standaard 0,5% van je saldo).
@@ -18,8 +19,8 @@ MAP = os.path.dirname(os.path.abspath(__file__))
 
 
 def simuleer(candles, inst_cfg=None, spread=0.0, alleen_koop=False, kosten_pct=0.0):
-    p = {**strategie.STANDAARD, **(inst_cfg or {})}
-    start = p["trend"] + 2
+    soort, p = strategie.kies(inst_cfg)
+    start = 210 if soort == "smc" else p.get("trend", 200) + 2
     trades, i = [], start
     while i < len(candles):
         sig = strategie.signaal(candles[:i], p)
@@ -80,6 +81,7 @@ def main():
     ap.add_argument("instrument")
     ap.add_argument("--csv")
     ap.add_argument("--kosten-pct", type=float, default=0.25, help="kosten per order in %%")
+    ap.add_argument("--vergelijk", action="store_true", help="beide strategieën testen")
     a = ap.parse_args()
     with open(os.path.join(MAP, "instellingen_bitvavo.json")) as f:
         cfg = json.load(f)
@@ -88,10 +90,13 @@ def main():
     else:
         from bitvavo import Publiek
         candles = Publiek().candles(a.instrument, cfg["interval"], 5000)
-    trades = simuleer(candles, cfg["strategie"], alleen_koop=True, kosten_pct=a.kosten_pct)
-    print(f"{a.instrument}: {len(candles)} candles")
-    for k, v in rapport(trades, cfg["risico"]["risico_per_trade_pct"]).items():
-        print(f"  {k}: {v}")
+    print(f"{a.instrument}: {len(candles)} candles ({cfg['interval']})")
+    soorten = ["smc", "trend"] if a.vergelijk else [cfg["strategie"].get("soort", "trend")]
+    for soort in soorten:
+        trades = simuleer(candles, {**cfg["strategie"], "soort": soort}, alleen_koop=True, kosten_pct=a.kosten_pct)
+        print(f"\nStrategie {soort}:")
+        for k, v in rapport(trades, cfg["risico"]["risico_per_trade_pct"]).items():
+            print(f"  {k}: {v}")
 
 
 if __name__ == "__main__":

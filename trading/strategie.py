@@ -1,4 +1,6 @@
-"""Strategie: trendvolger met twee voortschrijdende gemiddelden (EMA) en ATR-stop.
+"""Strategieën. Kies in instellingen_bitvavo.json met "soort": "trend" (hieronder) of "smc" (zie smc.py).
+
+Trend: trendvolger met twee voortschrijdende gemiddelden (EMA) en ATR-stop.
 
 - Koopsignaal: snelle EMA kruist boven de langzame EMA én de koers ligt boven de trend-EMA.
 - Verkoopsignaal: andersom.
@@ -38,12 +40,29 @@ def atr(candles, periode=14):
 STANDAARD = {"snel": 20, "langzaam": 50, "trend": 200, "atr": 14, "stop_atr": 1.5, "doel_atr": 3.0}
 
 
+def kies(inst):
+    """{'soort': 'smc', 'smc': {...}, 'trend': {...}} -> (soort, instellingen van die soort)."""
+    inst = inst or {}
+    soort = inst.get("soort", "trend")
+    eigen = inst.get(soort)
+    return soort, {**(eigen if isinstance(eigen, dict) else inst), "soort": soort}
+
+
 def signaal(candles, inst=None):
+    soort, p = kies(inst)
+    if soort == "smc":
+        import smc
+        return smc.signaal(candles, p)
+    return trend_signaal(candles, p)
+
+
+def trend_signaal(candles, inst=None):
     """Kijkt naar de laatste afgesloten candle.
 
     Geeft None of dict: richting ('koop'/'verkoop'), instap, stop, doel, atr.
     """
     p = {**STANDAARD, **(inst or {})}
+    candles = candles[-max(600, p["trend"] * 3):]
     if len(candles) < p["trend"] + 2:
         return None
     sluit = [c["c"] for c in candles]

@@ -8,7 +8,8 @@ Geen garantie op winst: test eerst wekenlang in de oefenstand.
 |---|---|
 | `bitvavo_bot.py` | De bot: kijkt elke minuut, handelt BTC, ETH en SOL in euro's. |
 | `bitvavo.py` | Koppeling met Bitvavo, plus de **oefenstand** (nepgeld €1000, geen sleutel nodig). |
-| `strategie.py` | Trendvolger: EMA 20/50-kruising omhoog, alleen boven de EMA 200; stop 2×ATR, doel 4×ATR. |
+| `smc.py` | Strategie **smart money** (standaard): toppen/bodems, BOS en CHoCH, kopen in de vraagzone, boven SMA 200. |
+| `strategie.py` | Strategie **trend**: EMA 20/50-kruising omhoog boven de EMA 200; stop 2×ATR, doel 4×ATR. |
 | `risico.py` | Max 0,5% risico per trade, stopt na 2% dagverlies, max 3 posities, noodstop. |
 | `backtest.py` | Test de strategie op oude koersen (kosten 0,25% per order meegerekend). |
 | `dashboard.py` | Webpagina: saldo, open posities, logboek, noodstop, "alles verkopen". |
@@ -19,12 +20,26 @@ Geen garantie op winst: test eerst wekenlang in de oefenstand.
 - Na elke aankoop zet de bot meteen een **stop-loss-order op Bitvavo zelf**: die werkt ook als je pc uit staat.
 - Het koersdoel bewaakt de bot zelf; staat de pc uit, dan wordt er niet op het doel verkocht (de stop blijft wel staan).
 
+## Strategie kiezen
+In `instellingen_bitvavo.json` bij `"strategie"`: `"soort": "smc"` (smart money) of `"soort": "trend"`.
+
+**Smart money** werkt zo:
+1. De bot zoekt toppen en bodems (5 candles links en rechts).
+2. Slot boven de laatste top = breuk omhoog: **CHoCH** als de trend omlaag was (wending), anders **BOS**.
+3. Bij die breuk onthoudt hij de **vraagzone**: de candle met de laagste bodem vóór de breuk.
+4. Hij **koopt** als de trend omhoog is, de koers boven de **SMA 200** staat en de koers terugzakt in de zone
+   maar erboven sluit. Elke zone één keer. (`"sma_kruis": true` = ook SMA 20 boven SMA 50 eisen.)
+5. Stop-loss net onder de zone, doel 2,5× het risico. Ligt de stop minder dan 1,5% weg, dan koopt hij niet:
+   anders eten de kosten (2× 0,25%) de winst op.
+
+Gebruik geen 1-minuut-candles: de bewegingen zijn dan kleiner dan de kosten. `"interval": "1h"` of `"4h"`.
+
 ## Stap 1: backtest en oefenstand (geen sleutel nodig)
 ```powershell
 cd vox-lux\trading
 pip install requests
-python backtest.py BTC-EUR
-python backtest.py ETH-EUR
+python backtest.py BTC-EUR --vergelijk      # smart money en trend naast elkaar
+python backtest.py ETH-EUR --vergelijk
 .\start.ps1                      # bot + dashboard op http://localhost:8788
 ```
 Het nepgeld staat in `data\papier_bitvavo.json` (verwijderen = opnieuw beginnen met €1000).

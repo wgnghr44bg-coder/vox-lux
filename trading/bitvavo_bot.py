@@ -141,6 +141,10 @@ def ronde(api, cfg, laatste_candle, infos=None):
             continue
         instap = koop["prijs"]
         stop, doel = instap - afstand_stop, instap + afstand_doel
+        if stop >= koersen[m]["bid"]:
+            log("overgeslagen", markt=m, reden="koers al onder de stop")
+            api.verkoop_markt(m, koop["aantal"], hoeveelheid_decimalen(infos[m]))
+            continue
         base = m.split("-")[0]
         aantal = min(koop["aantal"], api.saldi().get(base, (0, 0))[0])
         try:
@@ -170,7 +174,8 @@ def main():
     a = ap.parse_args()
     cfg = laad_instellingen()
     api = maak_api(a.echt_geld, cfg)
-    log("start", stand="ECHT GELD" if a.echt_geld else "oefenstand", markten=cfg["markten"])
+    log("start", stand="ECHT GELD" if a.echt_geld else "oefenstand", markten=cfg["markten"],
+        strategie=cfg["strategie"].get("soort", "trend"))
     laatste, infos, fouten = {}, {}, 0
     while True:
         try:

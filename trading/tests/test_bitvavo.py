@@ -45,6 +45,7 @@ def omgeving(tmp_path, monkeypatch):
     api = NepPapier(c[:eind], str(tmp_path / "papier.json"))
     cfg = json.load(open(os.path.join(os.path.dirname(bitvavo_bot.__file__), "instellingen_bitvavo.json")))
     cfg["markten"] = ["BTC-EUR"]
+    cfg["strategie"] = {"soort": "trend", "trend": {**cfg["strategie"]["trend"]}}
     return api, cfg, tmp_path
 
 
