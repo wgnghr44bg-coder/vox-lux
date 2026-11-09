@@ -26,3 +26,4 @@
 - 2026-11-09 tweede account: scott-antarctica-1912 omgebouwd (nieuwe opbouw, opening raadsel, titel how-survive): 91 feitjes, 13 onderwerpen, 16.014 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
 - 2026-11-09 tweede account: pearl-harbor-1941 omgebouwd (nieuwe opbouw, opening scène, titel life-really-like): 88 feitjes, 13 onderwerpen, 16.123 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
 - 2026-11-09 tweede account: rome-44-vc omgebouwd (nieuwe opbouw, opening mythe, titel what-actually): 88 feitjes, 13 onderwerpen, 16.190 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
+- 2026-11-09 tweede account: zwarte-dood-1348 omgebouwd (nieuwe opbouw, opening voorwerp, titel how-survive): 86 feitjes, 13 onderwerpen, 16.059 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts). Let op: thumbnailbeeld met snavelmasker hoort bij de 17e eeuw, niet bij 1348.
