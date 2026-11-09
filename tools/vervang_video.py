@@ -98,10 +98,7 @@ plan = re.sub(r"^link .*$", regel.replace("\\", "/"), plan, count=1, flags=re.M)
     else plan.rstrip() + "\n" + regel + "\n"
 plan = re.sub(r"^status .*$", "status   klaar", plan, count=1, flags=re.M)
 (m / "planning.txt").write_text(plan, encoding="utf-8")
-subprocess.run(["git", "add", str(m / "planning.txt"), str(m / "youtube-beschrijving.txt"), "stories/ROUTINE-LOG.md"],
-               cwd=HIER.parent)
-subprocess.run(["git", "commit", "-q", "-m", f"{m.name}: nieuwe versie {nieuw} geüpload, oude verwijderd\n\n"
-                "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"], cwd=HIER.parent)
-subprocess.run(["git", "pull", "-q", "--rebase", "--autostash"], cwd=HIER.parent)
-subprocess.run(["git", "push", "-q", "origin", "main"], cwd=HIER.parent)
+from gitveilig import bewaar                                # via de wachtrij: geen botsing met de website-update
+bewaar([m / "planning.txt", m / "youtube-beschrijving.txt", HIER.parent / "stories" / "ROUTINE-LOG.md"],
+       f"{m.name}: nieuwe versie {nieuw} geüpload" + (", oude verwijderd" if a.oud else ""))
 log(m, "KLAAR")

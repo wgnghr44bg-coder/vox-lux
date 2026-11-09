@@ -6,8 +6,9 @@ Set-Location 'C:\Users\rane\Documents\vox-lux-routine'
 $env:PYTHONUTF8 = 1
 function Stap($t) { "=== $(Get-Date -Format 'yyyy-MM-dd HH:mm') $t" }
 function Klaar($f, $p) { (Test-Path $f) -and (Select-String $f -Pattern $p -Quiet -Encoding unicode -ErrorAction SilentlyContinue) -or (Select-String $f -Pattern $p -Quiet -ErrorAction SilentlyContinue) }
-Stap 'wachten op Egypte en Tombstone'
-while (-not ((Klaar 'C:\Users\rane\testvolgorde.log' 'ALLES KLAAR|gestopt|NIET GOED, niet') -and (Klaar 'C:\Users\rane\tombstone-herstel.log' '=== .* KLAAR'))) { Start-Sleep 300 }
+Stap 'wachten tot Tombstone klaar is en er genoeg geheugen vrij is (eigenaar: zo snel mogelijk testen)'
+function Vrij { (Get-CimInstance Win32_OperatingSystem).FreeVirtualMemory / 1MB }
+while (-not ((Klaar 'C:\Users\rane\tombstone-herstel.log' '=== .* KLAAR') -and (Vrij) -ge 9)) { Start-Sleep 300 }
 Stap '1. Gettysburg ombouwen zonder Claude (uit het originele script)'
 if (Test-Path 'stories/gettysburg-1863/afbeeldingen') { Move-Item 'stories/gettysburg-1863/afbeeldingen' "stories/gettysburg-1863/afbeeldingen-vorigetest-$(Get-Date -Format yyyyMMddHHmm)" }
 python tools/scriptgen/generator.py --map stories/gettysburg-1863 --test

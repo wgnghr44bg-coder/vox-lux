@@ -313,10 +313,6 @@ data = {
 DOCS.mkdir(parents=True, exist_ok=True)
 UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
 print("dashboard bijgewerkt:", data["bijgewerkt"], "| stap:", stap, actief, proc, "| nu:", ", ".join(d["naam"] for d in draait) or "niets")
-if "--niet-pushen" not in sys.argv:
-    g = lambda *a: subprocess.run(["git", *a], cwd=REPO, capture_output=True, text=True)
-    g("add", str(DOCS))
-    if g("diff", "--cached", "--quiet").returncode:
-        g("commit", "-q", "-m", f"dashboard {data['bijgewerkt']}")
-        g("pull", "-q", "--rebase", "--autostash")
-        g("push", "-q", "origin", "main")
+if "--niet-pushen" not in sys.argv:                          # via de wachtrij (tools/gitveilig.py), geen botsingen
+    from gitveilig import bewaar
+    bewaar([DOCS], f"dashboard {data['bijgewerkt']}")

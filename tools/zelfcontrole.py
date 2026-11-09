@@ -78,7 +78,8 @@ def licht():
             p.append(punt(f"Taak '{naam.replace('Sleep Archives ', '')}'", False, "niet gevonden"))
     # git: vastgelopen rebase veilig oplossen
     rm = REPO / ".git" / "rebase-merge"
-    if rm.exists() and not (rm / "git-rebase-todo").exists() or (rm.exists() and (rm / "git-rebase-todo").read_text().strip() == ""):
+    import time as _t
+    if rm.exists() and _t.time() - rm.stat().st_mtime > 300 and (not (rm / "git-rebase-todo").exists() or (rm / "git-rebase-todo").read_text().strip() == ""):
         auto = rm / "autostash"
         if auto.exists():
             git("stash", "store", "-m", f"autostash bewaard door zelfcontrole {NU:%Y-%m-%d %H:%M}", auto.read_text().strip())
@@ -136,10 +137,8 @@ def zwaar(p):
             pt.write_text(t, encoding="utf-8")
             with open(STORIES / "ROUTINE-LOG.md", "a", encoding="utf-8") as f:
                 f.write(f"- {NU:%Y-%m-%d %H:%M} zelfcontrole: {m.name}: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)\n")
-        git("add", str(pt), str(m / "scriptcheck.json"), "stories/ROUTINE-LOG.md")
-        git("commit", "-q", "-m", f"zelfcontrole: {m.name} {'SCRIPT GOED' if goed else 'SCRIPT FOUT, terug naar ombouwen'}")
-    git("pull", "-q", "--rebase", "--autostash")
-    git("push", "-q", "origin", "main")
+        from gitveilig import bewaar
+        bewaar([pt, m / "scriptcheck.json", STORIES / "ROUTINE-LOG.md"], f"zelfcontrole: {m.name} {'SCRIPT GOED' if goed else 'SCRIPT FOUT, terug naar ombouwen'}")
     STAAT.write_text(json.dumps({"laatst": vandaag, "uitslag": uit}, indent=1, ensure_ascii=False), encoding="utf-8")
     p += uit
 
