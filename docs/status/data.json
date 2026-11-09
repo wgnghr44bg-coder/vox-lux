@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 06:03",
+ "bijgewerkt": "2026-11-09 06:33",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,14 +14,14 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 06:03",
-   "volgende": "2026-11-09 06:33"
+   "laatst": "2026-11-09 06:33",
+   "volgende": "2026-11-09 07:03"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 13,
-  "views_totaal": 2220,
+  "views_totaal": 2267,
   "video_aantal": 14,
   "week": {
    "views": 418,
@@ -58,7 +58,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 8,
+    "views": 10,
     "verwerkt": "processed"
    },
    {
@@ -129,9 +129,9 @@
  "kpi": {
   "geplande": 2,
   "runs": {
-   "goed": 1,
-   "totaal": 2,
-   "procent": 50
+   "goed": 0,
+   "totaal": 1,
+   "procent": 0
   },
   "fouten": 1
  },
@@ -147,17 +147,17 @@
  "stap": 2,
  "huidig": {
   "map": "gettysburg-1863",
-  "titel": "What Happened to Gettysburg After the Battle? | History for Sleep",
+  "titel": "Life in Gettysburg, July 1863 | <N> Hours of History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 55,
-  "detail": "47 van 85 beelden",
+  "voortgang": 88,
+  "detail": "75 van 85 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)",
-   "script schrijven (Claude)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ]
  },
  "nu_bezig": [
@@ -166,17 +166,17 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
   },
   {
-   "naam": "script schrijven (Claude)",
-   "stap": 1
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 3,
-  "geheugen_mb": 4568,
+  "bezig_procent": 26,
+  "geheugen_mb": 5882,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -262,24 +262,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-08 18:17",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel why)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 18:33",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening scène, titel what-happened)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 18:36",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 14 bronnen, 84 stukken",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-08 19:26",
    "tekst": "1. TEST beeldmodel (30 foute + 30 goede beelden)",
    "fout": false,
@@ -288,12 +270,6 @@
   {
    "tijd": "2026-11-08 19:27",
    "tekst": "2a. Tombstone: wachten op montage",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 21:50",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening mythe, titel what-happened)",
    "fout": false,
    "klaar": false
   },
@@ -308,24 +284,6 @@
    "tekst": "2b. TEST generator op Gettysburg (zonder Claude, testmodus)",
    "fout": false,
    "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 21:53",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 15 bronnen, 118 stukken",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 00:22",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 1126 feiten gevonden, 11 onderwerpen",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 05:46",
-   "tekst": "scriptgenerator (lokaal): gettysburg-1863: KLAAR, 85 feitjes, 11 onderwerpen, 15428 woorden, titel 'What Happened to Gettysburg After the Battle?'",
-   "fout": false,
-   "klaar": true
   },
   {
    "tijd": "2026-11-09 05:46",
@@ -578,12 +536,12 @@
    "map": "dallas-1963",
    "datum": "2026-11-21",
    "reserve": false,
-   "titel": "Life in Dallas, November 1963 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, 2026-11-09, routine)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": ""
+   "opening": "voorwerp"
   },
   {
    "map": "druiden",
@@ -677,12 +635,12 @@
    "map": "gettysburg-1863",
    "datum": "2026-11-18",
    "reserve": false,
-   "titel": "What Happened to Gettysburg After the Battle? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, scriptgenerator lokaal qwen3:14b)",
-   "soort": "script nieuw",
+   "titel": "Life in Gettysburg, July 1863 | <N> Hours of History for Sleep",
+   "status": "script-klaar (2026-11-01, tweede account)",
+   "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": "mythe"
+   "opening": ""
   },
   {
    "map": "goudkoorts-1849",
