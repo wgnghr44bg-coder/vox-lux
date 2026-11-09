@@ -1,0 +1,4 @@
+data/
+NOODSTOP
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,7 @@
+{
+  "instrumenten": ["EUR_USD", "GBP_USD", "USD_JPY", "XAU_USD"],
+  "granularity": "H1",
+  "controle_elke_sec": 60,
+  "strategie": {"snel": 20, "langzaam": 50, "trend": 200, "atr": 14, "stop_atr": 1.5, "doel_atr": 3.0},
+  "risico": {"risico_per_trade_pct": 0.5, "max_dagverlies_pct": 2.0, "max_open_trades": 3, "max_units": 100000}
+}
