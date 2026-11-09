@@ -113,7 +113,12 @@ def voortgang(stap, m):
     d = STORIES / m
     try:
         if stap == 1:
-            n = max([int(x) for x in re.findall(r"feitje (\d+):", "\n".join(lees(LOGS["testvolgorde"], 400)))] or [0])
+            # alleen de log die nu loopt (de nieuwste), en alleen na de laatste start van de generator
+            nieuwste = max((LOGS[k] for k in ("testvolgorde", "nachttest") if Path(LOGS[k]).exists()),
+                           key=lambda p: Path(p).stat().st_mtime)
+            tekst = "\n".join(lees(nieuwste, 2000))
+            tekst = tekst[tekst.rfind(": start ("):] if ": start (" in tekst else tekst
+            n = max([int(x) for x in re.findall(r"feitje (\d+):", tekst)] or [0])
             return min(99, round(100 * n / 90)), f"{n} van ± 90 feitjes"
         if stap == 2:
             totaal = sum(1 for r in (d / "prompts.txt").read_text(encoding="utf-8").splitlines() if "|" in r and not r.startswith("#"))
