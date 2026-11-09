@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 07:33",
+ "bijgewerkt": "2026-11-09 08:03",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 07:33",
-   "volgende": "2026-11-09 08:03"
+   "laatst": "2026-11-09 08:03",
+   "volgende": "2026-11-09 08:33"
   }
  },
  "kanaal": {
@@ -165,8 +165,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 4305,
+  "bezig_procent": 94,
+  "geheugen_mb": 5170,
   "totaal_mb": 8192
  },
  "programmas": [
