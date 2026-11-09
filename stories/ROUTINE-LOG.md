@@ -25,3 +25,4 @@
 - 2026-11-09 10:05 Tombstone en Egypte gepauzeerd tot na de test zonder Claude (eigenaar); oude privé versies uitgesteld naar 16 en 23 nov
 - 2026-11-09 tweede account: scott-antarctica-1912 omgebouwd (nieuwe opbouw, opening raadsel, titel how-survive): 91 feitjes, 13 onderwerpen, 16.014 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
 - 2026-11-09 tweede account: pearl-harbor-1941 omgebouwd (nieuwe opbouw, opening scène, titel life-really-like): 88 feitjes, 13 onderwerpen, 16.123 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
+- 2026-11-09 tweede account: rome-44-vc omgebouwd (nieuwe opbouw, opening mythe, titel what-actually): 88 feitjes, 13 onderwerpen, 16.190 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts)
