@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 06:33",
+ "bijgewerkt": "2026-11-09 07:03",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 06:33",
-   "volgende": "2026-11-09 07:03"
+   "laatst": "2026-11-09 07:03",
+   "volgende": "2026-11-09 07:33"
   }
  },
  "kanaal": {
@@ -152,12 +152,11 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 88,
-  "detail": "75 van 85 beelden",
+  "voortgang": 99,
+  "detail": "85 van 85 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ]
  },
  "nu_bezig": [
@@ -168,15 +167,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 5882,
+  "geheugen_mb": 4988,
   "totaal_mb": 8192
  },
  "programmas": [
