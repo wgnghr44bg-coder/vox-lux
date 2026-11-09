@@ -55,7 +55,9 @@ Daarna in `stories/<map>/`:
 
 **Controles (allemaal verplicht):** ± 85-95 feitjes, ± 16.000-18.000 woorden, "begin ja", "slot ja", en
 `python tools/check_afwisseling.py stories/<map>` = `AFWISSELING GOED` (anders de gemelde zinnen helemaal anders
-schrijven en opnieuw bouwen).
+schrijven en opnieuw bouwen), en `python tools/script_check.py stories/<map>` = `SCRIPT GOED` (vorm, woorden die niet bij
+de tijd passen, elk feitje en hoofdstuk over het onderwerp; eigenaar 9 nov 2026). De pc controleert dit 's nachts ook zelf
+(tools/zelfcontrole.py) en zet een afgekeurd script terug naar ombouwen.
 
 ## 3. Planning
 In `stories/<map>/planning.txt` (bij nieuw: maak hem aan):

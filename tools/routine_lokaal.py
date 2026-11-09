@@ -202,7 +202,8 @@ def maak_video(m, datum, test=False):
         return
 
     for cmd, goed in (([OMNI, str(HIER / "b1_check.py")], "B1 GOED"),
-                      ([sys.executable, str(HIER / "check_afwisseling.py"), str(m)], "AFWISSELING GOED")):
+                      ([sys.executable, str(HIER / "check_afwisseling.py"), str(m)], "AFWISSELING GOED"),
+                      ([sys.executable, str(HIER / "script_check.py"), str(m)], "SCRIPT GOED")):
         r = run(cmd)
         if goed not in r.stdout:
             raise RuntimeError(r.stdout.strip().splitlines()[-1][:200] if r.stdout.strip() else goed + " ontbreekt")

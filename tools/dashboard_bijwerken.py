@@ -284,12 +284,22 @@ grens48 = (NU - datetime.timedelta(hours=72)).strftime("%Y-%m-%d %H:%M")
 fouten = [x for x in log if x["fout"] and x["tijd"] >= grens48][-6:]
 geplande = [r for r in yt.get("recent", []) if r["privacy"] == "private" and r["publiceer"] > NU.isoformat()]
 
+try:                                                        # zelfcontrole (licht elke keer, zwaar één keer per nacht)
+    import zelfcontrole
+    zc = zelfcontrole.alles()
+except Exception as e:
+    zc = [{"naam": "Zelfcontrole", "ok": False, "tekst": f"kon niet draaien: {str(e)[:100]}"}]
+for x in zc:                                               # fouten uit de zelfcontrole ook bij de meldingen
+    if not x["ok"]:
+        fouten.append({"tijd": NU.strftime("%Y-%m-%d %H:%M"), "tekst": f"Zelfcontrole: {x['naam']}: {x['tekst']}", "fout": True})
 data = {
     "bijgewerkt": NU.strftime("%Y-%m-%d %H:%M"),
+    "zelfcontrole": zc,
     "automatisering": all(t and t["aan"] for k, t in taken().items() if k != "dashboard") if True else False,
     "taken": taken(),
     "kanaal": yt,
-    "kpi": {"geplande": len(geplande), "runs": runs(log), "fouten": len(fouten)},
+    "kpi": {"geplande": len(geplande), "runs": runs(log), "fouten": len(fouten),
+            "zelfcontrole": {"goed": sum(1 for x in zc if x["ok"]), "totaal": len(zc)}},
     "stappen": STAPPEN, "stap": stap, "huidig": huidig,
     "nu_bezig": draait, "videokaart": gpu(), "programmas": programmas(yt_ok),
     "week": week, "logboek": log[-14:], "fouten": fouten,

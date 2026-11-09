@@ -55,7 +55,7 @@ werk alles af.
      de jij-vorm, grote vraag, zachte abonneer-zin, reactievraag "waar luister je vandaan", settle in); midden met
      8-12 onderwerpen (TOPIC + BRIDGE) van elk 6-10 feitjes met een eigen beeld; einde dat uitdooft naar een slaapbeeld,
      volgende-video-zin ("another ... story/video ... on the screen", voor de QC) en "Sleep well, and good night."
-     Wissel de soort opening en titel af en verwoord abonneren, reactievraag, settle in, overgangen en slot elke keer helemaal anders (zie OPBOUW.md, "Afwisseling"); `python tools/check_afwisseling.py stories/<map>` moet AFWISSELING GOED geven vóór de stem. Bestanden: `src-feiten/begin.txt`,
+     Wissel de soort opening en titel af en verwoord abonneren, reactievraag, settle in, overgangen en slot elke keer helemaal anders (zie OPBOUW.md, "Afwisseling"); `python tools/check_afwisseling.py stories/<map>` moet AFWISSELING GOED geven en `python tools/script_check.py stories/<map>` SCRIPT GOED, vóór de stem (anders eerst het script verbeteren). Bestanden: `src-feiten/begin.txt`,
      `deel*.txt` (TOPIC/BRIDGE- en IMG/HEAD/BODY-blokken), `slot.txt`; bouw_script.py zoals stories/ww2-facts.
      In maak_motion.py staat `"intro": False, "slot": False` (geen Sleep Archives-beeld); hoofdstukken = de TOPICs.
      Staat er in planning.txt nog geen "nieuwe opbouw", bouw het script dan eerst om **precies volgens stap 2 en 3 van stories/PROMPT-SCRIPT-PC.md** (hetzelfde recept als de scriptgenerator en het tweede account), dan pas beelden en stem.

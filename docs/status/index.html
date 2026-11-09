@@ -95,6 +95,7 @@ td.t img{width:68px;aspect-ratio:16/9;object-fit:cover;border-radius:5px;flex:no
 .melding{border:1px solid #6e2a36;border-radius:10px;padding:.7rem;margin-bottom:.6rem;background:#2b1420}
 .melding b{color:#ff8f96}.melding time{float:right;color:var(--zacht);font-size:.8rem}
 .ok{border:1px solid var(--lijn);border-radius:10px;padding:.6rem .7rem;display:flex;gap:.5rem;align-items:center}
+.zc{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.5rem}.zcp{display:flex;gap:.6rem;align-items:flex-start;padding:.55rem .6rem;border:1px solid #1d2741;border-radius:10px;min-width:0}.zcp.slecht{border-color:#6e2a36;background:#2b1420}
 .onder{position:fixed;left:0;right:0;bottom:0;background:#0d1426;border-top:1px solid var(--lijn);display:flex;gap:1.1rem;align-items:center;padding:.55rem max(16px,env(safe-area-inset-right)) calc(.55rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));overflow-x:auto;white-space:nowrap;font-size:.84rem;z-index:5}
 .onder .g{color:var(--goed)}.onder .r{color:var(--fout)}.onder .rechts{margin-left:auto;color:var(--zacht)}
 .vast dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem}.vast dt{color:var(--zacht)}.vast dd{margin:0}
@@ -160,7 +161,7 @@ section[id]{scroll-margin-top:80px}
     <section id="dashboard" class="rij r4">
       <div class="paneel kpi"><div class="ico" style="color:var(--fout)"><svg><use href="#i-film"/></svg></div><div><div class="t">Kanaalstatus</div><b id="kpiKanaal" style="color:var(--goed)">…</b><div class="s" id="kpiKanaalS"></div></div></div>
       <div class="paneel kpi"><div class="ico" style="color:var(--accent)"><svg><use href="#i-kal"/></svg></div><div><div class="t">Geplande video's</div><b id="kpiGepland">…</b><div class="s">ingepland op YouTube</div></div></div>
-      <div class="paneel kpi"><div class="ico" style="color:var(--goed)"><svg><use href="#i-check"/></svg></div><div><div class="t">Succesvolle runs</div><b id="kpiRuns">…</b><div class="s" id="kpiRunsS">laatste 30 dagen</div></div></div>
+      <div class="paneel kpi"><div class="ico" style="color:var(--goed)"><svg><use href="#i-schild"/></svg></div><div><div class="t">Zelfcontrole</div><b id="kpiZelf">…</b><div class="s" id="kpiZelfS">punten in orde</div></div></div>
       <div class="paneel kpi"><div class="ico" style="color:var(--fout)"><svg><use href="#i-let"/></svg></div><div><div class="t">Fouten</div><b id="kpiFouten">…</b><div class="s" id="kpiFoutenS">laatste 3 dagen</div></div></div>
     </section>
 
@@ -180,6 +181,8 @@ section[id]{scroll-margin-top:80px}
       <div class="paneel" id="logboek"><h2><svg><use href="#i-lijst"/></svg>Systeemlog <small>live</small></h2><div class="log" id="log"></div></div>
       <div class="paneel foutkaart" id="fouten"><h2 style="color:#ff8f96"><svg style="color:#ff8f96"><use href="#i-let"/></svg>Fouten en meldingen</h2><div id="meldingen"></div></div>
     </section>
+
+    <section class="paneel" id="zelfcontrole"><h2><svg><use href="#i-schild"/></svg>Zelfcontrole <small>de pc controleert zichzelf elk half uur, 's nachts ook stem, muziek en scripts</small></h2><div class="zc" id="zc"></div></section>
 
     <section class="rij r3b">
       <div class="paneel"><h2><svg><use href="#i-doc"/></svg>Komende video's</h2><div class="tabel"><table id="komend"></table></div></div>
@@ -215,8 +218,8 @@ async function laad(){
   $("kpiKanaal").textContent=k.naam?"Online":"Geen verbinding";$("kpiKanaal").style.color=k.naam?"var(--goed)":"var(--fout)";
   $("kpiKanaalS").textContent=k.naam?`${nl(k.abonnees)} abonnees · ${nl(k.video_aantal)} video's`:"";
   $("kpiGepland").textContent=d.kpi.geplande;
-  $("kpiRuns").textContent=d.kpi.runs.procent==null?"—":d.kpi.runs.procent+"%";
-  $("kpiRunsS").textContent=d.kpi.runs.totaal?`${d.kpi.runs.goed} van ${d.kpi.runs.totaal} (laatste 30 dagen)`:"nog geen runs gemeten";
+  const z=d.kpi.zelfcontrole||{goed:0,totaal:0};$("kpiZelf").textContent=`${z.goed}/${z.totaal}`;$("kpiZelf").style.color=z.goed===z.totaal?"var(--goed)":"var(--fout)";$("kpiZelfS").textContent=z.goed===z.totaal?"alles in orde":`${z.totaal-z.goed} punt(en) niet in orde`;
+  $("zc").innerHTML=(d.zelfcontrole||[]).map(x=>`<div class="zcp ${x.ok?"":"slecht"}"><span class="rondje ${x.ok?"goed":""}" style="${x.ok?"":"border-color:var(--fout);background:var(--fout)"}">${x.ok?`<svg><use href="#i-check"/></svg>`:""}</span><div><b>${esc(x.naam)}</b><div class="zacht" style="font-size:.82rem">${esc(x.tekst)}</div></div></div>`).join("");
   $("kpiFouten").textContent=d.kpi.fouten;$("kpiFoutenS").textContent=d.kpi.fouten?"actie nodig (laatste 3 dagen)":"laatste 3 dagen";
   $("foutTeller").hidden=!d.kpi.fouten;$("foutTeller").textContent=d.kpi.fouten;
 

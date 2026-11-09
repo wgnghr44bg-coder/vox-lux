@@ -1,5 +1,57 @@
 {
- "bijgewerkt": "2026-11-09 09:03",
+ "bijgewerkt": "2026-11-09 09:11",
+ "zelfcontrole": [
+  {
+   "naam": "Ollama (lokale modellen)",
+   "ok": true,
+   "tekst": "draait"
+  },
+  {
+   "naam": "ComfyUI (beelden)",
+   "ok": true,
+   "tekst": "draait"
+  },
+  {
+   "naam": "ffmpeg",
+   "ok": true,
+   "tekst": "gevonden"
+  },
+  {
+   "naam": "OmniVoice-omgeving",
+   "ok": true,
+   "tekst": "gevonden"
+  },
+  {
+   "naam": "Schijfruimte C:",
+   "ok": true,
+   "tekst": "39 GB vrij"
+  },
+  {
+   "naam": "Taak 'routine'",
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-08 09:00)"
+  },
+  {
+   "naam": "Taak 'scriptgenerator'",
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-09 06:00)"
+  },
+  {
+   "naam": "Taak 'dashboard'",
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-09 09:03)"
+  },
+  {
+   "naam": "Git",
+   "ok": true,
+   "tekst": "alles gepusht"
+  },
+  {
+   "naam": "Video 2026-11-11 (tombstone-1881)",
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
+  }
+ ],
  "automatisering": true,
  "taken": {
   "routine": {
@@ -58,7 +110,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 12,
+    "views": 10,
     "verwerkt": "processed"
    },
    {
@@ -85,7 +137,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 187,
+    "views": 186,
     "verwerkt": "processed"
    },
    {
@@ -121,7 +173,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1211,
+    "views": 1215,
     "verwerkt": "processed"
    }
   ]
@@ -133,7 +185,11 @@
    "totaal": 2,
    "procent": 0
   },
-  "fouten": 2
+  "fouten": 2,
+  "zelfcontrole": {
+   "goed": 10,
+   "totaal": 10
+  }
  },
  "stappen": [
   "Onderwerp & planning",
@@ -170,8 +226,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 62,
-  "geheugen_mb": 6661,
+  "bezig_procent": 2,
+  "geheugen_mb": 550,
   "totaal_mb": 8192
  },
  "programmas": [
