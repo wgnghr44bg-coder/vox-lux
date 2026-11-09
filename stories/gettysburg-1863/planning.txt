@@ -1,7 +1,9 @@
 onderwerp Life in Gettysburg, July 1863
-status   script-klaar (2026-11-01, tweede account)
+status   test-wacht-op-ok (nieuwe opbouw, 2026-11-09, scriptgenerator lokaal qwen3:14b; eerst beoordelen door de eigenaar)
 datum    wo 2026-11-18 21:00 NL
-titel    Life in Gettysburg, July 1863 | <N> Hours of History for Sleep (49 tekens)
+titel    What Happened to Gettysburg After the Battle? | History for Sleep
 thumbnail amberregel "GETTYSBURG · JULY 1863", hook "Life in Gettysburg", beeld: Abraham Lincoln met hoge hoed en zwarte jas, rustig en peinzend, op het herfstveld van Gettysburg in november 1863, Amerikaanse vlaggen en de menigte zacht wazig erachter, gouden middaglicht (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog
 thumbnail gekozen (test automatische keuze, 1 nov): stories/gettysburg-1863/thumbnail-gekozen.jpg; deze gebruiken, geen eigen thumbnail maken
+opening   mythe
+titelsoort what-happened

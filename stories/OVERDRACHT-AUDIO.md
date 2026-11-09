@@ -83,3 +83,15 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
 - **Nog met Claude**: Taakplanner "Sleep Archives routine" (routine.ps1) en "Sleep Archives scriptgenerator"
   (tools/script_generator.ps1). Omzetten naar tools/routine_lokaal.py en tools/scriptgen/generator.py pas na OK van de
   eigenaar op het Gettysburg-testscript en de beelden.
+
+## Stand 9 nov 2026, 09:15
+- **Zelfcontrole** (tools/zelfcontrole.py, via de dashboard-taak elk half uur): programma's, taken, schijf, git (vastgelopen
+  rebase wordt veilig opgelost), planning; 's nachts (01-05 uur, videokaart vrij) b1_check en tools/script_check.py op nieuwe
+  scripts. Afgekeurd script -> status terug naar "script-klaar (oude opbouw; scriptcheck FOUT ...)". Op de website: paneel Zelfcontrole.
+- **Scriptcontrole** tools/script_check.py: verplicht SCRIPT GOED vóór de stem (staat in PROMPT-SCRIPT-PC.md en PROMPT-ROUTINE-PC.md).
+- **Lokale scriptgenerator (Qwen3) is NIET goed genoeg**: test Gettysburg had hoofdstukken over Soedan/Maersk en "planes on the
+  tarmac" in 1863 (script_check: 60 fouten). Status gettysburg-1863: "test-wacht-op-ok" (wordt niet gebruikt). Advies aan de
+  eigenaar: scripts met Claude (scriptgenerator 06:00 werkt goed, bv. Dallas: SCRIPT GOED), al het andere zonder Claude.
+- **Tombstone**: opnieuw vanaf de beweging met de goede effecten (tools/tombstone_herstel.ps1, log C:\Users\rane\tombstone-herstel.log),
+  hoofdstuktijden in de beschrijving gelijk aan de video, QC-hapering slaat heel zachte stukjes over. Daarna upload + oude vervangen.
+- **Egypte**: montage loopt (testvolgorde stap 4), 92 nagekeken beelden (13 vervangen).
