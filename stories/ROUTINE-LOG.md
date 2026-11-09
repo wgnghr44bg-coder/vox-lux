@@ -18,3 +18,8 @@
   Zet "boats" niet in een algemene stijlregel: dan staat er in elk beeld een boot.
 - Video: https://youtu.be/0UiruqPVNHE, 1:55:59, privé met publishAt. Kosten EUR 0.
 - 2026-11-09 routine: dallas-1963: omgebouwd (nieuwe opbouw), 90 feitjes, 11 onderwerpen, 15947 woorden, titel 'What Was Life Really Like in Dallas in 1963?', opening voorwerp, AFWISSELING GOED
+- 2026-11-09 07:30 routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])
+- 2026-11-09 10:05 scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening voorwerp, titel how-survive)
+- 2026-11-09 10:05 scriptgenerator (lokaal): gettysburg-1863: 1 bronnen (oude script), 18 bruikbare stukken
+- 2026-11-09 10:27 scriptgenerator (lokaal): gettysburg-1863: 160 feiten gevonden, 11 onderwerpen
+- 2026-11-09 10:05 Tombstone en Egypte gepauzeerd tot na de test zonder Claude (eigenaar); oude privé versies uitgesteld naar 16 en 23 nov

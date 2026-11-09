@@ -282,7 +282,20 @@ for i in range(7):
     week.append({"datum": dag.isoformat(), "plek": plek, "video": vs[0]["titel"] if vs else "",
                  "soort": vs[0]["soort"] if vs else ("vrij" if plek else "")})
 grens48 = (NU - datetime.timedelta(hours=72)).strftime("%Y-%m-%d %H:%M")
-fouten = [x for x in log if x["fout"] and x["tijd"] >= grens48][-6:]
+SLEUTELS = {d.name.split("-")[0].lower() for d in STORIES.iterdir() if d.is_dir() and not d.name.startswith("_")}
+
+
+def opgelost(x):
+    """Een fout is niet meer actueel als er daarna iets nieuws over dezelfde video in het logboek staat
+    (opnieuw gestart, gepauzeerd, uitgesteld, gelukt)."""
+    tekst = x["tekst"].lower()
+    for s in SLEUTELS:
+        if s in tekst and any(y["tijd"] > x["tijd"] and s in y["tekst"].lower() for y in log):
+            return True
+    return False
+
+
+fouten = [x for x in log if x["fout"] and x["tijd"] >= grens48 and not opgelost(x)][-6:]
 geplande = [r for r in yt.get("recent", []) if r["privacy"] == "private" and r["publiceer"] > NU.isoformat()]
 
 try:                                                        # zelfcontrole (licht elke keer, zwaar één keer per nacht)
