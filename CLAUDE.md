@@ -39,3 +39,11 @@
   `YT_REFRESH_TOKEN_ALTERAQON` = Alteraqon. Upload met het juiste token
   (bv. `YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py ...`) en controleer
   vóór het openbaar zetten via de API (`snippet.channelTitle`) dat de video op het goede kanaal staat.
+
+## Stand 9 nov 2026 (middag): test zonder Claude loopt, rest op pauze
+- `tools/testnu.ps1` draait los op de pc (log `C:\Users\rane\nachttest.log`, ook op de website): 1) Gettysburg ombouwen
+  met de lokale generator, 2) nieuw script Salem 1692 (`stories/_test-nieuw`), 3) `routine_lokaal.py --test-tot-beelden` op Gettysburg.
+- Op pauze tot de eigenaar de test heeft goedgekeurd: taken "Sleep Archives routine" en "scriptgenerator" staan UIT (Disabled);
+  Tombstone (`tools/tombstone_herstel.ps1`) en Egypte (montage + upload) staan stil. Oude privé versies uitgesteld naar ma 16 en ma 23 nov 21:00.
+- Na de test: laat de eigenaar de scripts en beelden zien naast een Claude-script (Dallas). Pas na OK: taken omzetten naar
+  `tools/routine_lokaal.py` en `tools/scriptgen/generator.py` en weer aanzetten; daarna Tombstone en Egypte afmaken vóór 16/23 nov.
