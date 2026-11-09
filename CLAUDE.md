@@ -47,3 +47,9 @@
   Tombstone (`tools/tombstone_herstel.ps1`) en Egypte (montage + upload) staan stil. Oude privé versies uitgesteld naar ma 16 en ma 23 nov 21:00.
 - Na de test: laat de eigenaar de scripts en beelden zien naast een Claude-script (Dallas). Pas na OK: taken omzetten naar
   `tools/routine_lokaal.py` en `tools/scriptgen/generator.py` en weer aanzetten; daarna Tombstone en Egypte afmaken vóór 16/23 nov.
+## Stand 9 nov 2026 (avond): test zonder Claude GESTOPT
+Eigenaar: "ik laat het script wel hier maken en de rest via pc". Dus: **scripts maakt een Claude-account** (PROMPT-SCRIPT-PC.md,
+zoals het tweede account 9 nov deed: Scott, Pearl Harbor, Rome, Zwarte Dood), **de rest doet de pc** (taak "Sleep Archives routine"
+weer AAN; taak "scriptgenerator" blijft UIT). De lokale generator (tools/scriptgen) wordt niet gebruikt.
+Tombstone en Egypte lopen via `tools/hervat_tombstone_egypte.ps1` (log C:\Users\rane\hervat.log): vervangen de oude privé versies op 16 en 23 nov.
+Gettysburg (wo 18 nov) staat weer op "script-klaar (oude opbouw)": een Claude-account of de routine bouwt het om.
