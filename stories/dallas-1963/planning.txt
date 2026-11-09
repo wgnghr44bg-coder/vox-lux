@@ -1,6 +1,8 @@
 onderwerp Life in Dallas, November 1963
-status   script-klaar (2026-11-01, tweede account)
+status   script-klaar (nieuwe opbouw, 2026-11-09, routine)
 datum    za 2026-11-21 21:00 NL
-titel    Life in Dallas, November 1963 | <N> Hours of History for Sleep (49 tekens)
+titel    What Was Life Really Like in Dallas in 1963? | History for Sleep
+opening   voorwerp
+titelsoort life-really-like
 thumbnail amberregel "DALLAS · NOVEMBER 1963", hook "Life in Dallas", beeld: de open donkerblauwe presidentiële auto op Main Street in de zon, John en Jacqueline Kennedy (roze mantelpakje, rozen) die lachend zwaaien, juichende menigte en confetti; vóór Dealey Plaza, rustig en vrolijk (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    mysterie

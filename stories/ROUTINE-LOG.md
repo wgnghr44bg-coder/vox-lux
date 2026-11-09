@@ -17,3 +17,4 @@
 - Les: de stijlregel "no modern buildings, no cars, no power lines" gaf juist auto's en palen. 57 van 92 beelden afgekeurd en opnieuw gemaakt met een stijl die zegt wat er wel is.
   Zet "boats" niet in een algemene stijlregel: dan staat er in elk beeld een boot.
 - Video: https://youtu.be/0UiruqPVNHE, 1:55:59, privé met publishAt. Kosten EUR 0.
+- 2026-11-09 routine: dallas-1963: omgebouwd (nieuwe opbouw), 90 feitjes, 11 onderwerpen, 15947 woorden, titel 'What Was Life Really Like in Dallas in 1963?', opening voorwerp, AFWISSELING GOED
