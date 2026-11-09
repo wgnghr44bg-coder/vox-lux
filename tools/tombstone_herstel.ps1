@@ -1,4 +1,4 @@
-# Tombstone opnieuw vanaf de beweging (9 nov 2026): de eerste montage gebruikte het oude effectenbestand.
+﻿# Tombstone opnieuw vanaf de beweging (9 nov 2026): de eerste montage gebruikte het oude effectenbestand.
 # Daarna controles, volume, 16mm, QC en (als alles goed is) uploaden en de oude 4RjjJh-j5a0 vervangen.
 Set-Location 'C:\Users\rane\Documents\vox-lux-routine'
 $env:PYTHONUTF8 = 1
@@ -25,6 +25,6 @@ $qc | Select-String 'Overall|ÔØî|❌|Problem' | % Line
 $alles = (($chk + $tek + $qc) -join "`n")
 if ($alles -match 'CONTROLE GOED' -and $alles -match 'TEKST GOED' -and $alles -match 'APPROVED') {
     Stap 'alles goed: uploaden en oude vervangen'
-    python tools/vervang_video.py $M --video "$V/$N-16mm.mp4" --publish-at 2026-11-11T20:00:00Z --thumbnail "$M/thumbnail-gekozen.jpg" --soort mysterie --oud 4RjjJh-j5a0 --tags 'tombstone, tombstone arizona, wyatt earp, ok corral, wild west history'
+    python tools/vervang_video.py $M --video "$V/$N-16mm.mp4" --publish-at 2026-11-16T20:00:00Z --thumbnail "$M/thumbnail-gekozen.jpg" --soort mysterie --oud 4RjjJh-j5a0 --tags 'tombstone, tombstone arizona, wyatt earp, ok corral, wild west history'
 } else { Stap 'CONTROLES NIET GOED: niet geüpload (de oude versie blijft staan)' }
 Stap 'KLAAR'

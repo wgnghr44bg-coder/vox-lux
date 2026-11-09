@@ -25,7 +25,8 @@ LOGS = {"testvolgorde": Path(r"C:\Users\rane\testvolgorde.log"),
         "scriptgenerator": Path(r"C:\Users\rane\sleep-archives-scripts-log.txt"),
         "routine": Path(r"C:\Users\rane\sleep-archives-routine-log.txt"),
         "nachttest": Path(r"C:\Users\rane\nachttest.log"), "tombstone": Path(r"C:\Users\rane\tombstone-herstel.log"),
-        "testvervolg": Path(r"C:\Users\rane\testvervolg.log")}
+        "testvervolg": Path(r"C:\Users\rane\testvervolg.log"),
+        "hervat": Path(r"C:\Users\rane\hervat.log")}
 FOUTWOORDEN = r"FOUT|GESTOPT|MISLUKT|NIET GOED|REJECTED|AFWIJKING|Traceback|Error"
 
 
@@ -235,7 +236,7 @@ def logboek():
         m = re.match(r"- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
-    for r in lees(LOGS["testvolgorde"], 400) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200):
+    for r in lees(LOGS["testvolgorde"], 400) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200) + lees(LOGS["hervat"], 300):
         m = re.match(r"=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
