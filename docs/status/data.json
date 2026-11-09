@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 12:57",
+ "bijgewerkt": "2026-11-09 13:03",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-09 12:33)"
+   "tekst": "draait nu (2026-11-09 13:03)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 12:33",
-   "volgende": "2026-11-09 13:03"
+   "laatst": "2026-11-09 13:03",
+   "volgende": "2026-11-09 13:33"
   }
  },
  "kanaal": {
@@ -203,8 +203,8 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 1,
   "stapnaam": "Script schrijven",
-  "voortgang": 54,
-  "detail": "49 van ± 90 feitjes",
+  "voortgang": 57,
+  "detail": "51 van ± 90 feitjes",
   "taken": [
    "script schrijven (Qwen3 lokaal)"
   ]
@@ -216,8 +216,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 12,
-  "geheugen_mb": 6775,
+  "bezig_procent": 32,
+  "geheugen_mb": 6791,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1042,12 +1042,12 @@
    "map": "pearl-harbor-1941",
    "datum": "2026-11-28",
    "reserve": false,
-   "titel": "Life at Pearl Harbor, December 1941 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "scène"
   },
   {
    "map": "perzie-500-vc",
@@ -1163,12 +1163,12 @@
    "map": "scott-antarctica-1912",
    "datum": "2026-11-25",
    "reserve": false,
-   "titel": "Life in Antarctica with Captain Scott, 1912 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "raadsel"
   },
   {
    "map": "sherwood-1190",
