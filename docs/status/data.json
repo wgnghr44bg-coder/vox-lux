@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 11:03",
+ "bijgewerkt": "2026-11-09 11:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 11:03)"
+   "tekst": "draait nu (2026-11-09 11:33)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 11:03",
-   "volgende": "2026-11-09 11:33"
+   "laatst": "2026-11-09 11:33",
+   "volgende": "2026-11-09 12:03"
   }
  },
  "kanaal": {
@@ -216,7 +216,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 30,
+  "bezig_procent": 31,
   "geheugen_mb": 6639,
   "totaal_mb": 8192
  },
@@ -401,7 +401,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-09 11:03",
+   "tijd": "2026-11-09 11:33",
    "tekst": "Zelfcontrole: Schijfruimte C:: 27 GB vrij (te weinig voor een video, ± 30 GB nodig)",
    "fout": true
   }
