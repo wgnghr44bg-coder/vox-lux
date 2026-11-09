@@ -72,9 +72,14 @@ def vorige_video(m, datum):
 
 
 def oud_script(m):
-    for p in [m / "script-cues.txt"] + sorted((m / "src").glob("*.txt")):
-        if p.exists() and p.stat().st_size > 2000:
-            return re.sub(r"\{img:[^}]*\}|\[[a-z-]*pause\]|^--$", " ", p.read_text(encoding="utf-8"), flags=re.M)
+    """Het originele script (door Claude geschreven): eerst src/*.txt (oude opbouw); script-cues.txt alleen als er nog
+    geen src-feiten zijn (anders is script-cues al de nieuwe, mogelijk afgekeurde, versie)."""
+    delen = [p for p in sorted((m / "src").glob("*.txt")) if p.stat().st_size > 2000 and p.name != "beelden.tsv"]
+    if delen:
+        return re.sub(r"\{img:[^}]*\}|\[[a-z-]*pause\]|^--$", " ", "\n\n".join(p.read_text(encoding="utf-8") for p in delen), flags=re.M)
+    p = m / "script-cues.txt"
+    if p.exists() and p.stat().st_size > 2000 and not (m / "src-feiten").exists():
+        return re.sub(r"\{img:[^}]*\}|\[[a-z-]*pause\]|^--$", " ", p.read_text(encoding="utf-8"), flags=re.M)
     return ""
 
 
@@ -104,6 +109,32 @@ def feiten_uit_bronnen(onderwerp, stukjes, max_per_stuk=10):
         except Exception as e:
             print("  stuk overgeslagen:", e, flush=True)
     return feiten
+
+
+def youtube_dubbel(feiten, stukjes):
+    """Een feit uit een YouTube-transcriptie telt alleen als een tweede (niet-YouTube) bron het bevestigt; het feitje
+    wordt dan geschreven vanuit die tweede bron. Zo komen verzonnen feiten van AI-kanalen er niet in."""
+    yt = {s["id"] for s in stukjes if s.get("youtube")}
+    anders = [s for s in stukjes if not s.get("youtube")]
+    if not yt:
+        return feiten
+    woord = lambda t: set(w for w in re.findall(r"[a-z]{4,}", t.lower()))
+    uit = []
+    for f in feiten:
+        if f["stuk"] not in yt:
+            uit.append(f)
+            continue
+        fw = woord(f["fact"])
+        kandidaat = sorted(anders, key=lambda s: -len(fw & woord(s["tekst"])))[:3]
+        for s in kandidaat:
+            r = llm.json_vraag(f"Fact: {f['fact']}\nSource text:\n{s['tekst'][:3500]}\n\nDoes the source text clearly support "
+                               'this fact? JSON: {"supported": true or false}', temp=0.0, max_tokens=30)
+            if isinstance(r, dict) and r.get("supported") is True:
+                uit.append({**f, "stuk": s["id"], "via_youtube": True})
+                break
+    print(f"  YouTube-feiten: {sum(1 for f in feiten if f['stuk'] in yt)} gevonden, "
+          f"{sum(1 for f in uit if f.get('via_youtube'))} bevestigd door een tweede bron", flush=True)
+    return [{**f, "id": i} for i, f in enumerate(uit)]
 
 
 def opzet(onderwerp, feiten, n_onderwerpen):
@@ -232,16 +263,15 @@ def maak(m, test=False):
     titelsoort = random.choice([t for t in TITELSOORTEN if t != vorige["titelsoort"]])
     log(f"{m.name}: start ({onderwerp}; opening {opening}, titel {titelsoort})")
 
-    zoektermen = llm.json_vraag(f"Video topic: {onderwerp}.\nGive 10 English Wikipedia article titles or search terms that "
-                                "together cover the place, the time, daily life, key people and what remains today.\n"
-                                'JSON: ["...", ...]', SYSTEEM, temp=0.3)
-    teksten = bronnen.verzamel(m, onderwerp, [z for z in zoektermen if isinstance(z, str)])
-    oud = oud_script(m)
-    if oud:
-        teksten = {"Old script": oud} | teksten
+    oud = oud_script(m)                                     # ombouwen: alleen het oude script (geen vrij zoeken meer)
+    teksten = bronnen.verzamel(m, onderwerp, llm, oud)
     stukjes = bronnen.stukken(teksten)
-    log(f"{m.name}: {len(teksten)} bronnen, {len(stukjes)} stukken")
+    if not oud:
+        stukjes = bronnen.relevant(stukjes, onderwerp, llm)
+    log(f"{m.name}: {len(teksten)} bronnen ({'oude script' if oud else ', '.join(sorted({t.split(':')[0].split(' ')[0] for t in teksten}))}), "
+        f"{len(stukjes)} bruikbare stukken")
     feiten = feiten_uit_bronnen(onderwerp, stukjes)
+    feiten = youtube_dubbel(feiten, stukjes)
     plan = opzet(onderwerp, feiten, random.choice([9, 10, 11, 12]))
     log(f"{m.name}: {len(feiten)} feiten gevonden, {len(plan)} onderwerpen")
 
@@ -266,6 +296,7 @@ def maak(m, test=False):
             if not b:
                 continue
             b = feitencheck(b, stuk_tekst[f["stuk"]])
+            b["fact"] = f["fact"]
             slug = re.sub(r"[^a-z0-9-]", "", b["slug"].lower().replace(" ", "-"))[:50] or f"beeld-{fid}"
             while slug in slugs:
                 slug += "-2"
@@ -281,40 +312,55 @@ def maak(m, test=False):
         log(f"{m.name}: MISLUKT, maar {n} goede feitjes (minstens 80 nodig); niets gepusht")
         return False
 
-    delen = blokken
-    per_deel = -(-len(delen) // 3)
-    for d in range(3):
-        uit = []
-        for ti, (titel, hoofd) in enumerate(delen[d * per_deel:(d + 1) * per_deel]):
-            k = d * per_deel + ti
-            topic = f"TOPIC: {titel}"
-            if k > 0:
-                vt, vh = delen[k - 1]
-                topic += "\nBRIDGE: " + schrijf_bridge(vt, vh[-1]["head"], titel, hoofd[0]["head"])
-            uit.append(topic)
-            uit += [f"IMG: {b['slug']} | {b['image']}\nHEAD: {b['head']}\nBODY: {b['body']}" for b in hoofd]
-        (sf / f"deel{d + 1}.txt").write_text("\n===\n".join(uit) + "\n", encoding="utf-8")
+    def schrijf_delen():
+        for f in sf.glob("deel*.txt"):
+            f.unlink()
+        per_deel = -(-len(blokken) // 3)
+        for d in range(3):
+            uit = []
+            for ti, (titel, hoofd) in enumerate(blokken[d * per_deel:(d + 1) * per_deel]):
+                k = d * per_deel + ti
+                topic = f"TOPIC: {titel}"
+                if k > 0:
+                    vt, vh = blokken[k - 1]
+                    topic += "\nBRIDGE: " + schrijf_bridge(vt, vh[-1]["head"], titel, hoofd[0]["head"])
+                uit.append(topic)
+                uit += [f"IMG: {b['slug']} | {b['image']}\nHEAD: {b['head']}\nBODY: {b['body']}" for b in hoofd]
+            if uit:
+                (sf / f"deel{d + 1}.txt").write_text("\n===\n".join(uit) + "\n", encoding="utf-8")
 
-    feiten_tekst = "\n".join(b["head"] for _, h in blokken[:3] for b in h[:2])
-    slotbeeld = blokken[-1][1][-1]["image"]
-    for poging in range(5):
-        extra = "" if poging == 0 else f"Earlier attempt was too close to other videos; make every sentence clearly different: {fout_zinnen}"
-        (sf / "begin.txt").write_text(schrijf_begin(onderwerp, vraag_titel, opening, feiten_tekst, extra) + "\n", encoding="utf-8")
-        slot = schrijf_slot(onderwerp, slotbeeld, extra).strip()
-        if not slot.endswith("Sleep well, and good night."):
-            slot = slot.rstrip() + "\n\nSleep well, and good night."
+    def schrijf_begin_slot(fout_zinnen=None):
+        feiten_tekst = "\n".join(b["head"] for _, h in blokken[:3] for b in h[:2])
+        slotbeeld = blokken[-1][1][-1]["image"]
+        extra = f"Earlier attempt had problems; fix them and make every sentence clearly different: {fout_zinnen}" if fout_zinnen else ""
+        for _ in range(4):
+            begin = schrijf_begin(onderwerp, vraag_titel, opening, feiten_tekst, extra).strip()
+            if 200 <= woorden(begin) <= 340 and re.search(r"subscri", begin, re.I) and not re.match(r"\s*(tonight|hello|welcome)", begin, re.I):
+                break
+            extra += " The opening must be 250-300 words in 5 paragraphs and invite to subscribe."
+        (sf / "begin.txt").write_text(begin + "\n", encoding="utf-8")
+        for _ in range(4):
+            slot = schrijf_slot(onderwerp, slotbeeld, extra).strip()
+            if not slot.endswith("Sleep well, and good night."):
+                slot = slot.rstrip() + "\n\nSleep well, and good night."
+            if 90 <= woorden(slot) <= 200 and re.search(r"another .*(story|video).*screen", slot, re.I | re.S):
+                break
         (sf / "slot.txt").write_text(slot + "\n", encoding="utf-8")
-        r = subprocess.run([sys.executable, str(REPO / "tools" / "check_afwisseling.py"), str(m)], capture_output=True,
-                           text=True, encoding="utf-8")
-        alles = (sf / "begin.txt").read_text(encoding="utf-8") + (sf / "slot.txt").read_text(encoding="utf-8")
-        qc = (re.search(r"subscri", alles, re.I) and re.search(r"another .*(story|video).*screen", alles, re.I | re.S)
-              and not re.match(r"\s*(tonight|hello|welcome)", alles, re.I))
-        if "AFWISSELING GOED" in r.stdout and qc:
-            break
-        fout_zinnen = re.findall(r'"([^"]+)"  ~', r.stdout)[:8]
-    else:
-        log(f"{m.name}: MISLUKT, begin/slot niet goed na 5 pogingen (afwisseling of verplichte zinnen); niets gepusht")
-        return False
+
+    gebruikt = {b.get("fact") for _, h in blokken for b in h}
+    reserve = [f for f in feiten if f["fact"] not in gebruikt]
+
+    def extra_feitje():
+        while reserve:
+            f = reserve.pop(0)
+            b = schrijf_feitje(onderwerp, f["fact"], stuk_tekst[f["stuk"]], koppen)
+            if b:
+                b = feitencheck(b, stuk_tekst[f["stuk"]])
+                b["fact"] = f["fact"]
+                b["slug"] = (re.sub(r"[^a-z0-9-]", "", b["slug"].lower().replace(" ", "-"))[:46] or "beeld") + f"-{len(slugs)}"
+                slugs.add(b["slug"])
+                return b
+        return None
 
     stijl = llm.vraag(f"Video topic: {onderwerp}. Write ONE sentence (40-70 words) that describes the visual world of "
                       "this time and place for an image generator: era, place, building materials, clothing, landscape, "
@@ -324,17 +370,78 @@ def maak(m, test=False):
                                                    "light, gentle atmospheric haze, calm and peaceful mood, highly detailed, "
                                                    "no text, no letters, no logos")
     (sf / "stijl.txt").write_text(stijl + "\n", encoding="utf-8")
-
-    for naam in ("bouw_script.py",):
-        shutil.copy(STORIES / "egypte-toetanchamon" / naam, m / naam)
+    shutil.copy(STORIES / "egypte-toetanchamon" / "bouw_script.py", m / "bouw_script.py")
     shutil.copy(HIER / "maak_motion_basis.py", m / "maak_motion.py")
-    bouw = subprocess.run([sys.executable, str(m / "bouw_script.py")], capture_output=True, text=True, encoding="utf-8")
+
+    # kopieercontrole: niets letterlijk uit YouTube-transcripties
+    yt_teksten = [t for k, t in teksten.items() if k.startswith("YouTube")]
+    if yt_teksten:
+        for _, hoofd in blokken:
+            for b in hoofd:
+                if bronnen.kopieer_overlap(b["head"] + " " + b["body"], yt_teksten):
+                    r = llm.json_vraag(f"Rewrite this paragraph completely in your own words, same facts, same calm style, "
+                                       f"160-220 words:\n{b['body']}\n" + 'JSON: {"body": "..."}', SYSTEEM, temp=0.8, max_tokens=900)
+                    if isinstance(r, dict) and 150 <= woorden(str(r.get("body", ""))) <= 240:
+                        b["body"] = " ".join(str(r["body"]).split())
+
+    # herstellus met de scriptcontrole (tools/script_check.py), max 3 rondes
+    sys.path.insert(0, str(REPO / "tools"))
+    import script_check
+    schrijf_delen()
+    schrijf_begin_slot()
+    for ronde in range(1, 4):
+        bouw = subprocess.run([sys.executable, str(m / "bouw_script.py")], capture_output=True, text=True, encoding="utf-8")
+        fout, info = script_check.controleer(m)
+        log(f"{m.name}: scriptcontrole ronde {ronde}: {'GOED' if not fout else str(len(fout)) + ' punten'}")
+        if not fout:
+            break
+        plat = [(ti, b) for ti, (_, h) in enumerate(blokken) for b in h]
+        weg, begin_slot = set(), False
+        for f in fout:
+            mm = re.match(r"feitje (\d+)( \(beeld\))?", f)
+            if mm and "niet over het onderwerp" in f:
+                weg.add(int(mm.group(1)))
+            elif mm and mm.group(2):                         # beeld met iets wat er toen niet was: positief herschrijven
+                _, b = plat[int(mm.group(1)) - 1]
+                b["image"] = " ".join(llm.vraag(f"Describe this calm picture again in one sentence, only things that existed in "
+                                                f"the time of {onderwerp}; never use 'no' or 'without': {b['image']}",
+                                                temp=0.4, max_tokens=80).split())
+            elif mm:                                         # woord in de tekst dat volgens het model fout is
+                weg.add(int(mm.group(1)))
+            hm = re.match(r"hoofdstuk '(.+)' gaat niet", f)
+            if hm:
+                weg |= {i + 1 for i, (ti, b) in enumerate(plat) if blokken[ti][0] == hm.group(1)}
+            if f.startswith(("begin", "slot", "geen abonneer", "afwisseling")):
+                begin_slot = True
+        for n in sorted(weg, reverse=True):                  # foute feitjes eruit, zo mogelijk vervangen
+            ti, b = plat[n - 1]
+            idx = blokken[ti][1].index(b)
+            nieuw = extra_feitje()
+            if nieuw:
+                blokken[ti][1][idx] = nieuw
+            else:
+                blokken[ti][1].pop(idx)
+        blokken[:] = [(t, h) for t, h in blokken if h]
+        while sum(len(h) for _, h in blokken) < 82 and reserve:
+            nieuw = extra_feitje()
+            if nieuw:
+                blokken[-1][1].append(nieuw)
+        schrijf_delen()
+        if begin_slot:
+            schrijf_begin_slot([f for f in fout if f.startswith(("begin", "slot", "afwisseling", "geen"))])
+    else:
+        bouw = subprocess.run([sys.executable, str(m / "bouw_script.py")], capture_output=True, text=True, encoding="utf-8")
+        fout, info = script_check.controleer(m)
+        if fout:
+            log(f"{m.name}: MISLUKT, scriptcontrole na 3 herstelrondes nog {len(fout)} punten: {fout[:3]}; niets gepusht")
+            return False
+    n = sum(len(h) for _, h in blokken)
+    w = info.get("woorden", 0)
     print(bouw.stdout, bouw.stderr)
-    w = int((re.search(r"(\d+) woorden", bouw.stdout) or [0, 0])[1])
     lees = subprocess.run([sys.executable, str(REPO / "tools" / "script_leesbaar.py"), str(m)], capture_output=True,
                           text=True, encoding="utf-8").stdout
-    if not (80 <= n <= 100 and 13000 <= w <= 21000 and "begin ja" in bouw.stdout and "slot ja" in bouw.stdout and "GOED" in lees):
-        log(f"{m.name}: MISLUKT, controles niet goed ({n} feitjes, {w} woorden, leesbaar: {lees.strip()[-60:]}); niets gepusht")
+    if "GOED" not in lees:
+        log(f"{m.name}: MISLUKT, leesbaarheid: {lees.strip()[-60:]}; niets gepusht")
         return False
 
     intro = llm.vraag(f"Video: {vraag_titel}\nChapters: {[t for t, _ in blokken]}\nWrite two short YouTube description "
