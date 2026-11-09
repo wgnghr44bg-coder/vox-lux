@@ -29,7 +29,7 @@ In deze volgorde:
 6. Dan zonder overgang het eerste onderwerp.
 
 ## 2. Midden (± 2,5 uur, ± 16.000-18.000 woorden)
-- **8-12 onderwerpen** ("hoofdstukken"), elk ± 12-20 minuten, die als één reis in elkaar overlopen.
+- **8-13 onderwerpen** ("hoofdstukken"), elk ± 11-20 minuten (eigenaar 9 nov: 13 "is prima zo als de rest goed is"), die als één reis in elkaar overlopen.
   Soms 8 lange, soms 12 kortere: wissel af.
 - Elk onderwerp begint met **een overgangszin of twee** (BRIDGE) die het vorige zacht afsluit en het nieuwe opent
   ("The fields are quiet now. But in the city across the river, something else is stirring.").
