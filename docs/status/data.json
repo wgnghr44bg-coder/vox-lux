@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 04:03",
+ "bijgewerkt": "2026-11-09 04:33",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 04:03",
-   "volgende": "2026-11-09 04:33"
+   "laatst": "2026-11-09 04:33",
+   "volgende": "2026-11-09 05:03"
   }
  },
  "kanaal": {
@@ -152,8 +152,8 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 1,
   "stapnaam": "Script schrijven",
-  "voortgang": 63,
-  "detail": "57 van ± 90 feitjes",
+  "voortgang": 70,
+  "detail": "63 van ± 90 feitjes",
   "taken": [
    "script schrijven (Qwen3 lokaal)"
   ]
@@ -165,7 +165,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 31,
+  "bezig_procent": 30,
   "geheugen_mb": 6811,
   "totaal_mb": 8192
  },
