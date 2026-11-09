@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 10:33",
+ "bijgewerkt": "2026-11-09 11:03",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -23,8 +23,8 @@
   },
   {
    "naam": "Schijfruimte C:",
-   "ok": true,
-   "tekst": "37 GB vrij"
+   "ok": false,
+   "tekst": "27 GB vrij (te weinig voor een video, ± 30 GB nodig)"
   },
   {
    "naam": "Taak 'routine'",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 10:33)"
+   "tekst": "draait nu (2026-11-09 11:03)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 10:33",
-   "volgende": "2026-11-09 11:03"
+   "laatst": "2026-11-09 11:03",
+   "volgende": "2026-11-09 11:33"
   }
  },
  "kanaal": {
@@ -180,9 +180,9 @@
    "totaal": 2,
    "procent": 0
   },
-  "fouten": 2,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 9,
+   "goed": 8,
    "totaal": 9
   }
  },
@@ -216,7 +216,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 31,
+  "bezig_procent": 30,
   "geheugen_mb": 6639,
   "totaal_mb": 8192
  },
@@ -399,6 +399,11 @@
    "tekst": "routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 11:03",
+   "tekst": "Zelfcontrole: Schijfruimte C:: 27 GB vrij (te weinig voor een video, ± 30 GB nodig)",
+   "fout": true
   }
  ],
  "video": [
