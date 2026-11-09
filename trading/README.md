@@ -84,7 +84,7 @@ cd vox-lux\trading
 pip install requests
 python backtest.py BTC-EUR --vergelijk      # smart money en trend naast elkaar
 python backtest.py ETH-EUR --vergelijk
-.\start.ps1                      # bot + dashboard op http://localhost:8788
+.\start.ps1 -Bot handel           # handelsbot + dashboard op http://localhost:8788
 ```
 Het nepgeld staat in `data\papier_bitvavo.json` (verwijderen = opnieuw beginnen met €1000).
 
@@ -97,7 +97,7 @@ Het nepgeld staat in `data\papier_bitvavo.json` (verwijderen = opnieuw beginnen 
    setx BITVAVO_SECRET "..."
    ```
    Deel deze sleutels nooit in een chat.
-3. Zet eerst een klein bedrag op Bitvavo (bv. €100) en start: `.\start.ps1 -EchtGeld`.
+3. Zet eerst een klein bedrag op Bitvavo (bv. €100) en start: `.\start.ps1 -Bot handel -EchtGeld`.
    Het dashboard toont dan in rood **ECHT GELD**.
 
 ## Dashboard op je telefoon
