@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 14:33",
+ "bijgewerkt": "2026-11-09 15:03",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 14:33)"
+   "tekst": "draait nu (2026-11-09 15:03)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 14:33",
-   "volgende": "2026-11-09 15:03"
+   "laatst": "2026-11-09 15:03",
+   "volgende": "2026-11-09 15:33"
   }
  },
  "kanaal": {
@@ -105,7 +105,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 12,
+    "views": 13,
     "verwerkt": "processed"
    },
    {
@@ -204,8 +204,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 30,
-  "geheugen_mb": 6837,
+  "bezig_procent": 35,
+  "geheugen_mb": 6839,
   "totaal_mb": 8192
  },
  "programmas": [
