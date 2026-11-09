@@ -24,7 +24,8 @@ VANDAAG = datetime.date.today()
 LOGS = {"testvolgorde": Path(r"C:\Users\rane\testvolgorde.log"),
         "scriptgenerator": Path(r"C:\Users\rane\sleep-archives-scripts-log.txt"),
         "routine": Path(r"C:\Users\rane\sleep-archives-routine-log.txt"),
-        "nachttest": Path(r"C:\Users\rane\nachttest.log"), "tombstone": Path(r"C:\Users\rane\tombstone-herstel.log")}
+        "nachttest": Path(r"C:\Users\rane\nachttest.log"), "tombstone": Path(r"C:\Users\rane\tombstone-herstel.log"),
+        "testvervolg": Path(r"C:\Users\rane\testvervolg.log")}
 FOUTWOORDEN = r"FOUT|GESTOPT|MISLUKT|NIET GOED|REJECTED|AFWIJKING|Traceback|Error"
 
 
@@ -114,7 +115,7 @@ def voortgang(stap, m):
     try:
         if stap == 1:
             # alleen de log die nu loopt (de nieuwste), en alleen na de laatste start van de generator
-            nieuwste = max((LOGS[k] for k in ("testvolgorde", "nachttest") if Path(LOGS[k]).exists()),
+            nieuwste = max((LOGS[k] for k in ("testvolgorde", "nachttest", "testvervolg") if Path(LOGS[k]).exists()),
                            key=lambda p: Path(p).stat().st_mtime)
             tekst = "\n".join(lees(nieuwste, 2000))
             tekst = tekst[tekst.rfind(": start ("):] if ": start (" in tekst else tekst
@@ -234,7 +235,7 @@ def logboek():
         m = re.match(r"- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
-    for r in lees(LOGS["testvolgorde"], 400) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100):
+    for r in lees(LOGS["testvolgorde"], 400) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200):
         m = re.match(r"=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
