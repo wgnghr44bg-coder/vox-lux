@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 08:33",
+ "bijgewerkt": "2026-11-09 09:03",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 08:33",
-   "volgende": "2026-11-09 09:03"
+   "laatst": "2026-11-09 09:03",
+   "volgende": "2026-11-09 09:33"
   }
  },
  "kanaal": {
@@ -155,18 +155,23 @@
   "voortgang": null,
   "detail": "bezig",
   "taken": [
-   "muziek maken (Audio Engine W3)"
+   "beelden en geluid samenvoegen",
+   "beweging en hoofdstuktitels"
   ]
  },
  "nu_bezig": [
   {
-   "naam": "muziek maken (Audio Engine W3)",
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
+  },
+  {
+   "naam": "beweging en hoofdstuktitels",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 1057,
+  "bezig_procent": 62,
+  "geheugen_mb": 6661,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -673,12 +678,12 @@
    "map": "gettysburg-1863",
    "datum": "2026-11-18",
    "reserve": false,
-   "titel": "Life in Gettysburg, July 1863 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Happened to Gettysburg After the Battle? | History for Sleep",
+   "status": "test-wacht-op-ok (nieuwe opbouw, 2026-11-09, scriptgenerator lokaal qwen3:14b; eerst beoordelen door de eigenaar)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "mythe"
   },
   {
    "map": "goudkoorts-1849",
