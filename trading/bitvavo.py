@@ -46,6 +46,14 @@ def prijs_afronden(prijs, info):
     return round(prijs, max(dec, 0))
 
 
+def prijs_tekst(prijs, info):
+    """Prijs als tekst met precies zoveel decimalen als de tickSize (bv. '1.00' -> '66590')."""
+    p = prijs_afronden(prijs, info)
+    t = str(info.get("tickSize") or "")
+    dec = len(t.rstrip("0").split(".")[1]) if "." in t.rstrip("0") else (0 if t else 8)
+    return f"{p:.{dec}f}" if t else f"{p:.10g}"
+
+
 def hoeveelheid_decimalen(info):
     return int(info.get("quantityDecimals", 8))
 
@@ -153,6 +161,20 @@ class Bitvavo(Publiek):
     def order_status(self, market, order_id):
         return self._prive("GET", "/order", {"market": market, "orderId": order_id}).get("status")
 
+    def limiet_order(self, market, kant, aantal, prijs, info):
+        """Limietorder (postOnly = altijd 'maker', lagere kosten). kant = 'buy' of 'sell'."""
+        dec = hoeveelheid_decimalen(info)
+        d = self._prive("POST", "/order", body={
+            "market": market, "side": kant, "orderType": "limit",
+            "amount": f"{afronden_omlaag(aantal, dec):.{dec}f}", "price": prijs_tekst(prijs, info),
+            "postOnly": True, "operatorId": self.operator_id})
+        return d["orderId"]
+
+    def order_info(self, market, order_id):
+        d = self._prive("GET", "/order", {"market": market, "orderId": order_id})
+        return {"status": d.get("status"), "gevuld": float(d.get("filledAmount", 0)),
+                "gevuld_eur": float(d.get("filledAmountQuote", 0))}
+
     def annuleer(self, market, order_id):
         return self._prive("DELETE", "/order", {"market": market, "orderId": order_id,
                                                 "operatorId": self.operator_id})
@@ -227,7 +249,42 @@ class Papier(Publiek):
             return "filled"
         return "awaitingTrigger"
 
+    MAKER = 0.0015
+
+    def limiet_order(self, market, kant, aantal, prijs, info):
+        oid = "l-" + uuid.uuid4().hex[:10]
+        self.st.setdefault("limieten", {})[oid] = {"market": market, "kant": kant, "aantal": aantal,
+                                                   "prijs": prijs, "status": "new", "gevuld": 0.0,
+                                                   "gevuld_eur": 0.0}
+        self._bewaar()
+        return oid
+
+    def order_info(self, market, order_id):
+        o = self.st.get("limieten", {}).get(order_id)
+        if not o:
+            return {"status": "canceled", "gevuld": 0.0, "gevuld_eur": 0.0}
+        if o["status"] == "new":
+            b = self.boek(market)
+            base = market.split("-")[0]
+            if o["kant"] == "buy" and b["ask"] <= o["prijs"]:
+                aantal = min(o["aantal"], self.st["EUR"] / (o["prijs"] * (1 + self.MAKER)))
+                self.st["EUR"] -= aantal * o["prijs"] * (1 + self.MAKER)
+                self.st["bezit"][base] = self.st["bezit"].get(base, 0) + aantal
+                o.update(status="filled", gevuld=aantal, gevuld_eur=aantal * o["prijs"])
+            elif o["kant"] == "sell" and b["bid"] >= o["prijs"]:
+                aantal = min(o["aantal"], self.st["bezit"].get(base, 0))
+                self.st["EUR"] += aantal * o["prijs"] * (1 - self.MAKER)
+                self.st["bezit"][base] = self.st["bezit"].get(base, 0) - aantal
+                if self.st["bezit"][base] <= 1e-12:
+                    del self.st["bezit"][base]
+                o.update(status="filled", gevuld=aantal, gevuld_eur=aantal * o["prijs"])
+            self._bewaar()
+        return {"status": o["status"], "gevuld": o["gevuld"], "gevuld_eur": o["gevuld_eur"]}
+
     def annuleer(self, market, order_id):
         self.st["orders"].pop(order_id, None)
+        o = self.st.get("limieten", {}).get(order_id)
+        if o and o["status"] == "new":
+            o["status"] = "canceled"
         self._bewaar()
         return {"orderId": order_id}

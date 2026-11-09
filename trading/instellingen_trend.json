@@ -1,0 +1,11 @@
+{
+  "markten": {"BTC-EUR": 0.7, "ETH-EUR": 0.3},
+  "sma_dagen": 200,
+  "controle_elke_sec": 60,
+  "limiet_wacht_min": 15,
+  "min_order_eur": 10,
+  "reserve_eur": 0,
+  "papier_start_eur": 1000,
+  "papier_storting_per_week": 100,
+  "stortingsdag": 0
+}

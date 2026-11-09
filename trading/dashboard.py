@@ -55,12 +55,15 @@ const getal=v=>Number(v).toLocaleString('nl-NL',{maximumSignificantDigits:6});
 const tijd=t=>new Date(t).toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function zin(l){const m=esc(l.markt||'');switch(l.soort){
- case 'start':return `Bot gestart (${esc(l.stand)}${l.strategie?', strategie '+esc(l.strategie==='smc'?'smart money':l.strategie==='sweep'?'HTF sweep CISD':l.strategie):''})`;
- case 'gekocht':return `<b>Gekocht</b> ${m} voor ${geld(l.eur)} à ${getal(l.prijs)} <span class=klein>(stop ${getal(l.stop)}, doel ${getal(l.doel)})</span>`;
+ case 'start':return `Bot gestart (${esc(l.stand)}${l.strategie?', strategie '+esc(l.strategie==='smc'?'smart money':l.strategie==='sweep'?'HTF sweep CISD':esc(l.strategie)):''})`;
+ case 'gekocht':return `<b>Gekocht</b> ${m} voor ${geld(l.eur)} à ${getal(l.prijs)}`+(l.stop?` <span class=klein>(stop ${getal(l.stop)}, doel ${getal(l.doel)})</span>`:(l.soort_order?` <span class=klein>(${esc(l.soort_order)})</span>`:''));
  case 'doel bereikt':return `<b class=plus>Verkocht met winst</b> ${m} à ${getal(l.verkocht)} (${l.R>0?'+':''}${l.R}R)`;
  case 'stop geraakt':return `<b class=min>Stop-loss geraakt</b> ${m} à ${getal(l.stop)} (${l.R}R)`;
  case 'overgeslagen':return `Niet gekocht ${m}: ${esc(l.reden)}`;
- case 'limiet geplaatst':return `<b>Limiet geplaatst</b> ${m} op ${getal(l.limiet)} <span class=klein>(stop ${getal(l.stop)}, TP1 ${getal(l.tp1)}, doel ${getal(l.doel)})</span>`;
+ case 'limiet geplaatst':return l.kant?`<b>Limiet ${esc(l.kant)}</b> ${m} op ${getal(l.limiet)} <span class=klein>(${geld(l.eur)})</span>`:`<b>Limiet geplaatst</b> ${m} op ${getal(l.limiet)} <span class=klein>(stop ${getal(l.stop)}, TP1 ${getal(l.tp1)}, doel ${getal(l.doel)})</span>`;
+ case 'verkocht':return `<b>Verkocht</b> ${m} à ${getal(l.prijs)}${l.soort_order?' <span class=klein>('+esc(l.soort_order)+')</span>':''}`;
+ case 'trend':return `Trend ${m}: <b class=${l.trend==='in'?'plus':'min'}>${l.trend==='in'?'boven':'onder'} 200-daags gemiddelde</b>${l.omslag?' (omslag!)':''} <span class=klein>slot ${getal(l.slot)}, gem. ${getal(l.sma)}</span>`;
+ case 'storting (oefenstand)':return `Storting (oefenstand) ${geld(l.eur)}`;
  case 'limiet vervallen':return `Limiet vervallen ${m}${l.reden?': '+esc(l.reden):''}`;
  case 'stop naar instap':return `<b>Stop naar instap</b> ${m} (TP1 ${getal(l.tp1)} geraakt)`;
  case 'stop opnieuw geplaatst':return `Stop-loss opnieuw gezet ${m} (${getal(l.stop)})`;
@@ -78,7 +81,7 @@ async function laad(){
  omg.style.background=d.omgeving==='live'?'var(--rood)':'var(--groen)';omg.style.color='#fff';
  stopAan=d.noodstop;bot.textContent=stopAan?'gestopt':'actief';bot.className='groot '+(stopAan?'min':'plus');
  stopknop.textContent=stopAan?'Bot weer aanzetten':'Noodstop';
- trades.innerHTML=(d.trades||[]).map(t=>`<tr><td>${t.instrument}${t.stop?`<div class=klein>stop ${getal(t.stop)} · doel ${getal(t.doel)}</div>`:''}</td><td>${t.currentUnits}</td><td>${getal(t.price)}</td><td class="${+t.unrealizedPL>=0?'plus':'min'}">${geld(t.unrealizedPL,c)}</td></tr>`).join('')||'<tr><td colspan=4 class=label>geen</td></tr>';
+ trades.innerHTML=(d.trades||[]).map(t=>`<tr><td>${t.instrument}${t.stop?`<div class=klein>stop ${getal(t.stop)} · doel ${getal(t.doel)}</div>`:''}${t.trend?`<div class=klein>trend: ${t.trend==='in'?'boven':'onder'} SMA200</div>`:''}</td><td>${t.currentUnits}</td><td>${getal(t.price)}</td><td class="${+t.unrealizedPL>=0?'plus':'min'}">${geld(t.unrealizedPL,c)}</td></tr>`).join('')||'<tr><td colspan=4 class=label>geen</td></tr>';
  log.innerHTML=(d.log||[]).slice().reverse().map(l=>`<div class=regel><span class=tijd>${tijd(l.tijd)}</span>${zin(l)}</div>`).join('')||'<span class=label>nog niets gebeurd</span>';
 }
 async function post(p,b){const r=await fetch(p,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})});const d=await r.json();if(d.fout)alert(d.fout);laad();}
@@ -127,13 +130,13 @@ def bitvavo_status(d):
         for m, p in pos.items():
             if p.get("status") == "wacht":
                 trades.append({"instrument": m, "currentUnits": "wacht", "price": p["limiet"],
-                               "unrealizedPL": 0, "stop": p["stop"], "doel": p["doel"]})
+                               "unrealizedPL": 0, "stop": p.get("stop"), "doel": p.get("doel")})
                 continue
             w = (koersen[m]["bid"] - p["instap"]) * p["aantal"]
             upl += w
             trades.append({"instrument": m, "currentUnits": f"{p['aantal']:.6g}",
                            "price": f"{p['instap']:.6g}", "unrealizedPL": round(w, 2),
-                           "stop": p["stop"], "doel": p["doel"]})
+                           "stop": p.get("stop"), "doel": p.get("doel"), "trend": p.get("trend")})
         d["account"] = {"currency": "EUR", "balance": round(sum(saldi.get("EUR", (0, 0))), 2),
                         "NAV": round(nav, 2), "unrealizedPL": round(upl, 2)}
         d["trades"] = trades
@@ -154,7 +157,8 @@ def bitvavo_sluit_alles():
             if p.get("status") == "wacht":
                 del pos[m]
                 continue
-            api.annuleer(m, p["stop_id"])
+            if p.get("stop_id"):
+                api.annuleer(m, p["stop_id"])
             vrij = api.saldi().get(m.split("-")[0], (0, 0))[0]
             api.verkoop_markt(m, vrij, hoeveelheid_decimalen(api.market_info(m)))
             gesloten.append(m)

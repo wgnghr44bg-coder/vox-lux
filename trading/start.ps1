@@ -1,10 +1,13 @@
-# Start de Bitvavo-bot en het dashboard, elk in een eigen venster.
-#   .\start.ps1             oefenstand (nepgeld, echte koersen)
-#   .\start.ps1 -EchtGeld   echte Bitvavo-rekening
-param([switch]$EchtGeld)
+# Start de bot en het dashboard, elk in een eigen venster.
+#   .\start.ps1                       trendfilter-bot (wekelijks inleggen + SMA200), oefenstand
+#   .\start.ps1 -EchtGeld             trendfilter-bot met echt geld
+#   .\start.ps1 -Bot handel           de handelsbot (sweep / smc / trend), oefenstand
+# Draai maar één bot tegelijk: ze delen hetzelfde dashboard en Bitvavo-saldo.
+param([ValidateSet("trend", "handel")][string]$Bot = "trend", [switch]$EchtGeld)
 $map = Split-Path -Parent $MyInvocation.MyCommand.Path
 $extra = if ($EchtGeld) { " --echt-geld" } else { "" }
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$map'; python bitvavo_bot.py$extra" -WindowStyle Minimized
+$script = if ($Bot -eq "trend") { "trend_bot.py" } else { "bitvavo_bot.py" }
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$map'; python $script$extra" -WindowStyle Minimized
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$map'; python dashboard.py$extra" -WindowStyle Minimized
 Start-Sleep 2
 Start-Process "http://localhost:8788"

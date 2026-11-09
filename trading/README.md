@@ -1,5 +1,31 @@
 # Trading bot voor Bitvavo (crypto)
 
+## Aanbevolen: trendfilter-bot (`trend_bot.py`)
+Na het testen van 14 handelsstrategieën (zie `onderzoek/`) bleek geen enkele betrouwbaar winstgevend
+op Bitvavo. Deze eenvoudige aanpak beperkte wel de grote dalingen:
+
+- Jij stort elke week een bedrag op Bitvavo (iDEAL).
+- Eén keer per dag kijkt de bot per munt: staat het slot boven het **200-daags gemiddelde**?
+  Ja → vrij geld gaat naar die munt, tot zijn deel (standaard **70% BTC, 30% ETH**).
+  Nee → die munt wordt verkocht en het geld blijft in euro's.
+- **Limietorders** (0,15% kosten); niet gevuld binnen 15 minuten → marktorder (0,25%).
+- Geen stop-loss en geen doelen. Ongeveer 6-11 wissels per jaar per munt.
+
+Backtest op echte Bitvavo-dagkoersen (dec 2021 – nov 2026, `python trend_bot.py --backtest`):
+BTC vasthouden +52% (grootste daling 66%) tegen trendfilter +131% (grootste daling 35%);
+ETH vasthouden −48% (daling 76%) tegen trendfilter +23% (daling 43%). Verleden is geen garantie.
+
+```powershell
+python trend_bot.py --backtest     # test op echte koersen
+.\start.ps1                        # oefenstand (nepgeld €1000 + €100 per maandag) + dashboard
+.\start.ps1 -EchtGeld              # echt geld (eerst BITVAVO_KEY en BITVAVO_SECRET zetten, zie onder)
+```
+Instellingen in `instellingen_trend.json` (verdeling, aantal dagen, reserve in euro's).
+
+---
+
+## Handelsbot (`bitvavo_bot.py`): alleen voor proeven
+
 Automatische handelsbot met dashboard voor Bitvavo. **Start altijd in de oefenstand** (echte koersen, nepgeld).
 Geen garantie op winst: test eerst wekenlang in de oefenstand.
 
