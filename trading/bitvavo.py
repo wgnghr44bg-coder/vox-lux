@@ -39,7 +39,7 @@ def prijs_afronden(prijs, info):
     if info.get("tickSize"):
         t = float(info["tickSize"])
         return round(round(prijs / t) * t, 12)
-    sig = int(info.get("pricePrecision", 5))
+    sig = int(info.get("pricePrecision") or 5)
     if prijs <= 0:
         return prijs
     dec = sig - int(math.floor(math.log10(abs(prijs)))) - 1
