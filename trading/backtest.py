@@ -1,9 +1,9 @@
 """Test de strategie op oude koersen voordat er gehandeld wordt.
 
-  python backtest.py EUR_USD                    # haalt ±5000 uur-candles bij OANDA (token nodig)
-  python backtest.py EUR_USD --csv koersen.csv  # of uit een csv met kolommen tijd,o,h,l,c
-  python backtest.py EUR_USD --spread 0.00012   # spreadkosten per trade meerekenen
-  python backtest.py BTC-EUR --broker bitvavo    # crypto via Bitvavo (geen sleutel nodig, alleen kopen, 0,25% kosten)
+  python backtest.py BTC-EUR                    # ±5000 uur-candles van Bitvavo (geen sleutel nodig)
+  python backtest.py ETH-EUR --kosten-pct 0.15  # andere kosten per order
+  python backtest.py BTC-EUR --csv koersen.csv  # of uit een csv met kolommen tijd,o,h,l,c
+Alleen koopsignalen, 0,25% kosten per aan- en verkoop meegerekend.
 
 Uitkomst in R: 1R = het bedrag dat je per trade riskeert (standaard 0,5% van je saldo).
 """
@@ -79,26 +79,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("instrument")
     ap.add_argument("--csv")
-    ap.add_argument("--granularity", default="H1")
-    ap.add_argument("--spread", type=float, default=0.0, help="spread in prijs, bv. 0.00012 voor EUR_USD")
-    ap.add_argument("--broker", choices=["oanda", "bitvavo"], default="oanda")
-    ap.add_argument("--kosten-pct", type=float, default=None, help="kosten per order in %% (bitvavo: 0.25)")
+    ap.add_argument("--kosten-pct", type=float, default=0.25, help="kosten per order in %%")
     a = ap.parse_args()
-    bv = a.broker == "bitvavo"
-    with open(os.path.join(MAP, "instellingen_bitvavo.json" if bv else "instellingen.json")) as f:
+    with open(os.path.join(MAP, "instellingen_bitvavo.json")) as f:
         cfg = json.load(f)
-    kosten = a.kosten_pct if a.kosten_pct is not None else (0.25 if bv else 0.0)
-
     if a.csv:
         candles = lees_csv(a.csv)
-    elif bv:
+    else:
         from bitvavo import Publiek
         candles = Publiek().candles(a.instrument, cfg["interval"], 5000)
-    else:
-        from oanda import Oanda
-        api = Oanda()
-        candles = api.candles(a.instrument, a.granularity, 5000)
-    trades = simuleer(candles, cfg["strategie"], a.spread, alleen_koop=bv, kosten_pct=kosten)
+    trades = simuleer(candles, cfg["strategie"], alleen_koop=True, kosten_pct=a.kosten_pct)
     print(f"{a.instrument}: {len(candles)} candles")
     for k, v in rapport(trades, cfg["risico"]["risico_per_trade_pct"]).items():
         print(f"  {k}: {v}")

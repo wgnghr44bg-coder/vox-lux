@@ -18,8 +18,8 @@ DAGSTAND = os.path.join(MAP, "data", "dagstand.json")
 def units_berekenen(saldo, instap, stop, omrekenfactor, cfg=None, geheel=True):
     """Aantal units zodat verlies bij de stop = risico_per_trade_pct van het saldo.
 
-    omrekenfactor: 1 eenheid quotevaluta = zoveel rekeningvaluta (OANDA homeConversions).
-    geheel: hele units (forex); False voor crypto (0,0123 BTC).
+    omrekenfactor: 1 eenheid quotevaluta = zoveel euro (bij X-EUR markten altijd 1).
+    geheel: alleen hele units; False voor crypto (0,0123 BTC).
     """
     c = {**STANDAARD, **(cfg or {})}
     afstand = abs(instap - stop)

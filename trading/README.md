@@ -1,90 +1,55 @@
-# Trading bot voor OANDA (forex) en Bitvavo (crypto)
+# Trading bot voor Bitvavo (crypto)
 
-Automatische handelsbot met dashboard. **Standaard op oefengeld.**
-OANDA staat hieronder; Bitvavo staat onderaan.
-Geen garantie op winst: test eerst wekenlang op oefengeld.
+Automatische handelsbot met dashboard voor Bitvavo. **Start altijd in de oefenstand** (echte koersen, nepgeld).
+Geen garantie op winst: test eerst wekenlang in de oefenstand.
 
 ## Wat zit erin
 | Bestand | Wat |
 |---|---|
-| `bot.py` | De bot: kijkt elke minuut naar nieuwe uur-candles en plaatst orders, altijd met stop-loss en take-profit. |
-| `strategie.py` | Trendvolger: EMA 20/50-kruising, alleen in de richting van de EMA 200; stop 1,5×ATR, doel 3×ATR. |
-| `risico.py` | Max 0,5% risico per trade, stopt na 2% dagverlies, max 3 trades tegelijk, noodstop. |
-| `backtest.py` | Test de strategie op oude koersen. |
-| `dashboard.py` | Webpagina: saldo, open trades, logboek, noodstop-knop, "alles sluiten". |
-| `instellingen.json` | Welke paren, en alle getallen hierboven. |
+| `bitvavo_bot.py` | De bot: kijkt elke minuut, handelt BTC, ETH en SOL in euro's. |
+| `bitvavo.py` | Koppeling met Bitvavo, plus de **oefenstand** (nepgeld €1000, geen sleutel nodig). |
+| `strategie.py` | Trendvolger: EMA 20/50-kruising omhoog, alleen boven de EMA 200; stop 2×ATR, doel 4×ATR. |
+| `risico.py` | Max 0,5% risico per trade, stopt na 2% dagverlies, max 3 posities, noodstop. |
+| `backtest.py` | Test de strategie op oude koersen (kosten 0,25% per order meegerekend). |
+| `dashboard.py` | Webpagina: saldo, open posities, logboek, noodstop, "alles verkopen". |
+| `instellingen_bitvavo.json` | Markten en alle getallen (ook max 25% van je geld per trade). |
 
-## Stap 1: oefenaccount en sleutel
-1. Maak een gratis **demo-account** op oanda.com.
-2. Log in → *Mijn account* → *API-toegang beheren* → **token aanmaken**.
-3. Noteer het rekeningnummer (bv. `101-004-1234567-001`).
-4. Zet op de pc (PowerShell, eenmalig):
-   ```powershell
-   setx OANDA_TOKEN "jouw-token"
-   setx OANDA_ACCOUNT "101-004-1234567-001"
-   setx OANDA_OMGEVING "practice"
-   ```
-   Open daarna een nieuw PowerShell-venster. Deel de token nooit in een chat.
-
-## Stap 2: installeren en testen
-```powershell
-cd vox-lux\trading
-pip install requests
-python backtest.py EUR_USD --spread 0.00012
-python bot.py --een-keer
-```
-
-## Stap 3: draaien
-```powershell
-.\start.ps1           # start bot + dashboard, elk in een eigen venster
-```
-Dashboard: http://localhost:8787. Op je telefoon (zelfde wifi):
-`setx DASHBOARD_WACHTWOORD "iets-sterks"`, dan `python dashboard.py --host 0.0.0.0`
-en open `http://<ip-van-pc>:8787`.
-
-## Veiligheid
-- **Noodstop**: knop op het dashboard, of maak een leeg bestand `trading\NOODSTOP`. Bestaande trades houden hun stop-loss.
-- **Echt geld** kan alleen met `OANDA_OMGEVING=live` **én** `python bot.py --echt-geld`.
-- Logboek: `trading\data\log.jsonl`.
-
-## Tests
-`python -m pytest -q tests` (werkt zonder internet).
-
----
-
-# Bitvavo (crypto)
-
-| Bestand | Wat |
-|---|---|
-| `bitvavo.py` | Koppeling met Bitvavo, plus een **oefenstand** (echte koersen, nepgeld €1000). |
-| `bitvavo_bot.py` | De bot voor BTC, ETH en SOL in euro's. |
-| `instellingen_bitvavo.json` | Markten en getallen (stop 2×ATR, doel 4×ATR, max 25% van je geld per trade). |
-
-**Verschillen met OANDA**
-- Bitvavo heeft geen oefenaccount, daarom een eigen oefenstand. **Daarvoor is geen sleutel nodig.**
-- Alleen kopen en weer verkopen (geen "short").
-- Na elke aankoop zet de bot meteen een **stop-loss-order op Bitvavo zelf**, dus die werkt ook als je pc uit staat.
-  Het koersdoel bewaakt de bot zelf: staat de pc uit, dan wordt er niet op het doel verkocht (de stop blijft wel).
-- Kosten ±0,25% per aankoop en per verkoop; die rekent de backtest mee.
+**Hoe het handelt**
+- Alleen kopen en weer verkopen (bij Bitvavo kun je niet op een daling inzetten).
+- Na elke aankoop zet de bot meteen een **stop-loss-order op Bitvavo zelf**: die werkt ook als je pc uit staat.
+- Het koersdoel bewaakt de bot zelf; staat de pc uit, dan wordt er niet op het doel verkocht (de stop blijft wel staan).
 
 ## Stap 1: backtest en oefenstand (geen sleutel nodig)
 ```powershell
 cd vox-lux\trading
-python backtest.py BTC-EUR --broker bitvavo
-python backtest.py ETH-EUR --broker bitvavo
-.\start.ps1 -Broker bitvavo                 # bot + dashboard op http://localhost:8788
+pip install requests
+python backtest.py BTC-EUR
+python backtest.py ETH-EUR
+.\start.ps1                      # bot + dashboard op http://localhost:8788
 ```
 Het nepgeld staat in `data\papier_bitvavo.json` (verwijderen = opnieuw beginnen met €1000).
 
 ## Stap 2: echt geld (pas na weken goede resultaten)
 1. Bitvavo → Instellingen → **API** → nieuwe sleutel. Vink **alleen "Handelen"** aan, **nooit "Opnemen"**.
    Zet eventueel een IP-beperking op het IP-adres van je pc.
-2. Op de pc (PowerShell):
+2. Op de pc (PowerShell, eenmalig; daarna een nieuw venster openen):
    ```powershell
    setx BITVAVO_KEY "..."
    setx BITVAVO_SECRET "..."
    ```
-3. Zet eerst een klein bedrag op Bitvavo (bv. €100) en start: `.\start.ps1 -Broker bitvavo -EchtGeld`.
+   Deel deze sleutels nooit in een chat.
+3. Zet eerst een klein bedrag op Bitvavo (bv. €100) en start: `.\start.ps1 -EchtGeld`.
+   Het dashboard toont dan in rood **ECHT GELD**.
 
-Noodstop en "Alle trades sluiten" werken op het dashboard ook voor Bitvavo
-(sluiten = stop-orders weghalen en de munten verkopen).
+## Dashboard op je telefoon
+`setx DASHBOARD_WACHTWOORD "iets-sterks"`, dan `python dashboard.py --host 0.0.0.0` (plus `--echt-geld` indien nodig)
+en open `http://<ip-van-pc>:8788` op je telefoon (zelfde wifi).
+
+## Veiligheid
+- **Noodstop**: knop op het dashboard, of een leeg bestand `trading\NOODSTOP`. Stop-loss-orders blijven staan.
+- **Alles verkopen**: knop op het dashboard (haalt de stop-orders weg en verkoopt de munten).
+- Echt geld alleen met `--echt-geld` / `-EchtGeld`; zonder sleutels weigert de bot.
+- Logboek: `trading\data\log_bitvavo.jsonl`.
+
+## Tests
+`python -m pytest -q tests` (werkt zonder internet).
