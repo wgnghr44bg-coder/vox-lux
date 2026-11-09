@@ -53,7 +53,7 @@ def hms(x):
 besch = (d / "youtube-beschrijving.txt").read_text(encoding="utf-8")
 kop = besch.split("Chapters")[0]
 tail = besch.split("Chapters")[1].split("\n\n", 1)[1]
-ch = "\n".join(f"{hms(0 if n == 0 else t)} {titel}" for n, (titel, t) in enumerate(kapitels))
+ch = "\n".join(f"{hms(0 if n == 0 else round(t + 3))} {titel}" for n, (titel, t) in enumerate(kapitels))   # zelfde tijd als de titel in beeld (QC)
 (d / "youtube-beschrijving.txt").write_text(f"{kop}Chapters\n{ch}\n\n{tail}", encoding="utf-8")
 
 # effecten: wat past bij het beeld (woestijn: geen regen, geen sneeuw behalve winterbeeld)

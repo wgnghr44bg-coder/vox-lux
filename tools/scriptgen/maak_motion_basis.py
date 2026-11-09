@@ -26,7 +26,7 @@ besch = (d / "youtube-beschrijving.txt").read_text(encoding="utf-8")
 kop, rest = besch.split("Chapters", 1)
 staart = rest.split("\n\n", 1)[1] if "\n\n" in rest else ""
 (d / "youtube-beschrijving.txt").write_text(
-    f"{kop}Chapters\n" + "\n".join(f"{hms(0 if n == 0 else t)} {titel}" for n, (titel, t) in enumerate(kapitels)) +
+    f"{kop}Chapters\n" + "\n".join(f"{hms(0 if n == 0 else round(t + 3))} {titel}" for n, (titel, t) in enumerate(kapitels)) +
     f"\n\n{staart}", encoding="utf-8")
 
 # effecten op woorden in de beeldbeschrijving (zelfde soorten en sterktes als de handgemaakte video's)
