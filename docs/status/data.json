@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 13:33",
+ "bijgewerkt": "2026-11-09 14:03",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 13:33)"
+   "tekst": "draait nu (2026-11-09 14:03)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 13:33",
-   "volgende": "2026-11-09 14:03"
+   "laatst": "2026-11-09 14:03",
+   "volgende": "2026-11-09 14:33"
   }
  },
  "kanaal": {
@@ -177,10 +177,10 @@
   "geplande": 2,
   "runs": {
    "goed": 0,
-   "totaal": 2,
+   "totaal": 3,
    "procent": 0
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 9,
    "totaal": 9
@@ -196,19 +196,7 @@
   "YouTube upload"
  ],
  "stap": 1,
- "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "What Happened to Gettysburg After the Battle? | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 1,
-  "stapnaam": "Script schrijven",
-  "voortgang": 68,
-  "detail": "61 van ± 90 feitjes",
-  "taken": [
-   "script schrijven (Qwen3 lokaal)"
-  ]
- },
+ "huidig": null,
  "nu_bezig": [
   {
    "naam": "script schrijven (Qwen3 lokaal)",
@@ -216,7 +204,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 17,
+  "bezig_procent": 26,
   "geheugen_mb": 6807,
   "totaal_mb": 8192
  },
@@ -303,30 +291,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-09 05:46",
-   "tekst": "3. TEST routine-lokaal op Gettysburg tot en met beelden, beeldcontrole en thumbnail",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 07:30",
-   "tekst": "routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 07:30",
-   "tekst": "4. Egypte: B1-controle en afwisseling",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 07:31",
-   "tekst": "4. Egypte: stem",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-09 08:09",
    "tekst": "4. Egypte: voorbereiding ronde 1",
    "fout": false,
@@ -385,9 +349,40 @@
    "tekst": "scriptgenerator (lokaal): gettysburg-1863: 160 feiten gevonden, 11 onderwerpen",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 13:59",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: MISLUKT, maar 69 goede feitjes (minstens 80 nodig); niets gepusht",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 13:59",
+   "tekst": "scriptgenerator (lokaal): _test-nieuw: start (Life in Salem During the Witch Trials, 1692; opening voorwerp, titel what-happened)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 13:59",
+   "tekst": "1. klaar (exitcode 1)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 13:59",
+   "tekst": "2. TEST nieuw script Salem 1692 zonder Claude",
+   "fout": false,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-09 13:59",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: MISLUKT, maar 69 goede feitjes (minstens 80 nodig); niets gepusht",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "video": [
   {
    "map": "alexander-331-vc",
