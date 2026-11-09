@@ -308,6 +308,28 @@ def maak(m, test=False):
         if hoofd:
             blokken.append((h["title"], hoofd))
     n = sum(len(x[1]) for x in blokken)
+    # bijvullen (9 nov: Gettysburg strandde op 69): feiten die niet in het plan zaten, bij het kortste hoofdstuk
+    if n < 85 and blokken:
+        in_plan = {fid for h in plan for fid in h["facts"]}
+        for fid, f in enumerate(feiten):
+            if n >= 88:
+                break
+            if fid in in_plan:
+                continue
+            b = schrijf_feitje(onderwerp, f["fact"], stuk_tekst[f["stuk"]], koppen)
+            if not b:
+                continue
+            b = feitencheck(b, stuk_tekst[f["stuk"]])
+            b["fact"] = f["fact"]
+            slug = re.sub(r"[^a-z0-9-]", "", b["slug"].lower().replace(" ", "-"))[:50] or f"beeld-{fid}"
+            while slug in slugs:
+                slug += "-2"
+            slugs.add(slug)
+            b["slug"] = slug
+            koppen.append(b["head"][:40])
+            min(blokken, key=lambda x: len(x[1]))[1].append(b)
+            n += 1
+            print(f"  feitje {n} (bijgevuld): {b['head'][:70]}", flush=True)
     if n < 80:
         log(f"{m.name}: MISLUKT, maar {n} goede feitjes (minstens 80 nodig); niets gepusht")
         return False
