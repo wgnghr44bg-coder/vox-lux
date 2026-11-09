@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 10:03",
+ "bijgewerkt": "2026-11-09 10:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -24,7 +24,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "38 GB vrij"
+   "tekst": "37 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -39,35 +39,30 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 10:03)"
+   "tekst": "draait nu (2026-11-09 10:33)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
-  },
-  {
-   "naam": "Video 2026-11-11 (tombstone-1881)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
   }
  ],
- "automatisering": true,
+ "automatisering": false,
  "taken": {
   "routine": {
-   "aan": true,
+   "aan": false,
    "laatst": "2026-11-08 09:00",
    "volgende": "2026-11-10 09:00"
   },
   "scriptgenerator": {
-   "aan": true,
+   "aan": false,
    "laatst": "2026-11-09 06:00",
    "volgende": "2026-11-10 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 10:03",
-   "volgende": "2026-11-09 10:33"
+   "laatst": "2026-11-09 10:33",
+   "volgende": "2026-11-09 11:03"
   }
  },
  "kanaal": {
@@ -91,7 +86,7 @@
     "titel": "Life in Ancient Egypt When Tutankhamun Died, 1323 BC | 2 Hours of History for Sleep",
     "duur": "1:56:00",
     "privacy": "private",
-    "publiceer": "2026-11-14T20:00:00Z",
+    "publiceer": "2026-11-23T20:00:00Z",
     "views": 0,
     "verwerkt": "processed"
    },
@@ -100,7 +95,7 @@
     "titel": "Life in the Wild West: Tombstone, 1881 | 2 Hours of History for Sleep",
     "duur": "2:04:23",
     "privacy": "private",
-    "publiceer": "2026-11-11T20:00:00Z",
+    "publiceer": "2026-11-16T20:00:00Z",
     "views": 0,
     "verwerkt": "processed"
    },
@@ -187,8 +182,8 @@
   },
   "fouten": 2,
   "zelfcontrole": {
-   "goed": 10,
-   "totaal": 10
+   "goed": 9,
+   "totaal": 9
   }
  },
  "stappen": [
@@ -200,34 +195,29 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 1,
  "huidig": {
-  "map": "egypte-toetanchamon",
-  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/ctC36HRFIac/mqdefault.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "map": "gettysburg-1863",
+  "titel": "What Happened to Gettysburg After the Battle? | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
+  "stap": 1,
+  "stapnaam": "Script schrijven",
+  "voortgang": 94,
+  "detail": "85 van ± 90 feitjes",
   "taken": [
-   "beelden en geluid samenvoegen",
-   "beweging en hoofdstuktitels"
+   "script schrijven (Qwen3 lokaal)"
   ]
  },
  "nu_bezig": [
   {
-   "naam": "beelden en geluid samenvoegen",
-   "stap": 4
-  },
-  {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "script schrijven (Qwen3 lokaal)",
+   "stap": 1
   }
  ],
  "videokaart": {
-  "bezig_procent": 3,
-  "geheugen_mb": 570,
+  "bezig_procent": 31,
+  "geheugen_mb": 6639,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -283,8 +273,8 @@
   {
    "datum": "2026-11-11",
    "plek": true,
-   "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "soort": "gepland"
+   "video": "",
+   "soort": "vrij"
   },
   {
    "datum": "2026-11-12",
@@ -301,8 +291,8 @@
   {
    "datum": "2026-11-14",
    "plek": true,
-   "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "soort": "gepland"
+   "video": "",
+   "soort": "vrij"
   },
   {
    "datum": "2026-11-15",
@@ -312,24 +302,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-08 19:26",
-   "tekst": "1. TEST beeldmodel (30 foute + 30 goede beelden)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 19:27",
-   "tekst": "2a. Tombstone: wachten op montage",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-08 21:50",
-   "tekst": "2a. Tombstone: CONTROLES NIET GOED, niet geüpload",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-08 21:50",
    "tekst": "2b. TEST generator op Gettysburg (zonder Claude, testmodus)",
@@ -391,8 +363,26 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-09 09:29",
-   "tekst": "wachten op Egypte en Tombstone",
+   "tijd": "2026-11-09 10:05",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: start (Life in Gettysburg, July 1863; opening voorwerp, titel how-survive)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 10:05",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 1 bronnen (oude script), 18 bruikbare stukken",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 10:05",
+   "tekst": "1. TEST Gettysburg ombouwen zonder Claude (uit het originele script)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 10:27",
+   "tekst": "scriptgenerator (lokaal): gettysburg-1863: 160 feiten gevonden, 11 onderwerpen",
    "fout": false,
    "klaar": false
   }
@@ -689,7 +679,7 @@
   },
   {
    "map": "egypte-toetanchamon",
-   "datum": "2026-11-14",
+   "datum": "2026-11-23",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
    "status": "klaar",
@@ -1294,7 +1284,7 @@
   },
   {
    "map": "tombstone-1881",
-   "datum": "2026-11-11",
+   "datum": "2026-11-16",
    "reserve": false,
    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
    "status": "klaar",
