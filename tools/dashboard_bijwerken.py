@@ -17,7 +17,10 @@ import requests
 HIER = Path(__file__).resolve().parent
 REPO = HIER.parent
 STORIES = REPO / "stories"
-DOCS = REPO / "docs" / "status"
+# Eigenaar 9 nov 2026: "kun je de website offline halen". ONLINE = False: alles blijft lokaal op de pc (de zelfcontrole draait
+# gewoon door), niets naar GitHub. Weer online: ONLINE = True en docs/status terugzetten uit git (commit vóór 9 nov avond).
+ONLINE = False
+DOCS = REPO / "docs" / "status" if ONLINE else Path(r"C:\Users\rane\sleep-archives-status")
 UIT = DOCS / "data.json"
 NU = datetime.datetime.now()
 VANDAAG = datetime.date.today()
@@ -333,6 +336,6 @@ data = {
 DOCS.mkdir(parents=True, exist_ok=True)
 UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
 print("dashboard bijgewerkt:", data["bijgewerkt"], "| stap:", stap, actief, proc, "| nu:", ", ".join(d["naam"] for d in draait) or "niets")
-if "--niet-pushen" not in sys.argv:                          # via de wachtrij (tools/gitveilig.py), geen botsingen
+if ONLINE and "--niet-pushen" not in sys.argv:                          # via de wachtrij (tools/gitveilig.py), geen botsingen
     from gitveilig import bewaar
     bewaar([DOCS], f"dashboard {data['bijgewerkt']}")
