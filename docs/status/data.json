@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 13:03",
+ "bijgewerkt": "2026-11-09 13:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -24,7 +24,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "242 GB vrij"
+   "tekst": "246 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-09 13:03)"
+   "tekst": "draait nu (2026-11-09 13:33)"
   },
   {
    "naam": "Git",
@@ -61,8 +61,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 13:03",
-   "volgende": "2026-11-09 13:33"
+   "laatst": "2026-11-09 13:33",
+   "volgende": "2026-11-09 14:03"
   }
  },
  "kanaal": {
@@ -168,7 +168,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1219,
+    "views": 1220,
     "verwerkt": "processed"
    }
   ]
@@ -203,8 +203,8 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 1,
   "stapnaam": "Script schrijven",
-  "voortgang": 57,
-  "detail": "51 van ± 90 feitjes",
+  "voortgang": 68,
+  "detail": "61 van ± 90 feitjes",
   "taken": [
    "script schrijven (Qwen3 lokaal)"
   ]
@@ -216,8 +216,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 32,
-  "geheugen_mb": 6791,
+  "bezig_procent": 17,
+  "geheugen_mb": 6807,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1130,12 +1130,12 @@
    "map": "rome-44-vc",
    "datum": "2026-12-02",
    "reserve": false,
-   "titel": "Life in Ancient Rome When Caesar Died, 44 BC | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "mythe"
   },
   {
    "map": "romeinse-soldaat",
@@ -1405,12 +1405,12 @@
    "map": "zwarte-dood-1348",
    "datum": "2026-12-05",
    "reserve": false,
-   "titel": "Life in Europe During the Black Death, 1348 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "voorwerp"
   }
  ],
  "vast": {
