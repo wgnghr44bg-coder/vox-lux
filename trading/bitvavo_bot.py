@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 
 import risico
 import strategie
-from bitvavo import Bitvavo, BitvavoFout, Papier, hoeveelheid_decimalen
+from bitvavo import UUR_MS, Bitvavo, BitvavoFout, Papier, hoeveelheid_decimalen
 
 MAP = os.path.dirname(os.path.abspath(__file__))
 LOG = os.path.join(MAP, "data", "log_bitvavo.jsonl")
@@ -66,17 +66,23 @@ def waarde(api, markten, posities):
     return nav, saldi, koersen
 
 
+def _r(p, prijs):
+    return (prijs - p["instap"]) / (p["instap"] - p["stop_start"])
+
+
 def beheer_posities(api, posities, koersen, infos):
+    """Open posities: stop geraakt? doel bereikt? na TP1 stop naar instap (break-even)."""
     for m in list(posities):
         p = posities[m]
+        if p.get("status") == "wacht":
+            continue
         status = api.order_status(m, p["stop_id"])
         if status == "filled":
-            r = (p["stop"] - p["instap"]) / (p["instap"] - p["stop_start"])
-            log("stop geraakt", markt=m, instap=p["instap"], stop=p["stop"], R=round(r, 2))
+            log("stop geraakt", markt=m, instap=p["instap"], stop=p["stop"], R=round(_r(p, p["stop"]), 2))
             del posities[m]
             continue
+        base = m.split("-")[0]
         if status in EINDE:                       # stop verdwenen: opnieuw beschermen
-            base = m.split("-")[0]
             vrij = api.saldi().get(base, (0, 0))[0]
             if vrij <= 0:
                 log("positie weg", markt=m, status=status)
@@ -88,12 +94,83 @@ def beheer_posities(api, posities, koersen, infos):
         bid = koersen[m]["bid"]
         if bid >= p["doel"]:
             api.annuleer(m, p["stop_id"])
-            base = m.split("-")[0]
             vrij = api.saldi().get(base, (0, 0))[0]
             res = api.verkoop_markt(m, min(vrij, p["aantal"]) or vrij, hoeveelheid_decimalen(infos[m]))
-            r = (res["prijs"] - p["instap"]) / (p["instap"] - p["stop_start"])
-            log("doel bereikt", markt=m, instap=p["instap"], verkocht=res["prijs"], R=round(r, 2))
+            log("doel bereikt", markt=m, instap=p["instap"], verkocht=res["prijs"], R=round(_r(p, res["prijs"]), 2))
             del posities[m]
+            continue
+        if p.get("tp1") and not p.get("be") and bid >= p["tp1"] and p["stop"] < p["instap"]:
+            api.annuleer(m, p["stop_id"])
+            vrij = api.saldi().get(base, (0, 0))[0]
+            p["stop_id"] = api.stop_order(m, vrij, p["instap"], infos[m])
+            p["stop"], p["be"], p["aantal"] = p["instap"], True, vrij
+            log("stop naar instap", markt=m, tp1=p["tp1"], stop=p["instap"])
+
+
+def beheer_wachtend(api, posities, koersen, infos, nav, cfg):
+    """Wachtende limieten: vervallen, TP1 eerst geraakt (annuleren), of koers op de limiet (kopen)."""
+    nu = int(time.time() * 1000)
+    for m in list(posities):
+        p = posities[m]
+        if p.get("status") != "wacht":
+            continue
+        k = koersen[m]
+        if nu > p["verloopt_ms"]:
+            log("limiet vervallen", markt=m, limiet=p["limiet"])
+            del posities[m]
+        elif k["bid"] >= p["tp1"]:
+            log("limiet vervallen", markt=m, limiet=p["limiet"], reden="TP1 eerder bereikt")
+            del posities[m]
+        elif k["ask"] <= p["limiet"]:
+            del posities[m]
+            pos = koop_en_bescherm(api, m, cfg, infos, nav, koersen, p["stop"], p["doel"], tp1=p["tp1"])
+            if pos:
+                posities[m] = pos
+
+
+def koop_en_bescherm(api, m, cfg, infos, nav, koersen, stop, doel, tp1=None, afstanden=None):
+    """Koopt tegen marktprijs met 0,5% risico en zet direct een stop-loss op Bitvavo.
+
+    afstanden=(stop, doel): stop en doel opnieuw rekenen vanaf de echte aankoopprijs (trend/smc).
+    Zonder afstanden blijven stop en doel vaste prijzen (sweep).
+    """
+    ask = koersen[m]["ask"]
+    if afstanden:
+        stop, doel = ask - afstanden[0], ask + afstanden[1]
+    if stop >= ask:
+        log("overgeslagen", markt=m, reden="koers al onder de stop")
+        return None
+    units = risico.units_berekenen(nav, ask, stop, 1.0, cfg["risico"], geheel=False)
+    eur = min(units * ask, nav * cfg["risico"].get("max_pct_per_trade", 25) / 100,
+              api.saldi().get("EUR", (0, 0))[0] * 0.99)
+    minimum = float(infos[m].get("minOrderInQuoteAsset", 5))
+    if eur < minimum:
+        log("overgeslagen", markt=m, reden=f"bedrag te klein (€{eur:.2f}, minimum €{minimum})")
+        return None
+    koop = api.koop_markt(m, eur)
+    if not koop["aantal"]:
+        log("geweigerd", markt=m, antwoord=str(koop)[:200])
+        return None
+    instap = koop["prijs"]
+    if afstanden:
+        stop, doel = instap - afstanden[0], instap + afstanden[1]
+    base = m.split("-")[0]
+    aantal = min(koop["aantal"], api.saldi().get(base, (0, 0))[0])
+    if stop >= koersen[m]["bid"] or stop >= instap:
+        log("overgeslagen", markt=m, reden="koers al onder de stop, direct verkocht")
+        api.verkoop_markt(m, aantal, hoeveelheid_decimalen(infos[m]))
+        return None
+    try:
+        stop_id = api.stop_order(m, aantal, stop, infos[m])
+    except BitvavoFout as e:           # zonder stop geen positie: meteen weer verkopen
+        log("fout", markt=m, melding=f"stop-loss mislukt, positie gesloten: {e}"[:300])
+        api.verkoop_markt(m, aantal, hoeveelheid_decimalen(infos[m]))
+        return None
+    log("gekocht", markt=m, eur=round(eur, 2), prijs=instap, aantal=aantal,
+        stop=round(stop, 8), doel=round(doel, 8), **({"tp1": round(tp1, 8)} if tp1 else {}))
+    return {"status": "open", "aantal": aantal, "instap": instap, "stop": stop, "stop_start": stop,
+            "doel": doel, "tp1": tp1, "be": False, "stop_id": stop_id,
+            "sinds": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 
 def ronde(api, cfg, laatste_candle, infos=None):
@@ -104,10 +181,12 @@ def ronde(api, cfg, laatste_candle, infos=None):
             infos[m] = api.market_info(m)
     nav, saldi, koersen = waarde(api, cfg["markten"], posities)
     beheer_posities(api, posities, koersen, infos)
+    beheer_wachtend(api, posities, koersen, infos, nav, cfg)
     bewaar_posities(api, posities)
+    stap_ms = UUR_MS.get(cfg["interval"], 3_600_000)
 
     for m in cfg["markten"]:
-        candles = api.candles(m, cfg["interval"], 300)
+        candles = api.candles(m, cfg["interval"], cfg.get("aantal_candles", 300))
         if not candles or candles[-1]["tijd"] == laatste_candle.get(m):
             continue
         laatste_candle[m] = candles[-1]["tijd"]
@@ -115,50 +194,34 @@ def ronde(api, cfg, laatste_candle, infos=None):
         if not sig or sig["richting"] != "koop":
             continue
         if m in posities:
-            log("overgeslagen", markt=m, reden="al in bezit")
+            log("overgeslagen", markt=m, reden="al in bezit of limiet wacht")
             continue
         ok, reden = risico.mag_handelen(nav, len(posities), cfg["risico"],
                                         os.path.join(MAP, "data", f"dagstand_bitvavo_{'papier' if api.papier else 'echt'}.json"))
         if not ok:
             log("overgeslagen", markt=m, reden=reden)
             continue
-
-        ask = koersen[m]["ask"]
-        afstand_stop = sig["instap"] - sig["stop"]
-        afstand_doel = sig["doel"] - sig["instap"]
-        units = risico.units_berekenen(nav, ask, ask - afstand_stop, 1.0, cfg["risico"], geheel=False)
-        eur = units * ask
-        eur = min(eur, nav * cfg["risico"].get("max_pct_per_trade", 25) / 100,
-                  api.saldi().get("EUR", (0, 0))[0] * 0.99)
-        minimum = float(infos[m].get("minOrderInQuoteAsset", 5))
-        if eur < minimum:
-            log("overgeslagen", markt=m, reden=f"bedrag te klein (€{eur:.2f}, minimum €{minimum})")
-            continue
-
-        koop = api.koop_markt(m, eur)
-        if not koop["aantal"]:
-            log("geweigerd", markt=m, antwoord=str(koop)[:200])
-            continue
-        instap = koop["prijs"]
-        stop, doel = instap - afstand_stop, instap + afstand_doel
-        if stop >= koersen[m]["bid"]:
-            log("overgeslagen", markt=m, reden="koers al onder de stop")
-            api.verkoop_markt(m, koop["aantal"], hoeveelheid_decimalen(infos[m]))
-            continue
-        base = m.split("-")[0]
-        aantal = min(koop["aantal"], api.saldi().get(base, (0, 0))[0])
-        try:
-            stop_id = api.stop_order(m, aantal, stop, infos[m])
-        except BitvavoFout as e:           # zonder stop geen positie: meteen weer verkopen
-            log("fout", markt=m, melding=f"stop-loss mislukt, positie gesloten: {e}"[:300])
-            api.verkoop_markt(m, aantal, hoeveelheid_decimalen(infos[m]))
-            continue
-        posities[m] = {"aantal": aantal, "instap": instap, "stop": stop, "stop_start": stop,
-                       "doel": doel, "stop_id": stop_id,
-                       "sinds": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+        if sig.get("limiet"):
+            if koersen[m]["ask"] <= sig["instap"]:
+                pos = koop_en_bescherm(api, m, cfg, infos, nav, koersen, sig["stop"], sig["doel"], tp1=sig["tp1"])
+                if pos:
+                    posities[m] = pos
+            else:
+                verloopt = int(candles[-1]["tijd"]) + (sig["verloop_candles"] + 1) * stap_ms
+                posities[m] = {"status": "wacht", "limiet": sig["instap"], "stop": sig["stop"],
+                               "tp1": sig["tp1"], "doel": sig["doel"], "verloopt_ms": verloopt}
+                log("limiet geplaatst", markt=m, limiet=sig["instap"], stop=sig["stop"],
+                    tp1=sig["tp1"], doel=sig["doel"])
+        elif sig.get("vast"):
+            pos = koop_en_bescherm(api, m, cfg, infos, nav, koersen, sig["stop"], sig["doel"], tp1=sig.get("tp1"))
+            if pos:
+                posities[m] = pos
+        else:
+            pos = koop_en_bescherm(api, m, cfg, infos, nav, koersen, 0, 0,
+                                   afstanden=(sig["instap"] - sig["stop"], sig["doel"] - sig["instap"]))
+            if pos:
+                posities[m] = pos
         bewaar_posities(api, posities)
-        log("gekocht", markt=m, eur=round(eur, 2), prijs=instap, aantal=aantal,
-            stop=round(stop, 8), doel=round(doel, 8))
 
 
 def maak_api(echt_geld, cfg):

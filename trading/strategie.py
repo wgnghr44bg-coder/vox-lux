@@ -1,4 +1,5 @@
-"""Strategieën. Kies in instellingen_bitvavo.json met "soort": "trend" (hieronder) of "smc" (zie smc.py).
+"""Strategieën. Kies in instellingen_bitvavo.json met "soort": "trend" (hieronder), "smc" (smc.py)
+of "sweep" (sweep_cisd.py).
 
 Trend: trendvolger met twee voortschrijdende gemiddelden (EMA) en ATR-stop.
 
@@ -53,6 +54,9 @@ def signaal(candles, inst=None):
     if soort == "smc":
         import smc
         return smc.signaal(candles, p)
+    if soort == "sweep":
+        import sweep_cisd
+        return sweep_cisd.signaal(candles, p)
     return trend_signaal(candles, p)
 
 

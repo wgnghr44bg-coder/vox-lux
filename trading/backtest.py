@@ -3,7 +3,7 @@
   python backtest.py BTC-EUR                    # ±5000 uur-candles van Bitvavo (geen sleutel nodig)
   python backtest.py ETH-EUR --kosten-pct 0.15  # andere kosten per order
   python backtest.py BTC-EUR --csv koersen.csv  # of uit een csv met kolommen tijd,o,h,l,c
-  python backtest.py BTC-EUR --vergelijk        # smart money én trend naast elkaar
+  python backtest.py BTC-EUR --vergelijk        # sweep, smart money en trend naast elkaar
 Alleen koopsignalen, 0,25% kosten per aan- en verkoop meegerekend.
 
 Uitkomst in R: 1R = het bedrag dat je per trade riskeert (standaard 0,5% van je saldo).
@@ -72,7 +72,7 @@ def rapport(trades, risico_pct=0.5):
 
 def lees_csv(pad):
     with open(pad, newline="") as f:
-        return [{"tijd": r["tijd"], "o": float(r["o"]), "h": float(r["h"]),
+        return [{"tijd": int(float(r["tijd"])) if r["tijd"].replace(".", "").isdigit() else r["tijd"], "o": float(r["o"]), "h": float(r["h"]),
                  "l": float(r["l"]), "c": float(r["c"])} for r in csv.DictReader(f)]
 
 
@@ -91,12 +91,20 @@ def main():
         from bitvavo import Publiek
         candles = Publiek().candles(a.instrument, cfg["interval"], 5000)
     print(f"{a.instrument}: {len(candles)} candles ({cfg['interval']})")
-    soorten = ["smc", "trend"] if a.vergelijk else [cfg["strategie"].get("soort", "trend")]
+    soorten = ["sweep", "smc", "trend"] if a.vergelijk else [cfg["strategie"].get("soort", "trend")]
+    namen = {"sweep": "HTF sweep CISD", "smc": "smart money", "trend": "trend"}
     for soort in soorten:
-        trades = simuleer(candles, {**cfg["strategie"], "soort": soort}, alleen_koop=True, kosten_pct=a.kosten_pct)
-        print(f"\nStrategie {soort}:")
+        if soort == "sweep":
+            import sweep_cisd
+            trades = sweep_cisd.backtest(candles, cfg["strategie"].get("sweep", {}), a.kosten_pct, cfg["interval"])
+        else:
+            trades = simuleer(candles, {**cfg["strategie"], "soort": soort}, alleen_koop=True, kosten_pct=a.kosten_pct)
+        print(f"\nStrategie {namen.get(soort, soort)}:")
         for k, v in rapport(trades, cfg["risico"]["risico_per_trade_pct"]).items():
             print(f"  {k}: {v}")
+        if soort == "sweep" and trades:
+            tp1 = sum(1 for t in trades if t.get("gewonnen"))
+            print(f"  TP1_geraakt_pct: {round(tp1 / len(trades) * 100, 1)}  (zo telt het script 'win rate')")
 
 
 if __name__ == "__main__":

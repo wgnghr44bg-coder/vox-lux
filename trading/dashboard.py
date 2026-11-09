@@ -55,11 +55,14 @@ const getal=v=>Number(v).toLocaleString('nl-NL',{maximumSignificantDigits:6});
 const tijd=t=>new Date(t).toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function zin(l){const m=esc(l.markt||'');switch(l.soort){
- case 'start':return `Bot gestart (${esc(l.stand)}${l.strategie?', strategie '+esc(l.strategie==='smc'?'smart money':l.strategie):''})`;
+ case 'start':return `Bot gestart (${esc(l.stand)}${l.strategie?', strategie '+esc(l.strategie==='smc'?'smart money':l.strategie==='sweep'?'HTF sweep CISD':l.strategie):''})`;
  case 'gekocht':return `<b>Gekocht</b> ${m} voor ${geld(l.eur)} à ${getal(l.prijs)} <span class=klein>(stop ${getal(l.stop)}, doel ${getal(l.doel)})</span>`;
  case 'doel bereikt':return `<b class=plus>Verkocht met winst</b> ${m} à ${getal(l.verkocht)} (${l.R>0?'+':''}${l.R}R)`;
  case 'stop geraakt':return `<b class=min>Stop-loss geraakt</b> ${m} à ${getal(l.stop)} (${l.R}R)`;
  case 'overgeslagen':return `Niet gekocht ${m}: ${esc(l.reden)}`;
+ case 'limiet geplaatst':return `<b>Limiet geplaatst</b> ${m} op ${getal(l.limiet)} <span class=klein>(stop ${getal(l.stop)}, TP1 ${getal(l.tp1)}, doel ${getal(l.doel)})</span>`;
+ case 'limiet vervallen':return `Limiet vervallen ${m}${l.reden?': '+esc(l.reden):''}`;
+ case 'stop naar instap':return `<b>Stop naar instap</b> ${m} (TP1 ${getal(l.tp1)} geraakt)`;
  case 'stop opnieuw geplaatst':return `Stop-loss opnieuw gezet ${m} (${getal(l.stop)})`;
  case 'fout':return `<span class=min>Fout:</span> ${esc(l.melding)}`;
  case 'stop':return `<span class=min>Bot gestopt:</span> ${esc(l.reden)}`;
@@ -122,6 +125,10 @@ def bitvavo_status(d):
         nav, saldi, koersen = bitvavo_bot.waarde(api, cfg["markten"], pos)
         trades, upl = [], 0.0
         for m, p in pos.items():
+            if p.get("status") == "wacht":
+                trades.append({"instrument": m, "currentUnits": "wacht", "price": p["limiet"],
+                               "unrealizedPL": 0, "stop": p["stop"], "doel": p["doel"]})
+                continue
             w = (koersen[m]["bid"] - p["instap"]) * p["aantal"]
             upl += w
             trades.append({"instrument": m, "currentUnits": f"{p['aantal']:.6g}",
@@ -144,6 +151,9 @@ def bitvavo_sluit_alles():
     gesloten, fouten = [], []
     for m, p in list(pos.items()):
         try:
+            if p.get("status") == "wacht":
+                del pos[m]
+                continue
             api.annuleer(m, p["stop_id"])
             vrij = api.saldi().get(m.split("-")[0], (0, 0))[0]
             api.verkoop_markt(m, vrij, hoeveelheid_decimalen(api.market_info(m)))

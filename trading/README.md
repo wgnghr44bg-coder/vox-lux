@@ -8,7 +8,8 @@ Geen garantie op winst: test eerst wekenlang in de oefenstand.
 |---|---|
 | `bitvavo_bot.py` | De bot: kijkt elke minuut, handelt BTC, ETH en SOL in euro's. |
 | `bitvavo.py` | Koppeling met Bitvavo, plus de **oefenstand** (nepgeld €1000, geen sleutel nodig). |
-| `smc.py` | Strategie **smart money** (standaard): toppen/bodems, BOS en CHoCH, kopen in de vraagzone, boven SMA 200. |
+| `sweep_cisd.py` | Strategie **HTF sweep CISD** (standaard), naar het TradingView-script van WillyAlgoTrader. |
+| `smc.py` | Strategie **smart money**: toppen/bodems, BOS en CHoCH, kopen in de vraagzone, boven SMA 200. |
 | `strategie.py` | Strategie **trend**: EMA 20/50-kruising omhoog boven de EMA 200; stop 2×ATR, doel 4×ATR. |
 | `risico.py` | Max 0,5% risico per trade, stopt na 2% dagverlies, max 3 posities, noodstop. |
 | `backtest.py` | Test de strategie op oude koersen (kosten 0,25% per order meegerekend). |
@@ -21,7 +22,24 @@ Geen garantie op winst: test eerst wekenlang in de oefenstand.
 - Het koersdoel bewaakt de bot zelf; staat de pc uit, dan wordt er niet op het doel verkocht (de stop blijft wel staan).
 
 ## Strategie kiezen
-In `instellingen_bitvavo.json` bij `"strategie"`: `"soort": "smc"` (smart money) of `"soort": "trend"`.
+In `instellingen_bitvavo.json` bij `"strategie"`: `"soort": "sweep"`, `"smc"` (smart money) of `"trend"`.
+
+**HTF sweep CISD** (standaard) werkt zo, met de standaardinstellingen van het TradingView-script:
+1. Grote tijdschaal automatisch: bij uur-candles is dat de **dag** (15m → 4h, 4h → week).
+2. **Sweep**: de koers zakt onder de bodem van de vorige dag, of onder een nog niet geraakte dagbodem
+   van de laatste 10 dagen.
+3. **Breaker**: daarna sluit een sterke groene candle (lijf ≥ 0,5×ATR) boven de laatste swing-top van vóór
+   het laagste punt.
+4. **Instap** met een limiet op het slot van die swing-top-candle (de bot koopt zelf als de koers daar komt;
+   staat de koers er al onder, dan direct). Vervalt na 60 candles, of als TP1 eerder geraakt wordt.
+5. **Stop-loss** op het laagste punt van de sweep (op Bitvavo zelf). **TP1 = 1R** → stop naar de instap
+   (break-even). **TP3 = 3R** → alles verkopen. Stop-afstand tussen 0,25 en 3×ATR, en minstens 1%
+   (`min_risico_pct`), anders eten de kosten de winst op.
+6. Niet overgenomen: andere instapmodellen (OB/FVG/IFVG/Unicorn), tijd- en nieuwsfilters, SMT, short.
+
+Let op: de "Win Rate" op het TradingView-dashboard telt een trade als gewonnen zodra TP1 is geraakt,
+ook als hij daarna op break-even (0R, en bij Bitvavo dus een klein verlies door kosten) sluit.
+Kijk daarom naar **totaal_R** in de backtest, niet alleen naar het winstpercentage.
 
 **Smart money** werkt zo:
 1. De bot zoekt toppen en bodems (5 candles links en rechts).
