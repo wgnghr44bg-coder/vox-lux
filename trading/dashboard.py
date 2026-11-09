@@ -31,15 +31,15 @@ main{max-width:900px;margin:auto;padding:16px}
 .label{color:var(--zacht);font-size:13px}.groot{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
 .plus{color:var(--groen)}.min{color:var(--rood)}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{padding:6px 4px;border-bottom:1px solid var(--rand);text-align:left}
-.log{font:12px/1.5 ui-monospace,monospace;max-height:340px;overflow:auto;white-space:pre-wrap}
+.log{max-height:420px;overflow:auto}.regel{padding:7px 0;border-bottom:1px solid var(--rand);overflow-wrap:anywhere}.regel:last-child{border:0}.tijd{color:var(--zacht);font-size:13px;margin-right:6px;font-variant-numeric:tabular-nums}.klein{color:var(--zacht);font-size:12px}
 button{font:inherit;padding:10px 14px;border-radius:8px;border:1px solid var(--rand);background:var(--kaart);color:var(--tekst);cursor:pointer}
 button.gevaar{background:var(--rood);color:#fff;border:0}.knoppen{display:flex;gap:8px;flex-wrap:wrap}
 .status{display:inline-block;padding:2px 10px;border-radius:99px;font-size:13px;font-weight:600}
 </style></head><body><main>
 <h1 style="font-size:20px">Trading Bot <span id="omg" class="status"></span></h1>
 <div class="kaart rij">
- <div><div class="label">Saldo</div><div class="groot" id="saldo">–</div></div>
- <div><div class="label">Waarde (NAV)</div><div class="groot" id="nav">–</div></div>
+ <div><div class="label">Vrij geld</div><div class="groot" id="saldo">–</div></div>
+ <div><div class="label">Totale waarde</div><div class="groot" id="nav">–</div></div>
  <div><div class="label">Open winst/verlies</div><div class="groot" id="upl">–</div></div>
  <div><div class="label">Bot</div><div class="groot" id="bot">–</div></div>
 </div>
@@ -51,6 +51,19 @@ button.gevaar{background:var(--rood);color:#fff;border:0}.knoppen{display:flex;g
 <div class="kaart"><b>Logboek</b><div class="log" id="log"></div></div>
 </main><script>
 let stopAan=false;
+const getal=v=>Number(v).toLocaleString('nl-NL',{maximumSignificantDigits:6});
+const tijd=t=>new Date(t).toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function zin(l){const m=esc(l.markt||'');switch(l.soort){
+ case 'start':return `Bot gestart (${esc(l.stand)})`;
+ case 'gekocht':return `<b>Gekocht</b> ${m} voor ${geld(l.eur)} à ${getal(l.prijs)} <span class=klein>(stop ${getal(l.stop)}, doel ${getal(l.doel)})</span>`;
+ case 'doel bereikt':return `<b class=plus>Verkocht met winst</b> ${m} à ${getal(l.verkocht)} (${l.R>0?'+':''}${l.R}R)`;
+ case 'stop geraakt':return `<b class=min>Stop-loss geraakt</b> ${m} à ${getal(l.stop)} (${l.R}R)`;
+ case 'overgeslagen':return `Niet gekocht ${m}: ${esc(l.reden)}`;
+ case 'stop opnieuw geplaatst':return `Stop-loss opnieuw gezet ${m} (${getal(l.stop)})`;
+ case 'fout':return `<span class=min>Fout:</span> ${esc(l.melding)}`;
+ case 'stop':return `<span class=min>Bot gestopt:</span> ${esc(l.reden)}`;
+ default:return `${esc(l.soort)} ${m}`;}}
 const geld=(v,c)=>v==null?'–':Number(v).toLocaleString('nl-NL',{style:'currency',currency:c||'EUR'});
 async function laad(){
  const r=await fetch('api/status');const d=await r.json();
@@ -62,8 +75,8 @@ async function laad(){
  omg.style.background=d.omgeving==='live'?'var(--rood)':'var(--groen)';omg.style.color='#fff';
  stopAan=d.noodstop;bot.textContent=stopAan?'gestopt':'actief';bot.className='groot '+(stopAan?'min':'plus');
  stopknop.textContent=stopAan?'Bot weer aanzetten':'Noodstop';
- trades.innerHTML=(d.trades||[]).map(t=>`<tr><td>${t.instrument}</td><td>${t.currentUnits}</td><td>${t.price}</td><td class="${+t.unrealizedPL>=0?'plus':'min'}">${geld(t.unrealizedPL,c)}</td></tr>`).join('')||'<tr><td colspan=4 class=label>geen</td></tr>';
- log.textContent=(d.log||[]).map(l=>`${l.tijd}  ${l.soort}  ${JSON.stringify(Object.fromEntries(Object.entries(l).filter(([k])=>k!=='tijd'&&k!=='soort')))}`).reverse().join('\\n');
+ trades.innerHTML=(d.trades||[]).map(t=>`<tr><td>${t.instrument}${t.stop?`<div class=klein>stop ${getal(t.stop)} · doel ${getal(t.doel)}</div>`:''}</td><td>${t.currentUnits}</td><td>${getal(t.price)}</td><td class="${+t.unrealizedPL>=0?'plus':'min'}">${geld(t.unrealizedPL,c)}</td></tr>`).join('')||'<tr><td colspan=4 class=label>geen</td></tr>';
+ log.innerHTML=(d.log||[]).slice().reverse().map(l=>`<div class=regel><span class=tijd>${tijd(l.tijd)}</span>${zin(l)}</div>`).join('')||'<span class=label>nog niets gebeurd</span>';
 }
 async function post(p,b){const r=await fetch(p,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})});const d=await r.json();if(d.fout)alert(d.fout);laad();}
 function noodstop(){post('api/noodstop',{aan:!stopAan});}
@@ -112,7 +125,8 @@ def bitvavo_status(d):
             w = (koersen[m]["bid"] - p["instap"]) * p["aantal"]
             upl += w
             trades.append({"instrument": m, "currentUnits": f"{p['aantal']:.6g}",
-                           "price": f"{p['instap']:.6g}", "unrealizedPL": round(w, 2)})
+                           "price": f"{p['instap']:.6g}", "unrealizedPL": round(w, 2),
+                           "stop": p["stop"], "doel": p["doel"]})
         d["account"] = {"currency": "EUR", "balance": round(sum(saldi.get("EUR", (0, 0))), 2),
                         "NAV": round(nav, 2), "unrealizedPL": round(upl, 2)}
         d["trades"] = trades
