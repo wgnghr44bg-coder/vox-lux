@@ -12,6 +12,6 @@ Uitkomst 9 nov 2026 (nov 2024 – nov 2026): geen enkele strategie maakte in bei
 Een filter "alleen boven het 200-daags gemiddelde" beperkte de verliezen, maar gaf ook geen voordeel.
 
 ## Tweede ronde (alle Editors' Picks, nov 2026)
- / : Adaptive SuperSmoother (Ehlers), RedK MMTStop als Chandelier en Donchian,
+`kandidaten2.py` / `vergelijk2.py`: Adaptive SuperSmoother (Ehlers), RedK MMTStop als Chandelier en Donchian,
 Dual-Phase Reversal 9 (stop/doel zelf ingevuld) en Katsanos RSMK (ETH/SOL t.o.v. BTC).
 Uitkomst: ook hier geen strategie die in beide jaren op alle drie de munten winst maakte.
