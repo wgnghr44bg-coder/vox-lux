@@ -15,17 +15,20 @@ NOODSTOP = os.path.join(MAP, "NOODSTOP")      # bestaat dit bestand, dan handelt
 DAGSTAND = os.path.join(MAP, "data", "dagstand.json")
 
 
-def units_berekenen(saldo, instap, stop, omrekenfactor, cfg=None):
+def units_berekenen(saldo, instap, stop, omrekenfactor, cfg=None, geheel=True):
     """Aantal units zodat verlies bij de stop = risico_per_trade_pct van het saldo.
 
     omrekenfactor: 1 eenheid quotevaluta = zoveel rekeningvaluta (OANDA homeConversions).
+    geheel: hele units (forex); False voor crypto (0,0123 BTC).
     """
     c = {**STANDAARD, **(cfg or {})}
     afstand = abs(instap - stop)
     if afstand <= 0 or omrekenfactor <= 0 or saldo <= 0:
         return 0
     risico = saldo * c["risico_per_trade_pct"] / 100
-    units = int(risico / (afstand * omrekenfactor))
+    units = risico / (afstand * omrekenfactor)
+    if geheel:
+        units = int(units)
     return max(0, min(units, c["max_units"]))
 
 
@@ -41,9 +44,10 @@ def zet_noodstop(aan: bool):
         os.remove(NOODSTOP)
 
 
-def dagverlies_bereikt(nav, cfg=None, pad=DAGSTAND):
+def dagverlies_bereikt(nav, cfg=None, pad=None):
     """Onthoudt de NAV aan het begin van de (UTC-)dag en vergelijkt."""
     c = {**STANDAARD, **(cfg or {})}
+    pad = pad or DAGSTAND
     vandaag = datetime.now(timezone.utc).date().isoformat()
     stand = {}
     if os.path.exists(pad):
@@ -62,7 +66,7 @@ def dagverlies_bereikt(nav, cfg=None, pad=DAGSTAND):
     return verlies_pct >= c["max_dagverlies_pct"], verlies_pct
 
 
-def mag_handelen(nav, aantal_open, cfg=None, pad=DAGSTAND):
+def mag_handelen(nav, aantal_open, cfg=None, pad=None):
     c = {**STANDAARD, **(cfg or {})}
     if noodstop_aan():
         return False, "noodstop staat aan"

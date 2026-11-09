@@ -1,6 +1,7 @@
-# Trading bot voor OANDA (forex)
+# Trading bot voor OANDA (forex) en Bitvavo (crypto)
 
-Automatische handelsbot met dashboard. **Standaard op oefengeld (practice).**
+Automatische handelsbot met dashboard. **Standaard op oefengeld.**
+OANDA staat hieronder; Bitvavo staat onderaan.
 Geen garantie op winst: test eerst wekenlang op oefengeld.
 
 ## Wat zit erin
@@ -47,4 +48,43 @@ en open `http://<ip-van-pc>:8787`.
 - Logboek: `trading\data\log.jsonl`.
 
 ## Tests
-`python -m pytest -q tests` (werkt zonder OANDA-verbinding).
+`python -m pytest -q tests` (werkt zonder internet).
+
+---
+
+# Bitvavo (crypto)
+
+| Bestand | Wat |
+|---|---|
+| `bitvavo.py` | Koppeling met Bitvavo, plus een **oefenstand** (echte koersen, nepgeld €1000). |
+| `bitvavo_bot.py` | De bot voor BTC, ETH en SOL in euro's. |
+| `instellingen_bitvavo.json` | Markten en getallen (stop 2×ATR, doel 4×ATR, max 25% van je geld per trade). |
+
+**Verschillen met OANDA**
+- Bitvavo heeft geen oefenaccount, daarom een eigen oefenstand. **Daarvoor is geen sleutel nodig.**
+- Alleen kopen en weer verkopen (geen "short").
+- Na elke aankoop zet de bot meteen een **stop-loss-order op Bitvavo zelf**, dus die werkt ook als je pc uit staat.
+  Het koersdoel bewaakt de bot zelf: staat de pc uit, dan wordt er niet op het doel verkocht (de stop blijft wel).
+- Kosten ±0,25% per aankoop en per verkoop; die rekent de backtest mee.
+
+## Stap 1: backtest en oefenstand (geen sleutel nodig)
+```powershell
+cd vox-lux\trading
+python backtest.py BTC-EUR --broker bitvavo
+python backtest.py ETH-EUR --broker bitvavo
+.\start.ps1 -Broker bitvavo                 # bot + dashboard op http://localhost:8788
+```
+Het nepgeld staat in `data\papier_bitvavo.json` (verwijderen = opnieuw beginnen met €1000).
+
+## Stap 2: echt geld (pas na weken goede resultaten)
+1. Bitvavo → Instellingen → **API** → nieuwe sleutel. Vink **alleen "Handelen"** aan, **nooit "Opnemen"**.
+   Zet eventueel een IP-beperking op het IP-adres van je pc.
+2. Op de pc (PowerShell):
+   ```powershell
+   setx BITVAVO_KEY "..."
+   setx BITVAVO_SECRET "..."
+   ```
+3. Zet eerst een klein bedrag op Bitvavo (bv. €100) en start: `.\start.ps1 -Broker bitvavo -EchtGeld`.
+
+Noodstop en "Alle trades sluiten" werken op het dashboard ook voor Bitvavo
+(sluiten = stop-orders weghalen en de munten verkopen).

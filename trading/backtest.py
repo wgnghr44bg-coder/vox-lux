@@ -3,6 +3,7 @@
   python backtest.py EUR_USD                    # haalt ±5000 uur-candles bij OANDA (token nodig)
   python backtest.py EUR_USD --csv koersen.csv  # of uit een csv met kolommen tijd,o,h,l,c
   python backtest.py EUR_USD --spread 0.00012   # spreadkosten per trade meerekenen
+  python backtest.py BTC-EUR --broker bitvavo    # crypto via Bitvavo (geen sleutel nodig, alleen kopen, 0,25% kosten)
 
 Uitkomst in R: 1R = het bedrag dat je per trade riskeert (standaard 0,5% van je saldo).
 """
@@ -16,13 +17,13 @@ import strategie
 MAP = os.path.dirname(os.path.abspath(__file__))
 
 
-def simuleer(candles, inst_cfg=None, spread=0.0):
+def simuleer(candles, inst_cfg=None, spread=0.0, alleen_koop=False, kosten_pct=0.0):
     p = {**strategie.STANDAARD, **(inst_cfg or {})}
     start = p["trend"] + 2
     trades, i = [], start
     while i < len(candles):
         sig = strategie.signaal(candles[:i], p)
-        if not sig:
+        if not sig or (alleen_koop and sig["richting"] != "koop"):
             i += 1
             continue
         risico = abs(sig["instap"] - sig["stop"])
@@ -42,6 +43,7 @@ def simuleer(candles, inst_cfg=None, spread=0.0):
         if uitkomst is None:
             break                       # trade loopt nog aan het eind van de data
         uitkomst -= spread / risico
+        uitkomst -= sig["instap"] * kosten_pct / 100 * 2 / risico   # kosten bij kopen en verkopen
         trades.append({"tijd": candles[i - 1]["tijd"], "richting": sig["richting"], "R": round(uitkomst, 3)})
         i = j + 1
     return trades
@@ -79,17 +81,24 @@ def main():
     ap.add_argument("--csv")
     ap.add_argument("--granularity", default="H1")
     ap.add_argument("--spread", type=float, default=0.0, help="spread in prijs, bv. 0.00012 voor EUR_USD")
+    ap.add_argument("--broker", choices=["oanda", "bitvavo"], default="oanda")
+    ap.add_argument("--kosten-pct", type=float, default=None, help="kosten per order in %% (bitvavo: 0.25)")
     a = ap.parse_args()
-    with open(os.path.join(MAP, "instellingen.json")) as f:
+    bv = a.broker == "bitvavo"
+    with open(os.path.join(MAP, "instellingen_bitvavo.json" if bv else "instellingen.json")) as f:
         cfg = json.load(f)
+    kosten = a.kosten_pct if a.kosten_pct is not None else (0.25 if bv else 0.0)
 
     if a.csv:
         candles = lees_csv(a.csv)
+    elif bv:
+        from bitvavo import Publiek
+        candles = Publiek().candles(a.instrument, cfg["interval"], 5000)
     else:
         from oanda import Oanda
         api = Oanda()
         candles = api.candles(a.instrument, a.granularity, 5000)
-    trades = simuleer(candles, cfg["strategie"], a.spread)
+    trades = simuleer(candles, cfg["strategie"], a.spread, alleen_koop=bv, kosten_pct=kosten)
     print(f"{a.instrument}: {len(candles)} candles")
     for k, v in rapport(trades, cfg["risico"]["risico_per_trade_pct"]).items():
         print(f"  {k}: {v}")

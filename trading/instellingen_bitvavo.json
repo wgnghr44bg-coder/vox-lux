@@ -1,0 +1,9 @@
+{
+  "markten": ["BTC-EUR", "ETH-EUR", "SOL-EUR"],
+  "interval": "1h",
+  "controle_elke_sec": 60,
+  "papier_start_eur": 1000,
+  "strategie": {"snel": 20, "langzaam": 50, "trend": 200, "atr": 14, "stop_atr": 2.0, "doel_atr": 4.0},
+  "risico": {"risico_per_trade_pct": 0.5, "max_dagverlies_pct": 2.0, "max_open_trades": 3,
+             "max_units": 1e12, "max_pct_per_trade": 25}
+}

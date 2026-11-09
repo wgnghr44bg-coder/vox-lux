@@ -1,6 +1,8 @@
 """Dashboard in de browser: saldo, open trades, logboek, noodstop.
 
 Alleen op deze pc:          python dashboard.py            -> http://localhost:8787
+Bitvavo (oefenstand):       python dashboard.py --broker bitvavo
+Bitvavo (echt geld):        python dashboard.py --broker bitvavo --echt-geld
 Ook op je telefoon (wifi):  set DASHBOARD_WACHTWOORD=...  en  python dashboard.py --host 0.0.0.0
                             -> http://<ip-van-pc>:8787  (gebruikersnaam mag alles zijn)
 """
@@ -17,6 +19,7 @@ from oanda import Oanda, OandaFout
 MAP = os.path.dirname(os.path.abspath(__file__))
 LOG = os.path.join(MAP, "data", "log.jsonl")
 WACHTWOORD = os.environ.get("DASHBOARD_WACHTWOORD", "")
+INSTELLING = {"broker": "oanda", "echt_geld": False}
 
 PAGINA = """<!doctype html><html lang="nl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Trading Bot</title>
@@ -57,7 +60,7 @@ async function laad(){
  const a=d.account||{};const c=a.currency;
  saldo.textContent=geld(a.balance,c);nav.textContent=geld(a.NAV,c);
  upl.textContent=geld(a.unrealizedPL,c);upl.className='groot '+(+a.unrealizedPL>=0?'plus':'min');
- omg.textContent=d.omgeving==='live'?'ECHT GELD':'oefengeld';
+ omg.textContent=(d.broker||'')+' '+(d.omgeving==='live'?'ECHT GELD':'oefengeld');
  omg.style.background=d.omgeving==='live'?'var(--rood)':'var(--groen)';omg.style.color='#fff';
  stopAan=d.noodstop;bot.textContent=stopAan?'gestopt':'actief';bot.className='groot '+(stopAan?'min':'plus');
  stopknop.textContent=stopAan?'Bot weer aanzetten':'Noodstop';
@@ -72,9 +75,10 @@ laad();setInterval(laad,15000);
 
 
 def lees_log(n=60):
-    if not os.path.exists(LOG):
+    pad = LOG if INSTELLING["broker"] == "oanda" else os.path.join(MAP, "data", "log_bitvavo.jsonl")
+    if not os.path.exists(pad):
         return []
-    with open(LOG) as f:
+    with open(pad) as f:
         regels = f.readlines()[-n:]
     uit = []
     for r in regels:
@@ -90,6 +94,62 @@ def api_of_fout():
         return Oanda(), None
     except OandaFout as e:
         return None, str(e)
+
+
+def bitvavo_api():
+    import bitvavo_bot
+    from bitvavo import BitvavoFout
+    try:
+        return bitvavo_bot.maak_api(INSTELLING["echt_geld"], bitvavo_bot.laad_instellingen()), None
+    except BitvavoFout as e:
+        return None, str(e)
+
+
+def bitvavo_status(d):
+    """Zelfde vorm als OANDA, zodat de pagina hetzelfde blijft."""
+    import bitvavo_bot
+    api, fout = bitvavo_api()
+    d["omgeving"] = "live" if INSTELLING["echt_geld"] else "practice"
+    if not api:
+        d["fout"] = fout
+        return
+    try:
+        cfg = bitvavo_bot.laad_instellingen()
+        pos = bitvavo_bot.lees_posities(api)
+        nav, saldi, koersen = bitvavo_bot.waarde(api, cfg["markten"], pos)
+        trades, upl = [], 0.0
+        for m, p in pos.items():
+            w = (koersen[m]["bid"] - p["instap"]) * p["aantal"]
+            upl += w
+            trades.append({"instrument": m, "currentUnits": f"{p['aantal']:.6g}",
+                           "price": f"{p['instap']:.6g}", "unrealizedPL": round(w, 2)})
+        d["account"] = {"currency": "EUR", "balance": round(sum(saldi.get("EUR", (0, 0))), 2),
+                        "NAV": round(nav, 2), "unrealizedPL": round(upl, 2)}
+        d["trades"] = trades
+    except (OSError, ValueError, KeyError, RuntimeError) as e:
+        d["fout"] = str(e)[:300]
+
+
+def bitvavo_sluit_alles():
+    import bitvavo_bot
+    from bitvavo import hoeveelheid_decimalen
+    api, fout = bitvavo_api()
+    if not api:
+        return {"fout": fout}
+    pos = bitvavo_bot.lees_posities(api)
+    gesloten, fouten = [], []
+    for m, p in list(pos.items()):
+        try:
+            api.annuleer(m, p["stop_id"])
+            vrij = api.saldi().get(m.split("-")[0], (0, 0))[0]
+            api.verkoop_markt(m, vrij, hoeveelheid_decimalen(api.market_info(m)))
+            gesloten.append(m)
+            del pos[m]
+        except (OSError, ValueError, KeyError, RuntimeError) as e:
+            fouten.append(f"{m}: {e}"[:200])
+    bitvavo_bot.bewaar_posities(api, pos)
+    bitvavo_bot.log("alles gesloten via dashboard", markten=gesloten)
+    return {"gesloten": gesloten, "fout": "; ".join(fouten) or None}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -124,7 +184,11 @@ class Handler(BaseHTTPRequestHandler):
         if self.path in ("/", "/index.html"):
             return self._stuur(200, PAGINA.encode(), "text/html; charset=utf-8")
         if self.path == "/api/status":
-            d = {"noodstop": risico.noodstop_aan(), "log": lees_log()}
+            d = {"noodstop": risico.noodstop_aan(), "log": lees_log(),
+                 "broker": "Bitvavo" if INSTELLING["broker"] == "bitvavo" else "OANDA"}
+            if INSTELLING["broker"] == "bitvavo":
+                bitvavo_status(d)
+                return self._stuur(200, d)
             api, fout = api_of_fout()
             if api:
                 d["omgeving"] = api.omgeving
@@ -151,6 +215,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._stuur(200, {"noodstop": risico.noodstop_aan()})
         if self.path == "/api/sluit-alles":
             risico.zet_noodstop(True)
+            if INSTELLING["broker"] == "bitvavo":
+                return self._stuur(200, bitvavo_sluit_alles())
             api, fout = api_of_fout()
             if not api:
                 return self._stuur(200, {"fout": fout})
@@ -171,8 +237,12 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--host", default="127.0.0.1")
-    ap.add_argument("--poort", type=int, default=8787)
+    ap.add_argument("--poort", type=int, default=None, help="standaard 8787 (oanda) of 8788 (bitvavo)")
+    ap.add_argument("--broker", choices=["oanda", "bitvavo"], default="oanda")
+    ap.add_argument("--echt-geld", action="store_true", help="bitvavo: echte rekening tonen")
     a = ap.parse_args()
+    INSTELLING.update(broker=a.broker, echt_geld=a.echt_geld)
+    a.poort = a.poort or (8788 if a.broker == "bitvavo" else 8787)
     if a.host not in ("127.0.0.1", "localhost") and not WACHTWOORD:
         raise SystemExit("Zet eerst DASHBOARD_WACHTWOORD als het dashboard buiten deze pc bereikbaar is.")
     print(f"Dashboard: http://{'localhost' if a.host == '127.0.0.1' else a.host}:{a.poort}")
