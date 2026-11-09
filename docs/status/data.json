@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-09 08:03",
+ "bijgewerkt": "2026-11-09 08:33",
  "automatisering": true,
  "taken": {
   "routine": {
@@ -14,8 +14,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-09 08:03",
-   "volgende": "2026-11-09 08:33"
+   "laatst": "2026-11-09 08:33",
+   "volgende": "2026-11-09 09:03"
   }
  },
  "kanaal": {
@@ -58,7 +58,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 10,
+    "views": 12,
     "verwerkt": "processed"
    },
    {
@@ -144,29 +144,29 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
   "map": "egypte-toetanchamon",
   "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/ctC36HRFIac/mqdefault.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
-   "stem inspreken (OmniVoice B1)"
+   "muziek maken (Audio Engine W3)"
   ]
  },
  "nu_bezig": [
   {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
+   "naam": "muziek maken (Audio Engine W3)",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 94,
-  "geheugen_mb": 5170,
+  "bezig_procent": 25,
+  "geheugen_mb": 1057,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -296,6 +296,30 @@
   {
    "tijd": "2026-11-09 07:31",
    "tekst": "4. Egypte: stem",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 08:09",
+   "tekst": "4. Egypte: voorbereiding ronde 1",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 08:17",
+   "tekst": "4. Egypte: voorbereiding ronde 2",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 08:23",
+   "tekst": "4. Egypte: voorbereiding ronde 3",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 08:29",
+   "tekst": "4. Egypte: montage",
    "fout": false,
    "klaar": false
   }
