@@ -56,6 +56,13 @@ plan = (m / "planning.txt").read_text(encoding="utf-8")
 titel = re.search(r"^titel\s+(.+?\| History for Sleep)", plan, re.M).group(1).strip()
 assert a.video.exists() and a.thumbnail.exists(), "video of thumbnail ontbreekt"
 assert "hour" not in titel.lower(), "titel met uren"
+# eigenaar 10 nov 2026 (Tombstone had hetzelfde begin als WW2): nooit uploaden als begin/slot/overgangen te veel lijken
+af = subprocess.run([sys.executable, str(HIER / "check_afwisseling.py"), str(m)], capture_output=True, text=True,
+                    encoding="utf-8", errors="replace")
+if "AFWISSELING GOED" not in af.stdout:
+    print(af.stdout[-1500:])
+    log(m, "NIET geüpload: AFWISSELING FOUT (begin/slot lijkt te veel op een andere video), eerst herschrijven")
+    sys.exit(1)
 
 uit = subprocess.run([sys.executable, str(HIER / "youtube_upload.py"), str(a.video), "--title", titel,
                       "--description-file", str(m / "youtube-beschrijving.txt"), "--tags", TAGS + (", " + a.tags if a.tags else ""),

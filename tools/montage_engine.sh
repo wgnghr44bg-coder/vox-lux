@@ -8,6 +8,7 @@ export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
 stap(){ echo; echo "=== $(date +%H:%M) $*"; }
 mkdir -p $V
 test -s $V/stem-met-pauzes.wav
+stap afwisseling; AF=$(python tools/check_afwisseling.py $M 2>&1) || { echo "$AF" | tail -8; echo 'AFWISSELING FOUT: montage gestopt'; exit 1; }; echo "$AF" | tail -1   # eigenaar 10 nov: begin/slot elke video anders
 stap muziek;      $OMNI tools/engine_muziek.py $M 2>&1 | tail -1; MDB=$(cat $V/muziek-db.txt)
 stap montage;     python tools/make_video.py $M --tijden afbeeldingen-tijden-pauzes.tsv --audio $V/stem-met-pauzes.wav --muziek $V/muziek432.wav --muziek-db $MDB --naam $N 2>&1 | tail -3
 test -s $V/$N.mp4
@@ -22,4 +23,5 @@ test -s $V/$N-14.mp4
 stap 16mm;        python tools/film16.py $V/$N-14.mp4 $V/$N-16mm.mp4 | tail -1
 test -s $V/$N-16mm.mp4
 stap qc;          python tools/qc_video.py $M video/$N-16mm.mp4 --titel "$TITEL" --thumbnail $THUMB --beschrijving $M/youtube-beschrijving.txt --muziek-db $MDB --beelden ok --teksten ok --historisch ok --kijker ok 2>&1 | sed -n '/VIDEO QC REPORT/,$p' | head -40
+stap haperingen; python tools/vergelijk_bron.py $M $V/$N-16mm.mp4 2>&1 | head -12
 stap KLAAR
