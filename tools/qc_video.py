@@ -159,8 +159,8 @@ def main():
     # heel zachte stukjes (uitklinkende zin met muziek eronder) overslaan: daar is de vergelijking onbetrouwbaar
     # (Tombstone 9 nov 2026: melding op 0:23:20, maar video en bron waren gelijk en Whisper hoorde dezelfde tekst)
     rms_blok = [float(np.sqrt((ref[i:i + 4000] ** 2).mean())) for i in range(0, m_ - 4000, 4000)]
-    spraak = sorted(r for r in rms_blok if r >= 300)
-    drempel = max(300.0, 0.35 * spraak[len(spraak) // 2]) if spraak else 300.0
+    luid = sorted(r for r in rms_blok if r >= 300)          # (niet 'spraak' noemen: die naam is verderop nog nodig)
+    drempel = max(300.0, 0.35 * luid[len(luid) // 2]) if luid else 300.0
     for i in range(0, m_ - 4000, 4000):
         u, v = got[i:i + 4000], ref[i:i + 4000]
         if np.sqrt((v ** 2).mean()) < drempel:
