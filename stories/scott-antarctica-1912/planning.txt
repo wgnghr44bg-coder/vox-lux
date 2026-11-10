@@ -1,5 +1,5 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
-status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-10: opnieuw ombouwen, zie scriptcheck.json)
+status   script-klaar (nieuwe opbouw, 2026-11-09, tweede account; 10 nov: afkeuring was onterecht, scriptcontrole verbeterd)
 datum    wo 2026-11-25 21:00 NL
 titel    How Did Scott's Men Survive the Antarctic Winter? | History for Sleep
 opening   raadsel

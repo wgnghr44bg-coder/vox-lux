@@ -56,6 +56,23 @@ def blokken(m):
     return uit
 
 
+SAMENGESTELD = [r"plane trees?", r"plane-trees?"]          # 'plane' als boom, niet als vliegtuig
+ONTKENNING = re.compile(r"\b(no|not|never|without|nothing like|none|neither|nor|wasn't|weren't|didn't|had no|like ours|"
+                        r"in a way|as if|long before|centuries before|would not exist|did not exist|yet to)\b", re.I)
+
+
+def tijdwoord_in(w, tekst, ontkenning_telt=True):
+    """Staat het moderne woord er echt in als iets dat er toen was? Niet bij 'plane trees', en (in de tekst) niet in een
+    zin met een ontkenning of vergelijking ('There was no radio', 'no clocks like ours'): 10 nov 2026 werden Scott en
+    Rome daardoor onterecht afgekeurd."""
+    for s in SAMENGESTELD:
+        tekst = re.sub(s, "", tekst, flags=re.I)
+    for zin in re.split(r"(?<=[.!?])\s+", tekst):
+        if re.search(rf"\b{re.escape(w)}\b", zin, re.I) and not (ontkenning_telt and ONTKENNING.search(zin)):
+            return True
+    return False
+
+
 def woorden(t):
     return len(t.split())
 
@@ -98,14 +115,14 @@ def controleer(m, met_model=True):
         for naam, tekst, img in stukken:
             later = re.search(r"\b(today|nowadays|modern|museum|tourists?|visitors?|anniversary|centuries later)\b", tekst, re.I) \
                 or any(int(j) > jaar + 15 for j in re.findall(r"\b(1[0-9]{3}|20[0-9]{2})\b", tekst))
-            if later and naam.startswith("feitje"):
+            if (later and naam.startswith("feitje")) or naam in ("begin", "slot"):   # begin/slot praten tegen de luisteraar van nu
                 continue
             for w, vanaf in MODERN.items():
                 if jaar >= vanaf - 5:
                     continue
-                if img and re.search(rf"\b{re.escape(w)}\b", img, re.I):          # in beeld: echt fout
+                if img and tijdwoord_in(w, img, ontkenning_telt=False):          # in beeld: echt fout
                     fout.append(f"{naam} (beeld): '{w}' past niet bij {jaar}")
-                elif re.search(rf"\b{re.escape(w)}\b", tekst, re.I):              # in de tekst: vaak een vergelijking
+                elif tijdwoord_in(w, tekst):                                      # in de tekst: vaak een vergelijking
                     info.setdefault("let_op", []).append(f"{naam}: '{w}' in de tekst (vergelijking of fout?)")
     # 3. onderwerp (lokaal model)
     if met_model and fb:
