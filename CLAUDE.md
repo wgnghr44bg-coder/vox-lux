@@ -6,7 +6,7 @@
   (speed 0.54, pauzes ×1,4, warme klank) met muziek **W3** "diep en donker-warm" (elke 6 s een ander akkoord, 11 LUFS
   onder de stem, seed 1939). Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen
   zonder de eigenaar** ("dat er geen fouten kunnen zijn in stem en geluid"); geen rubberband/tempo/toonhoogte op de stem
-  ("anders is het meteen een robot"). Slaap 3, George, regen en de oude 432-muziek worden niet meer gebruikt.
+  ("anders is het meteen een robot"). Slaap 3, George, regen en de oude 432-muziek worden niet meer gebruikt. Bevestigd 10 nov 2026 na proeven met andere stemmen, langere pauzes en zachtere muziek: "Stem en muziek gewoon laten zoals het was".
 - **Opbouw van elke video**: `stories/OPBOUW.md` (begin van ± 2 min zonder "Tonight", 8-13 onderwerpen met feitjes,
   slot dat uitdooft; soort opening en titel afwisselen). Script bouwen met `tools/bouw_feiten.py`.
 - **Videostraat**: `stories/PROMPT-ROUTINE-PC.md` (engine_stem → prep_engine → montage_engine → upload).
