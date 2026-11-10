@@ -317,10 +317,95 @@ except Exception as e:
 for x in zc:                                               # fouten uit de zelfcontrole ook bij de meldingen
     if not x["ok"]:
         fouten.append({"tijd": NU.strftime("%Y-%m-%d %H:%M"), "tekst": f"Zelfcontrole: {x['naam']}: {x['tekst']}", "fout": True})
+# ---------- duidelijke planning (eigenaar 10 nov 2026: "ik wil duidelijk de planning zien, wat er nu gebeurt en wat erna") ----------
+def werkplanning():
+    alle_cmd = subprocess.run(["powershell", "-NoProfile", "-Command",
+                               "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CommandLine }"],
+                              capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=90).stdout
+    tk = taken()
+    routine_aan = bool(tk.get("routine") and tk["routine"]["aan"])
+    nu = []
+    if huidig:
+        nu.append({"wat": f"{huidig['titel']}", "map": huidig["map"], "detail": f"{huidig['stapnaam']}"
+                   + (f" · {huidig['voortgang']}%" if huidig.get("voortgang") is not None else ""), "soort": "nu"})
+    daarna = []
+    wacht_op = huidig["map"].split("-")[0].capitalize() if huidig else "de huidige taak"
+    if "tombstone_opnieuw.ps1" in alle_cmd and not (huidig and huidig["map"] == "tombstone-1881"):
+        daarna.append({"wanneer": f"zodra {wacht_op[:40]} klaar is", "wat": "Tombstone opnieuw maken",
+                       "detail": "nieuw begin en slot, strenge haperingcontrole, dan de privéversie vervangen", "map": "tombstone-1881"})
+    # routine: zo/di/do 09:00, elke keer de eerstvolgende video die nog gemaakt moet worden (of een vrije plek)
+    vandaag = VANDAAG.isoformat()
+    klaar = {"gepland", "online"}
+    todo = sorted([v for v in video if v["datum"] and v["datum"] >= vandaag and v["soort"] not in klaar
+                   and v["soort"] != "bezig" and v["map"] != "tombstone-1881"], key=lambda v: v["datum"])
+    bezet = {v["datum"] for v in video if v["datum"]}
+    for i in range(1, 29):                                   # vrije plekken (ma/wo/za) in de komende 4 weken
+        dag = VANDAAG + datetime.timedelta(days=i)
+        if dag.weekday() in (0, 2, 5) and dag.isoformat() not in bezet:
+            todo.append({"map": "", "datum": dag.isoformat(), "titel": "Vrije plek: de routine kiest een populair onderwerp",
+                         "soort": "vrij"})
+    todo.sort(key=lambda v: v["datum"])
+    runs = []
+    for i in range(0, 21):                                   # routine: zondag, dinsdag en donderdag 09:00
+        dag = VANDAAG + datetime.timedelta(days=i)
+        t = datetime.datetime.combine(dag, datetime.time(9, 0))
+        if dag.weekday() in (6, 1, 3) and t > NU and len(runs) < 6:
+            runs.append(t)
+    DAGEN = ["ma", "di", "wo", "do", "vr", "za", "zo"]
+    for r in runs:
+        kand = [v for v in todo if v["datum"] >= (r.date() + datetime.timedelta(days=1)).isoformat()]
+        if not kand:
+            break
+        v = kand[0]
+        todo.remove(v)
+        daarna.append({"wanneer": f"{DAGEN[r.weekday()]} {r.day}-{r.month} 09:00" + ("" if routine_aan else " (routine staat UIT)"),
+                       "wat": v["titel"], "map": v["map"],
+                       "detail": f"routine maakt de video voor {DAGEN[datetime.date.fromisoformat(v['datum']).weekday()]} "
+                                 f"{int(v['datum'][8:])}-{int(v['datum'][5:7])} 21:00"
+                                 + (" (script moet eerst nog goedgekeurd)" if v["soort"] == "script oud" else "")})
+    # publicaties: komende 3 weken
+    pub = []
+    for i in range(0, 22):
+        dag = VANDAAG + datetime.timedelta(days=i)
+        vs = [v for v in video if v["datum"] == dag.isoformat()]
+        if not vs and dag.weekday() not in (0, 2, 5):
+            continue
+        v = vs[0] if vs else None
+        if v and v["map"] == "tombstone-1881" and "tombstone_opnieuw.ps1" in alle_cmd:
+            stand, kleur = "wordt opnieuw gemaakt (foute versie tegengehouden)", "let"
+        elif not v:
+            stand, kleur = ("geen video (te weinig tijd om er nog een te maken)", "zacht") if i <= 1 else ("vrije plek: de routine kiest een onderwerp", "zacht")
+        elif v["soort"] == "gepland":
+            stand, kleur = "staat klaar op YouTube", "goed"
+        elif v["soort"] == "online":
+            stand, kleur = "online", "goed"
+        elif v["soort"] == "bezig":
+            stand, kleur = "wordt nu gemaakt", "nu"
+        elif v["soort"] == "script nieuw":
+            stand, kleur = "script klaar, video volgt", "zacht"
+        elif v["soort"] == "script oud":
+            stand, kleur = "script moet nog (opnieuw) gemaakt worden", "fout"
+        else:
+            stand, kleur = v["status"][:60], "zacht"
+        pub.append({"datum": dag.isoformat(), "dag": DAGEN[dag.weekday()], "titel": v["titel"] if v else "—",
+                    "map": v["map"] if v else "", "stand": stand, "kleur": kleur})
+    return {"nu": nu, "daarna": daarna, "publicaties": pub, "routine_aan": routine_aan}
+
+
+try:
+    wp = werkplanning()
+    for w in week:                                          # week gelijk aan de planning (bv. Tombstone tegengehouden)
+        p = next((x for x in wp["publicaties"] if x["datum"] == w["datum"]), None)
+        if p and p["kleur"] == "let":
+            w["soort"] = p["stand"]
+except Exception as e:
+    wp = {"nu": [], "daarna": [], "publicaties": [], "fout": str(e)[:120]}
+
 data = {
     "bijgewerkt": NU.strftime("%Y-%m-%d %H:%M"),
+    "werkplanning": wp,
     "zelfcontrole": zc,
-    "automatisering": all(t and t["aan"] for k, t in taken().items() if k != "dashboard") if True else False,
+    "automatisering": bool(taken().get("routine") and taken()["routine"]["aan"]),   # scriptgenerator staat bewust uit (scripts via Claude)
     "taken": taken(),
     "kanaal": yt,
     "kpi": {"geplande": len(geplande), "runs": runs(log), "fouten": len(fouten),
