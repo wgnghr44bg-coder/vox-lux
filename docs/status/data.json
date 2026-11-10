@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-10 22:03",
+ "bijgewerkt": "2026-11-10 22:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -24,7 +24,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "241 GB vrij"
+   "tekst": "238 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 22:03)"
+   "tekst": "draait nu (2026-11-10 22:33)"
   },
   {
    "naam": "Git",
@@ -81,8 +81,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-10 22:03",
-   "volgende": "2026-11-10 22:33"
+   "laatst": "2026-11-10 22:33",
+   "volgende": "2026-11-10 23:03"
   }
  },
  "kanaal": {
@@ -215,19 +215,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 90,
-  "detail": "beweging",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine (Claude) stuurt aan",
-   "beweging en hoofdstuktitels"
+   "videocontrole"
   ]
  },
  "nu_bezig": [
@@ -236,12 +236,12 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "videocontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 424,
   "totaal_mb": 8192
  },
@@ -328,24 +328,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 19:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 19:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 20:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 20:16",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -410,6 +392,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:16",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:26",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -426,7 +426,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 22:03",
+   "tijd": "2026-11-10 22:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
