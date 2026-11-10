@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-10 18:48",
+ "bijgewerkt": "2026-11-10 18:49",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -53,13 +53,13 @@
   },
   {
    "naam": "Script rome-44-vc",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (8 punten) (nacht 2026-11-10)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
   },
   {
    "naam": "Script scott-antarctica-1912",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-10)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
   },
   {
    "naam": "Script zwarte-dood-1348",
@@ -196,13 +196,13 @@
  "kpi": {
   "geplande": 1,
   "runs": {
-   "goed": 0,
-   "totaal": 2,
-   "procent": 0
+   "goed": 5,
+   "totaal": 15,
+   "procent": 33
   },
-  "fouten": 5,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -223,7 +223,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 2,
+  "voortgang": 3,
   "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
@@ -426,22 +426,61 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (8 punten) (nacht 2026-11-10)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-10)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-10 18:48",
+   "tijd": "2026-11-10 18:49",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
  ],
- "opgelost": [],
+ "opgelost": [
+  {
+   "tijd": "2026-11-08 21:50",
+   "tekst": "2a. Tombstone: CONTROLES NIET GOED, niet geüpload",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 07:30",
+   "tekst": "routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-09 23:00",
+   "tekst": "CONTROLES NIET GOED: niet geüpload (de oude versie blijft staan)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 01:33",
+   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 01:33",
+   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 01:33",
+   "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 07:07",
+   "tekst": "egypte-toetanchamon: QC GESTOPT ten onrechte: abonneer-zin met 'subscription' werd niet herkend (controle verbeterd, daarna wel geüpload)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 07:07",
+   "tekst": "Egypte: CONTROLES NIET GOED, niet geüpload (de oude versie blijft staan)",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "video": [
   {
    "map": "alexander-331-vc",
