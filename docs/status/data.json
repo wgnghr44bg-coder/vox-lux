@@ -1,17 +1,17 @@
 {
- "bijgewerkt": "2026-11-10 23:03",
+ "bijgewerkt": "2026-11-10 23:31",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 40%",
+    "detail": "Controles",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "zodra Why Was Babylon the Greatest City on Ear klaar is",
+    "wanneer": "zodra Babylon klaar is",
     "wat": "Tombstone opnieuw maken",
     "detail": "nieuw begin en slot, strenge haperingcontrole, dan de privéversie vervangen",
     "map": "tombstone-1881"
@@ -153,7 +153,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "235 GB vrij"
+   "tekst": "234 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -168,7 +168,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 23:03)"
+   "tekst": "laatste keer goed (2026-11-10 23:03)"
   },
   {
    "naam": "Git",
@@ -196,7 +196,7 @@
    "tekst": "SCRIPT FOUT (9 punten) (nacht 2026-11-10)"
   }
  ],
- "automatisering": false,
+ "automatisering": true,
  "taken": {
   "routine": {
    "aan": true,
@@ -281,7 +281,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 205,
+    "views": 204,
     "verwerkt": "processed"
    },
    {
@@ -299,7 +299,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 57,
+    "views": 55,
     "verwerkt": "processed"
    },
    {
@@ -344,19 +344,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 40,
-  "detail": "16mm-look",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine (Claude) stuurt aan",
-   "16mm-look"
+   "kwaliteitscontrole"
   ]
  },
  "nu_bezig": [
@@ -365,13 +365,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "kwaliteitscontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 424,
+  "geheugen_mb": 407,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -452,28 +452,10 @@
    "datum": "2026-11-16",
    "plek": true,
    "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "soort": "gepland"
+   "soort": "wordt opnieuw gemaakt (foute versie tegengehouden)"
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-10 20:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 20:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 21:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 21:16",
    "tekst": "routine of Egypte bezig, wachten",
@@ -539,6 +521,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:16",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:26",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -555,7 +555,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 23:03",
+   "tijd": "2026-11-10 23:31",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
