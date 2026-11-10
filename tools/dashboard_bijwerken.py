@@ -247,7 +247,7 @@ def logboek():
     for x in uit:
         x["fout"] = bool(re.search(FOUTWOORDEN, x["tekst"]))
         x["klaar"] = bool(re.search(r"KLAAR|GOED|geüpload|online", x["tekst"])) and not x["fout"]
-    return uit[-40:]
+    return uit[-250:]
 
 
 def runs(log):

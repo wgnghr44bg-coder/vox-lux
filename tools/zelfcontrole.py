@@ -108,7 +108,14 @@ def zwaar(p):
     vandaag = NU.date().isoformat()
     if staat.get("laatst") == vandaag or not (1 <= NU.hour < 5) or not gpu_vrij():
         if staat.get("uitslag"):
-            p += [punt(x["naam"], x["ok"], x["tekst"] + f" (nacht {staat.get('laatst')})") for x in staat["uitslag"]]
+            for x in staat["uitslag"]:
+                ok, tekst = x["ok"], x["tekst"] + f" (nacht {staat.get('laatst')})"
+                mm = re.match(r"Script (.+)$", x["naam"])
+                if not ok and mm and (STORIES / mm.group(1) / "planning.txt").exists():
+                    st = (STORIES / mm.group(1) / "planning.txt").read_text(encoding="utf-8", errors="replace")
+                    if re.search(r"^status\s+script-klaar \(nieuwe opbouw", st, re.M):   # al hersteld, vannacht opnieuw
+                        ok, tekst = True, f"afgekeurd in de nacht van {staat.get('laatst')}, inmiddels hersteld; wordt opnieuw gecontroleerd"
+                p.append(punt(x["naam"], ok, tekst))
         return
     uit = []
     r = subprocess.run([OMNI, str(HIER / "b1_check.py")], cwd=REPO, capture_output=True, text=True, encoding="utf-8", errors="replace")
