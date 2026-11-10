@@ -29,3 +29,4 @@
 - 2026-11-09 tweede account: zwarte-dood-1348 omgebouwd (nieuwe opbouw, opening voorwerp, titel how-survive): 86 feitjes, 13 onderwerpen, 16.059 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts). Let op: thumbnailbeeld met snavelmasker hoort bij de 17e eeuw, niet bij 1348.
 - 2026-11-09 tweede account: gettysburg-1863 omgebouwd (nieuwe opbouw, opening persoon (Tillie Pierce), titel what-happened): 95 feitjes, 13 onderwerpen, 17555 woorden; AFWISSELING GOED, leesbaar GOED (script_check doet de pc 's nachts); thumbnail-gekozen zonder uren, blijft staan
 - 2026-11-10 01:33 zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
+- 2026-11-10 01:33 zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
