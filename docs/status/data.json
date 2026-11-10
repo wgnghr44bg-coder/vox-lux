@@ -1,5 +1,134 @@
 {
- "bijgewerkt": "2026-11-10 22:33",
+ "bijgewerkt": "2026-11-10 23:03",
+ "werkplanning": {
+  "nu": [
+   {
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "detail": "Video bouwen · 40%",
+    "soort": "nu"
+   }
+  ],
+  "daarna": [
+   {
+    "wanneer": "zodra Why Was Babylon the Greatest City on Ear klaar is",
+    "wat": "Tombstone opnieuw maken",
+    "detail": "nieuw begin en slot, strenge haperingcontrole, dan de privéversie vervangen",
+    "map": "tombstone-1881"
+   },
+   {
+    "wanneer": "do 12-11 09:00",
+    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
+    "detail": "routine maakt de video voor wo 18-11 21:00"
+   },
+   {
+    "wanneer": "zo 15-11 09:00",
+    "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "routine maakt de video voor za 21-11 21:00"
+   },
+   {
+    "wanneer": "di 17-11 09:00",
+    "wat": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
+    "map": "scott-antarctica-1912",
+    "detail": "routine maakt de video voor wo 25-11 21:00"
+   },
+   {
+    "wanneer": "do 19-11 09:00",
+    "wat": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "routine maakt de video voor za 28-11 21:00"
+   },
+   {
+    "wanneer": "zo 22-11 09:00",
+    "wat": "Vrije plek: de routine kiest een populair onderwerp",
+    "map": "",
+    "detail": "routine maakt de video voor ma 30-11 21:00"
+   },
+   {
+    "wanneer": "di 24-11 09:00",
+    "wat": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
+    "map": "rome-44-vc",
+    "detail": "routine maakt de video voor wo 2-12 21:00"
+   }
+  ],
+  "publicaties": [
+   {
+    "datum": "2026-11-11",
+    "dag": "wo",
+    "titel": "—",
+    "map": "",
+    "stand": "geen video (te weinig tijd om er nog een te maken)",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-14",
+    "dag": "za",
+    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
+   },
+   {
+    "datum": "2026-11-16",
+    "dag": "ma",
+    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
+    "map": "tombstone-1881",
+    "stand": "wordt opnieuw gemaakt (foute versie tegengehouden)",
+    "kleur": "let"
+   },
+   {
+    "datum": "2026-11-18",
+    "dag": "wo",
+    "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-21",
+    "dag": "za",
+    "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+    "map": "dallas-1963",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-23",
+    "dag": "ma",
+    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "map": "egypte-toetanchamon",
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
+   },
+   {
+    "datum": "2026-11-25",
+    "dag": "wo",
+    "titel": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
+    "map": "scott-antarctica-1912",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-28",
+    "dag": "za",
+    "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-30",
+    "dag": "ma",
+    "titel": "—",
+    "map": "",
+    "stand": "vrije plek: de routine kiest een onderwerp",
+    "kleur": "zacht"
+   }
+  ],
+  "routine_aan": true
+ },
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -24,7 +153,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "238 GB vrij"
+   "tekst": "235 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -39,7 +168,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 22:33)"
+   "tekst": "draait nu (2026-11-10 23:03)"
   },
   {
    "naam": "Git",
@@ -81,8 +210,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-10 22:33",
-   "volgende": "2026-11-10 23:03"
+   "laatst": "2026-11-10 23:03",
+   "volgende": "2026-11-10 23:33"
   }
  },
  "kanaal": {
@@ -152,7 +281,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 204,
+    "views": 205,
     "verwerkt": "processed"
    },
    {
@@ -188,7 +317,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1256,
+    "views": 1262,
     "verwerkt": "processed"
    }
   ]
@@ -215,19 +344,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 5,
+ "stap": 4,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 5,
-  "stapnaam": "Controles",
-  "voortgang": null,
-  "detail": "",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": 40,
+  "detail": "16mm-look",
   "taken": [
    "routine (Claude) stuurt aan",
-   "videocontrole"
+   "16mm-look"
   ]
  },
  "nu_bezig": [
@@ -236,8 +365,8 @@
    "stap": 0
   },
   {
-   "naam": "videocontrole",
-   "stap": 5
+   "naam": "16mm-look",
+   "stap": 4
   }
  ],
  "videokaart": {
@@ -328,24 +457,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 20:16",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 20:26",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 20:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 20:46",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -410,6 +521,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:36",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:46",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 22:56",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -426,7 +555,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 22:33",
+   "tijd": "2026-11-10 23:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }

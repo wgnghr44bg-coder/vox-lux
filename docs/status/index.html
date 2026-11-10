@@ -71,6 +71,17 @@ main{padding:1rem max(16px,env(safe-area-inset-right)) 4.5rem 1rem;display:grid;
 .label{display:inline-block;font-size:.75rem;font-weight:600;padding:.12rem .55rem;border-radius:6px;background:#22345e;color:#9fc0ff;margin-right:.4rem}
 .week li{display:flex;align-items:center;gap:.6rem;padding:.38rem 0;border-bottom:1px solid #1d2741;list-style:none}
 .week{margin:0;padding:0}
+.plan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem}@media (max-width:820px){.plan{grid-template-columns:minmax(0,1fr)}}
+.nu-kaart{border:1.5px solid var(--accent);background:#13234a;border-radius:12px;padding:.8rem 1rem;margin-bottom:.8rem}
+.nu-kaart .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#9fc0ff;font-weight:700}
+.nu-kaart b{display:block;font-size:1.05rem;margin:.2rem 0}
+.rij-item{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:.7rem;padding:.55rem 0;border-bottom:1px solid #1d2741}
+.rij-item .wanneer{color:var(--zacht);font-size:.82rem;font-variant-numeric:tabular-nums}
+.rij-item b{display:block;overflow-wrap:anywhere}.rij-item .d{color:var(--zacht);font-size:.82rem}
+.chip{display:inline-block;font-size:.75rem;font-weight:600;padding:.1rem .5rem;border-radius:6px;margin-top:.2rem}
+.chip.goed{background:#123826;color:#7fe0ad}.chip.nu{background:#13234a;color:#9fc0ff}.chip.let{background:#3a2e12;color:#f6cf7c}.chip.fout{background:#3a1620;color:#ffb3b8}.chip.zacht{background:#1d2741;color:var(--zacht)}
+@media (max-width:480px){.rij-item{grid-template-columns:minmax(0,1fr);gap:.2rem}}
+
 .rondje{width:18px;height:18px;border-radius:50%;border:2px solid #4a5675;flex:none;display:grid;place-items:center}
 .rondje.goed{background:var(--goed);border-color:var(--goed)}.rondje.nu{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 0 40%,transparent 45%)}
 .rondje svg{width:11px;height:11px;color:#08130d}
@@ -163,6 +174,11 @@ section[id]{scroll-margin-top:80px}
       <div class="paneel kpi"><div class="ico" style="color:var(--accent)"><svg><use href="#i-kal"/></svg></div><div><div class="t">Geplande video's</div><b id="kpiGepland">…</b><div class="s">ingepland op YouTube</div></div></div>
       <div class="paneel kpi"><div class="ico" style="color:var(--goed)"><svg><use href="#i-schild"/></svg></div><div><div class="t">Zelfcontrole</div><b id="kpiZelf">…</b><div class="s" id="kpiZelfS">punten in orde</div></div></div>
       <div class="paneel kpi"><div class="ico" style="color:var(--fout)"><svg><use href="#i-let"/></svg></div><div><div class="t">Fouten</div><b id="kpiFouten">…</b><div class="s" id="kpiFoutenS">laatste 3 dagen</div></div></div>
+    </section>
+
+    <section class="plan" id="werkplanning">
+      <div class="paneel"><h2><svg><use href="#i-montage"/></svg>Wat de pc nu doet en daarna</h2><div id="wpNu"></div><div id="wpDaarna"></div></div>
+      <div class="paneel"><h2><svg><use href="#i-kal"/></svg>Wanneer welke video online komt <small>21:00 NL</small></h2><div id="wpPub"></div></div>
     </section>
 
     <section id="straat" class="paneel">
@@ -261,6 +277,11 @@ async function laad(){
   const L=[...d.logboek].reverse();
   $("log").innerHTML=L.slice(0,12).map((x,i)=>`<div class="${i===0?"nieuw":""}"><time>${esc(x.tijd.slice(11))}</time><span class="rondje ${x.fout?"":x.klaar?"goed":i===0?"nu":""}" style="${x.fout?"border-color:var(--fout);background:var(--fout)":""}">${x.klaar?`<svg><use href="#i-check"/></svg>`:""}</span><span>${esc(x.tekst)}</span></div>`).join("")||`<div class="zacht">Nog niets.</div>`;
 
+  // duidelijke planning
+  const wp=d.werkplanning||{nu:[],daarna:[],publicaties:[]};
+  $("wpNu").innerHTML=wp.nu.length?wp.nu.map(n=>`<div class="nu-kaart"><div class="k">Nu bezig</div><b>${esc(n.wat)}</b><span class="zacht">${esc(n.detail)}</span></div>`).join(""):`<div class="nu-kaart"><div class="k">Nu</div><b>Niets bezig</b><span class="zacht">de pc wacht op de volgende taak</span></div>`;
+  $("wpDaarna").innerHTML=`<h3 style="margin:.4rem 0 .2rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--zacht)">Daarna, in deze volgorde</h3>`+(wp.daarna.length?wp.daarna.map(n=>`<div class="rij-item"><span class="wanneer">${esc(n.wanneer)}</span><span><b>${esc(n.wat)}</b><span class="d">${esc(n.detail)}</span></span></div>`).join(""):`<p class="zacht">Niets gepland.</p>`);
+  $("wpPub").innerHTML=wp.publicaties.map(p=>{const x=new Date(p.datum+"T12:00");return `<div class="rij-item"><span class="wanneer">${p.dag} ${x.getDate()}-${x.getMonth()+1}</span><span><b>${esc(p.titel)}</b><span class="chip ${p.kleur}">${esc(p.stand)}</span></span></div>`}).join("");
   // fouten
   $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen open fouten."}</div>`+((d.opgelost||[]).length?`<h3 style="margin:1rem 0 .4rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7">Fout gegaan en opgelost (laatste 3 dagen)</h3>`+[...d.opgelost].reverse().map(f=>`<div class="melding" style="opacity:.7"><time>${esc(f.tijd.slice(5))}</time><b>Opgelost</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"");
 
