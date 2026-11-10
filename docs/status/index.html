@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sleep Archives Studio</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png?v=2">
+<link rel="manifest" href="manifest.webmanifest?v=2">
+<meta name="apple-mobile-web-app-title" content="Sleep Archives">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b1020">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Studio-dashboard: donkere werkplaats, menu links, tegels, videostraat in 7 stappen, drie rijen panelen, statusbalk onder */
+:root{--bg:#0b1020;--paneel:#121a2e;--paneel2:#17213a;--lijn:#24304d;--tekst:#e8ecf6;--zacht:#8f9bb8;
+--accent:#4c8dff;--goed:#2fc27a;--bezig:#4c8dff;--let:#f2b544;--fout:#f0545c;--maan:#c9d4ff;
+--lijf:"Inter","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",Consolas,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--tekst);font:14px/1.45 var(--lijf)}
+a{color:var(--accent);text-decoration:none}
+.top{display:flex;align-items:center;gap:1rem;padding:.8rem max(16px,env(safe-area-inset-right)) .8rem max(16px,env(safe-area-inset-left));border-bottom:1px solid var(--lijn);background:#0d1426;position:sticky;top:0;z-index:5;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.7rem;margin-right:auto}
+.logo svg{width:38px;height:38px}
+.logo b{display:block;font-size:1.15rem;font-weight:700}.logo span{color:var(--zacht);font-size:.82rem}
+.tabs{display:flex;gap:.35rem;flex-wrap:wrap}
+.tab{padding:.45rem .8rem;border-radius:9px;color:var(--zacht);border:1px solid transparent;font-weight:500}
+.tab.aan,.tab:hover{color:var(--tekst);background:var(--paneel2);border-color:var(--lijn)}
+.pil{display:flex;align-items:center;gap:.5rem;padding:.45rem .8rem;border-radius:10px;background:var(--paneel);border:1px solid var(--lijn);font-weight:500;white-space:nowrap}
+.stip{width:10px;height:10px;border-radius:50%;background:var(--goed);box-shadow:0 0 0 4px #2fc27a22}
+.stip.uit{background:var(--fout);box-shadow:0 0 0 4px #f0545c22}
+.update{font-weight:600;border-color:#2f5fb8;background:#13234a}.update.oud{border-color:var(--fout);background:#3a1620;color:#ffb3b8}
+@media (max-width:820px){.update{order:-1;width:100%;justify-content:center;font-size:.95rem}}
+.schakel{width:38px;height:22px;border-radius:99px;background:var(--goed);position:relative}.schakel::after{content:"";position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.schakel.uit{background:#3a4560}.schakel.uit::after{right:auto;left:3px}
+.romp{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 64px)}
+nav.zij{border-right:1px solid var(--lijn);padding:1rem .7rem;display:flex;flex-direction:column;gap:.2rem;background:#0d1426}
+nav.zij a{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;border-radius:9px;color:var(--zacht);font-weight:500}
+nav.zij a.aan,nav.zij a:hover{background:var(--paneel2);color:var(--tekst)}
+nav.zij svg{width:18px;height:18px;flex:none}
+.teller{margin-left:auto;background:var(--fout);color:#fff;border-radius:99px;font-size:.72rem;padding:0 .45rem;font-weight:700}
+.kanaalkaart{margin-top:auto;background:var(--paneel);border:1px solid var(--lijn);border-radius:12px;padding:.8rem;display:flex;gap:.7rem;align-items:center}
+.kanaalkaart .rond{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 60% 35%,#e9edff 0 18%,#3b4d86 19% 100%);flex:none}
+main{padding:1rem max(16px,env(safe-area-inset-right)) 4.5rem 1rem;display:grid;gap:1rem;min-width:0}
+.rij{display:grid;gap:1rem}
+.r4{grid-template-columns:repeat(4,minmax(0,1fr))}.r3{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr)}.r3b{grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr) minmax(0,.8fr)}
+.paneel{background:var(--paneel);border:1px solid var(--lijn);border-radius:14px;padding:1rem;min-width:0}
+.paneel h2{font-size:1rem;margin:0 0 .8rem;display:flex;align-items:center;gap:.5rem;font-weight:600}
+.paneel h2 svg{width:18px;height:18px;color:var(--zacht)}
+.paneel h2 small{margin-left:auto;color:var(--zacht);font-weight:400;font-size:.8rem}
+.kpi{display:flex;gap:.9rem;align-items:center}
+.kpi .ico{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:var(--paneel2);flex:none}
+.kpi .ico svg{width:28px;height:28px}
+.kpi b{font-size:1.6rem;display:block;line-height:1.15}.kpi .t{color:var(--tekst);font-weight:600}.kpi .s{color:var(--zacht);font-size:.8rem}
+.straat{display:flex;align-items:stretch;gap:.4rem;overflow-x:auto;padding-bottom:.3rem}
+.stap{flex:1 1 0;min-width:118px;border:1.5px solid var(--lijn);border-radius:12px;padding:.7rem;position:relative;background:var(--paneel2)}
+.stap .n{font-weight:600;font-size:.86rem;display:flex;gap:.45rem;align-items:flex-start}
+.stap svg.i{width:26px;height:26px;color:var(--zacht);margin:.3rem 0}
+.stap.klaar{border-color:var(--goed)}.stap.klaar svg.i{color:var(--goed)}
+.stap.nu{border-color:var(--accent);box-shadow:0 0 0 3px #4c8dff33}.stap.nu svg.i{color:var(--accent)}
+.stap .vink{position:absolute;right:.6rem;bottom:.6rem;width:22px;height:22px;border-radius:50%;background:var(--goed);display:grid;place-items:center}
+.stap .vink svg{width:14px;height:14px;color:#08130d}
+.pijl{align-self:center;color:var(--zacht);flex:none}
+.balk{height:7px;border-radius:99px;background:#26324f;overflow:hidden;margin-top:.45rem}.balk>span{display:block;height:100%;background:var(--accent);border-radius:99px}
+.taak{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.taak img{width:200px;max-width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--lijn);background:#0d1426}
+.taak .info{flex:1 1 200px;min-width:0;overflow-wrap:anywhere}
+.taak h3{margin:0 0 .4rem;font-size:1.1rem}
+.label{display:inline-block;font-size:.75rem;font-weight:600;padding:.12rem .55rem;border-radius:6px;background:#22345e;color:#9fc0ff;margin-right:.4rem}
+.week li{display:flex;align-items:center;gap:.6rem;padding:.38rem 0;border-bottom:1px solid #1d2741;list-style:none}
+.week{margin:0;padding:0}
+.rondje{width:18px;height:18px;border-radius:50%;border:2px solid #4a5675;flex:none;display:grid;place-items:center}
+.rondje.goed{background:var(--goed);border-color:var(--goed)}.rondje.nu{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 0 40%,transparent 45%)}
+.rondje svg{width:11px;height:11px;color:#08130d}
+.stat{display:flex;align-items:center;gap:.7rem;padding:.5rem 0;border-bottom:1px solid #1d2741}
+.stat svg{width:18px;height:18px;color:var(--zacht)}.stat b{margin-left:auto;font-variant-numeric:tabular-nums}
+.op{color:var(--goed);font-size:.8rem;min-width:3.6rem;text-align:right}.neer{color:var(--fout);font-size:.8rem;min-width:3.6rem;text-align:right}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:var(--zacht);font-weight:500;font-size:.8rem;padding:.4rem .4rem;border-bottom:1px solid var(--lijn)}
+td{padding:.45rem .4rem;border-bottom:1px solid #1d2741;vertical-align:middle}
+td.t{display:flex;gap:.6rem;align-items:center;min-width:240px}
+td.t img{width:68px;aspect-ratio:16/9;object-fit:cover;border-radius:5px;flex:none}
+.badge{font-size:.72rem;font-weight:600;padding:.12rem .5rem;border-radius:6px;white-space:nowrap}
+.b-lang{background:#22345e;color:#9fc0ff}
+.st{display:flex;align-items:center;gap:.35rem;white-space:nowrap;font-size:.85rem}
+.st i{width:15px;height:15px;border-radius:50%;display:inline-block}
+.tabel{overflow-x:auto}
+.log{display:grid;gap:0}
+.log div{display:grid;grid-template-columns:3rem 18px 1fr;gap:.6rem;align-items:start;padding:.42rem .3rem;border-bottom:1px solid #1d2741;font-size:.86rem}
+.log div.nieuw{background:#16244a;border-radius:8px}
+.log time{color:var(--zacht);font-variant-numeric:tabular-nums}
+.foutkaart{border-color:#5a2430;background:linear-gradient(180deg,#2a1520,#1a1426)}
+.melding{border:1px solid #6e2a36;border-radius:10px;padding:.7rem;margin-bottom:.6rem;background:#2b1420}
+.melding b{color:#ff8f96}.melding time{float:right;color:var(--zacht);font-size:.8rem}
+.ok{border:1px solid var(--lijn);border-radius:10px;padding:.6rem .7rem;display:flex;gap:.5rem;align-items:center}
+.zc{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.5rem}.zcp{display:flex;gap:.6rem;align-items:flex-start;padding:.55rem .6rem;border:1px solid #1d2741;border-radius:10px;min-width:0}.zcp.slecht{border-color:#6e2a36;background:#2b1420}
+.onder{position:fixed;left:0;right:0;bottom:0;background:#0d1426;border-top:1px solid var(--lijn);display:flex;gap:1.1rem;align-items:center;padding:.55rem max(16px,env(safe-area-inset-right)) calc(.55rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));overflow-x:auto;white-space:nowrap;font-size:.84rem;z-index:5}
+.onder .g{color:var(--goed)}.onder .r{color:var(--fout)}.onder .rechts{margin-left:auto;color:var(--zacht)}
+.vast dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem}.vast dt{color:var(--zacht)}.vast dd{margin:0}
+.zacht{color:var(--zacht)}
+section[id]{scroll-margin-top:80px}
+@media (max-width:1100px){.r4{grid-template-columns:repeat(2,minmax(0,1fr))}.r3,.r3b{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:820px){.romp{grid-template-columns:minmax(0,1fr)}.pil{font-size:.85rem}nav.zij{display:none}main{padding-left:max(16px,env(safe-area-inset-left))}.tabs{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}}
+@media (max-width:520px){.r4{grid-template-columns:minmax(0,1fr)}.logo span{display:none}.kpi b{font-size:1.35rem}}
+@media (prefers-reduced-motion:no-preference){.balk>span{transition:width .6s}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-maan" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#18234a"/><path d="M30 12a13 13 0 1 0 7 22A11 11 0 0 1 30 12z" fill="#c9d4ff"/><circle cx="34" cy="14" r="1.6" fill="#c9d4ff"/><circle cx="38" cy="21" r="1" fill="#c9d4ff"/></symbol>
+ <symbol id="i-huis" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></symbol>
+ <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 3h9l4 4v14H6zM9 11h7M9 15h7M9 7h4"/></symbol>
+ <symbol id="i-beeld" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5" fill="currentColor"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+ <symbol id="i-golf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 12h2M7 8v8M11 5v14M15 8v8M19 10v4M21 12h0"/></symbol>
+ <symbol id="i-montage" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" d="M5 12l5 5 9-10"/></symbol>
+ <symbol id="i-schild" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+ <symbol id="i-upload" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></symbol>
+ <symbol id="i-lamp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></symbol>
+ <symbol id="i-kal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 10h18M8 3v4M16 3v4"/></symbol>
+ <symbol id="i-let" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3l10 18H2zM12 10v5M12 18v.5"/></symbol>
+ <symbol id="i-tand" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+ <symbol id="i-lijst" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M8 6h13M8 12h13M8 18h13M3 6h.5M3 12h.5M3 18h.5"/></symbol>
+ <symbol id="i-grafiek" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+ <symbol id="i-oog" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+ <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M2 20c.5-4 3.5-6 7-6s6.5 2 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .7 3.5 2.6 4 6"/></symbol>
+ <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 7v5l3 2"/></symbol>
+ <symbol id="i-euro" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M17 6a7 7 0 1 0 0 12M4 10h9M4 14h9"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="logo"><img src="logo.png" alt="" width="40" height="40" style="border-radius:10px"><div><b>Sleep Archives Studio</b><span>Automatische videoproductie op de pc</span></div></div>
+  <nav class="tabs" aria-label="Onderdelen">
+    <a class="tab aan" href="#dashboard">Dashboard</a><a class="tab" href="#planning">Planning</a><a class="tab" href="#videos">Video's</a><a class="tab" href="#logboek">Logboek</a><a class="tab" href="#instellingen">Instellingen</a>
+  </nav>
+  <div class="pil update" id="topUpdate"><svg style="width:16px;height:16px"><use href="#i-klok"/></svg><span>Laatste update: …</span></div>
+  <div class="pil"><span class="stip" id="autoStip"></span><span id="autoTekst">Automatisering</span></div>
+  <div class="pil">Automatisch <span class="schakel" id="autoSchakel"></span></div>
+</header>
+
+<div class="romp">
+  <nav class="zij" aria-label="Menu">
+    <a class="aan" href="#dashboard"><svg><use href="#i-huis"/></svg>Dashboard</a>
+    <a href="#videos"><svg><use href="#i-film"/></svg>Video's</a>
+    <a href="#planning"><svg><use href="#i-doc"/></svg>Scripts en planning</a>
+    <a href="#straat"><svg><use href="#i-beeld"/></svg>Beelden</a>
+    <a href="#straat"><svg><use href="#i-mic"/></svg>Stem en muziek</a>
+    <a href="#straat"><svg><use href="#i-montage"/></svg>Montage</a>
+    <a href="#videos"><svg><use href="#i-upload"/></svg>YouTube upload</a>
+    <a href="#fouten"><svg><use href="#i-let"/></svg>Fouten en meldingen<span class="teller" id="foutTeller" hidden>0</span></a>
+    <a href="#kanaal"><svg><use href="#i-grafiek"/></svg>Kanaalcijfers</a>
+    <a href="#instellingen"><svg><use href="#i-tand"/></svg>Automatisering</a>
+    <div class="kanaalkaart"><div class="rond"></div><div><b id="kanaalNaam">Sleep Archives</b><div class="zacht" style="font-size:.8rem">YouTube-kanaal</div><div id="kanaalVerbonden" style="color:var(--goed);font-size:.82rem;font-weight:600">verbonden</div></div></div>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="rij r4">
+      <div class="paneel kpi"><div class="ico" style="color:var(--fout)"><svg><use href="#i-film"/></svg></div><div><div class="t">Kanaalstatus</div><b id="kpiKanaal" style="color:var(--goed)">…</b><div class="s" id="kpiKanaalS"></div></div></div>
+      <div class="paneel kpi"><div class="ico" style="color:var(--accent)"><svg><use href="#i-kal"/></svg></div><div><div class="t">Geplande video's</div><b id="kpiGepland">…</b><div class="s">ingepland op YouTube</div></div></div>
+      <div class="paneel kpi"><div class="ico" style="color:var(--goed)"><svg><use href="#i-schild"/></svg></div><div><div class="t">Zelfcontrole</div><b id="kpiZelf">…</b><div class="s" id="kpiZelfS">punten in orde</div></div></div>
+      <div class="paneel kpi"><div class="ico" style="color:var(--fout)"><svg><use href="#i-let"/></svg></div><div><div class="t">Fouten</div><b id="kpiFouten">…</b><div class="s" id="kpiFoutenS">laatste 3 dagen</div></div></div>
+    </section>
+
+    <section id="straat" class="paneel">
+      <h2>Automatisch videoproces <small id="straatNaam"></small></h2>
+      <div class="straat" id="stappen"></div>
+    </section>
+
+    <section class="rij r3">
+      <div class="paneel"><h2><svg><use href="#i-montage"/></svg>Huidige taak <small id="taakTijd"></small></h2><div class="taak" id="taak"></div></div>
+      <div class="paneel" id="planning"><h2><svg><use href="#i-kal"/></svg>Deze week</h2><ul class="week" id="week"></ul></div>
+      <div class="paneel" id="kanaal"><h2><svg><use href="#i-grafiek"/></svg>Kanaalcijfers <small>laatste 7 dagen</small></h2><div id="stats"></div></div>
+    </section>
+
+    <section class="rij r3b">
+      <div class="paneel" id="videos"><h2><svg><use href="#i-film"/></svg>Recente video's</h2><div class="tabel"><table id="recent"></table></div></div>
+      <div class="paneel" id="logboek"><h2><svg><use href="#i-lijst"/></svg>Systeemlog <small>live</small></h2><div class="log" id="log"></div></div>
+      <div class="paneel foutkaart" id="fouten"><h2 style="color:#ff8f96"><svg style="color:#ff8f96"><use href="#i-let"/></svg>Fouten en meldingen</h2><div id="meldingen"></div></div>
+    </section>
+
+    <section class="paneel" id="zelfcontrole"><h2><svg><use href="#i-schild"/></svg>Zelfcontrole <small>de pc controleert zichzelf elk half uur, 's nachts ook stem, muziek en scripts</small></h2><div class="zc" id="zc"></div></section>
+
+    <section class="rij r3b">
+      <div class="paneel"><h2><svg><use href="#i-doc"/></svg>Komende video's</h2><div class="tabel"><table id="komend"></table></div></div>
+      <div class="paneel"><h2><svg><use href="#i-tand"/></svg>Automatische taken</h2><div id="taken"></div><div id="gpu" style="margin-top:.8rem"></div></div>
+      <div class="paneel vast" id="instellingen"><h2><svg><use href="#i-schild"/></svg>Vaste instellingen</h2><dl id="vast"></dl></div>
+    </section>
+  </main>
+</div>
+
+<footer class="onder" id="onder"></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ICO=["i-lamp","i-doc","i-beeld","i-mic","i-montage","i-schild","i-upload"];
+const DAG=["Zo","Ma","Di","Wo","Do","Vr","Za"];
+const nl=n=>Number(n||0).toLocaleString("nl-NL");
+function pct(a,b){if(!b)return"";const p=Math.round(100*(a-b)/b);return `<span class="${p>=0?"op":"neer"}">${p>=0?"↑":"↓"} ${Math.abs(p)}%</span>`}
+function tijd(iso){const d=new Date(iso);return isNaN(d)?"":d.toLocaleString("nl-NL",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}
+async function laad(){
+  let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}catch(e){$("kpiKanaal").textContent="geen gegevens";return}
+  const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000), pcOk=min<=90;
+  const wanneer=min<1?"zojuist":min<60?`${min} min geleden`:`${Math.floor(min/60)} uur ${min%60} min geleden`;
+  $("topUpdate").className="pil update"+(pcOk?"":" oud");
+  $("topUpdate").querySelector("span").textContent=`Laatste update: ${d.bijgewerkt.slice(8,10)}-${d.bijgewerkt.slice(5,7)} om ${d.bijgewerkt.slice(11)} (${wanneer})`+(pcOk?"":" · pc stuurt geen update");
+  const auto=d.automatisering;
+  $("autoStip").className="stip"+(auto&&pcOk?"":" uit");
+  $("autoTekst").innerHTML=`Automatisering: <b style="color:${auto&&pcOk?"var(--goed)":"var(--fout)"}">${!pcOk?"pc geeft geen update":auto?"actief":"staat uit"}</b>`;
+  $("autoSchakel").className="schakel"+(auto?"":" uit");
+  const k=d.kanaal||{};
+  $("kanaalNaam").textContent=k.naam||"Sleep Archives";
+  $("kanaalVerbonden").textContent=k.naam?"verbonden":"niet verbonden";$("kanaalVerbonden").style.color=k.naam?"var(--goed)":"var(--fout)";
+  $("kpiKanaal").textContent=k.naam?"Online":"Geen verbinding";$("kpiKanaal").style.color=k.naam?"var(--goed)":"var(--fout)";
+  $("kpiKanaalS").textContent=k.naam?`${nl(k.abonnees)} abonnees · ${nl(k.video_aantal)} video's`:"";
+  $("kpiGepland").textContent=d.kpi.geplande;
+  const z=d.kpi.zelfcontrole||{goed:0,totaal:0};$("kpiZelf").textContent=`${z.goed}/${z.totaal}`;$("kpiZelf").style.color=z.goed===z.totaal?"var(--goed)":"var(--fout)";$("kpiZelfS").textContent=z.goed===z.totaal?"alles in orde":`${z.totaal-z.goed} punt(en) niet in orde`;
+  $("zc").innerHTML=(d.zelfcontrole||[]).map(x=>`<div class="zcp ${x.ok?"":"slecht"}"><span class="rondje ${x.ok?"goed":""}" style="${x.ok?"":"border-color:var(--fout);background:var(--fout)"}">${x.ok?`<svg><use href="#i-check"/></svg>`:""}</span><div><b>${esc(x.naam)}</b><div class="zacht" style="font-size:.82rem">${esc(x.tekst)}</div></div></div>`).join("");
+  $("kpiFouten").textContent=d.kpi.fouten;$("kpiFoutenS").textContent=d.kpi.fouten?"actie nodig (laatste 3 dagen)":"laatste 3 dagen";
+  $("foutTeller").hidden=!d.kpi.fouten;$("foutTeller").textContent=d.kpi.fouten;
+
+  // videostraat
+  const h=d.huidig;$("straatNaam").textContent=h?`${h.map} · ${h.titel}`:"niets bezig";
+  $("stappen").innerHTML=d.stappen.map((s,i)=>{
+    const klaar=d.stap>i, nu=d.stap===i;
+    const bar=nu&&h&&h.voortgang!=null?`<div class="balk"><span style="width:${h.voortgang}%"></span></div><div style="text-align:right;font-weight:600;margin-top:.2rem">${h.voortgang}%</div>`:nu?`<div class="zacht" style="font-size:.78rem">bezig…</div>`:"";
+    return (i?`<span class="pijl">→</span>`:"")+`<div class="stap ${klaar?"klaar":nu?"nu":""}"><div class="n">${i+1}. ${esc(s)}</div><svg class="i"><use href="#${ICO[i]}"/></svg>${bar}${klaar?`<span class="vink"><svg><use href="#i-check"/></svg></span>`:""}</div>`}).join("");
+
+  // huidige taak
+  if(h){
+    $("taakTijd").textContent=h.datum?`gepland ${h.datum}`:"";
+    $("taak").innerHTML=`${h.thumb?`<img src="${esc(h.thumb)}" alt="">`:""}<div class="info"><h3>${esc(h.titel)}</h3><span class="label">LANGE VIDEO</span><span class="zacht">${esc(h.map)}</span>
+      <div style="margin-top:.7rem;display:flex;justify-content:space-between"><span>${esc(h.stapnaam)}${h.detail?": "+esc(h.detail):""}</span><b>${h.voortgang!=null?h.voortgang+"%":""}</b></div>
+      <div class="balk"><span style="width:${h.voortgang??8}%"></span></div>
+      <div class="zacht" style="margin-top:.5rem;font-size:.82rem">${h.taken.map(esc).join(" · ")}</div></div>`;
+  } else $("taak").innerHTML=`<div class="zacht">De pc wacht op de volgende taak.</div>`;
+
+  // week
+  $("week").innerHTML=d.week.map(w=>{const x=new Date(w.datum+"T12:00"),dag=DAG[x.getDay()];
+    const st={"online":["goed","online"],"gepland":["goed","gepland op YouTube"],"bezig":["nu","bezig"],"script nieuw":["","script klaar"],"script oud":["","script (oude opbouw)"],"vrij":["","vrije plek"]}[w.soort]||["",""];
+    if(!w.plek&&!w.video)return"";
+    return `<li><span class="rondje ${st[0]}">${st[0]==="goed"?`<svg><use href="#i-check"/></svg>`:""}</span><span><b>${dag} ${x.getDate()}-${x.getMonth()+1}</b>: ${esc(w.video||"—")} <span class="zacht">· ${st[1]}</span></span></li>`}).join("")||`<li class="zacht">Geen video's deze week.</li>`;
+
+  // kanaalcijfers
+  const w=k.week||{},v=k.vorige_week||{};
+  $("stats").innerHTML=k.naam?[["i-oog","Weergaven",nl(w.views),pct(w.views,v.views)],["i-mens","Abonnees",(w.abonnees>=0?"+":"")+nl(w.abonnees),pct(w.abonnees,v.abonnees)],
+    ["i-klok","Kijktijd",nl(w.uren)+" uur",pct(w.uren,v.uren)],["i-euro","Opbrengst","nog niet",'<span class="zacht" style="font-size:.78rem;min-width:3.6rem;text-align:right">kanaal nog niet gemonetiseerd</span>']]
+    .map(([i,t,g,p])=>`<div class="stat"><svg><use href="#${i}"/></svg>${t}<b>${g}</b>${p}</div>`).join("")+`<div class="zacht" style="margin-top:.5rem;font-size:.8rem">Totaal: ${nl(k.views_totaal)} weergaven · ${nl(k.abonnees)} abonnees</div>`:`<div class="zacht">${esc(k.fout||"Geen verbinding met YouTube.")}</div>`;
+
+  // recente video's
+  $("recent").innerHTML="<tr><th>Titel</th><th>Type</th><th>Status</th><th>Duur</th><th>Datum</th></tr>"+(k.recent||[]).slice(0,7).map(r=>{
+    const gepland=r.privacy==="private"&&new Date(r.publiceer)>new Date();
+    const s=r.privacy==="public"?["var(--goed)","online"]:gepland?["var(--accent)","gepland"]:["var(--zacht)",r.privacy];
+    return `<tr><td class="t"><img src="https://i.ytimg.com/vi/${esc(r.id)}/mqdefault.jpg" alt=""><a href="https://youtu.be/${esc(r.id)}" target="_blank" rel="noopener">${esc(r.titel)}</a></td><td><span class="badge b-lang">Lang</span></td><td><span class="st"><i style="background:${s[0]}"></i>${s[1]}</span></td><td style="font-variant-numeric:tabular-nums">${esc(r.duur)}</td><td style="white-space:nowrap">${tijd(r.publiceer)}</td></tr>`}).join("");
+
+  // systeemlog
+  const L=[...d.logboek].reverse();
+  $("log").innerHTML=L.slice(0,12).map((x,i)=>`<div class="${i===0?"nieuw":""}"><time>${esc(x.tijd.slice(11))}</time><span class="rondje ${x.fout?"":x.klaar?"goed":i===0?"nu":""}" style="${x.fout?"border-color:var(--fout);background:var(--fout)":""}">${x.klaar?`<svg><use href="#i-check"/></svg>`:""}</span><span>${esc(x.tekst)}</span></div>`).join("")||`<div class="zacht">Nog niets.</div>`;
+
+  // fouten
+  $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen fouten: alles in orde."}</div>`;
+
+  // komende video's
+  const vandaag=new Date().toISOString().slice(0,10);
+  const lab={"online":"online","gepland":"gepland op YouTube","bezig":"wordt gemaakt","script nieuw":"script klaar","script oud":"script (oude opbouw)"};
+  $("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+d.video.filter(x=>x.datum>=vandaag).sort((a,b)=>a.datum.localeCompare(b.datum)).slice(0,10).map(x=>{const t=new Date(x.datum+"T12:00");
+    return `<tr><td style="white-space:nowrap">${DAG[t.getDay()]} ${t.getDate()}-${t.getMonth()+1}</td><td>${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}</td><td style="white-space:nowrap">${esc(lab[x.soort]||x.soort)}</td></tr>`}).join("");
+
+  // taken + videokaart
+  $("taken").innerHTML=Object.entries(d.taken).map(([n,t])=>`<div class="stat"><span class="rondje ${t&&t.aan?"goed":""}">${t&&t.aan?`<svg><use href="#i-check"/></svg>`:""}</span>${esc(n)}<b style="font-weight:500;font-size:.82rem">${t?`volgende ${esc(t.volgende)}`:"niet ingesteld"}</b></div>`).join("");
+  const g=d.videokaart;$("gpu").innerHTML=g?`<div class="zacht" style="font-size:.82rem">Videokaart: ${g.bezig_procent}% bezig · ${(g.geheugen_mb/1024).toFixed(1)} van ${(g.totaal_mb/1024).toFixed(1)} GB</div><div class="balk"><span style="width:${Math.round(100*g.geheugen_mb/g.totaal_mb)}%;background:${g.geheugen_mb/g.totaal_mb>.9?"var(--let)":"var(--accent)"}"></span></div>`:"";
+  $("vast").innerHTML=Object.entries(d.vast).map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("");
+
+  // statusbalk
+  $("onder").innerHTML=`<span class="${pcOk?"g":"r"}">● Systeem: ${pcOk?"online":"geen update"}</span>`+d.programmas.map(p=>`<span>${esc(p.naam)} (${esc(p.wat)}) <span class="${p.ok?"g":"r"}">${p.ok?"✓":"✗"}</span></span>`).join("")+`<span class="rechts">Laatste update: ${esc(d.bijgewerkt.slice(11))}</span>`;
+}
+laad();setInterval(laad,120000);
+document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll("nav a").forEach(b=>b.classList.remove("aan"));a.classList.add("aan")}));
+</script>
+</body>
+</html>

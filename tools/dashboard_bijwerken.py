@@ -17,9 +17,9 @@ import requests
 HIER = Path(__file__).resolve().parent
 REPO = HIER.parent
 STORIES = REPO / "stories"
-# Eigenaar 9 nov 2026: "kun je de website offline halen". ONLINE = False: alles blijft lokaal op de pc (de zelfcontrole draait
+# Eigenaar 9 nov 2026: "kun je de website offline halen". ONLINE = True   # eigenaar 10 nov: website weer aan ("wat er in de planning staat, waar we mee bezig zijn en wat er fout ging"): alles blijft lokaal op de pc (de zelfcontrole draait
 # gewoon door), niets naar GitHub. Weer online: ONLINE = True en docs/status terugzetten uit git (commit vóór 9 nov avond).
-ONLINE = False
+ONLINE = True   # eigenaar 10 nov: website weer aan ("wat er in de planning staat, waar we mee bezig zijn en wat er fout ging")
 DOCS = REPO / "docs" / "status" if ONLINE else Path(r"C:\Users\rane\sleep-archives-status")
 UIT = DOCS / "data.json"
 NU = datetime.datetime.now()
