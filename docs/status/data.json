@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-10 20:03",
+ "bijgewerkt": "2026-11-10 20:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 20:03)"
+   "tekst": "draait nu (2026-11-10 20:33)"
   },
   {
    "naam": "Git",
@@ -81,8 +81,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-10 20:03",
-   "volgende": "2026-11-10 20:33"
+   "laatst": "2026-11-10 20:33",
+   "volgende": "2026-11-10 21:03"
   }
  },
  "kanaal": {
@@ -223,7 +223,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 37,
+  "voortgang": 54,
   "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
@@ -328,24 +328,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 18:26",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 18:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 18:44",
-   "tekst": "tombstone-1881: 03VXrW2gb7g blijft privé ZONDER publicatietijd (eigenaar: begin als WW2 + haperingen = niet goed); tools/tombstone_opnieuw.ps1 maakt hem opnieuw en zet de nieuwe op ma 16 nov 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 18:46",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -410,6 +392,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 20:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 20:16",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 20:26",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -426,7 +426,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 20:03",
+   "tijd": "2026-11-10 20:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
