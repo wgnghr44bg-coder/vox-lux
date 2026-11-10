@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-10 23:33",
+ "bijgewerkt": "2026-11-10 23:54",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Controles",
+    "detail": "Video bouwen · 91%",
     "soort": "nu"
    }
   ],
@@ -129,6 +129,231 @@
   ],
   "routine_aan": true
  },
+ "scripts": {
+  "klaar_tot": "2026-12-02",
+  "rij": [
+   {
+    "datum": "2026-11-14",
+    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "klaar": true,
+    "stand": "video wordt gemaakt",
+    "controle": "nog niet",
+    "flesch": 78,
+    "niveau": 6.1,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-16",
+    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
+    "map": "tombstone-1881",
+    "klaar": true,
+    "stand": "video staat klaar",
+    "controle": "nog niet",
+    "flesch": 77,
+    "niveau": 6.2,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-18",
+    "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 81,
+    "niveau": 4.8,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-21",
+    "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+    "map": "dallas-1963",
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 79,
+    "niveau": 5.5,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-23",
+    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "map": "egypte-toetanchamon",
+    "klaar": true,
+    "stand": "video staat klaar",
+    "controle": "FOUT",
+    "flesch": 75,
+    "niveau": 6.5,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-25",
+    "titel": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
+    "map": "scott-antarctica-1912",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 87,
+    "niveau": 3.7,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-11-28",
+    "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 82,
+    "niveau": 4.6,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-12-02",
+    "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
+    "map": "rome-44-vc",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 83,
+    "niveau": 4.3,
+    "leesbaar": "MAKKELIJK"
+   },
+   {
+    "datum": "2026-12-05",
+    "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
+    "map": "zwarte-dood-1348",
+    "klaar": false,
+    "stand": "script afgekeurd, moet opnieuw",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-12",
+    "titel": "Christmas in the Trenches of World War I, 1914 | <N> Hours of History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-16",
+    "titel": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
+    "map": "boeren-winter-1300",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-19",
+    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
+    "map": "bethlehem",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-23",
+    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
+    "map": "londen-kerst-1843",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-26",
+    "titel": "Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep",
+    "map": "japan-1600",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2026-12-30",
+    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "map": "blackbeard-1718",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2027-01-02",
+    "titel": "Life in Philadelphia During the American Revolution, 1776 | <N> Hours of History for Sleep",
+    "map": "philadelphia-1776",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2027-01-06",
+    "titel": "Life in Troy, the Last Days of the City | <N> Hours of History for Sleep",
+    "map": "troje",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2027-01-09",
+    "titel": "Life Aboard Franklin's Lost Expedition, Arctic 1845 | <N> Hours of History for Sleep",
+    "map": "franklin-1845",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2027-01-13",
+    "titel": "Life with Lewis and Clark, 1804 | <N> Hours of History for Sleep",
+    "map": "lewis-en-clark-1804",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   },
+   {
+    "datum": "2027-01-16",
+    "titel": "Life in London Before the Great Fire of 1666 | <N> Hours of History for Sleep",
+    "map": "londen-1666",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
+   }
+  ]
+ },
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -153,7 +378,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "234 GB vrij"
+   "tekst": "235 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -168,7 +393,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 23:33)"
+   "tekst": "laatste keer goed (2026-11-10 23:33)"
   },
   {
    "naam": "Git",
@@ -254,7 +479,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 11,
+    "views": 10,
     "verwerkt": "processed"
    },
    {
@@ -281,7 +506,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 205,
+    "views": 204,
     "verwerkt": "processed"
    },
    {
@@ -299,7 +524,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 57,
+    "views": 55,
     "verwerkt": "processed"
    },
    {
@@ -344,19 +569,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 5,
+ "stap": 4,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 5,
-  "stapnaam": "Controles",
-  "voortgang": null,
-  "detail": "",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": 91,
+  "detail": "16mm-look",
   "taken": [
    "routine (Claude) stuurt aan",
-   "kwaliteitscontrole"
+   "beweging en hoofdstuktitels"
   ]
  },
  "nu_bezig": [
@@ -365,13 +590,13 @@
    "stap": 0
   },
   {
-   "naam": "kwaliteitscontrole",
-   "stap": 5
+   "naam": "beweging en hoofdstuktitels",
+   "stap": 4
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 424,
+  "geheugen_mb": 407,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -457,18 +682,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 21:16",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 21:26",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 21:36",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -539,6 +752,18 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:36",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:46",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -555,7 +780,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 23:33",
+   "tijd": "2026-11-10 23:54",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
