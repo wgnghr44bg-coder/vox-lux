@@ -31,3 +31,5 @@
 - 2026-11-10 01:33 zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
 - 2026-11-10 01:33 zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
 - 2026-11-10 01:33 zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
+- 2026-11-10 03:57 tombstone-1881: geüpload https://youtu.be/03VXrW2gb7g (privé, publiek 2026-11-16T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-10 04:07 tombstone-1881: oude versie 4RjjJh-j5a0 ('Life in the Wild West: Tombstone, 1881 | 2 Hours of History for Sleep') verwijderd
