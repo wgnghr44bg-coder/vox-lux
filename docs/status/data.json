@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-10 23:54",
+ "bijgewerkt": "2026-11-11 00:03",
  "werkplanning": {
   "nu": [
    {
@@ -124,6 +124,14 @@
     "titel": "—",
     "map": "",
     "stand": "vrije plek: de routine kiest een onderwerp",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-12-02",
+    "dag": "wo",
+    "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
+    "map": "rome-44-vc",
+    "stand": "script klaar, video volgt",
     "kleur": "zacht"
    }
   ],
@@ -351,6 +359,17 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null
+   },
+   {
+    "datum": "2027-01-20",
+    "titel": "Life in the Aztec Capital Tenochtitlan, 1519 | <N> Hours of History for Sleep",
+    "map": "tenochtitlan-1519",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null
    }
   ]
  },
@@ -393,7 +412,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-10 23:33)"
+   "tekst": "draait nu (2026-11-11 00:03)"
   },
   {
    "naam": "Git",
@@ -435,8 +454,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-10 23:33",
-   "volgende": "2026-11-11 00:03"
+   "laatst": "2026-11-11 00:03",
+   "volgende": "2026-11-11 00:33"
   }
  },
  "kanaal": {
@@ -445,14 +464,14 @@
   "views_totaal": 2309,
   "video_aantal": 14,
   "week": {
-   "views": 398,
-   "uren": 53,
+   "views": 274,
+   "uren": 42,
    "abonnees": 1
   },
   "vorige_week": {
-   "views": 839,
-   "uren": 151,
-   "abonnees": 2
+   "views": 678,
+   "uren": 93,
+   "abonnees": 0
   },
   "recent": [
    {
@@ -595,8 +614,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 407,
+  "bezig_procent": 26,
+  "geheugen_mb": 424,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -638,12 +657,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-10",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-11",
    "plek": true,
    "video": "",
@@ -678,15 +691,15 @@
    "plek": true,
    "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
    "soort": "wordt opnieuw gemaakt (foute versie tegengehouden)"
+  },
+  {
+   "datum": "2026-11-17",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-10 21:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 21:46",
    "tekst": "routine of Egypte bezig, wachten",
@@ -764,6 +777,12 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 23:56",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -780,7 +799,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 23:54",
+   "tijd": "2026-11-11 00:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
