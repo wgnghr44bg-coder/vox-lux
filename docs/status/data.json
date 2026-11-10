@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 00:33",
+ "bijgewerkt": "2026-11-11 00:39",
  "werkplanning": {
   "nu": [
    {
@@ -146,10 +146,11 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 78,
     "niveau": 6.1,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
    },
    {
     "datum": "2026-11-16",
@@ -160,7 +161,8 @@
     "controle": "nog niet",
     "flesch": 77,
     "niveau": 6.2,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
    },
    {
     "datum": "2026-11-18",
@@ -171,7 +173,8 @@
     "controle": "GOED",
     "flesch": 81,
     "niveau": 4.8,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
    },
    {
     "datum": "2026-11-21",
@@ -182,7 +185,8 @@
     "controle": "GOED",
     "flesch": 79,
     "niveau": 5.5,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
    },
    {
     "datum": "2026-11-23",
@@ -193,7 +197,8 @@
     "controle": "FOUT",
     "flesch": 75,
     "niveau": 6.5,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
    },
    {
     "datum": "2026-11-25",
@@ -204,7 +209,8 @@
     "controle": "nog niet",
     "flesch": 87,
     "niveau": 3.7,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, verteller, you might think)"
    },
    {
     "datum": "2026-11-28",
@@ -215,7 +221,8 @@
     "controle": "GOED",
     "flesch": 82,
     "niveau": 4.6,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, verteller, you might think)"
    },
    {
     "datum": "2026-12-02",
@@ -226,7 +233,8 @@
     "controle": "nog niet",
     "flesch": 83,
     "niveau": 4.3,
-    "leesbaar": "MAKKELIJK"
+    "leesbaar": "MAKKELIJK",
+    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, you might think)"
    },
    {
     "datum": "2026-12-05",
@@ -237,7 +245,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-12",
@@ -248,7 +257,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-16",
@@ -259,7 +269,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-19",
@@ -270,7 +281,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-23",
@@ -281,7 +293,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-26",
@@ -292,7 +305,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-30",
@@ -303,7 +317,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-02",
@@ -314,7 +329,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-06",
@@ -325,7 +341,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-09",
@@ -336,7 +353,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-13",
@@ -347,7 +365,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-16",
@@ -358,7 +377,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2027-01-20",
@@ -369,7 +389,8 @@
     "controle": "nog niet",
     "flesch": null,
     "niveau": null,
-    "leesbaar": null
+    "leesbaar": null,
+    "toon": null
    }
   ]
  },
@@ -412,7 +433,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 00:33)"
+   "tekst": "laatste keer goed (2026-11-11 00:33)"
   },
   {
    "naam": "Git",
@@ -615,7 +636,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 415,
+  "geheugen_mb": 399,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -701,12 +722,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 22:16",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 22:26",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -783,6 +798,12 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 00:36",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -799,7 +820,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 00:33",
+   "tijd": "2026-11-11 00:39",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
