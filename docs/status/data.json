@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-10 19:03",
+ "bijgewerkt": "2026-11-10 19:33",
  "zelfcontrole": [
   {
    "naam": "Ollama (lokale modellen)",
@@ -39,7 +39,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 19:03)"
+   "tekst": "draait nu (2026-11-10 19:33)"
   },
   {
    "naam": "Git",
@@ -81,8 +81,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-10 19:03",
-   "volgende": "2026-11-10 19:33"
+   "laatst": "2026-11-10 19:33",
+   "volgende": "2026-11-10 20:03"
   }
  },
  "kanaal": {
@@ -107,7 +107,7 @@
     "duur": "2:09:51",
     "privacy": "private",
     "publiceer": "2026-11-23T20:00:00Z",
-    "views": 1,
+    "views": 0,
     "verwerkt": "processed"
    },
    {
@@ -152,7 +152,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 199,
+    "views": 204,
     "verwerkt": "processed"
    },
    {
@@ -188,7 +188,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1247,
+    "views": 1254,
     "verwerkt": "processed"
    }
   ]
@@ -223,7 +223,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 8,
+  "voortgang": 23,
   "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
@@ -328,24 +328,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 17:26",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 17:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 17:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 17:56",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -410,6 +392,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 19:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 19:16",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 19:26",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -426,7 +426,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 19:03",
+   "tijd": "2026-11-10 19:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
