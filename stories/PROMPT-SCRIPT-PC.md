@@ -45,6 +45,21 @@ het een vriend vertelt. Weinig jaartallen en namen achter elkaar. Af en toe de j
 mythe tegenover werkelijkheid waar het past; echte mensen en bronnen. Spanning alleen waar het verhaal zelf spannend is,
 en dan rustig. Geen gruwelijke details, geen schrikmomenten.
 
+**Toon zoals de grote slaapkanalen (eigenaar 11 nov 2026: "Ja doe maar")**: niet als een voorleesboek, maar als iemand
+die naast je zit en tegen jóu praat. Voorbeeld: `stories/_toon-proef/gettysburg-nieuwe-toon.txt` (zelfde feiten als het
+eerste hoofdstuk van Gettysburg, nieuwe toon). Per hoofdstuk (TOPIC) minstens:
+- één stuk in de **jij-vorm** met zintuigen ("You go up the narrow stairs. The steps creak under your feet."), en een
+  vaste "jij" door de hele video (een reiziger, een buurmeisje, een nieuwe arbeider) waar je steeds naar teruggaat;
+- één **vraag aan de luisteraar** ("Would you have guessed…?", "Could you have slept in a hut like this?");
+- af en toe **"You might think… But…"** (mythe tegenover werkelijkheid) en een nuance met "Yet…".
+In de hele video ook:
+- een paar keer de **verteller als persoon** ("I've always liked that.", "I find that rather comforting, don't you?");
+- **spreektaal**: samentrekkingen (it's, there's, you'd, they'll) en praatwoordjes ("Now,", "So,", "Of course,", "Honestly,");
+- af en toe een **zachte glimlach** of een vreemd weetje (nooit plat, nooit spot) en **kleine cijfers uit het dagelijks
+  leven** (wat iets kostte, hoe lang een wandeling duurde), alleen als ze kloppen.
+Blijft gelijk: makkelijk Engels (korte zinnen, gewone woorden), rustig tempo, niets gruwelijks.
+**Controle**: `python tools/script_leesbaar.py stories/<map>` moet `MAKKELIJK` én `TOON GOED` geven.
+
 Daarna in `stories/<map>/`:
 - `bouw_script.py`: kopie van stories/egypte-toetanchamon/bouw_script.py. Draai `python stories/<map>/bouw_script.py`:
   dat maakt script-cues.txt, hoofdstukken.tsv, prompts.txt en afbeeldingen-onderwerpen.tsv.

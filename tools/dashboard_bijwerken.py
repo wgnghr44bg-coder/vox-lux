@@ -409,6 +409,7 @@ def scripts_overzicht():
                 check = "?"
         try:
             lb = script_leesbaar.meet(d) if nieuw else None
+            tn = script_leesbaar.toon(d) if nieuw else None
         except Exception:
             lb = None
         if v["soort"] in ("gepland", "online"):
@@ -424,7 +425,7 @@ def scripts_overzicht():
             stand = "nog in de oude opbouw, moet omgebouwd"
         rij.append({"datum": v["datum"], "titel": v["titel"], "map": v["map"], "klaar": nieuw, "stand": stand,
                     "controle": check, "flesch": lb["flesch"] if lb else None, "niveau": lb["niveau"] if lb else None,
-                    "leesbaar": lb["oordeel"] if lb else None})
+                    "leesbaar": lb["oordeel"] if lb else None, "toon": tn["toon"] if tn else None})
     tot = ""
     for r in rij:                                            # aaneengesloten klaar vanaf vandaag
         if not r["klaar"]:

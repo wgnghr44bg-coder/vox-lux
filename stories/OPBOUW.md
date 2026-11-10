@@ -39,6 +39,12 @@ In deze volgorde:
 - **Toon**: alsof je het een vriend vertelt. Af en toe de jij-vorm ("You would notice your breath…") en af en toe
   een vraag aan de luisteraar ("Would you have trusted that?"). Mythe tegenover werkelijkheid waar het past.
   Echte mensen en echte bronnen (een brief, een dagboek, een vondst).
+  **Aangescherpt 11 nov 2026 (eigenaar: "Ja doe maar")**, zoals de grote slaapkanalen: iemand die tegen jóu praat.
+  Per hoofdstuk minstens één stuk in de jij-vorm met zintuigen, één vraag aan de luisteraar en af en toe "You might
+  think… But…". In de hele video een vaste "jij" (reiziger, buurmeisje), een paar keer de verteller als persoon
+  ("I've always liked that."), spreektaal (it's, you'd, "Now,", "So,"), af en toe een zachte glimlach of vreemd weetje,
+  en kleine alledaagse cijfers (prijzen, afstanden) als ze kloppen. Voorbeeld: `stories/_toon-proef/gettysburg-nieuwe-toon.txt`.
+  Controle: `tools/script_leesbaar.py` moet `TOON GOED` geven.
 - Korte, gewone zinnen (8-15 woorden), weinig namen en jaartallen, niets wat je moet onthouden om verder te kunnen.
   Spanning alleen waar het verhaal zelf spannend is, en dan rustig. Geen gruwelijke details, geen schrikmomenten.
 

@@ -37,6 +37,16 @@ TEKST = [
 ]
 
 uit = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("b1-proef.mp3")
+# --tekst <bestand>: eigen tekst (alinea's gescheiden door een lege regel), bv. om een nieuwe schrijfstijl te horen
+ALINEA_EIND = set()
+if "--tekst" in sys.argv:
+    import re
+    TEKST = []
+    for alinea in re.split(r"\n\s*\n", Path(sys.argv[sys.argv.index("--tekst") + 1]).read_text(encoding="utf-8")):
+        zinnen = [z.strip() for z in re.split(r"(?<=[.!?])\s+", " ".join(alinea.split())) if z.strip()]
+        TEKST += zinnen
+        if zinnen:
+            ALINEA_EIND.add(len(TEKST) - 1)
 inst = b1.standaard()
 SR = ov.SR
 cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"], num_step=inst["model"]["num_step"],
@@ -44,10 +54,19 @@ cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["se
 clips = []
 for i in range(0, len(TEKST), 4):                           # groepjes van 4, zoals tools/engine_stem.py
     clips += [edge_fade(trim(w, SR), SR) for w in ov.speak(TEKST[i:i + 4], cfg, seed=cfg.seed + i)]
+# afgekapte zinnen los opnieuw (zoals tools/engine_stem.py): korter dan 0,25 s of sneller dan 250 woorden/min
+for i, z in enumerate(TEKST):
+    for poging in range(1, 8):
+        d, w = len(clips[i]) / SR, len(z.split())
+        if d >= 0.25 and w / (d / 60) <= (250 if w >= 8 else 320):
+            break
+        clips[i] = edge_fade(trim(ov.speak([z], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
+        print(f"zin {i + 1} was afgekapt, opnieuw ({poging}x)", flush=True)
 stil = np.zeros(int(0.7 * float(inst["pauze"]) * SR), np.float32)   # pauze na een zin × B1-pauzefactor
+stil_alinea = np.zeros(int(1.1 * float(inst["pauze"]) * SR), np.float32)
 delen = [np.zeros(int(0.5 * SR), np.float32)]
-for c in clips:
-    delen += [c, stil]
+for i, c in enumerate(clips):
+    delen += [c, stil_alinea if i in ALINEA_EIND else stil]
 delen.append(np.zeros(2 * SR, np.float32))
 
 with tempfile.TemporaryDirectory() as tmp:
