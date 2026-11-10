@@ -392,6 +392,52 @@ def werkplanning():
     return {"nu": nu, "daarna": daarna, "publicaties": pub, "routine_aan": routine_aan}
 
 
+def scripts_overzicht():
+    """Eigenaar 10 nov 2026: "tot hoe ver zijn de scripts klaar, en is het makkelijk Engels". Komende 10 weken."""
+    import script_leesbaar
+    grens = (VANDAAG + datetime.timedelta(days=70)).isoformat()
+    rij = []
+    for v in sorted([v for v in video if v["datum"] and VANDAAG.isoformat() <= v["datum"] <= grens], key=lambda v: v["datum"]):
+        d = STORIES / v["map"]
+        nieuw = "nieuwe opbouw" in v["status"] or v["soort"] in ("gepland", "online", "bezig")
+        sc, check = d / "scriptcheck.json", "nog niet"
+        sf = list((d / "src-feiten").glob("*.txt")) if (d / "src-feiten").exists() else []
+        if sc.exists() and sf and sc.stat().st_mtime >= max(f.stat().st_mtime for f in sf):
+            try:
+                check = "GOED" if not json.loads(sc.read_text(encoding="utf-8")).get("fouten") else "FOUT"
+            except Exception:
+                check = "?"
+        try:
+            lb = script_leesbaar.meet(d) if nieuw else None
+        except Exception:
+            lb = None
+        if v["soort"] in ("gepland", "online"):
+            stand = "video staat klaar"
+        elif v["soort"] == "bezig":
+            stand = "video wordt gemaakt"
+        elif nieuw:
+            stand = "script klaar" + (" en 's nachts goedgekeurd" if check == "GOED" else
+                                      ", nachtcontrole vond iets" if check == "FOUT" else ", nachtcontrole volgt")
+        elif "scriptcheck FOUT" in v["status"]:
+            stand = "script afgekeurd, moet opnieuw"
+        else:
+            stand = "nog in de oude opbouw, moet omgebouwd"
+        rij.append({"datum": v["datum"], "titel": v["titel"], "map": v["map"], "klaar": nieuw, "stand": stand,
+                    "controle": check, "flesch": lb["flesch"] if lb else None, "niveau": lb["niveau"] if lb else None,
+                    "leesbaar": lb["oordeel"] if lb else None})
+    tot = ""
+    for r in rij:                                            # aaneengesloten klaar vanaf vandaag
+        if not r["klaar"]:
+            break
+        tot = r["datum"]
+    return {"klaar_tot": tot, "rij": rij}
+
+
+try:
+    sc_overzicht = scripts_overzicht()
+except Exception as e:
+    sc_overzicht = {"klaar_tot": "", "rij": [], "fout": str(e)[:120]}
+
 try:
     wp = werkplanning()
     for w in week:                                          # week gelijk aan de planning (bv. Tombstone tegengehouden)
@@ -404,6 +450,7 @@ except Exception as e:
 data = {
     "bijgewerkt": NU.strftime("%Y-%m-%d %H:%M"),
     "werkplanning": wp,
+    "scripts": sc_overzicht,
     "zelfcontrole": zc,
     "automatisering": bool(taken().get("routine") and taken()["routine"]["aan"]),   # scriptgenerator staat bewust uit (scripts via Claude)
     "taken": taken(),

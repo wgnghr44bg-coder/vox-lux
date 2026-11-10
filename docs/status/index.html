@@ -181,6 +181,12 @@ section[id]{scroll-margin-top:80px}
       <div class="paneel"><h2><svg><use href="#i-kal"/></svg>Wanneer welke video online komt <small>21:00 NL</small></h2><div id="wpPub"></div></div>
     </section>
 
+    <section class="paneel" id="scripts">
+      <h2><svg><use href="#i-doc"/></svg>Scripts <small id="scKlaar"></small></h2>
+      <p class="zacht" style="margin:-.3rem 0 .6rem">Makkelijk Engels: Flesch-score 70 of hoger is makkelijk te volgen (hoe hoger, hoe eenvoudiger). Onze video's zitten rond 75-85.</p>
+      <div id="scRij"></div>
+    </section>
+
     <section id="straat" class="paneel">
       <h2>Automatisch videoproces <small id="straatNaam"></small></h2>
       <div class="straat" id="stappen"></div>
@@ -282,6 +288,12 @@ async function laad(){
   $("wpNu").innerHTML=wp.nu.length?wp.nu.map(n=>`<div class="nu-kaart"><div class="k">Nu bezig</div><b>${esc(n.wat)}</b><span class="zacht">${esc(n.detail)}</span></div>`).join(""):`<div class="nu-kaart"><div class="k">Nu</div><b>Niets bezig</b><span class="zacht">de pc wacht op de volgende taak</span></div>`;
   $("wpDaarna").innerHTML=`<h3 style="margin:.4rem 0 .2rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--zacht)">Daarna, in deze volgorde</h3>`+(wp.daarna.length?wp.daarna.map(n=>`<div class="rij-item"><span class="wanneer">${esc(n.wanneer)}</span><span><b>${esc(n.wat)}</b><span class="d">${esc(n.detail)}</span></span></div>`).join(""):`<p class="zacht">Niets gepland.</p>`);
   $("wpPub").innerHTML=wp.publicaties.map(p=>{const x=new Date(p.datum+"T12:00");return `<div class="rij-item"><span class="wanneer">${p.dag} ${x.getDate()}-${x.getMonth()+1}</span><span><b>${esc(p.titel)}</b><span class="chip ${p.kleur}">${esc(p.stand)}</span></span></div>`}).join("");
+  // scripts
+  const sc=d.scripts||{rij:[]};
+  {const t=sc.klaar_tot?new Date(sc.klaar_tot+"T12:00"):null;$("scKlaar").textContent=t?`klaar t/m ${DAG[t.getDay()]} ${t.getDate()}-${t.getMonth()+1}`:"";}
+  $("scRij").innerHTML=sc.rij.map(r=>{const x=new Date(r.datum+"T12:00");const k=r.klaar?(r.controle==="FOUT"?"let":"goed"):(r.stand.includes("afgekeurd")?"fout":"zacht");
+    const lb=r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">${r.leesbaar==="MAKKELIJK"?"makkelijk Engels":r.leesbaar==="GOED"?"goed te volgen":"te moeilijk"} · Flesch ${r.flesch}</span>`:"";
+    return `<div class="rij-item"><span class="wanneer">${DAG[x.getDay()]} ${x.getDate()}-${x.getMonth()+1}</span><span><b>${esc(r.titel)}</b><span class="chip ${k}">${esc(r.stand)}</span> ${lb}</span></div>`}).join("");
   // fouten
   $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen open fouten."}</div>`+((d.opgelost||[]).length?`<h3 style="margin:1rem 0 .4rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7">Fout gegaan en opgelost (laatste 3 dagen)</h3>`+[...d.opgelost].reverse().map(f=>`<div class="melding" style="opacity:.7"><time>${esc(f.tijd.slice(5))}</time><b>Opgelost</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"");
 
