@@ -38,3 +38,7 @@
 - 2026-11-10 10:00 egypte-toetanchamon: oude versie ctC36HRFIac ('Life in Ancient Egypt When Tutankhamun Died, 1323 BC | 2 Hours of History for Sleep') verwijderd
 - 2026-11-10 10:00 egypte-toetanchamon: KLAAR
 - 2026-11-10 18:44 tombstone-1881: 03VXrW2gb7g blijft privé ZONDER publicatietijd (eigenaar: begin als WW2 + haperingen = niet goed); tools/tombstone_opnieuw.ps1 maakt hem opnieuw en zet de nieuwe op ma 16 nov 21:00
+- 2026-11-10 07:07 egypte-toetanchamon: QC GESTOPT ten onrechte: abonneer-zin met 'subscription' werd niet herkend (controle verbeterd, daarna wel geüpload)
+- 2026-11-10 18:48 scott-antarctica-1912 en rome-44-vc: afkeuring van vannacht was onterecht ('There was no radio', 'plane trees', 'no coffee or tea'); scriptcontrole verbeterd, weer script-klaar
+- 2026-11-10 18:48 zwarte-dood-1348: SCRIPT FOUT blijft: 7 feitjes te ver van het onderwerp (o.a. klokkentoren van Giotto, winkels op de Ponte Vecchio van nu); slot hersteld. Tweede account moet het ombouwen (video za 5 dec)
+- 2026-11-10 18:48 tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slot en strenge haperingcontrole

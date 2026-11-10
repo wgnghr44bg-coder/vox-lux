@@ -239,7 +239,7 @@ def logboek():
         m = re.match(r"- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
-    for r in lees(LOGS["testvolgorde"], 400) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200) + lees(LOGS["hervat"], 300):
+    for r in lees(LOGS["testvolgorde"], 400) + lees(Path(r"C:\Users\rane\tombstone-opnieuw.log"), 200) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200) + lees(LOGS["hervat"], 300):
         m = re.match(r"=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
@@ -306,6 +306,7 @@ def opgelost(x):
 
 
 fouten = [x for x in log if x["fout"] and x["tijd"] >= grens48 and not opgelost(x)][-6:]
+opgeloste = [x for x in log if x["fout"] and x["tijd"] >= grens48 and opgelost(x)][-8:]   # eigenaar 10 nov: "wat er fout ging"
 geplande = [r for r in yt.get("recent", []) if r["privacy"] == "private" and r["publiceer"] > NU.isoformat()]
 
 try:                                                        # zelfcontrole (licht elke keer, zwaar één keer per nacht)
@@ -326,7 +327,7 @@ data = {
             "zelfcontrole": {"goed": sum(1 for x in zc if x["ok"]), "totaal": len(zc)}},
     "stappen": STAPPEN, "stap": stap, "huidig": huidig,
     "nu_bezig": draait, "videokaart": gpu(), "programmas": programmas(yt_ok),
-    "week": week, "logboek": log[-14:], "fouten": fouten,
+    "week": week, "logboek": log[-14:], "fouten": fouten, "opgelost": opgeloste,
     "video": video,
     "vast": {"Stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
              "Muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",

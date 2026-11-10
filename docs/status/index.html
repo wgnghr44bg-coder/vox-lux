@@ -262,7 +262,7 @@ async function laad(){
   $("log").innerHTML=L.slice(0,12).map((x,i)=>`<div class="${i===0?"nieuw":""}"><time>${esc(x.tijd.slice(11))}</time><span class="rondje ${x.fout?"":x.klaar?"goed":i===0?"nu":""}" style="${x.fout?"border-color:var(--fout);background:var(--fout)":""}">${x.klaar?`<svg><use href="#i-check"/></svg>`:""}</span><span>${esc(x.tekst)}</span></div>`).join("")||`<div class="zacht">Nog niets.</div>`;
 
   // fouten
-  $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen fouten: alles in orde."}</div>`;
+  $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen open fouten."}</div>`+((d.opgelost||[]).length?`<h3 style="margin:1rem 0 .4rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7">Fout gegaan en opgelost (laatste 3 dagen)</h3>`+[...d.opgelost].reverse().map(f=>`<div class="melding" style="opacity:.7"><time>${esc(f.tijd.slice(5))}</time><b>Opgelost</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"");
 
   // komende video's
   const vandaag=new Date().toISOString().slice(0,10);
