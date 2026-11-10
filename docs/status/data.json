@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 00:03",
+ "bijgewerkt": "2026-11-11 00:33",
  "werkplanning": {
   "nu": [
    {
@@ -397,7 +397,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "235 GB vrij"
+   "tekst": "220 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -412,7 +412,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 00:03)"
+   "tekst": "draait nu (2026-11-11 00:33)"
   },
   {
    "naam": "Git",
@@ -454,8 +454,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 00:03",
-   "volgende": "2026-11-11 00:33"
+   "laatst": "2026-11-11 00:33",
+   "volgende": "2026-11-11 01:03"
   }
  },
  "kanaal": {
@@ -498,7 +498,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 10,
+    "views": 11,
     "verwerkt": "processed"
    },
    {
@@ -525,7 +525,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 204,
+    "views": 205,
     "verwerkt": "processed"
    },
    {
@@ -543,7 +543,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 55,
+    "views": 57,
     "verwerkt": "processed"
    },
    {
@@ -614,8 +614,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 424,
+  "bezig_procent": 25,
+  "geheugen_mb": 415,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -701,24 +701,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 21:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 21:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 22:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 22:16",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -783,6 +765,24 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 00:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 00:16",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 00:26",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -799,7 +799,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 00:03",
+   "tijd": "2026-11-11 00:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
