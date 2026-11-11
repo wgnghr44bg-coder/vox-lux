@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 02:33",
+ "bijgewerkt": "2026-11-11 03:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 77%",
+    "detail": "Video bouwen · 86%",
     "soort": "nu"
    }
   ],
@@ -140,7 +140,7 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 02:33)"
+   "tekst": "draait nu (2026-11-11 03:03)"
   },
   {
    "naam": "Git",
@@ -469,14 +469,14 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 02:33",
-   "volgende": "2026-11-11 03:03"
+   "laatst": "2026-11-11 03:03",
+   "volgende": "2026-11-11 03:33"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 13,
-  "views_totaal": 2309,
+  "views_totaal": 2331,
   "video_aantal": 14,
   "week": {
    "views": 274,
@@ -522,7 +522,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 112,
+    "views": 113,
     "verwerkt": "processed"
    },
    {
@@ -540,7 +540,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 204,
+    "views": 206,
     "verwerkt": "processed"
    },
    {
@@ -576,7 +576,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1262,
+    "views": 1264,
     "verwerkt": "processed"
    }
   ]
@@ -611,7 +611,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 77,
+  "voortgang": 86,
   "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
@@ -629,8 +629,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 238,
+  "bezig_procent": 51,
+  "geheugen_mb": 4193,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -814,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 02:33",
+   "tijd": "2026-11-11 03:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
