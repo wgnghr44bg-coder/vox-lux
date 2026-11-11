@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 20:03",
+ "bijgewerkt": "2026-11-11 20:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "Video bouwen",
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "212 GB vrij"
+   "tekst": "196 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 20:03)"
+   "tekst": "draait nu (2026-11-11 20:33)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 20:03",
-   "volgende": "2026-11-11 20:33"
+   "laatst": "2026-11-11 20:33",
+   "volgende": "2026-11-11 21:03"
   }
  },
  "kanaal": {
@@ -564,7 +564,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 290,
+    "views": 291,
     "verwerkt": "processed"
    },
    {
@@ -612,7 +612,7 @@
    "totaal": 19,
    "procent": 26
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 13
@@ -627,19 +627,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "map": "babylon-600-vc",
+  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "92 van 92 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ]
  },
  "nu_bezig": [
@@ -648,13 +648,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 11,
-  "geheugen_mb": 4231,
+  "bezig_procent": 100,
+  "geheugen_mb": 7832,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -740,12 +740,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 09:07",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 12:05",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -822,23 +816,16 @@
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
-  {
-   "tijd": "2026-11-11 16:28",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  }
- ],
- "opgelost": [
-  {
-   "tijd": "2026-11-10 01:33",
-   "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
   },
+  {
+   "tijd": "2026-11-11 20:10",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  }
+ ],
+ "fouten": [],
+ "opgelost": [
   {
    "tijd": "2026-11-10 07:07",
    "tekst": "egypte-toetanchamon: QC GESTOPT ten onrechte: abonneer-zin met 'subscription' werd niet herkend (controle verbeterd, daarna wel geüpload)",
@@ -878,6 +865,12 @@
   {
    "tijd": "2026-11-11 09:07",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 16:28",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
