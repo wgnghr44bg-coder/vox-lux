@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 23:33",
+ "bijgewerkt": "2026-11-12 00:03",
  "werkplanning": {
   "nu": [
    {
@@ -48,14 +48,6 @@
    }
   ],
   "publicaties": [
-   {
-    "datum": "2026-11-11",
-    "dag": "wo",
-    "titel": "—",
-    "map": "",
-    "stand": "geen video (te weinig tijd om er nog een te maken)",
-    "kleur": "zacht"
-   },
    {
     "datum": "2026-11-14",
     "dag": "za",
@@ -436,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "209 GB vrij"
+   "tekst": "205 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,12 +443,17 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 23:33)"
+   "tekst": "draait nu (2026-11-12 00:03)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
+  },
+  {
+   "naam": "Video 2026-11-14 (babylon-600-vc)",
+   "ok": false,
+   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -493,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 23:33",
-   "volgende": "2026-11-12 00:03"
+   "laatst": "2026-11-12 00:03",
+   "volgende": "2026-11-12 00:33"
   }
  },
  "kanaal": {
@@ -503,13 +500,13 @@
   "views_totaal": 2424,
   "video_aantal": 14,
   "week": {
-   "views": 314,
-   "uren": 43,
+   "views": 290,
+   "uren": 42,
    "abonnees": 1
   },
   "vorige_week": {
-   "views": 678,
-   "uren": 93,
+   "views": 634,
+   "uren": 71,
    "abonnees": 0
   },
   "recent": [
@@ -564,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 293,
+    "views": 301,
     "verwerkt": "processed"
    },
    {
@@ -612,10 +609,10 @@
    "totaal": 20,
    "procent": 25
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 13,
-   "totaal": 13
+   "totaal": 14
   }
  },
  "stappen": [
@@ -659,7 +656,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7915,
+  "geheugen_mb": 7913,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -701,12 +698,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-11",
-   "plek": true,
-   "video": "",
-   "soort": "vrij"
-  },
-  {
    "datum": "2026-11-12",
    "plek": false,
    "video": "",
@@ -741,6 +732,12 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-18",
+   "plek": true,
+   "video": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+   "soort": "bezig"
   }
  ],
  "logboek": [
@@ -835,6 +832,11 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 00:03",
+   "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
   }
  ],
  "opgelost": [
