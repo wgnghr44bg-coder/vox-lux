@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 11:33",
+ "bijgewerkt": "2026-11-11 12:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Beelden maken · 99%",
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -396,8 +396,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "230 GB vrij"
+   "tekst": "227 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 11:33)"
+   "tekst": "draait nu (2026-11-11 12:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 11:33",
-   "volgende": "2026-11-11 12:03"
+   "laatst": "2026-11-11 12:33",
+   "volgende": "2026-11-11 13:03"
   }
  },
  "kanaal": {
@@ -522,7 +522,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 11,
+    "views": 12,
     "verwerkt": "processed"
    },
    {
@@ -588,9 +588,9 @@
    "totaal": 18,
    "procent": 28
   },
-  "fouten": 2,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 13
   }
  },
@@ -603,34 +603,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "90 van 90 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
-  ]
+  "map": "babylon-600-vc",
+  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": []
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 81,
-  "geheugen_mb": 7074,
+  "bezig_procent": 26,
+  "geheugen_mb": 295,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -642,7 +630,7 @@
   {
    "naam": "Beelden",
    "wat": "ComfyUI Z-Image",
-   "ok": true
+   "ok": false
   },
   {
    "naam": "Beeldcontrole",
@@ -794,8 +782,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 09:07",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "tijd": "2026-11-11 12:05",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
   }
@@ -808,7 +796,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 11:33",
+   "tijd": "2026-11-11 12:33",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-11 12:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
