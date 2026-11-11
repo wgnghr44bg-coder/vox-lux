@@ -193,8 +193,13 @@ def maak_video(m, datum, test=False):
         raise RuntimeError("ComfyUI start niet")
     r = run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)])
     print(r.stdout[-500:])
-    r = run([OMNI, str(HIER / "beeldcheck.py"), str(m)])
-    print(r.stdout[-1500:], r.stderr[-800:])
+    for _ in range(2):                                      # 11 nov: Babylon brak halverwege af zonder uitslag; dan nog één keer
+        r = run([OMNI, str(HIER / "beeldcheck.py"), str(m)])
+        print(r.stdout[-1500:], r.stderr[-800:])
+        if "BEELDEN GOED" in r.stdout or "BEELDEN FOUT" in r.stdout:
+            break
+        log(f"{m.name}: beeldcontrole brak af zonder uitslag, opnieuw ({r.stderr.strip()[-150:]})")
+        comfy_aan()
     fout_b = re.search(r"BEELDEN FOUT: (\d+)/(\d+) goedgekeurd, fout: \[([^\]]*)\]", r.stdout)
     if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= 3:
         # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hooguit 3 hardnekkige beelden vervangen
