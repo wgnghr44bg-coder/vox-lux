@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 16:33",
+ "bijgewerkt": "2026-11-11 17:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Beelden maken · 99%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "226 GB vrij"
+   "tekst": "209 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 16:33)"
+   "tekst": "draait nu (2026-11-11 17:03)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 16:33",
-   "volgende": "2026-11-11 17:03"
+   "laatst": "2026-11-11 17:03",
+   "volgende": "2026-11-11 17:33"
   }
  },
  "kanaal": {
@@ -627,19 +627,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "95 van 95 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "stem inspreken (OmniVoice B1)"
   ]
  },
  "nu_bezig": [
@@ -648,13 +648,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7042,
+  "bezig_procent": 32,
+  "geheugen_mb": 7923,
   "totaal_mb": 8192
  },
  "programmas": [
