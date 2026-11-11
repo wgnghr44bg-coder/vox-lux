@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 01:03",
+ "bijgewerkt": "2026-11-11 01:33",
  "werkplanning": {
   "nu": [
    {
@@ -10,12 +10,6 @@
    }
   ],
   "daarna": [
-   {
-    "wanneer": "zodra Babylon klaar is",
-    "wat": "Tombstone opnieuw maken",
-    "detail": "nieuw begin en slot, strenge haperingcontrole, dan de privéversie vervangen",
-    "map": "tombstone-1881"
-   },
    {
     "wanneer": "do 12-11 09:00",
     "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
@@ -75,8 +69,8 @@
     "dag": "ma",
     "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
     "map": "tombstone-1881",
-    "stand": "wordt opnieuw gemaakt (foute versie tegengehouden)",
-    "kleur": "let"
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-18",
@@ -146,7 +140,7 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
+    "controle": "nog niet",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -418,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "220 GB vrij"
+   "tekst": "230 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -433,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 01:03)"
+   "tekst": "draait nu (2026-11-11 01:33)"
   },
   {
    "naam": "Git",
@@ -475,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 01:03",
-   "volgende": "2026-11-11 01:33"
+   "laatst": "2026-11-11 01:33",
+   "volgende": "2026-11-11 02:03"
   }
  },
  "kanaal": {
@@ -519,7 +513,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 11,
+    "views": 10,
     "verwerkt": "processed"
    },
    {
@@ -546,7 +540,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 206,
+    "views": 204,
     "verwerkt": "processed"
    },
    {
@@ -635,8 +629,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 4148,
+  "bezig_procent": 25,
+  "geheugen_mb": 237,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -711,7 +705,7 @@
    "datum": "2026-11-16",
    "plek": true,
    "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "soort": "wordt opnieuw gemaakt (foute versie tegengehouden)"
+   "soort": "gepland"
   },
   {
    "datum": "2026-11-17",
@@ -721,12 +715,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-10 22:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 22:56",
    "tekst": "routine of Egypte bezig, wachten",
@@ -804,6 +792,12 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 01:06",
+   "tekst": "routine of Egypte bezig, wachten",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -820,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 01:03",
+   "tijd": "2026-11-11 01:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
