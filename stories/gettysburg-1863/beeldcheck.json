@@ -1,0 +1,878 @@
+{
+ "001": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8157,
+   "tekst": -0.8016,
+   "vervormd": -0.8188,
+   "afgekeurd_kans": 0.223,
+   "drempel": 0.71
+  }
+ },
+ "002": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8858,
+   "tekst": -0.8611,
+   "vervormd": -0.8882,
+   "afgekeurd_kans": 0.232,
+   "drempel": 0.71
+  }
+ },
+ "003": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9673,
+   "tekst": -0.962,
+   "vervormd": -0.968,
+   "afgekeurd_kans": 0.199,
+   "drempel": 0.71
+  }
+ },
+ "004": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7794,
+   "tekst": -0.775,
+   "vervormd": -0.7825,
+   "afgekeurd_kans": 0.268,
+   "drempel": 0.71
+  }
+ },
+ "005": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.975,
+   "tekst": -0.9734,
+   "vervormd": -0.9752,
+   "afgekeurd_kans": 0.219,
+   "drempel": 0.71
+  }
+ },
+ "006": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8683,
+   "tekst": -0.8587,
+   "vervormd": -0.8692,
+   "afgekeurd_kans": 0.198,
+   "drempel": 0.71
+  }
+ },
+ "007": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.869,
+   "tekst": -0.868,
+   "vervormd": -0.8693,
+   "afgekeurd_kans": 0.248,
+   "drempel": 0.71
+  }
+ },
+ "008": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9864,
+   "tekst": -0.9847,
+   "vervormd": -0.9867,
+   "afgekeurd_kans": 0.265,
+   "drempel": 0.71
+  }
+ },
+ "009": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9467,
+   "tekst": -0.9437,
+   "vervormd": -0.9472,
+   "afgekeurd_kans": 0.234,
+   "drempel": 0.71
+  }
+ },
+ "010": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8827,
+   "tekst": -0.8795,
+   "vervormd": -0.8839,
+   "afgekeurd_kans": 0.246,
+   "drempel": 0.71
+  }
+ },
+ "011": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8535,
+   "tekst": -0.8399,
+   "vervormd": -0.8687,
+   "afgekeurd_kans": 0.301,
+   "drempel": 0.71
+  }
+ },
+ "012": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8367,
+   "tekst": -0.836,
+   "vervormd": -0.8374,
+   "afgekeurd_kans": 0.229,
+   "drempel": 0.71
+  }
+ },
+ "013": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6516,
+   "tekst": -0.509,
+   "vervormd": -0.6692,
+   "afgekeurd_kans": 0.227,
+   "drempel": 0.71
+  }
+ },
+ "014": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9598,
+   "tekst": -0.9498,
+   "vervormd": -0.9602,
+   "afgekeurd_kans": 0.215,
+   "drempel": 0.71
+  }
+ },
+ "015": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7951,
+   "tekst": -0.7645,
+   "vervormd": -0.8005,
+   "afgekeurd_kans": 0.243,
+   "drempel": 0.71
+  }
+ },
+ "016": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6267,
+   "tekst": -0.5905,
+   "vervormd": -0.6286,
+   "afgekeurd_kans": 0.293,
+   "drempel": 0.71
+  }
+ },
+ "017": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9197,
+   "tekst": -0.8996,
+   "vervormd": -0.922,
+   "afgekeurd_kans": 0.213,
+   "drempel": 0.71
+  }
+ },
+ "018": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8923,
+   "tekst": -0.8787,
+   "vervormd": -0.8939,
+   "afgekeurd_kans": 0.192,
+   "drempel": 0.71
+  }
+ },
+ "019": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7373,
+   "tekst": -0.6766,
+   "vervormd": -0.7463,
+   "afgekeurd_kans": 0.243,
+   "drempel": 0.71
+  }
+ },
+ "020": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9203,
+   "tekst": -0.9074,
+   "vervormd": -0.9207,
+   "afgekeurd_kans": 0.227,
+   "drempel": 0.71
+  }
+ },
+ "021": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9077,
+   "tekst": -0.9024,
+   "vervormd": -0.9082,
+   "afgekeurd_kans": 0.278,
+   "drempel": 0.71
+  }
+ },
+ "022": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8405,
+   "tekst": -0.8,
+   "vervormd": -0.867,
+   "afgekeurd_kans": 0.519,
+   "drempel": 0.71
+  }
+ },
+ "023": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8178,
+   "tekst": -0.8124,
+   "vervormd": -0.8191,
+   "afgekeurd_kans": 0.26,
+   "drempel": 0.71
+  }
+ },
+ "024": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9464,
+   "tekst": -0.9458,
+   "vervormd": -0.9465,
+   "afgekeurd_kans": 0.306,
+   "drempel": 0.71
+  }
+ },
+ "025": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6556,
+   "tekst": -0.4824,
+   "vervormd": -0.6732,
+   "afgekeurd_kans": 0.389,
+   "drempel": 0.71
+  }
+ },
+ "026": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.917,
+   "tekst": -0.915,
+   "vervormd": -0.9166,
+   "afgekeurd_kans": 0.293,
+   "drempel": 0.71
+  }
+ },
+ "027": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7619,
+   "tekst": -0.7375,
+   "vervormd": -0.7637,
+   "afgekeurd_kans": 0.231,
+   "drempel": 0.71
+  }
+ },
+ "028": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9683,
+   "tekst": -0.9651,
+   "vervormd": -0.9687,
+   "afgekeurd_kans": 0.221,
+   "drempel": 0.71
+  }
+ },
+ "029": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7909,
+   "tekst": -0.7658,
+   "vervormd": -0.8091,
+   "afgekeurd_kans": 0.485,
+   "drempel": 0.71
+  }
+ },
+ "030": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6993,
+   "tekst": -0.5846,
+   "vervormd": -0.6957,
+   "afgekeurd_kans": 0.28,
+   "drempel": 0.71
+  }
+ },
+ "031": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7894,
+   "tekst": -0.7865,
+   "vervormd": -0.821,
+   "afgekeurd_kans": 0.293,
+   "drempel": 0.71
+  }
+ },
+ "032": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.5739,
+   "tekst": -0.5111,
+   "vervormd": -0.6143,
+   "afgekeurd_kans": 0.378,
+   "drempel": 0.71
+  }
+ },
+ "033": {
+  "fouten": [
+   "niet uit die tijd: The pickup truck is an anachronism as it did not exist in 1863.",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.8119,
+   "tekst": -0.83,
+   "vervormd": -0.8432,
+   "afgekeurd_kans": 0.353,
+   "drempel": 0.71
+  }
+ },
+ "034": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6908,
+   "tekst": -0.6719,
+   "vervormd": -0.6923,
+   "afgekeurd_kans": 0.401,
+   "drempel": 0.71
+  }
+ },
+ "035": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8376,
+   "tekst": -0.8135,
+   "vervormd": -0.8382,
+   "afgekeurd_kans": 0.317,
+   "drempel": 0.71
+  }
+ },
+ "036": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9063,
+   "tekst": -0.9102,
+   "vervormd": -0.913,
+   "afgekeurd_kans": 0.354,
+   "drempel": 0.71
+  }
+ },
+ "037": {
+  "fouten": [
+   "niet uit die tijd: power lines",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.8107,
+   "tekst": -0.8145,
+   "vervormd": -0.8267,
+   "afgekeurd_kans": 0.376,
+   "drempel": 0.71
+  }
+ },
+ "038": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.791,
+   "tekst": -0.7775,
+   "vervormd": -0.7921,
+   "afgekeurd_kans": 0.37,
+   "drempel": 0.71
+  }
+ },
+ "039": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8485,
+   "tekst": -0.8391,
+   "vervormd": -0.8485,
+   "afgekeurd_kans": 0.346,
+   "drempel": 0.71
+  }
+ },
+ "040": {
+  "fouten": [
+   "niet uit die tijd: cars, power lines, modern buildings",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.7467,
+   "tekst": -0.7973,
+   "vervormd": -0.8002,
+   "afgekeurd_kans": 0.291,
+   "drempel": 0.71
+  }
+ },
+ "041": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9243,
+   "tekst": -0.9266,
+   "vervormd": -0.9301,
+   "afgekeurd_kans": 0.213,
+   "drempel": 0.71
+  }
+ },
+ "042": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9744,
+   "tekst": -0.9665,
+   "vervormd": -0.9744,
+   "afgekeurd_kans": 0.334,
+   "drempel": 0.71
+  }
+ },
+ "043": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8999,
+   "tekst": -0.877,
+   "vervormd": -0.9008,
+   "afgekeurd_kans": 0.273,
+   "drempel": 0.71
+  }
+ },
+ "044": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8641,
+   "tekst": -0.8599,
+   "vervormd": -0.8643,
+   "afgekeurd_kans": 0.202,
+   "drempel": 0.71
+  }
+ },
+ "045": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9219,
+   "tekst": -0.9134,
+   "vervormd": -0.9229,
+   "afgekeurd_kans": 0.26,
+   "drempel": 0.71
+  }
+ },
+ "046": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7146,
+   "tekst": -0.6565,
+   "vervormd": -0.7154,
+   "afgekeurd_kans": 0.201,
+   "drempel": 0.71
+  }
+ },
+ "047": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.4411,
+   "tekst": -0.4768,
+   "vervormd": -0.5387,
+   "afgekeurd_kans": 0.625,
+   "drempel": 0.71
+  }
+ },
+ "048": {
+  "fouten": [
+   "niet uit die tijd: The sign 'Protect the People' is anachronistic for the year 1863.",
+   "tekst/letters"
+  ],
+  "clip": {
+   "modern": -0.052,
+   "tekst": 0.7314,
+   "vervormd": -0.0565,
+   "afgekeurd_kans": 0.248,
+   "drempel": 0.71
+  }
+ },
+ "049": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9561,
+   "tekst": -0.9518,
+   "vervormd": -0.9563,
+   "afgekeurd_kans": 0.244,
+   "drempel": 0.71
+  }
+ },
+ "050": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8801,
+   "tekst": -0.8579,
+   "vervormd": -0.8842,
+   "afgekeurd_kans": 0.354,
+   "drempel": 0.71
+  }
+ },
+ "051": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7704,
+   "tekst": -0.769,
+   "vervormd": -0.7708,
+   "afgekeurd_kans": 0.291,
+   "drempel": 0.71
+  }
+ },
+ "052": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8607,
+   "tekst": -0.8507,
+   "vervormd": -0.8609,
+   "afgekeurd_kans": 0.265,
+   "drempel": 0.71
+  }
+ },
+ "053": {
+  "fouten": [
+   "niet uit die tijd: power lines"
+  ],
+  "clip": {
+   "modern": 0.4006,
+   "tekst": -0.1686,
+   "vervormd": -0.1984,
+   "afgekeurd_kans": 0.378,
+   "drempel": 0.71
+  }
+ },
+ "054": {
+  "fouten": [],
+  "clip": {
+   "modern": 0.9357,
+   "tekst": 0.0126,
+   "vervormd": -0.0048,
+   "afgekeurd_kans": 0.475,
+   "drempel": 0.71
+  }
+ },
+ "055": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9743,
+   "tekst": -0.9737,
+   "vervormd": -0.9757,
+   "afgekeurd_kans": 0.355,
+   "drempel": 0.71
+  }
+ },
+ "056": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9366,
+   "tekst": -0.9186,
+   "vervormd": -0.9391,
+   "afgekeurd_kans": 0.299,
+   "drempel": 0.71
+  }
+ },
+ "057": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9228,
+   "tekst": -0.9208,
+   "vervormd": -0.9232,
+   "afgekeurd_kans": 0.262,
+   "drempel": 0.71
+  }
+ },
+ "058": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9534,
+   "tekst": -0.9483,
+   "vervormd": -0.9537,
+   "afgekeurd_kans": 0.404,
+   "drempel": 0.71
+  }
+ },
+ "059": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.842,
+   "tekst": -0.81,
+   "vervormd": -0.843,
+   "afgekeurd_kans": 0.289,
+   "drempel": 0.71
+  }
+ },
+ "060": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8149,
+   "tekst": -0.7893,
+   "vervormd": -0.8303,
+   "afgekeurd_kans": 0.36,
+   "drempel": 0.71
+  }
+ },
+ "061": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8675,
+   "tekst": -0.8838,
+   "vervormd": -0.8873,
+   "afgekeurd_kans": 0.403,
+   "drempel": 0.71
+  }
+ },
+ "062": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9452,
+   "tekst": -0.9427,
+   "vervormd": -0.9455,
+   "afgekeurd_kans": 0.338,
+   "drempel": 0.71
+  }
+ },
+ "063": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9479,
+   "tekst": -0.9347,
+   "vervormd": -0.9487,
+   "afgekeurd_kans": 0.223,
+   "drempel": 0.71
+  }
+ },
+ "064": {
+  "fouten": [
+   "tekst/letters",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.8811,
+   "tekst": -0.8707,
+   "vervormd": -0.8987,
+   "afgekeurd_kans": 0.499,
+   "drempel": 0.71
+  }
+ },
+ "065": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8817,
+   "tekst": -0.865,
+   "vervormd": -0.8836,
+   "afgekeurd_kans": 0.307,
+   "drempel": 0.71
+  }
+ },
+ "066": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8859,
+   "tekst": -0.8823,
+   "vervormd": -0.8864,
+   "afgekeurd_kans": 0.197,
+   "drempel": 0.71
+  }
+ },
+ "067": {
+  "fouten": [
+   "niet uit die tijd: helicopter",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.9308,
+   "tekst": -0.93,
+   "vervormd": -0.9312,
+   "afgekeurd_kans": 0.289,
+   "drempel": 0.71
+  }
+ },
+ "068": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8731,
+   "tekst": -0.8716,
+   "vervormd": -0.8742,
+   "afgekeurd_kans": 0.257,
+   "drempel": 0.71
+  }
+ },
+ "069": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9588,
+   "tekst": -0.9563,
+   "vervormd": -0.9597,
+   "afgekeurd_kans": 0.363,
+   "drempel": 0.71
+  }
+ },
+ "070": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8953,
+   "tekst": -0.8795,
+   "vervormd": -0.8955,
+   "afgekeurd_kans": 0.261,
+   "drempel": 0.71
+  }
+ },
+ "071": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.2455,
+   "tekst": -0.2189,
+   "vervormd": -0.4305,
+   "afgekeurd_kans": 0.513,
+   "drempel": 0.71
+  }
+ },
+ "072": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6201,
+   "tekst": -0.6547,
+   "vervormd": -0.6852,
+   "afgekeurd_kans": 0.386,
+   "drempel": 0.71
+  }
+ },
+ "073": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9337,
+   "tekst": -0.9294,
+   "vervormd": -0.9338,
+   "afgekeurd_kans": 0.236,
+   "drempel": 0.71
+  }
+ },
+ "074": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8717,
+   "tekst": -0.8495,
+   "vervormd": -0.8748,
+   "afgekeurd_kans": 0.261,
+   "drempel": 0.71
+  }
+ },
+ "075": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7445,
+   "tekst": -0.6991,
+   "vervormd": -0.7406,
+   "afgekeurd_kans": 0.321,
+   "drempel": 0.71
+  }
+ },
+ "076": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6546,
+   "tekst": -0.5985,
+   "vervormd": -0.7013,
+   "afgekeurd_kans": 0.411,
+   "drempel": 0.71
+  }
+ },
+ "077": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.8868,
+   "tekst": -0.8786,
+   "vervormd": -0.887,
+   "afgekeurd_kans": 0.29,
+   "drempel": 0.71
+  }
+ },
+ "078": {
+  "fouten": [
+   "niet uit die tijd: The image depicts a small plane flying over a dusty plain, which is anachronisti",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": -0.8702,
+   "tekst": -0.8441,
+   "vervormd": -0.8782,
+   "afgekeurd_kans": 0.493,
+   "drempel": 0.71
+  }
+ },
+ "079": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7708,
+   "tekst": -0.6557,
+   "vervormd": -0.7716,
+   "afgekeurd_kans": 0.239,
+   "drempel": 0.71
+  }
+ },
+ "080": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9454,
+   "tekst": -0.9449,
+   "vervormd": -0.9455,
+   "afgekeurd_kans": 0.32,
+   "drempel": 0.71
+  }
+ },
+ "081": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7207,
+   "tekst": -0.7293,
+   "vervormd": -0.739,
+   "afgekeurd_kans": 0.294,
+   "drempel": 0.71
+  }
+ },
+ "082": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.7858,
+   "tekst": -0.7779,
+   "vervormd": -0.7857,
+   "afgekeurd_kans": 0.374,
+   "drempel": 0.71
+  }
+ },
+ "083": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.6589,
+   "tekst": -0.6862,
+   "vervormd": -0.7273,
+   "afgekeurd_kans": 0.447,
+   "drempel": 0.71
+  }
+ },
+ "084": {
+  "fouten": [],
+  "clip": {
+   "modern": -0.9168,
+   "tekst": -0.9025,
+   "vervormd": -0.9176,
+   "afgekeurd_kans": 0.257,
+   "drempel": 0.71
+  }
+ },
+ "085": {
+  "fouten": [
+   "niet uit die tijd: modern buildings, paved runways, contemporary aircraft, simple buildings of that time",
+   "past niet bij de beschrijving"
+  ],
+  "clip": {
+   "modern": 0.227,
+   "tekst": -0.3214,
+   "vervormd": -0.3426,
+   "afgekeurd_kans": 0.363,
+   "drempel": 0.71
+  }
+ }
+}
