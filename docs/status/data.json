@@ -1,10 +1,10 @@
 {
- "bijgewerkt": "2026-11-11 21:03",
+ "bijgewerkt": "2026-11-11 21:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
+    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
     "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "205 GB vrij"
+   "tekst": "210 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 21:03)"
+   "tekst": "draait nu (2026-11-11 21:33)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 21:03",
-   "volgende": "2026-11-11 21:33"
+   "laatst": "2026-11-11 21:33",
+   "volgende": "2026-11-11 22:03"
   }
  },
  "kanaal": {
@@ -600,7 +600,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1274,
+    "views": 1277,
     "verwerkt": "processed"
    }
   ]
@@ -609,10 +609,10 @@
   "geplande": 0,
   "runs": {
    "goed": 5,
-   "totaal": 19,
-   "procent": 26
+   "totaal": 20,
+   "procent": 25
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 13
@@ -629,14 +629,14 @@
  ],
  "stap": 2,
  "huidig": {
-  "map": "babylon-600-vc",
-  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "map": "gettysburg-1863",
+  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
   "voortgang": 99,
-  "detail": "92 van 92 beelden",
+  "detail": "95 van 95 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)"
@@ -653,8 +653,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 70,
-  "geheugen_mb": 7750,
+  "bezig_procent": 26,
+  "geheugen_mb": 668,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -740,18 +740,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 12:05",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 14:11",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 14:24",
    "tekst": "Claude: crisis-1933 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 12 onderwerpen, 16.596 woorden, opening scène, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
    "fout": false,
@@ -822,9 +810,28 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 21:33",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 21:33",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-11 21:33",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-10 07:07",
