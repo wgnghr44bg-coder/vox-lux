@@ -42,6 +42,7 @@ def run(cmd, **kw):
 
 
 def git_push(paden, boodschap):
+    paden = [p for p in paden if Path(p).is_file()]            # alleen losse bestanden, nooit een hele map
     run(["git", "add"] + [str(p) for p in paden])
     run(["git", "commit", "-q", "-m", boodschap])
     run(["git", "pull", "-q", "--rebase", "--autostash"])
@@ -186,7 +187,7 @@ def maak_video(m, datum, test=False):
         plan_t = planning(m)[0]
     if not test:
         zet_status(m, f"bezig ({datetime.date.today()}, routine-lokaal)")
-        git_push([m], f"{m.name}: bezig (routine-lokaal) voor {datum}")
+        git_push([m / "planning.txt"], f"{m.name}: bezig (routine-lokaal) voor {datum}")   # nooit de hele map (beelden, voice.mp3 > 100 MB)
 
     if not comfy_aan():
         raise RuntimeError("ComfyUI start niet")
