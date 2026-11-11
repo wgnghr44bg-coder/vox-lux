@@ -59,3 +59,4 @@
 - 2026-11-11 15:00 Claude: boeren-winter-1300 omgebouwd naar nieuwe opbouw + nieuwe toon (87 feitjes, 13 onderwerpen, 18.290 woorden, lange zinnen gesplitst; opening persoon, titelsoort how-survive); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 15:14 Claude: kerst-loopgraven-1914 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 13 onderwerpen, 17.938 woorden; opening scène, titelsoort what-happened); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 15:18 Claude: rome-44-vc in de nieuwe toon (88 feitjes, 13 onderwerpen, 16.542 woorden); MAKKELIJK, TOON GOED, AFWISSELING GOED
+- 2026-11-11 15:26 Claude: zwarte-dood-1348 in de nieuwe toon, 7 feitjes die niet over de pest gingen vervangen (gebeden, processies, kruiden, Boccaccio in 1348, gezondheidsambtenaren, schenkingen aan ziekenhuizen, archieven); 86 feitjes, 16.737 woorden; MAKKELIJK, TOON GOED, AFWISSELING GOED
