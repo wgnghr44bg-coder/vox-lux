@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 07:33",
+ "bijgewerkt": "2026-11-11 08:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Beelden maken · 88%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 07:33)"
+   "tekst": "draait nu (2026-11-11 08:03)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 07:33",
-   "volgende": "2026-11-11 08:03"
+   "laatst": "2026-11-11 08:03",
+   "volgende": "2026-11-11 08:33"
   }
  },
  "kanaal": {
@@ -540,7 +540,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 331,
+    "views": 330,
     "verwerkt": "processed"
    },
    {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 213,
+    "views": 214,
     "verwerkt": "processed"
    },
    {
@@ -611,11 +611,11 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 88,
-  "detail": "84 van 95 beelden",
+  "voortgang": 99,
+  "detail": "95 van 95 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ]
  },
  "nu_bezig": [
@@ -624,13 +624,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7000,
+  "bezig_procent": 3,
+  "geheugen_mb": 578,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -808,7 +808,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 07:33",
+   "tijd": "2026-11-11 08:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
