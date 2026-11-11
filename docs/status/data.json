@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 16:03",
+ "bijgewerkt": "2026-11-11 16:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "detail": "Beelden maken · 95%",
+    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 16:03)"
+   "tekst": "draait nu (2026-11-11 16:33)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 16:03",
-   "volgende": "2026-11-11 16:33"
+   "laatst": "2026-11-11 16:33",
+   "volgende": "2026-11-11 17:03"
   }
  },
  "kanaal": {
@@ -609,10 +609,10 @@
   "geplande": 0,
   "runs": {
    "goed": 5,
-   "totaal": 18,
-   "procent": 28
+   "totaal": 19,
+   "procent": 26
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 13
@@ -629,18 +629,17 @@
  ],
  "stap": 2,
  "huidig": {
-  "map": "babylon-600-vc",
-  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "map": "gettysburg-1863",
+  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 95,
-  "detail": "87 van 92 beelden",
+  "voortgang": 99,
+  "detail": "95 van 95 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ]
  },
  "nu_bezig": [
@@ -651,15 +650,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
-  "geheugen_mb": 6903,
+  "bezig_procent": 98,
+  "geheugen_mb": 7042,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -745,18 +740,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 07:03",
-   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 07:03",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 09:07",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
@@ -827,9 +810,28 @@
    "tekst": "Claude: thanksgiving-1621: feitjes 77 (Franksgiving 1939) en 78 (Macy's parade) vervangen door Mourt's Relation (1622) en Bradfords eigen akkers (1623); SCRIPT GOED, TOON GOED, MAKKELIJK",
    "fout": false,
    "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 16:28",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 16:28",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-11 16:28",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-10 01:33",
