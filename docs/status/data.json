@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 04:33",
+ "bijgewerkt": "2026-11-11 05:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 69%",
+    "detail": "YouTube upload",
     "soort": "nu"
    }
   ],
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "213 GB vrij"
+   "tekst": "227 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 04:33)"
+   "tekst": "draait nu (2026-11-11 05:03)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 04:33",
-   "volgende": "2026-11-11 05:03"
+   "laatst": "2026-11-11 05:03",
+   "volgende": "2026-11-11 05:33"
   }
  },
  "kanaal": {
@@ -499,6 +499,15 @@
     "verwerkt": "processed"
    },
    {
+    "id": "8Mm2NOlyL3U",
+    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "duur": "2:01:43",
+    "privacy": "private",
+    "publiceer": "2026-11-14T20:00:00Z",
+    "views": 0,
+    "verwerkt": "uploaded"
+   },
+   {
     "id": "03VXrW2gb7g",
     "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
     "duur": "2:04:01",
@@ -513,7 +522,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 10,
+    "views": 11,
     "verwerkt": "processed"
    },
    {
@@ -569,20 +578,11 @@
     "publiceer": "2026-10-07T19:00:13Z",
     "views": 25,
     "verwerkt": "processed"
-   },
-   {
-    "id": "_4LgG7iUoy0",
-    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
-    "duur": "2:27:47",
-    "privacy": "public",
-    "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1264,
-    "verwerkt": "processed"
    }
   ]
  },
  "kpi": {
-  "geplande": 1,
+  "geplande": 2,
   "runs": {
    "goed": 5,
    "totaal": 15,
@@ -603,19 +603,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 6,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 69,
-  "detail": "16mm-look",
+  "stap": 6,
+  "stapnaam": "YouTube upload",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine (Claude) stuurt aan",
-   "16mm-look"
+   "wachten op verwerking YouTube"
   ]
  },
  "nu_bezig": [
@@ -624,13 +624,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "wachten op verwerking YouTube",
+   "stap": 6
   }
  ],
  "videokaart": {
-  "bezig_procent": 75,
-  "geheugen_mb": 7662,
+  "bezig_procent": 25,
+  "geheugen_mb": 249,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -814,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 04:33",
+   "tijd": "2026-11-11 05:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
