@@ -47,3 +47,5 @@
 - 2026-11-11 06:41 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan
 - 2026-11-11 06:41 routine-lokaal: tombstone-1881: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
 - 2026-11-11 07:03 routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan
+- 2026-11-11 07:03 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-11 09:07 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
