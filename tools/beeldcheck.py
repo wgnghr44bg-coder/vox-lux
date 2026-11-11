@@ -41,7 +41,22 @@ def jaar(map_):
 
 
 # ---------- 1. Qwen2.5-VL ----------
-def vlm(pad, wat_er_moet_zijn, tijd):
+MODERN_WOORD = r"\b(modern|contemporary|electric|plastic|concrete|car|cars|truck|power|asphalt|glass|neon|unrelated|pole|poles|post|posts|wire|wires|sign|signs|road|lamppost|streetlight)\b"
+
+
+def staat_in_prompt(ding, prompt):
+    """Het beeldmodel noemt iets 'niet uit die tijd' dat de beschrijving zelf vraagt (11 nov, Babylon: dadelpalmen,
+    rieten boten en kleitabletten afgekeurd terwijl ze in de prompt staan). Dan is het geen fout, tenzij het 'modern' is."""
+    if re.search(MODERN_WOORD, ding, re.I):
+        return False
+    p = prompt.lower()
+    woorden = [w.rstrip("s") for w in re.findall(r"[a-z]{4,}", ding.lower())
+               if w not in ("image", "picture", "background", "foreground", "typically", "associated", "with", "that",
+                            "this", "there", "which", "ancient", "time", "period", "visible", "figures", "structure")]
+    return bool(woorden) and any(w in p for w in woorden)
+
+
+def vlm(pad, wat_er_moet_zijn, tijd, prompt=""):
     b64 = base64.b64encode(Path(pad).read_bytes()).decode()
     vraag = (f"This image is for a calm history video set in {tijd}. It should show: {wat_er_moet_zijn}\n"
              "Look carefully at the whole image, also the background and the edges. Answer in JSON:\n"
@@ -57,7 +72,8 @@ def vlm(pad, wat_er_moet_zijn, tijd):
             fout = []
             lijst = a.get("anachronisms", [])
             lijst = [lijst] if isinstance(lijst, str) else (lijst if isinstance(lijst, list) else [])
-            ana = [x for x in lijst if isinstance(x, str) and x.strip() and "none" not in x.lower()]
+            ana = [x for x in lijst if isinstance(x, str) and x.strip() and "none" not in x.lower()
+                   and not staat_in_prompt(x, prompt or wat_er_moet_zijn)]
             ana = [x for x in ana if bevestig(b64, x, tijd)]       # tweede, gerichte vraag: is het er echt?
             if ana:
                 fout.append("niet uit die tijd: " + ", ".join(x[:80] for x in ana))
@@ -206,6 +222,11 @@ def herschrijf_prompt(map_, naam, oud, fouten):
     # "no tourist boats" laat het beeldmodel juist tourist boats tekenen: zulke zinsdelen eruit (test 8 nov, beeld 049)
     nieuw = ", ".join(d for d in re.split(r",\s*|\s+and\s+(?=no\b|without\b)", nieuw)
                       if not re.search(r"\b(no|not|without|never|free of|absence)\b", d, re.I))
+    # 11 nov, Babylon: het tekstmodel schreef de fout er juist in ("with modern buildings and a blue structure in the
+    # background", "set in a contemporary interior"): zinsdelen met moderne woorden eruit als die niet al in de scène stonden
+    nieuw = ", ".join(d for d in re.split(r",\s*", nieuw)
+                      if not re.search(MODERN_WOORD + r"|\b(museum|today|more modern)\b", d, re.I)
+                      or re.search(MODERN_WOORD + r"|\bmuseum\b|\btoday\b", kern, re.I))
     if difflib.SequenceMatcher(None, nieuw.lower(), kern.lower()).ratio() > 0.85 or len(nieuw) > 2 * len(kern) + 80:
         nieuw = kern                                         # model herschreef niet echt: vaste positieve zinnen erbij
     tekst = " ".join(fouten).lower()
@@ -252,13 +273,13 @@ def controleer(map_, namen):
     for n, p, sc in zip(namen, paden, cs):
         kern = kern_van(pr.get(n, ""), st)
         tijd = tijd_van_beeld(kern, j)
-        f = vlm(p, kern, tijd)
+        f = vlm(p, kern, tijd, pr.get(n, ""))
         if not f and clip_fout(sc):                         # CLIP twijfelt: het beeldmodel nog één keer extra goed laten kijken
             import base64
             b64 = base64.b64encode(Path(p).read_bytes()).decode()
             wat = bevestig(b64, f"anything at all (vehicle, wire, pole, lamp, building, boat, clothing, object, letters) "
                                 f"that did not exist in {tijd}", tijd)
-            if wat:
+            if wat and not staat_in_prompt(wat, pr.get(n, "")):
                 f = clip_fout(sc) + [f"bevestigd bij extra controle: {wat[:120]}"]
         uit[n] = {"fouten": f, "clip": sc}
         print(f"  {n}: {'GOED' if not f else 'FOUT ' + '; '.join(f)}", flush=True)
