@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 08:03",
+ "bijgewerkt": "2026-11-11 08:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Beelden maken · 99%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -164,7 +164,7 @@
     "map": "gettysburg-1863",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 82,
     "niveau": 4.7,
     "leesbaar": "MAKKELIJK",
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "234 GB vrij"
+   "tekst": "233 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 08:03)"
+   "tekst": "draait nu (2026-11-11 08:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 08:03",
-   "volgende": "2026-11-11 08:33"
+   "laatst": "2026-11-11 08:33",
+   "volgende": "2026-11-11 09:03"
   }
  },
  "kanaal": {
@@ -531,7 +531,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 113,
+    "views": 115,
     "verwerkt": "processed"
    },
    {
@@ -603,19 +603,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "95 van 95 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "stem inspreken (OmniVoice B1)"
   ]
  },
  "nu_bezig": [
@@ -624,13 +624,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 3,
-  "geheugen_mb": 578,
+  "bezig_procent": 99,
+  "geheugen_mb": 7869,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -808,7 +808,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 08:03",
+   "tijd": "2026-11-11 08:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
