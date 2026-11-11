@@ -1,7 +1,14 @@
 {
- "bijgewerkt": "2026-11-11 06:03",
+ "bijgewerkt": "2026-11-11 06:33",
  "werkplanning": {
-  "nu": [],
+  "nu": [
+   {
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "detail": "Beelden maken · 74%",
+    "soort": "nu"
+   }
+  ],
   "daarna": [
    {
     "wanneer": "do 12-11 09:00 (routine staat UIT)",
@@ -54,8 +61,8 @@
     "dag": "za",
     "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "stand": "staat klaar op YouTube",
-    "kleur": "goed"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-16",
@@ -132,12 +139,12 @@
     "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
     "klaar": true,
-    "stand": "video staat klaar",
+    "stand": "video wordt gemaakt",
     "controle": "GOED",
-    "flesch": 78,
-    "niveau": 6.1,
+    "flesch": 79,
+    "niveau": 5.9,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-16",
@@ -146,34 +153,34 @@
     "klaar": true,
     "stand": "video staat klaar",
     "controle": "nog niet",
-    "flesch": 77,
-    "niveau": 6.2,
+    "flesch": 78,
+    "niveau": 6.0,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-18",
     "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 81,
-    "niveau": 4.8,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 82,
+    "niveau": 4.7,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-21",
     "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 79,
-    "niveau": 5.5,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 80,
+    "niveau": 5.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-23",
@@ -181,11 +188,11 @@
     "map": "egypte-toetanchamon",
     "klaar": true,
     "stand": "video staat klaar",
-    "controle": "FOUT",
-    "flesch": 75,
-    "niveau": 6.5,
+    "controle": "nog niet",
+    "flesch": 76,
+    "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, vragen, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-25",
@@ -420,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 06:03)"
+   "tekst": "draait nu (2026-11-11 06:33)"
   },
   {
    "naam": "Git",
@@ -462,14 +469,14 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 06:03",
-   "volgende": "2026-11-11 06:33"
+   "laatst": "2026-11-11 06:33",
+   "volgende": "2026-11-11 07:03"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 13,
-  "views_totaal": 2331,
+  "views_totaal": 2363,
   "video_aantal": 14,
   "week": {
    "views": 274,
@@ -542,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 207,
+    "views": 214,
     "verwerkt": "processed"
    },
    {
@@ -581,7 +588,7 @@
    "totaal": 15,
    "procent": 33
   },
-  "fouten": 3,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 12,
    "totaal": 13
@@ -596,17 +603,39 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
- "huidig": null,
+ "stap": 2,
+ "huidig": {
+  "map": "babylon-600-vc",
+  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 74,
+  "detail": "68 van 92 beelden",
+  "taken": [
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
+  ]
+ },
  "nu_bezig": [
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 252,
+  "bezig_procent": 100,
+  "geheugen_mb": 7121,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -669,7 +698,7 @@
    "datum": "2026-11-14",
    "plek": true,
    "video": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "soort": "gepland"
+   "soort": "bezig"
   },
   {
    "datum": "2026-11-15",
@@ -691,18 +720,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-10 22:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 23:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 23:16",
    "tekst": "routine of Egypte bezig, wachten",
@@ -774,6 +791,18 @@
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 06:12",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 06:13",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -784,24 +813,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slo",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 06:03",
+   "tijd": "2026-11-11 06:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-08 21:50",
-   "tekst": "2a. Tombstone: CONTROLES NIET GOED, niet geüpload",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-09 07:30",
    "tekst": "routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])",
@@ -841,6 +858,12 @@
   {
    "tijd": "2026-11-10 07:07",
    "tekst": "Egypte: CONTROLES NIET GOED, niet geüpload (de oude versie blijft staan)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 18:48",
+   "tekst": "tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slo",
    "fout": true,
    "klaar": false
   }
@@ -917,8 +940,8 @@
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "status": "klaar",
-   "soort": "gepland",
+   "status": "bezig (2026-11-11, routine-lokaal)",
+   "soort": "bezig",
    "id": "8Mm2NOlyL3U",
    "afspeellijst": "oudheid",
    "opening": "mythe"
