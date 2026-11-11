@@ -280,6 +280,10 @@ if __name__ == "__main__":
             m = STORIES / naam
             if re.search(rf"{re.escape(naam)}: opnieuw gemaakt", (STORIES / "ROUTINE-LOG.md").read_text(encoding="utf-8")):
                 continue
+            while not (m / "planning.txt").exists():         # nieuw script (bv. thanksgiving-1621) nog niet geschreven
+                print(f"{datetime.datetime.now():%H:%M} {naam}: wacht op het nieuwe script", flush=True)
+                time.sleep(600)
+                run(["git", "pull", "-q", "--rebase", "--autostash"])
             datum = planning(m)[1]
             while True:
                 run(["git", "pull", "-q", "--rebase", "--autostash"])
