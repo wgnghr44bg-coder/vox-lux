@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 15:33",
+ "bijgewerkt": "2026-11-11 16:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Beelden maken · 86%",
+    "detail": "Beelden maken · 95%",
     "soort": "nu"
    }
   ],
@@ -211,9 +211,9 @@
     "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
     "map": "thanksgiving-1621",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
-    "controle": "nog niet",
-    "flesch": 79,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 80,
     "niveau": 5.5,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED"
@@ -280,15 +280,15 @@
    },
    {
     "datum": "2026-12-16",
-    "titel": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
+    "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
     "map": "scott-antarctica-1912",
     "klaar": true,
     "stand": "script klaar, nachtcontrole volgt",
     "controle": "nog niet",
-    "flesch": 87,
+    "flesch": 88,
     "niveau": 3.7,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-19",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 15:33)"
+   "tekst": "draait nu (2026-11-11 16:03)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 15:33",
-   "volgende": "2026-11-11 16:03"
+   "laatst": "2026-11-11 16:03",
+   "volgende": "2026-11-11 16:33"
   }
  },
  "kanaal": {
@@ -564,7 +564,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 267,
+    "views": 268,
     "verwerkt": "processed"
    },
    {
@@ -635,8 +635,8 @@
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 86,
-  "detail": "79 van 92 beelden",
+  "voortgang": 95,
+  "detail": "87 van 92 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -658,8 +658,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 8,
-  "geheugen_mb": 6929,
+  "bezig_procent": 23,
+  "geheugen_mb": 6903,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -745,18 +745,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 06:41",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 06:41",
-   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 07:03",
    "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
    "fout": true,
@@ -827,6 +815,18 @@
    "tekst": "Claude: zwarte-dood-1348 in de nieuwe toon, 7 feitjes die niet over de pest gingen vervangen (gebeden, processies, kruiden, Boccaccio in 1348, gezondheidsambtenaren, schenkingen aan ziekenhuizen, arch",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 15:37",
+   "tekst": "Claude: scott-antarctica-1912 in de nieuwe toon (91 feitjes, 13 onderwerpen, 16.972 woorden; titelsoort why, omdat Zwarte Dood ervoor how-survive is); MAKKELIJK, TOON GOED, AFWISSELING GOED. Alle scri",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 15:57",
+   "tekst": "Claude: thanksgiving-1621: feitjes 77 (Franksgiving 1939) en 78 (Macy's parade) vervangen door Mourt's Relation (1622) en Bradfords eigen akkers (1623); SCRIPT GOED, TOON GOED, MAKKELIJK",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [],
@@ -1655,8 +1655,8 @@
    "map": "scott-antarctica-1912",
    "datum": "2026-12-16",
    "reserve": false,
-   "titel": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account; 10 nov: afkeuring was onterecht, scriptcontrole verbeterd)",
+   "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
