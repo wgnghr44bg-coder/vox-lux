@@ -1,6 +1,6 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
 status   script-klaar (nieuwe opbouw, 2026-11-09, tweede account; 10 nov: afkeuring was onterecht, scriptcontrole verbeterd)
-datum    wo 2026-11-25 21:00 NL
+datum    wo 2026-12-16 21:00 NL (rond de pooldatum 14 dec; was wo 2026-11-25, plek gaat naar Thanksgiving)
 titel    How Did Scott's Men Survive the Antarctic Winter? | History for Sleep
 opening   raadsel
 titelsoort how-survive

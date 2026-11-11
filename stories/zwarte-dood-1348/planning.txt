@@ -1,6 +1,6 @@
 onderwerp Life in Europe During the Black Death, 1348
 status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-10: opnieuw ombouwen, zie scriptcheck.json)
-datum    za 2026-12-05 21:00 NL
+datum    za 2026-12-12 21:00 NL (was za 2026-12-05)
 titel    How Did Ordinary People Survive the Black Death? | History for Sleep
 opening   voorwerp
 titelsoort how-survive

@@ -1,6 +1,6 @@
 onderwerp Life in America During the Great Depression, 1933
 status   script-klaar (2026-11-03, tweede account)
-datum    za 2027-10-02 21:00 NL
+datum    ma 2026-11-16 21:00 NL (hype 11 nov: Great Depression groeit bij Sleepy History Channel; was za 2027-10-02)
 titel    Life in America During the Great Depression, 1933 | <N> Hours of History for Sleep
 thumbnail amberregel "IOWA · 1933", hook "The Great Depression", beeld (kenmerkend): een witte boerderij met rode schuur en een windmolen tussen goudbruine maisvelden bij zonsondergang, op de veranda een gezin in tuinbroek en bloemetjesjurk van meelzakstof rond een houten kastradio, een collie op de trap; rustig, warm nostalgisch avondlicht
 soort    nieuwe tijd
