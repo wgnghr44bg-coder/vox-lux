@@ -51,3 +51,6 @@
 - 2026-11-11 09:07 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
 - 2026-11-11 tombstone-1881: afgekeurde privéversie 03VXrW2gb7g verwijderd (eigenaar: "doe wat slimste is"); Babylon 8Mm2NOlyL3U en Egypte iMkB7sUR8UU blijven als reserve tot de nieuwe versie ze vervangt
 - 2026-11-11 babylon-600-vc en egypte-toetanchamon: oude privéversies (8Mm2NOlyL3U, iMkB7sUR8UU) ZONDER publicatietijd gezet (eigenaar: "ik wil de oude niet online, ik wil de nieuwe erop"); ze gaan nooit vanzelf online, de keten vervangt ze door de nieuwe
+- 2026-11-11 12:05 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-11 14:11 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-11 14:24 Claude: crisis-1933 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 12 onderwerpen, 16.596 woorden, opening scène, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED
