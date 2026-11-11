@@ -1,47 +1,40 @@
 {
- "bijgewerkt": "2026-11-11 05:03",
+ "bijgewerkt": "2026-11-11 05:33",
  "werkplanning": {
-  "nu": [
-   {
-    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "detail": "YouTube upload",
-    "soort": "nu"
-   }
-  ],
+  "nu": [],
   "daarna": [
    {
-    "wanneer": "do 12-11 09:00",
+    "wanneer": "do 12-11 09:00 (routine staat UIT)",
     "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
     "detail": "routine maakt de video voor wo 18-11 21:00"
    },
    {
-    "wanneer": "zo 15-11 09:00",
+    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
     "detail": "routine maakt de video voor za 21-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00",
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
     "map": "scott-antarctica-1912",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
     "map": "rome-44-vc",
     "detail": "routine maakt de video voor wo 2-12 21:00"
@@ -61,8 +54,8 @@
     "dag": "za",
     "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-16",
@@ -129,7 +122,7 @@
     "kleur": "zacht"
    }
   ],
-  "routine_aan": true
+  "routine_aan": false
  },
  "scripts": {
   "klaar_tot": "2026-12-02",
@@ -139,8 +132,8 @@
     "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
     "klaar": true,
-    "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "stand": "video staat klaar",
+    "controle": "GOED",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -412,12 +405,12 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "227 GB vrij"
+   "tekst": "237 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
    "ok": true,
-   "tekst": "draait nu (2026-11-10 09:00)"
+   "tekst": "laatste keer goed (2026-11-10 09:00)"
   },
   {
    "naam": "Taak 'scriptgenerator'",
@@ -427,7 +420,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 05:03)"
+   "tekst": "draait nu (2026-11-11 05:33)"
   },
   {
    "naam": "Git",
@@ -455,10 +448,10 @@
    "tekst": "SCRIPT FOUT (9 punten) (nacht 2026-11-10)"
   }
  ],
- "automatisering": true,
+ "automatisering": false,
  "taken": {
   "routine": {
-   "aan": true,
+   "aan": false,
    "laatst": "2026-11-10 09:00",
    "volgende": "2026-11-12 09:00"
   },
@@ -469,8 +462,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 05:03",
-   "volgende": "2026-11-11 05:33"
+   "laatst": "2026-11-11 05:33",
+   "volgende": "2026-11-11 06:03"
   }
  },
  "kanaal": {
@@ -505,7 +498,7 @@
     "privacy": "private",
     "publiceer": "2026-11-14T20:00:00Z",
     "views": 0,
-    "verwerkt": "uploaded"
+    "verwerkt": "processed"
    },
    {
     "id": "03VXrW2gb7g",
@@ -549,7 +542,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 206,
+    "views": 211,
     "verwerkt": "processed"
    },
    {
@@ -603,33 +596,11 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 6,
- "huidig": {
-  "map": "babylon-600-vc",
-  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 6,
-  "stapnaam": "YouTube upload",
-  "voortgang": null,
-  "detail": "",
-  "taken": [
-   "routine (Claude) stuurt aan",
-   "wachten op verwerking YouTube"
-  ]
- },
- "nu_bezig": [
-  {
-   "naam": "routine (Claude) stuurt aan",
-   "stap": 0
-  },
-  {
-   "naam": "wachten op verwerking YouTube",
-   "stap": 6
-  }
- ],
+ "stap": -1,
+ "huidig": null,
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 26,
   "geheugen_mb": 249,
   "totaal_mb": 8192
  },
@@ -693,7 +664,7 @@
    "datum": "2026-11-14",
    "plek": true,
    "video": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "soort": "bezig"
+   "soort": "gepland"
   },
   {
    "datum": "2026-11-15",
@@ -814,7 +785,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 05:03",
+   "tijd": "2026-11-11 05:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
@@ -941,9 +912,9 @@
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "status": "bezig (2026-11-10, routine)",
-   "soort": "bezig",
-   "id": "",
+   "status": "klaar",
+   "soort": "gepland",
+   "id": "8Mm2NOlyL3U",
    "afspeellijst": "oudheid",
    "opening": "mythe"
   },
