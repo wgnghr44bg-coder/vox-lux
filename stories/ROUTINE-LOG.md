@@ -57,3 +57,4 @@
 - 2026-11-11 14:35 Claude: thanksgiving-1621 nieuw geschreven (89 feitjes, 12 onderwerpen, ± 14.650 woorden, opening mythe, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 14:37 Claude: pearl-harbor-1941 in de nieuwe toon (88 feitjes, 13 onderwerpen, 17.155 woorden; titelsoort what-actually, andere titel omdat Thanksgiving ervoor life-really-like is); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 15:00 Claude: boeren-winter-1300 omgebouwd naar nieuwe opbouw + nieuwe toon (87 feitjes, 13 onderwerpen, 18.290 woorden, lange zinnen gesplitst; opening persoon, titelsoort how-survive); MAKKELIJK, TOON GOED, AFWISSELING GOED
+- 2026-11-11 15:14 Claude: kerst-loopgraven-1914 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 13 onderwerpen, 17.938 woorden; opening scène, titelsoort what-happened); MAKKELIJK, TOON GOED, AFWISSELING GOED
