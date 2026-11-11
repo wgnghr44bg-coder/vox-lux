@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 02:03",
+ "bijgewerkt": "2026-11-11 02:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 91%",
+    "detail": "Video bouwen · 77%",
     "soort": "nu"
    }
   ],
@@ -140,7 +140,7 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
+    "controle": "nog niet",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 02:03)"
+   "tekst": "draait nu (2026-11-11 02:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 02:03",
-   "volgende": "2026-11-11 02:33"
+   "laatst": "2026-11-11 02:33",
+   "volgende": "2026-11-11 03:03"
   }
  },
  "kanaal": {
@@ -611,8 +611,8 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 91,
-  "detail": "16mm-look",
+  "voortgang": 77,
+  "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
    "beweging en hoofdstuktitels"
@@ -629,7 +629,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 26,
   "geheugen_mb": 238,
   "totaal_mb": 8192
  },
@@ -814,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 02:03",
+   "tijd": "2026-11-11 02:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
