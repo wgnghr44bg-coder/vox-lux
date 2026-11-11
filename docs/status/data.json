@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 06:33",
+ "bijgewerkt": "2026-11-11 07:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Beelden maken · 74%",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -69,8 +69,8 @@
     "dag": "ma",
     "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
     "map": "tombstone-1881",
-    "stand": "staat klaar op YouTube",
-    "kleur": "goed"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-18",
@@ -151,7 +151,7 @@
     "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
     "map": "tombstone-1881",
     "klaar": true,
-    "stand": "video staat klaar",
+    "stand": "video wordt gemaakt",
     "controle": "nog niet",
     "flesch": 78,
     "niveau": 6.0,
@@ -427,12 +427,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 06:33)"
+   "tekst": "draait nu (2026-11-11 07:03)"
   },
   {
    "naam": "Git",
-   "ok": true,
-   "tekst": "alles gepusht"
+   "ok": false,
+   "tekst": "1 commit(s) nog niet gepusht"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 06:33",
-   "volgende": "2026-11-11 07:03"
+   "laatst": "2026-11-11 07:03",
+   "volgende": "2026-11-11 07:33"
   }
  },
  "kanaal": {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 214,
+    "views": 215,
     "verwerkt": "processed"
    },
    {
@@ -585,12 +585,12 @@
   "geplande": 2,
   "runs": {
    "goed": 5,
-   "totaal": 15,
-   "procent": 33
+   "totaal": 17,
+   "procent": 29
   },
-  "fouten": 2,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 13
   }
  },
@@ -603,39 +603,29 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 0,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 74,
-  "detail": "68 van 92 beelden",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
+  "voortgang": null,
+  "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "routine zonder Claude"
   ]
  },
  "nu_bezig": [
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 7121,
+  "bezig_procent": 98,
+  "geheugen_mb": 7112,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -710,7 +700,7 @@
    "datum": "2026-11-16",
    "plek": true,
    "video": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "soort": "gepland"
+   "soort": "bezig"
   },
   {
    "datum": "2026-11-17",
@@ -720,24 +710,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-10 23:16",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 23:26",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 23:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 23:46",
    "tekst": "routine of Egypte bezig, wachten",
@@ -803,34 +775,45 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "zwarte-dood-1348: SCRIPT FOUT blijft: 7 feitjes te ver van het onderwerp (o.a. klokkentoren van Giotto, winkels op de Ponte Vecchio van nu); slot hersteld. Tweede account moet het ombouwen (video za 5",
+   "tijd": "2026-11-11 06:41",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 06:33",
+   "tijd": "2026-11-11 06:41",
+   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 07:03",
+   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  }
+ ],
+ "fouten": [
+  {
+   "tijd": "2026-11-11 07:03",
+   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 07:03",
+   "tekst": "Zelfcontrole: Git: 1 commit(s) nog niet gepusht",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-11 07:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-09 07:30",
-   "tekst": "routine-lokaal: gettysburg-1863: TEST GESTOPT (beeldcontrole: BEELDEN FOUT: 76/85 goedgekeurd, fout: ['033', '037', '040', '048', '053', '064', '067', '078', '085'])",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-09 23:00",
-   "tekst": "CONTROLES NIET GOED: niet geüpload (de oude versie blijft staan)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 01:33",
    "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
@@ -863,7 +846,19 @@
   },
   {
    "tijd": "2026-11-10 18:48",
+   "tekst": "zwarte-dood-1348: SCRIPT FOUT blijft: 7 feitjes te ver van het onderwerp (o.a. klokkentoren van Giotto, winkels op de Ponte Vecchio van nu); slot hersteld. Tweede account moet het ombouwen (video za 5",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-10 18:48",
    "tekst": "tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slo",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 06:41",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -1754,8 +1749,8 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-   "status": "klaar",
-   "soort": "gepland",
+   "status": "bezig (2026-11-11, routine-lokaal)",
+   "soort": "bezig",
    "id": "03VXrW2gb7g",
    "afspeellijst": "mysterie",
    "opening": "scène"
