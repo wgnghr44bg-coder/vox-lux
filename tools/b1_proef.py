@@ -69,6 +69,8 @@ if "--komma-pauze" in sys.argv:
             alinea_nieuw.add(len(nieuw) - 1)
     TEKST, ALINEA_EIND = nieuw, alinea_nieuw
 inst = b1.standaard()
+if "--pauze" in sys.argv:                                   # alleen voor proeven: andere pauzefactor (zelfde stem)
+    inst["pauze"] = float(sys.argv[sys.argv.index("--pauze") + 1])
 V = inst.get("verteller")
 if V and "--zonder-verteller" not in sys.argv and "--verteller" not in sys.argv:   # standaard sinds 11 nov: verteller F
     sys.argv += ["--rustpunten", "--verteller", "--traag-speed", str(V["slot_speed"]), "--zin-pauze", str(V["zin_pauze"]),

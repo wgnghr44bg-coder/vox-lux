@@ -75,3 +75,21 @@ Gettysburg (wo 18 nov) staat weer op "script-klaar (oude opbouw)": een Claude-ac
 - `tools/b1_check.py` is opnieuw vastgelegd met de eigen stem (B1 GOED). `tools/b1_proef.py` maakt de vaste proef van 1 min;
   `tools/proef_andere_stem.py` voor proeven met een andere stem (`--zonder-verteller`, `--muziek-onder`).
 - Proeftekst nieuwe toon: `stories/_toon-proef/gettysburg-begin-en-hoofdstuk1.txt` (de eigenaar vond deze proef "perfect").
+
+## Stand 11 nov 2026 (middag): alle geplande video's opnieuw, nu GESTOPT op verzoek van de eigenaar
+- Eigenaar: "alle video's opnieuw volgens de nieuwe regels" (eigen stem uit B1.json + nieuwe toon). Daarna: "Stop maar even met alles".
+- **Scripts in de nieuwe toon** (geschreven door Claude in de cloud, met `tools/toon_bijwerken.py` + `stories/<map>/toon/*.json`;
+  zelfde feiten en IMG-regels): babylon-600-vc, tombstone-1881, gettysburg-1863, dallas-1963, egypte-toetanchamon zijn KLAAR
+  (MAKKELIJK, TOON GOED, AFWISSELING GOED). Nog te doen: scott-antarctica-1912, pearl-harbor-1941, rome-44-vc, zwarte-dood-1348
+  (bij Zwarte Dood ook 7 feitjes vervangen, zie scriptcheck.json).
+- **Video's maken** zonder Claude-agent: in `C:\Users\rane\Documents\vox-lux-routine`:
+  `python -u tools/routine_lokaal.py --opnieuw babylon-600-vc,tombstone-1881,gettysburg-1863,dallas-1963,egypte-toetanchamon,scott-antarctica-1912,pearl-harbor-1941,rome-44-vc,zwarte-dood-1348`
+  (log `C:\Users\rane\opnieuw-keten2.log`). Per video: wacht op TOON GOED, beelden (bestaande worden hergebruikt; hooguit 3
+  hardnekkige beelden vervangen door het beeld ervoor), eigen stem, montage met strenge haperingcontrole, dan de privéversie op
+  YouTube vervangen (`--oud` uit planning.txt). Een video wordt alleen overgeslagen als "<map>: opnieuw gemaakt" in ROUTINE-LOG.md staat.
+  **STAAT STIL** (eigenaar: stoppen). Er is nog niets vervangen. Gettysburg heeft al een nieuwe voice.mp3 met de eigen stem (wordt hergebruikt).
+- Een Claude-agent op de pc starten (`claude -p ... --dangerously-skip-permissions`) wordt door de beveiliging geblokkeerd; daarom deze route.
+- **Open vraag aan de eigenaar**: langere pauzes ("mag wel meer pauzes, de stem zelf niet veranderen")? Proef B (pauze 1.9 in plaats van
+  1.4) is gemaakt, C (2.4) niet. Pauzes kunnen ook achteraf bij de voorbereiding (add_pauses), zonder de stem opnieuw in te spreken.
+- YouTube nu: Babylon 8Mm2NOlyL3U privé (za 14 nov), Egypte iMkB7sUR8UU privé (ma 23 nov), Tombstone 03VXrW2gb7g privé ZONDER publicatietijd.
+- Let op bij git: nooit een hele story-map toevoegen (beelden, voice.mp3 > 100 MB); alleen losse tekstbestanden.
