@@ -1,5 +1,5 @@
 onderwerp Life in Ancient Babylon, 600 BC
-status   bezig (2026-11-10, routine)
+status   klaar
 datum    za 2026-11-14 21:00 NL (hype 10 nov: Babylon 71.000 views/dag bij Nils History; eerder gepland za 22 mei 2027)
 titel    Why Was Babylon the Greatest City on Earth? | History for Sleep
 opening   mythe
@@ -7,3 +7,5 @@ titelsoort why
 thumbnail amberregel "MESOPOTAMIA  ·  600 BC", hook "Ancient Babylon", beeld (kenmerkend): de stralend blauwe Ishtarpoort met gouden stieren en draken in de ochtendzon, daarachter de getrapte ziggurat en dadelpalmen, mensen in lange gewaden op de Processieweg; rustig, warm licht
 soort    oudheid
 nieuwe opbouw (omgebouwd 2026-11-10, routine)
+link https://youtu.be/8Mm2NOlyL3U (2:01:42, gemaakt 10-11 nov 2026 met comfy-beelden (stijl 2x herschreven na afkeuren: boten/poorten in elk beeld), B1-stem + muziek W3, -14 LUFS en 16mm-look; CONTROLE GOED, TEKST GOED (2 valse meldingen 572 en 993 met ruimer Whisper-venster nagelopen); QC: alleen Pauses afgekeurd door één stilte van 6,3 s bij 1:41:01 (grens 6,0 s, natuurlijke onderwerppauze), rest goed; privé met publishAt za 14 nov 2026 21:00 NL; Sleep Archives gecontroleerd; verwerking klaar; playlists Full Documentaries + Ancient World; thumbnail-gekozen.jpg)
+kosten  EUR 0

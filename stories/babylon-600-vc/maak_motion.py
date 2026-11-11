@@ -28,13 +28,6 @@ items += [
     {"soort": "datum", "tijd": na("akitu-festival-boats-statues-river", 15), "regel1": "The New Year, in spring", "regel2": "Babylon"},
     {"soort": "datum", "tijd": na("cyrus-entering-babylon-peaceful-crowd", 15), "regel1": "539 BC", "regel2": "The Persians enter Babylon"},
     {"soort": "datum", "tijd": na("koldewey-excavation-railway-workers", 20), "regel1": "1899", "regel2": "Robert Koldewey begins to dig"},
-    {"soort": "kaart", "tijd": na("mesopotamia-plain-two-rivers", 25), "titel": "Mesopotamia, 600 BC",
-     "gebied": [41.0, 51.0, 29.5, 37.5],
-     "plaatsen": [
-         {"naam": "Babylon", "lon": 44.42, "lat": 32.54, "kant": "rechts"},
-         {"naam": "Nineveh", "lon": 43.15, "lat": 36.36, "kant": "rechts"},
-         {"naam": "Ur", "lon": 46.10, "lat": 30.96, "kant": "rechts"},
-         {"naam": "Susa", "lon": 48.25, "lat": 32.19, "kant": "links"}]},
     {"soort": "tijdlijn", "tijd": na("ruined-mounds-desert-palms", 25), "punten": [
         ["600 BC", "Nebuchadnezzar rules Babylon"], ["539 BC", "Cyrus enters the city"],
         ["323 BC", "Alexander dies in Babylon"], ["1899", "Koldewey begins to dig"], ["Today", "Babylon is a World Heritage Site"]]},

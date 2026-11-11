@@ -1,0 +1,141 @@
+{
+ "onderwerp": "Life in Ancient Babylon, 600 BC",
+ "intro": false,
+ "slot": false,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "The land between the rivers"
+  },
+  {
+   "soort": "datum",
+   "tijd": 597.5,
+   "regel1": "Spring, 600 BC",
+   "regel2": "Babylon, on the Euphrates"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 670.1,
+   "nummer": 2,
+   "titel": "Nebuchadnezzar and his palace"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1297.5,
+   "nummer": 3,
+   "titel": "Walls, gates and the blue road"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1909.4,
+   "nummer": 4,
+   "titel": "The great tower and the house of Marduk"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2531.3,
+   "nummer": 5,
+   "titel": "The river Euphrates"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2910.6,
+   "nummer": 6,
+   "titel": "A house in Babylon"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3169.0,
+   "regel1": "A summer night, 600 BC",
+   "regel2": "A house in Babylon"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3684.3,
+   "nummer": 7,
+   "titel": "Dates, barley and beer"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4218.7,
+   "nummer": 8,
+   "titel": "Trade, money and justice"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4690.2,
+   "nummer": 9,
+   "titel": "Writing on clay"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5239.4,
+   "nummer": 10,
+   "titel": "Counting in sixties and reading the sky"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5763.5,
+   "nummer": 11,
+   "titel": "The New Year and the gods"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5775.5,
+   "regel1": "The New Year, in spring",
+   "regel2": "Babylon"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6217.9,
+   "nummer": 12,
+   "titel": "Gardens, exiles and craftsmen"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6717.8,
+   "nummer": 13,
+   "titel": "After Nebuchadnezzar, and Babylon today"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6729.8,
+   "regel1": "539 BC",
+   "regel2": "The Persians enter Babylon"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 6899.9,
+   "punten": [
+    [
+     "600 BC",
+     "Nebuchadnezzar rules Babylon"
+    ],
+    [
+     "539 BC",
+     "Cyrus enters the city"
+    ],
+    [
+     "323 BC",
+     "Alexander dies in Babylon"
+    ],
+    [
+     "1899",
+     "Koldewey begins to dig"
+    ],
+    [
+     "Today",
+     "Babylon is a World Heritage Site"
+    ]
+   ]
+  },
+  {
+   "soort": "datum",
+   "tijd": 6967.6,
+   "regel1": "1899",
+   "regel2": "Robert Koldewey begins to dig"
+  }
+ ]
+}
