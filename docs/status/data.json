@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 22:03",
+ "bijgewerkt": "2026-11-11 22:33",
  "werkplanning": {
   "nu": [
    {
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 22:03)"
+   "tekst": "draait nu (2026-11-11 22:33)"
   },
   {
    "naam": "Git",
@@ -493,14 +493,14 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 22:03",
-   "volgende": "2026-11-11 22:33"
+   "laatst": "2026-11-11 22:33",
+   "volgende": "2026-11-11 23:03"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 14,
-  "views_totaal": 2424,
+  "views_totaal": 2363,
   "video_aantal": 14,
   "week": {
    "views": 314,
@@ -555,7 +555,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 331,
+    "views": 337,
     "verwerkt": "processed"
    },
    {
@@ -564,7 +564,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 297,
+    "views": 301,
     "verwerkt": "processed"
    },
    {
@@ -582,7 +582,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 56,
+    "views": 57,
     "verwerkt": "processed"
    },
    {
@@ -600,7 +600,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1274,
+    "views": 1277,
     "verwerkt": "processed"
    }
   ]
@@ -653,8 +653,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7907,
+  "bezig_procent": 100,
+  "geheugen_mb": 7906,
   "totaal_mb": 8192
  },
  "programmas": [
