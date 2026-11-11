@@ -10,7 +10,7 @@
   gemaakt, geüpload of uitgegeven; planning.txt is weer weg.
 - Wat de eigenaar moet doen: zorg dat `git push` op de pc werkt (bv. `gh auth login` en `gh auth setup-git`, of de
   Git Credential Manager opnieuw inloggen) en start de routine opnieuw. Ook: git had geen naam/e-mail ingesteld; ik heb
-  die alleen voor deze repo gezet (`user.name rane`, `user.email (privé adres)`).
+  die alleen voor deze repo gezet (`user.name rane`, `user.email` (privé adres, hier weggehaald)).
 
 ## 5 nov 2026 - Toetanchamon gemaakt (za 14 nov 21:00)
 - Plek: eerstvolgende open plek (za 7 nov ww2-facts, wo 11 nov Tombstone bezet). Geen hype gezocht/gezien; het klare script van de tweede account genomen.
