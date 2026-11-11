@@ -1,8 +1,8 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
-status   script-klaar (nieuwe opbouw, 2026-11-09, tweede account; 10 nov: afkeuring was onterecht, scriptcontrole verbeterd)
+status   script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)
 datum    wo 2026-12-16 21:00 NL (rond de pooldatum 14 dec; was wo 2026-11-25, plek gaat naar Thanksgiving)
-titel    How Did Scott's Men Survive the Antarctic Winter? | History for Sleep
+titel    Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep
 opening   raadsel
-titelsoort how-survive
+titelsoort why
 thumbnail amberregel "ANTARCTICA · 1912", hook "With Captain Scott", beeld: vijf poolreizigers in wol en bont die een houten slee met de Britse vlag trekken over het witte ijs, lage gouden poolzon en lange schaduwen, de bergen van Antarctica erachter (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    reis

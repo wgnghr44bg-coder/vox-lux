@@ -60,3 +60,4 @@
 - 2026-11-11 15:14 Claude: kerst-loopgraven-1914 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 13 onderwerpen, 17.938 woorden; opening scène, titelsoort what-happened); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 15:18 Claude: rome-44-vc in de nieuwe toon (88 feitjes, 13 onderwerpen, 16.542 woorden); MAKKELIJK, TOON GOED, AFWISSELING GOED
 - 2026-11-11 15:26 Claude: zwarte-dood-1348 in de nieuwe toon, 7 feitjes die niet over de pest gingen vervangen (gebeden, processies, kruiden, Boccaccio in 1348, gezondheidsambtenaren, schenkingen aan ziekenhuizen, archieven); 86 feitjes, 16.737 woorden; MAKKELIJK, TOON GOED, AFWISSELING GOED
+- 2026-11-11 15:37 Claude: scott-antarctica-1912 in de nieuwe toon (91 feitjes, 13 onderwerpen, 16.972 woorden; titelsoort why, omdat Zwarte Dood ervoor how-survive is); MAKKELIJK, TOON GOED, AFWISSELING GOED. Alle scripts uit PROMPT-SCRIPTS-NOV-DEC.md zijn klaar.
