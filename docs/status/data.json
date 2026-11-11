@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 10:33",
+ "bijgewerkt": "2026-11-11 11:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 40%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 10:33)"
+   "tekst": "draait nu (2026-11-11 11:03)"
   },
   {
    "naam": "Git",
@@ -469,13 +469,13 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 10:33",
-   "volgende": "2026-11-11 11:03"
+   "laatst": "2026-11-11 11:03",
+   "volgende": "2026-11-11 11:33"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 13,
+  "abonnees": 14,
   "views_totaal": 2363,
   "video_aantal": 14,
   "week": {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 234,
+    "views": 247,
     "verwerkt": "processed"
    },
    {
@@ -611,12 +611,11 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 40,
-  "detail": "36 van 90 beelden",
+  "voortgang": 99,
+  "detail": "90 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ]
  },
  "nu_bezig": [
@@ -627,15 +626,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 10,
-  "geheugen_mb": 6932,
+  "bezig_procent": 11,
+  "geheugen_mb": 6609,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -813,7 +808,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 10:33",
+   "tijd": "2026-11-11 11:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
