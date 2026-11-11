@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 13:03",
+ "bijgewerkt": "2026-11-11 13:33",
  "werkplanning": {
   "nu": [
    {
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "227 GB vrij"
+   "tekst": "226 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 13:03)"
+   "tekst": "draait nu (2026-11-11 13:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 13:03",
-   "volgende": "2026-11-11 13:33"
+   "laatst": "2026-11-11 13:33",
+   "volgende": "2026-11-11 14:03"
   }
  },
  "kanaal": {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 247,
+    "views": 262,
     "verwerkt": "processed"
    },
    {
@@ -617,8 +617,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 298,
+  "bezig_procent": 24,
+  "geheugen_mb": 7708,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -796,12 +796,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 13:03",
+   "tijd": "2026-11-11 13:33",
    "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   },
   {
-   "tijd": "2026-11-11 13:03",
+   "tijd": "2026-11-11 13:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
