@@ -20,7 +20,7 @@ sys.path.insert(0, str(HIER))
 import youtube_upload as yu
 
 TAGS = ("history for sleep, boring history for sleep, sleep documentary, bedtime story, relaxing history, sleep story, "
-        "432hz, 432 hz sleep music, sleep sounds")
+        "432hz, 432 hz sleep music, sleep sounds, fireplace sounds, crackling fire, relaxing music")
 API = "https://www.googleapis.com/youtube/v3/videos"
 
 
@@ -64,6 +64,19 @@ if "AFWISSELING GOED" not in af.stdout:
     log(m, "NIET geüpload: AFWISSELING FOUT (begin/slot lijkt te veel op een andere video), eerst herschrijven")
     sys.exit(1)
 
+# vaste zin over stem en achtergrond (eigenaar 11 nov 2026: "gentle slow voice with soft relaxing background 432hz music
+# with fire crackling ... maak er maar iets moois van"); vervangt de oude alinea "A calm, slow-paced ..."
+GELUID = ("A calm, slow-paced history documentary for sleep and relaxation. No loud sounds, no jump scares: just a "
+          "gentle, slow voice, soft and relaxing 432 Hz background music and the quiet crackle of a warm fire, with "
+          "softly changing images. Let the story carry you gently into sleep.")
+bf = m / "youtube-beschrijving.txt"
+bt = bf.read_text(encoding="utf-8")
+oud_alinea = re.search(r"A calm, slow-paced history documentary.*?(?=\n\s*\n|\Z)", bt, re.S)
+if oud_alinea:
+    bt = bt.replace(oud_alinea.group(0), GELUID)
+elif GELUID not in bt:
+    bt = bt.replace("\nChapters", "\n" + GELUID + "\n\nChapters", 1) if "\nChapters" in bt else bt.rstrip() + "\n\n" + GELUID + "\n"
+bf.write_text(bt, encoding="utf-8")
 uit = subprocess.run([sys.executable, str(HIER / "youtube_upload.py"), str(a.video), "--title", titel,
                       "--description-file", str(m / "youtube-beschrijving.txt"), "--tags", TAGS + (", " + a.tags if a.tags else ""),
                       "--privacy", "private", "--publish-at", a.publish_at, "--thumbnail", str(a.thumbnail)],
