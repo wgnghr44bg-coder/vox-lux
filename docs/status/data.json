@@ -1,50 +1,50 @@
 {
- "bijgewerkt": "2026-11-11 09:03",
+ "bijgewerkt": "2026-11-11 09:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "Stem (B1)",
+    "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "Beelden maken · 72%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
     "wanneer": "do 12-11 09:00 (routine staat UIT)",
-    "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "routine maakt de video voor za 21-11 21:00"
-   },
-   {
-    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
     "map": "scott-antarctica-1912",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00 (routine staat UIT)",
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
     "map": "rome-44-vc",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "How Did Ordinary People Survive the Black Death? | History for Sleep",
     "map": "zwarte-dood-1348",
     "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
+   },
+   {
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wat": "Vrije plek: de routine kiest een populair onderwerp",
+    "map": "",
+    "detail": "routine maakt de video voor ma 7-12 21:00"
    }
   ],
   "publicaties": [
@@ -85,8 +85,8 @@
     "dag": "za",
     "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-23",
@@ -175,7 +175,7 @@
     "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
+    "stand": "video wordt gemaakt",
     "controle": "nog niet",
     "flesch": 80,
     "niveau": 5.3,
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 09:03)"
+   "tekst": "draait nu (2026-11-11 09:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 09:03",
-   "volgende": "2026-11-11 09:33"
+   "laatst": "2026-11-11 09:33",
+   "volgende": "2026-11-11 10:03"
   }
  },
  "kanaal": {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 232,
+    "views": 234,
     "verwerkt": "processed"
    },
    {
@@ -585,8 +585,8 @@
   "geplande": 2,
   "runs": {
    "goed": 5,
-   "totaal": 17,
-   "procent": 29
+   "totaal": 18,
+   "procent": 28
   },
   "fouten": 2,
   "zelfcontrole": {
@@ -603,19 +603,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 2,
  "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
-  "voortgang": null,
-  "detail": "bezig",
+  "map": "dallas-1963",
+  "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 72,
+  "detail": "65 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "beelden maken (ComfyUI)"
   ]
  },
  "nu_bezig": [
@@ -624,13 +624,13 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 90,
-  "geheugen_mb": 7843,
+  "bezig_procent": 32,
+  "geheugen_mb": 7199,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -716,18 +716,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 23:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 00:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 00:16",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -798,28 +786,34 @@
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-11 07:03",
-   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
+   "tijd": "2026-11-11 09:07",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 09:03",
+   "tijd": "2026-11-11 09:07",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  }
+ ],
+ "fouten": [
+  {
+   "tijd": "2026-11-11 09:07",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 09:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-10 01:33",
-   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 01:33",
    "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
@@ -859,6 +853,12 @@
   {
    "tijd": "2026-11-11 06:41",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 07:03",
+   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -1100,8 +1100,8 @@
    "datum": "2026-11-21",
    "reserve": false,
    "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, routine)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-11, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "mysterie",
    "opening": "voorwerp"
