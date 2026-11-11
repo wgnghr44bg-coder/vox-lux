@@ -1,6 +1,8 @@
 onderwerp How Medieval Peasants Survived Winter, 1300
-status   script-klaar (2026-11-01, tweede account)
+status   script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)
 datum    wo 2026-12-02 21:00 NL (hype 11 nov: winter/kou-video's groeien; was wo 2026-12-16)
-titel    How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep (63 tekens)
+titel    How Did Medieval Peasants Survive the Winter? | History for Sleep
 thumbnail amberregel "ENGLAND · WINTER 1300", hook "Medieval Winter", beeld: een middeleeuws dorp van strodaken onder de sneeuw in de schemering, rook uit de daken, een boer met een os en een kind met een lantaarn op het besneeuwde pad, warm licht in de deuropeningen (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    middeleeuwen
+opening   persoon
+titelsoort how-survive
