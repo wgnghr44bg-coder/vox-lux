@@ -4,7 +4,7 @@ Lees eerst CLAUDE.md, audio_engine/README.md, stories/OPBOUW.md en stories/PROMP
 Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst als iets geld kost.
 
 ## Vast besloten door de eigenaar (7-8 nov 2026)
-- **Sinds 11 nov 2026 (eigenaar: "zo is het perfect"): vaste stem = `eigen-stem` (eigen stem van de eigenaar, calm and gentle voice, speed 1.0, zonder verteller F; ref.wav alleen op de pc in C:\Users\rane\vox-lux-stemmen\eigen-stem) en W3-muziek 19 LUFS onder de stem. Wat hieronder over narrator-e, speed 0.54 en 11 LUFS staat is de oude stand (audio_engine/B1-oud-narrator-e.json); B1.json is leidend.**
+- **Sinds 11 nov 2026 (eigenaar: "zo is het perfect"): vaste stem = `eigen-stem` (eigen stem van de eigenaar, calm and gentle voice, speed 0.9 en klank zonder bass (sinds 11 nov middag), zonder verteller F; ref.wav alleen op de pc in C:\Users\rane\vox-lux-stemmen\eigen-stem) en W3-muziek 19 LUFS onder de stem. Wat hieronder over narrator-e, speed 0.54 en 11 LUFS staat is de oude stand (audio_engine/B1-oud-narrator-e.json); B1.json is leidend.**
 - **"B1-stem met achtergrondmuziek"** (kort B1) staat vast in **`audio_engine/B1.json`** (8 nov: één bron, tools/b1.py; een afwijkende stem.json wordt genegeerd met een WAARSCHUWING, behalve met "eigenaar_afwijking"):
   - **Stem**: `narrator-e` (audio_engine/voices/narrator-e, OmniVoice "male, elderly, moderate pitch, british accent",
     seed 27; ontworpen, niemand gekloond), speed 0.54, pauze 1.4, warme klank (EQ in "klank").
