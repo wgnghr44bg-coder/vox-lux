@@ -1,5 +1,5 @@
 onderwerp Life in Dallas, November 1963
-status   script-klaar (nieuwe opbouw, 2026-11-09, routine)
+status   bezig (2026-11-11, routine-lokaal)
 datum    za 2026-11-21 21:00 NL
 titel    What Was Life Really Like in Dallas in 1963? | History for Sleep
 opening   voorwerp
