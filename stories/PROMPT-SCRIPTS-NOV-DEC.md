@@ -12,7 +12,7 @@ committen en pushen naar main, dan het volgende.
 | # | Map | Datum | Wat |
 |---|---|---|---|
 | 1 | `crisis-1933` | **ma 16 nov** | ombouwen naar nieuwe opbouw + nieuwe toon (Great Depression, groeit nu: Sleepy History Channel ± 3.900 views/dag) |
-| 2 | `thanksgiving-1621` (nieuw) | **wo 25 nov** | **nieuw schrijven**: de eerste Thanksgiving in Plymouth, herfst 1621 (Wampanoag en Pilgrims, het eerste jaar na de Mayflower). Titel bv. "What Was the First Thanksgiving Really Like? \| History for Sleep". Sluit aan op onze Mayflower-video (die groeit nu door Thanksgiving); niet dezelfde feiten als die video herhalen (https://youtu.be/_duWLxwIEss; script op branch `mayflower-pc`, `git show origin/mayflower-pc:stories/mayflower/...`). Soort `reis` (zie tools/youtube_playlist.py) |
+| 2 | `thanksgiving-1621` (nieuw) | **wo 25 nov** | **nieuw schrijven**: de eerste Thanksgiving in Plymouth, herfst 1621 (Wampanoag en Pilgrims, het eerste jaar na de Mayflower). Titel bv. "What Was the First Thanksgiving Really Like? \| History for Sleep". Sluit aan op onze Mayflower-video (die groeit nu door Thanksgiving); niet dezelfde feiten als die video herhalen (https://youtu.be/_duWLxwIEss; script op branch `claude/sleep-archive-video-analysis-b7m0hs`, map `stories/mayflower/`). Soort `reis` (zie tools/youtube_playlist.py) |
 | 3 | `pearl-harbor-1941` | za 28 nov | nieuwe toon (al nieuwe opbouw) |
 | 4 | `boeren-winter-1300` | wo 2 dec | ombouwen + nieuwe toon (winter/kou is nu hot) |
 | 5 | `kerst-loopgraven-1914` | za 5 dec | ombouwen + nieuwe toon |
