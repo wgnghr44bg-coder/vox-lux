@@ -63,3 +63,6 @@
 - 2026-11-11 15:37 Claude: scott-antarctica-1912 in de nieuwe toon (91 feitjes, 13 onderwerpen, 16.972 woorden; titelsoort why, omdat Zwarte Dood ervoor how-survive is); MAKKELIJK, TOON GOED, AFWISSELING GOED. Alle scripts uit PROMPT-SCRIPTS-NOV-DEC.md zijn klaar.
 - 2026-11-11 15:57 Claude: thanksgiving-1621: feitjes 77 (Franksgiving 1939) en 78 (Macy's parade) vervangen door Mourt's Relation (1622) en Bradfords eigen akkers (1623); SCRIPT GOED, TOON GOED, MAKKELIJK
 - 2026-11-11 16:28 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan
+- 2026-11-11 16:28 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-11 20:10 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-11 21:33 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan
