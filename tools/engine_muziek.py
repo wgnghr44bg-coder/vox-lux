@@ -37,7 +37,53 @@ mix.music_below_voice_db = float(_j["muziek_onder"])
 VAST_SEED = int(_j["muziek_seed"])
 KLANK = _j["muziek"]
 dur = sf.info(stem).duration + 60
-seed = VAST_SEED if VAST_SEED is not None else zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
+
+
+def lus(bron, n0, n, X):
+    """Stuk [n0, n0+n) van de bron eindeloos herhaald, elke naad X samples gelijk-vermogen overvloeid."""
+    P = len(bron) - X
+    p = np.arange(n0, n0 + n)
+    k, o = p // P, p % P
+    uit = bron[o].copy()
+    naad = (k > 0) & (o < X)
+    a = (o[naad] / X * np.pi / 2)[:, None]
+    uit[naad] = bron[o[naad]] * np.sin(a) + bron[P + o[naad]] * np.cos(a)
+    return uit
+
+
+if _j.get("achtergrond"):
+    # Vaste achtergrond van de eigenaar (11 nov 2026: open haard + B effect, 14 onder): alleen die geluiden, geen
+    # ducking of filter, zoals de goedgekeurde proef. Ontbreekt een bestand, dan stoppen (niet stil W3 gebruiken).
+    import librosa
+    ag = _j["achtergrond"]
+    lagen = []
+    for l in ag["lagen"]:
+        p = Path(ag["map"]).expanduser() / l["bestand"]
+        if not p.exists():
+            sys.exit(f"ACHTERGROND ONTBREEKT: {p}")
+        y, _ = librosa.load(p, sr=44100, mono=False)
+        y = np.atleast_2d(y).T if y.ndim == 1 else y.T
+        y = np.repeat(y, 2, axis=1) if y.shape[1] == 1 else y[:, :2]
+        # -12 dB vooraf: de open haard heeft eigen harde knapjes (piek 0,73), +9 dB zou ze afknippen; muziek-db zet
+        # het volume daarna toch goed
+        lagen.append((y.astype(np.float32) * 10 ** ((float(l["db"]) - 12) / 20), int(float(l["overvloei"]) * 44100)))
+    uit = v / "muziek432.wav"
+    N, B = int(dur * 44100), 44100 * 30
+    fi, fo = 3 * 44100, 6 * 44100
+    with sf.SoundFile(uit, "w", 44100, 2, subtype="PCM_24") as f:
+        for n0 in range(0, N, B):
+            n = min(B, N - n0)
+            blok = sum(lus(y, n0, n, X) for y, X in lagen)
+            p = np.arange(n0, n0 + n)
+            blok *= np.clip(p / fi, 0, 1)[:, None] * np.clip((N - p) / fo, 0, 1)[:, None]
+            f.write(np.clip(blok, -1, 1))
+    lv, lm = vc.measure(stem), vc.measure(uit)
+    db = (lv["lufs"] - mix.music_below_voice_db) - lm["lufs"]
+    (v / "muziek-db.txt").write_text(f"{db:.2f}\n", encoding="utf-8")
+    print(f"achtergrond -> {uit} ({', '.join(l['bestand'] for l in ag['lagen'])}); stem {lv['lufs']} LUFS, "
+          f"achtergrond {lm['lufs']} LUFS -> --muziek-db {db:.2f}")
+    sys.exit(0)
+seed =VAST_SEED if VAST_SEED is not None else zlib.crc32(m.name.encode()) % 1000              # elke video eigen akkoordenreeks, wel steeds dezelfde
 werk = v / "engine-muziek"
 generate(preset("referentie", duration=dur, seed=seed, **KLANK), werk, stems=False,
          progress=lambda f, s="": print(f"\r{f * 100:5.1f}% {s:<30}", end="", flush=True))

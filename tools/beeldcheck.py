@@ -12,7 +12,7 @@ beeldbeschrijving (wat er wél is) en probeert opnieuw; na 4 pogingen stopt het 
   python tools/beeldcheck.py stories/<map> --alleen-kijken
 Uitslag: <map>/beeldcheck.json en overzichtsvellen <map>/beeldcheck-vel-N.jpg; laatste regel BEELDEN GOED / BEELDEN FOUT.
 """
-import base64, io, json, re, subprocess, sys, time
+import base64, hashlib, io, json, re, subprocess, sys, time
 from pathlib import Path
 
 import requests
@@ -46,14 +46,23 @@ MODERN_WOORD = r"\b(modern|contemporary|electric|plastic|concrete|car|cars|truck
 
 def staat_in_prompt(ding, prompt):
     """Het beeldmodel noemt iets 'niet uit die tijd' dat de beschrijving zelf vraagt (11 nov, Babylon: dadelpalmen,
-    rieten boten en kleitabletten afgekeurd terwijl ze in de prompt staan). Dan is het geen fout, tenzij het 'modern' is."""
-    if re.search(MODERN_WOORD, ding, re.I):
-        return False
+    rieten boten en kleitabletten afgekeurd terwijl ze in de prompt staan). Dan is het geen fout, tenzij het 'modern' is.
+    Per deel bekeken: "modern elements such as palm trees" is alleen palmen (staat in de prompt) en dus geen fout."""
+    d = re.sub(r"the image (includes|contains|shows)|(modern|anachronistic) elements|such as|"
+               r"\b(which|that) (are|were|is|was) not\b.*$|\bnot typical\b.*$|\bis not\b.*$|\bwere not\b.*$", " ",
+               ding.lower())
     p = prompt.lower()
-    woorden = [w.rstrip("s") for w in re.findall(r"[a-z]{4,}", ding.lower())
-               if w not in ("image", "picture", "background", "foreground", "typically", "associated", "with", "that",
-                            "this", "there", "which", "ancient", "time", "period", "visible", "figures", "structure")]
-    return bool(woorden) and any(w in p for w in woorden)
+    delen = [x for x in re.split(r",|\band\b", d) if re.search(r"[a-z]{4,}", x)]
+    for deel in delen:
+        if re.search(MODERN_WOORD, deel):
+            return False
+        woorden = [w.rstrip("s") for w in re.findall(r"[a-z]{4,}", deel)
+                   if w not in ("image", "picture", "background", "foreground", "typically", "associated", "with", "that",
+                                "this", "there", "which", "ancient", "time", "period", "visible", "figures", "structure",
+                                "includes", "elements", "common", "practice")]
+        if not woorden or not any(w in p for w in woorden):
+            return False
+    return bool(delen)
 
 
 def vlm(pad, wat_er_moet_zijn, tijd, prompt=""):
@@ -268,6 +277,10 @@ def controleer(map_, namen):
     pr, j = prompts(map_), jaar(map_)
     st = stijl(map_)
     paden = [Path(map_) / "afbeeldingen" / f"{n}.png" for n in namen]
+    # beelden-handmatig-ok.json: {"034": "<sha1 van het png>", ...} = door Claude/eigenaar bekeken en goed (11 nov,
+    # Babylon: palmen steeds 'modern' genoemd). Alleen geldig zolang het beeld precies hetzelfde is.
+    hj = Path(map_) / "beelden-handmatig-ok.json"
+    hand = json.loads(hj.read_text(encoding="utf-8")) if hj.exists() else {}
     cs = clip_scores(paden, j)
     uit = {}
     for n, p, sc in zip(namen, paden, cs):
@@ -281,6 +294,9 @@ def controleer(map_, namen):
                                 f"that did not exist in {tijd}", tijd)
             if wat and not staat_in_prompt(wat, pr.get(n, "")):
                 f = clip_fout(sc) + [f"bevestigd bij extra controle: {wat[:120]}"]
+        if f and hand.get(n) == hashlib.sha1(Path(p).read_bytes()).hexdigest():
+            print(f"  {n}: met de hand goedgekeurd (model zei: {'; '.join(f)[:100]})", flush=True)
+            f = []
         uit[n] = {"fouten": f, "clip": sc}
         print(f"  {n}: {'GOED' if not f else 'FOUT ' + '; '.join(f)}", flush=True)
     return uit

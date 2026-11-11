@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 B1 = Path(__file__).resolve().parent.parent / "audio_engine" / "B1.json"
-GELUID = ("engine_voice", "speed", "seed", "pauze", "klank", "tempo", "muziek_onder", "muziek_seed", "muziek")
+GELUID = ("engine_voice", "speed", "seed", "pauze", "klank", "tempo", "muziek_onder", "muziek_seed", "muziek", "achtergrond")
 
 
 def standaard():
