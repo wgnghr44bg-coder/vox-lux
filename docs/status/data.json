@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 09:33",
+ "bijgewerkt": "2026-11-11 10:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 72%",
+    "detail": "Beelden maken · 54%",
     "soort": "nu"
    }
   ],
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "233 GB vrij"
+   "tekst": "232 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 09:33)"
+   "tekst": "draait nu (2026-11-11 10:03)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 09:33",
-   "volgende": "2026-11-11 10:03"
+   "laatst": "2026-11-11 10:03",
+   "volgende": "2026-11-11 10:33"
   }
  },
  "kanaal": {
@@ -540,7 +540,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 331,
+    "views": 330,
     "verwerkt": "processed"
    },
    {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 234,
+    "views": 233,
     "verwerkt": "processed"
    },
    {
@@ -611,10 +611,11 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 72,
-  "detail": "65 van 90 beelden",
+  "voortgang": 54,
+  "detail": "49 van 90 beelden",
   "taken": [
    "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
    "beelden maken (ComfyUI)"
   ]
  },
@@ -624,13 +625,17 @@
    "stap": 0
   },
   {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
    "naam": "beelden maken (ComfyUI)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 32,
-  "geheugen_mb": 7199,
+  "bezig_procent": 12,
+  "geheugen_mb": 3580,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -808,7 +813,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 09:33",
+   "tijd": "2026-11-11 10:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
