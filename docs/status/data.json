@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 01:33",
+ "bijgewerkt": "2026-11-11 02:03",
  "werkplanning": {
   "nu": [
    {
@@ -140,7 +140,7 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "230 GB vrij"
+   "tekst": "229 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 01:33)"
+   "tekst": "draait nu (2026-11-11 02:03)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 01:33",
-   "volgende": "2026-11-11 02:03"
+   "laatst": "2026-11-11 02:03",
+   "volgende": "2026-11-11 02:33"
   }
  },
  "kanaal": {
@@ -630,7 +630,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 237,
+  "geheugen_mb": 238,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -814,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 01:33",
+   "tijd": "2026-11-11 02:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
