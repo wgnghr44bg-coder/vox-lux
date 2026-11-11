@@ -3,7 +3,7 @@
 ## Eerst lezen: de vaste afspraken voor Sleep Archives (eigenaar 7-8 nov 2026)
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
 - **Stem en muziek staan vast in `audio_engine/B1.json`** ("B1-stem met achtergrondmuziek"): stem `narrator-e`
-  (speed 0.54, pauzes ×1,4, warme klank) met muziek **W3** "diep en donker-warm" (elke 6 s een ander akkoord, 11 LUFS
+  (speed 0.50, warme klank, **verteller F** sinds 11 nov 2026: slotgedachte van een alinea trager en zachter, vragen en korte beeldzinnen trager, pauzes 1,15 s / vraag 1,8 s / alinea 2,5 s; zie "verteller" in B1.json) met muziek **W3** "diep en donker-warm" (elke 6 s een ander akkoord, 11 LUFS
   onder de stem, seed 1939). Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen
   zonder de eigenaar** ("dat er geen fouten kunnen zijn in stem en geluid"); geen rubberband/tempo/toonhoogte op de stem
   ("anders is het meteen een robot"). Slaap 3, George, regen en de oude 432-muziek worden niet meer gebruikt. Bevestigd 10 nov 2026 na proeven met andere stemmen, langere pauzes en zachtere muziek: "Stem en muziek gewoon laten zoals het was".
@@ -53,3 +53,12 @@ zoals het tweede account 9 nov deed: Scott, Pearl Harbor, Rome, Zwarte Dood), **
 weer AAN; taak "scriptgenerator" blijft UIT). De lokale generator (tools/scriptgen) wordt niet gebruikt.
 Tombstone en Egypte lopen via `tools/hervat_tombstone_egypte.ps1` (log C:\Users\rane\hervat.log): vervangen de oude privé versies op 16 en 23 nov.
 Gettysburg (wo 18 nov) staat weer op "script-klaar (oude opbouw)": een Claude-account of de routine bouwt het om.
+## Stand 11 nov 2026: verteller F en nieuwe toon (eigenaar)
+- **Stem**: B1 blijft dezelfde stem, maar vertelt nu als slaapverteller ("F zoals nu kan dat"): instellingen in
+  `audio_engine/B1.json` ("speed" 0.50 + blok "verteller"). `tools/engine_stem.py` doet dit vanzelf; `tools/b1_check.py`
+  is opnieuw vastgelegd (B1 GOED). Proeven: `tools/b1_proef.py` (standaard F; `--zonder-verteller` voor de oude).
+- **Tekst**: nieuwe toon zoals de grote slaapkanalen (jij-vorm, vragen, verteller als persoon, spreektaal), zie
+  stories/OPBOUW.md en stories/PROMPT-SCRIPT-PC.md; voorbeeld `stories/_toon-proef/`. `tools/script_leesbaar.py` meet TOON.
+- **Op pauze** (eigenaar: "we gaan het toch anders doen"): taak "Sleep Archives routine" UIT, Tombstone-opnieuw gestopt.
+  Babylon (za 14 nov) mocht afmaken. Tombstone-privéversie 03VXrW2gb7g heeft geen publicatietijd.
+- Gemeten (11 nov): grote kanalen 131-169 woorden/min, ons oude B1 129-140; met F ± 119.

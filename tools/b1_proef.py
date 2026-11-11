@@ -47,26 +47,103 @@ if "--tekst" in sys.argv:
         TEKST += zinnen
         if zinnen:
             ALINEA_EIND.add(len(TEKST) - 1)
+# --komma-pauze 0.3: korte adempauze bij komma's (eigenaar 11 nov: grote kanalen ademen vaker kort midden in de zin).
+# De zin wordt bij de komma's in stukjes gesplitst (stukjes van minstens 3 woorden, komma blijft staan) en de stukjes
+# krijgen een korte stilte ertussen. --zin-pauze <s>: andere stilte na een zin (standaard 0,7 × B1-pauze).
+KOMMA_NA = set()
+if "--komma-pauze" in sys.argv:
+    import re
+    nieuw, alinea_nieuw = [], set()
+    for i, z in enumerate(TEKST):
+        stukken = []
+        for s in re.split(r"(?<=,)\s+", z):
+            if stukken and (len(s.split()) < 3 or len(stukken[-1].split()) < 3):
+                stukken[-1] += " " + s
+            else:
+                stukken.append(s)
+        for k, s in enumerate(stukken):
+            nieuw.append(s)
+            if k < len(stukken) - 1:
+                KOMMA_NA.add(len(nieuw) - 1)
+        if i in ALINEA_EIND:
+            alinea_nieuw.add(len(nieuw) - 1)
+    TEKST, ALINEA_EIND = nieuw, alinea_nieuw
 inst = b1.standaard()
+V = inst.get("verteller")
+if V and "--zonder-verteller" not in sys.argv and "--verteller" not in sys.argv:   # standaard sinds 11 nov: verteller F
+    sys.argv += ["--rustpunten", "--verteller", "--traag-speed", str(V["slot_speed"]), "--zin-pauze", str(V["zin_pauze"]),
+                 "--alinea-pauze", str(V["alinea_pauze"]), "--vraag-pauze", str(V["vraag_pauze"])]
+if "--speed" in sys.argv:                                   # alleen voor proeven: andere spreeksnelheid van OmniVoice zelf
+    inst["speed"] = float(sys.argv[sys.argv.index("--speed") + 1])
 SR = ov.SR
 cfg = VoiceConfig(voice=inst["engine_voice"], speed=inst["speed"], seed=inst["seed"], num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 clips = []
 for i in range(0, len(TEKST), 4):                           # groepjes van 4, zoals tools/engine_stem.py
     clips += [edge_fade(trim(w, SR), SR) for w in ov.speak(TEKST[i:i + 4], cfg, seed=cfg.seed + i)]
+# --rustpunten (eigenaar 11 nov: "het mag wel tussendoor iets langzamer"): de laatste 2 zinnen van elke alinea (de stille
+# slotgedachte) iets trager ingesproken door OmniVoice zelf (speed 0.48 i.p.v. 0.54, geen nabewerking), en langere stilte
+# na een vraag (1,6 s) en na een alinea (2,2 s).
+TRAAG = set()
+if "--rustpunten" in sys.argv:
+    vorige = -1
+    for e in sorted(ALINEA_EIND):
+        TRAAG |= {k for k in (e - 1, e) if k > vorige + 1 and k not in KOMMA_NA}
+        vorige = e
+    cfg_traag = VoiceConfig(voice=inst["engine_voice"], speed=float(sys.argv[sys.argv.index("--traag-speed") + 1]) if "--traag-speed" in sys.argv else 0.48, seed=inst["seed"], num_step=inst["model"]["num_step"],
+                            guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
+    for i in sorted(TRAAG):
+        clips[i] = edge_fade(trim(ov.speak([TEKST[i]], cfg_traag, seed=cfg.seed + 300 + i)[0], SR), SR)
+    print(f"rustpunten: {len(TRAAG)} zinnen trager", flush=True)
+# --verteller (eigenaar 11 nov: "de stem nog iets meer variaties geven als een slaapverteller"): niet elke zin even snel.
+# Korte beeldzinnen ("The town below.") trager, vragen iets trager, lange beschrijvende zinnen vloeien iets door; de
+# slotgedachte van een alinea (zie --rustpunten) ook iets zachter. Alles door OmniVoice zelf (speed), geen nabewerking.
+SPEED, ZACHT = {}, set()
+if "--verteller" in sys.argv:
+    base = float(inst["speed"])
+    for i, z in enumerate(TEKST):
+        w = len(z.split())
+        if i in TRAAG:
+            ZACHT.add(i)
+        elif z.rstrip().endswith("?"):
+            SPEED[i] = round(base - 0.03, 2)
+        elif w <= 5:
+            SPEED[i] = round(base - 0.06, 2)
+        elif w >= 15:
+            SPEED[i] = round(base + 0.01, 2)
+    for sp in sorted(set(SPEED.values())):
+        c2 = VoiceConfig(voice=inst["engine_voice"], speed=sp, seed=inst["seed"], num_step=inst["model"]["num_step"],
+                         guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
+        idx = [i for i, v in SPEED.items() if v == sp]
+        for b in range(0, len(idx), 4):
+            for i, wav in zip(idx[b:b + 4], ov.speak([TEKST[i] for i in idx[b:b + 4]], c2, seed=cfg.seed + 700 + b)):
+                clips[i] = edge_fade(trim(wav, SR), SR)
+    for i in ZACHT:
+        clips[i] = clips[i] * 0.84                           # ± 1,5 dB zachter
+    print(f"verteller: {len(SPEED)} zinnen ander tempo, {len(ZACHT)} slotzinnen zachter", flush=True)
 # afgekapte zinnen los opnieuw (zoals tools/engine_stem.py): korter dan 0,25 s of sneller dan 250 woorden/min
 for i, z in enumerate(TEKST):
     for poging in range(1, 8):
         d, w = len(clips[i]) / SR, len(z.split())
         if d >= 0.25 and w / (d / 60) <= (250 if w >= 8 else 320):
             break
-        clips[i] = edge_fade(trim(ov.speak([z], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
+        clips[i] = edge_fade(trim(ov.speak([z], cfg_traag if i in TRAAG else cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
         print(f"zin {i + 1} was afgekapt, opnieuw ({poging}x)", flush=True)
-stil = np.zeros(int(0.7 * float(inst["pauze"]) * SR), np.float32)   # pauze na een zin × B1-pauzefactor
+zp = float(sys.argv[sys.argv.index("--zin-pauze") + 1]) if "--zin-pauze" in sys.argv else 0.7 * float(inst["pauze"])
+stil = np.zeros(int(zp * SR), np.float32)                   # pauze na een zin
 stil_alinea = np.zeros(int(1.1 * float(inst["pauze"]) * SR), np.float32)
+stil_komma = np.zeros(int(float(sys.argv[sys.argv.index("--komma-pauze") + 1]) * SR), np.float32) if KOMMA_NA else None
 delen = [np.zeros(int(0.5 * SR), np.float32)]
+if "--rustpunten" in sys.argv:
+    stil_alinea = np.zeros(int((float(sys.argv[sys.argv.index("--alinea-pauze") + 1]) if "--alinea-pauze" in sys.argv else 2.2) * SR), np.float32)
+stil_vraag = np.zeros(int((float(sys.argv[sys.argv.index("--vraag-pauze") + 1]) if "--vraag-pauze" in sys.argv else 1.6) * SR), np.float32)
 for i, c in enumerate(clips):
-    delen += [c, stil_alinea if i in ALINEA_EIND else stil]
+    na = stil_komma if i in KOMMA_NA else stil_alinea if i in ALINEA_EIND else \
+        stil_vraag if "--rustpunten" in sys.argv and TEKST[i].rstrip().endswith("?") else stil
+    if "--verteller" in sys.argv and na is stil:             # pauze ademt mee met de zin: kort beeld = langer stil
+        w = len(TEKST[i].split())
+        na = np.zeros(int(zp * (1.3 if w <= 5 else 0.85 + 0.3 * min(1.0, w / 18)) * SR), np.float32)
+    delen += [c, na]
 delen.append(np.zeros(2 * SR, np.float32))
 
 with tempfile.TemporaryDirectory() as tmp:

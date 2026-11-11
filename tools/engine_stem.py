@@ -39,10 +39,52 @@ pieces = xv.split_script((m / "script-cues.txt").read_text(encoding="utf-8"))
 # "pauze" in stem.json (eigenaar 7 nov 2026, proef B1: pauzes 40% langer): de stilte die na add_pauses --kort
 # overblijft (alles boven 0,4 s) wordt zoveel keer langer.
 f = float(inst.get("pauze", 1.0))
+ALINEA = {i for i, p in enumerate(pieces) if p.silence_after_ms >= xv.PAUSE_MS}   # na [pause]/[long-pause]: einde alinea
+LANG = {i for i, p in enumerate(pieces) if p.silence_after_ms >= xv.LONG_PAUSE_MS}
 pieces = [xv.Piece(" ".join(xv.TAG_RE.sub("", p.text).split()),
                    round((p.silence_after_ms - 400) * f + 400) if p.silence_after_ms > 400 else p.silence_after_ms, p.cue)
           for p in pieces]
-print(f"{len(pieces)} zinnen, stem {cfg.voice}, speed {cfg.speed}", flush=True)
+
+# Verteller F (eigenaar 11 nov 2026: "F zoals nu kan dat"; B1.json "verteller"): niet elke zin even snel, alles door
+# OmniVoice zelf. Slotgedachte van een alinea (laatste 2 zinnen, niet de eerste) trager en zachter; vragen iets trager;
+# korte beeldzinnen ("The town below.") trager; lange zinnen iets vloeiender. Pauzes: na een zin 1,15 s (korte zin
+# langer, lange zin iets korter), na een vraag 1,8 s, na een alinea 2,5 s. Gelijk aan tools/b1_proef.py --verteller.
+V = inst.get("verteller")
+SPEED, SLOT = {}, set()
+if V:
+    base = float(inst["speed"])
+    vorige = -1
+    for e in sorted(ALINEA | {len(pieces) - 1}):
+        SLOT |= {k for k in range(e - int(V["slot_zinnen"]) + 1, e + 1) if k > vorige + 1}
+        vorige = e
+    for i, p in enumerate(pieces):
+        w = len(p.text.split())
+        if i in SLOT:
+            SPEED[i] = float(V["slot_speed"])
+        elif p.text.rstrip().endswith("?"):
+            SPEED[i] = round(base + float(V["vraag_delta"]), 2)
+        elif w <= int(V["kort_woorden"]):
+            SPEED[i] = round(base + float(V["kort_delta"]), 2)
+        elif w >= int(V["lang_woorden"]):
+            SPEED[i] = round(base + float(V["lang_delta"]), 2)
+        # pauze zoals die na add_pauses --kort (0,4 s eraf) moet overblijven
+        if i in ALINEA:
+            eind = max(float(V["alinea_pauze"]), (p.silence_after_ms - 400) / 1000 if i in LANG else 0)
+        elif p.text.rstrip().endswith("?"):
+            eind = float(V["vraag_pauze"])
+        else:
+            eind = float(V["zin_pauze"]) * (float(V["kort_pauze_factor"]) if w <= int(V["kort_woorden"]) else 0.85 + 0.3 * min(1.0, w / 18))
+        if i < len(pieces) - 1:
+            p.silence_after_ms = round(eind * 1000 + 400)
+print(f"{len(pieces)} zinnen, stem {cfg.voice}, speed {cfg.speed}" + (f", verteller: {len(SPEED)} zinnen eigen tempo, "
+      f"{len(SLOT)} slotzinnen zachter" if V else ""), flush=True)
+
+
+def cfg_voor(i):
+    if i not in SPEED:
+        return cfg
+    return VoiceConfig(voice=cfg.voice, speed=SPEED[i], seed=cfg.seed, num_step=cfg.num_step,
+                       guidance_scale=cfg.guidance_scale, denoise=cfg.denoise)
 
 clips = [None] * len(pieces)
 if "--hergebruik" in sys.argv and (m / "voice-times.tsv").exists():
@@ -76,14 +118,17 @@ def te_kort(i):
 nieuw_of_opnieuw = {i for i, c in enumerate(clips) if c is None}
 opnieuw = {i for i, c in enumerate(clips) if c is None and "--opnieuw" in sys.argv}
 nieuw = [i for i, c in enumerate(clips) if c is None and i not in opnieuw]
-for b in range(0, len(nieuw), 4):
-    idx = nieuw[b:b + 4]
-    for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], cfg, seed=cfg.seed + b)):
-        clips[i] = edge_fade(trim(wav, SR), SR)
-    print(f"klaar {idx[-1] + 1}/{len(pieces)}", flush=True)
+for sp in sorted({cfg_voor(i).speed for i in nieuw}):        # per tempo in groepjes van 4 (verteller F)
+    groep = [i for i in nieuw if cfg_voor(i).speed == sp]
+    c = cfg_voor(groep[0])
+    for b in range(0, len(groep), 4):
+        idx = groep[b:b + 4]
+        for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], c, seed=cfg.seed + b + (0 if sp == cfg.speed else 700))):
+            clips[i] = edge_fade(trim(wav, SR), SR)
+        print(f"klaar {b + len(idx)}/{len(groep)} (speed {sp})", flush=True)
 extra = int(sys.argv[sys.argv.index("--seed-extra") + 1]) if "--seed-extra" in sys.argv else 0   # andere poging
 for i in sorted(opnieuw):
-    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 500 + i + extra)[0], SR), SR)
+    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg_voor(i), seed=cfg.seed + 500 + i + extra)[0], SR), SR)
 for i in range(len(pieces)):                               # afgekapte of lege zinnen: los opnieuw, andere seed
     if not te_kort(i):
         continue
@@ -91,8 +136,11 @@ for i in range(len(pieces)):                               # afgekapte of lege z
     nieuw_of_opnieuw.add(i)                                # opnieuw ingesproken: krijgt ook het tempo
     while te_kort(i) and poging < 10:
         poging += 1
-        clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg, seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
+        clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg_voor(i), seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
     print(f"zin {i + 1} was afgekapt, los opnieuw ({poging}x)", flush=True)
+if V:                                                      # slotgedachte zachter (alleen nieuw ingesproken zinnen)
+    for i in SLOT & nieuw_of_opnieuw:
+        clips[i] = clips[i] * float(V["slot_volume"])
 
 # "tempo" in stem.json (eigenaar 7 nov 2026: "mag hij iets rustiger vertellen"): nieuw ingesproken zinnen worden met
 # rubberband trager gemaakt (klank blijft gelijk). Hergebruikte zinnen uit voice.mp3 zijn dat al, behalve met
