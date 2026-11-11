@@ -194,8 +194,19 @@ def maak_video(m, datum, test=False):
     r = run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)])
     print(r.stdout[-500:])
     r = run([OMNI, str(HIER / "beeldcheck.py"), str(m)])
-    print(r.stdout[-1500:])
-    if "BEELDEN GOED" not in r.stdout:
+    print(r.stdout[-1500:], r.stderr[-800:])
+    fout_b = re.search(r"BEELDEN FOUT: (\d+)/(\d+) goedgekeurd, fout: \[([^\]]*)\]", r.stdout)
+    if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= 3:
+        # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hooguit 3 hardnekkige beelden vervangen
+        # door het goedgekeurde beeld ervoor, zodat de video niet om één beeld blijft liggen
+        import shutil
+        for nr in re.findall(r"'(\d+)'", fout_b.group(3)):
+            buur = next((m / "afbeeldingen" / f"{k:03d}.png" for k in range(int(nr) - 1, 0, -1)
+                         if (m / "afbeeldingen" / f"{k:03d}.png").exists() and f"'{k:03d}'" not in fout_b.group(3)), None)
+            if buur:
+                shutil.copy(buur, m / "afbeeldingen" / f"{nr}.png")
+                log(f"{m.name}: beeld {nr} bleef fout, vervangen door {buur.name}")
+    elif "BEELDEN GOED" not in r.stdout:
         raise RuntimeError("beeldcontrole: " + r.stdout.strip().splitlines()[-1][:200])
     thumb = thumbnail(m, plan_t)
     if not thumb:
@@ -212,7 +223,13 @@ def maak_video(m, datum, test=False):
         if goed not in r.stdout:
             raise RuntimeError(r.stdout.strip().splitlines()[-1][:200] if r.stdout.strip() else goed + " ontbreekt")
 
-    print(run([OMNI, str(HIER / "engine_stem.py"), str(m)]).stdout[-400:])
+    # stem al gemaakt met de huidige vaste stem (voice.mp3 nieuwer dan B1.json)? dan alleen gewijzigde zinnen opnieuw
+    b1 = REPO / "audio_engine" / "B1.json"
+    al_nieuw = (m / "voice.mp3").exists() and (m / "voice.mp3").stat().st_mtime > b1.stat().st_mtime
+    print(run([OMNI, str(HIER / "engine_stem.py"), str(m)] + (["--hergebruik"] if al_nieuw else [])).stdout[-400:])
+    if not (m / "maak_tijden.py").exists():                  # ontbrak bij scripts van het tweede account (11 nov)
+        import shutil
+        shutil.copy(HIER / "maak_tijden_basis.py", m / "maak_tijden.py")
     for ronde in range(1, 5):
         r = run([BASH, "tools/prep_engine.sh", m.name], env={**__import__("os").environ, "REPO": str(REPO).replace("\\", "/")})
         fout = re.search(r"TEKST FOUT.*?" + re.escape(m.name) + r"\s+([\d ]+)$", r.stdout, re.M)
@@ -225,7 +242,7 @@ def maak_video(m, datum, test=False):
     titel = (re.search(r"^titel\s+(.+?\| History for Sleep)", planning(m)[0], re.M) or [None, ""])[1]
     r = run([BASH, "tools/montage_engine.sh", m.name, titel, thumb.relative_to(m).as_posix()],
             env={**__import__("os").environ, "REPO": str(REPO).replace("\\", "/")})
-    print(r.stdout[-3000:])
+    print(r.stdout[-3000:], r.stderr[-1500:])
     if not ("CONTROLE GOED" in r.stdout and "TEKST GOED" in r.stdout and "APPROVED" in r.stdout):
         raise RuntimeError("montage-controles niet goed")
     hap = re.search(r"<0\.6: (\d+)", r.stdout)                # strenge haperingcontrole (tools/vergelijk_bron.py)
