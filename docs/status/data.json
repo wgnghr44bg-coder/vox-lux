@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 05:33",
+ "bijgewerkt": "2026-11-11 06:03",
  "werkplanning": {
   "nu": [],
   "daarna": [
@@ -405,7 +405,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "237 GB vrij"
+   "tekst": "235 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -420,7 +420,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 05:33)"
+   "tekst": "draait nu (2026-11-11 06:03)"
   },
   {
    "naam": "Git",
@@ -458,12 +458,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-11 06:00"
+   "volgende": "2026-11-12 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 05:33",
-   "volgende": "2026-11-11 06:03"
+   "laatst": "2026-11-11 06:03",
+   "volgende": "2026-11-11 06:33"
   }
  },
  "kanaal": {
@@ -542,7 +542,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 211,
+    "views": 207,
     "verwerkt": "processed"
    },
    {
@@ -596,12 +596,17 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 0,
  "huidig": null,
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 249,
+  "bezig_procent": 25,
+  "geheugen_mb": 252,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -785,7 +790,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 05:33",
+   "tijd": "2026-11-11 06:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
