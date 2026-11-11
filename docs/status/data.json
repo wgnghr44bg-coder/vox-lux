@@ -1,50 +1,50 @@
 {
- "bijgewerkt": "2026-11-11 07:03",
+ "bijgewerkt": "2026-11-11 07:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "detail": "Onderwerp & planning",
+    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+    "map": "gettysburg-1863",
+    "detail": "Beelden maken · 88%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
     "wanneer": "do 12-11 09:00 (routine staat UIT)",
-    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "routine maakt de video voor wo 18-11 21:00"
-   },
-   {
-    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
     "map": "dallas-1963",
     "detail": "routine maakt de video voor za 21-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "How Did Scott's Men Survive the Antarctic Winter? | History for Sleep",
     "map": "scott-antarctica-1912",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00 (routine staat UIT)",
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
     "map": "rome-44-vc",
     "detail": "routine maakt de video voor wo 2-12 21:00"
+   },
+   {
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wat": "How Did Ordinary People Survive the Black Death? | History for Sleep",
+    "map": "zwarte-dood-1348",
+    "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
    }
   ],
   "publicaties": [
@@ -77,8 +77,8 @@
     "dag": "wo",
     "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-21",
@@ -163,7 +163,7 @@
     "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
+    "stand": "video wordt gemaakt",
     "controle": "nog niet",
     "flesch": 82,
     "niveau": 4.7,
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "235 GB vrij"
+   "tekst": "234 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,12 +427,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 07:03)"
+   "tekst": "draait nu (2026-11-11 07:33)"
   },
   {
    "naam": "Git",
-   "ok": false,
-   "tekst": "1 commit(s) nog niet gepusht"
+   "ok": true,
+   "tekst": "alles gepusht"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 07:03",
-   "volgende": "2026-11-11 07:33"
+   "laatst": "2026-11-11 07:33",
+   "volgende": "2026-11-11 08:03"
   }
  },
  "kanaal": {
@@ -540,7 +540,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 330,
+    "views": 331,
     "verwerkt": "processed"
    },
    {
@@ -549,7 +549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 215,
+    "views": 213,
     "verwerkt": "processed"
    },
    {
@@ -588,9 +588,9 @@
    "totaal": 17,
    "procent": 29
   },
-  "fouten": 3,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -603,29 +603,34 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
+ "stap": 2,
  "huidig": {
-  "map": "babylon-600-vc",
-  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 0,
-  "stapnaam": "Onderwerp & planning",
-  "voortgang": null,
-  "detail": "",
+  "map": "gettysburg-1863",
+  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 88,
+  "detail": "84 van 95 beelden",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "beelden maken (ComfyUI)"
   ]
  },
  "nu_bezig": [
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7112,
+  "bezig_procent": 99,
+  "geheugen_mb": 7000,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -711,12 +716,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-10 23:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-10 23:56",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -793,6 +792,12 @@
    "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 07:03",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -803,12 +808,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 07:03",
-   "tekst": "Zelfcontrole: Git: 1 commit(s) nog niet gepusht",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-11 07:03",
+   "tijd": "2026-11-11 07:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
@@ -1199,8 +1199,8 @@
    "datum": "2026-11-18",
    "reserve": false,
    "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-11, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "oorlog",
    "opening": "persoon"
