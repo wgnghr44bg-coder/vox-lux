@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 19:03",
+ "bijgewerkt": "2026-11-11 19:33",
  "werkplanning": {
   "nu": [
    {
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "217 GB vrij"
+   "tekst": "216 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 19:03)"
+   "tekst": "draait nu (2026-11-11 19:33)"
   },
   {
    "naam": "Git",
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 19:03",
-   "volgende": "2026-11-11 19:33"
+   "laatst": "2026-11-11 19:33",
+   "volgende": "2026-11-11 20:03"
   }
  },
  "kanaal": {
@@ -564,7 +564,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 288,
+    "views": 287,
     "verwerkt": "processed"
    },
    {
@@ -653,8 +653,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 15,
-  "geheugen_mb": 368,
+  "bezig_procent": 11,
+  "geheugen_mb": 1664,
   "totaal_mb": 8192
  },
  "programmas": [
