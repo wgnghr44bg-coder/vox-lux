@@ -110,6 +110,8 @@ def thumbnail(m, plan_t):
         p = REPO / g.group(1) if "/" in g.group(1) else m / g.group(1)
         if p.exists() and not toont_uren(p):              # door de eigenaar gekozen: houden, behalve met uren erop
             return p
+    if (m / "thumbnail-gekozen.jpg").exists() and not toont_uren(m / "thumbnail-gekozen.jpg"):   # al gekozen (opnieuw maken)
+        return m / "thumbnail-gekozen.jpg"
     import beeldcheck as bc
     regel = (re.search(r"^thumbnail (.+)$", plan_t, re.M) or [None, ""])[1]
     amber = (re.search(r'amberregel "([^"]+)"', regel) or [None, ""])[1]
@@ -203,6 +205,7 @@ def maak_video(m, datum, test=False):
 
     for cmd, goed in (([OMNI, str(HIER / "b1_check.py")], "B1 GOED"),
                       ([sys.executable, str(HIER / "check_afwisseling.py"), str(m)], "AFWISSELING GOED"),
+                      ([sys.executable, str(HIER / "script_leesbaar.py"), str(m)], "TOON GOED"),   # nieuwe toon (11 nov)
                       ([sys.executable, str(HIER / "script_check.py"), str(m)], "SCRIPT GOED")):
         r = run(cmd)
         if goed not in r.stdout:
@@ -224,9 +227,14 @@ def maak_video(m, datum, test=False):
     print(r.stdout[-3000:])
     if not ("CONTROLE GOED" in r.stdout and "TEKST GOED" in r.stdout and "APPROVED" in r.stdout):
         raise RuntimeError("montage-controles niet goed")
+    hap = re.search(r"<0\.6: (\d+)", r.stdout)                # strenge haperingcontrole (tools/vergelijk_bron.py)
+    if hap and int(hap.group(1)) > 0:
+        raise RuntimeError(f"haperingen: {hap.group(1)} plekken waar het videogeluid afwijkt van de bron")
     soort = (re.search(r"^soort\s+(\S+)", planning(m)[0], re.M) or [None, "mysterie"])[1]
+    oud = re.search(r"youtu\.be/([A-Za-z0-9_-]{11})", planning(m)[0])          # bestaande privéversie vervangen
     r = run([sys.executable, str(HIER / "vervang_video.py"), str(m), "--video", str(m / "video" / f"{m.name}-16mm.mp4"),
-             "--publish-at", f"{datum}T20:00:00Z", "--thumbnail", str(thumb), "--soort", soort])
+             "--publish-at", f"{datum}T20:00:00Z", "--thumbnail", str(thumb), "--soort", soort]
+            + (["--oud", oud.group(1)] if oud else []))
     print(r.stdout[-1500:])
     if "KLAAR" not in r.stdout:
         raise RuntimeError("upload/verwerking niet klaar (zie ROUTINE-LOG)")
@@ -240,6 +248,37 @@ if __name__ == "__main__":
         except Exception as e:
             log(f"{m.name}: TEST GESTOPT ({e})")
             sys.exit(1)
+        sys.exit(0)
+    if "--opnieuw" in sys.argv:
+        # eigenaar 11 nov 2026: "alle video's opnieuw volgens de nieuwe regels" (eigen stem, nieuwe toon). Op datum, één
+        # voor één. Het script in de nieuwe toon schrijft een Claude-account (stories/PROMPT-OPNIEUW.md stap 2); hier wordt
+        # gewacht tot script_leesbaar "TOON GOED" geeft (elke 10 min kijken), daarna beelden, stem, montage en vervangen.
+        for naam in sys.argv[sys.argv.index("--opnieuw") + 1].split(","):
+            m = STORIES / naam
+            if re.search(rf"{re.escape(naam)}: opnieuw gemaakt", (STORIES / "ROUTINE-LOG.md").read_text(encoding="utf-8")):
+                continue
+            datum = planning(m)[1]
+            while True:
+                run(["git", "pull", "-q", "--rebase", "--autostash"])
+                lb = run([sys.executable, str(HIER / "script_leesbaar.py"), str(m)]).stdout
+                if "TOON GOED" in lb and "MAKKELIJK" in lb:
+                    break
+                if datetime.date.fromisoformat(datum) - datetime.date.today() < datetime.timedelta(days=1):
+                    log(f"{m.name}: script niet op tijd in de nieuwe toon, oude versie blijft staan")
+                    break
+                print(f"{datetime.datetime.now():%H:%M} {naam}: wacht op script in de nieuwe toon", flush=True)
+                time.sleep(600)
+            else:
+                pass
+            if "TOON GOED" not in lb:
+                continue
+            log(f"{m.name}: opnieuw maken voor {datum} 21:00 (eigen stem, nieuwe toon)")
+            try:
+                maak_video(m, datum)
+                log(f"{m.name}: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op {datum} 21:00")
+            except Exception as e:
+                log(f"{m.name}: opnieuw maken GESTOPT ({e}); de oude versie blijft staan")
+            git_push([STORIES / "ROUTINE-LOG.md", m / "planning.txt"], f"{m.name}: opnieuw maken (routine-lokaal)")
         sys.exit(0)
     run(["git", "checkout", "-q", "main"])
     run(["git", "pull", "-q"])
