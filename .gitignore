@@ -26,3 +26,7 @@ stories/*/video/
 __pycache__/
 tools/.cache/
 stories/vikings-winter/stemcache/
+
+# eigen stem van de eigenaar: nooit op GitHub (openbare repo), staat in C:/Users/rane/vox-lux-stemmen
+audio_engine/voices/eigen-stem/*.wav
+audio_engine/voices/eigen-stem/*.mp3

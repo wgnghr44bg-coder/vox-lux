@@ -35,11 +35,28 @@ class VoiceConfig:
     lead_in: float = 0.5           # silence at the start
 
 
+def ref_wav(d, meta):
+    """voices/<name>/ref.wav, or (eigen stem van de eigenaar, 11 nov 2026) alleen op de pc: voice.json "ref_pc".
+    De repo is openbaar, dus een echte stem staat niet op GitHub."""
+    if (d / "ref.wav").exists() or not meta.get("ref_pc"):
+        return d / "ref.wav"
+    p = Path(meta["ref_pc"]).expanduser()
+    if not p.exists():
+        raise FileNotFoundError(f"stem {d.name}: {p} ontbreekt (staat alleen op de pc van de eigenaar, niet op GitHub)")
+    return p
+
+
 def list_voices():
-    return sorted(p.name for p in VOICES.iterdir() if (p / "ref.wav").exists())
+    out = []
+    for p in VOICES.iterdir():
+        if (p / "voice.json").exists():
+            meta = json.loads((p / "voice.json").read_text(encoding="utf-8"))
+            if (p / "ref.wav").exists() or Path(meta.get("ref_pc", "-")).expanduser().exists():
+                out.append(p.name)
+    return sorted(out)
 
 
 def load_voice(name):
     d = VOICES / name
     meta = json.loads((d / "voice.json").read_text(encoding="utf-8"))
-    return d / "ref.wav", meta
+    return ref_wav(d, meta), meta

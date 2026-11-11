@@ -49,8 +49,11 @@ GEN = OmniVoiceGenerationConfig(num_step=_M["num_step"], guidance_scale=_M["guid
 import b1
 sj = b1.laad(a.story)
 vdir = HIER.parent / "audio_engine" / "voices" / sj["engine_voice"]
-REF, SPEED = vdir / "ref.wav", sj["speed"]
-REF_TEXT = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))["ref_text"]
+_meta = json.loads((vdir / "voice.json").read_text(encoding="utf-8"))
+# ref.wav in de repo, of alleen op de pc ("ref_pc", eigen stem van de eigenaar 11 nov 2026; repo is openbaar)
+REF = vdir / "ref.wav" if (vdir / "ref.wav").exists() or not _meta.get("ref_pc") else Path(_meta["ref_pc"]).expanduser()
+SPEED = sj["speed"]
+REF_TEXT = _meta["ref_text"]
 SPEED = a.speed or SPEED
 KLANK = klank_voor(a.story)
 if float(sj.get("tempo", 1.0)) != 1.0:                    # alleen bij een bewuste afwijking van de eigenaar

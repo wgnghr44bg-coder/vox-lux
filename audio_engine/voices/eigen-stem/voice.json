@@ -1,0 +1,8 @@
+{
+  "name": "eigen-stem",
+  "bijnaam": "Eigen stem (vaste stem sinds 11 nov 2026)",
+  "description": "Calm and gentle voice. The owner's own voice (recording 'Beste voice ever', 11 Nov 2026; owner: 'Van mezelf'), cloned with OmniVoice with the owner's permission. Reference = first 15.9 s of that recording; only on the owner's pc (ref_pc), not on GitHub (public repo). Speed 1.0 = his natural pace (± 128 words/min).",
+  "ref_text": "Tonight, we travel back through time. Imagine a small medieval village, hidden beneath a cold silver moon. The streets are silent. Only the gentle sound of the wind moves through the narrow streets.",
+  "default_speed": 1.0,
+  "ref_pc": "C:/Users/rane/vox-lux-stemmen/eigen-stem/ref.wav"
+}

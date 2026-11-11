@@ -2,9 +2,12 @@
 
 ## Eerst lezen: de vaste afspraken voor Sleep Archives (eigenaar 7-8 nov 2026)
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
-- **Stem en muziek staan vast in `audio_engine/B1.json`** ("B1-stem met achtergrondmuziek"): stem `narrator-e`
-  (speed 0.50, warme klank, **verteller F** sinds 11 nov 2026: slotgedachte van een alinea trager en zachter, vragen en korte beeldzinnen trager, pauzes 1,15 s / vraag 1,8 s / alinea 2,5 s; zie "verteller" in B1.json) met muziek **W3** "diep en donker-warm" (elke 6 s een ander akkoord, 11 LUFS
-  onder de stem, seed 1939). Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen
+- **Stem en muziek staan vast in `audio_engine/B1.json`** (sinds 11 nov 2026, eigenaar: "zo is het perfect, ik wil deze
+  als vaste stem houden"): stem **`eigen-stem`** = de eigen stem van de eigenaar ("calm and gentle voice"), speed 1.0
+  (zijn normale tempo, ± 128 woorden/min), **zonder verteller F**, gewone pauzes (pauze 1.4), warme klank, met muziek
+  **W3** "diep en donker-warm" (elke 6 s een ander akkoord, **19 LUFS onder de stem**, seed 1939). Het stembestand staat
+  alleen op de pc: `C:\Users\rane\vox-lux-stemmen\eigen-stem\ref.wav` (voice.json "ref_pc"; de repo is openbaar, dus
+  nooit op GitHub zetten). De oude vaste stem (narrator-e met verteller F, 11 LUFS) staat in `audio_engine/B1-oud-narrator-e.json`. Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen
   zonder de eigenaar** ("dat er geen fouten kunnen zijn in stem en geluid"); geen rubberband/tempo/toonhoogte op de stem
   ("anders is het meteen een robot"). Slaap 3, George, regen en de oude 432-muziek worden niet meer gebruikt. Bevestigd 10 nov 2026 na proeven met andere stemmen, langere pauzes en zachtere muziek: "Stem en muziek gewoon laten zoals het was".
 - **Opbouw van elke video**: `stories/OPBOUW.md` (begin van ± 2 min zonder "Tonight", 8-13 onderwerpen met feitjes,
@@ -26,7 +29,7 @@
 - Free video tools (FilmCraft, EffectCraft, PhotoCraft, SoundCraft, … plus OpenCV/ffmpeg) are installed at session
   start. See `tools/craft/README.md` for commands, costs and reusable example scripts.
 - Talk Dutch with the user, simply. Always ask before anything that costs money (xAI images, voice, video).
-- ElevenLabs is no longer used. **Standard voice and music since 8 Nov 2026: B1 + W3 from `audio_engine/B1.json`** (see the
+- ElevenLabs is no longer used. **Standard voice and music: `audio_engine/B1.json`** (since 11 Nov 2026: the owner's own voice `eigen-stem` + W3 at 19 LUFS under; see the
   section above; the old standard Slaap 3 + rain is replaced). Last step stays `tools/eind_volume.py in.mp4 uit.mp4`: -14 LUFS.
   George/Chatterbox (`make_voice_local.py`) only on request. xAI voice (`tools/xai_voiceover.py`) only on request; it costs money.
 - REA (reverse engineering, https://github.com/morluto/rea): MCP server in `.mcp.json`, skill in
@@ -62,3 +65,13 @@ Gettysburg (wo 18 nov) staat weer op "script-klaar (oude opbouw)": een Claude-ac
 - **Op pauze** (eigenaar: "we gaan het toch anders doen"): taak "Sleep Archives routine" UIT, Tombstone-opnieuw gestopt.
   Babylon (za 14 nov) mocht afmaken. Tombstone-privéversie 03VXrW2gb7g heeft geen publicatietijd.
 - Gemeten (11 nov): grote kanalen 131-169 woorden/min, ons oude B1 129-140; met F ± 119.
+## Stand 11 nov 2026 (later): eigen stem is de vaste stem (eigenaar)
+- **Stem**: de eigen stem van de eigenaar (opname "Beste voice ever", eigenaar: "Van mezelf"), gekloond met OmniVoice:
+  `audio_engine/voices/eigen-stem/voice.json` ("calm and gentle voice"). Het geluid zelf (ref.wav + de hele opname) staat
+  alleen op de pc in `C:\Users\rane\vox-lux-stemmen\eigen-stem\` (de repo is openbaar). Speed 1.0, geen verteller F
+  (eigenaar: "laat verteller F weg, pak de normale stem"); het F-blok staat als "verteller_uit" in B1.json en wordt niet gebruikt.
+- **Muziek**: W3, **19 LUFS onder de stem** (eigenaar: "zo is het perfect"; proeven 11 → 15 → 19). Gemeten 11 nov: grote
+  slaapkanalen met muziek zitten ± 15-25 onder de stem, drie van de zeven gebruiken geen muziek.
+- `tools/b1_check.py` is opnieuw vastgelegd met de eigen stem (B1 GOED). `tools/b1_proef.py` maakt de vaste proef van 1 min;
+  `tools/proef_andere_stem.py` voor proeven met een andere stem (`--zonder-verteller`, `--muziek-onder`).
+- Proeftekst nieuwe toon: `stories/_toon-proef/gettysburg-begin-en-hoofdstuk1.txt` (de eigenaar vond deze proef "perfect").

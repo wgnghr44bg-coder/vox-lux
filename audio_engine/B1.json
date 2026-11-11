@@ -1,12 +1,12 @@
 {
-    "naam": "B1-stem met achtergrondmuziek (verteller F)",
-    "engine_voice": "narrator-e",
-    "speed": 0.5,
+    "naam": "Eigen stem (calm and gentle voice) met W3-muziek, 19 LUFS onder",
+    "engine_voice": "eigen-stem",
+    "speed": 1.0,
     "seed": 7,
     "pauze": 1.4,
     "klank": "highpass=f=60,lowshelf=f=180:g=3,highshelf=f=4500:g=-4,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
-    "waarom": "Vaste standaard (eigenaar 7-8 nov 2026): B1-stem narrator-e zoals gekozen in proef B1 (speed 0.54, pauzes x1.4, warme klank, niets aan de stem veranderen) met muziek W3 'diep en donker-warm', 11 LUFS onder de stem, seed 1939. Alle gereedschap leest dit bestand; stories/<map>/stem.json mag alleen afwijken met 'eigenaar_afwijking'. 11 nov 2026 (eigenaar, proef F): speed 0.50 en verteller-tempo (zie verteller); de pauzes komen uit verteller, niet meer uit pauze.",
-    "muziek_onder": 11,
+    "waarom": "Vaste standaard (eigenaar 11 nov 2026: 'zo is het perfect, ik wil deze als vaste stem houden'): de eigen stem van de eigenaar (audio_engine/voices/eigen-stem, calm and gentle voice; ref.wav alleen op de pc, zie ref_pc) op zijn normale tempo (speed 1.0, ± 128 woorden/min), zonder verteller F (blok 'verteller_uit' wordt niet gebruikt), gewone pauzes (pauze 1.4) en warme klank, met muziek W3 'diep en donker-warm', 19 LUFS onder de stem (was 11), seed 1939. Oude vaste stem B1 (narrator-e, verteller F): audio_engine/B1-oud-narrator-e.json. Alle gereedschap leest dit bestand; stories/<map>/stem.json mag alleen afwijken met 'eigenaar_afwijking'.",
+    "muziek_onder": 19,
     "muziek_seed": 1939,
     "muziek": {
         "chord_len": 6,
@@ -34,7 +34,7 @@
         "torch": "2.8.0+cu128",
         "transformers": "5.22.1"
     },
-    "verteller": {
+    "verteller_uit": {
         "waarom": "eigenaar 11 nov 2026, proef F: \"F zoals nu kan dat\". Zelfde stem, maar vertelt als een slaapverteller: niet elke zin even snel; alles door OmniVoice zelf (speed), geen nabewerking.",
         "slot_speed": 0.45,
         "slot_zinnen": 2,
@@ -47,6 +47,7 @@
         "zin_pauze": 1.15,
         "kort_pauze_factor": 1.3,
         "vraag_pauze": 1.8,
-        "alinea_pauze": 2.5
+        "alinea_pauze": 2.5,
+        "waarom_uit": "eigenaar 11 nov 2026: 'laat verteller F weg, pak de normale stem'"
     }
 }
