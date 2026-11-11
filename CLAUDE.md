@@ -4,7 +4,7 @@
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
 - **Stem en muziek staan vast in `audio_engine/B1.json`** (sinds 11 nov 2026, eigenaar: "zo is het perfect, ik wil deze
   als vaste stem houden"): stem **`eigen-stem`** = de eigen stem van de eigenaar ("calm and gentle voice"), **speed 0.9**
-  (rustiger, ± 120 woorden/min; sinds 11 nov middag), **klank zonder bass**, **zonder verteller F**, gewone pauzes (pauze 1.4), met muziek
+  (rustiger, ± 120 woorden/min; sinds 11 nov middag), **klank zonder bass**, **zonder verteller F**, gewone pauzes (pauze 1.4, **nergens langer dan 2 s stil**: max_pauze, 11 nov avond), met muziek
   **W3** "diep en donker-warm" (elke 6 s een ander akkoord, **19 LUFS onder de stem**, seed 1939). Het stembestand staat
   alleen op de pc: `C:\Users\rane\vox-lux-stemmen\eigen-stem\ref.wav` (voice.json "ref_pc"; de repo is openbaar, dus
   nooit op GitHub zetten). De oude vaste stem (narrator-e met verteller F, 11 LUFS) staat in `audio_engine/B1-oud-narrator-e.json`. Alle gereedschap leest dit via `tools/b1.py`; het stemmodel staat vast op één versie. Controle vóór elke video: `tools/b1_check.py` moet "B1 GOED" geven. **Niets aan de stem of muziek veranderen

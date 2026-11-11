@@ -44,6 +44,11 @@ LANG = {i for i, p in enumerate(pieces) if p.silence_after_ms >= xv.LONG_PAUSE_M
 pieces = [xv.Piece(" ".join(xv.TAG_RE.sub("", p.text).split()),
                    round((p.silence_after_ms - 400) * f + 400) if p.silence_after_ms > 400 else p.silence_after_ms, p.cue)
           for p in pieces]
+# "max_pauze" (eigenaar 11 nov 2026, Gettysburg-proef: 3,5 s stilte bij een nieuw stuk "best lang stil"): na
+# add_pauses --kort (0,4 s eraf) nergens langer stil dan dit
+if inst.get("max_pauze"):
+    grens = round(float(inst["max_pauze"]) * 1000 + 400)
+    pieces = [xv.Piece(p.text, min(p.silence_after_ms, grens), p.cue) for p in pieces]
 
 # Verteller F (eigenaar 11 nov 2026: "F zoals nu kan dat"; B1.json "verteller"): niet elke zin even snel, alles door
 # OmniVoice zelf. Slotgedachte van een alinea (laatste 2 zinnen, niet de eerste) trager en zachter; vragen iets trager;
