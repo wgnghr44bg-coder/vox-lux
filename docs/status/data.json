@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 15:03",
+ "bijgewerkt": "2026-11-11 15:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Beelden maken · 99%",
+    "detail": "Beelden maken · 86%",
     "soort": "nu"
    }
   ],
@@ -42,9 +42,9 @@
    },
    {
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
-    "wat": "Christmas in the Trenches of World War I, 1914 | <N> Hours of History for Sleep",
+    "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
+    "detail": "routine maakt de video voor za 5-12 21:00"
    }
   ],
   "publicaties": [
@@ -132,7 +132,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-02",
+  "klaar_tot": "2026-12-16",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -244,15 +244,15 @@
    },
    {
     "datum": "2026-12-05",
-    "titel": "Christmas in the Trenches of World War I, 1914 | <N> Hours of History for Sleep",
+    "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
     "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "flesch": 82,
+    "niveau": 5.3,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-09",
@@ -264,19 +264,19 @@
     "flesch": 83,
     "niveau": 4.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-12",
     "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
     "map": "zwarte-dood-1348",
-    "klaar": false,
-    "stand": "script afgekeurd, moet opnieuw",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
     "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "flesch": 82,
+    "niveau": 4.6,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-16",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 15:03)"
+   "tekst": "draait nu (2026-11-11 15:33)"
   },
   {
    "naam": "Git",
@@ -475,8 +475,8 @@
   },
   {
    "naam": "Script zwarte-dood-1348",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (9 punten) (nacht 2026-11-10)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
   }
  ],
  "automatisering": false,
@@ -493,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 15:03",
-   "volgende": "2026-11-11 15:33"
+   "laatst": "2026-11-11 15:33",
+   "volgende": "2026-11-11 16:03"
   }
  },
  "kanaal": {
@@ -612,9 +612,9 @@
    "totaal": 18,
    "procent": 28
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 13,
    "totaal": 13
   }
  },
@@ -635,11 +635,12 @@
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "92 van 92 beelden",
+  "voortgang": 86,
+  "detail": "79 van 92 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ]
  },
  "nu_bezig": [
@@ -650,11 +651,15 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 4820,
+  "bezig_procent": 8,
+  "geheugen_mb": 6929,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -740,24 +745,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 01:06",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 06:12",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 06:13",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 06:41",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
    "fout": true,
@@ -822,15 +809,27 @@
    "tekst": "Claude: boeren-winter-1300 omgebouwd naar nieuwe opbouw + nieuwe toon (87 feitjes, 13 onderwerpen, 18.290 woorden, lange zinnen gesplitst; opening persoon, titelsoort how-survive); MAKKELIJK, TOON GOE",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-11 15:03",
-   "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
-   "fout": true
+   "tijd": "2026-11-11 15:14",
+   "tekst": "Claude: kerst-loopgraven-1914 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 13 onderwerpen, 17.938 woorden; opening scène, titelsoort what-happened); MAKKELIJK, TOON GOED, AFWISSELING GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 15:18",
+   "tekst": "Claude: rome-44-vc in de nieuwe toon (88 feitjes, 13 onderwerpen, 16.542 woorden); MAKKELIJK, TOON GOED, AFWISSELING GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 15:26",
+   "tekst": "Claude: zwarte-dood-1348 in de nieuwe toon, 7 feitjes die niet over de pest gingen vervangen (gebeden, processies, kruiden, Boccaccio in 1348, gezondheidsambtenaren, schenkingen aan ziekenhuizen, arch",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-10 01:33",
@@ -1337,12 +1336,12 @@
    "map": "kerst-loopgraven-1914",
    "datum": "2026-12-05",
    "reserve": false,
-   "titel": "Christmas in the Trenches of World War I, 1914 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "scène"
   },
   {
    "map": "klooster-1150",
@@ -1624,7 +1623,7 @@
    "datum": "2026-12-09",
    "reserve": false,
    "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account; 10 nov: afkeuring was onterecht, scriptcontrole verbeterd)",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
@@ -1910,8 +1909,8 @@
    "datum": "2026-12-12",
    "reserve": false,
    "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
-   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-10: opnieuw ombouwen, zie scriptcheck.json)",
-   "soort": "script oud",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude; 7 feitjes vervangen)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": "voorwerp"
