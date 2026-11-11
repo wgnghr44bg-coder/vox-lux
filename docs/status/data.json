@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 03:03",
+ "bijgewerkt": "2026-11-11 03:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 86%",
+    "detail": "Video bouwen · 96%",
     "soort": "nu"
    }
   ],
@@ -140,7 +140,7 @@
     "map": "babylon-600-vc",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
+    "controle": "nog niet",
     "flesch": 78,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "229 GB vrij"
+   "tekst": "214 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 03:03)"
+   "tekst": "draait nu (2026-11-11 03:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 03:03",
-   "volgende": "2026-11-11 03:33"
+   "laatst": "2026-11-11 03:33",
+   "volgende": "2026-11-11 04:03"
   }
  },
  "kanaal": {
@@ -513,7 +513,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 10,
+    "views": 11,
     "verwerkt": "processed"
    },
    {
@@ -522,7 +522,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 113,
+    "views": 112,
     "verwerkt": "processed"
    },
    {
@@ -540,7 +540,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 206,
+    "views": 207,
     "verwerkt": "processed"
    },
    {
@@ -611,11 +611,12 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 86,
+  "voortgang": 96,
   "detail": "beweging",
   "taken": [
    "routine (Claude) stuurt aan",
-   "beweging en hoofdstuktitels"
+   "beweging en hoofdstuktitels",
+   "stem inspreken (OmniVoice B1)"
   ]
  },
  "nu_bezig": [
@@ -626,11 +627,15 @@
   {
    "naam": "beweging en hoofdstuktitels",
    "stap": 4
+  },
+  {
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 51,
-  "geheugen_mb": 4193,
+  "bezig_procent": 26,
+  "geheugen_mb": 742,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -814,7 +819,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 03:03",
+   "tijd": "2026-11-11 03:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
