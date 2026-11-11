@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 14:33",
+ "bijgewerkt": "2026-11-11 15:03",
  "werkplanning": {
   "nu": [
    {
@@ -18,13 +18,13 @@
    },
    {
     "wanneer": "zo 15-11 09:00 (routine staat UIT)",
-    "wat": "Vrije plek: de routine kiest een populair onderwerp",
-    "map": "",
+    "wat": "What Was the First Thanksgiving Really Like? | History for Sleep",
+    "map": "thanksgiving-1621",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
     "wanneer": "di 17-11 09:00 (routine staat UIT)",
-    "wat": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
@@ -36,9 +36,9 @@
    },
    {
     "wanneer": "zo 22-11 09:00 (routine staat UIT)",
-    "wat": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
+    "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
-    "detail": "routine maakt de video voor wo 2-12 21:00 (script moet eerst nog goedgekeurd)"
+    "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
@@ -99,15 +99,15 @@
    {
     "datum": "2026-11-25",
     "dag": "wo",
-    "titel": "—",
-    "map": "",
-    "stand": "vrije plek: de routine kiest een onderwerp",
+    "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
+    "map": "thanksgiving-1621",
+    "stand": "script klaar, video volgt",
     "kleur": "zacht"
    },
    {
     "datum": "2026-11-28",
     "dag": "za",
-    "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
@@ -123,16 +123,16 @@
    {
     "datum": "2026-12-02",
     "dag": "wo",
-    "titel": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
+    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
-    "stand": "script moet nog (opnieuw) gemaakt worden",
-    "kleur": "fout"
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
    }
   ],
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-11-28",
+  "klaar_tot": "2026-12-02",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -207,28 +207,40 @@
     "toon": "TOON GOED"
    },
    {
+    "datum": "2026-11-25",
+    "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
+    "map": "thanksgiving-1621",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 79,
+    "niveau": 5.5,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
+   },
+   {
     "datum": "2026-11-28",
-    "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
+    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 82,
-    "niveau": 4.6,
+    "stand": "script klaar, nachtcontrole volgt",
+    "controle": "nog niet",
+    "flesch": 83,
+    "niveau": 4.5,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE AFSTANDELIJK (jij-vorm, spreektaal, verteller, you might think)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-02",
-    "titel": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
+    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "klaar": true,
+    "stand": "script klaar, nachtcontrole volgt",
     "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "flesch": 86,
+    "niveau": 4.8,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-05",
@@ -439,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 14:33)"
+   "tekst": "draait nu (2026-11-11 15:03)"
   },
   {
    "naam": "Git",
@@ -481,8 +493,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 14:33",
-   "volgende": "2026-11-11 15:03"
+   "laatst": "2026-11-11 15:03",
+   "volgende": "2026-11-11 15:33"
   }
  },
  "kanaal": {
@@ -507,7 +519,7 @@
     "duur": "2:01:43",
     "privacy": "private",
     "publiceer": "2026-11-11T03:52:41Z",
-    "views": 0,
+    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -552,7 +564,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 268,
+    "views": 267,
     "verwerkt": "processed"
    },
    {
@@ -641,8 +653,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 10,
-  "geheugen_mb": 4920,
+  "bezig_procent": 35,
+  "geheugen_mb": 4820,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -728,24 +740,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 00:36",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 00:46",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 00:56",
-   "tekst": "routine of Egypte bezig, wachten",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 01:06",
    "tekst": "routine of Egypte bezig, wachten",
    "fout": false,
@@ -810,11 +804,29 @@
    "tekst": "Claude: crisis-1933 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 12 onderwerpen, 16.596 woorden, opening scène, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
    "fout": false,
    "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 14:35",
+   "tekst": "Claude: thanksgiving-1621 nieuw geschreven (89 feitjes, 12 onderwerpen, ± 14.650 woorden, opening mythe, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 14:37",
+   "tekst": "Claude: pearl-harbor-1941 in de nieuwe toon (88 feitjes, 13 onderwerpen, 17.155 woorden; titelsoort what-actually, andere titel omdat Thanksgiving ervoor life-really-like is); MAKKELIJK, TOON GOED, AF",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-11 15:00",
+   "tekst": "Claude: boeren-winter-1300 omgebouwd naar nieuwe opbouw + nieuwe toon (87 feitjes, 13 onderwerpen, 18.290 woorden, lange zinnen gesplitst; opening persoon, titelsoort how-survive); MAKKELIJK, TOON GOE",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-11 14:33",
+   "tijd": "2026-11-11 15:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
@@ -995,12 +1007,12 @@
    "map": "boeren-winter-1300",
    "datum": "2026-12-02",
    "reserve": false,
-   "titel": "How Medieval Peasants Survived Winter, 1300 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "persoon"
   },
   {
    "map": "bronstijd",
@@ -1523,8 +1535,8 @@
    "map": "pearl-harbor-1941",
    "datum": "2026-11-28",
    "reserve": false,
-   "titel": "What Was Life Really Like in Hawaii in 1941? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, 2026-11-09, tweede account)",
+   "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
@@ -1738,6 +1750,17 @@
    "id": "",
    "afspeellijst": "oudheid",
    "opening": ""
+  },
+  {
+   "map": "thanksgiving-1621",
+   "datum": "2026-11-25",
+   "reserve": false,
+   "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "soort": "script nieuw",
+   "id": "",
+   "afspeellijst": "reis",
+   "opening": "mythe"
   },
   {
    "map": "titanic",
