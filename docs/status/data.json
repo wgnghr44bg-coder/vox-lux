@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-11 11:03",
+ "bijgewerkt": "2026-11-11 11:33",
  "werkplanning": {
   "nu": [
    {
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 11:03)"
+   "tekst": "draait nu (2026-11-11 11:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 11:03",
-   "volgende": "2026-11-11 11:33"
+   "laatst": "2026-11-11 11:33",
+   "volgende": "2026-11-11 12:03"
   }
  },
  "kanaal": {
@@ -629,8 +629,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 11,
-  "geheugen_mb": 6609,
+  "bezig_procent": 81,
+  "geheugen_mb": 7074,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -808,7 +808,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 11:03",
+   "tijd": "2026-11-11 11:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
