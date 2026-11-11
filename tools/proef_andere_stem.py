@@ -10,7 +10,7 @@ vraag -0.03/0.50 = -6 %, kort -12 %, lang +2 %). Pauzes, zachtere slotzinnen, mu
 --zonder-verteller: helemaal zonder F: normale speed, geen zachtere slotzinnen, gewone pauzes (0,7 / 1,1 x B1-pauze).
 
   C:/Users/rane/omnivoice-venv/Scripts/python.exe tools/proef_andere_stem.py <uit.mp3> --stem-map <map> \
-      --tekst stories/_toon-proef/gettysburg-begin-en-hoofdstuk1.txt [--speed 1.0] [--seed 7] [--vast-tempo | --zonder-verteller]
+      --tekst stories/_toon-proef/gettysburg-begin-en-hoofdstuk1.txt [--speed 1.0] [--seed 7] [--vast-tempo | --zonder-verteller] [--muziek-onder 15]
 """
 import json, re, subprocess, sys, tempfile
 from pathlib import Path
@@ -129,7 +129,7 @@ with tempfile.TemporaryDirectory() as tmp:
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(tmp / "ruw.wav"), "-af", inst["klank"], "-ar", "44100", "-ac", "1", str(st)], check=True)
     duur = sf.info(st).duration
     mix = MixConfig()
-    mix.music_below_voice_db = float(inst["muziek_onder"])
+    mix.music_below_voice_db = float(arg("--muziek-onder", inst["muziek_onder"]))   # bv. 15 = zachtere muziek
     generate(preset("referentie", duration=duur + 1, seed=int(inst["muziek_seed"]), **inst["muziek"]),
              tmp / "m", stems=False, progress=lambda *a: None)
     vorm = tmp / "vorm.wav"
@@ -148,4 +148,4 @@ with tempfile.TemporaryDirectory() as tmp:
                     "-map", "[a]", "-c:a", "libmp3lame", "-b:a", "128k", str(uit)], check=True)
 woorden = sum(len(z.split()) for z in TEKST)
 print(f"klaar: {uit} ({duur:.0f} s, {woorden / (duur / 60):.0f} woorden/min), stem {stem_map.name} speed {base} seed {seed}, "
-      f"muziek {inst['muziek_onder']} LUFS onder, seed {inst['muziek_seed']}")
+      f"muziek {arg('--muziek-onder', inst['muziek_onder'])} LUFS onder, seed {inst['muziek_seed']}")
