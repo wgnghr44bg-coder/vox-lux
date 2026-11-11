@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 03:33",
+ "bijgewerkt": "2026-11-11 04:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 96%",
+    "detail": "Video bouwen · 11%",
     "soort": "nu"
    }
   ],
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "214 GB vrij"
+   "tekst": "232 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 03:33)"
+   "tekst": "draait nu (2026-11-11 04:03)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 03:33",
-   "volgende": "2026-11-11 04:03"
+   "laatst": "2026-11-11 04:03",
+   "volgende": "2026-11-11 04:33"
   }
  },
  "kanaal": {
@@ -522,7 +522,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 112,
+    "views": 113,
     "verwerkt": "processed"
    },
    {
@@ -611,12 +611,11 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 96,
-  "detail": "beweging",
+  "voortgang": 11,
+  "detail": "16mm-look",
   "taken": [
    "routine (Claude) stuurt aan",
-   "beweging en hoofdstuktitels",
-   "stem inspreken (OmniVoice B1)"
+   "16mm-look"
   ]
  },
  "nu_bezig": [
@@ -625,17 +624,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
+   "naam": "16mm-look",
    "stap": 4
-  },
-  {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
   }
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 742,
+  "geheugen_mb": 249,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -819,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 03:33",
+   "tijd": "2026-11-11 04:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
