@@ -101,3 +101,10 @@ Gettysburg (wo 18 nov) staat weer op "script-klaar (oude opbouw)": een Claude-ac
   `tools/b1_check.py` is opnieuw vastgelegd (B1 GOED). Alle video's worden zo gemaakt; een stem die met speed 1.0 of de
   warme klank is gemaakt (bv. Gettysburg voice.mp3 van vanochtend) moet opnieuw.
 - Gemeten 11 nov: grote kanalen pauzeren ± 0,5 s tussen zinnen, wij ± 0,9 s (pauze 1.4); de eigenaar hield 1.4.
+## Stand 11 nov 2026 (14:11): keten loopt volgens de nieuwe planning
+- Eigenaar: "planning starten, controleren op flikkeren of stem niet goed, alles vloeiend zonder haperen". Planning
+  16 nov - 16 dec (hype en jaardagen) staat in de planning.txt's; scripts doet het andere account (`stories/PROMPT-SCRIPTS-NOV-DEC.md`).
+- Los proces op de pc (pid 19860), log `C:\Users\rane\opnieuw-keten3.log`, uitslagen in stories/ROUTINE-LOG.md:
+  `routine_lokaal.py --opnieuw babylon-600-vc,gettysburg-1863,crisis-1933,dallas-1963,egypte-toetanchamon,thanksgiving-1621,pearl-harbor-1941,boeren-winter-1300,kerst-loopgraven-1914,rome-44-vc,zwarte-dood-1348,scott-antarctica-1912`
+  Wacht per video op het script in de nieuwe toon (TOON GOED); een video gaat alleen online als beeldcontrole, B1 GOED,
+  tekstcontrole (Whisper), qc (o.a. flikkering) en de strenge haperingcontrole allemaal goed zijn; anders blijft de oude versie staan.
