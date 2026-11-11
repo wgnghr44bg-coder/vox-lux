@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-11 04:03",
+ "bijgewerkt": "2026-11-11 04:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 11%",
+    "detail": "Video bouwen · 69%",
     "soort": "nu"
    }
   ],
@@ -412,7 +412,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "232 GB vrij"
+   "tekst": "213 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -427,7 +427,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-11 04:03)"
+   "tekst": "draait nu (2026-11-11 04:33)"
   },
   {
    "naam": "Git",
@@ -469,8 +469,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-11 04:03",
-   "volgende": "2026-11-11 04:33"
+   "laatst": "2026-11-11 04:33",
+   "volgende": "2026-11-11 05:03"
   }
  },
  "kanaal": {
@@ -513,7 +513,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 11,
+    "views": 10,
     "verwerkt": "processed"
    },
    {
@@ -540,7 +540,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 207,
+    "views": 206,
     "verwerkt": "processed"
    },
    {
@@ -558,7 +558,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 55,
+    "views": 56,
     "verwerkt": "processed"
    },
    {
@@ -611,7 +611,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 11,
+  "voortgang": 69,
   "detail": "16mm-look",
   "taken": [
    "routine (Claude) stuurt aan",
@@ -629,8 +629,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 249,
+  "bezig_procent": 75,
+  "geheugen_mb": 7662,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -814,7 +814,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-11 04:03",
+   "tijd": "2026-11-11 04:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (9 punten) (nacht 2026-11-10)",
    "fout": true
   }
