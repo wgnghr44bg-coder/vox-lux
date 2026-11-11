@@ -239,7 +239,7 @@ def logboek():
         m = re.match(r"- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
-    for r in lees(LOGS["testvolgorde"], 400) + lees(Path(r"C:\Users\rane\tombstone-opnieuw.log"), 200) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200) + lees(LOGS["hervat"], 300):
+    for r in lees(LOGS["testvolgorde"], 400) + lees(Path(r"C:\Users\rane\tombstone-opnieuw.log"), 200) + lees(LOGS["nachttest"], 200) + lees(LOGS["tombstone"], 100) + lees(LOGS["testvervolg"], 200) + lees(LOGS["hervat"], 300) + lees(Path(r"C:\Users\rane\opnieuw-keten.log"), 200):
         m = re.match(r"=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) (.+)$", r)
         if m:
             uit.append({"tijd": m.group(1), "tekst": schoon(m.group(2))})
