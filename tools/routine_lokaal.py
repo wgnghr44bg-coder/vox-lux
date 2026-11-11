@@ -277,8 +277,11 @@ if __name__ == "__main__":
         # voor één. Het script in de nieuwe toon schrijft een Claude-account (stories/PROMPT-OPNIEUW.md stap 2); hier wordt
         # gewacht tot script_leesbaar "TOON GOED" geeft (elke 10 min kijken), daarna beelden, stem, montage en vervangen.
         for naam in sys.argv[sys.argv.index("--opnieuw") + 1].split(","):
+            # "naam!" = ook als hij vandaag al opnieuw gemaakt is (11 nov: Gettysburg nog eens met de kortere pauzes)
+            nog_eens = naam.endswith("!")
+            naam = naam.rstrip("!")
             m = STORIES / naam
-            if re.search(rf"{re.escape(naam)}: opnieuw gemaakt", (STORIES / "ROUTINE-LOG.md").read_text(encoding="utf-8")):
+            if not nog_eens and re.search(rf"{re.escape(naam)}: opnieuw gemaakt", (STORIES / "ROUTINE-LOG.md").read_text(encoding="utf-8")):
                 continue
             while not (m / "planning.txt").exists():         # nieuw script (bv. thanksgiving-1621) nog niet geschreven
                 print(f"{datetime.datetime.now():%H:%M} {naam}: wacht op het nieuwe script", flush=True)
