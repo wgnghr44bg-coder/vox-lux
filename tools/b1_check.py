@@ -52,7 +52,12 @@ if "--vastleggen" in sys.argv:
     maak(REF)
     (REF / "maten.json").write_text(json.dumps({"stem": maat(REF / "stem.wav"), "muziek": maat(REF / "muziek.wav")},
                                                indent=1), encoding="utf-8")
-    print("voorbeeld vastgelegd in", REF)
+    # de stem is sinds 11 nov 2026 de eigen stem van de eigenaar: het geluid niet in de (openbare) repo, alleen op de pc;
+    # voor de controle zijn de maten in maten.json genoeg
+    PC = Path.home() / "vox-lux-stemmen" / "B1-referentie"
+    PC.mkdir(parents=True, exist_ok=True)
+    (REF / "stem.wav").replace(PC / "stem.wav")
+    print("voorbeeld vastgelegd in", REF, "(stem.wav in", PC, ")")
     sys.exit()
 
 ref = json.loads((REF / "maten.json").read_text(encoding="utf-8"))
