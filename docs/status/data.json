@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 20:03",
+ "bijgewerkt": "2026-11-12 20:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 53%",
+    "detail": "Video bouwen · 69%",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "172 GB vrij"
+   "tekst": "174 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 20:03)"
+   "tekst": "draait nu (2026-11-12 20:33)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 20:03",
-   "volgende": "2026-11-12 20:33"
+   "laatst": "2026-11-12 20:33",
+   "volgende": "2026-11-12 21:03"
   },
   "hype": {
    "aan": true,
@@ -819,7 +819,7 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 53,
+  "voortgang": 69,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
@@ -827,8 +827,8 @@
    "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-13 02:05",
-   "youtube": "2026-11-13 02:50"
+   "klaar": "2026-11-13 01:56",
+   "youtube": "2026-11-13 02:41"
   }
  },
  "nu_bezig": [
@@ -846,8 +846,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 13,
-  "geheugen_mb": 768,
+  "bezig_procent": 35,
+  "geheugen_mb": 733,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1019,7 +1019,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 20:03",
+   "tijd": "2026-11-12 20:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -2411,6 +2411,7 @@
  "vast": {
   "Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
   "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
+  "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
   "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
   "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"
  }
