@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 00:33",
+ "bijgewerkt": "2026-11-12 01:03",
  "werkplanning": {
   "nu": [
    {
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "205 GB vrij"
+   "tekst": "200 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 00:33)"
+   "tekst": "draait nu (2026-11-12 01:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 00:33",
-   "volgende": "2026-11-12 01:03"
+   "laatst": "2026-11-12 01:03",
+   "volgende": "2026-11-12 01:33"
   }
  },
  "kanaal": {
@@ -516,7 +516,7 @@
     "duur": "2:01:43",
     "privacy": "private",
     "publiceer": "2026-11-11T03:52:41Z",
-    "views": 2,
+    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -655,8 +655,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7912,
+  "bezig_procent": 100,
+  "geheugen_mb": 7915,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -834,7 +834,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 00:33",
+   "tijd": "2026-11-12 01:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
