@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 04:33",
+ "bijgewerkt": "2026-11-12 05:03",
  "werkplanning": {
   "nu": [
    {
@@ -44,7 +44,7 @@
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "detail": "routine maakt de video voor za 5-12 21:00"
+    "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
    }
   ],
   "publicaties": [
@@ -124,7 +124,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-16",
+  "klaar_tot": "2026-12-02",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -238,13 +238,13 @@
     "datum": "2026-12-05",
     "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "klaar": true,
-    "stand": "script klaar, nachtcontrole vond iets",
+    "klaar": false,
+    "stand": "script afgekeurd, moet opnieuw",
     "controle": "FOUT",
-    "flesch": 82,
-    "niveau": 5.3,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-09",
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "202 GB vrij"
+   "tekst": "201 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 04:33)"
+   "tekst": "draait nu (2026-11-12 05:03)"
   },
   {
    "naam": "Git",
@@ -458,22 +458,22 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-12)"
   },
   {
    "naam": "Script boeren-winter-1300",
    "ok": true,
-   "tekst": "SCRIPT GOED"
+   "tekst": "SCRIPT GOED (nacht 2026-11-12)"
   },
   {
    "naam": "Script crisis-1933",
    "ok": true,
-   "tekst": "SCRIPT GOED"
+   "tekst": "SCRIPT GOED (nacht 2026-11-12)"
   },
   {
    "naam": "Script kerst-loopgraven-1914",
    "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten)"
+   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-12)"
   }
  ],
  "automatisering": false,
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 04:33",
-   "volgende": "2026-11-12 05:03"
+   "laatst": "2026-11-12 05:03",
+   "volgende": "2026-11-12 05:33"
   }
  },
  "kanaal": {
@@ -543,7 +543,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 115,
+    "views": 116,
     "verwerkt": "processed"
    },
    {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 307,
+    "views": 306,
     "verwerkt": "processed"
    },
    {
@@ -606,10 +606,10 @@
   "geplande": 0,
   "runs": {
    "goed": 5,
-   "totaal": 20,
-   "procent": 25
+   "totaal": 21,
+   "procent": 24
   },
-  "fouten": 3,
+  "fouten": 4,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 14
@@ -639,7 +639,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 276,
+  "geheugen_mb": 282,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -725,12 +725,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 14:35",
-   "tekst": "Claude: thanksgiving-1621 nieuw geschreven (89 feitjes, 12 onderwerpen, ± 14.650 woorden, opening mythe, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-11 14:37",
    "tekst": "Claude: pearl-harbor-1941 in de nieuwe toon (88 feitjes, 13 onderwerpen, 17.155 woorden; titelsoort what-actually, andere titel omdat Thanksgiving ervoor life-really-like is); MAKKELIJK, TOON GOED, AF",
    "fout": false,
@@ -807,22 +801,34 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 04:33",
+   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
    "tijd": "2026-11-12 04:33",
+   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:03",
    "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 04:33",
+   "tijd": "2026-11-12 05:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 04:33",
-   "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten)",
+   "tijd": "2026-11-12 05:03",
+   "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
  ],
@@ -1333,8 +1339,8 @@
    "datum": "2026-12-05",
    "reserve": false,
    "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
-   "soort": "script nieuw",
+   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-12: opnieuw ombouwen, zie scriptcheck.json)",
+   "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
    "opening": "scène"
