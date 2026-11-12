@@ -201,6 +201,7 @@ section[id]{scroll-margin-top:80px}
     <section class="rij r3b">
       <div class="paneel" id="videos"><h2><svg><use href="#i-film"/></svg>Recente video's</h2><div class="tabel"><table id="recent"></table></div></div>
       <div class="paneel" id="logboek"><h2><svg><use href="#i-lijst"/></svg>Systeemlog <small>live</small></h2><div class="log" id="log"></div></div>
+      <div class="paneel" id="hype"><h2><svg><use href="#i-lijst"/></svg>Hype en kansen <small id="hypeTijd"></small></h2><div id="hypeLijst"></div></div>
       <div class="paneel foutkaart" id="fouten"><h2 style="color:#ff8f96"><svg style="color:#ff8f96"><use href="#i-let"/></svg>Fouten en meldingen</h2><div id="meldingen"></div></div>
     </section>
 
@@ -294,6 +295,11 @@ async function laad(){
   $("scRij").innerHTML=sc.rij.map(r=>{const x=new Date(r.datum+"T12:00");const k=r.klaar?(r.controle==="FOUT"?"let":"goed"):(r.stand.includes("afgekeurd")?"fout":"zacht");
     const lb=r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">${r.leesbaar==="MAKKELIJK"?"makkelijk Engels":r.leesbaar==="GOED"?"goed te volgen":"te moeilijk"} · Flesch ${r.flesch}</span>`:"";
     return `<div class="rij-item"><span class="wanneer">${DAG[x.getDay()]} ${x.getDate()}-${x.getMonth()+1}</span><span><b>${esc(r.titel)}</b><span class="chip ${k}">${esc(r.stand)}</span> ${lb} ${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"praat tegen jou":"nog wat afstandelijk"}</span>`:""}</span></div>`}).join("");
+  // hype-wachter (12 nov 2026): KANS = nog niets van ons, "naar voren" = te laat gepland
+  if(d.hype){$("hypeTijd").textContent="bijgewerkt "+d.hype.bijgewerkt.slice(5);
+    $("hypeLijst").innerHTML=d.hype.punten.slice(0,18).map(p=>{const kans=/KANS|naar voren/.test(p.advies||"");
+      const kop=p.soort==="hype"?`${p.per_dag.toLocaleString("nl-NL")}/dag · ${esc(p.kanaal)}`:`${esc(p.datum.slice(5))} · ${esc(p.soort)}`;
+      return `<div class="melding" style="${kans?"":"opacity:.65"}"><time>${kop}</time><b>${kans?"Kans":"Gepland"}</b><div style="margin-top:.3rem">${esc(p.titel||p.naam)}<br><small>${esc(p.advies||"")}</small></div></div>`}).join("")}
   // fouten
   $("meldingen").innerHTML=(d.fouten.length?[...d.fouten].reverse().map(f=>`<div class="melding"><time>${esc(f.tijd.slice(5))}</time><b>Melding</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"")+`<div class="ok"><span class="rondje goed"><svg><use href="#i-check"/></svg></span>${d.fouten.length?"Er wordt niets online gezet zolang een controle fout is.":"Geen open fouten."}</div>`+((d.opgelost||[]).length?`<h3 style="margin:1rem 0 .4rem;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7">Fout gegaan en opgelost (laatste 3 dagen)</h3>`+[...d.opgelost].reverse().map(f=>`<div class="melding" style="opacity:.7"><time>${esc(f.tijd.slice(5))}</time><b>Opgelost</b><div style="margin-top:.3rem">${esc(f.tekst)}</div></div>`).join(""):"");
 

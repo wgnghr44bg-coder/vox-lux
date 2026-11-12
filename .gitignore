@@ -31,3 +31,5 @@ stories/vikings-winter/stemcache/
 audio_engine/voices/eigen-stem/*.wav
 audio_engine/voices/eigen-stem/*.mp3
 audio_engine/B1-referentie/stem.wav
+stories/hype.json
+stories/HYPE-SIGNAAL.md

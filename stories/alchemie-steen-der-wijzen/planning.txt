@@ -1,0 +1,8 @@
+onderwerp Alchemists and the Search for the Philosopher's Stone, around 1600
+status   script nodig (hype 12 nov 2026: History Camp "Who ACTUALLY Searched for the Philosopher's Stone" 40.000/dag; alchemist-slaapvideo's samen 900.000 views; wij hebben er nog geen)
+datum    wo 2026-12-02 21:00 NL (hype; eigenaar 12 nov: "bekende virale gebeurtenissen, hoe je het regelt is aan jou")
+titel    Who Really Searched for the Philosopher's Stone? | History for Sleep
+opening   onderwerp
+titelsoort who
+thumbnail amberregel "ALCHEMY · AROUND 1600", hook "The Philosopher's Stone", beeld: een alchemistenwerkplaats bij kaarslicht, glazen kolven en een gloeiende oven, oude boeken en een man in een lange mantel die in een gloeiende kroes kijkt, warm goudrood licht
+soort    middeleeuwen

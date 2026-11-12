@@ -83,6 +83,12 @@ Daarom voor elke nieuwe video:
 5. Na upload: eindscherm naar de Titanic-video en in een passende afspeellijst zetten.
 
 ## Weekplanning (eigenaar, 27 okt 2026)
+**Hype-wachter (eigenaar 12 nov 2026: "bekende virale gebeurtenissen wat mensen trekt naar mijn kanaal; hoe je het
+regelt is aan jou")**: `tools/hype_wacht.py` draait elke dag 08:30 op de pc (Taakplanner "Sleep Archives hype") en zet
+hype bij grote slaapkanalen plus jubilea, feestdagen en films uit `stories/kalender.json` (10 weken vooruit) op de
+statuswebsite (kaart "Hype en kansen") en als SEINTJE in ROUTINE-LOG.md. Claude past daarop de planning aan.
+Aanpassing 12 nov 2026: Pearl Harbor naar **ma 7 dec** (85 jaar), Boerenwinter naar **za 28 nov** (hype middeleeuwse
+winter), nieuw **wo 2 dec**: alchemisten en de Steen der Wijzen (hype). De echte datums staan altijd in planning.txt.
 **3 video's per week: maandag, woensdag en zaterdag 21:00** (NL-tijd; eigenaar 4 nov 2026: "ik wil er
 dan 3 per week", grote slaapkanalen doen 3-5 lange video's per week en vrijwel geen Shorts), allemaal volgens
 het Titanic-recept. **Geen Shorts.** Maandag is vanaf ma 16 nov 2026 telkens een vrije plek: de routine maakt er

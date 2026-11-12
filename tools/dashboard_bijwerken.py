@@ -161,7 +161,7 @@ def gpu():
 
 def taken():
     uit = {}
-    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard"):
+    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard", "Sleep Archives hype"):
         try:
             r = subprocess.run(["powershell", "-NoProfile", "-Command",
                                 f"$t = Get-ScheduledTask -TaskName '{naam}'; $i = $t | Get-ScheduledTaskInfo; "
@@ -462,10 +462,12 @@ data = {
     "nu_bezig": draait, "videokaart": gpu(), "programmas": programmas(yt_ok),
     "week": week, "logboek": log[-14:], "fouten": fouten, "opgelost": opgeloste,
     "video": video,
-    "vast": {"Stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
-             "Muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
-             "Opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
-             "Planning": "ma, wo en za 21:00 (NL)"},
+    # hype-wachter (eigenaar 12 nov 2026: "die je dan een seintje geeft op tijd"): tools/hype_wacht.py, elke dag 08:30
+    "hype": json.loads((STORIES / "hype.json").read_text(encoding="utf-8")) if (STORIES / "hype.json").exists() else None,
+    "vast": {"Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
+             "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
+             "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
+             "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"},
 }
 DOCS.mkdir(parents=True, exist_ok=True)
 UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
