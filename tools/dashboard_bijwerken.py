@@ -225,9 +225,37 @@ def youtube():
                            "privacy": st["privacyStatus"], "publiceer": st.get("publishAt") or v["snippet"]["publishedAt"],
                            "views": int(v.get("statistics", {}).get("viewCount", 0)), "verwerkt": st.get("uploadStatus")})
         recent.sort(key=lambda x: x["publiceer"], reverse=True)
+
+        # voor het nieuwe dashboard (eigenaar 12 nov 2026, ontwerp "Studio"): 28 dagen per dag, 28 dagen tegen de 28
+        # dagen ervoor, een jaar (doel YouTube-partnerprogramma: 1.000 abonnees en 4.000 kijkuren) en de top 3
+        def rapport(b, e, **extra):
+            r = requests.get("https://youtubeanalytics.googleapis.com/v2/reports", headers=h, timeout=30, params={
+                "ids": "channel==MINE", "startDate": str(b), "endDate": str(e), **extra}).json()
+            namen = [k["name"] for k in r.get("columnHeaders", [])]
+            return [dict(zip(namen, rij)) for rij in r.get("rows", [])]
+        try:
+            dagen = [{"dag": x["day"], "views": x["views"], "abonnees": x["subscribersGained"] - x["subscribersLost"]}
+                     for x in rapport(VANDAAG - datetime.timedelta(days=28), VANDAAG, dimensions="day", sort="day",
+                                      metrics="views,subscribersGained,subscribersLost")]
+            maand = periode(VANDAAG - datetime.timedelta(days=28), VANDAAG)
+            vorige_maand = periode(VANDAAG - datetime.timedelta(days=56), VANDAAG - datetime.timedelta(days=28))
+            jaar = periode(VANDAAG - datetime.timedelta(days=365), VANDAAG)
+            top_r = rapport(VANDAAG - datetime.timedelta(days=28), VANDAAG, dimensions="video", sort="-views",
+                            maxResults=3, metrics="views,estimatedMinutesWatched")
+            namen = {}
+            if top_r:
+                for v in requests.get("https://www.googleapis.com/youtube/v3/videos", headers=h, timeout=30,
+                                      params={"part": "snippet,contentDetails", "id": ",".join(x["video"] for x in top_r)}).json().get("items", []):
+                    u, mi, s = [int(x or 0) for x in re.match(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", v["contentDetails"]["duration"]).groups()]
+                    namen[v["id"]] = (v["snippet"]["title"], f"{u}:{mi:02d}:{s:02d}")
+            top = [{"id": x["video"], "titel": namen.get(x["video"], ("?", ""))[0], "duur": namen.get(x["video"], ("", ""))[1],
+                    "views": x["views"], "uren": round(x["estimatedMinutesWatched"] / 60)} for x in top_r]
+        except Exception:
+            dagen, maand, vorige_maand, jaar, top = [], None, None, None, []
         return {"naam": c["snippet"]["title"], "abonnees": int(c["statistics"]["subscriberCount"]),
                 "views_totaal": int(c["statistics"]["viewCount"]), "video_aantal": int(c["statistics"]["videoCount"]),
-                "week": nu, "vorige_week": voor, "recent": recent}, True
+                "week": nu, "vorige_week": voor, "recent": recent, "dagen": dagen, "maand": maand,
+                "vorige_maand": vorige_maand, "jaar": jaar, "top": top}, True
     except Exception as e:
         return {"fout": str(e)[:120]}, False
 
