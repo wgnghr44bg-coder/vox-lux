@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 14:54",
+ "bijgewerkt": "2026-11-12 15:03",
  "werkplanning": {
   "nu": [
    {
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-12 14:33)"
+   "tekst": "draait nu (2026-11-12 15:03)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 14:33",
-   "volgende": "2026-11-12 15:03"
+   "laatst": "2026-11-12 15:03",
+   "volgende": "2026-11-12 15:33"
   },
   "hype": {
    "aan": true,
@@ -653,7 +653,7 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "muziek maken (Audio Engine W3)"
+   "beelden en geluid samenvoegen"
   ]
  },
  "nu_bezig": [
@@ -662,13 +662,13 @@
    "stap": 0
   },
   {
-   "naam": "muziek maken (Audio Engine W3)",
+   "naam": "beelden en geluid samenvoegen",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 329,
+  "bezig_procent": 14,
+  "geheugen_mb": 597,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -840,7 +840,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 14:54",
+   "tijd": "2026-11-12 15:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
