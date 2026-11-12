@@ -1,5 +1,5 @@
 onderwerp Life at Pearl Harbor, December 1941
-status   script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)
 datum    za 2026-11-28 21:00 NL
 titel    What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep
 opening   scène
