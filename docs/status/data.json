@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 08:33",
+ "bijgewerkt": "2026-11-12 09:03",
  "werkplanning": {
   "nu": [
    {
@@ -11,37 +11,37 @@
   ],
   "daarna": [
    {
-    "wanneer": "do 12-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Was the First Thanksgiving Really Like? | History for Sleep",
     "map": "thanksgiving-1621",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00 (routine staat UIT)",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 7-12 21:00"
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 08:33)"
+   "tekst": "draait nu (2026-11-12 09:03)"
   },
   {
    "naam": "Git",
@@ -481,7 +481,7 @@
   "routine": {
    "aan": false,
    "laatst": "2026-11-10 09:00",
-   "volgende": "2026-11-12 09:00"
+   "volgende": "2026-11-15 09:00"
   },
   "scriptgenerator": {
    "aan": false,
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 08:33",
-   "volgende": "2026-11-12 09:03"
+   "laatst": "2026-11-12 09:03",
+   "volgende": "2026-11-12 09:33"
   }
  },
  "kanaal": {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 315,
+    "views": 335,
     "verwerkt": "processed"
    },
    {
@@ -579,7 +579,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 58,
+    "views": 57,
     "verwerkt": "processed"
    },
    {
@@ -638,8 +638,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 339,
+  "bezig_procent": 27,
+  "geheugen_mb": 347,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -817,17 +817,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 08:33",
+   "tijd": "2026-11-12 09:03",
    "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 08:33",
+   "tijd": "2026-11-12 09:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 08:33",
+   "tijd": "2026-11-12 09:03",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
