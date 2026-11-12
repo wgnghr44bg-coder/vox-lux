@@ -1,10 +1,10 @@
 {
- "bijgewerkt": "2026-11-12 02:03",
+ "bijgewerkt": "2026-11-12 02:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-    "map": "gettysburg-1863",
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
     "detail": "Video bouwen",
     "soort": "nu"
    }
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "202 GB vrij"
+   "tekst": "188 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 02:03)"
+   "tekst": "draait nu (2026-11-12 02:33)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 02:03",
-   "volgende": "2026-11-12 02:33"
+   "laatst": "2026-11-12 02:33",
+   "volgende": "2026-11-12 03:03"
   }
  },
  "kanaal": {
@@ -552,7 +552,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 337,
+    "views": 338,
     "verwerkt": "processed"
    },
    {
@@ -609,7 +609,7 @@
    "totaal": 20,
    "procent": 25
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 14
@@ -626,16 +626,18 @@
  ],
  "stap": 4,
  "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
+  "map": "babylon-600-vc",
+  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stem inspreken (OmniVoice B1)",
    "muziek maken (Audio Engine W3)"
   ]
  },
@@ -645,13 +647,21 @@
    "stap": 0
   },
   {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
+  },
+  {
    "naam": "muziek maken (Audio Engine W3)",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 229,
+  "bezig_procent": 34,
+  "geheugen_mb": 7911,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -737,12 +747,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 14:24",
-   "tekst": "Claude: crisis-1933 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 12 onderwerpen, 16.596 woorden, opening scène, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-11 14:35",
    "tekst": "Claude: thanksgiving-1621 nieuw geschreven (89 feitjes, 12 onderwerpen, ± 14.650 woorden, opening mythe, titelsoort life-really-like); MAKKELIJK, TOON GOED, AFWISSELING GOED",
    "fout": false,
@@ -819,28 +823,22 @@
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 02:04",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-11 21:33",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 02:03",
+   "tijd": "2026-11-12 02:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-10 07:07",
-   "tekst": "egypte-toetanchamon: QC GESTOPT ten onrechte: abonneer-zin met 'subscription' werd niet herkend (controle verbeterd, daarna wel geüpload)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 07:07",
    "tekst": "Egypte: CONTROLES NIET GOED, niet geüpload (de oude versie blijft staan)",
@@ -880,6 +878,12 @@
   {
    "tijd": "2026-11-11 16:28",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-11 21:33",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -956,7 +960,7 @@
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "status": "bezig (2026-11-11, routine-lokaal)",
+   "status": "bezig (2026-11-12, routine-lokaal)",
    "soort": "bezig",
    "id": "8Mm2NOlyL3U",
    "afspeellijst": "oudheid",
