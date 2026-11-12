@@ -1,19 +1,27 @@
 {
-    "naam": "Eigen stem (calm and gentle voice), rustiger en zonder bass, met open haard + B effect, 14 LUFS onder",
-    "engine_voice": "eigen-stem",
-    "speed": 1.0,
+    "naam": "Eigen stem 'Yesss' (rustig vertellend), snelheid 0.9, met open haard + B effect, 10 LUFS onder",
+    "engine_voice": "eigen-stem-yesss",
+    "speed": 0.9,
     "seed": 7,
     "pauze": 1.4,
     "max_pauze": 2.0,
-    "klank": "highpass=f=110,lowshelf=f=220:g=-4,highshelf=f=4500:g=-2,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
-    "waarom": "Snelheid 1.0 (eigenaar 12 nov 2026 ochtend, na proeven 0.9 = 112, 0.95 = 124 en 1.0 = 129 woorden/min met pauzes: '1 is goed, zet dit vast'; geen verteller-truc en geen tragere losse zinnen, dat klinkt als een robot). Vaste standaard (eigenaar 11 nov 2026, na de Gettysburg-proef: 'ja dit is goed zo, zet dit vast, alle video's zo maken'): de eigen stem van de eigenaar (audio_engine/voices/eigen-stem, calm and gentle voice; ref.wav alleen op de pc, zie ref_pc), rustiger verteld (speed 0.9: OmniVoice spreekt zelf langzamer, ± 120 woorden/min; geen nabewerking op het tempo) en zonder bass (klank: laagste tonen eruit, geen extra bass, hoge tonen iets minder gedempt), zonder verteller F (blok 'verteller_uit' wordt niet gebruikt), gewone pauzes (pauze 1.4), met muziek W3 'diep en donker-warm', 19 LUFS onder de stem, seed 1939. Daarvoor (11 nov ochtend): speed 1.0 en warme klank (lowshelf +3, highshelf -4). Oude vaste stem B1 (narrator-e, verteller F): audio_engine/B1-oud-narrator-e.json. Alle gereedschap leest dit bestand; stories/<map>/stem.json mag alleen afwijken met 'eigenaar_afwijking'.",
-    "muziek_onder": 14,
+    "klank": "highpass=f=50,deesser=i=0.3,acompressor=threshold=-24dB:ratio=2.5:attack=15:release=250:makeup=1.5",
+    "waarom": "Eigenaar 12 nov 2026 (na proef 5 min: 'ja dit is goed, zet maar vast en maak de video's'): eigen stem uit de opname 'Yesss' (audio_engine/voices/eigen-stem-yesss, ref.wav alleen op de pc), snelheid 0.9 (± 160 woorden/min praten, 129 met pauzes), klank zonder highpass 110 zodat de lage tonen blijven, achtergrond (haard + B effect) 10 LUFS onder de stem ('achtergrond harder'). Pauzes gelijk. Daarvoor: Snelheid 1.0 (eigenaar 12 nov 2026 ochtend, na proeven 0.9 = 112, 0.95 = 124 en 1.0 = 129 woorden/min met pauzes: '1 is goed, zet dit vast'; geen verteller-truc en geen tragere losse zinnen, dat klinkt als een robot). Vaste standaard (eigenaar 11 nov 2026, na de Gettysburg-proef: 'ja dit is goed zo, zet dit vast, alle video's zo maken'): de eigen stem van de eigenaar (audio_engine/voices/eigen-stem, calm and gentle voice; ref.wav alleen op de pc, zie ref_pc), rustiger verteld (speed 0.9: OmniVoice spreekt zelf langzamer, ± 120 woorden/min; geen nabewerking op het tempo) en zonder bass (klank: laagste tonen eruit, geen extra bass, hoge tonen iets minder gedempt), zonder verteller F (blok 'verteller_uit' wordt niet gebruikt), gewone pauzes (pauze 1.4), met muziek W3 'diep en donker-warm', 19 LUFS onder de stem, seed 1939. Daarvoor (11 nov ochtend): speed 1.0 en warme klank (lowshelf +3, highshelf -4). Oude vaste stem B1 (narrator-e, verteller F): audio_engine/B1-oud-narrator-e.json. Alle gereedschap leest dit bestand; stories/<map>/stem.json mag alleen afwijken met 'eigenaar_afwijking'.",
+    "muziek_onder": 10,
     "achtergrond": {
-        "waarom": "Eigenaar 11 nov 2026 avond, proef 'stem + open haard + B effect, 14 onder': 'ja zo wil ik het hebben voor alle nieuwe video's'. 14 LUFS onder de stem = gemeten bij Sleepy History Channel (Tudor England, stem en muziek gescheiden met Demucs). Alleen de eigen geluiden van de eigenaar, herhaald met een zachte overvloeiing; geen ducking of extra filter (zoals de proef). De geluiden staan alleen op de pc (openbare repo). b-effect.wav is op 432 Hz gezet (origineel stond op 440 Hz: b-effect-origineel-440.wav), zodat '432 Hz' in de beschrijving klopt.",
+        "waarom": "Eigenaar 12 nov 2026: achtergrond harder, 10 LUFS onder de stem (was 14). Eigenaar 11 nov 2026 avond, proef 'stem + open haard + B effect, 14 onder': 'ja zo wil ik het hebben voor alle nieuwe video's'. 14 LUFS onder de stem = gemeten bij Sleepy History Channel (Tudor England, stem en muziek gescheiden met Demucs). Alleen de eigen geluiden van de eigenaar, herhaald met een zachte overvloeiing; geen ducking of extra filter (zoals de proef). De geluiden staan alleen op de pc (openbare repo). b-effect.wav is op 432 Hz gezet (origineel stond op 440 Hz: b-effect-origineel-440.wav), zodat '432 Hz' in de beschrijving klopt.",
         "map": "~/vox-lux-geluiden",
         "lagen": [
-            {"bestand": "b-effect.wav", "db": 0, "overvloei": 4},
-            {"bestand": "open-haard.mp3", "db": 9, "overvloei": 2}
+            {
+                "bestand": "b-effect.wav",
+                "db": 0,
+                "overvloei": 4
+            },
+            {
+                "bestand": "open-haard.mp3",
+                "db": 9,
+                "overvloei": 2
+            }
         ]
     },
     "muziek_seed": 1939,

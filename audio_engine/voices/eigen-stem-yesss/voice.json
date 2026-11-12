@@ -1,0 +1,8 @@
+{
+  "name": "eigen-stem-yesss",
+  "bijnaam": "Eigen stem, rustig vertellend (proef 12 nov 2026, opname 'Yesss')",
+  "description": "Calm, warm storytelling voice. The owner's own voice (recording 'Yesss', 12 Nov 2026; owner: 'mijn stem'), cloned with OmniVoice with the owner's permission. Reference = first 15 s of that recording; only on the owner's pc (ref_pc), not on GitHub (public repo).",
+  "ref_text": "As the sun slowly disappeared behind the distant mountains, a gentle breeze moved through the trees. Somewhere in the distance, an owl began to call. The world grew quieter with every passing moment.",
+  "default_speed": 1.0,
+  "ref_pc": "C:/Users/rane/vox-lux-stemmen/eigen-stem-yesss/ref.wav"
+}
