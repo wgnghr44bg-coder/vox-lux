@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 02:33",
+ "bijgewerkt": "2026-11-12 03:03",
  "werkplanning": {
   "nu": [
    {
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "188 GB vrij"
+   "tekst": "202 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 02:33)"
+   "tekst": "draait nu (2026-11-12 03:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 02:33",
-   "volgende": "2026-11-12 03:03"
+   "laatst": "2026-11-12 03:03",
+   "volgende": "2026-11-12 03:33"
   }
  },
  "kanaal": {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 302,
+    "views": 306,
     "verwerkt": "processed"
    },
    {
@@ -636,7 +636,6 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stem inspreken (OmniVoice B1)",
    "muziek maken (Audio Engine W3)"
   ]
@@ -645,10 +644,6 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
   },
   {
    "naam": "stem inspreken (OmniVoice B1)",
@@ -660,8 +655,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 34,
-  "geheugen_mb": 7911,
+  "bezig_procent": 35,
+  "geheugen_mb": 7922,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -833,7 +828,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 02:33",
+   "tijd": "2026-11-12 03:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
