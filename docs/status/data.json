@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 21:33",
+ "bijgewerkt": "2026-11-12 22:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 88%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "173 GB vrij"
+   "tekst": "172 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 21:33)"
+   "tekst": "draait nu (2026-11-12 22:03)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 21:33",
-   "volgende": "2026-11-12 22:03"
+   "laatst": "2026-11-12 22:03",
+   "volgende": "2026-11-12 22:33"
   },
   "hype": {
    "aan": true,
@@ -578,7 +578,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 375,
+    "views": 373,
     "verwerkt": "processed"
    },
    {
@@ -816,23 +816,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 3,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 88,
-  "detail": "beweging",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "tekstcontrole (Whisper)"
   ],
   "eind": {
-   "klaar": "2026-11-13 02:17",
-   "youtube": "2026-11-13 03:02"
+   "klaar": "2026-11-13 01:03",
+   "youtube": "2026-11-13 01:48"
   }
  },
  "nu_bezig": [
@@ -841,13 +841,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "tekstcontrole (Whisper)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 33,
-  "geheugen_mb": 759,
+  "bezig_procent": 53,
+  "geheugen_mb": 2666,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1019,7 +1019,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 21:33",
+   "tijd": "2026-11-12 22:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
