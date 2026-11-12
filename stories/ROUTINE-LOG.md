@@ -66,3 +66,5 @@
 - 2026-11-11 16:28 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
 - 2026-11-11 20:10 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-11 21:33 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan
+- 2026-11-11 21:33 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 02:04 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
