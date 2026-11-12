@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 14:33",
+ "bijgewerkt": "2026-11-12 14:54",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
@@ -18,8 +18,8 @@
    },
    {
     "wanneer": "di 17-11 09:00 (routine staat UIT)",
-    "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
-    "map": "pearl-harbor-1941",
+    "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
+    "map": "boeren-winter-1300",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
@@ -30,8 +30,8 @@
    },
    {
     "wanneer": "zo 22-11 09:00 (routine staat UIT)",
-    "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
-    "map": "boeren-winter-1300",
+    "wat": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
@@ -42,8 +42,8 @@
    },
    {
     "wanneer": "do 26-11 09:00 (routine staat UIT)",
-    "wat": "Vrije plek: de routine kiest een populair onderwerp",
-    "map": "",
+    "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
+    "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor ma 7-12 21:00"
    }
   ],
@@ -99,8 +99,8 @@
    {
     "datum": "2026-11-28",
     "dag": "za",
-    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
-    "map": "pearl-harbor-1941",
+    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
+    "map": "boeren-winter-1300",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
    },
@@ -115,16 +115,16 @@
    {
     "datum": "2026-12-02",
     "dag": "wo",
-    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
-    "map": "boeren-winter-1300",
-    "stand": "script klaar, video volgt",
+    "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "stand": "script nodig (hype 12 nov 2026: History Camp \"Who ACTUALLY S",
     "kleur": "zacht"
    }
   ],
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-16",
+  "klaar_tot": "2026-11-28",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -169,10 +169,10 @@
     "klaar": true,
     "stand": "video wordt gemaakt",
     "controle": "GOED",
-    "flesch": 82,
-    "niveau": 4.7,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
+    "flesch": 69,
+    "niveau": 6.5,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-21",
@@ -181,10 +181,10 @@
     "klaar": true,
     "stand": "video wordt gemaakt",
     "controle": "nog niet",
-    "flesch": 80,
-    "niveau": 5.3,
+    "flesch": 75,
+    "niveau": 6.0,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-23",
@@ -193,10 +193,10 @@
     "klaar": true,
     "stand": "video staat klaar",
     "controle": "nog niet",
-    "flesch": 76,
-    "niveau": 6.1,
+    "flesch": 74,
+    "niveau": 6.6,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-25",
@@ -212,18 +212,6 @@
    },
    {
     "datum": "2026-11-28",
-    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 62,
-    "niveau": 8.0,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED"
-   },
-   {
-    "datum": "2026-12-02",
     "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
     "klaar": true,
@@ -235,6 +223,18 @@
     "toon": "TOON GOED"
    },
    {
+    "datum": "2026-12-02",
+    "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
+   },
+   {
     "datum": "2026-12-05",
     "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
@@ -243,6 +243,18 @@
     "controle": "GOED",
     "flesch": 67,
     "niveau": 7.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
+   },
+   {
+    "datum": "2026-12-07",
+    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 62,
+    "niveau": 8.0,
     "leesbaar": "GOED",
     "toon": "TOON GOED"
    },
@@ -428,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "187 GB vrij"
+   "tekst": "185 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 14:33)"
+   "tekst": "laatste keer goed (2026-11-12 14:33)"
   },
   {
    "naam": "Git",
@@ -492,6 +504,11 @@
    "aan": true,
    "laatst": "2026-11-12 14:33",
    "volgende": "2026-11-12 15:03"
+  },
+  "hype": {
+   "aan": true,
+   "laatst": "nog niet",
+   "volgende": "2026-11-13 08:30"
   }
  },
  "kanaal": {
@@ -609,7 +626,7 @@
    "totaal": 23,
    "procent": 22
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 14
@@ -624,22 +641,34 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 4,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": -1,
-  "stapnaam": "",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
-  "detail": "",
-  "taken": []
+  "detail": "bezig",
+  "taken": [
+   "routine zonder Claude",
+   "muziek maken (Audio Engine W3)"
+  ]
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  },
+  {
+   "naam": "muziek maken (Audio Engine W3)",
+   "stap": 4
+  }
+ ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 399,
+  "geheugen_mb": 329,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -725,42 +754,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-12 04:33",
-   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 05:19",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 05:38",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 05:46",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 05:46",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 05:53",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-12 05:53",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -807,28 +800,52 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:34",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:53",
+   "tekst": "hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:53",
+   "tekst": "hype-wachter: SEINTJE How Did Ice Age Humans Sleep Without Freezing to Death? -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:53",
+   "tekst": "hype-wachter: SEINTJE The Balkan General who made an Empire Bleed -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:53",
+   "tekst": "hype-wachter: SEINTJE 8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:53",
+   "tekst": "hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 14:27",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:33",
+   "tijd": "2026-11-12 14:54",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-11 06:41",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-11 07:03",
    "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
@@ -870,9 +887,26 @@
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 14:27",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   }
  ],
  "video": [
+  {
+   "map": "alchemie-steen-der-wijzen",
+   "datum": "2026-12-02",
+   "reserve": false,
+   "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+   "status": "script nodig (hype 12 nov 2026: History Camp \"Who ACTUALLY Searched for the Philosopher's Stone\" 40.000/dag; alchemist-slaapvideo's samen 90",
+   "soort": "script",
+   "id": "",
+   "afspeellijst": "middeleeuwen",
+   "opening": "onderwerp"
+  },
   {
    "map": "alexander-331-vc",
    "datum": "2027-08-28",
@@ -996,7 +1030,7 @@
   },
   {
    "map": "boeren-winter-1300",
-   "datum": "2026-12-02",
+   "datum": "2026-11-28",
    "reserve": false,
    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
@@ -1109,7 +1143,7 @@
    "datum": "2026-11-21",
    "reserve": false,
    "titel": "What Was Life Really Like in Dallas in 1963? | History for Sleep",
-   "status": "bezig (2026-11-11, routine-lokaal)",
+   "status": "bezig (2026-11-11, routine-lokaal), opbouw Sleepy 12 nov",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "mysterie",
@@ -1153,7 +1187,7 @@
    "datum": "2026-11-23",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "status": "klaar",
+   "status": "klaar, opbouw Sleepy 12 nov",
    "soort": "gepland",
    "id": "iMkB7sUR8UU",
    "afspeellijst": "oudheid",
@@ -1208,7 +1242,7 @@
    "datum": "2026-11-18",
    "reserve": false,
    "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-   "status": "bezig (2026-11-12, routine-lokaal)",
+   "status": "bezig (2026-11-12, routine-lokaal), opbouw Sleepy 12 nov",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "oorlog",
@@ -1524,7 +1558,7 @@
   },
   {
    "map": "pearl-harbor-1941",
-   "datum": "2026-11-28",
+   "datum": "2026-12-07",
    "reserve": false,
    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
@@ -1908,10 +1942,297 @@
    "opening": "voorwerp"
   }
  ],
+ "hype": {
+  "bijgewerkt": "2026-11-12 14:53",
+  "punten": [
+   {
+    "soort": "hype",
+    "per_dag": 39877,
+    "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
+    "kanaal": "History Camp",
+    "id": "z2WwdkKcEn0",
+    "datum": "2026-11-11",
+    "ons": [
+     "alchemie-steen-der-wijzen"
+    ],
+    "advies": "staat gepland op 2026-12-02 (alchemie-steen-der-wijzen)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 35397,
+    "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
+    "kanaal": "Chat History Compilations",
+    "id": "Mfhq-Z-3VS0",
+    "datum": "2026-10-18",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 16179,
+    "titel": "How Did Ice Age Humans Sleep Without Freezing to Death?",
+    "kanaal": "ICE AGE SURVIVAL",
+    "id": "M5LoIZG1hFg",
+    "datum": "2026-10-16",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 14273,
+    "titel": "The Balkan General who made an Empire Bleed",
+    "kanaal": "History Camp",
+    "id": "_nUPEIHK-gY",
+    "datum": "2026-11-04",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 13973,
+    "titel": "8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel",
+    "kanaal": "Science Channel",
+    "id": "pe5DHvTFTI4",
+    "datum": "2026-10-26",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 13712,
+    "titel": "The Complete History of Pangea to Fall Asleep To - No Ads",
+    "kanaal": "Quiet Science",
+    "id": "aKui3akfcaE",
+    "datum": "2026-10-23",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 12636,
+    "titel": "How Did Ancient Humans Sleep Without Freezing in Winter?",
+    "kanaal": "Draz",
+    "id": "HodHaZYTG2o",
+    "datum": "2026-10-14",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 10640,
+    "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
+    "kanaal": "บุญสุข ราชวงษา",
+    "id": "FMd3Iaa6GSM",
+    "datum": "2026-10-30",
+    "ons": [
+     "gettysburg-1863",
+     "kerst-loopgraven-1914"
+    ],
+    "advies": "staat gepland op 2026-11-18 (gettysburg-1863)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 10316,
+    "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
+    "kanaal": "Sleepy Mystery Channel",
+    "id": "cdA5n6aqpyA",
+    "datum": "2026-10-16",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 9805,
+    "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
+    "kanaal": "Kaushik Bhattacharjee Extra",
+    "id": "jNMpPqYg_S8",
+    "datum": "2026-10-20",
+    "ons": [
+     "scott-antarctica-1912"
+    ],
+    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 9109,
+    "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
+    "kanaal": "The French Whisperer ASMR",
+    "id": "PtKw7L8166E",
+    "datum": "2026-11-08",
+    "ons": [
+     "edo-japan-1800",
+     "japan-1600"
+    ],
+    "advies": "staat gepland op 2026-12-26 (japan-1600)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 7164,
+    "titel": "The Mummy's Curse that HAUNTED Ancient Egypt",
+    "kanaal": "History Camp",
+    "id": "t206yovNHlo",
+    "datum": "2026-10-28",
+    "ons": [
+     "cleopatra",
+     "egypte-toetanchamon"
+    ],
+    "advies": "staat gepland op 2026-11-23 (egypte-toetanchamon)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 7127,
+    "titel": "100 Historical Facts to Sleep To",
+    "kanaal": "List 25",
+    "id": "Yg95hh2TX2U",
+    "datum": "2026-11-07",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 6770,
+    "titel": "DISTURBING Secrets Hidden in Pandora's Box",
+    "kanaal": "History Camp",
+    "id": "rgARA7jTDa0",
+    "datum": "2026-10-21",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 6453,
+    "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
+    "kanaal": "Old History Nights",
+    "id": "KSIno36Llhw",
+    "datum": "2026-11-07",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-11-19",
+    "naam": "Gettysburg Address (163 jaar)",
+    "sterk": false,
+    "ons": [
+     "gettysburg-1863"
+    ],
+    "advies": "staat gepland op 2026-11-18 (gettysburg-1863)"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-11-22",
+    "naam": "Moord op Kennedy (63 jaar)",
+    "sterk": false,
+    "ons": [
+     "dallas-1963"
+    ],
+    "advies": "staat gepland op 2026-11-21 (dallas-1963)"
+   },
+   {
+    "soort": "feestdag",
+    "datum": "2026-11-26",
+    "naam": "Thanksgiving (VS)",
+    "sterk": true,
+    "ons": [
+     "thanksgiving-1621"
+    ],
+    "advies": "staat gepland op 2026-11-25 (thanksgiving-1621)"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-12-07",
+    "naam": "Aanval op Pearl Harbor (85 jaar)",
+    "sterk": false,
+    "ons": [
+     "pearl-harbor-1941"
+    ],
+    "advies": "staat gepland op 2026-12-07 (pearl-harbor-1941)"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-12-14",
+    "naam": "Amundsen op de Zuidpool (115 jaar)",
+    "sterk": false,
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-12-16",
+    "naam": "Boston Tea Party (253 jaar)",
+    "sterk": false,
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-12-17",
+    "naam": "Eerste vlucht gebroeders Wright (123 jaar)",
+    "sterk": false,
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-12-24",
+    "naam": "Kerstbestand in de loopgraven (112 jaar)",
+    "sterk": false,
+    "ons": [
+     "kerst-loopgraven-1914"
+    ],
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914)"
+   },
+   {
+    "soort": "feestdag",
+    "datum": "2026-12-25",
+    "naam": "Kerstmis",
+    "sterk": true,
+    "ons": [
+     "bethlehem",
+     "kerst-loopgraven-1914",
+     "londen-kerst-1843"
+    ],
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914)"
+   },
+   {
+    "soort": "film",
+    "datum": "2026-12-25",
+    "naam": "Film Werwulf (Robert Eggers, middeleeuws Engeland)",
+    "sterk": true,
+    "ons": [
+     "boeren-winter-1300",
+     "kasteel-1250",
+     "kathedraal-1250",
+     "klooster-1150",
+     "middeleeuws-dorp",
+     "venetie-middeleeuwen"
+    ],
+    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300)"
+   },
+   {
+    "soort": "feestdag",
+    "datum": "2027-01-01",
+    "naam": "Nieuwjaar",
+    "sterk": true,
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2027-01-17",
+    "naam": "Scott bereikt de Zuidpool (115 jaar)",
+    "sterk": false,
+    "ons": [
+     "scott-antarctica-1912"
+    ],
+    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
+   }
+  ]
+ },
  "vast": {
-  "Stem": "B1: narrator-e (OmniVoice), speed 0.54, pauzes ×1,4, warme klank",
-  "Muziek": "W3: diep en donker-warm, 432 Hz, elke 6 s een ander akkoord, 11 LUFS onder de stem",
-  "Opbouw": "begin ± 2 min (zonder Tonight), 8-13 onderwerpen met feitjes, slot dat uitdooft",
-  "Planning": "ma, wo en za 21:00 (NL)"
+  "Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
+  "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
+  "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
+  "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"
  }
 }
