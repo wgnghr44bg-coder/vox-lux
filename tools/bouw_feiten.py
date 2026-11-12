@@ -52,10 +52,9 @@ for p in delen:
             out += begin + ["[long-pause]"]
         if wacht_topic or nr == 1:
             hoofdstukken.append((wacht_topic or "Introduction", slug))
-        if wacht_bridge and nr > 1:
-            out += [wacht_bridge, "[pause]"]
+        # sinds 12 nov 2026 (opbouw zoals Sleepy History): geen overgangszinnen meer, HEAD en BODY achter elkaar
         wacht_topic = wacht_bridge = None
-        out += [head, "[pause]", body, "[long-pause]"]
+        out += [head + " " + body, "[long-pause]"]
 out += alineas(src / "slot.txt")
 
 # Beeldprompts voor comfy (tools/comfy/comfy_batch.py leest prompts.txt): alleen als er src/stijl.txt is (de vaste

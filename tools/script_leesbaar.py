@@ -49,26 +49,29 @@ def meet(d):
 
 
 def toon(d):
-    """Praat het script tegen jóu, zoals de grote slaapkanalen? (eigenaar 11 nov 2026; zie stories/OPBOUW.md, Toon)
-    Gemeten over de feitjes en overgangen (src-feiten/deel*.txt). Grenzen: jij-vorm >= 10 per 1000 woorden,
-    samentrekkingen >= 8 per 1000, gemiddeld >= 1 vraag per hoofdstuk, verteller als persoon ('I') >= 3 keer,
-    'you might think' >= 2 keer."""
+    """Vertelt het script als een kalme gids, zoals Sleepy History? (eigenaar 12 nov 2026: "de manier zoveel mogelijk
+    overnemen"; zie stories/OPBOUW.md). Gemeten over de blokken (src-feiten/deel*.txt). Grenzen: jij-vorm <= 4 per
+    1000 woorden, vragen gemiddeld <= 1 per 10 blokken, verteller als persoon ('I') 0 keer,
+    geen 'you might think', geen BRIDGE-overgangen, geen verwijzingen naar later/eerder ('remember', 'as we saw')."""
     delen = sorted((d / "src-feiten").glob("deel*.txt")) if (d / "src-feiten").exists() else []
     if not delen:
         return None
     t = "\n".join(p.read_text(encoding="utf-8") for p in delen)
-    hoofdstukken = len(re.findall(r"^TOPIC:", t, re.M)) or 1
-    t = " ".join(re.sub(r"^(HEAD|BODY|BRIDGE):\s*", "", r) for r in t.splitlines() if re.match(r"(HEAD|BODY|BRIDGE):", r))
+    blokken = len(re.findall(r"^HEAD:", t, re.M)) or 1
+    bridges = len(re.findall(r"^BRIDGE:", t, re.M))
+    t = " ".join(re.sub(r"^(HEAD|BODY):\s*", "", r) for r in t.splitlines() if re.match(r"(HEAD|BODY):", r))
     n = max(1, len(t.split()))
     m = {"jij_per_1000": round(len(re.findall(r"\byou(r|rs|rself|'d|'ll|'re|'ve)?\b", t, re.I)) * 1000 / n, 1),
-         "samentrekkingen_per_1000": round(len(re.findall(r"\b\w+['’](s|t|d|ll|re|ve|m)\b", t)) * 1000 / n, 1),
-         "vragen_per_hoofdstuk": round(t.count("?") / hoofdstukken, 1),
+         "vragen_per_10_blokken": round(t.count("?") * 10 / blokken, 1),
          "verteller_ik": len(re.findall(r"\bI(['’](ve|m|d|ll))?\b", t)),
-         "you_might_think": len(re.findall(r"\byou (might|may|probably) (think|imagine|expect|picture)", t, re.I))}
-    tekort = [k for k, g in (("jij-vorm", m["jij_per_1000"] >= 10), ("spreektaal", m["samentrekkingen_per_1000"] >= 8),
-                             ("vragen", m["vragen_per_hoofdstuk"] >= 1), ("verteller", m["verteller_ik"] >= 3),
-                             ("you might think", m["you_might_think"] >= 2)) if not g]
-    m["toon"] = "TOON GOED" if not tekort else "TE AFSTANDELIJK (" + ", ".join(tekort) + ")"
+         "you_might_think": len(re.findall(r"\byou (might|may|probably) (think|imagine|expect|picture)", t, re.I)),
+         "bridges": bridges,
+         "verwijzingen": len(re.findall(r"\b(remember (this|that|those)|as we (saw|have seen)|we will see|later in this)\b",
+                                        t, re.I))}
+    teveel = [k for k, g in (("jij-vorm", m["jij_per_1000"] <= 4), ("vragen", m["vragen_per_10_blokken"] <= 1),
+                             ("verteller", m["verteller_ik"] == 0), ("you might think", m["you_might_think"] == 0),
+                             ("overgangen", bridges == 0), ("verwijzingen", m["verwijzingen"] == 0)) if not g]
+    m["toon"] = "TOON GOED" if not teveel else "TE PERSOONLIJK (" + ", ".join(teveel) + ")"
     return m
 
 
@@ -89,8 +92,8 @@ if __name__ == "__main__":
                   f"-> {r['oordeel']}" + (" (GOED)" if r["oordeel"] == "MAKKELIJK" else
                                           "" if r["oordeel"] == "GOED" else ", zinnen korter en eenvoudiger woorden"))
             if tn:
-                print(f"  toon: jij-vorm {tn['jij_per_1000']}/1000, spreektaal {tn['samentrekkingen_per_1000']}/1000, "
-                      f"vragen {tn['vragen_per_hoofdstuk']}/hoofdstuk, verteller {tn['verteller_ik']}x, "
-                      f"you might think {tn['you_might_think']}x -> {tn['toon']}")
+                print(f"  toon: jij-vorm {tn['jij_per_1000']}/1000, vragen {tn['vragen_per_10_blokken']}/10 blokken, "
+                      f"verteller {tn['verteller_ik']}x, you might think {tn['you_might_think']}x, "
+                      f"overgangen {tn['bridges']}, verwijzingen {tn['verwijzingen']} -> {tn['toon']}")
     if "--json" in sys.argv:
         print(json.dumps(uit, ensure_ascii=False))

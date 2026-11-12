@@ -13,6 +13,53 @@ Wissel de soort af (nooit twee keer dezelfde soort na elkaar):
 "What Was Life Really Like in …?", "How Did People Survive …?", "What Did … Actually …?", "Why Did …?",
 "What Happened to … After …?".
 
+## Nieuwe opbouw sinds 12 nov 2026 (eigenaar: "de manier zoveel mogelijk overnemen, de gehele opbouw")
+Voorbeeld: Sleepy History Channel, "What Was Medicine Like in Ancient Times?" (https://youtu.be/e_p-9MVL4Xc, 2:58,
+21.674 woorden, 123 woorden/min, ± 110 blokken van ± 200 woorden, veel views). We nemen hun **opbouw en manier van
+vertellen** over, nooit hun zinnen: onderwerp, feiten, woorden, stem, muziek en beelden zijn van ons.
+De oude "nieuwe toon" van 11 nov (jij-vorm, vragen, verteller als persoon, ingevoegde zinnen) is vervallen.
+
+## 1. Begin (± 1 minuut, 80-160 woorden; eigenaar 12 nov: "intro en outro hoeven niet lang te zijn")
+1. **Het onderwerp, rustig uitgelegd** in 4-6 korte zinnen: wat het was, waarom het bijzonder is, wat we gaan zien.
+   Geen scène in de jij-vorm, geen raadsel; gewoon een kalme inleiding. Geen "Tonight"/"Hello" (eigen keuze, 7 nov).
+2. **Eén zachte zin over abonneren of een reactie achterlaten**, plus waarom ("it helps others find their way here").
+3. **Settle in**: 2-3 heel korte zinnen (schouders, ogen, adem, stilte).
+4. **"Let's begin."** (of een korte variant), dan meteen het eerste blok.
+
+## 2. Midden (± 2,5-3 uur, ± 15.000-19.000 woorden)
+- **Per thema**, niet als één verhaal: 8-14 thema's (TOPIC, alleen voor de hoofdstukken in de beschrijving), die
+  zonder overgangszinnen in elkaar overlopen. **Geen BRIDGE** meer. Binnen een thema mag de tijd gewoon vooruit gaan.
+- **80-115 blokken van ± 170-230 woorden**, elk met een eigen beeld. **Elk blok staat op zichzelf**: wie even wegvalt,
+  mist niets; nooit "remember this", "later", "as we saw".
+- Elk blok in dezelfde vaste volgorde:
+  1. **HEAD**: één feit als gewone uitspraak in de verleden tijd ("Roman surgeons used instruments that …").
+     HEAD en BODY worden achter elkaar gesproken, zonder extra pauze.
+  2. **Openingszin van de BODY** die het feit in andere woorden herhaalt ("Among the most remarkable …").
+  3. **Uitleg**: wat het was, hoe het werkte, wie het deed.
+  4. **Iets concreets of een bewijs**: een vondst, een tekst, een voorwerp, een plek ("Archaeologists found …",
+     "A clay tablet describes …", "Herodotus wrote …").
+  5. **Nuance**: "Yet …", "Even so …", "This does not mean …".
+  6. **Rustige slotgedachte**: wat het zegt over de mensen van toen, vaak de brug naar nu.
+- **Toon**: een kalme gids, verleden tijd, beschouwend. **Geen jij-vorm** (hooguit heel af en toe "you"), **geen
+  vragen aan de luisteraar**, **geen "I"**, geen grapjes, geen spanning of cliffhangers. Woorden als "remarkable",
+  "striking", "Yet", "Even so", "therefore" mogen.
+- **Korte zinnen** (gemiddeld 10-14 woorden, veel van 4-8), gewone woorden, elk feit maar één keer per blok.
+
+## 3. Einde (± 1 minuut, 80-170 woorden)
+1. **Terugblik**: 2-3 rustige zinnen over wat we samen zagen, zonder nieuwe feiten.
+2. **Vervagen**: het beeld van toen dooft zacht uit (lampen, voetstappen, de rivier in het donker).
+3. **"Je hoeft niets te onthouden"** in eigen woorden.
+4. Eén zin dat er nog een rustig verhaal klaarstaat (moet "another ... story/journey/video ... on the screen" bevatten)
+   en kort abonneren of een reactie.
+5. Ademen, loslaten, en als laatste: "Sleep well, and good night."
+
+## Pauzes en tempo
+- Tussen zinnen ± 1 s, tussen alinea's van begin/slot [pause] ± 1,6 s, tussen blokken [long-pause] (max 2,0 s).
+  Na de HEAD geen extra pauze (zoals het voorbeeld). Tempo met pauzes ± 120-130 woorden/min (voorbeeld 123).
+
+---
+*Hieronder de oude opbouw van 7-11 nov, alleen nog ter informatie.*
+
 ## 1. Begin (± 2 minuten, ± 250-300 woorden)
 In deze volgorde:
 1. **Opening in de jij-vorm**, meteen in het onderwerp. Wissel de soort af (nooit twee keer dezelfde na elkaar):
@@ -73,6 +120,8 @@ titelsoort life-really-like | how-survive | what-actually | why | what-happened
 ```
 
 ## Bestanden (zo leest bouw_script.py het)
+Sinds 12 nov: geen BRIDGE meer (wordt genegeerd als hij er nog staat), HEAD en BODY achter elkaar.
+
 In `stories/<map>/src-feiten/`:
 - `begin.txt`: het begin (alinea's gescheiden door een lege regel = korte pauze).
 - `deel1.txt`, `deel2.txt`, …: blokken gescheiden door een regel `===`. Twee soorten blokken:

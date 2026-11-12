@@ -3,7 +3,7 @@ controleren of alles goed werkt"). Aanleiding: het lokale Gettysburg-script had 
 "planes on the tarmac" in 1863, terwijl de vaste controles (lengte, leesbaarheid, afwisseling) goed waren.
 
 Controles:
-  1. vorm: 80-100 feitjes, 14.000-21.000 woorden, begin 200-340 woorden, slot 90-200 woorden met "another ... story ...
+  1. vorm: 80-115 feitjes, 14.000-21.000 woorden, begin 80-160 woorden, slot 80-170 woorden (opbouw 12 nov 2026; eigenaar: intro en outro kort) met "another ... story ...
      on the screen", abonneren, en als laatste "Sleep well, and good night."; geen "Tonight/Hello" aan het begin
   2. tijd: woorden die niet bij de tijd passen (bv. plane, tarmac, phone, car vóór 1900), behalve in feitjes die
      duidelijk over later gaan (jaartal of "today")
@@ -90,19 +90,19 @@ def controleer(m, met_model=True):
     info.update(feitjes=len(fb), woorden=totaal, begin=woorden(begin), slot=woorden(slot),
                 onderwerpen=len({b["topic"] for b in fb}))
     # 1. vorm
-    if not 80 <= len(fb) <= 100:
-        fout.append(f"{len(fb)} feitjes (80-100 nodig)")
+    if not 80 <= len(fb) <= 115:
+        fout.append(f"{len(fb)} feitjes (80-115 nodig)")
     if not 14000 <= totaal <= 21000:
         fout.append(f"{totaal} woorden (14.000-21.000 nodig)")
-    if not 200 <= woorden(begin) <= 340:
-        fout.append(f"begin {woorden(begin)} woorden (200-340 nodig)")
+    if not 80 <= woorden(begin) <= 160:
+        fout.append(f"begin {woorden(begin)} woorden (80-160 nodig)")
     if re.match(r"\s*(tonight|hello|welcome)", begin, re.I):
         fout.append("begin start met Tonight/Hello/Welcome")
     if not re.search(r"subscri", begin, re.I):
         fout.append("geen abonneer-zin in het begin")
-    if not 90 <= woorden(slot) <= 200:
-        fout.append(f"slot {woorden(slot)} woorden (90-200 nodig)")
-    if not re.search(r"another .*(story|video).*screen", slot, re.I | re.S):
+    if not 80 <= woorden(slot) <= 170:
+        fout.append(f"slot {woorden(slot)} woorden (80-170 nodig)")
+    if not re.search(r"another .*(story|video|journey).*screen", slot, re.I | re.S):
         fout.append('slot mist "another ... story ... on the screen"')
     if not slot.strip().endswith("Sleep well, and good night."):
         fout.append('slot eindigt niet op "Sleep well, and good night."')
