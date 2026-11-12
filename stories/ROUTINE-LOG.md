@@ -79,3 +79,4 @@
 - 2026-11-12 13:29 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 13:57 Claude: thanksgiving-1621 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
 - 2026-11-12 14:04 Claude: pearl-harbor-1941 omgebouwd naar opbouw Sleepy History (88 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
+- 2026-11-12 14:14 Claude: boeren-winter-1300 omgebouwd naar opbouw Sleepy History (87 blokken herschreven als kalme gids zonder verzonnen gezin, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
