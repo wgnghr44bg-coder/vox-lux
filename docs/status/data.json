@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 22:33",
+ "bijgewerkt": "2026-11-12 23:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 45%",
+    "detail": "Controles",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "168 GB vrij"
+   "tekst": "165 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 22:33)"
+   "tekst": "draait nu (2026-11-12 23:03)"
   },
   {
    "naam": "Git",
@@ -507,8 +507,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 22:33",
-   "volgende": "2026-11-12 23:03"
+   "laatst": "2026-11-12 23:03",
+   "volgende": "2026-11-12 23:33"
   },
   "hype": {
    "aan": true,
@@ -821,23 +821,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 45,
-  "detail": "16mm-look",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "kwaliteitscontrole"
   ],
   "eind": {
-   "klaar": "2026-11-12 23:43",
-   "youtube": "2026-11-13 00:28"
+   "klaar": "2026-11-12 23:42",
+   "youtube": "2026-11-13 00:27"
   }
  },
  "nu_bezig": [
@@ -846,13 +846,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "kwaliteitscontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
-  "geheugen_mb": 760,
+  "bezig_procent": 25,
+  "geheugen_mb": 769,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1024,7 +1024,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 22:33",
+   "tijd": "2026-11-12 23:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
