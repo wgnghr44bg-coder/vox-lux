@@ -5,7 +5,8 @@ Warme vale kleuren, zacht contrast (zwart iets opgetild), fijne zachte korrel, d
 en af en toe een stofje. Geen flikkeren. Geen krassen, geen lichtvlek, geen trillen: de beweging blijft gelijk.
 Geluid wordt ongewijzigd gekopieerd.
 Vuur (eigenaar 12 nov 2026: "vonken veel" over de hele video, bij alle video's): een naadloze lus van 40 s met een warme
-flakkerende gloed van onderen en zwevende vonkjes (tools/effects.py: vonken 2.5 + vuur 1.2), één keer gemaakt en
+flakkerende gloed van onderen en zwevende vonkjes (tools/effects.py: vonken 1.6 + vuur 0.8, op halve snelheid: eigenaar 12 nov "vlammen iets minder
+ en minder snel"), één keer gemaakt en
 bewaard in ~/vox-lux-cache, en hier snel door ffmpeg erbij opgeteld. Zonder: --zonder-vuur.
 
 Gebruik: python tools/film16.py in.mp4 uit.mp4 [--zonder-vuur]
@@ -50,8 +51,9 @@ def stof(pad, sec=12):
         raise RuntimeError("stof-lus mislukt")
 
 
-VUUR_LUS = Path.home() / "vox-lux-cache" / "vuurlus-v2.mp4"
+VUUR_LUS = Path.home() / "vox-lux-cache" / "vuurlus-v3.mp4"
 VUUR_SEC, VUUR_FADE, VUUR_LICHT = 40, 3, 1.3     # lengte, overvloeien naar het begin (naadloos), extra gloed
+VUUR, VONKEN, VUUR_TEMPO = 0.8, 1.6, 0.5          # sterkte gloed, aantal vonken, snelheid flakkeren en zweven
 
 
 def vuurlus(pad=VUUR_LUS):
@@ -64,12 +66,12 @@ def vuurlus(pad=VUUR_LUS):
 
     def frames():
         rng = np.random.default_rng(12)
-        eff = [make_effect("vuur", w, h, rng, 1.2), make_effect("vonken", w, h, rng, 2.5)]
+        eff = [make_effect("vuur", w, h, rng, VUUR), make_effect("vonken", w, h, rng, VONKEN)]
         zwart = np.zeros((h, w, 3), np.float32)
         for i in range(n + f):
             x = zwart
             for e in eff:
-                x = e.apply(x, i / FPS, 1 / FPS, 1.0)
+                x = e.apply(x, i / FPS * VUUR_TEMPO, VUUR_TEMPO / FPS, 1.0)
             yield x
     staart = [x for i, x in enumerate(frames()) if i >= n]          # ronde 1: alleen het stuk ná het einde
     pad.parent.mkdir(parents=True, exist_ok=True)
