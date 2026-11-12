@@ -82,3 +82,11 @@
 - 2026-11-12 14:14 Claude: boeren-winter-1300 omgebouwd naar opbouw Sleepy History (87 blokken herschreven als kalme gids zonder verzonnen gezin, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
 - 2026-11-12 14:21 Claude: kerst-loopgraven-1914 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, scriptcheck-fout feitje 79 opgelost, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
 - 2026-11-12 14:27 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
+- 2026-11-12 14:34 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 14:53 hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-12 14:53 hype-wachter: SEINTJE How Did Ice Age Humans Sleep Without Freezing to Death? -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-12 14:53 hype-wachter: SEINTJE The Balkan General who made an Empire Bleed -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-12 14:53 hype-wachter: SEINTJE 8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-12 14:53 hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-12 23:16 babylon-600-vc: geüpload https://youtu.be/KwUvlP42M34 (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-12 23:21 babylon-600-vc: oude versie 8Mm2NOlyL3U ('Why Was Babylon the Greatest City on Earth? | History for Sleep') verwijderd
