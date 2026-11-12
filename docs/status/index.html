@@ -118,6 +118,7 @@ th{color:var(--zacht);font-weight:600;font-size:.78rem}
 dl.vast{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:6px 12px;margin:0;font-size:.88rem}
 dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
 .sectie{scroll-margin-top:12px}
+.eind{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;padding-top:10px;border-top:1px solid #ffffff14;font-size:.86rem}.eind dt{color:#9a93bf}.eind dd{margin:0;font-weight:600}
 .nu{display:flex;gap:12px;align-items:center}.nu img{width:110px;aspect-ratio:16/9;object-fit:cover;border-radius:10px;flex:none;max-width:40%}
 .rij-v{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #ffffff0d;font-size:.88rem;min-width:0}
 .rij-v .dt{flex:none;width:58px;color:var(--zacht);font-size:.8rem}.rij-v .tt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -252,6 +253,7 @@ const ICO=["i-lamp","i-doc","i-beeld","i-mic","i-montage","i-schild","i-upload"]
 const isoDag=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
 function delta(a,b){if(b==null||!b)return "";const p=Math.round(100*(a-b)/b);return `<span class="${p>=0?"op":"neer"}">${p>=0?"▲ +":"▼ "}${p}%</span>`}
 function dagLabel(iso){const x=new Date(iso+"T12:00");return `${DAG[x.getDay()]} ${x.getDate()}-${x.getMonth()+1}`}
+function tijdLabel(s){if(!s)return "";const [dg,tm]=s.split(" "),n=Math.round((new Date(dg+"T12:00")-new Date(isoDag(new Date())+"T12:00"))/864e5);return `${n==0?"vandaag":n==1?"morgen":dagLabel(dg)} ± ${tm}`}
 function weekNr(d){d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const n=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-n);const j=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil(((d-j)/864e5+1)/7)}
 
 function grafiek(dagen){
@@ -322,7 +324,7 @@ async function laad(){
   $("straat").innerHTML=d.stappen.map((s,i)=>{const klaar=h&&d.stap>i,nuS=h&&d.stap===i;
     return (i?`<span class="pijl">›</span>`:"")+`<div class="stap ${klaar?"klaar":nuS?"nu":""}"><div class="bol"><svg class="i" style="width:24px;height:24px"><use href="#${ICO[i]}"/></svg>${klaar?`<span class="v">✓</span>`:""}</div>${esc(s.replace(" & planning","").replace(" schrijven",""))}</div>`}).join("");
   // home: nu bezig (met voortgang in stappen) en de volgende video's
-  $("nuBezig").innerHTML=h?`<div class="nu"><img src="${esc(h.thumb||"logo.png")}" alt=""><div style="min-width:0"><b>${esc(h.titel.replace(/ \| History for Sleep$/,""))}</b><div class="zacht" style="font-size:.84rem;margin:2px 0 8px">online ${h.datum?dagLabel(h.datum):""} · stap ${d.stap+1} van ${d.stappen.length}: ${esc(h.stapnaam)}</div><div class="balk"><span style="width:${Math.round(100*(d.stap+.5)/d.stappen.length)}%"></span></div></div></div>`:`<div class="zacht">De pc wacht op de volgende taak.</div>`;
+  $("nuBezig").innerHTML=h?`<div class="nu"><img src="${esc(h.thumb||"logo.png")}" alt=""><div style="min-width:0"><b>${esc(h.titel.replace(/ \| History for Sleep$/,""))}</b><div class="zacht" style="font-size:.84rem;margin:2px 0 8px">online ${h.datum?dagLabel(h.datum):""} · stap ${d.stap+1} van ${d.stappen.length}: ${esc(h.stapnaam)}</div><div class="balk"><span style="width:${Math.round(100*(d.stap+.5)/d.stappen.length)}%"></span></div></div></div>${h.eind?`<dl class="eind"><dt>Video klaar</dt><dd>${tijdLabel(h.eind.klaar)}</dd><dt>Op YouTube</dt><dd>${tijdLabel(h.eind.youtube)} <small class="zacht">(nog privé)</small></dd>${h.datum?`<dt>Online voor kijkers</dt><dd>${dagLabel(h.datum)} 21:00</dd>`:""}</dl>`:""}`:`<div class="zacht">De pc wacht op de volgende taak.</div>`;
   $("volgende").innerHTML=komend.slice(0,4).map(x=>`<div class="rij-v"><span class="dt">${dagLabel(x.datum)}</span><span class="tt">${esc(x.titel.replace(/ \| History for Sleep$/,""))}</span><span class="chip ${x.soort==="gepland"||x.soort==="online"?"goed":x.soort==="script"?"let":""}">${esc(lab[x.soort]||x.soort)}</span></div>`).join("")||`<div class="zacht">Niets gepland.</div>`;
 
   // doelen: YouTube-partnerprogramma

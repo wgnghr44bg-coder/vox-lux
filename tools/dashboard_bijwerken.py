@@ -91,15 +91,20 @@ HERKEN = [("scriptgen", 1, "script schrijven (Qwen3 lokaal)"), ("PROMPT-SCRIPT-P
           ("PROMPT-ROUTINE-PC", 0, "routine (Claude) stuurt aan"), ("routine_lokaal.py", 0, "routine zonder Claude")]
 
 
+RUW = []                                                    # (starttijd, opdrachtregel) van alle processen
+
+
 def processen():
     try:
         out = subprocess.run(["powershell", "-NoProfile", "-Command",
-                              "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CommandLine }"],
+                              "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CreationDate.ToString('s') + '|' + $_.CommandLine }"],
                              capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=90).stdout
     except Exception:
         out = ""
     gevonden, stap, mapnaam = [], -1, ""
     for regel in out.splitlines():
+        start, _, regel = regel.partition("|")
+        RUW.append((start, regel))
         for k, s, naam in HERKEN:
             if k in regel:
                 if naam not in [g["naam"] for g in gevonden]:
@@ -147,6 +152,54 @@ def voortgang(stap, m):
     except Exception:
         pass
     return None, ""
+
+
+# ---------- wanneer klaar ----------
+# Duur per stap in minuten per uur video (Babylon 12 nov: montage 3u05 voor 2u05; motion ± 5 uur en 16mm ± 1 uur
+# voor 2u45), daarna het uploaden en wachten op YouTube. Volgorde zoals routine_lokaal.py en montage_engine.sh.
+NA_STEM = [("prep_engine.sh", 20), ("engine_muziek.py", 5), ("make_video.py", 90), ("motion.py", 110),
+           ("stil_tikjes.py", 20), ("check_video.py", 15), ("check_stem_tekst.py", 25), ("eind_volume.py", 15),
+           ("film16.py", 25), ("qc_video.py", 10), ("vergelijk_bron.py", 10)]
+UPLOAD_MIN = 45
+
+
+def eindtijd(m, proc):
+    """Verwachte tijd waarop de video klaar is en op YouTube staat (gepland), uit de stap die nu draait."""
+    if not m:
+        return None
+    try:
+        regels = (STORIES / m / "voice-times.tsv").read_text(encoding="utf-8").strip().splitlines()
+        uren = float(regels[-1].split("\t")[1]) / 3600 + 0.05
+    except Exception:
+        uren = 2.5
+    actief = [(s, c) for s, c in RUW if m in c or "montage_engine" in c or "vervang_video" in c]
+    if any("vervang_video.py" in c or "wacht_verwerkt.py" in c for _, c in actief):
+        start = min(datetime.datetime.fromisoformat(s) for s, c in actief if "vervang_video.py" in c)
+        return {"klaar": start.strftime("%Y-%m-%d %H:%M"),
+                "youtube": max(start + datetime.timedelta(minutes=UPLOAD_MIN), NU + datetime.timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M")}
+    montage = any("montage_engine" in c for _, c in actief)
+    idx, start = -1, None
+    for i, (k, _) in enumerate(NA_STEM):
+        for s, c in actief:
+            # check_stem_tekst.py draait ook vóór de montage (tekstcontrole van de stem)
+            if k in c and (k != "check_stem_tekst.py" or montage) and i > idx:
+                idx, start = i, datetime.datetime.fromisoformat(s)
+    if idx < 0:
+        stem = [s for s, c in actief if "engine_stem.py" in c]
+        if not stem:
+            return None
+        rest = 60 * uren * (1 - (proc or 0) / 100)                     # stem: ± 60 min per uur video
+        idx, eind = -1, NU + datetime.timedelta(minutes=rest)
+    else:
+        duur = NA_STEM[idx][1] * uren
+        bezig = (NU - start).total_seconds() / 60
+        if proc and proc > 3 and bezig > 5:                            # echte voortgang van deze stap (motion, 16mm)
+            duur = bezig * 100 / proc
+        eind = NU + datetime.timedelta(minutes=max(duur - bezig, 0.1 * duur))
+    for _, per_uur in NA_STEM[idx + 1:]:
+        eind += datetime.timedelta(minutes=per_uur * uren)
+    return {"klaar": eind.strftime("%Y-%m-%d %H:%M"),
+            "youtube": (eind + datetime.timedelta(minutes=UPLOAD_MIN)).strftime("%Y-%m-%d %H:%M")}
 
 
 def gpu():
@@ -312,7 +365,7 @@ if actief:
         thumb = f"https://i.ytimg.com/vi/{v['id']}/mqdefault.jpg"
     huidig = {"map": actief, "titel": v["titel"], "datum": v["datum"], "thumb": thumb, "stap": stap,
               "stapnaam": STAPPEN[stap] if 0 <= stap < len(STAPPEN) else "", "voortgang": proc, "detail": proc_tekst,
-              "taken": [d["naam"] for d in draait]}
+              "taken": [d["naam"] for d in draait], "eind": eindtijd(actief, proc)}
 week = []
 for i in range(7):
     dag = VANDAAG + datetime.timedelta(days=i)
@@ -349,7 +402,7 @@ for x in zc:                                               # fouten uit de zelfc
 # ---------- duidelijke planning (eigenaar 10 nov 2026: "ik wil duidelijk de planning zien, wat er nu gebeurt en wat erna") ----------
 def werkplanning():
     alle_cmd = subprocess.run(["powershell", "-NoProfile", "-Command",
-                               "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CommandLine }"],
+                               "Get-CimInstance Win32_Process | ? { $_.CommandLine } | % { $_.CreationDate.ToString('s') + '|' + $_.CommandLine }"],
                               capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=90).stdout
     tk = taken()
     routine_aan = bool(tk.get("routine") and tk["routine"]["aan"])
