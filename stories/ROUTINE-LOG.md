@@ -69,3 +69,6 @@
 - 2026-11-11 21:33 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 02:04 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 04:33 zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
+- 2026-11-12 05:19 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 05:38 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 05:46 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan
