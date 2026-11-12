@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 15:03",
+ "bijgewerkt": "2026-11-12 15:04",
  "werkplanning": {
   "nu": [
    {
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 15:03)"
+   "tekst": "laatste keer goed (2026-11-12 15:03)"
   },
   {
    "naam": "Git",
@@ -617,6 +617,176 @@
     "views": 1277,
     "verwerkt": "processed"
    }
+  ],
+  "dagen": [
+   {
+    "dag": "2026-10-15",
+    "views": 16,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-16",
+    "views": 17,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-17",
+    "views": 14,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-18",
+    "views": 14,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-19",
+    "views": 17,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-20",
+    "views": 43,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-21",
+    "views": 40,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-22",
+    "views": 93,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-23",
+    "views": 84,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-24",
+    "views": 99,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-25",
+    "views": 147,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-26",
+    "views": 240,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-27",
+    "views": 185,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-10-28",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-29",
+    "views": 94,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-30",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-31",
+    "views": 33,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-01",
+    "views": 65,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-02",
+    "views": 192,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-03",
+    "views": 124,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-04",
+    "views": 24,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-05",
+    "views": 29,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-06",
+    "views": 48,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-07",
+    "views": 72,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-08",
+    "views": 101,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-09",
+    "views": 40,
+    "abonnees": 0
+   }
+  ],
+  "maand": {
+   "views": 1977,
+   "uren": 440,
+   "abonnees": 6
+  },
+  "vorige_maand": {
+   "views": 1063,
+   "uren": 71,
+   "abonnees": 7
+  },
+  "jaar": {
+   "views": 3024,
+   "uren": 508,
+   "abonnees": 13
+  },
+  "top": [
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "views": 1178,
+    "uren": 328
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "views": 330,
+    "uren": 21
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "views": 196,
+    "uren": 42
+   }
   ]
  },
  "kpi": {
@@ -667,8 +837,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 14,
-  "geheugen_mb": 597,
+  "bezig_procent": 25,
+  "geheugen_mb": 581,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -840,7 +1010,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 15:03",
+   "tijd": "2026-11-12 15:04",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
