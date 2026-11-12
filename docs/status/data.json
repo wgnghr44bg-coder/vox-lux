@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 13:33",
+ "bijgewerkt": "2026-11-12 14:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Beelden maken · 99%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -144,11 +144,11 @@
     "map": "crisis-1933",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
-    "flesch": 86,
-    "niveau": 4.0,
+    "controle": "nog niet",
+    "flesch": 71,
+    "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-16",
@@ -205,10 +205,10 @@
     "klaar": true,
     "stand": "script klaar en 's nachts goedgekeurd",
     "controle": "GOED",
-    "flesch": 80,
-    "niveau": 5.5,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "flesch": 66,
+    "niveau": 7.5,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-28",
@@ -220,7 +220,7 @@
     "flesch": 83,
     "niveau": 4.5,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "toon": "TE PERSOONLIJK (verteller)"
    },
    {
     "datum": "2026-12-02",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 13:33)"
+   "tekst": "draait nu (2026-11-12 14:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 13:33",
-   "volgende": "2026-11-12 14:03"
+   "laatst": "2026-11-12 14:03",
+   "volgende": "2026-11-12 14:33"
   }
  },
  "kanaal": {
@@ -534,7 +534,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 12,
+    "views": 14,
     "verwerkt": "processed"
    },
    {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 349,
+    "views": 364,
     "verwerkt": "processed"
    },
    {
@@ -609,7 +609,7 @@
    "totaal": 23,
    "procent": 22
   },
-  "fouten": 3,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 12,
    "totaal": 14
@@ -624,19 +624,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "92 van 92 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "stem inspreken (OmniVoice B1)"
   ]
  },
  "nu_bezig": [
@@ -645,13 +645,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 81,
-  "geheugen_mb": 7314,
+  "bezig_procent": 99,
+  "geheugen_mb": 7606,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -737,12 +737,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 16:28",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-11 20:10",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -819,33 +813,27 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 13:57",
+   "tekst": "Claude: thanksgiving-1621 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 05:53",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 13:33",
+   "tijd": "2026-11-12 14:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 13:33",
+   "tijd": "2026-11-12 14:03",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slo",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-11 06:41",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: 028 klaar (33 s)); de oude versie blijft staan",
@@ -885,6 +873,12 @@
   {
    "tijd": "2026-11-12 05:46",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:53",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -1104,7 +1098,7 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "status": "bezig (2026-11-12, routine-lokaal)",
+   "status": "bezig (2026-11-12, routine-lokaal), opbouw Sleepy 12 nov",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "nieuwe",
@@ -1764,7 +1758,7 @@
    "datum": "2026-11-25",
    "reserve": false,
    "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
