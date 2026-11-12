@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 15:04",
+ "bijgewerkt": "2026-11-12 15:14",
  "werkplanning": {
   "nu": [
    {
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "185 GB vrij"
+   "tekst": "184 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -816,7 +816,7 @@
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
   "voortgang": null,
@@ -838,7 +838,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 581,
+  "geheugen_mb": 390,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1010,7 +1010,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 15:04",
+   "tijd": "2026-11-12 15:14",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
