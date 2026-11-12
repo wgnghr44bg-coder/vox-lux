@@ -1,12 +1,10 @@
 {
- "fouten": [
-  "feitje 79 gaat niet over het onderwerp: And at one end of the town, where the road leads out toward the old ba"
- ],
+ "fouten": [],
  "info": {
   "feitjes": 89,
-  "woorden": 17669,
-  "begin": 243,
-  "slot": 121,
+  "woorden": 15114,
+  "begin": 118,
+  "slot": 111,
   "onderwerpen": 13,
   "jaar": 1914
  }
