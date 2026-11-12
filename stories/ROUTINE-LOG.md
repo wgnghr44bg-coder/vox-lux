@@ -72,3 +72,5 @@
 - 2026-11-12 05:19 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 05:38 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 05:46 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan
+- 2026-11-12 05:46 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 05:53 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan
