@@ -81,3 +81,4 @@
 - 2026-11-12 14:04 Claude: pearl-harbor-1941 omgebouwd naar opbouw Sleepy History (88 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
 - 2026-11-12 14:14 Claude: boeren-winter-1300 omgebouwd naar opbouw Sleepy History (87 blokken herschreven als kalme gids zonder verzonnen gezin, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
 - 2026-11-12 14:21 Claude: kerst-loopgraven-1914 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, scriptcheck-fout feitje 79 opgelost, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
+- 2026-11-12 14:27 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
