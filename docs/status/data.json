@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 11:03",
+ "bijgewerkt": "2026-11-12 11:33",
  "werkplanning": {
   "nu": [
    {
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 11:03)"
+   "tekst": "draait nu (2026-11-12 11:33)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 11:03",
-   "volgende": "2026-11-12 11:33"
+   "laatst": "2026-11-12 11:33",
+   "volgende": "2026-11-12 12:03"
   }
  },
  "kanaal": {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 340,
+    "views": 349,
     "verwerkt": "processed"
    },
    {
@@ -639,7 +639,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 27,
-  "geheugen_mb": 390,
+  "geheugen_mb": 400,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -817,17 +817,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 11:03",
+   "tijd": "2026-11-12 11:33",
    "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 11:03",
+   "tijd": "2026-11-12 11:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 11:03",
+   "tijd": "2026-11-12 11:33",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
