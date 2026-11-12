@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 19:03",
+ "bijgewerkt": "2026-11-12 19:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 25%",
+    "detail": "Video bouwen · 36%",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "171 GB vrij"
+   "tekst": "173 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 19:03)"
+   "tekst": "draait nu (2026-11-12 19:33)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 19:03",
-   "volgende": "2026-11-12 19:33"
+   "laatst": "2026-11-12 19:33",
+   "volgende": "2026-11-12 20:03"
   },
   "hype": {
    "aan": true,
@@ -819,17 +819,15 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 25,
+  "voortgang": 36,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels",
-   "eindvolume -14 LUFS",
-   "16mm-look"
+   "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-12 20:28",
-   "youtube": "2026-11-12 21:13"
+   "klaar": "2026-11-13 02:29",
+   "youtube": "2026-11-13 03:14"
   }
  },
  "nu_bezig": [
@@ -840,18 +838,10 @@
   {
    "naam": "beweging en hoofdstuktitels",
    "stap": 4
-  },
-  {
-   "naam": "eindvolume -14 LUFS",
-   "stap": 4
-  },
-  {
-   "naam": "16mm-look",
-   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 758,
   "totaal_mb": 8192
  },
@@ -1024,7 +1014,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 19:03",
+   "tijd": "2026-11-12 19:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
