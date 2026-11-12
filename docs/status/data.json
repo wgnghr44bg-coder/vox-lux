@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 20:33",
+ "bijgewerkt": "2026-11-12 21:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 69%",
+    "detail": "Video bouwen · 79%",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "174 GB vrij"
+   "tekst": "173 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 20:33)"
+   "tekst": "draait nu (2026-11-12 21:03)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 20:33",
-   "volgende": "2026-11-12 21:03"
+   "laatst": "2026-11-12 21:03",
+   "volgende": "2026-11-12 21:33"
   },
   "hype": {
    "aan": true,
@@ -517,8 +517,8 @@
   "views_totaal": 2550,
   "video_aantal": 14,
   "week": {
-   "views": 290,
-   "uren": 42,
+   "views": 388,
+   "uren": 70,
    "abonnees": 1
   },
   "vorige_week": {
@@ -748,11 +748,16 @@
     "dag": "2026-11-09",
     "views": 40,
     "abonnees": 0
+   },
+   {
+    "dag": "2026-11-10",
+    "views": 98,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 1977,
-   "uren": 440,
+   "views": 2075,
+   "uren": 468,
    "abonnees": 6
   },
   "vorige_maand": {
@@ -761,8 +766,8 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 3024,
-   "uren": 508,
+   "views": 3122,
+   "uren": 537,
    "abonnees": 13
   },
   "top": [
@@ -770,22 +775,22 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1178,
+    "views": 1209,
     "uren": 328
    },
    {
     "id": "qFRyJ6twOzY",
     "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
     "duur": "1:47:15",
-    "views": 330,
+    "views": 331,
     "uren": 21
    },
    {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 196,
-    "uren": 42
+    "views": 252,
+    "uren": 66
    }
   ]
  },
@@ -819,16 +824,15 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 69,
+  "voortgang": 79,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels",
-   "16mm-look"
+   "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-13 01:56",
-   "youtube": "2026-11-13 02:41"
+   "klaar": "2026-11-13 02:06",
+   "youtube": "2026-11-13 02:51"
   }
  },
  "nu_bezig": [
@@ -839,15 +843,11 @@
   {
    "naam": "beweging en hoofdstuktitels",
    "stap": 4
-  },
-  {
-   "naam": "16mm-look",
-   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 733,
+  "bezig_procent": 25,
+  "geheugen_mb": 763,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1019,7 +1019,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 20:33",
+   "tijd": "2026-11-12 21:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
