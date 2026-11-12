@@ -1,50 +1,50 @@
 {
- "bijgewerkt": "2026-11-12 22:03",
+ "bijgewerkt": "2026-11-12 22:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Stem (B1)",
+    "detail": "Video bouwen · 45%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
     "wanneer": "zo 15-11 09:00 (routine staat UIT)",
+    "wat": "Vrije plek: de routine kiest een populair onderwerp",
+    "map": "",
+    "detail": "routine maakt de video voor ma 23-11 21:00"
+   },
+   {
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "What Was the First Thanksgiving Really Like? | History for Sleep",
     "map": "thanksgiving-1621",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00 (routine staat UIT)",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
     "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "detail": "routine maakt de video voor za 5-12 21:00"
-   },
-   {
-    "wanneer": "do 26-11 09:00 (routine staat UIT)",
-    "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "routine maakt de video voor ma 7-12 21:00"
    }
   ],
   "publicaties": [
@@ -83,10 +83,10 @@
    {
     "datum": "2026-11-23",
     "dag": "ma",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "stand": "staat klaar op YouTube",
-    "kleur": "goed"
+    "titel": "—",
+    "map": "",
+    "stand": "vrije plek: de routine kiest een onderwerp",
+    "kleur": "zacht"
    },
    {
     "datum": "2026-11-25",
@@ -139,6 +139,18 @@
     "toon": "TOON GOED"
    },
    {
+    "datum": "2026-11-14",
+    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "map": "egypte-toetanchamon",
+    "klaar": true,
+    "stand": "video staat klaar",
+    "controle": "nog niet",
+    "flesch": 74,
+    "niveau": 6.6,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
+   },
+   {
     "datum": "2026-11-16",
     "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
@@ -183,18 +195,6 @@
     "controle": "nog niet",
     "flesch": 75,
     "niveau": 6.0,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
-   },
-   {
-    "datum": "2026-11-23",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "nog niet",
-    "flesch": 74,
-    "niveau": 6.6,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED"
    },
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "172 GB vrij"
+   "tekst": "168 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 22:03)"
+   "tekst": "draait nu (2026-11-12 22:33)"
   },
   {
    "naam": "Git",
@@ -466,6 +466,11 @@
    "naam": "Video 2026-11-14 (babylon-600-vc)",
    "ok": false,
    "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
+  },
+  {
+   "naam": "Video 2026-11-14 (egypte-toetanchamon)",
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -502,8 +507,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 22:03",
-   "volgende": "2026-11-12 22:33"
+   "laatst": "2026-11-12 22:33",
+   "volgende": "2026-11-12 23:03"
   },
   "hype": {
    "aan": true,
@@ -578,7 +583,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 373,
+    "views": 382,
     "verwerkt": "processed"
    },
    {
@@ -803,8 +808,8 @@
   },
   "fouten": 1,
   "zelfcontrole": {
-   "goed": 13,
-   "totaal": 14
+   "goed": 14,
+   "totaal": 15
   }
  },
  "stappen": [
@@ -816,23 +821,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/babylon-600-vc.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
-  "voortgang": null,
-  "detail": "bezig",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": 45,
+  "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "tekstcontrole (Whisper)"
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-13 01:03",
-   "youtube": "2026-11-13 01:48"
+   "klaar": "2026-11-12 23:43",
+   "youtube": "2026-11-13 00:28"
   }
  },
  "nu_bezig": [
@@ -841,13 +846,13 @@
    "stap": 0
   },
   {
-   "naam": "tekstcontrole (Whisper)",
-   "stap": 3
+   "naam": "16mm-look",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 53,
-  "geheugen_mb": 2666,
+  "bezig_procent": 23,
+  "geheugen_mb": 760,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1019,7 +1024,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 22:03",
+   "tijd": "2026-11-12 22:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1363,7 +1368,7 @@
   },
   {
    "map": "egypte-toetanchamon",
-   "datum": "2026-11-23",
+   "datum": "2026-11-14",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
    "status": "klaar, opbouw Sleepy 12 nov",
