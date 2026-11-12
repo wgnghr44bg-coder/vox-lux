@@ -4,8 +4,9 @@ Start: "Lees stories/PROMPT-OMBOUW-SLEEPY.md en voer het uit voor <map>". Werk a
 **Alleen tekst**: geen beelden, geen stem, geen video, niets wat geld kost. Eén map per keer, alleen jouw map aanraken.
 
 ## Verdeling (zodat niemand elkaars werk overschrijft)
-- **Tweede account**: `thanksgiving-1621` (wo 25 nov), `pearl-harbor-1941` (za 28 nov), `boeren-winter-1300` (wo 2 dec).
-- **Derde account**: `kerst-loopgraven-1914` (za 5 dec), `rome-44-vc` (wo 9 dec), `zwarte-dood-1348` (za 12 dec).
+- **Tweede account**, in deze volgorde: `thanksgiving-1621` (wo 25 nov), `pearl-harbor-1941` (za 28 nov),
+  `boeren-winter-1300` (wo 2 dec), `kerst-loopgraven-1914` (za 5 dec), `rome-44-vc` (wo 9 dec), `zwarte-dood-1348` (za 12 dec).
+  Kijk vóór elke map met `git pull` of hij al omgebouwd is (status bevat "opbouw Sleepy 12 nov"); dan overslaan.
 - Hoofdsessie op de pc: babylon en crisis-1933 (klaar), gettysburg-1863, dallas-1963, egypte-toetanchamon, scott-antarctica-1912.
 
 ## 0. Begin
