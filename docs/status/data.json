@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 13:10",
+ "bijgewerkt": "2026-11-12 13:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -133,8 +133,8 @@
     "klaar": true,
     "stand": "video wordt gemaakt",
     "controle": "GOED",
-    "flesch": 79,
-    "niveau": 5.9,
+    "flesch": 76,
+    "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED"
    },
@@ -148,7 +148,7 @@
     "flesch": 86,
     "niveau": 4.0,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
     "datum": "2026-11-16",
@@ -160,7 +160,7 @@
     "flesch": 78,
     "niveau": 6.0,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
     "datum": "2026-11-18",
@@ -172,7 +172,7 @@
     "flesch": 82,
     "niveau": 4.7,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
     "datum": "2026-11-21",
@@ -184,7 +184,7 @@
     "flesch": 80,
     "niveau": 5.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
     "datum": "2026-11-23",
@@ -196,7 +196,7 @@
     "flesch": 76,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-11-25",
@@ -208,7 +208,7 @@
     "flesch": 80,
     "niveau": 5.5,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-11-28",
@@ -220,7 +220,7 @@
     "flesch": 83,
     "niveau": 4.5,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-12-02",
@@ -232,7 +232,7 @@
     "flesch": 86,
     "niveau": 4.8,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-12-05",
@@ -256,7 +256,7 @@
     "flesch": 83,
     "niveau": 4.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-12-12",
@@ -268,7 +268,7 @@
     "flesch": 82,
     "niveau": 4.6,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
     "datum": "2026-12-16",
@@ -280,7 +280,7 @@
     "flesch": 88,
     "niveau": 3.7,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-12-19",
@@ -412,8 +412,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": false,
-   "tekst": "staat uit (de routine start hem zelf)"
+   "ok": true,
+   "tekst": "draait"
   },
   {
    "naam": "ffmpeg",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 13:03)"
+   "tekst": "draait nu (2026-11-12 13:33)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 13:03",
-   "volgende": "2026-11-12 13:33"
+   "laatst": "2026-11-12 13:33",
+   "volgende": "2026-11-12 14:03"
   }
  },
  "kanaal": {
@@ -609,9 +609,9 @@
    "totaal": 23,
    "procent": 22
   },
-  "fouten": 4,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 12,
    "totaal": 14
   }
  },
@@ -624,22 +624,34 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": []
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "92 van 92 beelden",
+  "taken": [
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
+  ]
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 458,
+  "bezig_procent": 81,
+  "geheugen_mb": 7314,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -651,7 +663,7 @@
   {
    "naam": "Beelden",
    "wat": "ComfyUI Z-Image",
-   "ok": false
+   "ok": true
   },
   {
    "naam": "Beeldcontrole",
@@ -724,12 +736,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-11 16:28",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-11 16:28",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
@@ -807,6 +813,12 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 13:29",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -817,17 +829,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 13:10",
-   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-12 13:10",
+   "tijd": "2026-11-12 13:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 13:10",
+   "tijd": "2026-11-12 13:33",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
