@@ -26,7 +26,8 @@ into before after during your you its it is are be at by as one two all ever his
 hour boring relaxing story stories bedtime facts entire everything we know actually than more most could would
 ancient medieval winter humans human people ordinary secrets secret hidden empire world freezing survive survived
 death life inside years year night nights disturbing haunted strange stranger truth dark really without think
-incredible something minds mind bending mysteries mystery hours""".split())
+incredible something minds mind bending mysteries mystery hours happened happen complete overthrown
+after body general great first last made make""".split())
 
 
 def woorden(t):
