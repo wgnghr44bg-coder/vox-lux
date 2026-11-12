@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 19:33",
+ "bijgewerkt": "2026-11-12 20:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen · 36%",
+    "detail": "Video bouwen · 53%",
     "soort": "nu"
    }
   ],
@@ -440,7 +440,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "173 GB vrij"
+   "tekst": "172 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -455,7 +455,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 19:33)"
+   "tekst": "draait nu (2026-11-12 20:03)"
   },
   {
    "naam": "Git",
@@ -502,8 +502,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 19:33",
-   "volgende": "2026-11-12 20:03"
+   "laatst": "2026-11-12 20:03",
+   "volgende": "2026-11-12 20:33"
   },
   "hype": {
    "aan": true,
@@ -578,7 +578,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 371,
+    "views": 373,
     "verwerkt": "processed"
    },
    {
@@ -819,15 +819,16 @@
   "thumb": "thumbs/babylon-600-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 36,
+  "voortgang": 53,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "beweging en hoofdstuktitels",
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-13 02:29",
-   "youtube": "2026-11-13 03:14"
+   "klaar": "2026-11-13 02:05",
+   "youtube": "2026-11-13 02:50"
   }
  },
  "nu_bezig": [
@@ -838,11 +839,15 @@
   {
    "naam": "beweging en hoofdstuktitels",
    "stap": 4
+  },
+  {
+   "naam": "16mm-look",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 758,
+  "bezig_procent": 13,
+  "geheugen_mb": 768,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1014,7 +1019,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 19:33",
+   "tijd": "2026-11-12 20:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
