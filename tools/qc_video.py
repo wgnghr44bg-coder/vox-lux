@@ -303,7 +303,7 @@ def main():
     qc.set("intro", OK if intro_ok else FOUT,
            *([] if intro_ok else [(sec(spoken[0][1]), "CONTENT", f"Begin klopt niet: '{eerste[:80]}'", "HIGH", "Eerste regel aanpassen.")]))
     slot = " ".join(r[4] for r in spoken[-8:]).lower()
-    mist = [w for w, pat in (("vraag om te abonneren", r"subscri"), ("verwijzing naar volgende video", r"another .*(story|video).*screen|next video"),
+    mist = [w for w, pat in (("vraag om te abonneren", r"subscri"), ("verwijzing naar volgende video", r"another .*(story|video|journey).*screen|next video"),
                              ("'Sleep well, and good night.'", r"sleep well, and good night")) if not re.search(pat, slot)]
     qc.set("ending", FOUT if mist else OK, *[(sec(spoken[-1][1]), "CONTENT", f"Einde mist: {w}", "HIGH", "Slot aanpassen.") for w in mist])
     laatste = sec(spoken[-1][2])
