@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 06:33",
+ "bijgewerkt": "2026-11-12 07:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
-    "map": "crisis-1933",
-    "detail": "Beelden maken · 99%",
+    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "map": "babylon-600-vc",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -412,8 +412,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 06:33)"
+   "tekst": "draait nu (2026-11-12 07:03)"
   },
   {
    "naam": "Git",
@@ -490,14 +490,14 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 06:33",
-   "volgende": "2026-11-12 07:03"
+   "laatst": "2026-11-12 07:03",
+   "volgende": "2026-11-12 07:33"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 14,
-  "views_totaal": 2424,
+  "views_totaal": 2487,
   "video_aantal": 14,
   "week": {
    "views": 290,
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 313,
+    "views": 311,
     "verwerkt": "processed"
    },
    {
@@ -609,9 +609,9 @@
    "totaal": 23,
    "procent": 22
   },
-  "fouten": 3,
+  "fouten": 4,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 14
   }
  },
@@ -624,34 +624,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
-  "map": "crisis-1933",
-  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-  "datum": "2026-11-16",
-  "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "89 van 89 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
-  ]
+  "map": "babylon-600-vc",
+  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": []
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 4820,
+  "bezig_procent": 26,
+  "geheugen_mb": 286,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -663,7 +651,7 @@
   {
    "naam": "Beelden",
    "wat": "ComfyUI Z-Image",
-   "ok": true
+   "ok": false
   },
   {
    "naam": "Beeldcontrole",
@@ -829,12 +817,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 06:33",
+   "tijd": "2026-11-12 07:03",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-12 07:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 06:33",
+   "tijd": "2026-11-12 07:03",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
