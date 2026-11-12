@@ -65,10 +65,10 @@ if "AFWISSELING GOED" not in af.stdout:
     sys.exit(1)
 
 # vaste zin over stem en achtergrond (eigenaar 11 nov 2026: "gentle slow voice with soft relaxing background 432hz music
-# with fire crackling ... maak er maar iets moois van"); vervangt de oude alinea "A calm, slow-paced ..."
+# with fire crackling ... maak er maar iets moois van"; 12 nov: vonken en vuurgloed in beeld, ook in de tekst); vervangt de oude alinea "A calm, slow-paced ..."
 GELUID = ("A calm, slow-paced history documentary for sleep and relaxation. No loud sounds, no jump scares: just a "
           "gentle, slow voice, soft and relaxing 432 Hz background music and the quiet crackle of a warm fire, with "
-          "softly changing images. Let the story carry you gently into sleep.")
+          "softly changing images in the glow of the fire and gently drifting embers. Let the story carry you gently into sleep.")
 bf = m / "youtube-beschrijving.txt"
 bt = bf.read_text(encoding="utf-8")
 oud_alinea = re.search(r"A calm, slow-paced history documentary.*?(?=\n\s*\n|\Z)", bt, re.S)

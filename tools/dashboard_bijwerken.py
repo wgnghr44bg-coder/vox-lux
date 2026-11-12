@@ -548,6 +548,7 @@ data = {
     "hype": json.loads((STORIES / "hype.json").read_text(encoding="utf-8")) if (STORIES / "hype.json").exists() else None,
     "vast": {"Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
              "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
+             "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
              "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
              "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"},
 }
