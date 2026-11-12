@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 04:03",
+ "bijgewerkt": "2026-11-12 04:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Video bouwen",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -143,8 +143,8 @@
     "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
-    "controle": "nog niet",
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
     "flesch": 86,
     "niveau": 4.0,
     "leesbaar": "MAKKELIJK",
@@ -227,8 +227,8 @@
     "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
-    "controle": "nog niet",
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
     "flesch": 86,
     "niveau": 4.8,
     "leesbaar": "MAKKELIJK",
@@ -239,8 +239,8 @@
     "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
-    "controle": "nog niet",
+    "stand": "script klaar, nachtcontrole vond iets",
+    "controle": "FOUT",
     "flesch": 82,
     "niveau": 5.3,
     "leesbaar": "MAKKELIJK",
@@ -412,8 +412,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 04:03)"
+   "tekst": "draait nu (2026-11-12 04:33)"
   },
   {
    "naam": "Git",
@@ -458,22 +458,22 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-10)"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
   },
   {
-   "naam": "Script rome-44-vc",
+   "naam": "Script boeren-winter-1300",
    "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
+   "tekst": "SCRIPT GOED"
   },
   {
-   "naam": "Script scott-antarctica-1912",
+   "naam": "Script crisis-1933",
    "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
+   "tekst": "SCRIPT GOED"
   },
   {
-   "naam": "Script zwarte-dood-1348",
-   "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-10, inmiddels hersteld; wordt opnieuw gecontroleerd"
+   "naam": "Script kerst-loopgraven-1914",
+   "ok": false,
+   "tekst": "SCRIPT FOUT (1 punten)"
   }
  ],
  "automatisering": false,
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 04:03",
-   "volgende": "2026-11-12 04:33"
+   "laatst": "2026-11-12 04:33",
+   "volgende": "2026-11-12 05:03"
   }
  },
  "kanaal": {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 308,
+    "views": 307,
     "verwerkt": "processed"
    },
    {
@@ -609,9 +609,9 @@
    "totaal": 20,
    "procent": 25
   },
-  "fouten": 1,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 11,
    "totaal": 14
   }
  },
@@ -624,39 +624,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": -1,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
+  "stap": -1,
+  "stapnaam": "",
   "voortgang": null,
-  "detail": "bezig",
-  "taken": [
-   "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)",
-   "muziek maken (Audio Engine W3)"
-  ]
+  "detail": "",
+  "taken": []
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
-  },
-  {
-   "naam": "muziek maken (Audio Engine W3)",
-   "stap": 4
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 30,
-  "geheugen_mb": 7886,
+  "bezig_procent": 26,
+  "geheugen_mb": 276,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -668,7 +651,7 @@
   {
    "naam": "Beelden",
    "wat": "ComfyUI Z-Image",
-   "ok": true
+   "ok": false
   },
   {
    "naam": "Beeldcontrole",
@@ -828,8 +811,18 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 04:03",
+   "tijd": "2026-11-12 04:33",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-12 04:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-12 04:33",
+   "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten)",
    "fout": true
   }
  ],
