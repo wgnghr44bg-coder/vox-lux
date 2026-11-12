@@ -74,3 +74,7 @@
 - 2026-11-12 05:46 routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan
 - 2026-11-12 05:46 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
 - 2026-11-12 05:53 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan
+- 2026-11-12 05:53 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 11:39 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 13:29 routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 13:57 Claude: thanksgiving-1621 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED
