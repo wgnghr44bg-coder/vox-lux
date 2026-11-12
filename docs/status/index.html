@@ -118,11 +118,15 @@ th{color:var(--zacht);font-weight:600;font-size:.78rem}
 dl.vast{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:6px 12px;margin:0;font-size:.88rem}
 dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
 .sectie{scroll-margin-top:12px}
+.nu{display:flex;gap:12px;align-items:center}.nu img{width:110px;aspect-ratio:16/9;object-fit:cover;border-radius:10px;flex:none;max-width:40%}
+.rij-v{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #ffffff0d;font-size:.88rem;min-width:0}
+.rij-v .dt{flex:none;width:58px;color:var(--zacht);font-size:.8rem}.rij-v .tt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rij-v .chip{flex:none;margin:0}
 /* onderbalk */
 .onder{position:fixed;left:0;right:0;bottom:0;z-index:10;background:#0e0b22f2;border-top:1px solid var(--lijn);backdrop-filter:blur(10px);
   display:flex;justify-content:space-around;padding:8px max(10px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
 .onder a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;font-size:.72rem;color:#bdb5e3;min-width:0}
-.onder a.aan{color:#d6b8ff}.onder a.aan svg{filter:drop-shadow(0 0 6px #a463ff)}
+.onder a{padding:4px 8px;border-radius:12px}.onder a.aan{color:#fff;background:#a463ff26}.onder a.aan svg{filter:drop-shadow(0 0 6px #a463ff)}
 .onder svg{width:24px;height:24px}
 </style>
 </head>
@@ -152,84 +156,90 @@ dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
 </svg>
 
 <div class="wrap">
-  <header class="kop sectie" id="overzicht">
+  <header class="kop">
     <svg class="bos" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#0b0820" d="M0 90V60l14-22 12 22 10-30 14 30 9-18 12 18 11-34 13 34 10-20 11 20 12-28 12 28 9-16 11 16 13-36 13 36 10-22 12 22 11-26 12 26 10-18 12 18 13-32 12 32 10-20 12 20 11-28 12 28 9-14 11 14 13-30 12 30 10-22 12 22 11-24 13 24 10-18 12 18v30z"/></svg>
     <div class="kop-rij">
       <img src="logo.png?v=3" alt="Sleep Archives logo">
       <div><h1>Sleep Archives <span class="versie">Studio</span></h1><div class="sub">History for Sleep · automatisch gemaakt op de pc</div></div>
-      <div class="rechts"><a class="bel" href="#acties" title="Meldingen en kansen"><svg class="i"><use href="#i-bel"/></svg><b id="belTeller" hidden>0</b></a></div>
+      <div class="rechts"><a class="bel" href="#overzicht" data-tab="overzicht" title="Meldingen en kansen"><svg class="i"><use href="#i-bel"/></svg><b id="belTeller" hidden>0</b></a></div>
     </div>
     <div class="update"><span class="stip" id="stip"></span><span id="updateTekst">gegevens laden…</span></div>
   </header>
 
-  <nav class="tabs" aria-label="Onderdelen">
-    <a class="aan" href="#overzicht"><svg class="i"><use href="#i-huis"/></svg>Overzicht</a>
-    <a href="#videos"><svg class="i"><use href="#i-film"/></svg>Video's</a>
-    <a href="#analytics"><svg class="i"><use href="#i-grafiek"/></svg>Analytics</a>
-    <a href="#planning"><svg class="i"><use href="#i-kal"/></svg>Planning</a>
-    <a href="#automatisering"><svg class="i"><use href="#i-lagen"/></svg>Automatisering</a>
-  </nav>
+  <!-- ================= OVERZICHT: alleen het belangrijkste ================= -->
+  <div class="view" data-tab="overzicht">
+    <section class="grid g4">
+      <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-mens"/></svg></div><div><div class="t">Abonnees</div><b id="kAbo">…</b><span id="kAboD"></span></div></div>
+      <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-oog"/></svg></div><div><div class="t">Weergaven <small class="zacht">28 d</small></div><b id="kViews">…</b><span id="kViewsD"></span></div></div>
+      <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-klok"/></svg></div><div><div class="t">Kijktijd <small class="zacht">28 d</small></div><b id="kUren">…</b><span id="kUrenD"></span></div></div>
+      <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-euro"/></svg></div><div><div class="t">Opbrengst</div><b>€ 0</b><span class="zacht" style="font-size:.78rem">nog geen partner</span></div></div>
+    </section>
+    <section class="grid g2">
+      <div class="kaart"><h2><svg class="i"><use href="#i-film"/></svg>Nu bezig</h2><div id="nuBezig"></div></div>
+      <div class="kaart"><h2><svg class="i"><use href="#i-kal"/></svg>Volgende video's online</h2><div id="volgende"></div></div>
+    </section>
+    <section class="grid g2 g2b">
+      <div class="kaart"><h2><svg class="i"><use href="#i-lijst"/></svg>Volgende acties</h2><ul class="acties" id="actieLijst"></ul></div>
+      <div class="kaart"><h2><svg class="i"><use href="#i-vuur"/></svg>Hype Score</h2>
+        <div class="meter"><svg viewBox="0 0 200 120" aria-hidden="true"><defs><linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#16a34a"/><stop offset=".55" stop-color="#84cc16"/><stop offset="1" stop-color="#facc15"/></linearGradient></defs>
+          <path d="M20 105a80 80 0 0 1 160 0" fill="none" stroke="#ffffff14" stroke-width="16" stroke-linecap="round"/>
+          <path id="meterBoog" d="M20 105a80 80 0 0 1 160 0" fill="none" stroke="url(#mg)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+          <text x="100" y="92" text-anchor="middle" fill="#fff" font-size="40" font-weight="800" id="meterGetal">–</text><text x="100" y="114" text-anchor="middle" fill="#9a93bf" font-size="13">/100</text></svg></div>
+        <ul class="vinkjes" id="hypeVink"></ul>
+      </div>
+    </section>
+  </div>
 
-  <section class="grid g4">
-    <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-mens"/></svg></div><div><div class="t">Abonnees</div><b id="kAbo">…</b><span id="kAboD"></span></div></div>
-    <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-oog"/></svg></div><div><div class="t">Weergaven <small class="zacht">28 d</small></div><b id="kViews">…</b><span id="kViewsD"></span></div></div>
-    <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-klok"/></svg></div><div><div class="t">Kijktijd <small class="zacht">28 d</small></div><b id="kUren">…</b><span id="kUrenD"></span></div></div>
-    <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-euro"/></svg></div><div><div class="t">Opbrengst</div><b>€ 0</b><span class="zacht" style="font-size:.78rem">nog geen partner</span></div></div>
-  </section>
+  <!-- ================= VIDEO'S ================= -->
+  <div class="view" data-tab="videos" hidden>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-film"/></svg>Top video's <small>(28 dagen)</small></h2><div class="top" id="top"></div></section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-upload"/></svg>Op YouTube <small>laatste uploads</small></h2><div class="tabel"><table id="recent"></table></div></section>
+  </div>
 
-  <section class="grid g2 sectie" id="analytics">
-    <div class="kaart">
+  <!-- ================= ANALYTICS ================= -->
+  <div class="view" data-tab="analytics" hidden>
+    <section class="kaart" style="margin-top:12px">
       <h2><svg class="i"><use href="#i-grafiek"/></svg>Kanaalgroei <span class="r badge" id="groeiBadge" hidden></span></h2>
       <div class="legenda"><span><i style="background:#c084fc"></i>Abonnees (opgeteld)</span><span><i style="background:#3aa0ff"></i>Weergaven per dag</span></div>
       <svg id="grafiek" viewBox="0 0 600 190" preserveAspectRatio="none" role="img" aria-label="Kanaalgroei, laatste 28 dagen"></svg>
-    </div>
-    <div class="kaart">
-      <h2><svg class="i"><use href="#i-vuur"/></svg>Hype Score</h2>
-      <div class="meter"><svg viewBox="0 0 200 120" aria-hidden="true"><defs><linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#16a34a"/><stop offset=".55" stop-color="#84cc16"/><stop offset="1" stop-color="#facc15"/></linearGradient></defs>
-        <path d="M20 105a80 80 0 0 1 160 0" fill="none" stroke="#ffffff14" stroke-width="16" stroke-linecap="round"/>
-        <path id="meterBoog" d="M20 105a80 80 0 0 1 160 0" fill="none" stroke="url(#mg)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
-        <text x="100" y="92" text-anchor="middle" fill="#fff" font-size="40" font-weight="800" id="meterGetal">–</text><text x="100" y="114" text-anchor="middle" fill="#9a93bf" font-size="13">/100</text></svg></div>
-      <ul class="vinkjes" id="hypeVink"></ul>
-    </div>
-  </section>
+    </section>
+    <section class="grid g2 g2b">
+      <div class="kaart"><h2><svg class="i"><use href="#i-doel"/></svg>Kanaaldoelen <small>partnerprogramma</small></h2><div id="doelen"></div></div>
+      <div class="kaart"><h2><svg class="i"><use href="#i-oog"/></svg>Cijfers</h2><dl class="vast" id="cijfers"></dl></div>
+    </section>
+  </div>
 
-  <section class="grid g2 g2b">
-    <div class="kaart"><h2><svg class="i"><use href="#i-film"/></svg>Top video's <small>(28 dagen)</small></h2><div class="top" id="top"></div></div>
-    <div class="kaart"><h2><svg class="i"><use href="#i-raket"/></svg>Trends &amp; Kansen <small id="hypeTijd"></small></h2><div class="trend" id="trends"></div></div>
-  </section>
+  <!-- ================= PLANNING ================= -->
+  <div class="view" data-tab="planning" hidden>
+    <section class="kaart" style="margin-top:12px">
+      <h2><svg class="i"><use href="#i-kal"/></svg>Deze week <small class="r" id="weekNr"></small></h2>
+      <div class="week" id="week"></div>
+    </section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-film"/></svg>Komende video's <small>21:00 NL</small></h2><div class="tabel"><table id="komend"></table></div></section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-raket"/></svg>Trends &amp; Kansen <small id="hypeTijd"></small></h2><div class="trend" id="trends"></div></section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-doc"/></svg>Scripts <small id="scKlaar"></small></h2><div class="tabel"><table id="scripts"></table></div></section>
+  </div>
 
-  <section class="kaart sectie" id="planning" style="margin-top:12px">
-    <h2><svg class="i"><use href="#i-kal"/></svg>Content Planning <small class="r" id="weekNr"></small></h2>
-    <div class="week" id="week"></div>
-  </section>
-
-  <section class="grid g2 sectie" id="automatisering">
-    <div class="kaart"><h2><svg class="i"><use href="#i-lagen"/></svg>Videostraat <small>(automatisering)</small></h2><div class="straat" id="straat"></div><div class="zacht" style="font-size:.82rem;margin-top:8px" id="straatNaam"></div></div>
-    <div class="kaart"><h2><svg class="i"><use href="#i-film"/></svg>Status</h2><ul class="vinkjes" id="status"></ul></div>
-  </section>
-
-  <section class="grid g2 g2b">
-    <div class="kaart"><h2><svg class="i"><use href="#i-doel"/></svg>Kanaaldoelen <small>partnerprogramma</small></h2><div id="doelen"></div></div>
-    <div class="kaart sectie" id="acties"><h2><svg class="i"><use href="#i-lijst"/></svg>Volgende acties</h2><ul class="acties" id="actieLijst"></ul></div>
-  </section>
-
-  <section class="kaart sectie" id="videos" style="margin-top:12px"><h2><svg class="i"><use href="#i-film"/></svg>Komende video's <small>21:00 NL</small></h2><div class="tabel"><table id="komend"></table></div></section>
-  <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-doc"/></svg>Scripts <small id="scKlaar"></small></h2><div class="tabel"><table id="scripts"></table></div></section>
-  <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-upload"/></svg>Op YouTube</h2><div class="tabel"><table id="recent"></table></div></section>
-
-  <section class="grid g2 g2b">
-    <div class="kaart"><h2><svg class="i"><use href="#i-lijst"/></svg>Logboek</h2><div class="log" id="log"></div></div>
-    <div class="kaart"><h2><svg class="i"><use href="#i-schild"/></svg>Zelfcontrole en taken</h2><ul class="vinkjes" id="zc"></ul><div id="taken" style="margin-top:10px"></div></div>
-  </section>
-  <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-schild"/></svg>Vaste instellingen</h2><dl class="vast" id="vast"></dl></section>
+  <!-- ================= AUTOMATISERING ================= -->
+  <div class="view" data-tab="automatisering" hidden>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-lagen"/></svg>Videostraat</h2><div class="straat" id="straat"></div><div class="zacht" style="font-size:.82rem;margin-top:8px" id="straatNaam"></div></section>
+    <section class="grid g2 g2b">
+      <div class="kaart"><h2><svg class="i"><use href="#i-schild"/></svg>Zelfcontrole</h2><ul class="vinkjes" id="zc"></ul></div>
+      <div class="kaart"><h2><svg class="i"><use href="#i-klok"/></svg>Automatische taken</h2><div id="taken"></div><div id="gpu" class="zacht" style="font-size:.82rem;margin-top:10px"></div></div>
+    </section>
+    <section class="grid g2 g2b">
+      <div class="kaart sectie" id="acties"><h2><svg class="i"><use href="#i-lijst"/></svg>Logboek</h2><div class="log" id="log"></div></div>
+      <div class="kaart"><h2><svg class="i"><use href="#i-schild"/></svg>Vaste instellingen</h2><dl class="vast" id="vast"></dl></div>
+    </section>
+  </div>
 </div>
 
 <nav class="onder" aria-label="Snel naar">
-  <a class="aan" href="#overzicht"><svg><use href="#i-huis"/></svg>Studio</a>
-  <a href="#videos"><svg><use href="#i-film"/></svg>Content</a>
-  <a href="#analytics"><svg><use href="#i-grafiek"/></svg>Analytics</a>
-  <a href="#planning"><svg><use href="#i-kal"/></svg>Planning</a>
-  <a href="#automatisering"><svg><use href="#i-lagen"/></svg>Automatisering</a>
+  <a class="aan" href="#overzicht" data-tab="overzicht"><svg><use href="#i-huis"/></svg>Home</a>
+  <a href="#videos" data-tab="videos"><svg><use href="#i-film"/></svg>Video's</a>
+  <a href="#analytics" data-tab="analytics"><svg><use href="#i-grafiek"/></svg>Analytics</a>
+  <a href="#planning" data-tab="planning"><svg><use href="#i-kal"/></svg>Planning</a>
+  <a href="#automatisering" data-tab="automatisering"><svg><use href="#i-lagen"/></svg>Automatisering</a>
 </nav>
 
 <script>
@@ -272,6 +282,7 @@ async function laad(){
   if(vm&&vm.views){const p=Math.round(100*(m.views-vm.views)/vm.views);const b=$("groeiBadge");b.hidden=false;b.innerHTML=`${p>=0?"+":""}${p}%<small>vs. vorige 28 dagen</small>`;b.style.color=p>=0?"var(--groen)":"var(--rood)"}
 
   // hype score: hoeveel van de komende 6 video's liften mee op hype of een jubileum/feestdag (hype-wachter)
+  const lab={"online":"online","gepland":"gepland op YouTube","bezig":"wordt gemaakt","script nieuw":"script klaar","script oud":"script (oude opbouw)","script":"script nodig"};
   const vandaag=isoDag(new Date());
   const komend=(d.video||[]).filter(x=>x.datum>=vandaag).sort((a,b)=>a.datum.localeCompare(b.datum));
   const hp=(d.hype&&d.hype.punten)||[];
@@ -310,7 +321,9 @@ async function laad(){
   const h=d.huidig;$("straatNaam").textContent=h?`${h.titel} · ${h.stapnaam}${h.detail?": "+h.detail:""}`:"De pc wacht op de volgende taak.";
   $("straat").innerHTML=d.stappen.map((s,i)=>{const klaar=h&&d.stap>i,nuS=h&&d.stap===i;
     return (i?`<span class="pijl">›</span>`:"")+`<div class="stap ${klaar?"klaar":nuS?"nu":""}"><div class="bol"><svg class="i" style="width:24px;height:24px"><use href="#${ICO[i]}"/></svg>${klaar?`<span class="v">✓</span>`:""}</div>${esc(s.replace(" & planning","").replace(" schrijven",""))}</div>`}).join("");
-  $("status").innerHTML=d.stappen.map((s,i)=>{const klaar=h&&d.stap>i,nuS=h&&d.stap===i;return `<li><span class="v ${klaar?"":"nee"}" style="${nuS?"background:var(--blauw);color:#fff":""}">${klaar?"✓":nuS?"•":""}</span>${esc(s)}${nuS?' <span class="zacht">(nu)</span>':""}</li>`}).join("");
+  // home: nu bezig (met voortgang in stappen) en de volgende video's
+  $("nuBezig").innerHTML=h?`<div class="nu"><img src="${esc(h.thumb||"logo.png")}" alt=""><div style="min-width:0"><b>${esc(h.titel.replace(/ \| History for Sleep$/,""))}</b><div class="zacht" style="font-size:.84rem;margin:2px 0 8px">online ${h.datum?dagLabel(h.datum):""} · stap ${d.stap+1} van ${d.stappen.length}: ${esc(h.stapnaam)}</div><div class="balk"><span style="width:${Math.round(100*(d.stap+.5)/d.stappen.length)}%"></span></div></div></div>`:`<div class="zacht">De pc wacht op de volgende taak.</div>`;
+  $("volgende").innerHTML=komend.slice(0,4).map(x=>`<div class="rij-v"><span class="dt">${dagLabel(x.datum)}</span><span class="tt">${esc(x.titel.replace(/ \| History for Sleep$/,""))}</span><span class="chip ${x.soort==="gepland"||x.soort==="online"?"goed":x.soort==="script"?"let":""}">${esc(lab[x.soort]||x.soort)}</span></div>`).join("")||`<div class="zacht">Niets gepland.</div>`;
 
   // doelen: YouTube-partnerprogramma
   const uren=(k.jaar&&k.jaar.uren)||0;
@@ -325,21 +338,31 @@ async function laad(){
   const tel=d.fouten.length+kansen.length;$("belTeller").hidden=!tel;$("belTeller").textContent=tel;
 
   // tabellen
-  const lab={"online":"online","gepland":"gepland op YouTube","bezig":"wordt gemaakt","script nieuw":"script klaar","script oud":"script (oude opbouw)","script":"script nodig"};
   $("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+komend.slice(0,12).map(x=>`<tr><td style="white-space:nowrap">${dagLabel(x.datum)}</td><td>${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}</td><td style="white-space:nowrap">${esc(lab[x.soort]||x.soort)}</td></tr>`).join("");
   const sc=d.scripts||{rij:[]};$("scKlaar").textContent=sc.klaar_tot?`klaar t/m ${dagLabel(sc.klaar_tot)}`:"";
-  $("scripts").innerHTML="<tr><th>Datum</th><th>Script</th><th>Controle</th></tr>"+sc.rij.map(r=>`<tr><td style="white-space:nowrap">${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht" style="font-size:.78rem">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span>`:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span>`:""}</td></tr>`).join("");
+  $("scripts").innerHTML="<tr><th>Datum</th><th>Script</th><th>Controle</th></tr>"+sc.rij.filter(r=>r.datum>=vandaag).slice(0,12).map(r=>`<tr><td style="white-space:nowrap">${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht" style="font-size:.78rem">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span>`:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span>`:""}</td></tr>`).join("");
   $("recent").innerHTML="<tr><th>Titel</th><th>Status</th><th>Duur</th><th>Views</th></tr>"+(k.recent||[]).slice(0,8).map(r=>{const gepland=r.privacy==="private"&&new Date(r.publiceer)>new Date();
     const s=r.privacy==="public"?["goed","online"]:gepland?["let","gepland "+new Date(r.publiceer).toLocaleDateString("nl-NL",{day:"numeric",month:"short"})]:["",r.privacy];
     return `<tr><td><a href="https://youtu.be/${esc(r.id)}" target="_blank" rel="noopener">${esc(r.titel)}</a></td><td><span class="chip ${s[0]}">${esc(s[1])}</span></td><td>${esc(r.duur)}</td><td>${nl(r.views)}</td></tr>`}).join("");
   $("log").innerHTML=[...d.logboek].reverse().slice(0,12).map(x=>`<div><time>${esc(x.tijd.slice(5,16))}</time><span style="${x.fout?"color:#ff9aa4":""}">${esc(x.tekst)}</span></div>`).join("");
   $("zc").innerHTML=(d.zelfcontrole||[]).map(x=>`<li><span class="v ${x.ok?"":"fout"}">${x.ok?"✓":"!"}</span><span><b>${esc(x.naam)}</b> <span class="zacht">${esc(x.tekst)}</span></span></li>`).join("");
   $("taken").innerHTML=Object.entries(d.taken||{}).map(([n,t])=>`<span class="chip ${t&&t.aan?"goed":""}">${esc(n)}: ${t?(t.aan?"aan, volgende "+esc(t.volgende):"uit"):"niet ingesteld"}</span>`).join("");
+  const w=k.week||{},j=k.jaar||{};
+  $("cijfers").innerHTML=[["Weergaven totaal",nl(k.views_totaal)],["Video's op het kanaal",nl(k.video_aantal)],["Laatste 7 dagen",`${nl(w.views)} weergaven · ${nl(w.uren)} u`],["Laatste 28 dagen",`${nl(m.views)} weergaven · ${nl(m.uren)} u`],["Laatste 12 maanden",`${nl(j.views)} weergaven · ${nl(j.uren)} u`]].map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("");
+  const g=d.videokaart;$("gpu").textContent=g?`Videokaart: ${g.bezig_procent}% bezig · ${(g.geheugen_mb/1024).toFixed(1)} van ${(g.totaal_mb/1024).toFixed(1)} GB geheugen`:"";
   $("vast").innerHTML=Object.entries(d.vast||{}).map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("");
 }
 laad();setInterval(laad,120000);
-const links=[...document.querySelectorAll(".tabs a,.onder a")];
-links.forEach(a=>a.addEventListener("click",()=>{const h=a.getAttribute("href");links.forEach(b=>b.classList.toggle("aan",b.getAttribute("href")===h))}));
+// tabbladen (eigenaar 12 nov 2026: "pas als ik op de tabs klik zie ik het, overzichtelijker")
+const TABS=["overzicht","videos","analytics","planning","automatisering"];
+function toon(tab){if(!TABS.includes(tab))tab="overzicht";
+  document.querySelectorAll(".view").forEach(v=>v.hidden=v.dataset.tab!==tab);
+  document.querySelectorAll(".onder a").forEach(a=>a.classList.toggle("aan",a.dataset.tab===tab));
+  try{localStorage.setItem("tab",tab)}catch(e){}
+  window.scrollTo(0,0)}
+document.querySelectorAll("a[data-tab]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();history.replaceState(null,"","#"+a.dataset.tab);toon(a.dataset.tab)}));
+let start=location.hash.slice(1);if(!TABS.includes(start)){try{start=localStorage.getItem("tab")||"overzicht"}catch(e){start="overzicht"}}
+toon(start);
 </script>
 </body>
 </html>

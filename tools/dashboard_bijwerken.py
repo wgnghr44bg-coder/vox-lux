@@ -299,9 +299,8 @@ if actief:
     v = next((x for x in video if x["map"] == actief), {"titel": actief, "datum": "", "id": ""})
     thumb = ""
     bron = STORIES / actief / "thumbnail-gekozen.jpg"
-    if v.get("id"):
-        thumb = f"https://i.ytimg.com/vi/{v['id']}/mqdefault.jpg"
-    elif bron.exists():
+    # eigen thumbnail eerst: van een privévideo laat YouTube alleen een grijs plaatje zien
+    if bron.exists():
         (DOCS / "thumbs").mkdir(parents=True, exist_ok=True)
         try:
             from PIL import Image
@@ -309,6 +308,8 @@ if actief:
             thumb = f"thumbs/{actief}.jpg"
         except Exception:
             pass
+    if not thumb and v.get("id"):
+        thumb = f"https://i.ytimg.com/vi/{v['id']}/mqdefault.jpg"
     huidig = {"map": actief, "titel": v["titel"], "datum": v["datum"], "thumb": thumb, "stap": stap,
               "stapnaam": STAPPEN[stap] if 0 <= stap < len(STAPPEN) else "", "voortgang": proc, "detail": proc_tekst,
               "taken": [d["naam"] for d in draait]}
