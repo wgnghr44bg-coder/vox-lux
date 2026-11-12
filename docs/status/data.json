@@ -1,50 +1,50 @@
 {
- "bijgewerkt": "2026-11-12 05:33",
+ "bijgewerkt": "2026-11-12 06:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "detail": "Stem (B1)",
+    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
+    "map": "crisis-1933",
+    "detail": "Beelden maken · 19%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
     "wanneer": "do 12-11 09:00 (routine staat UIT)",
-    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
-    "map": "crisis-1933",
-    "detail": "routine maakt de video voor ma 16-11 21:00"
-   },
-   {
-    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Was the First Thanksgiving Really Like? | History for Sleep",
     "map": "thanksgiving-1621",
     "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "di 17-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 15-11 09:00 (routine staat UIT)",
     "wat": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "do 19-11 09:00 (routine staat UIT)",
+    "wanneer": "di 17-11 09:00 (routine staat UIT)",
     "wat": "Vrije plek: de routine kiest een populair onderwerp",
     "map": "",
     "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
     "map": "boeren-winter-1300",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
+   },
+   {
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wat": "Vrije plek: de routine kiest een populair onderwerp",
+    "map": "",
+    "detail": "routine maakt de video voor ma 7-12 21:00"
    }
   ],
   "publicaties": [
@@ -61,8 +61,8 @@
     "dag": "ma",
     "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-18",
@@ -143,7 +143,7 @@
     "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
+    "stand": "video wordt gemaakt",
     "controle": "GOED",
     "flesch": 86,
     "niveau": 4.0,
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 05:33)"
+   "tekst": "draait nu (2026-11-12 06:03)"
   },
   {
    "naam": "Git",
@@ -486,12 +486,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-12 06:00"
+   "volgende": "2026-11-13 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 05:33",
-   "volgende": "2026-11-12 06:03"
+   "laatst": "2026-11-12 06:03",
+   "volgende": "2026-11-12 06:33"
   }
  },
  "kanaal": {
@@ -543,7 +543,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 115,
+    "views": 116,
     "verwerkt": "processed"
    },
    {
@@ -561,7 +561,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 307,
+    "views": 311,
     "verwerkt": "processed"
    },
    {
@@ -606,8 +606,8 @@
   "geplande": 0,
   "runs": {
    "goed": 5,
-   "totaal": 21,
-   "procent": 24
+   "totaal": 23,
+   "procent": 22
   },
   "fouten": 3,
   "zelfcontrole": {
@@ -624,19 +624,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 2,
  "huidig": {
-  "map": "babylon-600-vc",
-  "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
-  "voortgang": null,
-  "detail": "bezig",
+  "map": "crisis-1933",
+  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
+  "datum": "2026-11-16",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 19,
+  "detail": "17 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "beelden maken (ComfyUI)"
   ]
  },
  "nu_bezig": [
@@ -645,13 +645,13 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 7793,
+  "bezig_procent": 98,
+  "geheugen_mb": 7113,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -720,7 +720,7 @@
    "datum": "2026-11-16",
    "plek": true,
    "video": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "soort": "script nieuw"
+   "soort": "bezig"
   },
   {
    "datum": "2026-11-17",
@@ -736,36 +736,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-11 15:00",
-   "tekst": "Claude: boeren-winter-1300 omgebouwd naar nieuwe opbouw + nieuwe toon (87 feitjes, 13 onderwerpen, 18.290 woorden, lange zinnen gesplitst; opening persoon, titelsoort how-survive); MAKKELIJK, TOON GOE",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 15:14",
-   "tekst": "Claude: kerst-loopgraven-1914 omgebouwd naar nieuwe opbouw + nieuwe toon (89 feitjes, 13 onderwerpen, 17.938 woorden; opening scène, titelsoort what-happened); MAKKELIJK, TOON GOED, AFWISSELING GOED",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-11 15:18",
-   "tekst": "Claude: rome-44-vc in de nieuwe toon (88 feitjes, 13 onderwerpen, 16.542 woorden); MAKKELIJK, TOON GOED, AFWISSELING GOED",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-11 15:26",
-   "tekst": "Claude: zwarte-dood-1348 in de nieuwe toon, 7 feitjes die niet over de pest gingen vervangen (gebeden, processies, kruiden, Boccaccio in 1348, gezondheidsambtenaren, schenkingen aan ziekenhuizen, arch",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 15:37",
-   "tekst": "Claude: scott-antarctica-1912 in de nieuwe toon (91 feitjes, 13 onderwerpen, 16.972 woorden; titelsoort why, omdat Zwarte Dood ervoor how-survive is); MAKKELIJK, TOON GOED, AFWISSELING GOED. Alle scri",
-   "fout": false,
-   "klaar": true
-  },
   {
    "tijd": "2026-11-11 15:57",
    "tekst": "Claude: thanksgiving-1621: feitjes 77 (Franksgiving 1939) en 78 (Macy's parade) vervangen door Mourt's Relation (1622) en Bradfords eigen akkers (1623); SCRIPT GOED, TOON GOED, MAKKELIJK",
@@ -819,39 +789,57 @@
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-12 04:33",
-   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "tijd": "2026-11-12 05:38",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:46",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 05:33",
+   "tijd": "2026-11-12 05:46",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:53",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:53",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  }
+ ],
+ "fouten": [
+  {
+   "tijd": "2026-11-12 05:53",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 06:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 05:33",
+   "tijd": "2026-11-12 06:03",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-10 07:07",
-   "tekst": "Egypte: CONTROLES NIET GOED, niet geüpload (de oude versie blijft staan)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-10 18:48",
-   "tekst": "zwarte-dood-1348: SCRIPT FOUT blijft: 7 feitjes te ver van het onderwerp (o.a. klokkentoren van Giotto, winkels op de Ponte Vecchio van nu); slot hersteld. Tweede account moet het ombouwen (video za 5",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-10 18:48",
    "tekst": "tombstone-1881: NIET GOED (eigenaar): begin en slot leken op WW2 en er waren haperingen te horen. Privéversie 03VXrW2gb7g gaat niet vanzelf online; wordt na Babylon opnieuw gemaakt met nieuw begin/slo",
@@ -885,6 +873,18 @@
   {
    "tijd": "2026-11-11 21:33",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 04:33",
+   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 05:46",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -1104,8 +1104,8 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-12, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "nieuwe",
    "opening": "scène"
@@ -1225,7 +1225,7 @@
    "datum": "2026-11-18",
    "reserve": false,
    "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
-   "status": "bezig (2026-11-11, routine-lokaal)",
+   "status": "bezig (2026-11-12, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "oorlog",
