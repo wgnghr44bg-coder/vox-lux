@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 23:33",
+ "bijgewerkt": "2026-11-13 00:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "detail": "Beelden maken · 96%",
+    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
+    "map": "crisis-1933",
+    "detail": "Beelden maken · 81%",
     "soort": "nu"
    }
   ],
@@ -48,14 +48,6 @@
    }
   ],
   "publicaties": [
-   {
-    "datum": "2026-11-12",
-    "dag": "do",
-    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "stand": "online",
-    "kleur": "goed"
-   },
    {
     "datum": "2026-11-14",
     "dag": "za",
@@ -135,24 +127,12 @@
   "klaar_tot": "2026-11-28",
   "rij": [
    {
-    "datum": "2026-11-12",
-    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "map": "babylon-600-vc",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
-    "flesch": 76,
-    "niveau": 6.1,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
-   },
-   {
     "datum": "2026-11-14",
     "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "FOUT",
     "flesch": 74,
     "niveau": 6.6,
     "leesbaar": "MAKKELIJK",
@@ -463,17 +443,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 23:33)"
+   "tekst": "draait nu (2026-11-13 00:03)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
-  },
-  {
-   "naam": "Video 2026-11-12 (babylon-600-vc)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
@@ -515,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 23:33",
-   "volgende": "2026-11-13 00:03"
+   "laatst": "2026-11-13 00:03",
+   "volgende": "2026-11-13 00:33"
   },
   "hype": {
    "aan": true,
@@ -530,13 +505,13 @@
   "views_totaal": 2550,
   "video_aantal": 15,
   "week": {
-   "views": 388,
-   "uren": 70,
+   "views": 359,
+   "uren": 69,
    "abonnees": 1
   },
   "vorige_week": {
-   "views": 634,
-   "uren": 71,
+   "views": 588,
+   "uren": 60,
    "abonnees": 0
   },
   "recent": [
@@ -632,11 +607,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-15",
-    "views": 16,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-16",
     "views": 17,
@@ -769,13 +739,13 @@
    }
   ],
   "maand": {
-   "views": 2075,
-   "uren": 468,
+   "views": 2059,
+   "uren": 465,
    "abonnees": 6
   },
   "vorige_maand": {
-   "views": 1063,
-   "uren": 71,
+   "views": 1080,
+   "uren": 73,
    "abonnees": 7
   },
   "jaar": {
@@ -788,7 +758,7 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1209,
+    "views": 1201,
     "uren": 328
    },
    {
@@ -810,14 +780,14 @@
  "kpi": {
   "geplande": 0,
   "runs": {
-   "goed": 5,
+   "goed": 4,
    "totaal": 20,
-   "procent": 25
+   "procent": 20
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 14,
-   "totaal": 15
+   "goed": 13,
+   "totaal": 14
   }
  },
  "stappen": [
@@ -831,17 +801,16 @@
  ],
  "stap": 2,
  "huidig": {
-  "map": "egypte-toetanchamon",
-  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "thumbs/egypte-toetanchamon.jpg",
+  "map": "crisis-1933",
+  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
+  "datum": "2026-11-16",
+  "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 96,
-  "detail": "88 van 92 beelden",
+  "voortgang": 81,
+  "detail": "72 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
    "beelden maken (ComfyUI)"
   ],
   "eind": null
@@ -852,17 +821,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
    "naam": "beelden maken (ComfyUI)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 15,
-  "geheugen_mb": 6518,
+  "bezig_procent": 98,
+  "geheugen_mb": 6882,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -904,12 +869,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-12",
-   "plek": false,
-   "video": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-   "soort": "online"
-  },
-  {
    "datum": "2026-11-13",
    "plek": false,
    "video": "",
@@ -944,27 +903,15 @@
    "plek": true,
    "video": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
    "soort": "bezig"
+  },
+  {
+   "datum": "2026-11-19",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-12 14:21",
-   "tekst": "Claude: kerst-loopgraven-1914 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, scriptcheck-fout feitje 79 opgelost, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-12 14:27",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:34",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp",
@@ -1030,11 +977,35 @@
    "tekst": "babylon-600-vc: OPENBAAR gezet https://youtu.be/KwUvlP42M34 (eigenaar 12 nov: meteen online zodra klaar), kanaal Sleep Archives gecontroleerd",
    "fout": false,
    "klaar": true
+  },
+  {
+   "tijd": "2026-11-12 23:51",
+   "tekst": "routine-lokaal: egypte-toetanchamon: beeld 049 bleef fout, vervangen door 048.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 23:53",
+   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 23:53",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 23:33",
+   "tijd": "2026-11-12 23:53",
+   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 00:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1315,7 +1286,7 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "status": "bezig (2026-11-12, routine-lokaal), opbouw Sleepy 12 nov",
+   "status": "bezig (2026-11-12, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "nieuwe",
