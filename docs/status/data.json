@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-12 14:03",
+ "bijgewerkt": "2026-11-12 14:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
     "map": "babylon-600-vc",
-    "detail": "Stem (B1)",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -38,7 +38,7 @@
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "detail": "routine maakt de video voor za 5-12 21:00 (script moet eerst nog goedgekeurd)"
+    "detail": "routine maakt de video voor za 5-12 21:00"
    },
    {
     "wanneer": "do 26-11 09:00 (routine staat UIT)",
@@ -124,7 +124,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-02",
+  "klaar_tot": "2026-12-16",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -215,12 +215,12 @@
     "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
     "map": "pearl-harbor-1941",
     "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
-    "controle": "nog niet",
-    "flesch": 83,
-    "niveau": 4.5,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (verteller)"
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 62,
+    "niveau": 8.0,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-02",
@@ -229,22 +229,22 @@
     "klaar": true,
     "stand": "script klaar en 's nachts goedgekeurd",
     "controle": "GOED",
-    "flesch": 86,
-    "niveau": 4.8,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "flesch": 67,
+    "niveau": 7.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-05",
     "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
     "map": "kerst-loopgraven-1914",
-    "klaar": false,
-    "stand": "script afgekeurd, moet opnieuw",
-    "controle": "FOUT",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 67,
+    "niveau": 7.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-09",
@@ -256,7 +256,7 @@
     "flesch": 83,
     "niveau": 4.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller)"
    },
    {
     "datum": "2026-12-12",
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "189 GB vrij"
+   "tekst": "187 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 14:03)"
+   "tekst": "draait nu (2026-11-12 14:33)"
   },
   {
    "naam": "Git",
@@ -472,8 +472,8 @@
   },
   {
    "naam": "Script kerst-loopgraven-1914",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-12)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-12, inmiddels hersteld; wordt opnieuw gecontroleerd"
   }
  ],
  "automatisering": false,
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 14:03",
-   "volgende": "2026-11-12 14:33"
+   "laatst": "2026-11-12 14:33",
+   "volgende": "2026-11-12 15:03"
   }
  },
  "kanaal": {
@@ -611,7 +611,7 @@
   },
   "fouten": 2,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 13,
    "totaal": 14
   }
  },
@@ -624,34 +624,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": -1,
  "huidig": {
   "map": "babylon-600-vc",
   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "https://i.ytimg.com/vi/8Mm2NOlyL3U/mqdefault.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": -1,
+  "stapnaam": "",
   "voortgang": null,
-  "detail": "bezig",
-  "taken": [
-   "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
-  ]
+  "detail": "",
+  "taken": []
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7606,
+  "bezig_procent": 26,
+  "geheugen_mb": 399,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -737,30 +725,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 20:10",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 21:33",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 87/92 goedgekeurd, fout: ['034', '036', '048', '063', '078']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-11 21:33",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 02:04",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-12 04:33",
    "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
    "fout": true,
@@ -819,17 +783,42 @@
    "tekst": "Claude: thanksgiving-1621 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
    "fout": false,
    "klaar": true
+  },
+  {
+   "tijd": "2026-11-12 14:04",
+   "tekst": "Claude: pearl-harbor-1941 omgebouwd naar opbouw Sleepy History (88 blokken herschreven als kalme gids, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-12 14:14",
+   "tekst": "Claude: boeren-winter-1300 omgebouwd naar opbouw Sleepy History (87 blokken herschreven als kalme gids zonder verzonnen gezin, geen BRIDGE, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-12 14:21",
+   "tekst": "Claude: kerst-loopgraven-1914 omgebouwd naar opbouw Sleepy History (89 blokken herschreven als kalme gids, scriptcheck-fout feitje 79 opgelost, kort begin/slot); SCRIPT GOED, TOON GOED, GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-12 14:27",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 14:03",
-   "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
-   "fout": true
+   "tijd": "2026-11-12 14:27",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   },
   {
-   "tijd": "2026-11-12 14:03",
-   "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
+   "tijd": "2026-11-12 14:33",
+   "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
@@ -1010,7 +999,7 @@
    "datum": "2026-12-02",
    "reserve": false,
    "titel": "How Did Medieval Peasants Survive the Winter? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
@@ -1340,8 +1329,8 @@
    "datum": "2026-12-05",
    "reserve": false,
    "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
-   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-12: opnieuw ombouwen, zie scriptcheck.json)",
-   "soort": "script oud",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, 2026-11-12, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
    "opening": "scène"
@@ -1538,7 +1527,7 @@
    "datum": "2026-11-28",
    "reserve": false,
    "titel": "What Did People Actually Do in Hawaii Before Pearl Harbor? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
