@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-12 11:33",
+ "bijgewerkt": "2026-11-12 12:03",
  "werkplanning": {
   "nu": [
    {
@@ -428,7 +428,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "199 GB vrij"
+   "tekst": "197 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-12 11:33)"
+   "tekst": "draait nu (2026-11-12 12:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-12 11:33",
-   "volgende": "2026-11-12 12:03"
+   "laatst": "2026-11-12 12:03",
+   "volgende": "2026-11-12 12:33"
   }
  },
  "kanaal": {
@@ -638,8 +638,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 400,
+  "bezig_procent": 25,
+  "geheugen_mb": 6624,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -725,12 +725,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-11 15:57",
-   "tekst": "Claude: thanksgiving-1621: feitjes 77 (Franksgiving 1939) en 78 (Macy's parade) vervangen door Mourt's Relation (1622) en Bradfords eigen akkers (1623); SCRIPT GOED, TOON GOED, MAKKELIJK",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-11 16:28",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
    "fout": true,
@@ -807,6 +801,12 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 11:39",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -817,17 +817,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-12 11:33",
+   "tijd": "2026-11-12 12:03",
    "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 11:33",
+   "tijd": "2026-11-12 12:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (babylon-600-vc): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-12 11:33",
+   "tijd": "2026-11-12 12:03",
    "tekst": "Zelfcontrole: Script kerst-loopgraven-1914: SCRIPT FOUT (1 punten) (nacht 2026-11-12)",
    "fout": true
   }
