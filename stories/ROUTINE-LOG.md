@@ -92,3 +92,5 @@
 - 2026-11-12 23:21 babylon-600-vc: oude versie 8Mm2NOlyL3U ('Why Was Babylon the Greatest City on Earth? | History for Sleep') verwijderd
 - 2026-11-12 23:21 babylon-600-vc: KLAAR
 - 2026-11-12 23:21 routine-lokaal: babylon-600-vc: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00
+- 2026-11-12 23:23 routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
+- 2026-11-12 23:23 babylon-600-vc: OPENBAAR gezet https://youtu.be/KwUvlP42M34 (eigenaar 12 nov: meteen online zodra klaar), kanaal Sleep Archives gecontroleerd
