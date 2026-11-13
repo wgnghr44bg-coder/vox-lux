@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 02:03",
+ "bijgewerkt": "2026-11-13 02:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 34%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -256,7 +256,7 @@
     "flesch": 83,
     "niveau": 4.3,
     "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller)"
+    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
    },
    {
     "datum": "2026-12-12",
@@ -443,12 +443,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 02:03)"
+   "tekst": "draait nu (2026-11-13 02:33)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 02:03",
-   "volgende": "2026-11-13 02:33"
+   "laatst": "2026-11-13 02:33",
+   "volgende": "2026-11-13 03:03"
   },
   "hype": {
    "aan": true,
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 395,
+    "views": 384,
     "verwerkt": "processed"
    },
    {
@@ -575,7 +575,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 15,
+    "views": 14,
     "verwerkt": "processed"
    },
    {
@@ -780,9 +780,9 @@
  "kpi": {
   "geplande": 0,
   "runs": {
-   "goed": 4,
-   "totaal": 20,
-   "procent": 20
+   "goed": 5,
+   "totaal": 21,
+   "procent": 24
   },
   "fouten": 2,
   "zelfcontrole": {
@@ -807,12 +807,11 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 34,
-  "detail": "30 van 89 beelden",
+  "voortgang": 99,
+  "detail": "89 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -824,15 +823,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7034,
+  "bezig_procent": 22,
+  "geheugen_mb": 6558,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -918,6 +913,12 @@
  ],
  "logboek": [
   {
+   "tijd": "2026-11-12 14:34",
+   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
    "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
@@ -994,12 +995,6 @@
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 23:53",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
   }
  ],
  "fouten": [
@@ -1010,7 +1005,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 02:03",
+   "tijd": "2026-11-13 02:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
