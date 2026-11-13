@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 19:03",
+ "bijgewerkt": "2026-11-13 19:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "detail": "YouTube upload",
+    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
+    "map": "crisis-1933",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -53,8 +53,8 @@
     "dag": "za",
     "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-16",
@@ -131,7 +131,7 @@
     "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
     "klaar": true,
-    "stand": "video wordt gemaakt",
+    "stand": "video staat klaar",
     "controle": "GOED",
     "flesch": 74,
     "niveau": 6.6,
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "162 GB vrij"
+   "tekst": "183 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 19:03)"
+   "tekst": "draait nu (2026-11-13 19:33)"
   },
   {
    "naam": "Git",
@@ -440,8 +440,8 @@
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
-   "ok": false,
-   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 19:03",
-   "volgende": "2026-11-13 19:33"
+   "laatst": "2026-11-13 19:33",
+   "volgende": "2026-11-13 20:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 18:10",
-   "volgende": "2026-11-13 19:10"
+   "laatst": "2026-11-13 19:10",
+   "volgende": "2026-11-13 20:10"
   }
  },
  "kanaal": {
@@ -515,7 +515,7 @@
     "privacy": "private",
     "publiceer": "2026-11-14T20:00:00Z",
     "views": 0,
-    "verwerkt": "uploaded"
+    "verwerkt": "processed"
    },
    {
     "id": "KwUvlP42M34",
@@ -524,15 +524,6 @@
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
     "views": 23,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "iMkB7sUR8UU",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "duur": "2:09:51",
-    "privacy": "private",
-    "publiceer": "2026-11-10T08:41:16Z",
-    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -568,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 475,
+    "views": 477,
     "verwerkt": "processed"
    },
    {
@@ -596,6 +587,15 @@
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
     "views": 26,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "privacy": "public",
+    "publiceer": "2026-10-05T19:00:38Z",
+    "views": 1272,
     "verwerkt": "processed"
    }
   ],
@@ -773,13 +773,13 @@
  "kpi": {
   "geplande": 1,
   "runs": {
-   "goed": 4,
-   "totaal": 20,
-   "procent": 20
+   "goed": 5,
+   "totaal": 19,
+   "procent": 26
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 14,
    "totaal": 14
   }
  },
@@ -792,26 +792,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 6,
+ "stap": 2,
  "huidig": {
-  "map": "egypte-toetanchamon",
-  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "thumbs/egypte-toetanchamon.jpg",
-  "stap": 6,
-  "stapnaam": "YouTube upload",
-  "voortgang": null,
-  "detail": "",
+  "map": "crisis-1933",
+  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
+  "datum": "2026-11-16",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "89 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "uploaden en controleren",
-   "wachten op verwerking YouTube",
-   "beelden maken (ComfyUI)"
+   "beelden maken (ComfyUI)",
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
-  "eind": {
-   "klaar": "2026-11-13 18:48",
-   "youtube": "2026-11-13 19:08"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -819,21 +815,17 @@
    "stap": 0
   },
   {
-   "naam": "uploaden en controleren",
-   "stap": 6
-  },
-  {
-   "naam": "wachten op verwerking YouTube",
-   "stap": 6
-  },
-  {
    "naam": "beelden maken (ComfyUI)",
+   "stap": 2
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7019,
+  "bezig_procent": 100,
+  "geheugen_mb": 7897,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -884,7 +876,7 @@
    "datum": "2026-11-14",
    "plek": true,
    "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "soort": "bezig"
+   "soort": "gepland"
   },
   {
    "datum": "2026-11-15",
@@ -918,30 +910,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-12 14:53",
-   "tekst": "hype-wachter: SEINTJE 8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:53",
-   "tekst": "hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 23:16",
-   "tekst": "babylon-600-vc: geüpload https://youtu.be/KwUvlP42M34 (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-12 23:21",
-   "tekst": "babylon-600-vc: oude versie 8Mm2NOlyL3U ('Why Was Babylon the Greatest City on Earth? | History for Sleep') verwijderd",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-12 23:21",
    "tekst": "babylon-600-vc: KLAAR",
@@ -1001,15 +969,33 @@
    "tekst": "egypte-toetanchamon: geüpload https://youtu.be/Y46Rpy4703k (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd",
    "fout": false,
    "klaar": true
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-13 19:03",
-   "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
-   "fout": true
+   "tijd": "2026-11-13 19:09",
+   "tekst": "egypte-toetanchamon: oude versie iMkB7sUR8UU ('What Did People Actually Do When Tutankhamun Was King? | History for Sleep') verwijderd",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 19:09",
+   "tekst": "egypte-toetanchamon: KLAAR",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-13 19:09",
+   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 19:09",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-11 16:28",
@@ -1286,7 +1272,7 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "status": "bezig (2026-11-12, routine-lokaal)",
+   "status": "bezig (2026-11-13, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "nieuwe",
@@ -1352,9 +1338,9 @@
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "status": "bezig (2026-11-13, routine-lokaal)",
-   "soort": "bezig",
-   "id": "iMkB7sUR8UU",
+   "status": "klaar",
+   "soort": "gepland",
+   "id": "Y46Rpy4703k",
    "afspeellijst": "oudheid",
    "opening": "persoon"
   },
