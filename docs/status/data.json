@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 15:03",
+ "bijgewerkt": "2026-11-13 15:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "detail": "Video bouwen · 42%",
+    "detail": "Video bouwen · 52%",
     "soort": "nu"
    }
   ],
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 15:03)"
+   "tekst": "draait nu (2026-11-13 15:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 15:03",
-   "volgende": "2026-11-13 15:33"
+   "laatst": "2026-11-13 15:33",
+   "volgende": "2026-11-13 16:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 14:10",
-   "volgende": "2026-11-13 15:10"
+   "laatst": "2026-11-13 15:10",
+   "volgende": "2026-11-13 16:10"
   }
  },
  "kanaal": {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 471,
+    "views": 472,
     "verwerkt": "processed"
    },
    {
@@ -800,15 +800,15 @@
   "thumb": "thumbs/egypte-toetanchamon.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 42,
+  "voortgang": 52,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-13 18:19",
-   "youtube": "2026-11-13 18:39"
+   "klaar": "2026-11-13 18:39",
+   "youtube": "2026-11-13 18:59"
   }
  },
  "nu_bezig": [
@@ -823,7 +823,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 575,
+  "geheugen_mb": 577,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -995,7 +995,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 15:03",
+   "tijd": "2026-11-13 15:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
