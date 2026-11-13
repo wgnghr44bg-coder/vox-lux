@@ -1,10 +1,10 @@
 {
- "bijgewerkt": "2026-11-13 09:33",
+ "bijgewerkt": "2026-11-13 10:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
+    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
+    "map": "crisis-1933",
     "detail": "Stem (B1)",
     "soort": "nu"
    }
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "182 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 09:33)"
+   "tekst": "draait nu (2026-11-13 10:03)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 09:33",
-   "volgende": "2026-11-13 10:03"
+   "laatst": "2026-11-13 10:03",
+   "volgende": "2026-11-13 10:33"
   },
   "hype": {
    "aan": true,
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 455,
+    "views": 456,
     "verwerkt": "processed"
    },
    {
@@ -794,22 +794,20 @@
  ],
  "stap": 3,
  "huidig": {
-  "map": "egypte-toetanchamon",
-  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-  "datum": "2026-11-14",
-  "thumb": "thumbs/egypte-toetanchamon.jpg",
+  "map": "crisis-1933",
+  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
+  "datum": "2026-11-16",
+  "thumb": "",
   "stap": 3,
   "stapnaam": "Stem (B1)",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "tekstcontrole",
+   "tekstcontrole (Whisper)"
   ],
-  "eind": {
-   "klaar": "2026-11-13 21:46",
-   "youtube": "2026-11-13 22:06"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -817,13 +815,17 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
+   "naam": "tekstcontrole",
+   "stap": 3
+  },
+  {
+   "naam": "tekstcontrole (Whisper)",
    "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7580,
+  "bezig_procent": 51,
+  "geheugen_mb": 2406,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1001,7 +1003,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 09:33",
+   "tijd": "2026-11-13 10:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
