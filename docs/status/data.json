@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 13:03",
+ "bijgewerkt": "2026-11-13 13:33",
  "werkplanning": {
   "nu": [
    {
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 13:03)"
+   "tekst": "draait nu (2026-11-13 13:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 13:03",
-   "volgende": "2026-11-13 13:33"
+   "laatst": "2026-11-13 13:33",
+   "volgende": "2026-11-13 14:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 12:10",
-   "volgende": "2026-11-13 13:10"
+   "laatst": "2026-11-13 13:10",
+   "volgende": "2026-11-13 14:10"
   }
  },
  "kanaal": {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 468,
+    "views": 467,
     "verwerkt": "processed"
    },
    {
@@ -807,8 +807,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-13 19:18",
-   "youtube": "2026-11-13 19:38"
+   "klaar": "2026-11-13 19:31",
+   "youtube": "2026-11-13 19:51"
   }
  },
  "nu_bezig": [
@@ -822,8 +822,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 621,
+  "bezig_procent": 24,
+  "geheugen_mb": 601,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -995,7 +995,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 13:03",
+   "tijd": "2026-11-13 13:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
