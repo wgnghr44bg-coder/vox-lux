@@ -123,6 +123,7 @@ dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
 .rij-v{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #ffffff0d;font-size:.88rem;min-width:0}
 .rij-v .dt{flex:none;width:58px;color:var(--zacht);font-size:.8rem}.rij-v .tt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rij-v .chip{flex:none;margin:0}
+.rij-v .tt b{display:block;font-weight:700;color:var(--tekst,#fff)}.rij-v .tt small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--zacht);font-size:.76rem}
 /* onderbalk */
 .onder{position:fixed;left:0;right:0;bottom:0;z-index:10;background:#0e0b22f2;border-top:1px solid var(--lijn);backdrop-filter:blur(10px);
   display:flex;justify-content:space-around;padding:8px max(10px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
@@ -253,6 +254,7 @@ const ICO=["i-lamp","i-doc","i-beeld","i-mic","i-montage","i-schild","i-upload"]
 const isoDag=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
 function delta(a,b){if(b==null||!b)return "";const p=Math.round(100*(a-b)/b);return `<span class="${p>=0?"op":"neer"}">${p>=0?"▲ +":"▼ "}${p}%</span>`}
 function dagLabel(iso){const x=new Date(iso+"T12:00");return `${DAG[x.getDay()]} ${x.getDate()}-${x.getMonth()+1}`}
+const kortNaam=m=>(m||"").split("-").map(w=>w==="vc"?"v.C.":w.charAt(0).toUpperCase()+w.slice(1)).join(" ");   // map "crisis-1933" -> "Crisis 1933"
 function tijdLabel(s){if(!s)return "";const [dg,tm]=s.split(" "),n=Math.round((new Date(dg+"T12:00")-new Date(isoDag(new Date())+"T12:00"))/864e5);return `${n==0?"vandaag":n==1?"morgen":dagLabel(dg)} ± ${tm}`}
 function weekNr(d){d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const n=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-n);const j=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil(((d-j)/864e5+1)/7)}
 
@@ -325,7 +327,7 @@ async function laad(){
     return (i?`<span class="pijl">›</span>`:"")+`<div class="stap ${klaar?"klaar":nuS?"nu":""}"><div class="bol"><svg class="i" style="width:24px;height:24px"><use href="#${ICO[i]}"/></svg>${klaar?`<span class="v">✓</span>`:""}</div>${esc(s.replace(" & planning","").replace(" schrijven",""))}</div>`}).join("");
   // home: nu bezig (met voortgang in stappen) en de volgende video's
   $("nuBezig").innerHTML=h?`<div class="nu"><img src="${esc(h.thumb||"logo.png")}" alt=""><div style="min-width:0"><b>${esc(h.titel.replace(/ \| History for Sleep$/,""))}</b><div class="zacht" style="font-size:.84rem;margin:2px 0 8px">online ${h.datum?dagLabel(h.datum):""} · stap ${d.stap+1} van ${d.stappen.length}: ${esc(h.stapnaam)}</div><div class="balk"><span style="width:${Math.round(100*(d.stap+.5)/d.stappen.length)}%"></span></div></div></div>${h.eind?`<dl class="eind"><dt>Video klaar</dt><dd>${tijdLabel(h.eind.klaar)}</dd><dt>Op YouTube</dt><dd>${tijdLabel(h.eind.youtube)} <small class="zacht">(nog privé)</small></dd>${h.datum?`<dt>Online voor kijkers</dt><dd>${dagLabel(h.datum)} 21:00</dd>`:""}</dl>`:""}`:`<div class="zacht">De pc wacht op de volgende taak.</div>`;
-  $("volgende").innerHTML=komend.slice(0,4).map(x=>`<div class="rij-v"><span class="dt">${dagLabel(x.datum)}</span><span class="tt">${esc(x.titel.replace(/ \| History for Sleep$/,""))}</span><span class="chip ${x.soort==="gepland"||x.soort==="online"?"goed":x.soort==="script"?"let":""}">${esc(lab[x.soort]||x.soort)}</span></div>`).join("")||`<div class="zacht">Niets gepland.</div>`;
+  $("volgende").innerHTML=komend.slice(0,4).map(x=>`<div class="rij-v"><span class="dt">${dagLabel(x.datum)}</span><span class="tt"><b>${esc(kortNaam(x.map))}</b><small>${esc(x.titel.replace(/ \| History for Sleep$/,""))}</small></span><span class="chip ${x.soort==="gepland"||x.soort==="online"?"goed":x.soort==="script"?"let":""}">${esc(lab[x.soort]||x.soort)}</span></div>`).join("")||`<div class="zacht">Niets gepland.</div>`;
 
   // doelen: YouTube-partnerprogramma
   const uren=(k.jaar&&k.jaar.uren)||0;
@@ -340,7 +342,7 @@ async function laad(){
   const tel=d.fouten.length+kansen.length;$("belTeller").hidden=!tel;$("belTeller").textContent=tel;
 
   // tabellen
-  $("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+komend.slice(0,12).map(x=>`<tr><td style="white-space:nowrap">${dagLabel(x.datum)}</td><td>${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}</td><td style="white-space:nowrap">${esc(lab[x.soort]||x.soort)}</td></tr>`).join("");
+  $("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+komend.slice(0,12).map(x=>`<tr><td style="white-space:nowrap">${dagLabel(x.datum)}</td><td><b>${esc(kortNaam(x.map))}</b><br><small class="zacht">${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}</small></td><td style="white-space:nowrap">${esc(lab[x.soort]||x.soort)}</td></tr>`).join("");
   const sc=d.scripts||{rij:[]};$("scKlaar").textContent=sc.klaar_tot?`klaar t/m ${dagLabel(sc.klaar_tot)}`:"";
   $("scripts").innerHTML="<tr><th>Datum</th><th>Script</th><th>Controle</th></tr>"+sc.rij.filter(r=>r.datum>=vandaag).slice(0,12).map(r=>`<tr><td style="white-space:nowrap">${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht" style="font-size:.78rem">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span>`:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span>`:""}</td></tr>`).join("");
   $("recent").innerHTML="<tr><th>Titel</th><th>Status</th><th>Duur</th><th>Views</th></tr>"+(k.recent||[]).slice(0,8).map(r=>{const gepland=r.privacy==="private"&&new Date(r.publiceer)>new Date();
