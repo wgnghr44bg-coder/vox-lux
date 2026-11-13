@@ -95,10 +95,13 @@ def main():
     with open(KETENLOG, "a", encoding="utf-8") as f:
         f.write(f"\n===== {dt.datetime.now():%Y-%m-%d %H:%M} {', '.join(lijst)}\n")
         f.flush()
-        subprocess.Popen([sys.executable, "-u", str(HIER / "routine_lokaal.py"), "--opnieuw", ",".join(n + "!" for n in lijst)],
-                         cwd=REPO, stdout=f, stderr=subprocess.STDOUT,
-                         env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"},
-                         creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
+        cmd = [sys.executable, "-u", str(HIER / "routine_lokaal.py"), "--opnieuw", ",".join(n + "!" for n in lijst)]
+        vlag = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+        kw = dict(cwd=REPO, stdout=f, stderr=subprocess.STDOUT, env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
+        try:                                                # los van de Taakplanner-taak, zodat de keten blijft lopen
+            subprocess.Popen(cmd, creationflags=vlag | subprocess.CREATE_BREAKAWAY_FROM_JOB, **kw)
+        except OSError:
+            subprocess.Popen(cmd, creationflags=vlag, **kw)
 
 
 if __name__ == "__main__":
