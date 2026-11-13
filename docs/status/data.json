@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 18:03",
+ "bijgewerkt": "2026-11-13 18:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "detail": "Video bouwen · 29%",
+    "detail": "Video bouwen · 88%",
     "soort": "nu"
    }
   ],
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "166 GB vrij"
+   "tekst": "163 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 18:03)"
+   "tekst": "draait nu (2026-11-13 18:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 18:03",
-   "volgende": "2026-11-13 18:33"
+   "laatst": "2026-11-13 18:33",
+   "volgende": "2026-11-13 19:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 17:10",
-   "volgende": "2026-11-13 18:10"
+   "laatst": "2026-11-13 18:10",
+   "volgende": "2026-11-13 19:10"
   }
  },
  "kanaal": {
@@ -514,7 +514,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 22,
+    "views": 23,
     "verwerkt": "processed"
    },
    {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 476,
+    "views": 475,
     "verwerkt": "processed"
    },
    {
@@ -800,15 +800,15 @@
   "thumb": "thumbs/egypte-toetanchamon.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 29,
+  "voortgang": 88,
   "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
    "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-13 18:51",
-   "youtube": "2026-11-13 19:11"
+   "klaar": "2026-11-13 18:50",
+   "youtube": "2026-11-13 19:10"
   }
  },
  "nu_bezig": [
@@ -995,7 +995,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 18:03",
+   "tijd": "2026-11-13 18:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
