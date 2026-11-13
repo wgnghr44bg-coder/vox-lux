@@ -106,6 +106,29 @@ def comfy_aan():
 
 
 def thumbnail(m, plan_t):
+    # stijl v3 (13 nov 2026, eigenaar: Babylon-thumbnail werkt, "pas ze ook maar toe voor de andere video's"):
+    # groot gezicht rechts, grote tekst onder het maanlogo; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
+    if (m / "thumbnail-v3.jpg").exists():
+        return m / "thumbnail-v3.jpg"
+    try:
+        import llm, thumbnail_v3
+        regel = (re.search(r"^thumbnail (.+)$", plan_t, re.M) or [None, ""])[1]
+        titel = (re.search(r"^titel\s+(.+?)\s*\|", plan_t, re.M) or [None, m.name])[1]
+        onderwerp = (re.search(r"^onderwerp\s+(.+)$", plan_t, re.M) or [None, titel])[1]
+        a = json.loads(re.search(r"\{.*\}", llm.vraag(
+            f"A YouTube thumbnail for a calm history video: '{titel}' ({onderwerp}). Scene idea: {regel}\n"
+            'Answer only JSON: {"regel1": "1-2 word subject in CAPITALS, e.g. BABYLON or OREGON TRAIL", '
+            '"regel2": "the year or era in capitals, e.g. 600 BC or 1846", '
+            '"persoon": "one ordinary person of that place and time, with clothes and hair, in English", '
+            '"achtergrond": "the most recognisable place or object of the story, in English"}',
+            temp=0.2, max_tokens=200), re.S).group(0))
+        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["persoon"], a["achtergrond"])
+        if v3:
+            log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
+            return v3
+        log(f"{m.name}: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl")
+    except Exception as e:
+        log(f"{m.name}: thumbnail v3 mislukt ({str(e)[:100]}), oude stijl")
     g = re.search(r"thumbnail gekozen[^\n]*?([\w/.-]+\.jpg)", plan_t)
     if g:
         p = REPO / g.group(1) if "/" in g.group(1) else m / g.group(1)

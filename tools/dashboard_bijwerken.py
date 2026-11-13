@@ -353,7 +353,8 @@ huidig = None
 if actief:
     v = next((x for x in video if x["map"] == actief), {"titel": actief, "datum": "", "id": ""})
     thumb = ""
-    bron = STORIES / actief / "thumbnail-gekozen.jpg"
+    bron = next((STORIES / actief / n for n in ("thumbnail-v3.jpg", "thumbnail-gekozen.jpg") if (STORIES / actief / n).exists()),
+                STORIES / actief / "thumbnail-gekozen.jpg")
     # eigen thumbnail eerst: van een privévideo laat YouTube alleen een grijs plaatje zien
     if bron.exists():
         (DOCS / "thumbs").mkdir(parents=True, exist_ok=True)
