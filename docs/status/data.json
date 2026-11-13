@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 00:33",
+ "bijgewerkt": "2026-11-13 01:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 48%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 00:33)"
+   "tekst": "draait nu (2026-11-13 01:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 00:33",
-   "volgende": "2026-11-13 01:03"
+   "laatst": "2026-11-13 01:03",
+   "volgende": "2026-11-13 01:33"
   },
   "hype": {
    "aan": true,
@@ -557,7 +557,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 339,
+    "views": 338,
     "verwerkt": "processed"
    },
    {
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 384,
+    "views": 382,
     "verwerkt": "processed"
    },
    {
@@ -807,12 +807,11 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 48,
-  "detail": "43 van 89 beelden",
+  "voortgang": 99,
+  "detail": "89 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -824,15 +823,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7001,
+  "bezig_procent": 34,
+  "geheugen_mb": 4645,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1010,7 +1005,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 00:33",
+   "tijd": "2026-11-13 01:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
