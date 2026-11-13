@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 11:33",
+ "bijgewerkt": "2026-11-13 12:03",
  "werkplanning": {
   "nu": [
    {
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "178 GB vrij"
+   "tekst": "174 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 11:33)"
+   "tekst": "draait nu (2026-11-13 12:03)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 11:33",
-   "volgende": "2026-11-13 12:03"
+   "laatst": "2026-11-13 12:03",
+   "volgende": "2026-11-13 12:33"
   },
   "hype": {
    "aan": true,
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 466,
+    "views": 458,
     "verwerkt": "processed"
    },
    {
@@ -595,7 +595,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1277,
+    "views": 1272,
     "verwerkt": "processed"
    }
   ],
@@ -823,7 +823,7 @@
  ],
  "videokaart": {
   "bezig_procent": 23,
-  "geheugen_mb": 584,
+  "geheugen_mb": 576,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -995,7 +995,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 11:33",
+   "tijd": "2026-11-13 12:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
