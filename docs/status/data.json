@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 20:33",
+ "bijgewerkt": "2026-11-13 21:03",
  "werkplanning": {
   "nu": [
    {
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 20:33)"
+   "tekst": "draait nu (2026-11-13 21:03)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 20:33",
-   "volgende": "2026-11-13 21:03"
+   "laatst": "2026-11-13 21:03",
+   "volgende": "2026-11-13 21:33"
   },
   "hype": {
    "aan": true,
@@ -498,9 +498,9 @@
   "views_totaal": 2688,
   "video_aantal": 15,
   "week": {
-   "views": 359,
-   "uren": 69,
-   "abonnees": 1
+   "views": 486,
+   "uren": 115,
+   "abonnees": 2
   },
   "vorige_week": {
    "views": 588,
@@ -514,7 +514,7 @@
     "duur": "2:04:50",
     "privacy": "private",
     "publiceer": "2026-11-14T20:00:00Z",
-    "views": 0,
+    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 477,
+    "views": 479,
     "verwerkt": "processed"
    },
    {
@@ -729,12 +729,17 @@
     "dag": "2026-11-10",
     "views": 98,
     "abonnees": 0
+   },
+   {
+    "dag": "2026-11-11",
+    "views": 127,
+    "abonnees": 1
    }
   ],
   "maand": {
-   "views": 2059,
-   "uren": 465,
-   "abonnees": 6
+   "views": 2186,
+   "uren": 512,
+   "abonnees": 7
   },
   "vorige_maand": {
    "views": 1080,
@@ -742,31 +747,31 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 3122,
-   "uren": 537,
-   "abonnees": 13
+   "views": 3249,
+   "uren": 583,
+   "abonnees": 14
   },
   "top": [
    {
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1201,
-    "uren": 328
-   },
-   {
-    "id": "qFRyJ6twOzY",
-    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
-    "duur": "1:47:15",
-    "views": 331,
-    "uren": 21
+    "views": 1208,
+    "uren": 330
    },
    {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 252,
-    "uren": 66
+    "views": 359,
+    "uren": 106
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "views": 338,
+    "uren": 23
    }
   ]
  },
@@ -825,7 +830,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7872,
+  "geheugen_mb": 7898,
   "totaal_mb": 8192
  },
  "programmas": [
