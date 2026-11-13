@@ -84,8 +84,8 @@ def gpu_mb():
 
 
 def wacht_op_videokaart():
-    while bezig(GPU_WERK) or (bezig(["routine_lokaal.py"]) and not bezig(["make_video.py", "motion.py", "film16.py",
-                                                                           "vervang_video.py", "wacht_verwerkt.py"])) \
+    # alleen tijdens de lange montagestappen (uren op de processor); bij het uploaden kan de volgende video zo beginnen
+    while bezig(GPU_WERK) or (bezig(["routine_lokaal.py"]) and not bezig(["make_video.py", "motion.py"])) \
             or gpu_mb() > 2500:
         time.sleep(120)
 
