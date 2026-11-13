@@ -97,4 +97,7 @@
 - 2026-11-12 23:51 routine-lokaal: egypte-toetanchamon: beeld 049 bleef fout, vervangen door 048.png
 - 2026-11-12 23:53 routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
 - 2026-11-13 03:14 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '023', '024', '025', '027', '028', '029', '030', '031', '032', '033',); de oude versie blijft staan
+- 2026-11-13 08:59 routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)
 - 2026-11-13 10:24 Claude: babylon-600-vc: nieuwe thumbnail op YouTube (stijl grote kanalen: groot gezicht, grote tekst BABYLON 600 BC onder het kanaallogo; eigenaar koos v1a). Oude klikfrequentie 1,9%
+- 2026-11-13 18:58 egypte-toetanchamon: geüpload https://youtu.be/Y46Rpy4703k (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-13 19:09 egypte-toetanchamon: oude versie iMkB7sUR8UU ('What Did People Actually Do When Tutankhamun Was King? | History for Sleep') verwijderd
