@@ -96,3 +96,4 @@
 - 2026-11-12 23:23 babylon-600-vc: OPENBAAR gezet https://youtu.be/KwUvlP42M34 (eigenaar 12 nov: meteen online zodra klaar), kanaal Sleep Archives gecontroleerd
 - 2026-11-12 23:51 routine-lokaal: egypte-toetanchamon: beeld 049 bleef fout, vervangen door 048.png
 - 2026-11-12 23:53 routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
+- 2026-11-13 03:14 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '023', '024', '025', '027', '028', '029', '030', '031', '032', '033',); de oude versie blijft staan
