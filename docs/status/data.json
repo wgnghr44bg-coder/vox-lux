@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 23:03",
+ "bijgewerkt": "2026-11-13 23:33",
  "werkplanning": {
   "nu": [
    {
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 23:03)"
+   "tekst": "draait nu (2026-11-13 23:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 23:03",
-   "volgende": "2026-11-13 23:33"
+   "laatst": "2026-11-13 23:33",
+   "volgende": "2026-11-14 00:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 22:10",
-   "volgende": "2026-11-13 23:10"
+   "laatst": "2026-11-13 23:10",
+   "volgende": "2026-11-14 00:10"
   }
  },
  "kanaal": {
@@ -830,7 +830,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7909,
+  "geheugen_mb": 7897,
   "totaal_mb": 8192
  },
  "programmas": [
