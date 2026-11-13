@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 08:33",
+ "bijgewerkt": "2026-11-13 08:59",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
-    "map": "crisis-1933",
-    "detail": "Onderwerp & planning",
+    "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "map": "egypte-toetanchamon",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -132,7 +132,7 @@
     "map": "egypte-toetanchamon",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "FOUT",
+    "controle": "nog niet",
     "flesch": 74,
     "niveau": 6.6,
     "leesbaar": "MAKKELIJK",
@@ -151,27 +151,15 @@
     "toon": "TOON GOED"
    },
    {
-    "datum": "2026-11-16",
-    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
-    "map": "tombstone-1881",
-    "klaar": true,
-    "stand": "video wordt gemaakt",
-    "controle": "nog niet",
-    "flesch": 78,
-    "niveau": 6.0,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
-   },
-   {
     "datum": "2026-11-18",
     "titel": "What Happened to the Families of Gettysburg in 1863? | History for Sleep",
     "map": "gettysburg-1863",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
-    "flesch": 69,
-    "niveau": 6.5,
-    "leesbaar": "GOED",
+    "controle": "nog niet",
+    "flesch": 70,
+    "niveau": 6.4,
+    "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED"
    },
    {
@@ -443,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 08:33)"
+   "tekst": "laatste keer goed (2026-11-13 08:33)"
   },
   {
    "naam": "Git",
@@ -548,7 +536,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 116,
+    "views": 118,
     "verwerkt": "processed"
    },
    {
@@ -557,7 +545,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 339,
+    "views": 340,
     "verwerkt": "processed"
    },
    {
@@ -566,7 +554,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 448,
+    "views": 428,
     "verwerkt": "processed"
    },
    {
@@ -799,18 +787,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
+ "stap": 2,
  "huidig": {
-  "map": "crisis-1933",
-  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-  "datum": "2026-11-16",
-  "thumb": "",
-  "stap": 0,
-  "stapnaam": "Onderwerp & planning",
-  "voortgang": null,
-  "detail": "",
+  "map": "egypte-toetanchamon",
+  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "thumbs/egypte-toetanchamon.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "92 van 92 beelden",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -818,11 +807,15 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 572,
+  "geheugen_mb": 545,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -909,12 +902,6 @@
  "logboek": [
   {
    "tijd": "2026-11-12 14:53",
-   "tekst": "hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE How Did Ice Age Humans Sleep Without Freezing to Death? -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -990,6 +977,12 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 08:59",
+   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -1000,7 +993,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 08:33",
+   "tijd": "2026-11-13 08:59",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1347,7 +1340,7 @@
    "datum": "2026-11-14",
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "status": "bezig (2026-11-12, routine-lokaal)",
+   "status": "bezig (2026-11-13, routine-lokaal)",
    "soort": "bezig",
    "id": "iMkB7sUR8UU",
    "afspeellijst": "oudheid",
@@ -1960,7 +1953,7 @@
   },
   {
    "map": "tombstone-1881",
-   "datum": "2026-11-16",
+   "datum": "",
    "reserve": true,
    "titel": "How Did Ordinary People Really Live in Tombstone? | History for Sleep",
    "status": "bezig (2026-11-11, routine-lokaal)",
