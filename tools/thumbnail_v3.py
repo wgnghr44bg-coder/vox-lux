@@ -1,6 +1,6 @@
 """Thumbnail stijl v3 (eigenaar 13 nov 2026, na Babylon: "denk dat de thumbnail zoals hier wel effect heeft, pas ze ook
-maar toe voor de andere video's"). Zoals de grote slaapkanalen: één persoon groot rechts die de kijker aankijkt, warm
-licht, het kenmerkende beeld wazig erachter; linksboven het vaste maanlogo "SLEEP ARCHIVES" en daaronder 1-2 regels
+maar toe voor de andere video's"). Zoals de grote slaapkanalen: een jonge vrouw uit die tijd rechts die de kijker
+vriendelijk aankijkt en iets uit het verhaal vasthoudt, links scherp een scène uit het verhaal, warm licht; linksboven het vaste maanlogo "SLEEP ARCHIVES" en daaronder 1-2 regels
 in grote dikke letters (wit + goudgeel), de linkerkant iets donkerder.
 
 Beelden via ComfyUI (gratis, lokaal), elk 3 kandidaten; het beeldmodel keurt (niet uit die tijd, vervormd, letters)
@@ -28,22 +28,26 @@ GPU_WERK = ["engine_stem.py", "check_stem_tekst.py", "prep_engine.sh", "herstel_
             "comfy_batch.py", "b1_check.py", "engine_muziek.py"]
 
 
-# Eigenaar 13 nov: de persoon "iets verbaasd, verrast, wat mensen trekt, of dat ze iets oplicht of schaduw", en "gewoon
-# iets wat met de video te maken heeft". Dus: een moment uit het verhaal (moment), met drie varianten in blik en licht;
-# het beeldmodel kiest de sterkste. Nieuwsgierig maken, niet eng.
-UITDRUKKING = {
-    "a": ("eyes wide and eyebrows slightly raised, lips parted in quiet amazement", "the face lit warmly by {licht}"),
-    "b": ("a curious, intrigued look", "the face lit from below by {licht} held close, the rest falling into deep soft shadow"),
-    "c": ("a thoughtful look, half of the face in warm light and half in shadow", "lit from one side by {licht}"),
+# Eigenaar 13 nov: "kijk gewoon hoe de grote kanalen ze hebben en hoe het personage is afgebeeld". Bij Sleepy Old World
+# (269K) en Sleepy Quiet Historian (114K) steeds hetzelfde: een jonge vrouw uit die tijd rechts, van het middel omhoog,
+# in rijke kleren van toen, kijkt de kijker vriendelijk aan en houdt iets uit het verhaal vast (brood, kruik, mand);
+# links scherp het verhaal zelf (slapend gezin bij het vuur, huisje in de sneeuw met spelende kinderen); warm vuur- of
+# kaarslicht tegen koele nacht of sneeuw. Soms een knipoog of vinger op de lippen ("geheimen"). Drie varianten van de
+# blik; het beeldmodel kiest de sterkste.
+BLIK = {
+    "a": "a warm gentle smile, looking straight at the viewer",
+    "b": "a soft smile with slightly raised eyebrows, as if about to share something surprising, looking at the viewer",
+    "c": "one finger raised to her lips as if sharing a secret, a knowing smile at the viewer",
 }
 
 
-def prompt(persoon, achtergrond, licht="a small warm oil lamp", k="a", moment=""):
-    blik, verlichting = (x.format(licht=licht) for x in UITDRUKKING[k])
-    wat = f", {moment}" if moment else ", looking straight at the viewer"
-    return (f"A cinematic photorealistic close-up portrait of {persoon} on the right side of the frame{wat}, {blik}, "
-            f"{verlichting}, behind them softly out of focus {achtergrond}, the left half of the image darker and calm, "
-            "rich warm and cool contrast, sharp face, shallow depth of field, not scary, no text, no letters")
+def prompt(persoon, achtergrond, licht="a small warm oil lamp", k="a", moment="", voorwerp=""):
+    vast = f", holding {voorwerp}" if voorwerp else ""
+    scene = f"{achtergrond}, {moment}" if moment else achtergrond
+    return (f"A warm cinematic photorealistic scene. On the right third of the frame stands {persoon}, shown from the "
+            f"waist up in rich detailed period clothing{vast}, {BLIK[k]}, her face softly lit by {licht}. On the left and "
+            f"behind her, sharp and detailed, {scene}. Cosy warm firelight and candlelight against a cool blue evening, "
+            "high detail, inviting and calm, not scary, no text, no letters")
 
 
 # ---------- opmaak ----------
@@ -113,7 +117,7 @@ def kandidaten(werk, items):
     from routine_lokaal import comfy_aan
     import beeldcheck as bc
     werk.mkdir(parents=True, exist_ok=True)
-    (werk / "prompts.txt").write_text("".join(f"{n}{k}|{prompt(p, a, l, k, mo)}\n" for n, p, a, l, mo in items for k in "abc"), encoding="utf-8")
+    (werk / "prompts.txt").write_text("".join(f"{n}{k}|{prompt(p, a, l, k, mo, vw)}\n" for n, p, a, l, mo, vw in items for k in "abc"), encoding="utf-8")
     bc.vlm_vrij()
     if not comfy_aan():
         raise RuntimeError("ComfyUI start niet")
@@ -186,7 +190,8 @@ def alle(niet_wachten=False):
         return
     if not niet_wachten:
         wacht_op_videokaart()
-    kandidaten(werk, [(x["naam"], x["persoon"], x["achtergrond"], x.get("licht", "a small warm oil lamp"), x.get("moment", ""))
+    kandidaten(werk, [(x["naam"], x["persoon"], x["achtergrond"], x.get("licht", "a small warm oil lamp"), x.get("moment", ""),
+                       x.get("voorwerp", ""))
                       for x in todo])
     for x in todo:
         doel = (STORIES / x["map"] / "thumbnail-v3.jpg") if x.get("map") else (werk / f"{x['naam']}-v3.jpg")
@@ -200,11 +205,11 @@ def alle(niet_wachten=False):
         print(x["naam"], uitslag, flush=True)
 
 
-def maak_voor_map(m, regel1, regel2, persoon, achtergrond, licht="a small warm oil lamp", moment=""):
+def maak_voor_map(m, regel1, regel2, persoon, achtergrond, licht="a small warm oil lamp", moment="", voorwerp=""):
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
     werk = m / "thumb3"
     item = {"regel1": regel1, "regel2": regel2, "persoon": persoon, "achtergrond": achtergrond}
-    kandidaten(werk, [("t", persoon, achtergrond, licht, moment)])
+    kandidaten(werk, [("t", persoon, achtergrond, licht, moment, voorwerp)])
     return kies(werk, "t", item, m / "thumbnail-v3.jpg")
 
 

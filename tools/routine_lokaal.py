@@ -119,13 +119,14 @@ def thumbnail(m, plan_t):
             f"A YouTube thumbnail for a calm history video: '{titel}' ({onderwerp}). Scene idea: {regel}\n"
             'Answer only JSON: {"regel1": "1-2 word subject in CAPITALS, e.g. BABYLON or OREGON TRAIL", '
             '"regel2": "the year or era in capitals, e.g. 600 BC or 1846", '
-            '"persoon": "one ordinary person of that place and time, with clothes and hair, in English", '
+            '"persoon": "a friendly young woman of that place and time, with clothes and hair, in English", '
+            '"voorwerp": "a small object from the story she holds, e.g. a loaf of bread or a clay oil lamp, in English", '
             '"achtergrond": "the most recognisable place or object of the story, in English", '
-            '"moment": "what this person sees or does at a key moment of the story that makes viewers curious, e.g. '
-            'peeking out at soldiers marching into town; calm, not violent, in English"}',
+            '"moment": "a calm scene from the story shown beside her, e.g. a family sleeping by the fire or soldiers '
+            'marching into a small town; not violent, in English"}',
             temp=0.2, max_tokens=260), re.S).group(0))
         v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["persoon"], a["achtergrond"],
-                                        moment=a.get("moment", ""))
+                                        moment=a.get("moment", ""), voorwerp=a.get("voorwerp", ""))
         if v3:
             log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
             return v3
