@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 01:33",
+ "bijgewerkt": "2026-11-13 02:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 84%",
+    "detail": "Beelden maken · 34%",
     "soort": "nu"
    }
   ],
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 01:33)"
+   "tekst": "draait nu (2026-11-13 02:03)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 01:33",
-   "volgende": "2026-11-13 02:03"
+   "laatst": "2026-11-13 02:03",
+   "volgende": "2026-11-13 02:33"
   },
   "hype": {
    "aan": true,
@@ -557,7 +557,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 338,
+    "views": 339,
     "verwerkt": "processed"
    },
    {
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 393,
+    "views": 395,
     "verwerkt": "processed"
    },
    {
@@ -575,7 +575,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 14,
+    "views": 15,
     "verwerkt": "processed"
    },
    {
@@ -807,8 +807,8 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 84,
-  "detail": "75 van 89 beelden",
+  "voortgang": 34,
+  "detail": "30 van 89 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -832,7 +832,7 @@
  ],
  "videokaart": {
   "bezig_procent": 99,
-  "geheugen_mb": 7029,
+  "geheugen_mb": 7034,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1010,7 +1010,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 01:33",
+   "tijd": "2026-11-13 02:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
