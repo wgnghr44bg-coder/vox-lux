@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 04:03",
+ "bijgewerkt": "2026-11-13 04:33",
  "werkplanning": {
   "nu": [
    {
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 04:03)"
+   "tekst": "draait nu (2026-11-13 04:33)"
   },
   {
    "naam": "Git",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 04:03",
-   "volgende": "2026-11-13 04:33"
+   "laatst": "2026-11-13 04:33",
+   "volgende": "2026-11-13 05:03"
   },
   "hype": {
    "aan": true,
@@ -501,7 +501,7 @@
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 14,
+  "abonnees": 15,
   "views_totaal": 2550,
   "video_aantal": 15,
   "week": {
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 401,
+    "views": 405,
     "verwerkt": "processed"
    },
    {
@@ -593,7 +593,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 26,
+    "views": 25,
     "verwerkt": "processed"
    },
    {
@@ -822,7 +822,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 545,
+  "geheugen_mb": 568,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1000,7 +1000,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 04:03",
+   "tijd": "2026-11-13 04:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
