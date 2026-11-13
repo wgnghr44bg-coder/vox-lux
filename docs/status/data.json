@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 17:03",
+ "bijgewerkt": "2026-11-13 17:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "detail": "Video bouwen · 89%",
+    "detail": "Video bouwen · 97%",
     "soort": "nu"
    }
   ],
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 17:03)"
+   "tekst": "draait nu (2026-11-13 17:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 17:03",
-   "volgende": "2026-11-13 17:33"
+   "laatst": "2026-11-13 17:33",
+   "volgende": "2026-11-13 18:03"
   },
   "hype": {
    "aan": true,
@@ -488,14 +488,14 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 16:10",
-   "volgende": "2026-11-13 17:10"
+   "laatst": "2026-11-13 17:10",
+   "volgende": "2026-11-13 18:10"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 16,
-  "views_totaal": 2578,
+  "views_totaal": 2688,
   "video_aantal": 15,
   "week": {
    "views": 359,
@@ -541,7 +541,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 119,
+    "views": 120,
     "verwerkt": "processed"
    },
    {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 471,
+    "views": 475,
     "verwerkt": "processed"
    },
    {
@@ -800,15 +800,15 @@
   "thumb": "thumbs/egypte-toetanchamon.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 89,
+  "voortgang": 97,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "tikjes weghalen"
   ],
   "eind": {
-   "klaar": "2026-11-13 18:51",
-   "youtube": "2026-11-13 19:11"
+   "klaar": "2026-11-13 18:56",
+   "youtube": "2026-11-13 19:16"
   }
  },
  "nu_bezig": [
@@ -817,13 +817,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
+   "naam": "tikjes weghalen",
    "stap": 4
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 623,
+  "geheugen_mb": 624,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -995,7 +995,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 17:03",
+   "tijd": "2026-11-13 17:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
