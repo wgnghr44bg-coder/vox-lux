@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 18:33",
+ "bijgewerkt": "2026-11-13 19:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "detail": "Video bouwen · 88%",
+    "detail": "YouTube upload",
     "soort": "nu"
    }
   ],
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "163 GB vrij"
+   "tekst": "162 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 18:33)"
+   "tekst": "draait nu (2026-11-13 19:03)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 18:33",
-   "volgende": "2026-11-13 19:03"
+   "laatst": "2026-11-13 19:03",
+   "volgende": "2026-11-13 19:33"
   },
   "hype": {
    "aan": true,
@@ -494,7 +494,7 @@
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 16,
+  "abonnees": 17,
   "views_totaal": 2688,
   "video_aantal": 15,
   "week": {
@@ -508,6 +508,15 @@
    "abonnees": 0
   },
   "recent": [
+   {
+    "id": "Y46Rpy4703k",
+    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "duur": "2:04:50",
+    "privacy": "private",
+    "publiceer": "2026-11-14T20:00:00Z",
+    "views": 0,
+    "verwerkt": "uploaded"
+   },
    {
     "id": "KwUvlP42M34",
     "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
@@ -587,15 +596,6 @@
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
     "views": 26,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "_4LgG7iUoy0",
-    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
-    "duur": "2:27:47",
-    "privacy": "public",
-    "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1272,
     "verwerkt": "processed"
    }
   ],
@@ -771,7 +771,7 @@
   ]
  },
  "kpi": {
-  "geplande": 0,
+  "geplande": 1,
   "runs": {
    "goed": 4,
    "totaal": 20,
@@ -792,23 +792,25 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 6,
  "huidig": {
   "map": "egypte-toetanchamon",
   "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/egypte-toetanchamon.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 88,
-  "detail": "16mm-look",
+  "stap": 6,
+  "stapnaam": "YouTube upload",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "uploaden en controleren",
+   "wachten op verwerking YouTube",
+   "beelden maken (ComfyUI)"
   ],
   "eind": {
-   "klaar": "2026-11-13 18:50",
-   "youtube": "2026-11-13 19:10"
+   "klaar": "2026-11-13 18:48",
+   "youtube": "2026-11-13 19:08"
   }
  },
  "nu_bezig": [
@@ -817,13 +819,21 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "uploaden en controleren",
+   "stap": 6
+  },
+  {
+   "naam": "wachten op verwerking YouTube",
+   "stap": 6
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 628,
+  "bezig_procent": 98,
+  "geheugen_mb": 7019,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -910,12 +920,6 @@
  "logboek": [
   {
    "tijd": "2026-11-12 14:53",
-   "tekst": "hype-wachter: SEINTJE The Balkan General who made an Empire Bleed -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE 8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -991,11 +995,17 @@
    "tekst": "Claude: babylon-600-vc: nieuwe thumbnail op YouTube (stijl grote kanalen: groot gezicht, grote tekst BABYLON 600 BC onder het kanaallogo; eigenaar koos v1a). Oude klikfrequentie 1,9%",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 18:58",
+   "tekst": "egypte-toetanchamon: geüpload https://youtu.be/Y46Rpy4703k (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 18:33",
+   "tijd": "2026-11-13 19:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
