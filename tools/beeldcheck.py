@@ -44,6 +44,18 @@ def jaar(map_):
 MODERN_WOORD = r"\b(modern|contemporary|electric|plastic|concrete|car|cars|truck|power|asphalt|glass|neon|unrelated|pole|poles|post|posts|wire|wires|sign|signs|road|lamppost|streetlight)\b"
 
 
+# 13 nov, Crisis 1933: 64/89 beelden afgekeurd om "cars, electric lamps, windmill" terwijl die er in 1933 gewoon waren.
+# Vanaf 1920 telt zoiets alleen als fout als het model het zelf modern/recent noemt.
+TOEN_AL = (r"\b(cars?|vehicles?|trucks?|automobiles?|tractors?|electric|lamps?|lights?|power ?lines?|poles?|wires?|"
+           r"street ?lamps?|lamp ?posts?|windmills?|barns?|telephones?|radios?|roads?|signs?|billboards?|gas station)\b")
+ECHT_MODERN = (r"\b(modern|contemporary|recent|newer|19[5-9]0s?|20\d\d|smartphones?|plastic|satellite|flat ?screens?|"
+               r"led|neon|jeans|t-shirts?)\b")
+
+
+def bestond_al(ding, jaar_):
+    return bool(jaar_ >= 1920 and re.search(TOEN_AL, ding, re.I) and not re.search(ECHT_MODERN, ding, re.I))
+
+
 def staat_in_prompt(ding, prompt):
     """Het beeldmodel noemt iets 'niet uit die tijd' dat de beschrijving zelf vraagt (11 nov, Babylon: dadelpalmen,
     rieten boten en kleitabletten afgekeurd terwijl ze in de prompt staan). Dan is het geen fout, tenzij het 'modern' is.
@@ -65,12 +77,13 @@ def staat_in_prompt(ding, prompt):
     return bool(delen)
 
 
-def vlm(pad, wat_er_moet_zijn, tijd, prompt=""):
+def vlm(pad, wat_er_moet_zijn, tijd, prompt="", jaar_=0):
     b64 = base64.b64encode(Path(pad).read_bytes()).decode()
+    vb = ("cars or trucks from after 1950, smartphones, flat screens, plastic, satellite dishes, modern clothes"
+          if jaar_ >= 1920 else "cars, power lines, electric lamps, modern buildings, plastic, modern clothes, signs")
     vraag = (f"This image is for a calm history video set in {tijd}. It should show: {wat_er_moet_zijn}\n"
              "Look carefully at the whole image, also the background and the edges. Answer in JSON:\n"
-             '{"anachronisms": ["things that did not exist in that time, e.g. cars, power lines, electric lamps, modern '
-             'buildings, plastic, modern clothes, signs"], "text_or_letters": true/false, '
+             '{"anachronisms": ["things that did not exist in that time, e.g. ' + vb + '"], "text_or_letters": true/false, '
              '"deformed": "describe deformed faces, hands with wrong number of fingers, extra limbs, melted objects, or empty", '
              '"matches_description": true/false, "frightening": true/false}')
     for _ in range(3):
@@ -82,7 +95,7 @@ def vlm(pad, wat_er_moet_zijn, tijd, prompt=""):
             lijst = a.get("anachronisms", [])
             lijst = [lijst] if isinstance(lijst, str) else (lijst if isinstance(lijst, list) else [])
             ana = [x for x in lijst if isinstance(x, str) and x.strip() and "none" not in x.lower()
-                   and not staat_in_prompt(x, prompt or wat_er_moet_zijn)]
+                   and not staat_in_prompt(x, prompt or wat_er_moet_zijn) and not bestond_al(x, jaar_)]
             ana = [x for x in ana if bevestig(b64, x, tijd)]       # tweede, gerichte vraag: is het er echt?
             if ana:
                 fout.append("niet uit die tijd: " + ", ".join(x[:80] for x in ana))
@@ -286,13 +299,13 @@ def controleer(map_, namen):
     for n, p, sc in zip(namen, paden, cs):
         kern = kern_van(pr.get(n, ""), st)
         tijd = tijd_van_beeld(kern, j)
-        f = vlm(p, kern, tijd, pr.get(n, ""))
+        f = vlm(p, kern, tijd, pr.get(n, ""), j)
         if not f and clip_fout(sc):                         # CLIP twijfelt: het beeldmodel nog één keer extra goed laten kijken
             import base64
             b64 = base64.b64encode(Path(p).read_bytes()).decode()
             wat = bevestig(b64, f"anything at all (vehicle, wire, pole, lamp, building, boat, clothing, object, letters) "
                                 f"that did not exist in {tijd}", tijd)
-            if wat and not staat_in_prompt(wat, pr.get(n, "")):
+            if wat and not staat_in_prompt(wat, pr.get(n, "")) and not bestond_al(wat, j):
                 f = clip_fout(sc) + [f"bevestigd bij extra controle: {wat[:120]}"]
         if f and hand.get(n) == hashlib.sha1(Path(p).read_bytes()).hexdigest():
             print(f"  {n}: met de hand goedgekeurd (model zei: {'; '.join(f)[:100]})", flush=True)
