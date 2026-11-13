@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 03:33",
+ "bijgewerkt": "2026-11-13 04:03",
  "werkplanning": {
   "nu": [
    {
@@ -443,12 +443,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 03:33)"
+   "tekst": "draait nu (2026-11-13 04:03)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
+   "tekst": "alles gepusht"
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 03:33",
-   "volgende": "2026-11-13 04:03"
+   "laatst": "2026-11-13 04:03",
+   "volgende": "2026-11-13 04:33"
   },
   "hype": {
    "aan": true,
@@ -521,7 +521,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 1,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -575,7 +575,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 14,
+    "views": 15,
     "verwerkt": "processed"
    },
    {
@@ -593,7 +593,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 25,
+    "views": 26,
     "verwerkt": "processed"
    },
    {
@@ -821,8 +821,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 533,
+  "bezig_procent": 26,
+  "geheugen_mb": 545,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1000,7 +1000,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 03:33",
+   "tijd": "2026-11-13 04:03",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
