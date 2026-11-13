@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 03:03",
+ "bijgewerkt": "2026-11-13 03:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 85%",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -443,12 +443,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 03:03)"
+   "tekst": "draait nu (2026-11-13 03:33)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
@@ -490,8 +490,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 03:03",
-   "volgende": "2026-11-13 03:33"
+   "laatst": "2026-11-13 03:33",
+   "volgende": "2026-11-13 04:03"
   },
   "hype": {
    "aan": true,
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 384,
+    "views": 401,
     "verwerkt": "processed"
    },
    {
@@ -780,9 +780,9 @@
  "kpi": {
   "geplande": 0,
   "runs": {
-   "goed": 5,
+   "goed": 4,
    "totaal": 21,
-   "procent": 24
+   "procent": 19
   },
   "fouten": 2,
   "zelfcontrole": {
@@ -799,20 +799,18 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 0,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 85,
-  "detail": "76 van 89 beelden",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
+  "voortgang": null,
+  "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -820,19 +818,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 93,
-  "geheugen_mb": 7786,
+  "bezig_procent": 25,
+  "geheugen_mb": 533,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -918,12 +908,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-12 14:34",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE Go To Sleep While I Teach You History Facts For One Hour [NO AI] -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
@@ -1000,28 +984,28 @@
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 03:14",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-12 23:53",
-   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "tijd": "2026-11-13 03:14",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 03:03",
+   "tijd": "2026-11-13 03:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-11 07:03",
-   "tekst": "routine-lokaal: tombstone-1881: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 89/90 goedgekeurd, fout: ['010']); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-11 09:07",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
@@ -1061,6 +1045,12 @@
   {
    "tijd": "2026-11-12 14:27",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-12 23:53",
+   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
