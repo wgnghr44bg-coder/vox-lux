@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 08:03",
+ "bijgewerkt": "2026-11-13 08:33",
  "werkplanning": {
   "nu": [
    {
@@ -443,7 +443,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 08:03)"
+   "tekst": "draait nu (2026-11-13 08:33)"
   },
   {
    "naam": "Git",
@@ -490,19 +490,19 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 08:03",
-   "volgende": "2026-11-13 08:33"
+   "laatst": "2026-11-13 08:33",
+   "volgende": "2026-11-13 09:03"
   },
   "hype": {
    "aan": true,
-   "laatst": "nog niet",
-   "volgende": "2026-11-13 08:30"
+   "laatst": "2026-11-13 08:30",
+   "volgende": "2026-11-14 08:30"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 16,
-  "views_totaal": 2550,
+  "views_totaal": 2578,
   "video_aantal": 15,
   "week": {
    "views": 359,
@@ -566,7 +566,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 441,
+    "views": 448,
     "verwerkt": "processed"
    },
    {
@@ -575,7 +575,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 15,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -821,7 +821,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 572,
   "totaal_mb": 8192
  },
@@ -1000,7 +1000,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 08:03",
+   "tijd": "2026-11-13 08:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -2103,11 +2103,21 @@
   }
  ],
  "hype": {
-  "bijgewerkt": "2026-11-12 14:53",
+  "bijgewerkt": "2026-11-13 08:30",
   "punten": [
    {
     "soort": "hype",
-    "per_dag": 39877,
+    "per_dag": 34881,
+    "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
+    "kanaal": "Chat History Compilations",
+    "id": "Mfhq-Z-3VS0",
+    "datum": "2026-10-18",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 33415,
     "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
     "kanaal": "History Camp",
     "id": "z2WwdkKcEn0",
@@ -2119,17 +2129,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 35397,
-    "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
-    "kanaal": "Chat History Compilations",
-    "id": "Mfhq-Z-3VS0",
-    "datum": "2026-10-18",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 16179,
+    "per_dag": 15952,
     "titel": "How Did Ice Age Humans Sleep Without Freezing to Death?",
     "kanaal": "ICE AGE SURVIVAL",
     "id": "M5LoIZG1hFg",
@@ -2139,17 +2139,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 14273,
-    "titel": "The Balkan General who made an Empire Bleed",
-    "kanaal": "History Camp",
-    "id": "_nUPEIHK-gY",
-    "datum": "2026-11-04",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 13973,
+    "per_dag": 13725,
     "titel": "8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel",
     "kanaal": "Science Channel",
     "id": "pe5DHvTFTI4",
@@ -2159,17 +2149,17 @@
    },
    {
     "soort": "hype",
-    "per_dag": 13712,
-    "titel": "The Complete History of Pangea to Fall Asleep To - No Ads",
-    "kanaal": "Quiet Science",
-    "id": "aKui3akfcaE",
-    "datum": "2026-10-23",
+    "per_dag": 13660,
+    "titel": "The Balkan General who made an Empire Bleed",
+    "kanaal": "History Camp",
+    "id": "_nUPEIHK-gY",
+    "datum": "2026-11-04",
     "ons": [],
     "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 12636,
+    "per_dag": 12353,
     "titel": "How Did Ancient Humans Sleep Without Freezing in Winter?",
     "kanaal": "Draz",
     "id": "HodHaZYTG2o",
@@ -2179,20 +2169,17 @@
    },
    {
     "soort": "hype",
-    "per_dag": 10640,
+    "per_dag": 10392,
     "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
     "kanaal": "บุญสุข ราชวงษา",
     "id": "FMd3Iaa6GSM",
     "datum": "2026-10-30",
-    "ons": [
-     "gettysburg-1863",
-     "kerst-loopgraven-1914"
-    ],
-    "advies": "staat gepland op 2026-11-18 (gettysburg-1863)"
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 10316,
+    "per_dag": 10230,
     "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
     "kanaal": "Sleepy Mystery Channel",
     "id": "cdA5n6aqpyA",
@@ -2202,7 +2189,19 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9805,
+    "per_dag": 9840,
+    "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
+    "kanaal": "Sleepless Historian",
+    "id": "4aFj8rObOo0",
+    "datum": "2026-11-10",
+    "ons": [
+     "boeren-winter-1300"
+    ],
+    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 9583,
     "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
     "kanaal": "Kaushik Bhattacharjee Extra",
     "id": "jNMpPqYg_S8",
@@ -2214,7 +2213,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9109,
+    "per_dag": 8203,
     "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
     "kanaal": "The French Whisperer ASMR",
     "id": "PtKw7L8166E",
@@ -2227,7 +2226,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 7164,
+    "per_dag": 6878,
     "titel": "The Mummy's Curse that HAUNTED Ancient Egypt",
     "kanaal": "History Camp",
     "id": "t206yovNHlo",
@@ -2236,21 +2235,11 @@
      "cleopatra",
      "egypte-toetanchamon"
     ],
-    "advies": "staat gepland op 2026-11-23 (egypte-toetanchamon)"
+    "advies": "staat gepland op 2026-11-14 (egypte-toetanchamon)"
    },
    {
     "soort": "hype",
-    "per_dag": 7127,
-    "titel": "100 Historical Facts to Sleep To",
-    "kanaal": "List 25",
-    "id": "Yg95hh2TX2U",
-    "datum": "2026-11-07",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 6770,
+    "per_dag": 6574,
     "titel": "DISTURBING Secrets Hidden in Pandora's Box",
     "kanaal": "History Camp",
     "id": "rgARA7jTDa0",
@@ -2260,13 +2249,26 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6453,
-    "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
-    "kanaal": "Old History Nights",
-    "id": "KSIno36Llhw",
+    "per_dag": 6375,
+    "titel": "100 Historical Facts to Sleep To",
+    "kanaal": "List 25",
+    "id": "Yg95hh2TX2U",
     "datum": "2026-11-07",
     "ons": [],
     "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 6036,
+    "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
+    "kanaal": "Just About Earth",
+    "id": "pcgk26vu8uU",
+    "datum": "2026-10-18",
+    "ons": [
+     "babylon-600-vc",
+     "scott-antarctica-1912"
+    ],
+    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
    },
    {
     "soort": "gebeurtenis",
