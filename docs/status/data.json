@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-13 23:33",
+ "bijgewerkt": "2026-11-14 00:03",
  "werkplanning": {
   "nu": [
    {
@@ -53,7 +53,7 @@
     "dag": "za",
     "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "stand": "staat klaar op YouTube",
+    "stand": "online",
     "kleur": "goed"
    },
    {
@@ -118,6 +118,14 @@
     "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "stand": "script nodig (hype 12 nov 2026: History Camp \"Who ACTUALLY S",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-12-05",
+    "dag": "za",
+    "titel": "What Happened in the Trenches on Christmas 1914? | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "stand": "script klaar, video volgt",
     "kleur": "zacht"
    }
   ],
@@ -389,6 +397,18 @@
     "niveau": null,
     "leesbaar": null,
     "toon": null
+   },
+   {
+    "datum": "2027-01-23",
+    "titel": "How Medieval Monks Lived, 1150 | <N> Hours of History for Sleep",
+    "map": "klooster-1150",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    }
   ]
  },
@@ -431,12 +451,17 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 23:33)"
+   "tekst": "draait nu (2026-11-14 00:03)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
+  },
+  {
+   "naam": "Video 2026-11-16 (crisis-1933)",
+   "ok": false,
+   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
   },
   {
    "naam": "Video 2026-11-14 (egypte-toetanchamon)",
@@ -478,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 23:33",
-   "volgende": "2026-11-14 00:03"
+   "laatst": "2026-11-14 00:03",
+   "volgende": "2026-11-14 00:33"
   },
   "hype": {
    "aan": true,
@@ -498,13 +523,13 @@
   "views_totaal": 2688,
   "video_aantal": 15,
   "week": {
-   "views": 486,
-   "uren": 115,
+   "views": 438,
+   "uren": 102,
    "abonnees": 2
   },
   "vorige_week": {
-   "views": 588,
-   "uren": 60,
+   "views": 587,
+   "uren": 64,
    "abonnees": 0
   },
   "recent": [
@@ -559,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 479,
+    "views": 481,
     "verwerkt": "processed"
    },
    {
@@ -600,11 +625,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-16",
-    "views": 17,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-17",
     "views": 14,
@@ -737,14 +757,14 @@
    }
   ],
   "maand": {
-   "views": 2186,
-   "uren": 512,
+   "views": 2169,
+   "uren": 510,
    "abonnees": 7
   },
   "vorige_maand": {
-   "views": 1080,
-   "uren": 73,
-   "abonnees": 7
+   "views": 1091,
+   "uren": 78,
+   "abonnees": 8
   },
   "jaar": {
    "views": 3249,
@@ -756,8 +776,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1208,
-    "uren": 330
+    "views": 1198,
+    "uren": 328
    },
    {
     "id": "_duWLxwIEss",
@@ -782,10 +802,10 @@
    "totaal": 19,
    "procent": 26
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 14,
-   "totaal": 14
+   "totaal": 15
   }
  },
  "stappen": [
@@ -830,7 +850,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7897,
+  "geheugen_mb": 7917,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -872,16 +892,10 @@
  ],
  "week": [
   {
-   "datum": "2026-11-13",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-14",
    "plek": true,
    "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "soort": "gepland"
+   "soort": "online"
   },
   {
    "datum": "2026-11-15",
@@ -909,6 +923,12 @@
   },
   {
    "datum": "2026-11-19",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-20",
    "plek": false,
    "video": "",
    "soort": ""
@@ -1000,7 +1020,13 @@
    "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-14 00:03",
+   "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-11 16:28",
@@ -1344,7 +1370,7 @@
    "reserve": false,
    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
    "status": "klaar",
-   "soort": "gepland",
+   "soort": "online",
    "id": "Y46Rpy4703k",
    "afspeellijst": "oudheid",
    "opening": "persoon"
