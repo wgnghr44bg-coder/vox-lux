@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 10:03",
+ "bijgewerkt": "2026-11-13 10:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
-    "map": "crisis-1933",
-    "detail": "Stem (B1)",
+    "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "map": "egypte-toetanchamon",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "182 GB vrij"
+   "tekst": "180 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 10:03)"
+   "tekst": "draait nu (2026-11-13 10:33)"
   },
   {
    "naam": "Git",
@@ -478,8 +478,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 10:03",
-   "volgende": "2026-11-13 10:33"
+   "laatst": "2026-11-13 10:33",
+   "volgende": "2026-11-13 11:03"
   },
   "hype": {
    "aan": true,
@@ -488,8 +488,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-13 09:10",
-   "volgende": "2026-11-13 10:10"
+   "laatst": "2026-11-13 10:10",
+   "volgende": "2026-11-13 11:10"
   }
  },
  "kanaal": {
@@ -514,7 +514,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 13,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -559,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 456,
+    "views": 458,
     "verwerkt": "processed"
    },
    {
@@ -774,10 +774,10 @@
   "geplande": 0,
   "runs": {
    "goed": 4,
-   "totaal": 21,
-   "procent": 19
+   "totaal": 20,
+   "procent": 20
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 14
@@ -792,22 +792,24 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
-  "map": "crisis-1933",
-  "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-  "datum": "2026-11-16",
-  "thumb": "",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "map": "egypte-toetanchamon",
+  "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+  "datum": "2026-11-14",
+  "thumb": "thumbs/egypte-toetanchamon.jpg",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "tekstcontrole",
-   "tekstcontrole (Whisper)"
+   "beelden en geluid samenvoegen"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-13 19:18",
+   "youtube": "2026-11-13 19:38"
+  }
  },
  "nu_bezig": [
   {
@@ -815,17 +817,13 @@
    "stap": 0
   },
   {
-   "naam": "tekstcontrole",
-   "stap": 3
-  },
-  {
-   "naam": "tekstcontrole (Whisper)",
-   "stap": 3
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 51,
-  "geheugen_mb": 2406,
+  "bezig_procent": 25,
+  "geheugen_mb": 570,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -912,12 +910,6 @@
  "logboek": [
   {
    "tijd": "2026-11-12 14:53",
-   "tekst": "hype-wachter: SEINTJE How Did Ice Age Humans Sleep Without Freezing to Death? -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 14:53",
    "tekst": "hype-wachter: SEINTJE The Balkan General who made an Empire Bleed -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -993,28 +985,22 @@
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 10:24",
+   "tekst": "Claude: babylon-600-vc: nieuwe thumbnail op YouTube (stijl grote kanalen: groot gezicht, grote tekst BABYLON 600 BC onder het kanaallogo; eigenaar koos v1a). Oude klikfrequentie 1,9%",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-13 03:14",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 10:03",
+   "tijd": "2026-11-13 10:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-11 09:07",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-11 16:28",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 86/92 goedgekeurd, fout: ['023', '034', '036', '047', '048', '063']); de oude versie blijft staan",
@@ -1054,6 +1040,12 @@
   {
    "tijd": "2026-11-12 23:53",
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-13 03:14",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
    "fout": true,
    "klaar": false
   }
