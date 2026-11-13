@@ -215,7 +215,8 @@ def gpu():
 
 def taken():
     uit = {}
-    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard", "Sleep Archives hype"):
+    for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard", "Sleep Archives hype",
+                 "Sleep Archives bewaker"):
         try:
             r = subprocess.run(["powershell", "-NoProfile", "-Command",
                                 f"$t = Get-ScheduledTask -TaskName '{naam}'; $i = $t | Get-ScheduledTaskInfo; "

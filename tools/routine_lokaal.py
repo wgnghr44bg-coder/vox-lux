@@ -201,9 +201,10 @@ def maak_video(m, datum, test=False):
         log(f"{m.name}: beeldcontrole brak af zonder uitslag, opnieuw ({r.stderr.strip()[-150:]})")
         comfy_aan()
     fout_b = re.search(r"BEELDEN FOUT: (\d+)/(\d+) goedgekeurd, fout: \[([^\]]*)\]", r.stdout)
-    if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= 3:
-        # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hooguit 3 hardnekkige beelden vervangen
-        # door het goedgekeurde beeld ervoor, zodat de video niet om één beeld blijft liggen
+    if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= max(3, int(fout_b.group(2)) * 0.15):
+        # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hardnekkige beelden (na 4 rondes opnieuw
+        # maken) vervangen door het goedgekeurde beeld ervoor, zodat de video niet blijft liggen. 13 nov (eigenaar: "zorg
+        # dat hij niet meer vastloopt en zich aan de planning houdt"): tot 15 % van de beelden, daarboven is er echt iets mis
         import shutil
         for nr in re.findall(r"'(\d+)'", fout_b.group(3)):
             buur = next((m / "afbeeldingen" / f"{k:03d}.png" for k in range(int(nr) - 1, 0, -1)
@@ -288,19 +289,12 @@ if __name__ == "__main__":
                 time.sleep(600)
                 run(["git", "pull", "-q", "--rebase", "--autostash"])
             datum = planning(m)[1]
-            while True:
-                run(["git", "pull", "-q", "--rebase", "--autostash"])
-                lb = run([sys.executable, str(HIER / "script_leesbaar.py"), str(m)]).stdout
-                if "TOON GOED" in lb and "MAKKELIJK" in lb:
-                    break
-                if datetime.date.fromisoformat(datum) - datetime.date.today() < datetime.timedelta(days=1):
-                    log(f"{m.name}: script niet op tijd in de nieuwe toon, oude versie blijft staan")
-                    break
-                print(f"{datetime.datetime.now():%H:%M} {naam}: wacht op script in de nieuwe toon", flush=True)
-                time.sleep(600)
-            else:
-                pass
-            if "TOON GOED" not in lb:
+            run(["git", "pull", "-q", "--rebase", "--autostash"])
+            lb = run([sys.executable, str(HIER / "script_leesbaar.py"), str(m)]).stdout
+            # 13 nov 2026: niet meer wachten (Gettysburg hing 9 uur op leesbaarheid 69,9 i.p.v. 70 en hield de rest op).
+            # Toon goed en leesbaarheid minstens GOED is genoeg; anders deze overslaan, de bewaker probeert het later.
+            if not ("TOON GOED" in lb and re.search(r"-> (MAKKELIJK|GOED)\b", lb)):
+                log(f"{m.name}: script nog niet in orde ({lb.strip().splitlines()[-1][:120] if lb.strip() else '?'}), overgeslagen")
                 continue
             log(f"{m.name}: opnieuw maken voor {datum} 21:00 (eigen stem, nieuwe toon)")
             try:
