@@ -120,9 +120,12 @@ def thumbnail(m, plan_t):
             'Answer only JSON: {"regel1": "1-2 word subject in CAPITALS, e.g. BABYLON or OREGON TRAIL", '
             '"regel2": "the year or era in capitals, e.g. 600 BC or 1846", '
             '"persoon": "one ordinary person of that place and time, with clothes and hair, in English", '
-            '"achtergrond": "the most recognisable place or object of the story, in English"}',
-            temp=0.2, max_tokens=200), re.S).group(0))
-        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["persoon"], a["achtergrond"])
+            '"achtergrond": "the most recognisable place or object of the story, in English", '
+            '"moment": "what this person sees or does at a key moment of the story that makes viewers curious, e.g. '
+            'peeking out at soldiers marching into town; calm, not violent, in English"}',
+            temp=0.2, max_tokens=260), re.S).group(0))
+        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["persoon"], a["achtergrond"],
+                                        moment=a.get("moment", ""))
         if v3:
             log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
             return v3
