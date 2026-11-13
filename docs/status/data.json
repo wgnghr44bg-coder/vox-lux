@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-13 09:03",
+ "bijgewerkt": "2026-11-13 09:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "map": "egypte-toetanchamon",
-    "detail": "Beelden maken · 99%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -132,7 +132,7 @@
     "map": "egypte-toetanchamon",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 74,
     "niveau": 6.6,
     "leesbaar": "MAKKELIJK",
@@ -416,7 +416,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "184 GB vrij"
+   "tekst": "183 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -431,7 +431,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-13 09:03)"
+   "tekst": "draait nu (2026-11-13 09:33)"
   },
   {
    "naam": "Git",
@@ -478,13 +478,18 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-13 09:03",
-   "volgende": "2026-11-13 09:33"
+   "laatst": "2026-11-13 09:33",
+   "volgende": "2026-11-13 10:03"
   },
   "hype": {
    "aan": true,
    "laatst": "2026-11-13 08:30",
    "volgende": "2026-11-14 08:30"
+  },
+  "bewaker": {
+   "aan": true,
+   "laatst": "2026-11-13 09:10",
+   "volgende": "2026-11-13 10:10"
   }
  },
  "kanaal": {
@@ -554,7 +559,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 451,
+    "views": 455,
     "verwerkt": "processed"
    },
    {
@@ -787,21 +792,24 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "egypte-toetanchamon",
   "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
   "datum": "2026-11-14",
   "thumb": "thumbs/egypte-toetanchamon.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "92 van 92 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "stem inspreken (OmniVoice B1)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-13 21:46",
+   "youtube": "2026-11-13 22:06"
+  }
  },
  "nu_bezig": [
   {
@@ -809,13 +817,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 95,
-  "geheugen_mb": 7099,
+  "bezig_procent": 99,
+  "geheugen_mb": 7580,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -993,7 +1001,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-13 09:03",
+   "tijd": "2026-11-13 09:33",
    "tekst": "Zelfcontrole: Video 2026-11-14 (egypte-toetanchamon): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
