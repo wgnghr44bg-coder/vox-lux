@@ -101,3 +101,5 @@
 - 2026-11-13 10:24 Claude: babylon-600-vc: nieuwe thumbnail op YouTube (stijl grote kanalen: groot gezicht, grote tekst BABYLON 600 BC onder het kanaallogo; eigenaar koos v1a). Oude klikfrequentie 1,9%
 - 2026-11-13 18:58 egypte-toetanchamon: geüpload https://youtu.be/Y46Rpy4703k (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-13 19:09 egypte-toetanchamon: oude versie iMkB7sUR8UU ('What Did People Actually Do When Tutankhamun Was King? | History for Sleep') verwijderd
+- 2026-11-13 19:09 egypte-toetanchamon: KLAAR
+- 2026-11-13 19:09 routine-lokaal: egypte-toetanchamon: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00
