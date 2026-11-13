@@ -28,11 +28,24 @@ GPU_WERK = ["engine_stem.py", "check_stem_tekst.py", "prep_engine.sh", "herstel_
             "comfy_batch.py", "b1_check.py", "engine_muziek.py"]
 
 
-def prompt(persoon, achtergrond, licht="a small warm oil lamp"):
-    return (f"A cinematic photorealistic close-up portrait of {persoon} on the right side of the frame, looking straight "
-            f"at the viewer with a calm gentle expression, the face lit warmly by {licht}, behind them softly out of focus "
-            f"{achtergrond}, the left half of the image darker and calm, rich warm and cool contrast, sharp face, "
-            "shallow depth of field, no text, no letters")
+# Drie kandidaten met elk een andere blik (eigenaar 13 nov: "iets verbaasd, verrast, wat mensen trekt, of dat ze iets
+# oplicht of schaduw"); het beeldmodel kiest daarna de sterkste. Nieuwsgierig maken, niet eng.
+UITDRUKKING = {
+    "a": ("looking straight at the viewer, eyes wide and eyebrows slightly raised, lips parted in quiet amazement, "
+          "as if they have just discovered something surprising", "the face lit warmly by {licht}"),
+    "b": ("holding {licht} up close so it lights up the face from below while the rest of the face and body fall into "
+          "deep soft shadow, looking at the viewer with a curious, intrigued look", ""),
+    "c": ("raising one finger to the lips as if keeping a secret, a knowing look straight at the viewer",
+          "the face lit warmly by {licht}, strong light and shadow on one side"),
+}
+
+
+def prompt(persoon, achtergrond, licht="a small warm oil lamp", k="a"):
+    blik, verlichting = (x.format(licht=licht) for x in UITDRUKKING[k])
+    return (f"A cinematic photorealistic close-up portrait of {persoon} on the right side of the frame, {blik}"
+            + (f", {verlichting}" if verlichting else "") +
+            f", behind them softly out of focus {achtergrond}, the left half of the image darker and calm, rich warm and "
+            "cool contrast, sharp face, shallow depth of field, not scary, no text, no letters")
 
 
 # ---------- opmaak ----------
@@ -98,11 +111,11 @@ def jaar_van(regel2):
 
 
 def kandidaten(werk, items):
-    """items: [(naam, prompt)] -> <werk>/afbeeldingen/<naam>.png, 3 per item (a, b, c)."""
+    """items: [(naam, persoon, achtergrond, licht)] -> <werk>/afbeeldingen/<naam><a|b|c>.png, elk een andere blik."""
     from routine_lokaal import comfy_aan
     import beeldcheck as bc
     werk.mkdir(parents=True, exist_ok=True)
-    (werk / "prompts.txt").write_text("".join(f"{n}{k}|{p}\n" for n, p in items for k in "abc"), encoding="utf-8")
+    (werk / "prompts.txt").write_text("".join(f"{n}{k}|{prompt(p, a, l, k)}\n" for n, p, a, l in items for k in "abc"), encoding="utf-8")
     bc.vlm_vrij()
     if not comfy_aan():
         raise RuntimeError("ComfyUI start niet")
@@ -175,8 +188,7 @@ def alle(niet_wachten=False):
         return
     if not niet_wachten:
         wacht_op_videokaart()
-    kandidaten(werk, [(x["naam"], prompt(x["persoon"], x["achtergrond"], x.get("licht", "a small warm oil lamp")))
-                      for x in todo])
+    kandidaten(werk, [(x["naam"], x["persoon"], x["achtergrond"], x.get("licht", "a small warm oil lamp")) for x in todo])
     for x in todo:
         doel = (STORIES / x["map"] / "thumbnail-v3.jpg") if x.get("map") else (werk / f"{x['naam']}-v3.jpg")
         uit = kies(werk, x["naam"], x, doel)
@@ -193,7 +205,7 @@ def maak_voor_map(m, regel1, regel2, persoon, achtergrond, licht="a small warm o
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
     werk = m / "thumb3"
     item = {"regel1": regel1, "regel2": regel2, "persoon": persoon, "achtergrond": achtergrond}
-    kandidaten(werk, [("t", prompt(persoon, achtergrond, licht))])
+    kandidaten(werk, [("t", persoon, achtergrond, licht)])
     return kies(werk, "t", item, m / "thumbnail-v3.jpg")
 
 
