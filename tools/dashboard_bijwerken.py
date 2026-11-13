@@ -63,7 +63,7 @@ def planning():
         d = re.search(r"(\d{4}-\d{2}-\d{2})", g("datum"))
         link = re.search(r"https://youtu\.be/([A-Za-z0-9_-]{11})", t)
         status = g("status") or ("klaar" if link else "")
-        datum = d.group(1) if d else ""
+        datum = d.group(1) if d and "reserve" not in g("datum") else ""      # "reserve (... was ma 2026-11-16)"
         soort = ("gepland" if link and status.startswith("klaar") and datum > VANDAAG.isoformat() else
                  "online" if link and status.startswith("klaar") else
                  "bezig" if status.startswith(("bezig", "in-wording")) else
@@ -155,12 +155,13 @@ def voortgang(stap, m):
 
 
 # ---------- wanneer klaar ----------
-# Duur per stap in minuten per uur video (Babylon 12 nov: montage 3u05 voor 2u05; motion ± 5 uur en 16mm ± 1 uur
-# voor 2u45), daarna het uploaden en wachten op YouTube. Volgorde zoals routine_lokaal.py en montage_engine.sh.
-NA_STEM = [("prep_engine.sh", 20), ("engine_muziek.py", 5), ("make_video.py", 90), ("motion.py", 110),
-           ("stil_tikjes.py", 20), ("check_video.py", 15), ("check_stem_tekst.py", 25), ("eind_volume.py", 15),
-           ("film16.py", 25), ("qc_video.py", 10), ("vergelijk_bron.py", 10)]
-UPLOAD_MIN = 45
+# Duur per stap in minuten per uur video, gemeten bij Babylon (12 nov, 2u05: montage 3u06, motion 3u54, 16mm 50 min,
+# de controles samen ± 20 min), daarna uploaden en wachten op YouTube (14 min). Volgorde zoals routine_lokaal.py en
+# montage_engine.sh.
+NA_STEM = [("prep_engine.sh", 10), ("engine_muziek.py", 4), ("make_video.py", 90), ("motion.py", 113),
+           ("stil_tikjes.py", 1), ("check_video.py", 2), ("check_stem_tekst.py", 3), ("eind_volume.py", 2),
+           ("film16.py", 24), ("qc_video.py", 4), ("vergelijk_bron.py", 1)]
+UPLOAD_MIN = 20
 
 
 def eindtijd(m, proc):
