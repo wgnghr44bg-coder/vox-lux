@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 19:03",
+ "bijgewerkt": "2026-11-14 19:33",
  "werkplanning": {
   "nu": [
    {
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "179 GB vrij"
+   "tekst": "178 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 19:03)"
+   "tekst": "draait nu (2026-11-14 19:33)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 19:03",
-   "volgende": "2026-11-14 19:33"
+   "laatst": "2026-11-14 19:33",
+   "volgende": "2026-11-14 20:03"
   },
   "hype": {
    "aan": true,
@@ -525,8 +525,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 18:10",
-   "volgende": "2026-11-14 19:10"
+   "laatst": "2026-11-14 19:10",
+   "volgende": "2026-11-14 20:10"
   }
  },
  "kanaal": {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 514,
+    "views": 520,
     "verwerkt": "processed"
    },
    {
@@ -844,8 +844,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-15 01:48",
-   "youtube": "2026-11-15 02:08"
+   "klaar": "2026-11-15 01:51",
+   "youtube": "2026-11-15 02:11"
   }
  },
  "nu_bezig": [
@@ -1032,7 +1032,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 19:03",
+   "tijd": "2026-11-14 19:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
