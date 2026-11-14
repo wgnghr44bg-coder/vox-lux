@@ -107,7 +107,7 @@ def comfy_aan():
 
 def thumbnail(m, plan_t):
     # stijl v3 (13 nov 2026, eigenaar: Babylon-thumbnail werkt): grote tekst onder het maanlogo; sinds 14 nov (vast):
-    # rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
+    # één scène met het kenmerkende beeld groot rechts plus mensen van toen die doen wat er gebeurde; geen losse vrouw; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
     if (m / "thumbnail-v3.jpg").exists():
         return m / "thumbnail-v3.jpg"
     try:
@@ -122,9 +122,13 @@ def thumbnail(m, plan_t):
             '"kenmerk": "the ONE image everyone instantly links to this story, large and recognisable, e.g. the golden '
             'mask of Tutankhamun, the blue Ishtar Gate, the Titanic at sea, a covered wagon on the Oregon Trail; a person '
             'only if the story is about that real person; never a generic young woman; in English", '
+            '"moment": "the people of that time doing what happened in the story, beside or around it, with their period '
+            'clothes and what they hold or do, e.g. ancient Egyptian priests carrying offerings into the tomb, a Dust '
+            'Bowl family loading their truck; calm, not violent; in English", '
             '"achtergrond": "a calm, fitting setting behind it, in English"}',
             temp=0.2, max_tokens=260), re.S).group(0))
-        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["kenmerk"], a["achtergrond"])
+        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["kenmerk"], a["achtergrond"],
+                                        moment=a.get("moment", ""))
         if v3:
             log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
             return v3

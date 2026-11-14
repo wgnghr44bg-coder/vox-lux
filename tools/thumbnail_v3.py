@@ -28,23 +28,24 @@ GPU_WERK = ["engine_stem.py", "check_stem_tekst.py", "prep_engine.sh", "herstel_
             "comfy_batch.py", "b1_check.py", "engine_muziek.py"]
 
 
-# Eigenaar 14 nov 2026 (VAST): "ik wil iets op de thumbnail waar je meteen weet waar het over gaat en niet elke keer
-# een vrouw of iets dergelijks". Dus: rechts groot en scherp HET kenmerkende beeld van het verhaal (het gouden masker van
-# Toetanchamon, de Ishtarpoort, de Titanic, de huifkar op de Oregon Trail). Een persoon alleen als het verhaal over die
-# echte persoon gaat; nooit meer een willekeurige jonge vrouw. Drie varianten van hoek en licht; het beeldmodel kiest.
+# Eigenaar 14 nov 2026 (VAST, voor elke video): "zodat je meteen een goed beeld hebt van waar de video over gaat, dus
+# echt met de tijd, persoon en alles wat er toen gebeurde". Dus één scène: rechts groot en scherp het kenmerkende beeld
+# van het verhaal (het gouden masker van Toetanchamon, de volgeladen truck in de Dust Bowl), met mensen uit die tijd
+# die doen wat er toen gebeurde (moment). Nooit een losse willekeurige vrouw die in de camera kijkt. Stijl gelijk aan
+# Babylon: maanlogo, groot wit onderwerp, geel jaartal. Drie varianten van hoek en licht; het beeldmodel kiest.
 HOEK = {
-    "a": "seen from the front, glowing in warm golden light",
+    "a": "seen from the front, glowing in warm light",
     "b": "seen at a slight angle, with dramatic warm side light",
     "c": "close up and filling most of the right half, softly glowing",
 }
 
 
 def prompt(kenmerk, achtergrond, licht="warm lamplight", k="a", moment="", voorwerp=""):
-    scene = f"{achtergrond}, {moment}" if moment else achtergrond
-    return (f"A warm cinematic photorealistic image. On the right half of the frame, large, sharp and instantly "
-            f"recognisable: {kenmerk}, {HOEK[k]}, lit by {licht}. Behind it and on the left side, softly blurred, {scene}. "
-            "Warm light against a cool blue evening, high detail, calm and inviting, not scary, no modern objects, "
-            "no text, no letters")
+    mensen = f" Around and in front of it, clearly visible and in authentic period clothing: {moment}." if moment else ""
+    return (f"A warm cinematic photorealistic historical scene. On the right half of the frame, large, sharp and "
+            f"instantly recognisable: {kenmerk}, {HOEK[k]}, lit by {licht}.{mensen} Behind, on the left side, softly "
+            f"blurred: {achtergrond}. Everything exactly of that time, no modern objects, no electric lights, hands "
+            "holding things naturally, calm and inviting, not scary, high detail, no text, no letters")
 
 
 def kenmerk_van(x):
@@ -138,7 +139,7 @@ def kies(werk, naam, item, uit):
         p = werk / "afbeeldingen" / f"{naam}{k}.png"
         if not p.exists():
             continue
-        wat = f"{kenmerk_van(item)}, behind: {item['achtergrond']}"
+        wat = f"{kenmerk_van(item)}; {item.get('moment', '')}; behind: {item['achtergrond']}"
         fout = bc.vlm(p, wat, tijd, wat, j) + bc.clip_fout(bc.clip_scores([p], j)[0])
         if fout:
             print(f"  {naam}{k}: afgekeurd ({'; '.join(fout)[:120]})", flush=True)
@@ -191,8 +192,7 @@ def alle(niet_wachten=False):
         return
     if not niet_wachten:
         wacht_op_videokaart()
-    kandidaten(werk, [(x["naam"], kenmerk_van(x), x["achtergrond"], x.get("licht", "a small warm oil lamp"), x.get("moment", ""),
-                       x.get("voorwerp", ""))
+    kandidaten(werk, [(x["naam"], kenmerk_van(x), x["achtergrond"], x.get("licht", "warm lamplight"), x.get("moment", ""), "")
                       for x in todo])
     for x in todo:
         doel = (STORIES / x["map"] / "thumbnail-v3.jpg") if x.get("map") else (werk / f"{x['naam']}-v3.jpg")
@@ -209,7 +209,7 @@ def alle(niet_wachten=False):
 def maak_voor_map(m, regel1, regel2, kenmerk, achtergrond, licht="warm lamplight", moment="", voorwerp=""):
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
     werk = m / "thumb3"
-    item = {"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond}
+    item = {"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond, "moment": moment}
     kandidaten(werk, [("t", kenmerk, achtergrond, licht, moment, voorwerp)])
     return kies(werk, "t", item, m / "thumbnail-v3.jpg")
 

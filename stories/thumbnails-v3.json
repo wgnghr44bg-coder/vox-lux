@@ -1,51 +1,55 @@
 {
- "waarom": "Thumbnails in stijl v3: grote tekst onder het maanlogo zoals bij Babylon (eigenaar 13 nov 2026). VAST sinds 14 nov 2026 (eigenaar): 'ik wil iets op de thumbnail waar je meteen weet waar het over gaat en niet elke keer een vrouw of iets dergelijks'. Dus rechts groot het kenmerkende beeld van het verhaal (veld 'kenmerk'); een persoon alleen als het verhaal over die echte persoon gaat. Alleen nieuwe video's: bestaande video's op YouTube houden hun thumbnail. tools/thumbnail_v3.py --alle maakt ze als de videokaart vrij is; de keten gebruikt <map>/thumbnail-v3.jpg.",
+ "waarom": "Thumbnails v3, stijl gelijk aan Babylon (maanlogo, groot wit onderwerp, geel jaartal). VAST sinds 14 nov 2026 voor elke video (eigenaar): 'zodat je meteen een goed beeld hebt van waar de video over gaat, dus echt met de tijd, persoon en alles wat er toen gebeurde'. Dus 'kenmerk' groot rechts + 'moment': mensen van toen die doen wat er gebeurde. Nooit een losse willekeurige vrouw. tools/thumbnail_v3.py --alle maakt ze als de videokaart vrij is; de keten gebruikt <map>/thumbnail-v3.jpg.",
  "videos": [
   {
    "naam": "egypte",
    "map": "egypte-toetanchamon",
    "regel1": "TUTANKHAMUN",
    "regel2": "1323 BC",
-   "achtergrond": "a torch-lit ancient Egyptian tomb chamber with painted hieroglyphs",
+   "achtergrond": "the torch-lit painted burial chamber of the Valley of the Kings with hieroglyphs",
    "licht": "warm lamplight",
-   "kenmerk": "the golden funeral mask of Tutankhamun with blue and gold stripes",
-   "klaar": "14 nov: gemaakt van stories/egypte-toetanchamon/thumbnail-gekozen-achtergrond.png (masker, door eigenaar gekozen) met de v3-tekst"
+   "kenmerk": "the golden funeral mask of Tutankhamun with blue and gold stripes on top of his golden coffin",
+   "moment": "ancient Egyptian priests with shaved heads in white linen and a leopard skin, carrying offerings, oil lamps and a wooden shrine into the tomb, while mourning women in white dresses stand beside it"
   },
   {
    "naam": "crisis",
    "map": "crisis-1933",
    "regel1": "GREAT DEPRESSION",
    "regel2": "1933",
-   "achtergrond": "the dry plains of the American Dust Bowl at dusk",
+   "achtergrond": "a dry, dusty farm with a windmill and a wooden farmhouse under a low evening sun",
    "licht": "a low golden sun",
-   "kenmerk": "a dusty old farm truck piled high with furniture and suitcases on a dirt road in 1933, a wooden farmhouse and windmill"
+   "kenmerk": "a dusty old farm truck piled high with furniture and suitcases on a dirt road in 1933, a wooden farmhouse and windmill",
+   "moment": "a thin Dust Bowl farm family of 1933, the father in worn overalls and a battered hat tying down a mattress, the mother in a faded cotton dress holding a child, loading chairs, a washtub and a mattress onto the truck"
   },
   {
    "naam": "gettysburg",
    "map": "gettysburg-1863",
    "regel1": "GETTYSBURG",
    "regel2": "1863",
-   "achtergrond": "green rolling fields and stone walls at dusk",
+   "achtergrond": "green rolling fields, stone walls and a white church cupola at dusk",
    "licht": "warm evening light",
-   "kenmerk": "the small red brick town of Gettysburg in 1863 with its white church cupola, a Union soldier's blue kepi and a brass bugle resting on a wooden fence in front"
+   "kenmerk": "the small red brick town of Gettysburg in 1863 with its white church cupola, a Union soldier's blue kepi and a brass bugle resting on a wooden fence in front",
+   "moment": "Union soldiers in dark blue uniforms and kepis marching into town while townspeople of 1863 in long dresses and waistcoats watch from their doorsteps"
   },
   {
    "naam": "dallas",
    "map": "dallas-1963",
    "regel1": "DALLAS",
    "regel2": "1963",
-   "achtergrond": "the Dallas downtown buildings of 1963 on a sunny autumn afternoon",
+   "achtergrond": "the downtown Dallas buildings of 1963",
    "licht": "soft autumn sunlight",
-   "kenmerk": "a shiny dark blue 1961 Lincoln Continental open-top car parked on Elm Street in Dallas, 1963"
+   "kenmerk": "a shiny dark blue 1961 Lincoln Continental open-top car parked on Elm Street in Dallas, 1963",
+   "moment": "crowds of 1963 Americans in suits, hats and pastel coats waving small flags along the sidewalk on a sunny autumn day"
   },
   {
    "naam": "thanksgiving",
    "map": "thanksgiving-1621",
    "regel1": "THANKSGIVING",
    "regel2": "1621",
-   "achtergrond": "the Plymouth colony shore with the Mayflower ship anchored in the bay at dusk",
+   "achtergrond": "the Plymouth shore with the Mayflower anchored in the bay at dusk",
    "licht": "a warm bonfire",
-   "kenmerk": "a long rough wooden harvest table outdoors in 1621 laden with roasted wild turkey, corn, squash and bread, beside a small wooden Pilgrim house"
+   "kenmerk": "a long rough wooden harvest table outdoors in 1621 laden with roasted wild turkey, corn, squash and bread, beside a small wooden Pilgrim house",
+   "moment": "Pilgrim families of 1621 in plain brown and black wool with white collars and coifs, and Wampanoag men with feathers and deerskin, sharing food together at the table"
   }
  ]
 }
