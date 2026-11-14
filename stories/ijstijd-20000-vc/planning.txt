@@ -1,8 +1,8 @@
 onderwerp Life in the Ice Age, around 20,000 years ago
-status   script nodig (hype-wachter 14 nov 2026: BREED, groeit bij meerdere kanalen: "How Did Ice Age Humans Sleep Without Freezing to Death?" 15.500/dag, "What Ordinary Life Was Like Inside an Ice Age Cave" 5.600/dag, "The First Ice Age" 5.900/dag; wij hebben er nog geen)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype IJstijd)
 datum    ma 2026-11-23 21:00 NL (hype nu, zo snel mogelijk; eigenaar 14 nov: "zo dat het beste is voor het kanaal en mee kan met de hype")
 titel    How Did People Survive the Ice Age? | History for Sleep
 opening   scène
 titelsoort how-survive
-thumbnail kenmerk: een groep ijstijdmensen in bontkleding rond een vuur bij de ingang van een grot, met een mammoet in de sneeuw erachter
+thumbnail kenmerk: een grote wolharige mammoet in de sneeuw rechts, met een familie uit de IJstijd in bontkleding die bij een vuur voor hun hut van mammoetbotten en huiden zit en werkt; gletsjer ver weg, warm vuurlicht tegen koele blauwe avond
 soort    oudheid

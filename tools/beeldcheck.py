@@ -33,6 +33,9 @@ VERVORMD = ["a person with a deformed face", "a hand with extra fingers", "a dis
 
 def jaar(map_):
     t = (Path(map_) / "planning.txt").read_text(encoding="utf-8") if (Path(map_) / "planning.txt").exists() else ""
+    ya = re.search(r"\b(\d{1,3}),?000 years ago", t)        # 14 nov 2026: IJstijd ("20,000 years ago") -> -18000
+    if ya:
+        return -(int(ya.group(1)) * 1000 - 2000)
     bc = re.search(r"\b(\d{1,4}) ?(BC|v\.? ?Chr)", t)
     if bc:                                                   # eerst "1323 BC" (anders leest hij 1323 als jaartal na Christus)
         return -int(bc.group(1))
