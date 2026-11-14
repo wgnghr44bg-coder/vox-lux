@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 14:33",
+ "bijgewerkt": "2026-11-14 15:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 81%",
+    "detail": "Beelden maken · 98%",
     "soort": "nu"
    }
   ],
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "190 GB vrij"
+   "tekst": "189 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 14:33)"
+   "tekst": "draait nu (2026-11-14 15:03)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 14:33",
-   "volgende": "2026-11-14 15:03"
+   "laatst": "2026-11-14 15:03",
+   "volgende": "2026-11-14 15:33"
   },
   "hype": {
    "aan": true,
@@ -575,7 +575,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 341,
+    "views": 342,
     "verwerkt": "processed"
    },
    {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 512,
+    "views": 508,
     "verwerkt": "processed"
    },
    {
@@ -825,8 +825,8 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 81,
-  "detail": "72 van 89 beelden",
+  "voortgang": 98,
+  "detail": "87 van 89 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -849,8 +849,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 14,
-  "geheugen_mb": 4175,
+  "bezig_procent": 28,
+  "geheugen_mb": 4989,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1022,7 +1022,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 14:33",
+   "tijd": "2026-11-14 15:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
