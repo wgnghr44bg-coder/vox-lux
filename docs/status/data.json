@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 15:33",
+ "bijgewerkt": "2026-11-14 16:03",
  "werkplanning": {
   "nu": [
    {
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "189 GB vrij"
+   "tekst": "188 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 15:33)"
+   "tekst": "draait nu (2026-11-14 16:03)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 15:33",
-   "volgende": "2026-11-14 16:03"
+   "laatst": "2026-11-14 16:03",
+   "volgende": "2026-11-14 16:33"
   },
   "hype": {
    "aan": true,
@@ -566,7 +566,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 125,
+    "views": 124,
     "verwerkt": "processed"
    },
    {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 508,
+    "views": 513,
     "verwerkt": "processed"
    },
    {
@@ -829,11 +829,12 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "tekstcontrole",
+   "tekstcontrole (Whisper)"
   ],
   "eind": {
-   "klaar": "2026-11-15 04:38",
-   "youtube": "2026-11-15 04:58"
+   "klaar": "2026-11-15 02:01",
+   "youtube": "2026-11-15 02:21"
   }
  },
  "nu_bezig": [
@@ -842,12 +843,16 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
+   "naam": "tekstcontrole",
+   "stap": 3
+  },
+  {
+   "naam": "tekstcontrole (Whisper)",
    "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 91,
+  "bezig_procent": 99,
   "geheugen_mb": 7595,
   "totaal_mb": 8192
  },
@@ -1020,7 +1025,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 15:33",
+   "tijd": "2026-11-14 16:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
