@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 22:03",
+ "bijgewerkt": "2026-11-14 22:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 81%",
+    "detail": "Controles",
     "soort": "nu"
    }
   ],
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "195 GB vrij"
+   "tekst": "192 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 22:03)"
+   "tekst": "draait nu (2026-11-14 22:33)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 22:03",
-   "volgende": "2026-11-14 22:33"
+   "laatst": "2026-11-14 22:33",
+   "volgende": "2026-11-14 23:03"
   },
   "hype": {
    "aan": true,
@@ -525,8 +525,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 21:10",
-   "volgende": "2026-11-14 22:10"
+   "laatst": "2026-11-14 22:10",
+   "volgende": "2026-11-14 23:10"
   }
  },
  "kanaal": {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 524,
+    "views": 520,
     "verwerkt": "processed"
    },
    {
@@ -614,7 +614,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 64,
+    "views": 63,
     "verwerkt": "processed"
    },
    {
@@ -834,23 +834,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 81,
-  "detail": "beweging",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "videocontrole"
   ],
   "eind": {
-   "klaar": "2026-11-15 00:02",
-   "youtube": "2026-11-15 00:22"
+   "klaar": "2026-11-14 23:57",
+   "youtube": "2026-11-15 00:17"
   }
  },
  "nu_bezig": [
@@ -859,8 +859,8 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "videocontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
@@ -1037,7 +1037,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 22:03",
+   "tijd": "2026-11-14 22:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
