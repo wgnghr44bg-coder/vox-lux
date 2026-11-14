@@ -467,8 +467,8 @@
   },
   {
    "naam": "Git",
-   "ok": true,
-   "tekst": "alles gepusht"
+   "ok": false,
+   "tekst": "1 commit(s) nog niet gepusht"
   },
   {
    "naam": "Video 2026-11-16 (crisis-1933)",
@@ -532,7 +532,7 @@
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2712,
+  "views_totaal": 2730,
   "video_aantal": 14,
   "week": {
    "views": 438,
@@ -560,7 +560,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 33,
+    "views": 35,
     "verwerkt": "processed"
    },
    {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 520,
+    "views": 522,
     "verwerkt": "processed"
    },
    {
@@ -614,7 +614,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 63,
+    "views": 64,
     "verwerkt": "processed"
    },
    {
@@ -814,9 +814,9 @@
    "totaal": 13,
    "procent": 38
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 14,
+   "goed": 13,
    "totaal": 15
   }
  },
@@ -844,8 +844,8 @@
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 01:06",
-   "youtube": "2026-11-15 01:26"
+   "klaar": "2026-11-15 01:10",
+   "youtube": "2026-11-15 01:30"
   }
  },
  "nu_bezig": [
@@ -859,8 +859,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 494,
+  "bezig_procent": 25,
+  "geheugen_mb": 477,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1031,6 +1031,11 @@
   }
  ],
  "fouten": [
+  {
+   "tijd": "2026-11-14 20:33",
+   "tekst": "Zelfcontrole: Git: 1 commit(s) nog niet gepusht",
+   "fout": true
+  },
   {
    "tijd": "2026-11-14 20:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
@@ -2581,6 +2586,8 @@
   "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
   "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
   "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
-  "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"
+  "Planning": "ma, wo en za 21:00 (NL); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
+  "Thumbnail": "stijl zoals Babylon (maanlogo, groot wit onderwerp, geel jaartal); rechts het kenmerkende beeld met mensen van toen die doen wat er gebeurde, nooit een losse vrouw",
+  "Scripts": "stories/PROMPT-SCRIPTS-DEC.md: hoofdsessie ijstijd, blackbeard, alchemie (klaar); ander account rome, zwarte-dood, scott, londen, bethlehem, japan"
  }
 }
