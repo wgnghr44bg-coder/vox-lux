@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 16:03",
+ "bijgewerkt": "2026-11-14 16:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Stem (B1)",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "188 GB vrij"
+   "tekst": "185 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 16:03)"
+   "tekst": "draait nu (2026-11-14 16:33)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 16:03",
-   "volgende": "2026-11-14 16:33"
+   "laatst": "2026-11-14 16:33",
+   "volgende": "2026-11-14 17:03"
   },
   "hype": {
    "aan": true,
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 15:10",
-   "volgende": "2026-11-14 16:10"
+   "laatst": "2026-11-14 16:10",
+   "volgende": "2026-11-14 17:10"
   }
  },
  "kanaal": {
@@ -817,24 +817,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "tekstcontrole",
-   "tekstcontrole (Whisper)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-15 02:01",
-   "youtube": "2026-11-15 02:21"
+   "klaar": "2026-11-15 01:48",
+   "youtube": "2026-11-15 02:08"
   }
  },
  "nu_bezig": [
@@ -843,17 +842,13 @@
    "stap": 0
   },
   {
-   "naam": "tekstcontrole",
-   "stap": 3
-  },
-  {
-   "naam": "tekstcontrole (Whisper)",
-   "stap": 3
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7595,
+  "bezig_procent": 22,
+  "geheugen_mb": 490,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1025,7 +1020,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 16:03",
+   "tijd": "2026-11-14 16:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
