@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 17:43",
+ "bijgewerkt": "2026-11-14 17:52",
  "werkplanning": {
   "nu": [
    {
@@ -12,8 +12,8 @@
   "daarna": [
    {
     "wanneer": "zo 15-11 09:00 (routine staat UIT)",
-    "wat": "Vrije plek: de routine kiest een populair onderwerp",
-    "map": "",
+    "wat": "How Did People Survive the Ice Age? | History for Sleep",
+    "map": "ijstijd-20000-vc",
     "detail": "routine maakt de video voor ma 23-11 21:00"
    },
    {
@@ -30,9 +30,9 @@
    },
    {
     "wanneer": "zo 22-11 09:00 (routine staat UIT)",
-    "wat": "Vrije plek: de routine kiest een populair onderwerp",
-    "map": "",
-    "detail": "routine maakt de video voor ma 30-11 21:00"
+    "wat": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "map": "blackbeard-1718",
+    "detail": "routine maakt de video voor ma 30-11 21:00 (script moet eerst nog goedgekeurd)"
    },
    {
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
@@ -83,9 +83,9 @@
    {
     "datum": "2026-11-23",
     "dag": "ma",
-    "titel": "—",
-    "map": "",
-    "stand": "vrije plek: de routine kiest een onderwerp",
+    "titel": "How Did People Survive the Ice Age? | History for Sleep",
+    "map": "ijstijd-20000-vc",
+    "stand": "script nodig (hype-wachter 14 nov 2026: BREED, groeit bij me",
     "kleur": "zacht"
    },
    {
@@ -107,10 +107,10 @@
    {
     "datum": "2026-11-30",
     "dag": "ma",
-    "titel": "—",
-    "map": "",
-    "stand": "vrije plek: de routine kiest een onderwerp",
-    "kleur": "zacht"
+    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "map": "blackbeard-1718",
+    "stand": "script moet nog (opnieuw) gemaakt worden",
+    "kleur": "fout"
    },
    {
     "datum": "2026-12-02",
@@ -132,7 +132,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-11-28",
+  "klaar_tot": "2026-11-21",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -183,6 +183,18 @@
     "toon": "TOON GOED"
    },
    {
+    "datum": "2026-11-23",
+    "titel": "How Did People Survive the Ice Age? | History for Sleep",
+    "map": "ijstijd-20000-vc",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
+   },
+   {
     "datum": "2026-11-25",
     "titel": "What Was the First Thanksgiving Really Like? | History for Sleep",
     "map": "thanksgiving-1621",
@@ -205,6 +217,18 @@
     "niveau": 7.2,
     "leesbaar": "GOED",
     "toon": "TOON GOED"
+   },
+   {
+    "datum": "2026-11-30",
+    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "map": "blackbeard-1718",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-02",
@@ -267,7 +291,7 @@
     "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
    },
    {
-    "datum": "2026-12-16",
+    "datum": "2026-12-14",
     "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
     "map": "scott-antarctica-1912",
     "klaar": true,
@@ -280,8 +304,8 @@
    },
    {
     "datum": "2026-12-19",
-    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
-    "map": "bethlehem",
+    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
+    "map": "londen-kerst-1843",
     "klaar": false,
     "stand": "nog in de oude opbouw, moet omgebouwd",
     "controle": "nog niet",
@@ -292,8 +316,8 @@
    },
    {
     "datum": "2026-12-23",
-    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
-    "map": "londen-kerst-1843",
+    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
+    "map": "bethlehem",
     "klaar": false,
     "stand": "nog in de oude opbouw, moet omgebouwd",
     "controle": "nog niet",
@@ -306,18 +330,6 @@
     "datum": "2026-12-26",
     "titel": "Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep",
     "map": "japan-1600",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
-   },
-   {
-    "datum": "2026-12-30",
-    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
-    "map": "blackbeard-1718",
     "klaar": false,
     "stand": "nog in de oude opbouw, moet omgebouwd",
     "controle": "nog niet",
@@ -436,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -548,7 +560,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 31,
+    "views": 32,
     "verwerkt": "processed"
    },
    {
@@ -584,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 513,
+    "views": 518,
     "verwerkt": "processed"
    },
    {
@@ -847,7 +859,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 23,
   "geheugen_mb": 474,
   "totaal_mb": 8192
  },
@@ -934,18 +946,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 13:18",
-   "tekst": "routine-lokaal: crisis-1933: beeld 087 bleef fout, vervangen door 086.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 13:18",
-   "tekst": "routine-lokaal: crisis-1933: beeld 088 bleef fout, vervangen door 086.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-14 13:20",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
@@ -1016,11 +1016,23 @@
    "tekst": "Claude: hype-wachter verbeterd (eigenaar 14 nov): ziet nu ook TE VROEG gepland, reservescripts die passen, BREED (meerdere kanalen), bezette plekken (ruilen?); kalender +13 jaardagen (o.a. A Christmas",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 17:48",
+   "tekst": "hype-wachter: SEINTJE What Winter Nights Were REALLY Like in an 1880s Frontier Cabin |  Boring History For Sleep -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 17:51",
+   "tekst": "Claude: planning op hype en jaardagen (eigenaar 14 nov: 'zo dat het beste is voor het kanaal en mee kan met de hype'): NIEUW ijstijd-20000-vc ma 23 nov (IJstijd-hype bij 3 kanalen, script nog schrijve",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 17:43",
+   "tijd": "2026-11-14 17:52",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1171,7 +1183,7 @@
   },
   {
    "map": "bethlehem",
-   "datum": "2026-12-19",
+   "datum": "2026-12-23",
    "reserve": false,
    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -1182,7 +1194,7 @@
   },
   {
    "map": "blackbeard-1718",
-   "datum": "2026-12-30",
+   "datum": "2026-11-30",
    "reserve": false,
    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -1456,6 +1468,17 @@
    "opening": ""
   },
   {
+   "map": "ijstijd-20000-vc",
+   "datum": "2026-11-23",
+   "reserve": false,
+   "titel": "How Did People Survive the Ice Age? | History for Sleep",
+   "status": "script nodig (hype-wachter 14 nov 2026: BREED, groeit bij meerdere kanalen: \"How Did Ice Age Humans Sleep Without Freezing to Death?\" 15.500",
+   "soort": "script",
+   "id": "",
+   "afspeellijst": "oudheid",
+   "opening": "scène"
+  },
+  {
    "map": "india-boeddha",
    "datum": "2027-05-29",
    "reserve": false,
@@ -1600,7 +1623,7 @@
   },
   {
    "map": "londen-kerst-1843",
-   "datum": "2026-12-23",
+   "datum": "2026-12-19",
    "reserve": false,
    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -1853,7 +1876,7 @@
   },
   {
    "map": "scott-antarctica-1912",
-   "datum": "2026-12-16",
+   "datum": "2026-12-14",
    "reserve": false,
    "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
@@ -2117,11 +2140,11 @@
   }
  ],
  "hype": {
-  "bijgewerkt": "2026-11-14 17:43",
+  "bijgewerkt": "2026-11-14 17:51",
   "punten": [
    {
     "soort": "hype",
-    "per_dag": 34084,
+    "per_dag": 34079,
     "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
     "kanaal": "Chat History Compilations",
     "id": "Mfhq-Z-3VS0",
@@ -2132,7 +2155,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 24086,
+    "per_dag": 24055,
     "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
     "kanaal": "History Camp",
     "id": "z2WwdkKcEn0",
@@ -2145,29 +2168,20 @@
    },
    {
     "soort": "hype",
-    "per_dag": 15571,
+    "per_dag": 15569,
     "titel": "How Did Ice Age Humans Sleep Without Freezing to Death?",
     "kanaal": "ICE AGE SURVIVAL",
     "id": "M5LoIZG1hFg",
     "datum": "2026-10-16",
-    "ons": [],
+    "ons": [
+     "ijstijd-20000-vc"
+    ],
     "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
+    "advies": "staat gepland op 2026-11-23 (ijstijd-20000-vc)"
    },
    {
     "soort": "hype",
-    "per_dag": 14851,
-    "titel": "The Complete History of Pangea to Fall Asleep To - No Ads",
-    "kanaal": "Quiet Science",
-    "id": "aKui3akfcaE",
-    "datum": "2026-10-23",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 12630,
+    "per_dag": 12625,
     "titel": "The Balkan General who made an Empire Bleed",
     "kanaal": "History Camp",
     "id": "_nUPEIHK-gY",
@@ -2178,7 +2192,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 10115,
+    "per_dag": 10114,
     "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
     "kanaal": "Sleepy Mystery Channel",
     "id": "cdA5n6aqpyA",
@@ -2200,7 +2214,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6393,
+    "per_dag": 6391,
     "titel": "The Mummy's Curse that HAUNTED Ancient Egypt",
     "kanaal": "History Camp",
     "id": "t206yovNHlo",
@@ -2214,7 +2228,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9113,
+    "per_dag": 9111,
     "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
     "kanaal": "Kaushik Bhattacharjee Extra",
     "id": "jNMpPqYg_S8",
@@ -2223,11 +2237,11 @@
      "scott-antarctica-1912"
     ],
     "breed": 0,
-    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
+    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912)"
    },
    {
     "soort": "hype",
-    "per_dag": 4896,
+    "per_dag": 4895,
     "titel": "The Forgotten Empire That Rivaled Ancient Egypt | Documentary For Sleep",
     "kanaal": "Just About Earth",
     "id": "WdWnFraDsAs",
@@ -2241,7 +2255,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 7159,
+    "per_dag": 7154,
     "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
     "kanaal": "The French Whisperer ASMR",
     "id": "PtKw7L8166E",
@@ -2255,7 +2269,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 7130,
+    "per_dag": 7121,
     "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
     "kanaal": "Sleepless Historian",
     "id": "4aFj8rObOo0",
@@ -2268,7 +2282,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6249,
+    "per_dag": 6247,
     "titel": "DISTURBING Secrets Hidden in Pandora's Box",
     "kanaal": "History Camp",
     "id": "rgARA7jTDa0",
@@ -2286,14 +2300,15 @@
     "datum": "2026-10-18",
     "ons": [
      "babylon-600-vc",
+     "ijstijd-20000-vc",
      "scott-antarctica-1912"
     ],
     "breed": 0,
-    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
+    "advies": "staat gepland op 2026-11-23 (ijstijd-20000-vc)"
    },
    {
     "soort": "hype",
-    "per_dag": 3899,
+    "per_dag": 3898,
     "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
     "kanaal": "Sleepy History Channel",
     "id": "NKyHPp68COk",
@@ -2306,7 +2321,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5635,
+    "per_dag": 5634,
     "titel": "The Hindenburg's Last Voyage Was Stranger Than You Think 1937 | History Documentary",
     "kanaal": "Dusk Voyages",
     "id": "cGuCLD_L9Xc",
@@ -2315,22 +2330,24 @@
      "hindenburg"
     ],
     "breed": 0,
-    "advies": "KANS: reservescript hindenburg past hierop, inplannen"
+    "advies": "al gemaakt (hindenburg)"
    },
    {
     "soort": "hype",
-    "per_dag": 5619,
+    "per_dag": 5616,
     "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
     "kanaal": "Old History Nights",
     "id": "KSIno36Llhw",
     "datum": "2026-11-07",
-    "ons": [],
+    "ons": [
+     "ijstijd-20000-vc"
+    ],
     "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
+    "advies": "staat gepland op 2026-11-23 (ijstijd-20000-vc)"
    },
    {
     "soort": "hype",
-    "per_dag": 5341,
+    "per_dag": 5337,
     "titel": "100 Historical Facts to Sleep To",
     "kanaal": "List 25",
     "id": "Yg95hh2TX2U",
@@ -2341,7 +2358,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3335,
+    "per_dag": 3334,
     "titel": "Discover What Our Ancient Oceans Were Like | Sleepy Science",
     "kanaal": "Sleepy Science Channel",
     "id": "vFauX7dOupE",
@@ -2363,22 +2380,11 @@
    },
    {
     "soort": "hype",
-    "per_dag": 4588,
+    "per_dag": 4587,
     "titel": "8 Hours Soothing Space Facts for Deep Sleep & Relaxation",
     "kanaal": "Sleepy Science Channel",
     "id": "7ede4mUTch4",
     "datum": "2026-10-18",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 4027,
-    "titel": "What Winter Nights Were REALLY Like in an 1880s Frontier Cabin |  Boring History For Sleep",
-    "kanaal": "Sleepy History Stories",
-    "id": "MHAfkSnd048",
-    "datum": "2026-10-20",
     "ons": [],
     "breed": 0,
     "advies": "KANS: nog niets van ons over dit onderwerp"
@@ -2396,7 +2402,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3262,
+    "per_dag": 3261,
     "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
     "kanaal": "Sleepy Lost World",
     "id": "wTP62WfPxQo",
@@ -2406,7 +2412,7 @@
      "victoriaans-londen-1888"
     ],
     "breed": 0,
-    "advies": "staat gepland op 2026-12-23 (londen-kerst-1843)"
+    "advies": "staat gepland op 2026-12-19 (londen-kerst-1843)"
    },
    {
     "soort": "gebeurtenis",
@@ -2436,7 +2442,7 @@
     "ons": [
      "blackbeard-1718"
     ],
-    "advies": "staat gepland op 2026-12-30 (blackbeard-1718), NA de datum: naar voren halen, beste plek 2026-11-21 (bezet door dallas-1963, ruilen?)"
+    "advies": "staat gepland op 2026-11-30 (blackbeard-1718), NA de datum: naar voren halen, beste plek 2026-11-21 (bezet door dallas-1963, ruilen?)"
    },
    {
     "soort": "feestdag",
@@ -2456,7 +2462,7 @@
     "ons": [
      "mississippi-1850"
     ],
-    "advies": "KANS: reservescript mississippi-1850 past hierop, inplannen op 2026-11-30"
+    "advies": "KANS: reservescript mississippi-1850 past hierop, inplannen op 2026-11-30 (bezet door blackbeard-1718, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -2472,9 +2478,11 @@
     "soort": "gebeurtenis",
     "datum": "2026-12-14",
     "naam": "Amundsen op de Zuidpool (115 jaar)",
-    "sterk": false,
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-14)"
+    "sterk": true,
+    "ons": [
+     "scott-antarctica-1912"
+    ],
+    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912) GOED getimed"
    },
    {
     "soort": "gebeurtenis",
@@ -2482,7 +2490,7 @@
     "naam": "Boston Tea Party (253 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door scott-antarctica-1912, ruilen?), of vrij op 2026-12-14)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16)"
    },
    {
     "soort": "gebeurtenis",
@@ -2490,7 +2498,7 @@
     "naam": "Eerste vlucht gebroeders Wright (123 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door scott-antarctica-1912, ruilen?), of vrij op 2026-12-14)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16)"
    },
    {
     "soort": "gebeurtenis",
@@ -2501,7 +2509,7 @@
      "londen-kerst-1843",
      "victoriaans-londen-1888"
     ],
-    "advies": "staat gepland op 2026-12-23 (londen-kerst-1843), NA de datum: naar voren halen, beste plek 2026-12-19 (bezet door bethlehem, ruilen?), of vrij op 2026-12-14"
+    "advies": "staat gepland op 2026-12-19 (londen-kerst-1843) GOED getimed"
    },
    {
     "soort": "gebeurtenis",
@@ -2511,7 +2519,7 @@
     "ons": [
      "kerst-loopgraven-1914"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door londen-kerst-1843, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
    },
    {
     "soort": "gebeurtenis",
@@ -2521,7 +2529,7 @@
     "ons": [
      "bethlehem"
     ],
-    "advies": "staat gepland op 2026-12-19 (bethlehem) GOED getimed"
+    "advies": "staat gepland op 2026-12-23 (bethlehem) GOED getimed"
    },
    {
     "soort": "feestdag",
@@ -2533,7 +2541,7 @@
      "kerst-loopgraven-1914",
      "londen-kerst-1843"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door londen-kerst-1843, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
    },
    {
     "soort": "film",
@@ -2548,7 +2556,7 @@
      "middeleeuws-dorp",
      "venetie-middeleeuwen"
     ],
-    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300), TE VROEG: beste plek 2026-12-23 (bezet door londen-kerst-1843, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
    },
    {
     "soort": "feestdag",
@@ -2556,7 +2564,7 @@
     "naam": "Nieuwjaar",
     "sterk": true,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-30 (bezet door blackbeard-1718, ruilen?), of vrij op 2026-12-28)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-30)"
    },
    {
     "soort": "gebeurtenis",
@@ -2576,7 +2584,7 @@
     "ons": [
      "scott-antarctica-1912"
     ],
-    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912), TE VROEG: beste plek 2027-01-16 (bezet door londen-1666, ruilen?), of vrij op 2027-01-11 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912), TE VROEG: beste plek 2027-01-16 (bezet door londen-1666, ruilen?), of vrij op 2027-01-11 (vlak voor de jaardag)"
    }
   ]
  },
