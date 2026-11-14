@@ -116,3 +116,4 @@
 - 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 087 bleef fout, vervangen door 086.png
 - 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 088 bleef fout, vervangen door 086.png
 - 2026-11-14 13:20 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
+- 2026-11-14 14:23 Claude: crisis-1933 feitje 88 herschreven (Iowa State Fair in de jaren 30, past bij het beeld); SCRIPT GOED met model; keten opnieuw gestart
