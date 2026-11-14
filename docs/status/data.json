@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 08:03",
+ "bijgewerkt": "2026-11-14 08:33",
  "werkplanning": {
   "nu": [
    {
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 08:03)"
+   "tekst": "draait nu (2026-11-14 08:33)"
   },
   {
    "naam": "Git",
@@ -503,18 +503,18 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 08:03",
-   "volgende": "2026-11-14 08:33"
+   "laatst": "2026-11-14 08:33",
+   "volgende": "2026-11-14 09:03"
   },
   "hype": {
    "aan": true,
-   "laatst": "2026-11-13 08:30",
-   "volgende": "2026-11-14 08:30"
+   "laatst": "2026-11-14 08:30",
+   "volgende": "2026-11-15 08:30"
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 07:10",
-   "volgende": "2026-11-14 08:10"
+   "laatst": "2026-11-14 08:10",
+   "volgende": "2026-11-14 09:10"
   }
  },
  "kanaal": {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 497,
+    "views": 498,
     "verwerkt": "processed"
    },
    {
@@ -799,8 +799,8 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 19,
-   "procent": 26
+   "totaal": 18,
+   "procent": 28
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -936,18 +936,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-12 23:21",
-   "tekst": "babylon-600-vc: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-12 23:21",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-12 23:23",
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1018,11 +1006,23 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 08:30",
+   "tekst": "hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 08:30",
+   "tekst": "hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 08:03",
+   "tijd": "2026-11-14 08:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -2125,11 +2125,11 @@
   }
  ],
  "hype": {
-  "bijgewerkt": "2026-11-13 08:30",
+  "bijgewerkt": "2026-11-14 08:30",
   "punten": [
    {
     "soort": "hype",
-    "per_dag": 34881,
+    "per_dag": 34264,
     "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
     "kanaal": "Chat History Compilations",
     "id": "Mfhq-Z-3VS0",
@@ -2139,7 +2139,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 33415,
+    "per_dag": 26077,
     "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
     "kanaal": "History Camp",
     "id": "z2WwdkKcEn0",
@@ -2151,27 +2151,17 @@
    },
    {
     "soort": "hype",
-    "per_dag": 15952,
-    "titel": "How Did Ice Age Humans Sleep Without Freezing to Death?",
-    "kanaal": "ICE AGE SURVIVAL",
-    "id": "M5LoIZG1hFg",
-    "datum": "2026-10-16",
+    "per_dag": 14464,
+    "titel": "The Complete History of Pangea to Fall Asleep To - No Ads",
+    "kanaal": "Quiet Science",
+    "id": "aKui3akfcaE",
+    "datum": "2026-10-23",
     "ons": [],
     "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 13725,
-    "titel": "8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel",
-    "kanaal": "Science Channel",
-    "id": "pe5DHvTFTI4",
-    "datum": "2026-10-26",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 13660,
+    "per_dag": 12882,
     "titel": "The Balkan General who made an Empire Bleed",
     "kanaal": "History Camp",
     "id": "_nUPEIHK-gY",
@@ -2181,27 +2171,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 12353,
-    "titel": "How Did Ancient Humans Sleep Without Freezing in Winter?",
-    "kanaal": "Draz",
-    "id": "HodHaZYTG2o",
-    "datum": "2026-10-14",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 10392,
-    "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
-    "kanaal": "บุญสุข ราชวงษา",
-    "id": "FMd3Iaa6GSM",
-    "datum": "2026-10-30",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 10230,
+    "per_dag": 10127,
     "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
     "kanaal": "Sleepy Mystery Channel",
     "id": "cdA5n6aqpyA",
@@ -2211,7 +2181,17 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9840,
+    "per_dag": 10085,
+    "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
+    "kanaal": "บุญสุข ราชวงษา",
+    "id": "FMd3Iaa6GSM",
+    "datum": "2026-10-30",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 7654,
     "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
     "kanaal": "Sleepless Historian",
     "id": "4aFj8rObOo0",
@@ -2223,19 +2203,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9583,
-    "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
-    "kanaal": "Kaushik Bhattacharjee Extra",
-    "id": "jNMpPqYg_S8",
-    "datum": "2026-10-20",
-    "ons": [
-     "scott-antarctica-1912"
-    ],
-    "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 8203,
+    "per_dag": 7406,
     "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
     "kanaal": "The French Whisperer ASMR",
     "id": "PtKw7L8166E",
@@ -2248,7 +2216,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6878,
+    "per_dag": 6525,
     "titel": "The Mummy's Curse that HAUNTED Ancient Egypt",
     "kanaal": "History Camp",
     "id": "t206yovNHlo",
@@ -2261,7 +2229,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6574,
+    "per_dag": 6340,
     "titel": "DISTURBING Secrets Hidden in Pandora's Box",
     "kanaal": "History Camp",
     "id": "rgARA7jTDa0",
@@ -2271,17 +2239,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6375,
-    "titel": "100 Historical Facts to Sleep To",
-    "kanaal": "List 25",
-    "id": "Yg95hh2TX2U",
-    "datum": "2026-11-07",
-    "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 6036,
+    "per_dag": 5905,
     "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
     "kanaal": "Just About Earth",
     "id": "pcgk26vu8uU",
@@ -2291,6 +2249,50 @@
      "scott-antarctica-1912"
     ],
     "advies": "staat gepland op 2026-12-16 (scott-antarctica-1912)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5725,
+    "titel": "The Hindenburg's Last Voyage Was Stranger Than You Think 1937 | History Documentary",
+    "kanaal": "Dusk Voyages",
+    "id": "cGuCLD_L9Xc",
+    "datum": "2026-10-27",
+    "ons": [
+     "hindenburg"
+    ],
+    "advies": "al gemaakt (hindenburg)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5569,
+    "titel": "100 Historical Facts to Sleep To",
+    "kanaal": "List 25",
+    "id": "Yg95hh2TX2U",
+    "datum": "2026-11-07",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 3967,
+    "titel": "How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep",
+    "kanaal": "The Night Caravan",
+    "id": "-s7fnvxu9dg",
+    "datum": "2026-10-19",
+    "ons": [],
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 3873,
+    "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
+    "kanaal": "Sleepy History Channel",
+    "id": "NKyHPp68COk",
+    "datum": "2026-10-24",
+    "ons": [
+     "crisis-1933"
+    ],
+    "advies": "staat gepland op 2026-11-16 (crisis-1933)"
    },
    {
     "soort": "gebeurtenis",
