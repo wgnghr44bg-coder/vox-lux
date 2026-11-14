@@ -137,3 +137,5 @@
 - 2026-11-14 23:40 eigenaar: Babylon (KwUvlP42M34) en WO2 (ZZ5JMtF9kuI) op YouTube nieuwe titel + thumbnail (thumbnail-v3-nieuw.jpg). Over ±2 weken CTR vergelijken (was 2,5% en 0,7%)
 - 2026-11-14 23:50 Claude: VAST (eigenaar 14 nov: 'zorg dat je dit niet vergeet'): stories/AFSPRAKEN.md met alle afspraken + tools/afspraken_check.py, die routine_lokaal vóór elke video draait (stopt bij fout). b1_proef gebruikt nu ook de haard-achtergrond. Thumbnail-kenmerkregels toegevoegd voor 6 video's; alchemie titel 'Alchemists and the Philosopher's Stone, 1600'
 - 2026-11-15 00:01 crisis-1933: geüpload https://youtu.be/R2rgLUMJxac (privé, publiek 2026-11-16T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-15 00:06 crisis-1933: KLAAR
+- 2026-11-15 00:06 routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-16 21:00
