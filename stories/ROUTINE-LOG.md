@@ -104,7 +104,6 @@
 - 2026-11-13 19:09 egypte-toetanchamon: KLAAR
 - 2026-11-13 19:09 routine-lokaal: egypte-toetanchamon: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00
 - 2026-11-13 19:09 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
-- 2026-11-14 08:30 hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-14 08:30 hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-14 12:10 Claude: thumbnailregel VAST (eigenaar 14 nov): rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw meer (thumbnail_v3.py, routine_lokaal.py, thumbnails-v3.json); egypte thumbnail-v3.jpg = masker + Babylon-tekst, nog niet op YouTube
 - 2026-11-14 12:19 thumbnail-v3: egypte: nieuwe thumbnail (TUTANKHAMUN 1323 BC, masker) op YouTube gezet (Y46Rpy4703k, OK eigenaar)
@@ -117,3 +116,13 @@
 - 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 088 bleef fout, vervangen door 086.png
 - 2026-11-14 13:20 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
 - 2026-11-14 14:23 Claude: crisis-1933 feitje 88 herschreven (Iowa State Fair in de jaren 30, past bij het beeld); SCRIPT GOED met model; keten opnieuw gestart
+- 2026-11-14 14:23 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
+- 2026-11-14 15:05 routine-lokaal: crisis-1933: beeld 020 bleef fout, vervangen door 019.png
+- 2026-11-14 15:05 routine-lokaal: crisis-1933: beeld 079 bleef fout, vervangen door 078.png
+- 2026-11-14 15:05 routine-lokaal: crisis-1933: beeld 080 bleef fout, vervangen door 078.png
+- 2026-11-14 17:43 hype-wachter: SEINTJE What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 17:43 hype-wachter: SEINTJE Discover What Our Ancient Oceans Were Like | Sleepy Science -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 17:43 hype-wachter: SEINTJE Land of The Dinosaurs | Relaxing Science to Fall Asleep To -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 17:43 hype-wachter: SEINTJE 8 Hours Soothing Space Facts for Deep Sleep & Relaxation -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 17:43 hype-wachter: SEINTJE 5 Hours of Mind-Bending Mysteries | Will Make You Sleep -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 17:43 Claude: hype-wachter verbeterd (eigenaar 14 nov): ziet nu ook TE VROEG gepland, reservescripts die passen, BREED (meerdere kanalen), bezette plekken (ruilen?); kalender +13 jaardagen (o.a. A Christmas Carol 19 dec, Blackbeard 22 nov, goudkoorts, Armada, Constantinopel)
