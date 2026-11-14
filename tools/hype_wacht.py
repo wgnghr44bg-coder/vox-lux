@@ -35,7 +35,8 @@ after body general great first last made make""".split())
 
 
 def woorden(t):
-    return {w for w in re.findall(r"[a-z][a-z'-]{3,}", t.lower()) if w not in STOP}
+    w = {w for w in re.findall(r"[a-z][a-z'-]{3,}", t.lower()) if w not in STOP}
+    return w | ({"ice-age"} if "ice age" in t.lower() else set())   # korte maar belangrijke onderwerpen
 
 
 def onze_planning():
@@ -44,7 +45,8 @@ def onze_planning():
         t = p.read_text(encoding="utf-8", errors="replace")
         d = re.search(r"^datum\s+\S+\s+(\d{4}-\d{2}-\d{2})", t, re.M)
         tekst = " ".join((re.search(rf"^{k}\s+(.+)$", t, re.M) or [None, ""])[1] for k in ("onderwerp", "titel"))
-        uit.append({"map": p.parent.name, "datum": d.group(1) if d else "", "tekst": tekst})
+        gemaakt = bool(re.search(r"^link\s+https://youtu", t, re.M) or re.search(r"^status\s+klaar", t, re.M))
+        uit.append({"map": p.parent.name, "datum": d.group(1) if d else "", "tekst": tekst, "gemaakt": gemaakt})
     return uit
 
 
@@ -65,7 +67,7 @@ def lijkt_op_planning(titel, plan):
     beste = []
     for v in plan:
         vw = woorden(v["tekst"])
-        if len(w & vw) >= 2 or (namen & vw):
+        if len(w & vw) >= 2 or (namen & vw) or ("ice-age" in (w & vw)):
             beste.append(v)
     return beste
 
@@ -171,7 +173,7 @@ def beste_plek(datum, vandaag):
 
 def advies(x, vandaag):
     toekomst = [v for v in x["ons"] if v["datum"] and v["datum"] >= vandaag.isoformat()]
-    reserve = [v for v in x["ons"] if not v["datum"]]
+    reserve = [v for v in x["ons"] if not v["datum"] and not v.get("gemaakt") and not v["map"].startswith("_")]
     plek = beste_plek(x["datum"], vandaag) if x["soort"] != "hype" else ""
     if toekomst:
         v = min(toekomst, key=lambda v: v["datum"])
