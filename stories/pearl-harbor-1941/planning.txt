@@ -2,7 +2,7 @@ onderwerp Life at Pearl Harbor, December 1941
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)
 datum    ma 2026-12-07 21:00 NL (eigenaar 12 nov: precies 85 jaar na de aanval; was za 2026-11-28)
 titel    Life at Pearl Harbor, December 1941 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Did People Actually Do in Hawaii Before Pearl Harbor?)
-opening   scène
+opening   onderwerp
 titelsoort life-in
 thumbnail amberregel "PEARL HARBOR · DECEMBER 1941", hook "The Last Sunday Morning", beeld: matrozen in wit uniform aan dek, achter hen groot de grijze slagschepen van Battleship Row (USS Arizona) in de haven, zacht zondagochtendlicht, palmen en groene heuvels; geen vliegtuigen of rook (vast, eigenaar 28 okt, schepen groter) (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog

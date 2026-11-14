@@ -31,6 +31,9 @@ def alineas(p):
 delen = sorted(src.glob("deel*.txt"), key=lambda p: int(re.sub(r"\D", "", p.stem) or 0))
 out, hoofdstukken, nr, wacht_topic, wacht_bridge = [], [], 0, None, None
 begin = alineas(src / "begin.txt")
+# 14 nov 2026 (eigenaar, YouTube-cijfers: in de eerste minuut haakt ruim de helft af): de abonneerzin niet in het
+# begin maar in abonneer.txt; die klinkt na het tweede feitje (rond minuut 2-3), als de kijker al is blijven luisteren.
+abonneer = alineas(src / "abonneer.txt")
 for p in delen:
     for blk in p.read_text(encoding="utf-8").split("\n===\n"):
         blk = blk.strip()
@@ -55,6 +58,8 @@ for p in delen:
         # sinds 12 nov 2026 (opbouw zoals Sleepy History): geen overgangszinnen meer, HEAD en BODY achter elkaar
         wacht_topic = wacht_bridge = None
         out += [head + " " + body, "[long-pause]"]
+        if nr == 2 and abonneer:
+            out += abonneer + ["[long-pause]"]
 out += alineas(src / "slot.txt")
 
 # Beeldprompts voor comfy (tools/comfy/comfy_batch.py leest prompts.txt): alleen als er src/stijl.txt is (de vaste

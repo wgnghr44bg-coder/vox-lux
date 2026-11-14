@@ -1,0 +1,15 @@
+{
+ "fouten": [],
+ "info": {
+  "feitjes": 92,
+  "woorden": 16120,
+  "begin": 102,
+  "slot": 104,
+  "onderwerpen": 13,
+  "jaar": -1323,
+  "let_op": [
+   "feitje 12: 'highway' in de tekst (vergelijking of fout?)",
+   "feitje 37: 'cars' in de tekst (vergelijking of fout?)"
+  ]
+ }
+}

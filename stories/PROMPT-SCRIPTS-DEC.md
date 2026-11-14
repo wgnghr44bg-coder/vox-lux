@@ -17,6 +17,9 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
   Werkt niet: "What Was Everyday Life Like During WW2?" (0,7%), "Why Was Babylon the Greatest City on Earth?" (2,5%).
   Vormen: "Life in <plaats>, <jaar>", "Life Aboard <schip>, <jaar>", "How <mensen> Survived <iets>", "<Gebeurtenis>, <jaar>".
   Altijd met " | History for Sleep" erachter. Titelsoort hoeft niet meer af te wisselen.
+- **Begin (VAST, eigenaar 14 nov 2026; in de eerste minuut haakt ruim de helft af):** eerste zin meteen concreet
+  (plaats + tijd + beeld), geen inleiding. De abonneerzin NIET in begin.txt maar in `src-feiten/abonneer.txt`; die
+  klinkt na het tweede feitje (rond minuut 3). begin.txt 60-160 woorden.
 - **Script-opbouw:** precies zoals `stories/PROMPT-OMBOUW-SLEEPY.md` (kalme gids, IMG/HEAD/BODY, geen BRIDGE, geen
   jij-vorm, geen vragen, geen "I", geen verzonnen hoofdpersonen, kort begin en slot). Controles en afronden ook daar.
 
@@ -32,10 +35,14 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | ma 14 dec | `scott-antarctica-1912` | ombouwen (datum = 115 jaar Amundsen op de Zuidpool; mag dat noemen) | ander account |
 | za 19 dec | `londen-kerst-1843` | ombouwen uit de oude opbouw (datum = 183 jaar A Christmas Carol) | ander account |
 | wo 23 dec | `bethlehem` | ombouwen uit de oude opbouw | ander account |
+| wo 16 dec | `man-ijzeren-masker-1703` | **nieuw script** (gezocht: the man in the iron mask) | volgende vrije sessie |
+| ma 21 dec | `mary-celeste-1872` | **nieuw script** (gezocht: ghost ship) | volgende vrije sessie |
+| ma 28 dec | `dansplaag-1518` | **nieuw script** (gezocht: dancing plague) | volgende vrije sessie |
+| wo 30 dec | `tower-of-london-1536` | **nieuw script** (gezocht: tower of london) | volgende vrije sessie |
 | za 26 dec | `japan-1600` | ombouwen uit de oude opbouw (ninja-hype) | ander account |
 
 Al klaar (niets meer aan doen): crisis-1933, gettysburg-1863, dallas-1963, thanksgiving-1621, boeren-winter-1300,
-kerst-loopgraven-1914, pearl-harbor-1941. Vrij voor nieuwe hype: wo 16 dec, ma 21 dec, ma 28 dec, wo 30 dec.
+kerst-loopgraven-1914, pearl-harbor-1941. Vrije plekken in december zijn nu gevuld met onderwerpen waar kijkers op zoeken (YouTube Studio, 14 nov).
 
 ## Oude opbouw (londen, bethlehem, japan): eerst omzetten
 Heeft de map nog geen `src-feiten/`, maak die dan zoals bij `stories/thanksgiving-1621/`: `stijl.txt` (één regel

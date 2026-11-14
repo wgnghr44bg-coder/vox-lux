@@ -2,10 +2,13 @@
  "fouten": [],
  "info": {
   "feitjes": 95,
-  "woorden": 17193,
-  "begin": 300,
-  "slot": 155,
+  "woorden": 16552,
+  "begin": 85,
+  "slot": 103,
   "onderwerpen": 13,
-  "jaar": 1863
+  "jaar": 1863,
+  "let_op": [
+   "feitje 16: 'electric' in de tekst (vergelijking of fout?)"
+  ]
  }
 }

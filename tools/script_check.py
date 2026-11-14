@@ -97,12 +97,13 @@ def controleer(m, met_model=True):
         fout.append(f"{len(fb)} feitjes (80-115 nodig)")
     if not 14000 <= totaal <= 21000:
         fout.append(f"{totaal} woorden (14.000-21.000 nodig)")
-    if not 80 <= woorden(begin) <= 160:
-        fout.append(f"begin {woorden(begin)} woorden (80-160 nodig)")
+    abon = (sf / "abonneer.txt").read_text(encoding="utf-8") if (sf / "abonneer.txt").exists() else ""
+    if not 60 <= woorden(begin) <= 160:                     # 14 nov: zonder abonneerzin mag het begin korter
+        fout.append(f"begin {woorden(begin)} woorden (60-160 nodig)")
     if re.match(r"\s*(tonight|hello|welcome)", begin, re.I):
         fout.append("begin start met Tonight/Hello/Welcome")
-    if not re.search(r"subscri", begin, re.I):
-        fout.append("geen abonneer-zin in het begin")
+    if not re.search(r"subscri", begin + " " + abon, re.I):
+        fout.append("geen abonneer-zin (in abonneer.txt of het begin)")
     if not 80 <= woorden(slot) <= 170:
         fout.append(f"slot {woorden(slot)} woorden (80-170 nodig)")
     if not re.search(r"another .*(story|video|journey).*screen", slot, re.I | re.S):
