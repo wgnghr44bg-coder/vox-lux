@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 17:52",
+ "bijgewerkt": "2026-11-14 18:03",
  "werkplanning": {
   "nu": [
    {
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "181 GB vrij"
+   "tekst": "183 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-14 17:33)"
+   "tekst": "draait nu (2026-11-14 18:03)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 17:33",
-   "volgende": "2026-11-14 18:03"
+   "laatst": "2026-11-14 18:03",
+   "volgende": "2026-11-14 18:33"
   },
   "hype": {
    "aan": true,
@@ -560,7 +560,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 32,
+    "views": 31,
     "verwerkt": "processed"
    },
    {
@@ -578,7 +578,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 124,
+    "views": 125,
     "verwerkt": "processed"
    },
    {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 518,
+    "views": 514,
     "verwerkt": "processed"
    },
    {
@@ -811,8 +811,8 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 15,
-   "procent": 33
+   "totaal": 14,
+   "procent": 36
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -859,8 +859,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
-  "geheugen_mb": 474,
+  "bezig_procent": 22,
+  "geheugen_mb": 494,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -946,12 +946,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 13:20",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-14 14:23",
    "tekst": "Claude: crisis-1933 feitje 88 herschreven (Iowa State Fair in de jaren 30, past bij het beeld); SCRIPT GOED met model; keten opnieuw gestart",
    "fout": false,
@@ -1028,22 +1022,22 @@
    "tekst": "Claude: planning op hype en jaardagen (eigenaar 14 nov: 'zo dat het beste is voor het kanaal en mee kan met de hype'): NIEUW ijstijd-20000-vc ma 23 nov (IJstijd-hype bij 3 kanalen, script nog schrijve",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 17:57",
+   "tekst": "Claude: VAST voor beide accounts: stories/PROMPT-SCRIPTS-DEC.md (planning op hype, thumbnailregel, Sleepy-opbouw, verdeling: hoofdsessie ijstijd/blackbeard/alchemie, ander account rome/zwarte-dood/sco",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 17:52",
+   "tijd": "2026-11-14 18:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-12 04:33",
-   "tekst": "zelfcontrole: kerst-loopgraven-1914: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-12 05:46",
    "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
