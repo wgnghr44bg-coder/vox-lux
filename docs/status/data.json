@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 15:03",
+ "bijgewerkt": "2026-11-14 15:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 98%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 15:03)"
+   "tekst": "draait nu (2026-11-14 15:33)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 15:03",
-   "volgende": "2026-11-14 15:33"
+   "laatst": "2026-11-14 15:33",
+   "volgende": "2026-11-14 16:03"
   },
   "hype": {
    "aan": true,
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 14:10",
-   "volgende": "2026-11-14 15:10"
+   "laatst": "2026-11-14 15:10",
+   "volgende": "2026-11-14 16:10"
   }
  },
  "kanaal": {
@@ -548,7 +548,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 30,
+    "views": 31,
     "verwerkt": "processed"
    },
    {
@@ -566,7 +566,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 121,
+    "views": 125,
     "verwerkt": "processed"
    },
    {
@@ -817,22 +817,24 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 98,
-  "detail": "87 van 89 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "stem inspreken (OmniVoice B1)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-15 04:38",
+   "youtube": "2026-11-15 04:58"
+  }
  },
  "nu_bezig": [
   {
@@ -840,17 +842,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 28,
-  "geheugen_mb": 4989,
+  "bezig_procent": 91,
+  "geheugen_mb": 7595,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -936,24 +934,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 08:30",
-   "tekst": "hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 08:30",
-   "tekst": "hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 12:10",
-   "tekst": "Claude: thumbnailregel VAST (eigenaar 14 nov): rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw meer (thumbnail_v3.py, routine_lokaal.py, thumbnails-v3.json); egypte thumbna",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-14 12:19",
    "tekst": "thumbnail-v3: egypte: nieuwe thumbnail (TUTANKHAMUN 1323 BC, masker) op YouTube gezet (Y46Rpy4703k, OK eigenaar)",
    "fout": false,
@@ -1018,11 +998,29 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 15:05",
+   "tekst": "routine-lokaal: crisis-1933: beeld 020 bleef fout, vervangen door 019.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 15:05",
+   "tekst": "routine-lokaal: crisis-1933: beeld 079 bleef fout, vervangen door 078.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 15:05",
+   "tekst": "routine-lokaal: crisis-1933: beeld 080 bleef fout, vervangen door 078.png",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 15:03",
+   "tijd": "2026-11-14 15:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
