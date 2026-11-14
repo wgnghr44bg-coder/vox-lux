@@ -108,3 +108,4 @@
 - 2026-11-14 08:30 hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-14 12:10 Claude: thumbnailregel VAST (eigenaar 14 nov): rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw meer (thumbnail_v3.py, routine_lokaal.py, thumbnails-v3.json); egypte thumbnail-v3.jpg = masker + Babylon-tekst, nog niet op YouTube
 - 2026-11-14 12:19 thumbnail-v3: egypte: nieuwe thumbnail (TUTANKHAMUN 1323 BC, masker) op YouTube gezet (Y46Rpy4703k, OK eigenaar)
+- 2026-11-14 12:26 thumbnail-v3: crisis: nieuwe thumbnail (GREAT DEPRESSION 1933, gezin + truck) gekozen door eigenaar, klaar voor de keten

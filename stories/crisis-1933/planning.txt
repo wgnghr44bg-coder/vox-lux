@@ -6,3 +6,4 @@ thumbnail amberregel "IOWA · 1933", hook "The Great Depression", beeld (kenmerk
 soort    nieuwe tijd
 opening   scène
 titelsoort life-really-like
+thumbnail gekozen: stories/crisis-1933/thumbnail-v3.jpg (14 nov, eigenaar OK: gezin laadt volgeladen truck in, GREAT DEPRESSION / 1933, nieuwe regel; de keten gebruikt deze)
