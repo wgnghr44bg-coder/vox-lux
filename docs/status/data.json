@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 09:03",
+ "bijgewerkt": "2026-11-14 09:33",
  "werkplanning": {
   "nu": [
    {
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 09:03)"
+   "tekst": "draait nu (2026-11-14 09:33)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 09:03",
-   "volgende": "2026-11-14 09:33"
+   "laatst": "2026-11-14 09:33",
+   "volgende": "2026-11-14 10:03"
   },
   "hype": {
    "aan": true,
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 08:10",
-   "volgende": "2026-11-14 09:10"
+   "laatst": "2026-11-14 09:10",
+   "volgende": "2026-11-14 10:10"
   }
  },
  "kanaal": {
@@ -548,7 +548,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 29,
+    "views": 30,
     "verwerkt": "processed"
    },
    {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 498,
+    "views": 499,
     "verwerkt": "processed"
    },
    {
@@ -620,7 +620,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1272,
+    "views": 1256,
     "verwerkt": "processed"
    }
   ],
@@ -850,7 +850,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7877,
+  "geheugen_mb": 7885,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1022,7 +1022,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 09:03",
+   "tijd": "2026-11-14 09:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
