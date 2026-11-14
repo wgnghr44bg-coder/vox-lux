@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 12:03",
+ "bijgewerkt": "2026-11-14 12:30",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -152,7 +152,7 @@
     "map": "crisis-1933",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "191 GB vrij"
+   "tekst": "190 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 12:03)"
+   "tekst": "laatste keer goed (2026-11-14 12:03)"
   },
   {
    "naam": "Git",
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 12:03",
-   "volgende": "2026-11-14 12:10"
+   "laatst": "2026-11-14 12:10",
+   "volgende": "2026-11-14 13:10"
   }
  },
  "kanaal": {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 501,
+    "views": 506,
     "verwerkt": "processed"
    },
    {
@@ -593,7 +593,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 16,
+    "views": 17,
     "verwerkt": "processed"
    },
    {
@@ -799,8 +799,8 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 18,
-   "procent": 28
+   "totaal": 16,
+   "procent": 31
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -817,23 +817,35 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
-  "thumb": "",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "thumb": "thumbs/crisis-1933.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "89 van 89 beelden",
+  "taken": [
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 0,
-  "geheugen_mb": 691,
+  "bezig_procent": 22,
+  "geheugen_mb": 675,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -919,36 +931,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-12 23:23",
-   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 23:23",
-   "tekst": "babylon-600-vc: OPENBAAR gezet https://youtu.be/KwUvlP42M34 (eigenaar 12 nov: meteen online zodra klaar), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-12 23:51",
-   "tekst": "routine-lokaal: egypte-toetanchamon: beeld 049 bleef fout, vervangen door 048.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-12 23:53",
-   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 03:14",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-13 08:59",
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1001,11 +983,41 @@
    "tekst": "hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 12:10",
+   "tekst": "Claude: thumbnailregel VAST (eigenaar 14 nov): rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw meer (thumbnail_v3.py, routine_lokaal.py, thumbnails-v3.json); egypte thumbna",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 12:19",
+   "tekst": "thumbnail-v3: egypte: nieuwe thumbnail (TUTANKHAMUN 1323 BC, masker) op YouTube gezet (Y46Rpy4703k, OK eigenaar)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 12:26",
+   "tekst": "thumbnail-v3: crisis: nieuwe thumbnail (GREAT DEPRESSION 1933, gezin + truck) gekozen door eigenaar, klaar voor de keten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 12:29",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 12:30",
+   "tekst": "Claude (OVERDRACHT, eigenaar 14 nov: ander account heeft geen usage meer): crisis-1933 (ma 16 nov 21:00) wordt nu op de pc gemaakt met tools/routine_lokaal.py --opnieuw crisis-1933 (log … Script = Sle",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 12:03",
+   "tijd": "2026-11-14 12:30",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1286,7 +1298,7 @@
    "datum": "2026-11-16",
    "reserve": false,
    "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
-   "status": "bezig (2026-11-13, routine-lokaal)",
+   "status": "bezig (2026-11-14, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "nieuwe",
