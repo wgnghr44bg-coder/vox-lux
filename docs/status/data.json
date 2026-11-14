@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 18:33",
+ "bijgewerkt": "2026-11-14 19:03",
  "werkplanning": {
   "nu": [
    {
@@ -132,7 +132,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-14",
+  "klaar_tot": "2026-12-07",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -270,8 +270,8 @@
     "datum": "2026-12-09",
     "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
     "map": "rome-44-vc",
-    "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
+    "klaar": false,
+    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
     "controle": "nog niet",
     "flesch": 83,
     "niveau": 4.3,
@@ -282,8 +282,8 @@
     "datum": "2026-12-12",
     "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
     "map": "zwarte-dood-1348",
-    "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
+    "klaar": false,
+    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
     "controle": "nog niet",
     "flesch": 82,
     "niveau": 4.6,
@@ -294,8 +294,8 @@
     "datum": "2026-12-14",
     "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
     "map": "scott-antarctica-1912",
-    "klaar": true,
-    "stand": "script klaar, nachtcontrole volgt",
+    "klaar": false,
+    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
     "controle": "nog niet",
     "flesch": 88,
     "niveau": 3.7,
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "178 GB vrij"
+   "tekst": "179 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 18:33)"
+   "tekst": "draait nu (2026-11-14 19:03)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 18:33",
-   "volgende": "2026-11-14 19:03"
+   "laatst": "2026-11-14 19:03",
+   "volgende": "2026-11-14 19:33"
   },
   "hype": {
    "aan": true,
@@ -859,7 +859,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 24,
+  "bezig_procent": 23,
   "geheugen_mb": 494,
   "totaal_mb": 8192
  },
@@ -1032,7 +1032,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 18:33",
+   "tijd": "2026-11-14 19:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
