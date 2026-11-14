@@ -1,8 +1,8 @@
 onderwerp Life in the Ice Age, around 20,000 years ago
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype IJstijd)
 datum    ma 2026-11-23 21:00 NL (hype nu, zo snel mogelijk; eigenaar 14 nov: "zo dat het beste is voor het kanaal en mee kan met de hype")
-titel    How Did People Survive the Ice Age? | History for Sleep
+titel    How People Survived the Ice Age | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: How Did People Survive the Ice Age?)
 opening   scène
-titelsoort how-survive
+titelsoort how-survived
 thumbnail kenmerk: een grote wolharige mammoet in de sneeuw rechts, met een familie uit de IJstijd in bontkleding die bij een vuur voor hun hut van mammoetbotten en huiden zit en werkt; gletsjer ver weg, warm vuurlicht tegen koele blauwe avond
 soort    oudheid

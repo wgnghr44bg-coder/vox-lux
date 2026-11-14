@@ -1,8 +1,8 @@
 onderwerp How Medieval Peasants Survived Winter, 1300
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)
 datum    za 2026-11-28 21:00 NL (hype 12 nov: middeleeuwse winteravond groeit 7.000/dag, 6,5 mln views samen; was wo 2026-12-02)
-titel    How Did Medieval Peasants Survive the Winter? | History for Sleep
+titel    How Medieval Peasants Survived the Winter | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: How Did Medieval Peasants Survive the Winter?)
 thumbnail amberregel "ENGLAND · WINTER 1300", hook "Medieval Winter", beeld: een middeleeuws dorp van strodaken onder de sneeuw in de schemering, rook uit de daken, een boer met een os en een kind met een lantaarn op het besneeuwde pad, warm licht in de deuropeningen (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    middeleeuwen
 opening   persoon
-titelsoort how-survive
+titelsoort how-survived

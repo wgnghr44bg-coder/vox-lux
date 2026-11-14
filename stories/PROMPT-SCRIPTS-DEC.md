@@ -12,6 +12,11 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
   één scène waaraan je meteen ziet waar de video over gaat: het kenmerkende beeld groot, mét mensen uit die tijd die doen
   wat er toen gebeurde. Nooit een losse willekeurige vrouw. Zet in planning.txt een regel
   `thumbnail kenmerk: <beeld + mensen + wat er gebeurt>`. Code: `tools/thumbnail_v3.py`, `stories/thumbnails-v3.json`.
+- **Titel (VAST, eigenaar 14 nov 2026, op basis van CTR-cijfers):** concreet, met plaats en/of jaartal, geen vraag.
+  Werkt: "Life Aboard the Titanic, April 1912" (4,8%), "How Vikings Survived the Long Dark Winter" (7,4%).
+  Werkt niet: "What Was Everyday Life Like During WW2?" (0,7%), "Why Was Babylon the Greatest City on Earth?" (2,5%).
+  Vormen: "Life in <plaats>, <jaar>", "Life Aboard <schip>, <jaar>", "How <mensen> Survived <iets>", "<Gebeurtenis>, <jaar>".
+  Altijd met " | History for Sleep" erachter. Titelsoort hoeft niet meer af te wisselen.
 - **Script-opbouw:** precies zoals `stories/PROMPT-OMBOUW-SLEEPY.md` (kalme gids, IMG/HEAD/BODY, geen BRIDGE, geen
   jij-vorm, geen vragen, geen "I", geen verzonnen hoofdpersonen, kort begin en slot). Controles en afronden ook daar.
 

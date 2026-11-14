@@ -1,8 +1,8 @@
 onderwerp Life in Dallas, November 1963
 status   bezig (2026-11-11, routine-lokaal), opbouw Sleepy 12 nov
 datum    za 2026-11-21 21:00 NL
-titel    What Was Life Really Like in Dallas in 1963? | History for Sleep
+titel    Life in Dallas, November 1963 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Was Life Really Like in Dallas in 1963?)
 opening   voorwerp
-titelsoort life-really-like
+titelsoort life-in
 thumbnail amberregel "DALLAS · NOVEMBER 1963", hook "Life in Dallas", beeld: de open donkerblauwe presidentiële auto op Main Street in de zon, John en Jacqueline Kennedy (roze mantelpakje, rozen) die lachend zwaaien, juichende menigte en confetti; vóór Dealey Plaza, rustig en vrolijk (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    mysterie

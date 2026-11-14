@@ -64,7 +64,8 @@ vorige = sorted(((planning(a)["datum"], a.name, planning(a)) for a in STORIES.it
                 key=lambda x: x[0])
 if vorige:
     d, naam, v = vorige[-1]
-    for k in ("opening", "titelsoort"):
+    # 14 nov 2026 (eigenaar, CTR-cijfers): titels concreet met plaats/jaar; titelsoort hoeft niet meer af te wisselen
+    for k in ("opening",):
         if pl[k] and pl[k] == v[k]:
             fout.append(f"{k} '{pl[k]}' is hetzelfde als de vorige video ({naam}, {d})")
 for f in fout:
