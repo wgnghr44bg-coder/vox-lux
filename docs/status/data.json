@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 00:33",
+ "bijgewerkt": "2026-11-14 01:03",
  "werkplanning": {
   "nu": [
    {
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "182 GB vrij"
+   "tekst": "185 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 00:33)"
+   "tekst": "draait nu (2026-11-14 01:03)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 00:33",
-   "volgende": "2026-11-14 01:03"
+   "laatst": "2026-11-14 01:03",
+   "volgende": "2026-11-14 01:33"
   },
   "hype": {
    "aan": true,
@@ -548,7 +548,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 24,
+    "views": 26,
     "verwerkt": "processed"
    },
    {
@@ -850,7 +850,7 @@
  ],
  "videokaart": {
   "bezig_procent": 100,
-  "geheugen_mb": 7914,
+  "geheugen_mb": 7867,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1022,7 +1022,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 00:33",
+   "tijd": "2026-11-14 01:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
