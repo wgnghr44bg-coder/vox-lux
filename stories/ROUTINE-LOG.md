@@ -103,3 +103,7 @@
 - 2026-11-13 19:09 egypte-toetanchamon: oude versie iMkB7sUR8UU ('What Did People Actually Do When Tutankhamun Was King? | History for Sleep') verwijderd
 - 2026-11-13 19:09 egypte-toetanchamon: KLAAR
 - 2026-11-13 19:09 routine-lokaal: egypte-toetanchamon: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00
+- 2026-11-13 19:09 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
+- 2026-11-14 08:30 hype-wachter: SEINTJE The Complete History of Pangea to Fall Asleep To - No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 08:30 hype-wachter: SEINTJE How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-14 12:10 Claude: thumbnailregel VAST (eigenaar 14 nov): rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw meer (thumbnail_v3.py, routine_lokaal.py, thumbnails-v3.json); egypte thumbnail-v3.jpg = masker + Babylon-tekst, nog niet op YouTube

@@ -1,6 +1,6 @@
 """Thumbnail stijl v3 (eigenaar 13 nov 2026, na Babylon: "denk dat de thumbnail zoals hier wel effect heeft, pas ze ook
-maar toe voor de andere video's"). Zoals de grote slaapkanalen: een jonge vrouw uit die tijd rechts die de kijker
-vriendelijk aankijkt en iets uit het verhaal vasthoudt, links scherp een scène uit het verhaal, warm licht; linksboven het vaste maanlogo "SLEEP ARCHIVES" en daaronder 1-2 regels
+maar toe voor de andere video's"). Sinds 14 nov (eigenaar, vast): rechts groot het kenmerkende beeld van het
+verhaal (bijv. het gouden masker van Toetanchamon), zodat je meteen ziet waar het over gaat; GEEN willekeurige vrouw; linksboven het vaste maanlogo "SLEEP ARCHIVES" en daaronder 1-2 regels
 in grote dikke letters (wit + goudgeel), de linkerkant iets donkerder.
 
 Beelden via ComfyUI (gratis, lokaal), elk 3 kandidaten; het beeldmodel keurt (niet uit die tijd, vervormd, letters)
@@ -28,26 +28,27 @@ GPU_WERK = ["engine_stem.py", "check_stem_tekst.py", "prep_engine.sh", "herstel_
             "comfy_batch.py", "b1_check.py", "engine_muziek.py"]
 
 
-# Eigenaar 13 nov: "kijk gewoon hoe de grote kanalen ze hebben en hoe het personage is afgebeeld". Bij Sleepy Old World
-# (269K) en Sleepy Quiet Historian (114K) steeds hetzelfde: een jonge vrouw uit die tijd rechts, van het middel omhoog,
-# in rijke kleren van toen, kijkt de kijker vriendelijk aan en houdt iets uit het verhaal vast (brood, kruik, mand);
-# links scherp het verhaal zelf (slapend gezin bij het vuur, huisje in de sneeuw met spelende kinderen); warm vuur- of
-# kaarslicht tegen koele nacht of sneeuw. Soms een knipoog of vinger op de lippen ("geheimen"). Drie varianten van de
-# blik; het beeldmodel kiest de sterkste.
-BLIK = {
-    "a": "a warm gentle smile, looking straight at the viewer",
-    "b": "a soft smile with slightly raised eyebrows, as if about to share something surprising, looking at the viewer",
-    "c": "one finger raised to her lips as if sharing a secret, a knowing smile at the viewer",
+# Eigenaar 14 nov 2026 (VAST): "ik wil iets op de thumbnail waar je meteen weet waar het over gaat en niet elke keer
+# een vrouw of iets dergelijks". Dus: rechts groot en scherp HET kenmerkende beeld van het verhaal (het gouden masker van
+# Toetanchamon, de Ishtarpoort, de Titanic, de huifkar op de Oregon Trail). Een persoon alleen als het verhaal over die
+# echte persoon gaat; nooit meer een willekeurige jonge vrouw. Drie varianten van hoek en licht; het beeldmodel kiest.
+HOEK = {
+    "a": "seen from the front, glowing in warm golden light",
+    "b": "seen at a slight angle, with dramatic warm side light",
+    "c": "close up and filling most of the right half, softly glowing",
 }
 
 
-def prompt(persoon, achtergrond, licht="a small warm oil lamp", k="a", moment="", voorwerp=""):
-    vast = f", holding {voorwerp}" if voorwerp else ""
+def prompt(kenmerk, achtergrond, licht="warm lamplight", k="a", moment="", voorwerp=""):
     scene = f"{achtergrond}, {moment}" if moment else achtergrond
-    return (f"A warm cinematic photorealistic scene. On the right third of the frame stands {persoon}, shown from the "
-            f"waist up in rich detailed period clothing{vast}, {BLIK[k]}, her face softly lit by {licht}. On the left and "
-            f"behind her, sharp and detailed, {scene}. Cosy warm firelight and candlelight against a cool blue evening, "
-            "high detail, inviting and calm, not scary, no text, no letters")
+    return (f"A warm cinematic photorealistic image. On the right half of the frame, large, sharp and instantly "
+            f"recognisable: {kenmerk}, {HOEK[k]}, lit by {licht}. Behind it and on the left side, softly blurred, {scene}. "
+            "Warm light against a cool blue evening, high detail, calm and inviting, not scary, no modern objects, "
+            "no text, no letters")
+
+
+def kenmerk_van(x):
+    return x.get("kenmerk") or x.get("persoon", "")
 
 
 # ---------- opmaak ----------
@@ -137,7 +138,7 @@ def kies(werk, naam, item, uit):
         p = werk / "afbeeldingen" / f"{naam}{k}.png"
         if not p.exists():
             continue
-        wat = f"{item['persoon']}, behind: {item['achtergrond']}"
+        wat = f"{kenmerk_van(item)}, behind: {item['achtergrond']}"
         fout = bc.vlm(p, wat, tijd, wat, j) + bc.clip_fout(bc.clip_scores([p], j)[0])
         if fout:
             print(f"  {naam}{k}: afgekeurd ({'; '.join(fout)[:120]})", flush=True)
@@ -190,7 +191,7 @@ def alle(niet_wachten=False):
         return
     if not niet_wachten:
         wacht_op_videokaart()
-    kandidaten(werk, [(x["naam"], x["persoon"], x["achtergrond"], x.get("licht", "a small warm oil lamp"), x.get("moment", ""),
+    kandidaten(werk, [(x["naam"], kenmerk_van(x), x["achtergrond"], x.get("licht", "a small warm oil lamp"), x.get("moment", ""),
                        x.get("voorwerp", ""))
                       for x in todo])
     for x in todo:
@@ -205,11 +206,11 @@ def alle(niet_wachten=False):
         print(x["naam"], uitslag, flush=True)
 
 
-def maak_voor_map(m, regel1, regel2, persoon, achtergrond, licht="a small warm oil lamp", moment="", voorwerp=""):
+def maak_voor_map(m, regel1, regel2, kenmerk, achtergrond, licht="warm lamplight", moment="", voorwerp=""):
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
     werk = m / "thumb3"
-    item = {"regel1": regel1, "regel2": regel2, "persoon": persoon, "achtergrond": achtergrond}
-    kandidaten(werk, [("t", persoon, achtergrond, licht, moment, voorwerp)])
+    item = {"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond}
+    kandidaten(werk, [("t", kenmerk, achtergrond, licht, moment, voorwerp)])
     return kies(werk, "t", item, m / "thumbnail-v3.jpg")
 
 

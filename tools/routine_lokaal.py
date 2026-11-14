@@ -106,8 +106,8 @@ def comfy_aan():
 
 
 def thumbnail(m, plan_t):
-    # stijl v3 (13 nov 2026, eigenaar: Babylon-thumbnail werkt, "pas ze ook maar toe voor de andere video's"):
-    # groot gezicht rechts, grote tekst onder het maanlogo; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
+    # stijl v3 (13 nov 2026, eigenaar: Babylon-thumbnail werkt): grote tekst onder het maanlogo; sinds 14 nov (vast):
+    # rechts groot het kenmerkende beeld van het verhaal, geen willekeurige vrouw; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
     if (m / "thumbnail-v3.jpg").exists():
         return m / "thumbnail-v3.jpg"
     try:
@@ -119,14 +119,12 @@ def thumbnail(m, plan_t):
             f"A YouTube thumbnail for a calm history video: '{titel}' ({onderwerp}). Scene idea: {regel}\n"
             'Answer only JSON: {"regel1": "1-2 word subject in CAPITALS, e.g. BABYLON or OREGON TRAIL", '
             '"regel2": "the year or era in capitals, e.g. 600 BC or 1846", '
-            '"persoon": "a friendly young woman of that place and time, with clothes and hair, in English", '
-            '"voorwerp": "a small object from the story she holds, e.g. a loaf of bread or a clay oil lamp, in English", '
-            '"achtergrond": "the most recognisable place or object of the story, in English", '
-            '"moment": "a calm scene from the story shown beside her, e.g. a family sleeping by the fire or soldiers '
-            'marching into a small town; not violent, in English"}',
+            '"kenmerk": "the ONE image everyone instantly links to this story, large and recognisable, e.g. the golden '
+            'mask of Tutankhamun, the blue Ishtar Gate, the Titanic at sea, a covered wagon on the Oregon Trail; a person '
+            'only if the story is about that real person; never a generic young woman; in English", '
+            '"achtergrond": "a calm, fitting setting behind it, in English"}',
             temp=0.2, max_tokens=260), re.S).group(0))
-        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["persoon"], a["achtergrond"],
-                                        moment=a.get("moment", ""), voorwerp=a.get("voorwerp", ""))
+        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["kenmerk"], a["achtergrond"])
         if v3:
             log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
             return v3

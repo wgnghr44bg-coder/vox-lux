@@ -1,60 +1,51 @@
 {
- "waarom": "Thumbnails in stijl v3 (eigenaar 13 nov 2026: Babylon-thumbnail werkt). Alleen nieuwe video's (eigenaar: 'alleen vanaf nu de nieuwe'): bestaande video's op YouTube houden hun thumbnail. tools/thumbnail_v3.py --alle maakt deze als de videokaart vrij is; de keten gebruikt <map>/thumbnail-v3.jpg. Elke video een moment uit het eigen verhaal (eigenaar: 'gewoon iets wat met de video te maken heeft'), in drie varianten van blik en licht. Personage zoals bij Sleepy Old World / Sleepy Quiet Historian: jonge vrouw uit die tijd rechts, voorwerp in de hand, verhaal links.",
+ "waarom": "Thumbnails in stijl v3: grote tekst onder het maanlogo zoals bij Babylon (eigenaar 13 nov 2026). VAST sinds 14 nov 2026 (eigenaar): 'ik wil iets op de thumbnail waar je meteen weet waar het over gaat en niet elke keer een vrouw of iets dergelijks'. Dus rechts groot het kenmerkende beeld van het verhaal (veld 'kenmerk'); een persoon alleen als het verhaal over die echte persoon gaat. Alleen nieuwe video's: bestaande video's op YouTube houden hun thumbnail. tools/thumbnail_v3.py --alle maakt ze als de videokaart vrij is; de keten gebruikt <map>/thumbnail-v3.jpg.",
  "videos": [
   {
    "naam": "egypte",
    "map": "egypte-toetanchamon",
    "regel1": "TUTANKHAMUN",
    "regel2": "1323 BC",
-   "persoon": "a young ancient Egyptian woman with kohl-lined eyes, a black braided wig, a broad gold and turquoise collar and a white pleated linen dress",
-   "achtergrond": "the great columns of Luxor temple beside the Nile at dusk",
-   "moment": "a golden funeral boat with priests gliding past on the river, lit by torches",
-   "voorwerp": "a small clay oil lamp",
-   "licht": "a small clay oil lamp"
+   "achtergrond": "a torch-lit ancient Egyptian tomb chamber with painted hieroglyphs",
+   "licht": "warm lamplight",
+   "kenmerk": "the golden funeral mask of Tutankhamun with blue and gold stripes",
+   "klaar": "14 nov: gemaakt van stories/egypte-toetanchamon/thumbnail-gekozen-achtergrond.png (masker, door eigenaar gekozen) met de v3-tekst"
   },
   {
    "naam": "crisis",
    "map": "crisis-1933",
    "regel1": "GREAT DEPRESSION",
    "regel2": "1933",
-   "persoon": "a young American farm woman in 1933 with a faded floral cotton dress, an apron and pinned-up hair",
-   "achtergrond": "a wooden farmhouse kitchen with a wood stove",
-   "licht": "a kerosene lamp",
-   "moment": "through the window a dusty farm with a windmill, and her family eating a simple supper at the table",
-   "voorwerp": "a loaf of homemade bread"
+   "achtergrond": "the dry plains of the American Dust Bowl at dusk",
+   "licht": "a low golden sun",
+   "kenmerk": "a dusty old farm truck piled high with furniture and suitcases on a dirt road in 1933, a wooden farmhouse and windmill"
   },
   {
    "naam": "gettysburg",
    "map": "gettysburg-1863",
    "regel1": "GETTYSBURG",
    "regel2": "1863",
-   "persoon": "a young American woman in 1863 with a dark blue high-collared cotton dress and hair parted in the middle",
-   "achtergrond": "the main street of a small town of red brick houses at dusk",
-   "licht": "a candle lantern",
-   "moment": "Union soldiers marching quietly into town while neighbours watch from their doorsteps",
-   "voorwerp": "a candle lantern"
+   "achtergrond": "green rolling fields and stone walls at dusk",
+   "licht": "warm evening light",
+   "kenmerk": "the small red brick town of Gettysburg in 1863 with its white church cupola, a Union soldier's blue kepi and a brass bugle resting on a wooden fence in front"
   },
   {
    "naam": "dallas",
    "map": "dallas-1963",
    "regel1": "DALLAS",
    "regel2": "1963",
-   "persoon": "a young American woman in 1963 with short curled hair, a pastel wool coat and white gloves",
-   "achtergrond": "a downtown Dallas street in 1963 with old cars and shop signs",
+   "achtergrond": "the Dallas downtown buildings of 1963 on a sunny autumn afternoon",
    "licht": "soft autumn sunlight",
-   "moment": "crowds gathering along the sidewalk on a sunny autumn day, waving and waiting",
-   "voorwerp": "a small paper flag"
+   "kenmerk": "a shiny dark blue 1961 Lincoln Continental open-top car parked on Elm Street in Dallas, 1963"
   },
   {
    "naam": "thanksgiving",
    "map": "thanksgiving-1621",
    "regel1": "THANKSGIVING",
    "regel2": "1621",
-   "persoon": "a young Pilgrim woman in 1621 with a white linen coif, a white collar and a brown wool dress",
-   "achtergrond": "a small wooden village with a long harvest table outdoors at dusk",
-   "licht": "a hearth fire",
-   "moment": "Pilgrim families and Wampanoag guests sharing bread, corn and fowl around a fire",
-   "voorwerp": "a wooden bowl of corn"
+   "achtergrond": "the Plymouth colony shore with the Mayflower ship anchored in the bay at dusk",
+   "licht": "a warm bonfire",
+   "kenmerk": "a long rough wooden harvest table outdoors in 1621 laden with roasted wild turkey, corn, squash and bread, beside a small wooden Pilgrim house"
   }
  ]
 }
