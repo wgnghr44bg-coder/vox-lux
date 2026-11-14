@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 23:33",
+ "bijgewerkt": "2026-11-15 00:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 88%",
+    "detail": "YouTube upload",
     "soort": "nu"
    }
   ],
@@ -36,7 +36,7 @@
    },
    {
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
-    "wat": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "detail": "routine maakt de video voor wo 2-12 21:00"
    },
@@ -48,14 +48,6 @@
    }
   ],
   "publicaties": [
-   {
-    "datum": "2026-11-14",
-    "dag": "za",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "stand": "online",
-    "kleur": "goed"
-   },
    {
     "datum": "2026-11-16",
     "dag": "ma",
@@ -115,7 +107,7 @@
    {
     "datum": "2026-12-02",
     "dag": "wo",
-    "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
@@ -134,18 +126,6 @@
  "scripts": {
   "klaar_tot": "2026-12-07",
   "rij": [
-   {
-    "datum": "2026-11-14",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "map": "egypte-toetanchamon",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
-    "flesch": 74,
-    "niveau": 6.6,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
-   },
    {
     "datum": "2026-11-16",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
@@ -232,7 +212,7 @@
    },
    {
     "datum": "2026-12-02",
-    "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "klaar": true,
     "stand": "script klaar en 's nachts goedgekeurd",
@@ -496,7 +476,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "186 GB vrij"
+   "tekst": "185 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -511,7 +491,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 23:33)"
+   "tekst": "draait nu (2026-11-15 00:03)"
   },
   {
    "naam": "Git",
@@ -522,11 +502,6 @@
    "naam": "Video 2026-11-16 (crisis-1933)",
    "ok": false,
    "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
-  },
-  {
-   "naam": "Video 2026-11-14 (egypte-toetanchamon)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -563,8 +538,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 23:33",
-   "volgende": "2026-11-15 00:03"
+   "laatst": "2026-11-15 00:03",
+   "volgende": "2026-11-15 00:33"
   },
   "hype": {
    "aan": true,
@@ -578,287 +553,7 @@
   }
  },
  "kanaal": {
-  "naam": "Sleep Archives",
-  "abonnees": 17,
-  "views_totaal": 2730,
-  "video_aantal": 16,
-  "week": {
-   "views": 582,
-   "uren": 149,
-   "abonnees": 4
-  },
-  "vorige_week": {
-   "views": 587,
-   "uren": 64,
-   "abonnees": 0
-  },
-  "recent": [
-   {
-    "id": "Y46Rpy4703k",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-    "duur": "2:04:50",
-    "privacy": "public",
-    "publiceer": "2026-11-14T20:00:16Z",
-    "views": 3,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "KwUvlP42M34",
-    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
-    "duur": "1:57:36",
-    "privacy": "public",
-    "publiceer": "2026-11-12T22:23:52Z",
-    "views": 35,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "ZZ5JMtF9kuI",
-    "titel": "What Was Everyday Life Like During WW2? | History for Sleep",
-    "duur": "2:42:38",
-    "privacy": "public",
-    "publiceer": "2026-11-08T10:53:11Z",
-    "views": 13,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "OC0WGLbKD8M",
-    "titel": "Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep",
-    "duur": "1:56:34",
-    "privacy": "public",
-    "publiceer": "2026-11-04T20:00:36Z",
-    "views": 125,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "qFRyJ6twOzY",
-    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
-    "duur": "1:47:15",
-    "privacy": "public",
-    "publiceer": "2026-10-31T20:18:28Z",
-    "views": 342,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "_duWLxwIEss",
-    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
-    "duur": "2:03:36",
-    "privacy": "public",
-    "publiceer": "2026-10-28T00:27:13Z",
-    "views": 523,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "3xoYoH3hiYw",
-    "titel": "Dyatlov Pass: A Winter Night in the Urals | History for Sleep",
-    "duur": "2:04:57",
-    "privacy": "public",
-    "publiceer": "2026-10-14T19:00:11Z",
-    "views": 17,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "abgEUwjgRiE",
-    "titel": "How Vikings Survived the Long Dark Winter | History for Sleep",
-    "duur": "2:20:55",
-    "privacy": "public",
-    "publiceer": "2026-10-10T19:00:39Z",
-    "views": 64,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "ud5qSvbZBvM",
-    "titel": "Life in Siberia Before the Tunguska Blast | History for Sleep",
-    "duur": "2:36:14",
-    "privacy": "public",
-    "publiceer": "2026-10-07T19:00:13Z",
-    "views": 26,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "_4LgG7iUoy0",
-    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
-    "duur": "2:27:47",
-    "privacy": "public",
-    "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1256,
-    "verwerkt": "processed"
-   }
-  ],
-  "dagen": [
-   {
-    "dag": "2026-10-17",
-    "views": 14,
-    "abonnees": 1
-   },
-   {
-    "dag": "2026-10-18",
-    "views": 14,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-19",
-    "views": 17,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-20",
-    "views": 43,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-21",
-    "views": 40,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-22",
-    "views": 93,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-23",
-    "views": 84,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-24",
-    "views": 99,
-    "abonnees": 1
-   },
-   {
-    "dag": "2026-10-25",
-    "views": 147,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-26",
-    "views": 240,
-    "abonnees": 1
-   },
-   {
-    "dag": "2026-10-27",
-    "views": 185,
-    "abonnees": 2
-   },
-   {
-    "dag": "2026-10-28",
-    "views": 73,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-29",
-    "views": 94,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-30",
-    "views": 73,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-10-31",
-    "views": 33,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-01",
-    "views": 65,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-02",
-    "views": 192,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-03",
-    "views": 124,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-04",
-    "views": 24,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-05",
-    "views": 29,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-06",
-    "views": 48,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-07",
-    "views": 72,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-08",
-    "views": 101,
-    "abonnees": 1
-   },
-   {
-    "dag": "2026-11-09",
-    "views": 40,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-10",
-    "views": 98,
-    "abonnees": 0
-   },
-   {
-    "dag": "2026-11-11",
-    "views": 127,
-    "abonnees": 1
-   },
-   {
-    "dag": "2026-11-12",
-    "views": 144,
-    "abonnees": 2
-   }
-  ],
-  "maand": {
-   "views": 2313,
-   "uren": 557,
-   "abonnees": 9
-  },
-  "vorige_maand": {
-   "views": 1091,
-   "uren": 78,
-   "abonnees": 8
-  },
-  "jaar": {
-   "views": 3393,
-   "uren": 630,
-   "abonnees": 16
-  },
-  "top": [
-   {
-    "id": "_4LgG7iUoy0",
-    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
-    "duur": "2:27:47",
-    "views": 1198,
-    "uren": 328
-   },
-   {
-    "id": "_duWLxwIEss",
-    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
-    "duur": "2:03:36",
-    "views": 469,
-    "uren": 138
-   },
-   {
-    "id": "qFRyJ6twOzY",
-    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
-    "duur": "1:47:15",
-    "views": 340,
-    "uren": 23
-   }
-  ]
+  "fout": "'NoneType' object has no attribute 'groups'"
  },
  "kpi": {
   "geplande": 0,
@@ -869,8 +564,8 @@
   },
   "fouten": 1,
   "zelfcontrole": {
-   "goed": 14,
-   "totaal": 15
+   "goed": 13,
+   "totaal": 14
   }
  },
  "stappen": [
@@ -882,19 +577,20 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 6,
  "huidig": {
   "map": "crisis-1933",
   "titel": "Life in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 88,
-  "detail": "16mm-look",
+  "stap": 6,
+  "stapnaam": "YouTube upload",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "uploaden en controleren",
+   "wachten op verwerking YouTube"
   ],
   "eind": {
    "klaar": "2026-11-14 23:51",
@@ -907,13 +603,17 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "uploaden en controleren",
+   "stap": 6
+  },
+  {
+   "naam": "wachten op verwerking YouTube",
+   "stap": 6
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
-  "geheugen_mb": 509,
+  "bezig_procent": 25,
+  "geheugen_mb": 512,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -950,16 +650,10 @@
   {
    "naam": "YouTube",
    "wat": "API",
-   "ok": true
+   "ok": false
   }
  ],
  "week": [
-  {
-   "datum": "2026-11-14",
-   "plek": true,
-   "video": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
-   "soort": "online"
-  },
   {
    "datum": "2026-11-15",
    "plek": false,
@@ -995,27 +689,15 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-21",
+   "plek": true,
+   "video": "Life in Dallas, November 1963 | History for Sleep",
+   "soort": "bezig"
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-14 17:43",
-   "tekst": "hype-wachter: SEINTJE What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 17:43",
-   "tekst": "hype-wachter: SEINTJE Discover What Our Ancient Oceans Were Like | Sleepy Science -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 17:43",
-   "tekst": "hype-wachter: SEINTJE Land of The Dinosaurs | Relaxing Science to Fall Asleep To -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-14 17:43",
    "tekst": "hype-wachter: SEINTJE 8 Hours Soothing Space Facts for Deep Sleep & Relaxation -> KANS: nog niets van ons over dit onderwerp",
@@ -1081,11 +763,29 @@
    "tekst": "Claude: YouTube Studio-inzichten verwerkt (eigenaar 14 nov): (1) abonneerzin uit het begin naar src-feiten/abonneer.txt, klinkt na feitje 2 (rond minuut 3), bij alle 9 komende video's; bouw_feiten + s",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 23:40",
+   "tekst": "eigenaar: Babylon (KwUvlP42M34) en WO2 (ZZ5JMtF9kuI) op YouTube nieuwe titel + thumbnail (thumbnail-v3-nieuw.jpg). Over ±2 weken CTR vergelijken (was 2,5% en 0,7%)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 23:50",
+   "tekst": "Claude: VAST (eigenaar 14 nov: 'zorg dat je dit niet vergeet'): stories/AFSPRAKEN.md met alle afspraken + tools/afspraken_check.py, die routine_lokaal vóór elke video draait (stopt bij fout). b1_proef",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 00:01",
+   "tekst": "crisis-1933: geüpload https://youtu.be/R2rgLUMJxac (privé, publiek 2026-11-16T20:00:00Z), kanaal Sleep Archives gecontroleerd",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 23:33",
+   "tijd": "2026-11-15 00:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1121,7 +821,7 @@
    "map": "alchemie-steen-der-wijzen",
    "datum": "2026-12-02",
    "reserve": false,
-   "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
+   "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype Philosopher's Stone)",
    "soort": "script nieuw",
    "id": "",
@@ -1198,7 +898,7 @@
    "map": "babylon-600-vc",
    "datum": "2026-11-12",
    "reserve": false,
-   "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+   "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
    "status": "klaar",
    "soort": "online",
    "id": "KwUvlP42M34",
@@ -2188,7 +1888,7 @@
    "map": "ww2-facts",
    "datum": "",
    "reserve": false,
-   "titel": "What Was Everyday Life Like During WW2? | History for Sleep",
+   "titel": "Quiet WW2 Facts to Fall Asleep To | History for Sleep",
    "status": "klaar",
    "soort": "online",
    "id": "ZZ5JMtF9kuI",
