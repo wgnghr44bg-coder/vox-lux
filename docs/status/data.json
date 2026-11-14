@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 20:33",
+ "bijgewerkt": "2026-11-14 21:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 19%",
+    "detail": "Video bouwen · 48%",
     "soort": "nu"
    }
   ],
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "196 GB vrij"
+   "tekst": "195 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,12 +463,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 20:33)"
+   "tekst": "draait nu (2026-11-14 21:03)"
   },
   {
    "naam": "Git",
-   "ok": false,
-   "tekst": "1 commit(s) nog niet gepusht"
+   "ok": true,
+   "tekst": "alles gepusht"
   },
   {
    "naam": "Video 2026-11-16 (crisis-1933)",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 20:33",
-   "volgende": "2026-11-14 21:03"
+   "laatst": "2026-11-14 21:03",
+   "volgende": "2026-11-14 21:33"
   },
   "hype": {
    "aan": true,
@@ -533,11 +533,11 @@
   "naam": "Sleep Archives",
   "abonnees": 17,
   "views_totaal": 2730,
-  "video_aantal": 14,
+  "video_aantal": 16,
   "week": {
-   "views": 438,
-   "uren": 102,
-   "abonnees": 2
+   "views": 582,
+   "uren": 149,
+   "abonnees": 4
   },
   "vorige_week": {
    "views": 587,
@@ -549,8 +549,8 @@
     "id": "Y46Rpy4703k",
     "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
     "duur": "2:04:50",
-    "privacy": "private",
-    "publiceer": "2026-11-14T20:00:00Z",
+    "privacy": "public",
+    "publiceer": "2026-11-14T20:00:16Z",
     "views": 3,
     "verwerkt": "processed"
    },
@@ -766,12 +766,17 @@
     "dag": "2026-11-11",
     "views": 127,
     "abonnees": 1
+   },
+   {
+    "dag": "2026-11-12",
+    "views": 144,
+    "abonnees": 2
    }
   ],
   "maand": {
-   "views": 2169,
-   "uren": 510,
-   "abonnees": 7
+   "views": 2313,
+   "uren": 557,
+   "abonnees": 9
   },
   "vorige_maand": {
    "views": 1091,
@@ -779,9 +784,9 @@
    "abonnees": 8
   },
   "jaar": {
-   "views": 3249,
-   "uren": 583,
-   "abonnees": 14
+   "views": 3393,
+   "uren": 630,
+   "abonnees": 16
   },
   "top": [
    {
@@ -795,14 +800,14 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 359,
-    "uren": 106
+    "views": 469,
+    "uren": 138
    },
    {
     "id": "qFRyJ6twOzY",
     "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
     "duur": "1:47:15",
-    "views": 338,
+    "views": 340,
     "uren": 23
    }
   ]
@@ -814,9 +819,9 @@
    "totaal": 13,
    "procent": 38
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 14,
    "totaal": 15
   }
  },
@@ -837,15 +842,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 19,
+  "voortgang": 48,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 01:10",
-   "youtube": "2026-11-15 01:30"
+   "klaar": "2026-11-14 23:50",
+   "youtube": "2026-11-15 00:10"
   }
  },
  "nu_bezig": [
@@ -860,7 +865,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 477,
+  "geheugen_mb": 494,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1032,12 +1037,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 20:33",
-   "tekst": "Zelfcontrole: Git: 1 commit(s) nog niet gepusht",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-14 20:33",
+   "tijd": "2026-11-14 21:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
