@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 19:33",
+ "bijgewerkt": "2026-11-14 20:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen",
+    "detail": "Video bouwen · 5%",
     "soort": "nu"
    }
   ],
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "178 GB vrij"
+   "tekst": "196 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 19:33)"
+   "tekst": "draait nu (2026-11-14 20:03)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 19:33",
-   "volgende": "2026-11-14 20:03"
+   "laatst": "2026-11-14 20:03",
+   "volgende": "2026-11-14 20:33"
   },
   "hype": {
    "aan": true,
@@ -551,7 +551,7 @@
     "duur": "2:04:50",
     "privacy": "private",
     "publiceer": "2026-11-14T20:00:00Z",
-    "views": 2,
+    "views": 3,
     "verwerkt": "processed"
    },
    {
@@ -560,7 +560,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 33,
+    "views": 32,
     "verwerkt": "processed"
    },
    {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 520,
+    "views": 519,
     "verwerkt": "processed"
    },
    {
@@ -614,7 +614,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 63,
+    "views": 64,
     "verwerkt": "processed"
    },
    {
@@ -808,7 +808,7 @@
   ]
  },
  "kpi": {
-  "geplande": 1,
+  "geplande": 0,
   "runs": {
    "goed": 5,
    "totaal": 13,
@@ -837,15 +837,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "voortgang": 5,
+  "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 01:51",
-   "youtube": "2026-11-15 02:11"
+   "klaar": "2026-11-15 01:47",
+   "youtube": "2026-11-15 02:07"
   }
  },
  "nu_bezig": [
@@ -854,12 +854,12 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
+   "naam": "beweging en hoofdstuktitels",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
+  "bezig_procent": 26,
   "geheugen_mb": 494,
   "totaal_mb": 8192
  },
@@ -1032,7 +1032,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 19:33",
+   "tijd": "2026-11-14 20:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
