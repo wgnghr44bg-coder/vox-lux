@@ -6,3 +6,4 @@ opening   onderwerp
 titelsoort life-in
 thumbnail amberregel "PEARL HARBOR · DECEMBER 1941", hook "The Last Sunday Morning", beeld: matrozen in wit uniform aan dek, achter hen groot de grijze slagschepen van Battleship Row (USS Arizona) in de haven, zacht zondagochtendlicht, palmen en groene heuvels; geen vliegtuigen of rook (vast, eigenaar 28 okt, schepen groter) (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog
+thumbnail kenmerk: de haven van Pearl Harbor in december 1941 met grijze slagschepen voor anker en groene bergen erachter, matrozen in witte uniformen die aan wal lopen bij palmbomen en Hawaïaanse inwoners met bloemenkransen; zachte zonsondergang

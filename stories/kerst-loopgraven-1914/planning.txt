@@ -6,3 +6,4 @@ thumbnail amberregel "FLANDERS · CHRISTMAS 1914", hook "Life in the Trenches", 
 soort    oorlog
 opening   scène
 titelsoort event-year
+thumbnail kenmerk: Britse en Duitse soldaten in jassen en petten die elkaar de hand schudden in de bevroren niemandsland op kerstochtend 1914, kleine kerstboompjes met kaarsjes op de borstwering; witte rijp en zacht ochtendlicht

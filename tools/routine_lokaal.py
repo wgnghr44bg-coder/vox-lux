@@ -112,7 +112,8 @@ def thumbnail(m, plan_t):
         return m / "thumbnail-v3.jpg"
     try:
         import llm, thumbnail_v3
-        regel = (re.search(r"^thumbnail (.+)$", plan_t, re.M) or [None, ""])[1]
+        # 14 nov 2026: de regel 'thumbnail kenmerk:' (kenmerkend beeld + mensen van toen) gaat voor oude thumbnail-regels
+        regel = (re.search(r"^thumbnail kenmerk:\s*(.+)$", plan_t, re.M) or re.search(r"^thumbnail (.+)$", plan_t, re.M) or [None, ""])[1]
         titel = (re.search(r"^titel\s+(.+?)\s*\|", plan_t, re.M) or [None, m.name])[1]
         onderwerp = (re.search(r"^onderwerp\s+(.+)$", plan_t, re.M) or [None, titel])[1]
         a = json.loads(re.search(r"\{.*\}", llm.vraag(
@@ -214,6 +215,12 @@ def maak_video(m, datum, test=False):
         if not generator.maak(m, test=True):
             raise RuntimeError("script ombouwen mislukt")
         plan_t = planning(m)[0]
+    # 14 nov 2026 (eigenaar: "zorg dat je dit niet vergeet, alles volgens wat we afgesproken hebben"): eerst alle vaste
+    # afspraken controleren (stem + haard-achtergrond, titel, abonneerzin, toon, thumbnail); anders niet beginnen
+    import afspraken_check
+    af = afspraken_check.controleer(m)
+    if af:
+        raise RuntimeError("afspraken niet in orde: " + "; ".join(af)[:300])
     if not test:
         zet_status(m, f"bezig ({datetime.date.today()}, routine-lokaal)")
         git_push([m / "planning.txt"], f"{m.name}: bezig (routine-lokaal) voor {datum}")   # nooit de hele map (beelden, voice.mp3 > 100 MB)

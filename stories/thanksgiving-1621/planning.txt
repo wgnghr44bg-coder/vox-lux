@@ -6,3 +6,4 @@ opening   mythe
 titelsoort event-year
 thumbnail amberregel "PLYMOUTH · 1621", hook "The First Thanksgiving", beeld: een lange ruwe houten tafel buiten onder herfstbomen in rood en goud, wild gevogelte en hertenvlees aan het spit boven een vuur, maiskolven en pompoenen, op de achtergrond kleine houten huisjes met rieten daken en een Wampanoag-koepelhuis met rook; warm avondlicht
 soort    reis
+thumbnail kenmerk: een lange houten oogsttafel buiten in Plymouth 1621 met kalkoen, maïs en brood, Pilgrim-families in bruine en zwarte wol met witte kragen en Wampanoag-mannen met veren en hertenleer die samen eten; de Mayflower in de baai, warm vuurlicht

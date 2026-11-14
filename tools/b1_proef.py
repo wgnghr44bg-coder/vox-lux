@@ -156,17 +156,45 @@ with tempfile.TemporaryDirectory() as tmp:
     duur = sf.info(st).duration
     mix = MixConfig()
     mix.music_below_voice_db = float(inst["muziek_onder"])
-    generate(preset("referentie", duration=sf.info(st).duration + 1, seed=int(inst["muziek_seed"]), **inst["muziek"]),
-             tmp / "m", stems=False, progress=lambda *a: None)
-    vorm = tmp / "vorm.wav"
-    vc.ffmpeg(["-i", str(tmp / "m/music.wav"), "-af", music_shaping(mix), "-ar", "44100", "-c:a", "pcm_f32le", str(vorm)])
-    curve = ducking.gain_curve(st, mix.duck_amount_db, mix.duck_attack, mix.duck_release)
     gm = tmp / "gm.wav"
-    with sf.SoundFile(vorm) as fi, sf.SoundFile(gm, "w", 44100, 2, subtype="PCM_24") as fo:
-        pos = 0
-        for blok in fi.blocks(blocksize=44100 * 30, always_2d=True, dtype="float32"):
-            fo.write(ducking.apply(blok, pos, 44100, curve))
-            pos += len(blok)
+    if inst.get("achtergrond"):
+        # 14 nov 2026 (eigenaar: "waarom hoor ik niet de achtergrond en vuurhaard"): dezelfde vaste achtergrond als de
+        # video's (open haard + B-effect uit B1.json, precies zoals tools/engine_muziek.py), niet meer de oude W3-muziek
+        import librosa
+        ag = inst["achtergrond"]
+
+        def lus(bron, n0, n, X):
+            P = len(bron) - X
+            p = np.arange(n0, n0 + n)
+            k, o = p // P, p % P
+            r = bron[o].copy()
+            naad = (k > 0) & (o < X)
+            a = (o[naad] / X * np.pi / 2)[:, None]
+            r[naad] = bron[o[naad]] * np.sin(a) + bron[P + o[naad]] * np.cos(a)
+            return r
+
+        lagen = []
+        for l in ag["lagen"]:
+            y, _ = librosa.load(Path(ag["map"]).expanduser() / l["bestand"], sr=44100, mono=False)
+            y = np.atleast_2d(y).T if y.ndim == 1 else y.T
+            y = np.repeat(y, 2, axis=1) if y.shape[1] == 1 else y[:, :2]
+            lagen.append((y.astype(np.float32) * 10 ** ((float(l["db"]) - 12) / 20), int(float(l["overvloei"]) * 44100)))
+        N = int((duur + 1) * 44100)
+        p = np.arange(N)
+        blok = sum(lus(y, 0, N, X) for y, X in lagen)
+        blok *= np.clip(p / (3 * 44100), 0, 1)[:, None] * np.clip((N - p) / (6 * 44100), 0, 1)[:, None]
+        sf.write(gm, np.clip(blok, -1, 1), 44100, subtype="PCM_24")
+    else:
+        generate(preset("referentie", duration=sf.info(st).duration + 1, seed=int(inst["muziek_seed"]), **inst["muziek"]),
+                 tmp / "m", stems=False, progress=lambda *a: None)
+        vorm = tmp / "vorm.wav"
+        vc.ffmpeg(["-i", str(tmp / "m/music.wav"), "-af", music_shaping(mix), "-ar", "44100", "-c:a", "pcm_f32le", str(vorm)])
+        curve = ducking.gain_curve(st, mix.duck_amount_db, mix.duck_attack, mix.duck_release)
+        with sf.SoundFile(vorm) as fi, sf.SoundFile(gm, "w", 44100, 2, subtype="PCM_24") as fo:
+            pos = 0
+            for blok in fi.blocks(blocksize=44100 * 30, always_2d=True, dtype="float32"):
+                fo.write(ducking.apply(blok, pos, 44100, curve))
+                pos += len(blok)
     db = (vc.measure(st)["lufs"] - mix.music_below_voice_db) - vc.measure(gm)["lufs"]
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(st), "-i", str(gm), "-filter_complex",
                     f"[0:a]aformat=channel_layouts=stereo[s];[1:a]volume={db:.2f}dB[m];"

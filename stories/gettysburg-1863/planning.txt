@@ -7,3 +7,4 @@ soort    oorlog
 thumbnail gekozen (test automatische keuze, 1 nov): stories/gettysburg-1863/thumbnail-gekozen.jpg; deze gebruiken, geen eigen thumbnail maken
 opening   persoon
 titelsoort life-in
+thumbnail kenmerk: het rode bakstenen stadje Gettysburg in juli 1863 met de witte kerktoren, soldaten van de Unie in blauwe uniformen die rustig het stadje binnenmarcheren terwijl inwoners in jurken en vesten vanaf hun stoep toekijken; avondlicht

@@ -6,3 +6,4 @@ thumbnail amberregel "ENGLAND · WINTER 1300", hook "Medieval Winter", beeld: ee
 soort    middeleeuwen
 opening   persoon
 titelsoort how-survived
+thumbnail kenmerk: een middeleeuws dorp in de sneeuw rond 1300 met rieten daken en rook uit de schoorstenen, een boerenfamilie in wollen kappen en mantels die hout binnendraagt en de ossen voert bij het langhuis; warm haardlicht tegen een blauwe winteravond

@@ -4,6 +4,8 @@ Start: "Lees stories/PROMPT-SCRIPTS-DEC.md en voer het uit." Werk af zonder te v
 geen stem, geen video, niets wat geld kost. Eén map per keer, alleen jouw map aanraken. Vóór elke map `git pull` en kijk
 of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 
+**Alle vaste afspraken staan samen in `stories/AFSPRAKEN.md`** (gecontroleerd door `tools/afspraken_check.py`).
+
 ## Vaste afspraken (eigenaar 14 nov 2026)
 - **Planning = het beste voor het kanaal en mee met de hype.** De planning hieronder is daarop gemaakt (hype-wachter
   `tools/hype_wacht.py`, elke dag 08:30, uitkomst op de website en in `stories/HYPE-SIGNAAL.md`). Verander geen datums

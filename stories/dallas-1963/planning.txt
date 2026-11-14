@@ -6,3 +6,4 @@ opening   voorwerp
 titelsoort life-in
 thumbnail amberregel "DALLAS · NOVEMBER 1963", hook "Life in Dallas", beeld: de open donkerblauwe presidentiële auto op Main Street in de zon, John en Jacqueline Kennedy (roze mantelpakje, rozen) die lachend zwaaien, juichende menigte en confetti; vóór Dealey Plaza, rustig en vrolijk (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    mysterie
+thumbnail kenmerk: een glanzende donkerblauwe open Lincoln uit 1963 in Elm Street in Dallas, met mensen uit 1963 in pakken, hoeden en pastelkleurige jassen die langs de stoep met vlaggetjes zwaaien; zonnige herfstmiddag

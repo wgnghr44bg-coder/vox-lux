@@ -1,6 +1,7 @@
 # Notes for Claude sessions
 
 ## Eerst lezen: de vaste afspraken voor Sleep Archives (eigenaar 7-8 nov 2026)
+- **ALLE VASTE AFSPRAKEN (14 nov 2026): `stories/AFSPRAKEN.md`** — stem + haard-achtergrond, script, titel, thumbnail, planning; gecontroleerd door `tools/afspraken_check.py` (de keten stopt als iets niet klopt).
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
 - **Stem en muziek staan vast in `audio_engine/B1.json`** (sinds 11 nov 2026, eigenaar: "zo is het perfect, ik wil deze
   als vaste stem houden"): stem **`eigen-stem`** = de eigen stem van de eigenaar ("calm and gentle voice"), **speed 0.9**
