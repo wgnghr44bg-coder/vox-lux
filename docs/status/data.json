@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 22:33",
+ "bijgewerkt": "2026-11-14 23:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Controles",
+    "detail": "Video bouwen · 33%",
     "soort": "nu"
    }
   ],
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "192 GB vrij"
+   "tekst": "189 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 22:33)"
+   "tekst": "draait nu (2026-11-14 23:03)"
   },
   {
    "naam": "Git",
@@ -515,8 +515,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 22:33",
-   "volgende": "2026-11-14 23:03"
+   "laatst": "2026-11-14 23:03",
+   "volgende": "2026-11-14 23:33"
   },
   "hype": {
    "aan": true,
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 520,
+    "views": 527,
     "verwerkt": "processed"
    },
    {
@@ -614,7 +614,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 63,
+    "views": 64,
     "verwerkt": "processed"
    },
    {
@@ -834,23 +834,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 5,
+ "stap": 4,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 5,
-  "stapnaam": "Controles",
-  "voortgang": null,
-  "detail": "",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": 33,
+  "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "videocontrole"
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-14 23:57",
-   "youtube": "2026-11-15 00:17"
+   "klaar": "2026-11-14 23:50",
+   "youtube": "2026-11-15 00:10"
   }
  },
  "nu_bezig": [
@@ -859,12 +859,12 @@
    "stap": 0
   },
   {
-   "naam": "videocontrole",
-   "stap": 5
+   "naam": "16mm-look",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 22,
   "geheugen_mb": 672,
   "totaal_mb": 8192
  },
@@ -1037,7 +1037,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 22:33",
+   "tijd": "2026-11-14 23:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
