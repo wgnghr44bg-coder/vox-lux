@@ -497,10 +497,16 @@ def scripts_overzicht():
             tn = script_leesbaar.toon(d) if nieuw else None
         except Exception:
             lb = None
+        # 14 nov 2026: een script in de oude toon (niet TOON GOED) is nog niet klaar; het moet naar de Sleepy-opbouw
+        oude_toon = nieuw and tn and tn.get("toon") != "TOON GOED" and v["soort"] not in ("gepland", "online", "bezig")
+        if oude_toon:
+            nieuw = False
         if v["soort"] in ("gepland", "online"):
             stand = "video staat klaar"
         elif v["soort"] == "bezig":
             stand = "video wordt gemaakt"
+        elif oude_toon:
+            stand = "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)"
         elif nieuw:
             stand = "script klaar" + (" en 's nachts goedgekeurd" if check == "GOED" else
                                       ", nachtcontrole vond iets" if check == "FOUT" else ", nachtcontrole volgt")
@@ -553,7 +559,9 @@ data = {
              "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
              "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
              "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
-             "Planning": "ma, wo en za 21:00 (NL); hype en jubilea via de hype-wachter"},
+             "Planning": "ma, wo en za 21:00 (NL); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
+             "Thumbnail": "stijl zoals Babylon (maanlogo, groot wit onderwerp, geel jaartal); rechts het kenmerkende beeld met mensen van toen die doen wat er gebeurde, nooit een losse vrouw",
+             "Scripts": "stories/PROMPT-SCRIPTS-DEC.md: hoofdsessie ijstijd, blackbeard, alchemie (klaar); ander account rome, zwarte-dood, scott, londen, bethlehem, japan"},
 }
 DOCS.mkdir(parents=True, exist_ok=True)
 UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
