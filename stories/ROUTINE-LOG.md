@@ -111,3 +111,8 @@
 - 2026-11-14 12:26 thumbnail-v3: crisis: nieuwe thumbnail (GREAT DEPRESSION 1933, gezin + truck) gekozen door eigenaar, klaar voor de keten
 - 2026-11-14 12:29 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)
 - 2026-11-14 12:30 Claude (OVERDRACHT, eigenaar 14 nov: ander account heeft geen usage meer): crisis-1933 (ma 16 nov 21:00) wordt nu op de pc gemaakt met tools/routine_lokaal.py --opnieuw crisis-1933 (log C:\Users\rane\crisis-keten.log). Script = Sleepy-opbouw van 12 nov (SCRIPT GOED, TOON GOED); thumbnail = stories/crisis-1933/thumbnail-v3.jpg (gekozen door eigenaar). Egypte: masker-thumbnail op YouTube gezet. Thumbnailregel VAST: kenmerkend beeld + mensen van toen (stories/thumbnails-v3.json). Sleepy-ombouw: thanksgiving, pearl-harbor, boeren-winter, kerst-loopgraven KLAAR; rome-44-vc deel1 geschreven in stories/rome-44-vc/toon/sleepy-deel1.json (nog toepassen met tools/ombouw_blokken.py vervang), deel2+3, begin/slot en zwarte-dood-1348 nog TE DOEN.
+- 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 006 bleef fout, vervangen door 005.png
+- 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 080 bleef fout, vervangen door 079.png
+- 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 087 bleef fout, vervangen door 086.png
+- 2026-11-14 13:18 routine-lokaal: crisis-1933: beeld 088 bleef fout, vervangen door 086.png
+- 2026-11-14 13:20 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
