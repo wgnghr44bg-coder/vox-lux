@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 12:33",
+ "bijgewerkt": "2026-11-14 13:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 99%",
+    "detail": "Beelden maken · 90%",
     "soort": "nu"
    }
   ],
@@ -440,8 +440,8 @@
   },
   {
    "naam": "Taak 'routine'",
-   "ok": true,
-   "tekst": "laatste keer goed (2026-11-10 09:00)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Taak 'scriptgenerator'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 12:33)"
+   "tekst": "draait nu (2026-11-14 13:03)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 12:33",
-   "volgende": "2026-11-14 13:03"
+   "laatst": "2026-11-14 13:03",
+   "volgende": "2026-11-14 13:33"
   },
   "hype": {
    "aan": true,
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 506,
+    "views": 508,
     "verwerkt": "processed"
    },
    {
@@ -802,9 +802,9 @@
    "totaal": 16,
    "procent": 31
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 14,
+   "goed": 13,
    "totaal": 15
   }
  },
@@ -825,11 +825,12 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "89 van 89 beelden",
+  "voortgang": 90,
+  "detail": "80 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -841,11 +842,15 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 79,
-  "geheugen_mb": 7238,
+  "bezig_procent": 98,
+  "geheugen_mb": 7006,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1017,7 +1022,12 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 12:33",
+   "tijd": "2026-11-14 13:03",
+   "tekst": "Zelfcontrole: Taak 'routine': niet gevonden",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-14 13:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
