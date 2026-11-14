@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 12:30",
+ "bijgewerkt": "2026-11-14 12:33",
  "werkplanning": {
   "nu": [
    {
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-14 12:03)"
+   "tekst": "draait nu (2026-11-14 12:33)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 12:03",
-   "volgende": "2026-11-14 12:33"
+   "laatst": "2026-11-14 12:33",
+   "volgende": "2026-11-14 13:03"
   },
   "hype": {
    "aan": true,
@@ -844,8 +844,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 675,
+  "bezig_procent": 79,
+  "geheugen_mb": 7238,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1017,7 +1017,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 12:30",
+   "tijd": "2026-11-14 12:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
