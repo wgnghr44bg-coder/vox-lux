@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 10:03",
+ "bijgewerkt": "2026-11-14 12:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 99%",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -436,7 +436,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "185 GB vrij"
+   "tekst": "191 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -451,7 +451,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 10:03)"
+   "tekst": "draait nu (2026-11-14 12:03)"
   },
   {
    "naam": "Git",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 10:03",
-   "volgende": "2026-11-14 10:33"
+   "laatst": "2026-11-14 12:03",
+   "volgende": "2026-11-14 12:33"
   },
   "hype": {
    "aan": true,
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 09:10",
-   "volgende": "2026-11-14 10:10"
+   "laatst": "2026-11-14 12:03",
+   "volgende": "2026-11-14 12:10"
   }
  },
  "kanaal": {
@@ -557,7 +557,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 14,
+    "views": 13,
     "verwerkt": "processed"
    },
    {
@@ -575,7 +575,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 340,
+    "views": 341,
     "verwerkt": "processed"
    },
    {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 498,
+    "views": 501,
     "verwerkt": "processed"
    },
    {
@@ -620,7 +620,7 @@
     "duur": "2:27:47",
     "privacy": "public",
     "publiceer": "2026-10-05T19:00:38Z",
-    "views": 1272,
+    "views": 1256,
     "verwerkt": "processed"
    }
   ],
@@ -817,40 +817,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "89 van 89 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beelden maken (ComfyUI)",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
-  ],
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 7906,
+  "bezig_procent": 0,
+  "geheugen_mb": 691,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1022,7 +1005,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 10:03",
+   "tijd": "2026-11-14 12:03",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
