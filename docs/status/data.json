@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-14 18:03",
+ "bijgewerkt": "2026-11-14 18:29",
  "werkplanning": {
   "nu": [
    {
@@ -30,9 +30,9 @@
    },
    {
     "wanneer": "zo 22-11 09:00 (routine staat UIT)",
-    "wat": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "wat": "What Was Life Really Like on Blackbeard's Pirate Ship? | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "routine maakt de video voor ma 30-11 21:00 (script moet eerst nog goedgekeurd)"
+    "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
     "wanneer": "di 24-11 09:00 (routine staat UIT)",
@@ -85,7 +85,7 @@
     "dag": "ma",
     "titel": "How Did People Survive the Ice Age? | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "stand": "script nodig (hype-wachter 14 nov 2026: BREED, groeit bij me",
+    "stand": "script klaar, video volgt",
     "kleur": "zacht"
    },
    {
@@ -107,17 +107,17 @@
    {
     "datum": "2026-11-30",
     "dag": "ma",
-    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "titel": "What Was Life Really Like on Blackbeard's Pirate Ship? | History for Sleep",
     "map": "blackbeard-1718",
-    "stand": "script moet nog (opnieuw) gemaakt worden",
-    "kleur": "fout"
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
    },
    {
     "datum": "2026-12-02",
     "dag": "wo",
     "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
-    "stand": "script nodig (hype 12 nov 2026: History Camp \"Who ACTUALLY S",
+    "stand": "script klaar, video volgt",
     "kleur": "zacht"
    },
    {
@@ -132,7 +132,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-11-21",
+  "klaar_tot": "2026-12-14",
   "rij": [
    {
     "datum": "2026-11-14",
@@ -186,13 +186,13 @@
     "datum": "2026-11-23",
     "titel": "How Did People Survive the Ice Age? | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 66,
+    "niveau": 7.5,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-11-25",
@@ -220,27 +220,27 @@
    },
    {
     "datum": "2026-11-30",
-    "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
+    "titel": "What Was Life Really Like on Blackbeard's Pirate Ship? | History for Sleep",
     "map": "blackbeard-1718",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 64,
+    "niveau": 7.7,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-02",
     "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 60,
+    "niveau": 8.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-05",
@@ -448,7 +448,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "179 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -463,7 +463,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 18:03)"
+   "tekst": "laatste keer goed (2026-11-14 18:03)"
   },
   {
    "naam": "Git",
@@ -525,8 +525,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 17:10",
-   "volgende": "2026-11-14 18:10"
+   "laatst": "2026-11-14 18:10",
+   "volgende": "2026-11-14 19:10"
   }
  },
  "kanaal": {
@@ -560,7 +560,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 31,
+    "views": 32,
     "verwerkt": "processed"
    },
    {
@@ -578,7 +578,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 125,
+    "views": 124,
     "verwerkt": "processed"
    },
    {
@@ -596,7 +596,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 514,
+    "views": 519,
     "verwerkt": "processed"
    },
    {
@@ -811,8 +811,8 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 14,
-   "procent": 36
+   "totaal": 13,
+   "procent": 38
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -859,8 +859,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 494,
+  "bezig_procent": 31,
+  "geheugen_mb": 477,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -946,24 +946,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 14:23",
-   "tekst": "Claude: crisis-1933 feitje 88 herschreven (Iowa State Fair in de jaren 30, past bij het beeld); SCRIPT GOED met model; keten opnieuw gestart",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-14 14:23",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-16 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 15:05",
-   "tekst": "routine-lokaal: crisis-1933: beeld 020 bleef fout, vervangen door 019.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-14 15:05",
    "tekst": "routine-lokaal: crisis-1933: beeld 079 bleef fout, vervangen door 078.png",
    "fout": false,
@@ -1028,22 +1010,34 @@
    "tekst": "Claude: VAST voor beide accounts: stories/PROMPT-SCRIPTS-DEC.md (planning op hype, thumbnailregel, Sleepy-opbouw, verdeling: hoofdsessie ijstijd/blackbeard/alchemie, ander account rome/zwarte-dood/sco",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 18:09",
+   "tekst": "Claude: blackbeard-1718 (ma 30 nov) omgebouwd naar opbouw Sleepy (84 blokken, 13 onderwerpen, nieuwe titel 'What Was Life Really Like on Blackbeard's Pirate Ship?'); SCRIPT GOED, TOON GOED, GOED",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-14 18:18",
+   "tekst": "Claude: ijstijd-20000-vc (ma 23 nov) NIEUW script geschreven (83 blokken, 13 onderwerpen, opbouw Sleepy; SCRIPT GOED, TOON GOED, GOED); beeldcheck/script_check lezen nu ook '20,000 years ago' als jaar",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-14 18:29",
+   "tekst": "Claude: alchemie-steen-der-wijzen (wo 2 dec) NIEUW script geschreven (83 blokken, 14 onderwerpen, opbouw Sleepy, opening mythe; SCRIPT GOED, TOON GOED, GOED); ijstijd + alchemie: beelden van nu/andere",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 18:03",
+   "tijd": "2026-11-14 18:29",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-12 05:46",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-12 05:53",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (B1 AFWIJKING: toonhoogte stem 74.1 Hz, voorbeeld 81.7 Hz); de oude versie blijft staan",
@@ -1081,11 +1075,11 @@
    "datum": "2026-12-02",
    "reserve": false,
    "titel": "Who Really Searched for the Philosopher's Stone? | History for Sleep",
-   "status": "script nodig (hype 12 nov 2026: History Camp \"Who ACTUALLY Searched for the Philosopher's Stone\" 40.000/dag; alchemist-slaapvideo's samen 90",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype Philosopher's Stone)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "onderwerp"
+   "opening": "mythe"
   },
   {
    "map": "alexander-331-vc",
@@ -1190,12 +1184,12 @@
    "map": "blackbeard-1718",
    "datum": "2026-11-30",
    "reserve": false,
-   "titel": "Life Aboard a Pirate Ship with Blackbeard, 1718 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "What Was Life Really Like on Blackbeard's Pirate Ship? | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "onderwerp"
   },
   {
    "map": "blitz-1940",
@@ -1466,8 +1460,8 @@
    "datum": "2026-11-23",
    "reserve": false,
    "titel": "How Did People Survive the Ice Age? | History for Sleep",
-   "status": "script nodig (hype-wachter 14 nov 2026: BREED, groeit bij meerdere kanalen: \"How Did Ice Age Humans Sleep Without Freezing to Death?\" 15.500",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype IJstijd)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
    "opening": "scène"
