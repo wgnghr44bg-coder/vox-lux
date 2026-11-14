@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-14 13:03",
+ "bijgewerkt": "2026-11-14 13:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "What Was Life Really Like in the Great Depression? | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 90%",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -152,7 +152,7 @@
     "map": "crisis-1933",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
+    "controle": "FOUT",
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -440,8 +440,8 @@
   },
   {
    "naam": "Taak 'routine'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-10 09:00)"
   },
   {
    "naam": "Taak 'scriptgenerator'",
@@ -451,12 +451,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-14 13:03)"
+   "tekst": "draait nu (2026-11-14 13:33)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-16 (crisis-1933)",
@@ -503,8 +503,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-14 13:03",
-   "volgende": "2026-11-14 13:33"
+   "laatst": "2026-11-14 13:33",
+   "volgende": "2026-11-14 14:03"
   },
   "hype": {
    "aan": true,
@@ -513,8 +513,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-14 12:10",
-   "volgende": "2026-11-14 13:10"
+   "laatst": "2026-11-14 13:10",
+   "volgende": "2026-11-14 14:10"
   }
  },
  "kanaal": {
@@ -584,7 +584,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 508,
+    "views": 506,
     "verwerkt": "processed"
    },
    {
@@ -799,12 +799,12 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 16,
-   "procent": 31
+   "totaal": 17,
+   "procent": 29
   },
   "fouten": 2,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 14,
    "totaal": 15
   }
  },
@@ -817,40 +817,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
   "map": "crisis-1933",
   "titel": "What Was Life Really Like in the Great Depression? | History for Sleep",
   "datum": "2026-11-16",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 90,
-  "detail": "80 van 89 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
-  ],
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7006,
+  "bezig_procent": 25,
+  "geheugen_mb": 479,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -936,36 +919,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-13 08:59",
-   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken voor 2026-11-14 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 10:24",
-   "tekst": "Claude: babylon-600-vc: nieuwe thumbnail op YouTube (stijl grote kanalen: groot gezicht, grote tekst BABYLON 600 BC onder het kanaallogo; eigenaar koos v1a). Oude klikfrequentie 1,9%",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 18:58",
-   "tekst": "egypte-toetanchamon: geüpload https://youtu.be/Y46Rpy4703k (privé, publiek 2026-11-14T20:00:00Z), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-13 19:09",
-   "tekst": "egypte-toetanchamon: oude versie iMkB7sUR8UU ('What Did People Actually Do When Tutankhamun Was King? | History for Sleep') verwijderd",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 19:09",
-   "tekst": "egypte-toetanchamon: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-13 19:09",
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-14 21:00",
    "fout": false,
@@ -1018,16 +971,47 @@
    "tekst": "Claude (OVERDRACHT, eigenaar 14 nov: ander account heeft geen usage meer): crisis-1933 (ma 16 nov 21:00) wordt nu op de pc gemaakt met tools/routine_lokaal.py --opnieuw crisis-1933 (log … Script = Sle",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 13:18",
+   "tekst": "routine-lokaal: crisis-1933: beeld 006 bleef fout, vervangen door 005.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 13:18",
+   "tekst": "routine-lokaal: crisis-1933: beeld 080 bleef fout, vervangen door 079.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 13:18",
+   "tekst": "routine-lokaal: crisis-1933: beeld 087 bleef fout, vervangen door 086.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 13:18",
+   "tekst": "routine-lokaal: crisis-1933: beeld 088 bleef fout, vervangen door 086.png",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-14 13:20",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-14 13:03",
-   "tekst": "Zelfcontrole: Taak 'routine': niet gevonden",
-   "fout": true
+   "tijd": "2026-11-14 13:20",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   },
   {
-   "tijd": "2026-11-14 13:03",
+   "tijd": "2026-11-14 13:33",
    "tekst": "Zelfcontrole: Video 2026-11-16 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
