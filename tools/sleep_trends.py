@@ -53,6 +53,18 @@ CHANNELS = {
     "UCeU3w3LcEUaVl1PyZDfA2Gg": "History & Sleep",              # ± 55k
     "UCPdbLTyxg6TyVKkgKFm1i-A": "Nighttime Historian",          # ± 53k
     "UC9fZBEfX5EfXMAfOhTPzaVA": "Boring History",               # ± 39k
+    # uit de top-50 lijst van de eigenaar (15 nov 2026), alleen de geschiedeniskanalen; algemene slaap/meditatie-kanalen
+    # (Pillow Talk, Honest Guys, New Horizon, Down To Sleep, Sleep Cove ...) bewust niet: geen geschiedenis, alleen ruis
+    "UCcSC_VPnipXJeqPUc2oZtrw": "Relax History AI",             # ± 117k
+    "UCESDXNqEx3uqCSI0ez76Zxg": "The Quiet Conquest",           # ± 63k
+    "UCwzKxv8Dpa1BvxcfMAKUo_g": "Joe's Sleepy History",         # ± 34k
+    "UC36RDaepjF_e2q-6LRv2KZQ": "Mystery History for Sleep",    # ± 31k
+    "UCbyWJrQEDOZcg6SBMqso0xQ": "The Sleepy Historian",         # ± 24k
+    "UCkHNkflbjNKU679-_DO_dGQ": "Boring History To Sleep",      # ± 23k
+    "UCoqruytcg1X1KgtTEvmk15Q": "Zzz History for Sleep",        # ± 18k
+    "UCNa6KSDhYttemECVadSzcAg": "Lights Out Library",           # ± 12k, slaapdocumentaires
+    "UC6kSZsMLSQcVaK9AsyBpQjw": "Historic Sleep",               # ± 11k
+    "UCQ0mhRQQXg71vFjV93yEsdg": "Sleep History Library",        # ± 5k
 }
 SEARCH = "history for sleep"
 

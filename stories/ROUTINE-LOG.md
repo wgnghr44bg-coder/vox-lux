@@ -207,3 +207,4 @@
 - 2026-11-15 20:54 hype-wachter: SEINTJE TITEL alchemie-steen-der-wijzen (2026-12-02): 'Alchemists and the Philosopher's Stone, 1600 | History for Sleep' -> voorstel 'Alchemists in Prague, 1600 | History for Sleep' (gebruikt een bekende plek en jaartal, levert duidelijk belofte over inhoud)
 - 2026-11-15 20:54 hype-wachter: SEINTJE The Little Duvet Shop: A Cozy Rainy Sleep Story -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-15 20:54 Claude: hype-wachter kijkt nu naar 23 kanalen (16 grote slaapgeschiedeniskanalen toegevoegd: Sleepless Historian, Get Sleepy, ASMR Historian, Stephen Dalton, Historian Sleepy e.a.); titel japan-1600 zonder uren
+- 2026-11-15 21:00 Claude: hype-wachter nu 33 kanalen (10 geschiedeniskanalen uit de top-50 lijst van de eigenaar erbij; algemene slaap/meditatie bewust niet)
