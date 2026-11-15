@@ -216,7 +216,7 @@ def gpu():
 def taken():
     uit = {}
     for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard", "Sleep Archives hype",
-                 "Sleep Archives bewaker"):
+                 "Sleep Archives bewaker", "Sleep Archives sitecontrole"):
         try:
             r = subprocess.run(["powershell", "-NoProfile", "-Command",
                                 f"$t = Get-ScheduledTask -TaskName '{naam}'; $i = $t | Get-ScheduledTaskInfo; "
@@ -399,7 +399,16 @@ try:                                                        # zelfcontrole (lich
     zc = zelfcontrole.alles()
 except Exception as e:
     zc = [{"naam": "Zelfcontrole", "ok": False, "tekst": f"kon niet draaien: {str(e)[:100]}"}]
-for x in zc:                                               # fouten uit de zelfcontrole ook bij de meldingen
+try:                                                        # 15 nov: de sitecontrole (elk half uur) moet zelf ook lopen
+    sc = json.loads((Path.home() / "site-controle.json").read_text(encoding="utf-8"))
+    oud = (NU - datetime.datetime.strptime(sc["laatste"], "%Y-%m-%d %H:%M")).total_seconds() / 60
+    n = len(sc.get("gemeld", {}))
+    zc.append({"naam": "Sitecontrole", "ok": oud < 70 and n == 0,
+               "tekst": (f"laatste ronde {sc['laatste'][11:]}: " + ("alles klopt" if n == 0 else f"{n} ding(en) klopt niet, zie meldingen"))
+                        if oud < 70 else f"draait niet meer (laatste ronde {sc['laatste']})"})
+except Exception:
+    zc.append({"naam": "Sitecontrole", "ok": False, "tekst": "nog nooit gedraaid (taak 'Sleep Archives sitecontrole')"})
+for x in zc:                                              # fouten uit de zelfcontrole ook bij de meldingen
     if not x["ok"]:
         fouten.append({"tijd": NU.strftime("%Y-%m-%d %H:%M"), "tekst": f"Zelfcontrole: {x['naam']}: {x['tekst']}", "fout": True})
 # ---------- duidelijke planning (eigenaar 10 nov 2026: "ik wil duidelijk de planning zien, wat er nu gebeurt en wat erna") ----------
