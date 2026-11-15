@@ -1,8 +1,9 @@
 onderwerp Life in Europe During the Black Death, 1348
-status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)
 datum    za 2026-12-12 21:00 NL (was za 2026-12-05)
-titel    How Did Ordinary People Survive the Black Death? | History for Sleep
-opening   voorwerp
-titelsoort how-survive
+titel    Life in Florence Before the Black Death, 1347 | History for Sleep (eigenaar 14 nov: concrete titel; was: How Did Ordinary People Survive the Black Death?)
+opening   onderwerp
+titelsoort life-before
 thumbnail amberregel "FLORENCE · 1348", hook "Life in Europe", beeld: een rustige pestdokter met de bekende snavelmasker en lange zwarte mantel op afstand in een stil kaarsverlicht middeleeuws straatje van Florence, de koepel van de Duomo in de schemering erachter; geen zieken, niets griezeligs (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    middeleeuwen
+thumbnail kenmerk: het middeleeuwse Florence in 1347 aan de Arno met de Ponte Vecchio en stenen torens, wolververs die rode en blauwe stoffen laten drogen langs de rivier en kooplieden en families in kleding van 1347 op de brug; warm avondlicht
