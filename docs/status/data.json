@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 05:33",
+ "bijgewerkt": "2026-11-15 06:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 78%",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 05:33)"
+   "tekst": "draait nu (2026-11-15 06:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 05:29: alles klopt"
+   "tekst": "laatste ronde 05:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -527,12 +527,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-15 06:00"
+   "volgende": "2026-11-16 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 05:33",
-   "volgende": "2026-11-15 06:03"
+   "laatst": "2026-11-15 06:03",
+   "volgende": "2026-11-15 06:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "nog niet",
-   "volgende": "2026-11-15 05:48"
+   "laatst": "2026-11-15 05:48",
+   "volgende": "2026-11-15 06:18"
   }
  },
  "kanaal": {
@@ -831,9 +831,9 @@
  "kpi": {
   "geplande": 1,
   "runs": {
-   "goed": 6,
+   "goed": 5,
    "totaal": 17,
-   "procent": 35
+   "procent": 29
   },
   "fouten": 5,
   "zelfcontrole": {
@@ -850,20 +850,18 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 0,
  "huidig": {
   "map": "dallas-1963",
   "titel": "Life in Dallas, November 1963 | History for Sleep",
   "datum": "2026-11-21",
   "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 78,
-  "detail": "70 van 90 beelden",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
+  "voortgang": null,
+  "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -871,19 +869,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 75,
-  "geheugen_mb": 7107,
+  "bezig_procent": 79,
+  "geheugen_mb": 531,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -969,42 +959,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 23:40",
-   "tekst": "eigenaar: Babylon (KwUvlP42M34) en WO2 (ZZ5JMtF9kuI) op YouTube nieuwe titel + thumbnail (thumbnail-v3-nieuw.jpg). Over ±2 weken CTR vergelijken (was 2,5% en 0,7%)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 23:50",
-   "tekst": "Claude: VAST (eigenaar 14 nov: 'zorg dat je dit niet vergeet'): stories/AFSPRAKEN.md met alle afspraken + tools/afspraken_check.py, die routine_lokaal vóór elke video draait (stopt bij fout). b1_proef",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 00:01",
-   "tekst": "crisis-1933: geüpload https://youtu.be/R2rgLUMJxac (privé, publiek 2026-11-16T20:00:00Z), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-15 00:06",
-   "tekst": "crisis-1933: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-15 00:06",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-16 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
    "fout": true,
@@ -1051,6 +1005,42 @@
    "tekst": "Claude: NIEUW tools/site_controle.py (eigenaar 15 nov: 'altijd iemand die de site controleert'): elk half uur (:18/:48) site vs werkelijkheid (bijgewerkt/push, datum+status per video, nu bezig = echte",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:43",
+   "tekst": "Claude: BEGIN VEEL KORTER (eigenaar 15 nov na crisis: 'rest your shoulders blah blah duurt te lang'): begin.txt nu 2-3 zinnen verhaal + \"Let's begin.\" (37-48 woorden) bij alle 9 komende video's, geen ",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:45",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '0",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:49",
+   "tekst": "Claude: FIX beeldcheck (dallas 05:45: 63/90 afgekeurd om 'cars from the 1950s/1960s'): een decennium of jaartal tot en met het jaar van de video telt niet meer als modern. Dallas opnieuw de keten in n",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:56",
+   "tekst": "Claude: 'Let's begin' uit het begin gehaald (eigenaar 15 nov) bij alle 9 komende video's; begin = alleen 2-3 zinnen verhaal. Keten gestart voor gettysburg-1863,dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:56",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:59",
+   "tekst": "Claude: abonneerzin per video anders verwoord en even lang (17-20 woorden, zoals Gettysburg 18), afspraken_check bewaakt 15-22 woorden",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -1067,17 +1057,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 05:33",
+   "tijd": "2026-11-15 06:03",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 05:33",
+   "tijd": "2026-11-15 06:03",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 05:33",
+   "tijd": "2026-11-15 06:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -1116,6 +1106,12 @@
   {
    "tijd": "2026-11-15 05:16",
    "tekst": "Claude: gettysburg-1863 stopte op SCRIPT FOUT (lokaal model keurde 'electric light' in feitje 16 af); zin herschreven, SCRIPT GOED, TOON GOED, AFWISSELING GOED; opnieuw maken na dallas-1963",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 05:45",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '0",
    "fout": true,
    "klaar": false
   }
