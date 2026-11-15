@@ -314,7 +314,7 @@ async function laad(){
   if(d.claude&&d.claude.accounts){$("clTijd").textContent="· "+d.claude.bijgewerkt.slice(11,16);
     $("claude").innerHTML="<tr><th>Account</th><th>5 uur</th><th>Week</th><th>Nog te doen</th></tr>"+d.claude.accounts.map(a=>{
       const p5=a["5uur_pct"]!=null?a["5uur_pct"]+"%":kort(a["5uur"]),pw=a["week_pct"]!=null?a["week_pct"]+"%":kort(a.week);
-      const over=a.week_scripts_over!=null?`± ${a.week_scripts_over} scripts deze week`:(a.script_kost?"nog niet afgesteld":"-");
+      const over=a.week_stappen_over!=null?`± ${a.week_stappen_over} stappen of ${a.week_scripts_over} scripts`:(a.script_kost?"nog niet afgesteld":"-");
       return `<tr><td>${esc(a.account)}</td><td>${esc(p5)}</td><td>${esc(pw)}</td><td>${esc(over)}</td></tr>`}).join("");
     $("clUitleg").textContent="Percentages pas na afstellen met /usage in Claude. Een script kost ongeveer "+kort((d.claude.accounts.find(a=>a.script_kost)||{}).script_kost||0)+" eenheden.";}
   else $("claude").innerHTML=`<tr><td class="zacht">Nog geen gegevens.</td></tr>`;

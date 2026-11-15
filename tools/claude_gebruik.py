@@ -76,7 +76,9 @@ def meet(d):
     for t, e, _ in rij:
         k = t.astimezone().strftime("%a %d-%m")
         per_dag[k] = per_dag.get(k, 0) + e
-    return {"5uur": vijf, "week": week, "per_dag": per_dag, "berichten": len(rij)}
+    recent = [e for t, e, _ in rij if t >= nu - dt.timedelta(hours=24)]
+    stap = sum(recent) / len(recent) if recent else 0       # gemiddelde kosten per stap (antwoord/tool-stap) laatste 24 uur
+    return {"5uur": vijf, "week": week, "per_dag": per_dag, "berichten": len(rij), "stap": stap}
 
 
 def taak_kosten(d):
@@ -120,13 +122,14 @@ def main():
             continue
         kost = taak_kosten(d)
         r = {"account": acc, "5uur": round(g["5uur"]), "week": round(g["week"]), "per_dag": {k: round(v) for k, v in g["per_dag"].items()},
-             "script_kost": round(kost["script (± 85 blokken)"] or 0), "metingen": kost["metingen"]}
+             "script_kost": round(kost["script (± 85 blokken)"] or 0), "metingen": kost["metingen"], "stap_kost": round(g["stap"])}
         for soort in ("5uur", "week"):
             lim = ijk.get(acc, {}).get(soort, {}).get("limiet")
             if lim:
                 over = max(0, lim - g[soort])
                 r[f"{soort}_pct"] = round(100 * g[soort] / lim)
                 r[f"{soort}_scripts_over"] = round(over / kost["script (± 85 blokken)"], 1) if kost["script (± 85 blokken)"] else None
+                r[f"{soort}_stappen_over"] = round(over / g["stap"]) if g["stap"] else None
         uit.append(r)
     if "--json" in sys.argv:
         print(json.dumps({"bijgewerkt": dt.datetime.now().strftime("%Y-%m-%d %H:%M"), "accounts": uit}, ensure_ascii=False))
@@ -137,9 +140,11 @@ def main():
         print(f"  laatste 7 dagen: {r['week']:,} eenheden" + (f"  = {r['week_pct']}% van de weeklimiet" if 'week_pct' in r else ""))
         if r["script_kost"]:
             print(f"  een script kost ± {r['script_kost']:,} eenheden (gemeten over {r['metingen']} scripts)")
+        print(f"  een stap (antwoord of tool) kost nu gemiddeld ± {r['stap_kost']:,} eenheden"
+              + ("  -> GROTE SESSIE: een nieuwe sessie maakt elke stap veel goedkoper" if r['stap_kost'] > 50000 else ""))
         for soort, naam in (("5uur", "in dit 5-uursblok"), ("week", "deze week")):
-            if r.get(f"{soort}_scripts_over") is not None:
-                print(f"  nog ± {r[f'{soort}_scripts_over']} scripts {naam}")
+            if r.get(f"{soort}_stappen_over") is not None:
+                print(f"  nog ± {r[f'{soort}_stappen_over']} stappen {naam} (in deze sessie), of ± {r[f'{soort}_scripts_over']} scripts als je verder niets doet")
         if "week_pct" not in r:
             print(f"  (nog niet afgesteld: kijk in Claude met /usage en draai: python tools/claude_gebruik.py --ijk {r['account']} week <procent>)")
         print("  per dag: " + ", ".join(f"{k} {v:,}" for k, v in r["per_dag"].items()))
