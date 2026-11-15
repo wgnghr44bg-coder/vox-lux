@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 12:33",
+ "bijgewerkt": "2026-11-15 12:45",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 48%",
+    "detail": "Video bouwen · 50%",
     "soort": "nu"
    }
   ],
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 12:33)"
+   "tekst": "laatste keer goed (2026-11-15 12:33)"
   },
   {
    "naam": "Git",
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 5,
+    "views": 6,
     "verwerkt": "processed"
    },
    {
@@ -617,7 +617,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 343,
+    "views": 344,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 566,
+    "views": 562,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +635,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -653,7 +653,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 27,
+    "views": 28,
     "verwerkt": "processed"
    }
   ],
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 48,
+  "voortgang": 50,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 15:50",
-   "youtube": "2026-11-15 16:10"
+   "klaar": "2026-11-15 16:07",
+   "youtube": "2026-11-15 16:27"
   }
  },
  "nu_bezig": [
@@ -880,8 +880,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 522,
+  "bezig_procent": 25,
+  "geheugen_mb": 506,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -967,12 +967,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 05:43",
-   "tekst": "Claude: BEGIN VEEL KORTER (eigenaar 15 nov na crisis: 'rest your shoulders blah blah duurt te lang'): begin.txt nu 2-3 zinnen verhaal + \"Let's begin.\" (37-48 woorden) bij alle 9 komende video's, geen ",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 05:45",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '0",
    "fout": true,
@@ -1049,6 +1043,12 @@
    "tekst": "Claude: gettysburg thumbnail-gekozen.jpg vervangen door de nieuwe v3 (soldaten + inwoners), vóór de upload; de keten uploadt nu vanzelf de goede. Oude Lincoln-versie bewaard als thumbnail-gekozen-oud-",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 12:45",
+   "tekst": "Claude: NIEUW tools/claude_gebruik.py (eigenaar 15 nov): meet Claude-gebruik per account uit de lokale gesprekken (laatste 5 uur, 7 dagen, kosten per script) en rekent na afstellen met /usage uit hoev",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -1059,12 +1059,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 12:33",
+   "tijd": "2026-11-15 12:45",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 12:33",
+   "tijd": "2026-11-15 12:45",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -2699,6 +2699,41 @@
      "goudkoorts-1849"
     ],
     "advies": "KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 2027-01-18"
+   }
+  ]
+ },
+ "claude": {
+  "bijgewerkt": "2026-11-15 12:46",
+  "accounts": [
+   {
+    "account": "hoofd",
+    "5uur": 0,
+    "week": 73199604,
+    "per_dag": {
+     "Thu 12-11": 29715489,
+     "Tue 10-11": 9700590,
+     "Wed 11-11": 18320330,
+     "Fri 13-11": 7939845,
+     "Sun 08-11": 1744461,
+     "Mon 09-11": 5778890
+    },
+    "script_kost": 360570,
+    "metingen": 1
+   },
+   {
+    "account": "account2",
+    "5uur": 6166248,
+    "week": 65458901,
+    "per_dag": {
+     "Sat 14-11": 28603729,
+     "Sun 15-11": 13248611,
+     "Thu 12-11": 4335576,
+     "Wed 11-11": 2382045,
+     "Sun 08-11": 4120866,
+     "Tue 10-11": 12768073
+    },
+    "script_kost": 630228,
+    "metingen": 7
    }
   ]
  },
