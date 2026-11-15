@@ -152,3 +152,5 @@
 - 2026-11-15 05:45 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '022', '024', '025', '026', '027', '028', '029', '031', '032', '033',); de oude versie blijft staan
 - 2026-11-15 05:49 Claude: FIX beeldcheck (dallas 05:45: 63/90 afgekeurd om 'cars from the 1950s/1960s'): een decennium of jaartal tot en met het jaar van de video telt niet meer als modern. Dallas opnieuw de keten in na Gettysburg
 - 2026-11-15 05:56 Claude: 'Let's begin' uit het begin gehaald (eigenaar 15 nov) bij alle 9 komende video's; begin = alleen 2-3 zinnen verhaal. Keten gestart voor gettysburg-1863,dallas-1963
+- 2026-11-15 05:56 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-15 05:59 Claude: abonneerzin per video anders verwoord en even lang (17-20 woorden, zoals Gettysburg 18), afspraken_check bewaakt 15-22 woorden

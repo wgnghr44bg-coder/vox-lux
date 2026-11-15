@@ -51,6 +51,10 @@ def controleer(m):
             fout.append("abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2)")
         if not (sf / "abonneer.txt").exists():
             fout.append("geen src-feiten/abonneer.txt")
+        else:                                               # 15 nov: per video anders verwoord, wel even lang (± 18 woorden)
+            n = len((sf / "abonneer.txt").read_text(encoding="utf-8").split())
+            if not 15 <= n <= 22:
+                fout.append(f"abonneerzin {n} woorden (afspraak: 15-22, ongeveer even lang als bij Gettysburg)")
         import script_leesbaar
         tn = script_leesbaar.toon(m)
         if not tn or tn.get("toon") != "TOON GOED":

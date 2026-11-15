@@ -15,7 +15,8 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - **Begin (15 nov, eigenaar: "veel korter, rest your shoulders blah blah duurt te lang"):** 25-70 woorden, 2-3 zinnen die
   meteen het verhaal neerzetten (plaats + tijd + het beeld van de thumbnail). Geen "Let's begin" (15 nov). GEEN ontspanningszinnen
   (rest your shoulders, breathe, let your …), geen "In this story we will …".
-- **Abonneerzin:** niet in het begin maar in `src-feiten/abonneer.txt`; klinkt na feitje 2 (rond minuut 3).
+- **Abonneerzin:** niet in het begin maar in `src-feiten/abonneer.txt`; klinkt na feitje 2 (rond minuut 3). Elke video
+  anders verwoord, maar even lang: 15-22 woorden (eigenaar 15 nov, zoals Gettysburg: 18 woorden).
 - **Slot:** terugblik, "another … story … on the screen", kort abonneren, als laatste "Sleep well, and good night."
 - Controles: `script_leesbaar` (GOED + TOON GOED), `check_afwisseling`, `script_check` (SCRIPT GOED).
 
