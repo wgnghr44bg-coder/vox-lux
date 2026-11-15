@@ -220,6 +220,7 @@ dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-film"/></svg>Komende video's <small>21:00 NL</small></h2><div class="tabel"><table id="komend"></table></div></section>
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-raket"/></svg>Trends &amp; Kansen <small id="hypeTijd"></small></h2><div class="trend" id="trends"></div></section>
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-doc"/></svg>Scripts <small id="scKlaar"></small></h2><div class="tabel"><table id="scripts"></table></div></section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-grafiek"/></svg>Claude-gebruik <small id="clTijd"></small></h2><div class="tabel"><table id="claude"></table></div><div class="zacht" id="clUitleg"></div></section>
   </div>
 
   <!-- ================= AUTOMATISERING ================= -->
@@ -308,6 +309,15 @@ async function laad(){
       const r=p.soort==="hype"?`<span class="pct">${kort(p.per_dag)}/dag</span>`:`<span class="pct">${esc(p.datum.slice(8,10))}-${esc(p.datum.slice(5,7))}</span>`;
       return `<div title="${esc(p.advies)}"><svg class="i" style="color:${kans?"#d6b8ff":"#9a93bf"}"><use href="#i-grafiek"/></svg><span class="t">${esc(p.titel||p.naam)}</span>${kans?`<span class="pct kans">kans</span>`:""}${r}</div>`}).join("")}
   else $("trends").innerHTML=`<div class="zacht">De hype-wachter draait elke dag om 08:30.</div>`;
+
+  // Claude-gebruik (tools/claude_gebruik.py): gemeten tokens, afgesteld op /usage
+  if(d.claude&&d.claude.accounts){$("clTijd").textContent="· "+d.claude.bijgewerkt.slice(11,16);
+    $("claude").innerHTML="<tr><th>Account</th><th>5 uur</th><th>Week</th><th>Nog te doen</th></tr>"+d.claude.accounts.map(a=>{
+      const p5=a["5uur_pct"]!=null?a["5uur_pct"]+"%":kort(a["5uur"]),pw=a["week_pct"]!=null?a["week_pct"]+"%":kort(a.week);
+      const over=a.week_scripts_over!=null?`± ${a.week_scripts_over} scripts deze week`:(a.script_kost?"nog niet afgesteld":"-");
+      return `<tr><td>${esc(a.account)}</td><td>${esc(p5)}</td><td>${esc(pw)}</td><td>${esc(over)}</td></tr>`}).join("");
+    $("clUitleg").textContent="Percentages pas na afstellen met /usage in Claude. Een script kost ongeveer "+kort((d.claude.accounts.find(a=>a.script_kost)||{}).script_kost||0)+" eenheden.";}
+  else $("claude").innerHTML=`<tr><td class="zacht">Nog geen gegevens.</td></tr>`;
 
   // weekstrook: maandag t/m zondag van deze week
   const nu=new Date(),ma=new Date(nu.getFullYear(),nu.getMonth(),nu.getDate()-((nu.getDay()+6)%7),12);
