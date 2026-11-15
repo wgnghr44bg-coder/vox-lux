@@ -1,0 +1,351 @@
+{
+ "bijgewerkt": "2026-11-15 20:46",
+ "titels": [
+  {
+   "map": "babylon-600-vc",
+   "datum": "2026-11-12",
+   "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "op YouTube staat 'Why Was Babylon the Greatest City on Earth? | History for Sleep'; is een vraag",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "egypte-toetanchamon",
+   "datum": "2026-11-14",
+   "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+   "fouten": [
+    "is een vraag"
+   ],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "op YouTube: 'What Did People Actually Do When Tutankhamun Was King? | History for Sleep' is een vraag",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "crisis-1933",
+   "datum": "2026-11-16",
+   "titel": "Life in the Great Depression, 1933 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
+     "kanaal": "Sleepy History Channel",
+     "per_dag": 3894
+    },
+    {
+     "titel": "What Winter Felt Like for Ordinary People in Colonial America | History for Sleep",
+     "kanaal": "Sleepy Quiet Historian",
+     "per_dag": 452
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "gettysburg-1863",
+   "datum": "2026-11-18",
+   "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "dallas-1963",
+   "datum": "2026-11-21",
+   "titel": "Life in Dallas, November 1963 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "ijstijd-20000-vc",
+   "datum": "2026-11-23",
+   "titel": "How People Survived the Ice Age | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
+     "kanaal": "Just About Earth",
+     "per_dag": 5739
+    },
+    {
+     "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
+     "kanaal": "Old History Nights",
+     "per_dag": 5165
+    },
+    {
+     "titel": "What Life Was REALLY Like in London During the Little Ice Age | History for Sleep",
+     "kanaal": "Sleepy Quiet Historian",
+     "per_dag": 526
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "thanksgiving-1621",
+   "datum": "2026-11-25",
+   "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "boeren-winter-1300",
+   "datum": "2026-11-28",
+   "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
+     "kanaal": "Sleepless Historian",
+     "per_dag": 5899
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "blackbeard-1718",
+   "datum": "2026-11-30",
+   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "alchemie-steen-der-wijzen",
+   "datum": "2026-12-02",
+   "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
+     "kanaal": "History Camp",
+     "per_dag": 19985
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "kerst-loopgraven-1914",
+   "datum": "2026-12-05",
+   "titel": "Christmas in the Trenches, 1914 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "pearl-harbor-1941",
+   "datum": "2026-12-07",
+   "titel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "rome-44-vc",
+   "datum": "2026-12-09",
+   "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
+     "kanaal": "Sleepy History Channel",
+     "per_dag": 1115
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "zwarte-dood-1348",
+   "datum": "2026-12-12",
+   "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "How People Rebuilt Their Lives After the Black Death in England | History for Sleep",
+     "kanaal": "Sleepy Quiet Historian",
+     "per_dag": 791
+    },
+    {
+     "titel": "What Happened Inside Medieval Homes During the Black Death | History for Sleep",
+     "kanaal": "Sleepy Quiet Historian",
+     "per_dag": 538
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "scott-antarctica-1912",
+   "datum": "2026-12-14",
+   "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
+     "kanaal": "Kaushik Bhattacharjee Extra",
+     "per_dag": 8792
+    },
+    {
+     "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
+     "kanaal": "Bedtime & Historian ",
+     "per_dag": 1180
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "man-ijzeren-masker-1703",
+   "datum": "2026-12-16",
+   "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "What Life Was Like in Iron Age Britain, 300 BC | History for Sleep",
+     "kanaal": "Sleepy Quiet Historian",
+     "per_dag": 440
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "londen-kerst-1843",
+   "datum": "2026-12-19",
+   "titel": "Life in Victorian London at Christmas, 1843 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
+     "kanaal": "Sleepy Lost World",
+     "per_dag": 3203
+    },
+    {
+     "titel": "The Room Rented for One Year | A Cozy Victorian Sleep Story",
+     "kanaal": "Sleepy Victorian",
+     "per_dag": 1599
+    },
+    {
+     "titel": "The Stranger Who Stayed in a Yorkshire Village | Cozy Victorian Sleep Story",
+     "kanaal": "The Quiet Inn",
+     "per_dag": 1520
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "mary-celeste-1872",
+   "datum": "2026-12-21",
+   "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
+     "kanaal": "Bedtime & Historian ",
+     "per_dag": 1180
+    }
+   ],
+   "bekeken": ""
+  },
+  {
+   "map": "bethlehem",
+   "datum": "2026-12-23",
+   "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
+   "fouten": [],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [],
+   "bekeken": ""
+  },
+  {
+   "map": "japan-1600",
+   "datum": "2026-12-26",
+   "titel": "Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep",
+   "fouten": [
+    "eindigt niet op '| History for Sleep'"
+   ],
+   "let_op": [],
+   "voorstel": "",
+   "waarom": "",
+   "youtube": "",
+   "concurrent": [
+    {
+     "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
+     "kanaal": "The French Whisperer ASMR",
+     "per_dag": 6414
+    }
+   ],
+   "bekeken": ""
+  }
+ ],
+ "model": "niet nodig"
+}

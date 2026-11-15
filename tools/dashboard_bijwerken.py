@@ -216,7 +216,7 @@ def gpu():
 def taken():
     uit = {}
     for naam in ("Sleep Archives routine", "Sleep Archives scriptgenerator", "Sleep Archives dashboard", "Sleep Archives hype",
-                 "Sleep Archives bewaker", "Sleep Archives sitecontrole"):
+                 "Sleep Archives bewaker", "Sleep Archives sitecontrole", "Sleep Archives titels"):
         try:
             r = subprocess.run(["powershell", "-NoProfile", "-Command",
                                 f"$t = Get-ScheduledTask -TaskName '{naam}'; $i = $t | Get-ScheduledTaskInfo; "
@@ -583,6 +583,8 @@ data = {
     "video": video,
     # hype-wachter (eigenaar 12 nov 2026: "die je dan een seintje geeft op tijd"): tools/hype_wacht.py, elke dag 08:30
     "hype": json.loads((STORIES / "hype.json").read_text(encoding="utf-8")) if (STORIES / "hype.json").exists() else None,
+    # titelwachter (eigenaar 15 nov 2026: "hype wachter zorgt dat elke titel goed gekozen is"): tools/titel_wacht.py
+    "titels": json.loads((STORIES / "titels.json").read_text(encoding="utf-8")) if (STORIES / "titels.json").exists() else None,
     # Claude-gebruik (eigenaar 15 nov 2026): tools/claude_gebruik.py, alleen tellen, geen sleutels
     "claude": (lambda r: json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip().startswith("{") else None)(
         subprocess.run([sys.executable, str(HIER / "claude_gebruik.py"), "--json"], capture_output=True, text=True,

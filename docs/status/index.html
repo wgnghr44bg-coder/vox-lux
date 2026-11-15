@@ -222,6 +222,7 @@ dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
     </section>
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-film"/></svg>Komende video's <small>21:00 NL</small></h2><div class="tabel"><table id="komend"></table></div></section>
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-raket"/></svg>Trends &amp; Kansen <small id="hypeTijd"></small></h2><div class="trend" id="trends"></div></section>
+    <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-doc"/></svg>Titels <small id="titelTijd"></small></h2><div class="trend" id="titels"></div></section>
     <section class="kaart" style="margin-top:12px"><h2><svg class="i"><use href="#i-doc"/></svg>Scripts <small id="scKlaar"></small></h2><div class="tabel"><table id="scripts"></table></div></section>
   </div>
 
@@ -311,6 +312,16 @@ async function laad(){
       const r=p.soort==="hype"?`<span class="pct">${kort(p.per_dag)}/dag</span>`:`<span class="pct">${esc(p.datum.slice(8,10))}-${esc(p.datum.slice(5,7))}</span>`;
       return `<div title="${esc(p.advies)}"><svg class="i" style="color:${kans?"#d6b8ff":"#9a93bf"}"><use href="#i-grafiek"/></svg><span class="t">${esc(p.titel||p.naam)}</span>${kans?`<span class="pct kans">kans</span>`:""}${r}</div>`}).join("")}
   else $("trends").innerHTML=`<div class="zacht">De hype-wachter draait elke dag om 08:30.</div>`;
+
+  // titels (tools/titel_wacht.py): regels, voorstel van het lokale model, titel op YouTube
+  if(d.titels){$("titelTijd").textContent="· "+d.titels.bijgewerkt.slice(8,10)+"-"+d.titels.bijgewerkt.slice(5,7)+" "+d.titels.bijgewerkt.slice(11);
+    const tl=(d.titels.titels||[]).filter(t=>t.fouten.length||t.voorstel||t.youtube||t.datum>=isoDag(new Date()))
+      .sort((a,b)=>((a.fouten.length||a.youtube)?0:a.voorstel?1:2)-((b.fouten.length||b.youtube)?0:b.voorstel?1:2)||a.datum.localeCompare(b.datum));
+    $("titels").innerHTML=tl.slice(0,14).map(t=>{const fout=t.fouten.length||t.youtube;
+      const st=t.fouten.length?`<span class="pct" style="color:#ff8a8a">${esc(t.fouten.join(", "))}</span>`:t.youtube?`<span class="pct" style="color:#ff8a8a">YouTube</span>`:t.voorstel?`<span class="pct kans">voorstel</span>`:`<span class="pct">goed</span>`;
+      const uitleg=[t.youtube,t.voorstel?"Voorstel: "+t.voorstel+" ("+t.waarom+")":"",(t.concurrent||[]).map(c=>c.titel+" ("+c.per_dag+"/dag)").join(" · ")].filter(Boolean).join("\n");
+      return `<div title="${esc(uitleg)}"><svg class="i" style="color:${fout?"#ff8a8a":t.voorstel?"#d6b8ff":"#9a93bf"}"><use href="#i-doc"/></svg><span class="t">${esc(t.datum.slice(8,10))}-${esc(t.datum.slice(5,7))} ${esc(t.titel.replace(/ \| History for Sleep$/,""))}${t.voorstel?`<br><small class="zacht">→ ${esc(t.voorstel.replace(/ \| History for Sleep$/,""))}</small>`:""}</span>${st}</div>`}).join("")||`<div class="zacht">Alle titels goed.</div>`}
+  else $("titels").innerHTML=`<div class="zacht">De titelwachter draait elke 2 uur.</div>`;
 
   // Claude-gebruik (tools/claude_gebruik.py): gemeten tokens, afgesteld op /usage
   // Claude-gebruik (tools/claude_gebruik.py): balken zoals /usage in Claude, alleen afgestelde accounts

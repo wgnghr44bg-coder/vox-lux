@@ -127,7 +127,7 @@ def hype(plan):
     token = st.access_token()
     nu = dt.datetime.now(timezone.utc)
     ids = sorted(st.recent_ids(token, nu - dt.timedelta(days=30)))
-    rijen = []
+    rijen, alle = [], []
     for i in range(0, len(ids), 50):
         for v in st.get(token, "videos", part="snippet,statistics", id=",".join(ids[i:i + 50])).get("items", []):
             t, kanaal = v["snippet"]["title"], v["snippet"]["channelTitle"]
@@ -136,6 +136,8 @@ def hype(plan):
             slaap = "sleep" in t.lower() or kanaal in st.CHANNELS.values()
             pub = dt.datetime.fromisoformat(v["snippet"]["publishedAt"].replace("Z", "+00:00"))
             per_dag = int(v["statistics"].get("viewCount", 0)) / max((nu - pub).total_seconds() / 86400, 1)
+            if slaap:                                       # 15 nov: alle titels bewaren voor de titelwachter
+                alle.append({"titel": t, "kanaal": kanaal, "per_dag": round(per_dag), "datum": pub.date().isoformat()})
             if per_dag >= MIN_PER_DAG and slaap:
                 rijen.append({"soort": "hype", "per_dag": round(per_dag), "titel": t, "kanaal": kanaal,
                               "id": v["id"], "datum": pub.date().isoformat(), "ons": lijkt_op_planning(t, plan)})
@@ -147,6 +149,9 @@ def hype(plan):
                   and (n & ({x.lower() for x in re.findall(r"\b[A-Z][a-z]{3,}\b", q["titel"])} - STOP) or len(w & woorden(q["titel"])) >= 2)}
         r["breed"] = len(andere)
     rijen.sort(key=lambda r: -(r["per_dag"] * (1 + 0.5 * r["breed"])))
+    (STORIES / "concurrent.json").write_text(json.dumps({"bijgewerkt": nu.strftime("%Y-%m-%d %H:%M"),
+                                                         "videos": sorted(alle, key=lambda r: -r["per_dag"])},
+                                                        indent=1, ensure_ascii=False), encoding="utf-8")
     return rijen[:25]
 
 
@@ -227,6 +232,11 @@ def main():
                 f.write(f"- {dt.datetime.now():%Y-%m-%d %H:%M} hype-wachter: SEINTJE {p.get('titel') or p['naam']}"
                         f" -> {p['advies']}\n")
     print("\n".join(regels))
+    try:                                                    # 15 nov: daarna meteen de titels (tools/titel_wacht.py)
+        import titel_wacht
+        titel_wacht.main()
+    except Exception as e:
+        print("titelwachter:", e)
 
 
 if __name__ == "__main__":
