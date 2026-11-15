@@ -56,7 +56,11 @@ ECHT_MODERN = (r"\b(modern|contemporary|recent|newer|19[5-9]0s?|20\d\d|smartphon
 
 
 def bestond_al(ding, jaar_):
-    return bool(jaar_ >= 1920 and re.search(TOEN_AL, ding, re.I) and not re.search(ECHT_MODERN, ding, re.I))
+    # 15 nov 2026, Dallas 1963: 63/90 beelden afgekeurd om "cars from the 1950s/1960s" terwijl die er in 1963 gewoon
+    # reden. Een decennium dat al begonnen was in het jaar van de video telt niet als modern.
+    d = re.sub(r"\b(1[89]\d0|20\d0)'?s\b", lambda m: "" if int(m.group(1)) <= jaar_ else m.group(0), ding)
+    d = re.sub(r"\b(1[89]\d\d)\b", lambda m: "" if int(m.group(1)) <= jaar_ else m.group(0), d)
+    return bool(jaar_ >= 1920 and re.search(TOEN_AL, d, re.I) and not re.search(ECHT_MODERN, d, re.I))
 
 
 def staat_in_prompt(ding, prompt):
