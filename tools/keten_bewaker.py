@@ -1,9 +1,11 @@
 """Keten-bewaker (eigenaar 13 nov 2026: "zorg ervoor dat hij niet meer vastloopt en gewoon aan de planning houdt").
 
 Elk uur (Taakplanner "Sleep Archives bewaker") op de pc, kost niets:
-  - draait er al een keten (tools/routine_lokaal.py)? dan niets doen;
-  - anders: alle video's met een datum in de komende 14 dagen die nog gemaakt moeten worden, op volgorde van datum,
-    in één nieuwe keten zetten (routine_lokaal.py --opnieuw "a!,b!,...").
+  - draait er al een keten (tools/routine_lokaal.py)? dan niets doen, behalve als hij al 3 uur (bij uploaden 8 uur)
+    niets meer wegschrijft: dan hangt hij en stopt de waakhond hem (15 nov);
+  - anders: van de video's met een datum in de komende 14 dagen die nog gemaakt moeten worden, de eerste op datum
+    in een nieuwe keten zetten (routine_lokaal.py --opnieuw "a!"). Na elke video roept de keten de bewaker meteen
+    weer aan (--wacht-op <pid>), dus er gaat geen uur verloren en een vroegere datum gaat altijd voor (15 nov).
 Nog te maken = status "script-klaar"/"bezig", of "klaar" maar het script is daarna nog veranderd (bv. omgebouwd naar
 de nieuwe opbouw, Egypte 13 nov). Een video die vandaag al 2 keer GESTOPT is, wordt tot morgen overgeslagen, zodat
 één kapotte video de rest niet ophoudt. Video's zonder script ("script nodig") komen als SEINTJE in het logboek.
@@ -27,14 +29,58 @@ def log(t):
         f.write(f"- {dt.datetime.now():%Y-%m-%d %H:%M} bewaker: {t}\n")
 
 
-def keten_draait():
+def pids(patroon):
     out = subprocess.run(["powershell", "-NoProfile", "-Command",
                           # alleen python-processen: deze powershell-opdracht bevat zelf ook 'routine_lokaal' en zag
                           # zichzelf altijd als draaiende keten, waardoor de bewaker nooit iets startte (gevonden 15 nov)
-                          "Get-CimInstance Win32_Process | ? { $_.Name -match 'python' -and $_.CommandLine -match 'routine_lokaal' } "
+                          f"Get-CimInstance Win32_Process | ? {{ $_.Name -match 'python' -and $_.CommandLine -match '{patroon}' }} "
                           "| % { $_.ProcessId }"],
                          capture_output=True, text=True, timeout=90).stdout
-    return bool(out.strip())
+    return [int(x) for x in out.split() if x.strip().isdigit()]
+
+
+def keten_draait():
+    return bool(pids("routine_lokaal"))
+
+
+# 15 nov 2026 (eigenaar: "zorg dat hij niet meer vastloopt"): waakhond. Een keten schrijft altijd ergens iets weg
+# (beelden, stemclips, video's, logboek). Is er zo lang niets veranderd, dan hangt hij (ComfyUI, Ollama of ffmpeg die
+# niet meer reageert): keten met alles eronder stoppen; daarna start de bewaker hem gewoon opnieuw.
+STIL_UUR = 3          # tijdens uploaden (vervang_video.py) mag het langer stil zijn
+STIL_UUR_UPLOAD = 8
+
+
+def laatste_activiteit():
+    nieuwst = 0.0
+    for p in [LOG, KETENLOG] + list(Path.home().glob("*.log")):
+        try:
+            nieuwst = max(nieuwst, p.stat().st_mtime)
+        except OSError:
+            pass
+    for wortel, mappen, bestanden in os.walk(STORIES):
+        if wortel.count(os.sep) - str(STORIES).count(os.sep) >= 3:
+            mappen[:] = []
+        for b in bestanden:
+            try:
+                nieuwst = max(nieuwst, os.stat(os.path.join(wortel, b)).st_mtime)
+            except OSError:
+                pass
+    return dt.datetime.fromtimestamp(nieuwst)
+
+
+def waakhond(droog=False):
+    stil = dt.datetime.now() - laatste_activiteit()
+    grens = STIL_UUR_UPLOAD if pids("vervang_video") else STIL_UUR
+    if stil < dt.timedelta(hours=grens):
+        return False
+    uren = stil.total_seconds() / 3600
+    print(f"keten lijkt vast: al {uren:.1f} uur niets veranderd")
+    if droog:
+        return False
+    for pid in pids("routine_lokaal"):
+        subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True)
+    log(f"keten GESTOPT door de waakhond: al {uren:.1f} uur niets veranderd (vastgelopen); wordt opnieuw gestart")
+    return True
 
 
 def script_datum(m):
@@ -78,10 +124,24 @@ def te_maken(vandaag):
 def main():
     vandaag = dt.date.today()
     droog = "--droog" in sys.argv
+    if "--wacht-op" in sys.argv:                            # aangeroepen door een keten die net klaar is
+        import time
+        pid = sys.argv[sys.argv.index("--wacht-op") + 1]
+        for _ in range(240):
+            if pid not in subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True).stdout:
+                break
+            time.sleep(15)
+        vandaag = dt.date.today()
     if keten_draait():
-        print("keten draait al")
-        return
-    subprocess.run(["git", "pull", "-q", "--rebase", "--autostash"], cwd=REPO)
+        if not waakhond(droog):
+            print("keten draait al")
+            return
+        import time
+        time.sleep(20)
+    sys.path.insert(0, str(HIER))
+    from gitveilig import bewaar
+    if not droog:
+        bewaar([], "")                                      # veilig pull (wachtrij), niet meer rechtstreeks git pull
     lijst, seintjes = te_maken(vandaag)
     oud = LOG.read_text(encoding="utf-8", errors="replace")
     for s in seintjes:
@@ -92,6 +152,9 @@ def main():
         print("niets te maken")
         return
     print("te maken:", ", ".join(lijst))
+    # 15 nov 2026: één video per keten. Na elke video kiest de bewaker opnieuw (de keten roept hem aan), zodat een video
+    # met een vroegere datum nooit achter een lange keten hoeft te wachten en nieuwe fixes/scripts meteen meetellen.
+    lijst = lijst[:1]
     if droog:
         return
     log(f"keten gestart voor {', '.join(lijst)}")

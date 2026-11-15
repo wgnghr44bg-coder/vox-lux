@@ -42,11 +42,16 @@ def run(cmd, **kw):
 
 
 def git_push(paden, boodschap):
+    # 15 nov 2026: via de wachtrij (tools/gitveilig.py), zodat de keten niet botst met dashboard/Claude (half
+    # afgemaakte rebase door een open bestand); vroeger rechtstreeks git add/commit/pull/push
+    from gitveilig import bewaar
     paden = [p for p in paden if Path(p).is_file()]            # alleen losse bestanden, nooit een hele map
-    run(["git", "add"] + [str(p) for p in paden])
-    run(["git", "commit", "-q", "-m", boodschap])
-    run(["git", "pull", "-q", "--rebase", "--autostash"])
-    run(["git", "push", "-q", "origin", "main"])
+    print("$ git (gitveilig)", boodschap, flush=True)
+    bewaar(paden, boodschap)
+
+
+def git_pull():
+    git_push([], "")                                         # niets te committen: alleen veilig pull + push
 
 
 def planning(m):
@@ -237,6 +242,22 @@ def maak_video(m, datum, test=False):
         log(f"{m.name}: beeldcontrole brak af zonder uitslag, opnieuw ({r.stderr.strip()[-150:]})")
         comfy_aan()
     fout_b = re.search(r"BEELDEN FOUT: (\d+)/(\d+) goedgekeurd, fout: \[([^\]]*)\]", r.stdout)
+    if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) > max(3, int(fout_b.group(2)) * 0.15):
+        # 15 nov 2026 (eigenaar: "zorg dat hij niet meer vastloopt"; Dallas): de herschrijfrondes maakten de beschrijvingen
+        # steeds slechter ("Only horses, wagons" in Dallas 1963). Eén extra poging met de originele beschrijvingen uit git.
+        fouten_nrs = re.findall(r"'(\d+)'", fout_b.group(3))
+        orig = subprocess.run(["git", "show", f"HEAD:stories/{m.name}/prompts.txt"], cwd=REPO, capture_output=True,
+                              text=True, encoding="utf-8", errors="replace").stdout
+        orig = {r_.split("|", 1)[0]: r_ for r_ in orig.splitlines() if "|" in r_}
+        regels = (m / "prompts.txt").read_text(encoding="utf-8").splitlines()
+        terug = [n for n in fouten_nrs if n in orig and orig[n] not in regels]
+        if terug:
+            regels = [orig[r_.split("|", 1)[0]] if r_.split("|", 1)[0] in terug else r_ for r_ in regels]
+            (m / "prompts.txt").write_text("\n".join(regels) + "\n", encoding="utf-8")
+            log(f"{m.name}: {len(fouten_nrs)} beelden fout; {len(terug)} beschrijvingen terug naar het origineel, nog één beeldcontrole")
+            r = run([OMNI, str(HIER / "beeldcheck.py"), str(m)])
+            print(r.stdout[-1500:], r.stderr[-800:])
+            fout_b = re.search(r"BEELDEN FOUT: (\d+)/(\d+) goedgekeurd, fout: \[([^\]]*)\]", r.stdout)
     if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= max(3, int(fout_b.group(2)) * 0.15):
         # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hardnekkige beelden (na 4 rondes opnieuw
         # maken) vervangen door het goedgekeurde beeld ervoor, zodat de video niet blijft liggen. 13 nov (eigenaar: "zorg
@@ -323,9 +344,9 @@ if __name__ == "__main__":
             while not (m / "planning.txt").exists():         # nieuw script (bv. thanksgiving-1621) nog niet geschreven
                 print(f"{datetime.datetime.now():%H:%M} {naam}: wacht op het nieuwe script", flush=True)
                 time.sleep(600)
-                run(["git", "pull", "-q", "--rebase", "--autostash"])
+                git_pull()
             datum = planning(m)[1]
-            run(["git", "pull", "-q", "--rebase", "--autostash"])
+            git_pull()
             lb = run([sys.executable, str(HIER / "script_leesbaar.py"), str(m)]).stdout
             # 13 nov 2026: niet meer wachten (Gettysburg hing 9 uur op leesbaarheid 69,9 i.p.v. 70 en hield de rest op).
             # Toon goed en leesbaarheid minstens GOED is genoeg; anders deze overslaan, de bewaker probeert het later.
@@ -339,9 +360,19 @@ if __name__ == "__main__":
             except Exception as e:
                 log(f"{m.name}: opnieuw maken GESTOPT ({e}); de oude versie blijft staan")
             git_push([STORIES / "ROUTINE-LOG.md", m / "planning.txt"], f"{m.name}: opnieuw maken (routine-lokaal)")
+        # 15 nov 2026: meteen de bewaker laten kiezen wat er nu moet (op datum, met de nieuwste scripts en fixes),
+        # zodra deze keten echt weg is; niet wachten op zijn volgende uur
+        import os
+        vlag = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+        try:
+            subprocess.Popen([sys.executable, str(HIER / "keten_bewaker.py"), "--wacht-op", str(os.getpid())], cwd=REPO,
+                             creationflags=vlag | subprocess.CREATE_BREAKAWAY_FROM_JOB)
+        except OSError:
+            subprocess.Popen([sys.executable, str(HIER / "keten_bewaker.py"), "--wacht-op", str(os.getpid())], cwd=REPO,
+                             creationflags=vlag)
         sys.exit(0)
     run(["git", "checkout", "-q", "main"])
-    run(["git", "pull", "-q"])
+    git_pull()
     m, datum = kies(alleen_kijken="--plan" in sys.argv)
     if "--plan" in sys.argv:
         print("volgende video:", m and m.name, "op", datum)
