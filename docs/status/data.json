@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 08:33",
+ "bijgewerkt": "2026-11-15 09:03",
  "werkplanning": {
   "nu": [
    {
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "200 GB vrij"
+   "tekst": "196 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 08:33)"
+   "tekst": "draait nu (2026-11-15 09:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 08:18: alles klopt"
+   "tekst": "laatste ronde 08:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -522,7 +522,7 @@
   "routine": {
    "aan": false,
    "laatst": "2026-11-10 09:00",
-   "volgende": "2026-11-15 09:00"
+   "volgende": "2026-11-17 09:00"
   },
   "scriptgenerator": {
    "aan": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 08:33",
-   "volgende": "2026-11-15 09:03"
+   "laatst": "2026-11-15 09:03",
+   "volgende": "2026-11-15 09:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 08:18",
-   "volgende": "2026-11-15 08:48"
+   "laatst": "2026-11-15 08:48",
+   "volgende": "2026-11-15 09:18"
   }
  },
  "kanaal": {
@@ -880,7 +880,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 19,
   "geheugen_mb": 433,
   "totaal_mb": 8192
  },
@@ -1065,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 08:33",
+   "tijd": "2026-11-15 09:03",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 08:33",
+   "tijd": "2026-11-15 09:03",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 08:33",
+   "tijd": "2026-11-15 09:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
