@@ -35,7 +35,7 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | wo 2 dec | `alchemie-steen-der-wijzen` | **nieuw script** (hype Philosopher's Stone) | hoofdsessie (14 nov) |
 | wo 9 dec | `rome-44-vc` | KLAAR (15 nov, hoofdsessie) | - |
 | za 12 dec | `zwarte-dood-1348` | KLAAR (15 nov, hoofdsessie) | - |
-| ma 14 dec | `scott-antarctica-1912` | ombouwen (datum = 115 jaar Amundsen op de Zuidpool; mag dat noemen) | ander account |
+| ma 14 dec | `scott-antarctica-1912` | KLAAR (15 nov, hoofdsessie) | - |
 | za 19 dec | `londen-kerst-1843` | ombouwen uit de oude opbouw (datum = 183 jaar A Christmas Carol) | ander account |
 | wo 23 dec | `bethlehem` | ombouwen uit de oude opbouw | ander account |
 | wo 16 dec | `man-ijzeren-masker-1703` | **nieuw script** (gezocht: the man in the iron mask) | volgende vrije sessie |

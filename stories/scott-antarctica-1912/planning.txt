@@ -1,8 +1,9 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
-status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)
 datum    ma 2026-12-14 21:00 NL (hype-wachter 14 nov: precies 115 jaar na Amundsen op de Zuidpool, de race die Scott verloor; Antarctica-hype; was wo 2026-12-16)
-titel    Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep
-opening   raadsel
-titelsoort why
+titel    Captain Scott's Expedition to the South Pole, 1911 | History for Sleep
+opening   scène
+titelsoort event
 thumbnail amberregel "ANTARCTICA · 1912", hook "With Captain Scott", beeld: vijf poolreizigers in wol en bont die een houten slee met de Britse vlag trekken over het witte ijs, lage gouden poolzon en lange schaduwen, de bergen van Antarctica erachter (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    reis
+thumbnail kenmerk: vijf Britse poolreizigers in wol en bont die een houten slee trekken over het witte ijs van Antarctica in 1911, met de Britse vlag op de slee, de Terra Nova en de rokende vulkaan Erebus op de achtergrond; lage gouden poolzon en lange schaduwen
