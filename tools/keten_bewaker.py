@@ -103,6 +103,8 @@ def te_maken(vandaag):
             continue
         m = p.parent
         status = (re.search(r"^status\s+(.+)$", t, re.M) or [None, ""])[1].strip()
+        if status.startswith("compilatie"):                # 15 nov: compilaties gaan (nog) niet via de gewone keten
+            continue
         if status.startswith("script nodig") or not ((m / "src-feiten").exists() or (m / "src").exists()):
             seintjes.append(f"{m.name} ({datum}) heeft nog geen script")
             continue

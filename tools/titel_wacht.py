@@ -50,8 +50,8 @@ def regels(titel):
     kern = titel.split(" | ")[0].strip()
     if "?" in kern:
         fout.append("is een vraag")
-    if re.search(r"<N>|\bhours?\b", kern, re.I):
-        fout.append("noemt uren of <N>")
+    if re.search(r"<N>", kern) or (re.search(r"\bhours?\b", kern, re.I) and not re.match(r"\d+ Hours of ", kern)):
+        fout.append("noemt uren of <N>")                   # "8 Hours of …" mag wel: dat is de vorm van een compilatie
     namen = [w for w in re.findall(r"\b[A-Z][a-z'’]+\b", kern)[1:] if w not in ("The", "A", "An", "Of", "In", "On", "And")]
     if not re.search(r"\d|\bBC\b|\bAD\b", kern) and not namen:
         fout.append("niet concreet (geen plaats, naam of jaartal)")
@@ -70,7 +70,8 @@ def planning():
         d = re.search(r"(\d{4}-\d{2}-\d{2})", g("datum"))
         if not d or "reserve" in g("datum"):
             continue
-        titel = re.sub(r"\s*\((eigenaar|was|hype|\d{1,2} nov).*$", "", g("titel")).strip()
+        titel = re.sub(r"(\| History for Sleep)\s*\(.*$", r"\1", g("titel"))
+        titel = re.sub(r"\s*\((eigenaar|was|hype|\d{1,2} nov).*$", "", titel).strip()
         link = re.search(r"https://youtu\.be/([A-Za-z0-9_-]{11})", t)
         uit.append({"map": p.parent.name, "datum": d.group(1), "titel": titel, "status": g("status"),
                     "onderwerp": g("onderwerp"), "id": link.group(1) if link else ""})
@@ -206,7 +207,7 @@ def main():
                 r["youtube"] = (r["youtube"] + "; " if r["youtube"] else f"op YouTube: '{ytt}' ") + ", ".join(yfout)
         # voorstel van het model (alleen voor video's die nog niet klaar/geüpload zijn; daarvoor is het seintje
         # hierboven over YouTube genoeg)
-        if d >= vandaag and not v["status"].startswith("klaar"):
+        if d >= vandaag and not v["status"].startswith(("klaar", "compilatie")):
             rij = verwant(v, conc)
             r["concurrent"] = [{"titel": c["titel"], "kanaal": c["kanaal"], "per_dag": c["per_dag"]} for c in rij[:3]]
             o = oud.get(v["map"], {})

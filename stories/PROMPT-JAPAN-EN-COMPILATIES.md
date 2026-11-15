@@ -25,6 +25,9 @@ Zoals `stories/londen-kerst-1843/` en `stories/bethlehem/` (opnieuw geschreven i
 
 ## Stap 2. Plan voor compilaties (NIETS uploaden; plan eerst aan de eigenaar voorleggen)
 Voorbeelden: "8 Hours of Ancient History" (Egypte, Babylon, Rome, IJstijd, Bethlehem), "8 Hours of Medieval Life".
+**Staan al in de planning** (eigenaar 15 nov): `stories/compilatie-oudheid` (ma 4 jan) en `stories/compilatie-middeleeuwen`
+(ma 11 jan), status `compilatie-plan (wacht op akkoord eigenaar)`; de bewaker slaat ze over. Werk het plan uit op die
+datums (onderdelen staan in planning.txt; aantal uren in de titel = echte duur, naar beneden afgerond).
 - Welke video's zijn al af: `planning.txt` status `klaar` + link; nog op de pc aanwezig (`stories/<map>/video/*-16mm.mp4`)
   of alleen op YouTube? (Na upload ruimt de keten bestanden op: kijk wat er nog is en wat opnieuw gerenderd moet.)
 - Hoe aan elkaar zetten: `tools/montage_engine.sh` (stappen, 16mm, QC) en `tools/vervang_video.py` (upload, afspeellijst,
