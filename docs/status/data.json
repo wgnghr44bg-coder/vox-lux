@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 13:33",
+ "bijgewerkt": "2026-11-15 14:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 67%",
+    "detail": "Video bouwen · 82%",
     "soort": "nu"
    }
   ],
@@ -112,7 +112,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-09",
+  "klaar_tot": "2026-12-16",
   "rij": [
    {
     "datum": "2026-11-16",
@@ -248,39 +248,39 @@
    },
    {
     "datum": "2026-12-12",
-    "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
+    "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
     "map": "zwarte-dood-1348",
-    "klaar": false,
-    "stand": "script afgekeurd, moet opnieuw",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 65,
+    "niveau": 7.6,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-14",
-    "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
+    "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
     "map": "scott-antarctica-1912",
-    "klaar": false,
-    "stand": "script afgekeurd, moet opnieuw",
-    "controle": "FOUT",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 71,
+    "niveau": 6.7,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-16",
     "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
     "map": "man-ijzeren-masker-1703",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 69,
+    "niveau": 7.1,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-19",
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "192 GB vrij"
+   "tekst": "191 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 13:33)"
+   "tekst": "draait nu (2026-11-15 14:03)"
   },
   {
    "naam": "Git",
@@ -503,18 +503,18 @@
   },
   {
    "naam": "Script scott-antarctica-1912",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
   },
   {
    "naam": "Script zwarte-dood-1348",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
   },
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:18: alles klopt"
+   "tekst": "laatste ronde 13:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 13:33",
-   "volgende": "2026-11-15 14:03"
+   "laatst": "2026-11-15 14:03",
+   "volgende": "2026-11-15 14:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 13:18",
-   "volgende": "2026-11-15 13:48"
+   "laatst": "2026-11-15 13:48",
+   "volgende": "2026-11-15 14:18"
   }
  },
  "kanaal": {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 568,
+    "views": 562,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +635,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -653,7 +653,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 27,
+    "views": 28,
     "verwerkt": "processed"
    }
   ],
@@ -835,9 +835,9 @@
    "totaal": 14,
    "procent": 29
   },
-  "fouten": 3,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 15,
    "totaal": 15
   }
  },
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 67,
+  "voortgang": 82,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:22",
-   "youtube": "2026-11-15 16:42"
+   "klaar": "2026-11-15 16:16",
+   "youtube": "2026-11-15 16:36"
   }
  },
  "nu_bezig": [
@@ -880,8 +880,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 522,
+  "bezig_procent": 1,
+  "geheugen_mb": 588,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -967,24 +967,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 05:45",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '0",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:49",
-   "tekst": "Claude: FIX beeldcheck (dallas 05:45: 63/90 afgekeurd om 'cars from the 1950s/1960s'): een decennium of jaartal tot en met het jaar van de video telt niet meer als modern. Dallas opnieuw de keten in n",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:56",
-   "tekst": "Claude: 'Let's begin' uit het begin gehaald (eigenaar 15 nov) bij alle 9 komende video's; begin = alleen 2-3 zinnen verhaal. Keten gestart voor gettysburg-1863,dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 05:56",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1049,26 +1031,27 @@
    "tekst": "Claude: NIEUW tools/claude_gebruik.py (eigenaar 15 nov): meet Claude-gebruik per account uit de lokale gesprekken (laatste 5 uur, 7 dagen, kosten per script) en rekent na afstellen met /usage uit hoev",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
+   "tijd": "2026-11-15 13:34",
+   "tekst": "Claude: zwarte-dood-1348 (za 12 dec) omgebouwd naar opbouw Sleepy (86 blokken, titel 'Life in Florence Before the Black Death, 1347', kort begin, abonneerzin na feitje 2); SCRIPT GOED, TOON GOED, AFSP",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-15 13:51",
+   "tekst": "Claude: scott-antarctica-1912 omgebouwd naar opbouw Sleepy (91 feitjes, 15.274 woorden; titel 'Captain Scott's Expedition to the South Pole, 1911'; kort begin, abonneer.txt, nieuw slot; SCRIPT/TOON/AF",
+   "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 13:33",
-   "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-15 13:33",
-   "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
-   "fout": true
+   "tijd": "2026-11-15 13:58",
+   "tekst": "Claude: man-ijzeren-masker-1703 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.475 woorden, 13 onderwerpen; titel 'The Man in the Iron Mask, France 1703'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOE",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-14 13:20",
@@ -1079,6 +1062,12 @@
   {
    "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
    "fout": true,
    "klaar": false
   },
@@ -1685,8 +1674,8 @@
    "datum": "2026-12-16",
    "reserve": false,
    "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
-   "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
    "opening": "persoon"
@@ -1937,12 +1926,12 @@
    "map": "scott-antarctica-1912",
    "datum": "2026-12-14",
    "reserve": false,
-   "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
-   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
-   "soort": "script oud",
+   "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": "raadsel"
+   "opening": "scène"
   },
   {
    "map": "sherwood-1190",
@@ -2201,12 +2190,12 @@
    "map": "zwarte-dood-1348",
    "datum": "2026-12-12",
    "reserve": false,
-   "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
-   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
-   "soort": "script oud",
+   "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "voorwerp"
+   "opening": "onderwerp"
   }
  ],
  "hype": {
@@ -2703,7 +2692,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 13:33",
+  "bijgewerkt": "2026-11-15 14:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -2725,26 +2714,26 @@
    },
    {
     "account": "account2",
-    "5uur": 9081689,
-    "week": 68374342,
+    "5uur": 10837234,
+    "week": 69761088,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 16164052,
+     "Sun 15-11": 17919598,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Sun 08-11": 4120866,
+     "Sun 08-11": 3752067,
      "Tue 10-11": 12768073
     },
-    "script_kost": 630228,
-    "metingen": 7,
-    "stap_kost": 86692,
+    "script_kost": 663104,
+    "metingen": 10,
+    "stap_kost": 85054,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 59,
-    "5uur_scripts_over": 10.2,
-    "5uur_stappen_over": 74,
-    "week_pct": 48,
-    "week_scripts_over": 118.0,
+    "5uur_pct": 70,
+    "5uur_scripts_over": 7.0,
+    "5uur_stappen_over": 55,
+    "week_pct": 49,
+    "week_scripts_over": 110.0,
     "week_stappen_over": 858
    }
   ]
