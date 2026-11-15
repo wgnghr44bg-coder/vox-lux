@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 19:33",
+ "bijgewerkt": "2026-11-15 20:03",
  "werkplanning": {
   "nu": [
    {
@@ -473,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 19:33)"
+   "tekst": "draait nu (2026-11-15 20:03)"
   },
   {
    "naam": "Git",
@@ -508,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -525,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 19:33",
-   "volgende": "2026-11-15 20:03"
+   "laatst": "2026-11-15 20:03",
+   "volgende": "2026-11-15 20:33"
   },
   "hype": {
    "aan": true,
@@ -540,8 +540,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 19:18",
-   "volgende": "2026-11-15 19:48"
+   "laatst": "2026-11-15 19:48",
+   "volgende": "2026-11-15 20:18"
   }
  },
  "kanaal": {
@@ -1038,8 +1038,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 19:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-15 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -2689,7 +2689,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 19:33",
+  "bijgewerkt": "2026-11-15 20:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -2711,7 +2711,7 @@
    },
    {
     "account": "account2",
-    "5uur": 393245,
+    "5uur": 0,
     "week": 68657970,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -2725,9 +2725,9 @@
     "stap_kost": 84960,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 3,
-    "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 155,
+    "5uur_pct": 0,
+    "5uur_scripts_over": 21.9,
+    "5uur_stappen_over": 160,
     "week_pct": 52,
     "week_scripts_over": 102.3,
     "week_stappen_over": 746
