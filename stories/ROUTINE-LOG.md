@@ -171,3 +171,4 @@
 - 2026-11-15 14:20 Claude: tower-of-london-1536 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.870 woorden, 13 onderwerpen; titel 'Life in the Tower of London, 1536'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 14:27 Claude: londen-kerst-1843 omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 86 feitjes, 14.690 woorden; titel 'Life in Victorian London at Christmas, 1843'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 14:36 Claude: bethlehem omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 80 feitjes, 13.948 woorden; titel 'Life in Bethlehem, the First Christmas'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
+- 2026-11-15 15:54 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
