@@ -1,17 +1,17 @@
 {
- "bijgewerkt": "2026-11-15 20:03",
+ "bijgewerkt": "2026-11-15 20:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "",
+    "wat": "Life in Gettysburg, July 1863 | History for Sleep",
+    "map": "gettysburg-1863",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "na Dallas",
+    "wanneer": "na Gettysburg",
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
     "detail": "keten maakt de video voor ma 23-11 21:00"
@@ -473,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 20:03)"
+   "tekst": "draait nu (2026-11-15 20:33)"
   },
   {
    "naam": "Git",
@@ -508,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -525,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 20:03",
-   "volgende": "2026-11-15 20:33"
+   "laatst": "2026-11-15 20:33",
+   "volgende": "2026-11-15 21:03"
   },
   "hype": {
    "aan": true,
@@ -535,19 +535,19 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 19:10",
-   "volgende": "2026-11-15 20:10"
+   "laatst": "2026-11-15 20:10",
+   "volgende": "2026-11-15 21:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 19:48",
-   "volgende": "2026-11-15 20:18"
+   "laatst": "2026-11-15 20:18",
+   "volgende": "2026-11-15 20:48"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2764,
+  "views_totaal": 2822,
   "video_aantal": 16,
   "week": {
    "views": 510,
@@ -829,7 +829,7 @@
    "totaal": 17,
    "procent": 24
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 14,
    "totaal": 15
@@ -844,23 +844,35 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "map": "gettysburg-1863",
+  "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "95 van 95 beelden",
+  "taken": [
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 492,
+  "bezig_procent": 73,
+  "geheugen_mb": 7039,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -946,24 +958,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 12:45",
-   "tekst": "Claude: NIEUW tools/claude_gebruik.py (eigenaar 15 nov): meet Claude-gebruik per account uit de lokale gesprekken (laatste 5 uur, 7 dagen, kosten per script) en rekent na afstellen met /usage uit hoev",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 13:34",
-   "tekst": "Claude: zwarte-dood-1348 (za 12 dec) omgebouwd naar opbouw Sleepy (86 blokken, titel 'Life in Florence Before the Black Death, 1347', kort begin, abonneerzin na feitje 2); SCRIPT GOED, TOON GOED, AFSP",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-15 13:51",
-   "tekst": "Claude: scott-antarctica-1912 omgebouwd naar opbouw Sleepy (91 feitjes, 15.274 woorden; titel 'Captain Scott's Expedition to the South Pole, 1911'; kort begin, abonneer.txt, nieuw slot; SCRIPT/TOON/AF",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 13:58",
    "tekst": "Claude: man-ijzeren-masker-1703 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.475 woorden, 13 onderwerpen; titel 'The Man in the Iron Mask, France 1703'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOE",
    "fout": false,
@@ -1028,28 +1022,34 @@
    "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 20:31",
+   "tekst": "Claude: 3 fouten hersteld: (1) keten_bewaker zag zijn eigen zoekopdracht als draaiende keten en startte daardoor NOOIT een keten; (2) gettysburg-kaart had gebied in verkeerde volgorde (wereldkaart, ov",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 20:31",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 20:32",
+   "tekst": "Claude: dallas-1963 beeldcontrole hersteld: (1) model noemt zelf jaren 50/60 en twijfelt dan vaag -> geen fout meer; (2) herstelzinnen voor oude tijden ('only people on foot', 'only small flames') nie",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-15 19:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-15 20:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
@@ -1089,6 +1089,12 @@
   {
    "tijd": "2026-11-15 18:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 19:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
   }
@@ -2689,7 +2695,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 20:03",
+  "bijgewerkt": "2026-11-15 20:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -2711,26 +2717,26 @@
    },
    {
     "account": "account2",
-    "5uur": 0,
-    "week": 68657970,
+    "5uur": 1417021,
+    "week": 70074991,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 20568546,
+     "Sun 15-11": 21985568,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 84960,
+    "stap_kost": 78574,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 0,
-    "5uur_scripts_over": 21.9,
-    "5uur_stappen_over": 160,
-    "week_pct": 52,
-    "week_scripts_over": 102.3,
-    "week_stappen_over": 746
+    "5uur_pct": 10,
+    "5uur_scripts_over": 19.6,
+    "5uur_stappen_over": 155,
+    "week_pct": 53,
+    "week_scripts_over": 100.0,
+    "week_stappen_over": 788
    }
   ]
  },
