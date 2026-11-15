@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 09:33",
+ "bijgewerkt": "2026-11-15 10:03",
  "werkplanning": {
   "nu": [
    {
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "195 GB vrij"
+   "tekst": "194 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 09:33)"
+   "tekst": "draait nu (2026-11-15 10:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 09:18: alles klopt"
+   "tekst": "laatste ronde 09:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 09:33",
-   "volgende": "2026-11-15 10:03"
+   "laatst": "2026-11-15 10:03",
+   "volgende": "2026-11-15 10:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 09:18",
-   "volgende": "2026-11-15 09:48"
+   "laatst": "2026-11-15 09:48",
+   "volgende": "2026-11-15 10:18"
   }
  },
  "kanaal": {
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 4,
+    "views": 5,
     "verwerkt": "processed"
    },
    {
@@ -1065,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 09:33",
+   "tijd": "2026-11-15 10:03",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 09:33",
+   "tijd": "2026-11-15 10:03",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 09:33",
+   "tijd": "2026-11-15 10:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
