@@ -167,3 +167,4 @@
 - 2026-11-15 13:51 Claude: scott-antarctica-1912 omgebouwd naar opbouw Sleepy (91 feitjes, 15.274 woorden; titel 'Captain Scott's Expedition to the South Pole, 1911'; kort begin, abonneer.txt, nieuw slot; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 13:58 Claude: man-ijzeren-masker-1703 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.475 woorden, 13 onderwerpen; titel 'The Man in the Iron Mask, France 1703'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 14:05 Claude: mary-celeste-1872 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.670 woorden, 13 onderwerpen; titel 'The Mary Celeste Ghost Ship, 1872'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
+- 2026-11-15 14:12 Claude: dansplaag-1518 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.694 woorden, 13 onderwerpen; titel 'The Dancing Plague of Strasbourg, 1518'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
