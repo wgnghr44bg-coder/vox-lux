@@ -430,6 +430,25 @@ def werkplanning():
             todo.append({"map": "", "datum": dag.isoformat(), "titel": "Vrije plek: de routine kiest een populair onderwerp",
                          "soort": "vrij"})
     todo.sort(key=lambda v: v["datum"])
+    bewaker_aan = bool(tk.get("bewaker") and tk["bewaker"]["aan"])
+    if bewaker_aan and not routine_aan:      # 15 nov: de bewaker (elk uur) zet de video's van de komende 14 dagen op
+        DG = ["ma", "di", "wo", "do", "vr", "za", "zo"]     # datumvolgorde in één keten; dat is de echte volgorde
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from keten_bewaker import te_maken
+            lijst, _ = te_maken(VANDAAG)
+        except Exception:
+            lijst = []
+        per_map = {v["map"]: v for v in video}
+        for n in [n for n in lijst if not (huidig and n == huidig["map"])]:
+            v = per_map.get(n, {"titel": n, "datum": ""})
+            d = v.get("datum") or ""
+            daarna.append({"wanneer": f"na {wacht_op[:40]}" if huidig else "bij de volgende bewakerronde (elk uur)",
+                           "wat": v["titel"], "map": n,
+                           "detail": (f"keten maakt de video voor {DG[datetime.date.fromisoformat(d).weekday()]} "
+                                      f"{int(d[8:])}-{int(d[5:7])} 21:00") if d else "keten"})
+            wacht_op = n.split("-")[0].capitalize()
+        todo = []                            # de oude routine-planning (zo/di/do 09:00) geldt dan niet
     runs = []
     for i in range(0, 21):                                   # routine: zondag, dinsdag en donderdag 09:00
         dag = VANDAAG + datetime.timedelta(days=i)
