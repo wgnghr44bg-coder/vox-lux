@@ -208,6 +208,17 @@ def alle(niet_wachten=False):
 
 def maak_voor_map(m, regel1, regel2, kenmerk, achtergrond, licht="warm lamplight", moment="", voorwerp=""):
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
+    m = Path(m)
+    try:
+        import torch  # noqa: F401  (de beeldkeuring heeft torch nodig)
+    except ImportError:
+        # 15 nov 2026: de keten draait onder Python312 zonder torch ('No module named torch' -> terugval op de oude
+        # stijl). Dan dezelfde functie in de OmniVoice-omgeving (met torch) laten draaien.
+        arg = json.dumps({"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond,
+                          "licht": licht, "moment": moment, "voorwerp": voorwerp})
+        subprocess.run([r"C:/Users/rane/omnivoice-venv/Scripts/python.exe", str(Path(__file__)), "--voor-map", str(m), arg],
+                       cwd=REPO)
+        return (m / "thumbnail-v3.jpg") if (m / "thumbnail-v3.jpg").exists() else None
     werk = m / "thumb3"
     item = {"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond, "moment": moment}
     kandidaten(werk, [("t", kenmerk, achtergrond, licht, moment, voorwerp)])
@@ -220,3 +231,7 @@ if __name__ == "__main__":
         print(opmaak(*sys.argv[i + 1:i + 5]))
     elif "--alle" in sys.argv:
         alle("--nu" in sys.argv)
+    elif "--voor-map" in sys.argv:                          # aangeroepen door maak_voor_map zonder torch
+        i = sys.argv.index("--voor-map")
+        a = json.loads(sys.argv[i + 2])
+        print(maak_voor_map(Path(sys.argv[i + 1]), **a))
