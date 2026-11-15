@@ -1,6 +1,9 @@
 onderwerp Life in Bethlehem, the First Christmas
-status   script-klaar (2026-11-01, tweede account)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)
 datum    wo 2026-12-23 21:00 NL (hype-wachter 14 nov: vlak voor Kerstmis; was za 2026-12-19, geruild met londen-kerst-1843)
-titel    Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep (58 tekens)
+titel    Life in Bethlehem, the First Christmas | History for Sleep
+opening   onderwerp
+titelsoort life-in
 thumbnail amberregel "BETHLEHEM · THE FIRST CHRISTMAS", hook "Life in Bethlehem", beeld: de heldere ster van Bethlehem boven het kleine witte stenen dorp op de heuvel, op de voorgrond de drie wijzen op kamelen in rijke mantels, paars-gouden avondlucht (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oudheid
+thumbnail kenmerk: het kleine witte stenen dorp Bethlehem op de heuvel met de heldere ster erboven, herders met schapen op de helling en drie wijzen op kamelen in rijke mantels op de weg ernaartoe, ongeveer 2000 jaar geleden; paars-gouden avondlucht
