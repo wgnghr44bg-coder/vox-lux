@@ -1,0 +1,214 @@
+{
+ "onderwerp": "Life in Gettysburg, July 1863",
+ "intro": false,
+ "slot": false,
+ "items": [
+  {
+   "soort": "hoofdstuk",
+   "tijd": 10,
+   "nummer": 1,
+   "titel": "A crossroads town in the hills"
+  },
+  {
+   "soort": "datum",
+   "tijd": 123.6,
+   "regel1": "Spring, 1863",
+   "regel2": "Gettysburg, Pennsylvania"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 661.3,
+   "nummer": 2,
+   "titel": "Brick houses and busy days"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 1441.2,
+   "nummer": 3,
+   "titel": "A butcher's daughter on Baltimore Street"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2120.7,
+   "nummer": 4,
+   "titel": "The college, the seminary and the hill"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 2730.7,
+   "nummer": 5,
+   "titel": "Letters, rumours and an old constable"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3330.4,
+   "nummer": 6,
+   "titel": "Soldiers in the rain"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3433.4,
+   "regel1": "June 26, 1863",
+   "regel2": "Gettysburg"
+  },
+  {
+   "soort": "datum",
+   "tijd": 3688.7,
+   "regel1": "June 30, 1863",
+   "regel2": "Washington Street"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 3929.2,
+   "nummer": 7,
+   "titel": "Two armies on the roads"
+  },
+  {
+   "soort": "kaart",
+   "tijd": 4448.2,
+   "titel": "Ten roads into Gettysburg, June 1863",
+   "gebied": [
+    -79.0,
+    -75.8,
+    38.6,
+    40.6
+   ],
+   "plaatsen": [
+    {
+     "naam": "Gettysburg",
+     "lon": -77.23,
+     "lat": 39.83,
+     "kant": "links"
+    },
+    {
+     "naam": "Chambersburg",
+     "lon": -77.66,
+     "lat": 39.94,
+     "kant": "links"
+    },
+    {
+     "naam": "Harrisburg",
+     "lon": -76.88,
+     "lat": 40.27,
+     "kant": "rechts"
+    },
+    {
+     "naam": "York",
+     "lon": -76.73,
+     "lat": 39.96,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Baltimore",
+     "lon": -76.61,
+     "lat": 39.29,
+     "kant": "rechts"
+    },
+    {
+     "naam": "Washington",
+     "lon": -77.04,
+     "lat": 38.9,
+     "kant": "links"
+    }
+   ]
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 4526.5,
+   "nummer": 8,
+   "titel": "The first two days of July"
+  },
+  {
+   "soort": "datum",
+   "tijd": 4627.2,
+   "regel1": "July 1, 1863",
+   "regel2": "Gettysburg"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5132.8,
+   "regel1": "July 2, 1863",
+   "regel2": "Little Round Top"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 5366.3,
+   "nummer": 9,
+   "titel": "The third day, and a rainy Fourth of July"
+  },
+  {
+   "soort": "datum",
+   "tijd": 5470.2,
+   "regel1": "July 3, 1863",
+   "regel2": "Baltimore Street"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6052.1,
+   "nummer": 10,
+   "titel": "A town that became a hospital"
+  },
+  {
+   "soort": "datum",
+   "tijd": 6338.6,
+   "regel1": "Summer, 1863",
+   "regel2": "Camp Letterman"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 6589.2,
+   "nummer": 11,
+   "titel": "A resting place on Cemetery Hill"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7019.7,
+   "nummer": 12,
+   "titel": "Two minutes on a November afternoon"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7120.9,
+   "regel1": "November 18, 1863",
+   "regel2": "The Wills house"
+  },
+  {
+   "soort": "hoofdstuk",
+   "tijd": 7680.2,
+   "nummer": 13,
+   "titel": "After the war, and Gettysburg today"
+  },
+  {
+   "soort": "datum",
+   "tijd": 7877.6,
+   "regel1": "July, 1913",
+   "regel2": "Gettysburg"
+  },
+  {
+   "soort": "tijdlijn",
+   "tijd": 7969.6,
+   "punten": [
+    [
+     "July 1863",
+     "Three days of battle"
+    ],
+    [
+     "Nov 1863",
+     "Lincoln's few words"
+    ],
+    [
+     "1865",
+     "The war ends"
+    ],
+    [
+     "1889",
+     "Tillie writes her book"
+    ],
+    [
+     "1913",
+     "The great reunion"
+    ]
+   ]
+  }
+ ]
+}

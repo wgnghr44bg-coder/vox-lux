@@ -376,6 +376,12 @@ class Kaart:
         W, H, U = c.W, c.H, c.U
         self.c = c
         lon0, lon1, lat0, lat1 = it["gebied"]
+        # 15 nov 2026 (Gettysburg): gebied stond als [lon0, lat0, lon1, lat1] -> een wereldkaart met overlappende namen.
+        # Liggen de plaatsen niet in het gebied zoals bedoeld, maar wel in de andere volgorde, dan die volgorde nemen.
+        pl = it.get("plaatsen", [])
+        binnen = lambda a, b, c_, d: all(a <= p["lon"] <= b and c_ <= p["lat"] <= d for p in pl)
+        if pl and not binnen(lon0, lon1, lat0, lat1) and binnen(lon0, lat0, lon1, lat1):
+            lon1, lat0 = lat0, lon1
         coslat = math.cos(math.radians((lat0 + lat1) / 2))
         # gebied past binnen 80 % (liggend) / 88 % (staand) van het beeld; de kaart vult het hele beeld
         bw, bh = W * (0.88 if c.vert else 0.80), H * 0.72
@@ -490,6 +496,14 @@ class Kaart:
                 f = over(f, np.asarray(img, np.float32) / 255, (0.55, 0.12, 0.08), 0.9)
                 f = over(f, np.asarray(dot.filter(ImageFilter.GaussianBlur(14 * U)), np.float32) / 255, (1.0, 0.85, 0.55), 0.8)
                 f = over(f, self.c.mask(lambda d: d.ellipse((x - 7 * U, y - 7 * U, x + 7 * U, y + 7 * U), fill=255)), (0.55, 0.12, 0.08), 1)
+        # 15 nov 2026 (Gettysburg): een kaart zonder route stond ± 10 s stil -> "beeld staat stil" in check_video.
+        # Daarom altijd een langzame zoom (zoals de foto's), ± 6 % over de hele kaart.
+        z = 1 + 0.06 * min(max(t / dur, 0), 1)
+        if z > 1.0005:
+            cw, ch = W / z, H / z
+            x0, y0 = (W - cw) / 2, (H - ch) / 2
+            img = Image.fromarray((f.clip(0, 1) * 255).astype(np.uint8))
+            f = np.asarray(img.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch)), np.float32) / 255
         k = fade(t, 0, dur, 1.5, 1.5)
         return frame * (1 - k) + f * k
 

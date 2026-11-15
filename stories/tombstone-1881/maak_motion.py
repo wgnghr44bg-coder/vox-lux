@@ -30,7 +30,7 @@ items += [
     {"soort": "datum", "tijd": na("two-riders-arriving-grand-hotel", 0) if False else na("wagon-arriving-town-evening-wind", 20), "regel1": "25 October 1881  ·  Evening", "regel2": "Tombstone, Arizona Territory"},
     {"soort": "datum", "tijd": na("grey-dawn-allen-street-empty", 20), "regel1": "26 October 1881  ·  Morning", "regel2": "Allen Street, Tombstone"},
     {"soort": "kaart", "tijd": na("hilltop-view-valley-afternoon", 10), "titel": "Southern Arizona, 1881",
-     "gebied": [-113.5, 30.8, -106.5, 35.3],
+     "gebied": [-113.5, -106.5, 30.8, 35.3],
      "plaatsen": [
          {"naam": "Tombstone", "lon": -110.07, "lat": 31.71, "kant": "rechts"},
          {"naam": "Tucson", "lon": -110.97, "lat": 32.22, "kant": "boven"},

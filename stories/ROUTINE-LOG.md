@@ -174,3 +174,6 @@
 - 2026-11-15 15:54 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
 - 2026-11-15 15:54 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
 - 2026-11-15 17:17 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '087', '088', '090']); de oude versie blijft staan
+- 2026-11-15 18:18 sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-15 19:18 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-15 20:31 Claude: 3 fouten hersteld: (1) keten_bewaker zag zijn eigen zoekopdracht als draaiende keten en startte daardoor NOOIT een keten; (2) gettysburg-kaart had gebied in verkeerde volgorde (wereldkaart, overlappende namen, stilstaand beeld rond 1:14:16 -> terecht afgekeurd); ook tombstone; motion.py corrigeert dit nu zelf; (3) kaarten zoomen nu langzaam (stonden ± 10 s stil). gettysburg-1863 opnieuw gestart

@@ -33,7 +33,7 @@ items += [
     {"soort": "datum", "tijd": na("dinner-table-lamplight-guests-1863", 20), "regel1": "November 18, 1863", "regel2": "The Wills house"},
     {"soort": "datum", "tijd": na("veterans-reunion-1913-handshake", 20), "regel1": "July, 1913", "regel2": "Gettysburg"},
     {"soort": "kaart", "tijd": na("night-camp-tents-stars-hills", 10), "titel": "Ten roads into Gettysburg, June 1863",
-     "gebied": [-79.0, 38.6, -75.8, 40.6],
+     "gebied": [-79.0, -75.8, 38.6, 40.6],
      "plaatsen": [
          {"naam": "Gettysburg", "lon": -77.23, "lat": 39.83, "kant": "links"},
          {"naam": "Chambersburg", "lon": -77.66, "lat": 39.94, "kant": "links"},

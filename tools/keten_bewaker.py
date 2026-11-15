@@ -29,7 +29,10 @@ def log(t):
 
 def keten_draait():
     out = subprocess.run(["powershell", "-NoProfile", "-Command",
-                          "Get-CimInstance Win32_Process | ? { $_.CommandLine -match 'routine_lokaal' } | % { $_.ProcessId }"],
+                          # alleen python-processen: deze powershell-opdracht bevat zelf ook 'routine_lokaal' en zag
+                          # zichzelf altijd als draaiende keten, waardoor de bewaker nooit iets startte (gevonden 15 nov)
+                          "Get-CimInstance Win32_Process | ? { $_.Name -match 'python' -and $_.CommandLine -match 'routine_lokaal' } "
+                          "| % { $_.ProcessId }"],
                          capture_output=True, text=True, timeout=90).stdout
     return bool(out.strip())
 
