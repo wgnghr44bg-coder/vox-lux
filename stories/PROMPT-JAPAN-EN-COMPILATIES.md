@@ -46,3 +46,25 @@ Lever eerst als voorstel (tabel per video: huidige naam -> voorstel); pas toepas
 Draai `python tools/hype_wacht.py` (kost alleen YouTube-quota) en lees `stories/HYPE-SIGNAAL.md` en
 `stories/concurrent.json`. Stel 2-3 onderwerpen voor (titel volgens AFSPRAKEN, beste datum in januari op ma/wo/za,
 waarom: welke kanalen groeien ermee). Datums alleen veranderen met de eigenaar.
+
+## Stap 5. Januari-scripts ombouwen naar de nieuwe opbouw (zoals japan in stap 1)
+Deze staan nog in de oude opbouw (tweede account, 1-2 nov). De bewaker begint ± 14 dagen vooraf; `afspraken_check` houdt
+oude scripts tegen, dus ze moeten **vóór ± 18 dec** om (eerste: philadelphia, za 2 jan). Op datumvolgorde, één map per
+keer, zoveel als het verbruik toelaat (tussendoor `python tools/claude_gebruik.py`; nieuwe sessie als hij groot wordt):
+
+| datum | map |
+|---|---|
+| za 2 jan | philadelphia-1776 |
+| wo 6 jan | troje |
+| za 9 jan | franklin-1845 |
+| wo 13 jan | lewis-en-clark-1804 |
+| za 16 jan | londen-1666 |
+| wo 20 jan | tenochtitlan-1519 |
+| za 23 jan | klooster-1150 |
+| wo 27 jan | kasteel-1250 |
+| za 30 jan | zijderoute-1271 |
+
+Per map: zelfde eisen als stap 1 (src-feiten, kort begin, abonneer.txt, eerste TOPIC = kern van de titel, ± 85 blokken,
+≥ 13.500 woorden, thumbnail kenmerk, youtube-beschrijving, vier controles GOED). **Titel** nieuw volgens AFSPRAKEN:
+de oude titels hebben nog "| <N> Hours of History for Sleep" (moet "| History for Sleep" worden, geen vraag).
+Status `script-klaar (nieuwe opbouw, opbouw Sleepy <datum>, Claude)`. Februari volgt later in een eigen prompt.
