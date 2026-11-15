@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 14:03",
+ "bijgewerkt": "2026-11-15 14:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 82%",
+    "detail": "Controles",
     "soort": "nu"
    }
   ],
@@ -112,7 +112,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-16",
+  "klaar_tot": "2026-12-21",
   "rij": [
    {
     "datum": "2026-11-16",
@@ -284,27 +284,27 @@
    },
    {
     "datum": "2026-12-19",
-    "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
+    "titel": "Life in Victorian London at Christmas, 1843 | History for Sleep",
     "map": "londen-kerst-1843",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 69,
+    "niveau": 7.1,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-21",
     "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
     "map": "mary-celeste-1872",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 73,
+    "niveau": 6.5,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-23",
@@ -334,25 +334,25 @@
     "datum": "2026-12-28",
     "titel": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
     "map": "dansplaag-1518",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 70,
+    "niveau": 6.8,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-30",
     "titel": "Life in the Tower of London, 1536 | History for Sleep",
     "map": "tower-of-london-1536",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 71,
+    "niveau": 6.9,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2027-01-02",
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "191 GB vrij"
+   "tekst": "187 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 14:03)"
+   "tekst": "draait nu (2026-11-15 14:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:48: alles klopt"
+   "tekst": "laatste ronde 14:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 14:03",
-   "volgende": "2026-11-15 14:33"
+   "laatst": "2026-11-15 14:33",
+   "volgende": "2026-11-15 15:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 13:10",
-   "volgende": "2026-11-15 14:10"
+   "laatst": "2026-11-15 14:10",
+   "volgende": "2026-11-15 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 13:48",
-   "volgende": "2026-11-15 14:18"
+   "laatst": "2026-11-15 14:18",
+   "volgende": "2026-11-15 14:48"
   }
  },
  "kanaal": {
@@ -599,7 +599,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 14,
+    "views": 15,
     "verwerkt": "processed"
    },
    {
@@ -617,7 +617,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 344,
+    "views": 345,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 562,
+    "views": 570,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +635,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 19,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -850,23 +850,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "Life in Gettysburg, July 1863 | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 82,
-  "detail": "beweging",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "videocontrole"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:16",
-   "youtube": "2026-11-15 16:36"
+   "klaar": "2026-11-15 16:02",
+   "youtube": "2026-11-15 16:22"
   }
  },
  "nu_bezig": [
@@ -875,13 +875,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "videocontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
-  "bezig_procent": 1,
-  "geheugen_mb": 588,
+  "bezig_procent": 25,
+  "geheugen_mb": 612,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -967,30 +967,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 05:56",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:59",
-   "tekst": "Claude: abonneerzin per video anders verwoord en even lang (17-20 woorden, zoals Gettysburg 18), afspraken_check bewaakt 15-22 woorden",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 06:04",
-   "tekst": "routine-lokaal: gettysburg-1863: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 08:30",
-   "tekst": "hype-wachter: SEINTJE Dood van de Man met het IJzeren Masker (323 jaar) -> staat gepland op 2026-12-16 (man-ijzeren-masker-1703), NA de datum: naar voren halen, beste plek 2026-11-18 (bezet door getty",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 08:30",
    "tekst": "hype-wachter: SEINTJE Mary Celeste leeg gevonden (154 jaar) -> staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijz",
    "fout": false,
@@ -1047,6 +1023,30 @@
   {
    "tijd": "2026-11-15 13:58",
    "tekst": "Claude: man-ijzeren-masker-1703 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.475 woorden, 13 onderwerpen; titel 'The Man in the Iron Mask, France 1703'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOE",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 14:05",
+   "tekst": "Claude: mary-celeste-1872 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.670 woorden, 13 onderwerpen; titel 'The Mary Celeste Ghost Ship, 1872'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-15 14:12",
+   "tekst": "Claude: dansplaag-1518 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.694 woorden, 13 onderwerpen; titel 'The Dancing Plague of Strasbourg, 1518'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-15 14:20",
+   "tekst": "Claude: tower-of-london-1536 NIEUW script geschreven (opbouw Sleepy; 86 feitjes, 14.870 woorden, 13 onderwerpen; titel 'Life in the Tower of London, 1536'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-15 14:27",
+   "tekst": "Claude: londen-kerst-1843 omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 86 feitjes, 14.690 woorden; titel 'Life in Victorian London at Christmas, 1843'; SCRIPT/TOON/AFWISSELING/AFSPR",
    "fout": false,
    "klaar": false
   }
@@ -1355,8 +1355,8 @@
    "datum": "2026-12-28",
    "reserve": false,
    "titel": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
-   "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
    "opening": "mythe"
@@ -1651,12 +1651,12 @@
    "map": "londen-kerst-1843",
    "datum": "2026-12-19",
    "reserve": false,
-   "titel": "Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "Life in Victorian London at Christmas, 1843 | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "scène"
   },
   {
    "map": "machu-picchu",
@@ -1685,8 +1685,8 @@
    "datum": "2026-12-21",
    "reserve": false,
    "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
-   "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
    "opening": "scène"
@@ -2059,8 +2059,8 @@
    "datum": "2026-12-30",
    "reserve": false,
    "titel": "Life in the Tower of London, 1536 | History for Sleep",
-   "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
-   "soort": "script",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": "onderwerp"
@@ -2692,7 +2692,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 14:03",
+  "bijgewerkt": "2026-11-15 14:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -2714,27 +2714,27 @@
    },
    {
     "account": "account2",
-    "5uur": 10837234,
-    "week": 69761088,
+    "5uur": 12980542,
+    "week": 70444128,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 17919598,
+     "Sun 15-11": 20062906,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Sun 08-11": 3752067,
+     "Sun 08-11": 2291799,
      "Tue 10-11": 12768073
     },
-    "script_kost": 663104,
-    "metingen": 10,
-    "stap_kost": 85054,
+    "script_kost": 619312,
+    "metingen": 14,
+    "stap_kost": 81334,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 70,
-    "5uur_scripts_over": 7.0,
-    "5uur_stappen_over": 55,
+    "5uur_pct": 84,
+    "5uur_scripts_over": 4.1,
+    "5uur_stappen_over": 31,
     "week_pct": 49,
-    "week_scripts_over": 110.0,
-    "week_stappen_over": 858
+    "week_scripts_over": 116.7,
+    "week_stappen_over": 889
    }
   ]
  },
