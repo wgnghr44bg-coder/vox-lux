@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 12:03",
+ "bijgewerkt": "2026-11-15 12:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 34%",
+    "detail": "Video bouwen · 48%",
     "soort": "nu"
    }
   ],
@@ -112,7 +112,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-07",
+  "klaar_tot": "2026-12-09",
   "rij": [
    {
     "datum": "2026-11-16",
@@ -236,15 +236,15 @@
    },
    {
     "datum": "2026-12-09",
-    "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
+    "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
     "map": "rome-44-vc",
-    "klaar": false,
-    "stand": "script afgekeurd, moet opnieuw",
-    "controle": "FOUT",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 65,
+    "niveau": 7.7,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-12",
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "193 GB vrij"
+   "tekst": "192 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 12:03)"
+   "tekst": "draait nu (2026-11-15 12:33)"
   },
   {
    "naam": "Git",
@@ -498,8 +498,8 @@
   },
   {
    "naam": "Script rome-44-vc",
-   "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
+   "ok": true,
+   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
   },
   {
    "naam": "Script scott-antarctica-1912",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:48: alles klopt"
+   "tekst": "laatste ronde 12:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 12:03",
-   "volgende": "2026-11-15 12:33"
+   "laatst": "2026-11-15 12:33",
+   "volgende": "2026-11-15 13:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 11:10",
-   "volgende": "2026-11-15 12:10"
+   "laatst": "2026-11-15 12:10",
+   "volgende": "2026-11-15 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 11:48",
-   "volgende": "2026-11-15 12:18"
+   "laatst": "2026-11-15 12:18",
+   "volgende": "2026-11-15 12:48"
   }
  },
  "kanaal": {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 553,
+    "views": 566,
     "verwerkt": "processed"
    },
    {
@@ -831,13 +831,13 @@
  "kpi": {
   "geplande": 1,
   "runs": {
-   "goed": 5,
-   "totaal": 15,
-   "procent": 33
+   "goed": 4,
+   "totaal": 14,
+   "procent": 29
   },
-  "fouten": 5,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 13,
    "totaal": 15
   }
  },
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 34,
+  "voortgang": 48,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 15:44",
-   "youtube": "2026-11-15 16:04"
+   "klaar": "2026-11-15 15:50",
+   "youtube": "2026-11-15 16:10"
   }
  },
  "nu_bezig": [
@@ -880,8 +880,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 433,
+  "bezig_procent": 26,
+  "geheugen_mb": 522,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -967,30 +967,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 02:55",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:16",
-   "tekst": "Claude: FIX thumbnail v3 in de keten (gettysburg 02:52 'No module named torch' -> oude stijl): maak_voor_map draait nu zelf in de OmniVoice-omgeving als torch ontbreekt. Let op: de lopende keten (dall",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:16",
-   "tekst": "Claude: gettysburg-1863 stopte op SCRIPT FOUT (lokaal model keurde 'electric light' in feitje 16 af); zin herschreven, SCRIPT GOED, TOON GOED, AFWISSELING GOED; opnieuw maken na dallas-1963",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 05:29",
-   "tekst": "Claude: NIEUW tools/site_controle.py (eigenaar 15 nov: 'altijd iemand die de site controleert'): elk half uur (:18/:48) site vs werkelijkheid (bijgewerkt/push, datum+status per video, nu bezig = echte",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 05:43",
    "tekst": "Claude: BEGIN VEEL KORTER (eigenaar 15 nov na crisis: 'rest your shoulders blah blah duurt te lang'): begin.txt nu 2-3 zinnen verhaal + \"Let's begin.\" (37-48 woorden) bij alle 9 komende video's, geen ",
    "fout": false,
@@ -1049,15 +1025,33 @@
    "tekst": "hype-wachter: SEINTJE Goud gevonden in Californie (goudkoorts) (179 jaar) -> KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 20",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 12:13",
+   "tekst": "Claude: YouTube Studio-inzichten 2 (eigenaar 15 nov 'alles aanpassen voor meer views'): eerste onderwerp = kern van de titel (blackbeard 'A day aboard', kerst 'Christmas Eve in the trenches', thanksgi",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 12:24",
+   "tekst": "Claude: rome-44-vc (wo 9 dec) omgebouwd naar opbouw Sleepy (88 blokken, kort begin 40 woorden, abonneerzin na feitje 2, titel 'Life in Rome When Caesar Ruled, 44 BC', thumbnail kenmerk Forum + Caesar)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 12:28",
+   "tekst": "Claude: gettysburg nieuwe thumbnail v3 (Union-soldaten met kepie, kerktoren, inwoners 1863) handmatig gekozen: stories/gettysburg-1863/thumbnail-v3-nieuw.jpg; na upload door eigenaar in Studio zetten ",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 12:32",
+   "tekst": "Claude: gettysburg thumbnail-gekozen.jpg vervangen door de nieuwe v3 (soldaten + inwoners), vóór de upload; de keten uploadt nu vanzelf de goede. Oude Lincoln-versie bewaard als thumbnail-gekozen-oud-",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
-  {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
@@ -1065,17 +1059,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 12:03",
-   "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-15 12:03",
+   "tijd": "2026-11-15 12:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 12:03",
+   "tijd": "2026-11-15 12:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -1084,6 +1073,12 @@
   {
    "tijd": "2026-11-14 13:20",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
    "fout": true,
    "klaar": false
   },
@@ -1341,7 +1336,7 @@
    "status": "klaar",
    "soort": "gepland",
    "id": "R2rgLUMJxac",
-   "afspeellijst": "nieuwe",
+   "afspeellijst": "oorlog",
    "opening": "scène"
   },
   {
@@ -1374,7 +1369,7 @@
    "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
    "soort": "script",
    "id": "",
-   "afspeellijst": "zoekterm",
+   "afspeellijst": "mysterie",
    "opening": "mythe"
   },
   {
@@ -1693,7 +1688,7 @@
    "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
    "soort": "script",
    "id": "",
-   "afspeellijst": "zoekterm",
+   "afspeellijst": "mysterie",
    "opening": "persoon"
   },
   {
@@ -1704,7 +1699,7 @@
    "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
    "soort": "script",
    "id": "",
-   "afspeellijst": "zoekterm",
+   "afspeellijst": "mysterie",
    "opening": "scène"
   },
   {
@@ -1909,12 +1904,12 @@
    "map": "rome-44-vc",
    "datum": "2026-12-09",
    "reserve": false,
-   "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
-   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
-   "soort": "script oud",
+   "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": "mythe"
+   "opening": "scène"
   },
   {
    "map": "romeinse-soldaat",
@@ -2078,7 +2073,7 @@
    "status": "script nodig (eigenaar 14 nov 2026: YouTube Studio zoektermen, mensen zoeken hierop en wij hebben er nog geen video over)",
    "soort": "script",
    "id": "",
-   "afspeellijst": "zoekterm",
+   "afspeellijst": "middeleeuwen",
    "opening": "onderwerp"
   },
   {
