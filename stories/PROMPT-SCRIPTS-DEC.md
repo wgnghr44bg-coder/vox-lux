@@ -41,7 +41,7 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | wo 16 dec | `man-ijzeren-masker-1703` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
 | ma 21 dec | `mary-celeste-1872` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
 | ma 28 dec | `dansplaag-1518` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
-| wo 30 dec | `tower-of-london-1536` | **nieuw script** (gezocht: tower of london) | volgende vrije sessie |
+| wo 30 dec | `tower-of-london-1536` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
 | za 26 dec | `japan-1600` | ombouwen uit de oude opbouw (ninja-hype) | ander account |
 
 Al klaar (niets meer aan doen): crisis-1933, gettysburg-1863, dallas-1963, thanksgiving-1621, boeren-winter-1300,
