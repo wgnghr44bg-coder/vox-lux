@@ -36,6 +36,23 @@ CHANNELS = {
     "UCYz9vNXXwBBOvTsmrMh32yg": "Sleepy Old World",
     "UClNq-P2k7NowmhK5ZOoAK9Q": "Sleepy Quiet Historian",
     "UCuij7G73h2G1F69VTrBrM7A": "Boring History Story Relaxing",
+    # toegevoegd 15 nov 2026 (eigenaar: "controleer of je alle grote kanalen mee hebt genomen"), gezocht via YouTube API
+    "UCy3Hgwj12x3fDQUcutNm2DA": "Sleepless Historian",          # ± 718k abo
+    "UCtOOJcon2npC5P3aebUzKpQ": "Get Sleepy",                   # ± 735k, slaapverhalen met veel geschiedenis
+    "UCXFf7OgCuOdcygnWp32Xk6g": "ASMR Historian",               # ± 410k
+    "UCjxAUYz6RxbcCYlNZnZcwKQ": "Stephen Dalton Sleep Stories", # ± 329k
+    "UCajYzp_LvHDF58OlHE5lYow": "Historian Sleepy",             # ± 216k
+    "UC6uGYezl7-dtRlaXohwo5ew": "Sleepy Time Historian",        # ± 175k
+    "UCefaYdZhuun4oSz4C2jkbVg": "Dan Jones Sleep Stories",      # ± 147k
+    "UCtKLvGbzqAluwUW3Ez_zeQA": "Boring History Secrets",       # ± 106k
+    "UCWc1b23P3lPQ6Qo-oeazWng": "Bedtime History",              # ± 101k
+    "UCKDRru3yD00CpqKZRs69vWg": "History at Night",             # ± 76k
+    "UCCNcHj6vkay2PQuEN8cia_Q": "History Before Sleep",         # ± 64k
+    "UC32Km2_H8Lo5Ulop6Nhzwug": "Sleepy History Channel",       # ± 63k
+    "UCxaLZZILsiB7UiNIvztg8WQ": "Drowsy Historian",             # ± 56k
+    "UCeU3w3LcEUaVl1PyZDfA2Gg": "History & Sleep",              # ± 55k
+    "UCPdbLTyxg6TyVKkgKFm1i-A": "Nighttime Historian",          # ± 53k
+    "UC9fZBEfX5EfXMAfOhTPzaVA": "Boring History",               # ± 39k
 }
 SEARCH = "history for sleep"
 
