@@ -13,7 +13,7 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - Kalme gids, verleden tijd, IMG/HEAD/BODY-blokken (feit, uitleg, bewijs, nuance, slotgedachte), geen BRIDGE.
 - Geen jij-vorm, geen vragen, geen "I", geen verzonnen hoofdpersonen, alleen kloppende feiten. Makkelijk Engels.
 - **Begin (15 nov, eigenaar: "veel korter, rest your shoulders blah blah duurt te lang"):** 25-70 woorden, 2-3 zinnen die
-  meteen het verhaal neerzetten (plaats + tijd + het beeld van de thumbnail), dan "Let's begin." GEEN ontspanningszinnen
+  meteen het verhaal neerzetten (plaats + tijd + het beeld van de thumbnail). Geen "Let's begin" (15 nov). GEEN ontspanningszinnen
   (rest your shoulders, breathe, let your …), geen "In this story we will …".
 - **Abonneerzin:** niet in het begin maar in `src-feiten/abonneer.txt`; klinkt na feitje 2 (rond minuut 3).
 - **Slot:** terugblik, "another … story … on the screen", kort abonneren, als laatste "Sleep well, and good night."

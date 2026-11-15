@@ -101,7 +101,7 @@ def controleer(m, met_model=True):
     if not 25 <= woorden(begin) <= 70:                      # 15 nov (eigenaar: "veel korter", geen rest-your-shoulders)
         fout.append(f"begin {woorden(begin)} woorden (25-70 nodig: kort, meteen het verhaal)")
     if re.search(r"\b(rest your|breathe|let your|your shoulders|your hands|close your eyes)\b", begin, re.I):
-        fout.append("begin bevat ontspanningszinnen (afspraak 15 nov: alleen het verhaal, dan 'Let's begin.')")
+        fout.append("begin bevat ontspanningszinnen (afspraak 15 nov: alleen 2-3 zinnen verhaal, geen 'Let us begin')")
     if re.match(r"\s*(tonight|hello|welcome)", begin, re.I):
         fout.append("begin start met Tonight/Hello/Welcome")
     if not re.search(r"subscri", begin + " " + abon, re.I):
