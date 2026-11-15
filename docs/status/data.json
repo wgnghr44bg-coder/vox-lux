@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 19:03",
+ "bijgewerkt": "2026-11-15 19:33",
  "werkplanning": {
   "nu": [
    {
@@ -473,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 19:03)"
+   "tekst": "draait nu (2026-11-15 19:33)"
   },
   {
    "naam": "Git",
@@ -508,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -525,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 19:03",
-   "volgende": "2026-11-15 19:33"
+   "laatst": "2026-11-15 19:33",
+   "volgende": "2026-11-15 20:03"
   },
   "hype": {
    "aan": true,
@@ -535,13 +535,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 18:10",
-   "volgende": "2026-11-15 19:10"
+   "laatst": "2026-11-15 19:10",
+   "volgende": "2026-11-15 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 18:48",
-   "volgende": "2026-11-15 19:18"
+   "laatst": "2026-11-15 19:18",
+   "volgende": "2026-11-15 19:48"
   }
  },
  "kanaal": {
@@ -584,7 +584,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 40,
+    "views": 39,
     "verwerkt": "processed"
    },
    {
@@ -620,7 +620,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 571,
+    "views": 574,
     "verwerkt": "processed"
    },
    {
@@ -826,8 +826,8 @@
   "geplande": 1,
   "runs": {
    "goed": 4,
-   "totaal": 16,
-   "procent": 25
+   "totaal": 17,
+   "procent": 24
   },
   "fouten": 2,
   "zelfcontrole": {
@@ -859,7 +859,7 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 492,
   "totaal_mb": 8192
  },
@@ -946,12 +946,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 12:32",
-   "tekst": "Claude: gettysburg thumbnail-gekozen.jpg vervangen door de nieuwe v3 (soldaten + inwoners), vóór de upload; de keten uploadt nu vanzelf de goede. Oude Lincoln-versie bewaard als thumbnail-gekozen-oud-",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 12:45",
    "tekst": "Claude: NIEUW tools/claude_gebruik.py (eigenaar 15 nov): meet Claude-gebruik per account uit de lokale gesprekken (laatste 5 uur, 7 dagen, kosten per script) en rekent na afstellen met /usage uit hoev",
    "fout": false,
@@ -1028,28 +1022,28 @@
    "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 19:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-15 18:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "tijd": "2026-11-15 19:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 19:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-15 19:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
@@ -1089,6 +1083,12 @@
   {
    "tijd": "2026-11-15 17:17",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '0",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 18:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
   }
@@ -2689,7 +2689,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 19:03",
+  "bijgewerkt": "2026-11-15 19:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -2711,7 +2711,7 @@
    },
    {
     "account": "account2",
-    "5uur": 2546775,
+    "5uur": 393245,
     "week": 68657970,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -2725,9 +2725,9 @@
     "stap_kost": 84960,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 19,
-    "5uur_scripts_over": 17.8,
-    "5uur_stappen_over": 130,
+    "5uur_pct": 3,
+    "5uur_scripts_over": 21.3,
+    "5uur_stappen_over": 155,
     "week_pct": 52,
     "week_scripts_over": 102.3,
     "week_stappen_over": 746
