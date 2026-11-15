@@ -139,3 +139,4 @@
 - 2026-11-15 00:01 crisis-1933: geüpload https://youtu.be/R2rgLUMJxac (privé, publiek 2026-11-16T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-15 00:06 crisis-1933: KLAAR
 - 2026-11-15 00:06 routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-16 21:00
+- 2026-11-15 01:03 zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)

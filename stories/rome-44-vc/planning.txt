@@ -1,5 +1,5 @@
 onderwerp Life in Ancient Rome When Caesar Died, 44 BC
-status   script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)
+status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)
 datum    wo 2026-12-09 21:00 NL (was wo 2026-12-02)
 titel    What Did Romans Actually Do When Caesar Ruled? | History for Sleep
 opening   mythe

@@ -1,28 +1,13 @@
 {
  "fouten": [
-  "feitje 42 (beeld): 'plane' past niet bij -44",
-  "feitje 79 (beeld): 'plane' past niet bij -44",
-  "begin: 'clock' in de tekst (fout volgens het model)",
-  "feitje 20: 'newspaper' in de tekst (fout volgens het model)",
-  "feitje 26: 'tea' in de tekst (fout volgens het model)",
-  "feitje 26: 'coffee' in de tekst (fout volgens het model)",
-  "feitje 26: 'chocolate' in de tekst (fout volgens het model)",
-  "feitje 77: 'clock' in de tekst (fout volgens het model)"
+  "begin 257 woorden (60-160 nodig)"
  ],
  "info": {
   "feitjes": 88,
-  "woorden": 15898,
-  "begin": 259,
+  "woorden": 16251,
+  "begin": 257,
   "slot": 139,
   "onderwerpen": 13,
-  "jaar": -44,
-  "let_op": [
-   "begin: 'clock' in de tekst (vergelijking of fout?)",
-   "feitje 20: 'newspaper' in de tekst (vergelijking of fout?)",
-   "feitje 26: 'tea' in de tekst (vergelijking of fout?)",
-   "feitje 26: 'coffee' in de tekst (vergelijking of fout?)",
-   "feitje 26: 'chocolate' in de tekst (vergelijking of fout?)",
-   "feitje 77: 'clock' in de tekst (vergelijking of fout?)"
-  ]
+  "jaar": -44
  }
 }
