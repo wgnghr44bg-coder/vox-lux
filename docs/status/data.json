@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 00:33",
+ "bijgewerkt": "2026-11-15 01:03",
  "werkplanning": {
   "nu": [
    {
@@ -252,7 +252,7 @@
     "map": "rome-44-vc",
     "klaar": false,
     "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
-    "controle": "nog niet",
+    "controle": "FOUT",
     "flesch": 83,
     "niveau": 4.3,
     "leesbaar": "MAKKELIJK",
@@ -264,7 +264,7 @@
     "map": "zwarte-dood-1348",
     "klaar": false,
     "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
-    "controle": "nog niet",
+    "controle": "FOUT",
     "flesch": 82,
     "niveau": 4.6,
     "leesbaar": "MAKKELIJK",
@@ -276,7 +276,7 @@
     "map": "scott-antarctica-1912",
     "klaar": false,
     "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
-    "controle": "nog niet",
+    "controle": "FOUT",
     "flesch": 88,
     "niveau": 3.7,
     "leesbaar": "MAKKELIJK",
@@ -491,7 +491,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 00:33)"
+   "tekst": "draait nu (2026-11-15 01:03)"
   },
   {
    "naam": "Git",
@@ -506,22 +506,22 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-12)"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
   },
   {
-   "naam": "Script boeren-winter-1300",
-   "ok": true,
-   "tekst": "SCRIPT GOED (nacht 2026-11-12)"
+   "naam": "Script rome-44-vc",
+   "ok": false,
+   "tekst": "SCRIPT FOUT (1 punten)"
   },
   {
-   "naam": "Script crisis-1933",
-   "ok": true,
-   "tekst": "SCRIPT GOED (nacht 2026-11-12)"
+   "naam": "Script scott-antarctica-1912",
+   "ok": false,
+   "tekst": "SCRIPT FOUT (1 punten)"
   },
   {
-   "naam": "Script kerst-loopgraven-1914",
-   "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-12, inmiddels hersteld; wordt opnieuw gecontroleerd"
+   "naam": "Script zwarte-dood-1348",
+   "ok": false,
+   "tekst": "SCRIPT FOUT (1 punten)"
   }
  ],
  "automatisering": false,
@@ -538,8 +538,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 00:33",
-   "volgende": "2026-11-15 01:03"
+   "laatst": "2026-11-15 01:03",
+   "volgende": "2026-11-15 01:33"
   },
   "hype": {
    "aan": true,
@@ -628,7 +628,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 526,
+    "views": 527,
     "verwerkt": "processed"
    },
    {
@@ -837,9 +837,9 @@
    "totaal": 13,
    "procent": 46
   },
-  "fouten": 0,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 14,
+   "goed": 11,
    "totaal": 14
   }
  },
@@ -1038,7 +1038,23 @@
    "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten)",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-12 14:27",
