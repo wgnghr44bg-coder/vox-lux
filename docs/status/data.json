@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 04:03",
+ "bijgewerkt": "2026-11-15 04:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 47%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -485,13 +485,13 @@
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": true,
-   "tekst": "laatste keer goed (2026-11-09 06:00)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 04:03)"
+   "tekst": "draait nu (2026-11-15 04:33)"
   },
   {
    "naam": "Git",
@@ -538,8 +538,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 04:03",
-   "volgende": "2026-11-15 04:33"
+   "laatst": "2026-11-15 04:33",
+   "volgende": "2026-11-15 05:03"
   },
   "hype": {
    "aan": true,
@@ -548,8 +548,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 03:10",
-   "volgende": "2026-11-15 04:10"
+   "laatst": "2026-11-15 04:10",
+   "volgende": "2026-11-15 05:10"
   }
  },
  "kanaal": {
@@ -837,9 +837,9 @@
    "totaal": 16,
    "procent": 38
   },
-  "fouten": 6,
+  "fouten": 7,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 10,
    "totaal": 14
   }
  },
@@ -860,12 +860,11 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 47,
-  "detail": "42 van 90 beelden",
+  "voortgang": 99,
+  "detail": "90 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -877,15 +876,11 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7011,
+  "bezig_procent": 35,
+  "geheugen_mb": 7267,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1075,17 +1070,22 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 04:03",
+   "tijd": "2026-11-15 04:33",
+   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-15 04:33",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 04:03",
+   "tijd": "2026-11-15 04:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 04:03",
+   "tijd": "2026-11-15 04:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
