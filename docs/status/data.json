@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 14:33",
+ "bijgewerkt": "2026-11-15 15:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Controles",
+    "detail": "Video bouwen · 26%",
     "soort": "nu"
    }
   ],
@@ -112,7 +112,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-21",
+  "klaar_tot": "2026-12-23",
   "rij": [
    {
     "datum": "2026-11-16",
@@ -308,15 +308,15 @@
    },
    {
     "datum": "2026-12-23",
-    "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
+    "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
     "map": "bethlehem",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 70,
+    "niveau": 7.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED"
    },
    {
     "datum": "2026-12-26",
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "187 GB vrij"
+   "tekst": "184 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 14:33)"
+   "tekst": "draait nu (2026-11-15 15:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 14:18: alles klopt"
+   "tekst": "laatste ronde 14:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 14:33",
-   "volgende": "2026-11-15 15:03"
+   "laatst": "2026-11-15 15:03",
+   "volgende": "2026-11-15 15:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 14:18",
-   "volgende": "2026-11-15 14:48"
+   "laatst": "2026-11-15 14:48",
+   "volgende": "2026-11-15 15:18"
   }
  },
  "kanaal": {
@@ -590,7 +590,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 38,
+    "views": 39,
     "verwerkt": "processed"
    },
    {
@@ -850,23 +850,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 5,
+ "stap": 4,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "Life in Gettysburg, July 1863 | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 5,
-  "stapnaam": "Controles",
-  "voortgang": null,
-  "detail": "",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": 26,
+  "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "videocontrole"
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:02",
-   "youtube": "2026-11-15 16:22"
+   "klaar": "2026-11-15 16:01",
+   "youtube": "2026-11-15 16:21"
   }
  },
  "nu_bezig": [
@@ -875,13 +875,13 @@
    "stap": 0
   },
   {
-   "naam": "videocontrole",
-   "stap": 5
+   "naam": "16mm-look",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 612,
+  "bezig_procent": 21,
+  "geheugen_mb": 620,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -968,12 +968,6 @@
  "logboek": [
   {
    "tijd": "2026-11-15 08:30",
-   "tekst": "hype-wachter: SEINTJE Mary Celeste leeg gevonden (154 jaar) -> staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijz",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 08:30",
    "tekst": "hype-wachter: SEINTJE Goud gevonden in Californie (goudkoorts) (179 jaar) -> KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 20",
    "fout": false,
    "klaar": false
@@ -1049,6 +1043,12 @@
    "tekst": "Claude: londen-kerst-1843 omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 86 feitjes, 14.690 woorden; titel 'Life in Victorian London at Christmas, 1843'; SCRIPT/TOON/AFWISSELING/AFSPR",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 14:36",
+   "tekst": "Claude: bethlehem omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 80 feitjes, 13.948 woorden; titel 'Life in Bethlehem, the First Christmas'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [],
@@ -1200,12 +1200,12 @@
    "map": "bethlehem",
    "datum": "2026-12-23",
    "reserve": false,
-   "titel": "Life in Bethlehem, the First Christmas | <N> Hours of History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "onderwerp"
   },
   {
    "map": "blackbeard-1718",
@@ -2692,7 +2692,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 14:34",
+  "bijgewerkt": "2026-11-15 15:07",
   "accounts": [
    {
     "account": "hoofd",
@@ -2714,27 +2714,27 @@
    },
    {
     "account": "account2",
-    "5uur": 12980542,
-    "week": 70444128,
+    "5uur": 13486183,
+    "week": 68897475,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 20062906,
+     "Sun 15-11": 20568546,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Sun 08-11": 2291799,
+     "Sun 08-11": 239505,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
-    "metingen": 14,
-    "stap_kost": 81334,
+    "metingen": 15,
+    "stap_kost": 80862,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 84,
-    "5uur_scripts_over": 4.1,
-    "5uur_stappen_over": 31,
-    "week_pct": 49,
-    "week_scripts_over": 116.7,
-    "week_stappen_over": 889
+    "5uur_pct": 99,
+    "5uur_scripts_over": 0.1,
+    "5uur_stappen_over": 1,
+    "week_pct": 52,
+    "week_scripts_over": 101.9,
+    "week_stappen_over": 781
    }
   ]
  },
