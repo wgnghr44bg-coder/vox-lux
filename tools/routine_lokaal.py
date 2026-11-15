@@ -110,6 +110,24 @@ def comfy_aan():
     return False
 
 
+def ollama_aan():
+    """15 nov 2026: na een herstart van de pc draaide Ollama soms niet (scriptcontrole en beeldcontrole hebben hem nodig)."""
+    try:
+        requests.get("http://127.0.0.1:11434/api/tags", timeout=5)
+        return True
+    except Exception:
+        app = Path.home() / "AppData" / "Local" / "Programs" / "Ollama" / "ollama app.exe"
+        subprocess.Popen([str(app)] if app.exists() else ["ollama", "serve"], creationflags=0x08000000)
+        for _ in range(30):
+            time.sleep(5)
+            try:
+                requests.get("http://127.0.0.1:11434/api/tags", timeout=5)
+                return True
+            except Exception:
+                pass
+    return False
+
+
 def thumbnail(m, plan_t):
     # stijl v3 (13 nov 2026, eigenaar: Babylon-thumbnail werkt): grote tekst onder het maanlogo; sinds 14 nov (vast):
     # één scène met het kenmerkende beeld groot rechts plus mensen van toen die doen wat er gebeurde; geen losse vrouw; zie tools/thumbnail_v3.py. Lukt dat niet: de oude manier.
@@ -230,6 +248,8 @@ def maak_video(m, datum, test=False):
         zet_status(m, f"bezig ({datetime.date.today()}, routine-lokaal)")
         git_push([m / "planning.txt"], f"{m.name}: bezig (routine-lokaal) voor {datum}")   # nooit de hele map (beelden, voice.mp3 > 100 MB)
 
+    if not ollama_aan():
+        raise RuntimeError("Ollama start niet")
     if not comfy_aan():
         raise RuntimeError("ComfyUI start niet")
     r = run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)])
