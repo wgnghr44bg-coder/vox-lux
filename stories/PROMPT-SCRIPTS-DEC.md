@@ -38,7 +38,7 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | ma 14 dec | `scott-antarctica-1912` | KLAAR (15 nov, hoofdsessie) | - |
 | za 19 dec | `londen-kerst-1843` | ombouwen uit de oude opbouw (datum = 183 jaar A Christmas Carol) | ander account |
 | wo 23 dec | `bethlehem` | ombouwen uit de oude opbouw | ander account |
-| wo 16 dec | `man-ijzeren-masker-1703` | **nieuw script** (gezocht: the man in the iron mask) | volgende vrije sessie |
+| wo 16 dec | `man-ijzeren-masker-1703` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
 | ma 21 dec | `mary-celeste-1872` | **nieuw script** (gezocht: ghost ship) | volgende vrije sessie |
 | ma 28 dec | `dansplaag-1518` | **nieuw script** (gezocht: dancing plague) | volgende vrije sessie |
 | wo 30 dec | `tower-of-london-1536` | **nieuw script** (gezocht: tower of london) | volgende vrije sessie |
