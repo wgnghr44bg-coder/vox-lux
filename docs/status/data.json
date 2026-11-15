@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 17:03",
+ "bijgewerkt": "2026-11-15 17:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 99%",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -458,7 +458,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "180 GB vrij"
+   "tekst": "179 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -473,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 17:03)"
+   "tekst": "draait nu (2026-11-15 17:33)"
   },
   {
    "naam": "Git",
@@ -508,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 16:49: alles klopt"
+   "tekst": "laatste ronde 17:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -525,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 17:03",
-   "volgende": "2026-11-15 17:33"
+   "laatst": "2026-11-15 17:33",
+   "volgende": "2026-11-15 18:03"
   },
   "hype": {
    "aan": true,
@@ -535,13 +535,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 16:10",
-   "volgende": "2026-11-15 17:10"
+   "laatst": "2026-11-15 17:10",
+   "volgende": "2026-11-15 18:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 16:48",
-   "volgende": "2026-11-15 17:18"
+   "laatst": "2026-11-15 17:18",
+   "volgende": "2026-11-15 17:48"
   }
  },
  "kanaal": {
@@ -826,8 +826,8 @@
   "geplande": 1,
   "runs": {
    "goed": 4,
-   "totaal": 15,
-   "procent": 27
+   "totaal": 16,
+   "procent": 25
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -844,35 +844,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
   "map": "dallas-1963",
   "titel": "Life in Dallas, November 1963 | History for Sleep",
   "datum": "2026-11-21",
   "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "90 van 90 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
-  ],
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 24,
-  "geheugen_mb": 6555,
+  "bezig_procent": 25,
+  "geheugen_mb": 491,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -958,12 +946,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 12:24",
-   "tekst": "Claude: rome-44-vc (wo 9 dec) omgebouwd naar opbouw Sleepy (88 blokken, kort begin 40 woorden, abonneerzin na feitje 2, titel 'Life in Rome When Caesar Ruled, 44 BC', thumbnail kenmerk Forum + Caesar)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 12:28",
    "tekst": "Claude: gettysburg nieuwe thumbnail v3 (Union-soldaten met kepie, kerktoren, inwoners 1863) handmatig gekozen: stories/gettysburg-1863/thumbnail-v3-nieuw.jpg; na upload door eigenaar in Studio zetten ",
    "fout": false,
@@ -1040,12 +1022,18 @@
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 17:17",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '0",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-15 15:54",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "tijd": "2026-11-15 17:17",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '0",
    "fout": true,
    "klaar": false
   }
@@ -1090,6 +1078,12 @@
   {
    "tijd": "2026-11-15 05:45",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 27/90 goedgekeurd, fout: ['001', '002', '003', '005', '008', '010', '012', '013', '014', '015', '016', '017', '019', '0",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 15:54",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -2690,7 +2684,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 17:04",
+  "bijgewerkt": "2026-11-15 17:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -2712,7 +2706,7 @@
    },
    {
     "account": "account2",
-    "5uur": 13486183,
+    "5uur": 8355558,
     "week": 68657970,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -2726,9 +2720,9 @@
     "stap_kost": 80130,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 99,
-    "5uur_scripts_over": 0.1,
-    "5uur_stappen_over": 1,
+    "5uur_pct": 62,
+    "5uur_scripts_over": 8.4,
+    "5uur_stappen_over": 65,
     "week_pct": 52,
     "week_scripts_over": 102.3,
     "week_stappen_over": 791
