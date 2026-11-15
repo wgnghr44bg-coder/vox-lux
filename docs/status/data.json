@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 11:33",
+ "bijgewerkt": "2026-11-15 12:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 18%",
+    "detail": "Video bouwen · 34%",
     "soort": "nu"
    }
   ],
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 11:33)"
+   "tekst": "draait nu (2026-11-15 12:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:18: alles klopt"
+   "tekst": "laatste ronde 11:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 11:33",
-   "volgende": "2026-11-15 12:03"
+   "laatst": "2026-11-15 12:03",
+   "volgende": "2026-11-15 12:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +546,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 11:18",
-   "volgende": "2026-11-15 11:48"
+   "laatst": "2026-11-15 11:48",
+   "volgende": "2026-11-15 12:18"
   }
  },
  "kanaal": {
@@ -590,7 +590,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 37,
+    "views": 38,
     "verwerkt": "processed"
    },
    {
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 18,
+  "voortgang": 34,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 15:51",
-   "youtube": "2026-11-15 16:11"
+   "klaar": "2026-11-15 15:44",
+   "youtube": "2026-11-15 16:04"
   }
  },
  "nu_bezig": [
@@ -1065,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 11:33",
+   "tijd": "2026-11-15 12:03",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 11:33",
+   "tijd": "2026-11-15 12:03",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 11:33",
+   "tijd": "2026-11-15 12:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
