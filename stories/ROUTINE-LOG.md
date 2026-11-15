@@ -172,3 +172,5 @@
 - 2026-11-15 14:27 Claude: londen-kerst-1843 omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 86 feitjes, 14.690 woorden; titel 'Life in Victorian London at Christmas, 1843'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 14:36 Claude: bethlehem omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 80 feitjes, 13.948 woorden; titel 'Life in Bethlehem, the First Christmas'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)
 - 2026-11-15 15:54 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
+- 2026-11-15 15:54 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
+- 2026-11-15 17:17 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '087', '088', '090']); de oude versie blijft staan
