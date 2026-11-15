@@ -1,23 +1,23 @@
 {
- "bijgewerkt": "2026-11-15 06:03",
+ "bijgewerkt": "2026-11-15 06:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Onderwerp & planning",
+    "wat": "Life in Gettysburg, July 1863 | History for Sleep",
+    "map": "gettysburg-1863",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "na Dallas",
-    "wat": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "keten maakt de video voor wo 18-11 21:00"
+    "wanneer": "na Gettysburg",
+    "wat": "Life in Dallas, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "keten maakt de video voor za 21-11 21:00"
    },
    {
-    "wanneer": "na Gettysburg",
+    "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
     "detail": "keten maakt de video voor ma 23-11 21:00"
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 06:03)"
+   "tekst": "draait nu (2026-11-15 06:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 05:48: alles klopt"
+   "tekst": "laatste ronde 06:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 06:03",
-   "volgende": "2026-11-15 06:33"
+   "laatst": "2026-11-15 06:33",
+   "volgende": "2026-11-15 07:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 05:10",
-   "volgende": "2026-11-15 06:10"
+   "laatst": "2026-11-15 06:10",
+   "volgende": "2026-11-15 07:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 05:48",
-   "volgende": "2026-11-15 06:18"
+   "laatst": "2026-11-15 06:18",
+   "volgende": "2026-11-15 06:48"
   }
  },
  "kanaal": {
@@ -850,30 +850,38 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
+ "stap": 3,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "",
-  "stap": 0,
-  "stapnaam": "Onderwerp & planning",
+  "map": "gettysburg-1863",
+  "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+  "datum": "2026-11-18",
+  "thumb": "thumbs/gettysburg-1863.jpg",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
   "voortgang": null,
-  "detail": "",
+  "detail": "bezig",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "stem inspreken (OmniVoice B1)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-15 21:22",
+   "youtube": "2026-11-15 21:42"
+  }
  },
  "nu_bezig": [
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 79,
-  "geheugen_mb": 531,
+  "bezig_procent": 99,
+  "geheugen_mb": 7534,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -960,12 +968,6 @@
  "logboek": [
   {
    "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 01:03",
    "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
    "fout": true,
    "klaar": false
@@ -1041,6 +1043,12 @@
    "tekst": "Claude: abonneerzin per video anders verwoord en even lang (17-20 woorden, zoals Gettysburg 18), afspraken_check bewaakt 15-22 woorden",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 06:04",
+   "tekst": "routine-lokaal: gettysburg-1863: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -1057,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 06:03",
+   "tijd": "2026-11-15 06:33",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 06:03",
+   "tijd": "2026-11-15 06:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 06:03",
+   "tijd": "2026-11-15 06:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
