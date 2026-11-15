@@ -142,3 +142,6 @@
 - 2026-11-15 01:03 zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
 - 2026-11-15 01:03 zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
 - 2026-11-15 01:03 zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)
+- 2026-11-15 02:41 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
+- 2026-11-15 02:52 routine-lokaal: gettysburg-1863: thumbnail v3 mislukt (No module named 'torch'), oude stijl
+- 2026-11-15 02:55 routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
