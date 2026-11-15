@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 23:03",
+ "bijgewerkt": "2026-11-15 23:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 9%",
+    "detail": "Video bouwen · 19%",
     "soort": "nu"
    }
   ],
@@ -497,7 +497,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 23:03)"
+   "tekst": "draait nu (2026-11-15 23:33)"
   },
   {
    "naam": "Git",
@@ -532,7 +532,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 22:48: alles klopt"
+   "tekst": "laatste ronde 23:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -549,8 +549,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 23:03",
-   "volgende": "2026-11-15 23:33"
+   "laatst": "2026-11-15 23:33",
+   "volgende": "2026-11-16 00:03"
   },
   "hype": {
    "aan": true,
@@ -559,18 +559,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 22:10",
-   "volgende": "2026-11-15 23:10"
+   "laatst": "2026-11-15 23:10",
+   "volgende": "2026-11-16 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 22:48",
-   "volgende": "2026-11-15 23:18"
+   "laatst": "2026-11-15 23:18",
+   "volgende": "2026-11-15 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-15 21:25",
-   "volgende": "2026-11-15 23:25"
+   "laatst": "2026-11-15 23:25",
+   "volgende": "2026-11-16 01:25"
   }
  },
  "kanaal": {
@@ -649,7 +649,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 575,
+    "views": 576,
     "verwerkt": "processed"
    },
    {
@@ -886,15 +886,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 9,
+  "voortgang": 19,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-16 02:04",
-   "youtube": "2026-11-16 02:24"
+   "klaar": "2026-11-16 03:51",
+   "youtube": "2026-11-16 04:11"
   }
  },
  "nu_bezig": [
@@ -909,7 +909,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 430,
+  "geheugen_mb": 422,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2742,7 +2742,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-15 21:37",
+  "bijgewerkt": "2026-11-15 23:26",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3141,13 +3141,13 @@
       "per_dag": 1220
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-15"
    }
   ],
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 23:03",
+  "bijgewerkt": "2026-11-15 23:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3179,15 +3179,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 69124,
+    "stap_kost": 63487,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 50,
     "5uur_scripts_over": 11.0,
-    "5uur_stappen_over": 98,
+    "5uur_stappen_over": 107,
     "week_pct": 57,
     "week_scripts_over": 91.4,
-    "week_stappen_over": 819
+    "week_stappen_over": 891
    }
   ]
  },
