@@ -60,6 +60,11 @@ def controleer(m):
         if not tn or tn.get("toon") != "TOON GOED":
             fout.append(f"toon niet goed ({tn.get('toon') if tn else '?'})")
 
+    # 3b. afspeellijst: soort moet een van de vaste lijsten zijn (anders komt de video in geen enkele soort-lijst)
+    so = re.search(r"^soort\s+(\S+)", plan, re.M)
+    if not so or so.group(1) not in ("ramp", "oudheid", "middeleeuwen", "mysterie", "oorlog", "verlaten", "reis"):
+        fout.append(f"soort '{so.group(1) if so else '-'}' is geen vaste afspeellijst (ramp/oudheid/middeleeuwen/mysterie/oorlog/verlaten/reis)")
+
     # 4. thumbnail: kenmerkend beeld + mensen van toen (gekozen bestand, of een kenmerk-regel voor de maker)
     if not (m / "thumbnail-v3.jpg").exists() and not re.search(r"^thumbnail kenmerk:", plan, re.M):
         fout.append("geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt")

@@ -15,6 +15,9 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - **Begin (15 nov, eigenaar: "veel korter, rest your shoulders blah blah duurt te lang"):** 25-70 woorden, 2-3 zinnen die
   meteen het verhaal neerzetten (plaats + tijd + het beeld van de thumbnail). Geen "Let's begin" (15 nov). GEEN ontspanningszinnen
   (rest your shoulders, breathe, let your …), geen "In this story we will …".
+- **Eerste onderwerp = de kern van de titel (15 nov, YouTube Studio):** bij Titanic haakten kijkers af toen het verhaal
+  na het begin naar de scheepswerf in Belfast ging, terwijl ze kwamen voor het leven aan boord. Dus het eerste TOPIC gaat
+  over wat de titel belooft (aan boord, kerstavond in de loopgraven, het oogstfeest); achtergrond komt daarna.
 - **Abonneerzin:** niet in het begin maar in `src-feiten/abonneer.txt`; klinkt na feitje 2 (rond minuut 3). Elke video
   anders verwoord, maar even lang: 15-22 woorden (eigenaar 15 nov, zoals Gettysburg: 18 woorden).
 - **Slot:** terugblik, "another … story … on the screen", kort abonneren, als laatste "Sleep well, and good night."
@@ -30,6 +33,11 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - Rechts één scène waaraan je meteen ziet waar de video over gaat: het kenmerkende beeld groot, mét mensen uit die tijd
   die doen wat er toen gebeurde. Nooit een losse willekeurige vrouw. Niets moderns, geen zwevende voorwerpen.
 - In `planning.txt` een regel `thumbnail kenmerk: …`; de keten maakt hem met `tools/thumbnail_v3.py`.
+
+## Afspeellijsten
+- De keten zet elke nieuwe video automatisch in "History for Sleep – Full Documentaries" en in de lijst van zijn soort
+  (`soort` in planning.txt): ramp, oudheid, middeleeuwen, mysterie, oorlog, verlaten, reis. Geen nieuwe lijsten
+  (eigenaar 28 okt). Afspeellijsten laten YouTube na een video automatisch de volgende spelen: meer kijktijd 's nachts.
 
 ## Planning
 - Ma, wo en za 21:00 (NL). Zo dat het beste is voor het kanaal en mee met de hype: hype-wachter (elke dag 08:30),

@@ -5,4 +5,4 @@ titel    The Man in the Iron Mask, France 1703 | History for Sleep
 opening   persoon
 titelsoort event-year
 thumbnail kenmerk: de gemaskerde gevangene in een donkere mantel met een zwart fluwelen masker, begeleid door bewakers met lantaarns over de binnenplaats van de Bastille in Parijs, 1703, nacht, warm lantaarnlicht
-soort    zoekterm
+soort    mysterie

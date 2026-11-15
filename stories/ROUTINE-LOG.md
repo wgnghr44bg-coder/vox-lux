@@ -154,3 +154,8 @@
 - 2026-11-15 05:56 Claude: 'Let's begin' uit het begin gehaald (eigenaar 15 nov) bij alle 9 komende video's; begin = alleen 2-3 zinnen verhaal. Keten gestart voor gettysburg-1863,dallas-1963
 - 2026-11-15 05:56 routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)
 - 2026-11-15 05:59 Claude: abonneerzin per video anders verwoord en even lang (17-20 woorden, zoals Gettysburg 18), afspraken_check bewaakt 15-22 woorden
+- 2026-11-15 06:04 routine-lokaal: gettysburg-1863: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl
+- 2026-11-15 08:30 hype-wachter: SEINTJE Dood van de Man met het IJzeren Masker (323 jaar) -> staat gepland op 2026-12-16 (man-ijzeren-masker-1703), NA de datum: naar voren halen, beste plek 2026-11-18 (bezet door gettysburg-1863, ruilen?)
+- 2026-11-15 08:30 hype-wachter: SEINTJE Mary Celeste leeg gevonden (154 jaar) -> staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijzen, ruilen?)
+- 2026-11-15 08:30 hype-wachter: SEINTJE Goud gevonden in Californie (goudkoorts) (179 jaar) -> KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 2027-01-18
+- 2026-11-15 12:13 Claude: YouTube Studio-inzichten 2 (eigenaar 15 nov 'alles aanpassen voor meer views'): eerste onderwerp = kern van de titel (blackbeard 'A day aboard', kerst 'Christmas Eve in the trenches', thanksgiving 'Massasoit arrives' vooraan); soort gecorrigeerd (crisis oorlog, iron mask/mary celeste/dansplaag mysterie, tower middeleeuwen); crisis R2rgLUMJxac in afspeellijsten Full Documentaries + War & Survival; afspraken_check bewaakt soort

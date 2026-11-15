@@ -5,4 +5,4 @@ titel    The Mary Celeste Ghost Ship, 1872 | History for Sleep
 opening   scène
 titelsoort event-year
 thumbnail kenmerk: het lege zeilschip Mary Celeste dobberend op een kalme Atlantische Oceaan, matrozen van het schip Dei Gratia roeien er in een sloep naartoe en klimmen aan boord, 1872, zacht ochtendlicht
-soort    zoekterm
+soort    mysterie
