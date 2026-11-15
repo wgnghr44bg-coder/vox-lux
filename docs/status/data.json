@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 12:56",
+ "bijgewerkt": "2026-11-15 12:59",
  "werkplanning": {
   "nu": [
    {
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 5,
+    "views": 6,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 566,
+    "views": 562,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +635,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -653,7 +653,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 27,
+    "views": 28,
     "verwerkt": "processed"
    }
   ],
@@ -865,8 +865,8 @@
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:19",
-   "youtube": "2026-11-15 16:39"
+   "klaar": "2026-11-15 16:25",
+   "youtube": "2026-11-15 16:45"
   }
  },
  "nu_bezig": [
@@ -1059,12 +1059,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 12:56",
+   "tijd": "2026-11-15 12:59",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 12:56",
+   "tijd": "2026-11-15 12:59",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -2703,7 +2703,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 12:56",
+  "bijgewerkt": "2026-11-15 13:00",
   "accounts": [
    {
     "account": "hoofd",
@@ -2723,11 +2723,11 @@
    },
    {
     "account": "account2",
-    "5uur": 6738647,
-    "week": 66031300,
+    "5uur": 7484393,
+    "week": 66777046,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 13821010,
+     "Sun 15-11": 14566756,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Sun 08-11": 4120866,
@@ -2735,13 +2735,13 @@
     },
     "script_kost": 630228,
     "metingen": 7,
-    "stap_kost": 85583,
-    "5uur_pct": 43,
-    "5uur_scripts_over": 13.9,
-    "5uur_stappen_over": 102,
-    "week_pct": 46,
-    "week_scripts_over": 121.7,
-    "week_stappen_over": 896
+    "stap_kost": 85728,
+    "5uur_pct": 48,
+    "5uur_scripts_over": 12.7,
+    "5uur_stappen_over": 94,
+    "week_pct": 47,
+    "week_scripts_over": 120.5,
+    "week_stappen_over": 886
    }
   ]
  },
