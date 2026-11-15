@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 10:03",
+ "bijgewerkt": "2026-11-15 10:33",
  "werkplanning": {
   "nu": [
    {
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 10:03)"
+   "tekst": "draait nu (2026-11-15 10:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 09:48: alles klopt"
+   "tekst": "laatste ronde 10:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 10:03",
-   "volgende": "2026-11-15 10:33"
+   "laatst": "2026-11-15 10:33",
+   "volgende": "2026-11-15 11:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 09:10",
-   "volgende": "2026-11-15 10:10"
+   "laatst": "2026-11-15 10:10",
+   "volgende": "2026-11-15 11:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 09:48",
-   "volgende": "2026-11-15 10:18"
+   "laatst": "2026-11-15 10:18",
+   "volgende": "2026-11-15 10:48"
   }
  },
  "kanaal": {
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 5,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 559,
+    "views": 549,
     "verwerkt": "processed"
    },
    {
@@ -880,7 +880,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
+  "bezig_procent": 20,
   "geheugen_mb": 433,
   "totaal_mb": 8192
  },
@@ -1065,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 10:03",
+   "tijd": "2026-11-15 10:33",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 10:03",
+   "tijd": "2026-11-15 10:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 10:03",
+   "tijd": "2026-11-15 10:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
