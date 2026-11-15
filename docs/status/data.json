@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 21:33",
+ "bijgewerkt": "2026-11-15 22:03",
  "werkplanning": {
   "nu": [
    {
@@ -482,7 +482,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "182 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -497,7 +497,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 21:33)"
+   "tekst": "draait nu (2026-11-15 22:03)"
   },
   {
    "naam": "Git",
@@ -532,7 +532,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 21:18: alles klopt"
+   "tekst": "laatste ronde 21:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -549,8 +549,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 21:33",
-   "volgende": "2026-11-15 22:03"
+   "laatst": "2026-11-15 22:03",
+   "volgende": "2026-11-15 22:33"
   },
   "hype": {
    "aan": true,
@@ -564,8 +564,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 21:18",
-   "volgende": "2026-11-15 21:48"
+   "laatst": "2026-11-15 21:48",
+   "volgende": "2026-11-15 22:18"
   },
   "titels": {
    "aan": true,
@@ -908,7 +908,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 21,
+  "bezig_procent": 23,
   "geheugen_mb": 422,
   "totaal_mb": 8192
  },
@@ -3147,7 +3147,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 21:37",
+  "bijgewerkt": "2026-11-15 22:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3180,15 +3180,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 69148,
+    "stap_kost": 68373,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 50,
     "5uur_scripts_over": 11.0,
-    "5uur_stappen_over": 98,
+    "5uur_stappen_over": 100,
     "week_pct": 57,
     "week_scripts_over": 91.4,
-    "week_stappen_over": 818
+    "week_stappen_over": 828
    }
   ]
  },
