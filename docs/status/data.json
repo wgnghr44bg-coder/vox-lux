@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 16:03",
+ "bijgewerkt": "2026-11-15 16:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 52%",
+    "detail": "Beelden maken · 86%",
     "soort": "nu"
    }
   ],
@@ -473,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 16:03)"
+   "tekst": "draait nu (2026-11-15 16:33)"
   },
   {
    "naam": "Git",
@@ -508,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:48: alles klopt"
+   "tekst": "laatste ronde 16:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -525,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 16:03",
-   "volgende": "2026-11-15 16:33"
+   "laatst": "2026-11-15 16:33",
+   "volgende": "2026-11-15 17:03"
   },
   "hype": {
    "aan": true,
@@ -535,13 +535,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 15:10",
-   "volgende": "2026-11-15 16:10"
+   "laatst": "2026-11-15 16:10",
+   "volgende": "2026-11-15 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 15:48",
-   "volgende": "2026-11-15 16:18"
+   "laatst": "2026-11-15 16:18",
+   "volgende": "2026-11-15 16:48"
   }
  },
  "kanaal": {
@@ -852,8 +852,8 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 52,
-  "detail": "47 van 90 beelden",
+  "voortgang": 86,
+  "detail": "77 van 90 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -876,8 +876,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 3,
-  "geheugen_mb": 4656,
+  "bezig_procent": 13,
+  "geheugen_mb": 3844,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2695,7 +2695,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 16:05",
+  "bijgewerkt": "2026-11-15 16:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -2728,7 +2728,7 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 80862,
+    "stap_kost": 80026,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 99,
@@ -2736,7 +2736,7 @@
     "5uur_stappen_over": 1,
     "week_pct": 52,
     "week_scripts_over": 102.3,
-    "week_stappen_over": 784
+    "week_stappen_over": 792
    }
   ]
  },
