@@ -1,13 +1,14 @@
 {
- "fouten": [
-  "begin 257 woorden (60-160 nodig)"
- ],
+ "fouten": [],
  "info": {
   "feitjes": 88,
-  "woorden": 16251,
-  "begin": 257,
-  "slot": 139,
+  "woorden": 15554,
+  "begin": 40,
+  "slot": 110,
   "onderwerpen": 13,
-  "jaar": -44
+  "jaar": -44,
+  "let_op": [
+   "feitje 51: 'train' in de tekst (vergelijking of fout?)"
+  ]
  }
 }

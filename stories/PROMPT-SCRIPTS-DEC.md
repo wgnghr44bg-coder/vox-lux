@@ -33,7 +33,7 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | ma 23 nov | `ijstijd-20000-vc` | **nieuw script** (IJstijd-hype bij 3 kanalen) | hoofdsessie (14 nov) |
 | ma 30 nov | `blackbeard-1718` | ombouwen naar Sleepy | hoofdsessie (14 nov) |
 | wo 2 dec | `alchemie-steen-der-wijzen` | **nieuw script** (hype Philosopher's Stone) | hoofdsessie (14 nov) |
-| wo 9 dec | `rome-44-vc` | ombouwen; deel1-tekst staat klaar in `toon/sleepy-deel1.json` (toepassen met `tools/ombouw_blokken.py vervang`), deel2+3, begin/slot nog | ander account |
+| wo 9 dec | `rome-44-vc` | KLAAR (15 nov, hoofdsessie) | - |
 | za 12 dec | `zwarte-dood-1348` | ombouwen (+ 7 feitjes uit scriptcheck.json vervangen) | ander account |
 | ma 14 dec | `scott-antarctica-1912` | ombouwen (datum = 115 jaar Amundsen op de Zuidpool; mag dat noemen) | ander account |
 | za 19 dec | `londen-kerst-1843` | ombouwen uit de oude opbouw (datum = 183 jaar A Christmas Carol) | ander account |

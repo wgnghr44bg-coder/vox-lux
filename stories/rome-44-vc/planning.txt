@@ -1,8 +1,9 @@
 onderwerp Life in Ancient Rome When Caesar Died, 44 BC
-status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)
 datum    wo 2026-12-09 21:00 NL (was wo 2026-12-02)
-titel    What Did Romans Actually Do When Caesar Ruled? | History for Sleep
-opening   mythe
-titelsoort what-actually
+titel    Life in Rome When Caesar Ruled, 44 BC | History for Sleep (eigenaar 14 nov: concrete titel; was: What Did Romans Actually Do When Caesar Ruled?)
+opening   scène
+titelsoort life-in
 thumbnail amberregel "ROME · MARCH 44 BC", hook "The Ides of March", beeld (kenmerkend): Julius Caesar met lauwerkrans en witte toga, rustig staand op de trappen van de Senaatshal bij het Forum in vroeg ochtendlicht, achter hem zuilen en tempels op de heuvels; geen wapens, geen geweld, het moment ervoor
 soort    oudheid
+thumbnail kenmerk: het Forum Romanum in 44 v.Chr. met witte tempels en de sprekerstribune, Julius Caesar met lauwerkrans in witte toga met paarse rand die rustig door de menigte loopt, Romeinen in toga's en tunieken, handelaren en kinderen; warm ochtendlicht
