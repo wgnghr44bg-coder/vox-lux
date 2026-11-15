@@ -1,5 +1,5 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
-status   script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)
+status   script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)
 datum    ma 2026-12-14 21:00 NL (hype-wachter 14 nov: precies 115 jaar na Amundsen op de Zuidpool, de race die Scott verloor; Antarctica-hype; was wo 2026-12-16)
 titel    Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep
 opening   raadsel
