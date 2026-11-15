@@ -208,3 +208,4 @@
 - 2026-11-15 20:54 hype-wachter: SEINTJE The Little Duvet Shop: A Cozy Rainy Sleep Story -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-15 20:54 Claude: hype-wachter kijkt nu naar 23 kanalen (16 grote slaapgeschiedeniskanalen toegevoegd: Sleepless Historian, Get Sleepy, ASMR Historian, Stephen Dalton, Historian Sleepy e.a.); titel japan-1600 zonder uren
 - 2026-11-15 21:00 Claude: hype-wachter nu 33 kanalen (10 geschiedeniskanalen uit de top-50 lijst van de eigenaar erbij; algemene slaap/meditatie bewust niet)
+- 2026-11-15 21:17 Claude: opdracht eigenaar (Japan ombouwen, compilatieplan, hoofdstuknamen, mythologie) vastgelegd in stories/PROMPT-JAPAN-EN-COMPILATIES.md voor een nieuwe, korte sessie (deze sessie is groot: ± 70k eenheden per stap). Titelwachter: strengere beoordeling (2x vergelijken + taalcontrole + lidwoordregel)

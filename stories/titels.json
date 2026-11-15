@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 20:46",
+ "bijgewerkt": "2026-11-15 21:12",
  "titels": [
   {
    "map": "babylon-600-vc",
@@ -36,18 +36,7 @@
    "voorstel": "",
    "waarom": "",
    "youtube": "",
-   "concurrent": [
-    {
-     "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
-     "kanaal": "Sleepy History Channel",
-     "per_dag": 3894
-    },
-    {
-     "titel": "What Winter Felt Like for Ordinary People in Colonial America | History for Sleep",
-     "kanaal": "Sleepy Quiet Historian",
-     "per_dag": 452
-    }
-   ],
+   "concurrent": [],
    "bekeken": ""
   },
   {
@@ -60,7 +49,7 @@
    "waarom": "",
    "youtube": "",
    "concurrent": [],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "dallas-1963",
@@ -71,8 +60,14 @@
    "voorstel": "",
    "waarom": "",
    "youtube": "",
-   "concurrent": [],
-   "bekeken": ""
+   "concurrent": [
+    {
+     "titel": "Important Channel Update - Behind the Scenes - November 2026",
+     "kanaal": "Sleepy Time Historian",
+     "per_dag": 143
+    }
+   ],
+   "bekeken": "2026-11-15"
   },
   {
    "map": "ijstijd-20000-vc",
@@ -80,27 +75,27 @@
    "titel": "How People Survived the Ice Age | History for Sleep",
    "fouten": [],
    "let_op": [],
-   "voorstel": "",
-   "waarom": "",
+   "voorstel": "Life in Ice Age Cave, 20,000 Years Ago | History for Sleep",
+   "waarom": "gebruikt populaire termen als 'Ice Age Cave' en een specifieke datum die aantrekken",
    "youtube": "",
    "concurrent": [
     {
+     "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
+     "kanaal": "ASMR Historian",
+     "per_dag": 9541
+    },
+    {
      "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
      "kanaal": "Just About Earth",
-     "per_dag": 5739
+     "per_dag": 5738
     },
     {
      "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
      "kanaal": "Old History Nights",
-     "per_dag": 5165
-    },
-    {
-     "titel": "What Life Was REALLY Like in London During the Little Ice Age | History for Sleep",
-     "kanaal": "Sleepy Quiet Historian",
-     "per_dag": 526
+     "per_dag": 5160
     }
    ],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "thanksgiving-1621",
@@ -111,8 +106,24 @@
    "voorstel": "",
    "waarom": "",
    "youtube": "",
-   "concurrent": [],
-   "bekeken": ""
+   "concurrent": [
+    {
+     "titel": "The COZIEST Autumn Story | The Sleepy Science of Leaves | Sleep Story",
+     "kanaal": "Get Sleepy",
+     "per_dag": 8850
+    },
+    {
+     "titel": "Fall Asleep with the COZIEST Story: A Cozy Autumn Evening with a Family of Beavers",
+     "kanaal": "Get Sleepy",
+     "per_dag": 4783
+    },
+    {
+     "titel": "The DEEPEST Sleep EVER | Sleep Story: Blackberry Jam on an Autumn Afternoon",
+     "kanaal": "Get Sleepy",
+     "per_dag": 2940
+    }
+   ],
+   "bekeken": "2026-11-15"
   },
   {
    "map": "boeren-winter-1300",
@@ -127,10 +138,10 @@
     {
      "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
      "kanaal": "Sleepless Historian",
-     "per_dag": 5899
+     "per_dag": 5890
     }
    ],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "blackbeard-1718",
@@ -142,7 +153,7 @@
    "waarom": "",
    "youtube": "",
    "concurrent": [],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "alchemie-steen-der-wijzen",
@@ -157,10 +168,20 @@
     {
      "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
      "kanaal": "History Camp",
-     "per_dag": 19985
+     "per_dag": 19978
+    },
+    {
+     "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
+     "kanaal": "ASMR Historian",
+     "per_dag": 9541
+    },
+    {
+     "titel": "Gates to Hell Around the World | Human Voiced, No Ads",
+     "kanaal": "ASMR Historian",
+     "per_dag": 4784
     }
    ],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "kerst-loopgraven-1914",
@@ -172,7 +193,7 @@
    "waarom": "",
    "youtube": "",
    "concurrent": [],
-   "bekeken": ""
+   "bekeken": "2026-11-15"
   },
   {
    "map": "pearl-harbor-1941",
@@ -200,6 +221,16 @@
      "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
      "kanaal": "Sleepy History Channel",
      "per_dag": 1115
+    },
+    {
+     "titel": "The Pandemic Rome Never Recovered From (It Wasn't the Black Death)",
+     "kanaal": "Sleepy Time Historian",
+     "per_dag": 865
+    },
+    {
+     "titel": "Before Persia an Entire Civilization Ruled Iran for 3,000 Years – Then Assyria Erased It",
+     "kanaal": "Sleepy Time Historian",
+     "per_dag": 495
     }
    ],
    "bekeken": ""
@@ -215,14 +246,19 @@
    "youtube": "",
    "concurrent": [
     {
-     "titel": "How People Rebuilt Their Lives After the Black Death in England | History for Sleep",
-     "kanaal": "Sleepy Quiet Historian",
-     "per_dag": 791
+     "titel": "The Mystery of The Village That Beat the Black Death",
+     "kanaal": "Sleepless Historian",
+     "per_dag": 1796
     },
     {
-     "titel": "What Happened Inside Medieval Homes During the Black Death | History for Sleep",
-     "kanaal": "Sleepy Quiet Historian",
-     "per_dag": 538
+     "titel": "5,000 Years Ago Horsemen From the Steppe REPLACED Half of Europe - Where Did Everyone Else Go?",
+     "kanaal": "Sleepy Time Historian",
+     "per_dag": 1555
+    },
+    {
+     "titel": "The Celts: The Mysterious Dark Age Masters of Europe",
+     "kanaal": "Sleepless Historian",
+     "per_dag": 1425
     }
    ],
    "bekeken": ""
@@ -240,7 +276,12 @@
     {
      "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
      "kanaal": "Kaushik Bhattacharjee Extra",
-     "per_dag": 8792
+     "per_dag": 8791
+    },
+    {
+     "titel": "Nervous System Relief: A Sleepy Trip to South Africa’s Sudwala Caves | Sleep Story",
+     "kanaal": "Get Sleepy",
+     "per_dag": 3761
     },
     {
      "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
@@ -263,7 +304,12 @@
     {
      "titel": "What Life Was Like in Iron Age Britain, 300 BC | History for Sleep",
      "kanaal": "Sleepy Quiet Historian",
-     "per_dag": 440
+     "per_dag": 439
+    },
+    {
+     "titel": "Why France Revolts | 230 Years of Protest, Power and Change | French History",
+     "kanaal": "The Sleepy Historian",
+     "per_dag": 28
     }
    ],
    "bekeken": ""
@@ -281,7 +327,7 @@
     {
      "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
      "kanaal": "Sleepy Lost World",
-     "per_dag": 3203
+     "per_dag": 3202
     },
     {
      "titel": "The Room Rented for One Year | A Cozy Victorian Sleep Story",
@@ -310,6 +356,11 @@
      "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
      "kanaal": "Bedtime & Historian ",
      "per_dag": 1180
+    },
+    {
+     "titel": "😴 DRIFT PEACEFULLY ASLEEP 💤 Bedtime Story For Grown Ups - Ghost of the Candlelit Library",
+     "kanaal": "Dan Jones Sleep Stories",
+     "per_dag": 184
     }
    ],
    "bekeken": ""
@@ -329,10 +380,8 @@
   {
    "map": "japan-1600",
    "datum": "2026-12-26",
-   "titel": "Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep",
-   "fouten": [
-    "eindigt niet op '| History for Sleep'"
-   ],
+   "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
+   "fouten": [],
    "let_op": [],
    "voorstel": "",
    "waarom": "",
@@ -341,11 +390,16 @@
     {
      "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
      "kanaal": "The French Whisperer ASMR",
-     "per_dag": 6414
+     "per_dag": 6406
+    },
+    {
+     "titel": "The Forgotten World of Japan 10,000 Years Ago | History for Sleep",
+     "kanaal": "Sleepy Time Historian",
+     "per_dag": 1220
     }
    ],
    "bekeken": ""
   }
  ],
- "model": "niet nodig"
+ "model": "gebruikt"
 }

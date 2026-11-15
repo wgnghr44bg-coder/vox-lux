@@ -141,10 +141,40 @@ JSON: {{"beter": true/false, "titel": "<full title ending with {STAART.strip()}>
         t = t.split(" | ")[0].rstrip() + STAART
     if not a.get("beter") or not t or t.lower() == v["titel"].lower() or regels(t)[0] or regels(t)[1]:
         return "", ""
+    # lidwoord vergeten ("Life in Ice Age Cave"): het model keurde dat zelf goed, dus een vaste regel
+    if re.search(r"\b(in|on|at|inside|aboard|from)\s+(?!The\b|A\b|An\b)[A-Z]\w+\s+[A-Z]\w+\s+[A-Z]\w+\b", t.split(" | ")[0]):
+        return "", ""
+    # 15 nov, eerste ronde: het model stelde vaak slechtere titels voor ("Life in America, 1933" zonder Great
+    # Depression; Thanksgiving zonder het woord Thanksgiving vlak voor Thanksgiving). Daarom een tweede, strenge
+    # beoordeling: beide titels naast elkaar, twee keer met de volgorde omgedraaid; alleen als het voorstel beide keren wint.
+    taal = llm.json_vraag(f"""Is this a natural, grammatically correct English YouTube title, the way a native speaker
+would write it (articles like "a"/"an"/"the" where needed)? Title: {t.split(' | ')[0]}
+JSON: {{"correct": true or false}}""", temp=0.0, max_tokens=30, ctx=1024)
+    if taal.get("correct") is not True:
+        return "", ""
+    for eerst, dan in ((v["titel"], t), (t, v["titel"])):
+        oordeel = llm.json_vraag(
+            f"""Two YouTube titles for the same calm history video for falling asleep ({v['onderwerp'] or v['titel']}).
+A: {eerst}
+B: {dan}
+Which one would more people click on? Judge strictly: the best title keeps the most famous, searched-for words
+(names like Thanksgiving, Great Depression, Blackbeard, Pirate, Titanic), is natural correct English, concrete
+(place and/or year), and promises exactly what the video is about. If they are about equally good, answer "gelijk".
+JSON: {{"beste": "A" or "B" or "gelijk"}}""", temp=0.0, max_tokens=40, ctx=2048)
+        winnaar = str(oordeel.get("beste", "")).strip().upper()[:1]
+        if (winnaar == "A" and eerst != t) or (winnaar == "B" and dan != t) or winnaar not in "AB":
+            return "", ""
     return t, str(a.get("waarom", ""))[:120]
 
 
 def main():
+    import msvcrt                                           # 15 nov: nooit twee rondes tegelijk (dubbele seintjes)
+    slot = open(Path.home() / "titel-wacht.slot", "a+")
+    try:
+        msvcrt.locking(slot.fileno(), msvcrt.LK_NBLCK, 1)
+    except OSError:
+        print("titelwachter draait al")
+        return
     vandaag = dt.date.today()
     zonder = "--zonder-model" in sys.argv
     oud = {x["map"]: x for x in json.loads(UIT.read_text(encoding="utf-8")).get("titels", [])} if UIT.exists() else {}
@@ -174,8 +204,9 @@ def main():
             yfout = regels(ytt)[0]
             if yfout:
                 r["youtube"] = (r["youtube"] + "; " if r["youtube"] else f"op YouTube: '{ytt}' ") + ", ".join(yfout)
-        # voorstel van het model (alleen voor video's die nog niet online zijn)
-        if d >= vandaag:
+        # voorstel van het model (alleen voor video's die nog niet klaar/geüpload zijn; daarvoor is het seintje
+        # hierboven over YouTube genoeg)
+        if d >= vandaag and not v["status"].startswith("klaar"):
             rij = verwant(v, conc)
             r["concurrent"] = [{"titel": c["titel"], "kanaal": c["kanaal"], "per_dag": c["per_dag"]} for c in rij[:3]]
             o = oud.get(v["map"], {})
