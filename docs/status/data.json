@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 09:03",
+ "bijgewerkt": "2026-11-15 09:33",
  "werkplanning": {
   "nu": [
    {
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "196 GB vrij"
+   "tekst": "195 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 09:03)"
+   "tekst": "draait nu (2026-11-15 09:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 08:48: alles klopt"
+   "tekst": "laatste ronde 09:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 09:03",
-   "volgende": "2026-11-15 09:33"
+   "laatst": "2026-11-15 09:33",
+   "volgende": "2026-11-15 10:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 08:10",
-   "volgende": "2026-11-15 09:10"
+   "laatst": "2026-11-15 09:10",
+   "volgende": "2026-11-15 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 08:48",
-   "volgende": "2026-11-15 09:18"
+   "laatst": "2026-11-15 09:18",
+   "volgende": "2026-11-15 09:48"
   }
  },
  "kanaal": {
@@ -572,7 +572,7 @@
     "duur": "2:10:45",
     "privacy": "private",
     "publiceer": "2026-11-16T20:00:00Z",
-    "views": 0,
+    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 549,
+    "views": 559,
     "verwerkt": "processed"
    },
    {
@@ -644,7 +644,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 64,
+    "views": 65,
     "verwerkt": "processed"
    },
    {
@@ -653,7 +653,7 @@
     "duur": "2:36:14",
     "privacy": "public",
     "publiceer": "2026-10-07T19:00:13Z",
-    "views": 26,
+    "views": 27,
     "verwerkt": "processed"
    }
   ],
@@ -880,7 +880,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 19,
+  "bezig_procent": 22,
   "geheugen_mb": 433,
   "totaal_mb": 8192
  },
@@ -1065,17 +1065,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 09:03",
+   "tijd": "2026-11-15 09:33",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 09:03",
+   "tijd": "2026-11-15 09:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 09:03",
+   "tijd": "2026-11-15 09:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
