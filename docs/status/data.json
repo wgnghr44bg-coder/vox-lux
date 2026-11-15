@@ -1,17 +1,23 @@
 {
- "bijgewerkt": "2026-11-15 23:33",
+ "bijgewerkt": "2026-11-16 00:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 19%",
+    "detail": "Video bouwen · 34%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
     "wanneer": "na Gettysburg",
+    "wat": "Life in Dallas, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "keten maakt de video voor za 21-11 21:00"
+   },
+   {
+    "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
     "detail": "keten maakt de video voor ma 23-11 21:00"
@@ -27,6 +33,12 @@
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
     "detail": "keten maakt de video voor za 28-11 21:00"
+   },
+   {
+    "wanneer": "na Boeren",
+    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "map": "blackbeard-1718",
+    "detail": "keten maakt de video voor ma 30-11 21:00"
    }
   ],
   "publicaties": [
@@ -35,7 +47,7 @@
     "dag": "ma",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "stand": "staat klaar op YouTube",
+    "stand": "online",
     "kleur": "goed"
    },
    {
@@ -99,6 +111,14 @@
     "dag": "za",
     "titel": "Christmas in the Trenches, 1914 | History for Sleep",
     "map": "kerst-loopgraven-1914",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-12-07",
+    "dag": "ma",
+    "titel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
    }
@@ -482,7 +502,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "182 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -497,7 +517,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 23:33)"
+   "tekst": "draait nu (2026-11-16 00:03)"
   },
   {
    "naam": "Git",
@@ -508,6 +528,11 @@
    "naam": "Video 2026-11-16 (crisis-1933)",
    "ok": true,
    "tekst": "staat op YouTube ingepland"
+  },
+  {
+   "naam": "Video 2026-11-18 (gettysburg-1863)",
+   "ok": false,
+   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -532,7 +557,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 23:18: alles klopt"
+   "tekst": "laatste ronde 23:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -549,8 +574,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 23:33",
-   "volgende": "2026-11-16 00:03"
+   "laatst": "2026-11-16 00:03",
+   "volgende": "2026-11-16 00:33"
   },
   "hype": {
    "aan": true,
@@ -564,8 +589,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 23:18",
-   "volgende": "2026-11-15 23:48"
+   "laatst": "2026-11-15 23:48",
+   "volgende": "2026-11-16 00:18"
   },
   "titels": {
    "aan": true,
@@ -579,13 +604,13 @@
   "views_totaal": 2822,
   "video_aantal": 16,
   "week": {
-   "views": 576,
-   "uren": 154,
-   "abonnees": 5
+   "views": 475,
+   "uren": 137,
+   "abonnees": 4
   },
   "vorige_week": {
-   "views": 655,
-   "uren": 74,
+   "views": 630,
+   "uren": 64,
    "abonnees": 1
   },
   "recent": [
@@ -649,7 +674,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 576,
+    "views": 575,
     "verwerkt": "processed"
    },
    {
@@ -681,11 +706,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-18",
-    "views": 14,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-19",
     "views": 17,
@@ -818,13 +838,13 @@
    }
   ],
   "maand": {
-   "views": 2365,
-   "uren": 567,
+   "views": 2351,
+   "uren": 565,
    "abonnees": 9
   },
   "vorige_maand": {
-   "views": 1070,
-   "uren": 78,
+   "views": 872,
+   "uren": 87,
    "abonnees": 8
   },
   "jaar": {
@@ -837,8 +857,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1190,
-    "uren": 326
+    "views": 1182,
+    "uren": 325
    },
    {
     "id": "_duWLxwIEss",
@@ -863,10 +883,10 @@
    "totaal": 12,
    "procent": 25
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 15,
-   "totaal": 15
+   "totaal": 16
   }
  },
  "stappen": [
@@ -886,15 +906,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 19,
+  "voortgang": 34,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-16 03:51",
-   "youtube": "2026-11-16 04:11"
+   "klaar": "2026-11-16 03:49",
+   "youtube": "2026-11-16 04:09"
   }
  },
  "nu_bezig": [
@@ -908,7 +928,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 26,
   "geheugen_mb": 422,
   "totaal_mb": 8192
  },
@@ -951,16 +971,10 @@
  ],
  "week": [
   {
-   "datum": "2026-11-15",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-16",
    "plek": true,
    "video": "Life in the Great Depression, 1933 | History for Sleep",
-   "soort": "gepland"
+   "soort": "online"
   },
   {
    "datum": "2026-11-17",
@@ -991,6 +1005,12 @@
    "plek": true,
    "video": "Life in Dallas, November 1963 | History for Sleep",
    "soort": "bezig"
+  },
+  {
+   "datum": "2026-11-22",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
@@ -1079,7 +1099,13 @@
    "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-16 00:03",
+   "tekst": "Zelfcontrole: Video 2026-11-18 (gettysburg-1863): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-15 15:54",
@@ -1367,7 +1393,7 @@
    "reserve": false,
    "titel": "Life in the Great Depression, 1933 | History for Sleep",
    "status": "klaar",
-   "soort": "gepland",
+   "soort": "online",
    "id": "R2rgLUMJxac",
    "afspeellijst": "oorlog",
    "opening": "scène"
@@ -3147,7 +3173,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 23:33",
+  "bijgewerkt": "2026-11-16 00:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -3179,15 +3205,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 63487,
+    "stap_kost": 62707,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 50,
     "5uur_scripts_over": 11.0,
-    "5uur_stappen_over": 107,
+    "5uur_stappen_over": 109,
     "week_pct": 57,
     "week_scripts_over": 91.4,
-    "week_stappen_over": 891
+    "week_stappen_over": 902
    }
   ]
  },
