@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 01:03",
+ "bijgewerkt": "2026-11-15 01:33",
  "werkplanning": {
   "nu": [
    {
@@ -251,36 +251,36 @@
     "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
     "map": "rome-44-vc",
     "klaar": false,
-    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
+    "stand": "script afgekeurd, moet opnieuw",
     "controle": "FOUT",
-    "flesch": 83,
-    "niveau": 4.3,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-12",
     "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
     "map": "zwarte-dood-1348",
     "klaar": false,
-    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
+    "stand": "script afgekeurd, moet opnieuw",
     "controle": "FOUT",
-    "flesch": 82,
-    "niveau": 4.6,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen, verwijzingen)"
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-14",
     "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
     "map": "scott-antarctica-1912",
     "klaar": false,
-    "stand": "moet nog naar de Sleepy-opbouw (zie PROMPT-SCRIPTS-DEC.md)",
+    "stand": "script afgekeurd, moet opnieuw",
     "controle": "FOUT",
-    "flesch": 88,
-    "niveau": 3.7,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TE PERSOONLIJK (jij-vorm, vragen, verteller, you might think, overgangen)"
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null
    },
    {
     "datum": "2026-12-16",
@@ -476,7 +476,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "208 GB vrij"
+   "tekst": "201 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -491,7 +491,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 01:03)"
+   "tekst": "draait nu (2026-11-15 01:33)"
   },
   {
    "naam": "Git",
@@ -506,22 +506,22 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-15)"
   },
   {
    "naam": "Script rome-44-vc",
    "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten)"
+   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
   },
   {
    "naam": "Script scott-antarctica-1912",
    "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten)"
+   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
   },
   {
    "naam": "Script zwarte-dood-1348",
    "ok": false,
-   "tekst": "SCRIPT FOUT (1 punten)"
+   "tekst": "SCRIPT FOUT (1 punten) (nacht 2026-11-15)"
   }
  ],
  "automatisering": false,
@@ -538,8 +538,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 01:03",
-   "volgende": "2026-11-15 01:33"
+   "laatst": "2026-11-15 01:33",
+   "volgende": "2026-11-15 02:03"
   },
   "hype": {
    "aan": true,
@@ -548,8 +548,8 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 00:10",
-   "volgende": "2026-11-15 01:10"
+   "laatst": "2026-11-15 01:10",
+   "volgende": "2026-11-15 02:10"
   }
  },
  "kanaal": {
@@ -628,7 +628,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 527,
+    "views": 526,
     "verwerkt": "processed"
    },
    {
@@ -834,10 +834,10 @@
   "geplande": 1,
   "runs": {
    "goed": 6,
-   "totaal": 13,
-   "procent": 46
+   "totaal": 15,
+   "procent": 40
   },
-  "fouten": 3,
+  "fouten": 6,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 14
@@ -868,7 +868,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 512,
+  "geheugen_mb": 531,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -954,24 +954,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-14 17:43",
-   "tekst": "Claude: hype-wachter verbeterd (eigenaar 14 nov): ziet nu ook TE VROEG gepland, reservescripts die passen, BREED (meerdere kanalen), bezette plekken (ruilen?); kalender +13 jaardagen (o.a. A Christmas",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 17:48",
-   "tekst": "hype-wachter: SEINTJE What Winter Nights Were REALLY Like in an 1880s Frontier Cabin |  Boring History For Sleep -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-14 17:51",
-   "tekst": "Claude: planning op hype en jaardagen (eigenaar 14 nov: 'zo dat het beste is voor het kanaal en mee kan met de hype'): NIEUW ijstijd-20000-vc ma 23 nov (IJstijd-hype bij 3 kanalen, script nog schrijve",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-14 17:57",
    "tekst": "Claude: VAST voor beide accounts: stories/PROMPT-SCRIPTS-DEC.md (planning op hype, thumbnailregel, Sleepy-opbouw, verdeling: hoofdsessie ijstijd/blackbeard/alchemie, ander account rome/zwarte-dood/sco",
    "fout": false,
@@ -1036,32 +1018,62 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-16 21:00",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:03",
+   "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
    "tijd": "2026-11-15 01:03",
-   "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten)",
-   "fout": true
+   "tekst": "zelfcontrole: rome-44-vc: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
   },
   {
    "tijd": "2026-11-15 01:03",
-   "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten)",
-   "fout": true
+   "tekst": "zelfcontrole: scott-antarctica-1912: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
   },
   {
    "tijd": "2026-11-15 01:03",
-   "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten)",
+   "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 01:33",
+   "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-15 01:33",
+   "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-15 01:33",
+   "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-12 14:27",
-   "tekst": "routine-lokaal: babylon-600-vc: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-12 23:53",
    "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
@@ -1879,8 +1891,8 @@
    "datum": "2026-12-09",
    "reserve": false,
    "titel": "What Did Romans Actually Do When Caesar Ruled? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
-   "soort": "script nieuw",
+   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
+   "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
    "opening": "mythe"
@@ -1912,8 +1924,8 @@
    "datum": "2026-12-14",
    "reserve": false,
    "titel": "Why Did Scott's Men Sail to the Coldest Place on Earth? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude)",
-   "soort": "script nieuw",
+   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
+   "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
    "opening": "raadsel"
@@ -2176,8 +2188,8 @@
    "datum": "2026-12-12",
    "reserve": false,
    "titel": "How Did Ordinary People Survive the Black Death? | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, nieuwe toon, 2026-11-11, Claude; 7 feitjes vervangen)",
-   "soort": "script nieuw",
+   "status": "script-klaar (oude opbouw; scriptcheck FOUT 2026-11-15: opnieuw ombouwen, zie scriptcheck.json)",
+   "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": "voorwerp"
