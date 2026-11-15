@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 13:05",
+ "bijgewerkt": "2026-11-15 13:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 54%",
+    "detail": "Video bouwen · 67%",
     "soort": "nu"
    }
   ],
@@ -252,7 +252,7 @@
     "map": "zwarte-dood-1348",
     "klaar": false,
     "stand": "script afgekeurd, moet opnieuw",
-    "controle": "FOUT",
+    "controle": "nog niet",
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-15 13:03)"
+   "tekst": "draait nu (2026-11-15 13:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:48: alles klopt"
+   "tekst": "laatste ronde 13:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 13:03",
-   "volgende": "2026-11-15 13:33"
+   "laatst": "2026-11-15 13:33",
+   "volgende": "2026-11-15 14:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 12:10",
-   "volgende": "2026-11-15 13:10"
+   "laatst": "2026-11-15 13:10",
+   "volgende": "2026-11-15 14:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 12:48",
-   "volgende": "2026-11-15 13:18"
+   "laatst": "2026-11-15 13:18",
+   "volgende": "2026-11-15 13:48"
   }
  },
  "kanaal": {
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 5,
+    "views": 6,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 566,
+    "views": 568,
     "verwerkt": "processed"
    },
    {
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 54,
+  "voortgang": 67,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:27",
-   "youtube": "2026-11-15 16:47"
+   "klaar": "2026-11-15 16:22",
+   "youtube": "2026-11-15 16:42"
   }
  },
  "nu_bezig": [
@@ -880,8 +880,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 506,
+  "bezig_procent": 26,
+  "geheugen_mb": 522,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1059,12 +1059,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 13:05",
+   "tijd": "2026-11-15 13:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 13:05",
+   "tijd": "2026-11-15 13:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -2703,7 +2703,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 13:06",
+  "bijgewerkt": "2026-11-15 13:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -2725,11 +2725,11 @@
    },
    {
     "account": "account2",
-    "5uur": 7785925,
-    "week": 67078578,
+    "5uur": 9081689,
+    "week": 68374342,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 14868289,
+     "Sun 15-11": 16164052,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Sun 08-11": 4120866,
@@ -2737,15 +2737,15 @@
     },
     "script_kost": 630228,
     "metingen": 7,
-    "stap_kost": 85883,
+    "stap_kost": 86692,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 50,
-    "5uur_scripts_over": 12.2,
-    "5uur_stappen_over": 90,
-    "week_pct": 47,
-    "week_scripts_over": 120.0,
-    "week_stappen_over": 881
+    "5uur_pct": 59,
+    "5uur_scripts_over": 10.2,
+    "5uur_stappen_over": 74,
+    "week_pct": 48,
+    "week_scripts_over": 118.0,
+    "week_stappen_over": 858
    }
   ]
  },
