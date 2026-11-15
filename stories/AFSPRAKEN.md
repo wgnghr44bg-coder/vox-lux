@@ -12,7 +12,9 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 ## Script (opbouw Sleepy History)
 - Kalme gids, verleden tijd, IMG/HEAD/BODY-blokken (feit, uitleg, bewijs, nuance, slotgedachte), geen BRIDGE.
 - Geen jij-vorm, geen vragen, geen "I", geen verzonnen hoofdpersonen, alleen kloppende feiten. Makkelijk Engels.
-- **Begin:** eerste zin meteen concreet (plaats + tijd + beeld), 60-160 woorden, eindigt met "Let's begin."
+- **Begin (15 nov, eigenaar: "veel korter, rest your shoulders blah blah duurt te lang"):** 25-70 woorden, 2-3 zinnen die
+  meteen het verhaal neerzetten (plaats + tijd + het beeld van de thumbnail), dan "Let's begin." GEEN ontspanningszinnen
+  (rest your shoulders, breathe, let your …), geen "In this story we will …".
 - **Abonneerzin:** niet in het begin maar in `src-feiten/abonneer.txt`; klinkt na feitje 2 (rond minuut 3).
 - **Slot:** terugblik, "another … story … on the screen", kort abonneren, als laatste "Sleep well, and good night."
 - Controles: `script_leesbaar` (GOED + TOON GOED), `check_afwisseling`, `script_check` (SCRIPT GOED).

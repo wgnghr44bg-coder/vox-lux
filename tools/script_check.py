@@ -3,7 +3,7 @@ controleren of alles goed werkt"). Aanleiding: het lokale Gettysburg-script had 
 "planes on the tarmac" in 1863, terwijl de vaste controles (lengte, leesbaarheid, afwisseling) goed waren.
 
 Controles:
-  1. vorm: 80-115 feitjes, 14.000-21.000 woorden, begin 80-160 woorden, slot 80-170 woorden (opbouw 12 nov 2026; eigenaar: intro en outro kort) met "another ... story ...
+  1. vorm: 80-115 feitjes, 13.500-21.000 woorden, begin 25-70 woorden (15 nov: kort, alleen het verhaal), slot 80-170 woorden (opbouw 12 nov 2026; eigenaar: intro en outro kort) met "another ... story ...
      on the screen", abonneren, en als laatste "Sleep well, and good night."; geen "Tonight/Hello" aan het begin
   2. tijd: woorden die niet bij de tijd passen (bv. plane, tarmac, phone, car vóór 1900), behalve in feitjes die
      duidelijk over later gaan (jaartal of "today")
@@ -95,11 +95,13 @@ def controleer(m, met_model=True):
     # 1. vorm
     if not 80 <= len(fb) <= 115:
         fout.append(f"{len(fb)} feitjes (80-115 nodig)")
-    if not 14000 <= totaal <= 21000:
-        fout.append(f"{totaal} woorden (14.000-21.000 nodig)")
+    if not 13500 <= totaal <= 21000:                       # 15 nov: begin veel korter, dus iets lagere ondergrens
+        fout.append(f"{totaal} woorden (13.500-21.000 nodig)")
     abon = (sf / "abonneer.txt").read_text(encoding="utf-8") if (sf / "abonneer.txt").exists() else ""
-    if not 60 <= woorden(begin) <= 160:                     # 14 nov: zonder abonneerzin mag het begin korter
-        fout.append(f"begin {woorden(begin)} woorden (60-160 nodig)")
+    if not 25 <= woorden(begin) <= 70:                      # 15 nov (eigenaar: "veel korter", geen rest-your-shoulders)
+        fout.append(f"begin {woorden(begin)} woorden (25-70 nodig: kort, meteen het verhaal)")
+    if re.search(r"\b(rest your|breathe|let your|your shoulders|your hands|close your eyes)\b", begin, re.I):
+        fout.append("begin bevat ontspanningszinnen (afspraak 15 nov: alleen het verhaal, dan 'Let's begin.')")
     if re.match(r"\s*(tonight|hello|welcome)", begin, re.I):
         fout.append("begin start met Tonight/Hello/Welcome")
     if not re.search(r"subscri", begin + " " + abon, re.I):

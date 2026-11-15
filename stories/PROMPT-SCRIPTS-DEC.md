@@ -21,7 +21,8 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
   Altijd met " | History for Sleep" erachter. Titelsoort hoeft niet meer af te wisselen.
 - **Begin (VAST, eigenaar 14 nov 2026; in de eerste minuut haakt ruim de helft af):** eerste zin meteen concreet
   (plaats + tijd + beeld), geen inleiding. De abonneerzin NIET in begin.txt maar in `src-feiten/abonneer.txt`; die
-  klinkt na het tweede feitje (rond minuut 3). begin.txt 60-160 woorden.
+  klinkt na het tweede feitje (rond minuut 3). begin.txt 25-70 woorden: 2-3 zinnen verhaal, dan "Let's begin.";
+  GEEN ontspanningszinnen (eigenaar 15 nov: "veel korter").
 - **Script-opbouw:** precies zoals `stories/PROMPT-OMBOUW-SLEEPY.md` (kalme gids, IMG/HEAD/BODY, geen BRIDGE, geen
   jij-vorm, geen vragen, geen "I", geen verzonnen hoofdpersonen, kort begin en slot). Controles en afronden ook daar.
 
