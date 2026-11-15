@@ -1,6 +1,9 @@
 onderwerp Life in Victorian London at Christmas, 1843
-status   script-klaar (2026-11-01, tweede account)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)
 datum    za 2026-12-19 21:00 NL (hype-wachter 14 nov: precies 183 jaar na A Christmas Carol van Dickens, 19 dec 1843; was wo 2026-12-23, geruild met bethlehem)
-titel    Life in Victorian London at Christmas, 1843 | <N> Hours of History for Sleep
+titel    Life in Victorian London at Christmas, 1843 | History for Sleep
+opening   scène
+titelsoort life-in
 thumbnail amberregel "LONDON · CHRISTMAS 1843", hook "Victorian Christmas", beeld (kenmerkend: A Christmas Carol): een besneeuwde Victoriaanse straat met gaslantaarns en een verlichte etalage vol ganzen en hulst, ervoor een vader (Bob Cratchit) met een klein jongetje met krukje (Tiny Tim) op zijn schouder, warm goudlicht tegen een koele blauwe avond
 soort    reis
+thumbnail kenmerk: een besneeuwde Victoriaanse straat in Londen in 1843 met gaslantaarns en een verlichte etalage vol ganzen en hulst, een arme vader met een klein jongetje met krukje op zijn schouder en mensen in hoge hoeden en omslagdoeken met pakjes; warm goudlicht tegen een koele blauwe avond

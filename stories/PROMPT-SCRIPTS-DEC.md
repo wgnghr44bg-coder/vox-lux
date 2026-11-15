@@ -36,7 +36,7 @@ of hij al klaar is (status bevat "opbouw Sleepy"): dan overslaan.
 | wo 9 dec | `rome-44-vc` | KLAAR (15 nov, hoofdsessie) | - |
 | za 12 dec | `zwarte-dood-1348` | KLAAR (15 nov, hoofdsessie) | - |
 | ma 14 dec | `scott-antarctica-1912` | KLAAR (15 nov, hoofdsessie) | - |
-| za 19 dec | `londen-kerst-1843` | ombouwen uit de oude opbouw (datum = 183 jaar A Christmas Carol) | ander account |
+| za 19 dec | `londen-kerst-1843` | KLAAR (15 nov, hoofdsessie, opnieuw geschreven in src-feiten) | - |
 | wo 23 dec | `bethlehem` | ombouwen uit de oude opbouw | ander account |
 | wo 16 dec | `man-ijzeren-masker-1703` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
 | ma 21 dec | `mary-celeste-1872` | KLAAR (15 nov, hoofdsessie, nieuw geschreven) | - |
