@@ -123,6 +123,8 @@ def main():
         kost = taak_kosten(d)
         r = {"account": acc, "5uur": round(g["5uur"]), "week": round(g["week"]), "per_dag": {k: round(v) for k, v in g["per_dag"].items()},
              "script_kost": round(kost["script (± 85 blokken)"] or 0), "metingen": kost["metingen"], "stap_kost": round(g["stap"])}
+        r["naam"] = ijk.get(acc, {}).get("naam", acc)
+        r["week_reset"] = ijk.get(acc, {}).get("week_reset", "")
         for soort in ("5uur", "week"):
             lim = ijk.get(acc, {}).get(soort, {}).get("limiet")
             if lim:

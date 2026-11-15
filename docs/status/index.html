@@ -313,16 +313,20 @@ async function laad(){
   else $("trends").innerHTML=`<div class="zacht">De hype-wachter draait elke dag om 08:30.</div>`;
 
   // Claude-gebruik (tools/claude_gebruik.py): gemeten tokens, afgesteld op /usage
-  {const ca=(d.claude&&d.claude.accounts||[]).find(a=>a.week_pct!=null);
+  // Claude-gebruik (tools/claude_gebruik.py): balken zoals /usage in Claude, alleen afgestelde accounts
+  {const acc=(d.claude&&d.claude.accounts||[]).filter(a=>a.week_pct!=null);
+   const balk=(pct)=>`<div style="height:10px;border-radius:6px;background:rgba(58,160,255,.18);overflow:hidden;margin:6px 0 4px"><div style="height:100%;width:${Math.min(100,pct)}%;background:${pct>=85?"#ff6b6b":"#3aa0ff"};border-radius:6px"></div></div>`;
+   const rij=(naam,pct,onder)=>`<div style="margin:10px 0 14px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(naam)}</b><span class="zacht">${pct}% gebruikt</span></div>${balk(pct)}<div class="zacht" style="font-size:.82rem">${esc(onder)}</div></div>`;
+   const ca=acc[0];
    $("kClaude").textContent=ca?ca.week_pct+"%":"–";
-   $("kClaudeD").textContent=ca?`${ca.account} · nog ± ${ca.week_stappen_over} stappen`:"nog niet afgesteld";}
-  if(d.claude&&d.claude.accounts){$("clTijd").textContent="· "+d.claude.bijgewerkt.slice(11,16);
-    $("claude").innerHTML="<tr><th>Account</th><th>5 uur</th><th>Week</th><th>Nog te doen</th></tr>"+d.claude.accounts.map(a=>{
-      const p5=a["5uur_pct"]!=null?a["5uur_pct"]+"%":kort(a["5uur"]),pw=a["week_pct"]!=null?a["week_pct"]+"%":kort(a.week);
-      const over=a.week_stappen_over!=null?`± ${a.week_stappen_over} stappen of ${a.week_scripts_over} scripts`:(a.script_kost?"nog niet afgesteld":"-");
-      return `<tr><td>${esc(a.account)}</td><td>${esc(p5)}</td><td>${esc(pw)}</td><td>${esc(over)}</td></tr>`}).join("");
-    $("clUitleg").textContent="Percentages pas na afstellen met /usage in Claude. Een script kost ongeveer "+kort((d.claude.accounts.find(a=>a.script_kost)||{}).script_kost||0)+" eenheden.";}
-  else $("claude").innerHTML=`<tr><td class="zacht">Nog geen gegevens.</td></tr>`;
+   $("kClaudeD").innerHTML=ca?`${esc(ca.naam)} · week${balk(ca.week_pct)}`:"nog niet afgesteld";
+   if(d.claude) $("clTijd").textContent="· "+d.claude.bijgewerkt.slice(11,16);
+   $("claude").innerHTML=acc.length?acc.map(a=>`<tr><td style="border:0;padding:0">
+     <div style="font-weight:600;margin-top:4px">${esc(a.naam)}</div>
+     ${rij("Huidige sessie",a["5uur_pct"]??0,`nog ± ${a["5uur_stappen_over"]??"?"} stappen in dit blok van 5 uur`)}
+     ${rij("Week (alle modellen)",a.week_pct,(a.week_reset?`Wordt gereset op ${a.week_reset} · `:"")+`nog ± ${a.week_stappen_over} stappen`)}
+     </td></tr>`).join(""):`<tr><td class="zacht">Nog niet afgesteld: stuur een schermafbeelding van /usage.</td></tr>`;
+   $("clUitleg").textContent="Gemeten op de pc en afgesteld op /usage in Claude; een schatting. Een stap is één antwoord of actie van Claude.";}
 
   // weekstrook: maandag t/m zondag van deze week
   const nu=new Date(),ma=new Date(nu.getFullYear(),nu.getMonth(),nu.getDate()-((nu.getDay()+6)%7),12);
