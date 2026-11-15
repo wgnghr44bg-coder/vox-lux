@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 15:03",
+ "bijgewerkt": "2026-11-15 15:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 26%",
+    "detail": "Video bouwen · 76%",
     "soort": "nu"
    }
   ],
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "184 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 15:03)"
+   "tekst": "draait nu (2026-11-15 15:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 14:48: alles klopt"
+   "tekst": "laatste ronde 15:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +531,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 15:03",
-   "volgende": "2026-11-15 15:33"
+   "laatst": "2026-11-15 15:33",
+   "volgende": "2026-11-15 16:03"
   },
   "hype": {
    "aan": true,
@@ -541,13 +541,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 14:10",
-   "volgende": "2026-11-15 15:10"
+   "laatst": "2026-11-15 15:10",
+   "volgende": "2026-11-15 16:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 14:48",
-   "volgende": "2026-11-15 15:18"
+   "laatst": "2026-11-15 15:18",
+   "volgende": "2026-11-15 15:48"
   }
  },
  "kanaal": {
@@ -858,15 +858,15 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 26,
+  "voortgang": 76,
   "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
    "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-15 16:01",
-   "youtube": "2026-11-15 16:21"
+   "klaar": "2026-11-15 16:00",
+   "youtube": "2026-11-15 16:20"
   }
  },
  "nu_bezig": [
@@ -2692,7 +2692,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 15:07",
+  "bijgewerkt": "2026-11-15 15:37",
   "accounts": [
    {
     "account": "hoofd",
@@ -2715,13 +2715,12 @@
    {
     "account": "account2",
     "5uur": 13486183,
-    "week": 68897475,
+    "week": 68657970,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 20568546,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Sun 08-11": 239505,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
@@ -2733,8 +2732,8 @@
     "5uur_scripts_over": 0.1,
     "5uur_stappen_over": 1,
     "week_pct": 52,
-    "week_scripts_over": 101.9,
-    "week_stappen_over": 781
+    "week_scripts_over": 102.3,
+    "week_stappen_over": 784
    }
   ]
  },
