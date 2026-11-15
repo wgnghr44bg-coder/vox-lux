@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-15 13:03",
+ "bijgewerkt": "2026-11-15 13:05",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 53%",
+    "detail": "Video bouwen · 54%",
     "soort": "nu"
    }
   ],
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 13:03)"
+   "tekst": "laatste keer goed (2026-11-15 13:03)"
   },
   {
    "naam": "Git",
@@ -617,7 +617,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 343,
+    "views": 344,
     "verwerkt": "processed"
    },
    {
@@ -858,7 +858,7 @@
   "thumb": "thumbs/gettysburg-1863.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 53,
+  "voortgang": 54,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
@@ -881,7 +881,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 522,
+  "geheugen_mb": 506,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1059,12 +1059,12 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 13:03",
+   "tijd": "2026-11-15 13:05",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 13:03",
+   "tijd": "2026-11-15 13:05",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
@@ -2703,7 +2703,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 13:03",
+  "bijgewerkt": "2026-11-15 13:06",
   "accounts": [
    {
     "account": "hoofd",
@@ -2719,15 +2719,17 @@
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 0
+    "stap_kost": 0,
+    "naam": "hoofd",
+    "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 7577099,
-    "week": 66869752,
+    "5uur": 7785925,
+    "week": 67078578,
     "per_dag": {
      "Sat 14-11": 28603729,
-     "Sun 15-11": 14659462,
+     "Sun 15-11": 14868289,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Sun 08-11": 4120866,
@@ -2735,13 +2737,15 @@
     },
     "script_kost": 630228,
     "metingen": 7,
-    "stap_kost": 85744,
-    "5uur_pct": 49,
-    "5uur_scripts_over": 12.6,
-    "5uur_stappen_over": 92,
+    "stap_kost": 85883,
+    "naam": "Account 2",
+    "week_reset": "za 10:59",
+    "5uur_pct": 50,
+    "5uur_scripts_over": 12.2,
+    "5uur_stappen_over": 90,
     "week_pct": 47,
-    "week_scripts_over": 120.3,
-    "week_stappen_over": 885
+    "week_scripts_over": 120.0,
+    "week_stappen_over": 881
    }
   ]
  },
