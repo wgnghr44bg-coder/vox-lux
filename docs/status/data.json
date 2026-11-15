@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-15 15:33",
+ "bijgewerkt": "2026-11-15 16:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "Video bouwen · 76%",
+    "wat": "Life in Dallas, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "Beelden maken · 52%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Gettysburg",
-    "wat": "Life in Dallas, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "keten maakt de video voor za 21-11 21:00"
-   },
    {
     "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
@@ -464,7 +458,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "181 GB vrij"
+   "tekst": "180 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +473,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 15:33)"
+   "tekst": "draait nu (2026-11-15 16:03)"
   },
   {
    "naam": "Git",
@@ -514,7 +508,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:18: alles klopt"
+   "tekst": "laatste ronde 15:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,8 +525,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 15:33",
-   "volgende": "2026-11-15 16:03"
+   "laatst": "2026-11-15 16:03",
+   "volgende": "2026-11-15 16:33"
   },
   "hype": {
    "aan": true,
@@ -546,8 +540,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 15:18",
-   "volgende": "2026-11-15 15:48"
+   "laatst": "2026-11-15 15:48",
+   "volgende": "2026-11-15 16:18"
   }
  },
  "kanaal": {
@@ -626,7 +620,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 570,
+    "views": 571,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +629,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -832,10 +826,10 @@
   "geplande": 1,
   "runs": {
    "goed": 4,
-   "totaal": 14,
-   "procent": 29
+   "totaal": 15,
+   "procent": 27
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 15,
    "totaal": 15
@@ -850,24 +844,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 76,
-  "detail": "16mm-look",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 52,
+  "detail": "47 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
-  "eind": {
-   "klaar": "2026-11-15 16:00",
-   "youtube": "2026-11-15 16:20"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -875,13 +867,17 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 21,
-  "geheugen_mb": 620,
+  "bezig_procent": 3,
+  "geheugen_mb": 4656,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -967,18 +963,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 08:30",
-   "tekst": "hype-wachter: SEINTJE Goud gevonden in Californie (goudkoorts) (179 jaar) -> KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 20",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 12:13",
-   "tekst": "Claude: YouTube Studio-inzichten 2 (eigenaar 15 nov 'alles aanpassen voor meer views'): eerste onderwerp = kern van de titel (blackbeard 'A day aboard', kerst 'Christmas Eve in the trenches', thanksgi",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 12:24",
    "tekst": "Claude: rome-44-vc (wo 9 dec) omgebouwd naar opbouw Sleepy (88 blokken, kort begin 40 woorden, abonneerzin na feitje 2, titel 'Life in Rome When Caesar Ruled, 44 BC', thumbnail kenmerk Forum + Caesar)",
    "fout": false,
@@ -1049,9 +1033,28 @@
    "tekst": "Claude: bethlehem omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 80 feitjes, 13.948 woorden; titel 'Life in Bethlehem, the First Christmas'; SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED)",
    "fout": false,
    "klaar": true
+  },
+  {
+   "tijd": "2026-11-15 15:54",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 15:54",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-15 15:54",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-14 13:20",
@@ -2692,7 +2695,7 @@
   ]
  },
  "claude": {
-  "bijgewerkt": "2026-11-15 15:37",
+  "bijgewerkt": "2026-11-15 16:05",
   "accounts": [
    {
     "account": "hoofd",
