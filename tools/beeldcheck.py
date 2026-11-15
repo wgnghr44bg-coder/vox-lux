@@ -60,7 +60,15 @@ def bestond_al(ding, jaar_):
     # reden. Een decennium dat al begonnen was in het jaar van de video telt niet als modern.
     d = re.sub(r"\b(1[89]\d0|20\d0)'?s\b", lambda m: "" if int(m.group(1)) <= jaar_ else m.group(0), ding)
     d = re.sub(r"\b(1[89]\d\d)\b", lambda m: "" if int(m.group(1)) <= jaar_ else m.group(0), d)
-    return bool(jaar_ >= 1920 and re.search(TOEN_AL, d, re.I) and not re.search(ECHT_MODERN, d, re.I))
+    if jaar_ >= 1920 and re.search(TOEN_AL, d, re.I) and not re.search(ECHT_MODERN, d, re.I):
+        return True
+    # 15 nov avond, Dallas: het model noemt zelf een juist decennium en twijfelt daarna vaag ("cars ... from the 1960s,
+    # but the style of the cars and the overall look ..."). Noemt het een decennium/jaar <= het jaar van de video en
+    # geen later jaar of echt modern ding, dan bestond het al.
+    jaren = [int(x) for x in re.findall(r"\b(1[89]\d0|20\d0)'?s\b|\b(?:1[89]\d\d)\b", ding) if x]
+    hard = r"\b(smartphones?|phones? screen|plastic|satellite|flat ?screens?|led|laptops?|computers?)\b"
+    return bool(jaar_ >= 1920 and re.search(TOEN_AL, ding, re.I) and re.search(r"\b(1[89]\d0|20\d0)'?s\b", ding)
+                and all(j <= jaar_ for j in jaren) and not re.search(hard, ding, re.I))
 
 
 def staat_in_prompt(ding, prompt):
@@ -259,7 +267,15 @@ def herschrijf_prompt(map_, naam, oud, fouten):
     if difflib.SequenceMatcher(None, nieuw.lower(), kern.lower()).ratio() > 0.85 or len(nieuw) > 2 * len(kern) + 80:
         nieuw = kern                                         # model herschreef niet echt: vaste positieve zinnen erbij
     tekst = " ".join(fouten).lower()
-    extra = [z for pat, z in VAST if re.search(pat, tekst) and z not in nieuw]
+    # 15 nov, Dallas 1963: "only people on foot", "only small flames" e.d. horen bij oude tijden; vanaf 1920 botsten ze
+    # met de stijlzin ("cars with chrome and fins") en paste geen beeld meer bij de beschrijving
+    j = jaar(map_)
+    vast = [(p, z) for p, z in VAST if not (j >= 1920 and p.startswith(("light", "pole", "car")))]
+    # het tekstmodel schreef bij een tekstfout soms juist "clear text" erin (Dallas beeld 076)
+    nieuw = ", ".join(d for d in re.split(r",\s*", nieuw)
+                      if not re.search(r"\b(text|letters?|lettering|words?|writing|signs?)\b", d, re.I)
+                      or re.search(r"\b(text|letters?|lettering|words?|writing|signs?)\b", kern, re.I))
+    extra = [z for pat, z in vast if re.search(pat, tekst) and z not in nieuw]
     if extra:
         nieuw = nieuw + ", " + ", ".join(extra)
     regels = (Path(map_) / "prompts.txt").read_text(encoding="utf-8").splitlines()
