@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 04:33",
+ "bijgewerkt": "2026-11-15 05:03",
  "werkplanning": {
   "nu": [
    {
@@ -144,7 +144,7 @@
     "map": "gettysburg-1863",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "FOUT",
+    "controle": "GOED",
     "flesch": 70,
     "niveau": 6.4,
     "leesbaar": "MAKKELIJK",
@@ -485,18 +485,18 @@
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-09 06:00)"
   },
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 04:33)"
+   "tekst": "draait nu (2026-11-15 05:03)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-16 (crisis-1933)",
@@ -538,8 +538,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 04:33",
-   "volgende": "2026-11-15 05:03"
+   "laatst": "2026-11-15 05:03",
+   "volgende": "2026-11-15 05:33"
   },
   "hype": {
    "aan": true,
@@ -592,7 +592,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 36,
+    "views": 37,
     "verwerkt": "processed"
    },
    {
@@ -628,7 +628,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 532,
+    "views": 541,
     "verwerkt": "processed"
    },
    {
@@ -837,9 +837,9 @@
    "totaal": 16,
    "procent": 38
   },
-  "fouten": 7,
+  "fouten": 6,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 11,
    "totaal": 14
   }
  },
@@ -879,8 +879,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 7267,
+  "bezig_procent": 79,
+  "geheugen_mb": 7076,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -966,6 +966,12 @@
  ],
  "logboek": [
   {
+   "tijd": "2026-11-14 18:29",
+   "tekst": "Claude: alchemie-steen-der-wijzen (wo 2 dec) NIEUW script geschreven (83 blokken, 14 onderwerpen, opbouw Sleepy, opening mythe; SCRIPT GOED, TOON GOED, GOED); ijstijd + alchemie: beelden van nu/andere",
+   "fout": false,
+   "klaar": true
+  },
+  {
    "tijd": "2026-11-14 23:24",
    "tekst": "Claude: TITELS VAST (eigenaar 14 nov, CTR-cijfers): concreet met plaats/jaar, geen vraag. Komende titels aangepast: crisis 'Life in the Great Depression, 1933', gettysburg 'Life in Gettysburg, July 18",
    "fout": false,
@@ -1042,12 +1048,6 @@
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 02:55",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
   }
  ],
  "fouten": [
@@ -1070,22 +1070,17 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 04:33",
-   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-15 04:33",
+   "tijd": "2026-11-15 05:03",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 04:33",
+   "tijd": "2026-11-15 05:03",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 04:33",
+   "tijd": "2026-11-15 05:03",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
