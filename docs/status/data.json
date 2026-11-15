@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-15 08:03",
+ "bijgewerkt": "2026-11-15 08:33",
  "werkplanning": {
   "nu": [
    {
@@ -464,7 +464,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "199 GB vrij"
+   "tekst": "200 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -479,7 +479,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-15 08:03)"
+   "tekst": "draait nu (2026-11-15 08:33)"
   },
   {
    "naam": "Git",
@@ -514,7 +514,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 07:48: alles klopt"
+   "tekst": "laatste ronde 08:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -531,23 +531,23 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-15 08:03",
-   "volgende": "2026-11-15 08:33"
+   "laatst": "2026-11-15 08:33",
+   "volgende": "2026-11-15 09:03"
   },
   "hype": {
    "aan": true,
-   "laatst": "2026-11-14 08:30",
-   "volgende": "2026-11-15 08:30"
+   "laatst": "2026-11-15 08:30",
+   "volgende": "2026-11-16 08:30"
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-15 07:10",
-   "volgende": "2026-11-15 08:10"
+   "laatst": "2026-11-15 08:10",
+   "volgende": "2026-11-15 09:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-15 07:48",
-   "volgende": "2026-11-15 08:18"
+   "laatst": "2026-11-15 08:18",
+   "volgende": "2026-11-15 08:48"
   }
  },
  "kanaal": {
@@ -581,7 +581,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 3,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -626,7 +626,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 541,
+    "views": 549,
     "verwerkt": "processed"
    },
    {
@@ -635,7 +635,7 @@
     "duur": "2:04:57",
     "privacy": "public",
     "publiceer": "2026-10-14T19:00:11Z",
-    "views": 17,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -832,8 +832,8 @@
   "geplande": 1,
   "runs": {
    "goed": 5,
-   "totaal": 17,
-   "procent": 29
+   "totaal": 15,
+   "procent": 33
   },
   "fouten": 5,
   "zelfcontrole": {
@@ -967,24 +967,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-15 01:03",
-   "tekst": "zelfcontrole: zwarte-dood-1348: SCRIPT FOUT, terug naar ombouwen (zie scriptcheck.json)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 02:41",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken voor 2026-11-18 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 02:52",
-   "tekst": "routine-lokaal: gettysburg-1863: thumbnail v3 mislukt (No module named 'torch'), oude stijl",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-15 02:55",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
@@ -1049,6 +1031,24 @@
    "tekst": "routine-lokaal: gettysburg-1863: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 08:30",
+   "tekst": "hype-wachter: SEINTJE Dood van de Man met het IJzeren Masker (323 jaar) -> staat gepland op 2026-12-16 (man-ijzeren-masker-1703), NA de datum: naar voren halen, beste plek 2026-11-18 (bezet door getty",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 08:30",
+   "tekst": "hype-wachter: SEINTJE Mary Celeste leeg gevonden (154 jaar) -> staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijz",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-15 08:30",
+   "tekst": "hype-wachter: SEINTJE Goud gevonden in Californie (goudkoorts) (179 jaar) -> KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 20",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
@@ -1065,34 +1065,22 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-15 08:03",
+   "tijd": "2026-11-15 08:33",
    "tekst": "Zelfcontrole: Script rome-44-vc: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 08:03",
+   "tijd": "2026-11-15 08:33",
    "tekst": "Zelfcontrole: Script scott-antarctica-1912: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   },
   {
-   "tijd": "2026-11-15 08:03",
+   "tijd": "2026-11-15 08:33",
    "tekst": "Zelfcontrole: Script zwarte-dood-1348: SCRIPT FOUT (1 punten) (nacht 2026-11-15)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-12 23:53",
-   "tekst": "routine-lokaal: egypte-toetanchamon: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-13 03:14",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 25/89 goedgekeurd, fout: ['003', '005', '006', '008', '011', '013', '015', '016', '018', '019', '020', '021', '022', '0",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-14 13:20",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
@@ -2227,11 +2215,11 @@
   }
  ],
  "hype": {
-  "bijgewerkt": "2026-11-14 17:51",
+  "bijgewerkt": "2026-11-15 08:30",
   "punten": [
    {
     "soort": "hype",
-    "per_dag": 34079,
+    "per_dag": 33658,
     "titel": "Go To Sleep While I Teach You History Facts For One Hour [NO AI]",
     "kanaal": "Chat History Compilations",
     "id": "Mfhq-Z-3VS0",
@@ -2242,7 +2230,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 24055,
+    "per_dag": 21393,
     "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
     "kanaal": "History Camp",
     "id": "z2WwdkKcEn0",
@@ -2255,7 +2243,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 15569,
+    "per_dag": 15504,
     "titel": "How Did Ice Age Humans Sleep Without Freezing to Death?",
     "kanaal": "ICE AGE SURVIVAL",
     "id": "M5LoIZG1hFg",
@@ -2268,7 +2256,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 12625,
+    "per_dag": 12270,
     "titel": "The Balkan General who made an Empire Bleed",
     "kanaal": "History Camp",
     "id": "_nUPEIHK-gY",
@@ -2279,18 +2267,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 10114,
-    "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
-    "kanaal": "Sleepy Mystery Channel",
-    "id": "cdA5n6aqpyA",
-    "datum": "2026-10-16",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 10016,
+    "per_dag": 10033,
     "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
     "kanaal": "บุญสุข ราชวงษา",
     "id": "FMd3Iaa6GSM",
@@ -2301,7 +2278,18 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6391,
+    "per_dag": 10019,
+    "titel": "5 Hours of Mind-Bending Mysteries | Will Make You Sleep",
+    "kanaal": "Sleepy Mystery Channel",
+    "id": "cdA5n6aqpyA",
+    "datum": "2026-10-16",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 6192,
     "titel": "The Mummy's Curse that HAUNTED Ancient Egypt",
     "kanaal": "History Camp",
     "id": "t206yovNHlo",
@@ -2311,11 +2299,11 @@
      "egypte-toetanchamon"
     ],
     "breed": 1,
-    "advies": "staat gepland op 2026-11-14 (egypte-toetanchamon)"
+    "advies": "staat gepland op 2027-03-06 (cleopatra)"
    },
    {
     "soort": "hype",
-    "per_dag": 9111,
+    "per_dag": 8947,
     "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
     "kanaal": "Kaushik Bhattacharjee Extra",
     "id": "jNMpPqYg_S8",
@@ -2328,7 +2316,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 4895,
+    "per_dag": 4827,
     "titel": "The Forgotten Empire That Rivaled Ancient Egypt | Documentary For Sleep",
     "kanaal": "Just About Earth",
     "id": "WdWnFraDsAs",
@@ -2338,11 +2326,11 @@
      "egypte-toetanchamon"
     ],
     "breed": 1,
-    "advies": "staat gepland op 2026-11-14 (egypte-toetanchamon)"
+    "advies": "staat gepland op 2027-03-06 (cleopatra)"
    },
    {
     "soort": "hype",
-    "per_dag": 7154,
+    "per_dag": 6698,
     "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
     "kanaal": "The French Whisperer ASMR",
     "id": "PtKw7L8166E",
@@ -2356,7 +2344,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 7121,
+    "per_dag": 6350,
     "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
     "kanaal": "Sleepless Historian",
     "id": "4aFj8rObOo0",
@@ -2369,7 +2357,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 6247,
+    "per_dag": 6110,
     "titel": "DISTURBING Secrets Hidden in Pandora's Box",
     "kanaal": "History Camp",
     "id": "rgARA7jTDa0",
@@ -2380,7 +2368,34 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5886,
+    "per_dag": 5944,
+    "titel": "What Happened to China's Richest Families After Mao Took Power? | History For Sleep",
+    "kanaal": "Never Invaded",
+    "id": "Clx1xYBwsI8",
+    "datum": "2026-11-08",
+    "ons": [
+     "china-nieuwjaar-han",
+     "gettysburg-1863"
+    ],
+    "breed": 0,
+    "advies": "staat gepland op 2026-11-18 (gettysburg-1863)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 3882,
+    "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
+    "kanaal": "Sleepy History Channel",
+    "id": "NKyHPp68COk",
+    "datum": "2026-10-24",
+    "ons": [
+     "crisis-1933"
+    ],
+    "breed": 1,
+    "advies": "staat gepland op 2026-11-16 (crisis-1933)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5801,
     "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
     "kanaal": "Just About Earth",
     "id": "pcgk26vu8uU",
@@ -2395,20 +2410,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3898,
-    "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
-    "kanaal": "Sleepy History Channel",
-    "id": "NKyHPp68COk",
-    "datum": "2026-10-24",
-    "ons": [
-     "crisis-1933"
-    ],
-    "breed": 1,
-    "advies": "staat gepland op 2026-11-16 (crisis-1933)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 5634,
+    "per_dag": 5519,
     "titel": "The Hindenburg's Last Voyage Was Stranger Than You Think 1937 | History Documentary",
     "kanaal": "Dusk Voyages",
     "id": "cGuCLD_L9Xc",
@@ -2421,7 +2423,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5616,
+    "per_dag": 5336,
     "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
     "kanaal": "Old History Nights",
     "id": "KSIno36Llhw",
@@ -2434,7 +2436,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5337,
+    "per_dag": 4952,
     "titel": "100 Historical Facts to Sleep To",
     "kanaal": "List 25",
     "id": "Yg95hh2TX2U",
@@ -2445,7 +2447,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3334,
+    "per_dag": 3267,
     "titel": "Discover What Our Ancient Oceans Were Like | Sleepy Science",
     "kanaal": "Sleepy Science Channel",
     "id": "vFauX7dOupE",
@@ -2456,7 +2458,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 4623,
+    "per_dag": 4614,
     "titel": "Land of The Dinosaurs | Relaxing Science to Fall Asleep To",
     "kanaal": "Sleepy Science Channel",
     "id": "PrAFF_0n-Bo",
@@ -2467,7 +2469,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 4587,
+    "per_dag": 4519,
     "titel": "8 Hours Soothing Space Facts for Deep Sleep & Relaxation",
     "kanaal": "Sleepy Science Channel",
     "id": "7ede4mUTch4",
@@ -2478,7 +2480,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3937,
+    "per_dag": 3876,
     "titel": "How Did Native Americans Survive Winter in Tipis Without Freezing? | History for Sleep",
     "kanaal": "The Night Caravan",
     "id": "-s7fnvxu9dg",
@@ -2489,7 +2491,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 3261,
+    "per_dag": 3221,
     "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
     "kanaal": "Sleepy Lost World",
     "id": "wTP62WfPxQo",
@@ -2510,6 +2512,16 @@
      "gettysburg-1863"
     ],
     "advies": "staat gepland op 2026-11-18 (gettysburg-1863) GOED getimed"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2026-11-19",
+    "naam": "Dood van de Man met het IJzeren Masker (323 jaar)",
+    "sterk": true,
+    "ons": [
+     "man-ijzeren-masker-1703"
+    ],
+    "advies": "staat gepland op 2026-12-16 (man-ijzeren-masker-1703), NA de datum: naar voren halen, beste plek 2026-11-18 (bezet door gettysburg-1863, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -2553,6 +2565,16 @@
    },
    {
     "soort": "gebeurtenis",
+    "datum": "2026-12-04",
+    "naam": "Mary Celeste leeg gevonden (154 jaar)",
+    "sterk": true,
+    "ons": [
+     "mary-celeste-1872"
+    ],
+    "advies": "staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijzen, ruilen?)"
+   },
+   {
+    "soort": "gebeurtenis",
     "datum": "2026-12-07",
     "naam": "Aanval op Pearl Harbor (85 jaar)",
     "sterk": true,
@@ -2577,7 +2599,7 @@
     "naam": "Boston Tea Party (253 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door man-ijzeren-masker-1703, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -2585,7 +2607,7 @@
     "naam": "Eerste vlucht gebroeders Wright (123 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door man-ijzeren-masker-1703, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -2606,7 +2628,7 @@
     "ons": [
      "kerst-loopgraven-1914"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
    },
    {
     "soort": "gebeurtenis",
@@ -2628,7 +2650,7 @@
      "kerst-loopgraven-1914",
      "londen-kerst-1843"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
    },
    {
     "soort": "film",
@@ -2643,7 +2665,7 @@
      "middeleeuws-dorp",
      "venetie-middeleeuwen"
     ],
-    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?), of vrij op 2026-12-21 (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
    },
    {
     "soort": "feestdag",
@@ -2651,7 +2673,7 @@
     "naam": "Nieuwjaar",
     "sterk": true,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-30)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-30 (bezet door tower-of-london-1536, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -2672,6 +2694,16 @@
      "scott-antarctica-1912"
     ],
     "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912), TE VROEG: beste plek 2027-01-16 (bezet door londen-1666, ruilen?), of vrij op 2027-01-11 (vlak voor de jaardag)"
+   },
+   {
+    "soort": "gebeurtenis",
+    "datum": "2027-01-24",
+    "naam": "Goud gevonden in Californie (goudkoorts) (179 jaar)",
+    "sterk": true,
+    "ons": [
+     "goudkoorts-1849"
+    ],
+    "advies": "KANS: reservescript goudkoorts-1849 past hierop, inplannen op 2027-01-23 (bezet door klooster-1150, ruilen?), of vrij op 2027-01-18"
    }
   ]
  },
