@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 12:03",
+ "bijgewerkt": "2026-11-16 12:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen · 49%",
+    "detail": "Video bouwen · 74%",
     "soort": "nu"
    }
   ],
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 12:03)"
+   "tekst": "draait nu (2026-11-16 12:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:48: alles klopt"
+   "tekst": "laatste ronde 12:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 12:03",
-   "volgende": "2026-11-16 12:33"
+   "laatst": "2026-11-16 12:33",
+   "volgende": "2026-11-16 13:03"
   },
   "hype": {
    "aan": true,
@@ -620,13 +620,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 11:10",
-   "volgende": "2026-11-16 12:10"
+   "laatst": "2026-11-16 12:10",
+   "volgende": "2026-11-16 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 11:48",
-   "volgende": "2026-11-16 12:18"
+   "laatst": "2026-11-16 12:18",
+   "volgende": "2026-11-16 12:48"
   },
   "titels": {
    "aan": true,
@@ -719,7 +719,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 594,
+    "views": 596,
     "verwerkt": "processed"
    },
    {
@@ -954,15 +954,15 @@
   "thumb": "thumbs/dallas-1963.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 49,
+  "voortgang": 74,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-16 15:08",
-   "youtube": "2026-11-16 15:28"
+   "klaar": "2026-11-16 14:40",
+   "youtube": "2026-11-16 15:00"
   }
  },
  "nu_bezig": [
@@ -3265,7 +3265,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 12:04",
+  "bijgewerkt": "2026-11-16 12:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3286,7 +3286,7 @@
    },
    {
     "account": "account2",
-    "5uur": 993469,
+    "5uur": 886791,
     "week": 81887210,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3298,15 +3298,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 66789,
+    "stap_kost": 59792,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 7,
-    "5uur_scripts_over": 20.3,
-    "5uur_stappen_over": 188,
+    "5uur_scripts_over": 20.5,
+    "5uur_stappen_over": 212,
     "week_pct": 62,
     "week_scripts_over": 80.9,
-    "week_stappen_over": 751
+    "week_stappen_over": 838
    }
   ]
  },
