@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 09:33",
+ "bijgewerkt": "2026-11-16 10:03",
  "werkplanning": {
   "nu": [
    {
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 09:33)"
+   "tekst": "draait nu (2026-11-16 10:03)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 09:18: alles klopt"
+   "tekst": "laatste ronde 09:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 09:33",
-   "volgende": "2026-11-16 10:03"
+   "laatst": "2026-11-16 10:03",
+   "volgende": "2026-11-16 10:33"
   },
   "hype": {
    "aan": true,
@@ -625,8 +625,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 09:18",
-   "volgende": "2026-11-16 09:48"
+   "laatst": "2026-11-16 09:48",
+   "volgende": "2026-11-16 10:18"
   },
   "titels": {
    "aan": true,
@@ -961,8 +961,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-16 15:48",
-   "youtube": "2026-11-16 16:08"
+   "klaar": "2026-11-16 15:53",
+   "youtube": "2026-11-16 16:13"
   }
  },
  "nu_bezig": [
@@ -3265,7 +3265,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 09:34",
+  "bijgewerkt": "2026-11-16 10:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3286,7 +3286,7 @@
    },
    {
     "account": "account2",
-    "5uur": 3655549,
+    "5uur": 1781526,
     "week": 81000418,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3301,9 +3301,9 @@
     "stap_kost": 64896,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 27,
-    "5uur_scripts_over": 16.0,
-    "5uur_stappen_over": 153,
+    "5uur_pct": 13,
+    "5uur_scripts_over": 19.0,
+    "5uur_stappen_over": 182,
     "week_pct": 61,
     "week_scripts_over": 82.4,
     "week_stappen_over": 786
