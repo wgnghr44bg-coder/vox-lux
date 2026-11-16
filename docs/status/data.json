@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 16:39",
+ "bijgewerkt": "2026-11-16 17:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Onderwerp & planning",
+    "detail": "Beelden maken · 98%",
     "soort": "nu"
    }
   ],
@@ -142,7 +142,7 @@
     "map": "crisis-1933",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "nog niet",
+    "controle": "GOED",
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "184 GB vrij"
+   "tekst": "183 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-16 16:33)"
+   "tekst": "draait nu (2026-11-16 17:03)"
   },
   {
    "naam": "Git",
@@ -606,8 +606,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 16:19: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 16:33",
-   "volgende": "2026-11-16 17:03"
+   "laatst": "2026-11-16 17:03",
+   "volgende": "2026-11-16 17:33"
   },
   "hype": {
    "aan": true,
@@ -639,8 +639,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 16:18",
-   "volgende": "2026-11-16 16:48"
+   "laatst": "2026-11-16 16:48",
+   "volgende": "2026-11-16 17:18"
   },
   "titels": {
    "aan": true,
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 605,
+    "views": 606,
     "verwerkt": "processed"
    },
    {
@@ -942,12 +942,12 @@
   "geplande": 2,
   "runs": {
    "goed": 4,
-   "totaal": 10,
-   "procent": 40
+   "totaal": 11,
+   "procent": 36
   },
-  "fouten": 1,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 13
   }
  },
@@ -960,18 +960,20 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
+ "stap": 2,
  "huidig": {
   "map": "crisis-1933",
   "titel": "Life in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-17",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 0,
-  "stapnaam": "Onderwerp & planning",
-  "voortgang": null,
-  "detail": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 98,
+  "detail": "87 van 89 beelden",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -979,11 +981,19 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 28,
-  "geheugen_mb": 6607,
+  "bezig_procent": 26,
+  "geheugen_mb": 5435,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1070,24 +1080,6 @@
  "logboek": [
   {
    "tijd": "2026-11-16 15:58",
-   "tekst": "beelden-wachter: SEINTJE dallas-1963: 3 dubbele beelden (024=025, 056=057, 075=076)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "bewaker: keten gestart voor crisis-1933",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
    "fout": true,
    "klaar": false
@@ -1151,12 +1143,41 @@
    "tekst": "routine-lokaal: crisis-1933: 12 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 086",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:42",
+   "tekst": "Claude: crisis-1933: stijlzin zonder vaste boerderij (alles leek op elkaar), 4 beelden met steeds dezelfde man weg (037, 038, 047, 077); wachter strenger (0.92)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:42",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:48",
+   "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 16:39",
+   "tijd": "2026-11-16 16:48",
+   "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-16 17:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1598,11 +1619,11 @@
    "stappen": [
     true,
     false,
-    true,
+    false,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 20,
    "thumb": "thumbs/crisis-1933.jpg"
   },
   {
@@ -3889,49 +3910,49 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 16:39",
+  "bijgewerkt": "2026-11-16 17:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8483377,
-    "week": 75097819,
+    "5uur": 9761298,
+    "week": 76375740,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 8483377
+     "Mon 16-11": 9761298
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 65257,
+    "stap_kost": 65955,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 1336439,
-    "week": 83223649,
+    "5uur": 3187920,
+    "week": 85075130,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 7794189,
+     "Mon 16-11": 9645670,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 55594,
+    "stap_kost": 61030,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 10,
-    "5uur_scripts_over": 19.8,
-    "5uur_stappen_over": 220,
-    "week_pct": 63,
-    "week_scripts_over": 78.8,
-    "week_stappen_over": 878
+    "5uur_pct": 23,
+    "5uur_scripts_over": 16.8,
+    "5uur_stappen_over": 170,
+    "week_pct": 64,
+    "week_scripts_over": 75.8,
+    "week_stappen_over": 769
    }
   ]
  },
