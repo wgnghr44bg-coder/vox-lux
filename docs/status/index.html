@@ -382,7 +382,8 @@ async function laad(){
      <div><b style="font-size:1.4rem">${nl(pp.uren)}</b> <span class="zacht">van ${nl(pp.uren_doel)} kijkuren (${(100*pp.uren/pp.uren_doel).toFixed(0)}%)</span>${balk(pp.uren,pp.uren_doel,"#8f7bff")}
       <div class="zacht" style="font-size:.85rem">Nog ${nl(Math.max(0,pp.uren_doel-pp.uren))} uur · tempo ${pp.tempo_uren_per_dag} uur per dag<br>
       ${du!=null?`In dit tempo gehaald over <b>${du} dagen</b> (${nlDatum(pp.datum_uren)})`:"In dit tempo nog niet binnen 3 jaar"}<br>
-      Oudste uren (vanaf ${nlDatum(pp.eerste_uren)}) vallen eruit over <b>${dv} dagen</b> (${nlDatum(pp.valt_eruit_vanaf)})</div></div>
+      <span style="color:#ffcf6b">Uiterlijk halen: <b>${nlDatum(pp.valt_eruit_vanaf)}</b> (nog <b>${dv} dagen</b>)</span> · daarna vallen de eerste uren (van ${nlDatum(pp.eerste_uren)}) uit de 365 dagen<br>
+      ${du!=null&&dv!=null?(du<=dv?`<span style="color:#4fd1a5">Op schema: ${dv-du} dagen voor de grens</span>`:`<span style="color:#ff8a8a">Te laat in dit tempo: ${du-dv} dagen na de grens</span>`):""}</div></div>
      <div><b style="font-size:1.4rem">${nl(pp.abonnees)}</b> <span class="zacht">van ${nl(pp.abonnees_doel)} abonnees (${(100*pp.abonnees/pp.abonnees_doel).toFixed(1)}%)</span>${balk(pp.abonnees,pp.abonnees_doel,"#4fd1a5")}
       <div class="zacht" style="font-size:.85rem">Nog ${nl(Math.max(0,pp.abonnees_doel-pp.abonnees))} abonnees · tempo ${pp.tempo_abonnees_per_dag} per dag<br>
       ${da!=null?`In dit tempo gehaald over <b>${da} dagen</b> (${nlDatum(pp.datum_abonnees)})`:"Tempo nog te laag om te schatten"}<br>
