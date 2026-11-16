@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 02:03",
+ "bijgewerkt": "2026-11-16 02:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 83%",
+    "detail": "Controles",
     "soort": "nu"
    }
   ],
@@ -502,7 +502,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "182 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -517,7 +517,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 02:03)"
+   "tekst": "draait nu (2026-11-16 02:33)"
   },
   {
    "naam": "Git",
@@ -557,7 +557,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 01:48: alles klopt"
+   "tekst": "laatste ronde 02:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -574,8 +574,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 02:03",
-   "volgende": "2026-11-16 02:33"
+   "laatst": "2026-11-16 02:33",
+   "volgende": "2026-11-16 03:03"
   },
   "hype": {
    "aan": true,
@@ -584,13 +584,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 01:10",
-   "volgende": "2026-11-16 02:10"
+   "laatst": "2026-11-16 02:10",
+   "volgende": "2026-11-16 03:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 01:48",
-   "volgende": "2026-11-16 02:18"
+   "laatst": "2026-11-16 02:18",
+   "volgende": "2026-11-16 02:48"
   },
   "titels": {
    "aan": true,
@@ -898,23 +898,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 5,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "Life in Gettysburg, July 1863 | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 83,
-  "detail": "beweging",
+  "stap": 5,
+  "stapnaam": "Controles",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "videocontrole"
   ],
   "eind": {
-   "klaar": "2026-11-16 04:14",
-   "youtube": "2026-11-16 04:34"
+   "klaar": "2026-11-16 03:58",
+   "youtube": "2026-11-16 04:18"
   }
  },
  "nu_bezig": [
@@ -923,12 +923,12 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "videocontrole",
+   "stap": 5
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 431,
   "totaal_mb": 8192
  },
@@ -1101,7 +1101,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 02:03",
+   "tijd": "2026-11-16 02:33",
    "tekst": "Zelfcontrole: Video 2026-11-18 (gettysburg-1863): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3185,7 +3185,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 02:03",
+  "bijgewerkt": "2026-11-16 02:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3206,7 +3206,7 @@
    },
    {
     "account": "account2",
-    "5uur": 1797469,
+    "5uur": 0,
     "week": 75429460,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3220,9 +3220,9 @@
     "stap_kost": 62707,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 13,
-    "5uur_scripts_over": 19.0,
-    "5uur_stappen_over": 188,
+    "5uur_pct": 0,
+    "5uur_scripts_over": 21.9,
+    "5uur_stappen_over": 217,
     "week_pct": 57,
     "week_scripts_over": 91.4,
     "week_stappen_over": 902
