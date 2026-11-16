@@ -47,6 +47,19 @@ Draai `python tools/hype_wacht.py` (kost alleen YouTube-quota) en lees `stories/
 `stories/concurrent.json`. Stel 2-3 onderwerpen voor (titel volgens AFSPRAKEN, beste datum in januari op ma/wo/za,
 waarom: welke kanalen groeien ermee). Datums alleen veranderen met de eigenaar.
 
+## Stap 4b. Januari herzien op hype (VOORLEGGEN, niets zelf veranderen)
+De januaridatums komen van het tweede account (1 nov), van vóór de hype-wachter. Gebruik dezelfde uitkomst als stap 4
+(`stories/hype.json`, `HYPE-SIGNAAL.md`, `concurrent.json`) en maak één voorstel voor heel januari:
+- per januari-video: past hij nog, of is er een betere plek/een beter onderwerp? (jaardagen, hype, wat groeit)
+- kansen die de hype-wachter op 16 nov al zag: **drooglegging** (16 jan, 107 jaar; reservescript `new-york-1925`),
+  **goudkoorts** (24 jan, 179 jaar; reservescript `goudkoorts-1849`), **mythologie / "complete history"** (groeit bij
+  meerdere kanalen: "Founding Myths of Ancient Cities", "8 Hours of Random Mythology", "Complete History of the Wars of
+  the Roses"), samen met stap 4
+- compilaties blijven op ma 4 en ma 11 jan staan
+Lever als tabel: datum | nu gepland | voorstel | waarom (bron uit de hype-wachter). **Leg dit voor aan de eigenaar en
+verander geen enkele datum of map voordat hij akkoord geeft.** Pas daarna stap 5 (alleen de video's die blijven of
+erbij komen ombouwen).
+
 ## Stap 5. Januari-scripts ombouwen naar de nieuwe opbouw (zoals japan in stap 1)
 Deze staan nog in de oude opbouw (tweede account, 1-2 nov). De bewaker begint ± 14 dagen vooraf; `afspraken_check` houdt
 oude scripts tegen, dus ze moeten **vóór ± 18 dec** om (eerste: philadelphia, za 2 jan). Op datumvolgorde, één map per
@@ -64,7 +77,7 @@ keer, zoveel als het verbruik toelaat (tussendoor `python tools/claude_gebruik.p
 | wo 27 jan | kasteel-1250 |
 | za 30 jan | zijderoute-1271 |
 
-Per map: zelfde eisen als stap 1 (src-feiten, kort begin, abonneer.txt, eerste TOPIC = kern van de titel, ± 85 blokken,
+**Eerst stap 4b (akkoord eigenaar op de januariplanning).** Per map: zelfde eisen als stap 1 (src-feiten, kort begin, abonneer.txt, eerste TOPIC = kern van de titel, ± 85 blokken,
 ≥ 13.500 woorden, thumbnail kenmerk, youtube-beschrijving, vier controles GOED). **Titel** nieuw volgens AFSPRAKEN:
 de oude titels hebben nog "| <N> Hours of History for Sleep" (moet "| History for Sleep" worden, geen vraag).
 Status `script-klaar (nieuwe opbouw, opbouw Sleepy <datum>, Claude)`. Februari volgt later in een eigen prompt.
