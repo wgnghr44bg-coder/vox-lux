@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 17:03",
+ "bijgewerkt": "2026-11-16 17:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 98%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "183 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 17:03)"
+   "tekst": "draait nu (2026-11-16 17:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 17:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 17:03",
-   "volgende": "2026-11-16 17:33"
+   "laatst": "2026-11-16 17:33",
+   "volgende": "2026-11-16 18:03"
   },
   "hype": {
    "aan": true,
@@ -634,18 +634,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 16:10",
-   "volgende": "2026-11-16 17:10"
+   "laatst": "2026-11-16 17:10",
+   "volgende": "2026-11-16 18:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 16:48",
-   "volgende": "2026-11-16 17:18"
+   "laatst": "2026-11-16 17:18",
+   "volgende": "2026-11-16 17:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 15:25",
-   "volgende": "2026-11-16 17:25"
+   "laatst": "2026-11-16 17:25",
+   "volgende": "2026-11-16 19:25"
   }
  },
  "kanaal": {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 606,
+    "views": 605,
     "verwerkt": "processed"
    },
    {
@@ -945,7 +945,7 @@
    "totaal": 11,
    "procent": 36
   },
-  "fouten": 3,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 13
@@ -960,22 +960,25 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "crisis-1933",
   "titel": "Life in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-17",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 98,
-  "detail": "87 van 89 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
+   "tekstcontrole",
+   "tekstcontrole (Whisper)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-17 03:34",
+   "youtube": "2026-11-17 03:54"
+  }
  },
  "nu_bezig": [
   {
@@ -983,17 +986,17 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "tekstcontrole",
+   "stap": 3
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "tekstcontrole (Whisper)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 5435,
+  "bezig_procent": 53,
+  "geheugen_mb": 2469,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1086,24 +1089,6 @@
   },
   {
    "tijd": "2026-11-16 15:58",
-   "tekst": "bewaker: keten gestart voor crisis-1933",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
    "tekst": "bewaker: SEINTJE crisis-1933 (2026-11-17) is vandaag 2x gestopt, morgen opnieuw",
    "fout": false,
    "klaar": false
@@ -1161,23 +1146,35 @@
    "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:19",
+   "tekst": "routine-lokaal: crisis-1933: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080, 081, 088",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:19",
+   "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 13 beelden lijken op een ander beeld (011, 014, 021, 026, 032, 036, 046, 049, 056, 066, 084, 085, 086), nieuwe maken",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:28",
+   "tekst": "routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 16:48",
-   "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 17:03",
+   "tijd": "2026-11-16 17:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 17:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 17:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1197,6 +1194,12 @@
   {
    "tijd": "2026-11-16 15:58",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:48",
+   "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
    "fout": true,
    "klaar": false
   }
@@ -1618,12 +1621,12 @@
    "opening": "scène",
    "stappen": [
     true,
-    false,
-    false,
+    true,
+    true,
     false,
     false
    ],
-   "gereed": 20,
+   "gereed": 60,
    "thumb": "thumbs/crisis-1933.jpg"
   },
   {
@@ -3461,7 +3464,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 15:25",
+  "bijgewerkt": "2026-11-16 17:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3491,14 +3494,30 @@
    },
    {
     "map": "crisis-1933",
-    "datum": "2026-11-16",
+    "datum": "2026-11-17",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
+    "concurrent": [
+     {
+      "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
+      "kanaal": "Sleepy History Channel",
+      "per_dag": 3897
+     },
+     {
+      "titel": "Prohibition | How America Tried to Ban Alcohol | American History",
+      "kanaal": "The Sleepy Historian",
+      "per_dag": 973
+     },
+     {
+      "titel": "What Life Was Like for Children in COLONIAL America | Boring History for Sleep",
+      "kanaal": "History & Sleep",
+      "per_dag": 488
+     }
+    ],
     "bekeken": ""
    },
    {
@@ -3907,10 +3926,10 @@
     "bekeken": "2026-11-16"
    }
   ],
-  "model": "niet nodig"
+  "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 17:04",
+  "bijgewerkt": "2026-11-16 17:34",
   "accounts": [
    {
     "account": "hoofd",
