@@ -542,9 +542,19 @@ def scripts_overzicht():
             stand = "script afgekeurd, moet opnieuw"
         else:
             stand = "nog in de oude opbouw, moet omgebouwd"
+        # 16 nov 2026 (eigenaar: "zorg dat alles op de website ook geüpdatet wordt"): per komende video de vaste afspraken
+        # (stories/AFSPRAKEN.md, tools/afspraken_check.py), niet voor wat al gemaakt is of een compilatie
+        afspraken = None
+        if v["soort"] not in ("gepland", "online") and not v["status"].startswith("compilatie"):
+            try:
+                import afspraken_check
+                afspraken = afspraken_check.controleer(d)
+            except Exception as e:
+                afspraken = [f"controle kon niet draaien: {str(e)[:80]}"]
         rij.append({"datum": v["datum"], "titel": v["titel"], "map": v["map"], "klaar": nieuw, "stand": stand,
                     "controle": check, "flesch": lb["flesch"] if lb else None, "niveau": lb["niveau"] if lb else None,
-                    "leesbaar": lb["oordeel"] if lb else None, "toon": tn["toon"] if tn else None})
+                    "leesbaar": lb["oordeel"] if lb else None, "toon": tn["toon"] if tn else None,
+                    "afspraken": afspraken})
     tot = ""
     for r in rij:                                            # aaneengesloten klaar vanaf vandaag
         if not r["klaar"]:

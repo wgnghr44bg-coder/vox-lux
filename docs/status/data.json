@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 04:33",
+ "bijgewerkt": "2026-11-16 04:45",
  "werkplanning": {
   "nu": [
    {
@@ -132,7 +132,8 @@
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": null
    },
    {
     "datum": "2026-11-18",
@@ -144,7 +145,8 @@
     "flesch": 70,
     "niveau": 6.4,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": null
    },
    {
     "datum": "2026-11-21",
@@ -156,7 +158,8 @@
     "flesch": 75,
     "niveau": 6.0,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-11-23",
@@ -168,7 +171,8 @@
     "flesch": 66,
     "niveau": 7.5,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-11-25",
@@ -180,7 +184,8 @@
     "flesch": 66,
     "niveau": 7.5,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-11-28",
@@ -192,7 +197,8 @@
     "flesch": 67,
     "niveau": 7.2,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-11-30",
@@ -204,7 +210,8 @@
     "flesch": 64,
     "niveau": 7.7,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-02",
@@ -216,7 +223,8 @@
     "flesch": 60,
     "niveau": 8.2,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-05",
@@ -228,7 +236,8 @@
     "flesch": 67,
     "niveau": 7.2,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-07",
@@ -240,7 +249,8 @@
     "flesch": 62,
     "niveau": 8.0,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-09",
@@ -252,7 +262,8 @@
     "flesch": 65,
     "niveau": 7.7,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-12",
@@ -264,7 +275,8 @@
     "flesch": 65,
     "niveau": 7.6,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-14",
@@ -276,7 +288,8 @@
     "flesch": 71,
     "niveau": 6.7,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-16",
@@ -288,7 +301,8 @@
     "flesch": 69,
     "niveau": 7.1,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-19",
@@ -300,7 +314,8 @@
     "flesch": 69,
     "niveau": 7.1,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-21",
@@ -312,7 +327,8 @@
     "flesch": 73,
     "niveau": 6.5,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-23",
@@ -324,7 +340,8 @@
     "flesch": 70,
     "niveau": 7.2,
     "leesbaar": "GOED",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-26",
@@ -336,7 +353,10 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2026-12-28",
@@ -348,7 +368,8 @@
     "flesch": 70,
     "niveau": 6.8,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-30",
@@ -360,7 +381,8 @@
     "flesch": 71,
     "niveau": 6.9,
     "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED"
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2027-01-02",
@@ -372,7 +394,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-04",
@@ -384,7 +411,8 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": null
    },
    {
     "datum": "2027-01-06",
@@ -396,7 +424,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-09",
@@ -408,7 +441,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-11",
@@ -420,7 +458,8 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": null
    },
    {
     "datum": "2027-01-13",
@@ -432,7 +471,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-16",
@@ -444,7 +488,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-20",
@@ -456,7 +505,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    },
    {
     "datum": "2027-01-23",
@@ -468,7 +522,12 @@
     "flesch": null,
     "niveau": null,
     "leesbaar": null,
-    "toon": null
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    }
   ]
  },
@@ -511,7 +570,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 04:33)"
+   "tekst": "laatste keer goed (2026-11-16 04:33)"
   },
   {
    "naam": "Git",
@@ -531,7 +590,7 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-16)"
   },
   {
    "naam": "Sitecontrole",
@@ -599,7 +658,7 @@
     "duur": "2:17:38",
     "privacy": "private",
     "publiceer": "2026-11-18T20:00:00Z",
-    "views": 1,
+    "views": 0,
     "verwerkt": "processed"
    },
    {
@@ -617,7 +676,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 14,
+    "views": 13,
     "verwerkt": "processed"
    },
    {
@@ -653,7 +712,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 345,
+    "views": 346,
     "verwerkt": "processed"
    },
    {
@@ -893,7 +952,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 428,
+  "geheugen_mb": 412,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3143,7 +3202,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 04:34",
+  "bijgewerkt": "2026-11-16 04:46",
   "accounts": [
    {
     "account": "hoofd",
@@ -3164,27 +3223,27 @@
    },
    {
     "account": "account2",
-    "5uur": 1915410,
-    "week": 77344870,
+    "5uur": 2254472,
+    "week": 77683932,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 1915409,
+     "Mon 16-11": 2254472,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 63366,
+    "stap_kost": 63142,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 14,
-    "5uur_scripts_over": 18.8,
-    "5uur_stappen_over": 184,
+    "5uur_pct": 17,
+    "5uur_scripts_over": 18.3,
+    "5uur_stappen_over": 179,
     "week_pct": 59,
-    "week_scripts_over": 88.3,
-    "week_stappen_over": 863
+    "week_scripts_over": 87.7,
+    "week_stappen_over": 861
    }
   ]
  },

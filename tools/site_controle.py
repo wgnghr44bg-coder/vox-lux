@@ -63,6 +63,7 @@ def planningen():
         link = re.search(r"https://youtu\.be/([A-Za-z0-9_-]{11})", t)
         uit[p.parent.name] = {"datum": d.group(1) if d and "reserve" not in g("datum") else "",
                               "status": g("status") or ("klaar" if link else ""), "id": link.group(1) if link else "",
+                              "titel": re.sub(r"\s*\(.*$", "", g("titel"))[:110] or g("onderwerp")[:110],
                               "gewijzigd": dt.datetime.fromtimestamp(p.stat().st_mtime)}
     return uit
 
@@ -103,6 +104,29 @@ def controleer():
             p.append((f"datum:{m}", f"{m}: site zegt datum {v['datum'] or 'geen'}, planning zegt {pl['datum'] or 'geen'}"))
         if pl["status"][:140] != v["status"]:
             p.append((f"status:{m}", f"{m}: site zegt '{v['status'][:50]}', planning zegt '{pl['status'][:50]}'"))
+        if pl["titel"] != v.get("titel", ""):                       # 16 nov: ook de titel
+            p.append((f"titel:{m}", f"{m}: site zegt titel '{v.get('titel', '')[:50]}', planning zegt '{pl['titel'][:50]}'"))
+
+    # 2b. (16 nov, eigenaar: "zorg dat alles op de website ook geüpdatet wordt") hype, titels en afspraken op de site
+    for sleutel, bestand in (("hype", STORIES / "hype.json"), ("titels", STORIES / "titels.json")):
+        try:
+            lokaal = json.loads(bestand.read_text(encoding="utf-8"))["bijgewerkt"]
+            online = (site.get(sleutel) or {}).get("bijgewerkt", "")
+            if not online:
+                p.append((f"{sleutel}:mist", f"de kaart '{sleutel}' staat niet op de site"))
+            elif tijd(lokaal) <= bij and online < lokaal:
+                p.append((f"{sleutel}:oud", f"'{sleutel}' op de site is van {online}, op de pc van {lokaal}"))
+        except Exception:
+            pass
+    sc_rij = {r["map"]: r for r in (site.get("scripts") or {}).get("rij", [])}
+    for m, pl in plan.items():
+        if (pl["datum"] and vandaag <= pl["datum"] <= (nu + dt.timedelta(days=42)).date().isoformat()
+                and not pl["status"].startswith(("klaar", "compilatie")) and m in sc_rij):
+            if sc_rij[m].get("afspraken") is None and pl["gewijzigd"] <= bij:
+                p.append((f"afspraken:{m}", f"{m}: de afsprakencontrole staat niet op de site"))
+            elif sc_rij[m].get("afspraken"):
+                p.append((f"afspraken-fout:{m}", f"{m} ({pl['datum']}) voldoet niet aan de afspraken: "
+                                                  + "; ".join(sc_rij[m]["afspraken"])[:150]))
 
     # 3. nu bezig
     draait = ketens()
