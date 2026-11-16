@@ -80,7 +80,7 @@ def dubbel(m):
     return uit
 
 
-LIJKT = 0.94          # CLIP-gelijkenis; mediaan in een video ± 0.83, hetzelfde boerenerf in Crisis 0.95-0.96
+LIJKT = 0.92          # CLIP-gelijkenis; mediaan ± 0.83; Crisis: zelfde boerenerf 0.95-0.96, nog te veel gelijk tot ± 0.93
 
 
 def lijkend(m, drempel=LIJKT):
