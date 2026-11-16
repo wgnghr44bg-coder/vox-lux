@@ -231,6 +231,41 @@ def vlm_cijfer(p):
         return 0
 
 
+def beelden_wachter(m):
+    """Extra controle (eigenaar 16 nov 2026: "graag hierop extra controle wachter zetten"): dubbele beelden (een
+    afgekeurd beeld vervangen door het beeld ervoor; Dallas had er 6) worden met de originele beschrijving opnieuw
+    gemaakt en gekeurd; alleen wat dan nog fout is, blijft een kopie. Bekende dingen zonder kenmerken -> logboek."""
+    import shutil, beelden_wachter as bw
+    _, dub, regels = bw.rapport(m)
+    for r_ in regels:
+        if "dubbele" not in r_:
+            log(f"beelden-wachter: SEINTJE {r_}")
+    nrs = sorted({b for _, b in dub})
+    if len(dub) <= bw.DUBBEL_MAX:
+        return
+    orig = subprocess.run(["git", "show", f"HEAD:stories/{m.name}/prompts.txt"], cwd=REPO, capture_output=True,
+                          text=True, encoding="utf-8", errors="replace").stdout
+    orig = {r_.split("|", 1)[0]: r_ for r_ in orig.splitlines() if "|" in r_}
+    regels = (m / "prompts.txt").read_text(encoding="utf-8").splitlines()
+    regels = [orig.get(r_.split("|", 1)[0], r_) if r_.split("|", 1)[0] in nrs else r_ for r_ in regels]
+    (m / "prompts.txt").write_text("\n".join(regels) + "\n", encoding="utf-8")
+    (m / "afgekeurd").mkdir(exist_ok=True)
+    for n in nrs:
+        shutil.move(str(m / "afbeeldingen" / f"{n}.png"), str(m / "afgekeurd" / f"{n}-dubbel.png"))
+    log(f"{m.name}: beelden-wachter: {len(nrs)} dubbele beelden ({', '.join(nrs)}) opnieuw maken")
+    comfy_aan()
+    run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)] + nrs)
+    r = run([OMNI, str(HIER / "beeldcheck.py"), str(m), "--alleen", ",".join(nrs)])
+    nog = re.findall(r"'(\d+)'", (re.search(r"BEELDEN FOUT: .*", r.stdout) or [""])[0])
+    for n in nog:                                            # na 4 rondes nog fout: dan toch het beeld ervoor
+        buur = next((m / "afbeeldingen" / f"{k:03d}.png" for k in range(int(n) - 1, 0, -1)
+                     if (m / "afbeeldingen" / f"{k:03d}.png").exists() and f"{k:03d}" not in nog), None)
+        if buur:
+            shutil.copy(buur, m / "afbeeldingen" / f"{n}.png")
+    log(f"{m.name}: beelden-wachter: {len(nrs) - len(nog)} van {len(nrs)} dubbele beelden vervangen door een nieuw goed beeld"
+        + (f", {len(nog)} blijven een kopie ({', '.join(nog)})" if nog else ""))
+
+
 def maak_video(m, datum, test=False):
     plan_t = planning(m)[0]
     if "nieuwe opbouw" not in planning(m)[2] and not (m / "src-feiten" / "begin.txt").exists():
@@ -291,6 +326,7 @@ def maak_video(m, datum, test=False):
                 log(f"{m.name}: beeld {nr} bleef fout, vervangen door {buur.name}")
     elif "BEELDEN GOED" not in r.stdout:
         raise RuntimeError("beeldcontrole: " + r.stdout.strip().splitlines()[-1][:200])
+    beelden_wachter(m)
     thumb = thumbnail(m, plan_t)
     if not thumb:
         raise RuntimeError("geen goede thumbnail")

@@ -4,3 +4,5 @@ sloop | a small fast single-masted wooden sailing ship of the early 1700s with o
 Ocracoke | a low sandy barrier island on the North Carolina coast in 1718 with dunes, sea oats, low wind-bent live oaks and a quiet inlet, no lighthouse, no houses
 Charleston | a small walled English colonial port town of 1718 with wooden and brick houses, a few church spires and wooden wharves on the harbour, ships at anchor, no large stone buildings
 pirate | an early 1700s sailor: loose linen shirt, short wool jacket, wide canvas trousers ending below the knee, a cocked hat or knitted cap, a sash with flintlock pistols, no eye patch, no parrot, no peg leg
+ship | a wooden sailing ship of the early 1700s: dark tarred hull, two or three masts with square canvas sails, a modest raised stern, a few gun ports, no steam funnels, no ornate gold decoration, no black or skull sails
+warship | a Royal Navy warship of the early 1700s: a wooden three-masted ship with two rows of square gun ports, a red ensign, a carved but modest stern, square canvas sails

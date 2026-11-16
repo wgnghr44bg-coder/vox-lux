@@ -145,6 +145,12 @@ def main():
     if not droog:
         bewaar([], "")                                      # veilig pull (wachtrij), niet meer rechtstreeks git pull
     lijst, seintjes = te_maken(vandaag)
+    if not droog:                                           # 16 nov: beelden-wachter, ontbrekende kenmerken dagen vooruit
+        try:
+            import beelden_wachter
+            beelden_wachter.alle()
+        except Exception as e:
+            print("beelden-wachter:", e)
     oud = LOG.read_text(encoding="utf-8", errors="replace")
     for s in seintjes:
         print("SEINTJE", s)
