@@ -265,3 +265,4 @@
 - 2026-11-16 17:19 routine-lokaal: crisis-1933: beelden-wachter: 13 beelden lijken op een ander beeld (011, 014, 021, 026, 032, 036, 046, 049, 056, 066, 084, 085, 086), nieuwe maken
 - 2026-11-16 17:28 routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
 - 2026-11-16 17:38 Claude: website: thumbnails in 'Video's in productie' vaste maat 96x54 (op de iPhone werden ze ingezoomd: alleen 'ES'/'SION' zichtbaar)
+- 2026-11-16 17:49 Claude: 4 titels op YouTube aangepast (eigenaar 16 nov): Babylon, Egypte, WW2, Hindenburg -> concreet, geen vraag/uren. Beschrijving, tags en thumbnails ongewijzigd.
