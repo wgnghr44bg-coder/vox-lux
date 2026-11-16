@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 20:33",
+ "bijgewerkt": "2026-11-16 21:03",
  "werkplanning": {
   "nu": [
    {
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 20:33)"
+   "tekst": "draait nu (2026-11-16 21:03)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 20:33",
-   "volgende": "2026-11-16 21:03"
+   "laatst": "2026-11-16 21:03",
+   "volgende": "2026-11-16 21:33"
   },
   "hype": {
    "aan": true,
@@ -639,8 +639,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 20:18",
-   "volgende": "2026-11-16 20:48"
+   "laatst": "2026-11-16 20:48",
+   "volgende": "2026-11-16 21:18"
   },
   "titels": {
    "aan": true,
@@ -651,11 +651,11 @@
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2847,
+  "views_totaal": 2887,
   "video_aantal": 16,
   "week": {
-   "views": 475,
-   "uren": 137,
+   "views": 566,
+   "uren": 158,
    "abonnees": 4
   },
   "vorige_week": {
@@ -715,7 +715,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 126,
+    "views": 127,
     "verwerkt": "processed"
    },
    {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 611,
+    "views": 615,
     "verwerkt": "processed"
    },
    {
@@ -885,11 +885,16 @@
     "dag": "2026-11-13",
     "views": 66,
     "abonnees": 1
+   },
+   {
+    "dag": "2026-11-14",
+    "views": 91,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 2351,
-   "uren": 565,
+   "views": 2442,
+   "uren": 585,
    "abonnees": 9
   },
   "vorige_maand": {
@@ -898,8 +903,8 @@
    "abonnees": 8
   },
   "jaar": {
-   "views": 3459,
-   "uren": 645,
+   "views": 3550,
+   "uren": 665,
    "abonnees": 17
   },
   "top": [
@@ -907,34 +912,34 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1182,
+    "views": 1183,
     "uren": 325
    },
    {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 512,
-    "uren": 144
+    "views": 573,
+    "uren": 154
    },
    {
     "id": "qFRyJ6twOzY",
     "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
     "duur": "1:47:15",
-    "views": 341,
+    "views": 343,
     "uren": 25
    }
   ],
   "partner": {
-   "uren": 644,
+   "uren": 665,
    "uren_doel": 4000,
    "abonnees": 17,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 19.8,
+   "tempo_uren_per_dag": 20.5,
    "tempo_abonnees_per_dag": 0.32,
-   "datum_uren": "2027-05-05",
+   "datum_uren": "2027-04-28",
    "datum_abonnees": "2035-04-02"
   }
  },
@@ -975,8 +980,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-17 03:14",
-   "youtube": "2026-11-17 03:34"
+   "klaar": "2026-11-17 03:20",
+   "youtube": "2026-11-17 03:40"
   }
  },
  "nu_bezig": [
@@ -990,7 +995,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
+  "bezig_procent": 22,
   "geheugen_mb": 585,
   "totaal_mb": 8192
  },
@@ -1163,13 +1168,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 20:33",
+   "tijd": "2026-11-16 21:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3924,11 +3929,11 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 20:34",
+  "bijgewerkt": "2026-11-16 21:05",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 9064328,
+    "5uur": 4698856,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
@@ -3945,27 +3950,27 @@
    },
    {
     "account": "account2",
-    "5uur": 9566635,
-    "week": 92483946,
+    "5uur": 10573841,
+    "week": 93797490,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 17054486,
+     "Mon 16-11": 18368030,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 81988,
+    "stap_kost": 96950,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 70,
-    "5uur_scripts_over": 6.5,
-    "5uur_stappen_over": 49,
-    "week_pct": 70,
-    "week_scripts_over": 63.8,
-    "week_stappen_over": 482
+    "5uur_pct": 78,
+    "5uur_scripts_over": 4.9,
+    "5uur_stappen_over": 31,
+    "week_pct": 71,
+    "week_scripts_over": 61.7,
+    "week_stappen_over": 394
    }
   ]
  },
