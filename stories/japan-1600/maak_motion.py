@@ -13,6 +13,24 @@ HOOFDSTUKKEN = [(t, re.sub(r"^\d+-", "", s)) for t, s in
 kapitels = [(t, start[s]) for t, s in HOOFDSTUKKEN if s in start]
 items = [{"soort": "hoofdstuk", "tijd": 10 if n == 1 else round(t + 3, 1), "nummer": n, "titel": titel}
          for n, (titel, t) in enumerate(kapitels, 1)]
+def na(slug, s=10):
+    return round(start[slug] + s, 1) if slug in start else None
+
+
+extra = [
+    {"soort": "datum", "tijd": na("samurai-house-morning-tatami-sliding-doors-1600", 4), "regel1": "Spring, 1600", "regel2": "Japan"},
+    {"soort": "kaart", "tijd": na("armies-marching-mountain-pass-autumn-1600-banners"), "titel": "Japan in the autumn of 1600",
+     "gebied": [129.3, 140.6, 32.4, 36.6],               # lon_min, lon_max, lat_min, lat_max
+     "plaatsen": [{"naam": "Edo", "lon": 139.69, "lat": 35.69, "kant": "rechts"},
+                  {"naam": "Kyoto", "lon": 135.77, "lat": 35.01, "kant": "boven"},
+                  {"naam": "Osaka", "lon": 135.50, "lat": 34.69, "kant": "onder"},
+                  {"naam": "Sekigahara", "lon": 136.47, "lat": 35.36, "kant": "rechts"},
+                  {"naam": "Nagasaki", "lon": 129.87, "lat": 32.75, "kant": "rechts"}]},
+    {"soort": "datum", "tijd": na("misty-battlefield-sekigahara-dawn-fog-banners", 4), "regel1": "October 21, 1600", "regel2": "Sekigahara"},
+    {"soort": "datum", "tijd": na("ieyasu-becomes-shogun-imperial-envoy-1603", 4), "regel1": "1603", "regel2": "Edo"},
+]
+items += [x for x in extra if x["tijd"] is not None]
+items.sort(key=lambda x: x["tijd"])
 json.dump({"onderwerp": d.name, "intro": False, "slot": False, "items": items},
           open(d / "motion.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
