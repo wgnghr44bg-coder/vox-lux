@@ -371,8 +371,48 @@ def runs(log):
     return {"goed": goed, "totaal": len(r), "procent": round(100 * goed / len(r)) if r else None}
 
 
+def productie(v):
+    """Stappen script, stem, beelden, edit, upload van één video (uit de bestanden op de pc), voor de productietabel
+    (eigenaar 16 nov 2026: website simpel, zoals het voorbeeld met per video de stappen en hoeveel procent klaar)."""
+    d = STORIES / v["map"]
+    if v["soort"] in ("gepland", "online"):
+        return [True] * 5
+    cues = d / "script-cues.txt"
+    script = cues.exists() and ((d / "src-feiten" / "deel1.txt").exists() or (d / "src").exists())
+    voice = d / "voice.mp3"
+    stem = script and voice.exists() and voice.stat().st_mtime >= cues.stat().st_mtime - 60
+    try:
+        nodig = sum(1 for r in (d / "prompts.txt").read_text(encoding="utf-8").splitlines() if "|" in r and not r.startswith("#"))
+    except Exception:
+        nodig = 0
+    beelden = nodig > 0 and len(list((d / "afbeeldingen").glob("[0-9]*.png"))) >= nodig
+    film = d / "video" / f"{v['map']}-16mm.mp4"
+    edit = stem and film.exists() and film.stat().st_mtime >= voice.stat().st_mtime
+    return [bool(script), bool(stem), bool(beelden), bool(edit), False]
+
+
+def kleine_thumb(m):
+    """thumbs/<map>.jpg uit de eigen thumbnail (v3 eerst), zodat de tabel een plaatje heeft, ook vóór de upload."""
+    bron = next((STORIES / m / n for n in ("thumbnail-v3.jpg", "thumbnail-gekozen.jpg") if (STORIES / m / n).exists()), None)
+    if not bron:
+        return ""
+    doel = DOCS / "thumbs" / f"{m}.jpg"
+    try:
+        if not doel.exists() or doel.stat().st_mtime < bron.stat().st_mtime:
+            from PIL import Image
+            doel.parent.mkdir(parents=True, exist_ok=True)
+            Image.open(bron).convert("RGB").resize((320, 180)).save(doel, quality=72)
+        return f"thumbs/{m}.jpg"
+    except Exception:
+        return ""
+
+
 # ---------- alles samen ----------
 video = planning()
+for v in [x for x in video if x["datum"] >= VANDAAG.isoformat()]:
+    v["stappen"] = productie(v)
+    v["gereed"] = round(100 * sum(v["stappen"]) / 5)
+    v["thumb"] = kleine_thumb(v["map"]) if v["datum"] <= (VANDAAG + datetime.timedelta(days=45)).isoformat() else ""
 draait, stap, actief = processen()
 if not actief:                                              # anders: de video die "bezig" is
     b = [v for v in video if v["soort"] == "bezig"]

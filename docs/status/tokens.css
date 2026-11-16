@@ -1,0 +1,18 @@
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.2rem; --text-title: 1rem; --text-lead: 1rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --container: 1440px; --gutter: 32px; --gap-columns: 16px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  /* merk Sleep Archives Studio (12 nov 2026): nachtpaars met één paars accent */
+  --color-paper: oklch(15% 0.04 285); --color-paper-2: oklch(19% 0.045 285); --color-paper-3: oklch(23% 0.05 285);
+  --color-ink: oklch(95% 0.02 295); --color-ink-2: oklch(85% 0.035 295); --color-muted: oklch(72% 0.05 295);
+  --color-rule: oklch(30% 0.06 285);
+  --color-accent: oklch(68% 0.2 300); --color-accent-ink: oklch(15% 0.04 285); --color-focus: oklch(82% 0.14 300);
+  --color-success: oklch(76% 0.16 150); --color-warn: oklch(82% 0.14 80); --color-error: oklch(70% 0.18 22);
+  --font-display: "Inter", "Segoe UI", system-ui, sans-serif; --font-body: "Inter", "Segoe UI", system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 14px; --radius-pill: 999px; --radius-small: 8px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}
