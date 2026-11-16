@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 19:03",
+ "bijgewerkt": "2026-11-16 19:33",
  "werkplanning": {
   "nu": [
    {
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "177 GB vrij"
+   "tekst": "173 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 19:03)"
+   "tekst": "draait nu (2026-11-16 19:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 19:03",
-   "volgende": "2026-11-16 19:33"
+   "laatst": "2026-11-16 19:33",
+   "volgende": "2026-11-16 20:03"
   },
   "hype": {
    "aan": true,
@@ -634,18 +634,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 18:10",
-   "volgende": "2026-11-16 19:10"
+   "laatst": "2026-11-16 19:10",
+   "volgende": "2026-11-16 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 18:48",
-   "volgende": "2026-11-16 19:18"
+   "laatst": "2026-11-16 19:18",
+   "volgende": "2026-11-16 19:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 17:25",
-   "volgende": "2026-11-16 19:25"
+   "laatst": "2026-11-16 19:25",
+   "volgende": "2026-11-16 21:25"
   }
  },
  "kanaal": {
@@ -688,7 +688,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 17,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -706,7 +706,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 15,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 605,
+    "views": 606,
     "verwerkt": "processed"
    },
    {
@@ -990,7 +990,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 23,
   "geheugen_mb": 573,
   "totaal_mb": 8192
  },
@@ -1077,30 +1077,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "bewaker: keten gestart voor dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:00",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:27",
-   "tekst": "routine-lokaal: crisis-1933: 1 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 16:28",
    "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 12 beelden lijken op een ander beeld (017, 020, 037, 038, 039, 047, 048, 065, 070, 077, 086, 088), nieuwe maken",
    "fout": false,
@@ -1159,17 +1135,41 @@
    "tekst": "Claude: 4 titels op YouTube aangepast (eigenaar 16 nov): Babylon, Egypte, WW2, Hindenburg -> concreet, geen vraag/uren. Beschrijving, tags en thumbnails ongewijzigd.",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 19:25",
+   "tekst": "hype-wachter: SEINTJE TITEL YouTube egypte-toetanchamon: op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep' (aanpassen in Studio kost geen views)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 19:27",
+   "tekst": "hype-wachter: SEINTJE TITEL YouTube crisis-1933: op YouTube staat 'Life in the Great Depression, 1933 | History for Sleep' (aanpassen in Studio kost geen views)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 19:29",
+   "tekst": "hype-wachter: SEINTJE TITEL dallas-1963 (2026-11-21): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Bevat pla",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 19:31",
+   "tekst": "hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-07): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel ",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 19:03",
+   "tijd": "2026-11-16 19:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 19:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 19:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3459,7 +3459,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 17:25",
+  "bijgewerkt": "2026-11-16 19:31",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3469,7 +3469,7 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube staat 'Why Was Babylon the Greatest City on Earth? | History for Sleep'; is een vraag",
+    "youtube": "",
     "concurrent": [],
     "bekeken": ""
    },
@@ -3483,19 +3483,19 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube: 'What Did People Actually Do When Tutankhamun Was King? | History for Sleep' is een vraag",
+    "youtube": "op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep'",
     "concurrent": [],
     "bekeken": ""
    },
    {
     "map": "crisis-1933",
     "datum": "2026-11-17",
-    "titel": "Life in the Great Depression, 1933 | History for Sleep",
+    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "",
+    "youtube": "op YouTube staat 'Life in the Great Depression, 1933 | History for Sleep'",
     "concurrent": [
      {
       "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
@@ -3513,7 +3513,7 @@
       "per_dag": 488
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-16"
    },
    {
     "map": "gettysburg-1863",
@@ -3530,11 +3530,11 @@
    {
     "map": "dallas-1963",
     "datum": "2026-11-21",
-    "titel": "Life in Dallas, November 1963 | History for Sleep",
+    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life in Dallas, November 1963 | History for Sleep",
+    "waarom": "Bevat plaats, jaar en belooft inhoud; volledig binnen de regels",
     "youtube": "",
     "concurrent": [
      {
@@ -3543,7 +3543,7 @@
       "per_dag": 137
      }
     ],
-    "bekeken": "2026-11-15"
+    "bekeken": "2026-11-16"
    },
    {
     "map": "ijstijd-20000-vc",
@@ -3690,14 +3690,14 @@
    {
     "map": "pearl-harbor-1941",
     "datum": "2026-12-07",
-    "titel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "waarom": "Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-15"
+    "bekeken": "2026-11-16"
    },
    {
     "map": "rome-44-vc",
@@ -3921,10 +3921,10 @@
     "bekeken": "2026-11-16"
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 19:04",
+  "bijgewerkt": "2026-11-16 19:34",
   "accounts": [
    {
     "account": "hoofd",
