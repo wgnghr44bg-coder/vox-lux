@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 03:33",
+ "bijgewerkt": "2026-11-16 04:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "detail": "Video bouwen · 84%",
+    "detail": "YouTube upload",
     "soort": "nu"
    }
   ],
@@ -502,7 +502,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "182 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -517,7 +517,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 03:33)"
+   "tekst": "draait nu (2026-11-16 04:03)"
   },
   {
    "naam": "Git",
@@ -557,7 +557,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 03:18: alles klopt"
+   "tekst": "laatste ronde 03:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -574,8 +574,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 03:33",
-   "volgende": "2026-11-16 04:03"
+   "laatst": "2026-11-16 04:03",
+   "volgende": "2026-11-16 04:33"
   },
   "hype": {
    "aan": true,
@@ -589,8 +589,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 03:18",
-   "volgende": "2026-11-16 03:48"
+   "laatst": "2026-11-16 03:48",
+   "volgende": "2026-11-16 04:18"
   },
   "titels": {
    "aan": true,
@@ -615,6 +615,15 @@
   },
   "recent": [
    {
+    "id": "4i-gOILazVQ",
+    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "duur": "2:17:38",
+    "privacy": "private",
+    "publiceer": "2026-11-18T20:00:00Z",
+    "views": 0,
+    "verwerkt": "uploaded"
+   },
+   {
     "id": "R2rgLUMJxac",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "duur": "2:10:45",
@@ -638,7 +647,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 41,
+    "views": 45,
     "verwerkt": "processed"
    },
    {
@@ -674,7 +683,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 579,
+    "views": 581,
     "verwerkt": "processed"
    },
    {
@@ -693,15 +702,6 @@
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
     "views": 66,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "ud5qSvbZBvM",
-    "titel": "Life in Siberia Before the Tunguska Blast | History for Sleep",
-    "duur": "2:36:14",
-    "privacy": "public",
-    "publiceer": "2026-10-07T19:00:13Z",
-    "views": 28,
     "verwerkt": "processed"
    }
   ],
@@ -877,7 +877,7 @@
   ]
  },
  "kpi": {
-  "geplande": 1,
+  "geplande": 2,
   "runs": {
    "goed": 3,
    "totaal": 12,
@@ -898,23 +898,24 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 6,
  "huidig": {
   "map": "gettysburg-1863",
   "titel": "Life in Gettysburg, July 1863 | History for Sleep",
   "datum": "2026-11-18",
   "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 84,
-  "detail": "16mm-look",
+  "stap": 6,
+  "stapnaam": "YouTube upload",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "uploaden en controleren",
+   "wachten op verwerking YouTube"
   ],
   "eind": {
-   "klaar": "2026-11-16 03:55",
-   "youtube": "2026-11-16 04:15"
+   "klaar": "2026-11-16 03:50",
+   "youtube": "2026-11-16 04:10"
   }
  },
  "nu_bezig": [
@@ -923,12 +924,16 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "uploaden en controleren",
+   "stap": 6
+  },
+  {
+   "naam": "wachten op verwerking YouTube",
+   "stap": 6
   }
  ],
  "videokaart": {
-  "bezig_procent": 21,
+  "bezig_procent": 25,
   "geheugen_mb": 431,
   "totaal_mb": 8192
  },
@@ -1016,18 +1021,6 @@
  "logboek": [
   {
    "tijd": "2026-11-15 20:52",
-   "tekst": "hype-wachter: SEINTJE TITEL blackbeard-1718 (2026-11-30): 'Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep' -> voorstel 'Life Aboard Blackbeard's Ship, 1718 | History for Sleep' (gebrui",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:52",
-   "tekst": "hype-wachter: SEINTJE TITEL thanksgiving-1621 (2026-11-25): 'The First Thanksgiving, Plymouth 1621 | History for Sleep' -> voorstel 'Life in Plymouth, Autumn 1621 | History for Sleep' (gebruikt bekend",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:52",
    "tekst": "hype-wachter: SEINTJE TITEL alchemie-steen-der-wijzen (2026-12-02): 'Alchemists and the Philosopher's Stone, 1600 | History for Sleep' -> voorstel 'The Search for the Philosopher's Stone, 1600 | Histo",
    "fout": false,
    "klaar": false
@@ -1097,11 +1090,23 @@
    "tekst": "hype-wachter: SEINTJE TITEL man-ijzeren-masker-1703 (2026-12-16): 'The Man in the Iron Mask, France 1703 | History for Sleep' -> voorstel 'The Man in the Iron Mask, France 1669-1703 | History for Slee",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 04:00",
+   "tekst": "gettysburg-1863: geüpload https://youtu.be/4i-gOILazVQ (privé, publiek 2026-11-18T20:00:00Z), kanaal Sleep Archives gecontroleerd",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-16 04:02",
+   "tekst": "Claude: PROMPT-JAPAN-EN-COMPILATIES.md stap 4b: januari herzien op hype (drooglegging/new-york-1925, goudkoorts/goudkoorts-1849, mythologie), eerst voorleggen aan de eigenaar, dan pas ombouwen (stap 5",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 03:33",
+   "tijd": "2026-11-16 04:03",
    "tekst": "Zelfcontrole: Video 2026-11-18 (gettysburg-1863): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3185,7 +3190,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 03:37",
+  "bijgewerkt": "2026-11-16 04:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -3206,26 +3211,27 @@
    },
    {
     "account": "account2",
-    "5uur": 0,
-    "week": 75429460,
+    "5uur": 876038,
+    "week": 76305498,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
+     "Mon 16-11": 876038,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 62893,
+    "stap_kost": 63884,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 0,
-    "5uur_scripts_over": 21.9,
-    "5uur_stappen_over": 216,
-    "week_pct": 57,
-    "week_scripts_over": 91.4,
-    "week_stappen_over": 900
+    "5uur_pct": 6,
+    "5uur_scripts_over": 20.5,
+    "5uur_stappen_over": 199,
+    "week_pct": 58,
+    "week_scripts_over": 90.0,
+    "week_stappen_over": 872
    }
   ]
  },
