@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 11:03",
+ "bijgewerkt": "2026-11-16 11:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen · 20%",
+    "detail": "Video bouwen · 32%",
     "soort": "nu"
    }
   ],
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 11:03)"
+   "tekst": "draait nu (2026-11-16 11:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 10:48: alles klopt"
+   "tekst": "laatste ronde 11:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 11:03",
-   "volgende": "2026-11-16 11:33"
+   "laatst": "2026-11-16 11:33",
+   "volgende": "2026-11-16 12:03"
   },
   "hype": {
    "aan": true,
@@ -620,18 +620,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 10:10",
-   "volgende": "2026-11-16 11:10"
+   "laatst": "2026-11-16 11:10",
+   "volgende": "2026-11-16 12:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 10:48",
-   "volgende": "2026-11-16 11:18"
+   "laatst": "2026-11-16 11:18",
+   "volgende": "2026-11-16 11:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 09:25",
-   "volgende": "2026-11-16 11:25"
+   "laatst": "2026-11-16 11:25",
+   "volgende": "2026-11-16 13:25"
   }
  },
  "kanaal": {
@@ -683,7 +683,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 50,
+    "views": 51,
     "verwerkt": "processed"
    },
    {
@@ -954,15 +954,15 @@
   "thumb": "thumbs/dallas-1963.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 20,
+  "voortgang": 32,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-16 15:04",
-   "youtube": "2026-11-16 15:24"
+   "klaar": "2026-11-16 15:23",
+   "youtube": "2026-11-16 15:43"
   }
  },
  "nu_bezig": [
@@ -2816,7 +2816,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 09:25",
+  "bijgewerkt": "2026-11-16 11:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3265,7 +3265,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 11:03",
+  "bijgewerkt": "2026-11-16 11:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3286,7 +3286,7 @@
    },
    {
     "account": "account2",
-    "5uur": 2668317,
+    "5uur": 1210657,
     "week": 81887210,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3301,9 +3301,9 @@
     "stap_kost": 66789,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 20,
-    "5uur_scripts_over": 17.6,
-    "5uur_stappen_over": 163,
+    "5uur_pct": 9,
+    "5uur_scripts_over": 20.0,
+    "5uur_stappen_over": 185,
     "week_pct": 62,
     "week_scripts_over": 80.9,
     "week_stappen_over": 751
