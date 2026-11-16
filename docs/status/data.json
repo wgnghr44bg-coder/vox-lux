@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 14:03",
+ "bijgewerkt": "2026-11-16 14:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen · 63%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -553,7 +553,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "185 GB vrij"
+   "tekst": "183 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 14:03)"
+   "tekst": "draait nu (2026-11-16 14:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:48: alles klopt"
+   "tekst": "laatste ronde 14:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 14:03",
-   "volgende": "2026-11-16 14:33"
+   "laatst": "2026-11-16 14:33",
+   "volgende": "2026-11-16 15:03"
   },
   "hype": {
    "aan": true,
@@ -620,13 +620,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 13:10",
-   "volgende": "2026-11-16 14:10"
+   "laatst": "2026-11-16 14:10",
+   "volgende": "2026-11-16 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 13:48",
-   "volgende": "2026-11-16 14:18"
+   "laatst": "2026-11-16 14:18",
+   "volgende": "2026-11-16 14:48"
   },
   "titels": {
    "aan": true,
@@ -737,7 +737,7 @@
     "duur": "2:20:55",
     "privacy": "public",
     "publiceer": "2026-10-10T19:00:39Z",
-    "views": 66,
+    "views": 67,
     "verwerkt": "processed"
    }
   ],
@@ -931,7 +931,7 @@
    "totaal": 13,
    "procent": 31
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 13,
    "totaal": 13
@@ -946,24 +946,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
   "map": "dallas-1963",
   "titel": "Life in Dallas, November 1963 | History for Sleep",
   "datum": "2026-11-21",
   "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 63,
-  "detail": "16mm-look",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "90 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
-  "eind": {
-   "klaar": "2026-11-16 14:32",
-   "youtube": "2026-11-16 14:52"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -971,8 +968,8 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
@@ -1063,24 +1060,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 04:10",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 04:46",
-   "tekst": "Claude: website + sitecontrole uitgebreid (eigenaar 16 nov: 'zorg dat alles op de website ook geüpdatet wordt, zet daar een wachter op'): per komende video de afsprakencontrole op de site (Scripts: 'a",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 04:50",
-   "tekst": "Claude: japan-1600 (za 26 dec) omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 90 feitjes, 13 onderwerpen, 13.523 woorden; eerste onderwerp 'A samurai's day in 1600'; thumbnail kenmerk",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 04:52",
    "tekst": "Claude: website kaart 'Partnerprogramma' (eigenaar 16 nov): kijkuren 365 dagen (644/4000) en abonnees (17/1000), tempo 28 dagen, verwachte datum (uren ± 5 mei 2027; abonnees in dit tempo pas 2035 = kn",
    "fout": false,
@@ -1145,16 +1124,35 @@
    "tekst": "Claude: thumbnail-v3 (eigenaar 16 nov, Dallas: 'onder de tekst staan de mensen, is niet mooi'): mensen alleen rechts, linkerhelft leeg (prompt + controle met beeldmodel op het linkerdeel); tekst nooit",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [],
- "opgelost": [
+  },
   {
-   "tijd": "2026-11-15 15:54",
-   "tekst": "routine-lokaal: gettysburg-1863: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "tijd": "2026-11-16 14:32",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   },
+  {
+   "tijd": "2026-11-16 14:32",
+   "tekst": "bewaker: keten gestart voor dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 14:32",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  }
+ ],
+ "fouten": [
+  {
+   "tijd": "2026-11-16 14:32",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  }
+ ],
+ "opgelost": [
   {
    "tijd": "2026-11-15 17:17",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 74/90 goedgekeurd, fout: ['014', '015', '019', '022', '025', '041', '054', '057', '066', '069', '075', '076', '077', '0",
@@ -3265,7 +3263,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 14:05",
+  "bijgewerkt": "2026-11-16 14:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3298,15 +3296,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 54027,
+    "stap_kost": 52596,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 7,
     "5uur_scripts_over": 20.5,
-    "5uur_stappen_over": 235,
+    "5uur_stappen_over": 241,
     "week_pct": 62,
     "week_scripts_over": 80.9,
-    "week_stappen_over": 928
+    "week_stappen_over": 953
    }
   ]
  },
