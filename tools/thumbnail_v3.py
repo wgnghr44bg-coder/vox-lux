@@ -256,6 +256,14 @@ def maak_voor_map(m, regel1, regel2, kenmerk, achtergrond, licht="warm lamplight
                        cwd=REPO)
         return (m / "thumbnail-v3.jpg") if (m / "thumbnail-v3.jpg").exists() else None
     werk = m / "thumb3"
+    # 16 nov 2026 (Dallas): oude kandidaten bleven staan ("ta bestaat al") en werden met de nieuwe prompt niet opnieuw
+    # gemaakt. Elke nieuwe poging: oude kandidaten verplaatsen (niet weggooien) naar thumb3/oud-<tijd>/
+    oude = list((werk / "afbeeldingen").glob("t[abc].png")) if (werk / "afbeeldingen").exists() else []
+    if oude:
+        bewaar = werk / f"oud-{dt.datetime.now():%Y%m%d-%H%M}"
+        bewaar.mkdir(parents=True, exist_ok=True)
+        for p in oude:
+            shutil.move(str(p), str(bewaar / p.name))
     item = {"regel1": regel1, "regel2": regel2, "kenmerk": kenmerk, "achtergrond": achtergrond, "moment": moment}
     kandidaten(werk, [("t", kenmerk, achtergrond, licht, moment, voorwerp)])
     return kies(werk, "t", item, m / "thumbnail-v3.jpg")
