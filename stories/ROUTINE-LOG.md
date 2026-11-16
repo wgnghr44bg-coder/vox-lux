@@ -230,3 +230,4 @@
 - 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 076 bleef fout, vervangen door 075.png
 - 2026-11-16 05:53 routine-lokaal: dallas-1963: thumbnail v3 gemaakt (DALLAS 1963 NOVEMBER 1963)
 - 2026-11-16 06:30 Claude: thumbnail-v3 (eigenaar 16 nov, Dallas: 'onder de tekst staan de mensen, is niet mooi'): mensen alleen rechts, linkerhelft leeg (prompt + controle met beeldmodel op het linkerdeel); tekst nooit meer afgekapt ('NOVEMBER 196') en jaartal niet dubbel; dallas-thumbnail wordt opnieuw gemaakt tijdens de montage (oude bewaard als thumbnail-v3-oud.jpg)
+- 2026-11-16 14:32 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
