@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 17:33",
+ "bijgewerkt": "2026-11-16 18:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Stem (B1)",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "181 GB vrij"
+   "tekst": "179 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 17:33)"
+   "tekst": "draait nu (2026-11-16 18:03)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 17:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 17:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 17:33",
-   "volgende": "2026-11-16 18:03"
+   "laatst": "2026-11-16 18:03",
+   "volgende": "2026-11-16 18:33"
   },
   "hype": {
    "aan": true,
@@ -639,8 +639,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 17:18",
-   "volgende": "2026-11-16 17:48"
+   "laatst": "2026-11-16 17:48",
+   "volgende": "2026-11-16 18:18"
   },
   "titels": {
    "aan": true,
@@ -684,7 +684,7 @@
    },
    {
     "id": "Y46Rpy4703k",
-    "titel": "What Did People Actually Do When Tutankhamun Was King? | History for Sleep",
+    "titel": "Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep",
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
@@ -693,7 +693,7 @@
    },
    {
     "id": "KwUvlP42M34",
-    "titel": "Why Was Babylon the Greatest City on Earth? | History for Sleep",
+    "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
@@ -702,7 +702,7 @@
    },
    {
     "id": "ZZ5JMtF9kuI",
-    "titel": "What Was Everyday Life Like During WW2? | History for Sleep",
+    "titel": "Quiet WW2 Facts to Fall Asleep To | History for Sleep",
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
@@ -711,7 +711,7 @@
    },
    {
     "id": "OC0WGLbKD8M",
-    "titel": "Life Aboard the Hindenburg, May 1937 | 2 Hours of History for Sleep",
+    "titel": "Life Aboard the Hindenburg, May 1937 | History for Sleep",
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 605,
+    "views": 606,
     "verwerkt": "processed"
    },
    {
@@ -960,24 +960,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
   "map": "crisis-1933",
   "titel": "Life in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-17",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "tekstcontrole",
-   "tekstcontrole (Whisper)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-17 03:34",
-   "youtube": "2026-11-17 03:54"
+   "klaar": "2026-11-17 03:14",
+   "youtube": "2026-11-17 03:34"
   }
  },
  "nu_bezig": [
@@ -986,17 +985,13 @@
    "stap": 0
   },
   {
-   "naam": "tekstcontrole",
-   "stap": 3
-  },
-  {
-   "naam": "tekstcontrole (Whisper)",
-   "stap": 3
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 53,
-  "geheugen_mb": 2469,
+  "bezig_procent": 23,
+  "geheugen_mb": 573,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1083,18 +1078,6 @@
  "logboek": [
   {
    "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "bewaker: SEINTJE crisis-1933 (2026-11-17) is vandaag 2x gestopt, morgen opnieuw",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:58",
    "tekst": "bewaker: keten gestart voor dallas-1963",
    "fout": false,
    "klaar": false
@@ -1164,17 +1147,29 @@
    "tekst": "routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:38",
+   "tekst": "Claude: website: thumbnails in 'Video's in productie' vaste maat 96x54 (op de iPhone werden ze ingezoomd: alleen 'ES'/'SION' zichtbaar)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 17:49",
+   "tekst": "Claude: 4 titels op YouTube aangepast (eigenaar 16 nov): Babylon, Egypte, WW2, Hindenburg -> concreet, geen vraag/uren. Beschrijving, tags en thumbnails ongewijzigd.",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 17:33",
+   "tijd": "2026-11-16 18:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 17:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 18:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3929,49 +3924,49 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 17:34",
+  "bijgewerkt": "2026-11-16 18:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 9761298,
-    "week": 76375740,
+    "5uur": 9979082,
+    "week": 76593524,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 9761298
+     "Mon 16-11": 9979082
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 65955,
+    "stap_kost": 64381,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 3187920,
-    "week": 85075130,
+    "5uur": 6386948,
+    "week": 88274158,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 9645670,
+     "Mon 16-11": 12844697,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 61030,
+    "stap_kost": 62672,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 23,
-    "5uur_scripts_over": 16.8,
-    "5uur_stappen_over": 170,
-    "week_pct": 64,
-    "week_scripts_over": 75.8,
-    "week_stappen_over": 769
+    "5uur_pct": 47,
+    "5uur_scripts_over": 11.6,
+    "5uur_stappen_over": 115,
+    "week_pct": 67,
+    "week_scripts_over": 70.6,
+    "week_stappen_over": 698
    }
   ]
  },
