@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 10:03",
+ "bijgewerkt": "2026-11-16 10:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen",
+    "detail": "Video bouwen · 5%",
     "soort": "nu"
    }
   ],
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 10:03)"
+   "tekst": "draait nu (2026-11-16 10:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 09:48: alles klopt"
+   "tekst": "laatste ronde 10:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 10:03",
-   "volgende": "2026-11-16 10:33"
+   "laatst": "2026-11-16 10:33",
+   "volgende": "2026-11-16 11:03"
   },
   "hype": {
    "aan": true,
@@ -620,13 +620,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 09:10",
-   "volgende": "2026-11-16 10:10"
+   "laatst": "2026-11-16 10:10",
+   "volgende": "2026-11-16 11:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 09:48",
-   "volgende": "2026-11-16 10:18"
+   "laatst": "2026-11-16 10:18",
+   "volgende": "2026-11-16 10:48"
   },
   "titels": {
    "aan": true,
@@ -954,15 +954,15 @@
   "thumb": "thumbs/dallas-1963.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "voortgang": 5,
+  "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-16 15:53",
-   "youtube": "2026-11-16 16:13"
+   "klaar": "2026-11-16 15:02",
+   "youtube": "2026-11-16 15:22"
   }
  },
  "nu_bezig": [
@@ -971,7 +971,7 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
+   "naam": "beweging en hoofdstuktitels",
    "stap": 4
   }
  ],
@@ -3265,7 +3265,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 10:04",
+  "bijgewerkt": "2026-11-16 10:33",
   "accounts": [
    {
     "account": "hoofd",
