@@ -251,3 +251,17 @@
 - 2026-11-16 15:58 bewaker: keten gestart voor crisis-1933
 - 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)
 - 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versie blijft staan
+- 2026-11-16 15:58 bewaker: SEINTJE crisis-1933 (2026-11-17) is vandaag 2x gestopt, morgen opnieuw
+- 2026-11-16 15:58 bewaker: keten gestart voor dallas-1963
+- 2026-11-16 15:58 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
+- 2026-11-16 16:00 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)
+- 2026-11-16 16:27 routine-lokaal: crisis-1933: 1 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080
+- 2026-11-16 16:28 routine-lokaal: crisis-1933: beelden-wachter: 12 beelden lijken op een ander beeld (017, 020, 037, 038, 039, 047, 048, 065, 070, 077, 086, 088), nieuwe maken
+- 2026-11-16 16:38 routine-lokaal: crisis-1933: 12 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 086
+- 2026-11-16 16:42 Claude: crisis-1933: stijlzin zonder vaste boerderij (alles leek op elkaar), 4 beelden met steeds dezelfde man weg (037, 038, 047, 077); wachter strenger (0.92)
+- 2026-11-16 16:42 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)
+- 2026-11-16 16:48 sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))
+- 2026-11-16 17:19 routine-lokaal: crisis-1933: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080, 081, 088
+- 2026-11-16 17:19 routine-lokaal: crisis-1933: beelden-wachter: 13 beelden lijken op een ander beeld (011, 014, 021, 026, 032, 036, 046, 049, 056, 066, 084, 085, 086), nieuwe maken
+- 2026-11-16 17:28 routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
+- 2026-11-16 17:38 Claude: website: thumbnails in 'Video's in productie' vaste maat 96x54 (op de iPhone werden ze ingezoomd: alleen 'ES'/'SION' zichtbaar)
