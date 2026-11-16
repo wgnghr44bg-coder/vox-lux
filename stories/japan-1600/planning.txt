@@ -1,6 +1,7 @@
 onderwerp Life in Japan in the Age of the Samurai, 1600
-status   script-klaar (2026-11-01, tweede account)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 16 nov, 2026-11-16, Claude; opnieuw geschreven)
 datum    za 2026-12-26 21:00 NL
 titel    Life in Japan in the Age of the Samurai, 1600 | History for Sleep
 thumbnail amberregel "JAPAN · SPRING 1600", hook "The Age of the Samurai", beeld (kenmerkend): een samoerai in gelakt harnas met helm met wapenschild, rustig staand onder bloeiende kersenbomen, achter hem een wit kasteel met gebogen daken en de besneeuwde Fuji; zwaard in de schede, kalm
 soort    middeleeuwen
+thumbnail kenmerk: een samoerai in gelakt harnas met helm met wapenschild rustig onder bloeiende kersenbomen, achter hem een wit kasteel met gebogen grijze daken op een stenen voet, boeren in strohoeden die rijst planten in een ondergelopen veld ervoor; zacht lentelicht

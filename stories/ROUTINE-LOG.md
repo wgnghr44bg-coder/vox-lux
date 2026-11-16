@@ -218,3 +218,4 @@
 - 2026-11-16 04:10 gettysburg-1863: KLAAR
 - 2026-11-16 04:10 routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00
 - 2026-11-16 04:46 Claude: website + sitecontrole uitgebreid (eigenaar 16 nov: 'zorg dat alles op de website ook geüpdatet wordt, zet daar een wachter op'): per komende video de afsprakencontrole op de site (Scripts: 'afspraken goed'/'n niet goed'); sitecontrole kijkt nu ook naar titel per video, of hype/titels op de site even nieuw zijn als op de pc, en meldt komende video's (6 weken) die niet aan de afspraken voldoen
+- 2026-11-16 04:50 Claude: japan-1600 (za 26 dec) omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 90 feitjes, 13 onderwerpen, 13.523 woorden; eerste onderwerp 'A samurai's day in 1600'; thumbnail kenmerk, beschrijving, kaart Japan + datumkaartjes Sekigahara/Edo); SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED
