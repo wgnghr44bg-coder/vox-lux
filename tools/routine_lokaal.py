@@ -151,8 +151,8 @@ def thumbnail(m, plan_t):
             'Bowl family loading their truck; calm, not violent; in English", '
             '"achtergrond": "a calm, fitting setting behind it, in English"}',
             temp=0.2, max_tokens=260), re.S).group(0))
-        v3 = thumbnail_v3.maak_voor_map(m, a["regel1"].upper()[:18], a["regel2"].upper()[:12], a["kenmerk"], a["achtergrond"],
-                                        moment=a.get("moment", ""))
+        r1, r2 = thumbnail_v3.regels_netjes(a["regel1"], a["regel2"])
+        v3 = thumbnail_v3.maak_voor_map(m, r1, r2, a["kenmerk"], a["achtergrond"], moment=a.get("moment", ""))
         if v3:
             log(f"{m.name}: thumbnail v3 gemaakt ({a['regel1']} {a['regel2']})")
             return v3

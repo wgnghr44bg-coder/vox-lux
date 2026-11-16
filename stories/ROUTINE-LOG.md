@@ -220,3 +220,13 @@
 - 2026-11-16 04:46 Claude: website + sitecontrole uitgebreid (eigenaar 16 nov: 'zorg dat alles op de website ook geüpdatet wordt, zet daar een wachter op'): per komende video de afsprakencontrole op de site (Scripts: 'afspraken goed'/'n niet goed'); sitecontrole kijkt nu ook naar titel per video, of hype/titels op de site even nieuw zijn als op de pc, en meldt komende video's (6 weken) die niet aan de afspraken voldoen
 - 2026-11-16 04:50 Claude: japan-1600 (za 26 dec) omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 90 feitjes, 13 onderwerpen, 13.523 woorden; eerste onderwerp 'A samurai's day in 1600'; thumbnail kenmerk, beschrijving, kaart Japan + datumkaartjes Sekigahara/Edo); SCRIPT/TOON/AFWISSELING/AFSPRAKEN GOED
 - 2026-11-16 04:52 Claude: website kaart 'Partnerprogramma' (eigenaar 16 nov): kijkuren 365 dagen (644/4000) en abonnees (17/1000), tempo 28 dagen, verwachte datum (uren ± 5 mei 2027; abonnees in dit tempo pas 2035 = knelpunt), wanneer de oudste uren uit het venster vallen (18 sep 2027); sitecontrole let erop
+- 2026-11-16 05:10 bewaker: keten gestart voor dallas-1963
+- 2026-11-16 05:10 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 025 bleef fout, vervangen door 024.png
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 028 bleef fout, vervangen door 027.png
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 041 bleef fout, vervangen door 040.png
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 057 bleef fout, vervangen door 056.png
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 066 bleef fout, vervangen door 065.png
+- 2026-11-16 05:46 routine-lokaal: dallas-1963: beeld 076 bleef fout, vervangen door 075.png
+- 2026-11-16 05:53 routine-lokaal: dallas-1963: thumbnail v3 gemaakt (DALLAS 1963 NOVEMBER 1963)
+- 2026-11-16 06:30 Claude: thumbnail-v3 (eigenaar 16 nov, Dallas: 'onder de tekst staan de mensen, is niet mooi'): mensen alleen rechts, linkerhelft leeg (prompt + controle met beeldmodel op het linkerdeel); tekst nooit meer afgekapt ('NOVEMBER 196') en jaartal niet dubbel; dallas-thumbnail wordt opnieuw gemaakt tijdens de montage (oude bewaard als thumbnail-v3-oud.jpg)

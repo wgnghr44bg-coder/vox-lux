@@ -41,11 +41,45 @@ HOEK = {
 
 
 def prompt(kenmerk, achtergrond, licht="warm lamplight", k="a", moment="", voorwerp=""):
-    mensen = f" Around and in front of it, clearly visible and in authentic period clothing: {moment}." if moment else ""
+    # 16 nov 2026 (eigenaar, Dallas: "onder de tekst staan de mensen, is niet mooi"): mensen alleen rechts, naast het
+    # kenmerkende beeld; de linkerkant (waar de tekst komt) alleen zachte, lege achtergrond
+    mensen = (f" Beside it, on the right half only, clearly visible and in authentic period clothing: {moment}."
+              if moment else "")
     return (f"A warm cinematic photorealistic historical scene. On the right half of the frame, large, sharp and "
-            f"instantly recognisable: {kenmerk}, {HOEK[k]}, lit by {licht}.{mensen} Behind, on the left side, softly "
-            f"blurred: {achtergrond}. Everything exactly of that time, no modern objects, no electric lights, hands "
-            "holding things naturally, calm and inviting, not scary, high detail, no text, no letters")
+            f"instantly recognisable: {kenmerk}, {HOEK[k]}, lit by {licht}.{mensen} The left half of the frame is calm "
+            f"open space with no people and no faces, only softly blurred background: {achtergrond}. Everything exactly "
+            "of that time, no modern objects, no electric lights, hands holding things naturally, calm and inviting, "
+            "not scary, high detail, no text, no letters, no signs, no number plates")
+
+
+def regels_netjes(regel1, regel2):
+    """16 nov 2026 (Dallas: 'NOVEMBER 196'): nooit midden in een woord afkappen; het jaartal niet twee keer."""
+    r1, r2 = " ".join(regel1.upper().split()), " ".join(regel2.upper().split())
+    jaar = re.search(r"\b\d{3,4}(\s*(BC|AD))?\b", r2)
+    if jaar and jaar.group(0) in r1:                        # "DALLAS 1963" + "NOVEMBER 1963" -> "DALLAS" + "NOVEMBER 1963"
+        r1 = " ".join(r1.replace(jaar.group(0), "").split()) or r1
+    if len(r1) > 18:
+        r1 = " ".join(r1.split()[:2])
+    if len(r2) > 14:                                        # te lang: alleen het jaartal (of de eerste woorden)
+        r2 = jaar.group(0) if jaar else " ".join(r2.split()[:2])
+    return r1, r2
+
+
+def links_leeg(png):
+    """Geen mensen of gezichten in het linkerdeel (waar de tekst staat); gevraagd aan het lokale beeldmodel."""
+    import base64, io
+    import beeldcheck as bc
+    im = Image.open(png).convert("RGB")
+    buf = io.BytesIO()
+    im.crop((0, 0, int(im.width * 0.45), im.height)).save(buf, "JPEG", quality=85)
+    try:
+        r = requests.post(bc.OLLAMA, json={"model": bc.VLM, "stream": False, "format": "json", "options": {"temperature": 0},
+                                           "messages": [{"role": "user", "images": [base64.b64encode(buf.getvalue()).decode()],
+                                                         "content": 'Are there any people, persons or faces in this image, even small or blurred? JSON: {"people": true or false}'}]},
+                          timeout=300)
+        return json.loads(r.json()["message"]["content"]).get("people") is False
+    except Exception:
+        return True                                         # controle niet gelukt: niet daarop afkeuren
 
 
 def kenmerk_van(x):
@@ -141,6 +175,8 @@ def kies(werk, naam, item, uit):
             continue
         wat = f"{kenmerk_van(item)}; {item.get('moment', '')}; behind: {item['achtergrond']}"
         fout = bc.vlm(p, wat, tijd, wat, j) + bc.clip_fout(bc.clip_scores([p], j)[0])
+        if not fout and not links_leeg(p):
+            fout = ["mensen links, onder de tekst"]
         if fout:
             print(f"  {naam}{k}: afgekeurd ({'; '.join(fout)[:120]})", flush=True)
             continue
