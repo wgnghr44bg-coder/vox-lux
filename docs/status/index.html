@@ -215,7 +215,7 @@ a:active { color: var(--color-focus); }
 
   <div class="indeling">
     <section class="blok" aria-labelledby="prodKop">
-      <h2 id="prodKop"><svg class="i" aria-hidden="true"><use href="#i-film"/></svg>Video’s in productie <small>volgende 10, online om 21:00</small></h2>
+      <h2 id="prodKop"><svg class="i" aria-hidden="true"><use href="#i-film"/></svg>Video’s in productie <small>van klaar naar minder klaar</small></h2>
       <div class="nu" id="nuBezig">De pc wacht op de volgende taak.</div>
       <div class="tabel"><table class="prod"><thead><tr><th>Video</th><th></th><th>Soort</th><th>Online</th><th>Stappen</th><th>Gereed</th></tr></thead><tbody id="productie"><tr><td colspan="6" class="leeg">Gegevens laden</td></tr></tbody></table></div>
     </section>
@@ -325,7 +325,9 @@ async function laad(){
 
   // productietabel
   const event=map=>hp.find(p=>(p.ons||[]).includes(map)&&p.soort!=="hype");
-  $("productie").innerHTML=komend.slice(0,10).map(x=>{
+  // eigenaar 16 nov: "in volgorde van klaar naar minder klaar": eerst het verst gevorderd, bij gelijk de vroegste datum
+  const opVolgorde=komend.slice(0,12).sort((a,b)=>(b.gereed??0)-(a.gereed??0)||a.datum.localeCompare(b.datum));
+  $("productie").innerHTML=opVolgorde.map(x=>{
     const st=x.stappen||[false,false,false,false,false];const nu=h&&h.map===x.map?NAAR5[d.stap]??-1:-1;
     const ev=event(x.map),n=dagenTot(x.datum);
     const stappen=STAP.map(([naam,ico],i)=>`<div class="st ${st[i]?"klaar":i===nu?"nu":""}" title="${naam}${st[i]?": klaar":i===nu?": nu bezig":""}"><span>${st[i]?`<svg aria-hidden="true"><use href="#i-vink"/></svg>`:`<svg aria-hidden="true"><use href="#${ico}"/></svg>`}</span>${naam}</div>`).join("");
@@ -383,7 +385,7 @@ async function laad(){
     $("titels").innerHTML=tl.map(t=>`<li><span class="v ${t.fouten.length||t.youtube?"fout":"nee"}">${t.fouten.length||t.youtube?"!":"?"}</span><span>${esc(t.datum.slice(8,10))}-${esc(t.datum.slice(5,7))} ${esc(t.titel.replace(/ \| History for Sleep$/,""))}${t.voorstel?`<br><span class="zacht">Voorstel: ${esc(t.voorstel.replace(/ \| History for Sleep$/,""))}</span>`:""}${t.fouten.length?`<br><span class="neer">${esc(t.fouten.join(", "))}</span>`:""}</span></li>`).join("")||`<li><span class="v">✓</span><span>Alle titels goed.</span></li>`}
   else $("titels").innerHTML=`<li><span>De titelwachter draait elke 2 uur.</span></li>`;
   $("scKlaar").textContent=sc.klaar_tot?`klaar t/m ${dagLabel(sc.klaar_tot)}`:"";
-  $("scripts").innerHTML="<thead><tr><th>Datum</th><th>Script</th><th>Controle</th></tr></thead><tbody>"+sc.rij.filter(r=>r.datum>=vandaag).slice(0,12).map(r=>`<tr><td>${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span> `:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span> `:""}${r.afspraken?`<span class="chip ${r.afspraken.length?"fout":"goed"}" title="${esc(r.afspraken.join("\n"))}">${r.afspraken.length?"afspraken: "+r.afspraken.length+" niet goed":"afspraken goed"}</span>`:""}</td></tr>`).join("")+"</tbody>";
+  $("scripts").innerHTML="<thead><tr><th>Datum</th><th>Script</th><th>Controle</th></tr></thead><tbody>"+sc.rij.filter(r=>r.datum>=vandaag).slice(0,12).map(r=>({...r,g:(komend.find(x=>x.datum===r.datum)||{}).gereed??0})).sort((a,b)=>b.g-a.g||a.datum.localeCompare(b.datum)).map(r=>`<tr><td>${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span> `:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span> `:""}${r.afspraken?`<span class="chip ${r.afspraken.length?"fout":"goed"}" title="${esc(r.afspraken.join("\n"))}">${r.afspraken.length?"afspraken: "+r.afspraken.length+" niet goed":"afspraken goed"}</span>`:""}</td></tr>`).join("")+"</tbody>";
   const kansen=hp.filter(p=>/KANS|naar voren/.test(p.advies||""));
   const acties=[...d.fouten.slice(-3).map(f=>f.tekst),...komend.filter(x=>x.soort==="script").slice(0,3).map(x=>`Script schrijven: ${x.titel.replace(/ \| History for Sleep$/,"")} (${dagLabel(x.datum)})`),...kansen.slice(0,3).map(p=>`Kans bekijken: ${p.titel||p.naam}`)];
   $("actieLijst").innerHTML=acties.map(a=>`<li><span class="v nee">!</span><span>${esc(a)}</span></li>`).join("")||`<li><span class="v">✓</span><span>Niets open.</span></li>`;
