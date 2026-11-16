@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 16:02",
+ "bijgewerkt": "2026-11-16 16:03",
  "werkplanning": {
   "nu": [
    {
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-16 15:33)"
+   "tekst": "draait nu (2026-11-16 16:03)"
   },
   {
    "naam": "Git",
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 15:33",
-   "volgende": "2026-11-16 16:03"
+   "laatst": "2026-11-16 16:03",
+   "volgende": "2026-11-16 16:33"
   },
   "hype": {
    "aan": true,
@@ -987,8 +987,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 503,
+  "bezig_procent": 99,
+  "geheugen_mb": 7065,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1160,7 +1160,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 16:02",
+   "tijd": "2026-11-16 16:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3268,19 +3268,19 @@
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 5550149,
-    "week": 72164591,
+    "5uur": 5664094,
+    "week": 72278537,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 5550149
+     "Mon 16-11": 5664095
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 63070,
+    "stap_kost": 62934,
     "naam": "hoofd",
     "week_reset": ""
    },
