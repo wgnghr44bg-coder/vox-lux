@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 23:03",
+ "bijgewerkt": "2026-11-16 23:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 66%",
+    "detail": "Video bouwen · 81%",
     "soort": "nu"
    }
   ],
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "171 GB vrij"
+   "tekst": "170 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 23:03)"
+   "tekst": "draait nu (2026-11-16 23:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 23:03",
-   "volgende": "2026-11-16 23:33"
+   "laatst": "2026-11-16 23:33",
+   "volgende": "2026-11-17 00:03"
   },
   "hype": {
    "aan": true,
@@ -634,18 +634,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 22:10",
-   "volgende": "2026-11-16 23:10"
+   "laatst": "2026-11-16 23:10",
+   "volgende": "2026-11-17 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 22:48",
-   "volgende": "2026-11-16 23:18"
+   "laatst": "2026-11-16 23:18",
+   "volgende": "2026-11-16 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 21:25",
-   "volgende": "2026-11-16 23:25"
+   "laatst": "2026-11-16 23:25",
+   "volgende": "2026-11-17 01:25"
   }
  },
  "kanaal": {
@@ -670,7 +670,7 @@
     "duur": "2:10:45",
     "privacy": "private",
     "publiceer": "2026-12-31T20:00:00Z",
-    "views": 2,
+    "views": 3,
     "verwerkt": "processed"
    },
    {
@@ -973,15 +973,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 66,
+  "voortgang": 81,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-17 01:27",
-   "youtube": "2026-11-17 01:47"
+   "klaar": "2026-11-17 01:33",
+   "youtube": "2026-11-17 01:53"
   }
  },
  "nu_bezig": [
@@ -996,7 +996,7 @@
  ],
  "videokaart": {
   "bezig_procent": 28,
-  "geheugen_mb": 3354,
+  "geheugen_mb": 3346,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1168,13 +1168,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 23:03",
+   "tijd": "2026-11-16 23:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 23:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 23:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3464,7 +3464,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 21:25",
+  "bijgewerkt": "2026-11-16 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3929,11 +3929,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 23:04",
+  "bijgewerkt": "2026-11-16 23:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 383869,
+    "5uur": 109547,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
