@@ -231,10 +231,11 @@ def vlm_cijfer(p):
         return 0
 
 
-# Andere opbouw per ronde: vooraan in de beschrijving, want daar luistert de beeldmaker het best naar.
-ANDERS = ["Close-up of the main subject, filling the frame, a completely different composition and background: ",
-          "An interior or sheltered scene, seen up close, with a different composition: ",
-          "A quiet detail shot by warm lamplight, intimate and close, different from a wide landscape view: "]
+# Andere opbouw per ronde: vooraan in de beschrijving, want daar luistert de beeldmaker het best naar. 16 nov (Crisis):
+# "close-up of the main subject" gaf vier keer dezelfde man; dus geen portret, wel een ander standpunt of detail.
+ANDERS = ["Exactly this scene from a clearly different viewpoint and composition, not a portrait, no single face filling the frame: ",
+          "Exactly this scene shown through its objects and surroundings up close, hands and things rather than faces: ",
+          "Exactly this scene at a different time of day, wide and calm, people small in the frame: "]
 
 
 def lijkende(m):
