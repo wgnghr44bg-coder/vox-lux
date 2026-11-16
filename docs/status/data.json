@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 06:03",
+ "bijgewerkt": "2026-11-16 06:33",
  "werkplanning": {
   "nu": [
    {
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 06:03)"
+   "tekst": "draait nu (2026-11-16 06:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 05:48: alles klopt"
+   "tekst": "laatste ronde 06:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 06:03",
-   "volgende": "2026-11-16 06:33"
+   "laatst": "2026-11-16 06:33",
+   "volgende": "2026-11-16 07:03"
   },
   "hype": {
    "aan": true,
@@ -620,13 +620,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 05:10",
-   "volgende": "2026-11-16 06:10"
+   "laatst": "2026-11-16 06:10",
+   "volgende": "2026-11-16 07:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 05:48",
-   "volgende": "2026-11-16 06:18"
+   "laatst": "2026-11-16 06:18",
+   "volgende": "2026-11-16 06:48"
   },
   "titels": {
    "aan": true,
@@ -637,7 +637,7 @@
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2822,
+  "views_totaal": 2847,
   "video_aantal": 16,
   "week": {
    "views": 475,
@@ -683,7 +683,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 44,
+    "views": 45,
     "verwerkt": "processed"
    },
    {
@@ -719,7 +719,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 585,
+    "views": 583,
     "verwerkt": "processed"
    },
    {
@@ -961,8 +961,8 @@
    "stem inspreken (OmniVoice B1)"
   ],
   "eind": {
-   "klaar": "2026-11-16 19:08",
-   "youtube": "2026-11-16 19:28"
+   "klaar": "2026-11-16 19:38",
+   "youtube": "2026-11-16 19:58"
   }
  },
  "nu_bezig": [
@@ -1064,12 +1064,6 @@
  "logboek": [
   {
    "tijd": "2026-11-16 04:10",
-   "tekst": "gettysburg-1863: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-16 04:10",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00",
    "fout": false,
    "klaar": false
@@ -1143,6 +1137,12 @@
   {
    "tijd": "2026-11-16 05:53",
    "tekst": "routine-lokaal: dallas-1963: thumbnail v3 gemaakt (DALLAS 1963 NOVEMBER 1963)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 06:30",
+   "tekst": "Claude: thumbnail-v3 (eigenaar 16 nov, Dallas: 'onder de tekst staan de mensen, is niet mooi'): mensen alleen rechts, linkerhelft leeg (prompt + controle met beeldmodel op het linkerdeel); tekst nooit",
    "fout": false,
    "klaar": false
   }
@@ -3227,18 +3227,18 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 06:03",
+  "bijgewerkt": "2026-11-16 06:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 71047123,
+    "week": 70575774,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
-     "Mon 09-11": 5370870
+     "Mon 09-11": 4899521
     },
     "script_kost": 360570,
     "metingen": 1,
@@ -3248,27 +3248,27 @@
    },
    {
     "account": "account2",
-    "5uur": 3789433,
-    "week": 79218893,
+    "5uur": 5247093,
+    "week": 80676553,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 3789433,
+     "Mon 16-11": 5247093,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 63282,
+    "stap_kost": 65063,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 28,
-    "5uur_scripts_over": 15.8,
-    "5uur_stappen_over": 155,
-    "week_pct": 60,
-    "week_scripts_over": 85.3,
-    "week_stappen_over": 834
+    "5uur_pct": 39,
+    "5uur_scripts_over": 13.5,
+    "5uur_stappen_over": 128,
+    "week_pct": 61,
+    "week_scripts_over": 82.9,
+    "week_stappen_over": 789
    }
   ]
  },
