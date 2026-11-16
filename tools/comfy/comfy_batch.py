@@ -78,9 +78,22 @@ video = any(n["class_type"] == "LoadImage" for n in wf_base.values())
 src, outdir, ext = ("comfy-clips.txt", "clips", ".mp4") if video else ("prompts.txt", "afbeeldingen", ".png")
 os.makedirs(f"{folder}/{outdir}", exist_ok=True)
 print("Modus:", "clips (Wan)" if video else "beelden", "|", src, "->", outdir)
+# kenmerken.txt (16 nov 2026, kijker over de Mayflower: "very little resemblance to the vessel"; eigenaar: "laat dit
+# een les zijn dat de afbeeldingen goed moeten zijn"): "trefwoord | hoe experts het reconstrueren". Komt het trefwoord
+# in een prompt voor, dan gaat de beschrijving mee. Ook in de map erboven (thumb/, thumb3/).
+kenmerken = []
+for k in (f"{folder}/kenmerken.txt", f"{folder}/../kenmerken.txt"):
+    if os.path.exists(k):
+        kenmerken = [tuple(x.strip() for x in r.split("|", 1)) for r in open(k, encoding="utf-8")
+                     if "|" in r and not r.startswith("#")]
+        break
 for line in open(f"{folder}/{src}", encoding="utf-8"):
     if "|" not in line or line.startswith("#"): continue
     name, prompt = line.strip().split("|", 1)
+    if not video:
+        for woord, wie in kenmerken:
+            if woord.lower() in prompt.lower():
+                prompt += f". The {woord} must look historically accurate: {wie}"
     if only and name not in only: continue
     out = f"{folder}/{outdir}/{name}{ext}"
     if os.path.exists(out): print(name, "bestaat al"); continue

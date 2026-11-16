@@ -309,6 +309,36 @@ def tijd_van_beeld(kern, j):
     return f"the year {j}" if j > 0 else f"{-j} BC"
 
 
+def kenmerk_fout(map_, pad, prompt):
+    """Bekende schepen, gebouwen en voorwerpen moeten lijken op hoe experts ze reconstrueren (16 nov 2026: een kijker,
+    zelf scheepsschilder, schreef dat ons Mayflower-schip er nauwelijks op leek). stories/<map>/kenmerken.txt:
+    'trefwoord | beschrijving'. Alleen als het trefwoord in de prompt staat."""
+    k = Path(map_) / "kenmerken.txt"
+    if not k.exists():
+        return []
+    import base64
+    b64 = None
+    for r in k.read_text(encoding="utf-8").splitlines():
+        if "|" not in r or r.startswith("#"):
+            continue
+        woord, wie = (x.strip() for x in r.split("|", 1))
+        if woord.lower() not in prompt.lower():
+            continue
+        b64 = b64 or base64.b64encode(Path(pad).read_bytes()).decode()
+        vraag = (f"Look carefully at the {woord} in this image. Historians describe it like this: {wie}\n"
+                 f"Does the {woord} in the image clearly match that description in its main features? Small details may "
+                 'differ. JSON: {"matches": true or false, "what_is_wrong": "short"}')
+        try:
+            r2 = requests.post(OLLAMA, json={"model": VLM, "stream": False, "format": "json", "options": {"temperature": 0},
+                                             "messages": [{"role": "user", "content": vraag, "images": [b64]}]}, timeout=600)
+            a = json.loads(r2.json()["message"]["content"])
+            if a.get("matches") is False:
+                return [f"lijkt niet op de echte {woord}: {str(a.get('what_is_wrong', ''))[:90]}"]
+        except Exception:
+            pass
+    return []
+
+
 def controleer(map_, namen):
     pr, j = prompts(map_), jaar(map_)
     st = stijl(map_)
@@ -330,6 +360,8 @@ def controleer(map_, namen):
                                 f"that did not exist in {tijd}", tijd)
             if wat and not staat_in_prompt(wat, pr.get(n, "")) and not bestond_al(wat, j):
                 f = clip_fout(sc) + [f"bevestigd bij extra controle: {wat[:120]}"]
+        if not f:
+            f = kenmerk_fout(map_, p, pr.get(n, ""))
         if f and hand.get(n) == hashlib.sha1(Path(p).read_bytes()).hexdigest():
             print(f"  {n}: met de hand goedgekeurd (model zei: {'; '.join(f)[:100]})", flush=True)
             f = []

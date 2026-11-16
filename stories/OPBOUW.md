@@ -137,3 +137,10 @@ In `stories/<map>/src-feiten/`:
   Elk TOPIC-blok staat vóór het eerste feitje van dat onderwerp; het eerste onderwerp heeft geen BRIDGE nodig.
 - `slot.txt`: het einde (alinea's gescheiden door een lege regel).
 Voorbeeld: `stories/ww2-facts/`, `stories/tombstone-1881/`, `stories/egypte-toetanchamon/`.
+
+## Kenmerken van bekende dingen (sinds 16 nov 2026)
+Een kijker (scheepsschilder) schreef dat ons Mayflower-schip er nauwelijks op leek; eigenaar: "laat dit een les zijn dat
+de afbeeldingen goed moeten zijn". Schrijf bij elk script met een beroemd schip, gebouw, voertuig of uniform een
+`stories/<map>/kenmerken.txt`: per regel `trefwoord | hoe historici het reconstrueren` (Engels, concreet: vorm, kleur,
+materiaal, wat er NIET bij hoort). `tools/comfy/comfy_batch.py` voegt de beschrijving toe aan elke prompt met dat
+trefwoord en `tools/beeldcheck.py` keurt beelden af die er niet op lijken. Kijk daarnaast zelf naar de beeldvellen.
