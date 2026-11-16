@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 18:03",
+ "bijgewerkt": "2026-11-16 18:33",
  "werkplanning": {
   "nu": [
    {
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "179 GB vrij"
+   "tekst": "178 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 18:03)"
+   "tekst": "draait nu (2026-11-16 18:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 17:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 18:03",
-   "volgende": "2026-11-16 18:33"
+   "laatst": "2026-11-16 18:33",
+   "volgende": "2026-11-16 19:03"
   },
   "hype": {
    "aan": true,
@@ -634,13 +634,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 17:10",
-   "volgende": "2026-11-16 18:10"
+   "laatst": "2026-11-16 18:10",
+   "volgende": "2026-11-16 19:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 17:48",
-   "volgende": "2026-11-16 18:18"
+   "laatst": "2026-11-16 18:18",
+   "volgende": "2026-11-16 18:48"
   },
   "titels": {
    "aan": true,
@@ -688,7 +688,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 16,
+    "views": 17,
     "verwerkt": "processed"
    },
    {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 606,
+    "views": 605,
     "verwerkt": "processed"
    },
    {
@@ -990,7 +990,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 23,
+  "bezig_procent": 15,
   "geheugen_mb": 573,
   "totaal_mb": 8192
  },
@@ -1163,13 +1163,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 18:03",
+   "tijd": "2026-11-16 18:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 18:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 18:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3924,23 +3924,22 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 18:04",
+  "bijgewerkt": "2026-11-16 18:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 9979082,
-    "week": 76593524,
+    "5uur": 10280666,
+    "week": 75956919,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
-     "Mon 09-11": 938189,
-     "Mon 16-11": 9979082
+     "Mon 16-11": 10280666
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 64381,
+    "stap_kost": 59426,
     "naam": "hoofd",
     "week_reset": ""
    },
