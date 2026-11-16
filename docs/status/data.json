@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 20:03",
+ "bijgewerkt": "2026-11-16 20:33",
  "werkplanning": {
   "nu": [
    {
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 20:03)"
+   "tekst": "draait nu (2026-11-16 20:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 20:03",
-   "volgende": "2026-11-16 20:33"
+   "laatst": "2026-11-16 20:33",
+   "volgende": "2026-11-16 21:03"
   },
   "hype": {
    "aan": true,
@@ -634,13 +634,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 19:10",
-   "volgende": "2026-11-16 20:10"
+   "laatst": "2026-11-16 20:10",
+   "volgende": "2026-11-16 21:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 19:48",
-   "volgende": "2026-11-16 20:18"
+   "laatst": "2026-11-16 20:18",
+   "volgende": "2026-11-16 20:48"
   },
   "titels": {
    "aan": true,
@@ -706,7 +706,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 15,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -990,7 +990,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
+  "bezig_procent": 23,
   "geheugen_mb": 585,
   "totaal_mb": 8192
  },
@@ -1163,13 +1163,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 20:03",
+   "tijd": "2026-11-16 20:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 20:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 20:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3924,11 +3924,11 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 20:05",
+  "bijgewerkt": "2026-11-16 20:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 10362950,
+    "5uur": 9064328,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
@@ -3957,15 +3957,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 72640,
+    "stap_kost": 81988,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 70,
     "5uur_scripts_over": 6.5,
-    "5uur_stappen_over": 55,
+    "5uur_stappen_over": 49,
     "week_pct": 70,
     "week_scripts_over": 63.8,
-    "week_stappen_over": 544
+    "week_stappen_over": 482
    }
   ]
  },
