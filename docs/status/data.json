@@ -1,15 +1,21 @@
 {
- "bijgewerkt": "2026-11-16 15:33",
+ "bijgewerkt": "2026-11-16 16:02",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Video bouwen · 99%",
+    "wat": "Life in the Great Depression, 1933 | History for Sleep",
+    "map": "crisis-1933",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
   "daarna": [
+   {
+    "wanneer": "na Crisis",
+    "wat": "Life in Dallas, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "keten maakt de video voor za 21-11 21:00"
+   },
    {
     "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
@@ -39,10 +45,18 @@
    {
     "datum": "2026-11-16",
     "dag": "ma",
+    "titel": "—",
+    "map": "",
+    "stand": "geen video (te weinig tijd om er nog een te maken)",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-11-17",
+    "dag": "di",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "stand": "online",
-    "kleur": "goed"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-18",
@@ -123,17 +137,17 @@
   "klaar_tot": "2026-12-30",
   "rij": [
    {
-    "datum": "2026-11-16",
+    "datum": "2026-11-17",
     "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
     "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
+    "stand": "video wordt gemaakt",
+    "controle": "nog niet",
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED",
-    "afspraken": null
+    "afspraken": []
    },
    {
     "datum": "2026-11-18",
@@ -568,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 15:33)"
+   "tekst": "laatste keer goed (2026-11-16 15:33)"
   },
   {
    "naam": "Git",
@@ -576,9 +590,9 @@
    "tekst": "alles gepusht"
   },
   {
-   "naam": "Video 2026-11-16 (crisis-1933)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
+   "naam": "Video 2026-11-17 (crisis-1933)",
+   "ok": false,
+   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
   },
   {
    "naam": "Video 2026-11-18 (gettysburg-1863)",
@@ -593,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:18: alles klopt"
+   "tekst": "laatste ronde 15:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -625,8 +639,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 15:18",
-   "volgende": "2026-11-16 15:48"
+   "laatst": "2026-11-16 15:48",
+   "volgende": "2026-11-16 16:18"
   },
   "titels": {
    "aan": true,
@@ -651,21 +665,21 @@
   },
   "recent": [
    {
+    "id": "R2rgLUMJxac",
+    "titel": "Life in the Great Depression, 1933 | History for Sleep",
+    "duur": "2:10:45",
+    "privacy": "private",
+    "publiceer": "2026-12-31T20:00:00Z",
+    "views": 2,
+    "verwerkt": "processed"
+   },
+   {
     "id": "4i-gOILazVQ",
     "titel": "Life in Gettysburg, July 1863 | History for Sleep",
     "duur": "2:17:38",
     "privacy": "private",
     "publiceer": "2026-11-18T20:00:00Z",
     "views": 1,
-    "verwerkt": "processed"
-   },
-   {
-    "id": "R2rgLUMJxac",
-    "titel": "Life in the Great Depression, 1933 | History for Sleep",
-    "duur": "2:10:45",
-    "privacy": "private",
-    "publiceer": "2026-11-16T20:00:00Z",
-    "views": 2,
     "verwerkt": "processed"
    },
    {
@@ -719,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 602,
+    "views": 605,
     "verwerkt": "processed"
    },
    {
@@ -928,12 +942,12 @@
   "geplande": 2,
   "runs": {
    "goed": 4,
-   "totaal": 12,
-   "procent": 33
+   "totaal": 10,
+   "procent": 40
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -946,24 +960,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
+  "map": "crisis-1933",
+  "titel": "Life in the Great Depression, 1933 | History for Sleep",
+  "datum": "2026-11-17",
+  "thumb": "thumbs/crisis-1933.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
   "voortgang": 99,
-  "detail": "16mm-look",
+  "detail": "89 van 89 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
-  "eind": {
-   "klaar": "2026-11-16 21:06",
-   "youtube": "2026-11-16 21:26"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -971,13 +982,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 1,
-  "geheugen_mb": 683,
+  "bezig_procent": 25,
+  "geheugen_mb": 503,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1021,14 +1032,14 @@
   {
    "datum": "2026-11-16",
    "plek": true,
-   "video": "Life in the Great Depression, 1933 | History for Sleep",
-   "soort": "online"
+   "video": "",
+   "soort": "vrij"
   },
   {
    "datum": "2026-11-17",
    "plek": false,
-   "video": "",
-   "soort": ""
+   "video": "Life in the Great Depression, 1933 | History for Sleep",
+   "soort": "bezig"
   },
   {
    "datum": "2026-11-18",
@@ -1063,119 +1074,113 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 05:10",
+   "tijd": "2026-11-16 15:46",
+   "tekst": "beelden-wachter: SEINTJE dallas-1963: 5 dubbele beelden (024=025, 027=028, 040=041, 056=057, 075=076)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:46",
    "tekst": "bewaker: keten gestart voor dallas-1963",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 05:10",
+   "tijd": "2026-11-16 15:47",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 025 bleef fout, vervangen door 024.png",
+   "tijd": "2026-11-16 15:58",
+   "tekst": "beelden-wachter: SEINTJE dallas-1963: 3 dubbele beelden (024=025, 056=057, 075=076)",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 028 bleef fout, vervangen door 027.png",
+   "tijd": "2026-11-16 15:58",
+   "tekst": "bewaker: keten gestart voor crisis-1933",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 041 bleef fout, vervangen door 040.png",
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 057 bleef fout, vervangen door 056.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 066 bleef fout, vervangen door 065.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 05:46",
-   "tekst": "routine-lokaal: dallas-1963: beeld 076 bleef fout, vervangen door 075.png",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 05:53",
-   "tekst": "routine-lokaal: dallas-1963: thumbnail v3 gemaakt (DALLAS 1963 NOVEMBER 1963)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 06:30",
-   "tekst": "Claude: thumbnail-v3 (eigenaar 16 nov, Dallas: 'onder de tekst staan de mensen, is niet mooi'): mensen alleen rechts, linkerhelft leeg (prompt + controle met beeldmodel op het linkerdeel); tekst nooit",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 14:32",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 14:32",
+   "tijd": "2026-11-16 15:58",
+   "tekst": "bewaker: keten gestart voor crisis-1933",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
+   "tekst": "bewaker: SEINTJE crisis-1933 (2026-11-17) is vandaag 2x gestopt, morgen opnieuw",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
    "tekst": "bewaker: keten gestart voor dallas-1963",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 14:32",
+   "tijd": "2026-11-16 15:58",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-16 14:49",
-   "tekst": "routine-lokaal: dallas-1963: beeld 028 bleef fout, vervangen door 027.png",
+   "tijd": "2026-11-16 16:00",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-16 16:02",
+   "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  }
+ ],
  "opgelost": [
-  {
-   "tijd": "2026-11-15 18:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 19:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, gettysburg-1863 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:46",
-   "tekst": "hype-wachter: TITEL FOUT egypte-toetanchamon (2026-11-14): 'What Did People Actually Do When Tutankhamun Was King? | History for Sleep' is een vraag",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:46",
-   "tekst": "hype-wachter: TITEL FOUT japan-1600 (2026-12-26): 'Life in Japan in the Age of the Samurai, 1600 | <N> Hours of History for Sleep' eindigt niet op '| History for Sleep'",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-16 14:32",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 15:58",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
    "fout": true,
    "klaar": false
   }
@@ -1425,11 +1430,11 @@
   },
   {
    "map": "crisis-1933",
-   "datum": "2026-11-16",
+   "datum": "2026-11-17",
    "reserve": false,
    "titel": "Life in the Great Depression, 1933 | History for Sleep",
-   "status": "klaar",
-   "soort": "online",
+   "status": "bezig (2026-11-16, routine-lokaal)",
+   "soort": "bezig",
    "id": "R2rgLUMJxac",
    "afspeellijst": "oorlog",
    "opening": "scène"
@@ -3259,49 +3264,49 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 15:34",
+  "bijgewerkt": "2026-11-16 16:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1298622,
-    "week": 67913064,
+    "5uur": 5550149,
+    "week": 72164591,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 1298622
+     "Mon 16-11": 5550149
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 108219,
+    "stap_kost": 63070,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 1916892,
-    "week": 82917311,
+    "5uur": 1336439,
+    "week": 83223649,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 7487851,
+     "Mon 16-11": 7794189,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 55701,
+    "stap_kost": 55594,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 14,
-    "5uur_scripts_over": 18.8,
-    "5uur_stappen_over": 209,
+    "5uur_pct": 10,
+    "5uur_scripts_over": 19.8,
+    "5uur_stappen_over": 220,
     "week_pct": 63,
-    "week_scripts_over": 79.3,
-    "week_stappen_over": 882
+    "week_scripts_over": 78.8,
+    "week_stappen_over": 878
    }
   ]
  },
@@ -3309,6 +3314,7 @@
   "Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
   "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
   "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
+  "Beelden": "historisch juist (kenmerkenlijst per video voor bekende schepen en gebouwen), geen beelden die op elkaar lijken en geen kopieën; beeldenwachter elk uur",
   "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
   "Planning": "ma, wo en za 21:00 (NL); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
   "Thumbnail": "stijl zoals Babylon (maanlogo, groot wit onderwerp, geel jaartal); rechts het kenmerkende beeld met mensen van toen die doen wat er gebeurde, nooit een losse vrouw",
