@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 21:03",
+ "bijgewerkt": "2026-11-16 21:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen",
+    "detail": "Video bouwen · 9%",
     "soort": "nu"
    }
   ],
@@ -567,7 +567,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "172 GB vrij"
+   "tekst": "171 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 21:03)"
+   "tekst": "draait nu (2026-11-16 21:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 21:03",
-   "volgende": "2026-11-16 21:33"
+   "laatst": "2026-11-16 21:33",
+   "volgende": "2026-11-16 22:03"
   },
   "hype": {
    "aan": true,
@@ -634,18 +634,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 20:10",
-   "volgende": "2026-11-16 21:10"
+   "laatst": "2026-11-16 21:10",
+   "volgende": "2026-11-16 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 20:48",
-   "volgende": "2026-11-16 21:18"
+   "laatst": "2026-11-16 21:18",
+   "volgende": "2026-11-16 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 19:25",
-   "volgende": "2026-11-16 21:25"
+   "laatst": "2026-11-16 21:25",
+   "volgende": "2026-11-16 23:25"
   }
  },
  "kanaal": {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 615,
+    "views": 611,
     "verwerkt": "processed"
    },
    {
@@ -973,15 +973,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "voortgang": 9,
+  "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-17 03:20",
-   "youtube": "2026-11-17 03:40"
+   "klaar": "2026-11-17 02:17",
+   "youtube": "2026-11-17 02:37"
   }
  },
  "nu_bezig": [
@@ -990,13 +990,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
+   "naam": "beweging en hoofdstuktitels",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 22,
-  "geheugen_mb": 585,
+  "bezig_procent": 27,
+  "geheugen_mb": 3346,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1168,13 +1168,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 21:03",
+   "tijd": "2026-11-16 21:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3464,7 +3464,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 19:31",
+  "bijgewerkt": "2026-11-16 21:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3926,14 +3926,14 @@
     "bekeken": "2026-11-16"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 21:05",
+  "bijgewerkt": "2026-11-16 21:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 4698856,
+    "5uur": 3317913,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
@@ -3950,27 +3950,27 @@
    },
    {
     "account": "account2",
-    "5uur": 10573841,
-    "week": 93797490,
+    "5uur": 13148312,
+    "week": 96371961,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 18368030,
+     "Mon 16-11": 20942501,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 96950,
+    "stap_kost": 101172,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 78,
-    "5uur_scripts_over": 4.9,
-    "5uur_stappen_over": 31,
-    "week_pct": 71,
-    "week_scripts_over": 61.7,
-    "week_stappen_over": 394
+    "5uur_pct": 97,
+    "5uur_scripts_over": 0.7,
+    "5uur_stappen_over": 4,
+    "week_pct": 73,
+    "week_scripts_over": 57.6,
+    "week_stappen_over": 352
    }
   ]
  },
