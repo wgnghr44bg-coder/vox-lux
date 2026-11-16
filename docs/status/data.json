@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 23:33",
+ "bijgewerkt": "2026-11-17 00:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 81%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -42,14 +42,6 @@
    }
   ],
   "publicaties": [
-   {
-    "datum": "2026-11-16",
-    "dag": "ma",
-    "titel": "—",
-    "map": "",
-    "stand": "geen video (te weinig tijd om er nog een te maken)",
-    "kleur": "zacht"
-   },
    {
     "datum": "2026-11-17",
     "dag": "di",
@@ -567,7 +559,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "170 GB vrij"
+   "tekst": "167 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -582,7 +574,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 23:33)"
+   "tekst": "draait nu (2026-11-17 00:03)"
   },
   {
    "naam": "Git",
@@ -607,7 +599,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +616,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 23:33",
-   "volgende": "2026-11-17 00:03"
+   "laatst": "2026-11-17 00:03",
+   "volgende": "2026-11-17 00:33"
   },
   "hype": {
    "aan": true,
@@ -639,8 +631,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 23:18",
-   "volgende": "2026-11-16 23:48"
+   "laatst": "2026-11-16 23:48",
+   "volgende": "2026-11-17 00:18"
   },
   "titels": {
    "aan": true,
@@ -654,13 +646,13 @@
   "views_totaal": 2887,
   "video_aantal": 16,
   "week": {
-   "views": 566,
-   "uren": 158,
+   "views": 526,
+   "uren": 157,
    "abonnees": 4
   },
   "vorige_week": {
-   "views": 630,
-   "uren": 64,
+   "views": 536,
+   "uren": 82,
    "abonnees": 1
   },
   "recent": [
@@ -697,7 +689,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 57,
+    "views": 58,
     "verwerkt": "processed"
    },
    {
@@ -756,11 +748,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-19",
-    "views": 17,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-20",
     "views": 43,
@@ -893,13 +880,13 @@
    }
   ],
   "maand": {
-   "views": 2442,
-   "uren": 585,
+   "views": 2425,
+   "uren": 574,
    "abonnees": 9
   },
   "vorige_maand": {
-   "views": 870,
-   "uren": 85,
+   "views": 791,
+   "uren": 101,
    "abonnees": 8
   },
   "jaar": {
@@ -912,8 +899,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1183,
-    "uren": 325
+    "views": 1173,
+    "uren": 318
    },
    {
     "id": "_duWLxwIEss",
@@ -937,10 +924,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 20.5,
+   "tempo_uren_per_dag": 19.8,
    "tempo_abonnees_per_dag": 0.32,
-   "datum_uren": "2027-04-28",
-   "datum_abonnees": "2035-04-02"
+   "datum_uren": "2027-05-05",
+   "datum_abonnees": "2035-04-03"
   }
  },
  "kpi": {
@@ -965,23 +952,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 3,
  "huidig": {
   "map": "crisis-1933",
   "titel": "A Year in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-17",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 81,
-  "detail": "beweging",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "tekstcontrole (Whisper)"
   ],
   "eind": {
-   "klaar": "2026-11-17 01:33",
-   "youtube": "2026-11-17 01:53"
+   "klaar": "2026-11-17 01:22",
+   "youtube": "2026-11-17 01:42"
   }
  },
  "nu_bezig": [
@@ -990,13 +977,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
-   "stap": 4
+   "naam": "tekstcontrole (Whisper)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 28,
-  "geheugen_mb": 3346,
+  "bezig_procent": 57,
+  "geheugen_mb": 5261,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1038,12 +1025,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-16",
-   "plek": true,
-   "video": "",
-   "soort": "vrij"
-  },
-  {
    "datum": "2026-11-17",
    "plek": false,
    "video": "A Year in the Great Depression, 1933 | History for Sleep",
@@ -1078,6 +1059,12 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-23",
+   "plek": true,
+   "video": "How People Survived the Ice Age | History for Sleep",
+   "soort": "script nieuw"
   }
  ],
  "logboek": [
@@ -1168,13 +1155,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 23:33",
+   "tijd": "2026-11-17 00:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-17 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3929,11 +3916,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 23:33",
+  "bijgewerkt": "2026-11-17 00:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 109547,
+    "5uur": 0,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
@@ -3950,7 +3937,7 @@
    },
    {
     "account": "account2",
-    "5uur": 10175985,
+    "5uur": 9192008,
     "week": 98450143,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3965,9 +3952,9 @@
     "stap_kost": 107573,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 75,
-    "5uur_scripts_over": 5.5,
-    "5uur_stappen_over": 32,
+    "5uur_pct": 68,
+    "5uur_scripts_over": 7.1,
+    "5uur_stappen_over": 41,
     "week_pct": 75,
     "week_scripts_over": 54.2,
     "week_stappen_over": 312
