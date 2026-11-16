@@ -633,6 +633,7 @@ data = {
     "vast": {"Stem": "eigen stem 'Yesss' (OmniVoice), snelheid 0.9, pauzes max 2 s",
              "Achtergrond": "open haard + B-effect (432 Hz), 10 LUFS onder de stem",
              "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
+             "Beelden": "historisch juist (kenmerkenlijst per video voor bekende schepen en gebouwen), geen beelden die op elkaar lijken en geen kopieën; beeldenwachter elk uur",
              "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
              "Planning": "ma, wo en za 21:00 (NL); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
              "Thumbnail": "stijl zoals Babylon (maanlogo, groot wit onderwerp, geel jaartal); rechts het kenmerkende beeld met mensen van toen die doen wat er gebeurde, nooit een losse vrouw",
