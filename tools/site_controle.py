@@ -118,6 +118,8 @@ def controleer():
                 p.append((f"{sleutel}:oud", f"'{sleutel}' op de site is van {online}, op de pc van {lokaal}"))
         except Exception:
             pass
+    if not (site.get("kanaal") or {}).get("partner"):              # 16 nov: kaart partnerprogramma (4.000 uur / 1.000 abo)
+        p.append(("partner:mist", "de stand van het partnerprogramma (kijkuren/abonnees) staat niet op de site"))
     sc_rij = {r["map"]: r for r in (site.get("scripts") or {}).get("rij", [])}
     for m, pl in plan.items():
         if (pl["datum"] and vandaag <= pl["datum"] <= (nu + dt.timedelta(days=42)).date().isoformat()

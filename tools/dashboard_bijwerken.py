@@ -307,10 +307,41 @@ def youtube():
                     "views": x["views"], "uren": round(x["estimatedMinutesWatched"] / 60)} for x in top_r]
         except Exception:
             dagen, maand, vorige_maand, jaar, top = [], None, None, None, []
+        # 16 nov 2026 (eigenaar: "hoeveel dagen ik nog heb tot de 365 dagen van de 4000 uur"): partnerprogramma.
+        # Kijkuren per dag over 365 dagen: hoeveel tellen nu mee, wanneer vallen de oudste eruit, wanneer haal je
+        # 4.000 uur en 1.000 abonnees in het huidige tempo (laatste 28 dagen).
+        partner = None
+        try:
+            per_dag = [(datetime.date.fromisoformat(x["day"]), x["estimatedMinutesWatched"] / 60)
+                       for x in rapport(VANDAAG - datetime.timedelta(days=364), VANDAAG, dimensions="day", sort="day",
+                                        metrics="estimatedMinutesWatched")]
+            uren = sum(u for _, u in per_dag)
+            eerste = next((d for d, u in per_dag if u > 0), None)
+            tempo_uren = sum(u for d, u in per_dag if d > VANDAAG - datetime.timedelta(days=28)) / 28
+            abo = int(c["statistics"]["subscriberCount"])
+            tempo_abo = sum(x["abonnees"] for x in dagen) / 28 if dagen else 0
+            # wanneer 4.000 uur: dag voor dag vooruit, met het huidige tempo erbij en de uren van 365 dagen eerder eraf
+            oud = {d: u for d, u in per_dag}
+            stand, datum_uren = uren, None
+            for i in range(1, 3 * 365):
+                dag = VANDAAG + datetime.timedelta(days=i)
+                stand += tempo_uren - oud.get(dag - datetime.timedelta(days=365), 0)
+                if stand >= 4000:
+                    datum_uren = dag.isoformat()
+                    break
+            partner = {"uren": round(uren), "uren_doel": 4000, "abonnees": abo, "abonnees_doel": 1000,
+                       "eerste_uren": eerste.isoformat() if eerste else None,
+                       "valt_eruit_vanaf": (eerste + datetime.timedelta(days=365)).isoformat() if eerste else None,
+                       "tempo_uren_per_dag": round(tempo_uren, 1), "tempo_abonnees_per_dag": round(tempo_abo, 2),
+                       "datum_uren": datum_uren,
+                       "datum_abonnees": ((VANDAAG + datetime.timedelta(days=int((1000 - abo) / tempo_abo) + 1)).isoformat()
+                                          if tempo_abo > 0 and abo < 1000 else None)}
+        except Exception:
+            pass
         return {"naam": c["snippet"]["title"], "abonnees": int(c["statistics"]["subscriberCount"]),
                 "views_totaal": int(c["statistics"]["viewCount"]), "video_aantal": int(c["statistics"]["videoCount"]),
                 "week": nu, "vorige_week": voor, "recent": recent, "dagen": dagen, "maand": maand,
-                "vorige_maand": vorige_maand, "jaar": jaar, "top": top}, True
+                "vorige_maand": vorige_maand, "jaar": jaar, "top": top, "partner": partner}, True
     except Exception as e:
         return {"fout": str(e)[:120]}, False
 

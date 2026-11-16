@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 04:45",
+ "bijgewerkt": "2026-11-16 04:51",
  "werkplanning": {
   "nu": [
    {
@@ -120,7 +120,7 @@
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2026-12-23",
+  "klaar_tot": "2026-12-30",
   "rij": [
    {
     "datum": "2026-11-16",
@@ -347,16 +347,14 @@
     "datum": "2026-12-26",
     "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
     "map": "japan-1600",
-    "klaar": false,
-    "stand": "nog in de oude opbouw, moet omgebouwd",
-    "controle": "nog niet",
-    "flesch": null,
-    "niveau": null,
-    "leesbaar": null,
-    "toon": null,
-    "afspraken": [
-     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
-    ]
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 77,
+    "niveau": 5.0,
+    "leesbaar": "MAKKELIJK",
+    "toon": "TOON GOED",
+    "afspraken": []
    },
    {
     "datum": "2026-12-28",
@@ -595,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 04:18: alles klopt"
+   "tekst": "laatste ronde 04:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -627,8 +625,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 04:18",
-   "volgende": "2026-11-16 04:48"
+   "laatst": "2026-11-16 04:48",
+   "volgende": "2026-11-16 05:18"
   },
   "titels": {
    "aan": true,
@@ -639,7 +637,7 @@
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2822,
+  "views_totaal": 2847,
   "video_aantal": 16,
   "week": {
    "views": 475,
@@ -912,7 +910,19 @@
     "views": 341,
     "uren": 25
    }
-  ]
+  ],
+  "partner": {
+   "uren": 644,
+   "uren_doel": 4000,
+   "abonnees": 17,
+   "abonnees_doel": 1000,
+   "eerste_uren": "2026-09-18",
+   "valt_eruit_vanaf": "2027-09-18",
+   "tempo_uren_per_dag": 19.8,
+   "tempo_abonnees_per_dag": 0.32,
+   "datum_uren": "2027-05-05",
+   "datum_abonnees": "2035-04-02"
+  }
  },
  "kpi": {
   "geplande": 2,
@@ -1039,18 +1049,6 @@
  "logboek": [
   {
    "tijd": "2026-11-15 20:54",
-   "tekst": "hype-wachter: SEINTJE TITEL blackbeard-1718 (2026-11-30): 'Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep' -> voorstel 'Life Aboard Blackbeard's Ship, 1718 | History for Sleep' (gebrui",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:54",
-   "tekst": "hype-wachter: SEINTJE TITEL alchemie-steen-der-wijzen (2026-12-02): 'Alchemists and the Philosopher's Stone, 1600 | History for Sleep' -> voorstel 'Alchemists in Prague, 1600 | History for Sleep' (geb",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:54",
    "tekst": "hype-wachter: SEINTJE The Little Duvet Shop: A Cozy Rainy Sleep Story -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -1118,6 +1116,18 @@
   {
    "tijd": "2026-11-16 04:10",
    "tekst": "routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 04:46",
+   "tekst": "Claude: website + sitecontrole uitgebreid (eigenaar 16 nov: 'zorg dat alles op de website ook geüpdatet wordt, zet daar een wachter op'): per komende video de afsprakencontrole op de site (Scripts: 'a",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 04:50",
+   "tekst": "Claude: japan-1600 (za 26 dec) omgebouwd naar opbouw Sleepy (opnieuw geschreven in src-feiten; 90 feitjes, 13 onderwerpen, 13.523 woorden; eerste onderwerp 'A samurai's day in 1600'; thumbnail kenmerk",
    "fout": false,
    "klaar": false
   }
@@ -1618,8 +1628,8 @@
    "datum": "2026-12-26",
    "reserve": false,
    "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
-   "status": "script-klaar (2026-11-01, tweede account)",
-   "soort": "script oud",
+   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 16 nov, 2026-11-16, Claude; opnieuw geschreven)",
+   "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": ""
@@ -3202,7 +3212,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 04:46",
+  "bijgewerkt": "2026-11-16 04:51",
   "accounts": [
    {
     "account": "hoofd",
@@ -3223,27 +3233,27 @@
    },
    {
     "account": "account2",
-    "5uur": 2254472,
-    "week": 77683932,
+    "5uur": 3158391,
+    "week": 78587851,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 2254472,
+     "Mon 16-11": 3158391,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 63142,
+    "stap_kost": 62922,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 17,
-    "5uur_scripts_over": 18.3,
-    "5uur_stappen_over": 179,
-    "week_pct": 59,
-    "week_scripts_over": 87.7,
-    "week_stappen_over": 861
+    "5uur_pct": 23,
+    "5uur_scripts_over": 16.8,
+    "5uur_stappen_over": 166,
+    "week_pct": 60,
+    "week_scripts_over": 86.3,
+    "week_stappen_over": 849
    }
   ]
  },

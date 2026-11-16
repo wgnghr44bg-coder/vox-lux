@@ -171,6 +171,7 @@ dl.vast dt{color:var(--zacht)}dl.vast dd{margin:0}
 
   <!-- ================= OVERZICHT: alleen het belangrijkste ================= -->
   <div class="view" data-tab="overzicht">
+    <section class="kaart" style="margin-bottom:12px"><h2><svg class="i"><use href="#i-grafiek"/></svg>Partnerprogramma (geld verdienen) <small class="zacht">4.000 kijkuren in 365 dagen + 1.000 abonnees</small></h2><div id="partner"><div class="zacht">gegevens laden…</div></div></section>
     <section class="grid g4 g5">
       <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-mens"/></svg></div><div><div class="t">Abonnees</div><b id="kAbo">…</b><span id="kAboD"></span></div></div>
       <div class="kaart kpi"><div class="ico"><svg class="i"><use href="#i-oog"/></svg></div><div><div class="t">Weergaven <small class="zacht">28 d</small></div><b id="kViews">…</b><span id="kViewsD"></span></div></div>
@@ -370,6 +371,23 @@ async function laad(){
     ...kansen.slice(0,3).map(p=>({t:`Kans bekijken: ${p.titel||p.naam}`,ok:false}))];
   $("actieLijst").innerHTML=acties.map(a=>`<li><span class="vak ${a.ok?"ja":""}"></span><span>${esc(a.t)}</span></li>`).join("")||`<li><span class="vak ja"></span>Niets open.</li>`;
   const tel=d.fouten.length+kansen.length;$("belTeller").hidden=!tel;$("belTeller").textContent=tel;
+
+  // partnerprogramma (16 nov 2026, eigenaar: "hoeveel dagen ik nog heb tot de 365 dagen van de 4000 uur")
+  {const pp=(d.kanaal&&d.kanaal.partner)||null;
+   if(pp){const dagenTot=s=>s?Math.round((new Date(s)-new Date(isoDag(new Date())))/864e5):null;
+    const nlDatum=s=>s?new Date(s).toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"}):"—";
+    const balk=(nu,doel,kleur)=>`<div style="background:rgba(255,255,255,.08);border-radius:8px;height:12px;overflow:hidden;margin:6px 0 2px"><div style="width:${Math.min(100,100*nu/doel).toFixed(1)}%;height:100%;background:${kleur};border-radius:8px"></div></div>`;
+    const du=dagenTot(pp.datum_uren),da=dagenTot(pp.datum_abonnees),dv=dagenTot(pp.valt_eruit_vanaf);
+    $("partner").innerHTML=`<div class="grid g2" style="gap:14px">
+     <div><b style="font-size:1.4rem">${nl(pp.uren)}</b> <span class="zacht">van ${nl(pp.uren_doel)} kijkuren (${(100*pp.uren/pp.uren_doel).toFixed(0)}%)</span>${balk(pp.uren,pp.uren_doel,"#8f7bff")}
+      <div class="zacht" style="font-size:.85rem">Nog ${nl(Math.max(0,pp.uren_doel-pp.uren))} uur · tempo ${pp.tempo_uren_per_dag} uur per dag<br>
+      ${du!=null?`In dit tempo gehaald over <b>${du} dagen</b> (${nlDatum(pp.datum_uren)})`:"In dit tempo nog niet binnen 3 jaar"}<br>
+      Oudste uren (vanaf ${nlDatum(pp.eerste_uren)}) vallen eruit over <b>${dv} dagen</b> (${nlDatum(pp.valt_eruit_vanaf)})</div></div>
+     <div><b style="font-size:1.4rem">${nl(pp.abonnees)}</b> <span class="zacht">van ${nl(pp.abonnees_doel)} abonnees (${(100*pp.abonnees/pp.abonnees_doel).toFixed(1)}%)</span>${balk(pp.abonnees,pp.abonnees_doel,"#4fd1a5")}
+      <div class="zacht" style="font-size:.85rem">Nog ${nl(Math.max(0,pp.abonnees_doel-pp.abonnees))} abonnees · tempo ${pp.tempo_abonnees_per_dag} per dag<br>
+      ${da!=null?`In dit tempo gehaald over <b>${da} dagen</b> (${nlDatum(pp.datum_abonnees)})`:"Tempo nog te laag om te schatten"}<br>
+      <span style="color:#ffcf6b">${(da||0)>(du||0)?"De abonnees zijn nu het knelpunt, niet de uren.":"De kijkuren zijn nu het knelpunt."}</span></div></div></div>`}
+   else $("partner").innerHTML=`<div class="zacht">Nog geen gegevens (YouTube Analytics).</div>`;}
 
   // tabellen
   $("komend").innerHTML="<tr><th>Datum</th><th>Video</th><th>Stand</th></tr>"+komend.slice(0,12).map(x=>`<tr><td style="white-space:nowrap">${dagLabel(x.datum)}</td><td><b>${esc(kortNaam(x.map))}</b><br><small class="zacht">${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a>`:esc(x.titel)}</small></td><td style="white-space:nowrap">${esc(lab[x.soort]||x.soort)}</td></tr>`).join("");
