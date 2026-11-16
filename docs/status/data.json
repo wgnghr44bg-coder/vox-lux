@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 15:03",
+ "bijgewerkt": "2026-11-16 15:33",
  "werkplanning": {
   "nu": [
    {
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 15:03)"
+   "tekst": "draait nu (2026-11-16 15:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 14:48: alles klopt"
+   "tekst": "laatste ronde 15:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 15:03",
-   "volgende": "2026-11-16 15:33"
+   "laatst": "2026-11-16 15:33",
+   "volgende": "2026-11-16 16:03"
   },
   "hype": {
    "aan": true,
@@ -620,18 +620,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 14:10",
-   "volgende": "2026-11-16 15:10"
+   "laatst": "2026-11-16 15:10",
+   "volgende": "2026-11-16 16:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 14:48",
-   "volgende": "2026-11-16 15:18"
+   "laatst": "2026-11-16 15:18",
+   "volgende": "2026-11-16 15:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 13:25",
-   "volgende": "2026-11-16 15:25"
+   "laatst": "2026-11-16 15:25",
+   "volgende": "2026-11-16 17:25"
   }
  },
  "kanaal": {
@@ -683,7 +683,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 51,
+    "views": 52,
     "verwerkt": "processed"
    },
    {
@@ -958,11 +958,11 @@
   "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "muziek maken (Audio Engine W3)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-16 23:52",
-   "youtube": "2026-11-17 00:12"
+   "klaar": "2026-11-16 21:06",
+   "youtube": "2026-11-16 21:26"
   }
  },
  "nu_bezig": [
@@ -971,13 +971,13 @@
    "stap": 0
   },
   {
-   "naam": "muziek maken (Audio Engine W3)",
+   "naam": "beelden en geluid samenvoegen",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 512,
+  "bezig_procent": 1,
+  "geheugen_mb": 683,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2810,7 +2810,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 13:25",
+  "bijgewerkt": "2026-11-16 15:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3256,25 +3256,26 @@
     "bekeken": "2026-11-16"
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 15:03",
+  "bijgewerkt": "2026-11-16 15:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 0,
-    "week": 66614442,
+    "5uur": 1298622,
+    "week": 67913064,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
-     "Mon 09-11": 938189
+     "Mon 09-11": 938189,
+     "Mon 16-11": 1298622
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 0,
+    "stap_kost": 108219,
     "naam": "hoofd",
     "week_reset": ""
    },
