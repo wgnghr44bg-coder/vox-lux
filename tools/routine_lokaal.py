@@ -231,39 +231,61 @@ def vlm_cijfer(p):
         return 0
 
 
-def beelden_wachter(m):
-    """Extra controle (eigenaar 16 nov 2026: "graag hierop extra controle wachter zetten"): dubbele beelden (een
-    afgekeurd beeld vervangen door het beeld ervoor; Dallas had er 6) worden met de originele beschrijving opnieuw
-    gemaakt en gekeurd; alleen wat dan nog fout is, blijft een kopie. Bekende dingen zonder kenmerken -> logboek."""
-    import shutil, beelden_wachter as bw
-    _, dub, regels = bw.rapport(m)
-    for r_ in regels:
-        if "dubbele" not in r_:
-            log(f"beelden-wachter: SEINTJE {r_}")
-    nrs = sorted({b for _, b in dub})
-    if len(dub) <= bw.DUBBEL_MAX:
-        return
+# Andere opbouw per ronde: vooraan in de beschrijving, want daar luistert de beeldmaker het best naar.
+ANDERS = ["Close-up of the main subject, filling the frame, a completely different composition and background: ",
+          "An interior or sheltered scene, seen up close, with a different composition: ",
+          "A quiet detail shot by warm lamplight, intimate and close, different from a wide landscape view: "]
+
+
+def lijkende(m):
+    """Nummers van beelden die op een eerder beeld lijken (CLIP, in de OmniVoice-omgeving)."""
+    r = run([OMNI, str(HIER / "beelden_wachter.py"), "--lijkend", str(m)])
+    regel = re.search(r"^OPNIEUW (.*)$", r.stdout, re.M)
+    return [x for x in regel.group(1).split(",") if x] if regel else []
+
+
+def varianten(m, nrs, reden):
+    """Eigenaar 16 nov 2026: "de beelden mogen niet op elkaar lijken, dat moet echt anders" -> nooit meer een kopie van
+    het beeld ervoor. Tot 3 rondes een nieuw beeld met de originele beschrijving en een andere opbouw (ANDERS); wat dan
+    nog door de controle twijfelt, blijft het laatste nieuwe beeld en komt in het logboek om na te kijken."""
+    import shutil
     orig = subprocess.run(["git", "show", f"HEAD:stories/{m.name}/prompts.txt"], cwd=REPO, capture_output=True,
                           text=True, encoding="utf-8", errors="replace").stdout
-    orig = {r_.split("|", 1)[0]: r_ for r_ in orig.splitlines() if "|" in r_}
-    regels = (m / "prompts.txt").read_text(encoding="utf-8").splitlines()
-    regels = [orig.get(r_.split("|", 1)[0], r_) if r_.split("|", 1)[0] in nrs else r_ for r_ in regels]
-    (m / "prompts.txt").write_text("\n".join(regels) + "\n", encoding="utf-8")
+    orig = {r_.split("|", 1)[0]: r_.split("|", 1)[1] for r_ in orig.splitlines() if "|" in r_}
     (m / "afgekeurd").mkdir(exist_ok=True)
-    for n in nrs:
-        shutil.move(str(m / "afbeeldingen" / f"{n}.png"), str(m / "afgekeurd" / f"{n}-dubbel.png"))
-    log(f"{m.name}: beelden-wachter: {len(nrs)} dubbele beelden ({', '.join(nrs)}) opnieuw maken")
-    comfy_aan()
-    run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)] + nrs)
-    r = run([OMNI, str(HIER / "beeldcheck.py"), str(m), "--alleen", ",".join(nrs)])
-    nog = re.findall(r"'(\d+)'", (re.search(r"BEELDEN FOUT: .*", r.stdout) or [""])[0])
-    for n in nog:                                            # na 4 rondes nog fout: dan toch het beeld ervoor
-        buur = next((m / "afbeeldingen" / f"{k:03d}.png" for k in range(int(n) - 1, 0, -1)
-                     if (m / "afbeeldingen" / f"{k:03d}.png").exists() and f"{k:03d}" not in nog), None)
-        if buur:
-            shutil.copy(buur, m / "afbeeldingen" / f"{n}.png")
-    log(f"{m.name}: beelden-wachter: {len(nrs) - len(nog)} van {len(nrs)} dubbele beelden vervangen door een nieuw goed beeld"
-        + (f", {len(nog)} blijven een kopie ({', '.join(nog)})" if nog else ""))
+    totaal = list(nrs)
+    for ronde, extra in enumerate(ANDERS):
+        regels = (m / "prompts.txt").read_text(encoding="utf-8").splitlines()
+        nu = {r_.split("|", 1)[0]: r_.split("|", 1)[1] for r_ in regels if "|" in r_}
+        regels = [f"{r_.split('|', 1)[0]}|{extra}{orig.get(r_.split('|', 1)[0], nu.get(r_.split('|', 1)[0], ''))}"
+                  if r_.split("|", 1)[0] in nrs else r_ for r_ in regels]
+        (m / "prompts.txt").write_text("\n".join(regels) + "\n", encoding="utf-8")
+        for n in nrs:
+            if (m / "afbeeldingen" / f"{n}.png").exists():
+                shutil.move(str(m / "afbeeldingen" / f"{n}.png"), str(m / "afgekeurd" / f"{n}-{reden}{ronde}.png"))
+        comfy_aan()
+        run([sys.executable, str(HIER / "comfy" / "comfy_batch.py"), str(HIER / "comfy" / "zimage_api.json"), str(m)] + nrs)
+        r = run([OMNI, str(HIER / "beeldcheck.py"), str(m), "--alleen", ",".join(nrs), "--alleen-kijken"])
+        fout = set(re.findall(r"'(\d+)'", (re.search(r"BEELDEN FOUT: .*", r.stdout) or [""])[0]))
+        nrs = sorted(fout | (set(lijkende(m)) & set(nrs)))
+        if not nrs:
+            break
+    log(f"{m.name}: {len(totaal)} beelden ({reden}) opnieuw gemaakt met een andere opbouw, geen kopieën"
+        + (f"; nog nakijken: {', '.join(nrs)}" if nrs else ""))
+    return nrs
+
+
+def beelden_wachter(m):
+    """Extra controle (eigenaar 16 nov 2026: "graag hierop extra controle wachter zetten" en "de beelden mogen niet op
+    elkaar lijken"): beelden die (bijna) hetzelfde zijn of op een eerder beeld lijken, krijgen een nieuw, ander beeld.
+    Bekende dingen zonder kenmerken -> logboek."""
+    import beelden_wachter as bw
+    for r_ in bw.rapport(m, paren=[])[2]:
+        log(f"beelden-wachter: SEINTJE {r_}")
+    nrs = lijkende(m)
+    if nrs:
+        log(f"{m.name}: beelden-wachter: {len(nrs)} beelden lijken op een ander beeld ({', '.join(nrs)}), nieuwe maken")
+        varianten(m, nrs, "lijkt")
 
 
 def maak_video(m, datum, test=False):
@@ -316,14 +338,9 @@ def maak_video(m, datum, test=False):
     if fout_b and int(fout_b.group(2)) - int(fout_b.group(1)) <= max(3, int(fout_b.group(2)) * 0.15):
         # 11 nov 2026 (Tombstone stopte op 1 van 90 beelden met letters erop): hardnekkige beelden (na 4 rondes opnieuw
         # maken) vervangen door het goedgekeurde beeld ervoor, zodat de video niet blijft liggen. 13 nov (eigenaar: "zorg
-        # dat hij niet meer vastloopt en zich aan de planning houdt"): tot 15 % van de beelden, daarboven is er echt iets mis
-        import shutil
-        for nr in re.findall(r"'(\d+)'", fout_b.group(3)):
-            buur = next((m / "afbeeldingen" / f"{k:03d}.png" for k in range(int(nr) - 1, 0, -1)
-                         if (m / "afbeeldingen" / f"{k:03d}.png").exists() and f"'{k:03d}'" not in fout_b.group(3)), None)
-            if buur:
-                shutil.copy(buur, m / "afbeeldingen" / f"{nr}.png")
-                log(f"{m.name}: beeld {nr} bleef fout, vervangen door {buur.name}")
+        # dat hij niet meer vastloopt en zich aan de planning houdt"): tot 15 % van de beelden, daarboven is er echt iets mis.
+        # 16 nov: geen kopie van het beeld ervoor meer ("de beelden mogen niet op elkaar lijken"), maar een ander beeld.
+        varianten(m, re.findall(r"'(\d+)'", fout_b.group(3)), "fout")
     elif "BEELDEN GOED" not in r.stdout:
         raise RuntimeError("beeldcontrole: " + r.stdout.strip().splitlines()[-1][:200])
     beelden_wachter(m)
