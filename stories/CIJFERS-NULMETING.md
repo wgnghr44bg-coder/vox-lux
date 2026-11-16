@@ -16,3 +16,12 @@ Hindenburg 1937 (129, 20:23), Vikingen winter (56, 21:54).
 
 Vergelijken rond 28 nov / half dec: CTR, gem. weergaveduur en % na 1 minuut (niet weergaven: vanaf 16 nov tellen
 co-views mee). Zwak punt: abonnees (+9 op 592 uur kijktijd).
+
+## Extra (Studio AI, 16 nov 2026)
+- Apparaat: telefoon 53%, tv 33%, tablet 7%, computer 6% -> tv groot: co-views en lange compilaties passen.
+- Eerste meetpunt (± 1:10-1:30): Mayflower 52%, Vikingen 44%, Titanic 41%, Oregon 37%, Hindenburg 21%. Daarna vlak
+  (vaste kern 20-37% luistert tot het eind). Grootste verlies = het begin -> kort begin is de juiste keuze.
+- Terugkerende kijkers maar 2,5% (16 van 632). Grootste zwakte: slaapkanalen leven van mensen die elke avond terugkomen.
+- CTR: vraagtitels het laagst (WW2 0,78%, Egypte 1,27%, Babylon 2,73%). "Life in X Before [ramp]" het hoogst
+  (Pompeii 11%, San Francisco 10%, Tunguska 7,4%; kleine aantallen), Vikingen 7,3% op 452 vertoningen.
+- Zoekverkeer bijna nul: kijkers komen via aanbevelingen (browse/suggested), dus thumbnail + titel bepalen alles.
