@@ -1,5 +1,5 @@
 onderwerp Life in Gettysburg, July 1863
-status   bezig (2026-11-15, routine-lokaal)
+status   klaar
 datum    wo 2026-11-18 21:00 NL
 titel    Life in Gettysburg, July 1863 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Happened to the Families of Gettysburg in 1863?)
 thumbnail amberregel "GETTYSBURG · JULY 1863", hook "Life in Gettysburg", beeld: Abraham Lincoln met hoge hoed en zwarte jas, rustig en peinzend, op het herfstveld van Gettysburg in november 1863, Amerikaanse vlaggen en de menigte zacht wazig erachter, gouden middaglicht (kenmerkend beeld, eigenaar 1 nov 2026)
@@ -8,3 +8,5 @@ thumbnail gekozen (test automatische keuze, 1 nov): stories/gettysburg-1863/thum
 opening   persoon
 titelsoort life-in
 thumbnail kenmerk: het rode bakstenen stadje Gettysburg in juli 1863 met de witte kerktoren, soldaten van de Unie in blauwe uniformen die rustig het stadje binnenmarcheren terwijl inwoners in jurken en vesten vanaf hun stoep toekijken; avondlicht
+link https://youtu.be/4i-gOILazVQ (2026-11-16: B1 + W3, nieuwe opbouw, 16mm; privé met publishAt 2026-11-18T20:00:00Z; Sleep Archives gecontroleerd; verwerkt; bestanden opgeruimd)
+kosten  EUR 0
