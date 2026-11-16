@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-16 04:03",
+ "bijgewerkt": "2026-11-16 04:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "detail": "YouTube upload",
+    "wat": "Life in Dallas, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Gettysburg",
-    "wat": "Life in Dallas, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "keten maakt de video voor za 21-11 21:00"
-   },
    {
     "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
@@ -55,8 +49,8 @@
     "dag": "wo",
     "titel": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-21",
@@ -145,7 +139,7 @@
     "titel": "Life in Gettysburg, July 1863 | History for Sleep",
     "map": "gettysburg-1863",
     "klaar": true,
-    "stand": "video wordt gemaakt",
+    "stand": "video staat klaar",
     "controle": "GOED",
     "flesch": 70,
     "niveau": 6.4,
@@ -502,7 +496,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "181 GB vrij"
+   "tekst": "207 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -517,7 +511,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 04:03)"
+   "tekst": "draait nu (2026-11-16 04:33)"
   },
   {
    "naam": "Git",
@@ -531,33 +525,18 @@
   },
   {
    "naam": "Video 2026-11-18 (gettysburg-1863)",
-   "ok": false,
-   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-15)"
-  },
-  {
-   "naam": "Script rome-44-vc",
-   "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
-  },
-  {
-   "naam": "Script scott-antarctica-1912",
-   "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
-  },
-  {
-   "naam": "Script zwarte-dood-1348",
-   "ok": true,
-   "tekst": "afgekeurd in de nacht van 2026-11-15, inmiddels hersteld; wordt opnieuw gecontroleerd"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
   },
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 03:48: alles klopt"
+   "tekst": "laatste ronde 04:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -574,8 +553,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 04:03",
-   "volgende": "2026-11-16 04:33"
+   "laatst": "2026-11-16 04:33",
+   "volgende": "2026-11-16 05:03"
   },
   "hype": {
    "aan": true,
@@ -584,13 +563,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 03:10",
-   "volgende": "2026-11-16 04:10"
+   "laatst": "2026-11-16 04:10",
+   "volgende": "2026-11-16 05:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 03:48",
-   "volgende": "2026-11-16 04:18"
+   "laatst": "2026-11-16 04:18",
+   "volgende": "2026-11-16 04:48"
   },
   "titels": {
    "aan": true,
@@ -620,8 +599,8 @@
     "duur": "2:17:38",
     "privacy": "private",
     "publiceer": "2026-11-18T20:00:00Z",
-    "views": 0,
-    "verwerkt": "uploaded"
+    "views": 1,
+    "verwerkt": "processed"
    },
    {
     "id": "R2rgLUMJxac",
@@ -638,7 +617,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 13,
+    "views": 14,
     "verwerkt": "processed"
    },
    {
@@ -683,7 +662,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 581,
+    "views": 583,
     "verwerkt": "processed"
    },
    {
@@ -879,14 +858,14 @@
  "kpi": {
   "geplande": 2,
   "runs": {
-   "goed": 3,
-   "totaal": 12,
-   "procent": 25
+   "goed": 4,
+   "totaal": 13,
+   "procent": 31
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 15,
-   "totaal": 16
+   "goed": 13,
+   "totaal": 13
   }
  },
  "stappen": [
@@ -898,43 +877,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 6,
+ "stap": -1,
  "huidig": {
-  "map": "gettysburg-1863",
-  "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-  "datum": "2026-11-18",
-  "thumb": "thumbs/gettysburg-1863.jpg",
-  "stap": 6,
-  "stapnaam": "YouTube upload",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "",
+  "stap": -1,
+  "stapnaam": "",
   "voortgang": null,
   "detail": "",
-  "taken": [
-   "routine zonder Claude",
-   "uploaden en controleren",
-   "wachten op verwerking YouTube"
-  ],
-  "eind": {
-   "klaar": "2026-11-16 03:50",
-   "youtube": "2026-11-16 04:10"
-  }
+  "taken": [],
+  "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "uploaden en controleren",
-   "stap": 6
-  },
-  {
-   "naam": "wachten op verwerking YouTube",
-   "stap": 6
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 431,
+  "geheugen_mb": 428,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -991,7 +950,7 @@
    "datum": "2026-11-18",
    "plek": true,
    "video": "Life in Gettysburg, July 1863 | History for Sleep",
-   "soort": "bezig"
+   "soort": "gepland"
   },
   {
    "datum": "2026-11-19",
@@ -1019,18 +978,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-15 20:52",
-   "tekst": "hype-wachter: SEINTJE TITEL alchemie-steen-der-wijzen (2026-12-02): 'Alchemists and the Philosopher's Stone, 1600 | History for Sleep' -> voorstel 'The Search for the Philosopher's Stone, 1600 | Histo",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-15 20:53",
-   "tekst": "hype-wachter: SEINTJE TITEL boeren-winter-1300 (2026-11-28): 'How Medieval Peasants Survived the Winter | History for Sleep' -> voorstel 'How Medieval Peasants Survived Winter, 1300 | History for Slee",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-15 20:54",
    "tekst": "hype-wachter: SEINTJE TITEL blackbeard-1718 (2026-11-30): 'Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep' -> voorstel 'Life Aboard Blackbeard's Ship, 1718 | History for Sleep' (gebrui",
@@ -1102,15 +1049,21 @@
    "tekst": "Claude: PROMPT-JAPAN-EN-COMPILATIES.md stap 4b: januari herzien op hype (drooglegging/new-york-1925, goudkoorts/goudkoorts-1849, mythologie), eerst voorleggen aan de eigenaar, dan pas ombouwen (stap 5",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-16 04:03",
-   "tekst": "Zelfcontrole: Video 2026-11-18 (gettysburg-1863): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
-   "fout": true
+   "tijd": "2026-11-16 04:10",
+   "tekst": "gettysburg-1863: KLAAR",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-16 04:10",
+   "tekst": "routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-15 15:54",
@@ -1529,9 +1482,9 @@
    "datum": "2026-11-18",
    "reserve": false,
    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-   "status": "bezig (2026-11-15, routine-lokaal)",
-   "soort": "bezig",
-   "id": "",
+   "status": "klaar",
+   "soort": "gepland",
+   "id": "4i-gOILazVQ",
    "afspeellijst": "oorlog",
    "opening": "persoon"
   },
@@ -3190,7 +3143,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 04:03",
+  "bijgewerkt": "2026-11-16 04:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3211,27 +3164,27 @@
    },
    {
     "account": "account2",
-    "5uur": 876038,
-    "week": 76305498,
+    "5uur": 1915410,
+    "week": 77344870,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 876038,
+     "Mon 16-11": 1915409,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 63884,
+    "stap_kost": 63366,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 6,
-    "5uur_scripts_over": 20.5,
-    "5uur_stappen_over": 199,
-    "week_pct": 58,
-    "week_scripts_over": 90.0,
-    "week_stappen_over": 872
+    "5uur_pct": 14,
+    "5uur_scripts_over": 18.8,
+    "5uur_stappen_over": 184,
+    "week_pct": 59,
+    "week_scripts_over": 88.3,
+    "week_stappen_over": 863
    }
   ]
  },
