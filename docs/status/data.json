@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 22:03",
+ "bijgewerkt": "2026-11-16 22:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 27%",
+    "detail": "Video bouwen · 49%",
     "soort": "nu"
    }
   ],
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 22:03)"
+   "tekst": "draait nu (2026-11-16 22:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 22:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 22:03",
-   "volgende": "2026-11-16 22:33"
+   "laatst": "2026-11-16 22:33",
+   "volgende": "2026-11-16 23:03"
   },
   "hype": {
    "aan": true,
@@ -634,13 +634,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 21:10",
-   "volgende": "2026-11-16 22:10"
+   "laatst": "2026-11-16 22:10",
+   "volgende": "2026-11-16 23:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 21:48",
-   "volgende": "2026-11-16 22:18"
+   "laatst": "2026-11-16 22:18",
+   "volgende": "2026-11-16 22:48"
   },
   "titels": {
    "aan": true,
@@ -697,7 +697,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 57,
+    "views": 58,
     "verwerkt": "processed"
    },
    {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 618,
+    "views": 611,
     "verwerkt": "processed"
    },
    {
@@ -973,15 +973,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 27,
+  "voortgang": 49,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-17 01:44",
-   "youtube": "2026-11-17 02:04"
+   "klaar": "2026-11-17 01:23",
+   "youtube": "2026-11-17 01:43"
   }
  },
  "nu_bezig": [
@@ -995,7 +995,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 28,
+  "bezig_procent": 29,
   "geheugen_mb": 3346,
   "totaal_mb": 8192
  },
@@ -1168,13 +1168,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 22:03",
+   "tijd": "2026-11-16 22:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 22:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 22:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3929,7 +3929,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 22:03",
+  "bijgewerkt": "2026-11-16 22:34",
   "accounts": [
    {
     "account": "hoofd",
