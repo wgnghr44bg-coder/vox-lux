@@ -1,0 +1,6 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+Queen Anne's Revenge | a former French slave ship of about 200 tons and 30 metres long, three masts with square sails, a dark wooden hull with one row of gun ports along the side, a modest raised stern with small windows, no ornate gilded carvings, no black sails, no skull flag painted on the sails
+sloop | a small fast single-masted wooden sailing ship of the early 1700s with one large fore-and-aft mainsail, a jib and a long bowsprit, a low dark hull, a few small cannons on deck
+Ocracoke | a low sandy barrier island on the North Carolina coast in 1718 with dunes, sea oats, low wind-bent live oaks and a quiet inlet, no lighthouse, no houses
+Charleston | a small walled English colonial port town of 1718 with wooden and brick houses, a few church spires and wooden wharves on the harbour, ships at anchor, no large stone buildings
+pirate | an early 1700s sailor: loose linen shirt, short wool jacket, wide canvas trousers ending below the knee, a cocked hat or knitted cap, a sash with flintlock pistols, no eye patch, no parrot, no peg leg
