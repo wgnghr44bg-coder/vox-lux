@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-16 16:03",
+ "bijgewerkt": "2026-11-16 16:33",
  "werkplanning": {
   "nu": [
    {
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 16:03)"
+   "tekst": "draait nu (2026-11-16 16:33)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:48: alles klopt"
+   "tekst": "laatste ronde 16:19: alles klopt"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 16:03",
-   "volgende": "2026-11-16 16:33"
+   "laatst": "2026-11-16 16:33",
+   "volgende": "2026-11-16 17:03"
   },
   "hype": {
    "aan": true,
@@ -634,13 +634,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-16 15:10",
-   "volgende": "2026-11-16 16:10"
+   "laatst": "2026-11-16 16:10",
+   "volgende": "2026-11-16 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 15:48",
-   "volgende": "2026-11-16 16:18"
+   "laatst": "2026-11-16 16:18",
+   "volgende": "2026-11-16 16:48"
   },
   "titels": {
    "aan": true,
@@ -987,8 +987,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7065,
+  "bezig_procent": 81,
+  "geheugen_mb": 7045,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1074,18 +1074,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 15:46",
-   "tekst": "beelden-wachter: SEINTJE dallas-1963: 5 dubbele beelden (024=025, 027=028, 040=041, 056=057, 075=076)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 15:46",
-   "tekst": "bewaker: keten gestart voor dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 15:47",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1156,11 +1144,23 @@
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:27",
+   "tekst": "routine-lokaal: crisis-1933: 1 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:28",
+   "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 12 beelden lijken op een ander beeld (017, 020, 037, 038, 039, 047, 048, 065, 070, 077, 086, 088), nieuwe maken",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 16:03",
+   "tijd": "2026-11-16 16:33",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3264,23 +3264,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 16:03",
+  "bijgewerkt": "2026-11-16 16:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 5664094,
-    "week": 72278537,
+    "5uur": 7112711,
+    "week": 73727153,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 5664095
+     "Mon 16-11": 7112711
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 62934,
+    "stap_kost": 63506,
     "naam": "hoofd",
     "week_reset": ""
    },
