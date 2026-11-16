@@ -215,3 +215,5 @@
 - 2026-11-15 21:31 hype-wachter: SEINTJE TITEL man-ijzeren-masker-1703 (2026-12-16): 'The Man in the Iron Mask, France 1703 | History for Sleep' -> voorstel 'The Man in the Iron Mask, France 1669-1703 | History for Sleep' (bevat beroemde naam, land en tijdsbestek; voldoet aan alle regels en is concreet)
 - 2026-11-16 04:00 gettysburg-1863: geüpload https://youtu.be/4i-gOILazVQ (privé, publiek 2026-11-18T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-16 04:02 Claude: PROMPT-JAPAN-EN-COMPILATIES.md stap 4b: januari herzien op hype (drooglegging/new-york-1925, goudkoorts/goudkoorts-1849, mythologie), eerst voorleggen aan de eigenaar, dan pas ombouwen (stap 5)
+- 2026-11-16 04:10 gettysburg-1863: KLAAR
+- 2026-11-16 04:10 routine-lokaal: gettysburg-1863: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-18 21:00
