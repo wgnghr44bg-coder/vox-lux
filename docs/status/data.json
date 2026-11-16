@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 21:33",
+ "bijgewerkt": "2026-11-16 22:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Video bouwen · 9%",
+    "detail": "Video bouwen · 27%",
     "soort": "nu"
    }
   ],
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 21:33)"
+   "tekst": "draait nu (2026-11-16 22:03)"
   },
   {
    "naam": "Git",
@@ -607,7 +607,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -624,8 +624,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-16 21:33",
-   "volgende": "2026-11-16 22:03"
+   "laatst": "2026-11-16 22:03",
+   "volgende": "2026-11-16 22:33"
   },
   "hype": {
    "aan": true,
@@ -639,8 +639,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-16 21:18",
-   "volgende": "2026-11-16 21:48"
+   "laatst": "2026-11-16 21:48",
+   "volgende": "2026-11-16 22:18"
   },
   "titels": {
    "aan": true,
@@ -697,7 +697,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 53,
+    "views": 57,
     "verwerkt": "processed"
    },
    {
@@ -733,7 +733,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 611,
+    "views": 618,
     "verwerkt": "processed"
    },
    {
@@ -898,13 +898,13 @@
    "abonnees": 9
   },
   "vorige_maand": {
-   "views": 872,
-   "uren": 87,
+   "views": 870,
+   "uren": 85,
    "abonnees": 8
   },
   "jaar": {
-   "views": 3550,
-   "uren": 665,
+   "views": 3548,
+   "uren": 663,
    "abonnees": 17
   },
   "top": [
@@ -931,7 +931,7 @@
    }
   ],
   "partner": {
-   "uren": 665,
+   "uren": 663,
    "uren_doel": 4000,
    "abonnees": 17,
    "abonnees_doel": 1000,
@@ -973,15 +973,15 @@
   "thumb": "thumbs/crisis-1933.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 9,
+  "voortgang": 27,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-17 02:17",
-   "youtube": "2026-11-17 02:37"
+   "klaar": "2026-11-17 01:44",
+   "youtube": "2026-11-17 02:04"
   }
  },
  "nu_bezig": [
@@ -995,7 +995,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 27,
+  "bezig_procent": 28,
   "geheugen_mb": 3346,
   "totaal_mb": 8192
  },
@@ -1168,13 +1168,13 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 21:33",
+   "tijd": "2026-11-16 22:03",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   },
   {
-   "tijd": "2026-11-16 21:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-16 22:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3929,11 +3929,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 21:34",
+  "bijgewerkt": "2026-11-16 22:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 3317913,
+    "5uur": 601653,
     "week": 76039203,
     "per_dag": {
      "Thu 12-11": 29715489,
@@ -3950,27 +3950,27 @@
    },
    {
     "account": "account2",
-    "5uur": 13148312,
-    "week": 96371961,
+    "5uur": 13375013,
+    "week": 98450143,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
-     "Mon 16-11": 20942501,
+     "Mon 16-11": 23020683,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 12768073
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 101172,
+    "stap_kost": 107573,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 97,
-    "5uur_scripts_over": 0.7,
-    "5uur_stappen_over": 4,
-    "week_pct": 73,
-    "week_scripts_over": 57.6,
-    "week_stappen_over": 352
+    "5uur_pct": 99,
+    "5uur_scripts_over": 0.3,
+    "5uur_stappen_over": 2,
+    "week_pct": 75,
+    "week_scripts_over": 54.2,
+    "week_stappen_over": 312
    }
   ]
  },
