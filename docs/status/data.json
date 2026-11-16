@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-16 16:33",
+ "bijgewerkt": "2026-11-16 16:39",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "detail": "Beelden maken · 99%",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -582,7 +582,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-16 16:33)"
+   "tekst": "laatste keer goed (2026-11-16 16:33)"
   },
   {
    "naam": "Git",
@@ -960,19 +960,18 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 0,
  "huidig": {
   "map": "crisis-1933",
   "titel": "Life in the Great Depression, 1933 | History for Sleep",
   "datum": "2026-11-17",
   "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "89 van 89 beelden",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
+  "voortgang": null,
+  "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -980,15 +979,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 81,
-  "geheugen_mb": 7045,
+  "bezig_procent": 28,
+  "geheugen_mb": 6607,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1074,12 +1069,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 15:47",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 15:58",
    "tekst": "beelden-wachter: SEINTJE dallas-1963: 3 dubbele beelden (024=025, 056=057, 075=076)",
    "fout": false,
@@ -1156,11 +1145,17 @@
    "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 12 beelden lijken op een ander beeld (017, 020, 037, 038, 039, 047, 048, 065, 070, 077, 086, 088), nieuwe maken",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-16 16:38",
+   "tekst": "routine-lokaal: crisis-1933: 12 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 086",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-16 16:33",
+   "tijd": "2026-11-16 16:39",
    "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1195,7 +1190,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "mythe"
+   "opening": "mythe",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "alexander-331-vc",
@@ -1206,7 +1210,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "alexandrie",
@@ -1228,7 +1241,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "apollo-11-1969",
@@ -1239,7 +1261,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "athene-432-vc",
@@ -1250,7 +1281,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "atlantis",
@@ -1261,7 +1301,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "babylon-600-vc",
@@ -1283,7 +1332,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "bethlehem",
@@ -1294,7 +1352,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": "onderwerp"
+   "opening": "onderwerp",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "blackbeard-1718",
@@ -1305,7 +1372,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": "onderwerp"
+   "opening": "onderwerp",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "blitz-1940",
@@ -1316,7 +1392,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "boeren-winter-1300",
@@ -1327,7 +1412,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "persoon"
+   "opening": "persoon",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "bronstijd",
@@ -1338,7 +1432,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "carthago",
@@ -1360,7 +1463,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "china-nieuwjaar-han",
@@ -1371,7 +1483,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "cleopatra",
@@ -1382,7 +1503,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "colosseum-80",
@@ -1393,7 +1523,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "compilatie-middeleeuwen",
@@ -1404,7 +1543,16 @@
    "soort": "compilatie-plan",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 0,
+   "thumb": ""
   },
   {
    "map": "compilatie-oudheid",
@@ -1415,7 +1563,16 @@
    "soort": "compilatie-plan",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 0,
+   "thumb": ""
   },
   {
    "map": "constantinopel-1000",
@@ -1437,7 +1594,16 @@
    "soort": "bezig",
    "id": "R2rgLUMJxac",
    "afspeellijst": "oorlog",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    true,
+    false,
+    false
+   ],
+   "gereed": 40,
+   "thumb": "thumbs/crisis-1933.jpg"
   },
   {
    "map": "d-day-1944",
@@ -1448,7 +1614,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "dallas-1963",
@@ -1459,7 +1634,16 @@
    "soort": "bezig",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": "voorwerp"
+   "opening": "voorwerp",
+   "stappen": [
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   "gereed": 40,
+   "thumb": "thumbs/dallas-1963.jpg"
   },
   {
    "map": "dansplaag-1518",
@@ -1470,7 +1654,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": "mythe"
+   "opening": "mythe",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "druiden",
@@ -1525,7 +1718,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "florence-1500",
@@ -1547,7 +1749,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "franklin-1845",
@@ -1558,7 +1769,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "gettysburg-1863",
@@ -1569,7 +1789,16 @@
    "soort": "gepland",
    "id": "4i-gOILazVQ",
    "afspeellijst": "oorlog",
-   "opening": "persoon"
+   "opening": "persoon",
+   "stappen": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "gereed": 100,
+   "thumb": "thumbs/gettysburg-1863.jpg"
   },
   {
    "map": "goudkoorts-1849",
@@ -1602,7 +1831,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "ijstijd-20000-vc",
@@ -1613,7 +1851,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "india-boeddha",
@@ -1624,7 +1871,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "istanbul-1550",
@@ -1646,7 +1902,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "jeanne-darc-1429",
@@ -1657,7 +1922,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "jeruzalem-pasen",
@@ -1668,7 +1942,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "kasteel-1250",
@@ -1679,7 +1962,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "kathedraal-1250",
@@ -1701,7 +1993,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "klooster-1150",
@@ -1712,7 +2013,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "koning-arthur",
@@ -1723,7 +2033,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "lewis-en-clark-1804",
@@ -1734,7 +2053,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "londen-1666",
@@ -1745,7 +2073,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "ramp",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "londen-elizabeth-1599",
@@ -1767,7 +2104,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "machu-picchu",
@@ -1778,7 +2124,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "man-ijzeren-masker-1703",
@@ -1789,7 +2144,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": "persoon"
+   "opening": "persoon",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "mary-celeste-1872",
@@ -1800,7 +2164,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "mysterie",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "maya-tikal",
@@ -1811,7 +2184,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "middeleeuws-dorp",
@@ -1822,7 +2204,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "mississippi-1850",
@@ -1844,7 +2235,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "napoleon-1812",
@@ -1855,7 +2255,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "new-york-1925",
@@ -1910,7 +2319,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "pearl-harbor-1941",
@@ -1921,7 +2339,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": "onderwerp"
+   "opening": "onderwerp",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "perzie-500-vc",
@@ -1932,7 +2359,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "petra",
@@ -1943,7 +2379,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "philadelphia-1776",
@@ -1954,7 +2399,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "piramide-gizeh",
@@ -1965,7 +2419,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "polynesiers",
@@ -1976,7 +2439,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "pompeii",
@@ -2009,7 +2481,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "romeinse-soldaat",
@@ -2020,7 +2501,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "san-francisco-1906",
@@ -2042,7 +2532,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": "scène"
+   "opening": "scène",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "sherwood-1190",
@@ -2086,7 +2585,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "sumeriers",
@@ -2097,7 +2605,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "taj-mahal-1643",
@@ -2108,7 +2625,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "tempeliers-1250",
@@ -2119,7 +2645,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "tenochtitlan-1519",
@@ -2130,7 +2665,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "thanksgiving-1621",
@@ -2141,7 +2685,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "reis",
-   "opening": "mythe"
+   "opening": "mythe",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "titanic",
@@ -2174,7 +2727,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "onderwerp"
+   "opening": "onderwerp",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "troje",
@@ -2185,7 +2747,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oudheid",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "tudor-1520",
@@ -2196,7 +2767,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "ve-day-1945",
@@ -2207,7 +2787,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "oorlog",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "venetie-middeleeuwen",
@@ -2229,7 +2818,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "victoriaans-londen-1888",
@@ -2240,7 +2838,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "nieuwe",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "vikings-winter",
@@ -2295,7 +2902,16 @@
    "soort": "script oud",
    "id": "",
    "afspeellijst": "reis",
-   "opening": ""
+   "opening": "",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   },
   {
    "map": "zwarte-dood-1348",
@@ -2306,7 +2922,16 @@
    "soort": "script nieuw",
    "id": "",
    "afspeellijst": "middeleeuwen",
-   "opening": "onderwerp"
+   "opening": "onderwerp",
+   "stappen": [
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "gereed": 20,
+   "thumb": ""
   }
  ],
  "hype": {
@@ -3264,23 +3889,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-16 16:34",
+  "bijgewerkt": "2026-11-16 16:39",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 7112711,
-    "week": 73727153,
+    "5uur": 8483377,
+    "week": 75097819,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Tue 10-11": 9700590,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Mon 09-11": 938189,
-     "Mon 16-11": 7112711
+     "Mon 16-11": 8483377
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 63506,
+    "stap_kost": 65257,
     "naam": "hoofd",
     "week_reset": ""
    },
