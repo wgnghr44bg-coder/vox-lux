@@ -248,3 +248,6 @@
 - 2026-11-16 15:58 bewaker: keten gestart voor crisis-1933
 - 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)
 - 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versie blijft staan
+- 2026-11-16 15:58 bewaker: keten gestart voor crisis-1933
+- 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)
+- 2026-11-16 15:58 routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versie blijft staan
