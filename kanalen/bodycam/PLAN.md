@@ -151,3 +151,9 @@ op de pc, niet in de cloud.
 - [ ] Montage (ffmpeg): stem op de juiste momenten, bodycam-geluid zachter onder de stem (ducking), heftigste moment
       inkorten, gezichten omstanders vervagen, kaart/tekstbeelden, hoofdstukken. Proef naar de eigenaar (telefoon).
 - [ ] Nieuw YouTube-kanaal + eigen refresh token: pas bij uploaden, en alleen na akkoord van de eigenaar.
+
+## Beloftes in de kanaalbeschrijving (17 nov 2026, staan op YouTube) - elke video moet hieraan voldoen
+- Originele voice-over met uitleg: wat er gebeurde, procedure, wet, afloop (geen ruwe beelden zonder verhaal).
+- Zaakgegevens nagaan in openbare stukken; afloop vermelden zoals vastgelegd ("presumed innocent" tot veroordeling).
+- Gruwelijke momenten beperken of vervagen; minderjarigen, slachtoffers en niet-betrokken omstanders onherkenbaar.
+- Alleen beelden van overheden (publiek domein) of met een licentie die het toestaat. Niet gelieerd aan politie.
