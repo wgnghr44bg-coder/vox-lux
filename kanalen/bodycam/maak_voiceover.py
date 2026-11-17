@@ -5,7 +5,7 @@ plus stem/blokken.json (tekst + duur), zodat de montage elk blok op het juiste b
 Zelfde stem en klank als B1 (audio_engine/B1.json), maar snelheid 1.0 en korte pauzes (geen slaaptempo),
 zonder muziek of haard eronder.
 
-  C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py kanalen/bodycam/videos/<map> [--speed 1.0] [--stem-map <map>]
+  C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py kanalen/bodycam/videos/<map> [--speed 1.0] [--pauze 0.45] [--stem-map <map>] [--alleen 2,4 --seed-extra 1]
 """
 import json, re, subprocess, sys
 from pathlib import Path
@@ -49,10 +49,36 @@ def voor_stem(z):
 
 # --alleen 2,4 : alleen deze blokken opnieuw (andere seed met --seed-extra n), de rest blijft staan
 ALLEEN = {int(x) for x in sys.argv[sys.argv.index("--alleen") + 1].split(",")} if "--alleen" in sys.argv else None
+PAUZE = float(sys.argv[sys.argv.index("--pauze") + 1]) if "--pauze" in sys.argv else 0.45  # s tussen zinnen
 EXTRA = int(sys.argv[sys.argv.index("--seed-extra") + 1]) if "--seed-extra" in sys.argv else 0
 
+# Elke zin wordt meteen met Whisper nagelopen (eigenaar 17 nov: ingeslikte woorden, "Sierra Faboon"): pas als de stem
+# precies de zin zegt, wordt hij gebruikt. Getallen tellen niet mee (Whisper schrijft "24th" voor "twenty-fourth").
+import difflib, librosa, torch
+from transformers import pipeline
+ASR = pipeline("automatic-speech-recognition", "openai/whisper-large-v3-turbo",
+               device="cuda:0" if torch.cuda.is_available() else "cpu",
+               torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32)
+GETAL = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "twenty",
+         "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", "hundred", "thousand", "first", "second",
+         "third", "fourth", "fifth", "and", "a"}
+
+
+def woorden(t):
+    w = re.findall(r"[a-z']+", t.lower().replace("-", " "))
+    return [x for x in w if x not in GETAL and not (len(x) <= 4 and re.fullmatch(r"(?:th|st|nd|rd|s)", x))]
+
+
+def klopt(wav, zin):
+    a = librosa.resample(np.asarray(wav, dtype="float32"), orig_sr=SR, target_sr=16000)
+    a = np.concatenate([np.zeros(8000, np.float32), a, np.zeros(8000, np.float32)])
+    gehoord = ASR({"raw": a, "sampling_rate": 16000}, generate_kwargs={"language": "en"})["text"].strip()
+    w1, w2 = [x for x in woorden(zin) if not x.isdigit()], [x for x in woorden(gehoord) if not x.isdigit()]
+    return difflib.SequenceMatcher(None, w1, w2).ratio(), gehoord
+
+
 regels = [r for r in (map_ / "script.txt").read_text(encoding="utf-8").splitlines()
-          if not r.startswith("#") and not r.startswith("[BEELD")]
+          if not r.startswith("#") and not r.startswith("[")]   # [BEELD …], [ORIGINEEL …] = aanwijzingen, niet uitspreken
 alineas = [" ".join(a.split()) for a in re.split(r"\n\s*\n", "\n".join(regels)) if a.strip()]
 uit = map_ / "stem"
 uit.mkdir(exist_ok=True)
@@ -65,13 +91,24 @@ for n, alinea in enumerate(alineas, 1):
     zinnen = [z for z in re.split(r"(?<=[.!?])\s+", alinea) if z]
     clips = []
     for i, z in enumerate(zinnen):
-        for poging in range(8):  # afgekapte of veel te snelle zinnen opnieuw (zoals tools/engine_stem.py)
+        beste = None
+        for poging in range(10):
             wav = edge_fade(trim(ov.speak([voor_stem(z)], cfg, seed=seed + 1000 * poging + 37 * n + i + 7919 * EXTRA)[0], SR), SR)
             d, w = len(wav) / SR, len(z.split())
-            if d >= 0.25 and w / (d / 60) <= (250 if w >= 8 else 320):
+            if d < 0.25 or w / (d / 60) > (250 if w >= 8 else 320):      # afgekapt of veel te snel
+                print(f"blok {n} zin {i + 1} afgekapt, opnieuw", flush=True)
+                continue
+            score, gehoord = klopt(wav, z)                              # Whisper: zegt de stem precies de zin?
+            if beste is None or score > beste[0]:
+                beste = (score, wav, gehoord)
+            if score >= 0.999:
                 break
-            print(f"blok {n} zin {i + 1} afgekapt, opnieuw", flush=True)
-        clips += [wav, np.zeros(int(0.45 * SR), np.float32)]
+            print(f"blok {n} zin {i + 1} niet precies ({score:.2f}): \"{gehoord}\" -> opnieuw", flush=True)
+        if beste is None:
+            sys.exit(f"blok {n} zin {i + 1}: geen bruikbare opname")
+        if beste[0] < 0.999:
+            print(f"LET OP blok {n} zin {i + 1}: beste poging {beste[0]:.2f}: \"{beste[2]}\"", flush=True)
+        clips += [beste[1], np.zeros(int(PAUZE * SR), np.float32)]
     ruw = uit / f"ruw{n:02d}.wav"
     sf.write(ruw, np.concatenate(clips[:-1]), SR)
     doel = uit / f"blok{n:02d}.wav"

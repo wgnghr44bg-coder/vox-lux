@@ -7,11 +7,10 @@ plan.json = lijst van stukken, op volgorde:
   {"blok": null, "bron": [[402, 424]], "soort": "vol", "geluid": "origineel"}     # stuk zonder stem, echt geluid
 soort: "bodycam" (4:3 in zwarte randen -> wazige achtergrond), "kaart" (onderste ondertitels van de bron wegsnijden),
        "vol" (beeld zoals het is).
-geluid: "origineel" (STANDAARD: echt geluid, zakt automatisch weg onder onze stem) / "uit" (STANDAARD bij "kaart":
-       de korps-verteller wordt vervangen door onze stem) / "onder" (vast -18 dB). Eigenaar 17 nov: origineel geluid
-       behouden, alleen de verteller vervangen. Spraak van een verteller in een bronstuk: controleer met Whisper.
-Met stem: het bronbeeld loopt zo lang als het stemblok (+0,6 s); te kort -> iets vertraagd (max 1,35x), daarna
-stilstaand laatste beeld. Eindvolume -14 LUFS (zoals tools/eind_volume.py).
+geluid: "uit" (STANDAARD, eigenaar 17 nov: alleen de beelden, geen bron-geluid; alleen onze stem) / "origineel"
+       (zakt automatisch weg onder onze stem) / "onder" (vast -18 dB). Alleen afwijken als de eigenaar dat vraagt.
+Met stem: het bronbeeld loopt zo lang als het stemblok (+0,6 s); te kort -> het laatste bronstuk loopt door
+(nooit vertragen of stilzetten: dat gaf haperend beeld). Beeld op 29,97 fps zoals de bodycams. Eindvolume -14 LUFS (zoals tools/eind_volume.py).
 Rechtsonder klein "Footage: <bron>" (uit bronvermelding.txt, eerste woorden tot " – ").
 """
 import json, subprocess, sys
@@ -19,7 +18,7 @@ from pathlib import Path
 
 HIER = Path(__file__).resolve().parent
 FONT = "arial.ttf"  # wordt naast de tijdelijke bestanden gezet (ffmpeg op Windows kan slecht met C:-paden in filters)
-W, H, FPS = 1920, 1080, 30
+W, H, FPS = 1920, 1080, "30000/1001"   # zelfde als bodycams (29,97): geen dubbele beelden
 
 
 CWD = None
@@ -57,7 +56,13 @@ def main():
         stukken = st["bron"]
         bron_duur = sum(b - a for a, b in stukken)
         doel = stem_duur or bron_duur
-        tempo = min(1.35, max(1.0, doel / bron_duur))            # >1 = langzamer afspelen
+        # Nooit vertragen of stilzetten (eigenaar 17 nov: "de video loopt soms raar"): is het bronstuk te kort voor de
+        # stem, dan loopt het laatste bronstuk gewoon door.
+        if doel > bron_duur:
+            stukken = [list(x) for x in stukken]
+            stukken[-1][1] += doel - bron_duur + 0.2
+            bron_duur = sum(b - a for a, b in stukken)
+        tempo = 1.0
         # 1) bronstukken knippen en aan elkaar
         off = max(0, min(a for a, _ in stukken) - 1)            # snel zoeken: alleen vanaf het eerste stuk inlezen
         sel = "+".join(f"between(t,{a - off},{b - off})" for a, b in stukken)
@@ -71,7 +76,7 @@ def main():
             v += f",crop=iw*0.86:ih*0.86:(iw-ow)/2:0,scale={W}:{H}"
         else:
             v += f",scale={W}:{H}"
-        v += f",fps={FPS},setpts={tempo:.4f}*PTS,tpad=stop_mode=clone:stop_duration=30,trim=0:{doel:.3f},setpts=PTS-STARTPTS"
+        v += f",fps={FPS},tpad=stop_mode=clone:stop_duration=1,trim=0:{doel:.3f},setpts=PTS-STARTPTS"
         tekst = [f"drawtext=fontfile={FONT}:text='{esc(credit)}':x=w-tw-28:y=h-th-24:fontsize=24:"
                  "fontcolor=white@0.75:box=1:boxcolor=black@0.35:boxborderw=8"]
         if st.get("tekst"):
@@ -82,7 +87,7 @@ def main():
         # geluid: "origineel" (STANDAARD: echt bodycam-geluid; zakt vanzelf weg zodra onze stem praat, komt tussen de zinnen
         #          weer omhoog) / "uit" (STANDAARD bij "kaart": daar praat de korps-verteller -> vervangen door onze stem;
         #          ook voor tekstschermen met verteller) / "onder" (vast -18 dB).
-        geluid = st.get("geluid") or ("uit" if soort == "kaart" else "origineel")
+        geluid = st.get("geluid") or "uit"   # eigenaar 17 nov (later): "alleen de beelden, zonder het geluid wat erbij zit"
         bron_vol = {"origineel": 1.0, "onder": 0.126, "uit": 0.0}[geluid]
         a_ += (f",atempo={1 / tempo:.4f},volume={bron_vol},aformat=sample_rates=48000:channel_layouts=stereo,"
                f"apad,atrim=0:{doel:.3f}[ba]")

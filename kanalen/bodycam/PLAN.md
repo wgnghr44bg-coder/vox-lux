@@ -58,6 +58,17 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   vanzelf wegzakt als onze stem praat; kaart/tekstscherm met korps-verteller = bron-geluid uit. Zoek met Whisper
   (tijdstempels) precies waar de korps-verteller praat en knip die stukken eruit (bv. CBP-radio: 404,4-424,6 s).
 
+## Stand 17 nov 2026 (avond, laatst)
+- Stem `bodycam-stem` = **de eigen stem van de eigenaar** ("Stem is van mij"). Tempo: **speed 0.75, pauze 0.7** (eigenaar:
+  "de stem gaat te snel" bij 160 w/min) = ± 115-120 woorden/min.
+- `maak_voiceover.py` controleert nu **elke zin met Whisper** en maakt hem opnieuw tot hij precies klopt (ingeslikte of
+  dubbele woorden, verhaspelde namen). Regels die met `[` beginnen worden niet uitgesproken.
+- **Vorm (EWU Bodycam):** óf echt geluid (agenten, verdachte, ondervraging; met ondertitels), óf onze verteller — nooit
+  allebei tegelijk (eigenaar: "verschillende geluiden", "hapert"). Beeld nooit vertragen of stilzetten; 29,97 fps.
+- Proef 2: `videos/sarah-boone-2020/` (Orange County Sheriff, PD-FLGov, bodycam 42 min). Stem klaar; wacht op
+  `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
+- De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
+
 ## Video maken (17 nov 2026)
 1. `bron/bron.mp4` + `bronvermelding.txt` + `script.txt` (Engels, alinea = stemblok, [BEELD]-regels).
 2. Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py <map>` (eigen stem, speed 1.0).
