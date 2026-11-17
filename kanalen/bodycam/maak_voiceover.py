@@ -36,19 +36,37 @@ ov._prompts["bodycam"] = ov.model().create_voice_clone_prompt(ref_audio=str(stem
 cfg = VoiceConfig(voice="bodycam", speed=speed, seed=seed, num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 SR = ov.SR
+# Uitspraak: alleen de tekst voor de stem wordt aangepast (script.txt en ondertitels blijven gewoon).
+# Aanvullen in kanalen/bodycam/uitspraak.json, gecontroleerd met Whisper.
+UITSPRAAK = json.loads((Path(__file__).parent / "uitspraak.json").read_text(encoding="utf-8"))
+
+
+def voor_stem(z):
+    for woord, klank in UITSPRAAK.items():
+        z = re.sub(r"(?<![A-Za-z])" + re.escape(woord) + r"(?![A-Za-z])", klank, z)
+    return z
+
+
+# --alleen 2,4 : alleen deze blokken opnieuw (andere seed met --seed-extra n), de rest blijft staan
+ALLEEN = {int(x) for x in sys.argv[sys.argv.index("--alleen") + 1].split(",")} if "--alleen" in sys.argv else None
+EXTRA = int(sys.argv[sys.argv.index("--seed-extra") + 1]) if "--seed-extra" in sys.argv else 0
 
 regels = [r for r in (map_ / "script.txt").read_text(encoding="utf-8").splitlines()
           if not r.startswith("#") and not r.startswith("[BEELD")]
 alineas = [" ".join(a.split()) for a in re.split(r"\n\s*\n", "\n".join(regels)) if a.strip()]
 uit = map_ / "stem"
 uit.mkdir(exist_ok=True)
+oud = {b["blok"]: b for b in json.loads((uit / "blokken.json").read_text(encoding="utf-8"))} if ALLEEN else {}
 blokken = []
 for n, alinea in enumerate(alineas, 1):
+    if ALLEEN and n not in ALLEEN and n in oud:
+        blokken.append(oud[n])
+        continue
     zinnen = [z for z in re.split(r"(?<=[.!?])\s+", alinea) if z]
     clips = []
     for i, z in enumerate(zinnen):
         for poging in range(8):  # afgekapte of veel te snelle zinnen opnieuw (zoals tools/engine_stem.py)
-            wav = edge_fade(trim(ov.speak([z], cfg, seed=seed + 1000 * poging + 37 * n + i)[0], SR), SR)
+            wav = edge_fade(trim(ov.speak([voor_stem(z)], cfg, seed=seed + 1000 * poging + 37 * n + i + 7919 * EXTRA)[0], SR), SR)
             d, w = len(wav) / SR, len(z.split())
             if d >= 0.25 and w / (d / 60) <= (250 if w >= 8 else 320):
                 break
