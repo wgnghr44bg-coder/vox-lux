@@ -94,6 +94,11 @@ def main():
             v += (f"split[o{i}][p{i}];[p{i}]crop=iw:ih*0.2:0:ih*0.8,boxblur=25:3[q{i}];"
                   f"[o{i}][q{i}]overlay=0:H*0.8,")
         v += f"fps={FPS},trim=0:{lengte:.3f},setpts=PTS-STARTPTS"
+        # "vervaag": [[a, b], ...] in BRON-seconden (alleen bij "origineel"): het hele beeld sterk vervagen, bv. het
+        # moment van het schieten (eigenaar 17 nov: "kan je dat niet blurren"); het geluid loopt gewoon door
+        for a_v, b_v in st.get("vervaag", []):
+            s0 = st["bron"][0] if st["soort"] == "origineel" else 0
+            v += f",boxblur=luma_radius=45:luma_power=6:enable='between(t,{a_v - s0:.2f},{b_v - s0:.2f})'"
         tekst = [f"drawtext=fontfile={FONT}:text='{esc(credit)}':x=w-tw-28:y=h-th-24:fontsize=24:"
                  "fontcolor=white@0.75:box=1:boxcolor=black@0.35:boxborderw=8"]
         if st["soort"] == "origineel" and st.get("ondertitels", True):   # eigen ondertitels (niet als de bron ze al heeft)

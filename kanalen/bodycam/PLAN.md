@@ -79,6 +79,11 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
 - Onze stem alleen waar de korps-verteller sprak (grenzen met Whisper-woordtijden bepalen); korte aankondiging bij een
   andere camera. Controle: per 25 s Whisper (geen "approximately"/"The following"/…), beeld elke 6 s bekijken op bloed.
 - Video 1 versie 2: `videos/cbp-lascruces-2023/las-cruces-v2.mp4` (17:46).
+- **Versie 3 (17 nov, 23:55) = de vorm voor alle video's:** op tijdvolgorde, elk moment één keer (geen cold open, andere
+  camera's alleen het kernmoment; eigenaar: "dubbel stem"); de tekst past bij het beeld eronder ("beeld klopt niet met wat
+  er verteld wordt"); **weinig verteller**, alleen waar nodig (eigenaar: "je hoeft niet veel te praten, de video doet al
+  veel"; ± 1 min tekst op 10 min); het **schieten zelf vervaagd** met het echte geluid (`"vervaag": [[a,b]]` in plan.json;
+  eigenaar: "kan je dat niet blurren"), de rest scherp. `videos/cbp-lascruces-2023/las-cruces-v3.mp4` (10:24).
 
 ## VASTE STEM BODYCAM (eigenaar 17 nov 2026, 21:20: "Nummer 3")
 - **Chatterbox** (MIT, gratis, `C:/Users/rane/chatterbox-venv`) met de ontworpen stem **ontwerp-us-man-laag-3** (eigenaar 17 nov 21:30: "ik wil toch stem 5"; eerst laag-1)

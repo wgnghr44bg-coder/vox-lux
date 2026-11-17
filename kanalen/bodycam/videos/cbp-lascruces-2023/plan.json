@@ -1,30 +1,10 @@
 [
  {
-  "soort": "origineel",
-  "bron": [
-   524.8,
-   535.3
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
   "soort": "stem",
   "blok": 1,
   "bron": [
    [
     85,
-    103
-   ]
-  ],
-  "beeld": "vol"
- },
- {
-  "soort": "stem",
-  "blok": 2,
-  "bron": [
-   [
-    103,
     134.5
    ]
   ],
@@ -41,10 +21,10 @@
  },
  {
   "soort": "stem",
-  "blok": 3,
+  "blok": 2,
   "bron": [
    [
-    197.5,
+    206,
     256
    ]
   ],
@@ -70,10 +50,10 @@
  },
  {
   "soort": "stem",
-  "blok": 4,
+  "blok": 3,
   "bron": [
    [
-    346,
+    352,
     444
    ]
   ],
@@ -86,7 +66,13 @@
    745.0
   ],
   "beeld": "vol",
-  "ondertitels": false
+  "ondertitels": false,
+  "vervaag": [
+   [
+    711.0,
+    745.0
+   ]
+  ]
  },
  {
   "soort": "origineel",
@@ -130,11 +116,15 @@
  },
  {
   "soort": "stem",
-  "blok": 5,
+  "blok": 4,
   "bron": [
    [
     905.6,
-    914.5
+    911.6
+   ],
+   [
+    912,
+    924.5
    ]
   ],
   "beeld": "vol"
@@ -142,42 +132,21 @@
  {
   "soort": "origineel",
   "bron": [
-   914.5,
+   924.5,
    948.0
   ],
   "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "origineel",
-  "bron": [
-   963.0,
-   986.0
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "origineel",
-  "bron": [
-   994.5,
-   1026.5
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "origineel",
-  "bron": [
-   1030.8,
-   1073.5
-  ],
-  "beeld": "vol",
-  "ondertitels": false
+  "ondertitels": false,
+  "vervaag": [
+   [
+    935.5,
+    948.0
+   ]
+  ]
  },
  {
   "soort": "stem",
-  "blok": 6,
+  "blok": 5,
   "bron": [
    [
     1073.6,
@@ -189,15 +158,21 @@
  {
   "soort": "origineel",
   "bron": [
-   1080.6,
-   1323.5
+   1088.0,
+   1136.0
   ],
   "beeld": "vol",
-  "ondertitels": false
+  "ondertitels": false,
+  "vervaag": [
+   [
+    1114.5,
+    1136.0
+   ]
+  ]
  },
  {
   "soort": "stem",
-  "blok": 7,
+  "blok": 6,
   "bron": [
    [
     1323.5,
@@ -208,7 +183,7 @@
  },
  {
   "soort": "stem",
-  "blok": 8,
+  "blok": 7,
   "bron": [
    [
     1395,
