@@ -13,28 +13,44 @@
   "blok": 1,
   "bron": [
    [
-    555,
-    580
+    468,
+    486
    ]
   ],
   "beeld": "vol"
- },
- {
-  "soort": "origineel",
-  "bron": [
-   543.6,
-   554.3
-  ],
-  "beeld": "vol",
-  "ondertitels": false
  },
  {
   "soort": "stem",
   "blok": 2,
   "bron": [
    [
-    600,
-    607
+    88,
+    126
+   ]
+  ],
+  "beeld": "kaart",
+  "tekst": "Interstate 10, New Mexico  -  April 2, 2023"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   152.9,
+   181.2
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 3,
+  "bron": [
+   [
+    125,
+    130
+   ],
+   [
+    265,
+    284.6
    ]
   ],
   "beeld": "vol"
@@ -42,10 +58,145 @@
  {
   "soort": "origineel",
   "bron": [
-   615.0,
-   626.7
+   284.8,
+   295.5
   ],
   "beeld": "vol",
   "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 4,
+  "bron": [
+   [
+    356,
+    379
+   ],
+   [
+    296,
+    303
+   ]
+  ],
+  "beeld": "kaart"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   486.2,
+   523.9
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 5,
+  "bron": [
+   [
+    640,
+    652
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   555.0,
+   574.4
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   615.0,
+   635.6
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   659.6,
+   671.4
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 6,
+  "bron": [
+   [
+    1080,
+    1110
+   ]
+  ],
+  "beeld": "zwart",
+  "titel": "What happened next"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   798.6,
+   811.2
+  ],
+  "beeld": "zwart",
+  "ondertitels": false,
+  "ondertitels_tekst": [
+   [
+    0.3,
+    3.5,
+    "I'm fine, man. I just... I'm fine."
+   ],
+   [
+    3.6,
+    5.9,
+    "I just wish it hadn't ended like this."
+   ],
+   [
+    6.1,
+    9.4,
+    "I tried to talk to him, man. You know?"
+   ],
+   [
+    11.0,
+    12.5,
+    "I tried to talk to him."
+   ]
+  ]
+ },
+ {
+  "soort": "stem",
+  "blok": 7,
+  "bron": [
+   [
+    1378,
+    1400
+   ],
+   [
+    1172,
+    1185
+   ]
+  ],
+  "beeld": "kaart"
+ },
+ {
+  "soort": "stem",
+  "blok": 8,
+  "bron": [
+   [
+    1172,
+    1185
+   ],
+   [
+    1080,
+    1110
+   ]
+  ],
+  "beeld": "zwart"
  }
 ]

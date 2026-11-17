@@ -74,24 +74,34 @@ def stuk(tekst, n, k):
     t0 = lambda c: c["timestamp"][0] - 0.5
     t1 = lambda c: (c["timestamp"][1] if c["timestamp"][1] is not None else c["timestamp"][0] + 0.4) - 0.5
     begin, eind = max(0.0, t0(ch[0]) - 0.08), min(len(a) / SR, t1(ch[-1]) + 0.2)
+    # Zinsgrenzen uit het SCRIPT (Whisper zet bij woordtijden vaak geen punten): script-woorden koppelen aan de
+    # Whisper-woorden en na elk script-woord dat een zin afsluit een pauze zetten.
+    norm = lambda w: re.sub(r"[^a-z0-9]", "", w.lower())
+    sw = tekst.split()
+    eindes = {i for i, w in enumerate(sw) if w[-1] in PAUZE and i < len(sw) - 1}
+    koppel = {}
+    for blok_ in difflib.SequenceMatcher(None, [norm(w) for w in sw], [norm(c["text"]) for c in ch]).get_matching_blocks():
+        for d in range(blok_.size):
+            koppel[blok_.a + d] = blok_.b + d
     delen, vorige = [], int(begin * SR)
-    for c, v in zip(ch, ch[1:]):
-        t = c["text"].strip()
-        if t and t[-1] in PAUZE:
-            # alleen invoegen op een ECHT stil moment (30 ms onder -40 dB t.o.v. de piek) binnen 150 ms van de
-            # woordgrens; anders niets doen (eigenaar 17 nov: "hij stottert nog een beetje")
-            i, w, k = int((t1(c) + t0(v)) / 2 * SR), int(0.15 * SR), int(0.03 * SR)
-            lo = max(vorige + k, i - w)
-            seg = a[lo:i + w]
-            if len(seg) <= k:
-                continue
-            env = np.sqrt(np.convolve(seg ** 2, np.ones(k) / k, "same"))
-            j = int(np.argmin(env))
-            if env[j] > np.abs(a).max() * 10 ** (-40 / 20):
-                continue
-            i = lo + j
-            delen += [a[vorige:i], np.zeros(int(PAUZE[t[-1]] * SR), np.float32)]
-            vorige = i
+    for si in sorted(eindes):
+        if si not in koppel or koppel[si] + 1 >= len(ch):
+            continue
+        c, v = ch[koppel[si]], ch[koppel[si] + 1]
+        # alleen invoegen op een zacht moment (30 ms onder -32 dB t.o.v. de piek) binnen 150 ms van de woordgrens;
+        # nooit midden in een klank (eigenaar 17 nov: "hij stottert nog een beetje")
+        i, w, kk = int((t1(c) + t0(v)) / 2 * SR), int(0.15 * SR), int(0.03 * SR)
+        lo = max(vorige + kk, i - w)
+        seg = a[lo:i + w]
+        if len(seg) <= kk:
+            continue
+        env = np.sqrt(np.convolve(seg ** 2, np.ones(kk) / kk, "same"))
+        j = int(np.argmin(env))
+        if env[j] > np.abs(a).max() * 10 ** (-32 / 20):
+            continue
+        i = lo + j
+        delen += [a[vorige:i], np.zeros(int(PAUZE[sw[si][-1]] * SR), np.float32)]
+        vorige = i
     delen.append(a[vorige:int(eind * SR)])
     uit = np.concatenate(delen)
     n_f = int(0.015 * SR)

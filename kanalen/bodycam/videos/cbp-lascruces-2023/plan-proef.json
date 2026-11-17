@@ -1,0 +1,51 @@
+[
+ {
+  "soort": "origineel",
+  "bron": [
+   524.8,
+   535.3
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 1,
+  "bron": [
+   [
+    555,
+    580
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   543.6,
+   554.3
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 2,
+  "bron": [
+   [
+    600,
+    607
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   615.0,
+   626.7
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ }
+]

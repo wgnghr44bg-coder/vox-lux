@@ -99,6 +99,10 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
 - **Controle vóór sturen**: freezedetect (geen stilstand), beeldstappen regelmatig (29,97), geen audio-sprongen, volume per
   stuk binnen ± 1 LU, Whisper over de hele proef, controlebeelden bekijken.
 - Proef 3 (eerste in deze vorm): `videos/cbp-lascruces-2023/` (DVIDS 881873).
+- **Video 1 KLAAR (17 nov 2026, 22:20): `videos/cbp-lascruces-2023/las-cruces-volledig.mp4` (5:57)**, plan.json + script.txt,
+  titel/beschrijving/hoofdstukken in `youtube.txt`. Nog niet geüpload (eerst nieuw kanaal + token van de eigenaar).
+  Heftig moment: zwart scherm met de echte stem + eigen ondertitels (`beeld: "zwart"`, `ondertitels_tekst`).
+  Kaarten schuiven langzaam (geen stilstaand beeld). Whisper-controle per 25 s (lange teksten in één keer overslaat soms).
 - Alleen beelden rechtstreeks van het korps (DVIDS/CBP/korps-site), NIET de versie van een YouTube-kanaal (Sarah Boone
   op Commons = Law&Crime-versie -> niet gebruiken).
 

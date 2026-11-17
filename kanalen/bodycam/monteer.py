@@ -82,11 +82,13 @@ def main():
         if beeld == "bodycam":
             v += (f"crop=1440:1080:240:0,split[a{i}][b{i}];[a{i}]scale={W}:-2,crop={W}:{H},boxblur=30:2,"
                   f"eq=brightness=-0.15[bg{i}];[b{i}]scale=-2:{H}[fg{i}];[bg{i}][fg{i}]overlay=(W-w)/2:0,")
+        elif beeld == "zwart":   # beeld volledig zwart (bv. waar het echte beeld te heftig is), geluid loopt door
+            v += f"scale={W}:{H},drawbox=x=0:y=0:w=iw:h=ih:color=black:t=fill,"
         elif beeld == "kaart":
-            v += f"crop=iw*0.86:ih*0.86:(iw-ow)/2:0,scale={W}:{H},"
+            v += f"crop=iw*0.86:ih*0.86:(iw-ow)/2:0,scale=2112:1188,crop={W}:{H}:x='min(192,t*4)':y='min(108,t*2.25)',"   # kaart: ondertitels weg + langzaam schuiven (geen stilstaand beeld)
         else:
             v += f"scale={W}:{H},"
-        if st["soort"] == "stem" and st.get("verberg_ondertitels", True):
+        if st["soort"] == "stem" and st.get("verberg_ondertitels", True) and beeld != "zwart":
             # ondertitels die het korps in het beeld heeft gezet horen bij geluid dat je nu niet hoort -> onderste strook
             # vervagen (anders lees je zinnen die niemand zegt)
             v += (f"split[o{i}][p{i}];[p{i}]crop=iw:ih*0.2:0:ih*0.8,boxblur=25:3[q{i}];"
@@ -99,10 +101,16 @@ def main():
                 tekst.append(f"drawtext=fontfile={FONT}:text='{esc(t)}':x=(w-tw)/2:y=h-200:fontsize=44:"
                              f"fontcolor=white:borderw=3:bordercolor=black:line_spacing=10:"
                              f"enable='between(t,{s:.2f},{e:.2f})'")
+        for s_, e_, t_ in st.get("ondertitels_tekst", []):     # eigen ondertitels met vaste tijden (bv. op zwart)
+            tekst.append(f"drawtext=fontfile={FONT}:text='{esc(t_)}':x=(w-tw)/2:y=h-220:fontsize=48:"
+                         f"fontcolor=white:borderw=3:bordercolor=black:enable='between(t,{s_},{e_})'")
+        if st.get("titel"):                                   # grote titel midden in beeld
+            tekst.append(f"drawtext=fontfile={FONT}:text='{esc(st['titel'])}':x=(w-tw)/2:y=(h-th)/2:fontsize=72:"
+                         "fontcolor=white:enable='between(t,0.4,4.5)'")
         if st.get("tekst"):
             tekst.append(f"drawtext=fontfile={FONT}:text='{esc(st['tekst'])}':x=60:y=60:fontsize=42:fontcolor=white:"
                          "box=1:boxcolor=black@0.55:boxborderw=16:enable='between(t,0.3,6)'")
-        fc.append(v + "," + ",".join(tekst) + f",format=yuv420p[v{i}]")
+        fc.append(v + "," + ",".join(tekst) + f",setsar=1,format=yuv420p[v{i}]")
         # audio: óf echt geluid, óf onze stem — nooit allebei
         if st["soort"] == "origineel":
             fc.append(f"[{bron_audio}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
