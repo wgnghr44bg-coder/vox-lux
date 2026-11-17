@@ -81,3 +81,14 @@ keer, zoveel als het verbruik toelaat (tussendoor `python tools/claude_gebruik.p
 ≥ 13.500 woorden, thumbnail kenmerk, youtube-beschrijving, vier controles GOED). **Titel** nieuw volgens AFSPRAKEN:
 de oude titels hebben nog "| <N> Hours of History for Sleep" (moet "| History for Sleep" worden, geen vraag).
 Status `script-klaar (nieuwe opbouw, opbouw Sleepy <datum>, Claude)`. Februari volgt later in een eigen prompt.
+
+## Stap 6 (eigenaar 17 nov, na reacties onder Mayflower): beroemde dingen kloppend + uitspraak
+Reacties: "AI slop ... human voiced" en "check the correct pronunciation ... the image that introduces this video
+about the Mayflower has very little resemblance to the vessel" (zie stories/CIJFERS-NULMETING.md).
+- Vaste, historisch kloppende beschrijving voor beroemde schepen/gebouwen/voorwerpen (bv. `stories/<map>/kenmerken.txt`
+  of een gedeelde lijst in tools/), die de beeldprompts en de thumbnail gebruiken en die beeldcheck controleert.
+  Eerst voor de komende video's: blackbeard-1718 (Queen Anne's Revenge, 30 nov), scott-antarctica-1912 (Terra Nova),
+  mary-celeste-1872, tower-of-london-1536 (White Tower), pearl-harbor-1941 (USS Arizona), kerst-loopgraven-1914.
+- Uitspraaklijst voor de stem (OmniVoice): lastige namen fonetisch vervangen alleen in de tekst voor de stem
+  (bv. Massasoit, Sekigahara, Tokugawa, Edo, Saint-Mars, Pignerol, Strasbourg). Testen met een korte proef.
+- Nooit "human voiced" beweren. Kosten: geen (lokaal). Daarna één regel in ROUTINE-LOG.md.
