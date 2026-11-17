@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 01:33",
+ "bijgewerkt": "2026-11-17 02:03",
  "werkplanning": {
   "nu": [
    {
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 01:33)"
+   "tekst": "draait nu (2026-11-17 02:03)"
   },
   {
    "naam": "Git",
@@ -592,8 +592,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": false,
-   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
+   "ok": true,
+   "tekst": "laatste ronde 01:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 01:33",
-   "volgende": "2026-11-17 02:03"
+   "laatst": "2026-11-17 02:03",
+   "volgende": "2026-11-17 02:33"
   },
   "hype": {
    "aan": true,
@@ -625,8 +625,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 01:18",
-   "volgende": "2026-11-17 01:48"
+   "laatst": "2026-11-17 01:48",
+   "volgende": "2026-11-17 02:18"
   },
   "titels": {
    "aan": true,
@@ -674,7 +674,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -683,7 +683,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 65,
+    "views": 64,
     "verwerkt": "processed"
    },
    {
@@ -692,7 +692,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 16,
+    "views": 17,
     "verwerkt": "processed"
    },
    {
@@ -719,7 +719,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 619,
+    "views": 627,
     "verwerkt": "processed"
    },
    {
@@ -931,9 +931,9 @@
    "totaal": 11,
    "procent": 36
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 13,
    "totaal": 13
   }
  },
@@ -973,8 +973,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 90,
-  "geheugen_mb": 7184,
+  "bezig_procent": 4,
+  "geheugen_mb": 428,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1060,12 +1060,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 17:19",
-   "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 13 beelden lijken op een ander beeld (011, 014, 021, 026, 032, 036, 046, 049, 056, 066, 084, 085, 086), nieuwe maken",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 17:28",
    "tekst": "routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
    "fout": false,
@@ -1142,15 +1136,15 @@
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-17 01:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
-   "fout": true
+   "tijd": "2026-11-17 01:48",
+   "tekst": "sitecontrole: opgelost: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
+   "fout": false,
+   "klaar": true
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-16 14:32",
@@ -3902,7 +3896,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 01:34",
+  "bijgewerkt": "2026-11-17 02:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3923,7 +3917,7 @@
    },
    {
     "account": "account2",
-    "5uur": 5966197,
+    "5uur": 4780968,
     "week": 98450143,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3938,9 +3932,9 @@
     "stap_kost": 107573,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 44,
-    "5uur_scripts_over": 12.3,
-    "5uur_stappen_over": 71,
+    "5uur_pct": 35,
+    "5uur_scripts_over": 14.2,
+    "5uur_stappen_over": 82,
     "week_pct": 75,
     "week_scripts_over": 54.2,
     "week_stappen_over": 312
