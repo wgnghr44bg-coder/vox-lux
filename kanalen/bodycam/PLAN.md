@@ -74,8 +74,8 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   Uploaden: `YT_KANAAL=altena python tools/youtube_upload.py <mp4> --title ... --description-file ... --tags ...
   --category 25 --no-synthetic --thumbnail <jpg>` (altijd eerst privé; daarna `snippet.channelTitle` controleren).
 - Video 1: https://youtu.be/k7CbEk763Gk (PRIVÉ, 18 nov) "Border Patrol Begged Him to Drop the Club", thumbnail DROP IT NOW.
-- **Beschrijving KORT** (eigenaar: "veel te lang"): 2 zinnen verhaal, ± 6 hoofdstukken, bronregel met DVIDS/Commons-link,
-  "Not endorsed by …" + waarschuwing in één zin, 2 hashtags. Voorbeeld: `videos/cbp-lascruces-2023/youtube-beschrijving.txt`.
+- **Beschrijving KORT** (eigenaar: "veel te lang"): 2 zinnen verhaal, ± 6 hoofdstukken, slotregel "Footage from public sources. Not affiliated with any
+  government agency." (eigenaar 18 nov: geen links nodig). Bronlink apart bewaren in `bron-voor-claims.txt` (voor bezwaar bij claims). Voorbeeld: `videos/cbp-lascruces-2023/youtube-beschrijving.txt`.
 - Titels: kort en pakkend zoals EWU, maar kloppend. Thumbnail: rood BODYCAM-label, dicht op de actie, rode cirkel,
   2-3 woorden Impact (wit/geel), geen korps-ondertitels/logo/camera-kader.
 
