@@ -291,3 +291,7 @@ ValueError: empty separator)
 - 2026-11-17 17:48 bewaker: keten gestart voor ijstijd-20000-vc
 - 2026-11-17 17:48 routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)
 - 2026-11-17 19:06 eigenaar: Sleep Archives even GESTOPT ("Kun je sleeparchives even stoppen"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak "Sleep Archives bewaker" UIT (routine en scriptgenerator stonden al uit). Weer aan: Enable-ScheduledTask 'Sleep Archives bewaker'. Focus nu op het bodycam-kanaal (kanalen/bodycam/PLAN.md).
+- 2026-11-17 20:18 sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-17 20:18 sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site
+- 2026-11-17 21:18 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-18 00:13 bodycam: video 1 (Las Cruces, CBP) PRIVÉ geüpload naar NOIRTRACES: https://youtu.be/k7CbEk763Gk – titel "Border Patrol Begged Him to Drop the Club", thumbnail DROP IT NOW. Openbaar pas na akkoord eigenaar.

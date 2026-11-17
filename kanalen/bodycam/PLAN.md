@@ -69,6 +69,14 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
+## KANAAL: NOIRTRACES (eigenaar 18 nov 2026)
+- Kanaal **NOIRTRACES** (UC_6p9gp5aBf-eHY5VmJEw4w), sleutel `~/.yt-altena.json` (naam "altena", met uploadrechten).
+  Uploaden: `YT_KANAAL=altena python tools/youtube_upload.py <mp4> --title ... --description-file ... --tags ...
+  --category 25 --no-synthetic --thumbnail <jpg>` (altijd eerst privé; daarna `snippet.channelTitle` controleren).
+- Video 1: https://youtu.be/k7CbEk763Gk (PRIVÉ, 18 nov) "Border Patrol Begged Him to Drop the Club", thumbnail DROP IT NOW.
+- Titels: kort en pakkend zoals EWU, maar kloppend. Thumbnail: rood BODYCAM-label, dicht op de actie, rode cirkel,
+  2-3 woorden Impact (wit/geel), geen korps-ondertitels/logo/camera-kader.
+
 ## VORM VAN DE VIDEO (eigenaar 17 nov 2026, 23:00 – geldt voor alle video's)
 - **De video van het korps zoveel mogelijk zoals hij is**: originele volgorde en kader, GEEN vervaging, GEEN zoom/schuiven
   (eigenaar: "de helft is weg geblurd", "sommige beelden trillen"). Echt geluid en ondertitels van het korps blijven.
