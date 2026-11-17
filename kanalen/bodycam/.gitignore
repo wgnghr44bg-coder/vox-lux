@@ -11,3 +11,5 @@ videos/*/bron/*.ttf
 videos/*/bron/*.html
 stemproeven/*.wav
 stemproeven/*.mp3
+videos/*/thumb/f_*.jpg
+videos/*/thumb/kandidaten.jpg
