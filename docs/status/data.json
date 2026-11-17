@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 19:33",
+ "bijgewerkt": "2026-11-17 20:03",
  "werkplanning": {
   "nu": [
    {
@@ -580,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 19:33)"
+   "tekst": "draait nu (2026-11-17 20:03)"
   },
   {
    "naam": "Git",
@@ -605,7 +605,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 19:18: alles klopt"
+   "tekst": "laatste ronde 19:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -622,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 19:33",
-   "volgende": "2026-11-17 20:03"
+   "laatst": "2026-11-17 20:03",
+   "volgende": "2026-11-17 20:33"
   },
   "hype": {
    "aan": true,
@@ -637,8 +637,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 19:18",
-   "volgende": "2026-11-17 19:48"
+   "laatst": "2026-11-17 19:48",
+   "volgende": "2026-11-17 20:18"
   },
   "titels": {
    "aan": true,
@@ -731,7 +731,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 656,
+    "views": 657,
     "verwerkt": "processed"
    },
    {
@@ -937,7 +937,7 @@
   }
  },
  "kpi": {
-  "geplande": 2,
+  "geplande": 1,
   "runs": {
    "goed": 4,
    "totaal": 13,
@@ -973,8 +973,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 560,
+  "bezig_procent": 27,
+  "geheugen_mb": 563,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3794,7 +3794,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 19:34",
+  "bijgewerkt": "2026-11-17 20:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3829,15 +3829,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 103062,
+    "stap_kost": 85100,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 3,
     "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 128,
+    "5uur_stappen_over": 155,
     "week_pct": 69,
     "week_scripts_over": 65.6,
-    "week_stappen_over": 394
+    "week_stappen_over": 478
    }
   ]
  },
