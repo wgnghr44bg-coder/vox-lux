@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 20:03",
+ "bijgewerkt": "2026-11-17 20:33",
  "werkplanning": {
   "nu": [
    {
@@ -565,7 +565,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "174 GB vrij"
+   "tekst": "173 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -580,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 20:03)"
+   "tekst": "draait nu (2026-11-17 20:33)"
   },
   {
    "naam": "Git",
@@ -604,8 +604,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 19:48: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -622,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 20:03",
-   "volgende": "2026-11-17 20:33"
+   "laatst": "2026-11-17 20:33",
+   "volgende": "2026-11-17 21:03"
   },
   "hype": {
    "aan": true,
@@ -633,12 +633,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-17 20:10"
+   "volgende": "2026-11-17 21:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 19:48",
-   "volgende": "2026-11-17 20:18"
+   "laatst": "2026-11-17 20:18",
+   "volgende": "2026-11-17 20:48"
   },
   "titels": {
    "aan": true,
@@ -713,7 +713,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 127,
+    "views": 129,
     "verwerkt": "processed"
    },
    {
@@ -940,12 +940,12 @@
   "geplande": 1,
   "runs": {
    "goed": 4,
-   "totaal": 13,
-   "procent": 31
+   "totaal": 15,
+   "procent": 27
   },
-  "fouten": 1,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -973,8 +973,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 563,
+  "bezig_procent": 23,
+  "geheugen_mb": 623,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1060,18 +1060,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-17 01:31",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-17 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 02:10",
-   "tekst": "routine-lokaal: dallas-1963: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-17 04:22",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1142,14 +1130,37 @@
    "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 19:06",
-   "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen",
+   "fout": true
   }
  ],
  "opgelost": [
@@ -1180,6 +1191,12 @@
   {
    "tijd": "2026-11-17 17:48",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 19:06",
+   "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
    "fout": true,
    "klaar": false
   }
@@ -3794,7 +3811,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 20:04",
+  "bijgewerkt": "2026-11-17 20:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3816,8 +3833,8 @@
    },
    {
     "account": "account2",
-    "5uur": 393762,
-    "week": 91365238,
+    "5uur": 150275,
+    "week": 89511868,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
@@ -3825,19 +3842,19 @@
      "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Tue 10-11": 2713872
+     "Tue 10-11": 860502
     },
     "script_kost": 619312,
     "metingen": 15,
     "stap_kost": 85100,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 3,
-    "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 155,
-    "week_pct": 69,
-    "week_scripts_over": 65.6,
-    "week_stappen_over": 478
+    "5uur_pct": 1,
+    "5uur_scripts_over": 21.7,
+    "5uur_stappen_over": 158,
+    "week_pct": 68,
+    "week_scripts_over": 68.6,
+    "week_stappen_over": 499
    }
   ]
  },
