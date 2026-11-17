@@ -287,3 +287,7 @@ ValueError: empty separator)
 - 2026-11-17 15:48 sitecontrole: opgelost: website is sinds 2026-11-17 07:33 niet bijgewerkt (taak 'Sleep Archives dashboard' kijken)
 - 2026-11-17 16:06 routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025, 041, 066
 - 2026-11-17 17:48 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
+- 2026-11-17 17:48 bewaker: SEINTJE dallas-1963 (2026-11-21) is vandaag 2x gestopt, morgen opnieuw
+- 2026-11-17 17:48 bewaker: keten gestart voor ijstijd-20000-vc
+- 2026-11-17 17:48 routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)
+- 2026-11-17 19:06 eigenaar: Sleep Archives even GESTOPT ("Kun je sleeparchives even stoppen"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak "Sleep Archives bewaker" UIT (routine en scriptgenerator stonden al uit). Weer aan: Enable-ScheduledTask 'Sleep Archives bewaker'. Focus nu op het bodycam-kanaal (kanalen/bodycam/PLAN.md).

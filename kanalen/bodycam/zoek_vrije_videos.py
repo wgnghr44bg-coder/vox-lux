@@ -6,7 +6,10 @@ Gebruik:
   python kanalen/bodycam/zoek_vrije_videos.py --zoek "police chase,pursuit" --aantal 30
   python kanalen/bodycam/zoek_vrije_videos.py --bronnen commons,cbp
 
-Bronnen zonder sleutel: commons, archive, cbp, dhs, mixkit
+Bronnen zonder sleutel: overheid (BREED: alle Commons-video's van overheden zonder auteursrecht – LAPD, Californië,
+Florida, federaal – gefilterd op incidenten), commons, archive, cbp, dhs, mixkit
+Kolom "verhaal" (0-5 sterren): grove kans op een goed verhaal (standoff/achtervolging/gijzeling, 3-45 min, jaartal of
+naam in de titel, maker is een korps). --sorteer verhaal zet de beste kandidaten bovenaan.
 Met gratis API-sleutel (omgevingsvariabele): dvids (DVIDS_API_KEY), pexels (PEXELS_API_KEY), pixabay (PIXABAY_API_KEY)
 Niet automatisch (blokkeren scripts / geen video): loc.gov, fbi.gov, bjs.ojp.gov -> zie de tips onderaan het verslag.
 
@@ -93,6 +96,23 @@ OVERHEID = ["police department", "police dept", "sheriff", "county", "city of", 
             "customs", "border", "fbi", "u.s.", "us army", "marshals"]
 
 
+def verhaal_score(r):
+    """0-5: hoe waarschijnlijk er een goed verhaal van te maken is (grove schatting op titel, duur en maker)."""
+    t, sc = r["titel"].lower(), 0
+    if any(k in t for k in STERK):
+        sc += 2
+    elif any(k in t for k in INCIDENT):
+        sc += 1
+    sec = r.get("sec") or 0
+    if 180 <= sec <= 2700:          # 3-45 min: genoeg beeld voor 10-15 min video
+        sc += 1
+    if re.search(r"\b(19|20)\d\d\b", t) or re.search(r"\b[A-Z][a-z]+ [A-Z][a-z]+'s\b", r["titel"]):
+        sc += 1                     # jaartal of naam ("Ryan Routh's Arrest"): bekend incident, nieuws te vinden
+    if any(k in schoon(r.get("maker", "")).lower() for k in OVERHEID):
+        sc += 1
+    return min(sc, 5)
+
+
 # ---------------------------------------------------------------- bronnen
 
 def termen(q):
@@ -107,9 +127,46 @@ def zoek_commons(q, n):
         zoek = haal("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p))
         time.sleep(1)  # Wikimedia vraagt om rustig aan te doen
         titels += [r["title"] for r in zoek.get("query", {}).get("search", [])]
-    titels = list(dict.fromkeys(titels))
+    return commons_details(list(dict.fromkeys(titels)), "Wikimedia Commons")
+
+
+# Licentiesjablonen op Commons voor werk van overheden zonder auteursrecht (bodycam, dashcam, persvideo's).
+OVERHEID_SJABLONEN = ["PD-CAGov-LAPD", "PD-CAGov", "PD-FLGov", "PD-USGov-DHS-CBP", "PD-USGov-DHS", "PD-USGov-FBI",
+                      "PD-USGov-DOJ", "PD-USGov-Military", "PD-USGov", "PD-USGov-NTSB", "PD-USGov-FAA",
+                      "PD-USGov-NPS", "PD-USGov-USCG", "PD-AZGov", "PD-WAGov", "PD-MNGov", "PD-OHGov"]
+# Woorden in de titel die op een incident met een verhaal wijzen (geen persconferentie of opsporingsbericht).
+INCIDENT = ["bodycam", "body cam", "body camera", "body-worn", "body worn", "dashcam", "dash cam", "shooting",
+            "shootout", "shots", "standoff", "hostage", "pursuit", "chase", "arrest", "ois", "officer-involved",
+            "officer involved", "critical incident", "use of force", "carjack", "robbery", "stabbing", "rescue",
+            "barricade", "swat", "ambush", "crash", "fire", "drown", "kidnap", "riot", "manhunt", "escape",
+            "standoff", "taser", "k9", "k-9", "traffic stop", "dui", "overdose", "911", "raid", "intercept"]
+STERK = ["shootout", "standoff", "hostage", "pursuit", "manhunt", "ambush", "kidnap", "barricade", "rescue",
+         "carjack", "escape", "critical incident", "officer-involved", "officer involved"]
+
+
+def zoek_overheid(q, n):
+    """Breed: alle video's met een overheids-PD-sjabloon, nieuwste eerst, gefilterd op incident-woorden."""
+    titels = []
+    for sj in OVERHEID_SJABLONEN:
+        p = {"action": "query", "format": "json", "list": "search", "srnamespace": 6, "srlimit": min(500, n * 8),
+             "srsearch": f'hastemplate:"{sj}" filetype:video', "srsort": "create_timestamp_desc"}
+        try:
+            zoek = haal("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p))
+        except Exception as e:
+            print(f"  {sj}: overgeslagen ({e})", file=sys.stderr)
+            continue
+        time.sleep(1.5)
+        gevonden = [r["title"] for r in zoek.get("query", {}).get("search", [])
+                    if any(k in r["title"].lower() for k in INCIDENT)]
+        print(f"  {sj}: {len(gevonden)} incident-video's", file=sys.stderr)
+        titels += gevonden
+    return commons_details(list(dict.fromkeys(titels)), "Commons (overheid)")
+
+
+def commons_details(titels, bronnaam):
     uit = []
     for i in range(0, len(titels), 20):
+        time.sleep(1)
         p = {"action": "query", "format": "json", "prop": "imageinfo|templates", "titles": "|".join(titels[i:i + 20]),
              "iiprop": "extmetadata|size|timestamp", "tllimit": 500,
              "iiextmetadatafilter": "LicenseShortName|Artist|DateTimeOriginal"}
@@ -126,7 +183,7 @@ def zoek_commons(q, n):
             elif "Template:LicenseReview/layout-reviewme" in sj:
                 waarsch = "licentie nog niet gecontroleerd door Commons"
             uit.append({"waarschuwing": waarsch,
-                "bron": "Wikimedia Commons", "titel": pg["title"].removeprefix("File:"),
+                "bron": bronnaam, "titel": pg["title"].removeprefix("File:"), "sec": dur or 0,
                 "datum": (ii.get("timestamp") or "")[:10],
                 "duur": f"{int(dur // 60)}:{int(dur % 60):02d}" if dur else "",
                 "licentie": schoon(m.get("LicenseShortName", {}).get("value")),
@@ -247,7 +304,7 @@ def zoek_pixabay(q, n):
              "maker": v.get("user", ""), "url": v["pageURL"]} for v in d.get("hits", [])]
 
 
-BRONNEN = {"commons": zoek_commons, "archive": zoek_archive, "cbp": zoek_cbp, "dhs": zoek_dhs,
+BRONNEN = {"overheid": zoek_overheid, "commons": zoek_commons, "archive": zoek_archive, "cbp": zoek_cbp, "dhs": zoek_dhs,
            "mixkit": zoek_mixkit, "dvids": zoek_dvids, "pexels": zoek_pexels, "pixabay": zoek_pixabay}
 
 TIPS = """## Handmatig (scripts worden geblokkeerd of het zijn geen video's)
@@ -266,6 +323,8 @@ def main():
                     help="zoektermen, komma-gescheiden (standaard bodycam-termen)")
     ap.add_argument("--aantal", type=int, default=25, help="max. resultaten per bron")
     ap.add_argument("--bronnen", default=",".join(BRONNEN), help="komma-lijst: " + ",".join(BRONNEN))
+    ap.add_argument("--sorteer", choices=["nieuw", "verhaal"], default="nieuw",
+                    help="nieuw = nieuwste eerst; verhaal = beste kans op een goed verhaal eerst")
     ap.add_argument("--alles", action="store_true", help="ook video's tonen die je NIET mag gebruiken")
     ap.add_argument("--uit", default=str(MAP / "nieuwe-videos.md"))
     a = ap.parse_args()
@@ -290,10 +349,15 @@ def main():
             meldingen.append(f"{naam}: OVERGESLAGEN – {e}")
         print(meldingen[-1], file=sys.stderr)
 
+    uniek = {}
+    for r in resultaten:              # zelfde video uit twee Commons-zoekacties maar één keer
+        uniek.setdefault(r["url"], r)
+    resultaten = list(uniek.values())
     for r in resultaten:
+        r["verhaal"] = verhaal_score(r)
         r["status"], r["uitleg"] = oordeel_licentie(r["licentie"])
         maker = schoon(r.get("maker", "")).lower()
-        if (r["bron"] == "Wikimedia Commons" and r["status"] == "MAG" and "public domain" in r["uitleg"]
+        if ("Commons" in r["bron"] and r["status"] == "MAG" and "public domain" in r["uitleg"]
                 and not any(k in maker for k in OVERHEID) and not any(k in maker for k in MEDIAKANALEN)):
             r["waarschuwing"] = ((r.get("waarschuwing") or "") + " maker lijkt geen overheid: check de bron").strip()
         if any(k in maker for k in MEDIAKANALEN):
@@ -307,16 +371,18 @@ def main():
     if not a.alles:
         resultaten = [r for r in resultaten if r["status"] != "NIET"]
     resultaten.sort(key=lambda r: (r["nieuw"], r["datum"]), reverse=True)
+    if a.sorteer == "verhaal":
+        resultaten.sort(key=lambda r: (r["status"] == "MAG", r["verhaal"], r["datum"]), reverse=True)
 
     nu = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M")
     regels = [f"# Vrije video's – zoekterm \"{a.zoek}\" ({nu})", "",
               f"{sum(r['nieuw'] for r in resultaten)} nieuw, {len(resultaten)} totaal. "
               "Altijd zelf de licentie op de bronpagina nakijken en een screenshot bewaren.", "",
               "Bronnen: " + "; ".join(meldingen), "",
-              "| nieuw | mag? | datum | duur | bron | titel | maker | licentie | link |", "|---|---|---|---|---|---|---|---|---|"]
+              "| nieuw | mag? | verhaal | datum | duur | bron | titel | maker | licentie | link |", "|---|---|---|---|---|---|---|---|---|---|"]
     for r in resultaten:
         t = r["titel"].replace("|", "/")[:110]
-        regels.append(f"| {'NIEUW' if r['nieuw'] else ''} | {r['status']} | {r['datum']} | {r['duur']} | {r['bron']} | "
+        regels.append(f"| {'NIEUW' if r['nieuw'] else ''} | {r['status']} | {'*' * r['verhaal']} | {r['datum']} | {r['duur']} | {r['bron']} | "
                       f"{t} | {schoon(r.get('maker', '')).replace('|', '/')[:40]} | {r['uitleg']} | {r['url']} |")
     regels += ["", TIPS]
     Path(a.uit).write_text("\n".join(regels), encoding="utf-8")
@@ -324,7 +390,7 @@ def main():
     gezien_pad.write_text(json.dumps(sorted(gezien | {r["url"] for r in resultaten}), indent=0), encoding="utf-8")
     print(f"\n{sum(r['nieuw'] for r in resultaten)} nieuw / {len(resultaten)} bruikbaar -> {a.uit}")
     for r in [r for r in resultaten if r["nieuw"]][:15]:
-        print(f"  [{r['status']}] {r['datum'] or '----------'} {r['bron']}: {r['titel'][:80]}")
+        print(f"  [{r['status']}] {'*' * r['verhaal']:5} {r['datum'] or '----------'} {r['bron']}: {r['titel'][:80]}")
 
 
 if __name__ == "__main__":

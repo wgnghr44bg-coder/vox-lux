@@ -30,6 +30,27 @@ Richard Mendoza (dashcam + 2 bodycams), Encino Home Invasion NR21315dm.
 MAG = licentie in orde (maker is een overheid); LET OP = zelf nakijken (mediakanaal, uploader, BY-SA, niet gecontroleerd).
 Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KEY`, `PIXABAY_API_KEY`.
 
+## Breed zoeken, verhaal en uniek (17 nov 2026)
+- `python kanalen/bodycam/zoek_vrije_videos.py --bronnen overheid --aantal 40 --sorteer verhaal --uit kandidaten-overheid.md`
+  zoekt ALLE Commons-video's met een overheidslicentie (LAPD, Californië, Florida, federaal, …) die over een incident gaan,
+  met een "verhaal"-score (0-5 sterren). 17 nov: 448 incidentvideo's.
+- `python kanalen/bodycam/uniek_check.py "<onderwerp>"`: hoeveel er al op YouTube over staat (kost gratis quotum, 100/onderwerp).
+- **Keuzes en waarom: `TOP10.md`.** Onze plek: het hele verhaal met afloop (rechtszaak), meerdere camera's samen, kalme
+  eerlijke uitleg. Grote kanalen (PoliceActivity) zetten alleen ruwe beelden online.
+
+## Regels per bron (17 nov 2026)
+- **DVIDS/CBP** (dvidshub.net/about/copyright): public domain, commercieel mag, maar: geen schijn van steun door de
+  overheid (beschrijving: "This video is not endorsed by CBP or the U.S. government."), **geen CBP/DHS-logo of -zegel in
+  de video of thumbnail** (eindkaart met zegel wegknippen), privacy van mensen in beeld blijft gelden (vervagen).
+- **YouTube:** echt geweld alleen met educatieve/documentaire context (onze uitleg); bloed en gewonden inkorten of
+  vervagen (anders 18+ en weinig advertenties); bij een Content ID-claim bezwaar maken met de bronlink.
+
+## Video maken (17 nov 2026)
+1. `bron/bron.mp4` + `bronvermelding.txt` + `script.txt` (Engels, alinea = stemblok, [BEELD]-regels).
+2. Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py <map>` (eigen stem, speed 1.0).
+   Is de GPU bezet door de Sleep Archives-keten: zet `CUDA_VISIBLE_DEVICES=` (leeg) ervoor, dan op de CPU (± 1 min/blok).
+3. `plan.json` (welk bronstuk onder welk blok, soort bodycam/kaart/vol) en `python kanalen/bodycam/maak_video.py <map>`.
+
 ## Niet gebruiken
 - Illinois State Police, Anchorage PD (© auteursrecht), video's van andere YouTube-kanalen.
 - Niet van YouTube downloaden; Commons-bestand of origineel bij het korps.

@@ -1,0 +1,8 @@
+[
+ {"blok": 1, "bron": [[217, 236]], "soort": "bodycam"},
+ {"blok": 2, "bron": [[85, 119]], "soort": "kaart", "tekst": "Otay Mountains, California  -  March 3, 2024"},
+ {"blok": 3, "bron": [[236, 240], [250, 270]], "soort": "bodycam"},
+ {"blok": 4, "bron": [[270, 284]], "soort": "bodycam"},
+ {"blok": null, "bron": [[401, 424]], "soort": "vol", "geluid": "origineel"},
+ {"blok": 5, "bron": [[295, 312]], "soort": "bodycam"}
+]

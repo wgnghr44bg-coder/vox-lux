@@ -6,3 +6,6 @@ videos/*/stem/
 videos/*/build/
 videos/*/*.mp4
 videos/*/*.mp3
+videos/*/build/
+videos/*/bron/*.ttf
+videos/*/bron/*.html
