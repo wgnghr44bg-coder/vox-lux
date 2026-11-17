@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 23:03",
+ "bijgewerkt": "2026-11-17 23:33",
  "werkplanning": {
   "nu": [
    {
@@ -580,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 23:03)"
+   "tekst": "draait nu (2026-11-17 23:33)"
   },
   {
    "naam": "Git",
@@ -605,7 +605,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 22:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -622,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 23:03",
-   "volgende": "2026-11-17 23:33"
+   "laatst": "2026-11-17 23:33",
+   "volgende": "2026-11-18 00:03"
   },
   "hype": {
    "aan": true,
@@ -633,17 +633,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-17 23:10"
+   "volgende": "2026-11-18 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 22:48",
-   "volgende": "2026-11-17 23:18"
+   "laatst": "2026-11-17 23:18",
+   "volgende": "2026-11-17 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-17 21:25",
-   "volgende": "2026-11-17 23:25"
+   "laatst": "2026-11-17 23:25",
+   "volgende": "2026-11-18 01:25"
   }
  },
  "kanaal": {
@@ -978,8 +978,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 33,
-  "geheugen_mb": 598,
+  "bezig_procent": 22,
+  "geheugen_mb": 568,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1157,8 +1157,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-17 23:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-17 23:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3472,7 +3472,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-17 21:25",
+  "bijgewerkt": "2026-11-17 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3822,7 +3822,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 23:05",
+  "bijgewerkt": "2026-11-17 23:37",
   "accounts": [
    {
     "account": "hoofd",
@@ -3844,7 +3844,7 @@
    },
    {
     "account": "account2",
-    "5uur": 150275,
+    "5uur": 9751,
     "week": 88651366,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3859,9 +3859,9 @@
     "stap_kost": 59386,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 1,
-    "5uur_scripts_over": 21.7,
-    "5uur_stappen_over": 226,
+    "5uur_pct": 0,
+    "5uur_scripts_over": 21.9,
+    "5uur_stappen_over": 228,
     "week_pct": 67,
     "week_scripts_over": 70.0,
     "week_stappen_over": 730
