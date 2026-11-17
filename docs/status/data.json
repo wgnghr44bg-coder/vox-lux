@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-17 19:03",
+ "bijgewerkt": "2026-11-17 19:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "How People Survived the Ice Age | History for Sleep",
-    "map": "ijstijd-20000-vc",
-    "detail": "Beelden maken · 95%",
+    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -565,12 +565,12 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "175 GB vrij"
+   "tekst": "174 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-10 09:00)"
   },
   {
    "naam": "Taak 'scriptgenerator'",
@@ -580,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 19:03)"
+   "tekst": "draait nu (2026-11-17 19:33)"
   },
   {
    "naam": "Git",
@@ -605,7 +605,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 18:48: alles klopt"
+   "tekst": "laatste ronde 19:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -622,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 19:03",
-   "volgende": "2026-11-17 19:33"
+   "laatst": "2026-11-17 19:33",
+   "volgende": "2026-11-17 20:03"
   },
   "hype": {
    "aan": true,
@@ -633,17 +633,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-17 19:10"
+   "volgende": "2026-11-17 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 18:48",
-   "volgende": "2026-11-17 19:18"
+   "laatst": "2026-11-17 19:18",
+   "volgende": "2026-11-17 19:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-17 17:25",
-   "volgende": "2026-11-17 19:25"
+   "laatst": "2026-11-17 19:25",
+   "volgende": "2026-11-17 21:25"
   }
  },
  "kanaal": {
@@ -686,7 +686,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 20,
+    "views": 22,
     "verwerkt": "processed"
    },
    {
@@ -943,9 +943,9 @@
    "totaal": 13,
    "procent": 31
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 13,
    "totaal": 13
   }
  },
@@ -958,40 +958,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
-  "map": "ijstijd-20000-vc",
-  "titel": "How People Survived the Ice Age | History for Sleep",
-  "datum": "2026-11-23",
-  "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 95,
-  "detail": "79 van 83 beelden",
-  "taken": [
-   "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "beelden maken (ComfyUI)"
-  ],
+  "map": "dallas-1963",
+  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "thumbs/dallas-1963.jpg",
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 572,
+  "bezig_procent": 35,
+  "geheugen_mb": 560,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1078,12 +1061,6 @@
  "logboek": [
   {
    "tijd": "2026-11-17 01:31",
-   "tekst": "crisis-1933: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-17 01:31",
    "tekst": "routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-17 21:00",
    "fout": false,
    "klaar": false
@@ -1159,28 +1136,23 @@
    "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 19:06",
+   "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 17:48",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "tijd": "2026-11-17 19:06",
+   "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
    "fout": true,
    "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 19:03",
-   "tekst": "Zelfcontrole: Taak 'routine': niet gevonden",
-   "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-16 14:32",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-16 15:58",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
@@ -1202,6 +1174,12 @@
   {
    "tijd": "2026-11-17 06:46",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: poging 3: 14 beelden opnieuw maken); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 17:48",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -3466,7 +3444,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-17 17:41",
+  "bijgewerkt": "2026-11-17 19:29",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3780,7 +3758,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "japan-1600",
@@ -3798,7 +3776,7 @@
       "per_dag": 6414
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "dansplaag-1518",
@@ -3810,13 +3788,13 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    }
   ],
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 19:08",
+  "bijgewerkt": "2026-11-17 19:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3838,28 +3816,28 @@
    },
    {
     "account": "account2",
-    "5uur": 384011,
-    "week": 91355487,
+    "5uur": 393762,
+    "week": 91365238,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
-     "Tue 17-11": 2959545,
+     "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
      "Tue 10-11": 2713872
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 103859,
+    "stap_kost": 103062,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 3,
     "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 127,
+    "5uur_stappen_over": 128,
     "week_pct": 69,
-    "week_scripts_over": 65.7,
-    "week_stappen_over": 392
+    "week_scripts_over": 65.6,
+    "week_stappen_over": 394
    }
   ]
  },
