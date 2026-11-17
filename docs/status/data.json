@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-17 17:33",
+ "bijgewerkt": "2026-11-17 18:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Video bouwen · 99%",
+    "wat": "How People Survived the Ice Age | History for Sleep",
+    "map": "ijstijd-20000-vc",
+    "detail": "Beelden maken · 36%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Dallas",
-    "wat": "How People Survived the Ice Age | History for Sleep",
-    "map": "ijstijd-20000-vc",
-    "detail": "keten maakt de video voor ma 23-11 21:00"
-   },
    {
     "wanneer": "na Ijstijd",
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
@@ -65,8 +59,8 @@
     "dag": "ma",
     "titel": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-25",
@@ -166,7 +160,7 @@
     "titel": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
+    "stand": "video wordt gemaakt",
     "controle": "GOED",
     "flesch": 66,
     "niveau": 7.5,
@@ -537,8 +531,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": false,
-   "tekst": "staat uit (de routine start hem zelf)"
+   "ok": true,
+   "tekst": "draait"
   },
   {
    "naam": "ffmpeg",
@@ -553,7 +547,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "177 GB vrij"
+   "tekst": "176 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -562,13 +556,13 @@
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-09 06:00)"
   },
   {
    "naam": "Taak 'dashboard'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "draait nu (2026-11-17 18:03)"
   },
   {
    "naam": "Git",
@@ -593,7 +587,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 17:18: alles klopt"
+   "tekst": "laatste ronde 17:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +604,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 17:33",
-   "volgende": "2026-11-17 18:03"
+   "laatst": "2026-11-17 18:03",
+   "volgende": "2026-11-17 18:33"
   },
   "hype": {
    "aan": true,
@@ -625,8 +619,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 17:18",
-   "volgende": "2026-11-17 17:48"
+   "laatst": "2026-11-17 17:48",
+   "volgende": "2026-11-17 18:18"
   },
   "titels": {
    "aan": true,
@@ -928,12 +922,12 @@
   "geplande": 2,
   "runs": {
    "goed": 4,
-   "totaal": 12,
-   "procent": 33
+   "totaal": 13,
+   "procent": 31
   },
-  "fouten": 3,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 13,
    "totaal": 13
   }
  },
@@ -946,24 +940,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 99,
-  "detail": "16mm-look",
+  "map": "ijstijd-20000-vc",
+  "titel": "How People Survived the Ice Age | History for Sleep",
+  "datum": "2026-11-23",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 36,
+  "detail": "30 van 83 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beelden maken (ComfyUI)"
   ],
-  "eind": {
-   "klaar": "2026-11-17 17:49",
-   "youtube": "2026-11-17 18:09"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -971,13 +962,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 32,
-  "geheugen_mb": 578,
+  "bezig_procent": 98,
+  "geheugen_mb": 7070,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1058,34 +1049,10 @@
    "datum": "2026-11-23",
    "plek": true,
    "video": "How People Survived the Ice Age | History for Sleep",
-   "soort": "script nieuw"
+   "soort": "bezig"
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-16 19:29",
-   "tekst": "hype-wachter: SEINTJE TITEL dallas-1963 (2026-11-21): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Bevat pla",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 19:31",
-   "tekst": "hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-07): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel ",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 01:25",
-   "tekst": "crisis-1933: geüpload https://youtu.be/YZ4sZ_EivLc (privé, publiek 2026-11-17T20:00:00Z), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-17 01:30",
-   "tekst": "crisis-1933: oude versie R2rgLUMJxac ('Life in the Great Depression, 1933 | History for Sleep') verwijderd",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-17 01:31",
    "tekst": "crisis-1933: KLAAR",
@@ -1145,23 +1112,38 @@
    "tekst": "routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025, 041, 066",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 17:48",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 17:48",
+   "tekst": "bewaker: SEINTJE dallas-1963 (2026-11-21) is vandaag 2x gestopt, morgen opnieuw",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 17:48",
+   "tekst": "bewaker: keten gestart voor ijstijd-20000-vc",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 17:48",
+   "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 17:33",
-   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-17 17:33",
-   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-17 17:33",
-   "tekst": "Zelfcontrole: Taak 'dashboard': niet gevonden",
-   "fout": true
+   "tijd": "2026-11-17 17:48",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
   }
  ],
  "opgelost": [
@@ -1863,8 +1845,8 @@
    "datum": "2026-11-23",
    "reserve": false,
    "titel": "How People Survived the Ice Age | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype IJstijd)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-17, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "oudheid",
    "opening": "scène",
@@ -3456,7 +3438,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-15 21:23",
+  "bijgewerkt": "2026-11-17 17:41",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3466,7 +3448,7 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube staat 'Why Was Babylon the Greatest City on Earth? | History for Sleep'; is een vraag",
+    "youtube": "",
     "concurrent": [],
     "bekeken": ""
    },
@@ -3480,14 +3462,14 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube: 'What Did People Actually Do When Tutankhamun Was King? | History for Sleep' is een vraag",
+    "youtube": "op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep'",
     "concurrent": [],
     "bekeken": ""
    },
    {
     "map": "crisis-1933",
-    "datum": "2026-11-16",
-    "titel": "Life in the Great Depression, 1933 | History for Sleep",
+    "datum": "2026-11-17",
+    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
@@ -3506,25 +3488,19 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-15"
+    "bekeken": ""
    },
    {
     "map": "dallas-1963",
     "datum": "2026-11-21",
-    "titel": "Life in Dallas, November 1963 | History for Sleep",
+    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life in Dallas, November 1963 | History for Sleep",
+    "waarom": "Titel is concreet, bevat plaats en jaar, belooft inhoud en volgt de regels",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Important Channel Update - Behind the Scenes - November 2026",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 143
-     }
-    ],
-    "bekeken": "2026-11-15"
+    "concurrent": [],
+    "bekeken": "2026-11-17"
    },
    {
     "map": "ijstijd-20000-vc",
@@ -3537,19 +3513,19 @@
     "youtube": "",
     "concurrent": [
      {
-      "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 9541
-     },
-     {
       "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
       "kanaal": "Just About Earth",
-      "per_dag": 5738
+      "per_dag": 5739
      },
      {
       "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
       "kanaal": "Old History Nights",
-      "per_dag": 5160
+      "per_dag": 5165
+     },
+     {
+      "titel": "What Life Was REALLY Like in London During the Little Ice Age | History for Sleep",
+      "kanaal": "Sleepy Quiet Historian",
+      "per_dag": 526
      }
     ],
     "bekeken": "2026-11-15"
@@ -3563,23 +3539,7 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "The COZIEST Autumn Story | The Sleepy Science of Leaves | Sleep Story",
-      "kanaal": "Get Sleepy",
-      "per_dag": 8850
-     },
-     {
-      "titel": "Fall Asleep with the COZIEST Story: A Cozy Autumn Evening with a Family of Beavers",
-      "kanaal": "Get Sleepy",
-      "per_dag": 4783
-     },
-     {
-      "titel": "The DEEPEST Sleep EVER | Sleep Story: Blackberry Jam on an Autumn Afternoon",
-      "kanaal": "Get Sleepy",
-      "per_dag": 2940
-     }
-    ],
+    "concurrent": [],
     "bekeken": "2026-11-15"
    },
    {
@@ -3595,7 +3555,7 @@
      {
       "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
       "kanaal": "Sleepless Historian",
-      "per_dag": 5890
+      "per_dag": 5899
      }
     ],
     "bekeken": "2026-11-15"
@@ -3625,17 +3585,7 @@
      {
       "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
       "kanaal": "History Camp",
-      "per_dag": 19978
-     },
-     {
-      "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 9541
-     },
-     {
-      "titel": "Gates to Hell Around the World | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 4784
+      "per_dag": 19985
      }
     ],
     "bekeken": "2026-11-15"
@@ -3655,14 +3605,14 @@
    {
     "map": "pearl-harbor-1941",
     "datum": "2026-12-07",
-    "titel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "waarom": "Titel bevat beroemdheid, locatie, datum en belooft inhoud; past perfect binnen de regels",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "rome-44-vc",
@@ -3678,19 +3628,9 @@
       "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
       "kanaal": "Sleepy History Channel",
       "per_dag": 1115
-     },
-     {
-      "titel": "The Pandemic Rome Never Recovered From (It Wasn't the Black Death)",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 865
-     },
-     {
-      "titel": "Before Persia an Entire Civilization Ruled Iran for 3,000 Years – Then Assyria Erased It",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 495
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "zwarte-dood-1348",
@@ -3698,27 +3638,22 @@
     "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life in Florence During the Black Death, 1348 | History for Sleep",
+    "waarom": "gebruikt bekende plek, jaar en onderwerp; volgt regels en is concreet",
     "youtube": "",
     "concurrent": [
      {
-      "titel": "The Mystery of The Village That Beat the Black Death",
-      "kanaal": "Sleepless Historian",
-      "per_dag": 1796
+      "titel": "How People Rebuilt Their Lives After the Black Death in England | History for Sleep",
+      "kanaal": "Sleepy Quiet Historian",
+      "per_dag": 791
      },
      {
-      "titel": "5,000 Years Ago Horsemen From the Steppe REPLACED Half of Europe - Where Did Everyone Else Go?",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 1555
-     },
-     {
-      "titel": "The Celts: The Mysterious Dark Age Masters of Europe",
-      "kanaal": "Sleepless Historian",
-      "per_dag": 1425
+      "titel": "What Happened Inside Medieval Homes During the Black Death | History for Sleep",
+      "kanaal": "Sleepy Quiet Historian",
+      "per_dag": 538
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "scott-antarctica-1912",
@@ -3733,12 +3668,7 @@
      {
       "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
       "kanaal": "Kaushik Bhattacharjee Extra",
-      "per_dag": 8791
-     },
-     {
-      "titel": "Nervous System Relief: A Sleepy Trip to South Africa’s Sudwala Caves | Sleep Story",
-      "kanaal": "Get Sleepy",
-      "per_dag": 3761
+      "per_dag": 8792
      },
      {
       "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
@@ -3746,7 +3676,7 @@
       "per_dag": 1180
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "man-ijzeren-masker-1703",
@@ -3754,22 +3684,17 @@
     "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "The Man in the Iron Mask, France 1669-1703 | History for Sleep",
+    "waarom": "Bevat beroemde naam, locatie en tijdsduur, voldoet aan alle regels en is concreter",
     "youtube": "",
     "concurrent": [
      {
       "titel": "What Life Was Like in Iron Age Britain, 300 BC | History for Sleep",
       "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 439
-     },
-     {
-      "titel": "Why France Revolts | 230 Years of Protest, Power and Change | French History",
-      "kanaal": "The Sleepy Historian",
-      "per_dag": 28
+      "per_dag": 440
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "londen-kerst-1843",
@@ -3784,7 +3709,7 @@
      {
       "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
       "kanaal": "Sleepy Lost World",
-      "per_dag": 3202
+      "per_dag": 3203
      },
      {
       "titel": "The Room Rented for One Year | A Cozy Victorian Sleep Story",
@@ -3797,7 +3722,7 @@
       "per_dag": 1520
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "mary-celeste-1872",
@@ -3813,14 +3738,9 @@
       "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
       "kanaal": "Bedtime & Historian ",
       "per_dag": 1180
-     },
-     {
-      "titel": "😴 DRIFT PEACEFULLY ASLEEP 💤 Bedtime Story For Grown Ups - Ghost of the Candlelit Library",
-      "kanaal": "Dan Jones Sleep Stories",
-      "per_dag": 184
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-17"
    },
    {
     "map": "bethlehem",
@@ -3847,29 +3767,36 @@
      {
       "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
       "kanaal": "The French Whisperer ASMR",
-      "per_dag": 6406
-     },
-     {
-      "titel": "The Forgotten World of Japan 10,000 Years Ago | History for Sleep",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 1220
+      "per_dag": 6414
      }
     ],
+    "bekeken": ""
+   },
+   {
+    "map": "dansplaag-1518",
+    "datum": "2026-12-28",
+    "titel": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [],
     "bekeken": ""
    }
   ],
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 17:41",
+  "bijgewerkt": "2026-11-17 18:05",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 71410921,
+    "week": 71235654,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Tue 10-11": 3538643,
+     "Tue 10-11": 3363376,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
@@ -3877,14 +3804,14 @@
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 21353,
+    "stap_kost": 20636,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 243487,
-    "week": 92975976,
+    "week": 91214962,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
@@ -3892,19 +3819,19 @@
      "Tue 17-11": 2819021,
      "Thu 12-11": 4335576,
      "Wed 11-11": 2382045,
-     "Tue 10-11": 4474886
+     "Tue 10-11": 2713872
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 101871,
+    "stap_kost": 115000,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 2,
     "5uur_scripts_over": 21.5,
-    "5uur_stappen_over": 131,
-    "week_pct": 70,
-    "week_scripts_over": 63.0,
-    "week_stappen_over": 383
+    "5uur_stappen_over": 116,
+    "week_pct": 69,
+    "week_scripts_over": 65.9,
+    "week_stappen_over": 355
    }
   ]
  },
