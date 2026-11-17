@@ -23,6 +23,13 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - **Slot:** terugblik, "another … story … on the screen", kort abonneren, als laatste "Sleep well, and good night."
 - Controles: `script_leesbaar` (GOED + TOON GOED), `check_afwisseling`, `script_check` (SCRIPT GOED).
 
+## Beelden
+- **Elk beeld een eigen plek en eigen licht (17 nov 2026, Dallas: "vaak dezelfde afbeelding"):** `src-feiten/stijl.txt`
+  noemt alleen plaats + tijd en de filmlook. Nooit een vaste buitenscène (straat, gebouwen, lucht, avondlicht) in de
+  stijlzin: die overstemt de beschrijving en dan wordt een diner, kantoor of woonkamer steeds dezelfde straat.
+  `tools/bouw_feiten.py` kort de stijlzin daarom zelf in. Beschrijf binnen-scènes als binnen, en wissel af in plek,
+  afstand (wijd, half, dichtbij) en licht (ochtend, middag, avond, lamplicht).
+
 ## Titel
 - Concreet met plaats en/of jaartal, **geen vraag**, altijd `| History for Sleep` erachter, geen uren.
 - Vormen: "Life in <plaats>, <jaar>", "Life Aboard <schip>, <jaar>", "How <mensen> Survived <iets>", "<Gebeurtenis>, <jaar>".
