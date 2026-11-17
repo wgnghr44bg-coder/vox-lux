@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 03:03",
+ "bijgewerkt": "2026-11-17 03:33",
  "werkplanning": {
   "nu": [
    {
@@ -553,7 +553,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "179 GB vrij"
+   "tekst": "178 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 03:03)"
+   "tekst": "draait nu (2026-11-17 03:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 02:48: alles klopt"
+   "tekst": "laatste ronde 03:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 03:03",
-   "volgende": "2026-11-17 03:33"
+   "laatst": "2026-11-17 03:33",
+   "volgende": "2026-11-17 04:03"
   },
   "hype": {
    "aan": true,
@@ -620,18 +620,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-17 02:10",
-   "volgende": "2026-11-17 03:10"
+   "laatst": "2026-11-17 03:10",
+   "volgende": "2026-11-17 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 02:48",
-   "volgende": "2026-11-17 03:18"
+   "laatst": "2026-11-17 03:18",
+   "volgende": "2026-11-17 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-17 01:25",
-   "volgende": "2026-11-17 03:25"
+   "laatst": "2026-11-17 03:25",
+   "volgende": "2026-11-17 05:25"
   }
  },
  "kanaal": {
@@ -674,7 +674,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 19,
+    "views": 21,
     "verwerkt": "processed"
    },
    {
@@ -719,7 +719,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 628,
+    "views": 633,
     "verwerkt": "processed"
    },
    {
@@ -976,8 +976,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 457,
+  "bezig_procent": 26,
+  "geheugen_mb": 6060,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3839,7 +3839,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 03:04",
+  "bijgewerkt": "2026-11-17 03:38",
   "accounts": [
    {
     "account": "hoofd",
