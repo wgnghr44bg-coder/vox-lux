@@ -78,6 +78,8 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   Daarna `python kanalen/bodycam/monteer.py <map>`.
 - Waarom niet OmniVoice: eigenaar "te robot achtig" (zin-voor-zin geplakt) en "gelach" (geluidjes na zinnen).
 - Korte alinea's van één lange zin klinken snel: liever twee korte zinnen schrijven.
+- **Geen "In today's documentary, we're covering …"** (eigenaar 17 nov: "kan dat stuk eruit"). Na de opening meteen
+  verder met het verhaal.
 
 ## Stem bodycam-stem-2 (17 nov 2026, 21:00)
 - Opname "Voiceeee" van de eigenaar; eigenaar: "gebruik de stem na 33 sec" en "zonder achtergrondmuziek".
