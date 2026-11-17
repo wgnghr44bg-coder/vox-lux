@@ -13,8 +13,8 @@
   "blok": 1,
   "bron": [
    [
-    468,
-    486
+    85,
+    103
    ]
   ],
   "beeld": "vol"
@@ -24,18 +24,17 @@
   "blok": 2,
   "bron": [
    [
-    88,
-    126
+    103,
+    134.5
    ]
   ],
-  "beeld": "kaart",
-  "tekst": "Interstate 10, New Mexico  -  April 2, 2023"
+  "beeld": "vol"
  },
  {
   "soort": "origineel",
   "bron": [
-   152.9,
-   181.2
+   138.6,
+   197.5
   ],
   "beeld": "vol",
   "ondertitels": false
@@ -45,12 +44,8 @@
   "blok": 3,
   "bron": [
    [
-    125,
-    130
-   ],
-   [
-    265,
-    284.6
+    197.5,
+    256
    ]
   ],
   "beeld": "vol"
@@ -58,8 +53,17 @@
  {
   "soort": "origineel",
   "bron": [
-   284.8,
-   295.5
+   267.2,
+   330.3
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   341.2,
+   345.0
   ],
   "beeld": "vol",
   "ondertitels": false
@@ -69,32 +73,8 @@
   "blok": 4,
   "bron": [
    [
-    356,
-    379
-   ],
-   [
-    296,
-    303
-   ]
-  ],
-  "beeld": "kaart"
- },
- {
-  "soort": "origineel",
-  "bron": [
-   486.2,
-   523.9
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "stem",
-  "blok": 5,
-  "bron": [
-   [
-    640,
-    652
+    346,
+    444
    ]
   ],
   "beeld": "vol"
@@ -102,41 +82,11 @@
  {
   "soort": "origineel",
   "bron": [
-   555.0,
-   574.4
+   444.3,
+   745.0
   ],
   "beeld": "vol",
   "ondertitels": false
- },
- {
-  "soort": "origineel",
-  "bron": [
-   615.0,
-   635.6
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "origineel",
-  "bron": [
-   659.6,
-   671.4
-  ],
-  "beeld": "vol",
-  "ondertitels": false
- },
- {
-  "soort": "stem",
-  "blok": 6,
-  "bron": [
-   [
-    1080,
-    1110
-   ]
-  ],
-  "beeld": "zwart",
-  "titel": "What happened next"
  },
  {
   "soort": "origineel",
@@ -170,33 +120,101 @@
   ]
  },
  {
+  "soort": "origineel",
+  "bron": [
+   850.0,
+   905.5
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 5,
+  "bron": [
+   [
+    905.6,
+    914.5
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   914.5,
+   948.0
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   963.0,
+   986.0
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   994.5,
+   1026.5
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   1030.8,
+   1073.5
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 6,
+  "bron": [
+   [
+    1073.6,
+    1080.6
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   1080.6,
+   1323.5
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
   "soort": "stem",
   "blok": 7,
   "bron": [
    [
-    1378,
-    1400
-   ],
-   [
-    1172,
-    1185
+    1323.5,
+    1395
    ]
   ],
-  "beeld": "kaart"
+  "beeld": "vol"
  },
  {
   "soort": "stem",
   "blok": 8,
   "bron": [
    [
-    1172,
-    1185
-   ],
-   [
-    1080,
-    1110
+    1395,
+    1438
    ]
   ],
-  "beeld": "zwart"
+  "beeld": "vol"
  }
 ]

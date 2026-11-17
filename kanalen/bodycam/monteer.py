@@ -88,7 +88,7 @@ def main():
             v += f"crop=iw*0.86:ih*0.86:(iw-ow)/2:0,scale=2112:1188,crop={W}:{H}:x='min(192,t*4)':y='min(108,t*2.25)',"   # kaart: ondertitels weg + langzaam schuiven (geen stilstaand beeld)
         else:
             v += f"scale={W}:{H},"
-        if st["soort"] == "stem" and st.get("verberg_ondertitels", True) and beeld != "zwart":
+        if st["soort"] == "stem" and st.get("verberg_ondertitels", False) and beeld != "zwart":
             # ondertitels die het korps in het beeld heeft gezet horen bij geluid dat je nu niet hoort -> onderste strook
             # vervagen (anders lees je zinnen die niemand zegt)
             v += (f"split[o{i}][p{i}];[p{i}]crop=iw:ih*0.2:0:ih*0.8,boxblur=25:3[q{i}];"

@@ -69,6 +69,17 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
+## VORM VAN DE VIDEO (eigenaar 17 nov 2026, 23:00 – geldt voor alle video's)
+- **De video van het korps zoveel mogelijk zoals hij is**: originele volgorde en kader, GEEN vervaging, GEEN zoom/schuiven
+  (eigenaar: "de helft is weg geblurd", "sommige beelden trillen"). Echt geluid en ondertitels van het korps blijven.
+- **Alleen weg wat niet kan of mag (volgens YouTube):** de verteller van het korps (daar vertelt onze stem), beleids- en
+  waarschuwingsschermen, zegel/logo; bloederige close-ups (wonden, bloed) wegknippen, niet vervagen. Het schieten zelf mag
+  blijven (documentaire met uitleg). Woorden die belangrijk zijn maar onder bloederig beeld vallen: op zwart met eigen
+  ondertitels.
+- Onze stem alleen waar de korps-verteller sprak (grenzen met Whisper-woordtijden bepalen); korte aankondiging bij een
+  andere camera. Controle: per 25 s Whisper (geen "approximately"/"The following"/…), beeld elke 6 s bekijken op bloed.
+- Video 1 versie 2: `videos/cbp-lascruces-2023/las-cruces-v2.mp4` (17:46).
+
 ## VASTE STEM BODYCAM (eigenaar 17 nov 2026, 21:20: "Nummer 3")
 - **Chatterbox** (MIT, gratis, `C:/Users/rane/chatterbox-venv`) met de ontworpen stem **ontwerp-us-man-laag-3** (eigenaar 17 nov 21:30: "ik wil toch stem 5"; eerst laag-1)
   (Amerikaanse man, middelbare leeftijd, laag; OmniVoice voice design, niet nagemaakt van iemand):
