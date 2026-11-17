@@ -266,3 +266,9 @@
 - 2026-11-16 17:28 routine-lokaal: crisis-1933: 13 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
 - 2026-11-16 17:38 Claude: website: thumbnails in 'Video's in productie' vaste maat 96x54 (op de iPhone werden ze ingezoomd: alleen 'ES'/'SION' zichtbaar)
 - 2026-11-16 17:49 Claude: 4 titels op YouTube aangepast (eigenaar 16 nov): Babylon, Egypte, WW2, Hindenburg -> concreet, geen vraag/uren. Beschrijving, tags en thumbnails ongewijzigd.
+- 2026-11-16 19:25 hype-wachter: SEINTJE TITEL YouTube egypte-toetanchamon: op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep' (aanpassen in Studio kost geen views)
+- 2026-11-16 19:27 hype-wachter: SEINTJE TITEL YouTube crisis-1933: op YouTube staat 'Life in the Great Depression, 1933 | History for Sleep' (aanpassen in Studio kost geen views)
+- 2026-11-16 19:29 hype-wachter: SEINTJE TITEL dallas-1963 (2026-11-21): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Bevat plaats, jaar en belooft inhoud; volledig binnen de regels)
+- 2026-11-16 19:31 hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-07): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels)
+- 2026-11-17 01:25 crisis-1933: geüpload https://youtu.be/YZ4sZ_EivLc (privé, publiek 2026-11-17T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-17 01:30 crisis-1933: oude versie R2rgLUMJxac ('Life in the Great Depression, 1933 | History for Sleep') verwijderd
