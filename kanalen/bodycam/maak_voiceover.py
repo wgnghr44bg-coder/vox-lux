@@ -5,7 +5,7 @@ plus stem/blokken.json (tekst + duur), zodat de montage elk blok op het juiste b
 Zelfde stem en klank als B1 (audio_engine/B1.json), maar snelheid 1.0 en korte pauzes (geen slaaptempo),
 zonder muziek of haard eronder.
 
-  C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py kanalen/bodycam/videos/<map> [--speed 1.0]
+  C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py kanalen/bodycam/videos/<map> [--speed 1.0] [--stem-map <map>]
 """
 import json, re, subprocess, sys
 from pathlib import Path
@@ -23,8 +23,14 @@ map_ = Path(sys.argv[1])
 speed = float(sys.argv[sys.argv.index("--speed") + 1]) if "--speed" in sys.argv else 1.0
 inst = b1.standaard()
 seed = int(inst["seed"])
-stem_map = Path("C:/Users/rane/vox-lux-stemmen/eigen-stem")
-meta = json.loads((ROOT / "audio_engine/voices/eigen-stem/voice.json").read_text(encoding="utf-8"))
+# --stem-map <map met ref.wav + voice.json (ref_text)>: een andere stem (alleen stemmen waar de eigenaar de rechten op
+# heeft). Standaard de eigen stem. Stemmen staan buiten de openbare repo (C:/Users/rane/vox-lux-stemmen/<naam>).
+if "--stem-map" in sys.argv:
+    stem_map = Path(sys.argv[sys.argv.index("--stem-map") + 1])
+    meta = json.loads((stem_map / "voice.json").read_text(encoding="utf-8"))
+else:
+    stem_map = Path("C:/Users/rane/vox-lux-stemmen/eigen-stem")
+    meta = json.loads((ROOT / "audio_engine/voices/eigen-stem/voice.json").read_text(encoding="utf-8"))
 ov._prompts["bodycam"] = ov.model().create_voice_clone_prompt(ref_audio=str(stem_map / "ref.wav"),
                                                               ref_text=meta["ref_text"])
 cfg = VoiceConfig(voice="bodycam", speed=speed, seed=seed, num_step=inst["model"]["num_step"],

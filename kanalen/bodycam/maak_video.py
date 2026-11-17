@@ -7,8 +7,8 @@ plan.json = lijst van stukken, op volgorde:
   {"blok": null, "bron": [[402, 424]], "soort": "vol", "geluid": "origineel"}     # stuk zonder stem, echt geluid
 soort: "bodycam" (4:3 in zwarte randen -> wazige achtergrond), "kaart" (onderste ondertitels van de bron wegsnijden),
        "vol" (beeld zoals het is).
-geluid: "origineel" / "onder" (-18 dB onder de stem, standaard) / "uit" (standaard bij "kaart": een korps-verteller
-       onder onze stem klinkt als dubbel geluid). Controleer met volumedetect of een bronstuk spraak bevat.
+geluid: "uit" (STANDAARD, eigenaar 17 nov: alleen de voice-over) / "onder" (-18 dB onder de stem) / "origineel".
+       Let op: een korps-verteller onder onze stem klinkt als dubbel geluid. Controleer met volumedetect of een bronstuk spraak bevat.
 Met stem: het bronbeeld loopt zo lang als het stemblok (+0,6 s); te kort -> iets vertraagd (max 1,35x), daarna
 stilstaand laatste beeld. Bron-geluid onder de stem: -18 dB. Eindvolume -14 LUFS (zoals tools/eind_volume.py).
 Rechtsonder klein "Footage: <bron>" (uit bronvermelding.txt, eerste woorden tot " – ").
@@ -79,7 +79,8 @@ def main():
         v += "," + ",".join(tekst) + ",format=yuv420p[v]"
         # geluid: "origineel" (vol), "onder" (-18 dB onder de stem) of "uit". Kaart-/tekstbeelden van een korps hebben vaak
         # een eigen verteller: standaard UIT, anders hoor je twee stemmen door elkaar (eigenaar 17 nov: "dubbel geluid").
-        geluid = st.get("geluid") or ("uit" if soort == "kaart" else "onder")
+        # eigenaar 17 nov: "je mag ook het complete geluid weghalen, alleen de voice-over" -> standaard overal UIT
+        geluid = st.get("geluid") or "uit"
         bron_vol = {"origineel": 1.0, "onder": 0.126, "uit": 0.0}[geluid]
         a_ += (f",atempo={1 / tempo:.4f},volume={bron_vol},aformat=sample_rates=48000:channel_layouts=stereo,"
                f"apad,atrim=0:{doel:.3f}[ba]")
