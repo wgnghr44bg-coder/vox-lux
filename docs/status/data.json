@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-17 16:03",
+ "bijgewerkt": "2026-11-17 16:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Beelden maken · 97%",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
@@ -568,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 16:03)"
+   "tekst": "draait nu (2026-11-17 16:33)"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:48: alles klopt"
+   "tekst": "laatste ronde 16:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 16:03",
-   "volgende": "2026-11-17 16:33"
+   "laatst": "2026-11-17 16:33",
+   "volgende": "2026-11-17 17:03"
   },
   "hype": {
    "aan": true,
@@ -620,13 +620,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-17 15:12",
-   "volgende": "2026-11-17 16:10"
+   "laatst": "2026-11-17 16:10",
+   "volgende": "2026-11-17 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 15:48",
-   "volgende": "2026-11-17 16:18"
+   "laatst": "2026-11-17 16:18",
+   "volgende": "2026-11-17 16:48"
   },
   "titels": {
    "aan": true,
@@ -946,21 +946,24 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 3,
  "huidig": {
   "map": "dallas-1963",
   "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
   "datum": "2026-11-21",
   "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 97,
-  "detail": "87 van 90 beelden",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)"
+   "tekstcontrole (Whisper)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-17 17:44",
+   "youtube": "2026-11-17 18:04"
+  }
  },
  "nu_bezig": [
   {
@@ -968,13 +971,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "tekstcontrole (Whisper)",
+   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 5,
-  "geheugen_mb": 4764,
+  "bezig_procent": 57,
+  "geheugen_mb": 2528,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1060,12 +1063,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-16 19:27",
-   "tekst": "hype-wachter: SEINTJE TITEL YouTube crisis-1933: op YouTube staat 'Life in the Great Depression, 1933 | History for Sleep' (aanpassen in Studio kost geen views)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-16 19:29",
    "tekst": "hype-wachter: SEINTJE TITEL dallas-1963 (2026-11-21): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Bevat pla",
    "fout": false,
@@ -1140,6 +1137,12 @@
   {
    "tijd": "2026-11-17 15:48",
    "tekst": "sitecontrole: opgelost: website is sinds 2026-11-17 07:33 niet bijgewerkt (taak 'Sleep Archives dashboard' kijken)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 16:06",
+   "tekst": "routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025, 041, 066",
    "fout": false,
    "klaar": false
   }
@@ -1635,11 +1638,11 @@
    "stappen": [
     true,
     true,
-    false,
+    true,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 60,
    "thumb": "thumbs/dallas-1963.jpg"
   },
   {
@@ -3842,7 +3845,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 16:05",
+  "bijgewerkt": "2026-11-17 16:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3858,7 +3861,7 @@
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 39446,
+    "stap_kost": 34236,
     "naam": "hoofd",
     "week_reset": ""
    },
