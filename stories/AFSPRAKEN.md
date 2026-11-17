@@ -53,3 +53,16 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 ## Altijd eerst vragen
 - Alles wat geld kost, en alles wat iets verwijdert (ook video's op YouTube). Video's niet opnieuw uploaden of
   verwijderen: titel en thumbnail kunnen in YouTube Studio worden aangepast zonder views te verliezen.
+
+## Tweede kanaal: Altena (vast sinds 17 nov 2026)
+- Kanaal **Altena** (UC_6p9gp5aBf-eHY5VmJEw4w) staat op een **ander e-mailadres** dan Sleep Archives. Gekoppeld met
+  alle rechten (uploaden, aanpassen, statistieken) via `python tools/youtube_koppel.py altena --schrijf`
+  (zelfde Google-app "Vox Lux Uploader"; redirect `http://127.0.0.1:8765` staat in de Cloud Console).
+- Sleutel staat op de pc in `~/.yt-altena.json` (**buiten git**, nooit committen).
+- Kiezen: zet `YT_KANAAL=altena`, dan gebruikt `tools/youtube_upload.access_token()` (en alles wat die gebruikt)
+  Altena. Zonder `YT_KANAAL` blijft alles op Sleep Archives. Controle: `python tools/youtube_koppel.py altena --test`.
+- Stand 17 nov: 4 abonnees, 0 video's, beschrijving "Njoy Life". **Niche en naam kiest de eigenaar nog**; advies: een
+  andere slaapniche dan geschiedenis (mythologie, natuur/heelal) zodat de kanalen niet met elkaar concurreren.
+- **Let op vóór de eerste Altena-upload:** `tools/vervang_video.py` controleert dat een upload op "Sleep Archives"
+  staat en verwijdert hem anders meteen. Die controle eerst kanaal-afhankelijk maken (naam uit `YT_KANAAL`).
+- Kanaalnaam en profielfoto kan alleen de eigenaar in Studio veranderen; Claude maakt de afbeeldingen.
