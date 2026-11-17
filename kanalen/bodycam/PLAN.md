@@ -69,6 +69,16 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
+## VASTE STEM BODYCAM (eigenaar 17 nov 2026, 21:20: "Nummer 3")
+- **Chatterbox** (MIT, gratis, `C:/Users/rane/chatterbox-venv`) met de ontworpen stem **ontwerp-us-man-laag-1**
+  (Amerikaanse man, middelbare leeftijd, laag; OmniVoice voice design, niet nagemaakt van iemand):
+  `C:/Users/rane/vox-lux-stemmen/ontwerp-us-man-laag-1/ref.wav`. Instellingen exaggeration 0.5, cfg 0.25.
+- Script: `C:/Users/rane/chatterbox-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover_cb.py <map>` (per alinea in
+  één keer = natuurlijke zinsmelodie; Whisper-controle; staart eraf; adempauzes 0,6 s per zin, 0,28 s per komma).
+  Daarna `python kanalen/bodycam/monteer.py <map>`.
+- Waarom niet OmniVoice: eigenaar "te robot achtig" (zin-voor-zin geplakt) en "gelach" (geluidjes na zinnen).
+- Korte alinea's van één lange zin klinken snel: liever twee korte zinnen schrijven.
+
 ## Stem bodycam-stem-2 (17 nov 2026, 21:00)
 - Opname "Voiceeee" van de eigenaar; eigenaar: "gebruik de stem na 33 sec" en "zonder achtergrondmuziek".
   Muziek eruit met Demucs (`C:/Users/rane/demucs-venv`, model htdemucs_ft); referentie 12,8 s uit de vocals.
