@@ -1,32 +1,50 @@
 {
- "bijgewerkt": "2026-11-17 18:33",
+ "bijgewerkt": "2026-11-17 19:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "detail": "Beelden maken · 99%",
+    "detail": "Beelden maken · 95%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "na Ijstijd",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "keten maakt de video voor wo 25-11 21:00"
+    "detail": "routine maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "na Thanksgiving",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
-    "detail": "keten maakt de video voor za 28-11 21:00"
+    "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "na Boeren",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "keten maakt de video voor ma 30-11 21:00"
+    "detail": "routine maakt de video voor ma 30-11 21:00"
+   },
+   {
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "detail": "routine maakt de video voor wo 2-12 21:00"
+   },
+   {
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "detail": "routine maakt de video voor za 5-12 21:00"
+   },
+   {
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "routine maakt de video voor ma 7-12 21:00"
    }
   ],
   "publicaties": [
@@ -547,12 +565,12 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "176 GB vrij"
+   "tekst": "175 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
-   "ok": true,
-   "tekst": "laatste keer goed (2026-11-10 09:00)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Taak 'scriptgenerator'",
@@ -562,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 18:33)"
+   "tekst": "draait nu (2026-11-17 19:03)"
   },
   {
    "naam": "Git",
@@ -587,7 +605,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 18:18: alles klopt"
+   "tekst": "laatste ronde 18:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -604,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 18:33",
-   "volgende": "2026-11-17 19:03"
+   "laatst": "2026-11-17 19:03",
+   "volgende": "2026-11-17 19:33"
   },
   "hype": {
    "aan": true,
@@ -613,14 +631,14 @@
    "volgende": "2026-11-18 08:30"
   },
   "bewaker": {
-   "aan": true,
+   "aan": false,
    "laatst": "2026-11-17 18:10",
    "volgende": "2026-11-17 19:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 18:18",
-   "volgende": "2026-11-17 18:48"
+   "laatst": "2026-11-17 18:48",
+   "volgende": "2026-11-17 19:18"
   },
   "titels": {
    "aan": true,
@@ -631,7 +649,7 @@
  "kanaal": {
   "naam": "Sleep Archives",
   "abonnees": 17,
-  "views_totaal": 2931,
+  "views_totaal": 2971,
   "video_aantal": 16,
   "week": {
    "views": 526,
@@ -925,9 +943,9 @@
    "totaal": 13,
    "procent": 31
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -948,11 +966,12 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "83 van 83 beelden",
+  "voortgang": 95,
+  "detail": "79 van 83 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -964,11 +983,15 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 19,
-  "geheugen_mb": 6031,
+  "bezig_procent": 25,
+  "geheugen_mb": 572,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1144,6 +1167,11 @@
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 19:03",
+   "tekst": "Zelfcontrole: Taak 'routine': niet gevonden",
+   "fout": true
   }
  ],
  "opgelost": [
@@ -1853,11 +1881,11 @@
    "stappen": [
     true,
     false,
-    true,
+    false,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 20,
    "thumb": ""
   },
   {
@@ -3788,15 +3816,15 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 18:34",
+  "bijgewerkt": "2026-11-17 19:08",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 70607648,
+    "week": 69962036,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Tue 10-11": 2735370,
+     "Tue 10-11": 2089758,
      "Wed 11-11": 18320330,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
@@ -3804,7 +3832,7 @@
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 21546,
+    "stap_kost": 21909,
     "naam": "hoofd",
     "week_reset": ""
    },
@@ -3823,15 +3851,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 110383,
+    "stap_kost": 103859,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 3,
     "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 120,
+    "5uur_stappen_over": 127,
     "week_pct": 69,
     "week_scripts_over": 65.7,
-    "week_stappen_over": 368
+    "week_stappen_over": 392
    }
   ]
  },
