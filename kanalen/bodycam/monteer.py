@@ -106,8 +106,8 @@ def main():
         # audio: óf echt geluid, óf onze stem — nooit allebei
         if st["soort"] == "origineel":
             fc.append(f"[{bron_audio}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
-                      # bodycam-geluid is vaak zacht en ongelijk: op hetzelfde volume brengen als de stem
-                      f"highpass=f=80,dynaudnorm=f=250:g=15:m=12,loudnorm=I=-16:TP=-2:LRA=9,aresample=48000,"
+                      # bodycam-geluid: ruis eruit (afftdn), niet meer hard oppompen (eigenaar: 'verschillende geluiden'), wel even hard als de stem
+                      f"highpass=f=90,lowpass=f=9000,afftdn=nr=12:nf=-40,loudnorm=I=-17:TP=-2:LRA=7,aresample=48000,"
                       f"atrim=0:{lengte:.3f},apad=whole_dur={lengte:.3f},asetpts=PTS-STARTPTS[a{i}]")
         else:
             inputs += ["-i", str(map_ / "stem" / blokken[st["blok"]]["bestand"])]

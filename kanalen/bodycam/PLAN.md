@@ -69,6 +69,16 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
+## Stem bodycam-stem-2 (17 nov 2026, 21:00)
+- Opname "Voiceeee" van de eigenaar; eigenaar: "gebruik de stem na 33 sec" en "zonder achtergrondmuziek".
+  Muziek eruit met Demucs (`C:/Users/rane/demucs-venv`, model htdemucs_ft); referentie 12,8 s uit de vocals.
+  Map `C:/Users/rane/vox-lux-stemmen/bodycam-stem-2/` (niet op GitHub).
+- **Niet trager dan speed ± 0.9**: bij 0.68-0.8 herhaalt de stem woorden en lekt hij woorden uit de referentie
+  ("and sulfur"). Rustiger maken met langere pauzes (`--pauze 1.0`), niet met lage speed. Deze stem praat van zichzelf
+  snel (± 165 w/min); echt rustiger = een rustiger ingesproken referentie.
+- `maak_voiceover.py` knipt nu alles vóór het eerste en ná het laatste woord weg (Whisper-woordtijden) en maakt de eerste
+  poging in groepjes van 4 zinnen (zoals engine_stem.py). Bodycam-geluid in `monteer.py`: ruisfilter, niet oppompen.
+
 ## Nieuwe werkwijze (17 nov 2026, 20:35) – gebruik deze
 - `monteer.py <map>`: maakt de hele video in ÉÉN ffmpeg-keer (geen losse stukken plakken). plan.json: stukken
   `{"soort":"origineel","bron":[a,b]}` (echt geluid, volume gelijkgetrokken) of `{"soort":"stem","blok":n,"bron":[[a,b]]}`

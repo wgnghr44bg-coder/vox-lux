@@ -70,11 +70,22 @@ def woorden(t):
 
 
 def klopt(wav, zin):
+    """(score, gehoord, geknipte wav). Knipt alles vóór het eerste en ná het laatste woord weg (eigenaar 17 nov:
+    "gelach elke keer" = lachjes/"huh"/adem die het stemmodel soms na een zin maakt)."""
     a = librosa.resample(np.asarray(wav, dtype="float32"), orig_sr=SR, target_sr=16000)
     a = np.concatenate([np.zeros(8000, np.float32), a, np.zeros(8000, np.float32)])
-    gehoord = ASR({"raw": a, "sampling_rate": 16000}, generate_kwargs={"language": "en"})["text"].strip()
+    r = ASR({"raw": a, "sampling_rate": 16000}, generate_kwargs={"language": "en"}, return_timestamps="word")
+    gehoord = r["text"].strip()
     w1, w2 = [x for x in woorden(zin) if not x.isdigit()], [x for x in woorden(gehoord) if not x.isdigit()]
-    return difflib.SequenceMatcher(None, w1, w2).ratio(), gehoord
+    score = difflib.SequenceMatcher(None, w1, w2).ratio()
+    ch = [c for c in r.get("chunks", []) if c["text"].strip()]
+    if ch:
+        begin = max(0.0, ch[0]["timestamp"][0] - 0.5 - 0.08)
+        eind_w = ch[-1]["timestamp"][1] if ch[-1]["timestamp"][1] is not None else ch[-1]["timestamp"][0] + 0.4
+        eind = min(len(wav) / SR, eind_w - 0.5 + 0.18)
+        if eind > begin + 0.3:
+            wav = edge_fade(np.asarray(wav, dtype="float32")[int(begin * SR):int(eind * SR)].copy(), SR, ms=15)
+    return score, gehoord, wav
 
 
 regels = [r for r in (map_ / "script.txt").read_text(encoding="utf-8").splitlines()
@@ -89,16 +100,21 @@ for n, alinea in enumerate(alineas, 1):
         blokken.append(oud[n])
         continue
     zinnen = [z for z in re.split(r"(?<=[.!?])\s+", alinea) if z]
+    # eerste poging in groepjes van 4 zinnen tegelijk, zoals de Sleep Archives-stemstraat (tools/engine_stem.py)
+    eerste = []
+    for g in range(0, len(zinnen), 4):
+        eerste += ov.speak([voor_stem(z) for z in zinnen[g:g + 4]], cfg, seed=seed + 37 * n + g + 7919 * EXTRA)
     clips = []
     for i, z in enumerate(zinnen):
         beste = None
         for poging in range(10):
-            wav = edge_fade(trim(ov.speak([voor_stem(z)], cfg, seed=seed + 1000 * poging + 37 * n + i + 7919 * EXTRA)[0], SR), SR)
+            ruwe = eerste[i] if poging == 0 else ov.speak([voor_stem(z)], cfg, seed=seed + 1000 * poging + 37 * n + i + 7919 * EXTRA)[0]
+            wav = edge_fade(trim(ruwe, SR), SR)
             d, w = len(wav) / SR, len(z.split())
             if d < 0.25 or w / (d / 60) > (250 if w >= 8 else 320):      # afgekapt of veel te snel
                 print(f"blok {n} zin {i + 1} afgekapt, opnieuw", flush=True)
                 continue
-            score, gehoord = klopt(wav, z)                              # Whisper: zegt de stem precies de zin?
+            score, gehoord, wav = klopt(wav, z)                         # Whisper: precies de zin? + staart eraf
             if beste is None or score > beste[0]:
                 beste = (score, wav, gehoord)
             if score >= 0.999:
