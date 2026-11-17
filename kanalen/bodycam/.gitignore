@@ -1,0 +1,8 @@
+# grote bestanden blijven op de pc (repo is openbaar, GitHub max 100 MB)
+videos/*/bron/*.webm
+videos/*/bron/*.mp4
+videos/*/bron/*.mov
+videos/*/stem/
+videos/*/build/
+videos/*/*.mp4
+videos/*/*.mp3

@@ -1,5 +1,7 @@
 # Notes for Claude sessions
 
+## Bodycam-kanaal (eigenaar 17 nov 2026): "bodycam" → lees `kanalen/bodycam/PLAN.md` (plan, regels, overdracht, stand van video 1). Sleep Archives staat daarvoor even stil.
+
 ## Eerst lezen: de vaste afspraken voor Sleep Archives (eigenaar 7-8 nov 2026)
 - **ALLE VASTE AFSPRAKEN (14 nov 2026): `stories/AFSPRAKEN.md`** — stem + haard-achtergrond, script, titel, thumbnail, planning; gecontroleerd door `tools/afspraken_check.py` (de keten stopt als iets niet klopt).
 - **Stand van zaken en wat er nog moet**: `stories/OVERDRACHT-AUDIO.md`.
