@@ -67,6 +67,14 @@ out += alineas(src / "slot.txt")
 # (ww2-facts, tombstone, egypte) hebben hun beelden al en geen stijl.txt: daar verandert niets.
 if (src / "stijl.txt").exists():
     stijl = " ".join((src / "stijl.txt").read_text(encoding="utf-8").split())
+    # 17 nov 2026 (eigenaar, Dallas: "vaak dezelfde afbeelding in de video, let daarop"): de stijlzin beschreef een hele
+    # buitenscène ("brick buildings, cars, clear blue sky, flat prairie, golden evening light"). Die overstemde elke
+    # beschrijving: een diner, kantoor of woonkamer werd steeds dezelfde straat bij avondlicht. Daarom alleen plaats + tijd,
+    # tijdperk en filmlook; plek en licht komen uit de beschrijving van het beeld zelf.
+    staart = stijl[stijl.find("Cinematic"):] if "Cinematic" in stijl else "Cinematic realistic photograph, wide 16:9 landscape, calm and peaceful mood, highly detailed, no text, no letters, no logos"
+    plaats = re.split(r":|,\s*with\s", stijl, maxsplit=1)[0].strip().rstrip(".,")
+    stijl = (f"{plaats}: everything exactly of that time, period clothing, furniture and objects, nothing modern; "
+             f"the place and light exactly as the scene describes (indoors or outdoors, day or night). {staart}")
     beelden = []
     for p in delen:
         for blk in p.read_text(encoding="utf-8").split("\n===\n"):

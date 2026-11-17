@@ -274,3 +274,6 @@
 - 2026-11-17 01:30 crisis-1933: oude versie R2rgLUMJxac ('Life in the Great Depression, 1933 | History for Sleep') verwijderd
 - 2026-11-17 01:31 crisis-1933: KLAAR
 - 2026-11-17 01:31 routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-17 21:00
+- 2026-11-17 02:10 routine-lokaal: dallas-1963: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025
+- 2026-11-17 04:22 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
+- 2026-11-17 04:23 Claude: dallas-1963 (eigenaar 17 nov: 'vaak dezelfde afbeelding in de video, let daarop'): de stijlzin beschreef een hele buitenscène (bakstenen gebouwen, auto's, blauwe lucht, avondlicht) en overstemde elke beschrijving -> bijna alle 90 beelden dezelfde straat, ook diner/kantoor/woonkamer. Keten gestopt vóór de upload, oude beelden naar afbeeldingen-oud-*, nieuwe stijl (alleen plaats+tijd+filmlook), alles opnieuw. tools/bouw_feiten.py kort voortaan elke stijlzin zo in; prompts van alle komende video's opnieuw gebouwd (tekst ongewijzigd)
