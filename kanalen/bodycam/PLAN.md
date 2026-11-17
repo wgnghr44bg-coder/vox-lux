@@ -69,6 +69,17 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   `bron/` (Wikimedia gaf 429: de eigenaar downloadt de 480p-versie in de browser).
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
+## Nieuwe werkwijze (17 nov 2026, 20:35) – gebruik deze
+- `monteer.py <map>`: maakt de hele video in ÉÉN ffmpeg-keer (geen losse stukken plakken). plan.json: stukken
+  `{"soort":"origineel","bron":[a,b]}` (echt geluid, volume gelijkgetrokken) of `{"soort":"stem","blok":n,"bron":[[a,b]]}`
+  (alleen onze stem; ondertitels van het korps in beeld worden dan vervaagd). Nooit stem en echt geluid tegelijk.
+- Kies de echte stukken met Whisper-tijden (`bron/whisper.json`, fijner: los venster uitschrijven), zonder korps-verteller.
+- **Controle vóór sturen**: freezedetect (geen stilstand), beeldstappen regelmatig (29,97), geen audio-sprongen, volume per
+  stuk binnen ± 1 LU, Whisper over de hele proef, controlebeelden bekijken.
+- Proef 3 (eerste in deze vorm): `videos/cbp-lascruces-2023/` (DVIDS 881873).
+- Alleen beelden rechtstreeks van het korps (DVIDS/CBP/korps-site), NIET de versie van een YouTube-kanaal (Sarah Boone
+  op Commons = Law&Crime-versie -> niet gebruiken).
+
 ## Video maken (17 nov 2026)
 1. `bron/bron.mp4` + `bronvermelding.txt` + `script.txt` (Engels, alinea = stemblok, [BEELD]-regels).
 2. Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py <map>` (eigen stem, speed 1.0).
