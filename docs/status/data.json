@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-17 17:03",
+ "bijgewerkt": "2026-11-17 17:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen · 50%",
+    "detail": "Video bouwen · 99%",
     "soort": "nu"
    }
   ],
@@ -537,8 +537,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -553,7 +553,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "176 GB vrij"
+   "tekst": "177 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -562,13 +562,13 @@
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": true,
-   "tekst": "laatste keer goed (2026-11-09 06:00)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Taak 'dashboard'",
-   "ok": true,
-   "tekst": "draait nu (2026-11-17 17:03)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Git",
@@ -593,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 16:48: alles klopt"
+   "tekst": "laatste ronde 17:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -610,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 17:03",
-   "volgende": "2026-11-17 17:33"
+   "laatst": "2026-11-17 17:33",
+   "volgende": "2026-11-17 18:03"
   },
   "hype": {
    "aan": true,
@@ -620,18 +620,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-17 16:10",
-   "volgende": "2026-11-17 17:10"
+   "laatst": "2026-11-17 17:10",
+   "volgende": "2026-11-17 18:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 16:48",
-   "volgende": "2026-11-17 17:18"
+   "laatst": "2026-11-17 17:18",
+   "volgende": "2026-11-17 17:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-17 15:25",
-   "volgende": "2026-11-17 17:25"
+   "laatst": "2026-11-17 17:25",
+   "volgende": "2026-11-17 19:25"
   }
  },
  "kanaal": {
@@ -674,7 +674,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 20,
+    "views": 21,
     "verwerkt": "processed"
    },
    {
@@ -931,9 +931,9 @@
    "totaal": 12,
    "procent": 33
   },
-  "fouten": 0,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 13,
+   "goed": 10,
    "totaal": 13
   }
  },
@@ -954,15 +954,15 @@
   "thumb": "thumbs/dallas-1963.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 50,
+  "voortgang": 99,
   "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
    "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-17 17:39",
-   "youtube": "2026-11-17 17:59"
+   "klaar": "2026-11-17 17:49",
+   "youtube": "2026-11-17 18:09"
   }
  },
  "nu_bezig": [
@@ -976,8 +976,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 615,
+  "bezig_procent": 32,
+  "geheugen_mb": 578,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1147,7 +1147,23 @@
    "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-17 17:33",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-17 17:33",
+   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-17 17:33",
+   "tekst": "Zelfcontrole: Taak 'dashboard': niet gevonden",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-16 14:32",
@@ -3845,7 +3861,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 17:05",
+  "bijgewerkt": "2026-11-17 17:41",
   "accounts": [
    {
     "account": "hoofd",
@@ -3880,15 +3896,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 103147,
+    "stap_kost": 101871,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 2,
     "5uur_scripts_over": 21.5,
-    "5uur_stappen_over": 129,
+    "5uur_stappen_over": 131,
     "week_pct": 70,
     "week_scripts_over": 63.0,
-    "week_stappen_over": 379
+    "week_stappen_over": 383
    }
   ]
  },
