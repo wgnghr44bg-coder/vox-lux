@@ -9,3 +9,5 @@ videos/*/*.mp3
 videos/*/build/
 videos/*/bron/*.ttf
 videos/*/bron/*.html
+stemproeven/*.wav
+stemproeven/*.mp3

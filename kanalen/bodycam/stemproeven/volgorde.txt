@@ -1,0 +1,8 @@
+1. us-man-laag-1 (male, middle-aged, low pitch, american accent) – woorden ok, 152 w/min
+2. us-man-laag-2 (male, middle-aged, low pitch, american accent) – woorden ok, 150 w/min
+3. us-man-laag-3 (male, middle-aged, low pitch, american accent) – woorden ok, 150 w/min
+4. us-man-midden-1 (male, middle-aged, moderate pitch, american accent) – woorden ok, 162 w/min
+5. us-man-midden-2 (male, middle-aged, moderate pitch, american accent) – woorden ok, 159 w/min
+6. us-man-jong-1 (male, young adult, low pitch, american accent) – woorden ok, 149 w/min
+7. us-vrouw-1 (female, middle-aged, low pitch, american accent) – woorden ok, 150 w/min
+8. us-vrouw-2 (female, middle-aged, moderate pitch, american accent) – woorden ok, 145 w/min
