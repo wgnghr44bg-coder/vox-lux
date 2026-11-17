@@ -272,3 +272,5 @@
 - 2026-11-16 19:31 hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-07): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels)
 - 2026-11-17 01:25 crisis-1933: geüpload https://youtu.be/YZ4sZ_EivLc (privé, publiek 2026-11-17T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-17 01:30 crisis-1933: oude versie R2rgLUMJxac ('Life in the Great Depression, 1933 | History for Sleep') verwijderd
+- 2026-11-17 01:31 crisis-1933: KLAAR
+- 2026-11-17 01:31 routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-17 21:00
