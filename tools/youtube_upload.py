@@ -33,14 +33,22 @@ CHUNK = 16 * 1024 * 1024  # 16 MB, a multiple of 256 KB as the API requires
 
 
 def access_token() -> str:
-    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
-               if not os.environ.get(k)]
+    # 17 nov 2026: tweede kanaal. YT_KANAAL=altena -> sleutel uit ~/.yt-altena.json (tools/youtube_koppel.py);
+    # zonder YT_KANAAL blijft alles op Sleep Archives (YT_REFRESH_TOKEN).
+    kanaal = os.environ.get("YT_KANAAL", "").strip()
+    refresh = os.environ.get("YT_REFRESH_TOKEN")
+    if kanaal:
+        bestand = Path.home() / f".yt-{kanaal}.json"
+        if not bestand.exists():
+            sys.exit(f"Geen sleutel voor kanaal '{kanaal}': draai python tools/youtube_koppel.py {kanaal} --schrijf")
+        refresh = json.loads(bestand.read_text())["refresh_token"]
+    missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET") if not os.environ.get(k)] + ([] if refresh else ["YT_REFRESH_TOKEN"])
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
     res = requests.post(TOKEN_URL, data={
         "client_id": os.environ["YT_CLIENT_ID"],
         "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"],
+        "refresh_token": refresh,
         "grant_type": "refresh_token",
     }, timeout=60)
     if not res.ok:
