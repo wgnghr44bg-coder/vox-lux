@@ -249,7 +249,17 @@ def herschrijf_prompt(map_, naam, oud, fouten):
     import llm, difflib
     st = stijl(map_)
     kern = kern_van(oud, st)
-    staart = oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(", ") if kern in oud else st
+    if not kern:
+        # 17 nov, Dallas beeld 052: een eerdere herschrijving filterde alle zinsdelen weg, de regel hield alleen de
+        # stijlzin over, en oud.split("") brak de beeldcontrole af (keten 3x gestopt). Scène terug uit de tsv.
+        tsv = Path(map_) / "afbeeldingen-onderwerpen.tsv"
+        for r in (tsv.read_text(encoding="utf-8").splitlines() if tsv.exists() else []):
+            d = r.split("\t")
+            if d[0].split(".")[0] == naam and len(d) >= 3:
+                kern = d[2].strip()
+        staart = oud.lstrip(", ") or st
+    else:
+        staart = oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(", ") if kern in oud else st
     nieuw = llm.vraag(f"An image generator keeps adding mistakes to this picture: {fouten}.\nPicture description: {kern}\n"
                       "Rewrite the description in one sentence so it clearly states what IS there instead (for example "
                       "'only horses, wagons and wooden buildings; open land in the distance', or 'an indoor scene, enclosed "
@@ -275,6 +285,8 @@ def herschrijf_prompt(map_, naam, oud, fouten):
     nieuw = ", ".join(d for d in re.split(r",\s*", nieuw)
                       if not re.search(r"\b(text|letters?|lettering|words?|writing|signs?)\b", d, re.I)
                       or re.search(r"\b(text|letters?|lettering|words?|writing|signs?)\b", kern, re.I))
+    if not nieuw.strip(" ,"):
+        nieuw = kern                                         # alles weggefilterd: nooit een lege scène wegschrijven
     extra = [z for pat, z in vast if re.search(pat, tekst) and z not in nieuw]
     if extra:
         nieuw = nieuw + ", " + ", ".join(extra)
