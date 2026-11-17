@@ -53,7 +53,10 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
   nalopen; een fout blok opnieuw met `--alleen <nrs> --seed-extra <n>`.
 - **Voorbeeldkanaal: EWU Bodycam** (3,7 mln abonnees; "Cop Gets Killed Playing Call of Duty", 10:20, 880k views in 1 dag):
   korte documentaire van ± 10 min, spannende opening, "In today's documentary, we're covering the case of …", verteller.
-- Geluid: alleen de voice-over (eigenaar: "je mag ook het complete geluid weghalen").
+- **Geluid (eigenaar 17 nov, definitief):** het ECHTE geluid van de bron blijft (agenten, radio, omgeving); alleen de
+  verteller/het commentaar van het korps wordt vervangen door onze stem. `maak_video.py`: bodycam = origineel geluid dat
+  vanzelf wegzakt als onze stem praat; kaart/tekstscherm met korps-verteller = bron-geluid uit. Zoek met Whisper
+  (tijdstempels) precies waar de korps-verteller praat en knip die stukken eruit (bv. CBP-radio: 404,4-424,6 s).
 
 ## Video maken (17 nov 2026)
 1. `bron/bron.mp4` + `bronvermelding.txt` + `script.txt` (Engels, alinea = stemblok, [BEELD]-regels).

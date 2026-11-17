@@ -7,10 +7,11 @@ plan.json = lijst van stukken, op volgorde:
   {"blok": null, "bron": [[402, 424]], "soort": "vol", "geluid": "origineel"}     # stuk zonder stem, echt geluid
 soort: "bodycam" (4:3 in zwarte randen -> wazige achtergrond), "kaart" (onderste ondertitels van de bron wegsnijden),
        "vol" (beeld zoals het is).
-geluid: "uit" (STANDAARD, eigenaar 17 nov: alleen de voice-over) / "onder" (-18 dB onder de stem) / "origineel".
-       Let op: een korps-verteller onder onze stem klinkt als dubbel geluid. Controleer met volumedetect of een bronstuk spraak bevat.
+geluid: "origineel" (STANDAARD: echt geluid, zakt automatisch weg onder onze stem) / "uit" (STANDAARD bij "kaart":
+       de korps-verteller wordt vervangen door onze stem) / "onder" (vast -18 dB). Eigenaar 17 nov: origineel geluid
+       behouden, alleen de verteller vervangen. Spraak van een verteller in een bronstuk: controleer met Whisper.
 Met stem: het bronbeeld loopt zo lang als het stemblok (+0,6 s); te kort -> iets vertraagd (max 1,35x), daarna
-stilstaand laatste beeld. Bron-geluid onder de stem: -18 dB. Eindvolume -14 LUFS (zoals tools/eind_volume.py).
+stilstaand laatste beeld. Eindvolume -14 LUFS (zoals tools/eind_volume.py).
 Rechtsonder klein "Footage: <bron>" (uit bronvermelding.txt, eerste woorden tot " – ").
 """
 import json, subprocess, sys
@@ -77,17 +78,21 @@ def main():
             tekst.append(f"drawtext=fontfile={FONT}:text='{esc(st['tekst'])}':x=60:y=h-150:fontsize=46:fontcolor=white:"
                          "box=1:boxcolor=black@0.55:boxborderw=18:enable='between(t,0.5,7)'")
         v += "," + ",".join(tekst) + ",format=yuv420p[v]"
-        # geluid: "origineel" (vol), "onder" (-18 dB onder de stem) of "uit". Kaart-/tekstbeelden van een korps hebben vaak
-        # een eigen verteller: standaard UIT, anders hoor je twee stemmen door elkaar (eigenaar 17 nov: "dubbel geluid").
-        # eigenaar 17 nov: "je mag ook het complete geluid weghalen, alleen de voice-over" -> standaard overal UIT
-        geluid = st.get("geluid") or "uit"
+        # Eigenaar 17 nov: "het geluid van de originele video wel behouden, alleen het commentaar of de verteller door de stem".
+        # geluid: "origineel" (STANDAARD: echt bodycam-geluid; zakt vanzelf weg zodra onze stem praat, komt tussen de zinnen
+        #          weer omhoog) / "uit" (STANDAARD bij "kaart": daar praat de korps-verteller -> vervangen door onze stem;
+        #          ook voor tekstschermen met verteller) / "onder" (vast -18 dB).
+        geluid = st.get("geluid") or ("uit" if soort == "kaart" else "origineel")
         bron_vol = {"origineel": 1.0, "onder": 0.126, "uit": 0.0}[geluid]
         a_ += (f",atempo={1 / tempo:.4f},volume={bron_vol},aformat=sample_rates=48000:channel_layouts=stereo,"
                f"apad,atrim=0:{doel:.3f}[ba]")
         deel = tmp / f"deel{n:02d}.mp4"
         if blok:
+            # ducking: het bron-geluid gaat ± 20 dB omlaag zolang onze stem klinkt (sidechain), zachte overgangen
             fc = (f"[0:v]{v};[0:a]{a_};[1:a]aformat=sample_rates=48000:channel_layouts=stereo,adelay=300|300,"
-                  f"apad,atrim=0:{doel:.3f}[s];[ba][s]amix=inputs=2:normalize=0:duration=first[a]")
+                  f"apad,atrim=0:{doel:.3f},asplit[s][sc];"
+                  f"[ba][sc]sidechaincompress=threshold=0.01:ratio=20:attack=30:release=600:makeup=1[bd];"
+                  f"[bd][s]amix=inputs=2:normalize=0:duration=first[a]")
             ff("-ss", off, "-i", bron, "-i", map_ / "stem" / blok["bestand"], "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
                "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "192k", "-r", FPS, deel)
         else:
