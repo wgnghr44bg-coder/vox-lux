@@ -54,8 +54,8 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - Alles wat geld kost, en alles wat iets verwijdert (ook video's op YouTube). Video's niet opnieuw uploaden of
   verwijderen: titel en thumbnail kunnen in YouTube Studio worden aangepast zonder views te verliezen.
 
-## Tweede kanaal: Altena (vast sinds 17 nov 2026)
-- Kanaal **Altena** (UC_6p9gp5aBf-eHY5VmJEw4w) staat op een **ander e-mailadres** dan Sleep Archives. Gekoppeld met
+## Tweede kanaal: Noir Traces (was Altena; vast sinds 17 nov 2026)
+- Kanaal **Noir Traces** (naam op YouTube NOIRTRACES, eerst Altena; UC_6p9gp5aBf-eHY5VmJEw4w): bodycam, verhoren, arrestaties (kanalen/bodycam/PLAN.md). Beschrijving + trefwoorden gezet 17 nov. Sleutelnaam blijft "altena". staat op een **ander e-mailadres** dan Sleep Archives. Gekoppeld met
   alle rechten (uploaden, aanpassen, statistieken) via `python tools/youtube_koppel.py altena --schrijf`
   (zelfde Google-app "Vox Lux Uploader"; redirect `http://127.0.0.1:8765` staat in de Cloud Console).
 - Sleutel staat op de pc in `~/.yt-altena.json` (**buiten git**, nooit committen).
