@@ -277,3 +277,10 @@
 - 2026-11-17 02:10 routine-lokaal: dallas-1963: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025
 - 2026-11-17 04:22 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
 - 2026-11-17 04:23 Claude: dallas-1963 (eigenaar 17 nov: 'vaak dezelfde afbeelding in de video, let daarop'): de stijlzin beschreef een hele buitenscène (bakstenen gebouwen, auto's, blauwe lucht, avondlicht) en overstemde elke beschrijving -> bijna alle 90 beelden dezelfde straat, ook diner/kantoor/woonkamer. Keten gestopt vóór de upload, oude beelden naar afbeeldingen-oud-*, nieuwe stijl (alleen plaats+tijd+filmlook), alles opnieuw. tools/bouw_feiten.py kort voortaan elke stijlzin zo in; prompts van alle komende video's opnieuw gebouwd (tekst ongewijzigd)
+- 2026-11-17 06:19 routine-lokaal: dallas-1963: beeldcontrole brak af zonder uitslag, opnieuw (= oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(", ") if kern in oud else st
+                     ^^^^^^^^^^^^^^^^^^
+ValueError: empty separator)
+- 2026-11-17 06:46 routine-lokaal: dallas-1963: beeldcontrole brak af zonder uitslag, opnieuw (= oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(", ") if kern in oud else st
+                     ^^^^^^^^^^^^^^^^^^
+ValueError: empty separator)
+- 2026-11-17 06:46 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: poging 3: 14 beelden opnieuw maken); de oude versie blijft staan
