@@ -17,9 +17,9 @@ from pathlib import Path
 import numpy as np, soundfile as sf, torch, librosa
 
 HIER = Path(__file__).resolve().parent
-STEM = Path("C:/Users/rane/vox-lux-stemmen/ontwerp-us-man-laag-1/ref.wav")
-EXAGGERATION, CFG = 0.5, 0.25
-PAUZE = {".": 0.6, "?": 0.6, "!": 0.6, ",": 0.28}
+STEM = Path("C:/Users/rane/vox-lux-stemmen/ontwerp-us-man-laag-3/ref-rustig.wav")   # eigenaar 17 nov: "ik wil toch stem 5"
+EXAGGERATION, CFG = 0.5, 0.3   # tempo komt uit de rustige referentie (ref-rustig.wav = ref op 0,85x)
+PAUZE = {".": 0.75, "?": 0.75, "!": 0.75}   # geen kommapauzes meer: knippen midden in een klank gaf "stotteren"
 UITSPRAAK = json.loads((HIER / "uitspraak.json").read_text(encoding="utf-8"))
 
 map_ = Path(sys.argv[1])
@@ -78,11 +78,18 @@ def stuk(tekst, n, k):
     for c, v in zip(ch, ch[1:]):
         t = c["text"].strip()
         if t and t[-1] in PAUZE:
-            i, w = int((t1(c) + t0(v)) / 2 * SR), int(0.06 * SR)
-            lo = max(vorige, i - w)
+            # alleen invoegen op een ECHT stil moment (30 ms onder -40 dB t.o.v. de piek) binnen 150 ms van de
+            # woordgrens; anders niets doen (eigenaar 17 nov: "hij stottert nog een beetje")
+            i, w, k = int((t1(c) + t0(v)) / 2 * SR), int(0.15 * SR), int(0.03 * SR)
+            lo = max(vorige + k, i - w)
             seg = a[lo:i + w]
-            if len(seg) > 240:
-                i = lo + int(np.argmin(np.convolve(np.abs(seg), np.ones(240), "same")))
+            if len(seg) <= k:
+                continue
+            env = np.sqrt(np.convolve(seg ** 2, np.ones(k) / k, "same"))
+            j = int(np.argmin(env))
+            if env[j] > np.abs(a).max() * 10 ** (-40 / 20):
+                continue
+            i = lo + j
             delen += [a[vorige:i], np.zeros(int(PAUZE[t[-1]] * SR), np.float32)]
             vorige = i
     delen.append(a[vorige:int(eind * SR)])

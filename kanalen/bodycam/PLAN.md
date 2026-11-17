@@ -70,11 +70,11 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
 - De CBP-proef is afgekeurd (haperen, geluiden door elkaar); niet als voorbeeld gebruiken.
 
 ## VASTE STEM BODYCAM (eigenaar 17 nov 2026, 21:20: "Nummer 3")
-- **Chatterbox** (MIT, gratis, `C:/Users/rane/chatterbox-venv`) met de ontworpen stem **ontwerp-us-man-laag-1**
+- **Chatterbox** (MIT, gratis, `C:/Users/rane/chatterbox-venv`) met de ontworpen stem **ontwerp-us-man-laag-3** (eigenaar 17 nov 21:30: "ik wil toch stem 5"; eerst laag-1)
   (Amerikaanse man, middelbare leeftijd, laag; OmniVoice voice design, niet nagemaakt van iemand):
-  `C:/Users/rane/vox-lux-stemmen/ontwerp-us-man-laag-1/ref.wav`. Instellingen exaggeration 0.5, cfg 0.25.
+  `C:/Users/rane/vox-lux-stemmen/ontwerp-us-man-laag-3/ref-rustig.wav` (= ref.wav op 0,85x: Chatterbox neemt het tempo van de referentie over). Instellingen exaggeration 0.5, cfg 0.3; ± 160 w/min.
 - Script: `C:/Users/rane/chatterbox-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover_cb.py <map>` (per alinea in
-  één keer = natuurlijke zinsmelodie; Whisper-controle; staart eraf; adempauzes 0,6 s per zin, 0,28 s per komma).
+  één keer = natuurlijke zinsmelodie; Whisper-controle; staart eraf; adempauze 0,6 s per zin, alleen op een echt stil moment; geen kommapauzes (gaf stotteren)).
   Daarna `python kanalen/bodycam/monteer.py <map>`.
 - Waarom niet OmniVoice: eigenaar "te robot achtig" (zin-voor-zin geplakt) en "gelach" (geluidjes na zinnen).
 - Korte alinea's van één lange zin klinken snel: liever twee korte zinnen schrijven.
