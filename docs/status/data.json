@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 00:03",
+ "bijgewerkt": "2026-11-18 00:33",
  "werkplanning": {
   "nu": [
    {
@@ -569,7 +569,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "171 GB vrij"
+   "tekst": "170 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -584,7 +584,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 00:03)"
+   "tekst": "draait nu (2026-11-18 00:33)"
   },
   {
    "naam": "Git",
@@ -604,7 +604,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 00:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -621,8 +621,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 00:03",
-   "volgende": "2026-11-18 00:33"
+   "laatst": "2026-11-18 00:33",
+   "volgende": "2026-11-18 01:03"
   },
   "hype": {
    "aan": true,
@@ -632,12 +632,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-18 00:10"
+   "volgende": "2026-11-18 01:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 23:48",
-   "volgende": "2026-11-18 00:18"
+   "laatst": "2026-11-18 00:18",
+   "volgende": "2026-11-18 00:48"
   },
   "titels": {
    "aan": true,
@@ -942,7 +942,7 @@
    "totaal": 16,
    "procent": 25
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -973,7 +973,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 568,
+  "geheugen_mb": 572,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1059,12 +1059,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-17 04:23",
-   "tekst": "Claude: dallas-1963 (eigenaar 17 nov: 'vaak dezelfde afbeelding in de video, let daarop'): de stijlzin beschreef een hele buitenscène (bakstenen gebouwen, auto's, blauwe lucht, avondlicht) en overstem",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-17 06:19",
    "tekst": "routine-lokaal: dallas-1963: beeldcontrole brak af zonder uitslag, opnieuw (= oud[len(oud.split(kern, 1)[0]) + len(kern):].lstrip(\", \") if kern in oud else st",
    "fout": false,
@@ -1141,28 +1135,22 @@
    "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 00:13",
+   "tekst": "bodycam: video 1 (Las Cruces, CBP) PRIVÉ geüpload naar NOIRTRACES: https://youtu.be/k7CbEk763Gk – titel \"Border Patrol Begged Him to Drop the Club\", thumbnail DROP IT NOW. Openbaar pas na akkoord eige",
+   "fout": false,
+   "klaar": true
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 21:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 00:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 00:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-16 15:58",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-16 15:58",
    "tekst": "routine-lokaal: crisis-1933: opnieuw maken GESTOPT (afspraken niet in orde: abonneerzin staat in begin.txt (afspraak: in abonneer.txt, klinkt na feitje 2); geen src-feiten/abonneer.txt); de oude versi",
@@ -1202,6 +1190,12 @@
   {
    "tijd": "2026-11-17 20:18",
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 21:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
   }
@@ -3807,7 +3801,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 00:03",
+  "bijgewerkt": "2026-11-18 00:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3828,7 +3822,7 @@
    },
    {
     "account": "account2",
-    "5uur": 9751,
+    "5uur": 0,
     "week": 88651366,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3845,7 +3839,7 @@
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": 21.9,
-    "5uur_stappen_over": 228,
+    "5uur_stappen_over": 229,
     "week_pct": 67,
     "week_scripts_over": 70.0,
     "week_stappen_over": 730
