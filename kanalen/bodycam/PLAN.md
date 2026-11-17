@@ -45,6 +45,16 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
 - **YouTube:** echt geweld alleen met educatieve/documentaire context (onze uitleg); bloed en gewonden inkorten of
   vervagen (anders 18+ en weinig advertenties); bij een Content ID-claim bezwaar maken met de bronlink.
 
+## Stem en voorbeeld (17 nov 2026, avond)
+- **Vaste stem bodycam: `bodycam-stem`** (aangeleverd door de eigenaar, met toestemming om na te maken), alleen op de pc:
+  `C:/Users/rane/vox-lux-stemmen/bodycam-stem/` (ref.wav + voice.json). **Snelheid 0.85** (praat van zichzelf snel;
+  0.85 = ± 160 woorden/min): `maak_voiceover.py <map> --speed 0.85 --stem-map C:/Users/rane/vox-lux-stemmen/bodycam-stem`.
+- **Uitspraak:** `kanalen/bodycam/uitspraak.json` (alleen voor de stem, bv. Otay -> Oh-tie). Altijd elk blok met Whisper
+  nalopen; een fout blok opnieuw met `--alleen <nrs> --seed-extra <n>`.
+- **Voorbeeldkanaal: EWU Bodycam** (3,7 mln abonnees; "Cop Gets Killed Playing Call of Duty", 10:20, 880k views in 1 dag):
+  korte documentaire van ± 10 min, spannende opening, "In today's documentary, we're covering the case of …", verteller.
+- Geluid: alleen de voice-over (eigenaar: "je mag ook het complete geluid weghalen").
+
 ## Video maken (17 nov 2026)
 1. `bron/bron.mp4` + `bronvermelding.txt` + `script.txt` (Engels, alinea = stemblok, [BEELD]-regels).
 2. Stem: `C:/Users/rane/omnivoice-venv/Scripts/python.exe kanalen/bodycam/maak_voiceover.py <map>` (eigen stem, speed 1.0).
@@ -56,7 +66,7 @@ Gratis API-sleutels maken meer bronnen mogelijk: `DVIDS_API_KEY`, `PEXELS_API_KE
 - Niet van YouTube downloaden; Commons-bestand of origineel bij het korps.
 
 ## Regels
-- Altijd iets eigens: NL voice-over, uitleg, tijdlijn, kaart (anders "reused content", geen geld).
+- Altijd iets eigens: Engelse voice-over, uitleg, tijdlijn, kaart (anders "reused content", geen geld).
 - Bronvermelding in de beschrijving, bv. "Beelden: LAPD – public domain (PD-CAGov-LAPD) – <Commons-link>".
 - Screenshot van de licentie bewaren als bewijs (`kanalen/bodycam/<video>/licentie.png`).
 - Gezichten van omstanders vervagen, geen vernederende beelden; heftigste moment inkorten of vervagen
