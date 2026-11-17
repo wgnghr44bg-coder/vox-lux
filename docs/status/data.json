@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-17 21:03",
+ "bijgewerkt": "2026-11-17 21:33",
  "werkplanning": {
   "nu": [
    {
@@ -580,7 +580,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 21:03)"
+   "tekst": "draait nu (2026-11-17 21:33)"
   },
   {
    "naam": "Git",
@@ -605,7 +605,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -622,8 +622,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 21:03",
-   "volgende": "2026-11-17 21:33"
+   "laatst": "2026-11-17 21:33",
+   "volgende": "2026-11-17 22:03"
   },
   "hype": {
    "aan": true,
@@ -633,17 +633,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-17 21:10"
+   "volgende": "2026-11-17 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 20:48",
-   "volgende": "2026-11-17 21:18"
+   "laatst": "2026-11-17 21:18",
+   "volgende": "2026-11-17 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-17 19:25",
-   "volgende": "2026-11-17 21:25"
+   "laatst": "2026-11-17 21:25",
+   "volgende": "2026-11-17 23:25"
   }
  },
  "kanaal": {
@@ -945,10 +945,10 @@
   "geplande": 1,
   "runs": {
    "goed": 4,
-   "totaal": 15,
-   "procent": 27
+   "totaal": 16,
+   "procent": 25
   },
-  "fouten": 3,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 12,
    "totaal": 13
@@ -979,7 +979,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 599,
+  "geheugen_mb": 233,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1065,12 +1065,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-17 04:22",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-17 04:23",
    "tekst": "Claude: dallas-1963 (eigenaar 17 nov: 'vaak dezelfde afbeelding in de video, let daarop'): de stijlzin beschreef een hele buitenscène (bakstenen gebouwen, auto's, blauwe lucht, avondlicht) en overstem",
    "fout": false,
@@ -1147,24 +1141,24 @@
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 21:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 20:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "tijd": "2026-11-17 21:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-17 20:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-17 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1202,6 +1196,18 @@
   {
    "tijd": "2026-11-17 19:06",
    "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 20:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
   }
@@ -3466,7 +3472,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-17 19:29",
+  "bijgewerkt": "2026-11-17 21:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3813,10 +3819,10 @@
     "bekeken": "2026-11-17"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 21:04",
+  "bijgewerkt": "2026-11-17 21:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3850,15 +3856,15 @@
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 76927,
+    "stap_kost": 88552,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 1,
     "5uur_scripts_over": 21.7,
-    "5uur_stappen_over": 175,
+    "5uur_stappen_over": 152,
     "week_pct": 67,
     "week_scripts_over": 70.0,
-    "week_stappen_over": 564
+    "week_stappen_over": 490
    }
   ]
  },
