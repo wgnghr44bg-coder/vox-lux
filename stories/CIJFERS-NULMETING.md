@@ -25,3 +25,12 @@ co-views mee). Zwak punt: abonnees (+9 op 592 uur kijktijd).
 - CTR: vraagtitels het laagst (WW2 0,78%, Egypte 1,27%, Babylon 2,73%). "Life in X Before [ramp]" het hoogst
   (Pompeii 11%, San Francisco 10%, Tunguska 7,4%; kleine aantallen), Vikingen 7,3% op 452 vertoningen.
 - Zoekverkeer bijna nul: kijkers komen via aanbevelingen (browse/suggested), dus thumbnail + titel bepalen alles.
+
+## Publiek en reacties (Studio AI, 17 nov 2026)
+- Verkeer: Browse/startpagina 72%, Voorgesteld 18%, Zoeken 4%, Afspeellijsten 0,7%. Thumbnail + titel op de startpagina beslissen.
+- Land: VS 61% van de weergaven, 72% van de kijktijd. Leeftijd (geregistreerd deel): 65+, 50/50 man/vrouw.
+- Kijkduur tv 40:29 tegen telefoon 28:48 (Titanic tv 49:32). Lange video's en compilaties passen bij tv.
+- CTR Browse: Mayflower 4,8%, Titanic 4,5%, Oregon 4,0%. Voorgesteld: Vikingen 9,1% (klein), Titanic 4,6%.
+- Reacties Mayflower: (1) "Thumbs down for AI slop. Please support videos that are human made and human voiced".
+  (2) uitspraak van woorden niet gecontroleerd, en het openingsbeeld lijkt niet op de echte Mayflower (zie de replica
+  Mayflower II). Les: beroemde schepen/gebouwen/voorwerpen moeten historisch kloppen; uitspraak van namen controleren.
