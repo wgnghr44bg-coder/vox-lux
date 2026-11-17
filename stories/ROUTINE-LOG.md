@@ -284,3 +284,6 @@ ValueError: empty separator)
                      ^^^^^^^^^^^^^^^^^^
 ValueError: empty separator)
 - 2026-11-17 06:46 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: poging 3: 14 beelden opnieuw maken); de oude versie blijft staan
+- 2026-11-17 15:48 sitecontrole: opgelost: website is sinds 2026-11-17 07:33 niet bijgewerkt (taak 'Sleep Archives dashboard' kijken)
+- 2026-11-17 16:06 routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025, 041, 066
+- 2026-11-17 17:48 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
