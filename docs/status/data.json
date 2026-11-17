@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-17 01:03",
+ "bijgewerkt": "2026-11-17 01:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "A Year in the Great Depression, 1933 | History for Sleep",
-    "map": "crisis-1933",
-    "detail": "Video bouwen · 97%",
+    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Crisis",
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "keten maakt de video voor za 21-11 21:00"
-   },
    {
     "wanneer": "na Dallas",
     "wat": "How People Survived the Ice Age | History for Sleep",
@@ -47,8 +41,8 @@
     "dag": "di",
     "titel": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
+    "stand": "online",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-18",
@@ -133,13 +127,13 @@
     "titel": "A Year in the Great Depression, 1933 | History for Sleep",
     "map": "crisis-1933",
     "klaar": true,
-    "stand": "video wordt gemaakt",
+    "stand": "video staat klaar",
     "controle": "GOED",
     "flesch": 71,
     "niveau": 6.1,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED",
-    "afspraken": []
+    "afspraken": null
    },
    {
     "datum": "2026-11-18",
@@ -559,7 +553,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "159 GB vrij"
+   "tekst": "181 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -574,7 +568,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-17 01:03)"
+   "tekst": "draait nu (2026-11-17 01:33)"
   },
   {
    "naam": "Git",
@@ -583,8 +577,8 @@
   },
   {
    "naam": "Video 2026-11-17 (crisis-1933)",
-   "ok": false,
-   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Video 2026-11-18 (gettysburg-1863)",
@@ -599,7 +593,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -616,8 +610,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-17 01:03",
-   "volgende": "2026-11-17 01:33"
+   "laatst": "2026-11-17 01:33",
+   "volgende": "2026-11-17 02:03"
   },
   "hype": {
    "aan": true,
@@ -626,18 +620,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-17 00:10",
-   "volgende": "2026-11-17 01:10"
+   "laatst": "2026-11-17 01:10",
+   "volgende": "2026-11-17 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-17 00:48",
-   "volgende": "2026-11-17 01:18"
+   "laatst": "2026-11-17 01:18",
+   "volgende": "2026-11-17 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-16 23:25",
-   "volgende": "2026-11-17 01:25"
+   "laatst": "2026-11-17 01:25",
+   "volgende": "2026-11-17 03:25"
   }
  },
  "kanaal": {
@@ -657,15 +651,6 @@
   },
   "recent": [
    {
-    "id": "R2rgLUMJxac",
-    "titel": "Life in the Great Depression, 1933 | History for Sleep",
-    "duur": "2:10:45",
-    "privacy": "private",
-    "publiceer": "2026-12-31T20:00:00Z",
-    "views": 3,
-    "verwerkt": "processed"
-   },
-   {
     "id": "4i-gOILazVQ",
     "titel": "Life in Gettysburg, July 1863 | History for Sleep",
     "duur": "2:17:38",
@@ -675,12 +660,21 @@
     "verwerkt": "processed"
    },
    {
+    "id": "YZ4sZ_EivLc",
+    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
+    "duur": "2:10:23",
+    "privacy": "private",
+    "publiceer": "2026-11-17T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
     "id": "Y46Rpy4703k",
     "titel": "Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep",
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 19,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -689,7 +683,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 64,
+    "views": 65,
     "verwerkt": "processed"
    },
    {
@@ -698,7 +692,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 17,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -937,9 +931,9 @@
    "totaal": 11,
    "procent": 36
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 12,
    "totaal": 13
   }
  },
@@ -952,24 +946,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "crisis-1933",
-  "titel": "A Year in the Great Depression, 1933 | History for Sleep",
-  "datum": "2026-11-17",
-  "thumb": "thumbs/crisis-1933.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 97,
-  "detail": "16mm-look",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "thumbs/dallas-1963.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "90 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
-  "eind": {
-   "klaar": "2026-11-17 01:20",
-   "youtube": "2026-11-17 01:40"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -977,13 +968,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 28,
-  "geheugen_mb": 3350,
+  "bezig_procent": 90,
+  "geheugen_mb": 7184,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1028,7 +1019,7 @@
    "datum": "2026-11-17",
    "plek": false,
    "video": "A Year in the Great Depression, 1933 | History for Sleep",
-   "soort": "bezig"
+   "soort": "online"
   },
   {
    "datum": "2026-11-18",
@@ -1068,42 +1059,6 @@
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-16 16:28",
-   "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 12 beelden lijken op een ander beeld (017, 020, 037, 038, 039, 047, 048, 065, 070, 077, 086, 088), nieuwe maken",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:38",
-   "tekst": "routine-lokaal: crisis-1933: 12 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 086",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:42",
-   "tekst": "Claude: crisis-1933: stijlzin zonder vaste boerderij (alles leek op elkaar), 4 beelden met steeds dezelfde man weg (037, 038, 047, 077); wachter strenger (0.92)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:42",
-   "tekst": "routine-lokaal: crisis-1933: opnieuw maken voor 2026-11-17 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 16:48",
-   "tekst": "sitecontrole: NIET GOED: crisis-1933 moet over 28 uur online, maar is nog niet klaar (bezig (2026-11-16, routine-lokaal))",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-16 17:19",
-   "tekst": "routine-lokaal: crisis-1933: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 080, 081, 088",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-16 17:19",
    "tekst": "routine-lokaal: crisis-1933: beelden-wachter: 13 beelden lijken op een ander beeld (011, 014, 021, 026, 032, 036, 046, 049, 056, 066, 084, 085, 086), nieuwe maken",
@@ -1151,17 +1106,48 @@
    "tekst": "hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-07): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel ",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 01:25",
+   "tekst": "crisis-1933: geüpload https://youtu.be/YZ4sZ_EivLc (privé, publiek 2026-11-17T20:00:00Z), kanaal Sleep Archives gecontroleerd",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-17 01:30",
+   "tekst": "crisis-1933: oude versie R2rgLUMJxac ('Life in the Great Depression, 1933 | History for Sleep') verwijderd",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 01:31",
+   "tekst": "crisis-1933: KLAAR",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-17 01:31",
+   "tekst": "routine-lokaal: crisis-1933: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-17 21:00",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 01:31",
+   "tekst": "bewaker: keten gestart voor dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-17 01:31",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-17 01:03",
-   "tekst": "Zelfcontrole: Video 2026-11-17 (crisis-1933): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-17 01:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-17 01:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1601,9 +1587,9 @@
    "datum": "2026-11-17",
    "reserve": false,
    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
-   "status": "bezig (2026-11-16, routine-lokaal)",
-   "soort": "bezig",
-   "id": "R2rgLUMJxac",
+   "status": "klaar",
+   "soort": "online",
+   "id": "YZ4sZ_EivLc",
    "afspeellijst": "oorlog",
    "opening": "scène",
    "stappen": [
@@ -1611,9 +1597,9 @@
     true,
     true,
     true,
-    false
+    true
    ],
-   "gereed": 80,
+   "gereed": 100,
    "thumb": "thumbs/crisis-1933.jpg"
   },
   {
@@ -1641,7 +1627,7 @@
    "datum": "2026-11-21",
    "reserve": false,
    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-   "status": "bezig (2026-11-16, routine-lokaal)",
+   "status": "bezig (2026-11-17, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "mysterie",
@@ -1649,11 +1635,11 @@
    "stappen": [
     true,
     true,
-    false,
+    true,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 60,
    "thumb": "thumbs/dallas-1963.jpg"
   },
   {
@@ -3451,7 +3437,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-16 23:25",
+  "bijgewerkt": "2026-11-17 01:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3916,7 +3902,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-17 01:08",
+  "bijgewerkt": "2026-11-17 01:34",
   "accounts": [
    {
     "account": "hoofd",
