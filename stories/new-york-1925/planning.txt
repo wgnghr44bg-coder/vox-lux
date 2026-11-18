@@ -1,6 +1,9 @@
-onderwerp Life in New York in the Roaring Twenties, 1925
-status   script-klaar (2026-11-03, tweede account)
+onderwerp Life in New York During Prohibition, 1925
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 18 nov, 2026-11-18, Claude; opnieuw geschreven; jaardag drooglegging 16 jan)
 datum    za 2027-01-16 21:00 NL (eigenaar 18 nov: jaardag drooglegging 16 jan; was reserve)
-titel    Life in New York in the Roaring Twenties, 1925 | <N> Hours of History for Sleep
+titel    Life in New York During Prohibition, 1925 | History for Sleep
 thumbnail amberregel "NEW YORK · 1925", hook "The Roaring Twenties", beeld (kenmerkend): een New Yorkse straat in de schemering in 1925 met een gele taxi en een Ford Model T, brandende lichtreclames en vroege wolkenkrabbers, een meisje met bobkapsel op een ijzeren brandtrap; rustig, warm avondlicht
-soort    nieuwe tijd
+soort    reis
+opening   plek
+titelsoort life-in
+thumbnail kenmerk: een verborgen speakeasy-deur met klein schuifluikje in een bakstenen steegje in New York in 1925, groot en van dichtbij, een warme lamp erboven, op de achtergrond vaag de verlichte vroege wolkenkrabbers in de schemering; geen mensen

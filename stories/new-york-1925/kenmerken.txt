@@ -1,0 +1,6 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+Woolworth Building | the Woolworth Building (1913): a slender white terracotta Gothic skyscraper of 57 floors with pointed arches, vertical stripes and a steep green copper pyramid roof with small pinnacles, no glass curtain walls
+subway | a New York subway car of 1925: dark green or red steel car with wicker or rattan seats along the sides, ceiling fans, leather hanging straps, incandescent bulbs, no plastic, no digital signs
+Model T | a Ford Model T: a tall, boxy black car with thin spoked wheels, a flat upright windscreen, a fabric folding roof or small closed cab, running boards along the sides
+taxi | a New York taxicab of the 1920s: a tall boxy car painted yellow or with a checkered band, thin wheels, running boards, a small light on the roof, no modern rounded shapes
+elevated | a New York elevated railway of the 1920s: dark riveted iron girders on tall columns over an avenue, small wooden or steel train cars, shadows striped across the street below
