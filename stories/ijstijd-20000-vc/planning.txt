@@ -1,8 +1,10 @@
 onderwerp Life in the Ice Age, around 20,000 years ago
-status   bezig (2026-11-18, routine-lokaal)
+status   klaar
 datum    ma 2026-11-23 21:00 NL (hype nu, zo snel mogelijk; eigenaar 14 nov: "zo dat het beste is voor het kanaal en mee kan met de hype")
 titel    How People Survived the Ice Age | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: How Did People Survive the Ice Age?)
 opening   scène
 titelsoort how-survived
 thumbnail kenmerk: een grote wolharige mammoet in de sneeuw rechts, met een familie uit de IJstijd in bontkleding die bij een vuur voor hun hut van mammoetbotten en huiden zit en werkt; gletsjer ver weg, warm vuurlicht tegen koele blauwe avond
 soort    oudheid
+link https://youtu.be/z1E4tQDqMG0 (2026-11-18: B1 + W3, nieuwe opbouw, 16mm; privé met publishAt 2026-11-23T20:00:00Z; Sleep Archives gecontroleerd; verwerkt; bestanden opgeruimd)
+kosten  EUR 0
