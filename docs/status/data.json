@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 12:03",
+ "bijgewerkt": "2026-11-18 12:33",
  "werkplanning": {
   "nu": [
    {
@@ -375,7 +375,7 @@
    },
    {
     "datum": "2027-01-04",
-    "titel": "8 Hours of Ancient History | History for Sleep",
+    "titel": "10 Hours of Ancient History | History for Sleep",
     "map": "compilatie-oudheid",
     "klaar": false,
     "stand": "nog in de oude opbouw, moet omgebouwd",
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 12:03)"
+   "tekst": "draait nu (2026-11-18 12:33)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:48: alles klopt"
+   "tekst": "laatste ronde 12:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 12:03",
-   "volgende": "2026-11-18 12:33"
+   "laatst": "2026-11-18 12:33",
+   "volgende": "2026-11-18 13:03"
   },
   "hype": {
    "aan": true,
@@ -601,13 +601,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 11:10",
-   "volgende": "2026-11-18 12:10"
+   "laatst": "2026-11-18 12:10",
+   "volgende": "2026-11-18 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 11:48",
-   "volgende": "2026-11-18 12:18"
+   "laatst": "2026-11-18 12:18",
+   "volgende": "2026-11-18 12:48"
   },
   "titels": {
    "aan": true,
@@ -865,9 +865,9 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 0,
-   "uren": 0,
-   "abonnees": 0
+   "views": 3618,
+   "uren": 676,
+   "abonnees": 17
   },
   "top": [
    {
@@ -942,8 +942,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-18 18:09",
-   "youtube": "2026-11-18 18:29"
+   "klaar": "2026-11-18 18:11",
+   "youtube": "2026-11-18 18:31"
   }
  },
  "nu_bezig": [
@@ -957,7 +957,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
+  "bezig_procent": 24,
   "geheugen_mb": 768,
   "totaal_mb": 8192
  },
@@ -1045,12 +1045,6 @@
  "logboek": [
   {
    "tijd": "2026-11-18 07:48",
-   "tekst": "sitecontrole: opgelost: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 07:48",
    "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": false,
    "klaar": false
@@ -1124,6 +1118,12 @@
   {
    "tijd": "2026-11-18 11:54",
    "tekst": "Claude: uitspraaklijst AAN (eigenaar: 'pas de uitspraken maar aan'): tools/engine_stem.py gebruikt audio_engine/uitspraak.json alleen voor de tekst naar de stem (17 namen, o.a. Saint-Mars, Ypres, Toku",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 12:06",
+   "tekst": "Claude: compilatieplan AKKOORD (eigenaar: 'hou je gewoon aan de planning'): Oudheid ma 4 jan (10 Hours of Ancient History), Middeleeuwen ma 11 jan (8 Hours of Medieval Life); eindversies van de onderd",
    "fout": false,
    "klaar": false
   }
@@ -1538,8 +1538,8 @@
    "datum": "2027-01-11",
    "reserve": false,
    "titel": "8 Hours of Medieval Life | History for Sleep",
-   "status": "compilatie-plan (wacht op akkoord eigenaar; plan: stories/PROMPT-JAPAN-EN-COMPILATIES.md stap 2)",
-   "soort": "compilatie-plan",
+   "status": "compilatie-akkoord (eigenaar 18 nov: 'hou je gewoon aan de planning'; maken eind dec, stories/PLAN-COMPILATIES.md)",
+   "soort": "compilatie-akkoord",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": "",
@@ -1557,9 +1557,9 @@
    "map": "compilatie-oudheid",
    "datum": "2027-01-04",
    "reserve": false,
-   "titel": "8 Hours of Ancient History | History for Sleep",
-   "status": "compilatie-plan (wacht op akkoord eigenaar; plan: stories/PROMPT-JAPAN-EN-COMPILATIES.md stap 2)",
-   "soort": "compilatie-plan",
+   "titel": "10 Hours of Ancient History | History for Sleep",
+   "status": "compilatie-akkoord (eigenaar 18 nov: 'hou je gewoon aan de planning'; maken eind dec, stories/PLAN-COMPILATIES.md)",
+   "soort": "compilatie-akkoord",
    "id": "",
    "afspeellijst": "oudheid",
    "opening": "",
@@ -3896,15 +3896,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 12:04",
+  "bijgewerkt": "2026-11-18 12:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 62157380,
+    "week": 61710478,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 12605432,
+     "Wed 11-11": 12158530,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3917,7 +3917,7 @@
    },
    {
     "account": "account2",
-    "5uur": 377952,
+    "5uur": 0,
     "week": 89029318,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3933,9 +3933,9 @@
     "stap_kost": 16419,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 3,
-    "5uur_scripts_over": 21.3,
-    "5uur_stappen_over": 804,
+    "5uur_pct": 0,
+    "5uur_scripts_over": 21.9,
+    "5uur_stappen_over": 827,
     "week_pct": 67,
     "week_scripts_over": 69.4,
     "week_stappen_over": 2618
