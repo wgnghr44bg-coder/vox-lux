@@ -1,5 +1,5 @@
 onderwerp The First Thanksgiving, Plymouth, autumn 1621
-status   script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)
+status   bezig (2026-11-18, routine-lokaal)
 datum    wo 2026-11-25 21:00 NL (eigenaar 11 nov: Thanksgiving 26 nov; sluit aan op de Mayflower-video)
 titel    The First Thanksgiving, Plymouth 1621 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Was the First Thanksgiving Really Like?)
 opening   mythe
