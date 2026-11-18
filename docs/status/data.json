@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 11:03",
+ "bijgewerkt": "2026-11-18 11:29",
  "werkplanning": {
   "nu": [
    {
@@ -544,7 +544,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "163 GB vrij"
+   "tekst": "160 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 11:03)"
+   "tekst": "laatste keer goed (2026-11-18 11:03)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 10:48: alles klopt"
+   "tekst": "laatste ronde 11:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -601,18 +601,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 10:10",
-   "volgende": "2026-11-18 11:10"
+   "laatst": "2026-11-18 11:10",
+   "volgende": "2026-11-18 12:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 10:48",
-   "volgende": "2026-11-18 11:18"
+   "laatst": "2026-11-18 11:18",
+   "volgende": "2026-11-18 11:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-18 09:25",
-   "volgende": "2026-11-18 11:25"
+   "laatst": "2026-11-18 11:25",
+   "volgende": "2026-11-18 13:25"
   }
  },
  "kanaal": {
@@ -700,7 +700,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 658,
+    "views": 659,
     "verwerkt": "processed"
    },
    {
@@ -957,8 +957,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 777,
+  "bezig_procent": 22,
+  "geheugen_mb": 747,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1044,12 +1044,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-18 07:31",
-   "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-18 07:48",
    "tekst": "sitecontrole: opgelost: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
    "fout": false,
@@ -1124,6 +1118,12 @@
   {
    "tijd": "2026-11-18 08:39",
    "tekst": "routine-lokaal: ijstijd-20000-vc: thumbnail v3 gemaakt (ICE AGE 20,000 BC)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 11:28",
+   "tekst": "Claude: stap 6 (PROMPT-JAPAN-EN-COMPILATIES): kenmerken.txt voor scott-antarctica-1912 (Terra Nova, hut, tent, pony, slee), mary-celeste-1872 (Mary Celeste, Dei Gratia, Gibraltar), tower-of-london-153",
    "fout": false,
    "klaar": false
   }
@@ -3426,7 +3426,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-18 09:25",
+  "bijgewerkt": "2026-11-18 11:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3893,10 +3893,10 @@
     "bekeken": "2026-11-18"
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 11:04",
+  "bijgewerkt": "2026-11-18 11:30",
   "accounts": [
    {
     "account": "hoofd",
