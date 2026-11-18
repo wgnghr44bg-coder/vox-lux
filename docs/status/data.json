@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 21:33",
+ "bijgewerkt": "2026-11-18 22:03",
  "werkplanning": {
   "nu": [
    {
@@ -511,7 +511,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "143 GB vrij"
+   "tekst": "157 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -526,7 +526,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 21:33)"
+   "tekst": "draait nu (2026-11-18 22:03)"
   },
   {
    "naam": "Git",
@@ -546,7 +546,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +563,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 21:33",
-   "volgende": "2026-11-18 22:03"
+   "laatst": "2026-11-18 22:03",
+   "volgende": "2026-11-18 22:33"
   },
   "hype": {
    "aan": true,
@@ -578,8 +578,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 21:18",
-   "volgende": "2026-11-18 21:48"
+   "laatst": "2026-11-18 21:48",
+   "volgende": "2026-11-18 22:18"
   },
   "titels": {
    "aan": true,
@@ -627,7 +627,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 12,
+    "views": 13,
     "verwerkt": "processed"
    },
    {
@@ -681,7 +681,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 659,
+    "views": 660,
     "verwerkt": "processed"
    },
    {
@@ -916,8 +916,7 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen",
-   "stem inspreken (OmniVoice B1)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
    "klaar": "2026-11-19 05:38",
@@ -932,15 +931,11 @@
   {
    "naam": "beelden en geluid samenvoegen",
    "stap": 4
-  },
-  {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 5876,
+  "bezig_procent": 25,
+  "geheugen_mb": 780,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1118,8 +1113,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-18 21:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 22:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3771,7 +3766,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 21:34",
+  "bijgewerkt": "2026-11-18 22:04",
   "accounts": [
    {
     "account": "hoofd",
