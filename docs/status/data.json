@@ -1,15 +1,21 @@
 {
- "bijgewerkt": "2026-11-18 09:03",
+ "bijgewerkt": "2026-11-18 09:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "How People Survived the Ice Age | History for Sleep",
-    "map": "ijstijd-20000-vc",
+    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "map": "dallas-1963",
     "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
   "daarna": [
+   {
+    "wanneer": "na Dallas",
+    "wat": "How People Survived the Ice Age | History for Sleep",
+    "map": "ijstijd-20000-vc",
+    "detail": "keten maakt de video voor ma 23-11 21:00"
+   },
    {
     "wanneer": "na Ijstijd",
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
@@ -544,7 +550,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "170 GB vrij"
+   "tekst": "168 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -559,7 +565,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 09:03)"
+   "tekst": "draait nu (2026-11-18 09:33)"
   },
   {
    "naam": "Git",
@@ -574,7 +580,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 08:48: alles klopt"
+   "tekst": "laatste ronde 09:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +597,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 09:03",
-   "volgende": "2026-11-18 09:33"
+   "laatst": "2026-11-18 09:33",
+   "volgende": "2026-11-18 10:03"
   },
   "hype": {
    "aan": true,
@@ -601,18 +607,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 08:10",
-   "volgende": "2026-11-18 09:10"
+   "laatst": "2026-11-18 09:10",
+   "volgende": "2026-11-18 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 08:48",
-   "volgende": "2026-11-18 09:18"
+   "laatst": "2026-11-18 09:18",
+   "volgende": "2026-11-18 09:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-18 07:25",
-   "volgende": "2026-11-18 09:25"
+   "laatst": "2026-11-18 09:25",
+   "volgende": "2026-11-18 11:25"
   }
  },
  "kanaal": {
@@ -929,22 +935,20 @@
  ],
  "stap": 3,
  "huidig": {
-  "map": "ijstijd-20000-vc",
-  "titel": "How People Survived the Ice Age | History for Sleep",
-  "datum": "2026-11-23",
-  "thumb": "thumbs/ijstijd-20000-vc.jpg",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+  "datum": "",
+  "thumb": "thumbs/dallas-1963.jpg",
   "stap": 3,
   "stapnaam": "Stem (B1)",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "tekstcontrole",
+   "tekstcontrole (Whisper)"
   ],
-  "eind": {
-   "klaar": "2026-11-18 22:08",
-   "youtube": "2026-11-18 22:28"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -952,13 +956,17 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
+   "naam": "tekstcontrole",
+   "stap": 3
+  },
+  {
+   "naam": "tekstcontrole (Whisper)",
    "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7764,
+  "bezig_procent": 25,
+  "geheugen_mb": 798,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1835,12 +1843,12 @@
    "opening": "scène",
    "stappen": [
     true,
-    false,
+    true,
     true,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 60,
    "thumb": "thumbs/ijstijd-20000-vc.jpg"
   },
   {
@@ -3426,7 +3434,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-18 08:30",
+  "bijgewerkt": "2026-11-18 09:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3896,7 +3904,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 09:03",
+  "bijgewerkt": "2026-11-18 09:33",
   "accounts": [
    {
     "account": "hoofd",
