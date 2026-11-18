@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 11:33",
+ "bijgewerkt": "2026-11-18 12:03",
  "werkplanning": {
   "nu": [
    {
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 11:33)"
+   "tekst": "draait nu (2026-11-18 12:03)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:18: alles klopt"
+   "tekst": "laatste ronde 11:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 11:33",
-   "volgende": "2026-11-18 12:03"
+   "laatst": "2026-11-18 12:03",
+   "volgende": "2026-11-18 12:33"
   },
   "hype": {
    "aan": true,
@@ -606,8 +606,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 11:18",
-   "volgende": "2026-11-18 11:48"
+   "laatst": "2026-11-18 11:48",
+   "volgende": "2026-11-18 12:18"
   },
   "titels": {
    "aan": true,
@@ -865,9 +865,9 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 3618,
-   "uren": 676,
-   "abonnees": 17
+   "views": 0,
+   "uren": 0,
+   "abonnees": 0
   },
   "top": [
    {
@@ -958,7 +958,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 780,
+  "geheugen_mb": 768,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1045,12 +1045,6 @@
  "logboek": [
   {
    "tijd": "2026-11-18 07:48",
-   "tekst": "sitecontrole: opgelost: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 07:48",
    "tekst": "sitecontrole: opgelost: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
    "fout": false,
    "klaar": false
@@ -1124,6 +1118,12 @@
   {
    "tijd": "2026-11-18 11:28",
    "tekst": "Claude: stap 6 (PROMPT-JAPAN-EN-COMPILATIES): kenmerken.txt voor scott-antarctica-1912 (Terra Nova, hut, tent, pony, slee), mary-celeste-1872 (Mary Celeste, Dei Gratia, Gibraltar), tower-of-london-153",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 11:54",
+   "tekst": "Claude: uitspraaklijst AAN (eigenaar: 'pas de uitspraken maar aan'): tools/engine_stem.py gebruikt audio_engine/uitspraak.json alleen voor de tekst naar de stem (17 namen, o.a. Saint-Mars, Ypres, Toku",
    "fout": false,
    "klaar": false
   }
@@ -3896,7 +3896,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 11:34",
+  "bijgewerkt": "2026-11-18 12:04",
   "accounts": [
    {
     "account": "hoofd",
