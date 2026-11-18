@@ -319,3 +319,5 @@ ValueError: empty separator)
 - 2026-11-18 17:43 ijstijd-20000-vc: geüpload https://youtu.be/z1E4tQDqMG0 (privé, publiek 2026-11-23T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-18 17:51 Claude: ijstijd-20000-vc: nieuwe thumbnail op z1E4tQDqMG0 (eigenaar: 'alleen de mammoet van dichtbij, letters niet over het beeld'): alleen mammoet rechts, beeld 170 px naar rechts geschoven zodat ICE AGE / 20,000 BC vrij staat; oude in thumb4/thumbnail-v3-oud-met-mensen.jpg
 - 2026-11-18 17:53 ijstijd-20000-vc: eindversie bewaard voor compilatie: C:\Users\rane\vox-lux-compilaties\ijstijd-20000-vc-16mm.mp4
+- 2026-11-18 17:53 ijstijd-20000-vc: KLAAR
+- 2026-11-18 17:53 routine-lokaal: ijstijd-20000-vc: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-23 21:00
