@@ -1,0 +1,6 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+Erebus | HMS Erebus in 1845: a former bomb vessel about 32 m long, three masts with square sails (barque rig), a black hull with a single broad yellow band along the side, a blunt bow covered with iron plates, a single thin funnel for the small steam engine, no paddle wheels, no gun ports in a long row
+Terror | HMS Terror in 1845: a former bomb vessel about 31 m long, three masts with square sails, a black hull with a broad yellow band, a heavily reinforced blunt bow with iron plates, a small funnel, no paddle wheels
+ship | a Royal Navy exploration ship of the 1840s: a sturdy black wooden hull with a yellow band, three masts with square sails, a blunt reinforced bow, a canvas housing over the deck in winter, no modern steel
+Inuit | Inuit of the 1840s: clothing of caribou fur with hoods trimmed with fur, sealskin boots, snow houses, stone oil lamps, dog sleds and skin kayaks, no modern jackets, no plastic, no woollen hats
+cairn | a small pile of rough grey stones built by hand on a barren shore, about one metre high, no mortar, no plaque
