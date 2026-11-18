@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 05:33",
+ "bijgewerkt": "2026-11-18 06:03",
  "werkplanning": {
   "nu": [
    {
@@ -584,7 +584,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 05:33)"
+   "tekst": "draait nu (2026-11-18 06:03)"
   },
   {
    "naam": "Git",
@@ -604,7 +604,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 05:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 05:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -617,12 +617,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-18 06:00"
+   "volgende": "2026-11-19 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 05:33",
-   "volgende": "2026-11-18 06:03"
+   "laatst": "2026-11-18 06:03",
+   "volgende": "2026-11-18 06:33"
   },
   "hype": {
    "aan": true,
@@ -636,8 +636,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 05:18",
-   "volgende": "2026-11-18 05:48"
+   "laatst": "2026-11-18 05:48",
+   "volgende": "2026-11-18 06:18"
   },
   "titels": {
    "aan": true,
@@ -730,7 +730,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 657,
+    "views": 658,
     "verwerkt": "processed"
    },
    {
@@ -1145,8 +1145,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-18 05:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 06:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3824,15 +3824,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 05:33",
+  "bijgewerkt": "2026-11-18 06:03",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 62763553,
+    "week": 62157380,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 13211605,
+     "Wed 11-11": 12605432,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
