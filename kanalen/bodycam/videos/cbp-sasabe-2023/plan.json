@@ -1,8 +1,136 @@
 [
- {"soort": "stem", "blok": 1, "bron": [[84, 96], [146, 158]], "beeld": "vol"},
- {"soort": "stem", "blok": 2, "bron": [[190.5, 207.5]], "beeld": "vol"},
- {"soort": "origineel", "bron": [224.2, 260.3], "beeld": "vol", "ondertitels": false, "vervaag": [[244.0, 259.0]]},
- {"soort": "origineel", "bron": [260.3, 395.8], "beeld": "vol", "ondertitels": false},
- {"soort": "stem", "blok": 3, "bron": [[397, 407], [416, 424]], "beeld": "vol"},
- {"soort": "stem", "blok": 4, "bron": [[428, 441]], "beeld": "vol"}
+ {
+  "soort": "stem",
+  "blok": 1,
+  "bron": [
+   [
+    79.5,
+    97.9
+   ]
+  ],
+  "beeld": "kaart_stil"
+ },
+ {
+  "soort": "stem",
+  "blok": 2,
+  "bron": [
+   [
+    224.0,
+    230.8
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "stem",
+  "blok": 3,
+  "bron": [
+   [
+    230.8,
+    234.3
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   234.3,
+   236.0
+  ],
+  "beeld": "vol",
+  "ondertitels": false,
+  "stil": true
+ },
+ {
+  "soort": "stem",
+  "blok": 4,
+  "bron": [
+   [
+    236.0,
+    242.5
+   ]
+  ],
+  "beeld": "vol"
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   242.5,
+   247.5
+  ],
+  "beeld": "vol",
+  "ondertitels": false,
+  "vervaag": [
+   [
+    245.0,
+    247.5
+   ]
+  ],
+  "stil": true
+ },
+ {
+  "soort": "stem",
+  "blok": 5,
+  "bron": [
+   [
+    247.5,
+    250.0
+   ]
+  ],
+  "beeld": "vol",
+  "vervaag": [
+   [
+    0,
+    2.6
+   ]
+  ]
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   250.0,
+   260.3
+  ],
+  "beeld": "vol",
+  "ondertitels": false,
+  "vervaag": [
+   [
+    250.0,
+    259.0
+   ]
+  ],
+  "stil": true
+ },
+ {
+  "soort": "origineel",
+  "bron": [
+   260.3,
+   395.8
+  ],
+  "beeld": "vol",
+  "ondertitels": false
+ },
+ {
+  "soort": "stem",
+  "blok": 6,
+  "bron": [
+   [
+    145.8,
+    158.5
+   ]
+  ],
+  "beeld": "kaart_stil"
+ },
+ {
+  "soort": "stem",
+  "blok": 7,
+  "bron": [
+   [
+    396,
+    408
+   ]
+  ],
+  "beeld": "zwart"
+ }
 ]

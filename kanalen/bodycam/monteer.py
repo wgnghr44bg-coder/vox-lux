@@ -86,6 +86,8 @@ def main():
             v += f"scale={W}:{H},drawbox=x=0:y=0:w=iw:h=ih:color=black:t=fill,"
         elif beeld == "kaart":
             v += f"crop=iw*0.86:ih*0.86:(iw-ow)/2:0,scale=2112:1188,crop={W}:{H}:x='min(192,t*4)':y='min(108,t*2.25)',"   # kaart: ondertitels weg + langzaam schuiven (geen stilstaand beeld)
+        elif beeld == "kaart_stil":   # kaart/luchtfoto: onderste 10% (ingebrande CBP-ondertitels) eraf, VAST (geen schuiven)
+            v += f"crop=iw*0.9:ih*0.9:(iw-ow)/2:0,scale={W}:{H},"
         else:
             v += f"scale={W}:{H},"
         if st["soort"] == "stem" and st.get("verberg_ondertitels", False) and beeld != "zwart":
@@ -117,7 +119,10 @@ def main():
                          "box=1:boxcolor=black@0.55:boxborderw=16:enable='between(t,0.3,6)'")
         fc.append(v + "," + ",".join(tekst) + f",setsar=1,format=yuv420p[v{i}]")
         # audio: óf echt geluid, óf onze stem — nooit allebei
-        if st["soort"] == "origineel":
+        if st["soort"] == "origineel" and st.get("stil"):   # bron heeft hier geen geluid (bodycam-buffer): echte stilte
+            fc.append(f"[{bron_audio}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume=0,"
+                      f"atrim=0:{lengte:.3f},apad=whole_dur={lengte:.3f},asetpts=PTS-STARTPTS[a{i}]")
+        elif st["soort"] == "origineel":
             fc.append(f"[{bron_audio}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
                       # bodycam-geluid: ruis eruit (afftdn), niet meer hard oppompen (eigenaar: 'verschillende geluiden'), wel even hard als de stem
                       f"highpass=f=90,lowpass=f=9000,afftdn=nr=12:nf=-40,loudnorm=I=-17:TP=-2:LRA=7,aresample=48000,"
