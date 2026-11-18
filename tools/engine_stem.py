@@ -26,6 +26,20 @@ from voice.batch_generator import edge_fade, trim
 from voice.voice_config import VoiceConfig
 
 LEAD, SR = 0.8, ov.SR
+# Uitspraaklijst (stap 6, eigenaar 18 nov 2026: "pas de uitspraken maar aan"): lastige namen fonetisch, ALLEEN in de tekst
+# die naar de stem gaat; script, voice-times.tsv, ondertitels en tekstcontrole houden de echte spelling. De stem zelf
+# (B1.json) verandert niet.
+import re
+UITSPRAAK = {k: v for k, v in json.loads((HIER.parent / "audio_engine" / "uitspraak.json").read_text(encoding="utf-8")).items()
+             if not k.startswith("_")}
+
+
+def spreek(t):
+    for woord, klank in UITSPRAAK.items():
+        t = re.sub(r"(?<![A-Za-z])" + re.escape(woord) + r"(?![A-Za-z])", klank, t)
+    return t
+
+
 STANDAARD = {"engine_voice": "narrator-e", "speed": 0.54, "seed": 7, "pauze": 1.4, "klank": "highpass=f=60"}
 
 m = Path(sys.argv[1])
@@ -128,12 +142,12 @@ for sp in sorted({cfg_voor(i).speed for i in nieuw}):        # per tempo in groe
     c = cfg_voor(groep[0])
     for b in range(0, len(groep), 4):
         idx = groep[b:b + 4]
-        for i, wav in zip(idx, ov.speak([pieces[i].text for i in idx], c, seed=cfg.seed + b + (0 if sp == cfg.speed else 700))):
+        for i, wav in zip(idx, ov.speak([spreek(pieces[i].text) for i in idx], c, seed=cfg.seed + b + (0 if sp == cfg.speed else 700))):
             clips[i] = edge_fade(trim(wav, SR), SR)
         print(f"klaar {b + len(idx)}/{len(groep)} (speed {sp})", flush=True)
 extra = int(sys.argv[sys.argv.index("--seed-extra") + 1]) if "--seed-extra" in sys.argv else 0   # andere poging
 for i in sorted(opnieuw):
-    clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg_voor(i), seed=cfg.seed + 500 + i + extra)[0], SR), SR)
+    clips[i] = edge_fade(trim(ov.speak([spreek(pieces[i].text)], cfg_voor(i), seed=cfg.seed + 500 + i + extra)[0], SR), SR)
 for i in range(len(pieces)):                               # afgekapte of lege zinnen: los opnieuw, andere seed
     if not te_kort(i):
         continue
@@ -141,7 +155,7 @@ for i in range(len(pieces)):                               # afgekapte of lege z
     nieuw_of_opnieuw.add(i)                                # opnieuw ingesproken: krijgt ook het tempo
     while te_kort(i) and poging < 10:
         poging += 1
-        clips[i] = edge_fade(trim(ov.speak([pieces[i].text], cfg_voor(i), seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
+        clips[i] = edge_fade(trim(ov.speak([spreek(pieces[i].text)], cfg_voor(i), seed=cfg.seed + 1000 * poging + i)[0], SR), SR)
     print(f"zin {i + 1} was afgekapt, los opnieuw ({poging}x)", flush=True)
 if V:                                                      # slotgedachte zachter (alleen nieuw ingesproken zinnen)
     for i in SLOT & nieuw_of_opnieuw:
