@@ -1,0 +1,23 @@
+{
+ "_uitleg": "Stap 6 (eigenaar 17 nov 2026): lastige namen fonetisch, ALLEEN in de tekst die naar de stem gaat (tools/engine_stem.py). Script, ondertitels en beschrijving houden de echte spelling. Proef: tools/uitspraak_proef.py.",
+ "Massasoit": "Massa-soyt",
+ "Wampanoag": "Wompa-no-ag",
+ "Sekigahara": "Seh-kee-gah-hah-rah",
+ "Tokugawa": "Toe-koo-gah-wah",
+ "Ieyasu": "Ee-yeh-yah-soo",
+ "Edo": "Eh-doh",
+ "Saint-Mars": "San Mar",
+ "Pignerol": "Peen-yuh-roll",
+ "Strasbourg": "Strahz-boorg",
+ "Erebus": "Erra-bus",
+ "Dei Gratia": "Day-ee Grah-tsee-ah",
+ "Boleyn": "Bull-in",
+ "Calais": "Kal-ay",
+ "Tutankhamun": "Too-tan-kah-moon",
+ "Lascaux": "Lass-koh",
+ "Chauvet": "Show-vay",
+ "Ypres": "Eep-ruh",
+ "Oahu": "Oh-ah-hoo",
+ "Ocracoke": "Oh-kruh-coke",
+ "Versailles": "Vair-sigh"
+}

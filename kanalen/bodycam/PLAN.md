@@ -1,3 +1,7 @@
+> **PAUZE (eigenaar 18 nov 2026: "ga maar alleen verder met sleeparchives").** Stand: video 1 Las Cruces openbaar (k7CbEk763Gk);
+> video 2 Sasabe v2 klaar op de pc (videos/cbp-sasabe-2023/sasabe-v2.mp4), NIET geüpload (eigenaar: eerst vragen; stijl nog niet als grote
+> kanalen, stem te robotachtig: voorstel teaser/muziek/aanwijzen/eigen stem inspreken). Top 10: TOP10.md. Niets doen zonder de eigenaar.
+
 # Bodycam-kanaal (NL) – plan (eigenaar 17 nov 2026)
 
 Kanaal met Amerikaanse incidenten en eigen ENGELSE voice-over (eerst NL bedacht; 17 nov Engels). Vaste vorm: 1 incident, 10-15 min, met verhaal

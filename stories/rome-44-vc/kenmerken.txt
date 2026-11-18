@@ -1,0 +1,2 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+ship | an ancient Roman merchant ship of about 44 BC: a rounded wooden hull, one central mast with a single large square sail, a small sail on a forward-leaning foremast, two large steering oars at the stern, a curved swan-neck sternpost, no cannons, no portholes, no lateen rigging

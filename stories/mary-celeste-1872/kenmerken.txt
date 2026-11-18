@@ -1,0 +1,7 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+Mary Celeste | a small wooden brigantine of 1872, about 31 metres long and 282 tons: two masts, square sails on the front mast and a large fore-and-aft gaff sail on the rear mast, a dark painted hull, a low deckhouse and cabin skylight aft of the main mast, a short bowsprit with jibs, no figurehead, no steam funnel, no third mast
+Dei Gratia | a Canadian wooden brigantine of 1872 slightly larger than the Mary Celeste: two masts, square sails on the front mast and a gaff sail on the rear mast, dark hull, no steam funnel
+ship | a wooden two-masted merchant sailing ship of the 1870s (a brigantine): square sails on the front mast, a fore-and-aft sail on the rear mast, dark hull, hemp rigging, canvas sails, no steam funnel, no metal superstructure, no modern equipment
+brigantine | a wooden two-masted merchant sailing ship of the 1870s: square sails on the front mast, a fore-and-aft gaff sail on the rear mast, dark hull, no steam funnel
+Gibraltar | the Rock of Gibraltar in 1872: a huge limestone rock above a British garrison town of pale stone houses, stone fortifications and batteries along the shore, a harbour with wooden sailing ships and a few early steamships, no modern buildings, no cars
+galley | the tiny galley of an 1870s sailing ship: a cramped wooden deckhouse with a small cast-iron cooking stove, pots hanging, a barrel of water, a small porthole, no modern kitchen

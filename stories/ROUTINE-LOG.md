@@ -306,3 +306,11 @@ ValueError: empty separator)
 - 2026-11-18 08:10 routine-lokaal: ijstijd-20000-vc: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 074
 - 2026-11-18 08:18 routine-lokaal: ijstijd-20000-vc: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl
 - 2026-11-18 08:24 routine-lokaal: ijstijd-20000-vc: opnieuw maken GESTOPT (No module named 'torch'); de oude versie blijft staan
+- 2026-11-18 08:25 bewaker: keten gestart voor ijstijd-20000-vc
+- 2026-11-18 08:25 routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)
+- 2026-11-18 08:30 hype-wachter: SEINTJE The World of HP Lovecraft Explained | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-18 08:30 hype-wachter: SEINTJE A Rainy Boat Ride on the River: A Magical Bedtime Story -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-18 08:30 hype-wachter: SEINTJE Drift Away on a Mountain 💤 A Restful Day on Mount Carmel 💤 BEDTIME STORY -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-18 08:30 hype-wachter: SEINTJE 9 Hours of Asian History Deep Dives | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-18 08:39 routine-lokaal: ijstijd-20000-vc: thumbnail v3 gemaakt (ICE AGE 20,000 BC)
+- 2026-11-18 11:28 Claude: stap 6 (PROMPT-JAPAN-EN-COMPILATIES): kenmerken.txt voor scott-antarctica-1912 (Terra Nova, hut, tent, pony, slee), mary-celeste-1872 (Mary Celeste, Dei Gratia, Gibraltar), tower-of-london-1536 (White Tower, Thames, London Bridge, Old St Paul's), rome-44-vc (ship); beelden-wachter: niets meer ontbrekend. Uitspraaklijst audio_engine/uitspraak.json + proef proeven/uitspraak-proef.mp3 (nog NIET in engine_stem.py: wacht op keuze eigenaar). Bodycam op pauze.
