@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 16:03",
+ "bijgewerkt": "2026-11-18 16:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "detail": "Video bouwen · 95%",
+    "detail": "Video bouwen · 99%",
     "soort": "nu"
    }
   ],
@@ -544,7 +544,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "157 GB vrij"
+   "tekst": "153 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 16:03)"
+   "tekst": "draait nu (2026-11-18 16:33)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:48: alles klopt"
+   "tekst": "laatste ronde 16:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 16:03",
-   "volgende": "2026-11-18 16:33"
+   "laatst": "2026-11-18 16:33",
+   "volgende": "2026-11-18 17:03"
   },
   "hype": {
    "aan": true,
@@ -601,13 +601,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 15:10",
-   "volgende": "2026-11-18 16:10"
+   "laatst": "2026-11-18 16:10",
+   "volgende": "2026-11-18 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 15:48",
-   "volgende": "2026-11-18 16:18"
+   "laatst": "2026-11-18 16:18",
+   "volgende": "2026-11-18 16:48"
   },
   "titels": {
    "aan": true,
@@ -935,15 +935,15 @@
   "thumb": "thumbs/ijstijd-20000-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 95,
+  "voortgang": 99,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beweging en hoofdstuktitels"
+   "eindvolume -14 LUFS"
   ],
   "eind": {
-   "klaar": "2026-11-18 17:40",
-   "youtube": "2026-11-18 18:00"
+   "klaar": "2026-11-18 17:36",
+   "youtube": "2026-11-18 17:56"
   }
  },
  "nu_bezig": [
@@ -952,13 +952,13 @@
    "stap": 0
   },
   {
-   "naam": "beweging en hoofdstuktitels",
+   "naam": "eindvolume -14 LUFS",
    "stap": 4
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 768,
+  "geheugen_mb": 777,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3896,7 +3896,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 16:04",
+  "bijgewerkt": "2026-11-18 16:34",
   "accounts": [
    {
     "account": "hoofd",
