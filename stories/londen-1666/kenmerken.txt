@@ -1,0 +1,6 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+St Paul's | Old St Paul's Cathedral in 1666: a very long grey Gothic stone church with pointed windows and a heavy square central tower WITHOUT any spire (the spire burned in 1561), a classical portico with tall columns at the west end, no dome
+London Bridge | old London Bridge in 1666: a stone bridge on 19 narrow pointed arches with wide boat-shaped piers, lined along its whole length with tall timber-framed houses up to six storeys overhanging the river, a gatehouse at the south end, no modern road
+Monument | the Monument to the Great Fire: a tall fluted Doric stone column of pale Portland stone with a viewing balcony near the top and a gilded flaming urn on top
+Whitehall | Whitehall Palace in the 1660s: a rambling mix of red brick Tudor buildings and courtyards along the Thames, with the white stone classical Banqueting House among them, river stairs with boats
+wherry | a small, narrow open wooden rowing boat of the Thames watermen, pointed at both ends, one or two rowers, passengers sitting at the back, no motor, no sail
