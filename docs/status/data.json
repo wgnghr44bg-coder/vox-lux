@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 03:03",
+ "bijgewerkt": "2026-11-18 03:33",
  "werkplanning": {
   "nu": [
    {
@@ -584,7 +584,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 03:03)"
+   "tekst": "draait nu (2026-11-18 03:33)"
   },
   {
    "naam": "Git",
@@ -604,7 +604,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 02:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 03:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -621,8 +621,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 03:03",
-   "volgende": "2026-11-18 03:33"
+   "laatst": "2026-11-18 03:33",
+   "volgende": "2026-11-18 04:03"
   },
   "hype": {
    "aan": true,
@@ -632,17 +632,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-17 18:10",
-   "volgende": "2026-11-18 03:10"
+   "volgende": "2026-11-18 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 02:48",
-   "volgende": "2026-11-18 03:18"
+   "laatst": "2026-11-18 03:18",
+   "volgende": "2026-11-18 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-18 01:25",
-   "volgende": "2026-11-18 03:25"
+   "laatst": "2026-11-18 03:25",
+   "volgende": "2026-11-18 05:25"
   }
  },
  "kanaal": {
@@ -685,7 +685,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 22,
+    "views": 20,
     "verwerkt": "processed"
    },
    {
@@ -694,7 +694,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 70,
+    "views": 69,
     "verwerkt": "processed"
    },
    {
@@ -1145,8 +1145,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-18 03:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 02:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 03:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 03:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3451,7 +3451,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-18 01:25",
+  "bijgewerkt": "2026-11-18 03:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3821,18 +3821,18 @@
     "bekeken": "2026-11-18"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 03:03",
+  "bijgewerkt": "2026-11-18 03:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 66837893,
+    "week": 66541679,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 17285945,
+     "Wed 11-11": 16989731,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
