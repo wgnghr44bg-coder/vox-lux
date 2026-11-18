@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 20:33",
+ "bijgewerkt": "2026-11-18 21:03",
  "werkplanning": {
   "nu": [
    {
@@ -511,7 +511,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "160 GB vrij"
+   "tekst": "159 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -526,7 +526,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 20:33)"
+   "tekst": "draait nu (2026-11-18 21:03)"
   },
   {
    "naam": "Git",
@@ -546,7 +546,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +563,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 20:33",
-   "volgende": "2026-11-18 21:03"
+   "laatst": "2026-11-18 21:03",
+   "volgende": "2026-11-18 21:33"
   },
   "hype": {
    "aan": true,
@@ -578,8 +578,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 20:18",
-   "volgende": "2026-11-18 20:48"
+   "laatst": "2026-11-18 20:48",
+   "volgende": "2026-11-18 21:18"
   },
   "titels": {
    "aan": true,
@@ -593,8 +593,8 @@
   "views_totaal": 2978,
   "video_aantal": 17,
   "week": {
-   "views": 498,
-   "uren": 141,
+   "views": 578,
+   "uren": 146,
    "abonnees": 4
   },
   "vorige_week": {
@@ -609,7 +609,7 @@
     "duur": "1:57:49",
     "privacy": "private",
     "publiceer": "2026-11-23T20:00:00Z",
-    "views": 0,
+    "views": 1,
     "verwerkt": "processed"
    },
    {
@@ -824,11 +824,16 @@
     "dag": "2026-11-15",
     "views": 70,
     "abonnees": 0
+   },
+   {
+    "dag": "2026-11-16",
+    "views": 80,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 2452,
-   "uren": 568,
+   "views": 2532,
+   "uren": 573,
    "abonnees": 9
   },
   "vorige_maand": {
@@ -837,8 +842,8 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 3618,
-   "uren": 676,
+   "views": 3698,
+   "uren": 680,
    "abonnees": 17
   },
   "top": [
@@ -853,8 +858,8 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 605,
-    "uren": 161
+    "views": 665,
+    "uren": 163
    },
    {
     "id": "qFRyJ6twOzY",
@@ -865,15 +870,15 @@
    }
   ],
   "partner": {
-   "uren": 675,
+   "uren": 680,
    "uren_doel": 4000,
    "abonnees": 18,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 19.8,
+   "tempo_uren_per_dag": 20.0,
    "tempo_abonnees_per_dag": 0.32,
-   "datum_uren": "2027-05-05",
+   "datum_uren": "2027-05-04",
    "datum_abonnees": "2035-04-01"
   }
  },
@@ -930,7 +935,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 782,
+  "geheugen_mb": 4767,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1108,8 +1113,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-18 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3761,17 +3766,17 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 20:34",
+  "bijgewerkt": "2026-11-18 21:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 53576358,
+    "week": 53077770,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 4024410,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
+     "Wed 11-11": 3525822,
      "Mon 16-11": 10362951
     },
     "script_kost": 360570,
@@ -3783,14 +3788,14 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 87636360,
+    "week": 87225755,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
-     "Wed 11-11": 989087,
+     "Wed 11-11": 578482,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
@@ -3802,8 +3807,8 @@
     "5uur_scripts_over": 21.9,
     "5uur_stappen_over": 718,
     "week_pct": 66,
-    "week_scripts_over": 71.7,
-    "week_stappen_over": 2349
+    "week_scripts_over": 72.3,
+    "week_stappen_over": 2370
    }
   ]
  },
