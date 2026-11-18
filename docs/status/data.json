@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 15:33",
+ "bijgewerkt": "2026-11-18 16:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "detail": "Video bouwen · 76%",
+    "detail": "Video bouwen · 95%",
     "soort": "nu"
    }
   ],
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 15:33)"
+   "tekst": "draait nu (2026-11-18 16:03)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:18: alles klopt"
+   "tekst": "laatste ronde 15:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 15:33",
-   "volgende": "2026-11-18 16:03"
+   "laatst": "2026-11-18 16:03",
+   "volgende": "2026-11-18 16:33"
   },
   "hype": {
    "aan": true,
@@ -606,8 +606,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 15:18",
-   "volgende": "2026-11-18 15:48"
+   "laatst": "2026-11-18 15:48",
+   "volgende": "2026-11-18 16:18"
   },
   "titels": {
    "aan": true,
@@ -935,15 +935,15 @@
   "thumb": "thumbs/ijstijd-20000-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 76,
+  "voortgang": 95,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-18 17:37",
-   "youtube": "2026-11-18 17:57"
+   "klaar": "2026-11-18 17:40",
+   "youtube": "2026-11-18 18:00"
   }
  },
  "nu_bezig": [
@@ -3896,15 +3896,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 15:33",
+  "bijgewerkt": "2026-11-18 16:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 58945383,
+    "week": 58039074,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 9393435,
+     "Wed 11-11": 8487126,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
