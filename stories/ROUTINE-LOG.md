@@ -295,3 +295,14 @@ ValueError: empty separator)
 - 2026-11-17 20:18 sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site
 - 2026-11-17 21:18 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)
 - 2026-11-18 00:13 bodycam: video 1 (Las Cruces, CBP) PRIVÉ geüpload naar NOIRTRACES: https://youtu.be/k7CbEk763Gk – titel "Border Patrol Begged Him to Drop the Club", thumbnail DROP IT NOW. Openbaar pas na akkoord eigenaar.
+- 2026-11-18 eigenaar: Gettysburg (4i-gOILazVQ, privé) verzet van wo 18 nov naar za 21 nov 21:00 NL; kanaal Sleep Archives gecontroleerd
+- 2026-11-18 eigenaar: 'niet 2 video's tegelijk, houd je aan de planning': dallas-1963 naar reserve (geen datum); taak 'Sleep Archives bewaker' weer AAN (volgende: ijstijd-20000-vc ma 23 nov)
+- 2026-11-18 07:31 beelden-wachter: SEINTJE rome-44-vc: geen kenmerken voor 'ship' (beeld 006, 012)
+- 2026-11-18 07:31 bewaker: keten gestart voor ijstijd-20000-vc
+- 2026-11-18 07:31 routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)
+- 2026-11-18 07:48 sitecontrole: opgelost: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-18 07:48 sitecontrole: opgelost: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site
+- 2026-11-18 07:48 sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-18 08:10 routine-lokaal: ijstijd-20000-vc: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 074
+- 2026-11-18 08:18 routine-lokaal: ijstijd-20000-vc: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl
+- 2026-11-18 08:24 routine-lokaal: ijstijd-20000-vc: opnieuw maken GESTOPT (No module named 'torch'); de oude versie blijft staan
