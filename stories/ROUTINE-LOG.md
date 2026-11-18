@@ -329,3 +329,4 @@ ValueError: empty separator)
 - 2026-11-18 18:59 Claude: troje opnieuw geschreven: 'The Fall of Troy, 1200 BC' (hype Griekse mythen/Odyssee), 83 feitjes, 14.351 woorden, 13 onderwerpen (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).
 - 2026-11-18 19:07 Claude: franklin-1845 opnieuw geschreven: 'Life Aboard Franklin's Lost Ships, 1845', 82 feitjes, 14.035 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).
 - 2026-11-18 19:14 Claude: new-york-1925 opnieuw geschreven: 'Life in New York During Prohibition, 1925' (jaardag drooglegging), 82 feitjes, 13.750 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).
+- 2026-11-18 19:23 Claude: goudkoorts-1849 opnieuw geschreven: 'The California Gold Rush, 1849' (jaardag goudvondst 24 jan), 80 feitjes, 13.722 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED). Daarmee 5 scripts vooruit klaar (eigenaar 18 nov).

@@ -1,6 +1,9 @@
 onderwerp Life in the California Gold Rush, 1849
-status   script-klaar (2026-11-03, tweede account)
+status   script-klaar (nieuwe opbouw, opbouw Sleepy 18 nov, 2026-11-18, Claude; opnieuw geschreven; jaardag goudvondst 24 jan)
 datum    za 2027-01-23 21:00 NL (eigenaar 18 nov: jaardag goudvondst 24 jan; was reserve)
-titel    Life in the California Gold Rush, 1849 | <N> Hours of History for Sleep
+titel    The California Gold Rush, 1849 | History for Sleep
 thumbnail amberregel "CALIFORNIA · 1849", hook "The Gold Rush", beeld (kenmerkend): een jonge goudzoeker met brede hoed die knielt aan een heldere bergrivier en een pan met glanzende goudschilfers omhoog houdt, achter hem houten blokhutten met rook tussen de dennen in de gouden avondzon; rustig, warm goudlicht
 soort    reis
+opening   gebeurtenis
+titelsoort event-year
+thumbnail kenmerk: een metalen goudpan vol glanzende goudschilfers en een klompje goud, groot en van dichtbij, op de stenen oever van een heldere bergrivier tussen dennen in gouden avondlicht; geen mensen
