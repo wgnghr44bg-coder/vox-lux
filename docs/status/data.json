@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 16:33",
+ "bijgewerkt": "2026-11-18 17:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "detail": "Video bouwen · 99%",
+    "detail": "Video bouwen · 60%",
     "soort": "nu"
    }
   ],
@@ -544,7 +544,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "153 GB vrij"
+   "tekst": "150 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 16:33)"
+   "tekst": "draait nu (2026-11-18 17:03)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 16:18: alles klopt"
+   "tekst": "laatste ronde 16:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 16:33",
-   "volgende": "2026-11-18 17:03"
+   "laatst": "2026-11-18 17:03",
+   "volgende": "2026-11-18 17:33"
   },
   "hype": {
    "aan": true,
@@ -606,8 +606,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 16:18",
-   "volgende": "2026-11-18 16:48"
+   "laatst": "2026-11-18 16:48",
+   "volgende": "2026-11-18 17:18"
   },
   "titels": {
    "aan": true,
@@ -935,15 +935,15 @@
   "thumb": "thumbs/ijstijd-20000-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 99,
-  "detail": "beweging",
+  "voortgang": 60,
+  "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "eindvolume -14 LUFS"
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-18 17:36",
-   "youtube": "2026-11-18 17:56"
+   "klaar": "2026-11-18 17:33",
+   "youtube": "2026-11-18 17:53"
   }
  },
  "nu_bezig": [
@@ -952,13 +952,13 @@
    "stap": 0
   },
   {
-   "naam": "eindvolume -14 LUFS",
+   "naam": "16mm-look",
    "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 777,
+  "bezig_procent": 26,
+  "geheugen_mb": 769,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1837,10 +1837,10 @@
     true,
     true,
     true,
-    false,
+    true,
     false
    ],
-   "gereed": 60,
+   "gereed": 80,
    "thumb": "thumbs/ijstijd-20000-vc.jpg"
   },
   {
@@ -3896,15 +3896,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 16:34",
+  "bijgewerkt": "2026-11-18 17:05",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 58039074,
+    "week": 57902404,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 8487126,
+     "Wed 11-11": 8350456,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
