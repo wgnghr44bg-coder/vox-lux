@@ -65,7 +65,7 @@ def controleer(m):
     if not so or so.group(1) not in ("ramp", "oudheid", "middeleeuwen", "mysterie", "oorlog", "verlaten", "reis"):
         fout.append(f"soort '{so.group(1) if so else '-'}' is geen vaste afspeellijst (ramp/oudheid/middeleeuwen/mysterie/oorlog/verlaten/reis)")
 
-    # 4. thumbnail: kenmerkend beeld + mensen van toen (gekozen bestand, of een kenmerk-regel voor de maker)
+    # 4. thumbnail: kenmerkend beeld groot, zonder mensen (18 nov) (gekozen bestand, of een kenmerk-regel voor de maker)
     if not (m / "thumbnail-v3.jpg").exists() and not re.search(r"^thumbnail kenmerk:", plan, re.M):
         fout.append("geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt")
     return fout

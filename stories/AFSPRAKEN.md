@@ -37,8 +37,11 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 
 ## Thumbnail
 - Stijl zoals Babylon: maanlogo "SLEEP ARCHIVES", groot wit onderwerp, geel jaartal, links.
-- Rechts één scène waaraan je meteen ziet waar de video over gaat: het kenmerkende beeld groot, mét mensen uit die tijd
-  die doen wat er toen gebeurde. Nooit een losse willekeurige vrouw. Niets moderns, geen zwevende voorwerpen.
+- Rechts alleen het kenmerkende beeld, groot en van dichtbij (de mammoet, de oogsttafel, het boerenhuisje), GEEN mensen;
+  links een rustige lege achtergrond (eigenaar 18 nov 2026: "hele duidelijke manier ... meteen ziet waar de video over
+  gaat"; vervangt de regel van 14 nov met mensen erbij). Niets moderns of uit een andere tijd (bv. geen schoorsteen of
+  glas rond 1300), geen zwevende voorwerpen.
+- De letters raken het onderwerp nooit (eigenaar 18 nov): `opmaak()` schuift het beeld 130 px naar rechts; altijd zelf nakijken.
 - In `planning.txt` een regel `thumbnail kenmerk: …`; de keten maakt hem met `tools/thumbnail_v3.py`.
 
 ## Afspeellijsten

@@ -15,7 +15,7 @@ import datetime as dt, json, re, shutil, subprocess, sys, time
 from pathlib import Path
 
 import requests
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 HIER = Path(__file__).resolve().parent
 REPO = HIER.parent
@@ -87,13 +87,20 @@ def kenmerk_van(x):
 
 
 # ---------- opmaak ----------
-def opmaak(png, uit, regel1, regel2=""):
+def opmaak(png, uit, regel1, regel2="", schuif=130):
     im = Image.open(png).convert("RGB")
     w, h = im.size
     s = max(W / w, H / h)
     im = im.resize((int(w * s + 0.5), int(h * s + 0.5)), Image.LANCZOS)
     x, y = (im.width - W) // 2, (im.height - H) // 2
     im = im.crop((x, y, x + W, y + H))
+    # 18 nov 2026 (eigenaar, IJstijd: "let op met de letters ... dat niet over elkaar heen gaat"): het beeld 130 px naar
+    # rechts schuiven, de linkerstrook gespiegeld aanvullen (lucht/veld), zodat de tekst vrij staat van het onderwerp
+    if schuif:
+        n = Image.new("RGB", (W, H))
+        n.paste(im, (schuif, 0))
+        n.paste(ImageOps.mirror(im.crop((0, 0, schuif, H))), (0, 0))
+        im = n
     m = Image.linear_gradient("L").rotate(-90).resize((W, H)).point(lambda v: int(v * 0.45))   # links donkerder
     im = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), im, m)
     d = ImageDraw.Draw(im)
@@ -245,6 +252,12 @@ def alle(niet_wachten=False):
 def maak_voor_map(m, regel1, regel2, kenmerk, achtergrond, licht="warm lamplight", moment="", voorwerp=""):
     """Voor de keten: één thumbnail-v3 voor een nieuwe video."""
     m = Path(m)
+    # 18 nov 2026 (eigenaar, IJstijd/Thanksgiving/Boeren: "hele duidelijke manier ... meteen ziet waar de video over gaat",
+    # "ja"): VAST: alleen het kenmerk groot en dichtbij rechts, GEEN mensen, links een rustige lege achtergrond
+    # (vervangt de regel van 14 nov met mensen van toen erbij)
+    moment = ""
+    if "no people" not in kenmerk:
+        kenmerk += ", seen close up, the whole of it kept inside the right half of the frame, no people anywhere"
     try:
         import torch  # noqa: F401  (de beeldkeuring heeft torch nodig)
     except ImportError:

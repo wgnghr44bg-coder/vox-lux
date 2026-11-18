@@ -321,3 +321,6 @@ ValueError: empty separator)
 - 2026-11-18 17:53 ijstijd-20000-vc: eindversie bewaard voor compilatie: C:\Users\rane\vox-lux-compilaties\ijstijd-20000-vc-16mm.mp4
 - 2026-11-18 17:53 ijstijd-20000-vc: KLAAR
 - 2026-11-18 17:53 routine-lokaal: ijstijd-20000-vc: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-23 21:00
+- 2026-11-18 17:53 bewaker: keten gestart voor thanksgiving-1621
+- 2026-11-18 17:53 routine-lokaal: thanksgiving-1621: opnieuw maken voor 2026-11-25 21:00 (eigen stem, nieuwe toon)
+- 2026-11-18 18:07 Claude: thumbnails NIEUWE STIJL vast (eigenaar 18 nov: 'ja'): alleen het kenmerk groot rechts, geen mensen, letters vrij (opmaak schuift 130 px). Thanksgiving (oogsttafel) en Boeren (boerenhuisje zonder schoorsteen) staan klaar als thumbnail-v3.jpg; de keten gebruikt die.
