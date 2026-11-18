@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 06:33",
+ "bijgewerkt": "2026-11-18 07:03",
  "werkplanning": {
   "nu": [
    {
@@ -584,7 +584,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 06:33)"
+   "tekst": "draait nu (2026-11-18 07:03)"
   },
   {
    "naam": "Git",
@@ -604,7 +604,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 06:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 06:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -621,8 +621,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 06:33",
-   "volgende": "2026-11-18 07:03"
+   "laatst": "2026-11-18 07:03",
+   "volgende": "2026-11-18 07:33"
   },
   "hype": {
    "aan": true,
@@ -636,8 +636,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 06:18",
-   "volgende": "2026-11-18 06:48"
+   "laatst": "2026-11-18 06:48",
+   "volgende": "2026-11-18 07:18"
   },
   "titels": {
    "aan": true,
@@ -1145,8 +1145,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-18 06:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 06:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 07:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 06:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3824,7 +3824,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 06:33",
+  "bijgewerkt": "2026-11-18 07:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -3839,7 +3839,7 @@
     },
     "script_kost": 360570,
     "metingen": 1,
-    "stap_kost": 23799,
+    "stap_kost": 19708,
     "naam": "hoofd",
     "week_reset": ""
    },
