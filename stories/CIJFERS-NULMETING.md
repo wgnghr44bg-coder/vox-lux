@@ -34,3 +34,17 @@ co-views mee). Zwak punt: abonnees (+9 op 592 uur kijktijd).
 - Reacties Mayflower: (1) "Thumbs down for AI slop. Please support videos that are human made and human voiced".
   (2) uitspraak van woorden niet gecontroleerd, en het openingsbeeld lijkt niet op de echte Mayflower (zie de replica
   Mayflower II). Les: beroemde schepen/gebouwen/voorwerpen moeten historisch kloppen; uitspraak van namen controleren.
+
+## Eerste vergelijking (Studio AI, 18 nov 2026): 12-18 nov tegen 5-11 nov (nog maar 2-3 dagen na de aanpassingen)
+| | 5-11 nov | 12-18 nov |
+|---|---|---|
+| Vertoningen | 3.552 | 4.140 (+17%) |
+| CTR | 3,8% | 4,1% |
+| Gem. weergaveduur | 32:14 | 26:23 (laatste dagen nog niet compleet, co-views sinds 16 nov) |
+| Kijktijd | 116 u | 108 u |
+| Abonnees | +2 | +4 |
+| Terugkerend | 5 (3,1%) | 5 (4,8%) |
+| Browse / Voorgesteld / Zoeken | 74 / 15 / 4,5% | 64 / 20 / 6,4% |
+Per video (eerste 15 uur): Babylon CTR 2,6%, gem. 39:52, 46% na 1:11 (beter dan alle video's in de nulmeting);
+Egypte CTR 1,0% maar gem. 1:46:59; Crisis 1933 CTR 11,8% (34 vertoningen), gem. 39:03; WW2 CTR 0,3% (742 vertoningen).
+Les: "Life in/A Year in"-titels werken, vraagtitels (WW2) niet; begin houdt beter vast; terugkerende kijkers blijft zwak.
