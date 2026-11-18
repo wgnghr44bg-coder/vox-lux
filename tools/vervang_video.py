@@ -109,6 +109,18 @@ if a.oud and a.oud != nieuw:
         log(m, f"oude versie {a.oud} niet verwijderd: niet gevonden, niet privé of ander kanaal")
 
 v = m / "video"
+# Compilaties (stap 2, 18 nov 2026): is deze video een onderdeel van een compilatie (regel "onderdelen" in
+# stories/compilatie-*/planning.txt), dan de eindversie bewaren buiten de repo, anders moet hij later opnieuw gerenderd worden.
+BEWAAR = Path(r"C:\Users\rane\vox-lux-compilaties")
+delen = set()
+for cp in (HIER.parent / "stories").glob("compilatie-*/planning.txt"):
+    r_ = re.search(r"^onderdelen\s+(.+)$", cp.read_text(encoding="utf-8"), re.M)
+    delen |= {x.strip() for x in r_.group(1).split(",")} if r_ else set()
+eind = Path(a.video)
+if m.name in delen and eind.exists():
+    BEWAAR.mkdir(exist_ok=True)
+    eind.replace(BEWAAR / eind.name)
+    log(m, f"eindversie bewaard voor compilatie: {BEWAAR / eind.name}")
 for f in list(v.rglob("*.mp4")) + list(v.rglob("*.wav")):
     f.unlink()
 regel = (f"link https://youtu.be/{nieuw} ({datetime.date.today()}: B1 + W3, nieuwe opbouw, 16mm; privé met publishAt "
