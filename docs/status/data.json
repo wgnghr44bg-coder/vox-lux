@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 22:03",
+ "bijgewerkt": "2026-11-18 22:33",
  "werkplanning": {
   "nu": [
    {
@@ -511,7 +511,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "157 GB vrij"
+   "tekst": "154 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -526,7 +526,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 22:03)"
+   "tekst": "draait nu (2026-11-18 22:33)"
   },
   {
    "naam": "Git",
@@ -546,7 +546,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 22:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +563,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 22:03",
-   "volgende": "2026-11-18 22:33"
+   "laatst": "2026-11-18 22:33",
+   "volgende": "2026-11-18 23:03"
   },
   "hype": {
    "aan": true,
@@ -573,13 +573,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 21:10",
-   "volgende": "2026-11-18 22:10"
+   "laatst": "2026-11-18 22:10",
+   "volgende": "2026-11-18 23:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 21:48",
-   "volgende": "2026-11-18 22:18"
+   "laatst": "2026-11-18 22:18",
+   "volgende": "2026-11-18 22:48"
   },
   "titels": {
    "aan": true,
@@ -935,7 +935,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 780,
+  "geheugen_mb": 768,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1113,8 +1113,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-18 22:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 22:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3766,17 +3766,17 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 22:04",
+  "bijgewerkt": "2026-11-18 22:35",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 52372375,
+    "week": 50603764,
     "per_dag": {
      "Thu 12-11": 29715489,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
-     "Wed 11-11": 2820426,
+     "Wed 11-11": 1051816,
      "Mon 16-11": 10362951
     },
     "script_kost": 360570,
