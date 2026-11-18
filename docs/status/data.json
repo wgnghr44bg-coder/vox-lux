@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 00:03",
+ "bijgewerkt": "2026-11-19 00:33",
  "werkplanning": {
   "nu": [
    {
@@ -490,7 +490,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "151 GB vrij"
+   "tekst": "150 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -505,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 00:03)"
+   "tekst": "draait nu (2026-11-19 00:33)"
   },
   {
    "naam": "Git",
@@ -524,8 +524,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": false,
-   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
+   "ok": true,
+   "tekst": "laatste ronde 00:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +542,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 00:03",
-   "volgende": "2026-11-19 00:33"
+   "laatst": "2026-11-19 00:33",
+   "volgende": "2026-11-19 01:03"
   },
   "hype": {
    "aan": true,
@@ -552,13 +552,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 23:10",
-   "volgende": "2026-11-19 00:10"
+   "laatst": "2026-11-19 00:10",
+   "volgende": "2026-11-19 01:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 23:48",
-   "volgende": "2026-11-19 00:18"
+   "laatst": "2026-11-19 00:18",
+   "volgende": "2026-11-19 00:48"
   },
   "titels": {
    "aan": true,
@@ -606,7 +606,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 14,
+    "views": 21,
     "verwerkt": "processed"
    },
    {
@@ -660,7 +660,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 660,
+    "views": 661,
     "verwerkt": "processed"
    },
    {
@@ -859,13 +859,13 @@
  "kpi": {
   "geplande": 2,
   "runs": {
-   "goed": 5,
-   "totaal": 16,
-   "procent": 31
+   "goed": 4,
+   "totaal": 15,
+   "procent": 27
   },
-  "fouten": 3,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 11,
    "totaal": 12
   }
  },
@@ -890,12 +890,11 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen",
-   "beelden maken (ComfyUI)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-19 06:04",
-   "youtube": "2026-11-19 06:24"
+   "klaar": "2026-11-19 06:34",
+   "youtube": "2026-11-19 06:54"
   }
  },
  "nu_bezig": [
@@ -906,15 +905,11 @@
   {
    "naam": "beelden en geluid samenvoegen",
    "stap": 4
-  },
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 31,
-  "geheugen_mb": 5797,
+  "bezig_procent": 18,
+  "geheugen_mb": 770,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1001,12 +996,6 @@
  "logboek": [
   {
    "tijd": "2026-11-18 17:53",
-   "tekst": "ijstijd-20000-vc: eindversie bewaard voor compilatie: …",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 17:53",
    "tekst": "ijstijd-20000-vc: KLAAR",
    "fout": false,
    "klaar": true
@@ -1082,23 +1071,18 @@
    "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 00:18",
+   "tekst": "sitecontrole: opgelost: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-18 19:48",
-   "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 00:03",
+   "tijd": "2026-11-19 00:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-19 00:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1142,6 +1126,12 @@
   {
    "tijd": "2026-11-18 08:24",
    "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken GESTOPT (No module named 'torch'); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 19:48",
+   "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
    "fout": true,
    "klaar": false
   }
@@ -3741,14 +3731,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 00:05",
+  "bijgewerkt": "2026-11-19 00:36",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 49551948,
+    "week": 49224913,
     "per_dag": {
-     "Thu 12-11": 29715489,
+     "Thu 12-11": 29388454,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
