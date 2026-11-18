@@ -1,0 +1,6 @@
+# trefwoord | hoe historici het reconstrueren (tools/comfy/comfy_batch.py en tools/beeldcheck.py)
+walls of Troy | the late Bronze Age walls of Troy (Troy VI): a lower wall of large, neatly fitted pale limestone blocks that slopes gently inward, square stone towers, a mud-brick upper wall, simple gateways, no battlements of a medieval castle, no round towers
+wooden horse | a giant wooden horse of rough hand-cut planks and beams, simple and stylised, standing on a low wooden platform with rollers, no saddle, no painted decoration, no modern bolts
+chariot | a light Bronze Age two-wheeled chariot with four- or six-spoked wheels, a small open wicker or wooden box for one or two standing men, pulled by two horses side by side, no seats, no roof
+Mycenae | Mycenae in the late Bronze Age: a citadel on a rocky hill with huge rough Cyclopean stone walls and the Lion Gate (two stone lions facing each other above a massive lintel), dry hills around, no classical temples with columns
+Bronze Age ship | a Bronze Age Aegean ship: a long low wooden hull with oars along both sides, a single mast with one square sail, a high curved stern, no cannons, no portholes, no multiple decks
