@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 12:33",
+ "bijgewerkt": "2026-11-18 13:03",
  "werkplanning": {
   "nu": [
    {
@@ -544,7 +544,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "159 GB vrij"
+   "tekst": "158 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 12:33)"
+   "tekst": "draait nu (2026-11-18 13:03)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:18: alles klopt"
+   "tekst": "laatste ronde 12:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 12:33",
-   "volgende": "2026-11-18 13:03"
+   "laatst": "2026-11-18 13:03",
+   "volgende": "2026-11-18 13:33"
   },
   "hype": {
    "aan": true,
@@ -606,8 +606,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 12:18",
-   "volgende": "2026-11-18 12:48"
+   "laatst": "2026-11-18 12:48",
+   "volgende": "2026-11-18 13:18"
   },
   "titels": {
    "aan": true,
@@ -646,7 +646,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 2,
+    "views": 4,
     "verwerkt": "processed"
    },
    {
@@ -655,7 +655,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 20,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -942,8 +942,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-18 18:11",
-   "youtube": "2026-11-18 18:31"
+   "klaar": "2026-11-18 18:41",
+   "youtube": "2026-11-18 19:01"
   }
  },
  "nu_bezig": [
@@ -957,7 +957,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 24,
+  "bezig_procent": 25,
   "geheugen_mb": 768,
   "totaal_mb": 8192
  },
@@ -3896,15 +3896,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 12:34",
+  "bijgewerkt": "2026-11-18 13:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 61710478,
+    "week": 61093325,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 12158530,
+     "Wed 11-11": 11541377,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
