@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 18:03",
+ "bijgewerkt": "2026-11-18 18:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "Beelden maken · 16%",
+    "detail": "Beelden maken · 82%",
     "soort": "nu"
    }
   ],
@@ -363,7 +363,6 @@
     "toon": null,
     "afspraken": [
      "titel mist of eindigt niet op '| History for Sleep'",
-     "geen src-feiten/begin.txt (nog oude opbouw)",
      "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
     ]
    },
@@ -553,7 +552,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 18:03)"
+   "tekst": "draait nu (2026-11-18 18:33)"
   },
   {
    "naam": "Git",
@@ -568,7 +567,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 17:48: alles klopt"
+   "tekst": "laatste ronde 18:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -585,8 +584,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 18:03",
-   "volgende": "2026-11-18 18:33"
+   "laatst": "2026-11-18 18:33",
+   "volgende": "2026-11-18 19:03"
   },
   "hype": {
    "aan": true,
@@ -595,13 +594,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 17:10",
-   "volgende": "2026-11-18 18:10"
+   "laatst": "2026-11-18 18:10",
+   "volgende": "2026-11-18 19:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 17:48",
-   "volgende": "2026-11-18 18:18"
+   "laatst": "2026-11-18 18:18",
+   "volgende": "2026-11-18 18:48"
   },
   "titels": {
    "aan": true,
@@ -929,8 +928,8 @@
   "thumb": "thumbs/thanksgiving-1621.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 16,
-  "detail": "14 van 89 beelden",
+  "voortgang": 82,
+  "detail": "73 van 89 beelden",
   "taken": [
    "routine zonder Claude",
    "beelden maken (ComfyUI)"
@@ -948,8 +947,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 3214,
+  "bezig_procent": 25,
+  "geheugen_mb": 4562,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1036,18 +1035,6 @@
  "logboek": [
   {
    "tijd": "2026-11-18 08:30",
-   "tekst": "hype-wachter: SEINTJE A Rainy Boat Ride on the River: A Magical Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 08:30",
-   "tekst": "hype-wachter: SEINTJE Drift Away on a Mountain 💤 A Restful Day on Mount Carmel 💤 BEDTIME STORY -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 08:30",
    "tekst": "hype-wachter: SEINTJE 9 Hours of Asian History Deep Dives | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -1115,6 +1102,18 @@
   {
    "tijd": "2026-11-18 17:53",
    "tekst": "routine-lokaal: thanksgiving-1621: opnieuw maken voor 2026-11-25 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 18:07",
+   "tekst": "Claude: thumbnails NIEUWE STIJL vast (eigenaar 18 nov: 'ja'): alleen het kenmerk groot rechts, geen mensen, letters vrij (opmaak schuift 130 px). Thanksgiving (oogsttafel) en Boeren (boerenhuisje zond",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 18:18",
+   "tekst": "Claude: blackbeard-1718: thumbnail-v3.jpg klaar in nieuwe stijl (Queen Anne's Revenge, geen doodshoofd op de zeilen, letters vrij). philadelphia-1776: deel1 nieuw geschreven (30 blokken), rest wacht o",
    "fout": false,
    "klaar": false
   }
@@ -1365,7 +1364,7 @@
     false
    ],
    "gereed": 20,
-   "thumb": ""
+   "thumb": "thumbs/blackbeard-1718.jpg"
   },
   {
    "map": "blitz-1940",
@@ -1405,7 +1404,7 @@
     false
    ],
    "gereed": 20,
-   "thumb": ""
+   "thumb": "thumbs/boeren-winter-1300.jpg"
   },
   {
    "map": "bronstijd",
@@ -3881,7 +3880,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 18:04",
+  "bijgewerkt": "2026-11-18 18:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3903,27 +3902,27 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 89029318,
+    "week": 88938833,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
-     "Wed 11-11": 2382045,
+     "Wed 11-11": 2291560,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 19564,
+    "stap_kost": 18462,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": 21.9,
-    "5uur_stappen_over": 694,
+    "5uur_stappen_over": 735,
     "week_pct": 67,
-    "week_scripts_over": 69.4,
-    "week_stappen_over": 2197
+    "week_scripts_over": 69.6,
+    "week_stappen_over": 2333
    }
   ]
  },
