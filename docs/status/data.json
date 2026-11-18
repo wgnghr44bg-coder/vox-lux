@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 20:03",
+ "bijgewerkt": "2026-11-18 20:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "Stem (B1)",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
@@ -511,7 +511,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "164 GB vrij"
+   "tekst": "160 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -526,7 +526,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 20:03)"
+   "tekst": "draait nu (2026-11-18 20:33)"
   },
   {
    "naam": "Git",
@@ -546,7 +546,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +563,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 20:03",
-   "volgende": "2026-11-18 20:33"
+   "laatst": "2026-11-18 20:33",
+   "volgende": "2026-11-18 21:03"
   },
   "hype": {
    "aan": true,
@@ -573,13 +573,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 19:10",
-   "volgende": "2026-11-18 20:10"
+   "laatst": "2026-11-18 20:10",
+   "volgende": "2026-11-18 21:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 19:48",
-   "volgende": "2026-11-18 20:18"
+   "laatst": "2026-11-18 20:18",
+   "volgende": "2026-11-18 20:48"
   },
   "titels": {
    "aan": true,
@@ -899,23 +899,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": 4,
  "huidig": {
   "map": "thanksgiving-1621",
   "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
   "datum": "2026-11-25",
   "thumb": "thumbs/thanksgiving-1621.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
+   "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-19 09:08",
-   "youtube": "2026-11-19 09:28"
+   "klaar": "2026-11-19 05:38",
+   "youtube": "2026-11-19 05:58"
   }
  },
  "nu_bezig": [
@@ -924,13 +924,13 @@
    "stap": 0
   },
   {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7763,
+  "bezig_procent": 25,
+  "geheugen_mb": 782,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1108,8 +1108,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-18 20:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-18 20:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -2647,12 +2647,12 @@
    "opening": "mythe",
    "stappen": [
     true,
-    false,
+    true,
     true,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 60,
    "thumb": "thumbs/thanksgiving-1621.jpg"
   },
   {
@@ -3761,15 +3761,15 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 20:03",
+  "bijgewerkt": "2026-11-18 20:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 54628144,
+    "week": 53576358,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 5076196,
+     "Wed 11-11": 4024410,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3783,14 +3783,14 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 88034932,
+    "week": 87636360,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
-     "Wed 11-11": 1387659,
+     "Wed 11-11": 989087,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
@@ -3801,9 +3801,9 @@
     "5uur_pct": 0,
     "5uur_scripts_over": 21.9,
     "5uur_stappen_over": 718,
-    "week_pct": 67,
-    "week_scripts_over": 71.0,
-    "week_stappen_over": 2327
+    "week_pct": 66,
+    "week_scripts_over": 71.7,
+    "week_stappen_over": 2349
    }
   ]
  },
