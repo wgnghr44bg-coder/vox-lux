@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 07:33",
+ "bijgewerkt": "2026-11-18 08:03",
  "werkplanning": {
   "nu": [
    {
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 07:33)"
+   "tekst": "draait nu (2026-11-18 08:03)"
   },
   {
    "naam": "Git",
@@ -573,8 +573,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": false,
-   "tekst": "laatste ronde 07:18: 3 ding(en) klopt niet, zie meldingen"
+   "ok": true,
+   "tekst": "laatste ronde 07:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 07:33",
-   "volgende": "2026-11-18 08:03"
+   "laatst": "2026-11-18 08:03",
+   "volgende": "2026-11-18 08:33"
   },
   "hype": {
    "aan": true,
@@ -606,8 +606,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 07:18",
-   "volgende": "2026-11-18 07:48"
+   "laatst": "2026-11-18 07:48",
+   "volgende": "2026-11-18 08:18"
   },
   "titels": {
    "aan": true,
@@ -912,9 +912,9 @@
    "totaal": 16,
    "procent": 25
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 11,
    "totaal": 11
   }
  },
@@ -936,10 +936,10 @@
   "stap": 2,
   "stapnaam": "Beelden maken",
   "voortgang": 99,
-  "detail": "82 van 83 beelden",
+  "detail": "83 van 83 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -949,13 +949,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 818,
+  "bezig_procent": 3,
+  "geheugen_mb": 789,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1041,24 +1041,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-17 15:48",
-   "tekst": "sitecontrole: opgelost: website is sinds 2026-11-17 07:33 niet bijgewerkt (taak 'Sleep Archives dashboard' kijken)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 16:06",
-   "tekst": "routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 025, 041, 066",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 17:48",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-17 17:48",
    "tekst": "bewaker: SEINTJE dallas-1963 (2026-11-21) is vandaag 2x gestopt, morgen opnieuw",
    "fout": false,
@@ -1123,15 +1105,27 @@
    "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken voor 2026-11-23 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-18 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 3 ding(en) klopt niet, zie meldingen",
-   "fout": true
+   "tijd": "2026-11-18 07:48",
+   "tekst": "sitecontrole: opgelost: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 07:48",
+   "tekst": "sitecontrole: opgelost: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 07:48",
+   "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-16 15:58",
@@ -1839,11 +1833,11 @@
    "stappen": [
     true,
     false,
-    false,
+    true,
     false,
     false
    ],
-   "gereed": 20,
+   "gereed": 40,
    "thumb": ""
   },
   {
@@ -3797,7 +3791,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 07:34",
+  "bijgewerkt": "2026-11-18 08:05",
   "accounts": [
    {
     "account": "hoofd",
