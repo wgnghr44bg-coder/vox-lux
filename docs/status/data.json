@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 19:33",
+ "bijgewerkt": "2026-11-18 20:03",
  "werkplanning": {
   "nu": [
    {
@@ -526,12 +526,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 19:33)"
+   "tekst": "draait nu (2026-11-18 20:03)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
+   "tekst": "alles gepusht"
   },
   {
    "naam": "Video 2026-11-18 (gettysburg-1863)",
@@ -545,8 +545,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 19:18: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +563,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 19:33",
-   "volgende": "2026-11-18 20:03"
+   "laatst": "2026-11-18 20:03",
+   "volgende": "2026-11-18 20:33"
   },
   "hype": {
    "aan": true,
@@ -578,8 +578,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 19:18",
-   "volgende": "2026-11-18 19:48"
+   "laatst": "2026-11-18 19:48",
+   "volgende": "2026-11-18 20:18"
   },
   "titels": {
    "aan": true,
@@ -881,12 +881,12 @@
   "geplande": 2,
   "runs": {
    "goed": 5,
-   "totaal": 15,
-   "procent": 33
+   "totaal": 16,
+   "procent": 31
   },
-  "fouten": 0,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 12
   }
  },
@@ -914,8 +914,8 @@
    "stem inspreken (OmniVoice B1)"
   ],
   "eind": {
-   "klaar": "2026-11-19 08:38",
-   "youtube": "2026-11-19 08:58"
+   "klaar": "2026-11-19 09:08",
+   "youtube": "2026-11-19 09:28"
   }
  },
  "nu_bezig": [
@@ -930,7 +930,7 @@
  ],
  "videokaart": {
   "bezig_procent": 99,
-  "geheugen_mb": 7775,
+  "geheugen_mb": 7763,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1016,12 +1016,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-18 17:51",
-   "tekst": "Claude: ijstijd-20000-vc: nieuwe thumbnail op z1E4tQDqMG0 (eigenaar: 'alleen de mammoet van dichtbij, letters niet over het beeld'): alleen mammoet rechts, beeld 170 px naar rechts geschoven zodat ICE",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-18 17:53",
    "tekst": "ijstijd-20000-vc: eindversie bewaard voor compilatie: …",
    "fout": false,
@@ -1098,9 +1092,27 @@
    "tekst": "routine-lokaal: thanksgiving-1621: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 081",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 19:48",
+   "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
+   "fout": true,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-18 19:48",
+   "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-18 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-17 06:46",
@@ -3749,15 +3761,15 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 19:33",
+  "bijgewerkt": "2026-11-18 20:03",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 56134433,
+    "week": 54628144,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 6582485,
+     "Wed 11-11": 5076196,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3771,14 +3783,14 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 88478253,
+    "week": 88034932,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Thu 12-11": 4335576,
-     "Wed 11-11": 1830980,
+     "Wed 11-11": 1387659,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
@@ -3790,8 +3802,8 @@
     "5uur_scripts_over": 21.9,
     "5uur_stappen_over": 718,
     "week_pct": 67,
-    "week_scripts_over": 70.3,
-    "week_stappen_over": 2304
+    "week_scripts_over": 71.0,
+    "week_stappen_over": 2327
    }
   ]
  },
