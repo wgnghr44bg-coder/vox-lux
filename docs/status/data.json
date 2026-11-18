@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-18 23:33",
+ "bijgewerkt": "2026-11-19 00:03",
  "werkplanning": {
   "nu": [
    {
@@ -36,14 +36,6 @@
    }
   ],
   "publicaties": [
-   {
-    "datum": "2026-11-18",
-    "dag": "wo",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "stand": "online",
-    "kleur": "goed"
-   },
    {
     "datum": "2026-11-21",
     "dag": "za",
@@ -122,19 +114,6 @@
  "scripts": {
   "klaar_tot": "2027-01-02",
   "rij": [
-   {
-    "datum": "2026-11-18",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
-    "flesch": 70,
-    "niveau": 6.4,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED",
-    "afspraken": null
-   },
    {
     "datum": "2026-11-21",
     "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
@@ -526,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 23:33)"
+   "tekst": "draait nu (2026-11-19 00:03)"
   },
   {
    "naam": "Git",
@@ -534,9 +513,9 @@
    "tekst": "alles gepusht"
   },
   {
-   "naam": "Video 2026-11-18 (gettysburg-1863)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
+   "naam": "Video 2026-11-21 (dallas-1963)",
+   "ok": false,
+   "tekst": "nog NIET op YouTube (minder dan 2 dagen tot publicatie)"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -546,7 +525,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -563,8 +542,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 23:33",
-   "volgende": "2026-11-19 00:03"
+   "laatst": "2026-11-19 00:03",
+   "volgende": "2026-11-19 00:33"
   },
   "hype": {
    "aan": true,
@@ -578,8 +557,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 23:18",
-   "volgende": "2026-11-18 23:48"
+   "laatst": "2026-11-18 23:48",
+   "volgende": "2026-11-19 00:18"
   },
   "titels": {
    "aan": true,
@@ -593,14 +572,14 @@
   "views_totaal": 2978,
   "video_aantal": 17,
   "week": {
-   "views": 578,
-   "uren": 146,
-   "abonnees": 4
+   "views": 451,
+   "uren": 99,
+   "abonnees": 3
   },
   "vorige_week": {
-   "views": 539,
-   "uren": 118,
-   "abonnees": 2
+   "views": 659,
+   "uren": 163,
+   "abonnees": 4
   },
   "recent": [
    {
@@ -627,7 +606,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 13,
+    "views": 14,
     "verwerkt": "processed"
    },
    {
@@ -681,7 +660,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 661,
+    "views": 660,
     "verwerkt": "processed"
    },
    {
@@ -695,11 +674,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-21",
-    "views": 40,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-22",
     "views": 93,
@@ -832,13 +806,13 @@
    }
   ],
   "maand": {
-   "views": 2532,
-   "uren": 573,
+   "views": 2492,
+   "uren": 560,
    "abonnees": 9
   },
   "vorige_maand": {
-   "views": 749,
-   "uren": 111,
+   "views": 783,
+   "uren": 161,
    "abonnees": 7
   },
   "jaar": {
@@ -851,8 +825,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1138,
-    "uren": 302
+    "views": 1104,
+    "uren": 290
    },
    {
     "id": "_duWLxwIEss",
@@ -876,10 +850,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 20.0,
+   "tempo_uren_per_dag": 18.2,
    "tempo_abonnees_per_dag": 0.32,
-   "datum_uren": "2027-05-04",
-   "datum_abonnees": "2035-04-01"
+   "datum_uren": "2027-05-21",
+   "datum_abonnees": "2035-04-02"
   }
  },
  "kpi": {
@@ -889,9 +863,9 @@
    "totaal": 16,
    "procent": 31
   },
-  "fouten": 2,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 10,
    "totaal": 12
   }
  },
@@ -920,8 +894,8 @@
    "beelden maken (ComfyUI)"
   ],
   "eind": {
-   "klaar": "2026-11-19 05:38",
-   "youtube": "2026-11-19 05:58"
+   "klaar": "2026-11-19 06:04",
+   "youtube": "2026-11-19 06:24"
   }
  },
  "nu_bezig": [
@@ -939,8 +913,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 36,
-  "geheugen_mb": 3861,
+  "bezig_procent": 31,
+  "geheugen_mb": 5797,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -982,12 +956,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-18",
-   "plek": true,
-   "video": "Life in Gettysburg, July 1863 | History for Sleep",
-   "soort": "online"
-  },
-  {
    "datum": "2026-11-19",
    "plek": false,
    "video": "",
@@ -1022,6 +990,12 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-25",
+   "plek": true,
+   "video": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+   "soort": "bezig"
   }
  ],
  "logboek": [
@@ -1118,8 +1092,13 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-18 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-19 00:03",
+   "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-19 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1767,16 +1746,7 @@
    "soort": "online",
    "id": "4i-gOILazVQ",
    "afspeellijst": "oorlog",
-   "opening": "persoon",
-   "stappen": [
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   "gereed": 100,
-   "thumb": "thumbs/gettysburg-1863.jpg"
+   "opening": "persoon"
   },
   {
    "map": "goudkoorts-1849",
@@ -3771,7 +3741,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 23:35",
+  "bijgewerkt": "2026-11-19 00:05",
   "accounts": [
    {
     "account": "hoofd",
