@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-18 14:03",
+ "bijgewerkt": "2026-11-18 14:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "detail": "Video bouwen · 22%",
+    "detail": "Video bouwen · 40%",
     "soort": "nu"
    }
   ],
@@ -559,7 +559,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-18 14:03)"
+   "tekst": "draait nu (2026-11-18 14:33)"
   },
   {
    "naam": "Git",
@@ -574,7 +574,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:48: alles klopt"
+   "tekst": "laatste ronde 14:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -591,8 +591,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-18 14:03",
-   "volgende": "2026-11-18 14:33"
+   "laatst": "2026-11-18 14:33",
+   "volgende": "2026-11-18 15:03"
   },
   "hype": {
    "aan": true,
@@ -601,13 +601,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-18 13:10",
-   "volgende": "2026-11-18 14:10"
+   "laatst": "2026-11-18 14:10",
+   "volgende": "2026-11-18 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-18 13:48",
-   "volgende": "2026-11-18 14:18"
+   "laatst": "2026-11-18 14:18",
+   "volgende": "2026-11-18 14:48"
   },
   "titels": {
    "aan": true,
@@ -655,7 +655,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 18,
+    "views": 20,
     "verwerkt": "processed"
    },
    {
@@ -700,7 +700,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 658,
+    "views": 659,
     "verwerkt": "processed"
    },
    {
@@ -935,15 +935,15 @@
   "thumb": "thumbs/ijstijd-20000-vc.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 22,
+  "voortgang": 40,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-18 18:30",
-   "youtube": "2026-11-18 18:50"
+   "klaar": "2026-11-18 17:56",
+   "youtube": "2026-11-18 18:16"
   }
  },
  "nu_bezig": [
@@ -3896,15 +3896,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-18 14:03",
+  "bijgewerkt": "2026-11-18 14:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 60651000,
+    "week": 59565872,
     "per_dag": {
      "Thu 12-11": 29715489,
-     "Wed 11-11": 11099051,
+     "Wed 11-11": 10013924,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
