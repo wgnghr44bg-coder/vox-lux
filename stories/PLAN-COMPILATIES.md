@@ -1,4 +1,4 @@
-# Plan compilaties (stap 2, 18 nov 2026) – WACHT OP AKKOORD EIGENAAR, niets uploaden
+# Plan compilaties (stap 2, 18 nov 2026) – AKKOORD eigenaar 18 nov ("hou je gewoon aan de planning")
 
 | | Oudheid | Middeleeuwen |
 |---|---|---|
