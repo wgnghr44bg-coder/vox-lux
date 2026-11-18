@@ -1,4 +1,30 @@
-# Top 10 bodycam-onderwerpen (17 nov 2026)
+# Top 10 bodycam-video's voor NOIRTRACES (18 nov 2026)
+
+Alleen video's die **rechtstreeks van de overheid** komen (CBP via DVIDS = public domain, zoals video 1 Las Cruces).
+Bron: https://www.cbp.gov/newsroom/accountability-and-transparency/body-worn-camera-video-releases (13 video's;
+`zoek_vrije_videos.py --bronnen cbp` vond er maar 7: de rijen van 2024-2025 hebben een andere opmaak).
+
+| # | video | DVIDS | duur | verhaal | waarom goed |
+|---|---|---|---|---|---|
+| 1 | **Ajo / Tohono O'odham Nation, AZ, 18 mei 2023** – Raymond Mattia (58) belt zelf de Border Patrol, wordt bij zijn voordeur doodgeschoten | 887917 | 28:53 | schijnbaar schotenmelding; CBP: hij gooide iets en hief zijn arm; familie betwist; lijkschouwer: doodslag; FBI-onderzoek; familie in 2025 nog "geen afsluiting" | 10 bodycams, sterk en omstreden verhaal (wel zwaar: veel schoten, veel vervagen) |
+| 2 | **Sasabe, AZ, 14 maart 2023** – achtervolging BMW met 5 migranten, Noe Mejia (38) doodgeschoten | 879371 | 7:52 | agent slaat ruiten in met wapenstok, worsteling, schot; doodslag; familie klaagt CBP aan; **eerste dodelijke bodycam die CBP ooit vrijgaf** | kort, spannend, met afloop (rechtszaak) |
+| 3 | **Otay Mountains, CA, 3 maart 2024** – scherpschutter BORTAC stopt gewapende man die migranten beroofde | 920855 | 20:18 | onbekende kant van de grens: overvallen op migranten in de bergen | ander soort verhaal (agenten als redders); proef bestaat al (`videos/cbp-sandiego-2024`) |
+| 4 | **Brownsville, TX, 13 mei 2025** – achtervolging na verkeersstop DPS, scholen op slot, voetachtervolging, schoten bij een achterdeur | 966833 | 13:21 | Alberto Pintor Jr. (25) overleeft, geladen pistool gevonden, aangeklaagd (2x zware mishandeling); Texas Rangers onderzoeken | meerdere bodycams, actie + rechtszaak om te volgen |
+| 5 | **Winterhaven / Calexico, CA, 8 maart 2024** – bestuurder stopt niet, spijkermat, dodelijk ongeluk | 925295 | 19:47 | achtervolging tot crash; nog uitzoeken | achtervolging = veel spanning, geen schietmoment |
+| 6 | **Bisbee, AZ, 19 juni 2024** – geweldsincident, meerdere bodycams | 962405 | 21:53 | nog niet in het nieuws gevonden: eerst bekijken | lang en meerdere camera's; verhaal moet uit de beelden komen |
+| 7 | **Brownsville, TX, 12 feb 2025** – geweldsincident, meerdere bodycams | 959630 | 14:56 | nog niet in het nieuws gevonden: eerst bekijken | idem |
+| 8 | **Yuma, AZ, 22 jan 2025** – geweldsincident, 1 bodycam | 972356 | 8:50 | mogelijk agent aangevallen bij Somerton (niet bevestigd) | kort; eerst bekijken |
+| 9 | **Laredo, TX, 17 feb 2024** – man sterft in cel van I-35-controlepost | 916605 | 18:53 | dood in bewaring | stil, beklemmend verhaal; geen schieten |
+| 10 | **Otay Mesa, CA, 21 maart 2024** – vrouw valt van 9 meter hoge grensmuur | 930845 | 27:14 | groep met ladder bij de muur, reddingspoging | emotioneel, uitleg over de muur |
+
+**Reserve:** Quemado TX 16 mei 2024 (963934, 17:48), Laredo TX 23 sep 2024 (955847, 12:51): nog geen verhaal gevonden.
+
+**Daarna (andere bron, Wikimedia Commons, downloaden lukte niet door 429):** Trader Joe's 2018 (script klaar),
+Marvin Morales Sacramento (7 bodycams), Elk Grove, EDP445, zie de oude lijst hieronder.
+
+---
+
+## Oude lijst (17 nov 2026, vooral Commons)
 
 Gekozen uit 448 incidentvideo's van overheden met vrije licentie (Commons, `zoek_vrije_videos.py --bronnen overheid
 --sorteer verhaal`, uitslag in `kandidaten-overheid.md`) + CBP/DVIDS. Concurrentie op YouTube gemeten met
