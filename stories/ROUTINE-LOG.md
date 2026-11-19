@@ -330,3 +330,7 @@ ValueError: empty separator)
 - 2026-11-18 19:07 Claude: franklin-1845 opnieuw geschreven: 'Life Aboard Franklin's Lost Ships, 1845', 82 feitjes, 14.035 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).
 - 2026-11-18 19:14 Claude: new-york-1925 opnieuw geschreven: 'Life in New York During Prohibition, 1925' (jaardag drooglegging), 82 feitjes, 13.750 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).
 - 2026-11-18 19:23 Claude: goudkoorts-1849 opnieuw geschreven: 'The California Gold Rush, 1849' (jaardag goudvondst 24 jan), 80 feitjes, 13.722 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED). Daarmee 5 scripts vooruit klaar (eigenaar 18 nov).
+- 2026-11-18 19:26 routine-lokaal: thanksgiving-1621: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 081
+- 2026-11-18 19:48 sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00
+- 2026-11-19 00:18 sitecontrole: opgelost: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00
+- 2026-11-19 07:10 thanksgiving-1621: geüpload https://youtu.be/KU6eoe5vy-U (privé, publiek 2026-11-25T20:00:00Z), kanaal Sleep Archives gecontroleerd

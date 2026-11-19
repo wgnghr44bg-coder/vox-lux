@@ -1,5 +1,5 @@
 onderwerp The First Thanksgiving, Plymouth, autumn 1621
-status   bezig (2026-11-18, routine-lokaal)
+status   klaar
 datum    wo 2026-11-25 21:00 NL (eigenaar 11 nov: Thanksgiving 26 nov; sluit aan op de Mayflower-video)
 titel    The First Thanksgiving, Plymouth 1621 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Was the First Thanksgiving Really Like?)
 opening   mythe
@@ -7,3 +7,5 @@ titelsoort event-year
 thumbnail amberregel "PLYMOUTH · 1621", hook "The First Thanksgiving", beeld: een lange ruwe houten tafel buiten onder herfstbomen in rood en goud, wild gevogelte en hertenvlees aan het spit boven een vuur, maiskolven en pompoenen, op de achtergrond kleine houten huisjes met rieten daken en een Wampanoag-koepelhuis met rook; warm avondlicht
 soort    reis
 thumbnail kenmerk: een lange houten oogsttafel buiten in Plymouth 1621 met kalkoen, maïs en brood, Pilgrim-families in bruine en zwarte wol met witte kragen en Wampanoag-mannen met veren en hertenleer die samen eten; de Mayflower in de baai, warm vuurlicht
+link https://youtu.be/KU6eoe5vy-U (2026-11-19: B1 + W3, nieuwe opbouw, 16mm; privé met publishAt 2026-11-25T20:00:00Z; Sleep Archives gecontroleerd; verwerkt; bestanden opgeruimd)
+kosten  EUR 0
