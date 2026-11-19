@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 12:33",
+ "bijgewerkt": "2026-11-19 13:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
-    "detail": "Beelden maken · 89%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -493,7 +493,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 12:33)"
+   "tekst": "draait nu (2026-11-19 13:03)"
   },
   {
    "naam": "Git",
@@ -513,7 +513,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:18: alles klopt"
+   "tekst": "laatste ronde 12:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -530,8 +530,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 12:33",
-   "volgende": "2026-11-19 13:03"
+   "laatst": "2026-11-19 13:03",
+   "volgende": "2026-11-19 13:33"
   },
   "hype": {
    "aan": true,
@@ -545,8 +545,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 12:18",
-   "volgende": "2026-11-19 12:48"
+   "laatst": "2026-11-19 12:48",
+   "volgende": "2026-11-19 13:18"
   },
   "titels": {
    "aan": true,
@@ -603,7 +603,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 52,
+    "views": 51,
     "verwerkt": "processed"
    },
    {
@@ -657,7 +657,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 678,
+    "views": 680,
     "verwerkt": "processed"
    }
   ],
@@ -851,7 +851,7 @@
    "totaal": 16,
    "procent": 31
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -874,11 +874,11 @@
   "thumb": "thumbs/boeren-winter-1300.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 89,
-  "detail": "77 van 87 beelden",
+  "voortgang": 99,
+  "detail": "87 van 87 beelden",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
   "eind": null
  },
@@ -888,13 +888,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 31,
-  "geheugen_mb": 3818,
+  "bezig_procent": 25,
+  "geheugen_mb": 712,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -981,12 +981,6 @@
  "logboek": [
   {
    "tijd": "2026-11-19 07:15",
-   "tekst": "thanksgiving-1621: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-19 07:15",
    "tekst": "routine-lokaal: thanksgiving-1621: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-25 21:00",
    "fout": false,
    "klaar": false
@@ -1062,17 +1056,17 @@
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 12:58",
+   "tekst": "routine-lokaal: boeren-winter-1300: beelden-wachter: 3 beelden lijken op een ander beeld (009, 062, 075), nieuwe maken",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 11:49",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 12:33",
+   "tijd": "2026-11-19 13:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1116,6 +1110,12 @@
   },
   {
    "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 11:49",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
    "klaar": false
@@ -1357,11 +1357,11 @@
    "stappen": [
     true,
     false,
-    false,
+    true,
     false,
     false
    ],
-   "gereed": 20,
+   "gereed": 40,
    "thumb": "thumbs/boeren-winter-1300.jpg"
   },
   {
@@ -3824,14 +3824,14 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 12:35",
+  "bijgewerkt": "2026-11-19 13:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 41923274,
+    "week": 41440403,
     "per_dag": {
-     "Thu 12-11": 22086815,
+     "Thu 12-11": 21603944,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
