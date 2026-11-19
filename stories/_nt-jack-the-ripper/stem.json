@@ -1,0 +1,7 @@
+{
+  "eigenaar_afwijking": "NOIRTRACES (ander kanaal, eigenaar 18 nov 2026): stem noirtraces-stem speed 0.9, alleen B-effect 10 LUFS onder, geen haard",
+  "engine_voice": "noirtraces-stem",
+  "speed": 0.9,
+  "muziek_onder": 10,
+  "achtergrond": {"map": "~/vox-lux-geluiden", "lagen": [{"bestand": "b-effect.wav", "db": 0, "overvloei": 4}]}
+}
