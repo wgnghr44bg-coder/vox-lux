@@ -8,7 +8,7 @@ Bij elk punt: staat er al een video van ons in de planning over dit onderwerp (e
 Uitkomst: stories/hype.json (voor de statuswebsite, kaart "Hype en kansen") en stories/HYPE-SIGNAAL.md.
 Nieuwe kansen komen één keer in stories/ROUTINE-LOG.md, zodat ze ook in het logboek van de website staan.
 14 nov 2026 (eigenaar: "kun je die hype-wachter aanpassen dat hij daar beter naar kijkt"):
-  - timing: ook te VROEG gepland (meer dan een week vóór de jaardag) geeft een seintje met de beste plek (ma/wo/za)
+  - timing: ook te VROEG gepland (meer dan een week vóór de jaardag) geeft een seintje met de beste plek (wo/za)
   - reservescripts (zonder datum) die bij een jaardag of hype passen: "inplannen op <beste plek>"
   - hype: onderwerpen die bij meerdere kanalen tegelijk groeien heten BREED (sterkste signaal)
 Wat ermee gebeurt, beslist de eigenaar (of Claude op zijn verzoek): planning.txt aanpassen, vrije maandag vullen.
@@ -155,14 +155,14 @@ def hype(plan):
     return rijen[:25]
 
 
-PLEKDAGEN = (0, 2, 5)              # ma, wo, za 21:00
+PLEKDAGEN = (2, 5)                 # wo, za 21:00 (eigenaar 19 nov: Sleep 2x per week)
 
 
 BEZET = {}                         # datum -> map, gevuld in main()
 
 
 def beste_plek(datum, vandaag):
-    """Laatste publicatiedag (ma/wo/za) op of vóór de jaardag, minstens 2 dagen vanaf vandaag. Een plek die al door
+    """Laatste publicatiedag (wo/za) op of vóór de jaardag, minstens 2 dagen vanaf vandaag. Een plek die al door
     een andere video bezet is, krijgt '(bezet door <map>, ruilen?)' erachter als er in die week geen vrije plek is."""
     d = dt.date.fromisoformat(datum)
     kand = [d - dt.timedelta(days=i) for i in range(0, 7)]

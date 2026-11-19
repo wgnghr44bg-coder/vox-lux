@@ -1,5 +1,7 @@
 # Notes for Claude sessions
 
+## Planning alle kanalen (19 nov 2026): `kanalen/PLANNING.md` — Sleep Archives 2x/week (wo+za 21:00), NOIRTRACES 1x/week (vr 21:00), BlackswanVault ± 1x/week (nieuws gaat voor). Overzicht op de website, bron `kanalen/PLANNING-KANALEN.json` + `stories/*/planning.txt`.
+
 ## Bodycam-kanaal: OP PAUZE (eigenaar 18 nov 2026: "alleen verder met sleeparchives"). Alleen op verzoek: `kanalen/bodycam/PLAN.md`. Focus = Sleep Archives.
 
 ## Eerst lezen: de vaste afspraken voor Sleep Archives (eigenaar 7-8 nov 2026)
@@ -43,11 +45,17 @@
 - Video's (shorts én lange video's) altijd sturen als afspeelbare video (SendUserFile met `display: "render"`), zodat de eigenaar
   hem in de speler via de deel-knop rechtsboven kan opslaan. Is het bestand groter dan ±50 MB, stuur dan ook een kleinere versie
   (bv. 720p, ±1,1 Mbit/s) mee.
+<<<<<<< Updated upstream
 - YouTube: de eigenaar werkt met drie kanalen (19 nov 2026), elk met een eigen refresh token:
   `YT_REFRESH_TOKEN` = Sleep Archives (@sleeparchiveshistory), `YT_WHATIF_REFRESH_TOKEN` = BlackswanVault
   (@blackswanvault, vroeger IfScape3D; What If-video's), en NOIRTRACES (@noirtraces): refresh token in
   `~/.yt-altena.json` (veld `refresh_token`, mag ook comments). Alle drie gebruiken dezelfde `YT_CLIENT_ID`/`YT_CLIENT_SECRET`.
   `YT_REFRESH_TOKEN_ALTERAQON` (Alteraqon) werkt nog maar hoort niet bij deze drie. Upload met het juiste token
+=======
+- YouTube-kanalen hebben elk een eigen refresh token (zelfde `YT_CLIENT_ID`/`YT_CLIENT_SECRET`):
+  `YT_REFRESH_TOKEN` = Sleep Archives, `YT_WHATIF_REFRESH_TOKEN` = BlackswanVault (@blackswanvault, ex-IfScape3D; zakelijk nieuws),
+  `YT_REFRESH_TOKEN_ALTERAQON` = Alteraqon (gestopt), `YT_KANAAL=altena` (sleutel in `~/.yt-altena.json`) = NOIRTRACES. Upload met het juiste token
+>>>>>>> Stashed changes
   (bv. `YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py ...`) en controleer
   vóór het openbaar zetten via de API (`snippet.channelTitle`) dat de video op het goede kanaal staat.
 

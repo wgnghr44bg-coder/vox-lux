@@ -1,0 +1,14 @@
+{
+ "uitleg": "Planning van NOIRTRACES en BlackswanVault (eigenaar 19 nov 2026). Sleep Archives komt vanzelf uit stories/*/planning.txt. De website (tools/kanalen_planning.py) zet dit samen met YouTube in het paneel 'Planning alle kanalen'. Zie kanalen/PLANNING.md.",
+ "regels": {
+  "Sleep Archives": "2x per week, wo en za 21:00 (NL). Feestdagen en jaardagen staan vast; de hype-wachter schuift een video naar voren als er een trend is.",
+  "NOIRTRACES": "1x per week, vr 21:00 (NL). Bekende zaken; sneller als een zaak in het nieuws is (nieuwe docu, ontdekking, jaardag).",
+  "BlackswanVault": "Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York. Groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen); geen groot nieuws, dan een reservevideo. De nieuwswacht kijkt elke ochtend."
+ },
+ "items": [
+  {"kanaal": "BlackswanVault", "datum": "2026-11-19", "tijd": "17:00", "titel": "The Man Who Built NVIDIA Just Walked Away", "stand": "online", "youtube": "ioMjKb2_dVI"},
+  {"kanaal": "NOIRTRACES", "datum": "2026-11-19", "tijd": "18:00", "titel": "Who Was Jack the Ripper? | True Crime for Sleep", "stand": "online", "youtube": "AXKM1BEMq10"},
+  {"kanaal": "BlackswanVault", "datum": "2026-11-24", "tijd": "15:00", "titel": "Black Friday (werktitel: Why Black Friday Is Dying)", "stand": "wordt gemaakt"},
+  {"kanaal": "NOIRTRACES", "datum": "2026-11-27", "tijd": "21:00", "titel": "Video 2: H.H. Holmes of Lizzie Borden", "stand": "onderwerp kiezen"}
+ ]
+}

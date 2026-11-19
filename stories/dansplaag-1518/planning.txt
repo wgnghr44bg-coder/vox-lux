@@ -1,6 +1,6 @@
 onderwerp The Dancing Plague of Strasbourg, 1518
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)
-datum    ma 2026-12-28 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen)
+datum    wo 2027-01-20 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-12-28 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen))
 titel    The Dancing Plague of Strasbourg, 1518 | History for Sleep
 opening   mythe
 titelsoort event-year

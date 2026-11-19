@@ -1,6 +1,6 @@
 onderwerp Life in Antarctica with Scott's Last Expedition, 1912
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)
-datum    ma 2026-12-14 21:00 NL (hype-wachter 14 nov: precies 115 jaar na Amundsen op de Zuidpool, de race die Scott verloor; Antarctica-hype; was wo 2026-12-16)
+datum    wo 2027-01-06 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-12-14 21:00 NL (hype-wachter 14 nov: precies 115 jaar na Amundsen op de Zuidpool, de race die Scott verloor; Antarctica-hype; was wo 2026-12-16))
 titel    Captain Scott's Expedition to the South Pole, 1911 | History for Sleep
 opening   scène
 titelsoort event

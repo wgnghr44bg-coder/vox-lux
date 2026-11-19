@@ -79,7 +79,7 @@ In `stories/<map>/planning.txt` (bij nieuw: maak hem aan):
 ```
 onderwerp <onderwerp zoals in ONDERWERPEN.md>
 status   script-klaar (nieuwe opbouw, <datum vandaag>, <wie: scriptgenerator pc / tweede account / routine>)
-datum    <ma/wo/za datum> 21:00 NL
+datum    <wo/za datum> 21:00 NL
 titel    <vraag-titel> | History for Sleep        (zonder uren; andere titelsoort dan de vorige video)
 opening   scène | mythe | persoon | voorwerp | raadsel
 titelsoort life-really-like | how-survive | what-actually | why | what-happened

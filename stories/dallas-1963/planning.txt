@@ -1,6 +1,6 @@
 onderwerp Life in Dallas, November 1963
 status   bezig (2026-11-19, routine-lokaal)
-datum    za 2026-11-21 21:00 NL
+datum    za 2026-12-12 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-11-21 21:00 NL)
 titel    Life in Dallas Before Kennedy Came, November 1963 | History for Sleep (eigenaar 16 nov 2026: "Before"-titels hebben de hoogste CTR, zie CIJFERS-NULMETING.md; daarvoor eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Was Life Really Like in Dallas in 1963?)
 opening   voorwerp
 titelsoort life-before
