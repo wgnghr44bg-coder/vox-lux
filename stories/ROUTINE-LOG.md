@@ -354,3 +354,4 @@ ValueError: empty separator)
 - 2026-11-19 13:06 bewaker: keten gestart voor boeren-winter-1300
 - 2026-11-19 13:06 routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)
 - 2026-11-19 13:14 routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
+- 2026-11-19 16:20 routine-lokaal: blackbeard-1718: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 71/84 goedgekeurd, fout: ['001', '003', '006', '012', '018', '020', '034', '036', '040', '048', '051', '054', '083']); de oude versie blijft staan
