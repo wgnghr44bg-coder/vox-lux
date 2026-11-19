@@ -51,6 +51,7 @@ def vignet(img, k=0.75):
 VBRON = {"rtx": "rtx5090", "huang-praat": "huang-spreekt", "gh": "gracehopper", "qct": "qct", "die": "die", "trump": "trump"}
 _vinfo = json.load(open(H / "echt/video/info.json", encoding="utf-8")) if (H / "echt/video/info.json").exists() else {}
 def vcredit(naam):
+    if naam.startswith("mk-"): return "Video: Mixkit (free licence)"
     k = next(v for p, v in VBRON.items() if naam.startswith(p)); i = _vinfo[k]
     if k == "trump": return "Video: The White House / Public domain"
     return f"Video: {i['artist']} / {i['lic']} / Wikimedia Commons"
@@ -91,6 +92,9 @@ for r in (H / "echt/bronnen.tsv").read_text(encoding="utf-8").splitlines():
     f, t, a, lic, u = r.split("\t"); CRED[f] = f"Photo: {a or 'unknown'} / {lic} / Wikimedia Commons"
 _foto = {}
 def foto(nr, t, dur, zoom=(1.0, 1.1), pan=(0.5, 0.5, 0.5, 0.5), grijs=False, donker=0.6, crop=None):
+    if str(nr).startswith("v:"):                         # echte stockvideo (echt/video/<naam>.mp4)
+        im = vid(nr[2:], t, dur, donker=donker, zoom=zoom)
+        return ImageEnhance.Color(im).enhance(0.15) if grijs else im
     k = (nr, grijs, crop)
     if k not in _foto:
         im = Image.open(H / (f"foto/{nr}.jpg" if str(nr).isdigit() else f"echt/{nr}.jpg")).convert("RGB")

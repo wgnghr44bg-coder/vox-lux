@@ -20,7 +20,7 @@ def regels(img, t, rr, start=0.0, y=None, size=64, stap=0.5):
     d = ImageDraw.Draw(img, "RGBA"); y = y or HH // 2 - (len(rr) - 1) * size * 0.7
     for k, r in enumerate(rr):
         a = ease((t - start - k * stap) / 0.4)
-        txt(d, (W // 2, y + k * size * 1.4 + 20 * (1 - a)), r, font(BOLD if k == 0 else REG, size if k == 0 else size * 0.7), WIT if k == 0 else GRIJS, a, "mm")
+        txt(d, (W // 2, y + k * size * 1.4 + 20 * (1 - a)), r, font(BOLD, size), WIT, a, "mm")
     return img
 
 ORANJE = (217, 119, 87)                                    # accentkleur voor Anthropic-kaarten
@@ -67,6 +67,9 @@ def fasen(achter, stappen):
     return f
 def F(naam, zoom=(1.0, 1.08), donker=0.7, grijs=False, pan=(0.5, 0.5, 0.5, 0.5), blur=0):
     def a(t, d):
+        if naam.startswith("v:"):                          # echte stockvideo (echt/video/<naam>.mp4)
+            im = vid(naam[2:], t, d, donker=donker, zoom=zoom)
+            return im.filter(ImageFilter.GaussianBlur(blur)) if blur else im
         im = foto(naam, t, d, zoom, pan, grijs=grijs, donker=donker)
         return im.filter(ImageFilter.GaussianBlur(blur)) if blur else im
     return a
@@ -277,24 +280,24 @@ SHOTS = [
  (ZR(8) - 0.15, balken([("Facebook · 2012", 16.0), ("Alibaba · 2014", 25.0), ("Saudi Aramco · 2019", 29.4), ("SpaceX · 2026", 75.0), ("Anthropic · 2026", 81.3)],
                        "THE BIGGEST IPOs EVER", "Money raised in the offering, billions of dollars", "Sources: Fox Business, Reuters", lambda v: f"${v:.1f}B", [8, 9, 10, 11, 11], hl=4)),
  (ZR(12) - 0.15, fot("openai", "2021: a handful of researchers walk out of OpenAI", donker=0.6)),
- (ZR(13) - 0.15, fasen(F("sf", (1.0, 1.08), 0.45), [(13, GR("~$1.5 TRILLION", "Worth, fully diluted, at the IPO", WIT, 150)), (14, GR("What did investors buy?", None, WIT, 100))])),
- (ZR(15) - 0.15, fot("sf-b", stamp="SAN FRANCISCO, 2021", donker=0.6)),
+ (ZR(13) - 0.15, fasen(F("v:mk-47214", (1.0, 1.08), 0.5), [(13, GR("~$1.5 TRILLION", "Worth, fully diluted, at the IPO", WIT, 150)), (14, GR("What did investors buy?", None, WIT, 100))])),
+ (ZR(15) - 0.15, fasen(F("v:mk-11038", (1.0, 1.06), 0.75), [(15, ST("SAN FRANCISCO, 2021"))])),
  (ZR(16) - 0.15, fasen(F("dario-a", (1.0, 1.1), 0.75, pan=(0.45, 0.4, 0.45, 0.38)), [(16, LT("DARIO AMODEI", "Research leader at OpenAI, then co-founder and CEO of Anthropic")),
                                                                           (19, ON("With his sister Daniela and a small group of colleagues"))])),
  (ZR(19) - 0.15, fasen(F("jack-clark", (1.0, 1.08), 0.7), [(19, LT("JACK CLARK", "One of the co-founders who left OpenAI with the Amodeis"))])),
  (ZR(20) - 0.15, fasen(F("dario-e", (1.05, 1.15), 0.4, grijs=True), [(20, GR("Maybe too fast.", None, WIT, 120))])),
- (ZR(21) - 0.15, fasen(F("openai", (1.08, 1.0), 0.55), [(21, ON("A disagreement about safety")), (22, ON("So they left, and started their own company"))])),
- (ZR(23) - 0.15, fasen(lambda t, d: logo_kaart("kantoor-a")(t, d, 0),
+ (ZR(21) - 0.15, fasen(F("v:mk-36897", (1.0, 1.06), 0.6), [(21, ON("A disagreement about safety")), (22, ON("So they left, and started their own company"))])),
+ (ZR(23) - 0.15, fasen(F("v:mk-13231", (1.0, 1.06), 0.4),
                       [(24, lambda img, t: txt(ImageDraw.Draw(img, "RGBA"), (W // 2, 660), "PUBLIC BENEFIT CORPORATION", font(BLACK, 90), ORANJE, ease(t / 0.4), "mm")),
                        (25, EN(lambda img, t: txt(ImageDraw.Draw(img, "RGBA"), (W // 2, 660), "PUBLIC BENEFIT CORPORATION", font(BLACK, 90), ORANJE, 1, "mm"),
                                lambda img, t: txt(ImageDraw.Draw(img, "RGBA"), (W // 2, 760), "On paper: the good of society, not just profit", font(REG, 44), GRIJS, ease(t / 0.4), "mm")))])),
- (ZR(26) - 0.15, fasen(F("sf", (1.08, 1.0), 0.35), [(26, GR("$124 MILLION", "First big funding round, May 2021", WIT, 150)), (27, GR("$124 MILLION", "For an AI lab, almost nothing", GRIJS, 150))])),
+ (ZR(26) - 0.15, fasen(F("v:mk-45703", (1.0, 1.06), 0.45), [(26, GR("$124 MILLION", "First big funding round, May 2021", WIT, 150)), (27, GR("$124 MILLION", "For an AI lab, almost nothing", GRIJS, 150))])),
  (ZR(28) - 0.15, doc("arXiv · Anthropic research", "Constitutional AI: Harmlessness from AI Feedback",
                      ["Published December 15, 2022", "Trained to follow a written list of principles"], mark=1, achter="code", mark_na=30)),
  (ZR(32) - 0.15, doc("Anthropic · September 19, 2023", "Responsible Scaling Policy",
                      ["Rules for building more powerful AI", "More powerful AI: stricter safety rules"], mark=1, achter="dc-a", mark_na=35)),
- (ZR(36) - 0.15, fasen(F("sf", (1.0, 1.08), 0.4), [(36, GR("Marketing?", None, WIT, 130)), (37, GR("Or a real plan?", "for the whole AI industry", ORANJE, 120))])),
- (ZR(38) - 0.15, fot("kantoor-a", "Two quiet years", donker=0.6, zoom=(2.0, 1.9), pan=(1.0, 0.5, 0.97, 0.5))),
+ (ZR(36) - 0.15, fasen(F("v:mk-49723", (1.0, 1.06), 0.55), [(36, GR("Marketing?", None, WIT, 130)), (37, GR("Or a real plan?", "for the whole AI industry", ORANJE, 120))])),
+ (ZR(38) - 0.15, fasen(F("v:mk-21249", (1.0, 1.06), 0.65), [(38, ON("Two quiet years"))])),
  (ZR(39) - 0.15, logo_kaart("claude-site", "CLAUDE", "Released in March 2023", "MARCH 2023")),
  (ZR(40) - 0.15, fasen(F("claude-site", (1.0, 1.1), 0.6), [(40, ON("Built to compete directly with ChatGPT")), (41, ON("It was not the first")), (42, ON("ChatGPT launched just months earlier, in November 2022"))])),
  (ZR(43) - 0.15, duo),
@@ -304,15 +307,15 @@ SHOTS = [
  (ZR(53) - 0.15, fasen(F("nasdaq-a", (1.0, 1.08), 0.5), [(53, GR("Then the numbers started to move", "faster than Silicon Valley had ever seen", WIT, 100))])),
  (ZR(54) - 0.15, balken([("Mar 2025", 61.5), ("Sep 2025", 183), ("Feb 2026", 380), ("May 2026", 965)],
                         "WHAT ANTHROPIC WAS WORTH", "Valuation in private funding rounds, billions of dollars", "Source: Reuters", lambda v: f"${v:,.0f}B" if v >= 100 else f"${v:.1f}B", [54, 55, 56, 57])),
- (ZR(58) - 0.15, fasen(F("code", (1.1, 1.0), 0.35), [(58, GR("The reason was simple.", None, WIT, 100)), (59, GR("Businesses were paying.", None, ORANJE, 100))])),
+ (ZR(58) - 0.15, fasen(F("v:mk-46677", (1.0, 1.06), 0.45), [(58, GR("The reason was simple.", None, WIT, 100)), (59, GR("Businesses were paying.", None, ORANJE, 100))])),
  (ZR(60) - 0.15, balken([("All of 2025", 4.585), ("First 9 months of 2026", 33.2)], "ANTHROPIC REVENUE", "Billions of dollars", "Sources: Anthropic S-1, Fox Business",
                         lambda v: f"${v:.1f}B", [60, 61], extra=lambda img, t, T0: txt(ImageDraw.Draw(img, "RGBA"), (760, 420), "+1,206%", font(BLACK, 110), GROEN, ease(sinds(62, T0, t) / 0.4) if na(62, T0, t) else 0, "rm"))),
  (ZR(63) - 0.15, fasen(F("dc-baltic", (1.0, 1.1), 0.35), [(63, GR("$65 BILLION+", "Yearly revenue pace by the end of July 2026 · Reuters", WIT, 150))])),
  (ZR(64) - 0.15, fasen(F("kantoor-b", (1.0, 1.08), 0.6), [(64, ON("Not from people chatting for fun")), (65, ON("Companies paying to use Claude inside their own products"))])),
- (ZR(66) - 0.15, lambda t, d, T0: regels(foto("dc-a", t, d, (1.0, 1.08), donker=0.35), sinds(66, T0, t),
+ (ZR(66) - 0.15, lambda t, d, T0: regels(vid("mk-23282", t, d, donker=0.4, zoom=(1.0, 1.08)), sinds(66, T0, t),
                                          ["It adds up."] if na(69, T0, t) else ["Every question.", "Every line of code.", "Every answer costs a little."][:1 + na(67, T0, t) + na(68, T0, t)], stap=0)),
  (ZR(70) - 0.15, logo_kaart("code", "CLAUDE CODE", "Released February 2025", "FEBRUARY 2025")),
- (ZR(72) - 0.15, fasen(F("code", (1.08, 1.18), 0.5), [(72, ON("Give Claude a task: it writes, tests and fixes the code")),
+ (ZR(72) - 0.15, fasen(F("v:mk-41642", (1.0, 1.06), 0.5), [(72, ON("Give Claude a task: it writes, tests and fixes the code")),
                                                      (73, GR("$1 BILLION", "a year, within six months · reported", WIT, 150)),
                                                      (74, GR("$2.5 BILLION+", "a year by early 2026 · reported", ORANJE, 150)),
                                                      (75, ON("No longer a chatbot")), (76, ON("A coworker"))])),
@@ -327,10 +330,10 @@ SHOTS = [
  (ZR(91) - 0.15, fasen(F("pentagon", (1.1, 1.2), 0.35, grijs=True), [(91, GR("For most startups: the end.", None, WIT, 90)),
                                                                      (92, GR("$380B  →  $965B", "Anthropic's value, February to May 2026", GROEN, 140))])),
  (ZR(93) - 0.15, logo_kaart("dc-baltic", "MYTHOS", "Its most advanced AI model so far", "APRIL 2026")),
- (ZR(95) - 0.15, fasen(F("code", (1.08, 1.18), 0.45, pan=(0.6, 0.5, 0.5, 0.5)), [(95, ON("So good at finding weaknesses in software, it was not released to everyone")),
+ (ZR(95) - 0.15, fasen(F("v:mk-5410", (1.0, 1.06), 0.5), [(95, ON("So good at finding weaknesses in software, it was not released to everyone")),
                                                                                    (96, ON("A small group of organizations: find and fix security holes")),
                                                                                    (97, ST("PROJECT GLASSWING"))])),
- (ZR(98) - 0.15, fasen(F("boeken", (1.0, 1.08), 0.55), [(98, ON("There were other problems too")), (99, ON("Authors: our books were used to train Claude without permission")),
+ (ZR(98) - 0.15, fasen(F("v:mk-48574", (1.0, 1.06), 0.55), [(98, ON("There were other problems too")), (99, ON("Authors: our books were used to train Claude without permission")),
                                                          (100, GR("$1.5 BILLION", "Settlement with authors, approved by a judge", WIT, 150))])),
  (ZR(102) - 0.15, doc("Anthropic, PBC · SEC filings", "The road to Wall Street",
                      ["June 2026: confidential IPO filing", "October 26, 2026: public S-1 filing", "For the first time, the numbers are public"], mark=2, achter="nasdaq-a", mark_na=104)),
@@ -349,12 +352,12 @@ SHOTS = [
  (ZR(133) - 0.15, fot("google", naamkaart=("GOOGLE", "Alphabet"), donker=0.65)),
  (ZR(134) - 0.15, fot("meta-hq", naamkaart=("META", "Facebook, Instagram, WhatsApp"), donker=0.65)),
  (ZR(135) - 0.15, fasen(F("dc-baltic", (1.0, 1.1), 0.4), [(135, ON("And many others")), (136, GR("HUNDREDS OF BILLIONS", "spent on AI by the biggest tech companies", WIT, 120))])),
- (ZR(137) - 0.15, fot("dc-a", "The race is far from finished", donker=0.55, zoom=(1.1, 1.0))),
+ (ZR(137) - 0.15, fasen(F("v:mk-23219", (1.0, 1.06), 0.6), [(137, ON("The race is far from finished"))])),
  (ZR(138) - 0.15, fasen(F("nasdaq-c", (1.0, 1.08), 0.4), [(138, ON("The question is not whether Anthropic matters")),
                                                         (139, GR("This much, this early?", None, WIT, 100)),
                                                         (140, GR("$190–200 BILLION", "Anthropic's expected revenue in 2028 · Reuters", ORANJE, 140)),
                                                         (141, ON("If it happens: today's price may look cheap")), (142, ON("If not: a historic fall"))])),
- (ZR(143) - 0.15, fot("sf-b", "2021: worried about how fast AI was moving", grijs=True, donker=0.55)),
+ (ZR(143) - 0.15, fasen(F("v:mk-46194", (1.0, 1.06), 0.65), [(143, ON("2021: worried about how fast AI was moving"))])),
  (ZR(144) - 0.15, eind_staart),
 ]
 
