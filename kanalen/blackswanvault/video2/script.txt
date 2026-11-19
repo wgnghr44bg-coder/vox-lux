@@ -56,6 +56,10 @@ One month later, Google agreed to invest up to two billion.
 In November 2024, Amazon put in another four billion.
 Two rivals, both betting on the same small lab.
 @scene h3-geld
+New versions of Claude kept coming.
+In March 2024, Anthropic released Claude Three, which it said beat OpenAI's GPT-4 on several tests.
+In September 2025, it released Claude Four point Five.
+Each new model was smarter, and more expensive to build.
 And then the numbers started to move in a way Silicon Valley had never seen.
 In March 2025, Anthropic was valued at sixty-one and a half billion dollars.
 Six months later, one hundred eighty-three billion.

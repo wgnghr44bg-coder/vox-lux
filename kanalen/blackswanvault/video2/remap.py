@@ -8,7 +8,11 @@ def zinnen(s):
         if l and not l.startswith(("#", "@")): out.append(l)
     return out
 oud = zinnen(open(sys.argv[1], encoding="utf-8").read()); nieuw = zinnen(open("script.txt", encoding="utf-8").read())
-pos = {z: i for i, z in enumerate(nieuw)}; M = {i: pos[z] for i, z in enumerate(oud)}
+pos = {z: i for i, z in enumerate(nieuw)}; M = {}
+for i, z in enumerate(oud):                                 # verwijderde zin: naar de eerstvolgende die er nog is
+    j = i
+    while j < len(oud) and oud[j] not in pos: j += 1
+    M[i] = pos[oud[j]] if j < len(oud) else len(nieuw) - 1
 r = open(sys.argv[2], encoding="utf-8").read()
 def m(n):
     n = int(n); return str(M.get(n, n))
