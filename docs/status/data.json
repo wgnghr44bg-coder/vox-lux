@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 15:33",
+ "bijgewerkt": "2026-11-19 16:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 93%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -141,7 +141,7 @@
     "map": "boeren-winter-1300",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "FOUT",
+    "controle": "GOED",
     "flesch": 67,
     "niveau": 7.2,
     "leesbaar": "GOED",
@@ -487,12 +487,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 15:33)"
+   "tekst": "draait nu (2026-11-19 16:03)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-21 (dallas-1963)",
@@ -507,7 +507,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 15:18: alles klopt"
+   "tekst": "laatste ronde 15:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -524,8 +524,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 15:33",
-   "volgende": "2026-11-19 16:03"
+   "laatst": "2026-11-19 16:03",
+   "volgende": "2026-11-19 16:33"
   },
   "hype": {
    "aan": true,
@@ -539,8 +539,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 15:18",
-   "volgende": "2026-11-19 15:48"
+   "laatst": "2026-11-19 15:48",
+   "volgende": "2026-11-19 16:18"
   },
   "titels": {
    "aan": true,
@@ -550,7 +550,7 @@
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 18,
+  "abonnees": 19,
   "views_totaal": 3006,
   "video_aantal": 17,
   "week": {
@@ -828,14 +828,14 @@
   "partner": {
    "uren": 679,
    "uren_doel": 4000,
-   "abonnees": 18,
+   "abonnees": 19,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
    "tempo_uren_per_dag": 18.2,
    "tempo_abonnees_per_dag": 0.32,
    "datum_uren": "2027-05-21",
-   "datum_abonnees": "2035-04-02"
+   "datum_abonnees": "2035-03-30"
   }
  },
  "kpi": {
@@ -845,7 +845,7 @@
    "totaal": 14,
    "procent": 36
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -868,8 +868,8 @@
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 93,
-  "detail": "78 van 84 beelden",
+  "voortgang": 99,
+  "detail": "83 van 84 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -892,8 +892,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 36,
-  "geheugen_mb": 3485,
+  "bezig_procent": 71,
+  "geheugen_mb": 7246,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -979,6 +979,30 @@
  ],
  "logboek": [
   {
+   "tijd": "2026-11-19 08:31",
+   "tekst": "hype-wachter: SEINTJE Pride and Prejudice verschijnt (214 jaar) -> KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-2",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "bewaker: keten gestart voor dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
    "tijd": "2026-11-19 09:58",
    "tekst": "routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
    "fout": false,
@@ -1037,35 +1061,17 @@
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:14",
-   "tekst": "bewaker: SEINTJE boeren-winter-1300 (2026-11-28) is vandaag 2x gestopt, morgen opnieuw",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:14",
-   "tekst": "bewaker: keten gestart voor blackbeard-1718",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:14",
-   "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken voor 2026-11-30 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 15:21",
-   "tekst": "routine-lokaal: blackbeard-1718: 18 beelden fout; 18 beschrijvingen terug naar het origineel, nog één beeldcontrole",
-   "fout": false,
-   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 15:33",
+   "tijd": "2026-11-19 13:14",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 16:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1097,12 +1103,6 @@
   },
   {
    "tijd": "2026-11-19 13:05",
-   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:14",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
@@ -3361,7 +3361,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 15:25",
+  "bijgewerkt": "2026-11-15 21:23",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3371,7 +3371,7 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "",
+    "youtube": "op YouTube staat 'Why Was Babylon the Greatest City on Earth? | History for Sleep'; is een vraag",
     "concurrent": [],
     "bekeken": ""
    },
@@ -3385,14 +3385,14 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep'",
+    "youtube": "op YouTube: 'What Did People Actually Do When Tutankhamun Was King? | History for Sleep' is een vraag",
     "concurrent": [],
     "bekeken": ""
    },
    {
     "map": "crisis-1933",
-    "datum": "2026-11-17",
-    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
+    "datum": "2026-11-16",
+    "titel": "Life in the Great Depression, 1933 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
@@ -3411,19 +3411,25 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-15"
    },
    {
     "map": "dallas-1963",
     "datum": "2026-11-21",
-    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "titel": "Life in Dallas, November 1963 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "Life in Dallas, November 1963 | History for Sleep",
-    "waarom": "Titel is concreet, bevat plaats en jaar, belooft inhoud en volgt de regels",
+    "voorstel": "",
+    "waarom": "",
     "youtube": "",
-    "concurrent": [],
-    "bekeken": "2026-11-19"
+    "concurrent": [
+     {
+      "titel": "Important Channel Update - Behind the Scenes - November 2026",
+      "kanaal": "Sleepy Time Historian",
+      "per_dag": 143
+     }
+    ],
+    "bekeken": "2026-11-15"
    },
    {
     "map": "ijstijd-20000-vc",
@@ -3434,8 +3440,24 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
+    "concurrent": [
+     {
+      "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
+      "kanaal": "ASMR Historian",
+      "per_dag": 9541
+     },
+     {
+      "titel": "The First Ice Age in Earth's History | Documentary For Sleep",
+      "kanaal": "Just About Earth",
+      "per_dag": 5738
+     },
+     {
+      "titel": "What Ordinary Life Was Like Inside an Ice Age Cave, 20,000 Years Ago | History for Sleep",
+      "kanaal": "Old History Nights",
+      "per_dag": 5160
+     }
+    ],
+    "bekeken": "2026-11-15"
    },
    {
     "map": "thanksgiving-1621",
@@ -3446,8 +3468,24 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
+    "concurrent": [
+     {
+      "titel": "The COZIEST Autumn Story | The Sleepy Science of Leaves | Sleep Story",
+      "kanaal": "Get Sleepy",
+      "per_dag": 8850
+     },
+     {
+      "titel": "Fall Asleep with the COZIEST Story: A Cozy Autumn Evening with a Family of Beavers",
+      "kanaal": "Get Sleepy",
+      "per_dag": 4783
+     },
+     {
+      "titel": "The DEEPEST Sleep EVER | Sleep Story: Blackberry Jam on an Autumn Afternoon",
+      "kanaal": "Get Sleepy",
+      "per_dag": 2940
+     }
+    ],
+    "bekeken": "2026-11-15"
    },
    {
     "map": "boeren-winter-1300",
@@ -3462,12 +3500,7 @@
      {
       "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
       "kanaal": "Sleepless Historian",
-      "per_dag": 4430
-     },
-     {
-      "titel": "Daily Life for Medieval Peasants & More...Funny History for Sleep",
-      "kanaal": "Stephen Dalton's Humorously Dull History for Sleep",
-      "per_dag": 810
+      "per_dag": 5890
      }
     ],
     "bekeken": "2026-11-15"
@@ -3481,13 +3514,7 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Life Aboard a Sailing Ship in the 1700s | History for Sleep",
-      "kanaal": "Lamplight Annals",
-      "per_dag": 2203
-     }
-    ],
+    "concurrent": [],
     "bekeken": "2026-11-15"
    },
    {
@@ -3503,17 +3530,17 @@
      {
       "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
       "kanaal": "History Camp",
-      "per_dag": 13922
+      "per_dag": 19978
      },
      {
       "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
       "kanaal": "ASMR Historian",
-      "per_dag": 5564
+      "per_dag": 9541
      },
      {
       "titel": "Gates to Hell Around the World | Human Voiced, No Ads",
       "kanaal": "ASMR Historian",
-      "per_dag": 3969
+      "per_dag": 4784
      }
     ],
     "bekeken": "2026-11-15"
@@ -3527,31 +3554,20 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "How a Family Enjoyed Christmas in Colonial Virginia, 1774 | History for Sleep",
-      "kanaal": "Sleepy Old World",
-      "per_dag": 591
-     },
-     {
-      "titel": "Why England Once BANNED Christmas | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 322
-     }
-    ],
+    "concurrent": [],
     "bekeken": "2026-11-15"
    },
    {
     "map": "pearl-harbor-1941",
     "datum": "2026-12-07",
-    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "titel": "Life at Pearl Harbor, December 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
-    "waarom": "Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels",
+    "voorstel": "",
+    "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "rome-44-vc",
@@ -3564,22 +3580,22 @@
     "youtube": "",
     "concurrent": [
      {
+      "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
+      "kanaal": "Sleepy History Channel",
+      "per_dag": 1115
+     },
+     {
       "titel": "The Pandemic Rome Never Recovered From (It Wasn't the Black Death)",
       "kanaal": "Sleepy Time Historian",
-      "per_dag": 454
+      "per_dag": 865
      },
      {
       "titel": "Before Persia an Entire Civilization Ruled Iran for 3,000 Years – Then Assyria Erased It",
       "kanaal": "Sleepy Time Historian",
-      "per_dag": 425
-     },
-     {
-      "titel": "700 Years of Carthage's History Are Missing - Rome Erased an Entire Empire's Memory",
-      "kanaal": "Sleepy Time Historian",
-      "per_dag": 164
+      "per_dag": 495
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "zwarte-dood-1348",
@@ -3587,27 +3603,27 @@
     "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "Life in Florence During the Black Death, 1348 | History for Sleep",
-    "waarom": "gebruikt bekende plek, jaar en onderwerp; belooft inhoud direct",
+    "voorstel": "",
+    "waarom": "",
     "youtube": "",
     "concurrent": [
      {
       "titel": "The Mystery of The Village That Beat the Black Death",
       "kanaal": "Sleepless Historian",
-      "per_dag": 1404
+      "per_dag": 1796
+     },
+     {
+      "titel": "5,000 Years Ago Horsemen From the Steppe REPLACED Half of Europe - Where Did Everyone Else Go?",
+      "kanaal": "Sleepy Time Historian",
+      "per_dag": 1555
      },
      {
       "titel": "The Celts: The Mysterious Dark Age Masters of Europe",
       "kanaal": "Sleepless Historian",
-      "per_dag": 1266
-     },
-     {
-      "titel": "How People Rebuilt Their Lives After the Black Death in England | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 707
+      "per_dag": 1425
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "scott-antarctica-1912",
@@ -3622,20 +3638,20 @@
      {
       "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
       "kanaal": "Kaushik Bhattacharjee Extra",
-      "per_dag": 7886
+      "per_dag": 8791
      },
      {
       "titel": "Nervous System Relief: A Sleepy Trip to South Africa’s Sudwala Caves | Sleep Story",
       "kanaal": "Get Sleepy",
-      "per_dag": 2741
+      "per_dag": 3761
      },
      {
       "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
       "kanaal": "Bedtime & Historian ",
-      "per_dag": 1012
+      "per_dag": 1180
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "man-ijzeren-masker-1703",
@@ -3643,22 +3659,22 @@
     "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "The Man in the Iron Mask, France 1669-1703 | History for Sleep",
-    "waarom": "bevat beroemde naam, land, jaartallen en voldoet aan alle regels",
+    "voorstel": "",
+    "waarom": "",
     "youtube": "",
     "concurrent": [
      {
       "titel": "What Life Was Like in Iron Age Britain, 300 BC | History for Sleep",
       "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 267
+      "per_dag": 439
      },
      {
       "titel": "Why France Revolts | 230 Years of Protest, Power and Change | French History",
       "kanaal": "The Sleepy Historian",
-      "per_dag": 24
+      "per_dag": 28
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "londen-kerst-1843",
@@ -3671,22 +3687,22 @@
     "youtube": "",
     "concurrent": [
      {
-      "titel": "Working in a Victorian Factory was a Nightmare | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 11547
-     },
-     {
       "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
       "kanaal": "Sleepy Lost World",
-      "per_dag": 3020
+      "per_dag": 3202
      },
      {
-      "titel": "👒🕯️🏡 The Secret Daily Rituals of Victorian Governesses Behind Closed Estate Doors",
-      "kanaal": "History Before Sleep",
-      "per_dag": 1081
+      "titel": "The Room Rented for One Year | A Cozy Victorian Sleep Story",
+      "kanaal": "Sleepy Victorian",
+      "per_dag": 1599
+     },
+     {
+      "titel": "The Stranger Who Stayed in a Yorkshire Village | Cozy Victorian Sleep Story",
+      "kanaal": "The Quiet Inn",
+      "per_dag": 1520
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "mary-celeste-1872",
@@ -3699,22 +3715,17 @@
     "youtube": "",
     "concurrent": [
      {
-      "titel": "Life Aboard a Sailing Ship in the 1700s | History for Sleep",
-      "kanaal": "Lamplight Annals",
-      "per_dag": 2203
-     },
-     {
       "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
       "kanaal": "Bedtime & Historian ",
-      "per_dag": 1012
+      "per_dag": 1180
      },
      {
-      "titel": "The 19 Years Mary, Queen of Scots Spent as a PRISONER | Bedtime History",
-      "kanaal": "Sleepy Old World",
-      "per_dag": 726
+      "titel": "😴 DRIFT PEACEFULLY ASLEEP 💤 Bedtime Story For Grown Ups - Ghost of the Candlelit Library",
+      "kanaal": "Dan Jones Sleep Stories",
+      "per_dag": 184
      }
     ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    },
    {
     "map": "bethlehem",
@@ -3725,19 +3736,8 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "How a Family Enjoyed Christmas in Colonial Virginia, 1774 | History for Sleep",
-      "kanaal": "Sleepy Old World",
-      "per_dag": 591
-     },
-     {
-      "titel": "Why England Once BANNED Christmas | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 322
-     }
-    ],
-    "bekeken": "2026-11-19"
+    "concurrent": [],
+    "bekeken": ""
    },
    {
     "map": "japan-1600",
@@ -3750,68 +3750,23 @@
     "youtube": "",
     "concurrent": [
      {
-      "titel": "How Edo Japan Survived the Winter | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 19742
-     },
-     {
       "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
       "kanaal": "The French Whisperer ASMR",
-      "per_dag": 5013
+      "per_dag": 6406
      },
      {
       "titel": "The Forgotten World of Japan 10,000 Years Ago | History for Sleep",
       "kanaal": "Sleepy Time Historian",
-      "per_dag": 807
+      "per_dag": 1220
      }
     ],
-    "bekeken": "2026-11-19"
-   },
-   {
-    "map": "dansplaag-1518",
-    "datum": "2026-12-28",
-    "titel": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": "2026-11-19"
-   },
-   {
-    "map": "tower-of-london-1536",
-    "datum": "2026-12-30",
-    "titel": "Life in the Tower of London, 1536 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 5564
-     },
-     {
-      "titel": "Gates to Hell Around the World | Human Voiced, No Ads",
-      "kanaal": "ASMR Historian",
-      "per_dag": 3969
-     },
-     {
-      "titel": "How People Slept Inside a Medieval Tower in Winter | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 1505
-     }
-    ],
-    "bekeken": "2026-11-19"
+    "bekeken": ""
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 15:34",
+  "bijgewerkt": "2026-11-19 16:04",
   "accounts": [
    {
     "account": "hoofd",
