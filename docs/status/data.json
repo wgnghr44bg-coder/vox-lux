@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-19 11:33",
+ "bijgewerkt": "2026-11-19 12:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Video bouwen · 98%",
+    "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
+    "map": "boeren-winter-1300",
+    "detail": "Beelden maken · 29%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Dallas",
-    "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
-    "map": "boeren-winter-1300",
-    "detail": "keten maakt de video voor za 28-11 21:00"
-   },
    {
     "wanneer": "na Boeren",
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
@@ -59,8 +53,8 @@
     "dag": "za",
     "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-11-30",
@@ -152,7 +146,7 @@
     "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
+    "stand": "video wordt gemaakt",
     "controle": "GOED",
     "flesch": 67,
     "niveau": 7.2,
@@ -484,7 +478,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "143 GB vrij"
+   "tekst": "142 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -499,7 +493,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 11:33)"
+   "tekst": "draait nu (2026-11-19 12:03)"
   },
   {
    "naam": "Git",
@@ -519,7 +513,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:18: alles klopt"
+   "tekst": "laatste ronde 11:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -536,8 +530,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 11:33",
-   "volgende": "2026-11-19 12:03"
+   "laatst": "2026-11-19 12:03",
+   "volgende": "2026-11-19 12:33"
   },
   "hype": {
    "aan": true,
@@ -551,8 +545,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 11:18",
-   "volgende": "2026-11-19 11:48"
+   "laatst": "2026-11-19 11:48",
+   "volgende": "2026-11-19 12:18"
   },
   "titels": {
    "aan": true,
@@ -609,7 +603,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 52,
+    "views": 51,
     "verwerkt": "processed"
    },
    {
@@ -663,7 +657,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 686,
+    "views": 680,
     "verwerkt": "processed"
    }
   ],
@@ -857,7 +851,7 @@
    "totaal": 16,
    "procent": 31
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -872,24 +866,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 98,
-  "detail": "16mm-look",
+  "map": "boeren-winter-1300",
+  "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
+  "datum": "2026-11-28",
+  "thumb": "thumbs/boeren-winter-1300.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 29,
+  "detail": "25 van 87 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beelden maken (ComfyUI)"
   ],
-  "eind": {
-   "klaar": "2026-11-19 11:49",
-   "youtube": "2026-11-19 12:09"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -897,13 +888,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 4636,
+  "bezig_procent": 57,
+  "geheugen_mb": 4287,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -989,24 +980,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-18 19:48",
-   "tekst": "sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 00:18",
-   "tekst": "sitecontrole: opgelost: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 07:10",
-   "tekst": "thanksgiving-1621: geüpload https://youtu.be/KU6eoe5vy-U (privé, publiek 2026-11-25T20:00:00Z), kanaal Sleep Archives gecontroleerd",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-19 07:15",
    "tekst": "thanksgiving-1621: KLAAR",
    "fout": false,
@@ -1071,22 +1044,40 @@
    "tekst": "routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 11:49",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 11:49",
+   "tekst": "bewaker: keten gestart voor boeren-winter-1300",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 11:49",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 11:33",
+   "tijd": "2026-11-19 11:49",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 12:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-17 17:48",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-17 19:06",
    "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
@@ -1358,8 +1349,8 @@
    "datum": "2026-11-28",
    "reserve": false,
    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, nieuwe toon, 2026-11-11, Claude)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-19, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "middeleeuwen",
    "opening": "persoon",
@@ -3833,14 +3824,14 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 11:35",
+  "bijgewerkt": "2026-11-19 12:05",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 42298494,
+    "week": 41923274,
     "per_dag": {
-     "Thu 12-11": 22462035,
+     "Thu 12-11": 22086815,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3854,13 +3845,13 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 85349221,
+    "week": 84953382,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Thu 12-11": 3037524,
+     "Thu 12-11": 2641685,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
@@ -3871,8 +3862,8 @@
     "5uur_pct": 0,
     "5uur_scripts_over": 21.9,
     "5uur_stappen_over": null,
-    "week_pct": 65,
-    "week_scripts_over": 75.4,
+    "week_pct": 64,
+    "week_scripts_over": 76.0,
     "week_stappen_over": null
    }
   ]
