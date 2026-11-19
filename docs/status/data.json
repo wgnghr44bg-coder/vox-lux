@@ -1,38 +1,50 @@
 {
- "bijgewerkt": "2026-11-19 01:03",
+ "bijgewerkt": "2026-11-19 01:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "Video bouwen",
+    "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+    "map": "thanksgiving-1621",
+    "detail": "Video bouwen · 16%",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "na Dallas",
-    "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-    "map": "thanksgiving-1621",
-    "detail": "keten maakt de video voor wo 25-11 21:00"
-   },
-   {
-    "wanneer": "na Thanksgiving",
+    "wanneer": "do 19-11 09:00 (routine staat UIT)",
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
-    "detail": "keten maakt de video voor za 28-11 21:00"
+    "detail": "routine maakt de video voor za 28-11 21:00"
    },
    {
-    "wanneer": "na Boeren",
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "keten maakt de video voor ma 30-11 21:00"
+    "detail": "routine maakt de video voor ma 30-11 21:00"
    },
    {
-    "wanneer": "na Blackbeard",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
-    "detail": "keten maakt de video voor wo 2-12 21:00"
+    "detail": "routine maakt de video voor wo 2-12 21:00"
+   },
+   {
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "detail": "routine maakt de video voor za 5-12 21:00"
+   },
+   {
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "routine maakt de video voor ma 7-12 21:00"
+   },
+   {
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+    "map": "rome-44-vc",
+    "detail": "routine maakt de video voor wo 9-12 21:00"
    }
   ],
   "publicaties": [
@@ -474,8 +486,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -490,7 +502,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "149 GB vrij"
+   "tekst": "148 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -505,7 +517,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 01:03)"
+   "tekst": "draait nu (2026-11-19 01:33)"
   },
   {
    "naam": "Git",
@@ -525,7 +537,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 00:48: alles klopt"
+   "tekst": "laatste ronde 01:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +554,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 01:03",
-   "volgende": "2026-11-19 01:33"
+   "laatst": "2026-11-19 01:33",
+   "volgende": "2026-11-19 02:03"
   },
   "hype": {
    "aan": true,
@@ -552,18 +564,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 00:10",
-   "volgende": "2026-11-19 01:10"
+   "laatst": "2026-11-19 01:10",
+   "volgende": "2026-11-19 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 00:48",
-   "volgende": "2026-11-19 01:18"
+   "laatst": "2026-11-19 01:18",
+   "volgende": "2026-11-19 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-18 23:25",
-   "volgende": "2026-11-19 01:25"
+   "laatst": "2026-11-19 01:25",
+   "volgende": "2026-11-19 03:25"
   }
  },
  "kanaal": {
@@ -572,13 +584,13 @@
   "views_totaal": 2978,
   "video_aantal": 17,
   "week": {
-   "views": 451,
-   "uren": 99,
+   "views": 445,
+   "uren": 98,
    "abonnees": 3
   },
   "vorige_week": {
-   "views": 659,
-   "uren": 163,
+   "views": 622,
+   "uren": 164,
    "abonnees": 4
   },
   "recent": [
@@ -606,7 +618,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 21,
+    "views": 14,
     "verwerkt": "processed"
    },
    {
@@ -766,32 +778,32 @@
    },
    {
     "dag": "2026-11-09",
-    "views": 40,
+    "views": 35,
     "abonnees": 0
    },
    {
     "dag": "2026-11-10",
-    "views": 98,
+    "views": 77,
     "abonnees": 0
    },
    {
     "dag": "2026-11-11",
-    "views": 127,
+    "views": 118,
     "abonnees": 1
    },
    {
     "dag": "2026-11-12",
-    "views": 144,
+    "views": 142,
     "abonnees": 2
    },
    {
     "dag": "2026-11-13",
-    "views": 66,
+    "views": 65,
     "abonnees": 1
    },
    {
     "dag": "2026-11-14",
-    "views": 91,
+    "views": 88,
     "abonnees": 0
    },
    {
@@ -806,7 +818,7 @@
    }
   ],
   "maand": {
-   "views": 2492,
+   "views": 2451,
    "uren": 560,
    "abonnees": 9
   },
@@ -816,7 +828,7 @@
    "abonnees": 7
   },
   "jaar": {
-   "views": 3698,
+   "views": 3657,
    "uren": 680,
    "abonnees": 17
   },
@@ -825,15 +837,15 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1104,
-    "uren": 290
+    "views": 1082,
+    "uren": 282
    },
    {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 665,
-    "uren": 163
+    "views": 656,
+    "uren": 162
    },
    {
     "id": "qFRyJ6twOzY",
@@ -844,7 +856,7 @@
    }
   ],
   "partner": {
-   "uren": 680,
+   "uren": 679,
    "uren_doel": 4000,
    "abonnees": 18,
    "abonnees_doel": 1000,
@@ -863,9 +875,9 @@
    "totaal": 15,
    "procent": 27
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 10,
    "totaal": 12
   }
  },
@@ -880,21 +892,23 @@
  ],
  "stap": 4,
  "huidig": {
-  "map": "dallas-1963",
-  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-  "datum": "2026-11-21",
-  "thumb": "thumbs/dallas-1963.jpg",
+  "map": "thanksgiving-1621",
+  "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+  "datum": "2026-11-25",
+  "thumb": "thumbs/thanksgiving-1621.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "voortgang": 16,
+  "detail": "beweging",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen",
    "beweging en hoofdstuktitels",
-   "beelden maken (ComfyUI)"
+   "beelden en geluid samenvoegen"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-19 07:03",
+   "youtube": "2026-11-19 07:23"
+  }
  },
  "nu_bezig": [
   {
@@ -902,21 +916,17 @@
    "stap": 0
   },
   {
-   "naam": "beelden en geluid samenvoegen",
-   "stap": 4
-  },
-  {
    "naam": "beweging en hoofdstuktitels",
    "stap": 4
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "beelden en geluid samenvoegen",
+   "stap": 4
   }
  ],
  "videokaart": {
-  "bezig_procent": 19,
-  "geheugen_mb": 4238,
+  "bezig_procent": 28,
+  "geheugen_mb": 770,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1088,7 +1098,12 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 01:03",
+   "tijd": "2026-11-19 01:33",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-19 01:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3381,7 +3396,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-18 23:25",
+  "bijgewerkt": "2026-11-19 01:40",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3439,11 +3454,11 @@
     "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life in Dallas, November 1963 | History for Sleep",
+    "waarom": "Titel is concreet, bevat plaats en jaar, belooft inhoud en volgt de regels",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "ijstijd-20000-vc",
@@ -3535,11 +3550,11 @@
     "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "waarom": "Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "rome-44-vc",
@@ -3557,7 +3572,7 @@
       "per_dag": 1115
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "zwarte-dood-1348",
@@ -3565,8 +3580,8 @@
     "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life in Florence During the Black Death, 1348 | History for Sleep",
+    "waarom": "gebruikt bekende plek, jaar en onderwerp; belooft inhoud direct",
     "youtube": "",
     "concurrent": [
      {
@@ -3580,7 +3595,7 @@
       "per_dag": 538
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "scott-antarctica-1912",
@@ -3603,7 +3618,7 @@
       "per_dag": 1180
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "man-ijzeren-masker-1703",
@@ -3611,8 +3626,8 @@
     "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "The Man in the Iron Mask, France 1669-1703 | History for Sleep",
+    "waarom": "bevat beroemde naam, land, jaartallen en voldoet aan alle regels",
     "youtube": "",
     "concurrent": [
      {
@@ -3621,7 +3636,7 @@
       "per_dag": 440
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "londen-kerst-1843",
@@ -3649,7 +3664,7 @@
       "per_dag": 1520
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "mary-celeste-1872",
@@ -3667,7 +3682,7 @@
       "per_dag": 1180
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "bethlehem",
@@ -3735,17 +3750,17 @@
     "bekeken": ""
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 01:06",
+  "bijgewerkt": "2026-11-19 01:41",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 48884483,
+    "week": 48282112,
     "per_dag": {
-     "Thu 12-11": 29048023,
+     "Thu 12-11": 28445653,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
