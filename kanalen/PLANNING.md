@@ -53,4 +53,4 @@ Alteraqon (@alteraqon) is gestopt.
 - Van elke lange video 2 à 3 Shorts van 30 tot 55 s, met `kanalen/blackswanvault/shorts/maak_short.py` (zie `kanalen/blackswanvault/README.md`).
 - Verspreid ze over de dagen na de lange video. Koppel elke Short aan de lange video ("Gerelateerde video").
 - Ook Shorts gaan eerst privé online; openbaar alleen na OK van de eigenaar.
-- Klaar: `nvidia-short-1` (zin 0 t/m 9, 42 s, kop "$1 TRILLION GONE."), nog niet geüpload.
+- Online: `nvidia-short-1` (zin 0 t/m 9, 43 s, kop "$1 TRILLION GONE."): https://youtube.com/shorts/5ukyRWt9qUw (19 nov). De koppeling naar de lange video staat in de beschrijving; "Gerelateerde video" stelt de eigenaar in Studio in (kan niet via de API).
