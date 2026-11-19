@@ -336,3 +336,9 @@ ValueError: empty separator)
 - 2026-11-19 07:10 thanksgiving-1621: geüpload https://youtu.be/KU6eoe5vy-U (privé, publiek 2026-11-25T20:00:00Z), kanaal Sleep Archives gecontroleerd
 - 2026-11-19 07:15 thanksgiving-1621: KLAAR
 - 2026-11-19 07:15 routine-lokaal: thanksgiving-1621: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-25 21:00
+- 2026-11-19 07:16 bewaker: keten gestart voor dallas-1963
+- 2026-11-19 07:16 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
+- 2026-11-19 07:54 routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066
+- 2026-11-19 08:31 hype-wachter: SEINTJE The Hot Water Bottle Lady: A Cozy Bedtime Story -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-19 08:31 hype-wachter: SEINTJE Pride and Prejudice verschijnt (214 jaar) -> KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-25
+- 2026-11-19 09:27 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
