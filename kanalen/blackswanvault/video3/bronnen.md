@@ -11,3 +11,10 @@
 - Prognose: Wells Fargo verwacht $9,76 mld aan bookings in boekjaar 2027.
 - Beelden: GEEN screenshots van het spel (copyright). Wel: Miami (vrije foto's), gebouwen van Rockstar/Take-Two, PS5, koersgrafiek
   TTWO (Yahoo), en AI-beelden waar dat past.
+
+## Aanvullingen (19 nov 2026, avond)
+- GTA V: dag 1 >$800 mln (Take-Two 8-K); $1 mld in 3 dagen (persbericht Take-Two, 20 sep 2013). Verkocht: >230 mln (Take-Two, 2026; Game Developer).
+- Trailer 1 (dec 2023): 90.421.491 views op YouTube in 24 uur, wereldrecord voor de onthulling van een game (Guinness, via Push Square). Trailer 2: 475 mln views op alle platforms in 24 uur (volgens Rockstar, TechRadar).
+- Zelnick: voorzitter sinds 2007, CEO sinds 2011.
+- Koers TTWO (Yahoo, data/ttwo.json): 1 mei 2025 $235,17 → 2 mei $219,50 (-6,7%, uitstel 1); 6 nov 2025 $252,40 → 7 nov $232,00 (-8,1%, uitstel 2);
+  31 dec 2025 $256,03 → 19 nov 2026 ~$214,5 (~-16% dit jaar); top 20 okt 2025 $262,29.
