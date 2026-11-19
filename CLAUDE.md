@@ -46,7 +46,7 @@
 - YouTube: de eigenaar werkt met drie kanalen (19 nov 2026), elk met een eigen refresh token:
   `YT_REFRESH_TOKEN` = Sleep Archives (@sleeparchiveshistory), `YT_WHATIF_REFRESH_TOKEN` = BlackswanVault
   (@blackswanvault, vroeger IfScape3D; What If-video's), en NOIRTRACES (@noirtraces): refresh token in
-  `~/.yt-altena.json` (veld `refresh_token`, mag ook comments). De eerste twee gebruiken `YT_CLIENT_ID`/`YT_CLIENT_SECRET`.
+  `~/.yt-altena.json` (veld `refresh_token`, mag ook comments). Alle drie gebruiken dezelfde `YT_CLIENT_ID`/`YT_CLIENT_SECRET`.
   `YT_REFRESH_TOKEN_ALTERAQON` (Alteraqon) werkt nog maar hoort niet bij deze drie. Upload met het juiste token
   (bv. `YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py ...`) en controleer
   vóór het openbaar zetten via de API (`snippet.channelTitle`) dat de video op het goede kanaal staat.
