@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 21:03",
+ "bijgewerkt": "2026-11-19 21:33",
  "kanalen": {
   "weken": [
    {
@@ -397,7 +397,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 21:03)"
+   "tekst": "draait nu (2026-11-19 21:33)"
   },
   {
    "naam": "Git",
@@ -661,7 +661,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -678,8 +678,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 21:03",
-   "volgende": "2026-11-19 21:33"
+   "laatst": "2026-11-19 21:33",
+   "volgende": "2026-11-19 22:03"
   },
   "hype": {
    "aan": true,
@@ -689,17 +689,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-19 21:10"
+   "volgende": "2026-11-19 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 20:48",
-   "volgende": "2026-11-19 21:18"
+   "laatst": "2026-11-19 21:18",
+   "volgende": "2026-11-19 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 19:25",
-   "volgende": "2026-11-19 21:25"
+   "laatst": "2026-11-19 21:25",
+   "volgende": "2026-11-19 23:25"
   }
  },
  "kanaal": {
@@ -805,7 +805,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 707,
+    "views": 702,
     "verwerkt": "processed"
    }
   ],
@@ -1001,8 +1001,8 @@
   "geplande": 3,
   "runs": {
    "goed": 5,
-   "totaal": 16,
-   "procent": 31
+   "totaal": 17,
+   "procent": 29
   },
   "fouten": 2,
   "zelfcontrole": {
@@ -1019,23 +1019,30 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "84 van 84 beelden",
+  "taken": [
+   "beelden maken (ComfyUI)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 713,
+  "bezig_procent": 33,
+  "geheugen_mb": 695,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1122,12 +1129,6 @@
  "logboek": [
   {
    "tijd": "2026-11-19 11:49",
-   "tekst": "bewaker: keten gestart voor boeren-winter-1300",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 11:49",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
@@ -1203,18 +1204,24 @@
    "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 21:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 20:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "tijd": "2026-11-19 21:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-19 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-19 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -1258,6 +1265,12 @@
   {
    "tijd": "2026-11-19 16:20",
    "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 71/84 goedgekeurd, fout: ['001', '003', '006', '012', '018', '020', '034', '036', '040', '048', '051', '054', '083'",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 20:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
   }
@@ -3524,7 +3537,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 19:30",
+  "bijgewerkt": "2026-11-19 21:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3653,19 +3666,19 @@
     "bekeken": "2026-11-19"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 21:03",
+  "bijgewerkt": "2026-11-19 21:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 371807,
-    "week": 23772134,
+    "week": 20672109,
     "per_dag": {
-     "Thu 12-11": 3563868,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
+     "Thu 12-11": 463843,
      "Mon 16-11": 10362951,
      "Thu 19-11": 371807
     },
