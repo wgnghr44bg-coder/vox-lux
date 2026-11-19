@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 05:33",
+ "bijgewerkt": "2026-11-19 06:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "Video bouwen · 98%",
+    "detail": "Video bouwen · 28%",
     "soort": "nu"
    }
   ],
@@ -490,7 +490,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "140 GB vrij"
+   "tekst": "136 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -505,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 05:33)"
+   "tekst": "draait nu (2026-11-19 06:03)"
   },
   {
    "naam": "Git",
@@ -525,7 +525,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 05:18: alles klopt"
+   "tekst": "laatste ronde 05:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -538,12 +538,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-19 06:00"
+   "volgende": "2026-11-20 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 05:33",
-   "volgende": "2026-11-19 06:03"
+   "laatst": "2026-11-19 06:03",
+   "volgende": "2026-11-19 06:33"
   },
   "hype": {
    "aan": true,
@@ -557,8 +557,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 05:18",
-   "volgende": "2026-11-19 05:48"
+   "laatst": "2026-11-19 05:48",
+   "volgende": "2026-11-19 06:18"
   },
   "titels": {
    "aan": true,
@@ -660,7 +660,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 666,
+    "views": 667,
     "verwerkt": "processed"
    },
    {
@@ -886,15 +886,15 @@
   "thumb": "thumbs/thanksgiving-1621.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 98,
-  "detail": "beweging",
+  "voortgang": 28,
+  "detail": "16mm-look",
   "taken": [
    "routine zonder Claude",
-   "tikjes weghalen"
+   "16mm-look"
   ],
   "eind": {
-   "klaar": "2026-11-19 06:55",
-   "youtube": "2026-11-19 07:15"
+   "klaar": "2026-11-19 06:53",
+   "youtube": "2026-11-19 07:13"
   }
  },
  "nu_bezig": [
@@ -903,7 +903,7 @@
    "stap": 0
   },
   {
-   "naam": "tikjes weghalen",
+   "naam": "16mm-look",
    "stap": 4
   }
  ],
@@ -1081,7 +1081,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 05:33",
+   "tijd": "2026-11-19 06:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -2619,10 +2619,10 @@
     true,
     true,
     true,
-    false,
+    true,
     false
    ],
-   "gereed": 60,
+   "gereed": 80,
    "thumb": "thumbs/thanksgiving-1621.jpg"
   },
   {
@@ -3731,14 +3731,14 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 05:34",
+  "bijgewerkt": "2026-11-19 06:05",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 44002347,
+    "week": 43796616,
     "per_dag": {
-     "Thu 12-11": 24165888,
+     "Thu 12-11": 23960157,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
