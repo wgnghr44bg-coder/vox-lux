@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 14:03",
+ "bijgewerkt": "2026-11-19 14:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 67%",
+    "detail": "Beelden maken · 96%",
     "soort": "nu"
    }
   ],
@@ -472,7 +472,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "156 GB vrij"
+   "tekst": "155 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -487,7 +487,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 14:03)"
+   "tekst": "draait nu (2026-11-19 14:33)"
   },
   {
    "naam": "Git",
@@ -507,7 +507,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:48: alles klopt"
+   "tekst": "laatste ronde 14:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -524,8 +524,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 14:03",
-   "volgende": "2026-11-19 14:33"
+   "laatst": "2026-11-19 14:33",
+   "volgende": "2026-11-19 15:03"
   },
   "hype": {
    "aan": true,
@@ -534,13 +534,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 13:10",
-   "volgende": "2026-11-19 14:10"
+   "laatst": "2026-11-19 14:10",
+   "volgende": "2026-11-19 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 13:48",
-   "volgende": "2026-11-19 14:18"
+   "laatst": "2026-11-19 14:18",
+   "volgende": "2026-11-19 14:48"
   },
   "titels": {
    "aan": true,
@@ -597,7 +597,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 52,
+    "views": 58,
     "verwerkt": "processed"
    },
    {
@@ -651,7 +651,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 695,
+    "views": 696,
     "verwerkt": "processed"
    }
   ],
@@ -868,8 +868,8 @@
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 67,
-  "detail": "56 van 84 beelden",
+  "voortgang": 96,
+  "detail": "81 van 84 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
@@ -892,8 +892,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 18,
-  "geheugen_mb": 6701,
+  "bezig_procent": 9,
+  "geheugen_mb": 4543,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1071,7 +1071,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-19 14:03",
+   "tijd": "2026-11-19 14:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3811,20 +3811,20 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 14:04",
+  "bijgewerkt": "2026-11-19 14:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 38868303,
+    "week": 37755402,
     "per_dag": {
-     "Thu 12-11": 19031844,
+     "Thu 12-11": 17918943,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
     },
-    "script_kost": 360570,
-    "metingen": 1,
+    "script_kost": 0,
+    "metingen": 0,
     "stap_kost": 0,
     "naam": "hoofd",
     "week_reset": ""
@@ -3832,25 +3832,24 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 83903006,
+    "week": 82311697,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Thu 12-11": 1591309,
      "Wed 18-11": 377953
     },
-    "script_kost": 630228,
-    "metingen": 14,
+    "script_kost": 663104,
+    "metingen": 12,
     "stap_kost": 0,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
-    "5uur_scripts_over": 21.5,
+    "5uur_scripts_over": 20.5,
     "5uur_stappen_over": null,
-    "week_pct": 64,
-    "week_scripts_over": 76.3,
+    "week_pct": 62,
+    "week_scripts_over": 75.0,
     "week_stappen_over": null
    }
   ]
