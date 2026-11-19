@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 10:03",
+ "bijgewerkt": "2026-11-19 10:33",
  "werkplanning": {
   "nu": [
    {
@@ -484,7 +484,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "160 GB vrij"
+   "tekst": "159 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -499,7 +499,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 10:03)"
+   "tekst": "draait nu (2026-11-19 10:33)"
   },
   {
    "naam": "Git",
@@ -519,7 +519,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 09:49: alles klopt"
+   "tekst": "laatste ronde 10:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -536,8 +536,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 10:03",
-   "volgende": "2026-11-19 10:33"
+   "laatst": "2026-11-19 10:33",
+   "volgende": "2026-11-19 11:03"
   },
   "hype": {
    "aan": true,
@@ -546,13 +546,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 09:10",
-   "volgende": "2026-11-19 10:10"
+   "laatst": "2026-11-19 10:10",
+   "volgende": "2026-11-19 11:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 09:48",
-   "volgende": "2026-11-19 10:18"
+   "laatst": "2026-11-19 10:18",
+   "volgende": "2026-11-19 10:48"
   },
   "titels": {
    "aan": true,
@@ -884,12 +884,11 @@
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "tekstcontrole",
    "tekstcontrole (Whisper)"
   ],
   "eind": {
-   "klaar": "2026-11-19 19:20",
-   "youtube": "2026-11-19 19:40"
+   "klaar": "2026-11-19 11:43",
+   "youtube": "2026-11-19 12:03"
   }
  },
  "nu_bezig": [
@@ -898,17 +897,13 @@
    "stap": 0
   },
   {
-   "naam": "tekstcontrole",
-   "stap": 3
-  },
-  {
    "naam": "tekstcontrole (Whisper)",
    "stap": 3
   }
  ],
  "videokaart": {
-  "bezig_procent": 50,
-  "geheugen_mb": 2638,
+  "bezig_procent": 25,
+  "geheugen_mb": 4405,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1080,7 +1075,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 10:03",
+   "tijd": "2026-11-19 10:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3838,7 +3833,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 10:04",
+  "bijgewerkt": "2026-11-19 10:33",
   "accounts": [
    {
     "account": "hoofd",
