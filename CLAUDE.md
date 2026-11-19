@@ -43,9 +43,11 @@
 - Video's (shorts én lange video's) altijd sturen als afspeelbare video (SendUserFile met `display: "render"`), zodat de eigenaar
   hem in de speler via de deel-knop rechtsboven kan opslaan. Is het bestand groter dan ±50 MB, stuur dan ook een kleinere versie
   (bv. 720p, ±1,1 Mbit/s) mee.
-- YouTube-kanalen hebben elk een eigen refresh token (zelfde `YT_CLIENT_ID`/`YT_CLIENT_SECRET`):
-  `YT_REFRESH_TOKEN` = Sleep Archives, `YT_WHATIF_REFRESH_TOKEN` = IfScape3D (What If-video's),
-  `YT_REFRESH_TOKEN_ALTERAQON` = Alteraqon. Upload met het juiste token
+- YouTube: de eigenaar werkt met drie kanalen (19 nov 2026), elk met een eigen refresh token:
+  `YT_REFRESH_TOKEN` = Sleep Archives (@sleeparchiveshistory), `YT_WHATIF_REFRESH_TOKEN` = BlackswanVault
+  (@blackswanvault, vroeger IfScape3D; What If-video's), en NOIRTRACES (@noirtraces): refresh token in
+  `~/.yt-altena.json` (veld `refresh_token`, mag ook comments). De eerste twee gebruiken `YT_CLIENT_ID`/`YT_CLIENT_SECRET`.
+  `YT_REFRESH_TOKEN_ALTERAQON` (Alteraqon) werkt nog maar hoort niet bij deze drie. Upload met het juiste token
   (bv. `YT_REFRESH_TOKEN="$YT_WHATIF_REFRESH_TOKEN" python3 tools/youtube_upload.py ...`) en controleer
   vóór het openbaar zetten via de API (`snippet.channelTitle`) dat de video op het goede kanaal staat.
 
