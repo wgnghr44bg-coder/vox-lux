@@ -1,6 +1,6 @@
 onderwerp Life in the Ice Age, around 20,000 years ago
 status   klaar
-datum    wo 2026-11-25 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-11-23 21:00 NL (hype nu, zo snel mogelijk; eigenaar 14 nov: "zo dat het beste is voor het kanaal en mee kan met de hype"))
+datum    za 2026-11-28 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2026-11-25 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-11-23 21:00 NL (hype nu, zo snel mogelijk; eigenaar 14 nov: "zo dat het beste is voor het kanaal en mee kan met de hype")))
 titel    How People Survived the Ice Age | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: How Did People Survive the Ice Age?)
 opening   scène
 titelsoort how-survived

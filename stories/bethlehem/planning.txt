@@ -1,6 +1,6 @@
 onderwerp Life in Bethlehem, the First Christmas
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)
-datum    wo 2026-12-23 21:00 NL (hype-wachter 14 nov: vlak voor Kerstmis; was za 2026-12-19, geruild met londen-kerst-1843)
+datum    za 2026-12-19 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2026-12-23 21:00 NL (hype-wachter 14 nov: vlak voor Kerstmis; was za 2026-12-19, geruild met londen-kerst-1843))
 titel    Life in Bethlehem, the First Christmas | History for Sleep
 opening   onderwerp
 titelsoort life-in

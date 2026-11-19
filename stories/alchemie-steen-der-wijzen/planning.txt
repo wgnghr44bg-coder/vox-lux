@@ -1,6 +1,6 @@
 onderwerp Alchemists and the Search for the Philosopher's Stone, around 1600
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype Philosopher's Stone)
-datum    za 2026-12-26 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-02 21:00 NL (hype; eigenaar 12 nov: "bekende virale gebeurtenissen, hoe je het regelt is aan jou"))
+datum    za 2027-01-30 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2026-12-26 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-02 21:00 NL (hype; eigenaar 12 nov: "bekende virale gebeurtenissen, hoe je het regelt is aan jou")))
 titel    Alchemists and the Philosopher's Stone, 1600 | History for Sleep (eigenaar 14 nov 2026: concrete titel, geen vraag; was: Who Really Searched for the Philosopher's Stone?)
 opening   mythe
 titelsoort who

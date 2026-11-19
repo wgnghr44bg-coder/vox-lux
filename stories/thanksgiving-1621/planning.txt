@@ -1,6 +1,6 @@
 onderwerp The First Thanksgiving, Plymouth, autumn 1621
 status   klaar
-datum    za 2026-11-21 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-11-25 21:00 NL (eigenaar 11 nov: Thanksgiving 26 nov; sluit aan op de Mayflower-video))
+datum    za 2026-11-21 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2026-11-21 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-11-25 21:00 NL (eigenaar 11 nov: Thanksgiving 26 nov; sluit aan op de Mayflower-video)))
 titel    The First Thanksgiving, Plymouth 1621 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Was the First Thanksgiving Really Like?)
 opening   mythe
 titelsoort event-year

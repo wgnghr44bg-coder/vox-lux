@@ -443,7 +443,7 @@ if actief:
 week = []
 for i in range(7):
     dag = VANDAAG + datetime.timedelta(days=i)
-    plek = dag.weekday() in (2, 5)
+    plek = dag.weekday() == 5
     vs = [v for v in video if v["datum"] == dag.isoformat()]
     week.append({"datum": dag.isoformat(), "plek": plek, "video": vs[0]["titel"] if vs else "",
                  "soort": vs[0]["soort"] if vs else ("vrij" if plek else "")})
@@ -504,9 +504,9 @@ def werkplanning():
     todo = sorted([v for v in video if v["datum"] and v["datum"] >= vandaag and v["soort"] not in klaar
                    and v["soort"] != "bezig" and v["map"] != "tombstone-1881"], key=lambda v: v["datum"])
     bezet = {v["datum"] for v in video if v["datum"]}
-    for i in range(1, 29):                                   # vrije plekken (wo/za) in de komende 4 weken
+    for i in range(1, 29):                                   # vrije plekken (za) in de komende 4 weken
         dag = VANDAAG + datetime.timedelta(days=i)
-        if dag.weekday() in (2, 5) and dag.isoformat() not in bezet:
+        if dag.weekday() == 5 and dag.isoformat() not in bezet:
             todo.append({"map": "", "datum": dag.isoformat(), "titel": "Vrije plek: de routine kiest een populair onderwerp",
                          "soort": "vrij"})
     todo.sort(key=lambda v: v["datum"])
@@ -552,7 +552,7 @@ def werkplanning():
     for i in range(0, 22):
         dag = VANDAAG + datetime.timedelta(days=i)
         vs = [v for v in video if v["datum"] == dag.isoformat()]
-        if not vs and dag.weekday() not in (2, 5):
+        if not vs and dag.weekday() != 5:
             continue
         v = vs[0] if vs else None
         if v and v["map"] == "tombstone-1881" and "tombstone_opnieuw.ps1" in alle_cmd:
@@ -684,7 +684,7 @@ data = {
              "Beeld": "16mm-look met warme vuurgloed en zwevende vonken over de hele video",
              "Beelden": "historisch juist (kenmerkenlijst per video voor bekende schepen en gebouwen), geen beelden die op elkaar lijken en geen kopieën; beeldenwachter elk uur",
              "Opbouw": "zoals Sleepy History: kort begin, ± 90 blokken (feit, uitleg, bewijs, nuance, slotgedachte), kort slot",
-             "Planning": "wo en za 21:00 (NL), 2x per week (eigenaar 19 nov); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
+             "Planning": "za 21:00 (NL), 1x per week (eigenaar 19 nov avond: focus op BlackswanVault); zo dat het beste is voor het kanaal en mee met de hype (hype-wachter, elke dag 08:30)",
              "Thumbnail": "stijl zoals Babylon (maanlogo, groot wit onderwerp, geel jaartal); rechts het kenmerkende beeld met mensen van toen die doen wat er gebeurde, nooit een losse vrouw",
              "Scripts": "stories/PROMPT-SCRIPTS-DEC.md: hoofdsessie ijstijd, blackbeard, alchemie (klaar); ander account rome, zwarte-dood, scott, londen, bethlehem, japan"},
 }

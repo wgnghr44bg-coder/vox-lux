@@ -134,6 +134,10 @@ def main():
                 break
             time.sleep(15)
         vandaag = dt.date.today()
+    slot = Path.home() / "gpu-bezet.lock"                 # 19 nov 2026: andere kanalen (NOIRTRACES/BlackswanVault) gebruiken de videokaart
+    if slot.exists() and dt.datetime.now().timestamp() - slot.stat().st_mtime < 12 * 3600:
+        print("videokaart bezet door ander kanaal:", slot.read_text(errors="replace").strip()[:80])
+        return
     if keten_draait():
         if not waakhond(droog):
             print("keten draait al")

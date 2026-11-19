@@ -1,6 +1,6 @@
 onderwerp Life in the Tower of London, around 1536
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)
-datum    za 2027-01-23 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-30 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen))
+datum    za 2027-04-17 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-23 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-30 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen)))
 titel    Life in the Tower of London, 1536 | History for Sleep
 opening   onderwerp
 titelsoort life-in

@@ -1,6 +1,6 @@
 onderwerp The Man in the Iron Mask, France 1669-1703
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)
-datum    za 2027-01-09 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-16 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen))
+datum    za 2027-03-06 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-09 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-12-16 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen)))
 titel    The Man in the Iron Mask, France 1703 | History for Sleep
 opening   persoon
 titelsoort event-year

@@ -1,6 +1,6 @@
 onderwerp Harvest Time in an Anglo-Saxon Village, 700 AD
 status   script-klaar (2026-11-03, tweede account)
-datum    wo 2027-05-19 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-08-04 21:00 NL)
+datum    za 2027-12-18 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2027-05-19 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-08-04 21:00 NL))
 titel    Harvest Time in an Anglo-Saxon Village, 700 AD | <N> Hours of History for Sleep
 thumbnail amberregel "ENGLAND · 700 AD", hook "The Anglo-Saxon Harvest", beeld (kenmerkend): een Angelsaksisch dorp met houten huizen en steile rieten daken bij zonsondergang, een vrouw en een meisje met sikkels tussen gouden schoven tarwe, rook die recht omhoog stijgt; rustig, warm goudlicht
 soort    middeleeuwen

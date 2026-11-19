@@ -2,7 +2,7 @@
 verkeerde beelden"). Doet wat stories/PROMPT-ROUTINE-PC.md beschrijft, met gewone programma's en lokale modellen:
 
  1. git pull; een hangende video (status "bezig (... routine-lokaal)") eerst afmaken
- 2. de eerstvolgende open plek kiezen (wo/za 21:00, minstens 2 dagen vooruit): een script-klaar met die datum, anders
+ 2. de eerstvolgende open plek kiezen (za 21:00, minstens 2 dagen vooruit): een script-klaar met die datum, anders
     (vrije plek) het eerste reservescript; nog niet omgebouwd -> tools/scriptgen/generator.py
  3. status "bezig", push
  4. ComfyUI starten indien nodig, beelden maken (comfy_batch), dubbele beeldcontrole (tools/beeldcheck.py)
@@ -74,7 +74,7 @@ def kies(alleen_kijken=False):
     bezet = {planning(m)[1] for m in STORIES.iterdir() if m.is_dir() and planning(m)[1]}
     dag = datetime.date.today() + datetime.timedelta(days=2)
     for _ in range(60):
-        if dag.weekday() in (2, 5):                         # wo, za (eigenaar 19 nov: 2x per week)
+        if dag.weekday() == 5:                              # za (eigenaar 19 nov avond: 1x per week)
             d = dag.isoformat()
             klaar = [m for m in STORIES.iterdir() if m.is_dir() and planning(m)[1] == d and planning(m)[2].startswith("script-klaar")]
             if klaar:

@@ -8,17 +8,17 @@ De website wordt elk half uur bijgewerkt door `tools/dashboard_bijwerken.py`, da
 
 | Kanaal | Hoe vaak | Wanneer (NL) | Sleutel |
 |---|---|---|---|
-| **Sleep Archives** (@sleeparchiveshistory) | 2x per week | wo en za 21:00 | `YT_REFRESH_TOKEN` |
+| **Sleep Archives** (@sleeparchiveshistory) | 1x per week | za 21:00 | `YT_REFRESH_TOKEN` |
 | **NOIRTRACES** (@noirtraces) | 1x per week | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
-| **BlackswanVault** (@blackswanvault) | ongeveer 1x per week | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
+| **BlackswanVault** (@blackswanvault), **FOCUS** | ongeveer 1x per week | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
 
 Alteraqon (@alteraqon) is gestopt.
 
 ## Waar de planning staat
 
 - **Sleep Archives**: in `stories/<map>/planning.txt`, op de regel `datum`.
-  - Alleen wo en za. Sinds 19 nov 2026 zijn alle datums omgezet; de oude ma-plekken bestaan niet meer.
-  - `tools/routine_lokaal.py`, `tools/keten_bewaker.py` en `tools/hype_wacht.py` gebruiken alleen wo en za.
+  - Alleen za (eigenaar 19 nov avond: "focus op swan, elke week 1 video voor sleep en noir"). Alle datums zijn omgezet.
+  - `tools/routine_lokaal.py` en `tools/hype_wacht.py` gebruiken alleen za. `tools/keten_bewaker.py` wacht zolang `~/gpu-bezet.lock` bestaat (een keten van een ander kanaal gebruikt de videokaart).
 - **NOIRTRACES en BlackswanVault**: in `kanalen/PLANNING-KANALEN.json`, met per video `kanaal`, `datum`, `tijd`, `titel`, `stand` en `youtube` (het video-id, zodra hij er staat).
   - Wat al op YouTube staat, haalt de website er zelf bij.
   - Gebruik voor `stand` een van: `onderwerp kiezen`, `script klaar`, `wordt gemaakt`, `gepland` of `online`.
@@ -26,7 +26,7 @@ Alteraqon (@alteraqon) is gestopt.
 ## Inspelen op hype
 
 - **Sleep Archives**
-  - Feestdagen en jaardagen krijgen de laatste wo- of za-plek op of vóór de dag zelf.
+  - Feestdagen en jaardagen krijgen de laatste za-plek op of vóór de dag zelf.
   - De hype-wachter (elke dag om 08:30) laat zien welke slaapvideo's bij grote kanalen nu groeien. Zo'n onderwerp schuift naar voren.
 - **NOIRTRACES**
   - Eerst de bekendste zaken (eigenaar 19 nov). De volgorde staat in `kanalen/PLANNING-KANALEN.json` onder `noir_volgorde`.
@@ -43,3 +43,7 @@ Alteraqon (@alteraqon) is gestopt.
 - Openbaar zetten of een publicatietijd instellen mag alleen als de eigenaar het goedvindt.
 - Controleer na elke wijziging van de status via de API of het AI-label (`containsSyntheticMedia`) nog aan staat.
 - Na elke wijziging: `kanalen/PLANNING-KANALEN.json` en/of `planning.txt` bijwerken en opslaan via `tools/gitveilig.py` (`bewaar`).
+
+## BlackswanVault: kwaliteit (eigenaar 19 nov avond, na de Nvidia-video)
+- Geen schokkerige of onscherpe video's op de achtergrond. Gebruik een scherpe echte foto, of een goede AI-foto die past bij de tekst. Een echte video mag alleen als die er professioneel uitziet.
+- Niets twee keer vertellen: hetzelfde bedrag of feit maar één keer uitspreken (in de Nvidia-video kwam de omzet van $115,8 miljard twee keer voor).

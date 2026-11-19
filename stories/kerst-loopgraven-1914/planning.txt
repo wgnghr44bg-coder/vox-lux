@@ -1,6 +1,6 @@
 onderwerp Life in the Trenches, Christmas 1914
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 12 nov, 2026-11-12, Claude)
-datum    wo 2026-12-09 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-05 21:00 NL (kerst vroeg in december; was za 2026-12-12))
+datum    za 2026-12-12 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2026-12-09 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-05 21:00 NL (kerst vroeg in december; was za 2026-12-12)))
 titel    Christmas in the Trenches, 1914 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Happened in the Trenches on Christmas 1914?)
 thumbnail amberregel "FLANDERS · CHRISTMAS 1914", hook "Life in the Trenches", beeld: Britse en Duitse soldaten in winterjassen die samen voetballen in het berijpte niemandsland op kerstochtend 1914, lachend, kleine kerstboompjes op de borstwering, koele heldere winterochtend; geen wapens (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog

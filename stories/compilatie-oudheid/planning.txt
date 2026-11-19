@@ -1,6 +1,6 @@
 onderwerp Compilatie: Ancient History (bestaande video's achter elkaar, eigenaar 15 nov 2026)
 status   compilatie-akkoord (eigenaar 18 nov: 'hou je gewoon aan de planning'; maken eind dec, stories/PLAN-COMPILATIES.md)
-datum    za 2027-01-30 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2027-01-04 21:00 NL (eigenaar 15 nov: compilaties in de planning; vrije maandag))
+datum    za 2027-05-01 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-30 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2027-01-04 21:00 NL (eigenaar 15 nov: compilaties in de planning; vrije maandag)))
 titel    10 Hours of Ancient History | History for Sleep (uren = echte duur naar beneden; na het samenvoegen nakijken)
 onderdelen ijstijd-20000-vc, egypte-toetanchamon, babylon-600-vc, rome-44-vc, bethlehem
 soort    oudheid

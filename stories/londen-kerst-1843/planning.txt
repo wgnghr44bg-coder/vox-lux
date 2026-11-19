@@ -1,6 +1,6 @@
 onderwerp Life in Victorian London at Christmas, 1843
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; opnieuw geschreven)
-datum    za 2026-12-19 21:00 NL (hype-wachter 14 nov: precies 183 jaar na A Christmas Carol van Dickens, 19 dec 1843; was wo 2026-12-23, geruild met bethlehem)
+datum    za 2026-12-26 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2026-12-19 21:00 NL (hype-wachter 14 nov: precies 183 jaar na A Christmas Carol van Dickens, 19 dec 1843; was wo 2026-12-23, geruild met bethlehem))
 titel    Life in Victorian London at Christmas, 1843 | History for Sleep
 opening   scène
 titelsoort life-in
