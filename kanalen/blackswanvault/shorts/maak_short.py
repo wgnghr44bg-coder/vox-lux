@@ -8,13 +8,26 @@ Z = json.load(open(vm / "zinnen.json", encoding="utf-8"))
 t0 = max(0, Z[a][0] - 0.3); t1 = Z[b][1] + 0.9; dur = t1 - t0
 def ts(x):
     h, r = divmod(max(0, x), 3600); m, s = divmod(r, 60); return f"{int(h)}:{int(m):02d}:{s:05.2f}"
-reg = []
-for s, e, z, _ in Z[a:b + 1]:
-    w = z.split(); stukken = [w[i:i + 4] for i in range(0, len(w), 4)]
-    tot = sum(len(" ".join(x)) for x in stukken); t = s
-    for x in stukken:
-        d = (e - s) * len(" ".join(x)) / tot
-        reg.append(f"Dialogue: 0,{ts(t - t0)},{ts(t + d - t0)},Sub,,0,0,0,,{' '.join(x)}"); t += d
+# 19 nov (eigenaar: "ondertiteling klopt niet helemaal", "je mag ook cijfers gebruiken"): woordtijden van Whisper op de stem
+import os
+wj = Path(uit).with_name(Path(uit).stem + "-woorden.json")
+if not wj.exists():
+    subprocess.run([r"C:/Users/rane/omnivoice-venv/Scripts/python.exe", str(Path(__file__).with_name("woorden.py")), str(vm / "stem.wav"),
+                    f"{t0:.2f}", f"{t1:.2f}", str(wj)], check=True)
+GETAL = {"two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"}
+W = json.load(open(wj, encoding="utf-8"))
+for w in W:
+    k = w["w"].lower().strip(".,?!")
+    if k in GETAL: w["w"] = w["w"].lower().replace(k, GETAL[k])
+reg, groep = [], []
+def klaar(g):
+    s, e = g[0]["s"], (g[-1]["e"] or g[-1]["s"] + 0.3)
+    reg.append(f"Dialogue: 0,{ts(s)},{ts(e + 0.05)},Sub,,0,0,0,,{' '.join(x['w'] for x in g)}")
+for w in W:
+    groep.append(w)
+    if len(groep) == 4 or w["w"][-1:] in ".,?!" or (groep and len(" ".join(x["w"] for x in groep)) > 22):
+        klaar(groep); groep = []
+if groep: klaar(groep)
 kop_r = f"Dialogue: 1,{ts(0)},{ts(dur)},Kop,,0,0,0,,{kop}"
 ass = f"""[Script Info]
 PlayResX: 1080
