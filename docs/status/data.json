@@ -1,23 +1,23 @@
 {
- "bijgewerkt": "2026-11-19 00:33",
+ "bijgewerkt": "2026-11-19 01:03",
  "werkplanning": {
   "nu": [
    {
-    "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-    "map": "thanksgiving-1621",
+    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "map": "dallas-1963",
     "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
   "daarna": [
    {
-    "wanneer": "na Thanksgiving",
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "keten maakt de video voor za 21-11 21:00"
+    "wanneer": "na Dallas",
+    "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+    "map": "thanksgiving-1621",
+    "detail": "keten maakt de video voor wo 25-11 21:00"
    },
    {
-    "wanneer": "na Dallas",
+    "wanneer": "na Thanksgiving",
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
     "detail": "keten maakt de video voor za 28-11 21:00"
@@ -490,7 +490,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "150 GB vrij"
+   "tekst": "149 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -505,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 00:33)"
+   "tekst": "draait nu (2026-11-19 01:03)"
   },
   {
    "naam": "Git",
@@ -525,7 +525,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 00:18: alles klopt"
+   "tekst": "laatste ronde 00:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +542,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 00:33",
-   "volgende": "2026-11-19 01:03"
+   "laatst": "2026-11-19 01:03",
+   "volgende": "2026-11-19 01:33"
   },
   "hype": {
    "aan": true,
@@ -557,8 +557,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 00:18",
-   "volgende": "2026-11-19 00:48"
+   "laatst": "2026-11-19 00:48",
+   "volgende": "2026-11-19 01:18"
   },
   "titels": {
    "aan": true,
@@ -880,22 +880,21 @@
  ],
  "stap": 4,
  "huidig": {
-  "map": "thanksgiving-1621",
-  "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-  "datum": "2026-11-25",
-  "thumb": "thumbs/thanksgiving-1621.jpg",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "thumbs/dallas-1963.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
   "voortgang": null,
   "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beelden en geluid samenvoegen"
+   "beelden en geluid samenvoegen",
+   "beweging en hoofdstuktitels",
+   "beelden maken (ComfyUI)"
   ],
-  "eind": {
-   "klaar": "2026-11-19 06:34",
-   "youtube": "2026-11-19 06:54"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -905,11 +904,19 @@
   {
    "naam": "beelden en geluid samenvoegen",
    "stap": 4
+  },
+  {
+   "naam": "beweging en hoofdstuktitels",
+   "stap": 4
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 18,
-  "geheugen_mb": 770,
+  "bezig_procent": 19,
+  "geheugen_mb": 4238,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1081,7 +1088,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 00:33",
+   "tijd": "2026-11-19 01:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3731,14 +3738,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 00:36",
+  "bijgewerkt": "2026-11-19 01:06",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 49224913,
+    "week": 48884483,
     "per_dag": {
-     "Thu 12-11": 29388454,
+     "Thu 12-11": 29048023,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
