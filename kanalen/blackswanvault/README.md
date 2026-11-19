@@ -42,7 +42,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - Controleplaat: `python render3.py --plaat uit.jpg`.
 - **`video3/` (GTA 6 / Take-Two):** `bronnen.md`. Wacht op de officiële verkoopcijfers van Take-Two (verwacht uiterlijk 23 nov).
 - **`shorts/`**
-  - `maak_short.py <videomap> <video.mp4> <zin_a> <zin_b> "<KOP>" <uit.mp4>` maakt een staande Short (1080x1920) uit de lange video. De 16:9-video staat in het midden, met een kop bovenin en grote ondertiteling (max. 4 woorden per regel). De ondertiteling volgt de woordtijden van Whisper op de stem (`woorden.py`, op de CPU). Getallen staan in cijfers (eigenaar: "je mag ook cijfers gebruiken").
+  - `maak_short.py <videomap> <video.mp4> <zin_a> <zin_b> "<KOP>" <uit.mp4>` maakt een staande Short (1080x1920) uit de lange video. De 16:9-video staat in het midden, met een kop bovenin en grote ondertiteling: hele zinsdelen tot de komma of punt (max. 2 regels, lange zinnen in gelijke delen), blokken zonder overlap en altijd op dezelfde plek (bovenste regel vast), zodat niets op en neer springt (eigenaar 19 nov). De ondertiteling volgt de woordtijden van Whisper op de stem (`woorden.py`, op de CPU). Getallen staan in cijfers (eigenaar: "je mag ook cijfers gebruiken").
   - Kies een stuk van 30 tot 55 s met een haak en een open vraag aan het eind.
   - Voorbeeld: `nvidia-short-1` = zin 0 t/m 9 van video 1.
 - **Beelden en geluid** (echt/*.jpg, *.wav, *.mp4) staan **alleen op de pc**, niet in git. `echt/bronnen.tsv` bevat de vermeldingen.

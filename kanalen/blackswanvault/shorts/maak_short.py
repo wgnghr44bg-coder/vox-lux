@@ -16,18 +16,41 @@ if not wj.exists():
                     f"{t0:.2f}", f"{t1:.2f}", str(wj)], check=True)
 GETAL = {"two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"}
 W = json.load(open(wj, encoding="utf-8"))
+vorige = "."
 for w in W:
     k = w["w"].lower().strip(".,?!")
-    if k in GETAL: w["w"] = w["w"].lower().replace(k, GETAL[k])
-reg, groep = [], []
-def klaar(g):
-    s, e = g[0]["s"], (g[-1]["e"] or g[-1]["s"] + 0.3)
-    reg.append(f"Dialogue: 0,{ts(s)},{ts(e + 0.05)},Sub,,0,0,0,,{' '.join(x['w'] for x in g)}")
+    if k in GETAL and vorige[-1:] not in ".?!": w["w"] = w["w"].lower().replace(k, GETAL[k])   # niet aan het begin van een zin
+    w["w"] = w["w"].replace("NVIDIA", "Nvidia"); vorige = w["w"]
+# 19 nov (eigenaar: "gaat van boven naar beneden en maakt geen complete zinnen"): hele zinsdelen (tot komma/punt, max 2 regels),
+# en blokken sluiten precies op elkaar aan (overlap liet libass ze boven elkaar stapelen = springen)
+groepen, groep = [], []
 for w in W:
     groep.append(w)
-    if len(groep) == 4 or w["w"][-1:] in ".,?!" or (groep and len(" ".join(x["w"] for x in groep)) > 22):
-        klaar(groep); groep = []
-if groep: klaar(groep)
+    if w["w"][-1:] in ".,?!;:":
+        groepen.append(groep); groep = []
+if groep: groepen.append(groep)
+import math
+def verdeel(g, maxc=44):                                   # lange zin in gelijke delen (geen los staartje)
+    n = math.ceil(len(" ".join(x["w"] for x in g)) / maxc)
+    if n <= 1: return [g]
+    doel = len(" ".join(x["w"] for x in g)) / n; uit, cur = [], []
+    for x in g:
+        cur.append(x)
+        if len(uit) < n - 1 and len(" ".join(y["w"] for y in cur)) >= doel: uit.append(cur); cur = []
+    if cur: uit.append(cur)
+    return uit
+groepen = [d for g in groepen for d in verdeel(g)]
+def regels(g):
+    s = " ".join(x["w"] for x in g)
+    if len(s) <= 24: return s
+    woorden = s.split(); beste = min(range(1, len(woorden)), key=lambda k: abs(len(" ".join(woorden[:k])) - len(" ".join(woorden[k:]))))
+    return " ".join(woorden[:beste]) + BREUK + " ".join(woorden[beste:])
+BREUK = chr(92) + 'N'
+reg = []
+for k, g in enumerate(groepen):
+    s = g[0]["s"]; e = (g[-1]["e"] or g[-1]["s"] + 0.3) + 0.35
+    if k + 1 < len(groepen): e = min(e, groepen[k + 1][0]["s"])
+    reg.append(f"Dialogue: 0,{ts(s)},{ts(e)},Sub,,0,0,0,,{regels(g)}")
 kop_r = f"Dialogue: 1,{ts(0)},{ts(dur)},Kop,,0,0,0,,{kop}"
 ass = f"""[Script Info]
 PlayResX: 1080
@@ -36,7 +59,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Segoe UI Black,78,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,6,2,2,60,60,430,1
+Style: Sub,Segoe UI Black,72,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,6,2,8,60,60,1340,1
 Style: Kop,Segoe UI Black,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,5,0,8,60,60,250,1
 
 [Events]
