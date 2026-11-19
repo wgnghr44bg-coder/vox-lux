@@ -9,7 +9,7 @@ De website wordt elk half uur bijgewerkt door `tools/dashboard_bijwerken.py`, da
 | Kanaal | Hoe vaak | Wanneer (NL) | Sleutel |
 |---|---|---|---|
 | **Sleep Archives** (@sleeparchiveshistory) | 1x per week | za 21:00 | `YT_REFRESH_TOKEN` |
-| **NOIRTRACES** (@noirtraces) | 1x per week | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
+| **NOIRTRACES** (@noirtraces), **OP PAUZE** | (straks 1x per week) | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
 | **BlackswanVault** (@blackswanvault), **FOCUS** | ongeveer 1x per week | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
 
 Alteraqon (@alteraqon) is gestopt.
@@ -47,3 +47,4 @@ Alteraqon (@alteraqon) is gestopt.
 ## BlackswanVault: kwaliteit (eigenaar 19 nov avond, na de Nvidia-video)
 - Geen schokkerige of onscherpe video's op de achtergrond. Gebruik een scherpe echte foto, of een goede AI-foto die past bij de tekst. Een echte video mag alleen als die er professioneel uitziet.
 - Niets twee keer vertellen: hetzelfde bedrag of feit maar één keer uitspreken (in de Nvidia-video kwam de omzet van $115,8 miljard twee keer voor).
+- Opsommingen rustig: elk item een eigen korte zin (eigen regel in script.txt), met 0,6 s pauze erna, en elk item apart in beeld (eigenaar 19 nov avond).
