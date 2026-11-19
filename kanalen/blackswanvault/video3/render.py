@@ -88,7 +88,7 @@ def vid(naam, t, dur, donker=0.7, blur=0, speed=0.8, zoom=(1.0, 1.06), sleutel=N
 
 CRED = {}
 for r in (H / "echt/bronnen.tsv").read_text(encoding="utf-8").splitlines():
-    f, t, a, lic, u = r.split("\t"); CRED[f] = "Image: Rockstar Games (official screenshot)" if lic == "officieel" else f"Photo: {a or 'unknown'} / {lic} / Wikimedia Commons"
+    f, t, a, lic, u = r.split("\t"); CRED[f] = "AI-generated image" if lic == "AI" else "Image: Rockstar Games (official screenshot)" if lic == "officieel" else f"Photo: {a or 'unknown'} / {lic} / Wikimedia Commons"
 _foto = {}
 def foto(nr, t, dur, zoom=(1.0, 1.1), pan=(0.5, 0.5, 0.5, 0.5), grijs=False, donker=0.6, crop=None):
     k = (nr, grijs, crop)

@@ -236,7 +236,7 @@ SHOTS = [
                                                   (92, ON("Highly confident in the new date"))])),
  (ZR(93) - 0.15, koers("2026-11-09", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, November 9 to 19, 2026",
                        markers=[("2026-11-18", "Reviews"), ("2026-11-19", "Launch")], labels=[(46, 1700, 330, "+6%", GROEN)], teken=0.9)),
- (ZR(96) - 0.15, fasen(F("gta6-cover", (1.0, 1.06), 0.45), [(96, ST("NOVEMBER 19: LAUNCH")), (97, ON("Many fans had paid in advance")), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
+ (ZR(96) - 0.15, fasen(F("gta6-cover", (1.0, 1.06), 0.6), [(96, ST("NOVEMBER 19: LAUNCH")), (97, ON("Many fans had paid in advance")), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
                                                     (100, ON("Sony and Microsoft shares went up")), (101, ST("TAKE-TWO STOCK: DOWN", ROOD))])),
  (ZR(102) - 0.15, balken([("RDR2 · first 3 days", 0.725), ("Endgame · opening weekend", 1.2), ("GTA VI · day one (est.)", 1.8)], "BIG LAUNCHES COMPARED",
                         "Billions of dollars", "Sources: Take-Two, Disney, Sensor Tower estimate", lambda v: f"${v:.2f}B" if v < 1 else f"${v:.1f}B", [103, 105, 106], hl=2)),
