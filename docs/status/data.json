@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 23:33",
+ "bijgewerkt": "2026-11-20 00:03",
  "kanalen": {
   "weken": [
    {
@@ -626,7 +626,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "152 GB vrij"
+   "tekst": "151 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 23:33)"
+   "tekst": "draait nu (2026-11-20 00:03)"
   },
   {
    "naam": "Git",
@@ -661,7 +661,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -678,8 +678,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 23:33",
-   "volgende": "2026-11-20 00:03"
+   "laatst": "2026-11-20 00:03",
+   "volgende": "2026-11-20 00:33"
   },
   "hype": {
    "aan": true,
@@ -693,8 +693,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 23:18",
-   "volgende": "2026-11-19 23:48"
+   "laatst": "2026-11-19 23:48",
+   "volgende": "2026-11-20 00:18"
   },
   "titels": {
    "aan": true,
@@ -708,14 +708,14 @@
   "views_totaal": 3006,
   "video_aantal": 17,
   "week": {
-   "views": 457,
-   "uren": 106,
-   "abonnees": 4
+   "views": 315,
+   "uren": 59,
+   "abonnees": 2
   },
   "vorige_week": {
-   "views": 608,
-   "uren": 154,
-   "abonnees": 4
+   "views": 644,
+   "uren": 167,
+   "abonnees": 5
   },
   "recent": [
    {
@@ -760,7 +760,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 18,
+    "views": 15,
     "verwerkt": "processed"
    },
    {
@@ -805,16 +805,11 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 710,
+    "views": 714,
     "verwerkt": "processed"
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-22",
-    "views": 93,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-23",
     "views": 84,
@@ -947,14 +942,14 @@
    }
   ],
   "maand": {
-   "views": 2449,
-   "uren": 557,
+   "views": 2356,
+   "uren": 508,
    "abonnees": 10
   },
   "vorige_maand": {
-   "views": 783,
-   "uren": 161,
-   "abonnees": 7
+   "views": 830,
+   "uren": 192,
+   "abonnees": 6
   },
   "jaar": {
    "views": 3655,
@@ -966,8 +961,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 1082,
-    "uren": 282
+    "views": 995,
+    "uren": 233
    },
    {
     "id": "_duWLxwIEss",
@@ -991,10 +986,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 18.1,
+   "tempo_uren_per_dag": 16.9,
    "tempo_abonnees_per_dag": 0.36,
-   "datum_uren": "2027-05-22",
-   "datum_abonnees": "2034-05-26"
+   "datum_uren": "2027-06-05",
+   "datum_abonnees": "2034-05-27"
   }
  },
  "kpi": {
@@ -1035,7 +1030,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 4809,
+  "geheugen_mb": 4663,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1077,12 +1072,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-19",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-20",
    "plek": false,
    "video": "",
@@ -1114,6 +1103,12 @@
   },
   {
    "datum": "2026-11-25",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-26",
    "plek": false,
    "video": "",
    "soort": ""
@@ -1213,8 +1208,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-19 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3662,7 +3657,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 23:33",
+  "bijgewerkt": "2026-11-20 00:05",
   "accounts": [
    {
     "account": "hoofd",
