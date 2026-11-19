@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-19 07:03",
+ "bijgewerkt": "2026-11-19 07:34",
  "werkplanning": {
   "nu": [
    {
-    "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-    "map": "thanksgiving-1621",
-    "detail": "YouTube upload",
+    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "map": "dallas-1963",
+    "detail": "Beelden maken · 97%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Thanksgiving",
-    "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "detail": "keten maakt de video voor za 21-11 21:00"
-   },
    {
     "wanneer": "na Dallas",
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
@@ -57,8 +51,8 @@
     "dag": "wo",
     "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
+    "stand": "staat klaar op YouTube",
+    "kleur": "goed"
    },
    {
     "datum": "2026-11-28",
@@ -145,13 +139,13 @@
     "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
     "klaar": true,
-    "stand": "video wordt gemaakt",
+    "stand": "video staat klaar",
     "controle": "GOED",
     "flesch": 66,
     "niveau": 7.5,
     "leesbaar": "GOED",
     "toon": "TOON GOED",
-    "afspraken": []
+    "afspraken": null
    },
    {
     "datum": "2026-11-28",
@@ -490,7 +484,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "132 GB vrij"
+   "tekst": "139 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -505,7 +499,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 07:03)"
+   "tekst": "draait nu (2026-11-19 07:33)"
   },
   {
    "naam": "Git",
@@ -525,7 +519,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 06:48: alles klopt"
+   "tekst": "laatste ronde 07:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +536,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 07:03",
-   "volgende": "2026-11-19 07:33"
+   "laatst": "2026-11-19 07:33",
+   "volgende": "2026-11-19 08:03"
   },
   "hype": {
    "aan": true,
@@ -552,29 +546,316 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 06:10",
-   "volgende": "2026-11-19 07:10"
+   "laatst": "2026-11-19 07:10",
+   "volgende": "2026-11-19 08:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 06:48",
-   "volgende": "2026-11-19 07:18"
+   "laatst": "2026-11-19 07:18",
+   "volgende": "2026-11-19 07:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 05:25",
-   "volgende": "2026-11-19 07:25"
+   "laatst": "2026-11-19 07:25",
+   "volgende": "2026-11-19 09:25"
   }
  },
  "kanaal": {
-  "fout": "'NoneType' object has no attribute 'groups'"
+  "naam": "Sleep Archives",
+  "abonnees": 18,
+  "views_totaal": 3006,
+  "video_aantal": 17,
+  "week": {
+   "views": 445,
+   "uren": 98,
+   "abonnees": 3
+  },
+  "vorige_week": {
+   "views": 622,
+   "uren": 164,
+   "abonnees": 4
+  },
+  "recent": [
+   {
+    "id": "KU6eoe5vy-U",
+    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+    "duur": "2:06:10",
+    "privacy": "private",
+    "publiceer": "2026-11-25T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "z1E4tQDqMG0",
+    "titel": "How People Survived the Ice Age | History for Sleep",
+    "duur": "1:57:49",
+    "privacy": "private",
+    "publiceer": "2026-11-23T20:00:00Z",
+    "views": 1,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "4i-gOILazVQ",
+    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "duur": "2:17:38",
+    "privacy": "private",
+    "publiceer": "2026-11-21T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "YZ4sZ_EivLc",
+    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
+    "duur": "2:10:23",
+    "privacy": "public",
+    "publiceer": "2026-11-17T20:00:19Z",
+    "views": 42,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "Y46Rpy4703k",
+    "titel": "Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep",
+    "duur": "2:04:50",
+    "privacy": "public",
+    "publiceer": "2026-11-14T20:00:16Z",
+    "views": 18,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "KwUvlP42M34",
+    "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
+    "duur": "1:57:36",
+    "privacy": "public",
+    "publiceer": "2026-11-12T22:23:52Z",
+    "views": 74,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "ZZ5JMtF9kuI",
+    "titel": "Quiet WW2 Facts to Fall Asleep To | History for Sleep",
+    "duur": "2:42:38",
+    "privacy": "public",
+    "publiceer": "2026-11-08T10:53:11Z",
+    "views": 18,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "OC0WGLbKD8M",
+    "titel": "Life Aboard the Hindenburg, May 1937 | History for Sleep",
+    "duur": "1:56:34",
+    "privacy": "public",
+    "publiceer": "2026-11-04T20:00:36Z",
+    "views": 133,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "privacy": "public",
+    "publiceer": "2026-10-31T20:18:28Z",
+    "views": 347,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "privacy": "public",
+    "publiceer": "2026-10-28T00:27:13Z",
+    "views": 668,
+    "verwerkt": "processed"
+   }
+  ],
+  "dagen": [
+   {
+    "dag": "2026-10-22",
+    "views": 93,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-23",
+    "views": 84,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-24",
+    "views": 99,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-25",
+    "views": 147,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-26",
+    "views": 240,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-27",
+    "views": 185,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-10-28",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-29",
+    "views": 94,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-30",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-31",
+    "views": 33,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-01",
+    "views": 65,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-02",
+    "views": 192,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-03",
+    "views": 124,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-04",
+    "views": 24,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-05",
+    "views": 29,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-06",
+    "views": 48,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-07",
+    "views": 72,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-08",
+    "views": 101,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-09",
+    "views": 35,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-10",
+    "views": 77,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-11",
+    "views": 118,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-12",
+    "views": 142,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-11-13",
+    "views": 65,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-14",
+    "views": 88,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-15",
+    "views": 70,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-16",
+    "views": 80,
+    "abonnees": 0
+   }
+  ],
+  "maand": {
+   "views": 2451,
+   "uren": 560,
+   "abonnees": 9
+  },
+  "vorige_maand": {
+   "views": 783,
+   "uren": 161,
+   "abonnees": 7
+  },
+  "jaar": {
+   "views": 3657,
+   "uren": 680,
+   "abonnees": 17
+  },
+  "top": [
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "views": 1082,
+    "uren": 282
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "views": 656,
+    "uren": 162
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "views": 347,
+    "uren": 27
+   }
+  ],
+  "partner": {
+   "uren": 679,
+   "uren_doel": 4000,
+   "abonnees": 18,
+   "abonnees_doel": 1000,
+   "eerste_uren": "2026-09-18",
+   "valt_eruit_vanaf": "2027-09-18",
+   "tempo_uren_per_dag": 18.2,
+   "tempo_abonnees_per_dag": 0.32,
+   "datum_uren": "2027-05-21",
+   "datum_abonnees": "2035-04-02"
+  }
  },
  "kpi": {
-  "geplande": 0,
+  "geplande": 3,
   "runs": {
-   "goed": 4,
-   "totaal": 15,
-   "procent": 27
+   "goed": 5,
+   "totaal": 16,
+   "procent": 31
   },
   "fouten": 1,
   "zelfcontrole": {
@@ -591,25 +872,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 6,
+ "stap": 2,
  "huidig": {
-  "map": "thanksgiving-1621",
-  "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-  "datum": "2026-11-25",
-  "thumb": "thumbs/thanksgiving-1621.jpg",
-  "stap": 6,
-  "stapnaam": "YouTube upload",
-  "voortgang": null,
-  "detail": "",
+  "map": "dallas-1963",
+  "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+  "datum": "2026-11-21",
+  "thumb": "thumbs/dallas-1963.jpg",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 97,
+  "detail": "87 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "uploaden en controleren",
-   "uploaden"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
-  "eind": {
-   "klaar": "2026-11-19 07:00",
-   "youtube": "2026-11-19 07:20"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -617,17 +895,17 @@
    "stap": 0
   },
   {
-   "naam": "uploaden en controleren",
-   "stap": 6
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   },
   {
-   "naam": "uploaden",
-   "stap": 6
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 780,
+  "bezig_procent": 17,
+  "geheugen_mb": 875,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -664,7 +942,7 @@
   {
    "naam": "YouTube",
    "wat": "API",
-   "ok": false
+   "ok": true
   }
  ],
  "week": [
@@ -708,40 +986,10 @@
    "datum": "2026-11-25",
    "plek": true,
    "video": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-   "soort": "bezig"
+   "soort": "gepland"
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-18 17:53",
-   "tekst": "ijstijd-20000-vc: KLAAR",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-18 17:53",
-   "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-23 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 17:53",
-   "tekst": "bewaker: keten gestart voor thanksgiving-1621",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 17:53",
-   "tekst": "routine-lokaal: thanksgiving-1621: opnieuw maken voor 2026-11-25 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-18 18:07",
-   "tekst": "Claude: thumbnails NIEUWE STIJL vast (eigenaar 18 nov: 'ja'): alleen het kenmerk groot rechts, geen mensen, letters vrij (opmaak schuift 130 px). Thanksgiving (oogsttafel) en Boeren (boerenhuisje zond",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-18 18:18",
    "tekst": "Claude: blackbeard-1718: thumbnail-v3.jpg klaar in nieuwe stijl (Queen Anne's Revenge, geen doodshoofd op de zeilen, letters vrij). philadelphia-1776: deel1 nieuw geschreven (30 blokken), rest wacht o",
@@ -795,11 +1043,41 @@
    "tekst": "sitecontrole: opgelost: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 07:10",
+   "tekst": "thanksgiving-1621: geüpload https://youtu.be/KU6eoe5vy-U (privé, publiek 2026-11-25T20:00:00Z), kanaal Sleep Archives gecontroleerd",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-19 07:15",
+   "tekst": "thanksgiving-1621: KLAAR",
+   "fout": false,
+   "klaar": true
+  },
+  {
+   "tijd": "2026-11-19 07:15",
+   "tekst": "routine-lokaal: thanksgiving-1621: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-25 21:00",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 07:16",
+   "tekst": "bewaker: keten gestart voor dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 07:16",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 07:03",
+   "tijd": "2026-11-19 07:34",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1295,7 +1573,7 @@
    "datum": "2026-11-21",
    "reserve": false,
    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-   "status": "bezig (2026-11-17, routine-lokaal)",
+   "status": "bezig (2026-11-19, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "mysterie",
@@ -1303,11 +1581,11 @@
    "stappen": [
     true,
     true,
-    true,
+    false,
     true,
     false
    ],
-   "gereed": 80,
+   "gereed": 60,
    "thumb": "thumbs/dallas-1963.jpg"
   },
   {
@@ -2328,9 +2606,9 @@
    "datum": "2026-11-25",
    "reserve": false,
    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-   "status": "bezig (2026-11-18, routine-lokaal)",
-   "soort": "bezig",
-   "id": "",
+   "status": "klaar",
+   "soort": "gepland",
+   "id": "KU6eoe5vy-U",
    "afspeellijst": "reis",
    "opening": "mythe",
    "stappen": [
@@ -2338,9 +2616,9 @@
     true,
     true,
     true,
-    false
+    true
    ],
-   "gereed": 80,
+   "gereed": 100,
    "thumb": "thumbs/thanksgiving-1621.jpg"
   },
   {
@@ -3092,7 +3370,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 05:25",
+  "bijgewerkt": "2026-11-19 07:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3116,7 +3394,7 @@
     "let_op": [],
     "voorstel": "",
     "waarom": "",
-    "youtube": "op YouTube staat 'Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep'",
+    "youtube": "",
     "concurrent": [],
     "bekeken": ""
    },
@@ -3178,7 +3456,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-15"
+    "bekeken": ""
    },
    {
     "map": "boeren-winter-1300",
@@ -3446,17 +3724,17 @@
     "bekeken": "2026-11-19"
    }
   ],
-  "model": "niet nodig"
+  "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 07:03",
+  "bijgewerkt": "2026-11-19 07:36",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 43464975,
+    "week": 42855148,
     "per_dag": {
-     "Thu 12-11": 23628516,
+     "Thu 12-11": 23018689,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3470,26 +3748,26 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 86647273,
+    "week": 86320132,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Thu 12-11": 4335576,
+     "Thu 12-11": 4008435,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
     "metingen": 15,
-    "stap_kost": 18898,
+    "stap_kost": 0,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": 21.9,
-    "5uur_stappen_over": 718,
-    "week_pct": 66,
-    "week_scripts_over": 73.3,
-    "week_stappen_over": 2401
+    "5uur_stappen_over": null,
+    "week_pct": 65,
+    "week_scripts_over": 73.8,
+    "week_stappen_over": null
    }
   ]
  },
