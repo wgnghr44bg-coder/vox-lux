@@ -1,21 +1,15 @@
 {
- "bijgewerkt": "2026-11-19 13:03",
+ "bijgewerkt": "2026-11-19 13:33",
  "werkplanning": {
   "nu": [
    {
-    "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
-    "map": "boeren-winter-1300",
-    "detail": "Beelden maken · 99%",
+    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "map": "blackbeard-1718",
+    "detail": "Beelden maken · 49%",
     "soort": "nu"
    }
   ],
   "daarna": [
-   {
-    "wanneer": "na Boeren",
-    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-    "map": "blackbeard-1718",
-    "detail": "keten maakt de video voor ma 30-11 21:00"
-   },
    {
     "wanneer": "na Blackbeard",
     "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
@@ -61,8 +55,8 @@
     "dag": "ma",
     "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "stand": "script klaar, video volgt",
-    "kleur": "zacht"
+    "stand": "wordt nu gemaakt",
+    "kleur": "nu"
    },
    {
     "datum": "2026-12-02",
@@ -147,7 +141,7 @@
     "map": "boeren-winter-1300",
     "klaar": true,
     "stand": "video wordt gemaakt",
-    "controle": "GOED",
+    "controle": "FOUT",
     "flesch": 67,
     "niveau": 7.2,
     "leesbaar": "GOED",
@@ -159,7 +153,7 @@
     "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
     "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
+    "stand": "video wordt gemaakt",
     "controle": "GOED",
     "flesch": 64,
     "niveau": 7.7,
@@ -478,7 +472,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "157 GB vrij"
+   "tekst": "156 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -493,7 +487,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 13:03)"
+   "tekst": "draait nu (2026-11-19 13:33)"
   },
   {
    "naam": "Git",
@@ -513,7 +507,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:48: alles klopt"
+   "tekst": "laatste ronde 13:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -530,8 +524,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 13:03",
-   "volgende": "2026-11-19 13:33"
+   "laatst": "2026-11-19 13:33",
+   "volgende": "2026-11-19 14:03"
   },
   "hype": {
    "aan": true,
@@ -540,18 +534,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 12:10",
-   "volgende": "2026-11-19 13:10"
+   "laatst": "2026-11-19 13:10",
+   "volgende": "2026-11-19 14:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 12:48",
-   "volgende": "2026-11-19 13:18"
+   "laatst": "2026-11-19 13:18",
+   "volgende": "2026-11-19 13:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 11:25",
-   "volgende": "2026-11-19 13:25"
+   "laatst": "2026-11-19 13:25",
+   "volgende": "2026-11-19 15:25"
   }
  },
  "kanaal": {
@@ -621,7 +615,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 75,
+    "views": 78,
     "verwerkt": "processed"
    },
    {
@@ -848,10 +842,10 @@
   "geplande": 3,
   "runs": {
    "goed": 5,
-   "totaal": 16,
-   "procent": 31
+   "totaal": 14,
+   "procent": 36
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -868,17 +862,17 @@
  ],
  "stap": 2,
  "huidig": {
-  "map": "boeren-winter-1300",
-  "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
-  "datum": "2026-11-28",
-  "thumb": "thumbs/boeren-winter-1300.jpg",
+  "map": "blackbeard-1718",
+  "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+  "datum": "2026-11-30",
+  "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "87 van 87 beelden",
+  "voortgang": 49,
+  "detail": "41 van 84 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -888,13 +882,13 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "naam": "beelden maken (ComfyUI)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 712,
+  "bezig_procent": 99,
+  "geheugen_mb": 3704,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -980,54 +974,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 07:15",
-   "tekst": "routine-lokaal: thanksgiving-1621: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-25 21:00",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 07:16",
-   "tekst": "bewaker: keten gestart voor dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 07:16",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 07:54",
-   "tekst": "routine-lokaal: dallas-1963: 4 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 08:31",
-   "tekst": "hype-wachter: SEINTJE The Hot Water Bottle Lady: A Cozy Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 08:31",
-   "tekst": "hype-wachter: SEINTJE Pride and Prejudice verschijnt (214 jaar) -> KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-2",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "bewaker: keten gestart voor dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 09:27",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1062,40 +1008,70 @@
    "tekst": "routine-lokaal: boeren-winter-1300: beelden-wachter: 3 beelden lijken op een ander beeld (009, 062, 075), nieuwe maken",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:03",
+   "tekst": "routine-lokaal: boeren-winter-1300: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:05",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:06",
+   "tekst": "bewaker: keten gestart voor boeren-winter-1300",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:06",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:14",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:14",
+   "tekst": "bewaker: SEINTJE boeren-winter-1300 (2026-11-28) is vandaag 2x gestopt, morgen opnieuw",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:14",
+   "tekst": "bewaker: keten gestart voor blackbeard-1718",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:14",
+   "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken voor 2026-11-30 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 13:03",
+   "tijd": "2026-11-19 13:14",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-17 19:06",
-   "tekst": "eigenaar: Sleep Archives even GESTOPT (\"Kun je sleeparchives even stoppen\"): routine_lokaal ijstijd-20000-vc gestopt (bij de beelden), ComfyUI-wachtrij leeg, taak \"Sleep Archives bewaker\" UIT (routine",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 20:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat dallas-1963 nu gemaakt wordt, maar er draait geen keten",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 20:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog ijstijd-20000-vc, maar dat staat niet bij 'daarna' op de site",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-17 21:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl dallas-1963, ijstijd-20000-vc op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-18 08:24",
    "tekst": "routine-lokaal: ijstijd-20000-vc: opnieuw maken GESTOPT (No module named 'torch'); de oude versie blijft staan",
@@ -1117,6 +1093,12 @@
   {
    "tijd": "2026-11-19 11:49",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:05",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -1309,8 +1291,8 @@
    "datum": "2026-11-30",
    "reserve": false,
    "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-   "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude)",
-   "soort": "script nieuw",
+   "status": "bezig (2026-11-19, routine-lokaal)",
+   "soort": "bezig",
    "id": "",
    "afspeellijst": "reis",
    "opening": "onderwerp",
@@ -3374,7 +3356,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 11:25",
+  "bijgewerkt": "2026-11-19 13:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3821,17 +3803,17 @@
     "bekeken": "2026-11-19"
    }
   ],
-  "model": "niet nodig"
+  "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 13:04",
+  "bijgewerkt": "2026-11-19 13:35",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 41440403,
+    "week": 39401699,
     "per_dag": {
-     "Thu 12-11": 21603944,
+     "Thu 12-11": 19565240,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
