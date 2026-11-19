@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 18:03",
+ "bijgewerkt": "2026-11-19 18:33",
  "kanalen": {
   "weken": [
    {
@@ -398,7 +398,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 95%",
+    "detail": "Beelden maken · 96%",
     "soort": "nu"
    }
   ],
@@ -759,12 +759,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 18:03)"
+   "tekst": "draait nu (2026-11-19 18:33)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "alles gepusht"
+   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
   },
   {
    "naam": "Video 2026-11-21 (thanksgiving-1621)",
@@ -779,7 +779,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 17:48: alles klopt"
+   "tekst": "laatste ronde 18:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -796,8 +796,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 18:03",
-   "volgende": "2026-11-19 18:33"
+   "laatst": "2026-11-19 18:33",
+   "volgende": "2026-11-19 19:03"
   },
   "hype": {
    "aan": true,
@@ -806,13 +806,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 17:10",
-   "volgende": "2026-11-19 18:10"
+   "laatst": "2026-11-19 18:10",
+   "volgende": "2026-11-19 19:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 17:48",
-   "volgende": "2026-11-19 18:18"
+   "laatst": "2026-11-19 18:18",
+   "volgende": "2026-11-19 18:48"
   },
   "titels": {
    "aan": true,
@@ -869,7 +869,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 58,
+    "views": 59,
     "verwerkt": "processed"
    },
    {
@@ -1140,8 +1140,8 @@
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 95,
-  "detail": "80 van 84 beelden",
+  "voortgang": 96,
+  "detail": "81 van 84 beelden",
   "taken": [
    "routine zonder Claude",
    "beelden maken (ComfyUI)"
@@ -1160,7 +1160,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 6710,
+  "geheugen_mb": 697,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1246,18 +1246,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "bewaker: keten gestart voor dallas-1963",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 09:58",
    "tekst": "routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
    "fout": false,
@@ -1326,6 +1314,18 @@
   {
    "tijd": "2026-11-19 17:11",
    "tekst": "routine-lokaal: blackbeard-1718: 13 beelden fout; 13 beschrijvingen terug naar het origineel, nog één beeldcontrole",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 18:21",
+   "tekst": "routine-lokaal: blackbeard-1718: 12 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 001, 003, 006, 018, 020, 034, 036, 040, 051, 054, 083",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 18:21",
+   "tekst": "routine-lokaal: blackbeard-1718: beelden-wachter: 26 beelden lijken op een ander beeld (005, 008, 009, 013, 015, 017, 021, 026, 027, 029, 038, 040, 042, 045, 048, 051, 052, 053, 057, 065, 067, 068, 07",
    "fout": false,
    "klaar": false
   }
@@ -3994,14 +3994,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 18:04",
+  "bijgewerkt": "2026-11-19 18:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 371807,
-    "week": 31352152,
+    "week": 30881474,
     "per_dag": {
-     "Thu 12-11": 11143886,
+     "Thu 12-11": 10673208,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951,
