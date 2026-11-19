@@ -5,6 +5,7 @@ Planning en ritme staan in `kanalen/PLANNING.md`: 2 lange video's per week plus 
 Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 
 ## Vaste regels van de eigenaar
+- **Lengte: minimaal 8 minuten** (eigenaar 19 nov: "Ja minimaal 8 min"); vanaf 8 min mag YouTube ook halverwege reclame tonen. Meer verhaal en context, geen opvulling of herhaling.
 - **Beeld:**
   - Per zin een beeld dat letterlijk past bij de tekst:
     - persoon: echte foto met naam;

@@ -22,7 +22,8 @@ def ease(x): x = min(max(x, 0.0), 1.0); return 1 - (1 - x) ** 3
 def eio(x): x = min(max(x, 0.0), 1.0); return x * x * (3 - 2 * x)
 
 # ---------- tijden ----------
-Z = json.load(open(H / "zinnen.json", encoding="utf-8"))
+import os
+Z = json.load(open(H / os.environ.get("ZINNEN", "zinnen.json"), encoding="utf-8"))
 SCENES = []
 for s, e, z, sc in Z:
     if not SCENES or SCENES[-1][0] != sc: SCENES.append([sc, s, e, [z]])

@@ -10,6 +10,8 @@ The first trade came in at one hundred eleven dollars and fifty cents.
 That was thirty-four percent above the price set the night before.
 It was the biggest stock market listing in history.
 @scene open-vraag
+Bigger than Facebook.
+Bigger than Alibaba.
 Bigger than Saudi Aramco.
 Bigger than SpaceX, just five months earlier.
 Five years ago, this company was a handful of researchers who walked out of OpenAI.
@@ -18,6 +20,8 @@ And what did investors really buy?
 @scene h1-vertrek
 To understand Anthropic, you have to start with the people who left.
 In 2021, Dario Amodei was one of the top research leaders at OpenAI.
+He had a PhD in physics from Princeton.
+Before OpenAI, he worked on AI at Baidu and at Google.
 He and a small group of colleagues, including his sister Daniela, believed AI was moving fast.
 Maybe too fast.
 They disagreed with where OpenAI was heading on safety.
@@ -28,11 +32,23 @@ Anthropic is a public benefit corporation.
 On paper, it has to weigh the good of society, not just profit.
 In May 2021, it raised one hundred twenty-four million dollars.
 For an AI lab, that was almost nothing.
+@scene h1-regels
+Anthropic also wanted to build AI in a different way.
+In December 2022, its researchers published a method they called Constitutional AI.
+Instead of only learning from human ratings, the model was trained to follow a written list of principles.
+A kind of rule book for how an AI should behave.
+In September 2023, the company went a step further.
+It published what it called a Responsible Scaling Policy.
+The idea was simple.
+The more powerful its AI became, the stricter its safety rules would get.
+Some critics called it marketing.
+Others saw it as a serious attempt to set rules for the whole industry.
 @scene h2-claude
 For two years, most people had never heard of them.
 Then, in March 2023, Anthropic released Claude.
 A chatbot built to compete directly with ChatGPT.
 It was not the first.
+ChatGPT had launched just a few months earlier, in November 2022.
 But it got the attention of two of the richest companies on Earth.
 @scene h2-amazon
 In September 2023, Amazon said it would invest up to four billion dollars.
@@ -59,6 +75,14 @@ Every question.
 Every line of code.
 Every answer costs a little.
 And it adds up.
+@scene h3-code
+One product changed everything.
+In February 2025, Anthropic released a tool called Claude Code.
+It let programmers give Claude a task, and watch it write, test and fix code on its own.
+Within six months, Claude Code alone was reportedly bringing in a billion dollars a year.
+By early 2026, that number had reportedly passed two and a half billion.
+For many developers, Claude was no longer a chatbot.
+It was a coworker.
 @scene h4-pentagon
 But in February 2026, Anthropic ran into the most powerful customer in the world.
 The United States government.
@@ -132,6 +156,12 @@ Meta.
 And many others.
 They are spending hundreds of billions on AI of their own.
 The race is far from finished.
+@scene h8-verwachting
+For investors, the question is not whether Anthropic matters.
+It is whether any company can be worth this much, this early.
+According to Reuters, Anthropic expects revenue of around one hundred ninety to two hundred billion dollars in 2028.
+If that happens, today's price may one day look cheap.
+If it does not, the fall could be just as historic.
 @scene slot
 In 2021, a few researchers walked out of OpenAI because they were worried about how fast AI was moving.
 Five years later, investors are betting that the same people can win the race they were so worried about.
