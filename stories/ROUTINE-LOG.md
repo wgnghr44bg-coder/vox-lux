@@ -334,3 +334,5 @@ ValueError: empty separator)
 - 2026-11-18 19:48 sitecontrole: NIET GOED: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00
 - 2026-11-19 00:18 sitecontrole: opgelost: gettysburg-1863: YouTube publiceert op 2026-11-21 21:00, planning zegt 2026-11-18 21:00
 - 2026-11-19 07:10 thanksgiving-1621: geüpload https://youtu.be/KU6eoe5vy-U (privé, publiek 2026-11-25T20:00:00Z), kanaal Sleep Archives gecontroleerd
+- 2026-11-19 07:15 thanksgiving-1621: KLAAR
+- 2026-11-19 07:15 routine-lokaal: thanksgiving-1621: opnieuw gemaakt (nieuwe toon, eigen stem), gepland op 2026-11-25 21:00
