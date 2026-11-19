@@ -235,6 +235,8 @@ a:active { color: var(--color-focus); }
     <h2 id="kpKop"><svg class="i" aria-hidden="true"><use href="#i-kal"/></svg>Planning alle kanalen <small>Sleep Archives, NOIRTRACES en BlackswanVault</small></h2>
     <div class="kp-weken" id="kpWeken"><div class="zacht">Gegevens laden</div></div>
     <div class="kp-regels" id="kpRegels"></div>
+    <h3 style="margin-top:var(--space-md);font-size:var(--text-md)">Nieuwswacht BlackswanVault <small class="zacht" id="nwTijd"></small></h3>
+    <div id="nieuws" class="kp-regels"><div class="zacht">Gegevens laden</div></div>
   </section>
 
   <div class="indeling">
@@ -328,12 +330,22 @@ function kanalenPlanning(k){
     ((k.fouten||[]).length?`<div class="zacht">${k.fouten.map(esc).join("; ")}</div>`:"");
 }
 
+function nieuwswacht(n){
+  const box=$("nieuws");if(!n){box.innerHTML=`<div class="zacht">Nog niet gedraaid</div>`;return}
+  $("nwTijd").textContent="bijgewerkt "+tijdLabel(n.bijgewerkt);
+  const groot=(n.onderwerpen||[]).filter(o=>o.groot),rest=(n.onderwerpen||[]).filter(o=>!o.groot).slice(0,3);
+  const rij=o=>{const k=(o.koppen||[])[0];return `<div><span class="kp-kan ${o.groot?"noir":"swan"}">${o.groot?"GROOT":esc(o.punten)}</span> <b>${esc(o.onderwerp)}</b> <span class="zacht">${esc((o.wat||[]).join(", "))}</span>${k?`<br><a href="${esc(k.link)}" target="_blank" rel="noopener">${esc(k.titel)}</a> <span class="zacht">(${esc((o.bronnen||[]).join(", "))})</span>`:""}</div>`};
+  box.innerHTML=(groot.length?groot.map(rij).join(""):`<div class="zacht">Geen groot nieuws. Dan gaat de reservevideo online.</div>`)+
+    (rest.length?`<div class="zacht" style="margin-top:4px">Verder in het nieuws:</div>`+rest.map(rij).join(""):"");
+}
+
 async function laad(){
   let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}
   catch(e){$("updateTekst").textContent="Geen gegevens, de pagina probeert het over 2 minuten opnieuw";$("stip").className="pil uit";
     $("productie").innerHTML=`<tr><td colspan="6" class="leeg">De gegevens van de pc zijn niet te laden.</td></tr>`;return}
   const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000),pcOk=min<=90;
   try{kanalenPlanning(d.kanalen)}catch(e){$("kpWeken").textContent="Planning niet te tonen"}
+  try{nieuwswacht(d.nieuws)}catch(e){$("nieuws").textContent="Nieuwswacht niet te tonen"}
   $("stip").className="pil "+(pcOk?"goed":"uit");
   $("updateTekst").textContent=pcOk?`Pc actief, bijgewerkt ${min<1?"zojuist":min+" min geleden"}`:`De pc stuurt geen update (laatste ${d.bijgewerkt.slice(11)})`;
   $("vandaag").lastElementChild.textContent=new Date().toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short",year:"numeric"});

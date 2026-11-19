@@ -29,11 +29,11 @@ Alteraqon (@alteraqon) is gestopt.
   - Feestdagen en jaardagen krijgen de laatste wo- of za-plek op of vóór de dag zelf.
   - De hype-wachter (elke dag om 08:30) laat zien welke slaapvideo's bij grote kanalen nu groeien. Zo'n onderwerp schuift naar voren.
 - **NOIRTRACES**
-  - Een vaste lijst met bekende zaken.
+  - Eerst de bekendste zaken (eigenaar 19 nov). De volgorde staat in `kanalen/PLANNING-KANALEN.json` onder `noir_volgorde`.
   - Komt een zaak in het nieuws (nieuwe docu, ontdekking, jaardag), dan schuift die naar de eerstvolgende vrijdag.
 - **BlackswanVault**
   - Een kalender met bekende momenten (kwartaalcijfers van grote bedrijven, rentebesluiten, Black Friday, CES).
-  - Een nieuwswacht die elke ochtend kijkt.
+  - Een nieuwswacht: `tools/nieuwswacht.py` (Taakplanner "BlackswanVault nieuwswacht", 08:00 en 15:45). Hij leest koersen en de koppen van CNBC, MarketWatch, BBC en NYT, schrijft `stories/nieuws.json` (paneel op de website) en geeft bij GROOT een seintje in `stories/ROUTINE-LOG.md`.
   - Bij echt groot nieuws (crash, CEO weg, overname, schokkende cijfers): vraag de eigenaar en maak de video binnen 2 tot 3 dagen.
   - Is er geen groot nieuws, dan gaat er een reservevideo online (een tijdloos bedrijfsverhaal).
 

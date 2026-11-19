@@ -6,9 +6,50 @@
   "BlackswanVault": "Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York. Groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen); geen groot nieuws, dan een reservevideo. De nieuwswacht kijkt elke ochtend."
  },
  "items": [
-  {"kanaal": "BlackswanVault", "datum": "2026-11-19", "tijd": "17:00", "titel": "The Man Who Built NVIDIA Just Walked Away", "stand": "online", "youtube": "ioMjKb2_dVI"},
-  {"kanaal": "NOIRTRACES", "datum": "2026-11-19", "tijd": "18:00", "titel": "Who Was Jack the Ripper? | True Crime for Sleep", "stand": "online", "youtube": "AXKM1BEMq10"},
-  {"kanaal": "BlackswanVault", "datum": "2026-11-24", "tijd": "15:00", "titel": "Black Friday (werktitel: Why Black Friday Is Dying)", "stand": "wordt gemaakt"},
-  {"kanaal": "NOIRTRACES", "datum": "2026-11-27", "tijd": "21:00", "titel": "Video 2: H.H. Holmes of Lizzie Borden", "stand": "onderwerp kiezen"}
- ]
+  {
+   "kanaal": "BlackswanVault",
+   "datum": "2026-11-19",
+   "tijd": "17:00",
+   "titel": "The Man Who Built NVIDIA Just Walked Away",
+   "stand": "online",
+   "youtube": "ioMjKb2_dVI"
+  },
+  {
+   "kanaal": "NOIRTRACES",
+   "datum": "2026-11-19",
+   "tijd": "18:00",
+   "titel": "Who Was Jack the Ripper? | True Crime for Sleep",
+   "stand": "online",
+   "youtube": "AXKM1BEMq10"
+  },
+  {
+   "kanaal": "BlackswanVault",
+   "datum": "2026-11-24",
+   "tijd": "15:00",
+   "titel": "Black Friday (werktitel: Why Black Friday Is Dying)",
+   "stand": "wordt gemaakt"
+  },
+  {
+   "kanaal": "NOIRTRACES",
+   "datum": "2026-11-27",
+   "tijd": "21:00",
+   "titel": "Who Was H.H. Holmes? | True Crime for Sleep",
+   "stand": "script schrijven"
+  }
+ ],
+ "noir_volgorde": {
+  "uitleg": "Eigenaar 19 nov 2026: 'gebruik maar bekende verhalen eerst'. Van bekend naar minder bekend; geen onderwerpen die Sleep Archives al heeft (Mary Celeste, Dyatlov).",
+  "lijst": [
+   "Jack the Ripper (online 19 nov)",
+   "H.H. Holmes, Chicago 1893",
+   "Lizzie Borden, Fall River 1892",
+   "The Black Dahlia, Los Angeles 1947",
+   "The Lindbergh Kidnapping, 1932",
+   "D.B. Cooper, 1971",
+   "The Axeman of New Orleans, 1918",
+   "The Villisca Axe Murders, 1912",
+   "The Servant Girl Annihilator, Austin 1885",
+   "The Hinterkaifeck Murders, 1922"
+  ]
+ }
 }

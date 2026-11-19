@@ -657,6 +657,8 @@ except Exception as e:
 data = {
     "bijgewerkt": NU.strftime("%Y-%m-%d %H:%M"),
     "kanalen": kp,
+    # nieuwswacht BlackswanVault (eigenaar 19 nov 2026): tools/nieuwswacht.py, 08:00 en 15:45
+    "nieuws": json.loads((STORIES / "nieuws.json").read_text(encoding="utf-8")) if (STORIES / "nieuws.json").exists() else None,
     "werkplanning": wp,
     "scripts": sc_overzicht,
     "zelfcontrole": zc,
