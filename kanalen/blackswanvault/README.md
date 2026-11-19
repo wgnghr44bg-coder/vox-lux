@@ -23,7 +23,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - **Niets twee keer vertellen** (hetzelfde bedrag of feit maar één keer).
   - **Opsommingen rustig:** elk item een eigen korte zin op een eigen regel in `script.txt`. Die krijgt 0,6 s pauze, en elk item komt apart in beeld.
 - **Beschrijving:** 3 zinnen, hoofdstukken, "Not financial advice." en 3 hashtags. Geen streepjes en geen dubbele punten in kanaalteksten.
-- **Thumbnail:** andere tekst dan de titel. Letters nooit over het onderwerp.
+- **Thumbnail:** andere tekst dan de titel. Letters nooit over het onderwerp. Met `thumb.py`: links grote letters, rechts het onderwerp; logo van het bedrijf erbij (`THUMB_MERK=...`). Bij games mag officieel artwork in de thumbnail, maar niet in de video (eigenaar 19 nov).
 - **YouTube:**
   - Altijd eerst privé uploaden en via de API het kanaal controleren.
   - Openbaar alleen na een expliciete OK van de eigenaar.

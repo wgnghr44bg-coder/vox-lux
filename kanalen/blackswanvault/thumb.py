@@ -26,4 +26,10 @@ def pas(s, maxw, start):
 f1 = pas(r1, 520, 110); f2 = pas(r2, 520, 170)
 d.text((58, 250), r1, font=f1, fill=(245, 245, 245)); d.text((52, 250 + f1.size + 10), r2, font=f2, fill=k2)
 logo = Image.open("video1/logo.png").convert("RGB").resize((80, 80)); m = Image.new("L", (80, 80), 0); ImageDraw.Draw(m).ellipse([0, 0, 79, 79], fill=255)
-doek.paste(logo, (40, 36), m); doek.save(uit, quality=92); print("thumb", uit)
+doek.paste(logo, (40, 36), m)
+import os
+if os.environ.get("THUMB_MERK"):                           # merklogo (wit) boven de letters, zodat meteen duidelijk is over wie het gaat
+    l = Image.open(os.environ["THUMB_MERK"]).convert("RGBA"); a = l.split()[3]
+    w = Image.new("RGBA", l.size, (245, 245, 245, 255)); w.putalpha(a); bw = 470; w = w.resize((bw, int(bw * l.height / l.width)), Image.LANCZOS)
+    doek.paste(w, (58, 250 - w.height - 40), w)
+doek.save(uit, quality=92); print("thumb", uit)
