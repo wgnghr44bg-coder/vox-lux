@@ -185,7 +185,7 @@ def tijdlijn(t, d, T0):                                    # zin 35-37: de beloo
     return img
 
 SHOTS = [
- (0.0, fasen(F("miami-night", (1.0, 1.1), 0.6), [(0, ST("NOVEMBER 19, 2026")), (1, EN(ST("NOVEMBER 19, 2026"), ON("Grand Theft Auto VI")))])),
+ (0.0, fasen(F("gta-vc-skyline", (1.0, 1.1), 0.7), [(0, ST("NOVEMBER 19, 2026")), (1, EN(ST("NOVEMBER 19, 2026"), ON("Grand Theft Auto VI")))])),
  (ZR(2) - 0.15, fasen(F("miami-night-b", (1.08, 1.0), 0.4), [(2, GR("13 YEARS", "since Grand Theft Auto V", WIT, 170))])),
  (ZR(3) - 0.15, fasen(F("ebgames", (1.0, 1.08), 0.35), [(3, GR("19 MILLION+", "copies on day one · Sensor Tower estimate", WIT, 160)),
                                                          (4, GR("~$1.8 BILLION", "in 24 hours · Sensor Tower estimate", ORANJE, 160))])),
@@ -221,8 +221,10 @@ SHOTS = [
  (ZR(70) - 0.15, fasen(F("code", (1.0, 1.1), 0.45), [(70, ON("The road to launch was not smooth")), (71, ST("FEBRUARY 2022: CONFIRMED")), (72, ST("SEPTEMBER 2022: THE LEAK", ROOD)),
                                                      (73, GR("THE BIGGEST LEAK", "in video game history", ROOD, 120)), (74, ON("A young Lapsus hacker, held responsible by a British court")),
                                                      (75, ON("Rockstar: extremely disappointed, but work continues"))])),
- (ZR(76) - 0.15, fasen(F("neon", (1.0, 1.08), 0.6), [(76, LT("LEONIDA", "Rockstar's version of Florida")), (77, ON("At its center: Vice City")), (78, ON("Last visit: a story set in 1986"))])),
- (ZR(79) - 0.15, fasen(F("lifeguard", (1.0, 1.08), 0.6), [(79, ON("Two main characters: Lucia and Jason")), (80, ON("City, swamps, beaches and small towns")), (81, ST("PS5 AND XBOX SERIES ONLY"))])),
+ (ZR(76) - 0.15, fasen(F("gta-vc-nacht", (1.0, 1.08), 0.7), [(76, LT("LEONIDA", "Rockstar's version of Florida")), (77, ON("At its center: Vice City")), (78, ON("Last visit: a story set in 1986"))])),
+ (ZR(79) - 0.15, fasen(F("gta-lucia-jason", (1.0, 1.08), 0.75), [(79, ON("Two main characters: Lucia and Jason"))])),
+ (ZR(80) - 0.15, fasen(F("gta-moeras", (1.0, 1.08), 0.7), [(80, ON("City, swamps, beaches and small towns"))])),
+ (ZR(81) - 0.15, fasen(F("gta-jason-motor", (1.0, 1.08), 0.7), [(81, ST("PS5 AND XBOX SERIES ONLY"))])),
  (ZR(82) - 0.15, tijdlijn),
  (ZR(85) - 0.15, koers("2025-04-01", "2025-12-31", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, April to December 2025",
                        markers=[("2025-05-02", "Delay 1"), ("2025-11-07", "Delay 2")], labels=[(38, 700, 330, "-7%", ROOD), (40, 1700, 330, "-8%", ROOD)], teken=0.9)),
@@ -245,7 +247,7 @@ SHOTS = [
  (ZR(121) - 0.15, fasen(F("nyc-44", (1.08, 1.0), 0.4), [(121, GR("What happens next?", None, WIT, 100)), (122, GR("OFFICIAL NUMBERS", "not published yet", WIT, 130)),
                                                         (123, GR("WITHIN DAYS", "expected by Bank of America", ORANJE, 130)), (125, GR("FEBRUARY", "Take-Two reports its holiday quarter", WIT, 140)), (126, ON("The real numbers")), (127, ON("Was the long wait worth it?"))])),
  (ZR(128) - 0.15, fot("miami-ocean", "In the end, Rockstar did it again", grijs=True, donker=0.55)),
- (ZR(129) - 0.15, fasen(F("miami-night", (1.0, 1.1), 0.5), [(129, ON("The players came")), (130, ON("The money came"))])),
+ (ZR(129) - 0.15, fasen(F("gta-vc-skyline", (1.08, 1.0), 0.55), [(129, ON("The players came")), (130, ON("The money came"))])),
  (ZR(131) - 0.15, slot_fade("miami-night-b", "What comes next?")),
 ]
 
