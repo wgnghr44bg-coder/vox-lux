@@ -379,6 +379,8 @@ def main():
     for i in range(int(van * FPS), int(tot * FPS)):
         t = i / FPS; fn, tt, dd, k = shot_op(t)
         img = fn(tt, max(dd, 0.5))
+        z = 1.0 + 0.03 * eio(tt / max(dd, 0.5))          # 19 nov: altijd rustige beweging, ook op grafieken (geen stilstand)
+        cw, ch = W / z, HH / z; img = img.resize((W, HH), Image.BICUBIC, box=((W - cw) / 2, (HH - ch) / 2, (W + cw) / 2, (HH + ch) / 2))
         if k != vorige and vorige is not None: wissel = i
         if 0 <= i - wissel < 6 and oud is not None: img = Image.blend(oud, img, (i - wissel + 1) / 7)
         else: oud = img

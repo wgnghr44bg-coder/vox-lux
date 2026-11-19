@@ -7,7 +7,7 @@ import numpy as np, soundfile as sf
 H = Path(__file__).parent; SR = 44100
 stem, ssr = sf.read(H / "stem.wav", dtype="float32")
 Z = json.load(open(H / "zinnen.json", encoding="utf-8"))
-dur = Z[-1][1] + 1.8; n = int(dur * SR); t = np.arange(n) / SR
+dur = Z[-1][1] + 3.5; n = int(dur * SR); t = np.arange(n) / SR
 rng = np.random.default_rng(7)
 scenes = []
 for s, e, z, sc in Z:

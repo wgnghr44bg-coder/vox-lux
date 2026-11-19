@@ -28,7 +28,7 @@ SCENES = []
 for s, e, z, sc in Z:
     if not SCENES or SCENES[-1][0] != sc: SCENES.append([sc, s, e, [z]])
     else: SCENES[-1][2] = e; SCENES[-1][3].append(z)
-EIND = Z[-1][1] + 1.8
+EIND = Z[-1][1] + 3.5   # 19 nov: iets langer uitfaden (boven 8:00)
 for i, sc in enumerate(SCENES):                         # scene loopt tot de volgende begint
     sc[1] = 0.0 if i == 0 else sc[1] - 0.15
 for i, sc in enumerate(SCENES):
