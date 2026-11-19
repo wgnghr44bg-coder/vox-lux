@@ -346,3 +346,8 @@ ValueError: empty separator)
 - 2026-11-19 09:27 routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)
 - 2026-11-19 09:58 routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066
 - 2026-11-19 11:49 routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan
+- 2026-11-19 11:49 bewaker: keten gestart voor boeren-winter-1300
+- 2026-11-19 11:49 routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)
+- 2026-11-19 12:58 routine-lokaal: boeren-winter-1300: beelden-wachter: 3 beelden lijken op een ander beeld (009, 062, 075), nieuwe maken
+- 2026-11-19 13:03 routine-lokaal: boeren-winter-1300: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
+- 2026-11-19 13:05 routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
