@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 03:03",
+ "bijgewerkt": "2026-11-19 03:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "Video bouwen · 28%",
+    "detail": "Video bouwen · 37%",
     "soort": "nu"
    }
   ],
@@ -505,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 03:03)"
+   "tekst": "draait nu (2026-11-19 03:33)"
   },
   {
    "naam": "Git",
@@ -525,7 +525,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 02:48: alles klopt"
+   "tekst": "laatste ronde 03:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +542,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 03:03",
-   "volgende": "2026-11-19 03:33"
+   "laatst": "2026-11-19 03:33",
+   "volgende": "2026-11-19 04:03"
   },
   "hype": {
    "aan": true,
@@ -552,18 +552,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 02:10",
-   "volgende": "2026-11-19 03:10"
+   "laatst": "2026-11-19 03:10",
+   "volgende": "2026-11-19 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 02:48",
-   "volgende": "2026-11-19 03:18"
+   "laatst": "2026-11-19 03:18",
+   "volgende": "2026-11-19 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 01:25",
-   "volgende": "2026-11-19 03:25"
+   "laatst": "2026-11-19 03:25",
+   "volgende": "2026-11-19 05:25"
   }
  },
  "kanaal": {
@@ -606,7 +606,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 21,
+    "views": 32,
     "verwerkt": "processed"
    },
    {
@@ -642,7 +642,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 132,
+    "views": 133,
     "verwerkt": "processed"
    },
    {
@@ -886,15 +886,15 @@
   "thumb": "thumbs/thanksgiving-1621.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 28,
+  "voortgang": 37,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
    "beweging en hoofdstuktitels"
   ],
   "eind": {
-   "klaar": "2026-11-19 10:18",
-   "youtube": "2026-11-19 10:38"
+   "klaar": "2026-11-19 09:41",
+   "youtube": "2026-11-19 10:01"
   }
  },
  "nu_bezig": [
@@ -909,7 +909,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 768,
+  "geheugen_mb": 771,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1081,7 +1081,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 03:03",
+   "tijd": "2026-11-19 03:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3374,7 +3374,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 01:40",
+  "bijgewerkt": "2026-11-19 03:29",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3672,7 +3672,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "japan-1600",
@@ -3690,7 +3690,7 @@
       "per_dag": 6414
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "dansplaag-1518",
@@ -3702,7 +3702,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "tower-of-london-1536",
@@ -3725,20 +3725,20 @@
       "per_dag": 526
      }
     ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    }
   ],
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 03:03",
+  "bijgewerkt": "2026-11-19 03:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 45288705,
+    "week": 45135025,
     "per_dag": {
-     "Thu 12-11": 25452246,
+     "Thu 12-11": 25298566,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
