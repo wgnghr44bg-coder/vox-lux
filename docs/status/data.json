@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 02:03",
+ "bijgewerkt": "2026-11-19 02:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "detail": "Video bouwen · 21%",
+    "detail": "Video bouwen · 24%",
     "soort": "nu"
    }
   ],
@@ -505,7 +505,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 02:03)"
+   "tekst": "draait nu (2026-11-19 02:33)"
   },
   {
    "naam": "Git",
@@ -525,7 +525,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 01:48: alles klopt"
+   "tekst": "laatste ronde 02:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -542,8 +542,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 02:03",
-   "volgende": "2026-11-19 02:33"
+   "laatst": "2026-11-19 02:33",
+   "volgende": "2026-11-19 03:03"
   },
   "hype": {
    "aan": true,
@@ -552,13 +552,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 01:10",
-   "volgende": "2026-11-19 02:10"
+   "laatst": "2026-11-19 02:10",
+   "volgende": "2026-11-19 03:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 01:48",
-   "volgende": "2026-11-19 02:18"
+   "laatst": "2026-11-19 02:18",
+   "volgende": "2026-11-19 02:48"
   },
   "titels": {
    "aan": true,
@@ -886,7 +886,7 @@
   "thumb": "thumbs/thanksgiving-1621.jpg",
   "stap": 4,
   "stapnaam": "Video bouwen",
-  "voortgang": 21,
+  "voortgang": 24,
   "detail": "beweging",
   "taken": [
    "routine zonder Claude",
@@ -894,8 +894,8 @@
    "beelden en geluid samenvoegen"
   ],
   "eind": {
-   "klaar": "2026-11-19 08:15",
-   "youtube": "2026-11-19 08:35"
+   "klaar": "2026-11-19 09:35",
+   "youtube": "2026-11-19 09:55"
   }
  },
  "nu_bezig": [
@@ -913,7 +913,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 20,
+  "bezig_procent": 18,
   "geheugen_mb": 771,
   "totaal_mb": 8192
  },
@@ -1086,7 +1086,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 02:03",
+   "tijd": "2026-11-19 02:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3736,14 +3736,14 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 02:04",
+  "bijgewerkt": "2026-11-19 02:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 47342229,
+    "week": 45998125,
     "per_dag": {
-     "Thu 12-11": 27505770,
+     "Thu 12-11": 26161665,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
