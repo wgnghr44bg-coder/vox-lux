@@ -1,6 +1,6 @@
 # Notes for Claude sessions
 
-## Planning alle kanalen (19 nov 2026): `kanalen/PLANNING.md` — FOCUS op BlackswanVault (2 lange video's/week + Shorts, groot nieuws zo snel mogelijk; geen slechte video's, niets dubbel vertellen); Sleep Archives OP PAUZE (19 nov avond; taak 'Sleep Archives bewaker' uit, ~/gpu-bezet.lock), NOIRTRACES OP PAUZE (eigenaar 19 nov avond: eerst resultaat Jack afwachten; Holmes-script ligt klaar in stories/_nt-hh-holmes). Overzicht op de website, bron `kanalen/PLANNING-KANALEN.json` + `stories/*/planning.txt`.
+## Planning alle kanalen (19 nov 2026): `kanalen/PLANNING.md` — FOCUS op BlackswanVault (2 lange video's/week + Shorts, groot nieuws zo snel mogelijk; geen slechte video's, niets dubbel vertellen, minimaal 8 min, echte beelden waar het mag en past; alle vaste regels in `kanalen/blackswanvault/README.md`); Sleep Archives OP PAUZE (19 nov avond; taak 'Sleep Archives bewaker' uit, ~/gpu-bezet.lock), NOIRTRACES OP PAUZE (eigenaar 19 nov avond: eerst resultaat Jack afwachten; Holmes-script ligt klaar in stories/_nt-hh-holmes). Overzicht op de website, bron `kanalen/PLANNING-KANALEN.json` + `stories/*/planning.txt`.
 
 ## Bodycam-kanaal: OP PAUZE (eigenaar 18 nov 2026: "alleen verder met sleeparchives"). Alleen op verzoek: `kanalen/bodycam/PLAN.md`. Focus = BlackswanVault (sinds 19 nov avond).
 
