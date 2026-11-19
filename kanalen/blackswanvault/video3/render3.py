@@ -13,6 +13,10 @@ def sinds(i, T0, t): return T0 + t - ZR(i)
 
 def groot(img, t, s, kleur=WIT, y=HH // 2, size=150, sub=None, start=0.0):
     d = ImageDraw.Draw(img, "RGBA"); a = ease((t - start) / 0.35); sc = 1.25 - 0.25 * a
+    if s:                                                   # 19 nov: donkere balk achter grote tekst (leesbaar op drukke beelden)
+        bw = max(d.textlength(s, font=font(BLACK, size)), d.textlength(sub or "", font=font(REG, 40))) + 120
+        y0, y1 = y - size * 0.75, y + (size * 0.75 + 70 if sub else size * 0.7)
+        d.rounded_rectangle([W // 2 - bw / 2, y0, W // 2 + bw / 2, y1], 18, fill=(0, 0, 0, int(165 * a)))
     txt(d, (W // 2, y), s, font(BLACK, int(size * sc)), kleur, a, "mm")
     if sub: txt(d, (W // 2, y + size * 0.75), sub, font(REG, 40), GRIJS, ease((t - start - 0.3) / 0.4), "mm")
     return img
@@ -201,12 +205,12 @@ SHOTS = [
  (ZR(19) - 0.15, fasen(F("nyc-44", (1.0, 1.08), 0.55), [(19, ST("NEW YORK, 1998")), (20, GR("ROCKSTAR GAMES", None, WIT, 130)), (21, LT("SAM HOUSER", "President of Rockstar Games")),
                                                         (22, ON("His brother Dan Houser left in 2020")), (23, LT("TAKE-TWO INTERACTIVE", "Founded in New York in 1993"))])),
  (ZR(24) - 0.15, fasen(F("rockstar-north-b", (1.0, 1.08), 0.6), [(24, EN(ST("1999"), ON("Take-Two buys DMA Design"))), (25, LT("ROCKSTAR NORTH", "Formerly DMA Design"))])),
- (ZR(26) - 0.15, lijst("ps2", "Bigger every time", [(26, "2001: GTA III, a full 3D city"), (27, "2002: Vice City, 1980s Miami"), (28, "2004: San Andreas, best-selling PS2 game"), (29, "2008: GTA IV, a version of New York")])),
+ (ZR(26) - 0.15, lijst("gta-vc-skyline-nacht", "Bigger every time", [(26, "2001: GTA III, a full 3D city"), (27, "2002: Vice City, 1980s Miami"), (28, "2004: San Andreas, best-selling PS2 game"), (29, "2008: GTA IV, a version of New York")])),
  (ZR(30) - 0.15, fasen(F("gamestop", (1.0, 1.08), 0.45), [(30, ON("Each game bigger than the last")), (31, ON("And more important to Take-Two"))])),
- (ZR(32) - 0.15, fasen(F("dualsense", (1.0, 1.1), 0.45), [(32, ON("But the real surprise came later")), (33, ON("GTA V never stopped selling")), (34, ON("Released again and again")), (35, ON("2013: PlayStation 3 and Xbox 360")), (36, ON("2014-2015: PlayStation 4, Xbox One and PC")), (37, ON("2022: PlayStation 5 and the newest Xbox")),
+ (ZR(32) - 0.15, fasen(F("gta5-trio", (1.0, 1.08), 0.5), [(32, ON("But the real surprise came later")), (33, ON("GTA V never stopped selling")), (34, ON("Released again and again")), (35, ON("2013: PlayStation 3 and Xbox 360")), (36, ON("2014-2015: PlayStation 4, Xbox One and PC")), (37, ON("2022: PlayStation 5 and the newest Xbox")),
                                                          (38, GR("230 MILLION+", "copies of GTA V sold · Take-Two", WIT, 160)), (39, GR("230 MILLION+", "One of the best-selling games of all time", WIT, 160))])),
- (ZR(40) - 0.15, lijst("dualsense", "GTA Online: players kept paying", [(41, "Cars"), (42, "Houses"), (43, "In-game money")])),
- (ZR(44) - 0.15, fasen(F("ebgames", (1.08, 1.0), 0.45), [(44, ST("OCTOBER 2013: GTA ONLINE")), (45, ON("Shark Cards: virtual money for real money")), (46, ON("Still earning, more than ten years later")),
+ (ZR(40) - 0.15, lijst("gta5-online", "GTA Online: players kept paying", [(41, "Cars"), (42, "Houses"), (43, "In-game money")])),
+ (ZR(44) - 0.15, fasen(F("gta-vc-auto", (1.08, 1.0), 0.55), [(44, ST("OCTOBER 2013: GTA ONLINE")), (45, ON("Shark Cards: virtual money for real money")), (46, ON("Still earning, more than ten years later")),
                                                          (47, ON("Long after most games are forgotten")), (48, ON("GTA VI could do the same"))])),
  (ZR(49) - 0.15, fasen(F("rockstar-north", (1.0, 1.08), 0.7), [(49, ON("Made by Rockstar Games")), (50, LT("ROCKSTAR NORTH", "Edinburgh, Scotland")), (51, ON("Known for huge, detailed worlds, built over many years")), (52, ON("Studios in Britain, the US, Canada and India")), (53, ON("All those years, Take-Two relied on GTA V"))])),
  (ZR(54) - 0.15, fot("nyc-44", naamkaart=("TAKE-TWO INTERACTIVE", "Owner of Rockstar Games · New York"), donker=0.6)),
@@ -218,7 +222,7 @@ SHOTS = [
  (ZR(65) - 0.15, fasen(F("miami-night", (1.1, 1.0), 0.35), [(65, ST("DECEMBER 2023: TRAILER 1")), (66, EN(ST("DECEMBER 2023: TRAILER 1"), ON("Released a day early, after it leaked"))), (67, EN(ST("DECEMBER 2023: TRAILER 1"), ON("Music: Tom Petty, Love Is a Long Road"))), (68, GR("90 MILLION+", "YouTube views in 24 hours", WIT, 160)),
                                                            (69, GR("WORLD RECORD", "most viewed video game reveal in 24 hours · Guinness", ORANJE, 140))])),
  (ZR(70) - 0.15, fasen(F("miami-ocean", (1.0, 1.08), 0.4), [(70, ON("The second trailer did even better")), (71, GR("475 MILLION", "views in 24 hours, all platforms · Rockstar", WIT, 160))])),
- (ZR(72) - 0.15, fasen(F("code", (1.0, 1.1), 0.45), [(72, ON("The road to launch was not smooth")), (73, ST("FEBRUARY 2022: CONFIRMED")), (74, ST("SEPTEMBER 2022: THE LEAK", ROOD)),
+ (ZR(72) - 0.15, fasen(F("gta-vc-politie", (1.0, 1.1), 0.5), [(72, ON("The road to launch was not smooth")), (73, ST("FEBRUARY 2022: CONFIRMED")), (74, ST("SEPTEMBER 2022: THE LEAK", ROOD)),
                                                      (75, GR("THE BIGGEST LEAK", "in video game history", ROOD, 125)), (76, ON("A young Lapsus hacker, held responsible by a British court")),
                                                      (77, ON("Rockstar: extremely disappointed, but work continues"))])),
  (ZR(78) - 0.15, fasen(F("gta-vc-nacht", (1.0, 1.08), 0.7), [(78, LT("LEONIDA", "Rockstar's version of Florida")), (79, ON("At its center: Vice City")), (80, ON("Last visit: a story set in 1986"))])),
@@ -232,7 +236,7 @@ SHOTS = [
                                                   (92, ON("Highly confident in the new date"))])),
  (ZR(93) - 0.15, koers("2026-11-09", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, November 9 to 19, 2026",
                        markers=[("2026-11-18", "Reviews"), ("2026-11-19", "Launch")], labels=[(46, 1700, 330, "+6%", GROEN)], teken=0.9)),
- (ZR(96) - 0.15, fasen(portret("ps5", 0.7), [(96, ST("NOVEMBER 19: LAUNCH")), (97, ON("Many fans had paid in advance")), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
+ (ZR(96) - 0.15, fasen(F("gta6-cover", (1.0, 1.06), 0.45), [(96, ST("NOVEMBER 19: LAUNCH")), (97, ON("Many fans had paid in advance")), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
                                                     (100, ON("Sony and Microsoft shares went up")), (101, ST("TAKE-TWO STOCK: DOWN", ROOD))])),
  (ZR(102) - 0.15, balken([("RDR2 · first 3 days", 0.725), ("Endgame · opening weekend", 1.2), ("GTA VI · day one (est.)", 1.8)], "BIG LAUNCHES COMPARED",
                         "Billions of dollars", "Sources: Take-Two, Disney, Sensor Tower estimate", lambda v: f"${v:.2f}B" if v < 1 else f"${v:.1f}B", [103, 105, 106], hl=2)),
@@ -241,7 +245,7 @@ SHOTS = [
  (ZR(111) - 0.15, koers("2024-11-19", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, two years", markers=[("2025-10-20", "High")], labels=[(107, 1300, 330, "$262", GROEN)], teken=0.9)),
  (ZR(113) - 0.15, fasen(F("wallst", (1.08, 1.0), 0.35), [(113, ON("By launch day, the good news was already in the price"))])),
  (ZR(114) - 0.15, lijst("miami-night-b", "What comes after", [(117, "How long people keep playing"), (118, "How much they spend in the game"), (119, "Rockstar's next big game")])),
- (ZR(120) - 0.15, fasen(F("dualsense", (1.08, 1.0), 0.45), [(120, ON("No PC version announced yet")), (121, ON("In the past: PC came later, sometimes years later"))])),
+ (ZR(120) - 0.15, fasen(F("gta-vc-zwembad", (1.08, 1.0), 0.55), [(120, ON("No PC version announced yet")), (121, ON("In the past: PC came later, sometimes years later"))])),
  (ZR(122) - 0.15, fasen(F("nasdaq-a", (1.0, 1.08), 0.35), [(122, GR("~$9.8 BILLION", "Take-Two bookings this fiscal year · Wells Fargo forecast", WIT, 150)),
                                                           (123, ON("Bookings: money from sales, before accounting spreads it out")), (124, GR("A RECORD", None, GROEN, 150)), (125, ON("But much of it depends on one game"))])),
  (ZR(126) - 0.15, fasen(F("nyc-44", (1.08, 1.0), 0.4), [(126, GR("What happens next?", None, WIT, 100)), (127, GR("OFFICIAL NUMBERS", "not published yet", WIT, 130)),
