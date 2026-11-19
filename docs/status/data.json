@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-19 19:03",
+ "bijgewerkt": "2026-11-19 19:33",
  "kanalen": {
   "weken": [
    {
@@ -52,7 +52,15 @@
      },
      {
       "datum": "2026-11-20",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-20",
+        "tijd": "15:00",
+        "titel": "Anthropic: the biggest IPO in history",
+        "stand": "wordt gemaakt"
+       }
+      ]
      },
      {
       "datum": "2026-11-21",
@@ -90,8 +98,8 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-24",
         "tijd": "15:00",
-        "titel": "Anthropic: the biggest IPO in history",
-        "stand": "wordt gemaakt"
+        "titel": "GTA 6 / Take-Two (na officiële verkoopcijfers)",
+        "stand": "onderwerp kiezen"
        }
       ]
      },
@@ -128,7 +136,7 @@
    }
   ],
   "regels": {
-   "Sleep Archives": "1x per week, za 21:00 (NL) (eigenaar 19 nov avond: focus op BlackswanVault). Feestdagen en jaardagen staan vast; de hype-wachter schuift een video naar voren als er een trend is.",
+   "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00.",
    "NOIRTRACES": "OP PAUZE (eigenaar 19 nov avond: eerst zien hoe Jack the Ripper het doet). Script Holmes ligt klaar in stories/_nt-hh-holmes (nog niet gemaakt). Daarna 1x per week, vr 21:00.",
    "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen."
   },
@@ -381,11 +389,48 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Stem (B1)",
+    "detail": "",
     "soort": "nu"
    }
   ],
-  "daarna": [],
+  "daarna": [
+   {
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "routine maakt de video voor za 5-12 21:00"
+   },
+   {
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "detail": "routine maakt de video voor za 12-12 21:00"
+   },
+   {
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
+    "map": "bethlehem",
+    "detail": "routine maakt de video voor za 19-12 21:00"
+   },
+   {
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
+    "map": "londen-kerst-1843",
+    "detail": "routine maakt de video voor za 26-12 21:00"
+   },
+   {
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "detail": "routine maakt de video voor za 30-1 21:00"
+   },
+   {
+    "wanneer": "do 3-12 09:00 (routine staat UIT)",
+    "wat": "Chinese New Year in Ancient China, Han Dynasty | <N> Hours of History for Sleep",
+    "map": "china-nieuwjaar-han",
+    "detail": "routine maakt de video voor za 6-2 21:00 (script moet eerst nog goedgekeurd)"
+   }
+  ],
   "publicaties": [
    {
     "datum": "2026-11-21",
@@ -588,7 +633,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 19:03)"
+   "tekst": "draait nu (2026-11-19 19:33)"
   },
   {
    "naam": "Git",
@@ -608,7 +653,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 18:48: alles klopt"
+   "tekst": "laatste ronde 19:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -625,8 +670,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 19:03",
-   "volgende": "2026-11-19 19:33"
+   "laatst": "2026-11-19 19:33",
+   "volgende": "2026-11-19 20:03"
   },
   "hype": {
    "aan": true,
@@ -634,19 +679,19 @@
    "volgende": "2026-11-20 08:30"
   },
   "bewaker": {
-   "aan": true,
-   "laatst": "2026-11-19 18:10",
-   "volgende": "2026-11-19 19:10"
+   "aan": false,
+   "laatst": "2026-11-19 19:10",
+   "volgende": "2026-11-19 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 18:48",
-   "volgende": "2026-11-19 19:18"
+   "laatst": "2026-11-19 19:18",
+   "volgende": "2026-11-19 19:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 17:25",
-   "volgende": "2026-11-19 19:25"
+   "laatst": "2026-11-19 19:25",
+   "volgende": "2026-11-19 21:25"
   }
  },
  "kanaal": {
@@ -961,38 +1006,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 3,
+ "stap": -1,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 3,
-  "stapnaam": "Stem (B1)",
+  "stap": -1,
+  "stapnaam": "",
   "voortgang": null,
-  "detail": "bezig",
-  "taken": [
-   "routine zonder Claude",
-   "stem inspreken (OmniVoice B1)"
-  ],
-  "eind": {
-   "klaar": "2026-11-20 08:08",
-   "youtube": "2026-11-20 08:28"
-  }
+  "detail": "",
+  "taken": [],
+  "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
-   "naam": "stem inspreken (OmniVoice B1)",
-   "stap": 3
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 7804,
+  "bezig_procent": 25,
+  "geheugen_mb": 687,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1078,18 +1108,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 09:58",
-   "tekst": "routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 11:49",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
    "fout": true,
@@ -1158,6 +1176,18 @@
   {
    "tijd": "2026-11-19 18:58",
    "tekst": "routine-lokaal: blackbeard-1718: 26 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 009, 015, 021, 027, 029, 048, 051, 053, 057, 065, 067, 068, 070, 077, 080",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 19:13",
+   "tekst": "Claude: Sleep Archives OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Keten blackbeard-1718 gestopt (stem halverwege), taak 'Sleep Archives bewaker' uitgezet. Al ge",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 19:26",
+   "tekst": "hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-05): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel ",
    "fout": false,
    "klaar": false
   }
@@ -3469,7 +3499,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 17:25",
+  "bijgewerkt": "2026-11-19 19:30",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3510,44 +3540,8 @@
     "bekeken": ""
    },
    {
-    "map": "gettysburg-1863",
-    "datum": "2026-11-18",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
-   {
-    "map": "dallas-1963",
-    "datum": "2026-11-21",
-    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
-   {
-    "map": "ijstijd-20000-vc",
-    "datum": "2026-11-23",
-    "titel": "How People Survived the Ice Age | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
-   {
     "map": "thanksgiving-1621",
-    "datum": "2026-11-25",
+    "datum": "2026-11-21",
     "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "fouten": [],
     "let_op": [],
@@ -3558,56 +3552,32 @@
     "bekeken": ""
    },
    {
-    "map": "boeren-winter-1300",
+    "map": "ijstijd-20000-vc",
     "datum": "2026-11-28",
-    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
-      "kanaal": "Sleepless Historian",
-      "per_dag": 5899
-     }
-    ],
-    "bekeken": "2026-11-15"
-   },
-   {
-    "map": "blackbeard-1718",
-    "datum": "2026-11-30",
-    "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "titel": "How People Survived the Ice Age | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-15"
+    "bekeken": ""
    },
    {
-    "map": "alchemie-steen-der-wijzen",
-    "datum": "2026-12-02",
-    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "datum": "2026-12-05",
+    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
-    "voorstel": "",
-    "waarom": "",
+    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
+    "waarom": "Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels",
     "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
-      "kanaal": "History Camp",
-      "per_dag": 19985
-     }
-    ],
-    "bekeken": "2026-11-15"
+    "concurrent": [],
+    "bekeken": "2026-11-19"
    },
    {
     "map": "kerst-loopgraven-1914",
-    "datum": "2026-12-05",
+    "datum": "2026-12-12",
     "titel": "Christmas in the Trenches, 1914 | History for Sleep",
     "fouten": [],
     "let_op": [],
@@ -3618,102 +3588,20 @@
     "bekeken": "2026-11-15"
    },
    {
-    "map": "pearl-harbor-1941",
-    "datum": "2026-12-07",
-    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "bethlehem",
+    "datum": "2026-12-19",
+    "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": ""
-   },
-   {
-    "map": "rome-44-vc",
-    "datum": "2026-12-09",
-    "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
-      "kanaal": "Sleepy History Channel",
-      "per_dag": 1115
-     }
-    ],
-    "bekeken": ""
-   },
-   {
-    "map": "zwarte-dood-1348",
-    "datum": "2026-12-12",
-    "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "How People Rebuilt Their Lives After the Black Death in England | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 791
-     },
-     {
-      "titel": "What Happened Inside Medieval Homes During the Black Death | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 538
-     }
-    ],
-    "bekeken": ""
-   },
-   {
-    "map": "scott-antarctica-1912",
-    "datum": "2026-12-14",
-    "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
-      "kanaal": "Kaushik Bhattacharjee Extra",
-      "per_dag": 8792
-     },
-     {
-      "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
-      "kanaal": "Bedtime & Historian ",
-      "per_dag": 1180
-     }
-    ],
-    "bekeken": ""
-   },
-   {
-    "map": "man-ijzeren-masker-1703",
-    "datum": "2026-12-16",
-    "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "What Life Was Like in Iron Age Britain, 300 BC | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 440
-     }
-    ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    },
    {
     "map": "londen-kerst-1843",
-    "datum": "2026-12-19",
+    "datum": "2026-12-26",
     "titel": "Life in Victorian London at Christmas, 1843 | History for Sleep",
     "fouten": [],
     "let_op": [],
@@ -3737,103 +3625,20 @@
       "per_dag": 1520
      }
     ],
-    "bekeken": ""
-   },
-   {
-    "map": "mary-celeste-1872",
-    "datum": "2026-12-21",
-    "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
-      "kanaal": "Bedtime & Historian ",
-      "per_dag": 1180
-     }
-    ],
-    "bekeken": ""
-   },
-   {
-    "map": "bethlehem",
-    "datum": "2026-12-23",
-    "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
-   {
-    "map": "japan-1600",
-    "datum": "2026-12-26",
-    "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
-      "kanaal": "The French Whisperer ASMR",
-      "per_dag": 6414
-     }
-    ],
-    "bekeken": ""
-   },
-   {
-    "map": "dansplaag-1518",
-    "datum": "2026-12-28",
-    "titel": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
-   {
-    "map": "tower-of-london-1536",
-    "datum": "2026-12-30",
-    "titel": "Life in the Tower of London, 1536 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [
-     {
-      "titel": "How People Slept Inside a Medieval Tower in Winter | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 1549
-     },
-     {
-      "titel": "What Life Was REALLY Like in London During the Little Ice Age | History for Sleep",
-      "kanaal": "Sleepy Quiet Historian",
-      "per_dag": 526
-     }
-    ],
-    "bekeken": ""
+    "bekeken": "2026-11-19"
    }
   ],
-  "model": "overgeslagen: kaart bezet"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 19:04",
+  "bijgewerkt": "2026-11-19 19:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 371807,
-    "week": 30717584,
+    "week": 30527753,
     "per_dag": {
-     "Thu 12-11": 10509318,
+     "Thu 12-11": 10319487,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951,
