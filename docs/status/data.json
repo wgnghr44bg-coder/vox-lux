@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 09:03",
+ "bijgewerkt": "2026-11-19 09:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
     "map": "dallas-1963",
-    "detail": "Video bouwen · 80%",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -484,7 +484,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "155 GB vrij"
+   "tekst": "159 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -499,7 +499,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 09:03)"
+   "tekst": "draait nu (2026-11-19 09:33)"
   },
   {
    "naam": "Git",
@@ -519,7 +519,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 08:48: alles klopt"
+   "tekst": "laatste ronde 09:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -536,8 +536,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 09:03",
-   "volgende": "2026-11-19 09:33"
+   "laatst": "2026-11-19 09:33",
+   "volgende": "2026-11-19 10:03"
   },
   "hype": {
    "aan": true,
@@ -546,18 +546,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 08:10",
-   "volgende": "2026-11-19 09:10"
+   "laatst": "2026-11-19 09:10",
+   "volgende": "2026-11-19 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 08:48",
-   "volgende": "2026-11-19 09:18"
+   "laatst": "2026-11-19 09:18",
+   "volgende": "2026-11-19 09:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 07:25",
-   "volgende": "2026-11-19 09:25"
+   "laatst": "2026-11-19 09:25",
+   "volgende": "2026-11-19 11:25"
   }
  },
  "kanaal": {
@@ -609,7 +609,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 44,
+    "views": 42,
     "verwerkt": "processed"
    },
    {
@@ -627,7 +627,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 74,
+    "views": 75,
     "verwerkt": "processed"
    },
    {
@@ -636,7 +636,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 17,
+    "views": 18,
     "verwerkt": "processed"
    },
    {
@@ -663,7 +663,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 671,
+    "views": 668,
     "verwerkt": "processed"
    }
   ],
@@ -857,7 +857,7 @@
    "totaal": 16,
    "procent": 31
   },
-  "fouten": 1,
+  "fouten": 2,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -872,24 +872,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
   "map": "dallas-1963",
   "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
   "datum": "2026-11-21",
   "thumb": "thumbs/dallas-1963.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": 80,
-  "detail": "16mm-look",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "90 van 90 beelden",
   "taken": [
    "routine zonder Claude",
-   "16mm-look"
+   "beeldcontrole (Qwen2.5-VL + CLIP)"
   ],
-  "eind": {
-   "klaar": "2026-11-19 09:23",
-   "youtube": "2026-11-19 09:43"
-  }
+  "eind": null
  },
  "nu_bezig": [
   {
@@ -897,13 +894,13 @@
    "stap": 0
   },
   {
-   "naam": "16mm-look",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 778,
+  "bezig_procent": 77,
+  "geheugen_mb": 7316,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -989,24 +986,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-18 19:07",
-   "tekst": "Claude: franklin-1845 opnieuw geschreven: 'Life Aboard Franklin's Lost Ships, 1845', 82 feitjes, 14.035 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOED).",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-18 19:14",
-   "tekst": "Claude: new-york-1925 opnieuw geschreven: 'Life in New York During Prohibition, 1925' (jaardag drooglegging), 82 feitjes, 13.750 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN",
-   "fout": false,
-   "klaar": true
-  },
-  {
-   "tijd": "2026-11-18 19:23",
-   "tekst": "Claude: goudkoorts-1849 opnieuw geschreven: 'The California Gold Rush, 1849' (jaardag goudvondst 24 jan), 80 feitjes, 13.722 woorden (MAKKELIJK, TOON GOED, AFWISSELING GOED, SCRIPT GOED, AFSPRAKEN GOE",
-   "fout": false,
-   "klaar": true
-  },
-  {
    "tijd": "2026-11-18 19:26",
    "tekst": "routine-lokaal: thanksgiving-1621: 3 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 081",
    "fout": false,
@@ -1071,22 +1050,40 @@
    "tekst": "hype-wachter: SEINTJE Pride and Prejudice verschijnt (214 jaar) -> KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-2",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "bewaker: keten gestart voor dallas-1963",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 09:03",
+   "tijd": "2026-11-19 09:27",
+   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 09:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-17 06:46",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (beeldcontrole: poging 3: 14 beelden opnieuw maken); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-17 17:48",
    "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
@@ -3383,7 +3380,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 08:31",
+  "bijgewerkt": "2026-11-19 09:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3833,7 +3830,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 09:05",
+  "bijgewerkt": "2026-11-19 09:34",
   "accounts": [
    {
     "account": "hoofd",
