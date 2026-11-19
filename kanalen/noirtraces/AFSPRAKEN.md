@@ -30,8 +30,6 @@ Dit kanaal staat los van Sleep Archives: `audio_engine/B1.json` en `stories/AFSP
 - **Feiten:** alleen uit bronnen. Wat onzeker is, zeggen we ook zo.
 
 ## Beelden
-- **Echte beelden waar het kan (eigenaar 19 nov 2026: "voor alle video's"):** gebruik echte afbeeldingen en beelden als dat mag, als ze goed van kwaliteit zijn en als ze passen bij wat er gezegd wordt. Mag: vrije licenties (Wikimedia CC/publiek domein, bv. oude foto's, schilderijen, kaarten) en officiële persbeelden (stilstaand), altijd met vermelding in beeld. Mag niet: video's met Content ID, gelekt materiaal, slechte of onscherpe beelden. Past er niets echts, dan een goede AI-afbeelding. Zie `kanalen/blackswanvault/README.md`.
-  NOIRTRACES: de regel 'geen gezichten van echte mensen' blijft gelden, dus geen portretfoto's van slachtoffers of verdachten; wel echte plekken, kaarten, kranten en documenten.
 - Historisch en donker, met mist, gaslicht en koel blauw.
 - **Geen gezichten van echte mensen.** Mensen alleen van achteren of als silhouet.
 - Niets uit later tijden: geen stopcontacten, borden of letters.

@@ -24,7 +24,6 @@ dit; `tools/routine_lokaal.py` draait die controle vóór elke video en begint n
 - Controles: `script_leesbaar` (GOED + TOON GOED), `check_afwisseling`, `script_check` (SCRIPT GOED).
 
 ## Beelden
-- **Echte beelden waar het kan (eigenaar 19 nov 2026: "voor alle video's"):** gebruik echte afbeeldingen en beelden als dat mag, als ze goed van kwaliteit zijn en als ze passen bij wat er gezegd wordt. Mag: vrije licenties (Wikimedia CC/publiek domein, bv. oude foto's, schilderijen, kaarten) en officiële persbeelden (stilstaand), altijd met vermelding in beeld. Mag niet: video's met Content ID, gelekt materiaal, slechte of onscherpe beelden. Past er niets echts, dan een goede AI-afbeelding. Zie `kanalen/blackswanvault/README.md`.
 - **Elk beeld een eigen plek en eigen licht (17 nov 2026, Dallas: "vaak dezelfde afbeelding"):** `src-feiten/stijl.txt`
   noemt alleen plaats + tijd en de filmlook. Nooit een vaste buitenscène (straat, gebouwen, lucht, avondlicht) in de
   stijlzin: die overstemt de beschrijving en dan wordt een diner, kantoor of woonkamer steeds dezelfde straat.
