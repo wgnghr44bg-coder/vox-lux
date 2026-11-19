@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 12:03",
+ "bijgewerkt": "2026-11-19 12:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "How Medieval Peasants Survived the Winter | History for Sleep",
     "map": "boeren-winter-1300",
-    "detail": "Beelden maken · 29%",
+    "detail": "Beelden maken · 89%",
     "soort": "nu"
    }
   ],
@@ -478,7 +478,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "142 GB vrij"
+   "tekst": "157 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -493,7 +493,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 12:03)"
+   "tekst": "draait nu (2026-11-19 12:33)"
   },
   {
    "naam": "Git",
@@ -513,7 +513,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:48: alles klopt"
+   "tekst": "laatste ronde 12:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -530,8 +530,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 12:03",
-   "volgende": "2026-11-19 12:33"
+   "laatst": "2026-11-19 12:33",
+   "volgende": "2026-11-19 13:03"
   },
   "hype": {
    "aan": true,
@@ -540,13 +540,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 11:10",
-   "volgende": "2026-11-19 12:10"
+   "laatst": "2026-11-19 12:10",
+   "volgende": "2026-11-19 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 11:48",
-   "volgende": "2026-11-19 12:18"
+   "laatst": "2026-11-19 12:18",
+   "volgende": "2026-11-19 12:48"
   },
   "titels": {
    "aan": true,
@@ -603,7 +603,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 51,
+    "views": 52,
     "verwerkt": "processed"
    },
    {
@@ -657,7 +657,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 680,
+    "views": 678,
     "verwerkt": "processed"
    }
   ],
@@ -874,8 +874,8 @@
   "thumb": "thumbs/boeren-winter-1300.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 29,
-  "detail": "25 van 87 beelden",
+  "voortgang": 89,
+  "detail": "77 van 87 beelden",
   "taken": [
    "routine zonder Claude",
    "beelden maken (ComfyUI)"
@@ -893,8 +893,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 57,
-  "geheugen_mb": 4287,
+  "bezig_procent": 31,
+  "geheugen_mb": 3818,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1072,7 +1072,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-19 12:03",
+   "tijd": "2026-11-19 12:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3824,7 +3824,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 12:05",
+  "bijgewerkt": "2026-11-19 12:35",
   "accounts": [
    {
     "account": "hoofd",
@@ -3845,13 +3845,13 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 84953382,
+    "week": 84679258,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Thu 12-11": 2641685,
+     "Thu 12-11": 2367561,
      "Wed 18-11": 377953
     },
     "script_kost": 619312,
@@ -3863,7 +3863,7 @@
     "5uur_scripts_over": 21.9,
     "5uur_stappen_over": null,
     "week_pct": 64,
-    "week_scripts_over": 76.0,
+    "week_scripts_over": 76.4,
     "week_stappen_over": null
    }
   ]
