@@ -294,7 +294,7 @@ SHOTS = [
  (ZR(32) - 0.15, doc("Anthropic · September 19, 2023", "Responsible Scaling Policy",
                      ["Rules for building more powerful AI", "More powerful AI: stricter safety rules"], mark=1, achter="dc-a", mark_na=35)),
  (ZR(36) - 0.15, fasen(F("sf", (1.0, 1.08), 0.4), [(36, GR("Marketing?", None, WIT, 130)), (37, GR("Or a real plan?", "for the whole AI industry", ORANJE, 120))])),
- (ZR(38) - 0.15, fot("kantoor-a", "Two quiet years", donker=0.6, zoom=(1.7, 1.6), pan=(0.92, 0.45, 0.88, 0.45))),
+ (ZR(38) - 0.15, fot("kantoor-a", "Two quiet years", donker=0.6, zoom=(2.0, 1.9), pan=(1.0, 0.5, 0.97, 0.5))),
  (ZR(39) - 0.15, logo_kaart("claude-site", "CLAUDE", "Released in March 2023", "MARCH 2023")),
  (ZR(40) - 0.15, fasen(F("claude-site", (1.0, 1.1), 0.6), [(40, ON("Built to compete directly with ChatGPT")), (41, ON("It was not the first")), (42, ON("ChatGPT launched just months earlier, in November 2022"))])),
  (ZR(43) - 0.15, duo),
