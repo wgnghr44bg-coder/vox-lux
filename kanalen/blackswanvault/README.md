@@ -5,6 +5,7 @@ Planning en ritme staan in `kanalen/PLANNING.md`: 2 lange video's per week plus 
 Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 
 ## Vaste regels van de eigenaar
+- **Echte beelden waar het kan (vaste regel, eigenaar 19 nov):** gebruik altijd echte afbeeldingen en beelden als dat mag, als ze goed van kwaliteit zijn en als ze passen bij wat er gezegd wordt. Mag het: vrije licenties (Wikimedia CC/PD) en officiële persafbeeldingen of screenshots die het bedrijf zelf voor pers/fans aanbiedt (stilstaand, met vermelding in beeld). Mag het niet: trailers of video's met Content ID, gelekt materiaal, en niet-adverteerdervriendelijke beelden. Past er niets echts, dan een goede AI-afbeelding die bij de tekst past.
 - **Lengte: minimaal 8 minuten** (eigenaar 19 nov: "Ja minimaal 8 min"); vanaf 8 min mag YouTube ook halverwege reclame tonen. Meer verhaal en context, geen opvulling of herhaling.
 - **Beeld:**
   - Per zin een beeld dat letterlijk past bij de tekst:
