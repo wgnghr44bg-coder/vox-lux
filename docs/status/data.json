@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 13:33",
+ "bijgewerkt": "2026-11-19 14:03",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 49%",
+    "detail": "Beelden maken · 67%",
     "soort": "nu"
    }
   ],
@@ -487,7 +487,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 13:33)"
+   "tekst": "draait nu (2026-11-19 14:03)"
   },
   {
    "naam": "Git",
@@ -507,7 +507,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 13:18: alles klopt"
+   "tekst": "laatste ronde 13:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -524,8 +524,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 13:33",
-   "volgende": "2026-11-19 14:03"
+   "laatst": "2026-11-19 14:03",
+   "volgende": "2026-11-19 14:33"
   },
   "hype": {
    "aan": true,
@@ -539,8 +539,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 13:18",
-   "volgende": "2026-11-19 13:48"
+   "laatst": "2026-11-19 13:48",
+   "volgende": "2026-11-19 14:18"
   },
   "titels": {
    "aan": true,
@@ -597,7 +597,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 51,
+    "views": 52,
     "verwerkt": "processed"
    },
    {
@@ -651,7 +651,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 680,
+    "views": 695,
     "verwerkt": "processed"
    }
   ],
@@ -868,10 +868,11 @@
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 49,
-  "detail": "41 van 84 beelden",
+  "voortgang": 67,
+  "detail": "56 van 84 beelden",
   "taken": [
    "routine zonder Claude",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
    "beelden maken (ComfyUI)"
   ],
   "eind": null
@@ -882,13 +883,17 @@
    "stap": 0
   },
   {
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
+  },
+  {
    "naam": "beelden maken (ComfyUI)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 3704,
+  "bezig_procent": 18,
+  "geheugen_mb": 6701,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1066,7 +1071,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-19 13:33",
+   "tijd": "2026-11-19 14:03",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -3806,14 +3811,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 13:35",
+  "bijgewerkt": "2026-11-19 14:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 39401699,
+    "week": 38868303,
     "per_dag": {
-     "Thu 12-11": 19565240,
+     "Thu 12-11": 19031844,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
@@ -3827,25 +3832,25 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 84679258,
+    "week": 83903006,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Thu 12-11": 2367561,
+     "Thu 12-11": 1591309,
      "Wed 18-11": 377953
     },
-    "script_kost": 619312,
-    "metingen": 15,
+    "script_kost": 630228,
+    "metingen": 14,
     "stap_kost": 0,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
-    "5uur_scripts_over": 21.9,
+    "5uur_scripts_over": 21.5,
     "5uur_stappen_over": null,
     "week_pct": 64,
-    "week_scripts_over": 76.4,
+    "week_scripts_over": 76.3,
     "week_stappen_over": null
    }
   ]
