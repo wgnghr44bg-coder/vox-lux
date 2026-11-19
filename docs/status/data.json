@@ -1,11 +1,11 @@
 {
- "bijgewerkt": "2026-11-19 15:03",
+ "bijgewerkt": "2026-11-19 15:33",
  "werkplanning": {
   "nu": [
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 99%",
+    "detail": "Beelden maken · 93%",
     "soort": "nu"
    }
   ],
@@ -487,7 +487,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-19 15:03)"
+   "tekst": "draait nu (2026-11-19 15:33)"
   },
   {
    "naam": "Git",
@@ -507,7 +507,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 14:48: alles klopt"
+   "tekst": "laatste ronde 15:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -524,8 +524,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-19 15:03",
-   "volgende": "2026-11-19 15:33"
+   "laatst": "2026-11-19 15:33",
+   "volgende": "2026-11-19 16:03"
   },
   "hype": {
    "aan": true,
@@ -534,18 +534,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-19 14:10",
-   "volgende": "2026-11-19 15:10"
+   "laatst": "2026-11-19 15:10",
+   "volgende": "2026-11-19 16:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-19 14:48",
-   "volgende": "2026-11-19 15:18"
+   "laatst": "2026-11-19 15:18",
+   "volgende": "2026-11-19 15:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-19 13:25",
-   "volgende": "2026-11-19 15:25"
+   "laatst": "2026-11-19 15:25",
+   "volgende": "2026-11-19 17:25"
   }
  },
  "kanaal": {
@@ -651,7 +651,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 693,
+    "views": 700,
     "verwerkt": "processed"
    }
   ],
@@ -845,7 +845,7 @@
    "totaal": 14,
    "procent": 36
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 12
@@ -868,11 +868,12 @@
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "84 van 84 beelden",
+  "voortgang": 93,
+  "detail": "78 van 84 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)"
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -884,11 +885,15 @@
   {
    "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stap": 2
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 6756,
+  "bezig_procent": 36,
+  "geheugen_mb": 3485,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -974,12 +979,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 09:27",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken voor 2026-11-21 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 09:58",
    "tekst": "routine-lokaal: dallas-1963: 2 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041, 066",
    "fout": false,
@@ -1056,17 +1055,17 @@
    "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken voor 2026-11-30 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 15:21",
+   "tekst": "routine-lokaal: blackbeard-1718: 18 beelden fout; 18 beschrijvingen terug naar het origineel, nog één beeldcontrole",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-19 13:14",
-   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 15:03",
+   "tijd": "2026-11-19 15:33",
    "tekst": "Zelfcontrole: Video 2026-11-21 (dallas-1963): nog NIET op YouTube (minder dan 2 dagen tot publicatie)",
    "fout": true
   }
@@ -1098,6 +1097,12 @@
   },
   {
    "tijd": "2026-11-19 13:05",
+   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-19 13:14",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
    "fout": true,
    "klaar": false
@@ -1299,11 +1304,11 @@
    "stappen": [
     true,
     false,
-    true,
+    false,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 20,
    "thumb": "thumbs/blackbeard-1718.jpg"
   },
   {
@@ -3356,7 +3361,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-19 13:25",
+  "bijgewerkt": "2026-11-19 15:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3806,14 +3811,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-19 15:04",
+  "bijgewerkt": "2026-11-19 15:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 32534566,
+    "week": 30980345,
     "per_dag": {
-     "Thu 12-11": 12698107,
+     "Thu 12-11": 11143886,
      "Fri 13-11": 7939845,
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951
