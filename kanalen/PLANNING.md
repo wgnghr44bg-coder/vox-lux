@@ -48,3 +48,9 @@ Alteraqon (@alteraqon) is gestopt.
 - Geen schokkerige of onscherpe video's op de achtergrond. Gebruik een scherpe echte foto, of een goede AI-foto die past bij de tekst. Een echte video mag alleen als die er professioneel uitziet.
 - Niets twee keer vertellen: hetzelfde bedrag of feit maar één keer uitspreken (in de Nvidia-video kwam de omzet van $115,8 miljard twee keer voor).
 - Opsommingen rustig: elk item een eigen korte zin (eigen regel in script.txt), met 0,6 s pauze erna, en elk item apart in beeld (eigenaar 19 nov avond).
+
+## Shorts (BlackswanVault, eigenaar 19 nov avond: "Shorts ook")
+- Van elke lange video 2 à 3 Shorts van 30 tot 55 s, met `kanalen/blackswanvault/shorts/maak_short.py` (zie `kanalen/blackswanvault/README.md`).
+- Verspreid ze over de dagen na de lange video. Koppel elke Short aan de lange video ("Gerelateerde video").
+- Ook Shorts gaan eerst privé online; openbaar alleen na OK van de eigenaar.
+- Klaar: `nvidia-short-1` (zin 0 t/m 9, 42 s, kop "$1 TRILLION GONE."), nog niet geüpload.

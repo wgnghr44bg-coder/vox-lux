@@ -1,0 +1,137 @@
+# BlackswanVault video 2: Anthropic IPO. Eén zin per regel. Feiten: bronnen.md. SLOT-regel = slotkoers dag 1 (vult slotkoers.py in).
+@scene open-waarschuwing
+Last month, a company handed Wall Street its plan to go public.
+Buried in the list of risks was something that sounds like science fiction: a potential end of humanity, tied to AI.
+Then it asked investors for eighty-one billion dollars.
+They gave it to them.
+@scene open-dag
+On Thursday, November nineteenth, at eleven forty-eight in the morning in New York, Anthropic started trading on the Nasdaq.
+The first trade came in at one hundred eleven dollars and fifty cents.
+That was thirty-four percent above the price set the night before.
+It was the biggest stock market listing in history.
+@scene open-vraag
+Bigger than Saudi Aramco.
+Bigger than SpaceX, just five months earlier.
+Five years ago, this company was a handful of researchers who walked out of OpenAI.
+So how did a company that talks this much about danger become worth around one and a half trillion dollars?
+And what did investors really buy?
+@scene h1-vertrek
+To understand Anthropic, you have to start with the people who left.
+In 2021, Dario Amodei was one of the top research leaders at OpenAI.
+He and a small group of colleagues, including his sister Daniela, believed AI was moving fast.
+Maybe too fast.
+They disagreed with where OpenAI was heading on safety.
+So they left, and started their own company.
+@scene h1-pbc
+They set it up in an unusual way.
+Anthropic is a public benefit corporation.
+On paper, it has to weigh the good of society, not just profit.
+In May 2021, it raised one hundred twenty-four million dollars.
+For an AI lab, that was almost nothing.
+@scene h2-claude
+For two years, most people had never heard of them.
+Then, in March 2023, Anthropic released Claude.
+A chatbot built to compete directly with ChatGPT.
+It was not the first.
+But it got the attention of two of the richest companies on Earth.
+@scene h2-amazon
+In September 2023, Amazon said it would invest up to four billion dollars.
+One month later, Google agreed to invest up to two billion.
+In November 2024, Amazon put in another four billion.
+Two rivals, both betting on the same small lab.
+@scene h3-geld
+And then the numbers started to move in a way Silicon Valley had never seen.
+In March 2025, Anthropic was valued at sixty-one and a half billion dollars.
+Six months later, one hundred eighty-three billion.
+In February 2026, three hundred eighty billion.
+In May, nine hundred sixty-five billion.
+@scene h3-omzet
+The reason was simple.
+Businesses were paying for it.
+In all of 2025, Anthropic brought in about four and a half billion dollars in revenue.
+In just the first nine months of 2026, it brought in thirty-three billion.
+That is about thirteen times as much as a year earlier.
+By the end of July, according to Reuters, its yearly revenue pace had passed sixty-five billion dollars.
+@scene h3-waarom
+Most of that money did not come from people chatting for fun.
+It came from companies paying to use Claude inside their own products.
+Every question.
+Every line of code.
+Every answer costs a little.
+And it adds up.
+@scene h4-pentagon
+But in February 2026, Anthropic ran into the most powerful customer in the world.
+The United States government.
+@scene h4-regels
+The Pentagon wanted to use Claude with fewer limits.
+Anthropic said there were two things it would not allow.
+Mass surveillance of Americans.
+And fully autonomous weapons.
+@scene h4-trump
+The response was fast.
+President Trump said he was directing the government to stop working with Anthropic.
+The Pentagon labeled the company a supply chain risk.
+@scene h4-rechter
+In March, Anthropic sued.
+A federal judge in San Francisco blocked the label.
+But in September, an appeals court in Washington sided with the Pentagon, two votes to one.
+Anthropic said it disagreed, and could take the case to the Supreme Court.
+@scene h4-gevolg
+For most startups, a fight with the Pentagon would be the end.
+For Anthropic, its value kept going up.
+@scene h5-mythos
+In April 2026, the company revealed Mythos.
+Its most advanced AI model so far.
+Anthropic said it was so good at finding weaknesses in software that it would not release it to everyone.
+Instead, it let a small group of organizations use it to find and fix security holes.
+The project was called Glasswing.
+@scene h5-boek
+There were other problems too.
+Authors said their books had been used to train Claude without permission.
+Anthropic agreed to pay one and a half billion dollars, and a judge approved the deal.
+@scene h6-ipo
+In June, Anthropic quietly filed to go public.
+In October, the full filing appeared.
+For the first time, anyone could look inside.
+@scene h6-cijfers
+And what they found was strange.
+Revenue was growing faster than at almost any company in history.
+But in the first nine months of 2026, Anthropic reported a net loss of one hundred and four billion dollars.
+@scene h6-verlies
+Most of that loss was an accounting charge, not cash leaving the bank.
+In fact, cash from its operations was positive, at six point six billion dollars.
+But the real number to watch was another one.
+Anthropic had promised to spend around nine hundred billion dollars on computing power, in deals stretching to 2045.
+More than seventy billion of that is due within a year.
+@scene h6-prijs
+Investors did not seem worried.
+Anthropic first planned a price between seventy and seventy-eight dollars a share.
+Demand was so high it priced at eighty-three.
+It sold nine hundred eighty million shares.
+Up to twenty percent of the shares could go to ordinary investors, through apps like Robinhood and Fidelity.
+@scene h7-dag
+Then came Thursday.
+After that big first trade, the stock slipped during the day.
+{SLOT}
+@scene h7-macht
+But owning the stock does not mean controlling the company.
+The founders keep just over half of the voting power.
+And a special trust picks most of the board.
+A trust that is meant to put the long-term good of people ahead of the next quarter.
+@scene h8-risico
+So what happens next?
+Here is what we know.
+Around three hundred fifteen million shares held by early insiders could be sold from the very first day.
+The founders are locked in for up to a year.
+The fight with the Pentagon is not over.
+And those computing bills are coming, whether revenue keeps growing or not.
+@scene h8-rivalen
+OpenAI is still out there, and it is also expected to go public.
+Google.
+Meta.
+And many others.
+They are spending hundreds of billions on AI of their own.
+The race is far from finished.
+@scene slot
+In 2021, a few researchers walked out of OpenAI because they were worried about how fast AI was moving.
+Five years later, investors are betting that the same people can win the race they were so worried about.

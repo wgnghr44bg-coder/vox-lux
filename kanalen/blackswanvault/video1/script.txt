@@ -1,0 +1,208 @@
+# BlackSwanVault video 1: Nvidia (19 nov 2026). Een zin per regel. "@scene naam" = nieuw beeld.
+# Alleen bevestigde feiten; geruchten met "reportedly"/"according to". Bronnen: zie bronnen.md.
+
+@scene open-capitol
+On the twelfth of November, the most powerful man in the chip industry walked away from the company he built.
+@scene open-huang
+For thirty-three years, Jensen Huang was Nvidia.
+The leather jacket. The giant keynotes. The man who sold the shovels in the great AI gold rush.
+@scene open-koers
+Then, in just three weeks, Nvidia's stock fell almost thirty percent.
+More than a trillion dollars in value, gone.
+@scene open-datacenter
+And then something strange happened.
+Five days after he left, Nvidia reported the biggest quarter in its history.
+One hundred and sixteen billion dollars, in three months.
+@scene open-vraag
+So how does a company lose its founder, its crown, and a trillion dollars, while it is making more money than ever before?
+And what really happened in those days in November?
+@scene open-dennys
+To understand that, we have to go back to a booth in a Denny's restaurant, in 1993.
+@scene titel
+This is the story of the man who built Nvidia.
+
+@scene h1-taiwan
+Jensen Huang was born in Taiwan in 1963.
+As a young boy, he was sent to the United States, and as a teenager, he worked at Denny's, washing dishes and waiting tables.
+He studied electrical engineering at Oregon State University, and later at Stanford.
+Then he designed chips at AMD and at a company called LSI Logic.
+He was good at it. But he wanted to build something of his own.
+@scene h1-booth
+In April 1993, at the age of thirty, he sat down in a Denny's in San Jose with two engineers, Chris Malachowsky and Curtis Priem.
+They had one idea. A special chip, made only for 3D graphics.
+@scene h1-concurrentie
+At the time, dozens of companies were chasing the same dream.
+Most of them would not survive.
+The technology was hard, the money ran out fast, and one bad product could end everything.
+And Nvidia almost didn't either.
+@scene h1-flop
+Its first product, the NV1, was a flop.
+The company had to let go of many of its people, and it came very close to running out of money.
+@scene h1-riva
+Then, in 1997, came the RIVA 128.
+It sold about a million units in its first four months.
+Nvidia was saved.
+Huang never forgot how close it had been. Years later, he still told his staff that the company was always only thirty days from going out of business.
+@scene h1-geforce
+In 1999, Nvidia went public, and it launched a product it called the world's first GPU, the GeForce 256.
+For the next ten years, that is what Nvidia was.
+A company that made graphics cards for gamers.
+
+@scene h2-idee
+But Huang had a bigger idea.
+A graphics chip does thousands of small calculations at the same time.
+So what if it could do more than draw pictures?
+@scene h2-cuda
+In 2006, Nvidia launched CUDA, software that let scientists and programmers use graphics chips for almost any kind of math.
+Wall Street did not understand it.
+It cost a fortune to build, and for years, it made almost no money.
+@scene h2-alexnet
+Then, in 2012, three researchers in Toronto trained a neural network called AlexNet on two Nvidia gaming cards.
+Their names were Alex Krizhevsky, Ilya Sutskever and Geoffrey Hinton.
+It crushed one of the most famous contests in computer vision.
+Almost overnight, the world of artificial intelligence discovered what Nvidia's chips could do.
+Hinton would later win a Nobel Prize.
+And Sutskever would go on to co-found a company you have definitely heard of.
+@scene h2-openai
+In 2016, Huang personally delivered the first DGX-1 AI supercomputer to a small research lab in San Francisco.
+That lab was called OpenAI.
+
+@scene h3-chatgpt
+On the thirtieth of November, 2022, OpenAI released ChatGPT.
+It reached an estimated one hundred million users in about two months.
+@scene h3-iedereen
+Suddenly, every tech company on Earth wanted to build its own AI.
+Microsoft. Google. Meta. Amazon.
+And to do that, they all needed the same thing.
+Nvidia chips.
+Nvidia's top AI chips became so hard to get that companies waited months for them.
+Startups bragged about how many they owned.
+For a while, Nvidia chips were almost a currency of their own.
+@scene h3-omzet
+Look at what happened next.
+In fiscal 2023, Nvidia made twenty-seven billion dollars.
+One year later, sixty-one billion.
+Then one hundred and thirty.
+Then two hundred and sixteen.
+@scene h3-marge
+And these were not cheap products.
+Nvidia was keeping around seventy cents of gross profit for every dollar of sales.
+@scene h3-koers
+The stock went with it.
+A share that cost about seventeen dollars when ChatGPT launched, adjusted for splits, was worth more than two hundred and thirty dollars by October 2026.
+@scene h3-biljoen
+In 2023, Nvidia became a one trillion dollar company.
+In July 2025, it became the first company in history worth four trillion dollars.
+Three months later, five trillion.
+@scene h3-ster
+And Jensen Huang became a celebrity.
+Sold-out keynotes. Crowds of fans. A CEO treated like a rock star.
+Every year, he walked on stage in his black leather jacket and showed the world what was coming next.
+First Hopper. Then Blackwell. Then Vera Rubin.
+Each one faster, bigger, and more expensive than the last.
+@scene h3-maar
+But there was one market that Nvidia could never fully control.
+China.
+
+@scene h4-regels
+For years, China was one of Nvidia's biggest markets.
+But from 2022, the United States began to limit which AI chips could be sold there, afraid that they could help China's military.
+@scene h4-h20
+Nvidia's most powerful chips were banned for China.
+So it designed weaker versions, like the H20, just for the Chinese market.
+But every time the rules changed, Nvidia had to change its products again.
+For Washington, it was about national security.
+For Nvidia, it was about billions of dollars in sales.
+@scene h4-h200
+Then, in December 2025, President Trump said that Nvidia could also sell its more powerful H200 chip to China.
+@scene h4-megaspeed
+Meanwhile, investigators were watching a company called Megaspeed.
+It ran AI computing centers in Asia, and according to The New York Times, it had become one of Nvidia's largest buyers, with about four point eight billion dollars of Nvidia equipment.
+@scene h4-onderzoek
+Authorities in the United States and in Singapore were investigating whether Megaspeed had helped banned chips reach China.
+In October, Huang told Bloomberg that his dealings with Megaspeed were completely normal.
+Nvidia said it had no reason to believe its products had been diverted.
+@scene h4-vrouw
+And one of Megaspeed's former senior executives was a woman who knew Jensen Huang personally.
+
+@scene h5-nyt
+On the twenty-ninth of October, The New York Times reported that Huang had a close relationship with that executive.
+Nvidia said the contacts were "not unusual or unexpected."
+@scene h5-spion
+But the paper also reported something far more serious.
+According to the Times, U.S. intelligence officials believed that China had recruited her to gather information on Huang, and possibly to influence Nvidia's chip sales to China.
+@scene h5-ontkenning
+China's foreign ministry called the spy story unsubstantiated.
+None of it has been proven, and no one has been charged.
+@scene h5-congres
+On the fifth of November, three Republican committee chairmen asked Huang for a closed-door briefing.
+That same day, Nvidia's stock fell more than nine percent.
+@scene h5-brief
+On Sunday, the eighth of November, Huang sent a letter to Nvidia's employees.
+"I was unfaithful to my wife," he wrote.
+"My actions hurt her and our children."
+@scene h5-board
+Nvidia's board opened an independent investigation into whether Huang had been targeted by a foreign intelligence service.
+At first, the board said it still had confidence in him.
+President Trump called Huang a fine person, and said he should stay on as CEO.
+But the next day, Huang pulled out of several public events, and the stock fell more than four percent.
+@scene h5-druk
+But the pressure kept building.
+More reports followed. Lawmakers talked about a subpoena. The Justice Department reportedly took over the federal investigation.
+@scene h5-ontslag
+On the twelfth of November, the board accepted Huang's resignation.
+Chief financial officer Colette Kress became interim CEO.
+And Huang agreed to testify before Congress.
+Kress had been Nvidia's chief financial officer since 2013. Now, she had to lead a company worth trillions, in the middle of a storm.
+The board also named Harvey Jones, one of its longest-serving directors, as its first chair.
+And in Washington, Democrats opened their own investigation into how the government had handled Nvidia's chip sales to China.
+@scene h5-koers
+From the first report to the eighteenth of November, Nvidia's stock lost almost thirty percent.
+Until the end of October, it had been the most valuable company in the world.
+
+@scene h6-cijfers
+On the seventeenth of November, Nvidia reported its results.
+Revenue for the quarter was one hundred and fifteen point eight billion dollars.
+More than double the year before.
+@scene h6-kwartalen
+Just look at how fast that number has grown.
+@scene h6-datacenter
+Data center chips alone brought in one hundred and seven point six billion.
+For the next quarter, Nvidia expected about one hundred and thirty billion, without any data center chip sales to China at all.
+@scene h6-kress
+Colette Kress said that Nvidia would stop selling the H200 in China.
+And about Vera Rubin, Nvidia's next generation of chips, she said this.
+"Vera Rubin is off to an explosive start. Our roadmap is on track, and our ambition has never been greater."
+@scene h6-terug
+On the same day, Huang wrote that he would be honored to return as CEO, if the board decided that was best for shareholders.
+The new chairman said the company was not considering it.
+@scene h6-daling
+And the stock?
+The next day, it fell almost three percent more.
+
+@scene h7-waarom
+So why would investors sell a company that just made more money than ever?
+Because markets do not pay for the past.
+They pay for the future.
+And right now, Nvidia's future has three big question marks.
+@scene h7-china
+The first is China.
+Lawmakers want to know if American technology was put at risk, and the answer could mean tougher rules for the whole chip industry.
+@scene h7-leider
+The second is leadership.
+Founders are hard to replace.
+Huang was not just the CEO. He was the face of the company, its chief salesman, and the man who made the big bets.
+Whoever leads Nvidia next has to convince customers, investors and governments that the company does not need him.
+Apple found its way after Steve Jobs, and Microsoft grew after Bill Gates.
+But not every company is that lucky.
+@scene h7-bubbel
+And the third is the AI boom itself.
+Investors are already nervous about how long companies can keep spending hundreds of billions of dollars on AI chips.
+If that spending slows down, the company that sells the shovels feels it first.
+And there is competition too. AMD makes its own AI chips. Google, Amazon and Microsoft are all designing chips of their own, so they need Nvidia a little less.
+@scene h7-getuigenis
+Before Thanksgiving, Jensen Huang is expected to testify before Congress.
+What he says could shape Nvidia, and the AI race between America and China, for years.
+@scene slot-dennys
+One thing is certain.
+The man who started Nvidia in a booth at Denny's is no longer running it.
