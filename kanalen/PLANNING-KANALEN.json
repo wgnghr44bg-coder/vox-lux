@@ -1,7 +1,7 @@
 {
  "uitleg": "Planning van NOIRTRACES en BlackswanVault (eigenaar 19 nov 2026). Sleep Archives komt vanzelf uit stories/*/planning.txt. De website (tools/kanalen_planning.py) zet dit samen met YouTube in het paneel 'Planning alle kanalen'. Zie kanalen/PLANNING.md.",
  "regels": {
-  "Sleep Archives": "1x per week, za 21:00 (NL) (eigenaar 19 nov avond: focus op BlackswanVault). Feestdagen en jaardagen staan vast; de hype-wachter schuift een video naar voren als er een trend is.",
+  "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00.",
   "NOIRTRACES": "OP PAUZE (eigenaar 19 nov avond: eerst zien hoe Jack the Ripper het doet). Script Holmes ligt klaar in stories/_nt-hh-holmes (nog niet gemaakt). Daarna 1x per week, vr 21:00.",
   "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen."
  },
@@ -24,10 +24,17 @@
   },
   {
    "kanaal": "BlackswanVault",
-   "datum": "2026-11-24",
+   "datum": "2026-11-20",
    "tijd": "15:00",
    "titel": "Anthropic: the biggest IPO in history",
    "stand": "wordt gemaakt"
+  },
+  {
+   "kanaal": "BlackswanVault",
+   "datum": "2026-11-24",
+   "tijd": "15:00",
+   "titel": "GTA 6 / Take-Two (na officiële verkoopcijfers)",
+   "stand": "onderwerp kiezen"
   }
  ],
  "noir_volgorde": {

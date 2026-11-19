@@ -356,3 +356,5 @@ ValueError: empty separator)
 - 2026-11-19 13:14 routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan
 - 2026-11-19 16:20 routine-lokaal: blackbeard-1718: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 71/84 goedgekeurd, fout: ['001', '003', '006', '012', '018', '020', '034', '036', '040', '048', '051', '054', '083']); de oude versie blijft staan
 - 2026-11-19 17:11 routine-lokaal: blackbeard-1718: 13 beelden fout; 13 beschrijvingen terug naar het origineel, nog één beeldcontrole
+- 2026-11-19 18:58 routine-lokaal: blackbeard-1718: 26 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 009, 015, 021, 027, 029, 048, 051, 053, 057, 065, 067, 068, 070, 077, 080
+- 2026-11-19 19:13 Claude: Sleep Archives OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Keten blackbeard-1718 gestopt (stem halverwege), taak 'Sleep Archives bewaker' uitgezet. Al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) blijven staan.
