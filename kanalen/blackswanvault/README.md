@@ -6,7 +6,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 
 ## Vaste regels van de eigenaar
 - **Pakkend beeld (eigenaar 19 nov: "let daar op bij andere video's, maak het wel pakkend voor de mensen"):** geen saaie algemene achtergronden (controller, code op een scherm, lege serverruimte, een console op een tafel) als er iets sprekenders is. Kies het meest opvallende echte beeld dat bij de zin past (officieel artwork/screenshot, persfoto, sterke foto). Grote tekst op een druk beeld altijd met een donkere balk erachter. Controleer elke video met `render3.py --plaat` op saaie of herhaalde achtergronden.
-- **Geen claims (eigenaar 19 nov: "doe wat mag volgens YouTube, ik wil geen claims"):** alleen vrije licenties (Wikimedia CC/PD, met vermelding) of eigen AI-beelden (ComfyUI, "AI-generated image" in beeld). GEEN officieel artwork/screenshots van bedrijven of games (ook niet in de thumbnail), geen trailers, geen gelekt materiaal, geen nagemaakte game-personages of logo's in AI-beelden. Echte vrije beelden gaan voor als ze pakkend zijn en passen; anders een goede AI-afbeelding.
+- **Geen claims (eigenaar 19 nov: "doe wat mag volgens YouTube, ik wil geen claims"):** alleen vrije licenties (Wikimedia CC/PD, met vermelding) of eigen AI-beelden (ComfyUI, "AI-generated image" in beeld). GEEN officieel artwork/screenshots van bedrijven of games in de video. Uitzondering (eigenaar 19 nov, keuze B): de thumbnail mag de officiële cover/key art van het onderwerp gebruiken (klein risico; bij een melding alleen de thumbnail vervangen). Verder geen trailers, geen gelekt materiaal, geen nagemaakte game-personages of logo's in AI-beelden. Echte vrije beelden gaan voor als ze pakkend zijn en passen; anders een goede AI-afbeelding.
 - **Lengte: minimaal 8 minuten** (eigenaar 19 nov: "Ja minimaal 8 min"); vanaf 8 min mag YouTube ook halverwege reclame tonen. Meer verhaal en context, geen opvulling of herhaling.
 - **Beeld:**
   - Per zin een beeld dat letterlijk past bij de tekst:
@@ -26,7 +26,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - **Niets twee keer vertellen** (hetzelfde bedrag of feit maar één keer).
   - **Opsommingen rustig:** elk item een eigen korte zin op een eigen regel in `script.txt`. Die krijgt 0,6 s pauze, en elk item komt apart in beeld.
 - **Beschrijving:** 3 zinnen, hoofdstukken, "Not financial advice." en 3 hashtags. Geen streepjes en geen dubbele punten in kanaalteksten.
-- **Thumbnail:** andere tekst dan de titel. Letters nooit over het onderwerp. Met `thumb.py`: links grote letters, rechts het onderwerp; logo van het bedrijf erbij (`THUMB_MERK=...`). Thumbnail ook zonder officieel artwork: echte vrije foto of eigen AI-beeld (eigenaar 19 nov: geen claims).
+- **Thumbnail:** andere tekst dan de titel. Letters nooit over het onderwerp. Met `thumb.py`: links grote letters, rechts het onderwerp; logo van het bedrijf erbij (`THUMB_MERK=...`). Thumbnail: officiële cover/key art mag (keuze B, eigenaar 19 nov); in de video zelf niet.
 - **YouTube:**
   - Altijd eerst privé uploaden en via de API het kanaal controleren.
   - Openbaar alleen na een expliciete OK van de eigenaar.
