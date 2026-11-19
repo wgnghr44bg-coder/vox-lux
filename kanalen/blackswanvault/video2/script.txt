@@ -55,6 +55,7 @@ In September 2023, Amazon said it would invest up to four billion dollars.
 One month later, Google agreed to invest up to two billion.
 In November 2024, Amazon put in another four billion.
 Two rivals, both betting on the same small lab.
+Both still own a part of the company today.
 @scene h3-geld
 New versions of Claude kept coming.
 In March 2024, Anthropic released Claude Three, which it said beat OpenAI's GPT-4 on several tests.
@@ -104,6 +105,7 @@ In March, Anthropic sued.
 A federal judge in San Francisco blocked the label.
 But in September, an appeals court in Washington sided with the Pentagon, two votes to one.
 Anthropic said it disagreed, and could take the case to the Supreme Court.
+The case became a test of how far a government can push an AI company.
 @scene h4-gevolg
 For most startups, a fight with the Pentagon would be the end.
 For Anthropic, its value kept going up.
@@ -117,6 +119,7 @@ The project was called Glasswing.
 There were other problems too.
 Authors said their books had been used to train Claude without permission.
 Anthropic agreed to pay one and a half billion dollars, and a judge approved the deal.
+It was one of the largest copyright payouts in American history.
 @scene h6-ipo
 In June, Anthropic quietly filed to go public.
 In October, the full filing appeared.
