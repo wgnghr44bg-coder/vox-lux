@@ -358,3 +358,12 @@ ValueError: empty separator)
 - 2026-11-19 17:11 routine-lokaal: blackbeard-1718: 13 beelden fout; 13 beschrijvingen terug naar het origineel, nog één beeldcontrole
 - 2026-11-19 18:58 routine-lokaal: blackbeard-1718: 26 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 009, 015, 021, 027, 029, 048, 051, 053, 057, 065, 067, 068, 070, 077, 080
 - 2026-11-19 19:13 Claude: Sleep Archives OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Keten blackbeard-1718 gestopt (stem halverwege), taak 'Sleep Archives bewaker' uitgezet. Al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) blijven staan.
+- 2026-11-19 19:26 hype-wachter: SEINTJE TITEL pearl-harbor-1941 (2026-12-05): 'Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep' -> voorstel 'Life at Pearl Harbor, December 1941 | History for Sleep' (Titel bevat beroemde locatie, specifieke datum en voldoet aan alle regels)
+- 2026-11-19 20:18 sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-19 21:18 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-20 08:00 nieuwswacht: GROOT Anthropic (2026-11-20): Forget Anthropic: In Europe, the IPO hype is about a blue lagoon -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-20 08:30 hype-wachter: SEINTJE What They Never Tell You About the Picts - Scotland’s Lost History -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-20 08:30 hype-wachter: SEINTJE What Happened to the Shah of Iran’s Children After He Was Overthrown? | History For Sleep -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-20 08:30 hype-wachter: SEINTJE Tales from Korean Folklore | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-20 08:30 hype-wachter: SEINTJE Learn How Rice Changed The World | A Sleepy History -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-20 09:36 Claude: BlackswanVault Anthropic (5C2MIFhR314) nieuwe thumbnail A ($81 BILLION, ANTHROPIC IPO, Dario voor Nasdaq) op verzoek eigenaar; oude = video2/thumbnail-definitief.jpg
