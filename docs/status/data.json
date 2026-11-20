@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 15:33",
+ "bijgewerkt": "2026-11-20 16:03",
  "kanalen": {
   "weken": [
    {
@@ -185,107 +185,107 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-19 17:59",
+  "bijgewerkt": "2026-11-20 15:45",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -0.9,
+    "pct": -0.5,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -0.7,
+    "pct": -1.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.5,
+    "pct": 0.5,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -0.3,
+    "pct": -4.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.2,
+    "pct": 0.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 0.1,
+    "pct": -0.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 0.9,
+    "pct": 2.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -0.5,
+    "pct": -1.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -0.8,
+    "pct": -2.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -1.9,
+    "pct": -1.7,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": -0.0,
+    "pct": -2.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": -1.1,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -1.3,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -1.5,
+    "pct": 2.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -0.5,
+    "pct": -0.8,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": -1.7,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -1.4,
+    "pct": -3.0,
     "groot": false,
     "grens": 4
    }
@@ -293,106 +293,61 @@
   "onderwerpen": [
    {
     "onderwerp": "Anthropic",
-    "punten": 10,
+    "punten": 9,
     "bronnen": [
-     "BBC",
      "CNBC",
      "MarketWatch",
      "NYT"
     ],
     "wat": [
      "beursgang",
-     "cijfers",
+     "crash",
      "record"
     ],
     "koppen": [
      {
-      "titel": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
+      "titel": "Bitcoin suffered identical sell-off pattern ahead of Anthropic, SpaceX IPOs — what happens next?",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html"
+      "link": "https://www.cnbc.com/2026/11/20/bitcoin-pre-ipo-selloff-pattern-anthropic-spacex.html"
      },
      {
-      "titel": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
+      "titel": "Forget Anthropic: In Europe, the IPO hype is about a blue lagoon",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html"
+      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-iceland-blue-lagoon.html"
      },
      {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
+      "titel": "Anthropic defies the odds, holding record IPO despite ‘massively disruptive’ market",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/20/anthropic-defies-odds-holding-ipo-despite-massively-disruptive-market.html"
      },
      {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
+      "titel": "Anthropic IPO 'exactly what the markets need,' but analysts warn of volatility",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-stocks-market.html"
      }
     ],
     "groot": true
    },
    {
-    "onderwerp": "Nvidia",
-    "punten": 6,
-    "bronnen": [
-     "CNBC",
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers",
-     "rechtszaak"
-    ],
-    "koppen": [
-     {
-      "titel": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/nvidia-lutnick-china-ai-megaspeed-cantor-fitzgerald.html"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Inflatie",
-    "punten": 4,
+    "onderwerp": "Bitcoin",
+    "punten": 5,
     "bronnen": [
      "CNBC"
     ],
     "wat": [
-     "rente/recessie"
+     "crash",
+     "overname/deal"
     ],
     "koppen": [
      {
-      "titel": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
+      "titel": "Bitcoin suffered identical sell-off pattern ahead of Anthropic, SpaceX IPOs — what happens next?",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Beurs",
-    "punten": 4,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
+      "link": "https://www.cnbc.com/2026/11/20/bitcoin-pre-ipo-selloff-pattern-anthropic-spacex.html"
      },
      {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
+      "titel": "Kraken parent's acquisition of Tribe Capital flags new chapter in evolution of crypto exchanges",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/19/acquisition-of-tribe-capital-flags-new-chapter-in-evolution-of-crypto-exchanges.html"
      }
     ],
     "groot": false
@@ -409,13 +364,26 @@
     "koppen": [
      {
       "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
-     },
-     {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
       "bron": "CNBC business",
       "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 3,
+    "bronnen": [
+     "BBC"
+    ],
+    "wat": [
+     "rechtszaak"
+    ],
+    "koppen": [
+     {
+      "titel": "California targets Nvidia in China AI chip probe",
+      "bron": "BBC",
+      "link": "https://www.bbc.co.uk/news/articles/cqn70vxp5p4no?at_medium=RSS&at_campaign=rss"
      }
     ],
     "groot": false
@@ -424,7 +392,7 @@
   "groot": [
    "Anthropic"
   ],
-  "aantal_koppen": 104
+  "aantal_koppen": 103
  },
  "werkplanning": {
   "nu": [
@@ -660,7 +628,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "155 GB vrij"
+   "tekst": "154 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -675,7 +643,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 15:33)"
+   "tekst": "draait nu (2026-11-20 16:03)"
   },
   {
    "naam": "Git",
@@ -695,7 +663,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -712,8 +680,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 15:33",
-   "volgende": "2026-11-20 16:03"
+   "laatst": "2026-11-20 16:03",
+   "volgende": "2026-11-20 16:33"
   },
   "hype": {
    "aan": true,
@@ -727,8 +695,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 15:18",
-   "volgende": "2026-11-20 15:48"
+   "laatst": "2026-11-20 15:48",
+   "volgende": "2026-11-20 16:18"
   },
   "titels": {
    "aan": true,
@@ -1063,8 +1031,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 515,
+  "bezig_procent": 26,
+  "geheugen_mb": 575,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1236,8 +1204,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 15:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 16:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3663,7 +3631,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 15:34",
+  "bijgewerkt": "2026-11-20 16:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3683,27 +3651,27 @@
    },
    {
     "account": "account2",
-    "5uur": 7212347,
-    "week": 94758782,
+    "5uur": 5802247,
+    "week": 94990149,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 12447085,
+     "Fri 20-11": 12678452,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 25506,
+    "stap_kost": 25613,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 53,
-    "5uur_scripts_over": 9.6,
-    "5uur_stappen_over": 250,
+    "5uur_pct": 43,
+    "5uur_scripts_over": 11.7,
+    "5uur_stappen_over": 304,
     "week_pct": 72,
-    "week_scripts_over": 56.2,
-    "week_stappen_over": 1461
+    "week_scripts_over": 55.8,
+    "week_stappen_over": 1446
    }
   ]
  },
