@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 22:03",
+ "bijgewerkt": "2026-11-20 22:33",
  "kanalen": {
   "weken": [
    {
@@ -205,8 +205,15 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-26",
         "tijd": "15:00",
-        "titel": "Bitcoin crash (voorstel, video8)",
-        "stand": "onderwerp gekozen, nog maken"
+        "titel": "Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
+        "stand": "klaar, wacht op OK eigenaar (video8)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "17:00",
+        "titel": "Short: Bitcoin Lost Half Its Value",
+        "stand": "klaar, wacht op OK eigenaar (shorts/bitcoin-short-1.mp4)"
        }
       ]
      },
@@ -708,7 +715,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "153 GB vrij"
+   "tekst": "152 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -723,7 +730,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 22:03)"
+   "tekst": "draait nu (2026-11-20 22:33)"
   },
   {
    "naam": "Git",
@@ -743,7 +750,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 22:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -760,8 +767,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 22:03",
-   "volgende": "2026-11-20 22:33"
+   "laatst": "2026-11-20 22:33",
+   "volgende": "2026-11-20 23:03"
   },
   "hype": {
    "aan": true,
@@ -771,12 +778,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 22:10"
+   "volgende": "2026-11-20 23:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 21:48",
-   "volgende": "2026-11-20 22:18"
+   "laatst": "2026-11-20 22:18",
+   "volgende": "2026-11-20 22:48"
   },
   "titels": {
    "aan": true,
@@ -1116,8 +1123,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 587,
+  "bezig_procent": 37,
+  "geheugen_mb": 5931,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1289,8 +1296,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 22:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 22:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3716,7 +3723,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 22:04",
+  "bijgewerkt": "2026-11-20 22:35",
   "accounts": [
    {
     "account": "hoofd",
@@ -3735,27 +3742,27 @@
    },
    {
     "account": "account2",
-    "5uur": 8267335,
-    "week": 104653793,
+    "5uur": 7198217,
+    "week": 105802191,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 22342096,
+     "Fri 20-11": 23490494,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 29244,
+    "stap_kost": 29660,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 61,
-    "5uur_scripts_over": 8.0,
-    "5uur_stappen_over": 182,
-    "week_pct": 79,
-    "week_scripts_over": 41.3,
-    "week_stappen_over": 936
+    "5uur_pct": 53,
+    "5uur_scripts_over": 9.6,
+    "5uur_stappen_over": 215,
+    "week_pct": 80,
+    "week_scripts_over": 39.5,
+    "week_stappen_over": 884
    }
   ]
  },
