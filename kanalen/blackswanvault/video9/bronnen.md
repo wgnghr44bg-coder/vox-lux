@@ -24,3 +24,9 @@ Lock-up:
 
 Kritiek (juni, [W]): Michael Burry "nothing in that S-1 suggests it is worth $1 trillion let alone $2 trillion"; FT (Wigglesworth) "The price is nuts"; Morningstar reële waarde $780 mld.
 Johnsen (17 nov, [G]): eerste rekensatellieten 2027, flinke capaciteit 2029; SpaceX kan "one of the world's largest AI infrastructure providers as early as 2027" worden.
+
+Aanvulling 20 nov 22:45:
+- Yahoo-koersdata (data/spcx.json): slot 12 jun $160,95; hoogste slot $211,39 (16 jun); laagste slot $108,27 (5 aug); 19 nov $138,43; 20 nov $127,79 (onder $135).
+- CNBC 15 jul 2026: eerste keer kort onder $135, slot $135,27; in de eerste maand boven $225; beursgang "raised a record $86 billion" (link); na 15 handelsdagen in de Nasdaq-100.
+- Yahoo Finance / 24/7 Wall St. (David Moadel, 20 nov): SPCX $131,16 (-5%) 's ochtends; FT: geldschieters probeerden te verbieden dat Musk de Nvidia-chips (onderpand) de ruimte in schiet, vrees dat ze die bij wanbetaling niet terugkrijgen; onduidelijk of dat in de eindovereenkomst staat. Bloomberg: $32 mld obligaties in een pakket van $40 mld met bankleningen, voor een lease van 5 jaar op Nvidia-processors; Goldman Sachs (regie) met Apollo; PIMCO kocht mee; rente op het grootste deel ruim boven het gemiddelde voor bedrijfsobligaties. AI-segment Q3 $7,6 mld (+830%).
+- Lock-up 8 dec: alleen Motley Fool (11 nov: "180-day cliff ... will arrive on Dec. 8") en lock-up-trackers; in de video zo noemen.

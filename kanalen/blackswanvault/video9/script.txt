@@ -1,0 +1,153 @@
+# BlackswanVault video 9: SpaceX-aandeel onder de beursgangprijs. Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse
+# Opbouw: antwoord vooraan (schuld voor AI-chips, verliezen van AI, lock-up 8 dec), dan beursgang, het bedrijf, de chips, critici, lock-up, wat nu.
+@scene open-val
+On Friday, November twentieth, SpaceX shares fell almost eight percent.
+They closed at one hundred twenty-seven dollars and seventy-nine cents.
+That is below the price of one hundred thirty-five dollars that investors paid when SpaceX went public in June.
+On the same day, the Nasdaq one hundred fell almost four percent.
+@scene open-top
+Just five months ago, this was the biggest stock market debut in history.
+Within days, the shares were worth more than two hundred eleven dollars.
+Since then, they have lost about forty percent.
+@scene open-antwoord
+So what went wrong?
+The short answer is three things.
+First, SpaceX is borrowing billions of dollars to build artificial intelligence, and its lenders are nervous.
+Second, the AI part of the company is still losing money.
+And third, on December eighth, a big group of early investors will be free to sell their shares.
+@scene open-start
+To understand why that matters, let's go back to June.
+@scene h1-beursgang
+On June twelfth, SpaceX started trading on the Nasdaq under the ticker S P C X.
+The price was one hundred thirty-five dollars per share.
+That valued the whole company at about one point seven seven trillion dollars.
+According to CNBC, the offering raised a record eighty-six billion dollars.
+The very first trade happened at one hundred fifty dollars.
+@scene h1-feest
+On its first day, the stock closed at almost one hundred sixty-one dollars.
+At that price, the whole company was worth about two point one trillion dollars.
+Four days after its debut, it closed above two hundred eleven.
+SpaceX joined the Nasdaq one hundred after just fifteen trading days, thanks to a new fast-entry rule.
+For a moment, it looked like nothing could stop it.
+@scene h1-daling
+But the excitement did not last.
+On July fifteenth, the shares briefly dropped below the offer price for the first time.
+It was the fourth losing day in a row.
+By early August, the stock had closed as low as one hundred eight dollars.
+It recovered in the fall, but never came close to its June high again.
+After the midterm elections on November third, it fell below one hundred twenty-one dollars again.
+In Texas, where SpaceX builds its rockets, the incoming governor has called for a pause on new data centers until there are rules for them.
+@scene h2-bedrijf
+So what are investors actually buying?
+SpaceX is no longer just a rocket company.
+@scene h2-starlink
+Its biggest business is Starlink, the satellite internet service.
+In 2025, Starlink brought in about eleven point four billion dollars in revenue.
+And it made a profit of about four point four billion.
+That is the money machine.
+@scene h2-raketten
+The rocket business itself, the part most people think of, brought in about four point one billion dollars.
+And it lost money, about six hundred fifty-seven million dollars.
+@scene h2-xai
+Then there is AI.
+In February, SpaceX merged with xAI, Elon Musk's artificial intelligence company.
+xAI is the company behind the chatbot Grok.
+In 2025, that AI business had about three point two billion dollars in revenue.
+And it lost about the same amount.
+@scene h2-totaal
+Put it all together, and SpaceX had about eighteen point seven billion dollars in revenue in 2025.
+But overall, it lost almost five billion dollars.
+@scene h2-groei
+The growth is real.
+In the third quarter of this year, revenue jumped one hundred sixty-one percent, to fourteen point six billion dollars.
+More than half of that, seven point six billion, came from the AI business.
+That is about eight hundred thirty percent more than a year earlier.
+But building AI is very expensive.
+And that brings us to the chips.
+@scene h3-chips
+To compete in AI, you need huge numbers of computer chips, mostly from Nvidia.
+And SpaceX decided to borrow the money to get them.
+@scene h3-lening
+According to Bloomberg, SpaceX put together a forty billion dollar financing package.
+Thirty-two billion of it came from bonds, and the rest from bank loans.
+The money pays for a five-year lease of Nvidia processors.
+Goldman Sachs arranged the deal together with Apollo, and the bond giant PIMCO was one of the buyers.
+@scene h3-rente
+But lenders made SpaceX pay for it.
+The biggest part of the bonds pays an interest rate well above the average for large American companies.
+That is a sign that lenders see more risk.
+@scene h3-ruimte
+And then came a report that spooked investors.
+According to the Financial Times, the lenders tried to stop Musk from launching those chips into space.
+The newspaper cited people familiar with the talks.
+@scene h3-waarom
+Why would anyone launch chips into space?
+Because SpaceX wants to build data centers in orbit, powered by the sun.
+On November seventeenth, its finance chief, Bret Johnsen, said the first computing satellites could launch in 2027.
+He said SpaceX could become one of the world's largest AI infrastructure providers.
+That day, the stock rose about three percent.
+@scene h3-onderpand
+But for a lender, that plan has a problem.
+The chips are the collateral for the loan.
+If SpaceX ever fails to pay, the lenders want to take the chips back and sell them.
+That is hard to do if the chips are flying around the Earth.
+It is not clear whether those limits made it into the final deal.
+But on Friday, the stock fell below its offer price.
+@scene h4-critici
+Some investors warned about this from the start.
+Before the listing, the famous investor Michael Burry wrote, quote, "nothing in that S one suggests it is worth one trillion dollars, let alone two trillion."
+A columnist at the Financial Times put it more simply.
+"The price is nuts."
+And analysts at Morningstar said a fair value for the whole company was about seven hundred eighty billion dollars.
+They called SpaceX, quote, "significantly overvalued."
+That is less than half of what it was valued at in June.
+@scene h4-fans
+Others are far more positive.
+When SpaceX went public, most of the big banks gave it price targets well above the offer price.
+They believe Starlink and AI will keep growing fast enough to justify the price.
+The most optimistic target, from Raymond James, was eight hundred dollars per share.
+Even the lowest, from Stifel, was one hundred ninety.
+Today, the stock trades far below all of them.
+@scene h5-lockup
+Now to the date that many investors have circled.
+When a company goes public, early investors and employees usually agree not to sell their shares for a while.
+This is called a lock-up.
+It stops a flood of shares from hitting the market right after the debut.
+At SpaceX, smaller groups of shares were already released in steps, after its quarterly results.
+@scene h5-datum
+For many of SpaceX's early investors, that lock-up lasts one hundred eighty days.
+According to the Motley Fool and companies that track these dates, it ends on December eighth.
+Depending on how the rules are counted, hundreds of millions of shares could become free to sell.
+For comparison, on a normal day in November, about one hundred million SpaceX shares change hands.
+@scene h5-shotwell
+Some insiders have already been allowed to sell part of their shares.
+In September, SpaceX president Gwynne Shotwell sold about three hundred forty-two thousand shares, worth about fifty-two million dollars.
+As of late October, it was the only sale by a top insider on file.
+@scene h5-musk
+And Elon Musk himself?
+He owns about forty-two percent of the shares, and controls about eighty-two percent of the votes.
+His shares stay locked until June 2027.
+@scene h5-waarom
+Why does a lock-up matter?
+If many early investors decide to take profits at the same time, there are suddenly far more sellers than buyers.
+Many early investors bought long before the listing, at much lower prices.
+Even at today's price, many of them would make a big profit by selling.
+@scene h6-anthropic
+The timing also did not help.
+On November nineteenth, the AI company Anthropic went public, raising more than eighty-one billion dollars.
+Some analysts say big investors sold other tech stocks to make room for the new shares.
+The day after Anthropic's debut, SpaceX fell below its own offer price.
+And Anthropic's own shares fell more than nine percent that day too.
+@scene h7-volgende
+So what should you watch?
+First, December eighth, and how much selling comes when the lock-up ends.
+Second, the debt, and what the final deal says about launching chips into space.
+Third, Starship, because the plan for data centers in orbit depends on it.
+And fourth, the AI business, which has to start earning more than it costs.
+None of this is financial advice.
+@scene slot
+SpaceX has changed how the world gets to space.
+Now it is betting the company on AI, with borrowed money.
+The rockets still fly.
+The question is whether the stock can.
