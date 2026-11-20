@@ -167,7 +167,12 @@ def koers(van, tot, titel, sub, markers=(), labels=(), teken=0.75, kleur=ORANJE)
         img, _ = lijn(t, d, van, tot, titel, sub, markers=markers, kleur=kleur, teken=teken)
         dr = ImageDraw.Draw(img, "RGBA")
         for z, x, y, s, k in labels:
-            if na(z, T0, t): txt(dr, (x, y), s, font(BLACK, 120), k, ease(sinds(z, T0, t) / 0.4), "rm")
+            if isinstance(z, str):                       # 20 nov: label op een datum verschijnt pas als de lijn daar is (eigenaar)
+                pts = R.koers(van, tot)
+                i = next((q for q, (dd, _) in enumerate(pts) if str(dd) >= z), len(pts))
+                n = max(2, int(len(pts) * eio(t / (d * teken))))
+                if n > i: txt(dr, (x, y), s, font(BLACK, 120), k, ease((n - i) / 12), "rm")
+            elif na(z, T0, t): txt(dr, (x, y), s, font(BLACK, 120), k, ease(sinds(z, T0, t) / 0.4), "rm")
         bron(img, "Source: Take-Two Interactive (NASDAQ: TTWO) closing prices, via Yahoo Finance")
         return img
     return f
@@ -232,7 +237,7 @@ SHOTS = [
  (ZR(83) - 0.15, fasen(F("gta-jason-motor", (1.0, 1.08), 0.7), [(83, ST("PS5 AND XBOX SERIES ONLY"))])),
  (ZR(84) - 0.15, tijdlijn),
  (ZR(87) - 0.15, koers("2025-04-01", "2025-12-31", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, April to December 2025",
-                       markers=[("2025-05-02", "Delay 1"), ("2025-11-07", "Delay 2")], labels=[(87, 700, 330, "-7%", ROOD), (89, 1700, 330, "-8%", ROOD)], teken=0.9)),
+                       markers=[("2025-05-02", "Delay 1"), ("2025-11-07", "Delay 2")], labels=[("2025-05-02", 640, 330, "-7%", ROOD), ("2025-11-07", 1700, 330, "-8%", ROOD)], teken=0.9)),
  (ZR(90) - 0.15, fasen(portret("zelnick", 0.6), [(90, ON("Strauss Zelnick stayed calm")), (91, ON("Never regretted a delay, looking back")),
                                                   (92, ON("Highly confident in the new date"))])),
  (ZR(93) - 0.15, koers("2026-11-09", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, November 9 to 19, 2026",
