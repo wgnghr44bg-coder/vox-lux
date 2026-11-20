@@ -26,6 +26,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - **Niets twee keer vertellen** (hetzelfde bedrag of feit maar één keer).
   - **Getallen in cijfers** in titel, beschrijving en hoofdstukken ($81 billion, 19 million, Day 1), nooit uitgeschreven (eigenaar 20 nov). Alleen in script.txt voor de stem mogen ze uitgeschreven blijven.
   - **Rustige beeldwissels** (eigenaar 20 nov: "komt weer zo druk over"): elk beeld minstens ± 4 s in beeld (korte zinnen samen op één beeld), overgang ± 0,7 s zacht overvloeien.
+  - **Uitspraak controleren** (eigenaar 20 nov, "launched" klonk raar): na de stem `check_stem.py` én `woordcheck.py` (Whisper per woord) draaien; elke zin waar Whisper een ander woord hoort (bv. "all fall platforms") opnieuw inspreken met een andere seed, of anders verwoorden.
   - **Korte vraag** ("Why?"): 1,2 s stilte ervoor en 1,6 s erna (stem.py).
   - **Clip moet passen bij wat er gezegd wordt**; past geen echte clip, dan liever een AI-beeld dat er in het algemeen bij hoort (eigenaar 20 nov, Zynga met een schreeuwende gamer).
   - **Opsommingen rustig:** elk item een eigen korte zin op een eigen regel in `script.txt`. Die krijgt 0,6 s pauze, en elk item komt apart in beeld.
