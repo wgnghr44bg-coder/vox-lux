@@ -62,3 +62,4 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 - Er is maar één videokaart.
 - Zolang `~/gpu-bezet.lock` bestaat, start `tools/keten_bewaker.py` geen Sleep-keten.
 - Sleep Archives en NOIRTRACES staan op pauze (taak "Sleep Archives bewaker" staat uit).
+- **Stem blijft zakelijk-23 (eigenaar 20 nov):** proeven met ontworpen stem E, eigen opnames 'Yessssssaaasss' (eigen-stem-swan) en 'Trrr' (eigen-stem-trrr) gemaakt (`stemproef/`); eigenaar: "ik laat het zo met de stem die ik al had". De eigen opnames staan alleen op de pc (`~/vox-lux-stemmen/`).

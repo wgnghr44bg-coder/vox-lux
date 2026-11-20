@@ -1,0 +1,8 @@
+{
+  "name": "eigen-stem-swan",
+  "bijnaam": "Eigen stem, levendig (proef BlackswanVault 20 nov 2026, opname 'Yessssssaaasss')",
+  "description": "Lively storytelling voice. The owner's own voice (recording 'Yessssssaaasss', 20 Nov 2026; owner: 'Eigen'), cloned with OmniVoice with the owner's permission. Reference = first 10.8 s of that recording; only on the owner's pc (ref_pc), not on GitHub (public repo).",
+  "ref_text": "Detective. Let's start with something simple. Where were you last night at approximately eleven thirty? Suspect. I already told the other officer. I was at home.",
+  "default_speed": 1.0,
+  "ref_pc": "C:/Users/rane/vox-lux-stemmen/eigen-stem-swan/ref.wav"
+}
