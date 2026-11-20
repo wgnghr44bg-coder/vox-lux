@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 13:06",
+ "bijgewerkt": "2026-11-20 13:33",
  "kanalen": {
   "weken": [
    {
@@ -398,7 +398,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "YouTube upload",
     "soort": "nu"
    }
   ],
@@ -642,7 +642,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 13:03)"
+   "tekst": "draait nu (2026-11-20 13:33)"
   },
   {
    "naam": "Git",
@@ -662,7 +662,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 12:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -679,8 +679,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 13:03",
-   "volgende": "2026-11-20 13:33"
+   "laatst": "2026-11-20 13:33",
+   "volgende": "2026-11-20 14:03"
   },
   "hype": {
    "aan": true,
@@ -694,13 +694,13 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 12:48",
-   "volgende": "2026-11-20 13:18"
+   "laatst": "2026-11-20 13:18",
+   "volgende": "2026-11-20 13:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-20 11:25",
-   "volgende": "2026-11-20 13:25"
+   "laatst": "2026-11-20 13:25",
+   "volgende": "2026-11-20 15:25"
   }
  },
  "kanaal": {
@@ -1015,22 +1015,29 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 6,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
+  "stap": 6,
+  "stapnaam": "YouTube upload",
   "voortgang": null,
   "detail": "",
-  "taken": [],
+  "taken": [
+   "wachten op verwerking YouTube"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "wachten op verwerking YouTube",
+   "stap": 6
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 35,
+  "bezig_procent": 26,
   "geheugen_mb": 504,
   "totaal_mb": 8192
  },
@@ -1203,8 +1210,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 13:06",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 13:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3498,7 +3505,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 11:30",
+  "bijgewerkt": "2026-11-20 13:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3627,10 +3634,10 @@
     "bekeken": "2026-11-20"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 13:11",
+  "bijgewerkt": "2026-11-20 13:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3650,27 +3657,27 @@
    },
    {
     "account": "account2",
-    "5uur": 7753525,
-    "week": 90629930,
+    "5uur": 7747879,
+    "week": 91200394,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 8318233,
+     "Fri 20-11": 8888697,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 26076,
+    "stap_kost": 25915,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 57,
     "5uur_scripts_over": 8.8,
-    "5uur_stappen_over": 223,
+    "5uur_stappen_over": 225,
     "week_pct": 69,
-    "week_scripts_over": 62.4,
-    "week_stappen_over": 1587
+    "week_scripts_over": 61.6,
+    "week_stappen_over": 1575
    }
   ]
  },
