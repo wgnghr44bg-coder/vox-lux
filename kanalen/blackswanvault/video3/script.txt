@@ -1,4 +1,5 @@
 # BlackswanVault video 3: GTA 6 en Take-Two. Eén zin per regel. Feiten: bronnen.md. Officiële cijfers Take-Two: later toevoegen bij @scene h6-wat.
+# 20 nov middag: volgorde omgegooid (antwoord 'buy the rumor' vooraan, geschiedenis daarna); zin 'On Thursday, the game was released.' weg (dubbel met opening). Oude volgorde: script-voor-volgorde.txt
 @scene open-dag
 On Thursday, November nineteenth, millions of people around the world did the same thing.
 They turned on their consoles, and started Grand Theft Auto Six.
@@ -13,6 +14,37 @@ Bigger than any album.
 And yet, on the day the game came out, the stock of the company behind it went down.
 This year alone, Take-Two Interactive has lost around sixteen percent of its value.
 So how can a company release what may be the biggest product of its life, and still leave investors cold?
+@scene h4-review
+On Wednesday, the first reviews came out, and they were glowing.
+Take-Two's stock jumped more than six percent.
+@scene h4-launch
+Many fans had paid in advance.
+Pre-orders opened in June, after Rockstar revealed the official cover art.
+According to Sensor Tower, around three quarters of the first-day sales were on PlayStation.
+Shares of Sony and Microsoft went up.
+But Take-Two's own stock slipped.
+@scene h5-waarom
+Why?
+Wall Street has an old saying.
+Buy the rumor, sell the news.
+Investors had been betting on this game for years.
+Two years before launch, Take-Two's stock was around one hundred eighty-six dollars.
+By October 2025, it had climbed to about two hundred sixty-two.
+By launch day, much of the good news was already in the price.
+@scene h5-vooruit
+And investors always look ahead.
+The question is no longer whether GTA Six will sell.
+It is what comes after.
+How long people keep playing.
+How much they spend inside the game.
+And when Rockstar's next big game will arrive.
+Rockstar has not announced a PC version yet.
+In the past, its PC versions came later, sometimes years later.
+@scene h5-verwachting
+Analysts at Wells Fargo expect Take-Two to bring in close to ten billion dollars in bookings this fiscal year.
+Bookings are the money a games company takes in from sales, before accounting spreads it out over time.
+That would be a record.
+But much of it depends on one game.
 @scene h1-gta5
 To understand that, you have to go back to 2013.
 In September of that year, Rockstar Games released Grand Theft Auto Five.
@@ -107,45 +139,13 @@ This time, the stock fell about eight percent.
 Strauss Zelnick stayed calm.
 He said the company had never regretted a delay, looking back.
 And he said he was highly confident in the new date.
-@scene h4-review
 This time, the date held.
-On Wednesday, the first reviews came out, and they were glowing.
-Take-Two's stock jumped more than six percent.
-@scene h4-launch
-On Thursday, the game was released.
-Many fans had paid in advance.
-Pre-orders opened in June, after Rockstar revealed the official cover art.
-According to Sensor Tower, around three quarters of the first-day sales were on PlayStation.
-Shares of Sony and Microsoft went up.
-But Take-Two's own stock slipped.
 @scene h4-vergelijking
 To understand how big this launch is, compare it with others.
 In 2018, Rockstar's own Red Dead Redemption Two made seven hundred twenty-five million dollars in its first three days.
 It has since sold more than eighty million copies.
 In 2019, the movie Avengers: Endgame made about one point two billion dollars worldwide in its opening weekend.
 If the estimates are right, GTA Six made more than that in a single day.
-@scene h5-waarom
-Why?
-Wall Street has an old saying.
-Buy the rumor, sell the news.
-Investors had been betting on this game for years.
-Two years before launch, Take-Two's stock was around one hundred eighty-six dollars.
-By October 2025, it had climbed to about two hundred sixty-two.
-By launch day, much of the good news was already in the price.
-@scene h5-vooruit
-And investors always look ahead.
-The question is no longer whether GTA Six will sell.
-It is what comes after.
-How long people keep playing.
-How much they spend inside the game.
-And when Rockstar's next big game will arrive.
-Rockstar has not announced a PC version yet.
-In the past, its PC versions came later, sometimes years later.
-@scene h5-verwachting
-Analysts at Wells Fargo expect Take-Two to bring in close to ten billion dollars in bookings this fiscal year.
-Bookings are the money a games company takes in from sales, before accounting spreads it out over time.
-That would be a record.
-But much of it depends on one game.
 @scene h6-wat
 So what happens next?
 Take-Two has not shared official sales numbers yet.

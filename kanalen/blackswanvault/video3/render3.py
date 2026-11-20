@@ -7,7 +7,11 @@ import render as R
 from render import *   # noqa: F401,F403
 
 Z = R.Z
-def ZR(i, f=0.0): return Z[i][0] + f * (Z[i][1] - Z[i][0])
+# 20 nov middag: volgorde omgegooid. Zinnummers hieronder zijn de OUDE nummers (zinnen-voor-volgorde.json); _NR zet ze om.
+_OUD = [x[2] for x in json.load(open(R.H / "zinnen-voor-volgorde.json", encoding="utf-8"))]
+_POS = {x[2]: k for k, x in enumerate(Z)}
+_NR = {i: _POS[z] for i, z in enumerate(_OUD) if z in _POS}
+def ZR(i, f=0.0): i = _NR[i]; return Z[i][0] + f * (Z[i][1] - Z[i][0])
 def na(i, T0, t): return T0 + t >= ZR(i) - 0.1           # is zin i al begonnen?
 def sinds(i, T0, t): return T0 + t - ZR(i)
 
@@ -241,9 +245,9 @@ SHOTS = [
                        markers=[("2025-05-02", "Delay 1"), ("2025-11-07", "Delay 2")], labels=[("2025-05-02", 640, 330, "-7%", ROOD), ("2025-11-07", 1700, 330, "-8%", ROOD)], teken=0.9)),
  (ZR(90) - 0.15, fasen(portret("zelnick", 0.6), [(90, ON("Strauss Zelnick stayed calm")), (91, ON("Never regretted a delay, looking back")),
                                                   (92, ON("Highly confident in the new date"))])),
- (ZR(93) - 0.15, koers("2026-11-09", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, November 9 to 19, 2026",
+ (ZR(94) - 0.15, koers("2026-11-09", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, November 9 to 19, 2026",
                        markers=[("2026-11-18", "Reviews"), ("2026-11-19", "Launch")], labels=[("2026-11-18", 1700, 330, "+6%", GROEN)], teken=0.9)),
- (ZR(96) - 0.15, fasen(F("gta6-cover", (1.0, 1.06), 0.6), [(96, ST("NOVEMBER 19: LAUNCH")), (97, ON("Many fans had paid in advance")), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
+ (ZR(97) - 0.15, fasen(F("gta6-cover", (1.0, 1.06), 0.6), [(97, EN(ST("NOVEMBER 19: LAUNCH"), ON("Many fans had paid in advance"))), (98, ON("Pre-orders opened in June 2026")), (99, GR("~75%", "of first-day sales on PlayStation · Sensor Tower", WIT, 170)),
                                                     (100, ON("Sony and Microsoft shares went up")), (101, ST("TAKE-TWO STOCK: DOWN", ROOD))])),
  (ZR(102) - 0.15, fasen(F("neon", (1.0, 1.08), 0.5), [(102, GR("How big is this launch?", "compared with the biggest ever", WIT, 100))])),
  (ZR(103) - 0.15, balken([("RDR2 · first 3 days", 0.725), ("Endgame · opening weekend", 1.2), ("GTA VI · day one (est.)", 1.8)], "BIG LAUNCHES COMPARED",
@@ -262,6 +266,8 @@ SHOTS = [
  (ZR(133) - 0.15, fasen(F("gta-vc-skyline", (1.08, 1.0), 0.55), [(133, ON("In the end, Rockstar did it again")), (134, ON("The players came")), (135, ON("The money came"))])),
  (ZR(136) - 0.15, slot_fade("miami-night-b", "What comes next?")),
 ]
+
+SHOTS.sort(key=lambda x: x[0])   # 20 nov: na het omgooien op tijd sorteren
 
 def shot_op(t):
     k = max(i for i, (s0, _) in enumerate(SHOTS) if s0 <= t) if t >= SHOTS[0][0] else 0

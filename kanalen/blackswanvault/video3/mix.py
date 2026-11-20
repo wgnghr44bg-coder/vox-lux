@@ -13,7 +13,7 @@ scenes = []
 for s, e, z, sc in Z:
     if not scenes or scenes[-1][0] != sc: scenes.append([sc, s])
 start = {sc: s for sc, s in scenes}
-hoofd = [start[h] for h in ["h1-gta5", "h2-studio", "h3-trailer", "h3-uitstel", "h4-review", "h5-waarom", "h6-wat"]]
+hoofd = [start[h] for h in ["h4-review", "h5-waarom", "h1-gta5", "h2-studio", "h3-trailer", "h3-uitstel", "h6-wat"]]   # 20 nov: nieuwe volgorde
 grenzen = [0.0] + hoofd + [dur]
 # akkoorden (grondtonen in Hz) en bpm per deel: open, h1..h7
 DELEN = [((55.0, 65.4, 82.4), 0, 0.10), ((49.0, 61.7, 73.4), 84, 0.07), ((55.0, 69.3, 82.4), 92, 0.08), ((61.7, 73.4, 92.5), 100, 0.10),
