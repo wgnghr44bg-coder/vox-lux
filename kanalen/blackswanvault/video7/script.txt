@@ -1,0 +1,160 @@
+# BlackswanVault video 7: Black Friday 2026. Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): Black Friday Will Break a Record. That's Not Good News
+# Opbouw: antwoord vooraan (record, maar vooral door hogere prijzen en de rijkste huishoudens), dan cijfers, prijzen, huishouden, rijk en arm, lenen, deals, wat nu.
+@scene open-record
+This holiday season, Americans are expected to spend more than one trillion dollars in stores.
+That has never happened before.
+And on Black Friday alone, shoppers are expected to spend almost thirteen billion dollars online.
+@scene open-maar
+It sounds like a booming economy.
+But look a little closer, and the picture changes.
+@scene open-antwoord
+About half of that growth is not people buying more.
+It is people paying more for the same things.
+The average family still plans to spend less than it did two years ago.
+And a big share of the spending comes from the richest households.
+@scene open-vraag
+So who is really behind this record?
+And what does it say about the economy you live in?
+Let's start with the numbers.
+@scene h1-nrf
+On October fifteenth, the National Retail Federation released its forecast.
+It expects holiday sales in November and December to grow four point two percent.
+That would bring the total to one point zero one trillion dollars.
+Last year, sales grew three point one percent, to nine hundred seventy-two billion.
+This year's growth would also beat the average of the last twenty years.
+@scene h1-adobe
+Online, the numbers look even bigger.
+Adobe, which tracks spending on thousands of retail websites, expects two hundred seventy-five billion dollars in online sales this season.
+On Black Friday, it expects twelve point nine billion dollars.
+That is nine percent more than last year.
+@scene h1-week
+And the Monday after, Cyber Monday, could reach fifteen point one billion dollars.
+No single day of online shopping has ever crossed fifteen billion.
+Even Thanksgiving Day itself is expected to bring in almost seven billion dollars online.
+From Thanksgiving to Cyber Monday, Americans are expected to spend forty-seven and a half billion dollars online in just five days.
+@scene h1-banen
+Stores are getting ready.
+Retailers plan to hire between three hundred twenty-five thousand and three hundred seventy-five thousand seasonal workers.
+But even the retail federation calls them cautious.
+It points to higher gas prices, persistent inflation, higher interest rates and consumer debt.
+@scene h2-prijzen
+And that is the first catch.
+These forecasts are not adjusted for inflation.
+They measure dollars, not things.
+According to the Associated Press, forecasters expect higher prices to make up about half of the growth.
+The Mastercard Economics Institute said the same about its own forecast.
+@scene h2-voorbeeld
+Think of it like this.
+If a toy cost twenty dollars last year and twenty-one dollars now, sales go up.
+But nobody bought an extra toy.
+@scene h2-benzine
+One price hit harder than any other.
+After the war with Iran began, gas prices jumped.
+Before the war, a gallon cost less than three dollars.
+In the middle of October, it was four dollars and thirty-three cents.
+In October, gasoline was thirty-seven percent more expensive than a year earlier.
+@scene h2-nu
+Gas has started to come down again.
+Just before Thanksgiving week, the national average was about three dollars and seventy cents.
+But that is still almost sixty cents more than a year ago.
+And every dollar spent at the pump is a dollar that does not go to gifts.
+@scene h2-verwachting
+Shoppers know it.
+In a survey by Deloitte, seventy-nine percent of Americans said they expect higher prices on holiday items this year.
+Two years ago, it was sixty-nine percent.
+The latest yearly figure from the government shows prices up three point seven percent.
+@scene h3-huishouden
+Now let's look at a single family.
+Deloitte asked four thousand Americans how much they plan to spend this holiday season.
+The answer was one thousand six hundred fifty-four dollars per household.
+That is four percent more than last year.
+@scene h3-terug
+But here is what the headlines leave out.
+Last year, that number had dropped sharply.
+In 2024, the average household planned to spend one thousand seven hundred seventy-eight dollars.
+So even after this year's increase, families plan to spend about one hundred twenty-four dollars less than two years ago.
+And that is before you count higher prices.
+@scene h3-spullen
+How they spend is changing too.
+Spending on gifts and other goods is expected to rise ten percent.
+But spending on holiday activities, like travel, events and hosting, is expected to fall four percent.
+People are cutting back on going out, to keep buying presents.
+@scene h3-jagers
+And they are hunting for deals harder than ever.
+Thirty-eight percent of shoppers say they use at least five ways to save money.
+They wait for sales, switch brands when prices rise, and cut other spending to pay for the holidays.
+Many also started early.
+By the end of October, shoppers had already spent twenty-eight percent of their holiday budget.
+That is the highest share in six years.
+@scene h4-kloof
+So if the average family is careful, where does the record come from?
+The answer is the top.
+In the Deloitte survey, households earning more than two hundred thousand dollars a year plan to spend about three thousand six hundred dollars.
+Households earning less than fifty thousand plan to spend just six hundred ninety-three.
+The richer households plan to spend more than five times as much.
+@scene h4-k
+Economists call this a K-shaped economy.
+One group goes up, the other goes down.
+People with stocks and homes have seen their wealth grow.
+People who live from paycheck to paycheck feel every price increase.
+The average hides both groups.
+@scene h4-zandi
+Mark Zandi, the chief economist at Moody's Analytics, has tried to measure this.
+By his estimate, the top ten percent of earners now make up about forty-five percent of all consumer spending.
+And the top twenty percent, households earning more than one hundred seventy-five thousand dollars a year, make up almost sixty percent.
+Other economists say his method is too high, and their numbers are lower.
+But they agree on the direction.
+More and more of the spending depends on the people at the top.
+@scene h4-risico
+That makes the economy fragile in a new way.
+If the stock market falls, the richest households may spend less.
+And because they spend so much, the whole economy would feel it.
+@scene h4-gevoel
+You can also see the split in how people feel.
+In November, the University of Michigan's index of consumer sentiment was fifty-one point five.
+That is one of the lowest readings in its history.
+The researchers said sentiment is still nine percent below February, before the war with Iran began.
+So Americans are expected to spend a record amount, while feeling gloomier than they have in a long time.
+@scene h5-lenen
+And some are paying for it with money they do not have yet.
+Adobe expects Americans to spend twenty-one point three billion dollars this season using buy now, pay later.
+These services split a purchase into smaller payments, often four, without interest.
+On Black Friday alone, Adobe expects more than eight hundred million dollars of these payments.
+@scene h5-te-laat
+The problem shows up later.
+In a LendingTree survey from March, forty-seven percent of buy now, pay later users said they had paid late at least once in the past year.
+Two years earlier, it was thirty-four percent.
+And twenty-nine percent said they used it to pay for groceries.
+@scene h5-waarom
+When people split a grocery bill into four payments, that is not a sign of a strong consumer.
+It is a sign of a stretched one.
+And those payments do not disappear after the holidays.
+They keep coming in January and February.
+@scene h6-deals
+So are the Black Friday deals at least real?
+According to Adobe, discounts this year are about the same as last year.
+The biggest are on electronics, up to thirty percent off, and on toys, up to twenty-nine percent.
+TVs, computers and clothing can reach about twenty-three percent.
+@scene h6-wanneer
+Timing matters.
+Adobe expects the best prices on TVs, toys, clothing, appliances and furniture on Black Friday itself.
+For laptops and other electronics, the best day is usually Cyber Monday.
+And earlier in November, discounts were much smaller, around fourteen percent.
+@scene h6-basis
+There is one more trend that tells you a lot.
+People are using Black Friday to stock up on everyday things.
+Compared to September, Adobe expects online sales of basic clothing to more than triple during Cyber Week.
+Personal care products could rise one hundred fifty percent, and baby products more than double.
+When people wait for a sale to buy diapers and soap, money is tight.
+@scene h7-volgende
+So what should you watch?
+First, the next reading of consumer sentiment from the University of Michigan, on December fourth.
+Second, the real sales numbers from Adobe after the weekend, compared to the forecast.
+Third, gas prices, because they decide how much money is left for everything else.
+And fourth, late payments on buy now, pay later in the new year, when the bills arrive.
+@scene slot
+This Black Friday will probably break a record.
+But a record in dollars is not the same as a record in confidence.
+The real story is not how much Americans spend.
+It is who is doing the spending, and how they are paying for it.
