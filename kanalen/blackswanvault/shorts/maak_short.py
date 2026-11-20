@@ -1,8 +1,10 @@
 """Staande Short (1080x1920) uit een lange BlackswanVault-video: stuk van zin A t/m B, de 16:9-video in het midden op een
 wazige achtergrond, kop bovenin, grote ondertiteling (stukjes van max 4 woorden) onderin. Geen gesproken outro.
-Gebruik: python maak_short.py <videomap> <video.mp4> <zin_a> <zin_b> "<KOP>" <uit.mp4>"""
+Gebruik: python maak_short.py <videomap> <video.mp4> <zin_a> <zin_b> "<KOP>" <uit.mp4> [--zonder-ondertitels]"""
 import json, subprocess, sys
 from pathlib import Path
+ZONDER = "--zonder-ondertitels" in sys.argv   # 20 nov (eigenaar): Short zonder ondertiteling, alleen de kop
+if ZONDER: sys.argv.remove("--zonder-ondertitels")
 vm, src, a, b, kop, uit = Path(sys.argv[1]), sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5], sys.argv[6]
 Z = json.load(open(vm / "zinnen.json", encoding="utf-8"))
 t0 = max(0, Z[a][0] - 0.3); t1 = Z[b][1] + 0.9; dur = t1 - t0
@@ -11,11 +13,11 @@ def ts(x):
 # 19 nov (eigenaar: "ondertiteling klopt niet helemaal", "je mag ook cijfers gebruiken"): woordtijden van Whisper op de stem
 import os
 wj = Path(uit).with_name(Path(uit).stem + "-woorden.json")
-if not wj.exists():
+if not ZONDER and not wj.exists():
     subprocess.run([r"C:/Users/rane/omnivoice-venv/Scripts/python.exe", str(Path(__file__).with_name("woorden.py")), str(vm / "stem.wav"),
                     f"{t0:.2f}", f"{t1:.2f}", str(wj)], check=True)
 GETAL = {"two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"}
-W = json.load(open(wj, encoding="utf-8"))
+W = [] if ZONDER else json.load(open(wj, encoding="utf-8"))
 vorige = "."
 for w in W:
     k = w["w"].lower().strip(".,?!")

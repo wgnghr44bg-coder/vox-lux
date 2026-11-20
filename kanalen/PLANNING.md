@@ -10,7 +10,7 @@ De website wordt elk half uur bijgewerkt door `tools/dashboard_bijwerken.py`, da
 |---|---|---|---|
 | **Sleep Archives** (@sleeparchiveshistory), **OP PAUZE** (taak bewaker uit) | (straks 1x per week) | za 21:00 | `YT_REFRESH_TOKEN` |
 | **NOIRTRACES** (@noirtraces), **OP PAUZE** | (straks 1x per week) | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
-| **BlackswanVault** (@blackswanvault), **FOCUS** | 2 lange video's per week + Shorts; groot nieuws zo snel mogelijk | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
+| **BlackswanVault** (@blackswanvault), **FOCUS** | 1 grote lange video per week + 1 extra lange bij groot nieuws (alleen als hij net zo goed is) + elke dag een Short (eigenaar 20 nov; na 4 weken evalueren op kijkduur) | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
 
 Alteraqon (@alteraqon) is gestopt.
 
