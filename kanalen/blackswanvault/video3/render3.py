@@ -162,7 +162,8 @@ _k = json.load(open(H / "data/ttwo.json"))["chart"]["result"][0]
 R.KOERS[:] = [(_D.datetime.fromtimestamp(a, _D.UTC).date(), v) for a, v in zip(_k["timestamp"], _k["indicators"]["quote"][0]["close"]) if v]
 
 def koers(van, tot, titel, sub, markers=(), labels=(), teken=0.75, kleur=ORANJE):
-    """labels = [(zin, x, y, tekst, kleur)] verschijnen op een zin."""
+    """labels = [(datum, x, y, tekst, kleur)]: het getal verschijnt pas als de lijn bij die datum is (vaste regel eigenaar 20 nov)."""
+    assert all(isinstance(l[0], str) for l in labels), "koerslabel moet een datum zijn, geen zinnummer (getal pas als de lijn er is)"
     def f(t, d, T0):
         img, _ = lijn(t, d, van, tot, titel, sub, markers=markers, kleur=kleur, teken=teken)
         dr = ImageDraw.Draw(img, "RGBA")
