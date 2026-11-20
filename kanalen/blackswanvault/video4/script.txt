@@ -1,5 +1,6 @@
 # BlackswanVault video 4: de markt valt (Nasdaq -10%). Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
 # Titel: The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of
+# 20 nov middag: antwoord vooraan (4 angsten direct na de opening, Azie/goud/VIX daarna). Oude volgorde: script-voor-volgorde.txt
 # {SLOT}-blok aan het eind: pas maandagochtend invullen met de laatste koersen (geen voorspelling).
 @scene open-donderdag
 On Thursday, November nineteenth, the biggest stock market listing in history finally happened.
@@ -19,37 +20,11 @@ A bear market.
 So what are investors suddenly so afraid of?
 There is not one answer.
 There are four.
-@scene h1-week
-To see how fast this happened, look at the past week.
-For the S&P 500, Thursday was the sixth losing day in a row.
-In just four trading days, the Dow fell more than six percent.
-The S&P 500 and the Nasdaq each lost about five.
-@scene h1-azie
-The next morning, the selling moved to Asia.
-Japan's Nikkei fell five percent.
-South Korea's Kospi fell even more.
-Samsung dropped seven percent.
-@scene h1-chips
-Chip companies were hit the hardest.
-Tokyo Electron fell seven percent.
-Lasertec fell more than nine.
-And in Taiwan, TSMC, the company that makes most of the world's advanced chips, lost almost five percent.
-@scene h1-softbank
-And SoftBank, the Japanese group that has invested more than sixty-four billion dollars in OpenAI, crashed fourteen and a half percent.
-Its worst day since August 2024.
-@scene h1-nergens
-Usually, when stocks fall, investors run to safety.
-This time, there was almost nowhere to run.
-Gold has fallen more than eleven percent in a month.
-Bitcoin has lost about a quarter of its value in the same time.
-One reason for gold is simple.
-Gold pays no interest.
-So when interest rates are expected to rise, holding it becomes less attractive.
-@scene h1-vix
-Wall Street's fear gauge, the VIX, tells the same story.
-It measures how much traders expect the S&P 500 to swing over the next thirty days.
-A month ago, it stood around eighteen.
-Now it is above twenty-eight, its highest level in months.
+@scene open-vier
+Doubts about AI.
+Inflation coming back.
+Interest rates that may rise.
+And chips going to China.
 @scene h2-ai
 The first fear is the biggest one.
 For three years, artificial intelligence has carried the stock market.
@@ -140,6 +115,38 @@ He said other departments had wanted to put a company called Megaspeed on a trad
 And this week, California's attorney general Rob Bonta sent Nvidia a subpoena.
 He wants to know whether its chips reached China in violation of export rules, and whether the company misled investors.
 He said the conduct of Nvidia and its former CEO "raises bright red flags."
+@scene h1-week
+Together, these four fears hit the market hard.
+To see how fast this happened, look at the past week.
+For the S&P 500, Thursday was the sixth losing day in a row.
+In just four trading days, the Dow fell more than six percent.
+The S&P 500 and the Nasdaq each lost about five.
+@scene h1-azie
+The next morning, the selling moved to Asia.
+Japan's Nikkei fell five percent.
+South Korea's Kospi fell even more.
+Samsung dropped seven percent.
+@scene h1-chips
+Chip companies were hit the hardest.
+Tokyo Electron fell seven percent.
+Lasertec fell more than nine.
+And in Taiwan, TSMC, the company that makes most of the world's advanced chips, lost almost five percent.
+@scene h1-softbank
+And SoftBank, the Japanese group that has invested more than sixty-four billion dollars in OpenAI, crashed fourteen and a half percent.
+Its worst day since August 2024.
+@scene h1-nergens
+Usually, when stocks fall, investors run to safety.
+This time, there was almost nowhere to run.
+Gold has fallen more than eleven percent in a month.
+Bitcoin has lost about a quarter of its value in the same time.
+One reason for gold is simple.
+Gold pays no interest.
+So when interest rates are expected to rise, holding it becomes less attractive.
+@scene h1-vix
+Wall Street's fear gauge, the VIX, tells the same story.
+It measures how much traders expect the S&P 500 to swing over the next thirty days.
+A month ago, it stood around eighteen.
+Now it is above twenty-eight, its highest level in months.
 @scene h6-geschiedenis
 So is this the start of something worse?
 Nobody knows.
