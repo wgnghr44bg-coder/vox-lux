@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 04:03",
+ "bijgewerkt": "2026-11-20 04:33",
  "kanalen": {
   "weken": [
    {
@@ -626,7 +626,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "162 GB vrij"
+   "tekst": "159 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 04:03)"
+   "tekst": "draait nu (2026-11-20 04:33)"
   },
   {
    "naam": "Git",
@@ -661,7 +661,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 03:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 04:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -678,8 +678,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 04:03",
-   "volgende": "2026-11-20 04:33"
+   "laatst": "2026-11-20 04:33",
+   "volgende": "2026-11-20 05:03"
   },
   "hype": {
    "aan": true,
@@ -689,12 +689,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 04:10"
+   "volgende": "2026-11-20 05:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 03:48",
-   "volgende": "2026-11-20 04:18"
+   "laatst": "2026-11-20 04:18",
+   "volgende": "2026-11-20 04:48"
   },
   "titels": {
    "aan": true,
@@ -751,7 +751,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 63,
+    "views": 66,
     "verwerkt": "processed"
    },
    {
@@ -805,7 +805,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 719,
+    "views": 720,
     "verwerkt": "processed"
    }
   ],
@@ -1208,8 +1208,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-20 04:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 03:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 04:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3657,7 +3657,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 04:03",
+  "bijgewerkt": "2026-11-20 04:33",
   "accounts": [
    {
     "account": "hoofd",
