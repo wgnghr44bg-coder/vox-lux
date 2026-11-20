@@ -37,6 +37,7 @@ And on November nineteenth, five hundred eighty-two million dollars in a single 
 The biggest of them all is run by BlackRock, the largest asset manager in the world.
 On November nineteenth, investors pulled five hundred forty-one million dollars out of BlackRock's bitcoin fund.
 That was its largest one-day outflow since it launched.
+Funds from Fidelity and ARK lost money on the same day too.
 @scene h1-maand
 And it was not a single bad day.
 Money left these funds on twelve of the first fourteen trading days of November.
@@ -110,11 +111,13 @@ That is more than four times as much.
 And on Friday, both fell together.
 The Nasdaq one hundred dropped almost four percent in one day.
 The S and P five hundred fell into what Wall Street calls a correction, more than ten percent below its peak.
+And the VIX, Wall Street's fear gauge, jumped above thirty.
 Bitcoin did not protect anyone.
 It behaved like a risky tech stock.
 @scene h5-echt-goud
 Even real gold is not safe right now.
 It is down more than thirty-five percent from its peak earlier this year.
+On Friday alone, it fell about two and a half percent, to around three thousand five hundred thirty-six dollars an ounce.
 When everything falls at once, investors sell what they can, to raise cash.
 The whole crypto market is now worth about two trillion dollars.
 That is about twenty-seven percent less than just one month ago.

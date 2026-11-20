@@ -1,0 +1,87 @@
+
+# ---------- video 8: bitcoin-crash (zinnummers = script.txt, zie bronnen.md) ----------
+MLN = lambda v: f"${v:,.0f}M"
+PC = lambda v: f"{v:.0f}%"
+FS = "Source: Farside Investors, via FXStreet and crypto.news (Nov. 20, 2026)"
+SHOTS = [
+ # --- opening ---
+ (0.0, fasen(F("ai-munt-val", (1.0, 1.1), 0.5), [(0, GR("UNDER $60,000", "Bitcoin, Friday, November 20, 2026", ROOD, 150)), (1, GR("FIRST TIME SINCE JULY", None, WIT, 110))])),
+ (ZR(2) - 0.15, koersgrafiek("btc", "2025-01-01", "2026-11-20", "BITCOIN", "Daily close in US dollars, January 2025 to November 20, 2026", YB,
+                             markers=[("2025-10-06", "Record")], labels=[("2026-11-20", 1700, 330, "-53%", ROOD)], teken=0.85, eind_label=False)),
+ (ZR(5) - 0.15, fasen(F("ai-trader-rood", (1.0, 1.08), 0.5), [(5, ON("Not one bad day")), (6, GR("7 WEEKS", "of losses in a row", ROOD, 180)), (7, GR("FIRST SINCE MAY 2022", None, WIT, 110))])),
+ (ZR(8) - 0.15, lijst("ai-handelsvloer", "Who is selling?", [(10, "Big investors leaving bitcoin funds"), (11, "Borrowers forced to sell"),
+                                                             (12, "The Fed may raise rates again"), (13, "AI stock debuts pulling money away")])),
+ (ZR(14) - 0.15, fasen(F("ai-goudstaven", (1.0, 1.08), 0.5), [(14, ON("One more problem")), (15, GR("DIGITAL GOLD?", "a safe place when markets fall", ORANJE, 150)),
+                                                            (16, ON("This time it fell much harder than stocks")), (17, ON("Step by step"))])),
+ # --- h1 fondsen ---
+ (ZR(18) - 0.15, fasen(F("nasdaq-a", (1.0, 1.08), 0.45), [(18, ON("The biggest buyers of the last two years")), (19, EN(ST("2024"), ON("Bitcoin funds that trade like a normal share"))),
+                                                        (20, ON("Easy for anyone with a brokerage account")), (21, GR("BILLIONS", "poured in", GROEN, 160))])),
+ (ZR(22) - 0.15, balken([("Nov. 17", 239.9), ("Nov. 18", 306.5), ("Nov. 19", 582.3)], "MONEY LEAVING US BITCOIN FUNDS", "Net outflows per day, millions of dollars", FS, MLN,
+                        [23, 24, 25], hl=2, kleur=ROOD)),
+ (ZR(26) - 0.15, fasen(F("blackrock", (1.0, 1.06), 0.45), [(26, LT("BLACKROCK", "World's largest asset manager")), (27, GR("-$541 MILLION", "out of its bitcoin fund in one day (Nov. 19)", ROOD, 140)),
+                                                         (28, GR("RECORD", "largest one-day outflow since launch", WIT, 150)), (29, ON("Fidelity and ARK funds lost money too"))])),
+ (ZR(30) - 0.15, fasen(F("ai-geld-weg", (1.0, 1.08), 0.5), [(31, GR("12 OF 14", "trading days in November: money left", WIT, 170)), (32, GR("-$3.5 BILLION", "in November so far", ROOD, 150)),
+                                                          (33, ON("Sellers need buyers lower down"))])),
+ (ZR(34) - 0.15, fasen(F("wallst", (1.0, 1.08), 0.45), [(34, ON("Not everyone is selling")), (35, GR("+$50 MILLION", "into Morgan Stanley's new bitcoin fund, same day", GROEN, 150)),
+                                                      (36, ON("A drop in the ocean"))])),
+ # --- h2 hefboom ---
+ (ZR(37) - 0.15, fasen(F("ai-hefboom", (1.0, 1.08), 0.5), [(37, ON("Traders with borrowed money")), (38, GR("10x · 20x · 100x", "bets bigger than the money they have", ORANJE, 140)),
+                                                         (39, GR("LEVERAGE", None, WIT, 170)), (40, ON("Price moves your way: you win big"))])),
+ (ZR(41) - 0.15, fasen(F("ai-domino", (1.0, 1.08), 0.5), [(41, ON("Price drops far enough: the exchange sells for you")), (42, GR("LIQUIDATION", None, ROOD, 160)),
+                                                        (43, ON("Every forced sale pushes the price lower")), (44, ON("Which can trigger the next one"))])),
+ (ZR(45) - 0.15, fasen(F("ai-telefoon-rood", (1.0, 1.08), 0.5), [(45, GR("~$700 MILLION", "crypto bets wiped out in 24 hours (CoinGlass)", ROOD, 150)),
+                                                               (46, GR("142,000+", "traders hit", WIT, 170)), (47, GR("$203 MILLION", "in bitcoin alone", ORANJE, 150)),
+                                                               (48, GR("80%+", "were betting on a rise", ROOD, 180))])),
+ (ZR(49) - 0.15, fasen(F("ai-kluis", (1.0, 1.08), 0.5), [(49, ON("Less cushion than before")), (50, GR("-38%", "orders waiting on big exchanges, vs. before the Binance hack", ROOD, 180)),
+                                                       (51, ON("Thinner market: the same selling moves the price further"))])),
+ # --- h3 Fed ---
+ (ZR(52) - 0.15, fasen(F("fed", (1.0, 1.08), 0.45), [(52, LT("FEDERAL RESERVE", "Washington, D.C.")), (53, ON("Bitcoin did best when money was cheap")),
+                                                   (54, GR("RATES UP AGAIN?", None, ORANJE, 140)), (55, ON("Minutes of the October meeting")),
+                                                   (56, ON("Almost all members: further rate increases likely appropriate")), (57, ST("DECEMBER 8-9"))])),
+ (ZR(58) - 0.15, fasen(F("ai-zandloper", (1.0, 1.08), 0.5), [(58, ON("Higher rates: safe bonds pay more")), (59, ON("Risky bets look less attractive")),
+                                                           (60, GR("STRONG DOLLAR", "near its highest level in 19 months", WIT, 140)), (61, ON("Strong dollar, usually weak bitcoin"))])),
+ (ZR(62) - 0.15, fasen(F("ai-storm", (1.0, 1.08), 0.5), [(62, ON("Washington has not helped either")), (63, GR("CLARITY ACT", "crypto law failed in the Senate, September", ROOD, 140)),
+                                                       (64, GR("$200 MILLION+", "spent by the crypto industry on the midterms", WIT, 140)), (65, ON("Less effect than in earlier elections (CNBC)"))])),
+ # --- h4 AI-beursgangen ---
+ (ZR(66) - 0.15, fasen(F("nyse", (1.08, 1.0), 0.4, pan=(0.6, 0.5, 0.4, 0.5)), [(66, ON("Something new")), (67, GR("ANTHROPIC", "went public, November 19", WIT, 150)),
+                                                          (68, GR("$81 BILLION+", "raised: one of the biggest debuts ever", ORANJE, 150))])),
+ (ZR(69) - 0.15, fasen(F("starship", (1.0, 1.08), 0.45), [(69, GR("SPACEX", "went public in June", WIT, 150))])),
+ (ZR(70) - 0.15, fasen(F("ai-geld-weg", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(70, ON("New shares need cash")), (71, ON("Some of it came from selling crypto")),
+                                                          (72, LT("JEAN-MARIE MOGNETTI", "CEO, CoinShares")), (73, ON('"AI is sucking out every marginal dollar away from crypto."'))])),
+ (ZR(74) - 0.15, balken([("Offer price", 83), ("First trade", 111.5), ("First close", 97.17)], "ANTHROPIC SHARES, FIRST DAY", "US dollars per share, November 19, 2026",
+                        "Source: crypto.news (Nov. 20, 2026)", lambda v: f"${v:.2f}" if v % 1 else f"${v:.0f}", [75, 75.5, 76], hl=2, kleur=ORANJE)),
+ (ZR(77) - 0.15, fasen(F("ai-trader-rood", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(77, LT("BRAD GARLINGHOUSE", "CEO, Ripple")),
+                                                          (78, ON("After SpaceX's debut, crypto recovered")), (79, ON("He thinks it could happen again"))])),
+ # --- h5 digitaal goud ---
+ (ZR(80) - 0.15, fasen(F("ai-goudstaven", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(80, ON("The biggest question")), (81, GR("DIGITAL GOLD", None, ORANJE, 160)),
+                                                          (82, ON("Something to buy when you do not trust stocks"))])),
+ (ZR(83) - 0.15, balken([("S&P 500", 6.3), ("Bitcoin", 27)], "OCT. 6 TO NOV. 18, 2026", "Fall from October 6, in percent", "Source: Abe Sheikh (Cordoba Advisory Partners), via CNBC",
+                        lambda v: f"-{v:.0f}%", [84, 85], hl=1, kleur=ROOD, schaal=30)),
+ (ZR(86) - 0.15, fasen(F("nyse", (1.0, 1.08), 0.45), [(86, GR("4x", "as much as the stock market", ROOD, 220)), (87, ON("On Friday, both fell together")),
+                                                    (88, GR("-3.8%", "Nasdaq 100 in one day", ROOD, 180)), (89, GR("CORRECTION", "S&P 500: more than 10% below its peak", WIT, 140)), (90, GR("VIX 31", "Wall Street's fear gauge", ROOD, 170)),
+                                                    (91, ON("Bitcoin did not protect anyone")), (92, ON("It behaved like a risky tech stock"))])),
+ (ZR(93) - 0.15, fasen(F("ai-goudstaven", (1.0, 1.06), 0.4), [(93, ON("Even real gold is not safe")), (94, GR("-35%+", "gold, from its peak earlier this year", ROOD, 180)), (95, GR("$3,536", "gold per ounce, Friday: -2.5%", WIT, 170)),
+                                                            (96, ON("When everything falls, investors sell what they can"))])),
+ (ZR(97) - 0.15, fasen(F("mining", (1.0, 1.08), 0.45), [(97, GR("~$2 TRILLION", "value of the whole crypto market", WIT, 150)), (98, GR("-27%", "in one month", ROOD, 190))])),
+ # --- h6 Strategy ---
+ (ZR(99) - 0.15, fasen(F("saylor", (1.0, 1.06), 0.5), [(99, ON("One company at the center of all this")), (100, LT("STRATEGY (FORMERLY MICROSTRATEGY)", "Michael Saylor, executive chairman")),
+                                                     (101, ON("It borrowed money and sold shares to buy bitcoin"))])),
+ (ZR(102) - 0.15, fasen(F("ai-kluis", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(102, GR("850,849", "bitcoins owned by Strategy (SEC filing)", ORANJE, 170)),
+                                                          (103, GR("~4%", "of all bitcoin that will ever exist", WIT, 190)), (104, GR("$64 BILLION", "paid", WIT, 160)),
+                                                          (105, GR("~$75,000", "average price per coin", ORANJE, 160))])),
+ (ZR(106) - 0.15, balken([("Paid", 64.2), ("Worth at $60,000", 51.05)], "STRATEGY'S BITCOIN", "Billions of dollars. 850,849 coins", "Source: CNBC (SEC filing); value at $60,000 per coin: BlackswanVault calculation",
+                         lambda v: f"${v:.1f}B", [106, 106.5], hl=1, kleur=ROOD)),
+ (ZR(107) - 0.15, fasen(F("ai-serverhal", (1.0, 1.08), 0.5), [(107, ON("Strategy is not alone")), (108, GR("1.2 MILLION+", "bitcoins held by public companies: 6%+ of supply", WIT, 140)),
+                                                            (109, ON("Some borrowed to buy, and must pay interest")), (110, ON("Some sold bitcoin to make those payments")),
+                                                            (111, ON("Analyst: they made the problem worse"))])),
+ (ZR(112) - 0.15, fasen(F("starship", (1.08, 1.0), 0.4, pan=(0.6, 0.5, 0.4, 0.5)), [(112, ON("Even SpaceX owns bitcoin")), (113, GR("18,712", "coins, average about $35,000", ORANJE, 170)),
+                                                          (114, GR("STILL A PROFIT", None, GROEN, 140)), (115, ON("For many who bought this year: not"))])),
+ # --- h7 wat nu ---
+ (ZR(116) - 0.15, lijst("ai-handelsvloer", "What to watch", [(117, "The July low: about $57,800"), (119, "Money flowing out of bitcoin funds"),
+                                                             (120, "The Fed: December 8-9"), (121, "Strategy and other bitcoin companies")])),
+ (ZR(122) - 0.15, fasen(F("ai-telefoon-rood", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(122, LT("KATIE STOCKTON · FAIRLEAD STRATEGIES", '"Appears to be trying to find a footing"')),
+                                                          (123, LT("RYAN KIRKLEY · GLOBAL SETTLEMENT NETWORK", '"A bit more caution than there was a year ago"')),
+                                                          (124, GR("NOT FINANCIAL ADVICE", None, WIT, 110))])),
+ (ZR(125) - 0.15, slot_fade("ai-munt-val", "Who still holds it when the next wave comes?")),
+]
+SHOTS.sort(key=lambda x: x[0])
