@@ -7,7 +7,9 @@ ZONDER = "--zonder-ondertitels" in sys.argv   # 20 nov (eigenaar): Short zonder 
 if ZONDER: sys.argv.remove("--zonder-ondertitels")
 vm, src, a, b, kop, uit = Path(sys.argv[1]), sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5], sys.argv[6]
 Z = json.load(open(vm / "zinnen.json", encoding="utf-8"))
-t0 = max(0, Z[a][0] - 0.3); t1 = Z[b][1] + 0.9; dur = t1 - t0
+t0 = max(0, Z[a][0] - 0.3); t1 = Z[b][1] + 0.9
+if b + 1 < len(Z): t1 = min(t1, Z[b + 1][0] - 0.15)   # 20 nov: nooit het begin van de volgende zin meenemen
+dur = t1 - t0
 def ts(x):
     h, r = divmod(max(0, x), 3600); m, s = divmod(r, 60); return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 # 19 nov (eigenaar: "ondertiteling klopt niet helemaal", "je mag ook cijfers gebruiken"): woordtijden van Whisper op de stem
