@@ -1,4 +1,4 @@
-# BlackswanVault: overdracht (stand vr 20 nov 2026, 22:20)
+# BlackswanVault: overdracht (stand vr 20 nov 2026, 23:15)
 
 Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet passen, uitspraak controleren, grafieklabels pas als de lijn er is, thumbnailstijl, stem blijft zakelijk-23). Planning: `../PLANNING-KANALEN.json`.
 
@@ -33,8 +33,10 @@ Het hoeft niet over AI te gaan, als het maar hype is (geld, bedrijven, beurs, ec
   `video8/blackswanvault-bitcoin.mp4` (8,1 min) + `-klein`, beschrijving `video8/youtube-beschrijving.txt`, thumbnail `video8/thumb-a.jpg` (BITCOIN -53% / WHO IS SELLING?) of `-b`.
   Short `shorts/bitcoin-short-1.mp4` (zin 0-13), beschrijving `shorts/bitcoin-short-1-beschrijving.txt`. Wacht op OK eigenaar; daarna privé, publishAt do 14:00Z / 16:00Z.
   Let op: koersen in de video zijn van vr 20 nov (zo gezegd in de tekst).
-- **vr 27 / za 28 / zo 29: nog maken.** Kandidaten (20 nov 22:20):
-  - **SpaceX-aandeel (SPCX)**: beursgang 12 juni à $135, piek 16 juni, 13 nov ± 31% onder de piek; lock-up (insiders mogen verkopen) volgens één bron 8 dec — EERST BEVESTIGEN (S-1/nieuws). CFO Bret Johnsen over AI-rekenkracht in de ruimte (17 nov); "data centers in space" trending (157k views).
+- **vr 27: SpaceX (video9) — KLAAR, NOG NIET GEUPLOAD.** Titel "SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse".
+  `video9/blackswanvault-spacex.mp4` (8,0 min) + `-klein`, beschrijving `video9/youtube-beschrijving.txt`, thumbnail `video9/thumb-a.jpg` (SPACEX -40% / BELOW IPO PRICE) of `-b`.
+  Short `shorts/spacex-short-1.mp4` (zin 0-11). Wacht op OK eigenaar.
+- **za 28 / zo 29: nog maken.** Overige kandidaten (20 nov):
   - **Oracle haalt $20 mld op** (aandelen + schuld) voor AI-datacenters — checken.
   - **Beurs in correctie (vr 20 nov)**: S&P 500 > 10% onder de top, Nasdaq 100 -3,8% op één dag, Nvidia -7%, VIX 31. LET OP: maandag-video4 gaat al over de Nasdaq; alleen als vervolg met nieuw nieuws.
   - **Anthropic na de beursgang** ($81,3 mld, dag 1 +17%, dag 2 -10 à 12%): overlap met video2 en video8, alleen als er groot nieuw nieuws is.
