@@ -160,13 +160,13 @@ def reeks(naam):
     k = json.load(open(H / f"data/{naam}.json"))["chart"]["result"][0]
     return [(_D.datetime.fromtimestamp(a, _D.UTC).date(), v) for a, v in zip(k["timestamp"], k["indicators"]["quote"][0]["close"]) if v]
 _REEKS = {}
-def koersgrafiek(naam, van, tot, titel, sub, bron_s, markers=(), labels=(), teken=0.75, kleur=ROOD):
+def koersgrafiek(naam, van, tot, titel, sub, bron_s, markers=(), labels=(), teken=0.75, kleur=ROOD, eind_label=True, eenheid="", log=False):
     """labels = [(datum, x, y, tekst, kleur)]: verschijnt pas als de lijn bij die datum is (vaste regel eigenaar 20 nov)."""
     assert all(isinstance(l[0], str) for l in labels), "koerslabel moet een datum zijn, geen zinnummer"
     if naam not in _REEKS: _REEKS[naam] = reeks(naam)
     def f(t, d, T0):
         R.KOERS[:] = _REEKS[naam]
-        img, _ = lijn(t, d, van, tot, titel, sub, markers=markers, kleur=kleur, teken=teken)
+        img, _ = lijn(t, d, van, tot, titel, sub, markers=markers, kleur=kleur, teken=teken, eind_label=eind_label, eenheid=eenheid, log=log)
         dr = ImageDraw.Draw(img, "RGBA"); pts = R.koers(van, tot)
         n = max(2, int(len(pts) * eio(t / (d * teken))))
         for z, x, y, s, k in labels:

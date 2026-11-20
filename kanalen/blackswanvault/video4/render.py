@@ -215,7 +215,7 @@ def logo_klein(img, a=1.0):
 KOERS = []   # video 2: geen dagkoersen; intraday-grafiek staat in render3.py (data/ant-intraday.json)
 def koers(van, tot): return [(d, v) for d, v in KOERS if D.date.fromisoformat(van) <= d <= D.date.fromisoformat(tot)]
 
-def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_label=True, teken=0.75):
+def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_label=True, teken=0.75, eenheid="$"):
     img = raster(leeg()); d = ImageDraw.Draw(img, "RGBA")
     pts = koers(van, tot); vs = [v for _, v in pts]
     lo, hi = min(vs), max(vs)
@@ -227,16 +227,16 @@ def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_l
     for k in range(5):                                   # as-labels
         fv = flo + (fhi - flo) * k / 4; v = math.exp(fv) if log else fv; y = Y0 + (Y1 - Y0) * k / 4
         d.line([(X0, y), (X1, y)], fill=(255, 255, 255, 18), width=1)
-        txt(d, (X0 - 20, y), f"${v:,.0f}", font(REG, 24), GRIJS, 1, "rm")
+        txt(d, (X0 - 20, y), f"{eenheid}{v:,.0f}", font(REG, 24), GRIJS, 1, "rm")
     for i in range(0, len(pts), max(1, len(pts) // 6)):
-        x, _ = xy(i, pts[i][1]); txt(d, (x, Y0 + 30), pts[i][0].strftime("%b %d" if len(pts) < 60 else "%b %Y"), font(REG, 24), GRIJS, 1, "ma")
+        x, _ = xy(i, pts[i][1]); txt(d, (x, Y0 + 30), pts[i][0].strftime("%b %d" if len(pts) < 60 else "%b %Y" if len(pts) < 700 else "%Y"), font(REG, 24), GRIJS, 1, "ma")
     p = eio(t / (dur * teken)); n = max(2, int(len(pts) * p))
     xys = [xy(i, pts[i][1]) for i in range(n)]
     # vlak onder de lijn
     poly = xys + [(xys[-1][0], Y0), (xys[0][0], Y0)]
     d.polygon(poly, fill=kleur + (38,)); d.line(xys, fill=kleur + (255,), width=6, joint="curve")
     x, y = xys[-1]; d.ellipse([x - 11, y - 11, x + 11, y + 11], fill=kleur + (255,))
-    if eind_label: txt(d, (x + 20, y - 30), f"${pts[n - 1][1]:,.2f}", font(BOLD, 36), WIT, 1)
+    if eind_label: txt(d, (x + 20, y - 30), (f"${pts[n - 1][1]:,.2f}" if eenheid == "$" else f"{pts[n - 1][1]:,.0f}"), font(BOLD, 36), WIT, 1)
     for datum, label in markers:
         i = next((k for k, (dd, _) in enumerate(pts) if str(dd) >= datum), None)
         if i is None or i >= n: continue
