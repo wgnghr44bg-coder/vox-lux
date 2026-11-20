@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 00:33",
+ "bijgewerkt": "2026-11-20 01:03",
  "kanalen": {
   "weken": [
    {
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 00:33)"
+   "tekst": "draait nu (2026-11-20 01:03)"
   },
   {
    "naam": "Git",
@@ -656,12 +656,12 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-18)"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
   },
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -678,8 +678,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 00:33",
-   "volgende": "2026-11-20 01:03"
+   "laatst": "2026-11-20 01:03",
+   "volgende": "2026-11-20 01:33"
   },
   "hype": {
    "aan": true,
@@ -693,8 +693,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 00:18",
-   "volgende": "2026-11-20 00:48"
+   "laatst": "2026-11-20 00:48",
+   "volgende": "2026-11-20 01:18"
   },
   "titels": {
    "aan": true,
@@ -1030,7 +1030,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 4657,
+  "geheugen_mb": 2237,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1208,8 +1208,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-20 00:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 01:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3657,7 +3657,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 00:33",
+  "bijgewerkt": "2026-11-20 01:06",
   "accounts": [
    {
     "account": "hoofd",
