@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 23:33",
+ "bijgewerkt": "2026-11-21 00:03",
  "kanalen": {
   "weken": [
    {
@@ -103,7 +103,7 @@
         "datum": "2026-11-21",
         "tijd": "21:00",
         "titel": "The First Thanksgiving, Plymouth 1621",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "KU6eoe5vy-U"
        }
       ]
@@ -541,7 +541,7 @@
     "dag": "za",
     "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "map": "thanksgiving-1621",
-    "stand": "staat klaar op YouTube",
+    "stand": "online",
     "kleur": "goed"
    },
    {
@@ -559,12 +559,20 @@
     "map": "pearl-harbor-1941",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
+   },
+   {
+    "datum": "2026-12-12",
+    "dag": "za",
+    "titel": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
    }
   ],
   "routine_aan": false
  },
  "scripts": {
-  "klaar_tot": "2027-01-23",
+  "klaar_tot": "2027-01-30",
   "rij": [
    {
     "datum": "2026-11-21",
@@ -695,6 +703,19 @@
     "leesbaar": "GOED",
     "toon": "TOON GOED",
     "afspraken": []
+   },
+   {
+    "datum": "2027-01-30",
+    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "klaar": true,
+    "stand": "script klaar en 's nachts goedgekeurd",
+    "controle": "GOED",
+    "flesch": 60,
+    "niveau": 8.2,
+    "leesbaar": "GOED",
+    "toon": "TOON GOED",
+    "afspraken": []
    }
   ]
  },
@@ -722,7 +743,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "152 GB vrij"
+   "tekst": "151 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -737,7 +758,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 23:33)"
+   "tekst": "draait nu (2026-11-21 00:03)"
   },
   {
    "naam": "Git",
@@ -757,7 +778,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -774,8 +795,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 23:33",
-   "volgende": "2026-11-21 00:03"
+   "laatst": "2026-11-21 00:03",
+   "volgende": "2026-11-21 00:33"
   },
   "hype": {
    "aan": true,
@@ -789,8 +810,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 23:18",
-   "volgende": "2026-11-20 23:48"
+   "laatst": "2026-11-20 23:48",
+   "volgende": "2026-11-21 00:18"
   },
   "titels": {
    "aan": true,
@@ -804,13 +825,13 @@
   "views_totaal": 3102,
   "video_aantal": 17,
   "week": {
-   "views": 401,
-   "uren": 82,
-   "abonnees": 2
+   "views": 336,
+   "uren": 67,
+   "abonnees": 1
   },
   "vorige_week": {
-   "views": 644,
-   "uren": 167,
+   "views": 684,
+   "uren": 174,
    "abonnees": 5
   },
   "recent": [
@@ -856,7 +877,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 15,
+    "views": 16,
     "verwerkt": "processed"
    },
    {
@@ -901,16 +922,11 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 742,
+    "views": 747,
     "verwerkt": "processed"
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-23",
-    "views": 84,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-24",
     "views": 99,
@@ -1043,14 +1059,14 @@
    }
   ],
   "maand": {
-   "views": 2442,
-   "uren": 530,
+   "views": 2358,
+   "uren": 497,
    "abonnees": 10
   },
   "vorige_maand": {
-   "views": 830,
-   "uren": 192,
-   "abonnees": 6
+   "views": 909,
+   "uren": 218,
+   "abonnees": 7
   },
   "jaar": {
    "views": 3741,
@@ -1062,8 +1078,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 995,
-    "uren": 233
+    "views": 916,
+    "uren": 202
    },
    {
     "id": "_duWLxwIEss",
@@ -1087,10 +1103,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 17.8,
+   "tempo_uren_per_dag": 16.8,
    "tempo_abonnees_per_dag": 0.36,
-   "datum_uren": "2027-05-25",
-   "datum_abonnees": "2034-05-27"
+   "datum_uren": "2027-06-06",
+   "datum_abonnees": "2034-05-28"
   }
  },
  "kpi": {
@@ -1173,16 +1189,10 @@
  ],
  "week": [
   {
-   "datum": "2026-11-20",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-21",
    "plek": true,
    "video": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-   "soort": "gepland"
+   "soort": "online"
   },
   {
    "datum": "2026-11-22",
@@ -1210,6 +1220,12 @@
   },
   {
    "datum": "2026-11-26",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-11-27",
    "plek": false,
    "video": "",
    "soort": ""
@@ -1303,8 +1319,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -2842,7 +2858,7 @@
    "reserve": false,
    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
    "status": "klaar",
-   "soort": "gepland",
+   "soort": "online",
    "id": "KU6eoe5vy-U",
    "afspeellijst": "reis",
    "opening": "mythe",
@@ -3730,7 +3746,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 23:34",
+  "bijgewerkt": "2026-11-21 00:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -3749,7 +3765,7 @@
    },
    {
     "account": "account2",
-    "5uur": 7016495,
+    "5uur": 6023288,
     "week": 106572592,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3764,9 +3780,9 @@
     "stap_kost": 29952,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 52,
-    "5uur_scripts_over": 9.9,
-    "5uur_stappen_over": 219,
+    "5uur_pct": 44,
+    "5uur_scripts_over": 11.4,
+    "5uur_stappen_over": 252,
     "week_pct": 81,
     "week_scripts_over": 38.4,
     "week_stappen_over": 850
