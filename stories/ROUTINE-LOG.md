@@ -368,3 +368,4 @@ ValueError: empty separator)
 - 2026-11-20 08:30 hype-wachter: SEINTJE Learn How Rice Changed The World | A Sleepy History -> KANS: nog niets van ons over dit onderwerp
 - 2026-11-20 09:36 Claude: BlackswanVault Anthropic (5C2MIFhR314) nieuwe thumbnail A ($81 BILLION, ANTHROPIC IPO, Dario voor Nasdaq) op verzoek eigenaar; oude = video2/thumbnail-definitief.jpg
 - 2026-11-20 09:39 Claude: Anthropic thumbnail toch versie B (eigenaar: 'B is leuker')
+- 2026-11-20 09:44 Claude: BlackswanVault GTA 6 privé geüpload (BPoUJqFruNE), openbaar za 21 nov 15:00 (eigenaar: 'privé tot morgen')
