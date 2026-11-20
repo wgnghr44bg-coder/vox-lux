@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 21:03",
+ "bijgewerkt": "2026-11-20 21:33",
  "kanalen": {
   "weken": [
    {
@@ -181,19 +181,57 @@
      },
      {
       "datum": "2026-11-25",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-25",
+        "tijd": "15:00",
+        "titel": "Black Friday Will Hit $1 Trillion. Here's the Catch",
+        "stand": "klaar, wacht op OK eigenaar (video7)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-25",
+        "tijd": "17:00",
+        "titel": "Short: Black Friday's $1 Trillion Secret",
+        "stand": "klaar, wacht op OK eigenaar (shorts/blackfriday-short-1.mp4)"
+       }
+      ]
      },
      {
       "datum": "2026-11-26",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "15:00",
+        "titel": "Bitcoin crash (voorstel, video8)",
+        "stand": "onderwerp gekozen, nog maken"
+       }
+      ]
      },
      {
       "datum": "2026-11-27",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-27",
+        "tijd": "15:00",
+        "titel": "Hype-onderwerp (video9), zie OVERDRACHT",
+        "stand": "nog kiezen"
+       }
+      ]
      },
      {
       "datum": "2026-11-28",
       "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-28",
+        "tijd": "15:00",
+        "titel": "Hype-onderwerp (video10), zie OVERDRACHT",
+        "stand": "nog kiezen"
+       },
        {
         "kanaal": "Sleep Archives",
         "datum": "2026-11-28",
@@ -206,7 +244,15 @@
      },
      {
       "datum": "2026-11-29",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-29",
+        "tijd": "15:00",
+        "titel": "Hype-onderwerp (video11), zie OVERDRACHT",
+        "stand": "nog kiezen"
+       }
+      ]
      }
     ]
    }
@@ -677,7 +723,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 21:03)"
+   "tekst": "draait nu (2026-11-20 21:33)"
   },
   {
    "naam": "Git",
@@ -697,7 +743,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -714,8 +760,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 21:03",
-   "volgende": "2026-11-20 21:33"
+   "laatst": "2026-11-20 21:33",
+   "volgende": "2026-11-20 22:03"
   },
   "hype": {
    "aan": true,
@@ -725,17 +771,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 21:10"
+   "volgende": "2026-11-20 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 20:48",
-   "volgende": "2026-11-20 21:18"
+   "laatst": "2026-11-20 21:18",
+   "volgende": "2026-11-20 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-20 19:25",
-   "volgende": "2026-11-20 21:25"
+   "laatst": "2026-11-20 21:25",
+   "volgende": "2026-11-20 23:25"
   }
  },
  "kanaal": {
@@ -1070,8 +1116,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 587,
+  "bezig_procent": 46,
+  "geheugen_mb": 4420,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1243,8 +1289,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3538,7 +3584,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 19:25",
+  "bijgewerkt": "2026-11-20 21:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3670,7 +3716,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 21:04",
+  "bijgewerkt": "2026-11-20 21:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3689,27 +3735,27 @@
    },
    {
     "account": "account2",
-    "5uur": 7723983,
-    "week": 102714132,
+    "5uur": 8504419,
+    "week": 104024519,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 20402435,
+     "Fri 20-11": 21712822,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 28981,
+    "stap_kost": 29145,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 57,
-    "5uur_scripts_over": 8.8,
-    "5uur_stappen_over": 202,
-    "week_pct": 78,
-    "week_scripts_over": 44.2,
-    "week_stappen_over": 1011
+    "5uur_pct": 63,
+    "5uur_scripts_over": 7.7,
+    "5uur_stappen_over": 174,
+    "week_pct": 79,
+    "week_scripts_over": 42.2,
+    "week_stappen_over": 961
    }
   ]
  },
