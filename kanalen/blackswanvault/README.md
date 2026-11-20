@@ -1,7 +1,7 @@
 # BlackswanVault (@blackswanvault): werkwijze (stand 19 nov 2026)
 
 Dit is het **FOCUS-kanaal** (eigenaar 19 nov avond). Het gaat over zakelijk en economisch nieuws in de stijl van ColdFusion, in het Engels, voor kijkers in de VS.
-Planning en ritme staan in `kanalen/PLANNING.md`: 1 grote lange video per week + 1 extra lange bij groot nieuws (alleen als hij net zo goed is) + elke dag een Short (eigenaar 20 nov; na 4 weken evalueren op kijkduur). Opbouw nieuwsvideo: antwoord binnen 2 min, geschiedenis daarna; titels ±40 tekens.
+Planning en ritme staan in `kanalen/PLANNING.md`: elke dag een lange video + een Short als er goed nieuws is (veel bekeken op YouTube, past bij geld/bedrijven/AI/beurs, niet dubbel, bronnen kloppen); anders die dag alleen een Short (eigenaar 20 nov avond; na 4 weken evalueren op kijkduur). Opbouw nieuwsvideo: antwoord binnen 2 min, geschiedenis daarna; titels ±40 tekens.
 Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 
 ## Vaste regels van de eigenaar
