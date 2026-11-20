@@ -41,8 +41,14 @@ def verdeel(g, maxc=44):                                   # lange zin in gelijk
         if len(uit) < n - 1 and len(" ".join(y["w"] for y in cur)) >= doel: uit.append(cur); cur = []
     if cur: uit.append(cur)
     return uit
-groepen = [d for g in groepen for d in verdeel(g)]
-def regels(g):
+groepen = [d for g in groepen for d in verdeel(g, 84)]   # 20 nov: stijl eigenaar (CapCut): hele zinsdelen, tot 4 regels
+def regels(g):                                   # 20 nov: hoofdletters, regels van max ± 22 tekens (zoals eigenaar in CapCut)
+    s = " ".join(x["w"] for x in g).upper(); r, cur = [], ""
+    for w in s.split():
+        if cur and len(cur) + 1 + len(w) > 22: r.append(cur); cur = w
+        else: cur = (cur + " " + w).strip()
+    return BREUK.join(r + [cur])
+def regels_oud(g):
     s = " ".join(x["w"] for x in g)
     if len(s) <= 24: return s
     woorden = s.split(); beste = min(range(1, len(woorden)), key=lambda k: abs(len(" ".join(woorden[:k])) - len(" ".join(woorden[k:]))))
@@ -52,7 +58,7 @@ reg = []
 for k, g in enumerate(groepen):
     s = g[0]["s"]; e = (g[-1]["e"] or g[-1]["s"] + 0.3) + 0.35
     if k + 1 < len(groepen): e = min(e, groepen[k + 1][0]["s"])
-    reg.append(f"Dialogue: 0,{ts(s)},{ts(e)},Sub,,0,0,0,,{regels(g)}")
+    reg.append(f"Dialogue: 0,{ts(s)},{ts(e)},Sub,,0,0,0,,{{\pos(540,1490)}}{regels(g)}")
 kop_r = f"Dialogue: 1,{ts(0)},{ts(dur)},Kop,,0,0,0,,{kop}"
 ass = f"""[Script Info]
 PlayResX: 1080
@@ -61,7 +67,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Segoe UI Black,72,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,6,2,8,60,60,1340,1
+Style: Sub,Segoe UI,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,0,3,5,60,60,0,1
 Style: Kop,Segoe UI Black,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,5,0,8,60,60,250,1
 
 [Events]
@@ -69,7 +75,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 {kop_r}
 """ + "\n".join(reg) + "\n"
 Path("ondertitels.ass").write_text(ass, encoding="utf-8")
-fc = ("[0:v]split[a][b];[a]scale=-2:1920,crop=1080:1920,boxblur=30:3,eq=brightness=-0.25[bg];"
+fc = ("[0:v]split[a][b];[a]scale=-2:1920,crop=1080:1920,boxblur=30:3,eq=brightness=-0.42[bg];"
       r"[b]scale=1080:-2[fg];[bg][fg]overlay=0:(H-h)/2,subtitles=ondertitels.ass:fontsdir='C\:/Windows/Fonts',"
       f"fade=t=out:st={dur - 0.6:.2f}:d=0.6[v];[0:a]afade=t=out:st={dur - 0.8:.2f}:d=0.8[au]")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.2f}", "-t", f"{dur:.2f}", "-i", src, "-filter_complex", fc, "-map", "[v]", "-map", "[au]",
