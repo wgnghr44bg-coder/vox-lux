@@ -1,0 +1,169 @@
+# BlackswanVault video 6: werkt AI eigenlijk? Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): Is AI Actually Working? Harvard Just Looked Inside 655 Companies
+# Opbouw: antwoord vooraan (AI werkt op de taak, maar het bedrijf eromheen niet), dan geld, onderzoek, flessenhals, banen, geschiedenis, wat nu.
+@scene open-geld
+This year, the four biggest tech companies in America are spending more than seven hundred billion dollars to build artificial intelligence.
+That is more money than most countries earn in a year.
+And it all rests on one promise.
+That AI will make workers far more productive.
+@scene open-onderzoek
+On November nineteenth, two researchers at Harvard released the latest version of one of the biggest tests of that promise so far.
+They looked inside six hundred fifty-five companies.
+More than seven hundred thousand workers.
+Four hundred forty-five million pieces of real work.
+@scene open-uitkomst
+What they found is strange.
+With AI agents, engineers wrote forty-four percent more code.
+But the amount of finished work barely moved.
+@scene open-vraag
+So is AI actually working?
+The short answer is yes, and no.
+AI works on the task.
+But the company around it cannot keep up.
+And that difference could decide whether this seven hundred billion dollar bet pays off.
+Let's start with the money.
+@scene h1-uitgaven
+At the end of October, the tech giants reported their latest numbers.
+Amazon expects to spend about two hundred twenty billion dollars this year.
+Alphabet, the owner of Google, between one hundred ninety-five and two hundred five billion.
+Microsoft, about one hundred seventy billion.
+And Meta, between one hundred thirty-five and one hundred forty-five billion.
+Most of it goes to chips, servers and data centers for AI.
+Some of it is already paying off.
+Microsoft's cloud business, Azure, grew forty-eight percent.
+@scene h1-kasstroom
+That spending is starting to hurt.
+Amazon, Alphabet and Meta all reported negative free cash flow.
+That means they spent more cash than their businesses brought in.
+Of the four, only Microsoft stayed positive.
+Earlier this year, Meta's free cash flow in a single quarter fell to one point two billion dollars, from twenty-six billion a year before.
+@scene h1-beleggers
+Investors noticed.
+After its report, Alphabet's stock fell about ten percent.
+And Alphabet said its spending will rise significantly again next year.
+Earlier this year, analysts at Bank of America and Evercore estimated that the total could pass one trillion dollars in 2027.
+So the question is simple.
+What are companies getting back?
+@scene h2-onderzoek
+That is exactly what the Harvard study tried to measure.
+It was written by Fiona Chen and James Stratton, two economics researchers at Harvard.
+It is a working paper, so it has not been peer reviewed yet.
+But the data behind it is unusual.
+@scene h2-data
+It comes from Jellyfish, a platform that companies use to track the work of their software teams.
+It sees every piece of code an engineer writes, every task they finish, and even their meetings.
+And it records when a company starts using AI tools, like GitHub Copilot, Cursor and Claude Code.
+The data runs from January 2021 to August 2026.
+@scene h2-waarom-software
+Software is the best place to test AI.
+The big AI labs say AI already writes about eighty percent of their own code.
+If AI makes companies more productive anywhere, it should be here.
+@scene h2-code
+And at first, it looks like it does.
+A year after companies started using AI coding assistants, their engineers wrote about thirty percent more lines of code.
+Then came AI agents, tools that can write and change code on their own.
+They added another forty-four percent.
+The number of code changes sent in for approval rose about thirty-six percent.
+@scene h2-af
+But writing code is not the goal.
+The goal is working software.
+So the researchers looked at how many tasks were actually finished and shipped to customers.
+With AI assistants, there was no increase at all.
+With AI agents, finished tasks rose about fourteen percent.
+And even that result was borderline.
+@scene h2-groter
+Maybe the tasks just got bigger?
+The researchers checked that too, using AI to read the task descriptions.
+The tasks did not get bigger.
+So forty-four percent more code became, at best, about fourteen percent more finished work.
+@scene h3-flessenhals
+So where did all that extra code go?
+The answer is a traffic jam.
+@scene h3-review
+Before new code goes live, another engineer has to check it.
+This is called code review.
+Someone has to read it, test it, and approve it.
+And it is still done mostly by humans.
+@scene h3-cijfers
+After companies started using AI agents, the time from sending in code to getting it approved rose fifty-six percent.
+Code waited longer before anyone looked at it.
+And once someone did, the review took longer too.
+The number of comments on each change rose almost thirty-nine percent.
+@scene h3-wie
+There is a reason this is hard to fix.
+Engineers usually review code they already know.
+In the study, that was the case for about eighty-three percent of all reviews.
+So you cannot simply hand the extra work to anyone.
+@scene h3-interview
+One engineer told the researchers that only one senior engineer was allowed to approve changes on a project.
+He was so busy, he could only review the code once a week.
+And after some outages caused by AI-written code, new rules required senior engineers to approve AI-generated code.
+Which made the traffic jam even worse.
+@scene h3-ai-review
+What about AI that reviews code?
+About seventy-nine percent of the companies already use it.
+But they still keep humans in charge, and humans still write the overwhelming majority of reviews.
+@scene h3-fabriek
+Think of a factory.
+You make one machine twice as fast.
+But the next station on the line works at the same speed as before.
+The factory does not produce twice as much.
+It just builds a bigger pile in front of the slow station.
+@scene h3-tijd
+And writing code is only a small part of the job.
+According to the study, engineers spend only thirty to forty percent of their time writing code.
+The rest goes to planning, meetings, reviewing and testing.
+AI is speeding up the part that was never the whole job.
+@scene h3-model
+The researchers also estimated what happens inside the companies.
+According to their model, AI agents make writing code about seventy-four percent more productive.
+But firms moved people from writing code to reviewing it.
+Time spent on coding fell about twenty-three percent, while time spent on reviewing rose about forty-three percent.
+@scene h4-banen
+Then there is the question everyone is asking.
+Is AI taking jobs?
+Many companies say AI is changing how many engineers they need.
+But in this data, the researchers could not find a significant effect on employment.
+Firms did not hire many more people.
+And they did not cut many either.
+Keep in mind that this study only covers software engineers.
+It does not tell us what AI is doing to other jobs.
+@scene h4-model
+That may not last.
+The researchers also built a model to look further ahead.
+In their simulations, as companies keep adjusting, output grows and total employment declines.
+But if the review bottleneck stays, both effects are smaller.
+@scene h4-stiglitz
+Others are more worried.
+On November fourteenth, the Nobel prize winning economist Joseph Stiglitz called the AI boom a bubble.
+He was speaking at a business summit in New Delhi.
+He said the companies investing massive amounts in AI will not get the returns they expect.
+And he said AI is really good at replacing coders and programmers.
+He also pointed to a deeper problem.
+If AI destroys jobs, who will have the income to buy what it produces?
+@scene h5-solow
+If this sounds familiar, it should.
+In 1987, another Nobel prize winning economist, Robert Solow, wrote one famous sentence.
+"You can see the computer age everywhere but in the productivity statistics."
+He meant that companies were buying computers everywhere, but the economy was not getting more productive.
+@scene h5-later
+Companies had spent years buying computers.
+And for a long time, the numbers did not show it.
+Then, in the second half of the 1990s, American productivity growth finally sped up.
+Economists often link that to companies finally changing how they worked around the new machines.
+@scene h5-les
+That may be the real lesson of the Harvard study.
+A new tool is not enough.
+The work around it has to change too.
+And that can take years.
+The question for investors is whether seven hundred billion dollars a year can wait that long.
+@scene h6-volgende
+So what should you watch?
+First, the next earnings reports at the end of January, and how much the tech giants plan to spend in 2027.
+Second, their cash flow, because negative free cash flow cannot last forever.
+Third, AI tools that review and test code, because that is where the traffic jam is.
+And fourth, whether finished work, not just code, starts to rise.
+@scene slot
+AI can already help engineers write more code than ever.
+The hard part was never just writing it.
+It is everything that comes after.

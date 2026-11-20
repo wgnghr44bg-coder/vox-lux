@@ -1,0 +1,818 @@
+[
+[
+0.5,
+7.964,
+"This year, the four biggest tech companies in America are spending more than seven hundred billion dollars to build artificial intelligence.",
+"open-geld"
+],
+[
+8.314,
+10.894,
+"That is more money than most countries earn in a year.",
+"open-geld"
+],
+[
+11.244,
+12.917,
+"And it all rests on one promise.",
+"open-geld"
+],
+[
+13.267,
+15.643,
+"That AI will make workers far more productive.",
+"open-geld"
+],
+[
+16.243,
+23.095,
+"On November nineteenth, two researchers at Harvard released the latest version of one of the biggest tests of that promise so far.",
+"open-onderzoek"
+],
+[
+23.445,
+26.149,
+"They looked inside six hundred fifty-five companies.",
+"open-onderzoek"
+],
+[
+26.499,
+28.486,
+"More than seven hundred thousand workers.",
+"open-onderzoek"
+],
+[
+28.836,
+31.613,
+"Four hundred forty-five million pieces of real work.",
+"open-onderzoek"
+],
+[
+32.213,
+33.639,
+"What they found is strange.",
+"open-uitkomst"
+],
+[
+33.989,
+37.13,
+"With AI agents, engineers wrote forty-four percent more code.",
+"open-uitkomst"
+],
+[
+37.48,
+39.624,
+"But the amount of finished work barely moved.",
+"open-uitkomst"
+],
+[
+40.224,
+41.848,
+"So is AI actually working?",
+"open-vraag"
+],
+[
+42.498,
+44.192,
+"The short answer is yes, and no.",
+"open-vraag"
+],
+[
+44.542,
+45.89,
+"AI works on the task.",
+"open-vraag"
+],
+[
+46.24,
+48.313,
+"But the company around it cannot keep up.",
+"open-vraag"
+],
+[
+48.663,
+53.167,
+"And that difference could decide whether this seven hundred billion dollar bet pays off.",
+"open-vraag"
+],
+[
+53.517,
+54.586,
+"Let's start with the money.",
+"open-vraag"
+],
+[
+55.186,
+58.804,
+"At the end of October, the tech giants reported their latest numbers.",
+"h1-uitgaven"
+],
+[
+59.154,
+63.094,
+"Amazon expects to spend about two hundred twenty billion dollars this year.",
+"h1-uitgaven"
+],
+[
+63.444,
+68.368,
+"Alphabet, the owner of Google, between one hundred ninety-five and two hundred five billion.",
+"h1-uitgaven"
+],
+[
+68.718,
+71.077,
+"Microsoft, about one hundred seventy billion.",
+"h1-uitgaven"
+],
+[
+71.427,
+75.658,
+"And Meta, between one hundred thirty-five and one hundred forty-five billion.",
+"h1-uitgaven"
+],
+[
+76.008,
+79.026,
+"Most of it goes to chips, servers and data centers for AI.",
+"h1-uitgaven"
+],
+[
+79.376,
+81.052,
+"Some of it is already paying off.",
+"h1-uitgaven"
+],
+[
+81.402,
+84.653,
+"Microsoft's cloud business, Azure, grew forty-eight percent.",
+"h1-uitgaven"
+],
+[
+85.253,
+86.961,
+"That spending is starting to hurt.",
+"h1-kasstroom"
+],
+[
+87.311,
+90.743,
+"Amazon, Alphabet and Meta all reported negative free cash flow.",
+"h1-kasstroom"
+],
+[
+91.093,
+94.228,
+"That means they spent more cash than their businesses brought in.",
+"h1-kasstroom"
+],
+[
+94.578,
+96.796,
+"Of the four, only Microsoft stayed positive.",
+"h1-kasstroom"
+],
+[
+97.146,
+104.465,
+"Earlier this year, Meta's free cash flow in a single quarter fell to one point two billion dollars, from twenty-six billion a year before.",
+"h1-kasstroom"
+],
+[
+105.065,
+106.194,
+"Investors noticed.",
+"h1-beleggers"
+],
+[
+106.794,
+109.873,
+"After its report, Alphabet's stock fell about ten percent.",
+"h1-beleggers"
+],
+[
+110.223,
+113.983,
+"And Alphabet said its spending will rise significantly again next year.",
+"h1-beleggers"
+],
+[
+114.333,
+121.577,
+"Earlier this year, analysts at Bank of America and Evercore estimated that the total could pass one trillion dollars in 2027.",
+"h1-beleggers"
+],
+[
+121.927,
+123.139,
+"So the question is simple.",
+"h1-beleggers"
+],
+[
+123.489,
+124.974,
+"What are companies getting back?",
+"h1-beleggers"
+],
+[
+125.874,
+128.691,
+"That is exactly what the Harvard study tried to measure.",
+"h2-onderzoek"
+],
+[
+129.041,
+133.629,
+"It was written by Fiona Chen and James Stratton, two economics researchers at Harvard.",
+"h2-onderzoek"
+],
+[
+133.979,
+137.011,
+"It is a working paper, so it has not been peer reviewed yet.",
+"h2-onderzoek"
+],
+[
+137.361,
+139.071,
+"But the data behind it is unusual.",
+"h2-onderzoek"
+],
+[
+139.671,
+144.865,
+"It comes from Jellyfish, a platform that companies use to track the work of their software teams.",
+"h2-data"
+],
+[
+145.215,
+150.268,
+"It sees every piece of code an engineer writes, every task they finish, and even their meetings.",
+"h2-data"
+],
+[
+150.618,
+155.853,
+"And it records when a company starts using AI tools, like GitHub Copilot, Cursor and Claude Code.",
+"h2-data"
+],
+[
+156.203,
+159.919,
+"The data runs from January 2021 to August 2026.",
+"h2-data"
+],
+[
+160.519,
+162.533,
+"Software is the best place to test AI.",
+"h2-waarom-software"
+],
+[
+162.883,
+166.884,
+"The big AI labs say AI already writes about eighty percent of their own code.",
+"h2-waarom-software"
+],
+[
+167.234,
+170.713,
+"If AI makes companies more productive anywhere, it should be here.",
+"h2-waarom-software"
+],
+[
+171.313,
+173.003,
+"And at first, it looks like it does.",
+"h2-code"
+],
+[
+173.353,
+179.873,
+"A year after companies started using AI coding assistants, their engineers wrote about thirty percent more lines of code.",
+"h2-code"
+],
+[
+180.223,
+183.996,
+"Then came AI agents, tools that can write and change code on their own.",
+"h2-code"
+],
+[
+184.346,
+186.166,
+"They added another forty-four percent.",
+"h2-code"
+],
+[
+186.516,
+190.609,
+"The number of code changes sent in for approval rose about thirty-six percent.",
+"h2-code"
+],
+[
+191.209,
+192.858,
+"But writing code is not the goal.",
+"h2-af"
+],
+[
+193.208,
+194.882,
+"The goal is working software.",
+"h2-af"
+],
+[
+195.232,
+200.175,
+"So the researchers looked at how many tasks were actually finished and shipped to customers.",
+"h2-af"
+],
+[
+200.525,
+202.989,
+"With AI assistants, there was no increase at all.",
+"h2-af"
+],
+[
+203.339,
+206.505,
+"With AI agents, finished tasks rose about fourteen percent.",
+"h2-af"
+],
+[
+206.855,
+208.639,
+"And even that result was borderline.",
+"h2-af"
+],
+[
+209.239,
+210.884,
+"Maybe the tasks just got bigger?",
+"h2-groter"
+],
+[
+211.534,
+215.329,
+"The researchers checked that too, using AI to read the task descriptions.",
+"h2-groter"
+],
+[
+215.679,
+217.112,
+"The tasks did not get bigger.",
+"h2-groter"
+],
+[
+217.462,
+222.336,
+"So forty-four percent more code became, at best, about fourteen percent more finished work.",
+"h2-groter"
+],
+[
+222.936,
+224.708,
+"So where did all that extra code go?",
+"h3-flessenhals"
+],
+[
+225.358,
+226.988,
+"The answer is a traffic jam.",
+"h3-flessenhals"
+],
+[
+227.588,
+230.631,
+"Before new code goes live, another engineer has to check it.",
+"h3-review"
+],
+[
+230.981,
+232.443,
+"This is called code review.",
+"h3-review"
+],
+[
+232.793,
+235.061,
+"Someone has to read it, test it, and approve it.",
+"h3-review"
+],
+[
+235.411,
+237.287,
+"And it is still done mostly by humans.",
+"h3-review"
+],
+[
+237.887,
+244.271,
+"After companies started using AI agents, the time from sending in code to getting it approved rose fifty-six percent.",
+"h3-cijfers"
+],
+[
+244.621,
+246.784,
+"Code waited longer before anyone looked at it.",
+"h3-cijfers"
+],
+[
+247.134,
+249.729,
+"And once someone did, the review took longer too.",
+"h3-cijfers"
+],
+[
+250.079,
+253.706,
+"The number of comments on each change rose almost thirty-nine percent.",
+"h3-cijfers"
+],
+[
+254.306,
+256.09,
+"There is a reason this is hard to fix.",
+"h3-wie"
+],
+[
+256.44,
+258.968,
+"Engineers usually review code they already know.",
+"h3-wie"
+],
+[
+259.318,
+263.213,
+"In the study, that was the case for about eighty-three percent of all reviews.",
+"h3-wie"
+],
+[
+263.563,
+266.207,
+"So you cannot simply hand the extra work to anyone.",
+"h3-wie"
+],
+[
+266.807,
+272.4,
+"One engineer told the researchers that only one senior engineer was allowed to approve changes on a project.",
+"h3-interview"
+],
+[
+272.75,
+275.582,
+"He was so busy, he could only review the code once a week.",
+"h3-interview"
+],
+[
+275.932,
+282.352,
+"And after some outages caused by AI-written code, new rules required senior engineers to approve AI-generated code.",
+"h3-interview"
+],
+[
+282.702,
+284.626,
+"Which made the traffic jam even worse.",
+"h3-interview"
+],
+[
+285.226,
+286.919,
+"What about AI that reviews code?",
+"h3-ai-review"
+],
+[
+287.569,
+290.485,
+"About seventy-nine percent of the companies already use it.",
+"h3-ai-review"
+],
+[
+290.835,
+296.144,
+"But they still keep humans in charge, and humans still write the overwhelming majority of reviews.",
+"h3-ai-review"
+],
+[
+296.744,
+297.836,
+"Think of a factory.",
+"h3-fabriek"
+],
+[
+298.186,
+300.028,
+"You make one machine twice as fast.",
+"h3-fabriek"
+],
+[
+300.378,
+303.884,
+"But the next station on the line works at the same speed as before.",
+"h3-fabriek"
+],
+[
+304.234,
+306.372,
+"The factory does not produce twice as much.",
+"h3-fabriek"
+],
+[
+306.722,
+309.598,
+"It just builds a bigger pile in front of the slow station.",
+"h3-fabriek"
+],
+[
+310.198,
+312.437,
+"And writing code is only a small part of the job.",
+"h3-tijd"
+],
+[
+312.787,
+317.928,
+"According to the study, engineers spend only thirty to forty percent of their time writing code.",
+"h3-tijd"
+],
+[
+318.278,
+321.331,
+"The rest goes to planning, meetings, reviewing and testing.",
+"h3-tijd"
+],
+[
+321.681,
+324.5,
+"AI is speeding up the part that was never the whole job.",
+"h3-tijd"
+],
+[
+325.1,
+328.409,
+"The researchers also estimated what happens inside the companies.",
+"h3-model"
+],
+[
+328.759,
+333.541,
+"According to their model, AI agents make writing code about seventy-four percent more productive.",
+"h3-model"
+],
+[
+333.891,
+336.881,
+"But firms moved people from writing code to reviewing it.",
+"h3-model"
+],
+[
+337.231,
+343.502,
+"Time spent on coding fell about twenty-three percent, while time spent on reviewing rose about forty-three percent.",
+"h3-model"
+],
+[
+344.102,
+346.274,
+"Then there is the question everyone is asking.",
+"h4-banen"
+],
+[
+346.624,
+347.966,
+"Is AI taking jobs?",
+"h4-banen"
+],
+[
+348.616,
+352.001,
+"Many companies say AI is changing how many engineers they need.",
+"h4-banen"
+],
+[
+352.351,
+356.749,
+"But in this data, the researchers could not find a significant effect on employment.",
+"h4-banen"
+],
+[
+357.099,
+358.926,
+"Firms did not hire many more people.",
+"h4-banen"
+],
+[
+359.276,
+360.867,
+"And they did not cut many either.",
+"h4-banen"
+],
+[
+361.217,
+364.235,
+"Keep in mind that this study only covers software engineers.",
+"h4-banen"
+],
+[
+364.585,
+367.117,
+"It does not tell us what AI is doing to other jobs.",
+"h4-banen"
+],
+[
+367.717,
+368.952,
+"That may not last.",
+"h4-model"
+],
+[
+369.302,
+372.149,
+"The researchers also built a model to look further ahead.",
+"h4-model"
+],
+[
+372.499,
+377.609,
+"In their simulations, as companies keep adjusting, output grows and total employment declines.",
+"h4-model"
+],
+[
+377.959,
+380.978,
+"But if the review bottleneck stays, both effects are smaller.",
+"h4-model"
+],
+[
+381.578,
+383.003,
+"Others are more worried.",
+"h4-stiglitz"
+],
+[
+383.353,
+388.801,
+"On November fourteenth, the Nobel prize winning economist Joseph Stiglitz called the AI boom a bubble.",
+"h4-stiglitz"
+],
+[
+389.151,
+391.518,
+"He was speaking at a business summit in New Delhi.",
+"h4-stiglitz"
+],
+[
+391.868,
+396.822,
+"He said the companies investing massive amounts in AI will not get the returns they expect.",
+"h4-stiglitz"
+],
+[
+397.172,
+400.521,
+"And he said AI is really good at replacing coders and programmers.",
+"h4-stiglitz"
+],
+[
+400.871,
+402.694,
+"He also pointed to a deeper problem.",
+"h4-stiglitz"
+],
+[
+403.044,
+406.699,
+"If AI destroys jobs, who will have the income to buy what it produces?",
+"h4-stiglitz"
+],
+[
+407.599,
+409.234,
+"If this sounds familiar, it should.",
+"h5-solow"
+],
+[
+409.584,
+415.062,
+"In 1987, another Nobel prize winning economist, Robert Solow, wrote one famous sentence.",
+"h5-solow"
+],
+[
+415.412,
+419.533,
+"\"You can see the computer age everywhere but in the productivity statistics.\"",
+"h5-solow"
+],
+[
+419.883,
+425.46,
+"He meant that companies were buying computers everywhere, but the economy was not getting more productive.",
+"h5-solow"
+],
+[
+426.06,
+428.279,
+"Companies had spent years buying computers.",
+"h5-later"
+],
+[
+428.629,
+431.072,
+"And for a long time, the numbers did not show it.",
+"h5-later"
+],
+[
+431.422,
+436.565,
+"Then, in the second half of the 1990s, American productivity growth finally sped up.",
+"h5-later"
+],
+[
+436.915,
+442.199,
+"Economists often link that to companies finally changing how they worked around the new machines.",
+"h5-later"
+],
+[
+442.799,
+445.149,
+"That may be the real lesson of the Harvard study.",
+"h5-les"
+],
+[
+445.499,
+446.911,
+"A new tool is not enough.",
+"h5-les"
+],
+[
+447.261,
+449.137,
+"The work around it has to change too.",
+"h5-les"
+],
+[
+449.487,
+450.886,
+"And that can take years.",
+"h5-les"
+],
+[
+451.236,
+456.082,
+"The question for investors is whether seven hundred billion dollars a year can wait that long.",
+"h5-les"
+],
+[
+456.682,
+458.119,
+"So what should you watch?",
+"h6-volgende"
+],
+[
+458.769,
+465.237,
+"First, the next earnings reports at the end of January, and how much the tech giants plan to spend in 2027.",
+"h6-volgende"
+],
+[
+465.587,
+469.64,
+"Second, their cash flow, because negative free cash flow cannot last forever.",
+"h6-volgende"
+],
+[
+469.99,
+474.464,
+"Third, AI tools that review and test code, because that is where the traffic jam is.",
+"h6-volgende"
+],
+[
+474.814,
+478.193,
+"And fourth, whether finished work, not just code, starts to rise.",
+"h6-volgende"
+],
+[
+478.793,
+481.686,
+"AI can already help engineers write more code than ever.",
+"slot"
+],
+[
+482.036,
+483.831,
+"The hard part was never just writing it.",
+"slot"
+],
+[
+484.181,
+485.774,
+"It is everything that comes after.",
+"slot"
+]
+]

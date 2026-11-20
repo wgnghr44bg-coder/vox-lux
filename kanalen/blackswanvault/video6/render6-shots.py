@@ -1,0 +1,88 @@
+
+# ---------- video 6: werkt AI? (zinnummers = script.txt, zie bronnen.md) ----------
+NUM = lambda v: f"{v:,.0f}"
+MLD = lambda v: f"${v:.0f}B"
+PC = lambda v: f"+{v:.0f}%" if v >= 0 else f"{v:.1f}%"
+HB = "Source: Chen & Stratton, Harvard (working paper, Nov. 19, 2026)"
+SHOTS = [
+ # --- opening ---
+ (0.0, fasen(F("ai-bouw-dc", (1.0, 1.1), 0.55), [(0, GR("$700 BILLION+", "AI spending by 4 tech giants, 2026", ORANJE, 150)), (2, ON("It all rests on one promise")),
+                                                (3, GR("MORE PRODUCTIVE", None, WIT, 130))])),
+ (ZR(4) - 0.15, fasen(F("harvard-a", (1.0, 1.08), 0.5), [(4, EN(LT("HARVARD UNIVERSITY", "New study, latest version November 19, 2026"), ST("NOVEMBER 19"))),
+                                                       (5, GR("655", "companies", WIT, 190)), (6, GR("720,000+", "workers", WIT, 170)), (7, GR("445 MILLION", "pieces of real work", WIT, 140))])),
+ (ZR(8) - 0.15, fasen(F("ai-engineer-ai", (1.0, 1.08), 0.5), [(8, ON("What they found is strange")), (9, GR("+44%", "more code with AI agents", ORANJE, 190)),
+                                                            (10, GR("FINISHED WORK?", "barely moved", ROOD, 130))])),
+ (ZR(11) - 0.15, fasen(F("ai-stapel", (1.0, 1.08), 0.5), [(11, GR("Is AI actually working?", None, WIT, 90)), (12, GR("YES, AND NO", None, ORANJE, 150)),
+                                                        (13, ON("AI works on the task")), (14, ON("But the company around it cannot keep up")),
+                                                        (15, ON("And that could decide the $700 billion bet"))])),
+ # --- h1 geld ---
+ (ZR(17) - 0.15, balken([("Amazon", 220), ("Alphabet", 200), ("Microsoft", 170), ("Meta", 140)], "PLANNED SPENDING IN 2026", "Capital expenditures, mostly for AI. Alphabet and Meta: middle of their range",
+                        "Source: company reports, via CNBC (Oct. 2026)", MLD, [18, 19, 20, 21], kleur=ORANJE)),
+ (ZR(22) - 0.15, fasen(F("dc-a", (1.0, 1.08), 0.5), [(22, ON("Chips, servers and data centers")), (24, GR("+48%", "Microsoft Azure, cloud revenue growth", GROEN, 170))])),
+ (ZR(25) - 0.15, fasen(F("ai-geld-chips", (1.0, 1.08), 0.5), [(25, ON("That spending is starting to hurt")), (26, GR("NEGATIVE", "free cash flow: Amazon, Alphabet, Meta", ROOD, 150)),
+                                                            (27, ON("They spent more cash than their businesses brought in")), (28, ON("Only Microsoft stayed positive"))])),
+ (ZR(29) - 0.15, balken([("Q1 2025", 26), ("Q1 2026", 1.2)], "META: FREE CASH FLOW", "In one quarter, billions of dollars", "Source: CNBC (April 30, 2026)",
+                        lambda v: f"${v:.1f}B" if v < 10 else f"${v:.0f}B", [29, 29], hl=1, kleur=ROOD)),
+ (ZR(30) - 0.15, fasen(F("google", (1.0, 1.08), 0.5), [(30, ON("Investors noticed")), (31, GR("-10%", "Alphabet stock, after its October report", ROOD, 180)),
+                                                     (32, ON("Alphabet: spending will rise significantly in 2027"))])),
+ (ZR(33) - 0.15, fasen(F("ai-belegger", (1.0, 1.08), 0.5), [(33, GR("$1 TRILLION", "possible AI spending in 2027 (Bank of America, Evercore)", ORANJE, 150)),
+                                                          (34, ON("So the question is simple")), (35, GR("What are companies getting back?", None, WIT, 90))])),
+ # --- h2 onderzoek ---
+ (ZR(36) - 0.15, fasen(F("harvard-b", (1.0, 1.08), 0.5), [(36, ON("The Harvard study tried to measure exactly that")),
+                                                        (37, LT("FIONA CHEN & JAMES STRATTON", "Economics researchers, Harvard University")), (38, ON("A working paper: not peer reviewed yet"))])),
+ (ZR(40) - 0.15, fasen(F("code", (1.0, 1.08), 0.5), [(40, LT("JELLYFISH", "Platform that tracks the work of software teams")), (41, ON("Every piece of code, every finished task, every meeting")),
+                                                    (42, ON("And when a company starts using AI tools")), (43, ST("JANUARY 2021 TO AUGUST 2026"))])),
+ (ZR(44) - 0.15, fasen(F("ai-engineer-ai", (1.1, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(44, ON("Software: the best place to test AI")),
+                                                    (45, GR("~80%", "of their own code is written by AI, the big AI labs say", ORANJE, 170)), (46, ON("If it works anywhere, it should be here"))])),
+ (ZR(47) - 0.15, balken([("AI assistants", 30.4), ("+ AI agents", 44.0)], "MORE LINES OF CODE", "Per firm, about a year after adoption", HB, PC, [48, 50], kleur=ORANJE)),
+ (ZR(51) - 0.15, fasen(F("ai-stapel", (1.08, 1.0), 0.45), [(51, GR("+36%", "code changes sent in for approval", ORANJE, 170)), (52, ON("But writing code is not the goal")),
+                                                        (53, GR("WORKING SOFTWARE", None, WIT, 120))])),
+ (ZR(54) - 0.15, balken([("AI assistants", -1.5), ("AI agents", 13.7)], "FINISHED TASKS", "Tasks completed and shipped to production", HB, PC, [55, 56], hl=1, kleur=ORANJE, schaal=44)),
+ (ZR(57) - 0.15, fasen(F("ai-vergadering", (1.0, 1.08), 0.5), [(57, ON("And even that result was borderline")), (58, GR("Bigger tasks?", None, WIT, 100)),
+                                                             (59, ON("Checked with AI reading the task descriptions")), (60, GR("NO", "the tasks did not get bigger", ROOD, 170))])),
+ (ZR(61) - 0.15, balken([("More code", 44.0), ("More finished work", 13.7)], "AI AGENTS: CODE VS FINISHED WORK", "Increase after adoption, at best", HB, PC, [61, 61], hl=1, kleur=ROOD)),
+ # --- h3 flessenhals ---
+ (ZR(62) - 0.15, fasen(F("ai-file", (1.0, 1.08), 0.5), [(62, GR("Where did the extra code go?", None, WIT, 90)), (63, GR("A TRAFFIC JAM", None, ORANJE, 150))])),
+ (ZR(64) - 0.15, fasen(F("ai-senior", (1.0, 1.08), 0.5), [(64, ON("Before new code goes live, another engineer checks it")), (65, GR("CODE REVIEW", None, ORANJE, 150)), (66, ON("Read it, test it, approve it")),
+                                                        (67, ON("Still done mostly by humans"))])),
+ (ZR(68) - 0.15, balken([("Waiting for review", 59.9), ("Active review", 58.5), ("Submit to approval", 56.1), ("Comments per change", 38.6)], "AFTER AI AGENTS: CODE REVIEW",
+                        "Change after adoption", HB, PC, [68, 69, 70, 71], hl=2, kleur=ROOD)),
+ (ZR(72) - 0.15, fasen(F("ai-vergadering", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(72, ON("Why this is hard to fix")), (73, ON("Engineers usually review code they already know")),
+                                                        (74, GR("83%", "of reviews: by someone who knows the code", WIT, 190)), (75, ON("You cannot hand the extra work to anyone"))])),
+ (ZR(76) - 0.15, doc("Interview in the study", "An engineer at a software company",
+                     ["\"People could make a huge number of", "commits quickly, but code review was", "still the bottleneck.\"", "", "One senior engineer could only review once a week."],
+                     mark=2, achter="ai-senior", mark_na=76)),
+ (ZR(78) - 0.15, fasen(F("ai-wachten", (1.0, 1.08), 0.5), [(78, ON("After outages caused by AI-written code: senior approval required")), (79, GR("EVEN SLOWER", None, ROOD, 140))])),
+ (ZR(80) - 0.15, fasen(F("nersc", (1.0, 1.08), 0.5), [(80, GR("AI reviewing code?", None, WIT, 100)), (81, GR("79%", "of companies already use AI review tools", ORANJE, 190)),
+                                                    (82, ON("But humans still write the overwhelming majority of reviews"))])),
+ (ZR(83) - 0.15, fasen(F("fabriek", (1.0, 1.08), 0.5), [(83, ON("Think of a factory")), (84, ON("One machine becomes twice as fast")), (85, ON("The next station: same speed as before"))])),
+ (ZR(86) - 0.15, fasen(F("ai-lopendeband", (1.0, 1.08), 0.5), [(86, ON("The factory does not produce twice as much")), (87, GR("A BIGGER PILE", "in front of the slow station", ORANJE, 140))])),
+ (ZR(88) - 0.15, fasen(F("ai-vergadering", (1.0, 1.06), 0.5, pan=(0.3, 0.5, 0.5, 0.5)), [(88, ON("Writing code is only part of the job")),
+                                                        (89, GR("30-40%", "of engineers' time goes to writing code", WIT, 170)), (90, ON("The rest: planning, meetings, reviewing, testing")),
+                                                        (91, ON("AI speeds up the part that was never the whole job"))])),
+ (ZR(92) - 0.15, balken([("Coding productivity", 73.7), ("Time spent coding", -22.7), ("Time spent reviewing", 43.4)], "WHAT AI AGENTS CHANGE INSIDE FIRMS",
+                        "Model estimates by the researchers", HB, PC, [93, 95, 95], kleur=ORANJE, schaal=74)),
+ # --- h4 banen ---
+ (ZR(96) - 0.15, fasen(F("ai-kantoor-leeg", (1.0, 1.08), 0.5), [(96, ON("The question everyone is asking")), (97, GR("Is AI taking jobs?", None, WIT, 100)),
+                                                              (99, GR("NO CLEAR EFFECT", "on employment, in this data", ORANJE, 130)), (102, ON("Only software engineers: not other jobs"))])),
+ (ZR(104) - 0.15, fasen(F("ai-bouw-dc", (1.08, 1.0), 0.45), [(104, ON("That may not last")), (106, ON("Simulations: more output, fewer jobs over time")),
+                                                           (107, ON("Smaller effects if the review bottleneck stays"))])),
+ (ZR(108) - 0.15, fasen(portret("stiglitz"), [(109, LT("JOSEPH STIGLITZ", "Nobel prize in economics · November 14, 2026")), (109.6, ON("He called the AI boom a bubble")), (110, ON("Speaking at a business summit in New Delhi")),
+                                             (111, ON("Massive investors will not get the returns they expect")), (112, ON('"Really good at replacing coders, programmers"'))])),
+ (ZR(113) - 0.15, fasen(F("ai-kantoor-leeg", (1.08, 1.0), 0.45, pan=(0.6, 0.5, 0.4, 0.5)), [(113, ON("A deeper problem")),
+                                                              (114, GR("Who buys what AI makes?", "if AI destroys the jobs", WIT, 90))])),
+ # --- h5 Solow ---
+ (ZR(115) - 0.15, fasen(portret("solow"), [(116, LT("ROBERT SOLOW (LEFT)", "Nobel prize in economics, 1987")),
+                                          (117, ON('"You can see the computer age everywhere but in the productivity statistics."')),
+                                          (118, ON("Computers everywhere, but no productivity gain to show for it"))])),
+ (ZR(119) - 0.15, fasen(F("pc1987", (1.0, 1.08), 0.5), [(119, ST("1987")), (119.5, ON("Years of buying computers")), (120, ON("And for a long time, the numbers did not show it"))])),
+ (ZR(121) - 0.15, fasen(F("ford1923", (1.0, 1.08), 0.5, grijs=True), [(121, GR("LATE 1990s", "US productivity growth finally sped up", ORANJE, 140)),
+                                                                     (122, ON("Companies changed how they worked around the machines"))])),
+ (ZR(123) - 0.15, fasen(F("ai-belegger", (1.08, 1.0), 0.45), [(123, ON("The real lesson")), (124, ON("A new tool is not enough")), (125, ON("The work around it has to change too")),
+                                                            (126, GR("YEARS", None, ORANJE, 170)), (127, GR("Can $700B a year wait?", None, WIT, 100))])),
+ # --- h6 wat nu ---
+ (ZR(128) - 0.15, lijst("ai-geld-chips", "What to watch", [(129, "Earnings in late January: 2027 spending"), (130, "Cash flow"),
+                                                           (131, "AI tools that review and test code"), (132, "Finished work, not just code")])),
+ (ZR(133) - 0.15, slot_fade("ai-engineer-ai", "The hard part was never just writing it")),
+]
+SHOTS.sort(key=lambda x: x[0])

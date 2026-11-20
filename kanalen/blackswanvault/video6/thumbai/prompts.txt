@@ -1,0 +1,4 @@
+# robot-gezichten (eigen ontwerp, stijl zoals voorbeeld eigenaar)
+robot-a|close-up of a humanoid AI robot with a realistic female face and white and dark metal head with glowing blue rings, side profile looking right, blue circuit board glow background, cinematic, sharp, photorealistic 3d render, no text, no letters, no logos
+robot-b|close-up of a humanoid AI robot with a realistic human face and white and chrome metal skull with glowing blue lights, looking straight into the camera with a confused frown, blue digital background, cinematic, sharp, photorealistic 3d render, no text, no letters, no logos
+robot-c|close-up of a humanoid AI robot with a realistic face and silver metal head with glowing blue circuits, looking straight into the camera with a worried expression, raised eyebrows, dark blue data center background, cinematic, sharp, photorealistic 3d render, no text, no letters, no logos
