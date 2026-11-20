@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 19:33",
+ "bijgewerkt": "2026-11-20 20:03",
  "kanalen": {
   "weken": [
    {
@@ -677,7 +677,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 19:33)"
+   "tekst": "draait nu (2026-11-20 20:03)"
   },
   {
    "naam": "Git",
@@ -697,7 +697,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -714,8 +714,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 19:33",
-   "volgende": "2026-11-20 20:03"
+   "laatst": "2026-11-20 20:03",
+   "volgende": "2026-11-20 20:33"
   },
   "hype": {
    "aan": true,
@@ -729,8 +729,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 19:18",
-   "volgende": "2026-11-20 19:48"
+   "laatst": "2026-11-20 19:48",
+   "volgende": "2026-11-20 20:18"
   },
   "titels": {
    "aan": true,
@@ -1238,8 +1238,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 19:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3665,7 +3665,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 19:34",
+  "bijgewerkt": "2026-11-20 20:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3684,7 +3684,7 @@
    },
    {
     "account": "account2",
-    "5uur": 7147871,
+    "5uur": 6470947,
     "week": 100917763,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3699,9 +3699,9 @@
     "stap_kost": 29393,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 53,
-    "5uur_scripts_over": 9.7,
-    "5uur_stappen_over": 219,
+    "5uur_pct": 48,
+    "5uur_scripts_over": 10.7,
+    "5uur_stappen_over": 242,
     "week_pct": 76,
     "week_scripts_over": 46.9,
     "week_stappen_over": 1058
