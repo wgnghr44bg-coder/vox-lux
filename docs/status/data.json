@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 17:03",
+ "bijgewerkt": "2026-11-20 17:33",
  "kanalen": {
   "weken": [
    {
@@ -660,7 +660,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 17:03)"
+   "tekst": "draait nu (2026-11-20 17:33)"
   },
   {
    "naam": "Git",
@@ -680,7 +680,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 17:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -697,8 +697,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 17:03",
-   "volgende": "2026-11-20 17:33"
+   "laatst": "2026-11-20 17:33",
+   "volgende": "2026-11-20 18:03"
   },
   "hype": {
    "aan": true,
@@ -708,17 +708,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 17:10"
+   "volgende": "2026-11-20 18:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 16:48",
-   "volgende": "2026-11-20 17:18"
+   "laatst": "2026-11-20 17:18",
+   "volgende": "2026-11-20 17:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-20 15:25",
-   "volgende": "2026-11-20 17:25"
+   "laatst": "2026-11-20 17:25",
+   "volgende": "2026-11-20 19:25"
   }
  },
  "kanaal": {
@@ -824,7 +824,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 739,
+    "views": 740,
     "verwerkt": "processed"
    }
   ],
@@ -1048,8 +1048,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 567,
+  "bezig_procent": 44,
+  "geheugen_mb": 4253,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1221,8 +1221,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 17:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 17:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3516,7 +3516,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 15:25",
+  "bijgewerkt": "2026-11-20 17:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3648,7 +3648,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 17:05",
+  "bijgewerkt": "2026-11-20 17:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3662,33 +3662,33 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 33801,
+    "stap_kost": 0,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 6184950,
-    "week": 96457464,
+    "5uur": 8247408,
+    "week": 98603974,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 14145767,
+     "Fri 20-11": 16292277,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 26391,
+    "stap_kost": 27755,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 46,
-    "5uur_scripts_over": 11.1,
-    "5uur_stappen_over": 280,
-    "week_pct": 73,
-    "week_scripts_over": 53.6,
-    "week_stappen_over": 1347
+    "5uur_pct": 61,
+    "5uur_scripts_over": 8.0,
+    "5uur_stappen_over": 192,
+    "week_pct": 75,
+    "week_scripts_over": 50.4,
+    "week_stappen_over": 1204
    }
   ]
  },
