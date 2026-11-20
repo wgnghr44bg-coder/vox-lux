@@ -1,0 +1,157 @@
+# BlackswanVault video 8: bitcoin-crash. Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): Bitcoin Just Lost Half Its Value. Here's Who Is Selling
+# Opbouw: antwoord vooraan (vier krachten tegelijk), dan val, ETF's, hefboom, Fed, AI-beursgangen, digitaal goud, bedrijven met bitcoin, wat nu.
+@scene open-val
+On Friday, November twentieth, bitcoin fell below sixty thousand dollars.
+It was the first time since July.
+Thirteen months ago, one bitcoin was worth more than one hundred twenty-six thousand dollars.
+So in just over a year, it has lost more than half its value.
+In the past month alone, it fell about twenty thousand dollars.
+@scene open-weken
+And it is not one bad day.
+Bitcoin was heading for its seventh losing week in a row.
+That has not happened since May 2022.
+@scene open-antwoord
+So who is selling?
+The short answer is four groups at the same time.
+Big investors are pulling money out of bitcoin funds.
+Traders who borrowed to bet on bitcoin are being forced to sell.
+The Federal Reserve may raise interest rates again.
+And huge stock market debuts in AI are pulling money away from crypto.
+@scene open-goud
+There is one more problem.
+Bitcoin was supposed to be digital gold, a safe place when markets fall.
+This time, it fell much harder than the stock market.
+Let's go through it, step by step.
+@scene h1-funds
+Start with the biggest buyers of the last two years.
+In 2024, America approved funds that hold real bitcoin and trade on the stock market like a normal share.
+They made it easy for anyone with a brokerage account to buy bitcoin.
+And billions of dollars poured in.
+@scene h1-uitstroom
+Now that money is leaving.
+On November seventeenth, these funds lost about two hundred forty million dollars.
+The next day, about three hundred seven million.
+And on November nineteenth, five hundred eighty-two million dollars in a single day.
+@scene h1-blackrock
+The biggest of them all is run by BlackRock, the largest asset manager in the world.
+On November nineteenth, investors pulled five hundred forty-one million dollars out of BlackRock's bitcoin fund.
+That was its largest one-day outflow since it launched.
+@scene h1-maand
+And it was not a single bad day.
+Money left these funds on twelve of the first fourteen trading days of November.
+In total, almost three and a half billion dollars this month.
+When the biggest buyers become sellers, the price has to find new buyers lower down.
+Not everyone is selling.
+On the same day that BlackRock's fund lost half a billion dollars, a newer bitcoin fund from Morgan Stanley took in about fifty million.
+But that was a drop in the ocean.
+@scene h2-hefboom
+The second group is traders who used borrowed money.
+On crypto exchanges, you can bet on bitcoin with ten, twenty, even one hundred times more money than you actually have.
+That is called leverage.
+If the price moves your way, you win big.
+@scene h2-liquidatie
+But if the price drops far enough, the exchange closes your bet automatically and sells.
+This is called a liquidation.
+And every forced sale pushes the price down a little further.
+Which can trigger the next liquidation.
+@scene h2-cijfers
+In just twenty-four hours this week, about seven hundred million dollars in crypto bets were wiped out this way.
+More than one hundred forty-two thousand traders were hit.
+In bitcoin alone, about two hundred three million dollars were liquidated.
+More than eighty percent of that came from traders betting the price would go up.
+And the market has less cushion than before.
+According to the site crypto dot news, the amount of buy and sell orders waiting on the big exchanges is about thirty-eight percent lower than before a hack at the exchange Binance in October.
+In a thinner market, the same amount of selling moves the price further.
+@scene h3-fed
+The third force is the Federal Reserve.
+Bitcoin did best when money was cheap and interest rates were low.
+But right now, the Fed may be getting ready to raise rates again.
+@scene h3-notulen
+This week, the Fed published the minutes of its October meeting.
+Almost all members said further rate increases would likely be appropriate.
+The next meeting is on December eighth and ninth.
+@scene h3-dollar
+Higher rates make safe investments, like government bonds, pay more.
+And they make risky bets, like bitcoin, less attractive.
+At the same time, the US dollar is near its highest level in nineteen months.
+When the dollar is strong, bitcoin is usually weak.
+Washington has not helped either.
+In September, a major crypto law, called the Clarity Act, failed in the Senate.
+The crypto industry spent more than two hundred million dollars on this year's midterm elections.
+According to CNBC, it got less out of that than in earlier elections.
+@scene h4-ai
+The fourth force is something new.
+On November nineteenth, the AI company Anthropic went public.
+It raised more than eighty-one billion dollars, one of the biggest stock market debuts ever.
+In June, SpaceX had a giant debut of its own.
+@scene h4-geld
+To buy shares in these debuts, investors need cash.
+And some of that cash came from selling other risky investments, like crypto.
+The head of CoinShares, a large crypto investment firm, put it simply.
+"AI is sucking out every marginal dollar away from crypto."
+@scene h4-anthropic
+Even the new shares did not escape the selling.
+Anthropic's shares opened at one hundred eleven dollars and fifty cents, far above the eighty-three dollar offer price.
+By the end of the first day, they had already fallen back to about ninety-seven.
+Ripple's chief executive, Brad Garlinghouse, sees a pattern here.
+After SpaceX went public in June, he said, crypto recovered once the new shares had been paid for.
+He thinks the same could happen again.
+@scene h5-goud
+Now to the biggest question.
+For years, bitcoin fans called it digital gold.
+Something you buy when you do not trust the stock market.
+@scene h5-test
+This year, that idea was tested.
+From October sixth to November eighteenth, the S and P five hundred fell about six percent.
+In the same period, bitcoin fell about twenty-seven percent.
+That is more than four times as much.
+@scene h5-beurs
+And on Friday, both fell together.
+The Nasdaq one hundred dropped almost four percent in one day.
+The S and P five hundred fell into what Wall Street calls a correction, more than ten percent below its peak.
+Bitcoin did not protect anyone.
+It behaved like a risky tech stock.
+@scene h5-echt-goud
+Even real gold is not safe right now.
+It is down more than thirty-five percent from its peak earlier this year.
+When everything falls at once, investors sell what they can, to raise cash.
+The whole crypto market is now worth about two trillion dollars.
+That is about twenty-seven percent less than just one month ago.
+@scene h6-strategy
+There is one company that sits at the center of all this.
+It is called Strategy, and it used to be known as MicroStrategy.
+For years, it borrowed money and sold shares, just to buy bitcoin.
+@scene h6-cijfers
+According to its latest filing, Strategy owns eight hundred fifty thousand eight hundred forty-nine bitcoins.
+That is about four percent of all bitcoin that will ever exist.
+It paid about sixty-four billion dollars for them.
+That is an average of about seventy-five thousand dollars per coin.
+@scene h6-onderwater
+So at sixty thousand dollars, Strategy's bitcoin is worth more than thirteen billion dollars less than it paid.
+@scene h6-dats
+And Strategy is not alone.
+Public companies hold more than one point two million bitcoins, more than six percent of the total supply.
+Some of these companies borrowed money to buy them, and they have to pay interest on that debt.
+One analyst told CNBC that some of them sold bitcoin to make those payments.
+He said these bitcoin treasury companies have made the problem worse.
+@scene h6-spacex
+Even SpaceX owns bitcoin.
+It bought more than eighteen thousand coins, at an average of about thirty-five thousand dollars each.
+For SpaceX, it is still a profit.
+For many others who bought this year, it is not.
+@scene h7-volgende
+So what should you watch?
+First, the July low, around fifty-seven thousand eight hundred dollars.
+Analysts see that as the next big line, and a clear break below it would wipe out the summer recovery.
+Second, the bitcoin funds, because the selling only stops when the money stops leaving.
+Third, the Fed meeting on December eighth and ninth.
+And fourth, companies like Strategy, and whether any of them is forced to sell.
+Katie Stockton of Fairlead Strategies said bitcoin, quote, "appears to be trying to find a footing."
+But Ryan Kirkley of Global Settlement Network said there is, quote, "a bit more caution than there was a year ago."
+None of this is financial advice.
+@scene slot
+Bitcoin has crashed before, and it has come back before.
+But this time, it is falling together with the stock market, not against it.
+The question is no longer whether bitcoin is digital gold.
+It is who still holds it when the next wave of selling comes.
