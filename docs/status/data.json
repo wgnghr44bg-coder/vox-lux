@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 13:33",
+ "bijgewerkt": "2026-11-20 14:03",
  "kanalen": {
   "weken": [
    {
@@ -68,6 +68,14 @@
         "titel": "Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
         "stand": "online",
         "youtube": "5C2MIFhR314"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-20",
+        "tijd": "13:34",
+        "titel": "Short: Anthropic Just Had the Biggest IPO Ever",
+        "stand": "online",
+        "youtube": "Lnkr1eh77Dg"
        }
       ]
      },
@@ -81,6 +89,14 @@
         "titel": "Why Is Take-Two's Stock Falling After GTA 6?",
         "stand": "gepland",
         "youtube": "GEktvTAsVIw"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-21",
+        "tijd": "17:00",
+        "titel": "Short: GTA 6 Broke Records. So Why Did the Stock Fall?",
+        "stand": "gepland",
+        "youtube": "HWcKzzN7PzI"
        },
        {
         "kanaal": "Sleep Archives",
@@ -106,7 +122,24 @@
     "dagen": [
      {
       "datum": "2026-11-23",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-23",
+        "tijd": "15:00",
+        "titel": "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of",
+        "stand": "klaar, ma-ochtend slot met laatste koersen, dan privé uploaden (openbaar alleen na akkoord)",
+        "youtube": ""
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-23",
+        "tijd": "17:00",
+        "titel": "Short: The Nasdaq Fell 13%. Investors Fear 4 Things",
+        "stand": "klaar (shorts/markt-short-1.mp4), uploaden na de lange video",
+        "youtube": ""
+       }
+      ]
      },
      {
       "datum": "2026-11-24",
@@ -398,7 +431,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "YouTube upload",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -642,7 +675,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 13:33)"
+   "tekst": "draait nu (2026-11-20 14:03)"
   },
   {
    "naam": "Git",
@@ -662,7 +695,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 13:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -679,8 +712,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 13:33",
-   "volgende": "2026-11-20 14:03"
+   "laatst": "2026-11-20 14:03",
+   "volgende": "2026-11-20 14:33"
   },
   "hype": {
    "aan": true,
@@ -694,8 +727,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 13:18",
-   "volgende": "2026-11-20 13:48"
+   "laatst": "2026-11-20 13:48",
+   "volgende": "2026-11-20 14:18"
   },
   "titels": {
    "aan": true,
@@ -752,7 +785,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 77,
+    "views": 78,
     "verwerkt": "processed"
    },
    {
@@ -797,7 +830,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 347,
+    "views": 348,
     "verwerkt": "processed"
    },
    {
@@ -1015,29 +1048,22 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 6,
+ "stap": -1,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 6,
-  "stapnaam": "YouTube upload",
+  "stap": -1,
+  "stapnaam": "",
   "voortgang": null,
   "detail": "",
-  "taken": [
-   "wachten op verwerking YouTube"
-  ],
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "wachten op verwerking YouTube",
-   "stap": 6
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 27,
   "geheugen_mb": 504,
   "totaal_mb": 8192
  },
@@ -1124,12 +1150,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 18:58",
-   "tekst": "routine-lokaal: blackbeard-1718: 26 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 009, 015, 021, 027, 029, 048, 051, 053, 057, 065, 067, 068, 070, 077, 080",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 19:13",
    "tekst": "Claude: Sleep Archives OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Keten blackbeard-1718 gestopt (stem halverwege), taak 'Sleep Archives bewaker' uitgezet. Al ge",
    "fout": false,
@@ -1206,12 +1226,18 @@
    "tekst": "Claude: BlackswanVault GTA 6 omgegooid (antwoord 'buy the rumor' na 1:08 i.p.v. 6:34, geschiedenis daarna) + kortere titel 'Why Is Take-Two's Stock Falling After GTA 6?'; nieuw privé GEktvTAsVIw (za 2",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-20 13:34",
+   "tekst": "Claude: BlackswanVault Short Anthropic openbaar (Lnkr1eh77Dg, link naar 5C2MIFhR314 in beschrijving; 'Gerelateerde video' nog in Studio zetten). Shorts-ondertiteling vast in CapCut-stijl eigenaar.",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 13:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 14:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3637,7 +3663,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 13:34",
+  "bijgewerkt": "2026-11-20 14:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -3657,27 +3683,27 @@
    },
    {
     "account": "account2",
-    "5uur": 7747879,
-    "week": 91200394,
+    "5uur": 8218105,
+    "week": 92371509,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 8888697,
+     "Fri 20-11": 10059812,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 25915,
+    "stap_kost": 24656,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 57,
-    "5uur_scripts_over": 8.8,
-    "5uur_stappen_over": 225,
-    "week_pct": 69,
-    "week_scripts_over": 61.6,
-    "week_stappen_over": 1575
+    "5uur_pct": 61,
+    "5uur_scripts_over": 8.1,
+    "5uur_stappen_over": 217,
+    "week_pct": 70,
+    "week_scripts_over": 59.8,
+    "week_stappen_over": 1608
    }
   ]
  },
