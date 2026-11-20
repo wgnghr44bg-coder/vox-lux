@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 08:03",
+ "bijgewerkt": "2026-11-20 08:33",
  "kanalen": {
   "weken": [
    {
@@ -610,8 +610,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": false,
-   "tekst": "staat uit (de routine start hem zelf)"
+   "ok": true,
+   "tekst": "draait"
   },
   {
    "naam": "ffmpeg",
@@ -626,7 +626,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "158 GB vrij"
+   "tekst": "159 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 08:03)"
+   "tekst": "draait nu (2026-11-20 08:33)"
   },
   {
    "naam": "Git",
@@ -661,7 +661,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 08:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -678,23 +678,23 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 08:03",
-   "volgende": "2026-11-20 08:33"
+   "laatst": "2026-11-20 08:33",
+   "volgende": "2026-11-20 09:03"
   },
   "hype": {
    "aan": true,
-   "laatst": "2026-11-19 08:30",
-   "volgende": "2026-11-20 08:30"
+   "laatst": "2026-11-20 08:30",
+   "volgende": "2026-11-21 08:30"
   },
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 08:10"
+   "volgende": "2026-11-20 09:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 07:18",
-   "volgende": "2026-11-20 08:18"
+   "laatst": "2026-11-20 08:18",
+   "volgende": "2026-11-20 08:48"
   },
   "titels": {
    "aan": true,
@@ -805,7 +805,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 730,
+    "views": 727,
     "verwerkt": "processed"
    }
   ],
@@ -996,12 +996,12 @@
   "geplande": 3,
   "runs": {
    "goed": 5,
-   "totaal": 17,
-   "procent": 29
+   "totaal": 16,
+   "procent": 31
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 11,
    "totaal": 12
   }
  },
@@ -1029,8 +1029,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 1,
-  "geheugen_mb": 592,
+  "bezig_procent": 25,
+  "geheugen_mb": 663,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1042,7 +1042,7 @@
   {
    "naam": "Beelden",
    "wat": "ComfyUI Z-Image",
-   "ok": false
+   "ok": true
   },
   {
    "naam": "Beeldcontrole",
@@ -1116,30 +1116,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-19 12:58",
-   "tekst": "routine-lokaal: boeren-winter-1300: beelden-wachter: 3 beelden lijken op een ander beeld (009, 062, 075), nieuwe maken",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:03",
-   "tekst": "routine-lokaal: boeren-winter-1300: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:05",
-   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-19 13:06",
-   "tekst": "bewaker: keten gestart voor boeren-winter-1300",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-19 13:06",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken voor 2026-11-28 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -1198,17 +1174,36 @@
    "tekst": "nieuwswacht: GROOT Anthropic (2026-11-20): Forget Anthropic: In Europe, the IPO hype is about a blue lagoon -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-20 08:30",
+   "tekst": "hype-wachter: SEINTJE What They Never Tell You About the Picts - Scotland’s Lost History -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-20 08:30",
+   "tekst": "hype-wachter: SEINTJE What Happened to the Shah of Iran’s Children After He Was Overthrown? | History For Sleep -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-20 08:30",
+   "tekst": "hype-wachter: SEINTJE Tales from Korean Folklore | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-20 08:30",
+   "tekst": "hype-wachter: SEINTJE Learn How Rice Changed The World | A Sleepy History -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 08:03",
-   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-20 08:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 08:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -2999,11 +2994,11 @@
   }
  ],
  "hype": {
-  "bijgewerkt": "2026-11-19 08:31",
+  "bijgewerkt": "2026-11-20 08:30",
   "punten": [
    {
     "soort": "hype",
-    "per_dag": 40232,
+    "per_dag": 49734,
     "titel": "The REAL King Arthur Story is Weirder Than you think",
     "kanaal": "History Camp",
     "id": "dIvY2nkQqf4",
@@ -3012,11 +3007,11 @@
      "koning-arthur"
     ],
     "breed": 1,
-    "advies": "staat gepland op 2027-08-21 (koning-arthur)"
+    "advies": "staat gepland op 2028-01-15 (koning-arthur)"
    },
    {
     "soort": "hype",
-    "per_dag": 19742,
+    "per_dag": 17339,
     "titel": "How Edo Japan Survived the Winter | Human Voiced, No Ads",
     "kanaal": "ASMR Historian",
     "id": "2SWxGOmF5d8",
@@ -3026,22 +3021,11 @@
      "japan-1600"
     ],
     "breed": 1,
-    "advies": "staat gepland op 2026-12-26 (japan-1600)"
+    "advies": "staat gepland op 2027-04-03 (japan-1600)"
    },
    {
     "soort": "hype",
-    "per_dag": 21294,
-    "titel": "The World of HP Lovecraft Explained | Human Voiced, No Ads",
-    "kanaal": "ASMR Historian",
-    "id": "kDNul1Jshj4",
-    "datum": "2026-11-16",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 20399,
+    "per_dag": 21375,
     "titel": "The Complete History of Pangea to Fall Asleep To - No Ads",
     "kanaal": "Quiet Science",
     "id": "aKui3akfcaE",
@@ -3052,18 +3036,21 @@
    },
    {
     "soort": "hype",
-    "per_dag": 13440,
-    "titel": "A Rainy Boat Ride on the River: A Magical Bedtime Story",
-    "kanaal": "Stephen Dalton Sleep Stories",
-    "id": "k7fLCLWr5zE",
-    "datum": "2026-11-16",
-    "ons": [],
-    "breed": 1,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
+    "per_dag": 19281,
+    "titel": "Working in a Victorian Factory was a Nightmare | Human Voiced, No Ads",
+    "kanaal": "ASMR Historian",
+    "id": "6c6cIU6ADRk",
+    "datum": "2026-11-18",
+    "ons": [
+     "londen-kerst-1843",
+     "victoriaans-londen-1888"
+    ],
+    "breed": 0,
+    "advies": "staat gepland op 2026-12-26 (londen-kerst-1843)"
    },
    {
     "soort": "hype",
-    "per_dag": 12619,
+    "per_dag": 12427,
     "titel": "8 Hours of Space to Lull You To Sleep 💤 How the Universe Works | Science Channel",
     "kanaal": "Science Channel",
     "id": "pe5DHvTFTI4",
@@ -3074,21 +3061,70 @@
    },
    {
     "soort": "hype",
-    "per_dag": 11547,
-    "titel": "Working in a Victorian Factory was a Nightmare | Human Voiced, No Ads",
+    "per_dag": 17312,
+    "titel": "The World of HP Lovecraft Explained | Human Voiced, No Ads",
     "kanaal": "ASMR Historian",
-    "id": "6c6cIU6ADRk",
-    "datum": "2026-11-18",
-    "ons": [
-     "londen-kerst-1843",
-     "victoriaans-londen-1888"
-    ],
-    "breed": 1,
-    "advies": "staat gepland op 2026-12-19 (londen-kerst-1843)"
+    "id": "kDNul1Jshj4",
+    "datum": "2026-11-16",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 14215,
+    "per_dag": 10698,
+    "titel": "A Rainy Boat Ride on the River: A Magical Bedtime Story",
+    "kanaal": "Stephen Dalton Sleep Stories",
+    "id": "k7fLCLWr5zE",
+    "datum": "2026-11-16",
+    "ons": [],
+    "breed": 1,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 6281,
+    "titel": "The Luxury Night Train Through Egypt: A Cozy Bedtime Story",
+    "kanaal": "Stephen Dalton Sleep Stories",
+    "id": "hkTbGURTF4U",
+    "datum": "2026-11-19",
+    "ons": [
+     "cleopatra",
+     "egypte-toetanchamon"
+    ],
+    "breed": 2,
+    "advies": "staat gepland op 2027-10-16 (cleopatra)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 12485,
+    "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
+    "kanaal": "History Camp",
+    "id": "z2WwdkKcEn0",
+    "datum": "2026-11-11",
+    "ons": [
+     "alchemie-steen-der-wijzen"
+    ],
+    "breed": 0,
+    "advies": "staat gepland op 2027-01-30 (alchemie-steen-der-wijzen)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5779,
+    "titel": "The COZIEST Autumn Story | The Sleepy Science of Leaves | Sleep Story",
+    "kanaal": "Get Sleepy",
+    "id": "RToaMEozxwE",
+    "datum": "2026-11-09",
+    "ons": [
+     "balmoral-1868",
+     "thanksgiving-1621"
+    ],
+    "breed": 2,
+    "advies": "staat gepland op 2026-11-21 (thanksgiving-1621)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 11117,
     "titel": "9 Hours of Asian History Deep Dives | Human Voiced, No Ads",
     "kanaal": "ASMR Historian",
     "id": "2qwuGdej5gM",
@@ -3099,56 +3135,18 @@
    },
    {
     "soort": "hype",
-    "per_dag": 13922,
-    "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
-    "kanaal": "History Camp",
-    "id": "z2WwdkKcEn0",
-    "datum": "2026-11-11",
-    "ons": [
-     "alchemie-steen-der-wijzen"
-    ],
-    "breed": 0,
-    "advies": "staat gepland op 2026-12-02 (alchemie-steen-der-wijzen)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 6280,
-    "titel": "The COZIEST Autumn Story | The Sleepy Science of Leaves | Sleep Story",
-    "kanaal": "Get Sleepy",
-    "id": "RToaMEozxwE",
-    "datum": "2026-11-09",
-    "ons": [
-     "balmoral-1868",
-     "thanksgiving-1621"
-    ],
-    "breed": 2,
-    "advies": "staat gepland op 2026-11-25 (thanksgiving-1621)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 7049,
-    "titel": "Founding Myths of Ancient Cities | Human Voiced, No Ads",
-    "kanaal": "ASMR Historian",
-    "id": "XUesiy71m6Q",
-    "datum": "2026-11-13",
-    "ons": [],
-    "breed": 1,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 10134,
-    "titel": "9 Hours of Ancient History | Human Voiced, No Ads",
-    "kanaal": "ASMR Historian",
-    "id": "kLfP78XAlWo",
-    "datum": "2026-11-14",
+    "per_dag": 10626,
+    "titel": "The Hot Water Bottle Lady: A Cozy Bedtime Story",
+    "kanaal": "Stephen Dalton Sleep Stories",
+    "id": "rHrwrgo3K5k",
+    "datum": "2026-11-18",
     "ons": [],
     "breed": 0,
     "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 10017,
+    "per_dag": 9631,
     "titel": "The Balkan General who made an Empire Bleed",
     "kanaal": "History Camp",
     "id": "_nUPEIHK-gY",
@@ -3159,7 +3157,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9709,
+    "per_dag": 9482,
     "titel": "A Complete History of Medieval Grimoires | Occult History | Human Voiced, No Ads",
     "kanaal": "ASMR Historian",
     "id": "MrT4FpgzblQ",
@@ -3170,29 +3168,40 @@
    },
    {
     "soort": "hype",
-    "per_dag": 9613,
-    "titel": "Drift Away on a Mountain 💤 A Restful Day on Mount Carmel 💤 BEDTIME STORY",
-    "kanaal": "Get Sleepy",
-    "id": "1r962neG_YQ",
-    "datum": "2026-11-16",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 6284,
-    "titel": "The Hot Water Bottle Lady: A Cozy Bedtime Story",
-    "kanaal": "Stephen Dalton Sleep Stories",
-    "id": "rHrwrgo3K5k",
-    "datum": "2026-11-18",
+    "per_dag": 6237,
+    "titel": "Founding Myths of Ancient Cities | Human Voiced, No Ads",
+    "kanaal": "ASMR Historian",
+    "id": "XUesiy71m6Q",
+    "datum": "2026-11-13",
     "ons": [],
     "breed": 1,
     "advies": "KANS: nog niets van ons over dit onderwerp"
    },
    {
     "soort": "hype",
-    "per_dag": 9211,
+    "per_dag": 9305,
+    "titel": "What They Never Tell You About the Picts - Scotland’s Lost History",
+    "kanaal": "Sleepless Historian",
+    "id": "_1Ahuw61chw",
+    "datum": "2026-11-18",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 9031,
+    "titel": "9 Hours of Ancient History | Human Voiced, No Ads",
+    "kanaal": "ASMR Historian",
+    "id": "kLfP78XAlWo",
+    "datum": "2026-11-14",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 8941,
     "titel": "What Happened to Haile Selassie’s Body After He Was Overthrown? | History For Sleep",
     "kanaal": "บุญสุข ราชวงษา",
     "id": "FMd3Iaa6GSM",
@@ -3203,20 +3212,7 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5859,
-    "titel": "What Happened to Odysseus After the Odyssey? | BEST Greek Myths For Sleep",
-    "kanaal": "Sleepless Historian",
-    "id": "cdnd60NvTJQ",
-    "datum": "2026-11-16",
-    "ons": [
-     "troje"
-    ],
-    "breed": 1,
-    "advies": "staat gepland op 2027-01-06 (troje)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 5708,
+    "per_dag": 5573,
     "titel": "The Internet's Favourite Sleep Story | Tricks and Treats on a Moonlit Night (The Rainy Day Bakery)",
     "kanaal": "Get Sleepy",
     "id": "r_4kW3YF2vc",
@@ -3227,7 +3223,64 @@
    },
    {
     "soort": "hype",
-    "per_dag": 5564,
+    "per_dag": 8272,
+    "titel": "What Happened to the Shah of Iran’s Children After He Was Overthrown? | History For Sleep",
+    "kanaal": "Never Invaded",
+    "id": "_BELL9qp_OM",
+    "datum": "2026-11-03",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 7992,
+    "titel": "Tales from Korean Folklore | Human Voiced, No Ads",
+    "kanaal": "ASMR Historian",
+    "id": "Uve7seA-CEw",
+    "datum": "2026-11-19",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 3922,
+    "titel": "What Was it Really Like to Live Through the Great Depression? | Sleepy History",
+    "kanaal": "Sleepy History Channel",
+    "id": "NKyHPp68COk",
+    "datum": "2026-10-24",
+    "ons": [
+     "crisis-1933"
+    ],
+    "breed": 2,
+    "advies": "al gemaakt (crisis-1933)"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 7734,
+    "titel": "Drift Away on a Mountain 💤 A Restful Day on Mount Carmel 💤 BEDTIME STORY",
+    "kanaal": "Get Sleepy",
+    "id": "1r962neG_YQ",
+    "datum": "2026-11-16",
+    "ons": [],
+    "breed": 0,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5079,
+    "titel": "Learn How Rice Changed The World | A Sleepy History",
+    "kanaal": "Sleepy History Channel",
+    "id": "TdoIBQ4Sik4",
+    "datum": "2026-11-18",
+    "ons": [],
+    "breed": 1,
+    "advies": "KANS: nog niets van ons over dit onderwerp"
+   },
+   {
+    "soort": "hype",
+    "per_dag": 5050,
     "titel": "Fire Myths from Around the World | Human Voiced, No Ads",
     "kanaal": "ASMR Historian",
     "id": "ZYoNZWBxUg4",
@@ -3238,87 +3291,7 @@
      "tower-of-london-1536"
     ],
     "breed": 1,
-    "advies": "staat gepland op 2026-11-23 (ijstijd-20000-vc)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 7886,
-    "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
-    "kanaal": "Kaushik Bhattacharjee Extra",
-    "id": "jNMpPqYg_S8",
-    "datum": "2026-10-20",
-    "ons": [
-     "scott-antarctica-1912"
-    ],
-    "breed": 0,
-    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 5042,
-    "titel": "Put the Day Down: 6 HOURS of Soothing Sleep Stories for Letting Go",
-    "kanaal": "Stephen Dalton Sleep Stories",
-    "id": "SQRxrBhdtao",
-    "datum": "2026-11-12",
-    "ons": [],
-    "breed": 1,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 5013,
-    "titel": "History of Ninjas and Feudal Japan - ASMR Sleep Story",
-    "kanaal": "The French Whisperer ASMR",
-    "id": "PtKw7L8166E",
-    "datum": "2026-11-08",
-    "ons": [
-     "edo-japan-1800",
-     "japan-1600"
-    ],
-    "breed": 1,
-    "advies": "staat gepland op 2026-12-26 (japan-1600)"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 7459,
-    "titel": "Bizarre Saints of the Orthodox Church | Human Voiced, No Ads",
-    "kanaal": "ASMR Historian",
-    "id": "aBQBXV1Qp64",
-    "datum": "2026-11-10",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "hype",
-    "per_dag": 6822,
-    "titel": "A Magical Bedtime Story: The Starlight Pillow",
-    "kanaal": "Stephen Dalton Sleep Stories",
-    "id": "e_pGJ6OPQWY",
-    "datum": "2026-11-11",
-    "ons": [],
-    "breed": 0,
-    "advies": "KANS: nog niets van ons over dit onderwerp"
-   },
-   {
-    "soort": "gebeurtenis",
-    "datum": "2026-11-19",
-    "naam": "Gettysburg Address (163 jaar)",
-    "sterk": true,
-    "ons": [
-     "gettysburg-1863"
-    ],
-    "advies": "al gemaakt (gettysburg-1863)"
-   },
-   {
-    "soort": "gebeurtenis",
-    "datum": "2026-11-19",
-    "naam": "Dood van de Man met het IJzeren Masker (323 jaar)",
-    "sterk": true,
-    "ons": [
-     "man-ijzeren-masker-1703"
-    ],
-    "advies": "staat gepland op 2026-12-16 (man-ijzeren-masker-1703), NA de datum: naar voren halen?"
+    "advies": "staat gepland op 2026-11-28 (ijstijd-20000-vc)"
    },
    {
     "soort": "gebeurtenis",
@@ -3328,7 +3301,7 @@
     "ons": [
      "dallas-1963"
     ],
-    "advies": "staat gepland op 2026-11-21 (dallas-1963) GOED getimed"
+    "advies": "staat gepland op 2027-01-16 (dallas-1963), NA de datum: naar voren halen?"
    },
    {
     "soort": "gebeurtenis",
@@ -3338,7 +3311,7 @@
     "ons": [
      "blackbeard-1718"
     ],
-    "advies": "staat gepland op 2026-11-30 (blackbeard-1718), NA de datum: naar voren halen, beste plek 2026-11-21 (bezet door dallas-1963, ruilen?)"
+    "advies": "staat gepland op 2027-01-23 (blackbeard-1718), NA de datum: naar voren halen?"
    },
    {
     "soort": "feestdag",
@@ -3348,7 +3321,7 @@
     "ons": [
      "thanksgiving-1621"
     ],
-    "advies": "staat gepland op 2026-11-25 (thanksgiving-1621) GOED getimed"
+    "advies": "staat gepland op 2026-11-21 (thanksgiving-1621) GOED getimed"
    },
    {
     "soort": "gebeurtenis",
@@ -3358,7 +3331,7 @@
     "ons": [
      "mississippi-1850"
     ],
-    "advies": "KANS: reservescript mississippi-1850 past hierop, inplannen op 2026-11-30 (bezet door blackbeard-1718, ruilen?)"
+    "advies": "KANS: reservescript mississippi-1850 past hierop, inplannen op 2026-11-28 (bezet door ijstijd-20000-vc, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3368,7 +3341,7 @@
     "ons": [
      "mary-celeste-1872"
     ],
-    "advies": "staat gepland op 2026-12-21 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-12-02 (bezet door alchemie-steen-der-wijzen, ruilen?)"
+    "advies": "staat gepland op 2027-03-20 (mary-celeste-1872), NA de datum: naar voren halen, beste plek 2026-11-28 (bezet door ijstijd-20000-vc, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3378,7 +3351,7 @@
     "ons": [
      "pearl-harbor-1941"
     ],
-    "advies": "staat gepland op 2026-12-07 (pearl-harbor-1941) GOED getimed"
+    "advies": "staat gepland op 2026-12-05 (pearl-harbor-1941) GOED getimed"
    },
    {
     "soort": "gebeurtenis",
@@ -3388,7 +3361,7 @@
     "ons": [
      "scott-antarctica-1912"
     ],
-    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912) GOED getimed"
+    "advies": "staat gepland op 2027-02-27 (scott-antarctica-1912), NA de datum: naar voren halen, beste plek 2026-12-12 (bezet door kerst-loopgraven-1914, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3396,7 +3369,7 @@
     "naam": "Boston Tea Party (253 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door man-ijzeren-masker-1703, ruilen?))"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-12 (bezet door kerst-loopgraven-1914, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -3404,7 +3377,7 @@
     "naam": "Eerste vlucht gebroeders Wright (123 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-16 (bezet door man-ijzeren-masker-1703, ruilen?))"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-12 (bezet door kerst-loopgraven-1914, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -3415,7 +3388,7 @@
      "londen-kerst-1843",
      "victoriaans-londen-1888"
     ],
-    "advies": "staat gepland op 2026-12-19 (londen-kerst-1843) GOED getimed"
+    "advies": "staat gepland op 2026-12-26 (londen-kerst-1843), NA de datum: naar voren halen, beste plek 2026-12-19 (bezet door bethlehem, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3425,7 +3398,7 @@
     "ons": [
      "kerst-loopgraven-1914"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-12 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-19 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
    },
    {
     "soort": "gebeurtenis",
@@ -3435,7 +3408,7 @@
     "ons": [
      "bethlehem"
     ],
-    "advies": "staat gepland op 2026-12-23 (bethlehem) GOED getimed"
+    "advies": "staat gepland op 2026-12-19 (bethlehem) GOED getimed"
    },
    {
     "soort": "feestdag",
@@ -3447,7 +3420,7 @@
      "kerst-loopgraven-1914",
      "londen-kerst-1843"
     ],
-    "advies": "staat gepland op 2026-12-05 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
+    "advies": "staat gepland op 2026-12-12 (kerst-loopgraven-1914), TE VROEG: beste plek 2026-12-19 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
    },
    {
     "soort": "film",
@@ -3463,7 +3436,7 @@
      "middeleeuws-dorp",
      "venetie-middeleeuwen"
     ],
-    "advies": "staat gepland op 2026-11-28 (boeren-winter-1300), TE VROEG: beste plek 2026-12-23 (bezet door bethlehem, ruilen?) (vlak voor de jaardag)"
+    "advies": "staat gepland op 2027-01-09 (boeren-winter-1300), NA de datum: naar voren halen, beste plek 2026-12-19 (bezet door bethlehem, ruilen?)"
    },
    {
     "soort": "feestdag",
@@ -3471,7 +3444,7 @@
     "naam": "Nieuwjaar",
     "sterk": true,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-30 (bezet door tower-of-london-1536, ruilen?))"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2026-12-26 (bezet door londen-kerst-1843, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -3481,7 +3454,7 @@
     "ons": [
      "new-york-1925"
     ],
-    "advies": "staat gepland op 2027-01-16 (new-york-1925) GOED getimed"
+    "advies": "staat gepland op 2027-06-26 (new-york-1925), NA de datum: naar voren halen, beste plek 2027-01-16 (bezet door dallas-1963, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3491,7 +3464,7 @@
     "ons": [
      "scott-antarctica-1912"
     ],
-    "advies": "staat gepland op 2026-12-14 (scott-antarctica-1912), TE VROEG: beste plek 2027-01-16 (bezet door new-york-1925, ruilen?) (vlak voor de jaardag)"
+    "advies": "staat gepland op 2027-02-27 (scott-antarctica-1912), NA de datum: naar voren halen, beste plek 2027-01-16 (bezet door dallas-1963, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3501,7 +3474,7 @@
     "ons": [
      "goudkoorts-1849"
     ],
-    "advies": "staat gepland op 2027-01-23 (goudkoorts-1849) GOED getimed"
+    "advies": "staat gepland op 2027-07-31 (goudkoorts-1849), NA de datum: naar voren halen, beste plek 2027-01-23 (bezet door blackbeard-1718, ruilen?)"
    },
    {
     "soort": "gebeurtenis",
@@ -3509,7 +3482,7 @@
     "naam": "Bevrijding Auschwitz (82 jaar)",
     "sterk": false,
     "ons": [],
-    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-25)"
+    "advies": "KANS: nog niets van ons over dit onderwerp (beste plek 2027-01-23 (bezet door blackbeard-1718, ruilen?))"
    },
    {
     "soort": "gebeurtenis",
@@ -3519,12 +3492,12 @@
     "ons": [
      "regency-austen-1811"
     ],
-    "advies": "KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-27 (bezet door kasteel-1250, ruilen?), of vrij op 2027-01-25"
+    "advies": "KANS: reservescript regency-austen-1811 past hierop, inplannen op 2027-01-23 (bezet door blackbeard-1718, ruilen?)"
    }
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 07:25",
+  "bijgewerkt": "2026-11-20 08:30",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3609,7 +3582,18 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
+    "concurrent": [
+     {
+      "titel": "How a Family Enjoyed Christmas in Colonial Virginia, 1774 | History for Sleep",
+      "kanaal": "Sleepy Old World",
+      "per_dag": 488
+     },
+     {
+      "titel": "Why England Once BANNED Christmas | History for Sleep",
+      "kanaal": "Sleepy Quiet Historian",
+      "per_dag": 262
+     }
+    ],
     "bekeken": "2026-11-15"
    },
    {
@@ -3621,7 +3605,18 @@
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
+    "concurrent": [
+     {
+      "titel": "How a Family Enjoyed Christmas in Colonial Virginia, 1774 | History for Sleep",
+      "kanaal": "Sleepy Old World",
+      "per_dag": 488
+     },
+     {
+      "titel": "Why England Once BANNED Christmas | History for Sleep",
+      "kanaal": "Sleepy Quiet Historian",
+      "per_dag": 262
+     }
+    ],
     "bekeken": "2026-11-19"
    },
    {
@@ -3635,19 +3630,19 @@
     "youtube": "",
     "concurrent": [
      {
-      "titel": "Weird Things Rich Victorian Women Did Every Day | History for Sleep",
-      "kanaal": "Sleepy Lost World",
-      "per_dag": 3203
+      "titel": "Working in a Victorian Factory was a Nightmare | Human Voiced, No Ads",
+      "kanaal": "ASMR Historian",
+      "per_dag": 19281
      },
      {
-      "titel": "The Room Rented for One Year | A Cozy Victorian Sleep Story",
-      "kanaal": "Sleepy Victorian",
-      "per_dag": 1599
+      "titel": "👒🕯️🏡 The Secret Daily Rituals of Victorian Governesses Behind Closed Estate Doors",
+      "kanaal": "History Before Sleep",
+      "per_dag": 1036
      },
      {
-      "titel": "The Stranger Who Stayed in a Yorkshire Village | Cozy Victorian Sleep Story",
-      "kanaal": "The Quiet Inn",
-      "per_dag": 1520
+      "titel": "🌙 What Victorian Night Watchmen Saw After Dark | History for Sleep",
+      "kanaal": "History Before Sleep",
+      "per_dag": 832
      }
     ],
     "bekeken": "2026-11-19"
@@ -3656,7 +3651,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 08:04",
+  "bijgewerkt": "2026-11-20 08:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3676,27 +3671,27 @@
    },
    {
     "account": "account2",
-    "5uur": 252201,
-    "week": 82563898,
+    "5uur": 1140818,
+    "week": 83452515,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 252201,
+     "Fri 20-11": 1140818,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 14011,
+    "stap_kost": 16777,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 2,
-    "5uur_scripts_over": 20.1,
-    "5uur_stappen_over": 951,
+    "5uur_pct": 8,
+    "5uur_scripts_over": 18.8,
+    "5uur_stappen_over": 741,
     "week_pct": 63,
-    "week_scripts_over": 74.6,
-    "week_stappen_over": 3530
+    "week_scripts_over": 73.2,
+    "week_stappen_over": 2895
    }
   ]
  },
