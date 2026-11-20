@@ -24,6 +24,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 - **Tekst:**
   - Alleen bevestigde feiten (`bronnen.md` per video). Schattingen benoemen we als schatting.
   - **Niets twee keer vertellen** (hetzelfde bedrag of feit maar één keer).
+  - **Titel noemt altijd zelf het onderwerp** (eigenaar 20 nov: "dat moet ook vaststaan, anders snappen de mensen er niks van"): wie of wat (Black Friday, Bitcoin, SpaceX) + het harde feit/getal + een prikkel. Dus "Black Friday Will Hit $1 Trillion. Here's the Catch", niet "Black Friday Will Break a Record. That's Not Good News".
   - **Getallen in cijfers** in titel, beschrijving en hoofdstukken ($81 billion, 19 million, Day 1), nooit uitgeschreven (eigenaar 20 nov). Alleen in script.txt voor de stem mogen ze uitgeschreven blijven.
   - **Rustige beeldwissels** (eigenaar 20 nov: "komt weer zo druk over"): elk beeld minstens ± 4 s in beeld (korte zinnen samen op één beeld), overgang ± 0,7 s zacht overvloeien.
   - **Uitspraak controleren** (eigenaar 20 nov, "launched" klonk raar): na de stem `check_stem.py` én `woordcheck.py` (Whisper per woord) draaien; elke zin waar Whisper een ander woord hoort (bv. "all fall platforms") opnieuw inspreken met een andere seed, of anders verwoorden.
