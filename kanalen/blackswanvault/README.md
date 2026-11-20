@@ -40,7 +40,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - `mix.py`: muziek.
   - `render.py` / `render2.py` / `render3.py`: beeld per zin, als lijst `SHOTS`.
   - `maak_v3.sh`.
-- **`video2/` (Anthropic IPO, vr 20 nov)**
+- **`video2/` (Anthropic IPO, privé gepland vr 20 nov 15:00: https://youtu.be/5C2MIFhR314)**
   - Zelfde opbouw, plus `slotkoers.py`, dat de slotkoers van dag 1 in het script zet, en `maak.sh` (de hele keten).
   - Controleplaat: `python render3.py --plaat uit.jpg`.
 - **`video3/` (GTA 6 / Take-Two):** `bronnen.md`. Wacht op de officiële verkoopcijfers van Take-Two (verwacht uiterlijk 23 nov).
