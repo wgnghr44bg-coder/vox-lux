@@ -51,6 +51,8 @@ for k, ((z, sc), c) in enumerate(zip(zinnen, clips)):
     elif volgende != sc: p = 0.6
     else: p = 0.6 if len(z.split()) <= 3 else 0.35   # 19 nov: opsommingen rustiger (eigenaar)
     if z.endswith("?"): p += 0.3   # 19 nov: tempo zoals eerste proef (eigenaar)
+    if z.endswith("?") and len(z.split()) <= 2: p = max(p, 1.6)   # 20 nov: na een korte vraag ("Why?") een echte pauze (eigenaar)
+    if k + 1 < len(zinnen) and zinnen[k + 1][0].endswith("?") and len(zinnen[k + 1][0].split()) <= 2: p = max(p, 1.2)   # en ervoor
     delen += [c, np.zeros(int(p * SR), np.float32)]; t += len(c) / SR + p
 sf.write(H / "stem.wav", np.concatenate(delen), SR)
 (H / "zinnen.json").write_text(json.dumps(tijden, indent=0, ensure_ascii=False), encoding="utf-8")

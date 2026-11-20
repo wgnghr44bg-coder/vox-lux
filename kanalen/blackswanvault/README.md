@@ -24,6 +24,10 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 - **Tekst:**
   - Alleen bevestigde feiten (`bronnen.md` per video). Schattingen benoemen we als schatting.
   - **Niets twee keer vertellen** (hetzelfde bedrag of feit maar één keer).
+  - **Getallen in cijfers** in titel, beschrijving en hoofdstukken ($81 billion, 19 million, Day 1), nooit uitgeschreven (eigenaar 20 nov). Alleen in script.txt voor de stem mogen ze uitgeschreven blijven.
+  - **Rustige beeldwissels** (eigenaar 20 nov: "komt weer zo druk over"): elk beeld minstens ± 4 s in beeld (korte zinnen samen op één beeld), overgang ± 0,7 s zacht overvloeien.
+  - **Korte vraag** ("Why?"): 1,2 s stilte ervoor en 1,6 s erna (stem.py).
+  - **Clip moet passen bij wat er gezegd wordt**; past geen echte clip, dan liever een AI-beeld dat er in het algemeen bij hoort (eigenaar 20 nov, Zynga met een schreeuwende gamer).
   - **Opsommingen rustig:** elk item een eigen korte zin op een eigen regel in `script.txt`. Die krijgt 0,6 s pauze, en elk item komt apart in beeld.
 - **Beschrijving:** 3 zinnen, hoofdstukken, "Not financial advice." en 3 hashtags. Geen streepjes en geen dubbele punten in kanaalteksten.
 - **Thumbnail:** andere tekst dan de titel. Letters nooit over het onderwerp. Met `thumb.py`: links grote letters, rechts het onderwerp; logo van het bedrijf erbij (`THUMB_MERK=...`). Thumbnail: officiële cover/key art mag (keuze B, eigenaar 19 nov); in de video zelf niet.

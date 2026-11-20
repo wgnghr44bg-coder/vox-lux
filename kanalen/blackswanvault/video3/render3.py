@@ -189,20 +189,17 @@ def tijdlijn(t, d, T0):                                    # zin 35-37: de beloo
     return img
 
 SHOTS = [
- (0.0, fasen(F("open-woonkamer", (1.0, 1.15), 0.4), [(0, ST("NOVEMBER 19, 2026")), (1, GR("GRAND THEFT AUTO VI", None, WIT, 130))])),
- (ZR(2) - 0.15, fasen(F("gta-vc-skyline", (1.12, 1.0), 0.45), [(2, GR("13 YEARS", "since Grand Theft Auto V", WIT, 170))])),
+ (0.0, fasen(F("open-woonkamer", (1.0, 1.15), 0.4), [(0, ST("NOVEMBER 19, 2026")), (1, GR("GRAND THEFT AUTO VI", None, WIT, 130)), (2, GR("13 YEARS", "since Grand Theft Auto V", WIT, 170))])),
  (ZR(3) - 0.15, fasen(F("open-feest", (1.0, 1.12), 0.45), [(3, GR("19 MILLION+", "copies on day one · Sensor Tower estimate", WIT, 160))])),
  (ZR(4) - 0.15, fasen(F("open-geld", (1.12, 1.0), 0.45), [(4, GR("~$1.8 BILLION", "in 24 hours · Sensor Tower estimate", ORANJE, 160)),
-                                                         (5, GR("THE BIGGEST LAUNCH EVER?", "in entertainment history", WIT, 110))])),
- (ZR(6) - 0.15, fasen(F("open-bios", (1.0, 1.12), 0.45), [(6, GR("Bigger than any movie.", None, WIT, 110))])),
- (ZR(7) - 0.15, fasen(F("open-concert", (1.12, 1.0), 0.45), [(7, GR("Bigger than any album.", None, WIT, 110))])),
+                                                         (5, GR("THE BIGGEST LAUNCH EVER?", "in entertainment history", WIT, 110)), (6, GR("Bigger than any movie.", None, WIT, 110)), (7, GR("Bigger than any album.", None, WIT, 110))])),
  (ZR(8) - 0.15, koers("2025-12-31", "2026-11-19", "TAKE-TWO INTERACTIVE STOCK", "Daily closing price, 2026", labels=[(9, 1700, 330, "-16%", ROOD)], teken=0.6, kleur=ROOD)),
  (ZR(10) - 0.15, fasen(F("v:mk-5456", (1.0, 1.06), 0.5), [(10, GR("So why are investors cold?", None, WIT, 90))])),
  (ZR(11) - 0.15, fasen(F("open-2013", (1.1, 1.0), 0.5), [(11, ST("2013")), (12, EN(ST("SEPTEMBER 2013"), ON("Grand Theft Auto V is released")))])),
  (ZR(13) - 0.15, balken([("Day 1", 0.8), ("Day 3", 1.0)], "GRAND THEFT AUTO V SALES, 2013", "Billions of dollars", "Source: Take-Two Interactive",
                         lambda v: f"${v:.1f}B" if v >= 1 else f"${v * 1000:.0f}M", [13, 14])),
  (ZR(15) - 0.15, fasen(F("dundee", (1.0, 1.08), 0.6), [(15, ON("Where it all began")), (16, LT("DMA DESIGN", "Dundee, Scotland · the first Grand Theft Auto, 1997"))])),
- (ZR(17) - 0.15, fasen(F("v:mk-48272", (1.0, 1.06), 0.55), [(17, ON("A simple game, seen from above")), (18, ON("Controversial, and people got curious"))])),
+ (ZR(17) - 0.15, fasen(F("ai-retro-pc", (1.0, 1.08), 0.55), [(17, ON("A simple game, seen from above")), (18, ON("Controversial, and people got curious"))])),
  (ZR(19) - 0.15, fasen(F("v:mk-4442", (1.0, 1.06), 0.5), [(19, ST("NEW YORK, 1998")), (20, GR("ROCKSTAR GAMES", None, WIT, 130)), (21, LT("SAM HOUSER", "President of Rockstar Games"))])),
  (ZR(22) - 0.15, fasen(F("v:mk-30544", (1.0, 1.06), 0.55), [(22, ON("His brother Dan Houser left in 2020")), (23, LT("TAKE-TWO INTERACTIVE", "Founded in New York in 1993"))])),
  (ZR(24) - 0.15, fasen(F("rockstar-north-b", (1.0, 1.08), 0.6), [(24, EN(ST("1999"), ON("Take-Two buys DMA Design"))), (25, LT("ROCKSTAR NORTH", "Formerly DMA Design"))])),
@@ -210,7 +207,7 @@ SHOTS = [
  (ZR(30) - 0.15, fasen(F("v:mk-47140", (1.0, 1.06), 0.5), [(30, ON("Each game bigger than the last")), (31, ON("And more important to Take-Two"))])),
  (ZR(32) - 0.15, fasen(F("gta5-trio", (1.0, 1.08), 0.5), [(32, ON("But the real surprise came later")), (33, ON("GTA V never stopped selling")), (34, ON("Released again and again"))])),
  (ZR(35) - 0.15, fasen(F("v:mk-23501", (1.0, 1.06), 0.5), [(35, ON("2013: PlayStation 3 and Xbox 360")), (36, ON("2014-2015: PlayStation 4, Xbox One and PC")), (37, ON("2022: PlayStation 5 and the newest Xbox"))])),
- (ZR(38) - 0.15, fasen(F("v:mk-43538", (1.0, 1.06), 0.45), [(38, GR("230 MILLION+", "copies of GTA V sold · Take-Two", WIT, 160)), (39, GR("230 MILLION+", "One of the best-selling games of all time", WIT, 160))])),
+ (ZR(38) - 0.15, fasen(F("ai-magazijn", (1.0, 1.08), 0.45), [(38, GR("230 MILLION+", "copies of GTA V sold · Take-Two", WIT, 160)), (39, GR("230 MILLION+", "One of the best-selling games of all time", WIT, 160))])),
  (ZR(40) - 0.15, lijst("gta5-online", "GTA Online: players kept paying", [(41, "Cars"), (42, "Houses"), (43, "In-game money")])),
  (ZR(44) - 0.15, fasen(F("gta-vc-auto", (1.08, 1.0), 0.55), [(44, ST("OCTOBER 2013: GTA ONLINE")), (45, ON("Shark Cards: virtual money for real money")), (46, ON("Still earning, more than ten years later")),
                                                          (47, ON("Long after most games are forgotten")), (48, ON("GTA VI could do the same"))])),
@@ -219,10 +216,9 @@ SHOTS = [
  (ZR(54) - 0.15, fot("v:mk-11712", naamkaart=("TAKE-TWO INTERACTIVE", "Owner of Rockstar Games · New York"), donker=0.6)),
  (ZR(55) - 0.15, fasen(portret("zelnick"), [(55, LT("STRAUSS ZELNICK", "Take-Two chairman since 2007, CEO since 2011")), (57, ON("For him, GTA VI is not just a game")),
                                             (58, ON("The biggest bet the company has ever made"))])),
- (ZR(59) - 0.15, fasen(F("zynga", (1.0, 1.08), 0.55), [(59, ON("Take-Two also grew by buying companies")), (60, GR("$12.7 BILLION", "Take-Two buys Zynga, 2022", WIT, 150)),
-                                                       (61, ON("One of the biggest deals in gaming history"))])),
- (ZR(62) - 0.15, fasen(F("v:mk-45735", (1.0, 1.06), 0.5), [(62, ON("A giant in mobile games")), (63, ON("Also owns 2K, publisher of NBA 2K")),
-                                                       (64, ON("Nothing comes close to Grand Theft Auto"))])),
+ (ZR(59) - 0.15, fasen(F("ai-mobiel-farm", (1.0, 1.08), 0.55), [(59, ON("Take-Two also grew by buying companies")), (60, GR("$12.7 BILLION", "Take-Two buys Zynga, 2022", WIT, 150)),
+                                                       (61, ON("One of the biggest deals in gaming history")), (62, ON("A giant in mobile games"))])),
+ (ZR(63) - 0.15, fasen(F("ai-basketbal", (1.0, 1.08), 0.55), [(63, ON("Also owns 2K, publisher of NBA 2K")), (64, ON("Nothing comes close to Grand Theft Auto"))])),
  (ZR(65) - 0.15, fasen(F("miami-night", (1.1, 1.0), 0.35), [(65, ST("DECEMBER 2023: TRAILER 1")), (66, EN(ST("DECEMBER 2023: TRAILER 1"), ON("Released a day early, after it leaked"))), (67, EN(ST("DECEMBER 2023: TRAILER 1"), ON("Music: Tom Petty, Love Is a Long Road")))])),
  (ZR(68) - 0.15, fasen(F("v:mk-12028", (1.0, 1.06), 0.45), [(68, GR("90 MILLION+", "YouTube views in 24 hours", WIT, 160)),
                                                            (69, GR("WORLD RECORD", "most viewed video game reveal in 24 hours · Guinness", ORANJE, 140))])),
@@ -231,8 +227,7 @@ SHOTS = [
                                                      (75, GR("THE BIGGEST LEAK", "in video game history", ROOD, 125))])),
  (ZR(76) - 0.15, fasen(F("v:mk-31378", (1.0, 1.06), 0.5), [(76, ON("A young Lapsus hacker, held responsible by a British court")),
                                                      (77, ON("Rockstar: extremely disappointed, but work continues"))])),
- (ZR(78) - 0.15, fasen(F("gta-vc-nacht", (1.0, 1.08), 0.7), [(78, LT("LEONIDA", "Rockstar's version of Florida")), (79, ON("At its center: Vice City")), (80, ON("Last visit: a story set in 1986"))])),
- (ZR(81) - 0.15, fasen(F("gta-lucia-jason", (1.0, 1.08), 0.75), [(81, ON("Two main characters: Lucia and Jason"))])),
+ (ZR(78) - 0.15, fasen(F("gta-vc-nacht", (1.0, 1.08), 0.7), [(78, LT("LEONIDA", "Rockstar's version of Florida")), (79, ON("At its center: Vice City")), (80, ON("Last visit: a story set in 1986")), (81, ON("Two main characters: Lucia and Jason"))])),
  (ZR(82) - 0.15, fasen(F("gta-moeras", (1.0, 1.08), 0.7), [(82, ON("City, swamps, beaches and small towns"))])),
  (ZR(83) - 0.15, fasen(F("gta-jason-motor", (1.0, 1.08), 0.7), [(83, ST("PS5 AND XBOX SERIES ONLY"))])),
  (ZR(84) - 0.15, tijdlijn),
@@ -257,9 +252,8 @@ SHOTS = [
                                                           (123, ON("Bookings: money from sales, before accounting spreads it out")), (124, GR("A RECORD", None, GROEN, 150)), (125, ON("But much of it depends on one game"))])),
  (ZR(126) - 0.15, fasen(F("v:mk-47213", (1.0, 1.06), 0.35), [(126, GR("What happens next?", None, WIT, 100)), (127, GR("OFFICIAL NUMBERS", "not published yet", WIT, 130)),
                                                         (128, GR("WITHIN DAYS", "expected by Bank of America", ORANJE, 130))])),
- (ZR(129) - 0.15, fasen(F("v:mk-4330", (1.0, 1.06), 0.45), [(130, GR("FEBRUARY", "Take-Two reports its holiday quarter", WIT, 140)), (131, ON("The real numbers")), (132, ON("Was the long wait worth it?"))])),
- (ZR(133) - 0.15, fot("v:mk-24550", "In the end, Rockstar did it again", donker=0.6)),
- (ZR(134) - 0.15, fasen(F("gta-vc-skyline", (1.08, 1.0), 0.55), [(134, ON("The players came")), (135, ON("The money came"))])),
+ (ZR(129) - 0.15, fasen(F("ai-rapport", (1.0, 1.08), 0.5), [(130, GR("FEBRUARY", "Take-Two reports its holiday quarter", WIT, 140)), (131, ON("The real numbers")), (132, ON("Was the long wait worth it?"))])),
+ (ZR(133) - 0.15, fasen(F("gta-vc-skyline", (1.08, 1.0), 0.55), [(133, ON("In the end, Rockstar did it again")), (134, ON("The players came")), (135, ON("The money came"))])),
  (ZR(136) - 0.15, slot_fade("miami-night-b", "What comes next?")),
 ]
 
@@ -289,7 +283,7 @@ def main():
         z = 1.0 + 0.03 * eio(tt / max(dd, 0.5))          # 19 nov: altijd rustige beweging, ook op grafieken (geen stilstand)
         cw, ch = W / z, HH / z; img = img.resize((W, HH), Image.BICUBIC, box=((W - cw) / 2, (HH - ch) / 2, (W + cw) / 2, (HH + ch) / 2))
         if k != vorige and vorige is not None: wissel = i
-        if 0 <= i - wissel < 6 and oud is not None: img = Image.blend(oud, img, (i - wissel + 1) / 7)
+        if 0 <= i - wissel < 18 and oud is not None: img = Image.blend(oud, img, eio((i - wissel + 1) / 19))   # 20 nov: rustiger overgang (eigenaar: niet te snel, te druk)
         else: oud = img
         vorige = k; p.stdin.write(img.tobytes())
     p.stdin.close(); p.wait(); print("KLAAR", uit.name)
