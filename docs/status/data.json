@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 05:33",
+ "bijgewerkt": "2026-11-20 06:03",
  "kanalen": {
   "weken": [
    {
@@ -626,7 +626,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "159 GB vrij"
+   "tekst": "158 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -641,7 +641,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 05:33)"
+   "tekst": "draait nu (2026-11-20 06:03)"
   },
   {
    "naam": "Git",
@@ -661,7 +661,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 05:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 05:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -674,12 +674,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-20 06:00"
+   "volgende": "2026-11-21 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 05:33",
-   "volgende": "2026-11-20 06:03"
+   "laatst": "2026-11-20 06:03",
+   "volgende": "2026-11-20 06:33"
   },
   "hype": {
    "aan": true,
@@ -693,8 +693,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 05:18",
-   "volgende": "2026-11-20 05:48"
+   "laatst": "2026-11-20 05:48",
+   "volgende": "2026-11-20 06:18"
   },
   "titels": {
    "aan": true,
@@ -1208,8 +1208,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-20 05:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 06:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3657,7 +3657,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 05:33",
+  "bijgewerkt": "2026-11-20 06:03",
   "accounts": [
    {
     "account": "hoofd",
