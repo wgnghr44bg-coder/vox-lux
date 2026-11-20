@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 16:03",
+ "bijgewerkt": "2026-11-20 16:33",
  "kanalen": {
   "weken": [
    {
@@ -110,7 +110,24 @@
      },
      {
       "datum": "2026-11-22",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-22",
+        "tijd": "15:00",
+        "titel": "Microsoft, JPMorgan and the FAA All Went Down. It Wasn't Hackers",
+        "stand": "gepland",
+        "youtube": "nMqDK9HAAcA"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-22",
+        "tijd": "17:00",
+        "titel": "Short: Microsoft, JPMorgan and the FAA All Went Down in One Week",
+        "stand": "gepland",
+        "youtube": "l3tU0GKVldM"
+       }
+      ]
      }
     ]
    },
@@ -643,7 +660,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 16:03)"
+   "tekst": "draait nu (2026-11-20 16:33)"
   },
   {
    "naam": "Git",
@@ -663,7 +680,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -680,8 +697,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 16:03",
-   "volgende": "2026-11-20 16:33"
+   "laatst": "2026-11-20 16:33",
+   "volgende": "2026-11-20 17:03"
   },
   "hype": {
    "aan": true,
@@ -691,12 +708,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 16:10"
+   "volgende": "2026-11-20 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 15:48",
-   "volgende": "2026-11-20 16:18"
+   "laatst": "2026-11-20 16:18",
+   "volgende": "2026-11-20 16:48"
   },
   "titels": {
    "aan": true,
@@ -1031,8 +1048,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 575,
+  "bezig_procent": 27,
+  "geheugen_mb": 573,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1204,8 +1221,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 16:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 16:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3631,7 +3648,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 16:04",
+  "bijgewerkt": "2026-11-20 16:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -3651,27 +3668,27 @@
    },
    {
     "account": "account2",
-    "5uur": 5802247,
-    "week": 94990149,
+    "5uur": 5796249,
+    "week": 95484729,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 12678452,
+     "Fri 20-11": 13173032,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 25613,
+    "stap_kost": 25829,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 43,
     "5uur_scripts_over": 11.7,
-    "5uur_stappen_over": 304,
+    "5uur_stappen_over": 301,
     "week_pct": 72,
-    "week_scripts_over": 55.8,
-    "week_stappen_over": 1446
+    "week_scripts_over": 55.1,
+    "week_stappen_over": 1414
    }
   ]
  },
