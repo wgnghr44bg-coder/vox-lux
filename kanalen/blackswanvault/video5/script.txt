@@ -1,0 +1,159 @@
+# BlackswanVault video 5: storingen in Amerika. Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel: America Keeps Crashing. Here's What's Actually Going On
+# Opbouw: antwoord vooraan (geen aanval; haast om lekken te dichten die AI vond), daarna per storing, hamsteren, AI, wat nu.
+@scene open-vlucht
+On Friday, November thirteenth, at six minutes to four in the afternoon, the United States stopped every flight heading to its airports.
+For more than four hours, the country's air traffic system was effectively shut down.
+It was the longest nationwide ground stop in twenty-five years.
+@scene open-week
+And it was not the only thing that broke that week.
+The day before, Microsoft's email went down around the world.
+The Monday after, customers of America's biggest bank saw their payments delayed.
+A day later, an internal network of the National Security Agency went offline.
+And so did parts of Apple.
+@scene open-paniek
+Four big failures, in four business days.
+Online, people started asking the same question.
+Is America under attack?
+Some did not wait for the answer.
+They went to Costco and bought generators.
+@scene open-antwoord
+So what is actually going on?
+The short answer is surprising.
+According to the government, this was not a cyberattack.
+The most likely explanation is the opposite.
+Companies and agencies are rushing to fix more security holes than ever before.
+Many of those holes were found by artificial intelligence.
+And some of the fixes broke things.
+Let's go through it, one failure at a time.
+@scene h1-microsoft
+It started on Thursday, November twelfth.
+Outlook, Teams and other Microsoft 365 services stopped working for businesses, schools, governments and hospitals.
+According to CNBC, millions of users lost access to their email.
+The problems lasted across two workdays.
+@scene h1-oorzaak
+A few days later, Microsoft explained what happened.
+Back in July, it had prepared a fix for the gateway servers that handle its network traffic.
+That fix contained a hidden bug.
+For months, nobody noticed.
+Then, during the busiest hours in the United States, traffic surged, while fewer servers were available.
+The hidden bug was triggered.
+Requests piled up until the servers simply stopped responding.
+@scene h1-herstel
+And fixing it was harder than it sounds.
+Every time servers came back online, they were flooded by all the traffic that had been waiting.
+And they went down again.
+Microsoft said it was deeply sorry.
+And it said this was not a hack.
+@scene h2-faa
+The next day was worse.
+On Friday afternoon, air traffic controllers in Chicago started losing communications.
+Within about half an hour, the problem spread across the country.
+At six minutes to four, Eastern time, the Federal Aviation Administration stopped all flights heading to American airports.
+@scene h2-gevolg
+Nearly eight thousand flights were canceled that day.
+More than ten thousand were delayed.
+Flights from Europe to the United States were suspended until the next morning.
+And the trouble continued all weekend.
+@scene h2-router
+What caused it?
+The answer, it seems, is one router.
+@scene h2-arkansas
+In southern Arkansas, a contractor called L3Harris was replacing old copper cables in the air traffic network with fiber optic lines.
+As part of that work, a new router was installed.
+According to Transportation Secretary Sean Duffy, that router started sending a thousand connection attempts every four to five seconds across the network.
+Radar feeds and radio links at seventeen air traffic control centers were disrupted.
+@scene h2-open
+But that is not the full story yet.
+The company that makes the router said its equipment worked exactly as it was configured.
+The FAA has stopped installing these routers while it investigates.
+And as of this video, the official root cause has still not been announced.
+@scene h2-toezicht
+There is also an uncomfortable detail.
+Two months earlier, a government watchdog had warned that the FAA was not properly supervising the work of its contractors.
+Now, Duffy is asking Congress for fifty billion dollars to modernize the system.
+@scene h3-maandag
+Then came Monday, November sixteenth.
+At JPMorgan Chase, the biggest bank in the United States, customer payments were delayed.
+The bank blamed a software bug in its own hardware systems.
+People sending money to those accounts were delayed too, and it caused jitters across the financial system.
+On the same day, a system failure at United Airlines delayed departing flights.
+@scene h3-dinsdag
+On Tuesday, it was the turn of the National Security Agency.
+An internal network it uses to share classified information went offline.
+The agency said it happened during scheduled routine maintenance.
+That same day, Apple Music, the App Store and Apple's support services were disrupted after what Apple called an internal update.
+And Marriott customers could not sign in to their accounts.
+@scene h4-paniek
+By now, many people had stopped believing in coincidence.
+On TikTok and other platforms, videos told people to stock up before the next blackout.
+And many listened.
+@scene h4-costco
+According to the research firm Mizuho, twenty-one of the twenty-six expensive generators on Costco's website were sold out.
+Mizuho expects Costco's sales in the United States to grow more than ten percent in November.
+It says Sam's Club, Home Depot and Lowe's may benefit too.
+Its analyst pointed to anxiety after the Microsoft outage and the ground stop, and to apocalyptic talk on social media.
+We will know more on December tenth, when Costco reports its results.
+@scene h5-aanval
+So, was it an attack?
+Everyone involved says no.
+The government, Microsoft, JPMorgan, United, Apple and Marriott all say there is no evidence of a cyberattack.
+@scene h5-clayton
+The Director of National Intelligence, Jay Clayton, was very direct.
+"This is not cyberattack," he said on CNBC, "and this is not a coordinated effort by a nation state."
+He also said upgrades like these are common, and called for a nationwide upgrade of America's digital infrastructure.
+@scene h5-twijfel
+Not everyone is satisfied.
+House Democratic leader Hakeem Jeffries said it was too early to rule anything out, and asked the administration to explain itself to Congress.
+But one senator offered a different explanation.
+@scene h5-warner
+Senator Mark Warner, who co-chairs the Senate's cybersecurity caucus, said there is good reason to believe these outages are the unintended consequences of efforts to make our systems safer.
+To understand what he means, you need to know what AI has been doing to software this year.
+@scene h6-lekken
+Every piece of software has weak spots.
+Security experts call them vulnerabilities.
+Each one that is found and published gets an official number.
+@scene h6-teller
+In all of 2025, there were fewer than fifty thousand of them.
+This year, the count passed one hundred thousand by the middle of November.
+More than double.
+And according to the researchers who track them, AI-driven bug hunting is driving much of that surge.
+@scene h6-maand
+Google's security team counted about five thousand new vulnerabilities in January.
+By August, it was more than ten thousand a month.
+In June, Microsoft fixed a record two hundred and six of them in a single monthly update.
+@scene h6-php
+Then, in October, came a big one.
+A security company used an AI model to find two critical flaws in PHP, the software that powers a huge part of the web.
+The flaws allowed attackers to take over a server from anywhere.
+The US government told organizations to update right away, or take their systems offline.
+And hackers were already using the flaws.
+In the hours after the fix came out, one research firm found that about one and a half million of the two point six million servers it watches were still running the old, vulnerable version.
+@scene h6-haast
+That started a race.
+Every company had to fix its systems before attackers found them.
+And when you change thousands of systems in a hurry, some of them break.
+According to Fox News, Jay Clayton said that some systems did not come back up properly after this patching.
+"That is what has happened at the NSA today," he said.
+@scene h6-dubbel
+Here is the strange part.
+AI is helping defenders find holes faster than ever.
+But it is also helping attackers.
+According to Google, hackers now use AI agents to study new security fixes, and work out which holes they close.
+One professor at New York University said AI is making it way easier for attackers to launch cyberattacks.
+So the pressure to fix everything, immediately, keeps growing.
+@scene h6-tiener
+A researcher at the security company SentinelOne put it this way.
+"We're in the weird teenage phase of technology."
+@scene h7-volgende
+So what happens next?
+First, the FAA has said it will announce the root cause of the ground stop.
+Second, Congress wants answers, and lawmakers are asking for briefings.
+Third, on December tenth, Costco will show whether the panic buying was real.
+And fourth, the busiest travel week of the year starts with Thanksgiving, on November twenty-sixth.
+@scene h7-meer
+One cybersecurity expert in London warned that as AI adoption speeds up, we are likely to see more incidents like these.
+@scene slot
+For years, we were told the biggest danger to our systems was a hacker in another country.
+This month showed another danger.
+The fixes themselves.

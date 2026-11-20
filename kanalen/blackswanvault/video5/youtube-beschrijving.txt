@@ -1,0 +1,20 @@
+In one week in November 2026, Microsoft's email went down worldwide, the FAA stopped every flight heading to US airports, and JPMorgan, United, the NSA and Apple all had outages. Officials say it was not a cyberattack. This is what actually happened, and why a rush to fix security holes found by AI may be behind it.
+
+Chapters
+00:00 Every Flight Stopped
+00:45 The Short Answer
+01:08 Microsoft Goes Down
+02:01 The FAA Ground Stop
+02:30 One Router in Arkansas
+03:28 JPMorgan, United, the NSA and Apple
+04:13 Panic Buying
+04:49 Was It an Attack?
+05:45 What AI Is Doing to Software
+06:23 The Race to Patch
+07:42 What Happens Next
+
+Sources: CNBC, AP, ABC News, The Register, Google Threat Intelligence, Wikipedia. Photos: Wikimedia Commons (credits in the video). Some images are AI-generated.
+
+Not financial advice.
+
+#TechNews #Outage #AI
