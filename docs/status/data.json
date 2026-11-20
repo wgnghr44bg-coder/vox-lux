@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-20 19:05",
+ "bijgewerkt": "2026-11-20 19:33",
  "kanalen": {
   "weken": [
    {
@@ -160,7 +160,24 @@
      },
      {
       "datum": "2026-11-24",
-      "items": []
+      "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-24",
+        "tijd": "15:00",
+        "titel": "Is AI Actually Working? Harvard Looked Inside 655 Companies",
+        "stand": "gepland",
+        "youtube": "T8SutKp3Ao8"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-24",
+        "tijd": "17:00",
+        "titel": "Short: Big Tech Is Spending $700 Billion on AI. For What?",
+        "stand": "gepland",
+        "youtube": "_Te7gcc9RAs"
+       }
+      ]
      },
      {
       "datum": "2026-11-25",
@@ -645,7 +662,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "154 GB vrij"
+   "tekst": "153 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -660,7 +677,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-20 19:03)"
+   "tekst": "draait nu (2026-11-20 19:33)"
   },
   {
    "naam": "Git",
@@ -680,7 +697,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -697,8 +714,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-20 19:03",
-   "volgende": "2026-11-20 19:33"
+   "laatst": "2026-11-20 19:33",
+   "volgende": "2026-11-20 20:03"
   },
   "hype": {
    "aan": true,
@@ -708,17 +725,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-20 19:10"
+   "volgende": "2026-11-20 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-20 18:48",
-   "volgende": "2026-11-20 19:18"
+   "laatst": "2026-11-20 19:18",
+   "volgende": "2026-11-20 19:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-20 17:25",
-   "volgende": "2026-11-20 19:25"
+   "laatst": "2026-11-20 19:25",
+   "volgende": "2026-11-20 21:25"
   }
  },
  "kanaal": {
@@ -1049,7 +1066,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 513,
+  "geheugen_mb": 515,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1221,8 +1238,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-20 19:05",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-20 19:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3516,7 +3533,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 17:25",
+  "bijgewerkt": "2026-11-20 19:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3648,15 +3665,14 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-20 19:06",
+  "bijgewerkt": "2026-11-20 19:34",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 12675500,
+    "week": 12268421,
     "per_dag": {
      "Tue 17-11": 1533664,
-     "Fri 13-11": 407079,
      "Mon 16-11": 10362951,
      "Thu 19-11": 371807
     },
@@ -3668,27 +3684,27 @@
    },
    {
     "account": "account2",
-    "5uur": 8334533,
-    "week": 100706042,
+    "5uur": 7147871,
+    "week": 100917763,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
-     "Fri 20-11": 18394345,
+     "Fri 20-11": 18606066,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 29244,
+    "stap_kost": 29393,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 61,
-    "5uur_scripts_over": 7.9,
-    "5uur_stappen_over": 179,
+    "5uur_pct": 53,
+    "5uur_scripts_over": 9.7,
+    "5uur_stappen_over": 219,
     "week_pct": 76,
-    "week_scripts_over": 47.2,
-    "week_stappen_over": 1071
+    "week_scripts_over": 46.9,
+    "week_stappen_over": 1058
    }
   ]
  },
