@@ -1,0 +1,824 @@
+[
+[
+0.5,
+5.427,
+"On Thursday, November nineteenth, the biggest stock market listing in history finally happened.",
+"open-donderdag"
+],
+[
+5.777,
+9.647,
+"Anthropic's shares closed seventeen percent above their offering price.",
+"open-donderdag"
+],
+[
+9.997,
+13.148,
+"It was supposed to be a celebration for the whole AI industry.",
+"open-donderdag"
+],
+[
+13.498,
+15.645,
+"Instead, the rest of the market fell apart.",
+"open-donderdag"
+],
+[
+16.245,
+18.299,
+"The S&P 500 dropped two percent.",
+"open-cijfers"
+],
+[
+18.649,
+20.6,
+"The Nasdaq lost more than two percent.",
+"open-cijfers"
+],
+[
+20.95,
+24.934,
+"And the Dow Jones closed below fifty thousand for the first time since June.",
+"open-cijfers"
+],
+[
+25.534,
+30.075,
+"Since its peak in early October, the Nasdaq has now fallen more than thirteen percent.",
+"open-vraag"
+],
+[
+30.425,
+32.839,
+"On Wall Street, a fall of ten percent has a name.",
+"open-vraag"
+],
+[
+33.189,
+33.858,
+"A correction.",
+"open-vraag"
+],
+[
+34.458,
+36.815,
+"And a fall of twenty percent has a scarier one.",
+"open-vraag"
+],
+[
+37.165,
+38.207,
+"A bear market.",
+"open-vraag"
+],
+[
+38.807,
+40.936,
+"So what are investors suddenly so afraid of?",
+"open-vraag"
+],
+[
+41.586,
+42.946,
+"There is not one answer.",
+"open-vraag"
+],
+[
+43.296,
+44.26,
+"There are four.",
+"open-vraag"
+],
+[
+44.86,
+46.046,
+"Doubts about AI.",
+"open-vier"
+],
+[
+46.646,
+47.971,
+"Inflation coming back.",
+"open-vier"
+],
+[
+48.571,
+50.097,
+"Interest rates that may rise.",
+"open-vier"
+],
+[
+50.447,
+51.773,
+"And chips going to China.",
+"open-vier"
+],
+[
+52.373,
+54.072,
+"The first fear is the biggest one.",
+"h2-ai"
+],
+[
+54.422,
+57.629,
+"For three years, artificial intelligence has carried the stock market.",
+"h2-ai"
+],
+[
+57.979,
+59.864,
+"Now investors are starting to doubt it.",
+"h2-ai"
+],
+[
+60.464,
+63.112,
+"On Thursday alone, Amazon fell almost four percent.",
+"h2-bigtech"
+],
+[
+63.462,
+65.714,
+"Alphabet and Meta both lost more than three.",
+"h2-bigtech"
+],
+[
+66.314,
+68.356,
+"No company shows this better than Nvidia.",
+"h2-nvidia"
+],
+[
+68.706,
+71.725,
+"In just six trading days, its stock fell sixteen percent.",
+"h2-nvidia"
+],
+[
+72.075,
+75.702,
+"That wiped out roughly six hundred seventy billion dollars in value.",
+"h2-nvidia"
+],
+[
+76.052,
+79.822,
+"Since its peak on October sixth, Nvidia has lost almost forty percent.",
+"h2-nvidia"
+],
+[
+80.172,
+84.06,
+"Its co-founder and chief executive, Jensen Huang, stepped down last week.",
+"h2-nvidia"
+],
+[
+84.41,
+86.347,
+"We told that story in an earlier video.",
+"h2-nvidia"
+],
+[
+86.697,
+88.385,
+"But the selling did not stop with him.",
+"h2-nvidia"
+],
+[
+88.985,
+90.738,
+"On Thursday, it was AMD's turn.",
+"h2-amd"
+],
+[
+91.088,
+98.039,
+"A short seller called Hunterbrook published a report that claimed AMD technology kept reaching a blacklisted Chinese company.",
+"h2-amd"
+],
+[
+98.389,
+101.833,
+"A short seller is an investor who makes money when a stock falls.",
+"h2-amd"
+],
+[
+102.183,
+104.107,
+"So a report like this is never neutral.",
+"h2-amd"
+],
+[
+104.457,
+109.8,
+"The report also claimed that AMD bills more than twenty percent of its revenue to China and Hong Kong.",
+"h2-amd"
+],
+[
+110.15,
+112.555,
+"AMD said the claims misrepresent its business.",
+"h2-amd"
+],
+[
+112.905,
+115.088,
+"Its stock still fell almost eight percent.",
+"h2-amd"
+],
+[
+115.688,
+117.493,
+"There is also a question about growth.",
+"h2-groei"
+],
+[
+117.843,
+127.737,
+"According to numbers cited by CNBC, the combined revenue growth of OpenAI and Anthropic slowed from seventy-five percent in the second quarter to forty-eight percent in the third.",
+"h2-groei"
+],
+[
+128.087,
+132.566,
+"At the same time, their combined losses grew to about eight point four billion dollars.",
+"h2-groei"
+],
+[
+132.916,
+135.867,
+"That matters, because the whole AI boom rests on one bet.",
+"h2-groei"
+],
+[
+136.217,
+141.47,
+"That these companies will one day earn back the enormous amounts being spent on chips and data centers.",
+"h2-groei"
+],
+[
+142.07,
+146.172,
+"And the companies that build AI data centers with borrowed money are feeling it too.",
+"h2-coreweave"
+],
+[
+146.522,
+150.123,
+"CoreWeave, one of the biggest, fell more than six percent on Thursday.",
+"h2-coreweave"
+],
+[
+150.723,
+152.438,
+"Even the Federal Reserve is worried.",
+"h2-fed-rapport"
+],
+[
+152.788,
+159.401,
+"In its latest financial stability report, eighty-seven percent of the market experts it surveyed named AI as a major risk.",
+"h2-fed-rapport"
+],
+[
+159.751,
+161.493,
+"In the spring, it was fifty percent.",
+"h2-fed-rapport"
+],
+[
+161.843,
+167.475,
+"The same report found that hedge funds are borrowing more to invest than at any time since 2013.",
+"h2-fed-rapport"
+],
+[
+168.075,
+169.615,
+"The second fear is an old one.",
+"h3-inflatie"
+],
+[
+169.965,
+171.384,
+"Inflation is coming back.",
+"h3-inflatie"
+],
+[
+171.984,
+177.163,
+"In October, consumer prices in the United States rose zero point four percent in a single month.",
+"h3-cpi"
+],
+[
+177.513,
+179.702,
+"Economists had expected zero point three.",
+"h3-cpi"
+],
+[
+180.052,
+183.709,
+"Without food and energy, prices still rose zero point three percent.",
+"h3-cpi"
+],
+[
+184.059,
+185.472,
+"Also more than expected.",
+"h3-cpi"
+],
+[
+186.072,
+188.334,
+"Prices that companies pay rose even faster.",
+"h3-ppi"
+],
+[
+188.684,
+192.583,
+"Wholesale prices are what businesses pay before goods reach the shelves.",
+"h3-ppi"
+],
+[
+192.933,
+194.986,
+"When they rise, shop prices often follow.",
+"h3-ppi"
+],
+[
+195.336,
+198.859,
+"Over the past year, wholesale prices are up six point five percent.",
+"h3-ppi"
+],
+[
+199.209,
+201.778,
+"That is the highest since November 2022.",
+"h3-ppi"
+],
+[
+202.128,
+205.414,
+"For goods alone, the yearly increase was more than ten percent.",
+"h3-ppi"
+],
+[
+206.014,
+207.441,
+"And it is not just America.",
+"h3-wereld"
+],
+[
+207.791,
+213.109,
+"In Britain, record diesel prices pushed inflation to three point six percent, its highest in a year.",
+"h3-wereld"
+],
+[
+213.459,
+218.779,
+"The Bank of England expects inflation in Britain to reach about five percent by the middle of next year.",
+"h3-wereld"
+],
+[
+219.379,
+220.849,
+"That leads to the third fear.",
+"h4-rente"
+],
+[
+221.199,
+223.088,
+"Interest rates may go up, not down.",
+"h4-rente"
+],
+[
+223.688,
+234.636,
+"On November seventeenth, Alberto Musalem, the president of the St. Louis Federal Reserve, said the economy will likely require several interest rate increases before the spring of 2027.",
+"h4-musalem"
+],
+[
+234.986,
+236.553,
+"He said up to four may be needed.",
+"h4-musalem"
+],
+[
+236.903,
+241.037,
+"Right now, the Fed's key rate is between three point seven five and four percent.",
+"h4-musalem"
+],
+[
+241.387,
+243.188,
+"In October, it kept it unchanged.",
+"h4-musalem"
+],
+[
+243.788,
+249.485,
+"Traders now fully expect the Fed to raise rates by a quarter point at its meeting on December eighth and ninth.",
+"h4-markt"
+],
+[
+249.835,
+252.035,
+"In Britain, the Bank of England already did it.",
+"h4-markt"
+],
+[
+252.385,
+255.137,
+"On November fifth, it raised its rate to four percent.",
+"h4-markt"
+],
+[
+255.487,
+258.041,
+"Its first increase since August 2023.",
+"h4-markt"
+],
+[
+258.391,
+260.465,
+"Eight of its nine members voted for the hike.",
+"h4-markt"
+],
+[
+260.815,
+262.642,
+"The ninth wanted an even bigger one.",
+"h4-markt"
+],
+[
+263.242,
+265.16,
+"Why does this hurt tech stocks so much?",
+"h4-waarom"
+],
+[
+265.81,
+269.742,
+"Many tech companies are valued on the profits they hope to make years from now.",
+"h4-waarom"
+],
+[
+270.092,
+273.539,
+"When interest rates rise, money in the future is worth less today.",
+"h4-waarom"
+],
+[
+273.889,
+275.607,
+"And safe savings start to pay more.",
+"h4-waarom"
+],
+[
+275.957,
+279.458,
+"So investors become less willing to pay a high price for a promise.",
+"h4-waarom"
+],
+[
+279.808,
+284.449,
+"That is also why the Nasdaq, full of tech companies, usually falls harder than the Dow.",
+"h4-waarom"
+],
+[
+285.049,
+286.874,
+"The fourth fear comes from Washington.",
+"h5-chips"
+],
+[
+287.224,
+288.854,
+"It is about chips going to China.",
+"h5-chips"
+],
+[
+289.454,
+298.48,
+"Documents from the House Foreign Affairs Committee showed that the Commerce Department approved sales of more than eight hundred seventy-nine thousand AI chips to Chinese companies.",
+"h5-documenten"
+],
+[
+299.08,
+305.138,
+"Treasury Secretary Scott Bessent blamed the Commerce Department, and said there is \"a lot of leakage in the system.\"",
+"h5-bessent"
+],
+[
+305.488,
+311.035,
+"He said other departments had wanted to put a company called Megaspeed on a trade blacklist for months.",
+"h5-bessent"
+],
+[
+311.635,
+315.903,
+"And this week, California's attorney general Rob Bonta sent Nvidia a subpoena.",
+"h5-bonta"
+],
+[
+316.253,
+322.774,
+"He wants to know whether its chips reached China in violation of export rules, and whether the company misled investors.",
+"h5-bonta"
+],
+[
+323.124,
+327.139,
+"He said the conduct of Nvidia and its former CEO \"raises bright red flags.\"",
+"h5-bonta"
+],
+[
+327.739,
+330.078,
+"Together, these four fears hit the market hard.",
+"h1-week"
+],
+[
+330.428,
+333.02,
+"To see how fast this happened, look at the past week.",
+"h1-week"
+],
+[
+333.37,
+336.943,
+"For the S&P 500, Thursday was the sixth losing day in a row.",
+"h1-week"
+],
+[
+337.293,
+340.549,
+"In just four trading days, the Dow fell more than six percent.",
+"h1-week"
+],
+[
+340.899,
+343.914,
+"The S&P 500 and the Nasdaq each lost about five.",
+"h1-week"
+],
+[
+344.514,
+346.651,
+"The next morning, the selling moved to Asia.",
+"h1-azie"
+],
+[
+347.001,
+348.836,
+"Japan's Nikkei fell five percent.",
+"h1-azie"
+],
+[
+349.186,
+351.13,
+"South Korea's Kospi fell even more.",
+"h1-azie"
+],
+[
+351.48,
+353.107,
+"Samsung dropped seven percent.",
+"h1-azie"
+],
+[
+353.707,
+355.453,
+"Chip companies were hit the hardest.",
+"h1-chips"
+],
+[
+355.803,
+357.622,
+"Tokyo Electron fell seven percent.",
+"h1-chips"
+],
+[
+357.972,
+359.55,
+"Lasertec fell more than nine.",
+"h1-chips"
+],
+[
+359.9,
+365.549,
+"And in Taiwan, TSMC, the company that makes most of the world's advanced chips, lost almost five percent.",
+"h1-chips"
+],
+[
+366.149,
+373.58,
+"And SoftBank, the Japanese group that has invested more than sixty-four billion dollars in OpenAI, crashed fourteen and a half percent.",
+"h1-softbank"
+],
+[
+373.93,
+376.144,
+"Its worst day since August 2024.",
+"h1-softbank"
+],
+[
+376.744,
+379.409,
+"Usually, when stocks fall, investors run to safety.",
+"h1-nergens"
+],
+[
+379.759,
+381.865,
+"This time, there was almost nowhere to run.",
+"h1-nergens"
+],
+[
+382.215,
+384.877,
+"Gold has fallen more than eleven percent in a month.",
+"h1-nergens"
+],
+[
+385.227,
+388.306,
+"Bitcoin has lost about a quarter of its value in the same time.",
+"h1-nergens"
+],
+[
+388.656,
+390.344,
+"One reason for gold is simple.",
+"h1-nergens"
+],
+[
+390.694,
+392.124,
+"Gold pays no interest.",
+"h1-nergens"
+],
+[
+392.474,
+396.638,
+"So when interest rates are expected to rise, holding it becomes less attractive.",
+"h1-nergens"
+],
+[
+397.238,
+400.048,
+"Wall Street's fear gauge, the VIX, tells the same story.",
+"h1-vix"
+],
+[
+400.398,
+405.285,
+"It measures how much traders expect the S&P 500 to swing over the next thirty days.",
+"h1-vix"
+],
+[
+405.635,
+407.473,
+"A month ago, it stood around eighteen.",
+"h1-vix"
+],
+[
+407.823,
+410.845,
+"Now it is above twenty-eight, its highest level in months.",
+"h1-vix"
+],
+[
+411.445,
+413.367,
+"So is this the start of something worse?",
+"h6-geschiedenis"
+],
+[
+414.017,
+414.914,
+"Nobody knows.",
+"h6-geschiedenis"
+],
+[
+415.514,
+417.188,
+"But history can tell us something.",
+"h6-geschiedenis"
+],
+[
+417.788,
+421.556,
+"We looked at every closing price of the Nasdaq since 1971.",
+"h6-tellen"
+],
+[
+421.906,
+425.545,
+"Before this one, it had thirty-one corrections of ten percent or more.",
+"h6-tellen"
+],
+[
+425.895,
+429.078,
+"Thirteen of them turned into a fall of twenty percent or more.",
+"h6-tellen"
+],
+[
+429.428,
+430.931,
+"The rest recovered before that.",
+"h6-tellen"
+],
+[
+431.531,
+433.056,
+"Some recoveries were fast.",
+"h6-voorbeelden"
+],
+[
+433.406,
+438.372,
+"This spring, the Nasdaq fell thirteen percent, and was back at a record by the middle of April.",
+"h6-voorbeelden"
+],
+[
+438.722,
+444.41,
+"In early 2020, when Covid hit, it fell thirty percent, and still recovered within a few months.",
+"h6-voorbeelden"
+],
+[
+444.76,
+450.077,
+"In August 2024, it fell thirteen percent, and was back at a record by the end of October.",
+"h6-voorbeelden"
+],
+[
+450.427,
+451.632,
+"Others took much longer.",
+"h6-voorbeelden"
+],
+[
+451.982,
+456.654,
+"In 2022, it fell thirty-six percent, and needed more than two years to recover.",
+"h6-voorbeelden"
+],
+[
+457.254,
+458.874,
+"So what should you watch now?",
+"h7-volgende"
+],
+[
+459.524,
+462.143,
+"First, the Fed's meeting on December eighth and ninth.",
+"h7-volgende"
+],
+[
+462.493,
+464.33,
+"Second, the next inflation numbers.",
+"h7-volgende"
+],
+[
+464.68,
+468.88,
+"Third, the holiday season, starting with Black Friday on November twenty-seventh.",
+"h7-volgende"
+],
+[
+469.23,
+472.3,
+"Shoppers will show whether higher prices are starting to hurt.",
+"h7-volgende"
+],
+[
+472.65,
+475.843,
+"And fourth, the hearings on AI chips in the Senate next month.",
+"h7-volgende"
+],
+[
+476.443,
+479.446,
+"For three years, AI made it look like stocks could only go up.",
+"slot"
+],
+[
+479.796,
+482.685,
+"This week, investors were reminded that they can also go down.",
+"slot"
+]
+]
