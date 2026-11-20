@@ -1,0 +1,169 @@
+# BlackswanVault video 4: de markt valt (Nasdaq -10%). Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel: The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of
+# {SLOT}-blok aan het eind: pas maandagochtend invullen met de laatste koersen (geen voorspelling).
+@scene open-donderdag
+On Thursday, November nineteenth, the biggest stock market listing in history finally happened.
+Anthropic's shares closed seventeen percent above their offering price.
+It was supposed to be a celebration for the whole AI industry.
+Instead, the rest of the market fell apart.
+@scene open-cijfers
+The S&P 500 dropped two percent.
+The Nasdaq lost more than two percent.
+And the Dow Jones closed below fifty thousand for the first time since June.
+@scene open-vraag
+Since its peak in early October, the Nasdaq has now fallen more than thirteen percent.
+On Wall Street, a fall of ten percent has a name.
+A correction.
+And a fall of twenty percent has a scarier one.
+A bear market.
+So what are investors suddenly so afraid of?
+There is not one answer.
+There are four.
+@scene h1-week
+To see how fast this happened, look at the past week.
+For the S&P 500, Thursday was the sixth losing day in a row.
+In just four trading days, the Dow fell more than six percent.
+The S&P 500 and the Nasdaq each lost about five.
+@scene h1-azie
+The next morning, the selling moved to Asia.
+Japan's Nikkei fell five percent.
+South Korea's Kospi fell even more.
+Samsung dropped seven percent.
+@scene h1-chips
+Chip companies were hit the hardest.
+Tokyo Electron fell seven percent.
+Lasertec fell more than nine.
+And in Taiwan, TSMC, the company that makes most of the world's advanced chips, lost almost five percent.
+@scene h1-softbank
+And SoftBank, the Japanese group that has invested more than sixty-four billion dollars in OpenAI, crashed fourteen and a half percent.
+Its worst day since August 2024.
+@scene h1-nergens
+Usually, when stocks fall, investors run to safety.
+This time, there was almost nowhere to run.
+Gold has fallen more than eleven percent in a month.
+Bitcoin has lost about a quarter of its value in the same time.
+One reason for gold is simple.
+Gold pays no interest.
+So when interest rates are expected to rise, holding it becomes less attractive.
+@scene h1-vix
+Wall Street's fear gauge, the VIX, tells the same story.
+It measures how much traders expect the S&P 500 to swing over the next thirty days.
+A month ago, it stood around eighteen.
+Now it is above twenty-eight, its highest level in months.
+@scene h2-ai
+The first fear is the biggest one.
+For three years, artificial intelligence has carried the stock market.
+Now investors are starting to doubt it.
+@scene h2-bigtech
+On Thursday alone, Amazon fell almost four percent.
+Alphabet and Meta both lost more than three.
+@scene h2-nvidia
+No company shows this better than Nvidia.
+In just six trading days, its stock fell sixteen percent.
+That wiped out roughly six hundred seventy billion dollars in value.
+Since its peak on October sixth, Nvidia has lost almost forty percent.
+Its co-founder and chief executive, Jensen Huang, stepped down last week.
+We told that story in an earlier video.
+But the selling did not stop with him.
+@scene h2-amd
+On Thursday, it was AMD's turn.
+A short seller called Hunterbrook published a report that claimed AMD technology kept reaching a blacklisted Chinese company.
+A short seller is an investor who makes money when a stock falls.
+So a report like this is never neutral.
+The report also claimed that AMD bills more than twenty percent of its revenue to China and Hong Kong.
+AMD said the claims misrepresent its business.
+Its stock still fell almost eight percent.
+@scene h2-groei
+There is also a question about growth.
+According to numbers cited by CNBC, the combined revenue growth of OpenAI and Anthropic slowed from seventy-five percent in the second quarter to forty-eight percent in the third.
+At the same time, their combined losses grew to about eight point four billion dollars.
+That matters, because the whole AI boom rests on one bet.
+That these companies will one day earn back the enormous amounts being spent on chips and data centers.
+@scene h2-coreweave
+And the companies that build AI data centers with borrowed money are feeling it too.
+CoreWeave, one of the biggest, fell more than six percent on Thursday.
+@scene h2-fed-rapport
+Even the Federal Reserve is worried.
+In its latest financial stability report, eighty-seven percent of the market experts it surveyed named AI as a major risk.
+In the spring, it was fifty percent.
+The same report found that hedge funds are borrowing more to invest than at any time since 2013.
+@scene h3-inflatie
+The second fear is an old one.
+Inflation is coming back.
+@scene h3-cpi
+In October, consumer prices in the United States rose zero point four percent in a single month.
+Economists had expected zero point three.
+Without food and energy, prices still rose zero point three percent.
+Also more than expected.
+@scene h3-ppi
+Prices that companies pay rose even faster.
+Wholesale prices are what businesses pay before goods reach the shelves.
+When they rise, shop prices often follow.
+Over the past year, wholesale prices are up six point five percent.
+That is the highest since November 2022.
+For goods alone, the yearly increase was more than ten percent.
+@scene h3-wereld
+And it is not just America.
+In Britain, record diesel prices pushed inflation to three point six percent, its highest in a year.
+The Bank of England expects inflation in Britain to reach about five percent by the middle of next year.
+@scene h4-rente
+That leads to the third fear.
+Interest rates may go up, not down.
+@scene h4-musalem
+On November seventeenth, Alberto Musalem, the president of the St. Louis Federal Reserve, said the economy will likely require several interest rate increases before the spring of 2027.
+He said up to four may be needed.
+Right now, the Fed's key rate is between three point seven five and four percent.
+In October, it kept it unchanged.
+@scene h4-markt
+Traders now fully expect the Fed to raise rates by a quarter point at its meeting on December eighth and ninth.
+In Britain, the Bank of England already did it.
+On November fifth, it raised its rate to four percent.
+Its first increase since August 2023.
+Eight of its nine members voted for the hike.
+The ninth wanted an even bigger one.
+@scene h4-waarom
+Why does this hurt tech stocks so much?
+Many tech companies are valued on the profits they hope to make years from now.
+When interest rates rise, money in the future is worth less today.
+And safe savings start to pay more.
+So investors become less willing to pay a high price for a promise.
+That is also why the Nasdaq, full of tech companies, usually falls harder than the Dow.
+@scene h5-chips
+The fourth fear comes from Washington.
+It is about chips going to China.
+@scene h5-documenten
+Documents from the House Foreign Affairs Committee showed that the Commerce Department approved sales of more than eight hundred seventy-nine thousand AI chips to Chinese companies.
+@scene h5-bessent
+Treasury Secretary Scott Bessent blamed the Commerce Department, and said there is "a lot of leakage in the system."
+He said other departments had wanted to put a company called Megaspeed on a trade blacklist for months.
+@scene h5-bonta
+And this week, California's attorney general Rob Bonta sent Nvidia a subpoena.
+He wants to know whether its chips reached China in violation of export rules, and whether the company misled investors.
+He said the conduct of Nvidia and its former CEO "raises bright red flags."
+@scene h6-geschiedenis
+So is this the start of something worse?
+Nobody knows.
+But history can tell us something.
+@scene h6-tellen
+We looked at every closing price of the Nasdaq since 1971.
+Before this one, it had thirty-one corrections of ten percent or more.
+Thirteen of them turned into a fall of twenty percent or more.
+The rest recovered before that.
+@scene h6-voorbeelden
+Some recoveries were fast.
+This spring, the Nasdaq fell thirteen percent, and was back at a record by the middle of April.
+In early 2020, when Covid hit, it fell thirty percent, and still recovered within a few months.
+In August 2024, it fell thirteen percent, and was back at a record by the end of October.
+Others took much longer.
+In 2022, it fell thirty-six percent, and needed more than two years to recover.
+@scene h7-volgende
+So what should you watch now?
+First, the Fed's meeting on December eighth and ninth.
+Second, the next inflation numbers.
+Third, the holiday season, starting with Black Friday on November twenty-seventh.
+Shoppers will show whether higher prices are starting to hurt.
+And fourth, the hearings on AI chips in the Senate next month.
+{SLOT}
+@scene slot
+For three years, AI made it look like stocks could only go up.
+This week, investors were reminded that they can also go down.
