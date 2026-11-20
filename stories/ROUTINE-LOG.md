@@ -370,3 +370,4 @@ ValueError: empty separator)
 - 2026-11-20 09:39 Claude: Anthropic thumbnail toch versie B (eigenaar: 'B is leuker')
 - 2026-11-20 09:44 Claude: BlackswanVault GTA 6 privé geüpload (BPoUJqFruNE), openbaar za 21 nov 15:00 (eigenaar: 'privé tot morgen')
 - 2026-11-20 11:22 Claude: BlackswanVault GTA 6 omgegooid (antwoord 'buy the rumor' na 1:08 i.p.v. 6:34, geschiedenis daarna) + kortere titel 'Why Is Take-Two's Stock Falling After GTA 6?'; nieuw privé GEktvTAsVIw (za 21 nov 15:00, AI-label aan), oude BPoUJqFruNE verwijderd. Kanaalbeschrijving aangepast (nieuws uitgelegd, geen planning).
+- 2026-11-20 13:34 Claude: BlackswanVault Short Anthropic openbaar (Lnkr1eh77Dg, link naar 5C2MIFhR314 in beschrijving; 'Gerelateerde video' nog in Studio zetten). Shorts-ondertiteling vast in CapCut-stijl eigenaar.
