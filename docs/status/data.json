@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 21:03",
+ "bijgewerkt": "2026-11-21 21:33",
  "kanalen": {
   "weken": [
    {
@@ -2269,13 +2269,20 @@
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "Beelden maken · 72%",
+    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "map": "blackbeard-1718",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
-  "daarna": [],
+  "daarna": [
+   {
+    "wanneer": "na Blackbeard",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "keten maakt de video voor za 5-12 21:00"
+   }
+  ],
   "publicaties": [
    {
     "datum": "2026-11-21",
@@ -2600,13 +2607,13 @@
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": true,
-   "tekst": "laatste keer goed (2026-11-09 06:00)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Taak 'dashboard'",
-   "ok": true,
-   "tekst": "draait nu (2026-11-21 21:03)"
+   "ok": false,
+   "tekst": "niet gevonden"
   },
   {
    "naam": "Git",
@@ -2626,7 +2633,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2643,8 +2650,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 21:03",
-   "volgende": "2026-11-21 21:33"
+   "laatst": "2026-11-21 21:33",
+   "volgende": "2026-11-21 22:03"
   },
   "hype": {
    "aan": true,
@@ -2653,18 +2660,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-21 21:00",
-   "volgende": "2026-11-21 21:10"
+   "laatst": "2026-11-21 21:27",
+   "volgende": "2026-11-21 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 20:48",
-   "volgende": "2026-11-21 21:18"
+   "laatst": "2026-11-21 21:18",
+   "volgende": "2026-11-21 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-21 19:25",
-   "volgende": "2026-11-21 21:25"
+   "laatst": "2026-11-21 21:25",
+   "volgende": "2026-11-21 23:25"
   }
  },
  "kanaal": {
@@ -2752,7 +2759,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 138,
+    "views": 139,
     "verwerkt": "processed"
    },
    {
@@ -2770,7 +2777,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 807,
+    "views": 809,
     "verwerkt": "processed"
    }
   ],
@@ -2965,13 +2972,13 @@
  "kpi": {
   "geplande": 2,
   "runs": {
-   "goed": 4,
-   "totaal": 17,
-   "procent": 24
+   "goed": 3,
+   "totaal": 16,
+   "procent": 19
   },
-  "fouten": 1,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 9,
    "totaal": 12
   }
  },
@@ -2986,33 +2993,28 @@
  ],
  "stap": 2,
  "huidig": {
-  "map": "pearl-harbor-1941",
-  "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-  "datum": "2026-12-05",
-  "thumb": "",
+  "map": "blackbeard-1718",
+  "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+  "datum": "2026-12-23",
+  "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 72,
-  "detail": "63 van 88 beelden",
+  "voortgang": 99,
+  "detail": "84 van 84 beelden",
   "taken": [
-   "routine zonder Claude",
    "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
  "nu_bezig": [
   {
-   "naam": "routine zonder Claude",
-   "stap": 0
-  },
-  {
    "naam": "beelden maken (ComfyUI)",
    "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7029,
+  "bezig_procent": 26,
+  "geheugen_mb": 435,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3098,42 +3100,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 08:00",
-   "tekst": "nieuwswacht: GROOT Goud (2026-11-21): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 12:21",
-   "tekst": "sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 12:21",
-   "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 13:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 13:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 20:10",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-21 20:10",
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -3180,22 +3146,62 @@
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:09",
+   "tekst": "Claude: pearl-harbor-1941 keten gestopt (eigenaar: sleep even stil voor Swan tekenproef v2)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:28",
+   "tekst": "hype-wachter: SEINTJE TITEL dallas-1963 (2026-12-16): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Titel is ",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:28",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:28",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:32",
+   "tekst": "Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef v3)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 21:33",
+   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-21 21:33",
+   "tekst": "Zelfcontrole: Taak 'dashboard': niet gevonden",
+   "fout": true
+  },
+  {
+   "tijd": "2026-11-21 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-19 11:49",
-   "tekst": "routine-lokaal: dallas-1963: opnieuw maken GESTOPT (montage-controles niet goed); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-19 13:05",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
@@ -3235,6 +3241,12 @@
   {
    "tijd": "2026-11-21 13:18",
    "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
   }
@@ -5189,7 +5201,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-21 19:25",
+  "bijgewerkt": "2026-11-21 21:38",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5254,6 +5266,18 @@
     "bekeken": ""
    },
    {
+    "map": "gettysburg-1863",
+    "datum": "2026-12-02",
+    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [],
+    "bekeken": ""
+   },
+   {
     "map": "pearl-harbor-1941",
     "datum": "2026-12-05",
     "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
@@ -5264,6 +5288,24 @@
     "youtube": "",
     "concurrent": [],
     "bekeken": "2026-11-20"
+   },
+   {
+    "map": "boeren-winter-1300",
+    "datum": "2026-12-09",
+    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [
+     {
+      "titel": "Why Medieval Peasants Were Impossible To Brainwash | Boring History For Sleep",
+      "kanaal": "Sleepless Historian",
+      "per_dag": 5899
+     }
+    ],
+    "bekeken": "2026-11-21"
    },
    {
     "map": "kerst-loopgraven-1914",
@@ -5278,6 +5320,18 @@
     "bekeken": "2026-11-15"
    },
    {
+    "map": "dallas-1963",
+    "datum": "2026-12-16",
+    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "Life in Dallas, November 1963 | History for Sleep",
+    "waarom": "Titel is concreet, bevat plaats en jaar, belooft inhoud en volgt de regels",
+    "youtube": "",
+    "concurrent": [],
+    "bekeken": "2026-11-21"
+   },
+   {
     "map": "bethlehem",
     "datum": "2026-12-19",
     "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
@@ -5288,6 +5342,18 @@
     "youtube": "",
     "concurrent": [],
     "bekeken": "2026-11-20"
+   },
+   {
+    "map": "blackbeard-1718",
+    "datum": "2026-12-23",
+    "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [],
+    "bekeken": "2026-11-21"
    },
    {
     "map": "londen-kerst-1843",
@@ -5318,26 +5384,50 @@
     "bekeken": "2026-11-20"
    },
    {
-    "map": "gettysburg-1863",
-    "datum": "2027-01-02",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "datum": "2026-12-30",
+    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
     "waarom": "",
     "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
+    "concurrent": [
+     {
+      "titel": "Who ACTUALLY Searched for the Philosopher's Stone",
+      "kanaal": "History Camp",
+      "per_dag": 19985
+     }
+    ],
+    "bekeken": "2026-11-21"
+   },
+   {
+    "map": "rome-44-vc",
+    "datum": "2027-01-02",
+    "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [
+     {
+      "titel": "The Strange and Fascinating Bathing Rituals of Ancient Rome | History for Sleep",
+      "kanaal": "Sleepy History Channel",
+      "per_dag": 1115
+     }
+    ],
+    "bekeken": "2026-11-21"
    }
   ],
-  "model": "niet nodig"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 21:05",
+  "bijgewerkt": "2026-11-21 21:38",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 2174958,
+    "5uur": 1918654,
     "week": 15312922,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5353,28 +5443,28 @@
    },
    {
     "account": "account2",
-    "5uur": 8002667,
-    "week": 119036065,
+    "5uur": 9315010,
+    "week": 120348409,
     "per_dag": {
      "Sat 14-11": 9999796,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 31067407,
+     "Sat 21-11": 32379750,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 40145,
+    "stap_kost": 41103,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 59,
-    "5uur_scripts_over": 9.8,
-    "5uur_stappen_over": 139,
-    "week_pct": 90,
-    "week_scripts_over": 22.7,
-    "week_stappen_over": 323
+    "5uur_pct": 69,
+    "5uur_scripts_over": 7.5,
+    "5uur_stappen_over": 104,
+    "week_pct": 91,
+    "week_scripts_over": 20.4,
+    "week_stappen_over": 284
    }
   ]
  },
