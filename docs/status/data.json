@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 10:33",
+ "bijgewerkt": "2026-11-21 11:03",
  "kanalen": {
   "weken": [
    {
@@ -263,7 +263,7 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-27",
         "tijd": "15:00",
-        "titel": "SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse",
+        "titel": "Elon Musk's SpaceX Just Fell Below Its IPO Price",
         "stand": "gepland",
         "youtube": "uLoUpPHRz9g"
        },
@@ -1288,7 +1288,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 10:33)"
+   "tekst": "draait nu (2026-11-21 11:03)"
   },
   {
    "naam": "Git",
@@ -1308,7 +1308,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 10:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 10:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1325,8 +1325,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 10:33",
-   "volgende": "2026-11-21 11:03"
+   "laatst": "2026-11-21 11:03",
+   "volgende": "2026-11-21 11:33"
   },
   "hype": {
    "aan": true,
@@ -1340,8 +1340,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 10:18",
-   "volgende": "2026-11-21 10:48"
+   "laatst": "2026-11-21 10:48",
+   "volgende": "2026-11-21 11:18"
   },
   "titels": {
    "aan": true,
@@ -1676,8 +1676,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 536,
+  "bezig_procent": 57,
+  "geheugen_mb": 2721,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1849,8 +1849,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 10:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 10:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 11:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 10:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3998,7 +3998,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 10:33",
+  "bijgewerkt": "2026-11-21 11:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4017,28 +4017,28 @@
    },
    {
     "account": "account2",
-    "5uur": 765688,
-    "week": 110818813,
+    "5uur": 3398831,
+    "week": 113852630,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 4246221,
+     "Sat 21-11": 7280038,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 29054,
+    "stap_kost": 30639,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 6,
-    "5uur_scripts_over": 19.3,
-    "5uur_stappen_over": 441,
-    "week_pct": 84,
-    "week_scripts_over": 32.0,
-    "week_stappen_over": 730
+    "5uur_pct": 25,
+    "5uur_scripts_over": 15.4,
+    "5uur_stappen_over": 332,
+    "week_pct": 86,
+    "week_scripts_over": 27.4,
+    "week_stappen_over": 593
    }
   ]
  },
