@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 02:03",
+ "bijgewerkt": "2026-11-21 02:33",
  "kanalen": {
   "weken": [
    {
@@ -186,15 +186,31 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-25",
         "tijd": "15:00",
-        "titel": "Black Friday Will Hit $1 Trillion. Here's the Catch",
-        "stand": "klaar, wacht op OK eigenaar (video7)"
+        "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
+        "stand": "privé gepland, gaat vanzelf openbaar (c4xgBH1o4AE)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-25",
+        "tijd": "15:00",
+        "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
+        "stand": "gepland",
+        "youtube": "c4xgBH1o4AE"
        },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-25",
         "tijd": "17:00",
-        "titel": "Short: Black Friday's $1 Trillion Secret",
-        "stand": "klaar, wacht op OK eigenaar (shorts/blackfriday-short-1.mp4)"
+        "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
+        "stand": "privé gepland, gaat vanzelf openbaar (8de6ZH3YYp4)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-25",
+        "tijd": "17:00",
+        "titel": "Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
+        "stand": "gepland",
+        "youtube": "8de6ZH3YYp4"
        }
       ]
      },
@@ -206,14 +222,30 @@
         "datum": "2026-11-26",
         "tijd": "15:00",
         "titel": "Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
-        "stand": "klaar, wacht op OK eigenaar (video8)"
+        "stand": "privé gepland, gaat vanzelf openbaar (JW4e9rWlukk)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "15:00",
+        "titel": "Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
+        "stand": "gepland",
+        "youtube": "JW4e9rWlukk"
        },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-26",
         "tijd": "17:00",
-        "titel": "Short: Bitcoin Lost Half Its Value",
-        "stand": "klaar, wacht op OK eigenaar (shorts/bitcoin-short-1.mp4)"
+        "titel": "Short: Bitcoin Fell Below $60,000. Here's Who Is Selling",
+        "stand": "privé gepland, gaat vanzelf openbaar (gtqCj_lhfm4)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "17:00",
+        "titel": "Bitcoin Fell Below $60,000. Here's Who Is Selling",
+        "stand": "gepland",
+        "youtube": "gtqCj_lhfm4"
        }
       ]
      },
@@ -225,14 +257,30 @@
         "datum": "2026-11-27",
         "tijd": "15:00",
         "titel": "SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse",
-        "stand": "klaar, wacht op OK eigenaar (video9)"
+        "stand": "privé gepland, gaat vanzelf openbaar (uLoUpPHRz9g)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-27",
+        "tijd": "15:00",
+        "titel": "SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse",
+        "stand": "gepland",
+        "youtube": "uLoUpPHRz9g"
        },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-27",
         "tijd": "17:00",
-        "titel": "Short: SpaceX Just Fell Below Its IPO Price",
-        "stand": "klaar, wacht op OK eigenaar (shorts/spacex-short-1.mp4)"
+        "titel": "Short: SpaceX Stock Fell Below Its $135 IPO Price",
+        "stand": "privé gepland, gaat vanzelf openbaar (ZdwE2HdjVJg)"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-27",
+        "tijd": "17:00",
+        "titel": "SpaceX Stock Fell Below Its $135 IPO Price",
+        "stand": "gepland",
+        "youtube": "ZdwE2HdjVJg"
        }
       ]
      },
@@ -758,7 +806,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 02:03)"
+   "tekst": "draait nu (2026-11-21 02:33)"
   },
   {
    "naam": "Git",
@@ -778,7 +826,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 01:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 02:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -795,8 +843,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 02:03",
-   "volgende": "2026-11-21 02:33"
+   "laatst": "2026-11-21 02:33",
+   "volgende": "2026-11-21 03:03"
   },
   "hype": {
    "aan": true,
@@ -806,12 +854,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-21 02:10"
+   "volgende": "2026-11-21 03:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 01:48",
-   "volgende": "2026-11-21 02:18"
+   "laatst": "2026-11-21 02:18",
+   "volgende": "2026-11-21 02:48"
   },
   "titels": {
    "aan": true,
@@ -886,7 +934,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 74,
+    "views": 75,
     "verwerkt": "processed"
    },
    {
@@ -1147,7 +1195,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 581,
+  "geheugen_mb": 588,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1319,8 +1367,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 02:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 02:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 02:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3758,7 +3806,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 02:03",
+  "bijgewerkt": "2026-11-21 02:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3777,28 +3825,28 @@
    },
    {
     "account": "account2",
-    "5uur": 4452172,
-    "week": 107166304,
+    "5uur": 4642548,
+    "week": 108667067,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 593712,
+     "Sat 21-11": 2094475,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 29449,
+    "stap_kost": 28835,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 33,
-    "5uur_scripts_over": 13.8,
+    "5uur_pct": 34,
+    "5uur_scripts_over": 13.5,
     "5uur_stappen_over": 310,
-    "week_pct": 81,
-    "week_scripts_over": 37.5,
-    "week_stappen_over": 844
+    "week_pct": 82,
+    "week_scripts_over": 35.2,
+    "week_stappen_over": 810
    }
   ]
  },
