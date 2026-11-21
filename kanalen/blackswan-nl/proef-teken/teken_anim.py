@@ -75,6 +75,8 @@ class Tekening:
             if n: m[self.orde[:n, 0], self.orde[:n, 1]] = True
             m = np.kron(m, np.ones((TEGEL, TEGEL), bool))[:h, :w] & self.lijn
             vak[m] = self.lijnbeeld[m]
+            if n:
+                global PEN; PEN = (self.x + int(self.orde[n - 1, 1]) * TEGEL + 5, self.y + int(self.orde[n - 1, 0]) * TEGEL + 5)
             return
         q = min(1.0, (t - self.start - self.teken) / self.kduur)
         a = np.clip((q * 1.3 - self.veeg) / 0.3, 0, 1)[..., None]
@@ -119,6 +121,8 @@ class Bordje:
 
 INKT, PAPIER = (28, 28, 34), (255, 255, 255)
 KRIJT = None
+PEN = None                                                          # 22 nov: waar de "pen" nu is (voor de tekenende hand)
+HAND = None
 VAAG = 0.8
 FH = "C:/Windows/Fonts/segoeprb.ttf"          # handschrift-achtig (Segoe Print Bold)
 
@@ -210,6 +214,9 @@ class Tekst:
         if t < it["start"]: return
         n = int(len(it["tekst"]) * min(1.0, (t - it["start"]) / it.get("teken", 1.0)))
         im = Image.fromarray(doek); schrijf(ImageDraw.Draw(im), (it["x"], it["y"]), it["tekst"][:n], it.get("maat", 44), tuple(it.get("kleur", INKT)))
+        if 0 < n < len(it["tekst"]):
+            b = ImageDraw.Draw(im).textbbox((it["x"], it["y"]), it["tekst"][:n], font=ImageFont.truetype(FH, it.get("maat", 44)))
+            global PEN; PEN = (b[2], (b[1] + b[3]) // 2)
         doek[:] = np.asarray(im)
 
 
@@ -301,6 +308,8 @@ class Streep:
         x0, y, x1 = it["streep"]; p = min(1.0, (t - it["start"]) / it.get("teken", 0.8)); xe = x0 + (x1 - x0) * p
         im = Image.fromarray(doek); d = ImageDraw.Draw(im); kl = tuple(it.get("kleur", INKT))
         for xs in range(int(x0), int(xe), 30): d.line((xs, y, min(xs + 18, xe), y), fill=kl, width=it.get("dik", 6))
+        if p < 1:
+            global PEN; PEN = (int(xe), y)
         doek[:] = np.asarray(im)
 
 
@@ -356,10 +365,25 @@ class Foto:
             if n: m[self.orde[:n, 0], self.orde[:n, 1]] = True
             m = np.kron(m, np.ones((TEGEL, TEGEL), bool))[:h, :w] & self.lijn
             vak[m] = INKT
+            if n:
+                global PEN; PEN = (x + int(self.orde[n - 1, 1]) * TEGEL + 5, y + int(self.orde[n - 1, 0]) * TEGEL + 5)
             return
         a = min(1.0, (t - it["start"] - it.get("teken", 1.8)) / it.get("kleur", 0.9))
         lijnen = np.where(self.lijn[..., None], np.array(INKT, np.uint8), 255).astype(float)
         vak[:] = (lijnen * (1 - a) + self.foto * a).astype(np.uint8)
+
+
+def hand_op(doek):
+    """tekenende hand met stift op de pen-positie (punt van de stift = PEN)"""
+    global PEN
+    if HAND is None or PEN is None: return
+    im, (px, py) = HAND
+    x0, y0 = PEN[0] - px, PEN[1] - py
+    H_, W_ = doek.shape[:2]; a = np.asarray(im).astype(np.float32) / 255
+    xa, ya, xb, yb = max(0, x0), max(0, y0), min(W_, x0 + im.width), min(H_, y0 + im.height)
+    if xb <= xa or yb <= ya: return
+    st = a[ya - y0:yb - y0, xa - x0:xb - x0]; al = st[..., 3:4]
+    doek[ya:yb, xa:xb] = (doek[ya:yb, xa:xb] * (1 - al) + st[..., :3] * 255 * al).astype(np.uint8)
 
 
 def maak(i):
@@ -372,7 +396,11 @@ def maak(i):
 
 def main():
     sc = json.load(open(sys.argv[1], encoding="utf-8")); uit = sys.argv[2]
-    global KRIJT, INKT, PAPIER
+    global KRIJT, INKT, PAPIER, HAND, PEN
+    if sc.get("hand"):                                              # {"hand": png, "handjson": json, "handmaat": 0.45}
+        hi = Image.open(sc["hand"]).convert("RGBA"); hj = json.load(open(sc["handjson"]))
+        k = sc.get("handmaat", 0.45); hi = hi.resize((int(hi.width * k), int(hi.height * k)), Image.LANCZOS)
+        HAND = (hi, (int(hj["punt"][0] * k), int(hj["punt"][1] * k)))
     if sc.get("bord"):                                              # donker bord: krijtkleur voor lijnen en tekst
         PAPIER = tuple(sc["bord"]); KRIJT = INKT = (236, 236, 228)
         import mooi; mooi.thema_donker()
@@ -391,6 +419,7 @@ def main():
             return d
         for f in range(int(sc["duur"] * FPS)):
             t = f / FPS; k = max(i for i, b in enumerate(bt) if b <= t) if t >= bt[0] else 0
+            PEN = None
             if k > 0 and t < bt[k] + SCH:
                 q = (t - bt[k]) / SCH; q = q * q * (3 - 2 * q); dx = int(W * q)
                 oud, nieuw = teken_bord(k - 1, t), teken_bord(k, t)
@@ -399,6 +428,7 @@ def main():
                 doek = teken_bord(k, t)
             for x, tot in vast:
                 if t < tot: x.op(doek, t)
+            hand_op(doek)
             p.stdin.write(doek.tobytes())
         p.stdin.close(); p.wait(); print("KLAAR", uit); return
     for f in range(int(sc["duur"] * FPS)):
