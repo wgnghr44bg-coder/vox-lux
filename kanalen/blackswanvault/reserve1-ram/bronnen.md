@@ -33,3 +33,10 @@ Reservevideo (niet aan nieuwsdag gebonden). Na nakijken: stem.sh/maak.sh van vid
 - HBM ± 3x zoveel wafer per GB als DDR5 (Micron, Hot Chips 2026; "definitely not getting better"); HBM ± 5x prijs per bit: https://www.tomshardware.com/tech-industry/semiconductors/micron-says-the-silicon-gap-between-hbm-and-ddr5-is-widening-with-every-generation ; "a third as much gigabytes per wafer": https://semiengineering.com/issues-stack-up-with-more-hbm-layers/
 - Winkelprijs 32 GB DDR5-6000: zomer 2025 gem. ± $115 (sale $90); okt 2026 $375 (goedkoopste, PCPartPicker) tot $475-790 (Amazon 30 okt). https://www.tomshardware.com/pc-components/ddr5/32gb-of-ddr5-now-costs-usd375-minimum-ai-shortage-continues-to-squeeze-pc-building , https://computingforgeeks.com/?p=180243
 - Samsung Q3 2026 (29 okt, persbericht): omzet 195,3 bln won, bedrijfswinst 107,4 bln won (eerste techbedrijf > 100 bln/kwartaal); chipdivisie 106,5 bln winst (± 99%); MX+Networks -0,6 bln won verlies. https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results  (omrekening ± $75 mld: koers nog checken)
+
+## Klaar voor productie (21 nov 10:55)
+- script.txt ± 1.480 woorden (± 8 min bij 180 w/min); titel in youtube-titel.txt (onderwerp + feit + prikkel).
+- ai/prompts.txt: 15 AI-beelden (ComfyUI: `python tools/comfy/comfy_batch.py tools/comfy/zimage_api.json kanalen/blackswanvault/reserve1-ram/ai`), daarna rijen in echt/bronnen.tsv als AI.
+- Echte foto's (Wikimedia) nog zoeken: geheugenmodule DDR5, Samsung/SK hynix-fabriek of logo, Micron-gebouw, Crucial-verpakking, Sam Altman (CC).
+- Daarna: stem.sh/mix.py/maak.sh + render-basis van video9 kopiëren, render-shots schrijven per @scene, Short (open-prijs + open-antwoord), thumbnail met thumb_ding.py (RAM-reep, "RAM 4X PRICE / WHY?").
+- Beschrijving pas na de stem (hoofdstuktijden uit zinnen.json).

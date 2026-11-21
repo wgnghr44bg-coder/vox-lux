@@ -131,6 +131,12 @@ The bad news is that new memory factories take years to build.
 And as long as AI companies keep spending hundreds of billions of dollars on data centers, they will keep buying first.
 Some industry leaders expect prices to fall sometime in 2027.
 Others think the shortage could last much longer.
+@scene h7-capex
+There is one more sign of where this is going.
+In the third quarter alone, Samsung spent twenty-nine trillion won on new factories and equipment.
+That is twelve trillion more than in the quarter before.
+New supply is coming.
+But it will take time, and much of it is going to AI first.
 @scene h7-tips
 So what can you do?
 If your computer still works fine, this may not be the year to upgrade.
