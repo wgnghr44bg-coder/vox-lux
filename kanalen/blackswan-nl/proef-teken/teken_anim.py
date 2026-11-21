@@ -45,8 +45,9 @@ class Tekening:
         im = Image.open(it["beeld"]).convert("RGB")
         ys, xs = np.nonzero(wit_maken(im).min(axis=2) < 245)          # bijsnijden tot de tekening zelf
         im = im.crop((max(0, xs.min() - 6), max(0, ys.min() - 6), xs.max() + 6, ys.max() + 6))
-        s = it["breed"] / im.width
-        im = im.resize((it["breed"], int(im.height * s)), Image.LANCZOS)
+        s = min(it["breed"] / im.width, it.get("hoog", 10000) / im.height)      # past in breed én hoogte
+        im = im.resize((max(1, int(im.width * s)), max(1, int(im.height * s))), Image.LANCZOS)
+        if it.get("midden"): it["x"] = int(it["x"] + (it["breed"] - im.width) / 2)
         self.kleur = wit_maken(im)
         g = self.kleur.mean(axis=2)
         self.lijn = g < 80

@@ -389,3 +389,7 @@ ValueError: empty separator)
 - 2026-11-21 20:24 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 20:40 Claude: pearl-harbor-1941 keten weer gestopt (eigenaar: BlackswanVault tekenproef); bewaker hervat later
 - 2026-11-21 20:48 sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-21 21:00 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 21:00 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 21:09 Claude: pearl-harbor-1941 keten gestopt (eigenaar: sleep even stil voor Swan tekenproef v2)
+- 2026-11-21 21:18 sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten
