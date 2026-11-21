@@ -148,7 +148,7 @@ def clip(naam, t, dur, zoom=(1.0, 1.08), donker=0.72, blur=0, speed=0.8):
 # ---------- tekst en overlays ----------
 _MND = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
 def nl_datum(dg, n):                                       # Geldverhaal: Nederlandse datums op grafieken
-    return f"{dg.day} {_MND[dg.month - 1]}" if n < 200 else f"{_MND[dg.month - 1]} {dg.year}" if n < 700 else str(dg.year)
+    return f"{dg.day} {_MND[dg.month - 1]}" if n < 200 else f"{_MND[dg.month - 1]} {dg.year}" if n < 1100 else str(dg.year)   # tot ± 4 jaar maand + jaar (anders dubbele jaartallen)
 def txt(d, xy, s, f, kleur=WIT, a=1.0, anchor="la"):
     d.text(xy, s, font=f, fill=tuple(kleur) + (int(255 * max(0, min(1, a))),), anchor=anchor)
 def credit(img, nr):
@@ -259,8 +259,8 @@ def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_l
         i = next((k for k, (dd, _) in enumerate(pts) if str(dd) >= datum), None)
         if i is None or i >= n: continue
         mx, my = xy(i, pts[i][1]); a = ease((n - i) / 8)
-        d.line([(mx, my - 18), (mx, Y1 - 30)], fill=(255, 255, 255, int(90 * a)), width=2)
-        txt(d, (mx, Y1 - 40), label, font(BOLD, 26), WIT, a, "ms")
+        d.line([(mx, my - 18), (mx, Y1 - 4)], fill=(255, 255, 255, int(90 * a)), width=2)
+        txt(d, (mx, Y1 - 10), label, font(BOLD, 26), WIT, a, "ms")   # niet over de ondertitel (y 175)
     return img, (pts[0][1], pts[n - 1][1])
 
 def staven(t, dur, labels, waarden, titel, sub, fmt, bron_s, hl=None, kleur=GROEN, stap=None, schaal=None):

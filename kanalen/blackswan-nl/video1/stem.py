@@ -1,4 +1,4 @@
-"""Geldverhaal: script.txt inspreken met vaste NL-stem richard-nl (1.1, seed 1) (ontworpen, niet gekloond).
+"""Geldverhaal: script.txt inspreken met stem2-nl (echte stem, opname eigenaar 21 nov; speed 1.0, seed 1). Was richard-nl 1.1.
 Schrijft stem.wav (24 kHz) + zinnen.json: [start, eind, zin, scene]. Met --opnieuw 3,17 alleen die zinnen opnieuw
 (rest uit de bestaande stem.wav)."""
 import json, sys
@@ -12,7 +12,8 @@ from voice.batch_generator import edge_fade, trim
 from voice.voice_config import VoiceConfig
 H = Path(__file__).parent
 inst = b1.standaard(); SR = ov.SR
-cfg = VoiceConfig(voice="richard-nl", speed=1.1, seed=1, num_step=inst["model"]["num_step"],
+cfg = VoiceConfig(voice="stem2-nl", speed=1.0,   # eigenaar 21 nov: "ja doe maar" na proef van 1 min
+                  seed=1, num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 zinnen, scene = [], None
 for r in (H / "script.txt").read_text(encoding="utf-8").splitlines():
