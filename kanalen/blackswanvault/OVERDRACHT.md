@@ -22,6 +22,13 @@ Thumbnails wo/do/vr (eigenaar 21 nov: "alle 3 goed, je leest en ziet meteen waar
 (winkelwagen met lange kassabon / gebroken bitcoin / Starship), gemaakt met `thumb_ding.py`; niet meer een geschrokken gezicht.
 Rood viel weg op rode achtergronden; letters hebben nu een zwarte rand.
 
+**Hype-seintje (21 nov, werkt, getest):** `tools/swan_yt_wacht.py` (08:10 en 15:55) stuurt via de gratis app ntfy een melding
+naar de telefoon van de eigenaar bij echt grote hype (STERK: YouTube + nieuws, of koers >= 2x de GROOT-grens) waar we nog geen
+video over hebben; max 1x per onderwerp per dag. Kanaalnaam staat ALLEEN op de pc in `~/.swan-ntfy.json` (niet in de openbare repo).
+Opnieuw testen: `python -c "import sys; sys.path.insert(0,'tools'); import swan_yt_wacht as w; w.seintje('Test','tekst')"`.
+Er wordt niet vanzelf een video gemaakt: de eigenaar opent Claude en zegt "maak de hype-video".
+Website (docs/status): planning per dag Swan | Sleep, "Hype nu" met nieuwswacht + YouTube-wachter; NOIRTRACES staat er niet meer op.
+
 **Verzetten mag (eigenaar 21 nov):** komt er echt grote hype (STERK in de wachters), dan mag een geplande privé-video
 naar een latere dag (publishAt aanpassen via de API, kanaal checken) om plaats te maken. Nieuwe video eerst laten zien.
 
