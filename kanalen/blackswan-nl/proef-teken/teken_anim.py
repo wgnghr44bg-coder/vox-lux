@@ -341,11 +341,12 @@ def main():
                          stdin=subprocess.PIPE)
     if "borden" in sc:                                              # 21 nov: rustige stijl, bord schuift opzij
         bt = sc["borden"]; SCH = sc.get("schuif", 1.0)
-        perbord = [[x for (x, _), i in zip(items, sc["items"]) if i.get("bord") == k] for k in range(len(bt))]
+        perbord = [[(x, tot) for (x, tot), i in zip(items, sc["items"]) if i.get("bord") == k] for k in range(len(bt))]
         vast = [(x, tot) for (x, tot), i in zip(items, sc["items"]) if "bord" not in i]
         def teken_bord(k, t):
             d = np.empty((H, W, 3), np.uint8); d[:] = PAPIER
-            for x in perbord[k]: x.op(d, t)
+            for x, tot in perbord[k]:
+                if t < tot: x.op(d, t)                              # "tot" ook binnen een bord (houding F wisselt)
             return d
         for f in range(int(sc["duur"] * FPS)):
             t = f / FPS; k = max(i for i, b in enumerate(bt) if b <= t) if t >= bt[0] else 0

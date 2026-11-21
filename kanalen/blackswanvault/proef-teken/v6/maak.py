@@ -9,8 +9,9 @@ def b(k, naam, x, y, br, h, t0, dur=1.8, map_=A):
     it.append({"bord": k, "beeld": map_ + naam + ".png", "x": x, "y": y, "breed": br, "hoog": h, "midden": True, "start": t0, "teken": dur, "kleur": 0.9})
 def tx(k, t, x, y, maat, kl, t0, dur=0.8): it.append({"bord": k, "tekst": t, "x": x, "y": y, "maat": maat, "kleur": kl, "start": t0, "teken": dur})
 def kop(k, t0, titel): it.append({"bord": k, "kop": titel, "rechts": "Not financial advice", "start": t0})
-def F(k, pose, t0, tot=None):
-    d = {"bord": k, "beeld": P + pose + ".png", "x": 30, "y": 300, "breed": 230, "hoog": 400, "midden": True, "start": t0, "teken": 1.4, "kleur": 0.6}
+def F(k, pose, t0, tot=None, snel=False):
+    d = {"bord": k, "beeld": P + pose + ".png", "x": 30, "y": 300, "breed": 230, "hoog": 400, "midden": True, "start": t0,
+         "teken": 0.25 if snel else 1.4, "kleur": 0.25 if snel else 0.6}                       # houding wisselen: snel
     if tot: d["tot"] = tot
     it.append(d)
 # hoofdstuk 1
@@ -32,7 +33,7 @@ b(1, "r05", 780, 70, 400, 230, s[5] + 0.1)
 tx(1, "$86 billion: a record", 800, 305, 38, GR, s[5] + 2.0)
 it.append({"bord": 1, "data": "../../video9/data/spcx.json", "logo": LG, "logohoog": 22, "onder": "closing price", "taal": "en", "valuta": "$",
            "x": 290, "y": 405, "breed": 640, "hoog": 300, "start": s[6] + 0.2, "teken": e[9] - s[6] - 0.5})
-F(1, "f2", s[10])
+F(1, "f2", s[10], snel=True)
 tx(1, "-40%", 990, 470, 72, RO, s[10] + 0.8)
 tx(1, "from the top", 960, 560, 38, RO, s[10] + 1.4)
 # hoofdstuk 3
