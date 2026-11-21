@@ -20,3 +20,10 @@ Reservevideo (niet aan nieuwsdag gebonden). Na nakijken: stem.sh/maak.sh van vid
 2. Script afmaken tot ≥ 8 min (± 1.150 woorden), antwoord binnen 2 min (staat er al in).
 3. Titel (onderwerp + feit + prikkel, ±40-60 tekens, mens/bekende naam als het klopt): voorstel "Why RAM Got So Expensive. AI Is Eating Your Memory".
 4. Beelden: Wikimedia (geheugenmodules, Samsung/SK Hynix/Micron-fabrieken), ComfyUI voor de rest; thumbnail met het ding zelf (RAM-reep) + "RAM +400%?" o.i.d.
+
+## Nagekeken 21 nov 10:50
+- Micron/Crucial KLOPT, maar datum: aangekondigd 3 dec 2025, leveringen tot eind feb 2026 (fiscaal Q2). Reden: AI-datacenters; productie naar HBM/servers. https://www.tomshardware.com/pc-components/dram/micron-is-killing-crucial-ssds-and-memory-in-ai-pivot-company-refocuses-on-hbm-and-enterprise-customers , persbericht https://micron.gcs-web.com/node/49841
+- SK hynix Q3 2026 (28 okt): omzet 104,6 bln won (voor het eerst > 100 bln), bedrijfswinst 83,3 bln won, marge 80%, +632% j/j; DRAM en HBM volgeboekt tot 2029. https://koreajoongangdaily.com/business/sk-hynix-says-dram-hbm-booked-through-2029-as-profit-soars-to-62b/12942008 , https://www.koreatimes.co.kr/business/companies/20261028/sk-hynix-logs-record-q3-operating-profit-of-628-bil
+- Samsung Q3 2026 (29 okt): chipdivisie record, marge ± 72%; exacte cijfers nog nakijken. https://lightreading.com/finance/memory-boom-carries-samsung-to-another-bumper-quarter
+- Sam Altman: podcast Cheeky Pint (John Collison, 29 okt 2026): RAM in pc's "quite terrible" voor het beperkte wereldaanbod, ± 5% benut (zijn schatting). 16 nov (Semafor): "I want people to have a lot of RAM". Exacte woorden nakijken in de opname. https://pcworld.com/article/3274634/sam-altman-says-your-pcs-memory-should-belong-to-him.html , https://mixed-news.com/en/sam-altman-wants-people-to-have-ram-semafor-clarification/
+- Mens-invalshoek (CTR-les): Sam Altman en de RAM-ruzie → titelidee "Sam Altman Wants Your RAM. That's Why It Costs $450" (alleen als het citaat klopt).
