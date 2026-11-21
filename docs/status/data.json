@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 12:33",
+ "bijgewerkt": "2026-11-21 13:03",
  "kanalen": {
   "weken": [
    {
@@ -33,20 +33,20 @@
       "datum": "2026-11-19",
       "items": [
        {
-        "kanaal": "NOIRTRACES",
-        "datum": "2026-11-19",
-        "tijd": "07:49",
-        "titel": "Who Was Jack the Ripper? | True Crime for Sleep",
-        "stand": "online",
-        "youtube": "AXKM1BEMq10"
-       },
-       {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-19",
         "tijd": "17:03",
         "titel": "The Man Who Built NVIDIA Just Walked Away",
         "stand": "online",
         "youtube": "ioMjKb2_dVI"
+       },
+       {
+        "kanaal": "NOIRTRACES",
+        "datum": "2026-11-19",
+        "tijd": "18:00",
+        "titel": "Who Was Jack the Ripper? | True Crime for Sleep",
+        "stand": "online",
+        "youtube": "AXKM1BEMq10"
        },
        {
         "kanaal": "BlackswanVault",
@@ -321,7 +321,7 @@
   ],
   "regels": {
    "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
-   "NOIRTRACES": "OP PAUZE (eigenaar 19 nov avond: eerst zien hoe Jack the Ripper het doet). Script Holmes ligt klaar in stories/_nt-hh-holmes (nog niet gemaakt). Daarna 1x per week, vr 21:00.",
+   "NOIRTRACES": "WORDT GELDVERHAAL (eigenaar 21 nov 2026): Nederlandse versie van BlackswanVault over geld, bedrijven en beleggen. Handle @Geldverhaal rond 2 dec; eerst 2-3 video's klaar. Plan: kanalen/blackswan-nl/PLAN.md.",
    "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov)."
   },
   "fouten": []
@@ -1288,7 +1288,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 12:33)"
+   "tekst": "draait nu (2026-11-21 13:03)"
   },
   {
    "naam": "Git",
@@ -1308,7 +1308,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:21: alles klopt"
+   "tekst": "laatste ronde 12:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -1325,8 +1325,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 12:33",
-   "volgende": "2026-11-21 13:03"
+   "laatst": "2026-11-21 13:03",
+   "volgende": "2026-11-21 13:33"
   },
   "hype": {
    "aan": true,
@@ -1340,8 +1340,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 12:18",
-   "volgende": "2026-11-21 12:48"
+   "laatst": "2026-11-21 12:48",
+   "volgende": "2026-11-21 13:18"
   },
   "titels": {
    "aan": true,
@@ -1452,7 +1452,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 793,
+    "views": 795,
     "verwerkt": "processed"
    }
   ],
@@ -1676,8 +1676,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 543,
+  "bezig_procent": 27,
+  "geheugen_mb": 534,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3992,7 +3992,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 12:33",
+  "bijgewerkt": "2026-11-21 13:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4011,28 +4011,28 @@
    },
    {
     "account": "account2",
-    "5uur": 6684712,
-    "week": 112498073,
+    "5uur": 8375015,
+    "week": 112286224,
     "per_dag": {
-     "Sat 14-11": 23598278,
+     "Sat 14-11": 21696126,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 10930933,
+     "Sat 21-11": 12621236,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 31751,
+    "stap_kost": 32448,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 49,
-    "5uur_scripts_over": 10.4,
-    "5uur_stappen_over": 217,
+    "5uur_pct": 62,
+    "5uur_scripts_over": 7.8,
+    "5uur_stappen_over": 160,
     "week_pct": 85,
-    "week_scripts_over": 29.4,
-    "week_stappen_over": 615
+    "week_scripts_over": 29.8,
+    "week_stappen_over": 608
    }
   ]
  },
