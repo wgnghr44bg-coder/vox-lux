@@ -19,3 +19,10 @@ Kloon via OmniVoice van het eigen stembestand van de eigenaar; geluid ALLEEN op 
 Gebruik: VoiceConfig(voice="richard-nl", speed=0.96, seed=1, ...) zoals video9/stem.py. Geen tempo/toonhoogte-trucs achteraf.
 ## Taal (eigenaar 21 nov): scripts in JUIST Nederlands. Vóór de stem nalezen op spelling (zoveel/zover aaneen), dubbele woorden ("maar ... maar"),
 anglicismen en inhoud (bv. "hoeveelheid geheugen", niet "aantal chips"). Na de stem: Whisper (taal nl) per zin; verkeerd verstaan → zin opnieuw met ander seed.
+## Schrijfstijl NL (21 nov, eigenaar: "vergelijk het script echt met andere Nederlandse tekst")
+Vergeleken met NOS/nu.nl Economie (gem. 16,6 woorden per zin; onze vertaalde proef 11,4 met Engelse zinsbouw):
+- Schrijf zoals een Nederlander praat, niet vertaald: "Kort gezegd:" i.p.v. "Het korte antwoord is:", "Hoe kan dat?" i.p.v. "Dus wat is er gebeurd?",
+  "kwam uit op", "inmiddels", "ruim", "vrijwel", "vorig jaar zomer"; werkwoord achteraan in bijzinnen is goed.
+- Niet alleen korte hakzinnen; afwisselen met normale zinnen met "want", "en", "toch".
+- Geen Engelse woordvolgorde of uitdrukkingen ("haalde binnen", "simpelweg"), geen dubbele woorden; spelling (zoveel, zover).
+- Klemtoon: OmniVoice legt Nederlandse klemtoon soms verkeerd (model vooral Engels/Chinees) → Chatterbox Multilingual (taal nl) getest als alternatief.
