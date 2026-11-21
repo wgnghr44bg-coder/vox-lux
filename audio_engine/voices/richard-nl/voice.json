@@ -4,6 +4,6 @@
   "ref_pc": "C:/Users/rane/vox-lux-stemmen/richard/ref.wav",
   "ref_text": "Je afspraak over beelden staat in het plan. Een echt beeld alleen als het goed is en past bij wat er gezegd wordt. Anders liever een goed AI-beeld. Welke van de vier proefstemmen vond je het best? Daarna is de volgende stap de naam van het kanaal.",
   "seed": 1,
-  "default_speed": 0.96,
-  "vast": "VASTE STEM BlackswanVault NL (eigenaar 21 nov 2026: 'seed1' = r2b: speed 0.96, seed 1). Niet veranderen zonder eigenaar."
+  "default_speed": 1.1,
+  "vast": "VASTE STEM BlackswanVault NL (eigenaar 21 nov 2026): OmniVoice, speed 1.1, seed 1, pauze 0.28 s (vraag 0.45 s); script in natuurlijk Nederlands. Niet veranderen zonder eigenaar."
 }
