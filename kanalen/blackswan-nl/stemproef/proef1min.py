@@ -9,7 +9,7 @@ from voice.voice_config import VoiceConfig
 import b1
 inst = b1.standaard()
 ZINNEN = """Wie dit jaar een computer wilde bouwen, merkte iets vreemds.
-Het geheugen, het RAM, kostte ineens meer dan bijna alles in de kast.
+Het geheugen, het RAM, kostte ineens meer dan bijna elk ander onderdeel van de computer.
 Een populaire set snel geheugen van tweeëndertig gigabyte kost nu zo'n vierhonderd tot vijfhonderd dollar.
 In de zomer van vorig jaar kostte zo'n set gemiddeld honderdvijftien dollar.
 Dat is ongeveer vier keer zoveel, in iets meer dan een jaar.
@@ -25,7 +25,7 @@ En dat raakt ook Nederland.
 Want de belangrijkste machines om die chips te maken, komen van ASML uit Veldhoven.
 Laten we kijken hoe het zover kwam, wie eraan verdient, en wanneer het stopt.""".splitlines()
 EXTRA = {2: 100}  # zin 3 opnieuw (tweeëndertig werd "2,30")
-cfg = VoiceConfig(voice="richard-nl", speed=0.96, seed=1, num_step=inst["model"]["num_step"],
+cfg = VoiceConfig(voice="richard-nl", speed=1.05, seed=1, num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 delen = []
 for i, z in enumerate(ZINNEN):
