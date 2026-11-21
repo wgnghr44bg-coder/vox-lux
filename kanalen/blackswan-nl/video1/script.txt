@@ -1,0 +1,145 @@
+# Geldverhaal video 1: ASML zakt 9%. Eén zin per regel, getallen uitgeschreven, afkortingen die als woord fout gaan als letters (A E X, S E C, E U V).
+# Titel (voorstel): ASML Zakt 9%: Barst De AI-Bubbel?
+# Feiten en bronnen: bronnen.md. Stem per zin (stem.py), richard-nl 1.1.
+@scene open-val
+Vrijdag twintig november was een zwarte dag voor ASML.
+Het aandeel verloor in Amsterdam ruim negen procent, en sloot op elfhonderdachtenzestig euro.
+@scene open-top
+Eind juni stond ASML nog op ruim zeventienhonderd euro.
+In vijf maanden tijd is bijna een derde van de waarde verdwenen.
+@scene open-meer
+En ASML stond er niet alleen voor.
+Nvidia, de grootste maker van AI-chips, zakte op dezelfde dag veertien procent.
+De Amerikaanse techbeurs ging ruim vijf procent omlaag, en ook de A E X zakte ruim twee procent.
+@scene open-vraag
+Wat is er aan de hand?
+Barst de AI-bubbel?
+En wat betekent dit voor ASML, en voor jouw geld?
+@scene open-antwoord
+Kort gezegd: beleggers twijfelen of de honderden miljarden die in AI worden gestoken, wel genoeg gaan opleveren.
+En vrijdag kwam daar nog een klap bij: nieuws over een onderzoek naar de boekhouding van Nvidia.
+Als beleggers gaan twijfelen aan AI, voelt ASML dat als een van de eersten.
+Want zonder de machines uit Veldhoven kan niemand de nieuwste chips maken.
+In deze video zoeken we uit wat er precies gebeurde, waarom juist ASML zo hard geraakt wordt, en of je je zorgen moet maken.
+@scene h1-week
+Om te snappen wat er gebeurde, moeten we een paar dagen terug.
+@scene h1-cijfers
+Op dinsdag zeventien november presenteerde Nvidia zijn kwartaalcijfers.
+Die waren uitstekend.
+De omzet kwam uit op bijna honderdzestien miljard dollar, meer dan twee keer zoveel als een jaar eerder.
+Normaal gaat een aandeel daarvan omhoog.
+Maar in de dagen daarna zakte het juist verder.
+@scene h1-huang
+Beleggers waren namelijk al onrustig.
+Op twaalf november, vijf dagen eerder, was topman Jensen Huang opgestapt, de man die Nvidia drieëndertig jaar lang leidde.
+Voor veel beleggers was hij het gezicht van de hele AI-hausse.
+@scene h1-sec
+En toen kwam vrijdag.
+Persbureau Reuters meldde dat de Amerikaanse beurswaakhond, de S E C, kijkt naar mogelijke problemen in de boekhouding van Nvidia.
+De S E C is de toezichthouder die erop let dat beursbedrijven eerlijk zijn over hun cijfers.
+Het is een onderzoek, nog geen beschuldiging.
+Maar het aandeel zakte die dag veertien procent, de zevende daling op rij.
+@scene h1-rest
+Andere chipbedrijven gingen mee omlaag.
+Broadcom verloor zo'n twaalf procent, na onbevestigde berichten dat Google volgend jaar minder chips gaat afnemen.
+En dan was er nog Anthropic, het AI-bedrijf achter de chatbot Claude.
+Op donderdag negentien november ging het naar de beurs, en haalde het meer dan eenentachtig miljard dollar op.
+Het was een van de grootste beursgangen ooit.
+Beleggers betaalden drieëntachtig dollar per aandeel, en bij de opening stond het al op honderdelf.
+Maar binnen twee dagen was een groot deel van die winst weer verdwenen.
+Voor veel beleggers was dat een teken dat het enthousiasme over AI aan het afkoelen is.
+@scene h1-correctie
+De brede Amerikaanse beurs, de S en P vijfhonderd, staat inmiddels ruim tien procent onder zijn hoogste punt.
+Beleggers noemen dat een correctie.
+@scene h2-asml
+Maar waarom raakt dit allemaal ASML, een bedrijf uit Brabant?
+Daarvoor moet je weten wat ASML eigenlijk maakt.
+@scene h2-begin
+Het begon in 1984, als een klein samenwerkingsverband van Philips en het bedrijf A S M International.
+De eerste medewerkers werkten in houten keten naast een kantoor van Philips in Eindhoven.
+Bijna niemand verwachtte dat juist dit bedrijf ooit een van de belangrijkste techbedrijven ter wereld zou worden.
+Toch is dat precies wat er gebeurde.
+@scene h2-machines
+ASML maakt de machines waarmee chips worden gemaakt.
+De meest geavanceerde heten E U V-machines.
+Ze werken met extreem ultraviolet licht, en kunnen patronen op een chip zetten die duizenden keren dunner zijn dan een haar.
+Een machine is zo groot als een bus, en kost al gauw zo'n tweehonderd miljoen euro.
+@scene h2-highna
+De nieuwste versie, de zogeheten High N A-machine, is nog groter en nog duurder.
+Daar betalen chipmakers volgens verschillende berichten zo'n driehonderdvijftig miljoen euro per stuk voor.
+@scene h2-uniek
+En hier komt het belangrijkste: ASML is het enige bedrijf ter wereld dat deze machines kan maken.
+Wie de modernste chips wil bouwen, zoals T S M C in Taiwan, Samsung of Intel, moet bij ASML aankloppen.
+Ook de chips van Nvidia worden met ASML-machines gemaakt.
+Bij ASML werken tienduizenden mensen, het grootste deel in Nederland.
+En de machines worden onderdeel voor onderdeel in Veldhoven in elkaar gezet, en daarna in stukken per vliegtuig naar de klant gebracht.
+@scene h2-china
+Dat maakt ASML ook politiek belangrijk.
+Al sinds 2019 mag ASML zijn E U V-machines niet aan China leveren.
+En sinds 2023 gelden er ook Nederlandse exportregels voor andere machines, onder druk van de Verenigde Staten.
+Zo is een bedrijf uit Veldhoven midden in de techstrijd tussen Amerika en China beland.
+@scene h3-keten
+Daarom hangt ASML aan het einde van een lange keten.
+AI-bedrijven kopen chips bij Nvidia.
+Nvidia laat die chips maken door fabrieken zoals T S M C.
+En als die fabrieken moeten uitbreiden, kopen ze nieuwe machines bij ASML.
+@scene h3-twijfel
+Zolang iedereen gelooft dat AI blijft groeien, is dat een gouden keten.
+Maar als beleggers twijfelen, rekenen ze meteen door.
+Minder AI-investeringen betekent op termijn minder nieuwe chipfabrieken.
+En minder fabrieken betekent minder bestellingen in Veldhoven.
+@scene h3-goed
+Het opvallende is: met ASML zelf gaat het juist heel goed.
+In het derde kwartaal haalde ASML een recordomzet van elf komma zeven miljard euro.
+De nettowinst kwam uit op vijf miljard euro.
+En volgens ASML is de vraag zo groot, dat het in 2027 en 2028 niet genoeg machines kan maken voor alle klanten.
+@scene h3-verwachting
+Waarom zakt het aandeel dan toch?
+Omdat een koers niet gaat over vandaag, maar over de toekomst.
+Beleggers betalen voor de winst van over een paar jaar.
+En juist over die jaren is nu twijfel ontstaan.
+@scene h3-eerder
+En het is niet de eerste keer dat het aandeel zo hard valt.
+In oktober 2024 stonden de kwartaalcijfers van ASML per ongeluk een dag te vroeg online.
+De verwachtingen voor het jaar erna vielen tegen, en het aandeel zakte die dag zo'n zestien procent.
+Toch klom het daarna weer naar nieuwe records, tot die ruim zeventienhonderd euro van afgelopen juni.
+Grote dalingen horen dus bij dit aandeel, ook als het bedrijf zelf goed draait.
+@scene h4-bubbel
+Dus: barst de AI-bubbel?
+Daar zijn twee kanten aan.
+@scene h4-voor
+Wie zegt dat het een bubbel is, wijst op de enorme bedragen.
+De vier grootste techbedrijven van Amerika steken dit jaar samen meer dan zevenhonderd miljard dollar in AI.
+Het is nog niet duidelijk of dat geld ooit wordt terugverdiend.
+En als er bij de grootste naam, Nvidia, twijfel komt over de boekhouding, schrikt de hele markt.
+@scene h4-tegen
+Wie zegt dat het geen bubbel is, wijst op de echte cijfers.
+Nvidia verdubbelde zijn omzet in een jaar.
+ASML draait recordomzet, en klanten vragen nu al naar machines voor 2029 en 2030.
+Bij een echte bubbel verdienen bedrijven vaak weinig.
+Hier verdienen ze juist heel veel.
+@scene h4-eerlijk
+Het eerlijke antwoord is: niemand weet het zeker.
+Er is een groot verschil tussen een bedrijf dat goed draait, en een aandeel dat te duur is geworden.
+Allebei kan tegelijk waar zijn.
+@scene h5-jij
+Wat betekent dit voor jou?
+ASML is het grootste bedrijf van de A E X.
+Dus ook als je zelf geen aandelen hebt, zit je er vaak indirect in, bijvoorbeeld via je pensioenfonds of een indexfonds.
+Daarom raakt een slechte dag bij ASML veel meer Nederlanders dan je zou denken.
+@scene h5-tijd
+Hoe je naar zo'n daling kijkt, hangt ook af van je tijd.
+Wie het geld volgende maand nodig heeft, voelt een daling van een derde direct.
+Wie voor twintig jaar belegt, kijkt vaak vooral naar hoe het bedrijf zelf ervoor staat.
+En spreiding zorgt ervoor dat één aandeel niet je hele vermogen bepaalt.
+@scene h5-letop
+Waar moet je de komende tijd op letten?
+Eén: wat er uit het onderzoek naar Nvidia komt.
+Twee: of grote techbedrijven hun AI-uitgaven gaan verlagen.
+En drie: zevenentwintig januari, als ASML zijn verwachtingen voor 2027 bekendmaakt.
+Dit is geen beleggingsadvies.
+@scene slot
+ASML maakt de machines waar de hele AI-wereld op draait.
+Dat maakt het bedrijf onmisbaar, maar het aandeel ook gevoelig voor elke twijfel.
+Vrijdag was zo'n dag van twijfel.
+De vraag is of het een dip blijft, of het begin is van iets groters.
