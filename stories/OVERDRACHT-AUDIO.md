@@ -96,3 +96,5 @@ Praat Nederlands, simpel. Alles gratis/lokaal. Vraag de eigenaar altijd eerst al
 - **Tombstone**: opnieuw vanaf de beweging met de goede effecten (tools/tombstone_herstel.ps1, log C:\Users\rane\tombstone-herstel.log),
   hoofdstuktijden in de beschrijving gelijk aan de video, QC-hapering slaat heel zachte stukjes over. Daarna upload + oude vervangen.
 - **Egypte**: montage loopt (testvolgorde stap 4), 92 nagekeken beelden (13 vervangen).
+
+- 21 nov 2026: AI-label (`status.containsSyntheticMedia=true`) via de API op alle 20 video's van Sleep Archives gezet (publicatietijden ongewijzigd); youtube_upload.py zet het bij nieuwe uploads.
