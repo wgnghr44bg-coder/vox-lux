@@ -50,6 +50,9 @@ Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got
 +17 abonnees, 16.288 vertoningen (x4), CTR 3,5%. Shorts 8.054 weergaven/67,9 uur; lange video's 1.072 weergaven/29,7 uur.
 Partnerprogramma telt alleen lange-video-uren (4.000) → elke dag een lange video is de sleutel. Opnieuw vergelijken rond 28 nov 2026 (eigenaar: "zoals sleep"); herinnering via ntfy op 28 nov 10:00 voor Sleep én Swan (tools/herinner_cijfers.py, taak "BlackswanVault cijfers 28 nov").
 
+**AI-label (21 nov):** via de API op alle 16 video's (Shorts + lang) `status.containsSyntheticMedia=true` gezet; YouTube bevestigde het
+in het antwoord, publishAt bleef gelijk. Teruglezen via de API toont het veld niet → controle in Studio. `tools/youtube_upload.py` zet het al bij elke upload.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.
