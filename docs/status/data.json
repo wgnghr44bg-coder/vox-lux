@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 22:04",
+ "bijgewerkt": "2026-11-21 22:33",
  "kanalen": {
   "weken": [
    {
@@ -2271,7 +2271,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -2582,8 +2582,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": true,
-   "tekst": "draait"
+   "ok": false,
+   "tekst": "staat uit (de routine start hem zelf)"
   },
   {
    "naam": "ffmpeg",
@@ -2602,18 +2602,18 @@
   },
   {
    "naam": "Taak 'routine'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-10 09:00)"
   },
   {
    "naam": "Taak 'scriptgenerator'",
-   "ok": false,
-   "tekst": "niet gevonden"
+   "ok": true,
+   "tekst": "laatste keer goed (2026-11-09 06:00)"
   },
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 22:03)"
+   "tekst": "draait nu (2026-11-21 22:33)"
   },
   {
    "naam": "Git",
@@ -2632,8 +2632,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": false,
-   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
+   "ok": true,
+   "tekst": "laatste ronde 22:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2650,8 +2650,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 22:03",
-   "volgende": "2026-11-21 22:33"
+   "laatst": "2026-11-21 22:33",
+   "volgende": "2026-11-21 23:03"
   },
   "hype": {
    "aan": true,
@@ -2660,13 +2660,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-21 22:09",
-   "volgende": "2026-11-21 22:10"
+   "laatst": "2026-11-21 22:32",
+   "volgende": "2026-11-21 23:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 21:48",
-   "volgende": "2026-11-21 22:18"
+   "laatst": "2026-11-21 22:18",
+   "volgende": "2026-11-21 22:48"
   },
   "titels": {
    "aan": true,
@@ -2777,7 +2777,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 807,
+    "views": 810,
     "verwerkt": "processed"
    }
   ],
@@ -2973,12 +2973,12 @@
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 15,
-   "procent": 20
+   "totaal": 14,
+   "procent": 21
   },
-  "fouten": 3,
+  "fouten": 1,
   "zelfcontrole": {
-   "goed": 9,
+   "goed": 11,
    "totaal": 12
   }
  },
@@ -2991,23 +2991,30 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 0,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2026-12-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
   "voortgang": null,
   "detail": "",
-  "taken": [],
+  "taken": [
+   "routine zonder Claude"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "routine zonder Claude",
+   "stap": 0
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 455,
+  "bezig_procent": 72,
+  "geheugen_mb": 5276,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3093,24 +3100,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 21:00",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 21:00",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 21:09",
-   "tekst": "Claude: pearl-harbor-1941 keten gestopt (eigenaar: sleep even stil voor Swan tekenproef v2)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-21 21:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
@@ -3175,22 +3164,30 @@
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 22:09",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 22:09",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 22:18",
+   "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 22:04",
-   "tekst": "Zelfcontrole: Taak 'routine': niet gevonden",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-21 22:04",
-   "tekst": "Zelfcontrole: Taak 'scriptgenerator': niet gevonden",
-   "fout": true
-  },
-  {
-   "tijd": "2026-11-21 22:04",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 22:33",
+   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
    "fout": true
   }
  ],
@@ -5416,11 +5413,11 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 22:09",
+  "bijgewerkt": "2026-11-21 22:36",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1487599,
+    "5uur": 1342166,
     "week": 15312922,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5436,28 +5433,28 @@
    },
    {
     "account": "account2",
-    "5uur": 10053329,
-    "week": 118890826,
+    "5uur": 6719466,
+    "week": 119107227,
     "per_dag": {
-     "Sat 14-11": 7803894,
+     "Sat 14-11": 7705890,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 33118069,
+     "Sat 21-11": 33432474,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 41220,
+    "stap_kost": 41208,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 74,
-    "5uur_scripts_over": 6.2,
-    "5uur_stappen_over": 86,
+    "5uur_pct": 49,
+    "5uur_scripts_over": 12.0,
+    "5uur_stappen_over": 166,
     "week_pct": 90,
-    "week_scripts_over": 23.0,
-    "week_stappen_over": 318
+    "week_scripts_over": 22.6,
+    "week_stappen_over": 313
    }
   ]
  },
