@@ -232,6 +232,32 @@ def main():
                 f.write(f"\n- {vandaag} YouTube-hype: {o['onderwerp']} (STERK: YouTube + nieuws, "
                         f"{o['kanalen']} kanalen, {o['views_per_uur']} views/uur). BlackswanVault: video waard?\n")
 
+    # seintje op de telefoon (eigenaar 21 nov 2026, app ntfy). Kanaalnaam staat alleen op de pc: ~/.swan-ntfy.json
+    meld = [f"{o['onderwerp']}: groot op YouTube ({o['kanalen']} kanalen) en in het nieuws" for o in nieuwe]
+    try:  # heel grote koersbeweging (2x de GROOT-grens) die we nog niet gedaan hebben
+        nw = json.loads((STORIES / "nieuws.json").read_text(encoding="utf-8"))
+        for m in nw.get("markt", []):
+            if abs(m["pct"]) >= 2 * m["grens"] and not any(m["naam"].lower() in t.lower() for _, t in ons) \
+                    and f"{vandaag} Seintje: {m['naam']}" not in oud:
+                meld.append(f"{m['naam']} {m['pct']:+.1f}% op één dag")
+                with LOG.open("a", encoding="utf-8") as f:
+                    f.write(f"\n- {vandaag} Seintje: {m['naam']} {m['pct']:+.1f}% op één dag\n")
+    except Exception:
+        pass
+    if meld:
+        seintje("Hype: video maken?", "\n".join(meld) + "\nOpen Claude en zeg: maak de hype-video.")
+
+
+def seintje(titel, tekst):
+    """Melding op de telefoon via ntfy.sh (gratis). Geen privégegevens, alleen het onderwerp."""
+    try:
+        topic = json.loads((Path.home() / ".swan-ntfy.json").read_text())["topic"]
+        requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"),
+                      headers={"Title": titel.encode("utf-8"), "Tags": "chart_with_downwards_trend"}, timeout=20)
+        print("seintje verstuurd:", tekst.replace("\n", " | "))
+    except Exception as e:
+        print("seintje mislukt:", e)
+
 
 if __name__ == "__main__":
     main()
