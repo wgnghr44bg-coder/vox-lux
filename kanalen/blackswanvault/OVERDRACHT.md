@@ -48,7 +48,7 @@ Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got
 
 **Beginstand kanaal (Studio, 24 okt - 20 nov 2026, 28 dagen):** 9.135 weergaven (+18,8%), 97,7 uur kijktijd (+85%), gem. 1:12,
 +17 abonnees, 16.288 vertoningen (x4), CTR 3,5%. Shorts 8.054 weergaven/67,9 uur; lange video's 1.072 weergaven/29,7 uur.
-Partnerprogramma telt alleen lange-video-uren (4.000) → elke dag een lange video is de sleutel. Opnieuw vergelijken rond 28 nov 2026 (eigenaar: "zoals sleep"); herinnering via ntfy op 28 nov 10:00.
+Partnerprogramma telt alleen lange-video-uren (4.000) → elke dag een lange video is de sleutel. Opnieuw vergelijken rond 28 nov 2026 (eigenaar: "zoals sleep"); herinnering via ntfy op 28 nov 10:00 voor Sleep én Swan (tools/herinner_cijfers.py, taak "BlackswanVault cijfers 28 nov").
 
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
