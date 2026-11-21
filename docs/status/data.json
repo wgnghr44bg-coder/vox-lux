@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 01:03",
+ "bijgewerkt": "2026-11-21 01:33",
  "kanalen": {
   "weken": [
    {
@@ -758,7 +758,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 01:03)"
+   "tekst": "draait nu (2026-11-21 01:33)"
   },
   {
    "naam": "Git",
@@ -773,12 +773,12 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-21)"
   },
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -795,8 +795,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 01:03",
-   "volgende": "2026-11-21 01:33"
+   "laatst": "2026-11-21 01:33",
+   "volgende": "2026-11-21 02:03"
   },
   "hype": {
    "aan": true,
@@ -806,17 +806,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-21 01:10"
+   "volgende": "2026-11-21 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 00:48",
-   "volgende": "2026-11-21 01:18"
+   "laatst": "2026-11-21 01:18",
+   "volgende": "2026-11-21 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-20 23:25",
-   "volgende": "2026-11-21 01:25"
+   "laatst": "2026-11-21 01:25",
+   "volgende": "2026-11-21 03:25"
   }
  },
  "kanaal": {
@@ -886,7 +886,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 74,
+    "views": 75,
     "verwerkt": "processed"
    },
    {
@@ -1147,7 +1147,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 567,
+  "geheugen_mb": 581,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1319,8 +1319,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 01:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 01:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3614,7 +3614,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-20 23:25",
+  "bijgewerkt": "2026-11-21 01:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -3741,12 +3741,24 @@
      }
     ],
     "bekeken": "2026-11-20"
+   },
+   {
+    "map": "gettysburg-1863",
+    "datum": "2027-01-02",
+    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [],
+    "bekeken": ""
    }
   ],
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 01:04",
+  "bijgewerkt": "2026-11-21 01:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -3765,27 +3777,28 @@
    },
    {
     "account": "account2",
-    "5uur": 5654829,
-    "week": 106572592,
+    "5uur": 5180342,
+    "week": 107166304,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
+     "Sat 21-11": 593712,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 29952,
+    "stap_kost": 29449,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 42,
-    "5uur_scripts_over": 11.9,
-    "5uur_stappen_over": 265,
+    "5uur_pct": 38,
+    "5uur_scripts_over": 12.7,
+    "5uur_stappen_over": 285,
     "week_pct": 81,
-    "week_scripts_over": 38.4,
-    "week_stappen_over": 850
+    "week_scripts_over": 37.5,
+    "week_stappen_over": 844
    }
   ]
  },
