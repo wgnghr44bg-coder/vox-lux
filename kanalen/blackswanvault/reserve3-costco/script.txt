@@ -1,0 +1,99 @@
+# BlackswanVault reserve 3: hoe Costco geld verdient. CONCEPT 21 nov 2026 (11:00) — cijfers FY2026 nagekeken; feiten met * in bronnen.md nakijken.
+# Titel (voorstel): Costco Sells a $1.50 Hot Dog. Here's How It Made $9 Billion
+# Opbouw: antwoord vooraan (lidmaatschap = het grootste deel van de winst), dan hotdog/kip, het model, de leden, waarom het werkt, risico's.
+@scene open-hotdog
+At Costco, a hot dog and a soda cost one dollar and fifty cents.
+That was the price in 1985.
+It is still the price today.
+A whole rotisserie chicken costs four dollars and ninety-nine cents.
+On some of these things, Costco probably makes almost nothing, or even loses money.
+@scene open-winst
+And yet, in its last fiscal year, Costco made a profit of about nine point two billion dollars.
+Its sales were almost three hundred billion dollars.
+@scene open-antwoord
+So how does a store that keeps its prices this low make that much money?
+The short answer is: Costco does not really make its money selling you things.
+It makes its money selling you a card.
+Last year, membership fees brought in about five point nine billion dollars.
+That is equal to almost two thirds of the company's entire profit.
+Let's see how the model works, why people keep paying, and what could go wrong.
+@scene h1-sinegal
+To understand Costco, you have to start with the man who built it.
+Jim Sinegal co-founded Costco in 1983, with the businessman Jeffrey Brotman.
+The first warehouse opened in Seattle.
+Sinegal had one obsession: keeping prices low, no matter what.
+@scene h1-dreiging
+The hot dog became the symbol of that idea.
+Years later, when the price of everything was rising, Costco's next chief executive, Craig Jelinek, went to Sinegal and asked about raising the price of the hot dog.
+According to Jelinek, Sinegal answered, quote, "If you raise the price of the hot dog, I will kill you."
+The price stayed at one dollar fifty.
+@scene h2-model
+Here is how the model works.
+To shop at Costco, you need a membership.
+In the United States, the basic card costs sixty-five dollars a year.
+The Executive card costs one hundred thirty dollars, and gives you some money back on what you spend.
+@scene h2-marge
+Costco then sells products with a very small markup.
+For a long time, the company had a rule: no more than about fourteen or fifteen percent above its own cost.
+A normal supermarket often charges much more than that.
+So on the products themselves, Costco earns very little.
+It is designed that way.
+@scene h2-truc
+The low prices are what make the membership worth it.
+And the membership fees are almost pure profit.
+There are no shelves to fill for a membership card.
+No trucks, no warehouses, no spoiled food.
+Every new member, and every renewal, goes almost straight to the bottom line.
+@scene h3-leden
+And people keep paying.
+At the end of its last fiscal year, Costco had eighty-four point one million paid members.
+Counting family members with an extra card, there were more than one hundred fifty million cardholders.
+@scene h3-trouw
+The most impressive number is the renewal rate.
+In the United States and Canada, ninety-two point three percent of members renewed.
+Worldwide, almost ninety percent.
+Very few businesses keep nine out of ten customers every single year.
+@scene h3-executive
+And more than half of the paid members, forty-two point three million, now have the more expensive Executive card.
+@scene h3-verhoging
+Because the members are so loyal, Costco can raise the fee every few years.
+In September 2024, it raised the basic fee from sixty to sixty-five dollars, and the Executive fee from one hundred twenty to one hundred thirty.
+Most members simply kept paying.
+@scene h4-weinig
+There is another trick, and you can see it in every warehouse.
+Costco sells far fewer different products than a normal supermarket.
+Usually only around four thousand items, compared to tens of thousands in a big grocery store.
+That gives Costco enormous buying power for each product.
+When it orders, it orders a lot, and suppliers give it better prices.
+@scene h4-kirkland
+Then there is Costco's own brand, Kirkland Signature.
+From batteries to olive oil, Kirkland products are often made by well known manufacturers, and sold for less.
+Kirkland is one of the biggest consumer brands in America, and it gives Costco even more control over its prices.
+@scene h4-kip
+And the four dollar ninety-nine chicken?
+It is placed at the back of the store, so you walk past everything else to get it.
+Costco even built its own chicken plant in Nebraska, to keep that price where it is.
+The chicken is not there to make money.
+It is there to bring you in.
+@scene h5-gevaar
+So what could go wrong?
+The first risk is that growth from the last fee increase is fading.
+In the last quarter, membership fee income grew about seven percent.
+A year earlier, it grew about fourteen percent.
+That is because the effect of the 2024 price increase has now almost fully worked through.
+@scene h5-concurrent
+The second risk is competition.
+Walmart's Sam's Club runs the same kind of warehouse model, and online shopping keeps getting faster.
+And the third risk is the price of the stock itself.
+Investors already pay a lot for every dollar Costco earns, because they expect the model to keep working.
+@scene h6-waarom
+But so far, the model has been remarkably steady.
+Costco does not need to make big profits on what it sells.
+It needs you to believe that the card is worth it.
+And nine out of ten members, year after year, say that it is.
+None of this is financial advice.
+@scene slot
+The hot dog still costs one dollar fifty.
+It probably always will, because it is not really for sale.
+It is a promise.
+And as long as people believe that promise, they will keep paying for the card.

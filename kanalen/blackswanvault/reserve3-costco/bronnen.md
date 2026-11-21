@@ -1,0 +1,7 @@
+# Reserve 3: hoe Costco geld verdient (21 nov 2026) — CONCEPT
+- FY2026 (52 weken t/m 30 aug 2026): netto omzet $297,2 mld, totale omzet $303,2 mld, nettowinst $9,226 mld ($20,76/aandeel), lidmaatschapsgeld $5,91 mld (was $5,32). https://finviz.com/news/395411/costco-wholesale-corporation-reports-fourth-quarter-and-fiscal-year-2026-operating-results , https://pulse2.com/costco-reports-93-9-billion-in-q4-sales-and-297-2-billion-in-fiscal-2026-sales-as-net-income-reaches-9-2-billion/
+  LET OP: "lidgeld = bijna twee derde van de winst" vergelijkt omzet (fees) met nettowinst na belasting; formulering "equal to" is verdedigbaar, niet "makes up".
+- 10-K FY2026: 84,1 mln betalende leden, 150,4 mln kaarthouders, 42,3 mln Executive; verlenging 92,3% VS/Canada, 89,8% wereld. https://www.sec.gov/Archives/edgar/data/0000909832/000090983226000093/cost-20260830.htm
+- Q4 lidgeld $1,85 mld, +7,3% (vorig jaar +14%), effect verhoging 2024 bijna uitgewerkt. https://www.nasdaq.com/articles/costcos-best-numbers-came-asterisk
+- Uit eigen kennis, bron nog zoeken*: hotdog+frisdrank $1,50 sinds 1985; kip $4,99; Sinegal-citaat via Jelinek ("If you raise the [effing] hot dog, I will kill you"); oprichting 1983 Sinegal + Brotman, eerste vestiging Seattle; marge-plafond 14% (15% Kirkland); ± 4.000 artikelen; kippenfabriek Nebraska (Lincoln Premium Poultry, 2019); verhoging sept 2024 $60→$65 en $120→$130; Sam's Club als concurrent.
+- Huidige basisprijs $65 en Executive $130 in nov 2026 nakijken (nieuwe verhoging?).
