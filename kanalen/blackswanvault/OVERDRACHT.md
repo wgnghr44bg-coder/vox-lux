@@ -55,6 +55,12 @@ in het antwoord, publishAt bleef gelijk. Teruglezen via de API toont het veld ni
 
 **Grafieken (eigenaar 21 nov):** elke koersgrafiek toont de TOP en het LAAGSTE punt (stip + bedrag). Code om over te nemen in render.py lijn(): `kanalen/blackswan-nl/proef-asml/render.py` (hoog_laag=True). Doen bij de Nasdaq-video van maandag.
 
+**Cijferfix video8/video9 (21 nov, eigenaar: "ja"):** slotkoersen i.p.v. koersen van vóór de sluiting (Nasdaq 100 -5,6%, goud -4,6% naar $3.515,
+± 1/3 onder top, VIX 36). `fix-cijfers.sh` (log C:\Users\rane\fix-cijfers.log; wacht met renderen tot een ander account klaar is). Daarna:
+nieuwe versies (+ SpaceX-Short) aan eigenaar laten zien → na OK privé uploaden met DEZELFDE publishAt (do 26 / vr 27, 14:00Z en 16:00Z),
+kanaal checken, AI-label aan, thumbnail + beschrijving overnemen, pas daarna oude video's (JW4e9rWlukk, uLoUpPHRz9g, ZdwE2HdjVJg) verwijderen.
+Oude bestanden staan als oud-voor-fix-*.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.

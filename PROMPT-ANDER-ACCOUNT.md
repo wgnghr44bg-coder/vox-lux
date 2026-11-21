@@ -34,7 +34,7 @@ Pc heeft weinig geheugen: één zware taak tegelijk, als los proces (Start-Proce
 - Alles t/m vr 27 nov staat privé ingepland (tabel in OVERDRACHT.md). AI-label staat aan op alle video's (ook Sleep Archives en NOIRTRACES).
 - OPEN, EIGENAAR NOG VRAGEN: in video8 (Bitcoin, do 26) en video9 (SpaceX, vr 27) staan cijfers van vóór de beurssluiting:
   "Nasdaq 100 almost 4%" moet "more than 5%" (slot -5,6%); goud "about 2.5% to $3,536" moet "about 4.6% to about $3,515"; goud "more than 35% below peak" is ± 34%.
-  Plan (nog niet gedaan, eigenaar zei "stop"): alleen die zinnen opnieuw inspreken (`stem.py --opnieuw`), tekst in beeld aanpassen
+  BEZIG (eigenaar zei "ja", 21 nov): `kanalen/blackswanvault/fix-cijfers.sh`, log C:\Users\rane\fix-cijfers.log; zie OVERDRACHT. Oorspronkelijk plan: alleen die zinnen opnieuw inspreken (`stem.py --opnieuw`), tekst in beeld aanpassen
   (render8-shots.py regel met "-3.8%" en "$3,536"; render9-shots.py "Nasdaq 100 almost -4%"), opnieuw renderen, privé uploaden met DEZELFDE publishAt, pas daarna oude weg.
 - Ma 23 nov: Nasdaq-video (video4) bijwerken met laatste koersen + grafiek met top/laagste (code: `kanalen/blackswan-nl/video1/render.py` lijn(hoog_laag=True)), laten zien, uploaden na OK.
 - Do 26: onderwerpen za 28 / zo 29 kiezen met de wachters. Reserve-scripts: `reserve1-ram` (stem al klaar), `reserve2-intel`, `reserve3-costco` (concepten).
