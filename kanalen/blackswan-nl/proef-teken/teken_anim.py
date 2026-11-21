@@ -304,10 +304,27 @@ class Streep:
         doek[:] = np.asarray(im)
 
 
+class Kop:
+    """hoofdstukkop linksboven (blauwe hoofdletters + dun lijntje over de breedte), zoals The Dividend Experiment"""
+    def __init__(self, it): self.it = it
+
+    def op(self, doek, t):
+        it = self.it
+        if t < it["start"]: return
+        im = Image.fromarray(doek); d = ImageDraw.Draw(im)
+        if it["kop"]:
+            d.text((22, 14), it["kop"].upper(), font=ImageFont.truetype("C:/Windows/Fonts/segoeuib.ttf", it.get("maat", 26)), fill=tuple(it.get("kleur", (20, 40, 200))))
+            d.line((14, 52, W - 14, 52), fill=(185, 185, 190), width=2)
+        if it.get("rechts"):
+            ft = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 18); b = d.textbbox((0, 0), it["rechts"], font=ft)
+            d.rounded_rectangle((W - (b[2] - b[0]) - 34, 12, W - 12, 40), 6, fill=(225, 225, 228)); d.text((W - (b[2] - b[0]) - 23, 15), it["rechts"], font=ft, fill=(120, 120, 126))
+        doek[:] = np.asarray(im)
+
+
 def maak(i):
     import mooi                                                   # 21 nov: mooiere grafieken + logo's
     for k, c in (("bordje", Bordje), ("data", mooi.Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", mooi.Balken),
-                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo), ("streep", Streep)):
+                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo), ("streep", Streep), ("kop", Kop)):
         if k in i: return c(i)
     return Tekening(i)
 

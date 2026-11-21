@@ -140,7 +140,12 @@ class Lijn:
                 tekst = f"{naam} {geld(self.p[i][1])} · " + (f"{MD[dag.month - 1]} {dag.day}" if en else f"{dag.day} {MD[dag.month - 1]}")
                 boven = cy - T > 60 * S
                 links = cx > (L + R) / 2
-                pil(d, (cx + (-20 * S if links else 20 * S), cy - 44 * S if boven else cy + 44 * S), tekst, 24, kl, anker="rm" if links else "lm")
+                if naam == "Top" and not boven:                       # weinig ruimte boven: pilletje naast de top
+                    pil(d, (cx + (-22 * S if links else 22 * S), cy), tekst, 24, kl, anker="rm" if links else "lm")
+                elif naam != "Top" and cy + 70 * S > B:                # laagste dicht bij de onderkant: ernaast
+                    pil(d, (cx + (-22 * S if links else 22 * S), cy), tekst, 24, kl, anker="rm" if links else "lm")
+                else:
+                    pil(d, (cx + (-20 * S if links else 20 * S), cy - 44 * S if boven else cy + 44 * S), tekst, 24, kl, anker="rm" if links else "lm")
         plak(doek, laag, it["x"] - m // S, it["y"] - m // S, alpha=ease(q / 0.3))
 
 
