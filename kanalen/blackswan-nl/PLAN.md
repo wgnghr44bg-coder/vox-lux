@@ -27,3 +27,6 @@ Vergeleken met NOS/nu.nl Economie (gem. 16,6 woorden per zin; onze vertaalde pro
 - Niet alleen korte hakzinnen; afwisselen met normale zinnen met "want", "en", "toch".
 - Geen Engelse woordvolgorde of uitdrukkingen ("haalde binnen", "simpelweg"), geen dubbele woorden; spelling (zoveel, zover).
 - Klemtoon: OmniVoice legt Nederlandse klemtoon soms verkeerd (model vooral Engels/Chinees) → Chatterbox Multilingual (taal nl) getest als alternatief.
+## Onderwerp kanaal (eigenaar 21 nov): geldzaken, bedrijven, beleggen ("zoals DoopieCash, investeren enz.").
+Onze stijl: uitleg met verhalen + Nederlandse kant (ASML, AEX, box 3, sparen, huizen), GEEN persoonlijk beleggingsadvies (AFM) → "Dit is geen beleggingsadvies."
+Naamvoorstellen (handles 21 nov gecheckt): Het Geldverhaal @Geldverhaal (advies), Beurs & Bedrijven, Zwarte Zwaan, BlackswanVault NL — vrij; Geld Uitgelegd en Geldzaken bezet.
