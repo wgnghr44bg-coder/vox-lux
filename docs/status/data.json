@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 11:33",
+ "bijgewerkt": "2026-11-21 12:03",
  "kanalen": {
   "weken": [
    {
@@ -1023,7 +1023,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -1288,7 +1288,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 11:33)"
+   "tekst": "draait nu (2026-11-21 12:03)"
   },
   {
    "naam": "Git",
@@ -1308,7 +1308,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 11:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 11:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1325,8 +1325,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 11:33",
-   "volgende": "2026-11-21 12:03"
+   "laatst": "2026-11-21 12:03",
+   "volgende": "2026-11-21 12:33"
   },
   "hype": {
    "aan": true,
@@ -1340,8 +1340,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 11:18",
-   "volgende": "2026-11-21 11:48"
+   "laatst": "2026-11-21 11:48",
+   "volgende": "2026-11-21 12:18"
   },
   "titels": {
    "aan": true,
@@ -1407,7 +1407,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 16,
+    "views": 17,
     "verwerkt": "processed"
    },
    {
@@ -1452,7 +1452,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 782,
+    "views": 793,
     "verwerkt": "processed"
    }
   ],
@@ -1661,23 +1661,30 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "84 van 84 beelden",
+  "taken": [
+   "beelden maken (ComfyUI)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 15,
-  "geheugen_mb": 600,
+  "bezig_procent": 59,
+  "geheugen_mb": 7202,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1849,8 +1856,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 11:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 12:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3998,7 +4005,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 11:33",
+  "bijgewerkt": "2026-11-21 12:09",
   "accounts": [
    {
     "account": "hoofd",
@@ -4017,28 +4024,28 @@
    },
    {
     "account": "account2",
-    "5uur": 4684519,
-    "week": 115138318,
+    "5uur": 6428800,
+    "week": 115415873,
     "per_dag": {
-     "Sat 14-11": 28603729,
+     "Sat 14-11": 27137003,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 8565726,
+     "Sat 21-11": 10310008,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 31189,
+    "stap_kost": 31541,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 35,
-    "5uur_scripts_over": 13.4,
-    "5uur_stappen_over": 285,
+    "5uur_pct": 47,
+    "5uur_scripts_over": 10.8,
+    "5uur_stappen_over": 227,
     "week_pct": 87,
-    "week_scripts_over": 25.5,
-    "week_stappen_over": 541
+    "week_scripts_over": 25.0,
+    "week_stappen_over": 526
    }
   ]
  },
