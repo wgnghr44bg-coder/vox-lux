@@ -401,3 +401,12 @@ ValueError: empty separator)
 - 2026-11-21 21:51 bewaker: keten gestart voor pearl-harbor-1941
 - 2026-11-21 21:51 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 21:51 Claude: pearl-harbor-1941 keten even gestopt (hoofdpersonage ontwerpen)
+- 2026-11-21 21:56 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 21:56 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 22:09 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 22:09 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 22:18 sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-21 22:33 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 22:33 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 22:53 Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef 4)
+- 2026-11-21 23:02 Claude: Alteraqon: alle 10 oude What-if-video's verwijderd (eigenaar: 'je mag alles verwijderen, we bouwen dit kanaal om' voor getekende video's met F)

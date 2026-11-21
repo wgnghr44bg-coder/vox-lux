@@ -119,6 +119,7 @@ class Bordje:
 
 INKT, PAPIER = (28, 28, 34), (255, 255, 255)
 KRIJT = None
+VAAG = 0.8
 FH = "C:/Windows/Fonts/segoeprb.ttf"          # handschrift-achtig (Segoe Print Bold)
 
 
@@ -311,8 +312,15 @@ def main():
     for f in range(int(sc["duur"] * FPS)):
         t = f / FPS
         doek = np.empty((H, W, 3), np.uint8); doek[:] = PAPIER
+        vaag = [(it, tot) for it, tot in items if tot - VAAG <= t < tot]    # 21 nov: oud bord vervaagt rustig
         for it, tot in items:
-            if t < tot: it.op(doek, t)
+            if t < tot - (VAAG if (it, tot) in vaag else 0): it.op(doek, t)
+        if vaag:
+            laag = np.empty_like(doek); laag[:] = PAPIER
+            for it, tot in vaag: it.op(laag, t)
+            a = max(0.0, min(1.0, (min(tot for _, tot in vaag) - t) / VAAG))
+            m = (laag != np.array(PAPIER, np.uint8)).any(axis=2)
+            doek[m] = (doek[m] * (1 - a) + laag[m] * a).astype(np.uint8)
         p.stdin.write(doek.tobytes())
     p.stdin.close(); p.wait(); print("KLAAR", uit)
 
