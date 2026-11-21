@@ -11,7 +11,7 @@ inst = b1.standaard()
 UIT = Path(r"C:/Users/rane/vox-lux-stemmen/richard")
 TEST = ("Op twaalf november liep de machtigste man uit de chipindustrie weg bij het bedrijf dat hij zelf had gebouwd. "
         "Drieëndertig jaar lang was Jensen Huang Nvidia. Dus wat is er gebeurd? En wat betekent dit voor ASML?")
-VAR = [("r1-gewoon", 1.0, 1), ("r2-rustig", 0.92, 1), ("r3-andere-toon", 1.0, 7), ("r4-levendig", 1.06, 3)]
+VAR = [("r2b-seed1", 0.96, 1), ("r2c-seed3", 0.96, 3), ("r2d-seed11", 0.96, 11), ("r2e-seed19", 0.98, 19)]
 for naam, speed, seed in VAR:
     cfg = VoiceConfig(voice="richard-nl", speed=speed, seed=seed, num_step=inst["model"]["num_step"],
                       guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])

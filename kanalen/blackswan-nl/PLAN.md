@@ -1,5 +1,15 @@
-# BlackswanVault NL (plan 21 nov 2026, eigenaar: "dit lijkt me wel interessant")
+# GELDVERHAAL — BlackswanVault NL (plan 21 nov 2026, eigenaar: "dit lijkt me wel interessant")
 Nederlandstalige versie van BlackswanVault, op het kanaal dat nu NOIRTRACES heet (NOIRTRACES: 1 video, 0 weergaven).
+
+## STAND 21 nov 2026 13:05 (voor een ander account: begin hier)
+- NAAM: **Geldverhaal** (eigenaar: "maak er maar van Geldverhaal"), handle **@Geldverhaal** (was vrij op 21 nov).
+- Eigenaar zet in Studio NU: naam, beschrijving (`branding/kanaalbeschrijving.txt`), taal Nederlands, logo `branding/logo-definitief.png`,
+  banner `branding/banner-definitief.jpg` (gekozen: logo munt + banner A grachten; opnieuw maken: `python branding/maak.py`).
+- HANDLE pas rond 2 dec 2026 te wijzigen (YouTube: 14 dagen na de vorige wijziging op 18 nov).
+- Upload-token: `YT_KANAAL=altena` (sleutel ~/.yt-altena.json, zie CLAUDE.md). AI-label staat aan (ook op de oude Jack the Ripper-video).
+- Vaste stem, schrijfstijl, NL-wachter: zie hieronder. VOLGENDE STAP: eerste 2-3 Nederlandse video's maken vóór 2 dec (eerst laten zien, uploaden pas na OK).
+  Kandidaten: RAM (reserve1-ram, feiten nagekeken; NL-kant ASML), Costco (reserve3), ASML -9,3% (NL-wachter 21 nov), box 3 (leeft op NL-YouTube).
+- Oude video "Who Was Jack the Ripper?" (AXKM1BEMq10) past niet meer bij het kanaal: eigenaar vragen of die privé mag.
 ## Afspraken
 - Geen 1-op-1 vertaling (risico "hergebruikte inhoud" bij partnerprogramma): elk verhaal een Nederlandse kant (ASML, AEX, euro's, wat betekent het voor NL),
   eigen Nederlandse stem, titels, thumbnails en tekst in beeld.

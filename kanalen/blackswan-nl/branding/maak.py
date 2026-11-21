@@ -1,4 +1,4 @@
-"""Het Geldverhaal: logo (800x800) en banner (2560x1440, veilige zone 1546x423 midden). Eigen ontwerp, geen internetbeelden."""
+"""Geldverhaal (eerst "Het Geldverhaal"; eigenaar 21 nov: "maak er maar van Geldverhaal"): logo (800x800) en banner (2560x1440, veilige zone 1546x423 midden). Eigen ontwerp, geen internetbeelden."""
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import math, sys
 GOUD, WIT, ZWART = (222, 170, 60), (245, 245, 245), (8, 8, 10)
@@ -43,7 +43,7 @@ def banner(achter, lg, uit):
     m = m.filter(ImageFilter.GaussianBlur(90)); bg.paste(donker, (0, 0), m)
     d = ImageDraw.Draw(bg)
     f1 = ImageFont.truetype(FB, 150); f2 = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 54)
-    t1a, t1b = "Het ", "Geldverhaal"; t2 = "Geld, bedrijven en beleggen. Helder uitgelegd."
+    t1a, t1b = "Geld", "verhaal"; t2 = "Geld, bedrijven en beleggen. Helder uitgelegd."
     lgk = lg.resize((230, 230), Image.LANCZOS)
     bw = 230 + 40 + f1.getlength(t1a + t1b); x = (W - bw) / 2; y = H / 2 - 150
     rond = Image.new("L", lgk.size, 0); ImageDraw.Draw(rond).ellipse((4, 4, 226, 226), fill=255)
@@ -56,5 +56,5 @@ def banner(achter, lg, uit):
 if __name__ == "__main__":
     for st in ("munt", "boek"):
         logo(st).save(f"logo-{st}.png")
-    for b in "abc":
-        banner(f"ai/afbeeldingen/banner-{b}.png", Image.open("logo-munt.png"), f"banner-{b}.jpg")
+    # gekozen 21 nov: banner A (grachten) + logo munt
+    banner("ai/afbeeldingen/banner-a.png", Image.open("logo-munt.png"), "banner-definitief.jpg")
