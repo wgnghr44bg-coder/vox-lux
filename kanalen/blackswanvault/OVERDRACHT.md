@@ -1,4 +1,4 @@
-# BlackswanVault: overdracht (stand vr 20 nov 2026, 23:15)
+# BlackswanVault: overdracht (stand za 21 nov 2026)
 
 Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet passen, uitspraak controleren, grafieklabels pas als de lijn er is, thumbnailstijl, stem blijft zakelijk-23). Planning: `../PLANNING-KANALEN.json`.
 
@@ -11,6 +11,16 @@ Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet 
 | zo 22 nov | 17:00 | Short: Microsoft, JPMorgan and the FAA All Went Down in One Week | l3tU0GKVldM |
 | di 24 nov | 15:00 | Is AI Actually Working? Harvard Looked Inside 655 Companies (video6) | T8SutKp3Ao8 |
 | di 24 nov | 17:00 | Short: Big Tech Is Spending $700 Billion on AI. For What? | _Te7gcc9RAs |
+| wo 25 nov | 15:00 | Black Friday Starts a $1 Trillion Season. Here's the Catch (video7) | c4xgBH1o4AE |
+| wo 25 nov | 17:00 | Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices | 8de6ZH3YYp4 |
+| do 26 nov | 15:00 | Bitcoin Just Lost Half Its Value. Here's Who Is Selling (video8) | JW4e9rWlukk |
+| do 26 nov | 17:00 | Short: Bitcoin Fell Below $60,000. Here's Who Is Selling | gtqCj_lhfm4 |
+| vr 27 nov | 15:00 | SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse (video9) | uLoUpPHRz9g |
+| vr 27 nov | 17:00 | Short: SpaceX Stock Fell Below Its $135 IPO Price | ZdwE2HdjVJg |
+
+Thumbnails wo/do/vr (eigenaar 21 nov: "alle 3 goed, je leest en ziet meteen waar het over gaat"): het ONDERWERP zelf
+(winkelwagen met lange kassabon / gebroken bitcoin / Starship), gemaakt met `thumb_ding.py`; niet meer een geschrokken gezicht.
+Rood viel weg op rode achtergronden; letters hebben nu een zwarte rand.
 
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
@@ -19,23 +29,12 @@ Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet 
 - Short: `shorts/markt-short-1.mp4` (zin 0-18), beschrijving `shorts/markt-short-1-beschrijving.txt` ({LINK} invullen), ma 17:00. Eigenaar zei "Ja" op 15:00/17:00.
 - Beschrijving lange video nog schrijven (3 zinnen, hoofdstukken met cijfers, "Not financial advice.", 3 hashtags).
 
-## Woensdag 25 nov: Black Friday (video7) — KLAAR, NOG NIET GEUPLOAD
-- Titel: "Black Friday Will Hit $1 Trillion. Here's the Catch" (eigenaar vond de eerste titel onduidelijk; deze is nieuw, nog niet bevestigd).
-- `video7/blackswanvault-blackfriday.mp4` (8,3 min) + `-klein.mp4`; beschrijving `video7/youtube-beschrijving.txt`; bronnen `video7/bronnen.md`.
-- Thumbnail: `video7/thumb-a.jpg` / `-b` / `-c` ($1 TRILLION / BUT WHO PAYS?). Eigenaar moet nog kiezen.
-- Short: `shorts/blackfriday-short-1.mp4` (zin 0-10, zonder ondertitels), beschrijving `shorts/blackfriday-short-1-beschrijving.txt` ({LINK} invullen).
-- Pas na OK eigenaar: privé uploaden, publishAt wo 25 nov 15:00 (14:00Z) en Short 17:00 (16:00Z), kanaal checken.
+## Woensdag 25 t/m vrijdag 27 nov: GEUPLOAD (privé, gepland; zie tabel)
 
 ## Do 26 t/m zo 29 nov: elke dag een hype-onderwerp (eigenaar 20 nov 21:40)
 Eigenaar: "je mag die hele week volmaken met hype onderwerpen ... mits usage dat haalt; zo niet, sla het op GitHub op zodat ander account ook verder kan".
 Het hoeft niet over AI te gaan, als het maar hype is (geld, bedrijven, beurs, economie). Per dag: lange video 15:00 + Short 17:00. Alles eerst laten zien, uploaden pas na OK.
-- **do 26: Bitcoin (video8) — KLAAR, NOG NIET GEUPLOAD.** Titel "Bitcoin Just Lost Half Its Value. Here's Who Is Selling".
-  `video8/blackswanvault-bitcoin.mp4` (8,1 min) + `-klein`, beschrijving `video8/youtube-beschrijving.txt`, thumbnail `video8/thumb-a.jpg` (BITCOIN -53% / WHO IS SELLING?) of `-b`.
-  Short `shorts/bitcoin-short-1.mp4` (zin 0-13), beschrijving `shorts/bitcoin-short-1-beschrijving.txt`. Wacht op OK eigenaar; daarna privé, publishAt do 14:00Z / 16:00Z.
-  Let op: koersen in de video zijn van vr 20 nov (zo gezegd in de tekst).
-- **vr 27: SpaceX (video9) — KLAAR, NOG NIET GEUPLOAD.** Titel "SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse".
-  `video9/blackswanvault-spacex.mp4` (8,0 min) + `-klein`, beschrijving `video9/youtube-beschrijving.txt`, thumbnail `video9/thumb-a.jpg` (SPACEX -40% / BELOW IPO PRICE) of `-b`.
-  Short `shorts/spacex-short-1.mp4` (zin 0-11). Wacht op OK eigenaar.
+- do 26 (Bitcoin) en vr 27 (SpaceX): geüpload, zie tabel.
 - **za 28 / zo 29: nog maken.** Overige kandidaten (20 nov):
   - **Oracle haalt $20 mld op** (aandelen + schuld) voor AI-datacenters — checken.
   - **Beurs in correctie (vr 20 nov)**: S&P 500 > 10% onder de top, Nasdaq 100 -3,8% op één dag, Nvidia -7%, VIX 31. LET OP: maandag-video4 gaat al over de Nasdaq; alleen als vervolg met nieuw nieuws.
