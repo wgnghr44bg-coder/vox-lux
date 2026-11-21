@@ -228,6 +228,8 @@ a:active { color: var(--color-focus); }
 .tag { font-size: var(--text-xs); font-weight: 700; padding: 1px 6px; border-radius: 4px; flex: none; background: var(--color-paper-3); }
 .tag.rood { background: #8a3b3b; color: #fff; }
 .klein { font-size: var(--text-xs); margin-top: var(--space-sm); }
+.kp-kan.geld { background: #b8892c; }
+@media (min-width: 72rem) { #hypeKop + .twee { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .sub h3 small { font-weight: 400; }
 </style>
 </head>
@@ -268,6 +270,8 @@ a:active { color: var(--color-focus); }
         <div id="ytSwan" class="hype-lijst"></div></div>
       <div class="sub"><h3><span class="kp-kan sleep">Sleep Archives</span> <small class="zacht" id="hypeTijd"></small></h3>
         <div class="balken" id="trends"><div class="zacht">Gegevens laden</div></div></div>
+      <div class="sub"><h3><span class="kp-kan geld">Geldverhaal</span> <small class="zacht" id="nlTijd"></small></h3>
+        <div id="nlHype" class="hype-lijst"><div class="zacht">Gegevens laden</div></div></div>
     </div>
     <p class="zacht klein">Echt grote hype? Dan mag een geplande video naar een latere dag.</p>
   </section>
@@ -400,6 +404,18 @@ function ytWacht(y){
   box.innerHTML=uit.length?`<div class="zacht" style="margin-top:4px">Snel op YouTube bij kanalen zoals wij:</div>`+uit.map(x=>`<div><span class="tag">${esc(x.keer_gewoon)}x</span><span><a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a> <span class="zacht">${esc(x.kanaal)}</span></span></div>`).join(""):"";
 }
 
+function nlWacht(n){
+  // Geldverhaal (21 nov 2026): NL-nieuws (nu.nl, FD, NOS), koersen wereldwijd, Nederlandse YouTube
+  const box=$("nlHype");if(!n){box.innerHTML=`<div class="zacht">Nog niet gedraaid (08:20 en 16:05)</div>`;return}
+  $("nlTijd").textContent=tijdLabel(n.bijgewerkt);
+  const gezien=new Set(),groot=(n.nieuws||[]).filter(o=>o.groot&&!gezien.has(o.onderwerp)&&gezien.add(o.onderwerp)).slice(0,4);
+  const sterk=(n.youtube||[]).filter(o=>o.sterk).slice(0,3);
+  const uit=(n.kanalen_zoals_wij||[]).filter(x=>x.uitschieter).slice(0,3);
+  box.innerHTML=(groot.length?groot.map(o=>{const k=(o.koppen||[])[0];return `<div><span class="tag rood">GROOT</span><span><b>${esc(o.onderwerp)}</b> ${k?`<a href="${esc(k.link)}" target="_blank" rel="noopener">${esc(k.titel)}</a>`:`<span class="zacht">${esc((o.wat||[]).join(", "))}</span>`}</span></div>`}).join(""):`<div class="zacht">Geen groot nieuws.</div>`)+
+    (sterk.length?`<div class="zacht" style="margin-top:4px">Groot op Nederlandse YouTube én in het nieuws:</div>`+sterk.map(o=>`<div><span class="tag rood">STERK</span><span><b>${esc(o.onderwerp)}</b> <span class="zacht">${esc(o.kanalen)} kanalen</span></span></div>`).join(""):"")+
+    (uit.length?`<div class="zacht" style="margin-top:4px">Uitschieters bij Nederlandse geldkanalen:</div>`+uit.map(x=>`<div><span class="tag">${esc(x.keer_gewoon)}x</span><span><a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a> <span class="zacht">${esc(x.kanaal)}</span></span></div>`).join(""):"");
+}
+
 async function laad(){
   let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}
   catch(e){$("updateTekst").textContent="Geen gegevens, de pagina probeert het over 2 minuten opnieuw";$("stip").className="pil uit";
@@ -408,6 +424,7 @@ async function laad(){
   try{kanalenPlanning(d.kanalen)}catch(e){$("kpWeken").textContent="Planning niet te tonen"}
   try{nieuwswacht(d.nieuws)}catch(e){$("nieuws").textContent="Nieuwswacht niet te tonen"}
   try{ytWacht(d.yt_swan)}catch(e){$("ytSwan").textContent="YouTube-wachter niet te tonen"}
+  try{nlWacht(d.nl_hype)}catch(e){$("nlHype").textContent="NL-wachter niet te tonen"}
   $("stip").className="pil "+(pcOk?"goed":"uit");
   $("updateTekst").textContent=pcOk?`Pc actief, bijgewerkt ${min<1?"zojuist":min+" min geleden"}`:`De pc stuurt geen update (laatste ${d.bijgewerkt.slice(11)})`;
   $("vandaag").lastElementChild.textContent=new Date().toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short",year:"numeric"});

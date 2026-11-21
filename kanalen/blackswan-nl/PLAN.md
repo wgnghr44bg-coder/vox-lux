@@ -42,3 +42,11 @@ Vergeleken met NOS/nu.nl Economie (gem. 16,6 woorden per zin; onze vertaalde pro
 ## Onderwerp kanaal (eigenaar 21 nov): geldzaken, bedrijven, beleggen ("zoals DoopieCash, investeren enz.").
 Onze stijl: uitleg met verhalen + Nederlandse kant (ASML, AEX, box 3, sparen, huizen), GEEN persoonlijk beleggingsadvies (AFM) → "Dit is geen beleggingsadvies."
 Naamvoorstellen (handles 21 nov gecheckt): Het Geldverhaal @Geldverhaal (advies), Beurs & Bedrijven, Zwarte Zwaan, BlackswanVault NL — vrij; Geld Uitgelegd en Geldzaken bezet.
+
+## NL-wachter uitgebreid (21 nov 13:15, eigenaar: "aandelen bedrijven wereldwijd, niet beperken tot AEX; wat is nu hype in Nederland")
+- Koersen: AEX + NL-bedrijven + wereldwijd (Nvidia, Apple, Tesla, Microsoft, Broadcom, S&P, Nasdaq, olie, goud, bitcoin).
+- Nieuwsnamen: ook buitenlandse bedrijven (Tesla, Apple, OpenAI, Anthropic, SpaceX, Intel, Samsung, Boeing, ...).
+- Kanalen zoals wij (NL): DoopieCash, Focuss Op Financiën, DeAandeelHouder TV, Tom Lassing - Beursbox, Geld op Geld, Investeren doe je zo.
+- Seintje ntfy "Geldverhaal: hype?" (zelfde ntfy-kanaal als BlackswanVault), max 1x per onderwerp per dag (stories/nl-seintjes.txt).
+- Website: kolom "Geldverhaal" in "Hype nu" (docs/status, data uit stories/nl-hype.json).
+- Eerste uitslag: Anthropic STERK (7 NL-kanalen), Nvidia STERK; uitschieters: "Aandelen dalen hard" (Geld op Geld 31x), Anthropic (DoopieCash 22x).

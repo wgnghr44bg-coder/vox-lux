@@ -661,6 +661,8 @@ data = {
     "nieuws": json.loads((STORIES / "nieuws.json").read_text(encoding="utf-8")) if (STORIES / "nieuws.json").exists() else None,
     # YouTube-wachter BlackswanVault (eigenaar 21 nov 2026): tools/swan_yt_wacht.py, 08:10 en 15:55
     "yt_swan": json.loads((STORIES / "yt-hype-swan.json").read_text(encoding="utf-8")) if (STORIES / "yt-hype-swan.json").exists() else None,
+    # Geldverhaal NL-wachter (eigenaar 21 nov 2026): tools/nl_wacht.py, 08:20 en 16:05
+    "nl_hype": json.loads((STORIES / "nl-hype.json").read_text(encoding="utf-8")) if (STORIES / "nl-hype.json").exists() else None,
     "werkplanning": wp,
     "scripts": sc_overzicht,
     "zelfcontrole": zc,
