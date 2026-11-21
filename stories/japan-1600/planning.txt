@@ -1,6 +1,6 @@
 onderwerp Life in Japan in the Age of the Samurai, 1600
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 16 nov, 2026-11-16, Claude; opnieuw geschreven)
-datum    za 2027-04-03 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-16 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-26 21:00 NL))
+datum    wo 2027-01-27 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2027-04-03 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-16 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-26 21:00 NL)))
 titel    Life in Japan in the Age of the Samurai, 1600 | History for Sleep
 thumbnail amberregel "JAPAN · SPRING 1600", hook "The Age of the Samurai", beeld (kenmerkend): een samoerai in gelakt harnas met helm met wapenschild, rustig staand onder bloeiende kersenbomen, achter hem een wit kasteel met gebogen daken en de besneeuwde Fuji; zwaard in de schede, kalm
 soort    middeleeuwen

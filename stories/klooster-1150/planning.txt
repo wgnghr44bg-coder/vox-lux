@@ -1,6 +1,6 @@
 onderwerp How Medieval Monks Lived, 1150
 status   script-klaar (2026-11-01, tweede account)
-datum    za 2027-06-12 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2027-02-17 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-01-13 21:00 NL (eigenaar 18 nov; was za 2027-01-23)))
+datum    za 2027-02-20 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2027-06-12 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2027-02-17 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-01-13 21:00 NL (eigenaar 18 nov; was za 2027-01-23))))
 titel    How Medieval Monks Lived, 1150 | <N> Hours of History for Sleep
 thumbnail amberregel "YORKSHIRE · 1150", hook "How Medieval Monks Lived", beeld (kenmerkend): een monnik in wit wollen habijt met kaars loopt 's nachts door de stille kloostergang met rondbogen, in het dal erachter de lichtgevende ramen van de abdijkerk en de mist boven de rivier; warm kaarslicht, rustig
 soort    middeleeuwen

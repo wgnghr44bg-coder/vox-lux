@@ -1,6 +1,6 @@
 onderwerp Life in Gettysburg, July 1863
 status   klaar
-datum    za 2027-01-02 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2026-12-02 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-11-18 21:00 NL))
+datum    wo 2026-12-02 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2027-01-02 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2026-12-02 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2026-11-18 21:00 NL)))
 titel    Life in Gettysburg, July 1863 | History for Sleep (eigenaar 14 nov 2026: concrete titel met plaats/jaar, CTR-cijfers; was: What Happened to the Families of Gettysburg in 1863?)
 thumbnail amberregel "GETTYSBURG · JULY 1863", hook "Life in Gettysburg", beeld: Abraham Lincoln met hoge hoed en zwarte jas, rustig en peinzend, op het herfstveld van Gettysburg in november 1863, Amerikaanse vlaggen en de menigte zacht wazig erachter, gouden middaglicht (kenmerkend beeld, eigenaar 1 nov 2026)
 soort    oorlog

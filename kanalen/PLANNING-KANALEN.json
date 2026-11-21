@@ -1,9 +1,9 @@
 {
  "uitleg": "Planning van NOIRTRACES en BlackswanVault (eigenaar 19 nov 2026). Sleep Archives komt vanzelf uit stories/*/planning.txt. De website (tools/kanalen_planning.py) zet dit samen met YouTube in het paneel 'Planning alle kanalen'. Zie kanalen/PLANNING.md.",
  "regels": {
-  "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
-  "NOIRTRACES": "WORDT GELDVERHAAL (eigenaar 21 nov 2026): Nederlandse versie van BlackswanVault over geld, bedrijven en beleggen. Handle @Geldverhaal rond 2 dec; eerst 2-3 video's klaar. Plan: kanalen/blackswan-nl/PLAN.md.",
-  "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov)."
+  "Sleep Archives": "2x per week, wo + za 21:00 NL (eigenaar 21 nov avond: 'sleep toch beter 2 video's per week'). Mag ver vooruit; de pc maakt ze zelf (taak 'Sleep Archives bewaker' AAN), maar wacht als BlackswanVault/Geldverhaal rendert. Feestdagen/jaardagen houden hun datum. Bij echt grote hype mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
+  "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
+  "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen."
  },
  "items": [
   {

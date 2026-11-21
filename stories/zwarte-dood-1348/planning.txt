@@ -1,6 +1,6 @@
 onderwerp Life in Europe During the Black Death, 1348
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)
-datum    za 2027-02-20 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-02 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-12 21:00 NL (was za 2026-12-05)))
+datum    wo 2027-01-06 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2027-02-20 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-01-02 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was za 2026-12-12 21:00 NL (was za 2026-12-05))))
 titel    Life in Florence Before the Black Death, 1347 | History for Sleep (eigenaar 14 nov: concrete titel; was: How Did Ordinary People Survive the Black Death?)
 opening   onderwerp
 titelsoort life-before

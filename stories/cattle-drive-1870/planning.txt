@@ -1,6 +1,6 @@
 onderwerp Life on a Cattle Drive with the Cowboys, 1870
 status   script-klaar (2026-11-03, tweede account)
-datum    za 2028-01-29 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-06-12 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-09-01 21:00 NL))
+datum    za 2027-06-26 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2028-01-29 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was za 2027-06-12 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was wo 2027-09-01 21:00 NL)))
 titel    Life on a Cattle Drive with the Cowboys, 1870 | <N> Hours of History for Sleep
 thumbnail amberregel "TEXAS · 1870", hook "The Chisholm Trail", beeld (kenmerkend): een kudde longhorns in alle kleuren die bij zonsondergang over de eindeloze prairie trekt, cowboys met brede hoeden te paard langs de flank, een chuckwagon met wit canvas en een kampvuur op de voorgrond; rustig, warm goudlicht
 soort    reis

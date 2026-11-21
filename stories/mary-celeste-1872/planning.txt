@@ -1,6 +1,6 @@
 onderwerp The Mary Celeste, the ghost ship of 1872
 status   script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)
-datum    za 2027-03-20 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2027-01-13 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-12-21 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen)))
+datum    wo 2027-01-20 21:00 NL (eigenaar 21 nov: Sleep 2x per week, wo+za; was za 2027-03-20 21:00 NL (eigenaar 19 nov: Sleep 1x per week, za; was wo 2027-01-13 21:00 NL (eigenaar 19 nov: Sleep 2x per week, wo+za; was ma 2026-12-21 21:00 NL (vrije plek voor hype, gevuld met gezochte onderwerpen))))
 titel    The Mary Celeste Ghost Ship, 1872 | History for Sleep
 opening   scène
 titelsoort event-year
