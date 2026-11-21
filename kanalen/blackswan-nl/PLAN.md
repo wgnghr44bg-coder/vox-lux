@@ -52,3 +52,6 @@ Naamvoorstellen (handles 21 nov gecheckt): Het Geldverhaal @Geldverhaal (advies)
 - Eerste uitslag: Anthropic STERK (7 NL-kanalen), Nvidia STERK; uitschieters: "Aandelen dalen hard" (Geld op Geld 31x), Anthropic (DoopieCash 22x).
 ## Grafieken (eigenaar 21 nov): in ELKE koersgrafiek de top en het laagste punt tonen (groene/rode stip + "Top €1.721" / "Laagste €1.168"),
 verschijnt pas als de lijn er is. Code: proef-asml/render.py, lijn(..., hoog_laag=True). Geldt ook voor BlackswanVault (overnemen in videoN/render.py).
+## Stem: per ALINEA inspreken (eigenaar 21 nov: "letters goed uitspreken en niet stoppen als je een zin afmaakt")
+`proef-asml/stem_alinea.py`: hele @scene in één keer (zinnen lopen door), Whisper-woordtijden voor zinsgrenzen, cache per alinea
+(`--opnieuw 2 --seed 40` = alleen alinea 2 opnieuw). Afkortingen in script.txt als losse letters: "A S M L", "A E X". Controle: `check_nl.py --alinea`.
