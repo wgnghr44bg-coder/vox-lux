@@ -15,10 +15,10 @@ Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet 
 | di 24 nov | 17:00 | Short: Big Tech Is Spending $700 Billion on AI. For What? | _Te7gcc9RAs |
 | wo 25 nov | 15:00 | Black Friday Starts a $1 Trillion Season. Here's the Catch (video7) | c4xgBH1o4AE |
 | wo 25 nov | 17:00 | Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices | 8de6ZH3YYp4 |
-| do 26 nov | 15:00 | Bitcoin Just Lost Half Its Value. Here's Who Is Selling (video8) | JW4e9rWlukk |
+| do 26 nov | 15:00 | Bitcoin Just Lost Half Its Value. Here's Who Is Selling (video8) | _dJmQs0VNt0 |
 | do 26 nov | 17:00 | Short: Bitcoin Fell Below $60,000. Here's Who Is Selling | gtqCj_lhfm4 |
-| vr 27 nov | 15:00 | Elon Musk's SpaceX Just Fell Below Its IPO Price (video9; titel 21 nov aangepast, CTR-les) | uLoUpPHRz9g |
-| vr 27 nov | 17:00 | Short: SpaceX Stock Fell Below Its $135 IPO Price | ZdwE2HdjVJg |
+| vr 27 nov | 15:00 | Elon Musk's SpaceX Just Fell Below Its IPO Price (video9; titel 21 nov aangepast, CTR-les) | POKDPLlDZU4 |
+| vr 27 nov | 17:00 | Short: SpaceX Stock Fell Below Its $135 IPO Price | rAQg2IO2BSg |
 
 Thumbnails wo/do/vr (eigenaar 21 nov: "alle 3 goed, je leest en ziet meteen waar het over gaat"): het ONDERWERP zelf
 (winkelwagen met lange kassabon / gebroken bitcoin / Starship), gemaakt met `thumb_ding.py`; niet meer een geschrokken gezicht.
@@ -106,3 +106,7 @@ Elke dag een lange video + Short als er goed nieuws is; anders alleen een Short.
 - Thumbnail: `video5/thumb_markt2.py <beeld> <regel1> <regel2> <uit> [regel3] [--geen-lijn]`; derde regel = prikkel, per video anders (niet steeds WHY?).
 - Shorts: `shorts/maak_short.py` (knipt nu altijd vóór de volgende zin); woorden.json nakijken op dubbele stukken van Whisper.
 - Beelden, stem en mp4 staan alleen op de pc (niet in git). Eigen stemopnames alleen in `~/vox-lux-stemmen/`.
+
+**Cijferfix KLAAR (21 nov avond, eigenaar OK):** video8 Bitcoin = _dJmQs0VNt0 (do 26 14:00Z), video9 SpaceX = POKDPLlDZU4 (vr 27 14:00Z),
+SpaceX-Short = rAQg2IO2BSg (vr 27 16:00Z); privé met publishAt, AI-label, thumbnail. Oude JW4e9rWlukk, uLoUpPHRz9g, ZdwE2HdjVJg verwijderd.
+Link in Bitcoin-Short gtqCj_lhfm4 bijgewerkt. Script: `vervang_fix.py`.
