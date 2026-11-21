@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 16:33",
+ "bijgewerkt": "2026-11-21 17:03",
  "kanalen": {
   "weken": [
    {
@@ -95,7 +95,7 @@
         "datum": "2026-11-21",
         "tijd": "17:00",
         "titel": "Short: GTA 6 Broke Records. So Why Did the Stock Fall?",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "HWcKzzN7PzI"
        },
        {
@@ -2505,7 +2505,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "141 GB vrij"
+   "tekst": "145 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2520,7 +2520,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 16:33)"
+   "tekst": "draait nu (2026-11-21 17:03)"
   },
   {
    "naam": "Git",
@@ -2540,7 +2540,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2557,8 +2557,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 16:33",
-   "volgende": "2026-11-21 17:03"
+   "laatst": "2026-11-21 17:03",
+   "volgende": "2026-11-21 17:33"
   },
   "hype": {
    "aan": true,
@@ -2572,8 +2572,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 16:18",
-   "volgende": "2026-11-21 16:48"
+   "laatst": "2026-11-21 16:48",
+   "volgende": "2026-11-21 17:18"
   },
   "titels": {
    "aan": true,
@@ -2684,7 +2684,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 801,
+    "views": 802,
     "verwerkt": "processed"
    }
   ],
@@ -2909,7 +2909,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 358,
+  "geheugen_mb": 361,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3093,8 +3093,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-21 16:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 17:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5242,30 +5242,30 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 16:33",
+  "bijgewerkt": "2026-11-21 17:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 869542,
-    "week": 13137964,
+    "5uur": 1556902,
+    "week": 13825323,
     "per_dag": {
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951,
      "Thu 19-11": 371807,
-     "Sat 21-11": 869542
+     "Sat 21-11": 1556902
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 15528,
+    "stap_kost": 18758,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 14459054,
-    "week": 118717514,
+    "5uur": 12883813,
+    "week": 118687166,
     "per_dag": {
-     "Sat 14-11": 17683911,
+     "Sat 14-11": 17653563,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
@@ -5275,12 +5275,12 @@
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 39706,
+    "stap_kost": 39773,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 106,
-    "5uur_scripts_over": 0.0,
-    "5uur_stappen_over": 0,
+    "5uur_pct": 95,
+    "5uur_scripts_over": 1.0,
+    "5uur_stappen_over": 17,
     "week_pct": 90,
     "week_scripts_over": 20.1,
     "week_stappen_over": 335
