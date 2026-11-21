@@ -56,5 +56,5 @@ def banner(achter, lg, uit):
 if __name__ == "__main__":
     for st in ("munt", "boek"):
         logo(st).save(f"logo-{st}.png")
-    # gekozen 21 nov: banner A (grachten) + logo munt
-    banner("ai/afbeeldingen/banner-a.png", Image.open("logo-munt.png"), "banner-definitief.jpg")
+    # gekozen 21 nov: banner B (beurslijn, eigenaar: "vind deze mooier") + logo munt
+    banner("ai/afbeeldingen/banner-b.png", Image.open("logo-munt.png"), "banner-definitief.jpg")
