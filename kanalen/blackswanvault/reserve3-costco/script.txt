@@ -10,6 +10,7 @@ On some of these things, Costco probably makes almost nothing, or even loses mon
 @scene open-winst
 And yet, in its last fiscal year, Costco made a profit of about nine point two billion dollars.
 Its sales were almost three hundred billion dollars.
+And its profit was about fourteen percent higher than a year earlier.
 @scene open-antwoord
 So how does a store that keeps its prices this low make that much money?
 The short answer is: Costco does not really make its money selling you things.
@@ -22,11 +23,23 @@ To understand Costco, you have to start with the man who built it.
 Jim Sinegal co-founded Costco in 1983, with the businessman Jeffrey Brotman.
 The first warehouse opened in Seattle.
 Sinegal had one obsession: keeping prices low, no matter what.
+@scene h1-price
+The idea itself was not new.
+In 1976, a businessman named Sol Price opened a store in San Diego called Price Club.
+It was one of the first warehouse clubs, where members paid a fee to buy in bulk at low prices.
+Jim Sinegal had worked for Sol Price, and learned the model from him.
+In 1993, Costco and Price Club merged.
+Today, almost nobody remembers Price Club.
+But its idea is the reason Costco exists.
 @scene h1-dreiging
 The hot dog became the symbol of that idea.
 Years later, when the price of everything was rising, Costco's next chief executive, Craig Jelinek, went to Sinegal and asked about raising the price of the hot dog.
 According to Jelinek, Sinegal answered, quote, "If you raise the price of the hot dog, I will kill you."
 The price stayed at one dollar fifty.
+@scene h1-nu
+Jim Sinegal stepped down as chief executive in 2012.
+Since January 2024, the company has been led by Ron Vachris, who started at Costco decades ago, driving a forklift.
+But the rules that Sinegal set are still there.
 @scene h2-model
 Here is how the model works.
 To shop at Costco, you need a membership.
