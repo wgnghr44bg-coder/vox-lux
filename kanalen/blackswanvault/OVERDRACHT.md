@@ -46,6 +46,10 @@ Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got
 - `reserve3-costco/`: hoe Costco geld verdient ("Costco Sells a $1.50 Hot Dog. Here's How It Made $9 Billion"). CONCEPT-script, FY2026-cijfers nagekeken, rest (*) nakijken in bronnen.md.
 - Volgende reserve-ideeën (nog niets gedaan): "Why Concert Tickets Cost So Much" (Live Nation/Ticketmaster, rechtszaak DOJ), "Can Boeing Come Back?". Telkens: mens/bekende naam in de titel als het klopt (CTR-les).
 
+**Beginstand kanaal (Studio, 24 okt - 20 nov 2026, 28 dagen):** 9.135 weergaven (+18,8%), 97,7 uur kijktijd (+85%), gem. 1:12,
++17 abonnees, 16.288 vertoningen (x4), CTR 3,5%. Shorts 8.054 weergaven/67,9 uur; lange video's 1.072 weergaven/29,7 uur.
+Partnerprogramma telt alleen lange-video-uren (4.000) → elke dag een lange video is de sleutel. Opnieuw vergelijken rond 5 dec 2026.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.
