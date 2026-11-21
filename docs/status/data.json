@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 12:03",
+ "bijgewerkt": "2026-11-21 12:33",
  "kanalen": {
   "weken": [
    {
@@ -1023,7 +1023,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 99%",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -1273,7 +1273,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "145 GB vrij"
+   "tekst": "142 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -1288,7 +1288,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 12:03)"
+   "tekst": "draait nu (2026-11-21 12:33)"
   },
   {
    "naam": "Git",
@@ -1307,8 +1307,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": false,
-   "tekst": "laatste ronde 11:48: 2 ding(en) klopt niet, zie meldingen"
+   "ok": true,
+   "tekst": "laatste ronde 12:21: alles klopt"
   }
  ],
  "automatisering": false,
@@ -1325,8 +1325,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 12:03",
-   "volgende": "2026-11-21 12:33"
+   "laatst": "2026-11-21 12:33",
+   "volgende": "2026-11-21 13:03"
   },
   "hype": {
    "aan": true,
@@ -1336,12 +1336,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-21 12:10"
+   "volgende": "2026-11-21 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 11:48",
-   "volgende": "2026-11-21 12:18"
+   "laatst": "2026-11-21 12:18",
+   "volgende": "2026-11-21 12:48"
   },
   "titels": {
    "aan": true,
@@ -1642,13 +1642,13 @@
  "kpi": {
   "geplande": 3,
   "runs": {
-   "goed": 5,
-   "totaal": 16,
-   "procent": 31
+   "goed": 4,
+   "totaal": 15,
+   "procent": 27
   },
-  "fouten": 1,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 12,
    "totaal": 12
   }
  },
@@ -1661,30 +1661,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "84 van 84 beelden",
-  "taken": [
-   "beelden maken (ComfyUI)"
-  ],
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 59,
-  "geheugen_mb": 7202,
+  "bezig_procent": 26,
+  "geheugen_mb": 543,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1770,18 +1763,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-20 08:30",
-   "tekst": "hype-wachter: SEINTJE Tales from Korean Folklore | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-20 08:30",
-   "tekst": "hype-wachter: SEINTJE Learn How Rice Changed The World | A Sleepy History -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-20 09:36",
    "tekst": "Claude: BlackswanVault Anthropic (5C2MIFhR314) nieuwe thumbnail A ($81 BILLION, ANTHROPIC IPO, Dario voor Nasdaq) op verzoek eigenaar; oude = video2/thumbnail-definitief.jpg",
    "fout": false,
@@ -1852,15 +1833,21 @@
    "tekst": "nieuwswacht: GROOT Goud (2026-11-21): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-21 12:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 2 ding(en) klopt niet, zie meldingen",
-   "fout": true
+   "tijd": "2026-11-21 12:21",
+   "tekst": "sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 12:21",
+   "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
   {
    "tijd": "2026-11-18 19:48",
@@ -4005,7 +3992,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 12:09",
+  "bijgewerkt": "2026-11-21 12:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -4024,28 +4011,28 @@
    },
    {
     "account": "account2",
-    "5uur": 6428800,
-    "week": 115415873,
+    "5uur": 6684712,
+    "week": 112498073,
     "per_dag": {
-     "Sat 14-11": 27137003,
+     "Sat 14-11": 23598278,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 10310008,
+     "Sat 21-11": 10930933,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 31541,
+    "stap_kost": 31751,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 47,
-    "5uur_scripts_over": 10.8,
-    "5uur_stappen_over": 227,
-    "week_pct": 87,
-    "week_scripts_over": 25.0,
-    "week_stappen_over": 526
+    "5uur_pct": 49,
+    "5uur_scripts_over": 10.4,
+    "5uur_stappen_over": 217,
+    "week_pct": 85,
+    "week_scripts_over": 29.4,
+    "week_stappen_over": 615
    }
   ]
  },
