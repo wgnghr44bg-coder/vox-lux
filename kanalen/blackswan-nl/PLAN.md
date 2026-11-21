@@ -65,3 +65,12 @@ Geldverhaal-logo rechtsboven. Nooit de Swan-stijl (Impact, rood/wit met zwarte r
 ## Uitspraak: "Claude" NIET laten uitspreken (OmniVoice NL zegt "kloot"/"klad"/"cloud"; 21 nov getest). Zeg "een van de bekendste chatbots", toon "Claude" in beeld.
 
 ## Cijfers vergelijken: ntfy-seintje ma 7 dec 2026 10:00 (taak "Geldverhaal cijfers 7 dec", tools/herinner_geldverhaal.py) = 2 weken na de eerste video (gepland ± 23 nov). Komt de eerste video later online, de datum in de taakplanner meeschuiven.
+
+## VASTE WERKWIJZE NIEUWSKANALEN (eigenaar 21 nov 2026: "voor sleep kun je best vooruit werken, maar voor swan lijkt het me lastig als je echt live nieuws wilt brengen")
+Geldt voor BlackswanVault en Geldverhaal (Sleep Archives mag wél ver vooruit).
+1. Nieuwsvideo's hooguit 1-2 dagen vooruit maken (zelfde dag of dag ervoor); nooit een week op de plank.
+2. Elke ochtend kiezen de wachters het onderwerp (nieuwswacht 08:00, swan_yt_wacht 08:10, nl_wacht 08:20; seintje bij grote hype).
+3. Dagen zonder groot nieuws: reservevideo's die niet verouderen (RAM, Costco, Intel, ...) — die mogen wél vooruit.
+4. Shorts op dezelfde dag als de lange video.
+5. Toch al vooruit ingepland nieuws: de avond ervoor actualiteitscheck (koersen veranderd? slotzin/titel aanpassen).
+Eigenaar opent dagelijks Claude voor onderwerp en akkoord; zonder Claude maakt de pc geen nieuwe nieuwsvideo.

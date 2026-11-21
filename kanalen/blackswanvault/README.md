@@ -65,3 +65,12 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
 - Sleep Archives en NOIRTRACES staan op pauze (taak "Sleep Archives bewaker" staat uit).
 - **Stem blijft zakelijk-23 (eigenaar 20 nov):** proeven met ontworpen stem E, eigen opnames 'Yessssssaaasss' (eigen-stem-swan) en 'Trrr' (eigen-stem-trrr) gemaakt (`stemproef/`); eigenaar: "ik laat het zo met de stem die ik al had". De eigen opnames staan alleen op de pc (`~/vox-lux-stemmen/`).
 - **Thumbnailstijl v2 (eigenaar 20 nov avond, na vergelijking met 12 grote kanalen; vervangt de 3-regelstijl voor nieuwe video's):** 2 korte regels, samen ± 4 woorden (groot rood getal/woord + witte prikkel, bv. `$700B` / `FOR WHAT?`); rechts een gezicht van voren met emotie, uitgeknipt met licht randje (bekend persoon uit het verhaal als er een vrije foto is, anders eigen AI-gezicht of eigen AI-robot; nooit een plaatje van internet); letters nooit over het gezicht; lichter en feller. Script: `video6/thumb_v2.py <achtergrond> <gezicht> <regel1> <regel2> <uit.jpg>`; voorbeeld `video6/thumbnail-definitief.jpg` (eigen AI-robot, eigenaar koos C).
+
+## VASTE WERKWIJZE NIEUWSKANALEN (eigenaar 21 nov 2026: "voor sleep kun je best vooruit werken, maar voor swan lijkt het me lastig als je echt live nieuws wilt brengen")
+Geldt voor BlackswanVault en Geldverhaal (Sleep Archives mag wél ver vooruit).
+1. Nieuwsvideo's hooguit 1-2 dagen vooruit maken (zelfde dag of dag ervoor); nooit een week op de plank.
+2. Elke ochtend kiezen de wachters het onderwerp (nieuwswacht 08:00, swan_yt_wacht 08:10, nl_wacht 08:20; seintje bij grote hype).
+3. Dagen zonder groot nieuws: reservevideo's die niet verouderen (RAM, Costco, Intel, ...) — die mogen wél vooruit.
+4. Shorts op dezelfde dag als de lange video.
+5. Toch al vooruit ingepland nieuws: de avond ervoor actualiteitscheck (koersen veranderd? slotzin/titel aanpassen).
+Eigenaar opent dagelijks Claude voor onderwerp en akkoord; zonder Claude maakt de pc geen nieuwe nieuwsvideo.

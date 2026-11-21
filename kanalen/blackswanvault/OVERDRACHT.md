@@ -2,6 +2,8 @@
 
 Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet passen, uitspraak controleren, grafieklabels pas als de lijn er is, thumbnailstijl, stem blijft zakelijk-23). Planning: `../PLANNING-KANALEN.json`.
 
+**VASTE WERKWIJZE (21 nov):** nieuwsvideo's hooguit 1-2 dagen vooruit; wachters kiezen elke ochtend; reserves voor rustige dagen; Shorts zelfde dag. Volledige tekst: README.md.
+
 ## Gepland op YouTube (privé, gaan vanzelf openbaar; kanaal gecontroleerd)
 | dag | tijd | wat | id |
 |---|---|---|---|

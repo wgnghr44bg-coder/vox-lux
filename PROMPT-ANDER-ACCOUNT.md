@@ -11,6 +11,9 @@ vraag eerst als iets geld kost; eigen stembestanden nooit op GitHub (repo is ope
 (slotkoersen, niet koersen van tijdens de handel); video's sturen met SendUserFile `display: "render"` + kleine versie.
 Pc heeft weinig geheugen: één zware taak tegelijk, als los proces (Start-Process), geen eigen wachtlussen op de achtergrond.
 
+VASTE WERKWIJZE nieuwskanalen (BlackswanVault + Geldverhaal): nieuwsvideo's hooguit 1-2 dagen vooruit, wachters kiezen elke ochtend het onderwerp,
+reservevideo's voor rustige dagen, Shorts dezelfde dag (zie kanalen/blackswanvault/README.md). Sleep Archives mag ver vooruit.
+
 ## 1. Geldverhaal (NL-kanaal, was NOIRTRACES) — video 1 loopt
 - Map `kanalen/blackswan-nl/video1/`. Titel: "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?" (`youtube-titel.txt`).
 - Thumbnail: `thumbnail-definitief.jpg` (gemaakt door de eigenaar; verzonnen percentages zijn eruit gehaald — nooit verzonnen cijfers).
