@@ -10,25 +10,26 @@ import b1
 inst = b1.standaard()
 ZINNEN = """Wie dit jaar een computer wilde bouwen, merkte iets vreemds.
 Het geheugen, het RAM, kostte ineens meer dan bijna alles in de kast.
-Een populaire set van tweeëndertig gigabyte snel geheugen kost nu zo'n vierhonderd tot vijfhonderd dollar.
+Een populaire set snel geheugen van tweeëndertig gigabyte kost nu zo'n vierhonderd tot vijfhonderd dollar.
 In de zomer van vorig jaar kostte zo'n set gemiddeld honderdvijftien dollar.
-Dat is ongeveer vier keer zo veel, in iets meer dan een jaar.
+Dat is ongeveer vier keer zoveel, in iets meer dan een jaar.
 Dus wat is er gebeurd?
 Het korte antwoord is: kunstmatige intelligentie.
-De bedrijven die geheugenchips maken, verkopen zo veel mogelijk aan datacenters voor AI.
+De bedrijven die geheugenchips maken, verkopen zoveel mogelijk aan datacenters voor AI.
 En voor de rest van ons blijft er simpelweg te weinig over.
-In het derde kwartaal haalde de hele geheugenindustrie zo'n tweehonderd miljard dollar binnen.
+In het derde kwartaal van dit jaar haalde de hele geheugenindustrie zo'n tweehonderd miljard dollar binnen.
 Dat is driehonderdnegenenzestig procent meer dan een jaar eerder.
-Maar het aantal chips dat ze verkochten, groeide maar met ongeveer vier procent.
-Bijna al dat extra geld kwam dus uit één ding: hogere prijzen.
+Toch groeide de hoeveelheid geheugen die ze leverden met maar zo'n vier procent.
+Bijna al dat extra geld kwam dus door één ding: hogere prijzen.
 En dat raakt ook Nederland.
-Want de machines om die chips te maken, komen voor een groot deel uit Veldhoven, van ASML.
-Laten we kijken hoe het zo ver kwam, wie eraan verdient, en wanneer het stopt.""".splitlines()
+Want de belangrijkste machines om die chips te maken, komen van ASML uit Veldhoven.
+Laten we kijken hoe het zover kwam, wie eraan verdient, en wanneer het stopt.""".splitlines()
+EXTRA = {2: 100}  # zin 3 opnieuw (tweeëndertig werd "2,30")
 cfg = VoiceConfig(voice="richard-nl", speed=0.96, seed=1, num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 delen = []
 for i, z in enumerate(ZINNEN):
-    a = ov.speak([z], cfg, seed=1 + i)[0]
+    a = ov.speak([z], cfg, seed=1 + i + EXTRA.get(i, 0))[0]
     delen += [a, np.zeros(int(ov.SR * (0.55 if z.endswith("?") else 0.35)), dtype=np.float32)]
 uit = np.concatenate(delen)
 sf.write(r"C:/Users/rane/vox-lux-stemmen/richard/proef-1min.wav", uit, ov.SR)
