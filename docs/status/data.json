@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 23:33",
+ "bijgewerkt": "2026-11-22 00:03",
  "kanalen": {
   "weken": [
    {
@@ -2315,14 +2315,6 @@
   ],
   "publicaties": [
    {
-    "datum": "2026-11-21",
-    "dag": "za",
-    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-    "map": "thanksgiving-1621",
-    "stand": "online",
-    "kleur": "goed"
-   },
-   {
     "datum": "2026-11-28",
     "dag": "za",
     "titel": "How People Survived the Ice Age | History for Sleep",
@@ -2368,19 +2360,6 @@
  "scripts": {
   "klaar_tot": "2027-01-30",
   "rij": [
-   {
-    "datum": "2026-11-21",
-    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-    "map": "thanksgiving-1621",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
-    "flesch": 66,
-    "niveau": 7.5,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": null
-   },
    {
     "datum": "2026-11-28",
     "titel": "How People Survived the Ice Age | History for Sleep",
@@ -2643,17 +2622,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 23:33)"
+   "tekst": "draait nu (2026-11-22 00:03)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
-  },
-  {
-   "naam": "Video 2026-11-21 (thanksgiving-1621)",
-   "ok": true,
-   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -2663,7 +2637,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 23:18: alles klopt"
+   "tekst": "laatste ronde 23:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2680,8 +2654,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 23:33",
-   "volgende": "2026-11-22 00:03"
+   "laatst": "2026-11-22 00:03",
+   "volgende": "2026-11-22 00:33"
   },
   "hype": {
    "aan": true,
@@ -2695,8 +2669,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 23:18",
-   "volgende": "2026-11-21 23:48"
+   "laatst": "2026-11-21 23:48",
+   "volgende": "2026-11-22 00:18"
   },
   "titels": {
    "aan": true,
@@ -2710,13 +2684,13 @@
   "views_totaal": 3214,
   "video_aantal": 18,
   "week": {
-   "views": 423,
-   "uren": 80,
+   "views": 335,
+   "uren": 61,
    "abonnees": 3
   },
   "vorige_week": {
-   "views": 684,
-   "uren": 174,
+   "views": 681,
+   "uren": 176,
    "abonnees": 5
   },
   "recent": [
@@ -2812,11 +2786,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-24",
-    "views": 99,
-    "abonnees": 1
-   },
    {
     "dag": "2026-10-25",
     "views": 147,
@@ -2949,14 +2918,14 @@
    }
   ],
   "maand": {
-   "views": 2445,
-   "uren": 510,
-   "abonnees": 12
+   "views": 2346,
+   "uren": 484,
+   "abonnees": 11
   },
   "vorige_maand": {
-   "views": 909,
-   "uren": 218,
-   "abonnees": 7
+   "views": 982,
+   "uren": 244,
+   "abonnees": 6
   },
   "jaar": {
    "views": 3828,
@@ -2968,8 +2937,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 916,
-    "uren": 202
+    "views": 828,
+    "uren": 182
    },
    {
     "id": "_duWLxwIEss",
@@ -2993,10 +2962,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 17.3,
-   "tempo_abonnees_per_dag": 0.43,
-   "datum_uren": "2027-05-31",
-   "datum_abonnees": "2033-02-24"
+   "tempo_uren_per_dag": 16.2,
+   "tempo_abonnees_per_dag": 0.39,
+   "datum_uren": "2027-06-13",
+   "datum_abonnees": "2033-09-21"
   }
  },
  "kpi": {
@@ -3008,8 +2977,8 @@
   },
   "fouten": 0,
   "zelfcontrole": {
-   "goed": 12,
-   "totaal": 12
+   "goed": 11,
+   "totaal": 11
   }
  },
  "stappen": [
@@ -3037,7 +3006,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 4574,
+  "geheugen_mb": 4497,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3079,12 +3048,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-21",
-   "plek": true,
-   "video": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
-   "soort": "online"
-  },
-  {
    "datum": "2026-11-22",
    "plek": false,
    "video": "",
@@ -3119,6 +3082,12 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-28",
+   "plek": true,
+   "video": "How People Survived the Ice Age | History for Sleep",
+   "soort": "gepland"
   }
  ],
  "logboek": [
@@ -4739,16 +4708,7 @@
    "soort": "online",
    "id": "KU6eoe5vy-U",
    "afspeellijst": "reis",
-   "opening": "mythe",
-   "stappen": [
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   "gereed": 100,
-   "thumb": "thumbs/thanksgiving-1621.jpg"
+   "opening": "mythe"
   },
   {
    "map": "titanic",
@@ -5424,7 +5384,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 23:33",
+  "bijgewerkt": "2026-11-22 00:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -5444,28 +5404,27 @@
    },
    {
     "account": "account2",
-    "5uur": 9208431,
-    "week": 116527222,
+    "5uur": 10811313,
+    "week": 115567697,
     "per_dag": {
-     "Sat 14-11": 2562406,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 35995953,
+     "Sat 21-11": 37598835,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 42051,
+    "stap_kost": 42293,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 68,
-    "5uur_scripts_over": 7.6,
-    "5uur_stappen_over": 104,
+    "5uur_pct": 80,
+    "5uur_scripts_over": 4.8,
+    "5uur_stappen_over": 65,
     "week_pct": 88,
-    "week_scripts_over": 27.1,
-    "week_stappen_over": 368
+    "week_scripts_over": 28.8,
+    "week_stappen_over": 389
    }
   ]
  },
