@@ -63,3 +63,5 @@ Echte foto alleen van de ECHTE persoon (bv. Jensen Huang, Dario Amodei). AI-beel
 Beeld over de hele thumbnail (geen donkere linkerkant), zwarte tekst in GOUDEN balken, getal wit in ROOD blok, Segoe UI Black,
 Geldverhaal-logo rechtsboven. Nooit de Swan-stijl (Impact, rood/wit met zwarte rand, donkere linkerkant).
 ## Uitspraak: "Claude" NIET laten uitspreken (OmniVoice NL zegt "kloot"/"klad"/"cloud"; 21 nov getest). Zeg "een van de bekendste chatbots", toon "Claude" in beeld.
+
+## Cijfers vergelijken: ntfy-seintje ma 7 dec 2026 10:00 (taak "Geldverhaal cijfers 7 dec", tools/herinner_geldverhaal.py) = 2 weken na de eerste video (gepland ± 23 nov). Komt de eerste video later online, de datum in de taakplanner meeschuiven.

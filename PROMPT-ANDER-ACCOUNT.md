@@ -42,5 +42,5 @@ Pc heeft weinig geheugen: één zware taak tegelijk, als los proces (Start-Proce
 
 ## 3. Wachters en seintjes (draaien vanzelf)
 - `tools/nieuwswacht.py` (08:00/15:45), `tools/swan_yt_wacht.py` (08:10/15:55), `tools/nl_wacht.py` (08:20/16:05) → website `docs/status`.
-- Telefoon-seintjes via ntfy (kanaalnaam alleen op de pc in `~/.swan-ntfy.json`). 28 nov 10:00: herinnering cijfers vergelijken (Sleep + Swan).
+- Telefoon-seintjes via ntfy (kanaalnaam alleen op de pc in `~/.swan-ntfy.json`). 28 nov 10:00: herinnering cijfers vergelijken (Sleep + Swan). 7 dec 10:00: Geldverhaal (2 weken na eerste video; datum meeschuiven als die later online komt).
 ---
