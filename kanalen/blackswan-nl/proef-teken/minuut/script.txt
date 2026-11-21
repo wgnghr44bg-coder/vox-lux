@@ -1,0 +1,23 @@
+# Geldverhaal proef whiteboard (1 min). Alle cijfers uit video1/bronnen.md (slotkoersen).
+@scene a
+Stel, je had in juni duizend euro in ASML gestoken.
+@scene b
+Op dertig juni stond het aandeel op ruim zeventienhonderd euro.
+Vrijdag twintig november sloot het op elfhonderdachtenzestig euro.
+Van je duizend euro was dan nog maar zo'n zeshonderdtachtig over.
+Alleen al op die vrijdag zakte ASML ruim negen procent.
+@scene c
+Hoe kan dat, bij een bedrijf dat zo goed draait?
+In het derde kwartaal haalde ASML bijna twaalf miljard euro omzet binnen.
+Daarvan bleef vijf miljard euro over als winst.
+@scene d
+De daling kwam dus niet door slechte cijfers van ASML zelf.
+ASML maakt de machines waarmee chips worden gemaakt, ook de chips voor AI.
+En beleggers zijn bang dat de hype rond AI voorbij is.
+@scene e
+Dezelfde dag zakte chipmaker Nvidia veertien procent.
+Het was al de zevende daling op rij.
+@scene f
+Is dit een koopkans, of pas het begin?
+Op zevenentwintig januari vertelt ASML wat het verwacht voor volgend jaar.
+Tot die tijd blijft het spannend.

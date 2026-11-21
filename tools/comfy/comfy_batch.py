@@ -20,7 +20,7 @@ IMG_W, IMG_H = 1280, 720                              # beelden: lange video 16:
 VID_W, VID_H, FRAMES, FPS = 1024, 576, 121, 24        # clips: 121 frames / 24 fps = 5 s (Wan 2.2 5B, 8 GB-kaart)
 NEGATIVE_VID = ("morphing, warping, distortion, melting, deformed, extra limbs, extra fingers, new objects, text, logo, "
                 "watermark, flicker, blurry, fast motion, jump cut, rainbow")
-NEGATIVE_IMG = "text, logo, watermark, cartoon, illustration, deformed, extra fingers, blurry, low quality"
+NEGATIVE_IMG = os.environ.get("NEG_IMG") or "text, logo, watermark, cartoon, illustration, deformed, extra fingers, blurry, low quality"   # NEG_IMG: eigen negatief (bv. tekenstijl Geldverhaal, 21 nov)
 
 def api(path, data=None, headers=None):
     req = urllib.request.Request(SERVER + path, data=data, headers=headers or {})
