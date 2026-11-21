@@ -1,5 +1,5 @@
 # BlackswanVault reserve 2: kan Intel terugkomen? CONCEPT 21 nov 2026 (10:55) — feiten met * in bronnen.md nakijken; aangevuld 10:55.
-# Titel (voorstel): Can Intel Come Back? The US Government Is Betting On It
+# Titel (voorstel): Intel Came Back From the Dead. Then It Fell 27% in One Day   (alt: Can Intel Come Back? The US Government Is Betting On It)
 # Opbouw: antwoord vooraan (meer omzet, nog verlies bij de fabrieken, grote investeerders), dan de val, de nieuwe baas, de redders, de cijfers nu, wat beslist.
 @scene open-val
 For decades, Intel was the chip company.
@@ -95,6 +95,18 @@ Because a modern chip factory costs tens of billions of dollars to build, long b
 And a factory only pays off when it runs close to full.
 For now, Intel's factories mostly make Intel's own chips.
 To make money, they need other customers, and lots of them.
+@scene h4-koers
+And investors noticed.
+The government had paid about twenty dollars per share.
+During a rally that lasted for months, Intel's stock climbed far above that.
+According to The Wall Street Journal, at its peak the government's stake was worth about sixty-one billion dollars.
+@scene h4-crash
+Then came the results on October thirtieth.
+Revenue was up, but the factories were still losing money, and the outlook for the next quarter was weaker.
+The next day, Intel's stock fell about twenty-seven percent, to around sixty-seven dollars.
+According to TechCrunch, that one day wiped about twelve billion dollars off the value of the government's stake.
+Even after that fall, taxpayers were still sitting on a paper gain of about nineteen billion dollars.
+But it showed how fragile the comeback still is.
 @scene h4-klant
 The key test is simple: will other companies trust Intel to build their chips?
 Lip-Bu Tan says Intel has now signed its first outside customer for its newest process, called eighteen A P.
