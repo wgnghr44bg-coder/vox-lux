@@ -61,6 +61,11 @@ nieuwe versies (+ SpaceX-Short) aan eigenaar laten zien → na OK privé uploade
 kanaal checken, AI-label aan, thumbnail + beschrijving overnemen, pas daarna oude video's (JW4e9rWlukk, uLoUpPHRz9g, ZdwE2HdjVJg) verwijderen.
 Oude bestanden staan als oud-voor-fix-*.
 
+**Wo 25 nov avond: actualiteitscheck video8 (Bitcoin, do 26) en video9 (SpaceX, vr 27)** (eigenaar 21 nov: "die koersen zijn over paar dagen weer heel anders").
+Cijfers met datum ("op vrijdag 20 november ...") blijven waar. Check: BTC-USD en SPCX (Yahoo) tegen de stand van 20 nov (BTC ± $58.800, SPCX $127,79).
+Weinig veranderd → niets doen. Flink veranderd (bv. > 10%) → 1-2 zinnen "laatste stand" aan het slot toevoegen (zoals {SLOT} bij video4), titel zo nodig aanpassen
+("Just Lost Half" klopt dan misschien niet meer), opnieuw renderen, eigenaar laten zien, na OK vervangen met dezelfde publishAt.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.
