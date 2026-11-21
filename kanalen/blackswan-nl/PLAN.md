@@ -17,3 +17,5 @@ Nederlandstalige versie van BlackswanVault, op het kanaal dat nu NOIRTRACES heet
 ## VASTE STEM (21 nov 2026): `richard-nl`, speed 0.96, seed 1 (proef r2b-seed1; eigenaar koos "Seed1").
 Kloon via OmniVoice van het eigen stembestand van de eigenaar; geluid ALLEEN op de pc: C:\Users\rane\vox-lux-stemmen\richard\ref.wav (nooit op GitHub).
 Gebruik: VoiceConfig(voice="richard-nl", speed=0.96, seed=1, ...) zoals video9/stem.py. Geen tempo/toonhoogte-trucs achteraf.
+## Taal (eigenaar 21 nov): scripts in JUIST Nederlands. Vóór de stem nalezen op spelling (zoveel/zover aaneen), dubbele woorden ("maar ... maar"),
+anglicismen en inhoud (bv. "hoeveelheid geheugen", niet "aantal chips"). Na de stem: Whisper (taal nl) per zin; verkeerd verstaan → zin opnieuw met ander seed.
