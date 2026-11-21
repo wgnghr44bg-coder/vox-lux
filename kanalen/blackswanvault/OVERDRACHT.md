@@ -110,3 +110,10 @@ Elke dag een lange video + Short als er goed nieuws is; anders alleen een Short.
 **Cijferfix KLAAR (21 nov avond, eigenaar OK):** video8 Bitcoin = _dJmQs0VNt0 (do 26 14:00Z), video9 SpaceX = POKDPLlDZU4 (vr 27 14:00Z),
 SpaceX-Short = rAQg2IO2BSg (vr 27 16:00Z); privé met publishAt, AI-label, thumbnail. Oude JW4e9rWlukk, uLoUpPHRz9g, ZdwE2HdjVJg verwijderd.
 Link in Bitcoin-Short gtqCj_lhfm4 bijgewerkt. Script: `vervang_fix.py`.
+
+**Tekenstijl-proef (21 nov avond, eigenaar):** getekende video's (whiteboard) als test. Proef 3: `proef-teken/v2/swan-teken-proef-v3.mp4`
+(SpaceX lock-up, wit bord, tekening per zin naast elkaar, bordjes, mooie grafieken met echte logo's; tool `kanalen/blackswan-nl/proef-teken/teken_anim.py` + `mooi.py`).
+Feedback eigenaar: beelden moeten kloppen met de zin (geen verrekijker bij "watch"), meer plaatjes, duidelijke poppetjes, NIET te snel weg (naast elkaar laten staan).
+Vast hoofdpersonage F gekozen: `kanalen/personage/personage.md`.
+VOLGENDE (zo 22 nov ochtend, eigenaar akkoord): proef 4 = SpaceX opnieuw met F als hoofdpoppetje, minder borden (± 5, elk 15-20 s), oud bord rustig laten vervagen; daarna sturen. Bij OK: vrijdag-video SpaceX (POKDPLlDZU4) getekend maken, eerst laten zien, pas na OK vervangen.
+Let op geheugen: Sleep-keten (Pearl Harbor) eerst stilzetten met ~/gpu-bezet.lock + processen stoppen, daarna lock weg + taak 'Sleep Archives bewaker' starten.
