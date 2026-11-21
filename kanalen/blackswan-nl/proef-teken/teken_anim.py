@@ -429,7 +429,14 @@ def main():
             for x, tot in vast:
                 if t < tot: x.op(doek, t)
             hand_op(doek)
-            p.stdin.write(doek.tobytes())
+            z = sc.get("zoom", 0)                                   # 22 nov: "beeld loopt vast" -> heel langzame zoom per bord
+            if z:
+                eind = bt[k + 1] if k + 1 < len(bt) else sc["duur"]
+                q = min(1.0, max(0.0, (t - bt[k]) / max(1.0, eind - bt[k])))
+                sch = 1 + z * q; cw, ch = W / sch, H / sch
+                x0, y0 = (W - cw) / 2, (H - ch) / 2
+                doek = np.asarray(Image.fromarray(doek).resize((W, H), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch)))
+            p.stdin.write(np.ascontiguousarray(doek).tobytes())
         p.stdin.close(); p.wait(); print("KLAAR", uit); return
     for f in range(int(sc["duur"] * FPS)):
         t = f / FPS
