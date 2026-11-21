@@ -37,7 +37,10 @@ naar een latere dag (publishAt aanpassen via de API, kanaal checken) om plaats t
 
 ## Reservevideo's (eigenaar 21 nov: "maak video's voor reserve")
 Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got so expensive", "Can X come back?", "How X makes money".
-- `reserve1-ram/`: waarom RAM zo duur is. STAND: feiten (bronnen.md, * = nakijken) + concept-script tot hoofdstuk 3. Verder: script afmaken, dan stem/beelden/render zoals video9.
+- `reserve1-ram/`: waarom RAM zo duur is. Titel "Why RAM Costs 4x More. AI Is Eating Your Memory". Script KLAAR (1.480 woorden, feiten nagekeken, bronnen.md).
+  Stem gestart 21 nov 10:50 (los proces, log C:\Users\rane\bsv-r1-stem.log, eind "R1-STEM-KLAAR"; LET OP/FOUT-regels nakijken).
+  AI-beelden: taak "BlackswanVault reserve1 beelden" 12:00 en 13:30 (beelden.sh, alleen als de stem klaar is; log bsv-r1-beelden.log).
+  NOG DOEN (Claude): Wikimedia-foto's, render-shots per @scene (zie video9), Short, thumbnail, beschrijving met hoofdstukken; dan aan eigenaar laten zien.
 
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
