@@ -58,9 +58,9 @@ SHOTS = [
  (ZR(83) - 0.15, balken([("S&P 500", 6.3), ("Bitcoin", 27)], "OCT. 6 TO NOV. 18, 2026", "Fall from October 6, in percent", "Source: Abe Sheikh (Cordoba Advisory Partners), via CNBC",
                         lambda v: f"-{v:.0f}%", [84, 85], hl=1, kleur=ROOD, schaal=30)),
  (ZR(86) - 0.15, fasen(F("nyse", (1.0, 1.08), 0.45), [(86, GR("4x", "as much as the stock market", ROOD, 220)), (87, ON("On Friday, both fell together")),
-                                                    (88, GR("-3.8%", "Nasdaq 100 in one day", ROOD, 180)), (89, GR("CORRECTION", "S&P 500: more than 10% below its peak", WIT, 140)), (90, GR("VIX 31", "Wall Street's fear gauge", ROOD, 170)),
+                                                    (88, GR("-5.6%", "Nasdaq 100 in one day", ROOD, 180)), (89, GR("CORRECTION", "S&P 500: more than 10% below its peak", WIT, 140)), (90, GR("VIX 36", "Wall Street's fear gauge", ROOD, 170)),
                                                     (91, ON("Bitcoin did not protect anyone")), (92, ON("It behaved like a risky tech stock"))])),
- (ZR(93) - 0.15, fasen(F("ai-goudstaven", (1.0, 1.06), 0.4), [(93, ON("Even real gold is not safe")), (94, GR("-35%+", "gold, from its peak earlier this year", ROOD, 180)), (95, GR("$3,536", "gold per ounce, Friday: -2.5%", WIT, 170)),
+ (ZR(93) - 0.15, fasen(F("ai-goudstaven", (1.0, 1.06), 0.4), [(93, ON("Even real gold is not safe")), (94, GR("-34%", "gold, from its peak earlier this year", ROOD, 180)), (95, GR("$3,515", "gold per ounce, Friday: -4.6%", WIT, 170)),
                                                             (96, ON("When everything falls, investors sell what they can"))])),
  (ZR(97) - 0.15, fasen(F("mining", (1.0, 1.08), 0.45), [(97, GR("~$2 TRILLION", "value of the whole crypto market", WIT, 150)), (98, GR("-27%", "in one month", ROOD, 190))])),
  # --- h6 Strategy ---

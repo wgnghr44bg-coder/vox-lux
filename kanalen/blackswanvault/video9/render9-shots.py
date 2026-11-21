@@ -6,7 +6,7 @@ SHOTS = [
  # --- opening ---
  (0.0, fasen(F("starship-b", (1.0, 1.08), 0.5, pan=(0.5, 0.35, 0.5, 0.45)), [(0, GR("-7.7%", "SpaceX shares, Friday, November 20, 2026", ROOD, 190)),
                                                                           (1, GR("$127.79", "closing price", WIT, 180)), (2, GR("BELOW $135", "the price at the IPO in June", ROOD, 160)),
-                                                                          (3, ON("Same day: Nasdaq 100 almost -4%"))])),
+                                                                          (3, ON("Same day: Nasdaq 100 -5.6%"))])),
  (ZR(4) - 0.15, koersgrafiek("spcx", "2026-06-12", "2026-11-20", "SPACEX (SPCX)", "Daily close in US dollars, June 12 to November 20, 2026", YB,
                              markers=[("2026-06-16", "Peak")], labels=[("2026-11-20", 1700, 330, "-40%", ROOD)], teken=0.8, eind_label=False)),
  (ZR(7) - 0.15, lijst("ai-beurs-rood", "What went wrong?", [(9, "Borrowing billions for AI: lenders are nervous"), (10, "The AI business still loses money"),
