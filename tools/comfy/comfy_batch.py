@@ -53,7 +53,7 @@ def fill(wf, video, image, prompt, name):
         elif "fps" in i and not isinstance(i["fps"], list): i["fps"] = FPS
         if "filename_prefix" in i: i["filename_prefix"] = f"alteraqon/{name}"
         for k in ("seed", "noise_seed"):
-            if k in i and not isinstance(i[k], list): i[k] = int.from_bytes(os.urandom(6), "big")
+            if k in i and not isinstance(i[k], list): i[k] = int(os.environ["VASTE_SEED"]) if os.environ.get("VASTE_SEED") else int.from_bytes(os.urandom(6), "big")   # VASTE_SEED: zelfde persoon
     if pos is None: sys.exit("Geen positieve prompt gevonden: is dit een API-export (Workflow > Export (API))?")
     return wf
 

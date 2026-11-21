@@ -10,7 +10,9 @@ def vul(im):
     sc = max(W / im.width, H / im.height); im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
     return im.crop(((im.width - W) // 2, (im.height - H) // 2, (im.width - W) // 2 + W, (im.height - H) // 2 + H))
 bg = vul(Image.open(achter).convert("RGB")).filter(ImageFilter.GaussianBlur(6))
+import os; STIJL = os.environ.get("STIJL", "rood")   # 21 nov eigenaar: "rood valt niet op, veel rood zie je" -> geel / blok / grijs
 bg = ImageEnhance.Color(ImageEnhance.Brightness(bg).enhance(0.8)).enhance(1.3)
+if STIJL == "grijs": bg = ImageEnhance.Color(ImageEnhance.Brightness(bg).enhance(0.7)).enhance(0.15)
 grad = Image.new("L", (W, 1)); [grad.putpixel((x, 0), int(235 * max(0, min(1, (640 - x) / 380)))) for x in range(W)]
 bg = Image.composite(Image.new("RGB", (W, H), (12, 12, 16)), bg, grad.resize((W, H)))
 cut = remove(Image.open(gez).convert("RGB")); rechtsaf = cut.getbbox()[2] >= cut.width - 2; cut = cut.crop(cut.getbbox())
@@ -32,7 +34,12 @@ def pas(s, maxw, start):
     while ImageFont.truetype(F, n).getlength(s) > maxw and n > 40: n -= 4
     return ImageFont.truetype(F, n)
 f1 = pas(r1, VAN - 70, 230); f2 = pas(r2, VAN - 70, 150)
-for dx, dy in [(5, 5)]: d.text((52 + dx, 150 + dy), r1, font=f1, fill=(0, 0, 0)); d.text((58 + dx, 400 + dy), r2, font=f2, fill=(0, 0, 0))
-d.text((52, 150), r1, font=f1, fill=(232, 30, 40)); d.text((58, 400), r2, font=f2, fill=(250, 250, 250))
+K1 = {"geel": (255, 214, 0), "blok": (255, 255, 255)}.get(STIJL, (232, 30, 40))
+if STIJL == "blok":
+    b = d.textbbox((52, 150), r1, font=f1); d.rectangle([b[0] - 18, b[1] - 14, b[2] + 18, b[3] + 14], fill=(220, 20, 30))
+else:
+    d.text((57, 155), r1, font=f1, fill=(0, 0, 0))
+d.text((52, 150), r1, font=f1, fill=K1, stroke_width=0 if STIJL == "blok" else 5, stroke_fill=(0, 0, 0))
+d.text((63, 405), r2, font=f2, fill=(0, 0, 0)); d.text((58, 400), r2, font=f2, fill=(250, 250, 250), stroke_width=4, stroke_fill=(0, 0, 0))
 logo = Image.open("logo.png").convert("RGB").resize((80, 80)); m = Image.new("L", (80, 80), 0); ImageDraw.Draw(m).ellipse([0, 0, 79, 79], fill=255)
 doek.paste(logo, (40, 36), m); doek.save(uit, quality=92); print(uit)
