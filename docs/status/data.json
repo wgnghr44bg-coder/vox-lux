@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 17:33",
+ "bijgewerkt": "2026-11-21 18:03",
  "kanalen": {
   "weken": [
    {
@@ -97,6 +97,22 @@
         "titel": "Short: GTA 6 Broke Records. So Why Did the Stock Fall?",
         "stand": "online",
         "youtube": "HWcKzzN7PzI"
+       },
+       {
+        "kanaal": "NOIRTRACES",
+        "datum": "2026-11-21",
+        "tijd": "18:02",
+        "titel": "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?",
+        "stand": "online",
+        "youtube": "YgXL2OZszm8"
+       },
+       {
+        "kanaal": "NOIRTRACES",
+        "datum": "2026-11-21",
+        "tijd": "20:00",
+        "titel": "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel?",
+        "stand": "gepland",
+        "youtube": "VWRYOyA7Ao4"
        },
        {
         "kanaal": "Sleep Archives",
@@ -2520,7 +2536,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 17:33)"
+   "tekst": "draait nu (2026-11-21 18:03)"
   },
   {
    "naam": "Git",
@@ -2540,7 +2556,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 17:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 17:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2557,8 +2573,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 17:33",
-   "volgende": "2026-11-21 18:03"
+   "laatst": "2026-11-21 18:03",
+   "volgende": "2026-11-21 18:33"
   },
   "hype": {
    "aan": true,
@@ -2572,8 +2588,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 17:18",
-   "volgende": "2026-11-21 17:48"
+   "laatst": "2026-11-21 17:48",
+   "volgende": "2026-11-21 18:18"
   },
   "titels": {
    "aan": true,
@@ -2630,7 +2646,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 77,
+    "views": 76,
     "verwerkt": "processed"
    },
    {
@@ -2684,7 +2700,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 801,
+    "views": 799,
     "verwerkt": "processed"
    }
   ],
@@ -2909,7 +2925,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 363,
+  "geheugen_mb": 364,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3093,8 +3109,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-21 17:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 18:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5242,30 +5258,30 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 17:34",
+  "bijgewerkt": "2026-11-21 18:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1702335,
-    "week": 13970756,
+    "5uur": 2324616,
+    "week": 14593037,
     "per_dag": {
      "Tue 17-11": 1533664,
      "Mon 16-11": 10362951,
      "Thu 19-11": 371807,
-     "Sat 21-11": 1702335
+     "Sat 21-11": 2324616
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 18915,
+    "stap_kost": 19535,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 15782075,
-    "week": 122335434,
+    "5uur": 14091772,
+    "week": 119999148,
     "per_dag": {
-     "Sat 14-11": 17653563,
+     "Sat 14-11": 15317278,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
@@ -5275,15 +5291,15 @@
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 42554,
+    "stap_kost": 42476,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 116,
+    "5uur_pct": 104,
     "5uur_scripts_over": 0.0,
     "5uur_stappen_over": 0,
-    "week_pct": 93,
-    "week_scripts_over": 14.6,
-    "week_stappen_over": 228
+    "week_pct": 91,
+    "week_scripts_over": 18.1,
+    "week_stappen_over": 283
    }
   ]
  },
