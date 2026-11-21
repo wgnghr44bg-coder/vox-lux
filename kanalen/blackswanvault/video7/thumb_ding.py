@@ -22,7 +22,8 @@ def pas(s, maxw, start):
     while ImageFont.truetype(F, n).getlength(s) > maxw and n > 40: n -= 4
     return ImageFont.truetype(F, n)
 f1 = pas(r1, 560, 230); f2 = pas(r2, 560, 150)
-d.text((57, 155), r1, font=f1, fill=(0, 0, 0)); d.text((52, 150), r1, font=f1, fill=(232, 30, 40), stroke_width=5, stroke_fill=(0, 0, 0))
-d.text((63, 405), r2, font=f2, fill=(0, 0, 0)); d.text((58, 400), r2, font=f2, fill=(250, 250, 250), stroke_width=4, stroke_fill=(0, 0, 0))
+Y1, Y2 = int(os.environ.get("Y1", 150)), int(os.environ.get("Y2", 400))
+d.text((57, Y1 + 5), r1, font=f1, fill=(0, 0, 0)); d.text((52, Y1), r1, font=f1, fill=(232, 30, 40), stroke_width=5, stroke_fill=(0, 0, 0))
+d.text((63, Y2 + 5), r2, font=f2, fill=(0, 0, 0)); d.text((58, Y2), r2, font=f2, fill=(250, 250, 250), stroke_width=4, stroke_fill=(0, 0, 0))
 logo = Image.open("logo.png").convert("RGB").resize((80, 80)); m = Image.new("L", (80, 80), 0); ImageDraw.Draw(m).ellipse([0, 0, 79, 79], fill=255)
 doek.paste(logo, (40, 36), m); doek.save(uit, quality=92); print(uit)
