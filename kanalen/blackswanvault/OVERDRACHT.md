@@ -41,6 +41,7 @@ Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got
   Stem gestart 21 nov 10:50 (los proces, log C:\Users\rane\bsv-r1-stem.log, eind "R1-STEM-KLAAR"; LET OP/FOUT-regels nakijken).
   AI-beelden: taak "BlackswanVault reserve1 beelden" 12:00 en 13:30 (beelden.sh, alleen als de stem klaar is; log bsv-r1-beelden.log).
   NOG DOEN (Claude): Wikimedia-foto's, render-shots per @scene (zie video9), Short, thumbnail, beschrijving met hoofdstukken; dan aan eigenaar laten zien.
+- `reserve2-intel/`: kan Intel terugkomen? CONCEPT-script (21 nov 10:55), feiten met * in bronnen.md nog nakijken (vooral 2024-2025 uit eigen kennis), koers nu ophalen. Eigenaar 21 nov: "schrijf alleen scripts" (geen productie zonder vraag).
 
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).

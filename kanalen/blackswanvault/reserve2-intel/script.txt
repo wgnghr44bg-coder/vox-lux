@@ -1,4 +1,4 @@
-# BlackswanVault reserve 2: kan Intel terugkomen? CONCEPT 21 nov 2026 (10:55) — feiten met * in bronnen.md nakijken; nog ± 400 woorden aanvullen tot ≥ 1.450.
+# BlackswanVault reserve 2: kan Intel terugkomen? CONCEPT 21 nov 2026 (10:55) — feiten met * in bronnen.md nakijken; aangevuld 10:55.
 # Titel (voorstel): Can Intel Come Back? The US Government Is Betting On It
 # Opbouw: antwoord vooraan (meer omzet, nog verlies bij de fabrieken, grote investeerders), dan de val, de nieuwe baas, de redders, de cijfers nu, wat beslist.
 @scene open-val
@@ -30,6 +30,13 @@ Phones became the biggest chip market in history, and Intel was not in it.
 Then its factories fell behind.
 For years, Intel struggled to move to smaller, faster chip designs.
 Meanwhile, TSMC in Taiwan pulled ahead, and started making the best chips for Apple, AMD and Nvidia.
+@scene h1-amd
+And then there was AMD.
+For most of its history, AMD was the small rival that Intel could ignore.
+But AMD stopped building its own factories, and let TSMC make its chips.
+With TSMC's better factories, AMD's chips became faster and more efficient than Intel's.
+Year after year, AMD took a bigger share of the most profitable market of all, chips for servers.
+Intel was now losing on two fronts at once: in design, and in manufacturing.
 @scene h1-ai
 And then came AI.
 The AI boom made Nvidia one of the most valuable companies on Earth.
@@ -40,6 +47,11 @@ His plan was bold: Intel would build chips not just for itself, but for other co
 It is called a foundry.
 It meant building giant new factories, in Arizona, in Ohio, and in Europe.
 And that cost a fortune.
+@scene h2-ohio
+The biggest symbol of that plan was a huge site near Columbus, Ohio.
+Intel called it the future of American chipmaking.
+It was supposed to start making chips in 2025.
+In early 2025, Intel said the first factory there would not be finished until around 2030.
 @scene h2-val
 By 2024, the money was running out faster than the plan was working.
 Intel cut about fifteen thousand jobs.
@@ -55,9 +67,18 @@ President Trump publicly called on Tan to resign, over his past investments in C
 Days later, the two met at the White House.
 And soon after, the government announced it would take a stake of about ten percent in Intel.
 It was paid for with money that had already been promised to Intel under the CHIPS Act.
+@scene h3-prijs
+The government paid twenty dollars and forty-seven cents per share.
+That made Washington one of Intel's biggest shareholders, almost overnight.
+Critics called it a strange move for a country that usually leaves companies alone.
+Supporters said America cannot afford to depend on factories in Taiwan for its most important chips.
 @scene h3-nvidia
 In September 2025, Nvidia announced it would invest five billion dollars in Intel, and work with it on new chips.
 SoftBank from Japan invested two billion dollars too.
+Nvidia paid twenty-three dollars and twenty-eight cents per share.
+Think about how strange that is.
+Just a few years earlier, Nvidia was the company that left Intel behind.
+Now it was helping to keep Intel standing.
 Suddenly, the biggest names in tech were betting on Intel again.
 @scene h4-nu
 So how is it going now?
@@ -68,10 +89,19 @@ Its data center and AI business grew seventy-eight percent.
 But look closer at the factories.
 The foundry business brought in six point seven billion dollars.
 And it still lost about one point eight five billion dollars, in just three months.
+@scene h4-waarom
+Why does the factory business lose so much?
+Because a modern chip factory costs tens of billions of dollars to build, long before it earns anything.
+And a factory only pays off when it runs close to full.
+For now, Intel's factories mostly make Intel's own chips.
+To make money, they need other customers, and lots of them.
 @scene h4-klant
 The key test is simple: will other companies trust Intel to build their chips?
 Lip-Bu Tan says Intel has now signed its first outside customer for its newest process, called eighteen A P.
 He did not say who it is.
+There have been reports linking Apple to that process for future Mac chips.
+Neither company has confirmed a deal.
+If Apple did come back to Intel, it would be one of the biggest turnarounds in the history of the industry.
 @scene h5-wat
 So what decides whether Intel comes back?
 First, outside customers for the factories, and whether a big name signs up.
