@@ -87,9 +87,12 @@ class Bordje:
     FONT = "C:/Windows/Fonts/rockb.ttf"
 
     def __init__(self, it):
-        f = ImageFont.truetype(self.FONT, it.get("maat", 84))
-        d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-        b = d.textbbox((0, 0), it["bordje"], font=f); tw, th = b[2] - b[0], b[3] - b[1]
+        maat = it.get("maat", 84); d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+        while True:                                                 # "maxbreed": kleiner tot het past (bordjes naast elkaar)
+            f = ImageFont.truetype(self.FONT, maat)
+            b = d.textbbox((0, 0), it["bordje"], font=f); tw, th = b[2] - b[0], b[3] - b[1]
+            if not it.get("maxbreed") or tw + 100 <= it["maxbreed"] or maat <= 16: break
+            maat -= 2
         pw, ph = 46, 34; w, h = tw + 2 * pw, th + 2 * ph
         im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         d.rounded_rectangle((0, 0, w - 1, h - 1), 16, fill=(30, 28, 32, 255))

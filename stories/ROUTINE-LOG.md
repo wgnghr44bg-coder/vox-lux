@@ -393,3 +393,8 @@ ValueError: empty separator)
 - 2026-11-21 21:00 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 21:09 Claude: pearl-harbor-1941 keten gestopt (eigenaar: sleep even stil voor Swan tekenproef v2)
 - 2026-11-21 21:18 sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-21 21:28 hype-wachter: SEINTJE TITEL dallas-1963 (2026-12-16): 'Life in Dallas Before Kennedy Came, November 1963 | History for Sleep' -> voorstel 'Life in Dallas, November 1963 | History for Sleep' (Titel is concreet, bevat plaats en jaar, belooft inhoud en volgt de regels)
+- 2026-11-21 21:28 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 21:28 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 21:32 Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef v3)
+- 2026-11-21 21:48 sitecontrole: opgelost: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten
