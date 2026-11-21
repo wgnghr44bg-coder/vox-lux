@@ -15,7 +15,7 @@ Vaste regels: `README.md` (getallen in cijfers, rustige beeldwissels, clip moet 
 | wo 25 nov | 17:00 | Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices | 8de6ZH3YYp4 |
 | do 26 nov | 15:00 | Bitcoin Just Lost Half Its Value. Here's Who Is Selling (video8) | JW4e9rWlukk |
 | do 26 nov | 17:00 | Short: Bitcoin Fell Below $60,000. Here's Who Is Selling | gtqCj_lhfm4 |
-| vr 27 nov | 15:00 | SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse (video9) | uLoUpPHRz9g |
+| vr 27 nov | 15:00 | Elon Musk's SpaceX Just Fell Below Its IPO Price (video9; titel 21 nov aangepast, CTR-les) | uLoUpPHRz9g |
 | vr 27 nov | 17:00 | Short: SpaceX Stock Fell Below Its $135 IPO Price | ZdwE2HdjVJg |
 
 Thumbnails wo/do/vr (eigenaar 21 nov: "alle 3 goed, je leest en ziet meteen waar het over gaat"): het ONDERWERP zelf
@@ -31,6 +31,9 @@ Website (docs/status): planning per dag Swan | Sleep, "Hype nu" met nieuwswacht 
 
 **Verzetten mag (eigenaar 21 nov):** komt er echt grote hype (STERK in de wachters), dan mag een geplande privé-video
 naar een latere dag (publishAt aanpassen via de API, kanaal checken) om plaats te maken. Nieuwe video eerst laten zien.
+
+**CTR-les (21 nov, Studio-AI):** Nvidia 4,6% vs Anthropic 1,6%. Anthropic-video (5C2MIFhR314) kreeg nieuwe thumbnail met Claude-logo
+(`video2/thumbnail-definitief.jpg`, oud: thumbnail-oud.jpg). Titels: mens/drama en bekende naam als het echt klopt.
 
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
