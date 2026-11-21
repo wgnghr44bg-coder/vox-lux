@@ -59,3 +59,6 @@ Alinea-methode hieronder is GETEST EN AFGEWEZEN (niet gebruiken). Wel: afkorting
 (`--opnieuw 2 --seed 40` = alleen alinea 2 opnieuw). Afkortingen in script.txt als losse letters: "A S M L", "A E X". Controle: `check_nl.py --alinea`.
 ## Beelden en personen (eigenaar 21 nov): "gebruik de echte beelden die mogen, maar geen personen plaatsen die het niet zijn".
 Echte foto alleen van de ECHTE persoon (bv. Jensen Huang, Dario Amodei). AI-beelden: GEEN mensen (prompt: no people, no humans, no hands).
+## Thumbnail-stijl Geldverhaal (eigenaar 21 nov: "moet echt anders, lijkt teveel op Swan"): `thumb_geld.py`
+Beeld over de hele thumbnail (geen donkere linkerkant), zwarte tekst in GOUDEN balken, getal wit in ROOD blok, Segoe UI Black,
+Geldverhaal-logo rechtsboven. Nooit de Swan-stijl (Impact, rood/wit met zwarte rand, donkere linkerkant).
