@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 23:03",
+ "bijgewerkt": "2026-11-21 23:33",
  "kanalen": {
   "weken": [
    {
@@ -2277,10 +2277,40 @@
   ],
   "daarna": [
    {
-    "wanneer": "na Blackbeard",
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "keten maakt de video voor za 5-12 21:00"
+    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "detail": "routine maakt de video voor za 12-12 21:00"
+   },
+   {
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
+    "map": "bethlehem",
+    "detail": "routine maakt de video voor za 19-12 21:00"
+   },
+   {
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
+    "map": "londen-kerst-1843",
+    "detail": "routine maakt de video voor za 26-12 21:00"
+   },
+   {
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
+    "map": "alchemie-steen-der-wijzen",
+    "detail": "routine maakt de video voor wo 30-12 21:00"
+   },
+   {
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+    "map": "rome-44-vc",
+    "detail": "routine maakt de video voor za 2-1 21:00"
+   },
+   {
+    "wanneer": "do 3-12 09:00 (routine staat UIT)",
+    "wat": "Life in Florence Before the Black Death, 1347 | History for Sleep",
+    "map": "zwarte-dood-1348",
+    "detail": "routine maakt de video voor wo 6-1 21:00"
    }
   ],
   "publicaties": [
@@ -2613,7 +2643,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 23:03)"
+   "tekst": "draait nu (2026-11-21 23:33)"
   },
   {
    "naam": "Git",
@@ -2633,7 +2663,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 22:48: alles klopt"
+   "tekst": "laatste ronde 23:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2650,8 +2680,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 23:03",
-   "volgende": "2026-11-21 23:33"
+   "laatst": "2026-11-21 23:33",
+   "volgende": "2026-11-22 00:03"
   },
   "hype": {
    "aan": true,
@@ -2659,19 +2689,19 @@
    "volgende": "2026-11-22 08:30"
   },
   "bewaker": {
-   "aan": true,
-   "laatst": "2026-11-21 22:32",
-   "volgende": "2026-11-21 23:10"
+   "aan": false,
+   "laatst": "2026-11-21 23:10",
+   "volgende": "2026-11-22 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 22:48",
-   "volgende": "2026-11-21 23:18"
+   "laatst": "2026-11-21 23:18",
+   "volgende": "2026-11-21 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-21 21:25",
-   "volgende": "2026-11-21 23:25"
+   "laatst": "2026-11-21 23:25",
+   "volgende": "2026-11-22 01:25"
   }
  },
  "kanaal": {
@@ -2777,7 +2807,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 807,
+    "views": 814,
     "verwerkt": "processed"
    }
   ],
@@ -2973,8 +3003,8 @@
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 14,
-   "procent": 21
+   "totaal": 13,
+   "procent": 23
   },
   "fouten": 0,
   "zelfcontrole": {
@@ -3006,8 +3036,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 546,
+  "bezig_procent": 26,
+  "geheugen_mb": 4574,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3093,24 +3123,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 21:32",
-   "tekst": "Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef v3)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 21:48",
-   "tekst": "sitecontrole: opgelost: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 21:51",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-21 21:51",
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -3175,16 +3187,28 @@
    "tekst": "Claude: Alteraqon: alle 10 oude What-if-video's verwijderd (eigenaar: 'je mag alles verwijderen, we bouwen dit kanaal om' voor getekende video's met F)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 23:10",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 23:10",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 23:22",
+   "tekst": "Claude: Sleep OP PAUZE (taak bewaker uit) tot de eigenaar zegt hervatten; pearl-harbor-1941 staat op bezig",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [],
  "opgelost": [
-  {
-   "tijd": "2026-11-19 13:05",
-   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-19 13:14",
    "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
@@ -5178,7 +5202,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-21 21:38",
+  "bijgewerkt": "2026-11-21 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5397,14 +5421,14 @@
     "bekeken": "2026-11-21"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 23:04",
+  "bijgewerkt": "2026-11-21 23:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 719884,
+    "5uur": 639594,
     "week": 15312922,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5420,28 +5444,28 @@
    },
    {
     "account": "account2",
-    "5uur": 7703927,
-    "week": 120091688,
+    "5uur": 9208431,
+    "week": 116527222,
     "per_dag": {
-     "Sat 14-11": 7705890,
+     "Sat 14-11": 2562406,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 34416935,
+     "Sat 21-11": 35995953,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 41227,
+    "stap_kost": 42051,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 57,
-    "5uur_scripts_over": 10.3,
-    "5uur_stappen_over": 142,
-    "week_pct": 91,
-    "week_scripts_over": 20.9,
-    "week_stappen_over": 289
+    "5uur_pct": 68,
+    "5uur_scripts_over": 7.6,
+    "5uur_stappen_over": 104,
+    "week_pct": 88,
+    "week_scripts_over": 27.1,
+    "week_stappen_over": 368
    }
   ]
  },
