@@ -138,7 +138,7 @@ def main():
     if slot.exists() and dt.datetime.now().timestamp() - slot.stat().st_mtime < 12 * 3600:
         print("videokaart bezet door ander kanaal:", slot.read_text(errors="replace").strip()[:80])
         return
-    swan = pids(r'(render\w*|[\\/ ]stem|maak_short|[\\/ ]mix)\.py')     # 21 nov 2026: BlackswanVault/Geldverhaal renderen gaat voor (weinig geheugen)
+    swan = pids(r'(render\w*|[\\/ ]stem|maak_short|[\\/ ]mix|teken_anim)\.py')     # 21 nov 2026: BlackswanVault/Geldverhaal renderen gaat voor (weinig geheugen)
     if swan and not keten_draait():
         print("BlackswanVault/Geldverhaal is bezig (pid", swan, "), Sleep wacht")
         return

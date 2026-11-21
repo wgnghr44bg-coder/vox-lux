@@ -371,3 +371,17 @@ ValueError: empty separator)
 - 2026-11-20 09:44 Claude: BlackswanVault GTA 6 privé geüpload (BPoUJqFruNE), openbaar za 21 nov 15:00 (eigenaar: 'privé tot morgen')
 - 2026-11-20 11:22 Claude: BlackswanVault GTA 6 omgegooid (antwoord 'buy the rumor' na 1:08 i.p.v. 6:34, geschiedenis daarna) + kortere titel 'Why Is Take-Two's Stock Falling After GTA 6?'; nieuw privé GEktvTAsVIw (za 21 nov 15:00, AI-label aan), oude BPoUJqFruNE verwijderd. Kanaalbeschrijving aangepast (nieuws uitgelegd, geen planning).
 - 2026-11-20 13:34 Claude: BlackswanVault Short Anthropic openbaar (Lnkr1eh77Dg, link naar 5C2MIFhR314 in beschrijving; 'Gerelateerde video' nog in Studio zetten). Shorts-ondertiteling vast in CapCut-stijl eigenaar.
+- 2026-11-21 04:10 nieuwswacht: GROOT Broadcom (2026-11-21): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 04:10 nieuwswacht: GROOT Nvidia (2026-11-21): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 04:10 nieuwswacht: GROOT Nasdaq (2026-11-21): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 04:10 nieuwswacht: GROOT S&P 500 (2026-11-21): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 04:10 nieuwswacht: GROOT Anthropic (2026-11-21): Forget Anthropic: In Europe, the IPO hype is about a blue lagoon -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 04:10 nieuwswacht: GROOT Nvidia (2026-11-21): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 08:00 nieuwswacht: GROOT Goud (2026-11-21): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-21 12:21 sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-21 12:21 sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-21 13:18 sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-21 13:18 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-21 20:10 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 20:10 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 20:16 Claude: pearl-harbor-1941 keten gestopt (eigenaar: eerst Geldverhaal tekenproef); bewaker hervat later (status bezig)

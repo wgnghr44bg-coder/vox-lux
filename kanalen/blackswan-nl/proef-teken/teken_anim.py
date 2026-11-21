@@ -282,7 +282,9 @@ class Dagen:
 
 
 def maak(i):
-    for k, c in (("bordje", Bordje), ("data", Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", Balken), ("pijl", Pijl), ("dagen", Dagen)):
+    import mooi                                                   # 21 nov: mooiere grafieken + logo's
+    for k, c in (("bordje", Bordje), ("data", mooi.Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", mooi.Balken),
+                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo)):
         if k in i: return c(i)
     return Tekening(i)
 
