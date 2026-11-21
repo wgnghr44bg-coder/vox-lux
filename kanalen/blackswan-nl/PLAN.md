@@ -26,7 +26,11 @@ Nederlandstalige versie van BlackswanVault, op het kanaal dat nu NOIRTRACES heet
 - Nieuws: nu.nl Economie, Financieel Dagblad, NOS Economie (RSS, 36 uur). Koersen: AEX + ASML, Shell, ING, Adyen, Prosus, Unilever, Ahold, Heineken, Philips, ABN, BESI, bitcoin (EUR).
 - YouTube NL (regio NL, taal nl, 72 uur). Gevonden NL-kanalen over geld: DoopieCash, Geld op Geld, DeAandeelHouder TV, Focuss Op Financiën (nog toevoegen als "kanalen zoals wij").
 - Eerste uitslag 21 nov: ASML -9,3% (GROOT), AI-aandelen uitverkoop na Anthropic (FD+NOS), goud daalt; YouTube NL: Anthropic-beursgang, bitcoin.
-## VASTE STEM (21 nov 2026, bijgewerkt): `richard-nl` met OmniVoice, speed 1.1, seed 1, pauze 0.28 s tussen zinnen (na een vraag 0.45 s).
+## VASTE STEM (21 nov 2026, 18:00, NIEUW): `stem2-nl` = de EIGEN stem van de eigenaar (opname 21 nov; eigenaar bevestigde "ja eigen"),
+OmniVoice-kloon, speed 1.0, seed 1, per zin (video1/stem.py). Geluid alleen op de pc: C:/Users/rane/vox-lux-stemmen/nieuw/ref.wav (nooit op GitHub).
+Eigenaar vond richard-nl soms raar uitspreken; Edge-stemmen (Maarten e.a., stemproef/edge) geprobeerd maar niet gekozen. Na de stem Whisper per zin;
+bekend: Huang klinkt als "Hoenck" en A E X als "AIX" (goed genoeg); "barst de AI-bubbel?" en "chipbedrijven" gingen fout met seed 1 → --opnieuw met seed 11.
+## Oude stem (tot 21 nov): `richard-nl` met OmniVoice, speed 1.1, seed 1, pauze 0.28 s tussen zinnen (na een vraag 0.45 s).
 Eigenaar koos eerst seed 1 (0.96), wilde sneller; na herschreven tekst in natuurlijk Nederlands: "1 klinkt nu wel goed" (OmniVoice boven Chatterbox). Voorbeeld: stemproef/proef1min.py.
 Kloon via OmniVoice van het eigen stembestand van de eigenaar; geluid ALLEEN op de pc: C:\Users\rane\vox-lux-stemmen\richard\ref.wav (nooit op GitHub).
 Gebruik: VoiceConfig(voice="richard-nl", speed=0.96, seed=1, ...) zoals video9/stem.py. Geen tempo/toonhoogte-trucs achteraf.
