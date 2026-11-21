@@ -1,11 +1,12 @@
-# BlackswanVault reserve 1: waarom RAM zo duur is. CONCEPT KLAAR 21 nov 2026 — nog nalezen: winkelprijs $450 vs ~$100 (h0) en "almost thirty years" Crucial (h5). Eén zin per regel. Getallen voor de stem uitgeschreven.
+# BlackswanVault reserve 1: waarom RAM zo duur is. CONCEPT KLAAR 21 nov 2026 — nog nalezen: "almost thirty years" Crucial (h5). Eén zin per regel. Getallen voor de stem uitgeschreven.
 # Titel (voorstel): Why RAM Got So Expensive. AI Is Eating Your Memory
 # Opbouw: antwoord vooraan (AI-datacenters kopen het geheugen op), dan prijzen, waarom, wie verdient, wie betaalt, wanneer het stopt.
 @scene open-prijs
 If you tried to build a computer this year, you probably noticed something strange.
 The memory, the RAM, suddenly cost more than almost anything else in the box.
-A thirty-two gigabyte kit of fast memory now costs around four hundred fifty dollars.
-Not long ago, the same kit cost about a hundred.
+A popular thirty-two gigabyte kit of fast memory now costs around four hundred to five hundred dollars.
+In the summer of 2025, the same kind of kit cost about one hundred fifteen dollars.
+That is about four times as much, in just over a year.
 @scene open-antwoord
 So what happened?
 The short answer is artificial intelligence.
@@ -89,7 +90,13 @@ Compared to a year earlier, its profit was more than seven times higher.
 And SK Hynix said something even more striking.
 Its memory for AI is already booked by customers all the way through 2029.
 @scene h4-samsung
-One day later, Samsung reported a record quarter for its chip business too.
+One day later, it was Samsung's turn.
+Samsung became the first tech company ever to make more than one hundred trillion won in operating profit in a single quarter.
+That is about seventy-five billion dollars, in three months.
+And almost all of it, about ninety-nine percent, came from its chip business.
+Its phones and network business together actually lost a little money.
+Think about that.
+The company that sells hundreds of millions of Galaxy phones now makes almost all of its profit from memory chips.
 For years, memory was a business of boom and bust.
 Right now, it is all boom.
 @scene h5-micron
