@@ -398,3 +398,6 @@ ValueError: empty separator)
 - 2026-11-21 21:28 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 21:32 Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef v3)
 - 2026-11-21 21:48 sitecontrole: opgelost: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-21 21:51 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 21:51 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 21:51 Claude: pearl-harbor-1941 keten even gestopt (hoofdpersonage ontwerpen)
