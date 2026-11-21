@@ -9,3 +9,8 @@ Nederlandstalige versie van BlackswanVault, op het kanaal dat nu NOIRTRACES heet
 1. Proefstemmen (KLAAR 21 nov 11:35): stemproef/stem-a..d.mp3 (a man middelbaar, b man lager, c man jonger, d vrouw); alle vier door Whisper woord voor woord verstaan. Eigenaar kiest.
 2. Eigenaar: kanaal hernoemen in Studio (naam, handle, beschrijving, taal Nederlands). Naam nog kiezen.
 3. Eén testvideo (NL-versie van een sterke video, bv. Nvidia/Jensen) → laten zien → na 2 weken kijken of het aanslaat.
+## Beelden (eigenaar 21 nov): echte beelden moeten GOED zijn en PASSEN bij wat er gezegd wordt; anders liever een goed AI-beeld.
+## NL-wachter (21 nov): `tools/nl_wacht.py`, taak "BlackswanVault NL-wachter" 08:20 en 16:05 → stories/nl-hype.json
+- Nieuws: nu.nl Economie, Financieel Dagblad, NOS Economie (RSS, 36 uur). Koersen: AEX + ASML, Shell, ING, Adyen, Prosus, Unilever, Ahold, Heineken, Philips, ABN, BESI, bitcoin (EUR).
+- YouTube NL (regio NL, taal nl, 72 uur). Gevonden NL-kanalen over geld: DoopieCash, Geld op Geld, DeAandeelHouder TV, Focuss Op Financiën (nog toevoegen als "kanalen zoals wij").
+- Eerste uitslag 21 nov: ASML -9,3% (GROOT), AI-aandelen uitverkoop na Anthropic (FD+NOS), goud daalt; YouTube NL: Anthropic-beursgang, bitcoin.

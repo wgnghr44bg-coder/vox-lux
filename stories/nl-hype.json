@@ -1,0 +1,186 @@
+{
+ "bijgewerkt": "2026-11-21 11:36",
+ "markt": [
+  {
+   "naam": "AEX",
+   "pct": -2.4,
+   "groot": false,
+   "grens": 2.5
+  },
+  {
+   "naam": "ASML",
+   "pct": -9.3,
+   "groot": true,
+   "grens": 7
+  },
+  {
+   "naam": "Shell",
+   "pct": -0.1,
+   "groot": false,
+   "grens": 6
+  },
+  {
+   "naam": "ING",
+   "pct": -3.6,
+   "groot": false,
+   "grens": 7
+  },
+  {
+   "naam": "Adyen",
+   "pct": -1.6,
+   "groot": false,
+   "grens": 10
+  },
+  {
+   "naam": "Prosus",
+   "pct": -5.9,
+   "groot": false,
+   "grens": 8
+  },
+  {
+   "naam": "Unilever",
+   "pct": 2.0,
+   "groot": false,
+   "grens": 6
+  },
+  {
+   "naam": "Ahold Delhaize",
+   "pct": 0.8,
+   "groot": false,
+   "grens": 6
+  },
+  {
+   "naam": "Heineken",
+   "pct": -0.5,
+   "groot": false,
+   "grens": 7
+  },
+  {
+   "naam": "Philips",
+   "pct": -1.4,
+   "groot": false,
+   "grens": 8
+  },
+  {
+   "naam": "ABN AMRO",
+   "pct": -3.2,
+   "groot": false,
+   "grens": 7
+  },
+  {
+   "naam": "BESI",
+   "pct": -5.6,
+   "groot": false,
+   "grens": 10
+  },
+  {
+   "naam": "Bitcoin",
+   "pct": -1.5,
+   "groot": false,
+   "grens": 10
+  }
+ ],
+ "nieuws": [
+  {
+   "onderwerp": "ASML",
+   "punten": 10,
+   "bronnen": [
+    "koers"
+   ],
+   "wat": [
+    "-9.3% op één dag"
+   ],
+   "koppen": [],
+   "groot": true
+  },
+  {
+   "onderwerp": "Beurs",
+   "punten": 5,
+   "bronnen": [
+    "FD",
+    "NOS"
+   ],
+   "wat": [
+    "beursgang"
+   ],
+   "koppen": [
+    {
+     "titel": "AI-aandelen in de uitverkoop na historische beursgang Anthropic",
+     "bron": "FD",
+     "link": "https://fd.nl/financiele-markten/1620184/ai-aandelen-in-de-uitverkoop-na-historische-beursgang-anthropic"
+    },
+    {
+     "titel": "Als een raket vloog Anthropic SpaceX voorbij; nu de grootste beursgang ooit",
+     "bron": "FD",
+     "link": "https://fd.nl/economie/1620124/als-een-raket-vloog-anthropic-spacex-voorbij-nu-de-grootste-beursgang-ooit"
+    },
+    {
+     "titel": "AI-bedrijf Anthropic daalt hard op dag na historische beursgang",
+     "bron": "NOS",
+     "link": "https://nos.nl/l/2640298"
+    }
+   ],
+   "groot": false
+  },
+  {
+   "onderwerp": "Rente",
+   "punten": 4,
+   "bronnen": [
+    "nu.nl"
+   ],
+   "wat": [
+    "rente/economie"
+   ],
+   "koppen": [
+    {
+     "titel": "Goudprijs blijft dalen door rentezorgen en onrust op beurzen",
+     "bron": "nu.nl",
+     "link": "https://www.nu.nl/economie/6417196/goudprijs-blijft-dalen-door-rentezorgen-en-onrust-op-beurzen.html"
+    }
+   ],
+   "groot": false
+  },
+  {
+   "onderwerp": "Tata Steel",
+   "punten": 3,
+   "bronnen": [
+    "NOS"
+   ],
+   "wat": [
+    "rechtszaak"
+   ],
+   "koppen": [
+    {
+     "titel": "OM hackte Tata Steel in onderzoek naar mogelijk opzettelijke vervuiling omgeving",
+     "bron": "NOS",
+     "link": "https://nos.nl/l/2640278"
+    }
+   ],
+   "groot": false
+  },
+  {
+   "onderwerp": "Huizenmarkt",
+   "punten": 2,
+   "bronnen": [
+    "FD"
+   ],
+   "wat": [
+    "cijfers"
+   ],
+   "koppen": [
+    {
+     "titel": "Ruim 20.000 woningen erbij in derde kwartaal",
+     "bron": "FD",
+     "link": "https://fd.nl/economie/1620158/20-300-woningen-erbij-in-derde-kwartaal"
+    }
+   ],
+   "groot": false
+  }
+ ],
+ "groot": [
+  "ASML"
+ ],
+ "aantal_koppen": 58,
+ "youtube": [],
+ "top_videos": []
+}
