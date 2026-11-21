@@ -1,0 +1,20 @@
+# Geldverhaal proef (21 nov 2026): opening "ASML zakt 9%: barst de AI-bubbel?". Eén zin per regel, getallen uitgeschreven.
+# Feiten: Yahoo slotkoersen (ASML.AS 19 nov €1.288,20 -> 20 nov €1.168,00 = -9,3%; top 30 jun €1.721,40; NVDA -14,0%; Nasdaq 100 -5,6%; AEX -2,4%).
+@scene open-val
+Vrijdag twintig november was een zwarte dag voor ASML.
+Het aandeel verloor in Amsterdam ruim negen procent, en sloot op elfhonderdachtenzestig euro.
+@scene open-top
+Eind juni stond ASML nog op ruim zeventienhonderd euro.
+In vijf maanden tijd is bijna een derde van de waarde verdwenen.
+@scene open-meer
+En ASML stond er niet alleen voor.
+Nvidia, de grootste maker van AI-chips, zakte op dezelfde dag veertien procent.
+De Amerikaanse techbeurs ging ruim vijf procent omlaag, en ook de A E X zakte ruim twee procent.
+@scene open-vraag
+Wat is er aan de hand?
+Barst de AI-bubbel?
+En wat betekent dit voor ASML, en voor jouw geld?
+@scene open-antwoord
+Kort gezegd: beleggers twijfelen of de honderden miljarden die in AI worden gestoken, wel genoeg gaan opleveren.
+En als zij gaan twijfelen, voelt ASML dat als een van de eersten.
+Want zonder de machines uit Veldhoven kan niemand de nieuwste chips maken.
