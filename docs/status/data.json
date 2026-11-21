@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 01:33",
+ "bijgewerkt": "2026-11-21 02:03",
  "kanalen": {
   "weken": [
    {
@@ -758,7 +758,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 01:33)"
+   "tekst": "draait nu (2026-11-21 02:03)"
   },
   {
    "naam": "Git",
@@ -778,7 +778,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 01:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -795,8 +795,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 01:33",
-   "volgende": "2026-11-21 02:03"
+   "laatst": "2026-11-21 02:03",
+   "volgende": "2026-11-21 02:33"
   },
   "hype": {
    "aan": true,
@@ -810,8 +810,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 01:18",
-   "volgende": "2026-11-21 01:48"
+   "laatst": "2026-11-21 01:48",
+   "volgende": "2026-11-21 02:18"
   },
   "titels": {
    "aan": true,
@@ -886,7 +886,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 75,
+    "views": 74,
     "verwerkt": "processed"
    },
    {
@@ -1319,8 +1319,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 01:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 02:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3758,7 +3758,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 01:33",
+  "bijgewerkt": "2026-11-21 02:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -3777,7 +3777,7 @@
    },
    {
     "account": "account2",
-    "5uur": 5180342,
+    "5uur": 4452172,
     "week": 107166304,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -3793,9 +3793,9 @@
     "stap_kost": 29449,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 38,
-    "5uur_scripts_over": 12.7,
-    "5uur_stappen_over": 285,
+    "5uur_pct": 33,
+    "5uur_scripts_over": 13.8,
+    "5uur_stappen_over": 310,
     "week_pct": 81,
     "week_scripts_over": 37.5,
     "week_stappen_over": 844
