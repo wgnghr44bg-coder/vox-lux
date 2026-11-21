@@ -44,8 +44,16 @@ It is called high bandwidth memory, or H B M.
 It is stacked in layers, right next to the AI chip, so data can move incredibly fast.
 @scene h2-ruil
 H B M is much harder to make than normal memory.
-It uses far more factory space for every gigabyte.
-And it is far more profitable.
+The chips are drilled through and stacked on top of each other, sometimes twelve or more layers high.
+According to Micron, H B M needs about three times as much silicon as normal memory, for the same amount of storage.
+And Micron says that gap is not getting smaller.
+@scene h2-prijs
+So why make it at all?
+Because AI companies pay for it.
+According to Tom's Hardware, H B M sells for about five times the price of normal memory, for the same amount.
+For a memory maker, that is an easy choice.
+Every wafer of silicon that becomes H B M earns far more money.
+But it also takes three times as much normal memory off the market.
 So the big three moved more and more of their factories to AI memory, and to memory for servers.
 According to the research firm I D C, that came at the expense of the chips that go into laptops and phones.
 @scene h3-prijzen
