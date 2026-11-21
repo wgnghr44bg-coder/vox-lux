@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 07:33",
+ "bijgewerkt": "2026-11-21 08:03",
  "kanalen": {
   "weken": [
    {
@@ -327,7 +327,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-21 04:10",
+  "bijgewerkt": "2026-11-21 08:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -415,24 +415,36 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": -6.1,
+    "pct": -6.3,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.5,
+    "pct": 0.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -4.0,
-    "groot": false,
+    "pct": -4.6,
+    "groot": true,
     "grens": 4
    }
   ],
   "onderwerpen": [
+   {
+    "onderwerp": "Goud",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "-4.6% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
    {
     "onderwerp": "Broadcom",
     "punten": 10,
@@ -492,8 +504,7 @@
     ],
     "wat": [
      "beursgang",
-     "crash",
-     "record"
+     "crash"
     ],
     "koppen": [
      {
@@ -647,6 +658,7 @@
    }
   ],
   "groot": [
+   "Goud",
    "Broadcom",
    "Nvidia",
    "Nasdaq",
@@ -654,7 +666,7 @@
    "Anthropic",
    "Nvidia"
   ],
-  "aantal_koppen": 106
+  "aantal_koppen": 100
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-21 04:25",
@@ -1674,7 +1686,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 07:33)"
+   "tekst": "draait nu (2026-11-21 08:03)"
   },
   {
    "naam": "Git",
@@ -1694,7 +1706,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1711,8 +1723,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 07:33",
-   "volgende": "2026-11-21 08:03"
+   "laatst": "2026-11-21 08:03",
+   "volgende": "2026-11-21 08:33"
   },
   "hype": {
    "aan": true,
@@ -1726,8 +1738,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 07:18",
-   "volgende": "2026-11-21 07:48"
+   "laatst": "2026-11-21 07:48",
+   "volgende": "2026-11-21 08:18"
   },
   "titels": {
    "aan": true,
@@ -1820,7 +1832,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 135,
+    "views": 136,
     "verwerkt": "processed"
    },
    {
@@ -1838,7 +1850,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 767,
+    "views": 769,
     "verwerkt": "processed"
    }
   ],
@@ -2150,12 +2162,6 @@
  "logboek": [
   {
    "tijd": "2026-11-20 08:30",
-   "tekst": "hype-wachter: SEINTJE What Happened to the Shah of Iran’s Children After He Was Overthrown? | History For Sleep -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-20 08:30",
    "tekst": "hype-wachter: SEINTJE Tales from Korean Folklore | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
    "klaar": false
@@ -2231,12 +2237,18 @@
    "tekst": "nieuwswacht: GROOT Nvidia (2026-11-21): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 08:00",
+   "tekst": "nieuwswacht: GROOT Goud (2026-11-21): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 08:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4674,7 +4686,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 07:33",
+  "bijgewerkt": "2026-11-21 08:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4693,7 +4705,7 @@
    },
    {
     "account": "account2",
-    "5uur": 2151746,
+    "5uur": 2005235,
     "week": 110818813,
     "per_dag": {
      "Sat 14-11": 28603729,
@@ -4706,15 +4718,15 @@
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 28394,
+    "stap_kost": 28656,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 16,
-    "5uur_scripts_over": 17.2,
-    "5uur_stappen_over": 402,
+    "5uur_pct": 15,
+    "5uur_scripts_over": 17.5,
+    "5uur_stappen_over": 404,
     "week_pct": 84,
     "week_scripts_over": 32.0,
-    "week_stappen_over": 747
+    "week_stappen_over": 740
    }
   ]
  },
