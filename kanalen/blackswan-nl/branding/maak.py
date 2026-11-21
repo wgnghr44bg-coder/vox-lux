@@ -43,7 +43,7 @@ def banner(achter, lg, uit):
     m = m.filter(ImageFilter.GaussianBlur(90)); bg.paste(donker, (0, 0), m)
     d = ImageDraw.Draw(bg)
     f1 = ImageFont.truetype(FB, 150); f2 = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 54)
-    t1a, t1b = "Geld", "verhaal"; t2 = "Geld, bedrijven en beleggen. Helder uitgelegd."
+    t1a, t1b = "Geld", "verhaal"; t2 = "Alles over financiën"
     lgk = lg.resize((230, 230), Image.LANCZOS)
     bw = 230 + 40 + f1.getlength(t1a + t1b); x = (W - bw) / 2; y = H / 2 - 150
     rond = Image.new("L", lgk.size, 0); ImageDraw.Draw(rond).ellipse((4, 4, 226, 226), fill=255)
