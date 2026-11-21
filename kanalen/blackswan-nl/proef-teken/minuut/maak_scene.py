@@ -28,9 +28,10 @@ it = [
  {"beeld": A+"d3.png", "x": 900, "y": 200, "breed": 260, "start": s[10] + 0.3, "teken": 1.3, "kleur": 0.5, "tot": tot(11)},
  {"tekst": "machine  →  chip  →  AI", "x": 300, "y": 610, "maat": 40, "start": s[10] + 0.5, "teken": 1.0, "tot": tot(11)},
  # e: Nvidia
- {"bordje": "Nvidia -14%", "x": 80, "y": 80, "maat": 70, "rood": True, "start": s[11] + 1.6, "tot": tot(13)},
- {"beeld": A+"e1.png", "x": 520, "y": 160, "breed": 680, "start": s[11] + 0.1, "teken": 2.0, "kleur": 0.6, "tot": tot(13)},
- {"bordje": "7e daling op rij", "x": 80, "y": 330, "maat": 50, "start": s[12] + 0.4, "tot": tot(13)},
+ {"bordje": "Nvidia -14%", "x": 40, "y": 160, "maat": 62, "rood": True, "start": s[11] + 1.6, "tot": tot(13)},
+ {"tekst": "Nvidia, slotkoers per dag", "x": 560, "y": 60, "maat": 32, "start": s[11], "teken": 0.6, "tot": tot(13)},
+ {"dagen": "../../video1/data/nvda.json", "n": 7, "x": 520, "y": 130, "breed": 730, "hoog": 560, "start": s[11] + 0.1, "per": 0.4, "tot": tot(13)},
+ {"bordje": "7e daling op rij", "x": 40, "y": 360, "maat": 50, "start": s[12] + 0.4, "tot": tot(13)},
  # f: vooruit
  {"tekst": "Koopkans, of pas het begin?", "x": 60, "y": 30, "maat": 52, "start": s[13], "teken": 1.2},
  {"beeld": "../afbeeldingen/t5.png", "x": 40, "y": 150, "breed": 560, "start": s[13] + 0.3, "teken": 1.8, "kleur": 0.6},

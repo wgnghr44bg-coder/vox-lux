@@ -249,8 +249,40 @@ class Pijl:
         doek[:] = np.asarray(im)
 
 
+class Dagen:
+    """dagkoersen als staafjes vanaf een nullijn (rood = omlaag), één voor één; uit echte slotkoersen (data + laatste n dagen)"""
+    def __init__(self, it):
+        import datetime as dt
+        r = json.load(open(it["dagen"]))["chart"]["result"][0]
+        p = [(dt.date.fromtimestamp(a), b) for a, b in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if b]
+        n = it.get("n", 7)
+        self.d = [(p[i][0], (p[i][1] / p[i - 1][1] - 1) * 100) for i in range(len(p) - n, len(p))]
+        self.it = it
+
+    def op(self, doek, t):
+        it = self.it
+        if t < it["start"]: return
+        im = Image.fromarray(doek); d = ImageDraw.Draw(im)
+        x, y, w, h = it["x"], it["y"], it["breed"], it["hoog"]
+        y0 = y + 40; a = min(1.0, (t - it["start"]) / 0.4)
+        d.line((x, y0, x + w * a, y0), fill=INKT, width=5)
+        mx = max(abs(v) for _, v in self.d); n = len(self.d); bw = w / (n * 1.5)
+        per = it.get("per", 0.35)
+        for k, (dag, v) in enumerate(self.d):
+            st = it["start"] + 0.4 + k * per
+            if t < st: continue
+            g = min(1.0, (t - st) / 0.35); g = 1 - (1 - g) ** 3
+            bh = (h - 130) * abs(v) / mx * g; bx = x + bw * 0.3 + k * bw * 1.5
+            kl = (214, 32, 39) if v < 0 else (76, 175, 80)
+            d.rectangle((bx, y0, bx + bw, y0 + bh), fill=kl, outline=INKT, width=3)
+            maand = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'][dag.month - 1]
+            schrijf(d, (bx + bw / 2, y0 - 8), f"{dag.day} {maand}", 22, anker="md")
+            if g >= 1: schrijf(d, (bx + bw / 2, y0 + bh + 8), f"{v:+.1f}%".replace(".", ",").replace("-", "−"), 24, anker="ma")
+        doek[:] = np.asarray(im)
+
+
 def maak(i):
-    for k, c in (("bordje", Bordje), ("data", Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", Balken), ("pijl", Pijl)):
+    for k, c in (("bordje", Bordje), ("data", Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", Balken), ("pijl", Pijl), ("dagen", Dagen)):
         if k in i: return c(i)
     return Tekening(i)
 
