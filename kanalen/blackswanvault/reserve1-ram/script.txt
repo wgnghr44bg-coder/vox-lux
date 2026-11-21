@@ -1,4 +1,4 @@
-# BlackswanVault reserve 1: waarom RAM zo duur is. CONCEPT 21 nov 2026 — feiten met * in bronnen.md eerst nakijken. Eén zin per regel. Getallen voor de stem uitgeschreven.
+# BlackswanVault reserve 1: waarom RAM zo duur is. CONCEPT KLAAR 21 nov 2026 — nog nalezen: winkelprijs $450 vs ~$100 (h0) en "almost thirty years" Crucial (h5). Eén zin per regel. Getallen voor de stem uitgeschreven.
 # Titel (voorstel): Why RAM Got So Expensive. AI Is Eating Your Memory
 # Opbouw: antwoord vooraan (AI-datacenters kopen het geheugen op), dan prijzen, waarom, wie verdient, wie betaalt, wanneer het stopt.
 @scene open-prijs
@@ -49,5 +49,60 @@ And TrendForce expects up to eighteen percent more in the last quarter of the ye
 In stores, you can see it on the price tags.
 Storage is going up too.
 According to Tom's Hardware, a two terabyte drive that cost eighty dollars this summer was back at one hundred thirty dollars in November.
+@scene h4-winst
+So who is making money?
+The memory makers, more than ever before.
+@scene h4-hynix
+On October twenty-eighth, SK Hynix reported its results for the third quarter.
+Revenue passed one hundred trillion won for the first time, about seventy billion dollars.
+Its operating profit was eighty-three trillion won.
+That is a profit margin of about eighty percent.
+For a company that makes physical chips in giant factories, that is almost unheard of.
+Compared to a year earlier, its profit was more than seven times higher.
+@scene h4-geboekt
+And SK Hynix said something even more striking.
+Its memory for AI is already booked by customers all the way through 2029.
+@scene h4-samsung
+One day later, Samsung reported a record quarter for its chip business too.
+For years, memory was a business of boom and bust.
+Right now, it is all boom.
+@scene h5-micron
+For ordinary buyers, the clearest signal came from Micron.
+In December last year, Micron announced it would stop selling memory and drives to consumers under its brand Crucial.
+Crucial had been one of the best known names for upgrading your own computer for almost thirty years.
+Micron said demand from AI data centers was simply too strong.
+It moved the factory output to memory for AI and for servers.
+@scene h5-pc
+Computer makers are feeling it as well.
+According to TrendForce, some are putting smaller drives into their normal laptops, to keep prices down.
+So you might pay the same price as last year, and get less.
+@scene h6-altman
+And then there is Sam Altman, the head of OpenAI.
+At the end of October, on a podcast, he talked about the memory sitting inside our own computers.
+He said that most of it sits unused, and he called that, quote, "quite terrible" for a world that is short on memory.
+His point was that a data center can use the same chips much more efficiently.
+@scene h6-reactie
+Many people did not like hearing that from the head of one of the biggest buyers of memory in the world.
+A few weeks later, on November sixteenth, he said, quote, "I want people to have a lot of RAM."
+But he kept his main argument, that AI in the cloud uses memory better.
+@scene h7-wanneer
+So when will it end?
+Nobody knows for sure.
+The good news is that the price increases are getting smaller.
+From almost double in one quarter at the start of the year, to up to eighteen percent now.
+@scene h7-waarom-niet
+The bad news is that new memory factories take years to build.
+And as long as AI companies keep spending hundreds of billions of dollars on data centers, they will keep buying first.
+Some industry leaders expect prices to fall sometime in 2027.
+Others think the shortage could last much longer.
+@scene h7-tips
+So what can you do?
+If your computer still works fine, this may not be the year to upgrade.
+If you do need a new one, look carefully at how much memory and storage it really has.
+And watch for sales, because some memory kits have already dropped from their highest prices.
+None of this is financial advice.
 @scene slot
-# (verder schrijven: h4 wie verdient (Samsung/SK Hynix/Micron winst *), h5 wie betaalt (pc-merken, minder opslag, Dell/Lenovo *, Micron stopt met Crucial *), h6 Altman en de 40%-claim *, h7 wanneer stopt het (2027 *, productie -20 à 40% *), wat nu; slot)
+For decades, memory was one of the cheapest parts of any computer.
+AI changed that in less than a year.
+The chips in your laptop and the chips in a giant AI data center now come from the same few factories.
+And right now, the data centers are paying more.
