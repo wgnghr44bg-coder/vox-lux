@@ -35,7 +35,10 @@ Rood viel weg op rode achtergronden; letters hebben nu een zwarte rand.
 Eigenaar: "je mag die hele week volmaken met hype onderwerpen ... mits usage dat haalt; zo niet, sla het op GitHub op zodat ander account ook verder kan".
 Het hoeft niet over AI te gaan, als het maar hype is (geld, bedrijven, beurs, economie). Per dag: lange video 15:00 + Short 17:00. Alles eerst laten zien, uploaden pas na OK.
 - do 26 (Bitcoin) en vr 27 (SpaceX): geüpload, zie tabel.
-- **za 28 / zo 29: nog maken.** Overige kandidaten (20 nov):
+- **za 28 / zo 29: WACHTEN (eigenaar 21 nov: "deze week zit al vol, is wachten niet beter").** Nieuws moet vers zijn:
+  do 26 onderwerp kiezen met nieuwswacht + YouTube-wachter (stories/nieuws.json, stories/yt-hype-swan.json), do/vr maken,
+  vr 27 laten zien, na OK inplannen. Kandidaten 21 nov: Nvidia SEC-onderzoek boekhouding (NYT, "said to"; ColdFusion-video 20x),
+  dure RAM/geheugenchips (Logically Answered 5x), Oracle $20 mld, goud/zilver (vooral India). Overige kandidaten (20 nov):
   - **Oracle haalt $20 mld op** (aandelen + schuld) voor AI-datacenters — checken.
   - **Beurs in correctie (vr 20 nov)**: S&P 500 > 10% onder de top, Nasdaq 100 -3,8% op één dag, Nvidia -7%, VIX 31. LET OP: maandag-video4 gaat al over de Nasdaq; alleen als vervolg met nieuw nieuws.
   - **Anthropic na de beursgang** ($81,3 mld, dag 1 +17%, dag 2 -10 à 12%): overlap met video2 en video8, alleen als er groot nieuw nieuws is.
