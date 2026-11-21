@@ -410,3 +410,6 @@ ValueError: empty separator)
 - 2026-11-21 22:33 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 22:53 Claude: pearl-harbor-1941 keten even gestopt (Swan tekenproef 4)
 - 2026-11-21 23:02 Claude: Alteraqon: alle 10 oude What-if-video's verwijderd (eigenaar: 'je mag alles verwijderen, we bouwen dit kanaal om' voor getekende video's met F)
+- 2026-11-21 23:10 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-21 23:10 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-21 23:22 Claude: Sleep OP PAUZE (taak bewaker uit) tot de eigenaar zegt hervatten; pearl-harbor-1941 staat op bezig

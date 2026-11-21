@@ -291,10 +291,23 @@ class Dagen:
         doek[:] = np.asarray(im)
 
 
+class Streep:
+    """stippellijn die zich van links naar rechts tekent: {"streep": [x0, y, x1], "kleur": [r,g,b], start, teken}"""
+    def __init__(self, it): self.it = it
+
+    def op(self, doek, t):
+        it = self.it
+        if t < it["start"]: return
+        x0, y, x1 = it["streep"]; p = min(1.0, (t - it["start"]) / it.get("teken", 0.8)); xe = x0 + (x1 - x0) * p
+        im = Image.fromarray(doek); d = ImageDraw.Draw(im); kl = tuple(it.get("kleur", INKT))
+        for xs in range(int(x0), int(xe), 30): d.line((xs, y, min(xs + 18, xe), y), fill=kl, width=it.get("dik", 6))
+        doek[:] = np.asarray(im)
+
+
 def maak(i):
     import mooi                                                   # 21 nov: mooiere grafieken + logo's
     for k, c in (("bordje", Bordje), ("data", mooi.Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", mooi.Balken),
-                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo)):
+                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo), ("streep", Streep)):
         if k in i: return c(i)
     return Tekening(i)
 
@@ -309,6 +322,26 @@ def main():
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                           "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", uit],
                          stdin=subprocess.PIPE)
+    if "borden" in sc:                                              # 21 nov: rustige stijl, bord schuift opzij
+        bt = sc["borden"]; SCH = sc.get("schuif", 1.0)
+        perbord = [[x for (x, _), i in zip(items, sc["items"]) if i.get("bord") == k] for k in range(len(bt))]
+        vast = [(x, tot) for (x, tot), i in zip(items, sc["items"]) if "bord" not in i]
+        def teken_bord(k, t):
+            d = np.empty((H, W, 3), np.uint8); d[:] = PAPIER
+            for x in perbord[k]: x.op(d, t)
+            return d
+        for f in range(int(sc["duur"] * FPS)):
+            t = f / FPS; k = max(i for i, b in enumerate(bt) if b <= t) if t >= bt[0] else 0
+            if k > 0 and t < bt[k] + SCH:
+                q = (t - bt[k]) / SCH; q = q * q * (3 - 2 * q); dx = int(W * q)
+                oud, nieuw = teken_bord(k - 1, t), teken_bord(k, t)
+                doek = np.concatenate([oud, nieuw], axis=1)[:, dx:dx + W].copy()
+            else:
+                doek = teken_bord(k, t)
+            for x, tot in vast:
+                if t < tot: x.op(doek, t)
+            p.stdin.write(doek.tobytes())
+        p.stdin.close(); p.wait(); print("KLAAR", uit); return
     for f in range(int(sc["duur"] * FPS)):
         t = f / FPS
         doek = np.empty((H, W, 3), np.uint8); doek[:] = PAPIER
