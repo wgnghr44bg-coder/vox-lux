@@ -28,6 +28,25 @@ API = "https://www.googleapis.com/youtube/v3/"
 ZOEK = ["stock market news", "stock market crash", "economy news", "business news", "nvidia stock",
         "bitcoin crash", "tech stocks", "IPO", "layoffs", "recession", "federal reserve interest rates",
         "billionaire"]
+# Kanalen die doen wat wij doen (eigenaar 21 nov 2026: "als je denkt dat de video's dan meer slagen dan wel").
+# Per kanaal: nieuwe video's van de laatste 7 dagen; UITSCHIETER = minstens 2x zo snel als hun eigen gewone video.
+# Niet gevonden via handle (21 nov): Company Man, Patrick Boyle, Bloomberg Originals, Wendover.
+KANALEN = {
+    "UC4QZ_LsYcvcq7qOsOhpAX4A": "ColdFusion",           # ± 5,3 mln
+    "UCZ4AMrDcNrfy3X6nsU8-rPg": "Economics Explained",  # ± 2,9 mln
+    "UCkCGANrihzExmu9QiqZpPlQ": "How Money Works",      # ± 1,8 mln
+    "UCZRoNJu1OszFqABP8AuJIuw": "Logically Answered",   # ± 930k
+    "UCbzVRTkX3bzNZuBd9In4XyA": "Modern MBA",           # ± 850k
+    "UCAeAB8ABXGoGMbXuYPmiu2A": "The Swedish Investor", # ± 1 mln
+    "UCE4Gn00XZbpWvGUfIslT-tA": "MagnatesMedia",        # ± 1,9 mln
+    "UC_E4px0RST-qFwXLJWBav8Q": "Business Casual",      # ± 1,2 mln
+    "UCvJJ_dzjViJCoLf5uKUTwoA": "CNBC",                 # ± 4,2 mln
+    "UCH5_L3ytGbBziX0CLuYdQ1Q": "CNBC Make It",         # ± 2 mln
+    "UCK7tptUDHh-RYDsdxO1-5QQ": "The Wall Street Journal",  # ± 6,7 mln
+    "UCUvvj5lwue7PspotMDjk5UA": "Meet Kevin",           # ± 2,1 mln
+    "UCGy7SkBjcIAgTiwkXEtPnYg": "Andrei Jikh",          # ± 3,4 mln
+    "UCV6KDgJskWaEckne5aPA0aQ": "Graham Stephan",       # ± 5,2 mln
+}
 # geen nieuwszenders als hype-bron weglaten; wel meetellen, maar kanaal wordt getoond
 STOP = set("""the a an and or of to in on for is are was were be been it its this that these those with as at by from
 how why what who when will can could would should not no yes you your we our they their he his she her i my me just
@@ -121,6 +140,39 @@ def main():
                          "short": bool(re.fullmatch(r"PT(\d+S|[0-2]M(\d+S)?)", dur))})
     vids.sort(key=lambda x: -x["per_uur"])
 
+    # kanalen die doen wat wij doen: eigen tempo vergelijken (goedkoop: ± 2 quota per kanaal)
+    kan_vids = []
+    for cid, naam in KANALEN.items():
+        try:
+            pl = get(tok, "playlistItems", part="contentDetails", playlistId="UU" + cid[2:], maxResults=15)
+            vid_ids = [i["contentDetails"]["videoId"] for i in pl.get("items", [])]
+            r = get(tok, "videos", part="snippet,statistics,contentDetails", id=",".join(vid_ids))
+        except requests.HTTPError as e:
+            print("kanaal mislukt:", naam, e)
+            continue
+        rij = []
+        for v in r.get("items", []):
+            dur = v["contentDetails"].get("duration", "")
+            if re.fullmatch(r"PT(\d+S|[0-2]M(\d+S)?)", dur) or v["snippet"].get("liveBroadcastContent") != "none":
+                continue  # Shorts en livestreams niet meetellen
+            uren = max(1.0, (nu - dt.datetime.fromisoformat(v["snippet"]["publishedAt"].replace("Z", "+00:00"))).total_seconds() / 3600)
+            views = int(v["statistics"].get("viewCount", 0))
+            rij.append({"id": v["id"], "titel": v["snippet"]["title"], "kanaal": naam, "views": views,
+                        "uren_oud": round(uren), "per_uur": round(views / uren)})
+        if not rij:
+            continue
+        gewoon = sorted(x["per_uur"] for x in rij)[len(rij) // 2] or 1
+        for x in rij:
+            if x["uren_oud"] <= 7 * 24:
+                x["keer_gewoon"] = round(x["per_uur"] / gewoon, 1)
+                x["uitschieter"] = x["keer_gewoon"] >= 2
+                kan_vids.append(x)
+    kan_vids.sort(key=lambda x: -x["keer_gewoon"])
+    # titels van uitschieters tellen ook mee voor de onderwerpen
+    for x in kan_vids:
+        if x["uitschieter"]:
+            vids.append(dict(x, per_uur=x["per_uur"] * 3))
+
     # onderwerpen: woorden (en tweetallen) gewogen met views per uur, minstens 2 kanalen
     gewicht, kanalen, voorbeeld = defaultdict(float), defaultdict(set), defaultdict(list)
     for v in vids[:150]:
@@ -149,7 +201,8 @@ def main():
             break
 
     uit = {"bijgewerkt": dt.datetime.now().strftime("%Y-%m-%d %H:%M"), "uren": a.uren, "aantal_videos": len(vids),
-           "onderwerpen": onderwerpen, "top_videos": vids[:25]}
+           "onderwerpen": onderwerpen, "top_videos": vids[:25],
+           "kanalen_zoals_wij": kan_vids[:30]}
     UIT.write_text(json.dumps(uit, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"swan-yt-wacht {uit['bijgewerkt']}: {len(vids)} video's van de laatste {a.uren} uur")
@@ -160,6 +213,10 @@ def main():
     print("\nSnelste video's:")
     for v in vids[:12]:
         print(f'{v["per_uur"]:>8} v/u  {v["titel"][:80]}  [{v["kanaal"]}]')
+
+    print("\nKanalen zoals wij (laatste 7 dagen, keer zo snel als hun gewone video):")
+    for x in kan_vids[:15]:
+        print(f'{x["keer_gewoon"]:>5}x {"UITSCHIETER" if x["uitschieter"] else "           "}  {x["titel"][:75]}  [{x["kanaal"]}, {x["views"]:,} views]')
 
     # seintje, één keer per onderwerp per dag
     vandaag = dt.date.today().isoformat()
