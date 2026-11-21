@@ -41,6 +41,9 @@ Het hoeft niet over AI te gaan, als het maar hype is (geld, bedrijven, beurs, ec
   - **Anthropic na de beursgang** ($81,3 mld, dag 1 +17%, dag 2 -10 à 12%): overlap met video2 en video8, alleen als er groot nieuw nieuws is.
   - AFGEVALLEN (bleek nieuws van nov 2025): importheffingen op voedsel terug, Netflix-MLB-deal.
   - Morgen (21 nov) eerst YouTube-zoeken (quota is dan weer vrij) op meest bekeken geld-/bedrijfsnieuws.
+  - 21 nov: YouTube-wachter gemaakt: `tools/swan_yt_wacht.py` (Taakplanner "BlackswanVault YouTube-wachter", 08:10 en 15:55)
+    → `stories/yt-hype-swan.json`; STERK = groot op YouTube én in de nieuwswacht. Eerste uitslag: AI-crash beurs (→ ma video4),
+    Anthropic -25%?, GOUD/ZILVER (12 kanalen) = mogelijk nieuw onderwerp.
 Werkwijze: kopieer video7 (`stem.sh`, `mix.py`, `maak.sh`, `render7-basis.py`, `thumb_v2.py`, `echt/`-tools) naar videoN; zie Gereedschap hieronder.
 
 ## Ritme vanaf 20 nov avond
