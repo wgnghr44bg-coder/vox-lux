@@ -27,8 +27,8 @@ logo(0, 320, 90, 46, kw(0, "nvidia"))
 tx(0, "-14%", 330, 150, 96, RO, kw(0, "14"))
 it.append({"bord": 0, "dagen": NV, "logo": LG, "logohoog": 22, "onder": "closing price, change per day", "n": 7,
            "x": 660, "y": 75, "breed": 580, "hoog": 470, "start": kw(1, "seventh", -0.2), "per": 0.22})
-b(0, "n_stoel", 330, 330, 270, 230, kw(2, "walked", 0.0), 1.4)
-tx(0, "the founder walked away", 300, 600, 40, BL, kw(2, "walked", 1.2), 1.0)
+b(0, "n_stoel", 330, 330, 270, 230, kw(2, "built", 0.0), 1.4)
+tx(0, "the founder walked away", 300, 600, 40, BL, kw(2, "walked", 0.6), 1.0)
 F(0, "f3", kw(3, "here"), snel=True)
 # 2: Jensen
 kop(1, borden[1], "The man who built Nvidia"); F(1, "f3", borden[1] + 0.2)
