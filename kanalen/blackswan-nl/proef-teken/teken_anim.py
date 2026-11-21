@@ -50,6 +50,10 @@ class Tekening:
         self.kleur = wit_maken(im)
         g = self.kleur.mean(axis=2)
         self.lijn = g < 80
+        self.bg = self.kleur.min(axis=2) >= 245
+        if KRIJT:                                                   # BlackswanVault: krijt op donker bord (21 nov)
+            kr = np.array(KRIJT, np.uint8)
+            self.kleur = np.where(self.lijn[..., None], kr, (self.kleur * 0.9).astype(np.uint8))
         self.lijnbeeld = np.where(self.lijn[..., None], self.kleur, 255).astype(np.uint8)
         self.orde = pen_volgorde(self.lijn)
         self.x, self.y = it["x"], it["y"]
@@ -73,9 +77,9 @@ class Tekening:
             return
         q = min(1.0, (t - self.start - self.teken) / self.kduur)
         a = np.clip((q * 1.3 - self.veeg) / 0.3, 0, 1)[..., None]
-        uit = self.lijnbeeld * (1 - a) + self.kleur * a
-        niet_wit = (uit.min(axis=2) < 250)
-        vak[niet_wit] = uit[niet_wit].astype(np.uint8)
+        vak[self.lijn] = self.kleur[self.lijn]
+        vul = ~self.bg & ~self.lijn                                 # vlakken: van doek naar kleur
+        vak[vul] = (vak[vul] * (1 - a[vul]) + self.kleur[vul] * a[vul]).astype(np.uint8)
 
 
 class Bordje:
@@ -88,7 +92,7 @@ class Bordje:
         pw, ph = 46, 34; w, h = tw + 2 * pw, th + 2 * ph
         im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         d.rounded_rectangle((0, 0, w - 1, h - 1), 16, fill=(30, 28, 32, 255))
-        rood = it.get("rood"); bg, fg = ((214, 32, 39, 255), (255, 255, 255, 255)) if rood else ((238, 228, 208, 255), (22, 22, 48, 255))
+        rood = it.get("rood") or it.get("groen"); bg, fg = (((46, 150, 84, 255) if it.get("groen") else (214, 32, 39, 255)), (255, 255, 255, 255)) if rood else ((238, 228, 208, 255), (22, 22, 48, 255))
         d.rounded_rectangle((9, 9, w - 10, h - 10), 11, fill=bg)
         d.rounded_rectangle((18, 18, w - 19, h - 19), 7, outline=fg if rood else (30, 28, 32, 255), width=4)
         d.text((pw - b[0], ph - b[1]), it["bordje"], font=f, fill=fg)
@@ -110,6 +114,7 @@ class Bordje:
 
 
 INKT, PAPIER = (28, 28, 34), (255, 255, 255)
+KRIJT = None
 FH = "C:/Windows/Fonts/segoeprb.ttf"          # handschrift-achtig (Segoe Print Bold)
 
 
@@ -291,13 +296,17 @@ def maak(i):
 
 def main():
     sc = json.load(open(sys.argv[1], encoding="utf-8")); uit = sys.argv[2]
+    global KRIJT, INKT, PAPIER
+    if sc.get("bord"):                                              # donker bord: krijtkleur voor lijnen en tekst
+        PAPIER = tuple(sc["bord"]); KRIJT = INKT = (236, 236, 228)
+        import mooi; mooi.thema_donker()
     items = [(maak(i), i.get("tot", 1e9)) for i in sc["items"]]   # "tot": tijd waarop het doek weer leeg gaat
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                           "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", uit],
                          stdin=subprocess.PIPE)
     for f in range(int(sc["duur"] * FPS)):
         t = f / FPS
-        doek = np.full((H, W, 3), 255, np.uint8)
+        doek = np.empty((H, W, 3), np.uint8); doek[:] = PAPIER
         for it, tot in items:
             if t < tot: it.op(doek, t)
         p.stdin.write(doek.tobytes())

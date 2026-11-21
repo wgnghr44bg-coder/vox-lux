@@ -6,10 +6,19 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 S = 2
+DONKER = False
 KAART, RAND, GRIJS, INKT = (250, 248, 244), (225, 220, 212), (150, 146, 140), (30, 30, 36)
 ROOD, GROEN, BLAUW = (222, 49, 49), (46, 160, 90), (36, 110, 210)
 FB = "C:/Windows/Fonts/segoeuib.ttf"; FS = "C:/Windows/Fonts/seguisb.ttf"; FH = "C:/Windows/Fonts/segoeprb.ttf"
+MAAND_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 MAAND = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
+
+
+def thema_donker():
+    """BlackswanVault: donkere kaartjes op het bord"""
+    global KAART, RAND, GRIJS, INKT, DONKER
+    DONKER = True
+    KAART, RAND, GRIJS, INKT = (40, 46, 43), (78, 86, 82), (170, 176, 170), (236, 236, 228)
 
 
 def f(pad, maat): return ImageFont.truetype(pad, int(maat * S))
@@ -50,13 +59,17 @@ def logo_op(laag, pad, x, y, hoog):
     lg = Image.open(pad).convert("RGBA")
     if lg.mode == "RGBA" and np.asarray(lg)[..., 3].min() == 255:         # wit weg (ASML-logo heeft witte achtergrond)
         a = np.asarray(lg).copy(); wit = a[..., :3].min(axis=2) > 235; a[wit, 3] = 0; lg = Image.fromarray(a)
+    if DONKER:                                                        # zwart logo op donker bord -> licht
+        a = np.asarray(lg).copy(); zicht = a[..., 3] > 0
+        if zicht.any() and a[..., :3][zicht].mean() < 90: a[..., :3][zicht] = INKT; lg = Image.fromarray(a)
     lg = lg.resize((int(lg.width * hoog * S / lg.height), int(hoog * S)), Image.LANCZOS)
     laag.alpha_composite(lg, (int(x), int(y)))
     return lg.width
 
 
-def pil(d, xy, tekst, maat, bg, fg=(255, 255, 255), anker="mm"):
+def pil(d, xy, tekst, maat, bg, fg=None, anker="mm"):
     """getal in een pilletje"""
+    if fg is None: fg = (25, 25, 30) if sum(bg[:3]) > 450 else (255, 255, 255)
     ft = f(FB, maat); b = d.textbbox((0, 0), tekst, font=ft); w, h = b[2] - b[0], b[3] - b[1]
     px, py = 0.55 * maat * S, 0.35 * maat * S; cx, cy = xy
     if anker == "lm": cx += w / 2 + px
@@ -92,6 +105,8 @@ class Lijn:
     def op(self, doek, t):
         it = self.it
         if t < it["start"]: return
+        en = it.get("taal") == "en"; MD = MAAND_EN if en else MAAND
+        geld = (lambda v: f"${v:,.0f}") if it.get("valuta") == "$" else eur
         q = t - it["start"]; w, h = it["breed"], it["hoog"]
         laag, d, m = kaartje(w, h)
         L, R, T, B = m + 40 * S, m + (w - 110) * S, m + 110 * S, m + (h - 60) * S
@@ -102,11 +117,11 @@ class Lijn:
         for g in self.grid:                                       # hulplijnen met bedrag rechts
             y = Y(g)
             for xs in range(int(L), int(R), 18 * S): d.line((xs, y, min(xs + 9 * S, R), y), fill=RAND, width=2 * S)
-            d.text((R + 12 * S, y), eur(g), font=f(FS, 20), fill=GRIJS, anchor="lm")
+            d.text((R + 12 * S, y), geld(g), font=f(FS, 20), fill=GRIJS, anchor="lm")
         gezien = set()
         for i, (dag, _) in enumerate(self.p):                      # maanden onderaan
             if dag.month not in gezien and dag.day <= 7:
-                gezien.add(dag.month); d.text((X(i), B + 26 * S), MAAND[dag.month - 1], font=f(FS, 20), fill=GRIJS, anchor="mm")
+                gezien.add(dag.month); d.text((X(i), B + 26 * S), MD[dag.month - 1], font=f(FS, 20), fill=GRIJS, anchor="mm")
         p = ease((q - 0.3) / it.get("teken", 3.0)) if q > 0.3 else 0
         n = max(2, int(len(self.p) * p))
         if p > 0:
@@ -118,11 +133,11 @@ class Lijn:
             d.line(pts, fill=ROOD, width=5 * S, joint="curve")
             if p < 1:
                 cx, cy = pts[-1]; d.ellipse((cx - 8 * S, cy - 8 * S, cx + 8 * S, cy + 8 * S), fill=INKT)
-        for i, naam, kl in ((self.itop, "Top", INKT), (self.ilaag, "Nu" if self.ilaag == len(self.p) - 1 else "Laagste", ROOD)):
+        for i, naam, kl in ((self.itop, "Top", INKT), (self.ilaag, ("Now" if en else "Nu") if self.ilaag == len(self.p) - 1 else ("Low" if en else "Laagste"), ROOD)):
             if n - 1 >= i:
                 cx, cy = X(i), Y(self.p[i][1]); dag = self.p[i][0]
                 d.ellipse((cx - 11 * S, cy - 11 * S, cx + 11 * S, cy + 11 * S), fill=(255, 255, 255), outline=kl, width=5 * S)
-                tekst = f"{naam} {eur(self.p[i][1])} · {dag.day} {MAAND[dag.month - 1]}"
+                tekst = f"{naam} {geld(self.p[i][1])} · " + (f"{MD[dag.month - 1]} {dag.day}" if en else f"{dag.day} {MD[dag.month - 1]}")
                 boven = cy - T > 60 * S
                 links = cx > (L + R) / 2
                 pil(d, (cx + (-20 * S if links else 20 * S), cy - 44 * S if boven else cy + 44 * S), tekst, 24, kl, anker="rm" if links else "lm")

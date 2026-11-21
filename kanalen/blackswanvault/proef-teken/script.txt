@@ -1,0 +1,40 @@
+# BlackswanVault proef tekenstijl (± 3 min, donker bord). Cijfers uit video9/bronnen.md (slotkoersen Yahoo data/spcx.json, Wikipedia, CNBC, Bloomberg via Yahoo, Motley Fool).
+@scene a
+On Friday, SpaceX stock closed at one hundred twenty-seven dollars and seventy-nine cents.
+That is below the one hundred thirty-five dollars it sold for at its IPO in June.
+So what is going on with the most hyped stock of the year?
+And why could one date in December make it even worse?
+@scene b
+SpaceX went public on June twelfth.
+According to CNBC, it raised a record eighty-six billion dollars.
+On the first day, the stock closed at almost one hundred sixty-one dollars.
+Four days later, it closed at more than two hundred eleven dollars.
+That was the top.
+In August, it fell to about one hundred eight dollars.
+It came back, but now it is about forty percent below its peak.
+@scene c
+To understand why, you need to know where SpaceX really makes its money.
+In twenty twenty-five, Starlink, the satellite internet business, brought in eleven point four billion dollars.
+And it made a profit of four point four billion.
+The rocket business brought in four point one billion, but it lost money.
+And the AI business brought in three point two billion dollars, and lost about the same amount.
+@scene d
+And that AI business is where the worry starts.
+According to Bloomberg, SpaceX put together a package of about forty billion dollars in bonds and bank loans.
+The money is for leasing Nvidia chips for five years.
+The Financial Times reported that lenders were nervous Musk might send those chips into space.
+If something goes wrong, they would not be able to get them back.
+@scene e
+Now, the date.
+Before a company goes public, early investors and employees already own shares.
+But for about six months after the IPO, they are not allowed to sell them.
+That waiting period is called the lock-up.
+@scene f
+For SpaceX, The Motley Fool expects that lock-up to end on December eighth.
+On that day, shares that were frozen can suddenly be sold.
+If a lot of people sell at the same time, the price can drop even further.
+Musk and other insiders have to wait longer, until June twenty twenty-seven.
+@scene g
+But nobody knows if that selling will happen.
+Some early investors may believe in the AI story and simply keep their shares.
+That is why December eighth is the date to watch.
