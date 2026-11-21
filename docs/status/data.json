@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 04:33",
+ "bijgewerkt": "2026-11-21 04:56",
  "kanalen": {
   "weken": [
    {
@@ -320,9 +320,9 @@
    }
   ],
   "regels": {
-   "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00.",
+   "Sleep Archives": "OP PAUZE (eigenaar 19 nov avond: 'sleep mag even op pauze', focus BlackswanVault). Taak 'Sleep Archives bewaker' staat uit; al geplande video's op YouTube (Thanksgiving za 21, Ice Age za 28) gaan gewoon online. Daarna 1x per week, za 21:00. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
    "NOIRTRACES": "OP PAUZE (eigenaar 19 nov avond: eerst zien hoe Jack the Ripper het doet). Script Holmes ligt klaar in stories/_nt-hh-holmes (nog niet gemaakt). Daarna 1x per week, vr 21:00.",
-   "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen."
+   "BlackswanVault": "FOCUS (eigenaar 19 nov avond). Ongeveer 1x per week op een werkdag om 15:00 (NL) = 9:00 New York; groot economisch nieuws gaat voor (video binnen 2 tot 3 dagen). Alleen scherpe foto's of goede AI-foto's, geen slechte video's; niets twee keer vertellen. Bij echt grote hype (nieuwswacht/YouTube-wachter) mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov)."
   },
   "fouten": []
  },
@@ -656,6 +656,754 @@
   ],
   "aantal_koppen": 106
  },
+ "yt_swan": {
+  "bijgewerkt": "2026-11-21 04:25",
+  "uren": 48,
+  "aantal_videos": 34,
+  "onderwerpen": [
+   {
+    "onderwerp": "nvidia",
+    "views_per_uur": 67377,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [
+     "2026-11-19: The Man Who Built NVIDIA Just Walked Away",
+     "2026-11-19: Short: Nvidia Lost $1 Trillion While Making Record Money"
+    ],
+    "voorbeelden": [
+     "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update (Live Chart Analysis, 17,474 views in 10 u)",
+     "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic (Live Chart Analysis, 10,727 views in 12 u)",
+     "The NVIDIA Scandal Goes Deeper than You Think (ColdFusion, 2,830,140 views in 131 u)"
+    ]
+   },
+   {
+    "onderwerp": "model",
+    "views_per_uur": 34783,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today (India Today, 124 views in 1 u)",
+     "Why is Anthropic's Business Model So... Strange? (How Money Works, 984,339 views in 85 u)"
+    ]
+   },
+   {
+    "onderwerp": "dollar",
+    "views_per_uur": 24123,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)",
+     "GTA 6's Billion-Dollar Hype Machine (CNBC, 1,058,986 views in 132 u)"
+    ]
+   },
+   {
+    "onderwerp": "fed",
+    "views_per_uur": 11463,
+    "kanalen": 10,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "The Fed Is Completely Out of Options…Here’s What Happens Next (Ken McElroy, 36,613 views in 8 u)",
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
+    ]
+   },
+   {
+    "onderwerp": "rate",
+    "views_per_uur": 8004,
+    "kanalen": 8,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold",
+    "views_per_uur": 7855,
+    "kanalen": 9,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
+    ]
+   },
+   {
+    "onderwerp": "fed rate",
+    "views_per_uur": 5740,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold silver",
+    "views_per_uur": 5361,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "come",
+    "views_per_uur": 5087,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)",
+     "Adobe Can’t Come Back From This... (Logically Answered, 158,390 views in 103 u)"
+    ]
+   },
+   {
+    "onderwerp": "happens",
+    "views_per_uur": 4898,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "The Fed Is Completely Out of Options…Here’s What Happens Next (Ken McElroy, 36,613 views in 8 u)",
+     "The Fed Just Sent A Warning... Here Is What Happens Next (Traders Reality, 6,738 views in 37 u)",
+     "Fed Member Warns of 50 Bps Hike: What Happens to Gold? (Gold Silver Forecasting, 3,789 views in 41 u)"
+    ]
+   },
+   {
+    "onderwerp": "bitcoin",
+    "views_per_uur": 4487,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [
+     "2026-11-26: Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
+     "2026-11-26: Short: Bitcoin Fell Below $60,000. Here's Who Is Selling"
+    ],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)"
+    ]
+   },
+   {
+    "onderwerp": "hike",
+    "views_per_uur": 4285,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty (Schwab Network, 7,115 views in 37 u)"
+    ]
+   },
+   {
+    "onderwerp": "rate hike",
+    "views_per_uur": 4192,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty (Schwab Network, 7,115 views in 37 u)"
+    ]
+   },
+   {
+    "onderwerp": "anthropic",
+    "views_per_uur": 3714,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [
+     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
+     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
+    ],
+    "voorbeelden": [
+     "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update (Live Chart Analysis, 17,474 views in 10 u)",
+     "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic (Live Chart Analysis, 10,727 views in 12 u)",
+     "Dan Niles  : Anthropic Stock Future Outlook ( Buy or Sell? ) (Live Chart Analysis, 8,697 views in 10 u)"
+    ]
+   },
+   {
+    "onderwerp": "bitcoin fed",
+    "views_per_uur": 3283,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold rate",
+    "views_per_uur": 1947,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "പലിശപ്പേടിയിൽ തകർന്ന് സ്വർണവിപണി; പവൻ വില 92,080 രൂപയായി!GOLD RATE TODAY (Oneindia Malayalam, 8,089 views in 17 u)",
+     "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026 (Isaac_unscripted, 4,741 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "india",
+    "views_per_uur": 1608,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today (India Today, 124 views in 1 u)",
+     "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026 (Isaac_unscripted, 4,741 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "fomc meeting",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
+    ]
+   },
+   {
+    "onderwerp": "minutes",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
+    ]
+   },
+   {
+    "onderwerp": "meeting minutes",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
+    ]
+   }
+  ],
+  "top_videos": [
+   {
+    "id": "dvgpGaPEdcA",
+    "titel": "The Fed Is Completely Out of Options…Here’s What Happens Next",
+    "kanaal": "Ken McElroy",
+    "views": 36613,
+    "per_uur": 4625,
+    "uren_oud": 8,
+    "short": false
+   },
+   {
+    "id": "XmJlqnGeCY0",
+    "titel": "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ?",
+    "kanaal": "Bitcoin Expert India",
+    "views": 50365,
+    "per_uur": 2795,
+    "uren_oud": 18,
+    "short": true
+   },
+   {
+    "id": "gWSODuI40L4",
+    "titel": "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update",
+    "kanaal": "Live Chart Analysis",
+    "views": 17474,
+    "per_uur": 1802,
+    "uren_oud": 10,
+    "short": false
+   },
+   {
+    "id": "AJnehM1F4Fw",
+    "titel": "Gold-Silver Price Crash! Gold Rate Today India 2026",
+    "kanaal": "Ravneet Knowledge Bytes",
+    "views": 48312,
+    "per_uur": 1362,
+    "uren_oud": 35,
+    "short": true
+   },
+   {
+    "id": "BJFScvqFa4k",
+    "titel": "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash",
+    "kanaal": "Kasu Bathram",
+    "views": 14190,
+    "per_uur": 1253,
+    "uren_oud": 11,
+    "short": true
+   },
+   {
+    "id": "g6XbNXOjE1w",
+    "titel": "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ?",
+    "kanaal": "Bitcoin Expert India",
+    "views": 47379,
+    "per_uur": 1204,
+    "uren_oud": 39,
+    "short": true
+   },
+   {
+    "id": "9oh4iVukrdA",
+    "titel": "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic",
+    "kanaal": "Live Chart Analysis",
+    "views": 10727,
+    "per_uur": 883,
+    "uren_oud": 12,
+    "short": false
+   },
+   {
+    "id": "NlM-_0JACmg",
+    "titel": "Dan Niles  : Anthropic Stock Future Outlook ( Buy or Sell? )",
+    "kanaal": "Live Chart Analysis",
+    "views": 8697,
+    "per_uur": 836,
+    "uren_oud": 10,
+    "short": false
+   },
+   {
+    "id": "o4d-mZhnJk4",
+    "titel": "Trump Praises India's 7% GDP Growth, Demands Lower US Interest Rates #Shorts",
+    "kanaal": "NDTV Profit",
+    "views": 5245,
+    "per_uur": 665,
+    "uren_oud": 8,
+    "short": true
+   },
+   {
+    "id": "7VhRlzY9R9o",
+    "titel": "The Math Behind the Debt Crisis: Why It Doesn't Add Up",
+    "kanaal": "TheoSym by Sam Sammane ",
+    "views": 9162,
+    "per_uur": 498,
+    "uren_oud": 18,
+    "short": true
+   },
+   {
+    "id": "GVYglll7Wgs",
+    "titel": "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come",
+    "kanaal": "Bitcoin Magazine",
+    "views": 15187,
+    "per_uur": 488,
+    "uren_oud": 31,
+    "short": false
+   },
+   {
+    "id": "guspK6cPagc",
+    "titel": "പലിശപ്പേടിയിൽ തകർന്ന് സ്വർണവിപണി; പവൻ വില 92,080 രൂപയായി!GOLD RATE TODAY",
+    "kanaal": "Oneindia Malayalam",
+    "views": 8089,
+    "per_uur": 463,
+    "uren_oud": 17,
+    "short": false
+   },
+   {
+    "id": "QGN3hlbdpsw",
+    "titel": "¡OJO A LO QUE DICE PETER SCHIFF! La Reserva Federal se enfrenta a un callejón sin salida",
+    "kanaal": "Negocios TV",
+    "views": 14952,
+    "per_uur": 462,
+    "uren_oud": 32,
+    "short": true
+   },
+   {
+    "id": "saY_rk8fL30",
+    "titel": "“Gold Just Hit a 14-Month Low — Is $3,500 Next?” #gold #stocks #investing",
+    "kanaal": "American Silver Guy",
+    "views": 8725,
+    "per_uur": 358,
+    "uren_oud": 24,
+    "short": true
+   },
+   {
+    "id": "8XsjLRjDl4M",
+    "titel": "Đằng sau mỗi lần FED tăng, giảm lãi suất: Dòng tiền thế giới dịch chuyển ra sao?",
+    "kanaal": "LUẬN BÀN 24H",
+    "views": 12488,
+    "per_uur": 326,
+    "uren_oud": 38,
+    "short": false
+   },
+   {
+    "id": "x-KeVQQIRYg",
+    "titel": "The Number Waller Feared #federalreserve #uspolitics #useconomy #inflation #economics #uspolitics",
+    "kanaal": "UNFTR Media",
+    "views": 6391,
+    "per_uur": 263,
+    "uren_oud": 24,
+    "short": true
+   },
+   {
+    "id": "aHHM5nG1jJo",
+    "titel": "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty",
+    "kanaal": "Schwab Network",
+    "views": 7115,
+    "per_uur": 193,
+    "uren_oud": 37,
+    "short": false
+   },
+   {
+    "id": "lrMPpC5i3-o",
+    "titel": "EL GRAN AVISO sobre el ORO y la FED: \"Se HUNDIRÁN la bolsa, los bonos y la vivienda\"",
+    "kanaal": "Jose Vizner",
+    "views": 7883,
+    "per_uur": 189,
+    "uren_oud": 42,
+    "short": true
+   },
+   {
+    "id": "7fJ3NF9gJSo",
+    "titel": "The Fed Just Sent A Warning... Here Is What Happens Next",
+    "kanaal": "Traders Reality",
+    "views": 6738,
+    "per_uur": 180,
+    "uren_oud": 37,
+    "short": false
+   },
+   {
+    "id": "qs-8Cs1JBDk",
+    "titel": "Federal Reserve Is Raising Rates But Mercedes Is Lowering Them!",
+    "kanaal": "BenzsandBowties",
+    "views": 5456,
+    "per_uur": 159,
+    "uren_oud": 34,
+    "short": true
+   },
+   {
+    "id": "S97kdQQo_ws",
+    "titel": "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today",
+    "kanaal": "India Today",
+    "views": 124,
+    "per_uur": 124,
+    "uren_oud": 1,
+    "short": false
+   },
+   {
+    "id": "V0OY9LSg2X8",
+    "titel": "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026",
+    "kanaal": "Isaac_unscripted",
+    "views": 4741,
+    "per_uur": 122,
+    "uren_oud": 39,
+    "short": true
+   },
+   {
+    "id": "IPT4yM4t5mo",
+    "titel": "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction",
+    "kanaal": "Equiti Group",
+    "views": 4999,
+    "per_uur": 117,
+    "uren_oud": 43,
+    "short": false
+   },
+   {
+    "id": "xO7Zh__541k",
+    "titel": "Fed Member Warns of 50 Bps Hike: What Happens to Gold?",
+    "kanaal": "Gold Silver Forecasting",
+    "views": 3789,
+    "per_uur": 93,
+    "uren_oud": 41,
+    "short": false
+   },
+   {
+    "id": "mvTju2XjE98",
+    "titel": "Dark reality of Gold future",
+    "kanaal": "Compound Money",
+    "views": 3415,
+    "per_uur": 88,
+    "uren_oud": 39,
+    "short": true
+   }
+  ],
+  "kanalen_zoals_wij": [
+   {
+    "id": "PptRrzYY61w",
+    "titel": "The NVIDIA Scandal Goes Deeper than You Think",
+    "kanaal": "ColdFusion",
+    "views": 2830140,
+    "uren_oud": 131,
+    "per_uur": 21564,
+    "keer_gewoon": 19.9,
+    "uitschieter": true
+   },
+   {
+    "id": "FhVbxweMaWM",
+    "titel": "Why is Anthropic's Business Model So... Strange?",
+    "kanaal": "How Money Works",
+    "views": 984339,
+    "uren_oud": 85,
+    "per_uur": 11553,
+    "keer_gewoon": 12.4,
+    "uitschieter": true
+   },
+   {
+    "id": "mCIxUTr1St4",
+    "titel": "Stay Away From My RAM!",
+    "kanaal": "Logically Answered",
+    "views": 20395,
+    "uren_oud": 7,
+    "per_uur": 2775,
+    "keer_gewoon": 5.4,
+    "uitschieter": true
+   },
+   {
+    "id": "JcBTr-BhL_0",
+    "titel": "What EVERYONE Needs To Do With Their Money ASAP",
+    "kanaal": "Graham Stephan",
+    "views": 539240,
+    "uren_oud": 103,
+    "per_uur": 5218,
+    "keer_gewoon": 3.7,
+    "uitschieter": true
+   },
+   {
+    "id": "_19PHik8_Jg",
+    "titel": "GTA 6's Billion-Dollar Hype Machine",
+    "kanaal": "CNBC",
+    "views": 1058986,
+    "uren_oud": 132,
+    "per_uur": 8002,
+    "keer_gewoon": 3.5,
+    "uitschieter": true
+   },
+   {
+    "id": "Brh3jhy04TQ",
+    "titel": "The Truth About The American Economy",
+    "kanaal": "Economics Explained",
+    "views": 218605,
+    "uren_oud": 82,
+    "per_uur": 2666,
+    "keer_gewoon": 3.0,
+    "uitschieter": true
+   },
+   {
+    "id": "c6qv_kmcLWE",
+    "titel": "Adobe Can’t Come Back From This...",
+    "kanaal": "Logically Answered",
+    "views": 158390,
+    "uren_oud": 103,
+    "per_uur": 1533,
+    "keer_gewoon": 3.0,
+    "uitschieter": true
+   },
+   {
+    "id": "XQxPvJ7H98s",
+    "titel": "How Cheap Clothing Got So Expensive",
+    "kanaal": "CNBC",
+    "views": 63502,
+    "uren_oud": 12,
+    "per_uur": 5142,
+    "keer_gewoon": 2.2,
+    "uitschieter": true
+   },
+   {
+    "id": "e6mB0dgCkWk",
+    "titel": "What U.S. Aircraft Carriers Bring to the Iran War | WSJ Equipped",
+    "kanaal": "The Wall Street Journal",
+    "views": 935150,
+    "uren_oud": 104,
+    "per_uur": 8962,
+    "keer_gewoon": 2.2,
+    "uitschieter": true
+   },
+   {
+    "id": "dFOLw_CTRPY",
+    "titel": "How to Hedge THE CRASH Before It's Too Late.",
+    "kanaal": "Meet Kevin",
+    "views": 89395,
+    "uren_oud": 8,
+    "per_uur": 11086,
+    "keer_gewoon": 1.9,
+    "uitschieter": false
+   },
+   {
+    "id": "zlvcEuxM5xU",
+    "titel": "Jensen JUST Crashed the Market: New STARTUP",
+    "kanaal": "Meet Kevin",
+    "views": 108018,
+    "uren_oud": 10,
+    "per_uur": 10623,
+    "keer_gewoon": 1.8,
+    "uitschieter": false
+   },
+   {
+    "id": "_wtHypm4eqQ",
+    "titel": "The Collapse...",
+    "kanaal": "Meet Kevin",
+    "views": 101957,
+    "uren_oud": 11,
+    "per_uur": 9556,
+    "keer_gewoon": 1.6,
+    "uitschieter": false
+   },
+   {
+    "id": "8GU-V2QEPQ0",
+    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
+    "kanaal": "Meet Kevin",
+    "views": 88375,
+    "uren_oud": 14,
+    "per_uur": 6539,
+    "keer_gewoon": 1.1,
+    "uitschieter": false
+   },
+   {
+    "id": "GbwGP-HxibY",
+    "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
+    "kanaal": "CNBC",
+    "views": 194822,
+    "uren_oud": 84,
+    "per_uur": 2310,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "HQPgvxNU94M",
+    "titel": "Why You Can't Focus in an Open Office | WSJ Pro Perfected",
+    "kanaal": "The Wall Street Journal",
+    "views": 32972,
+    "uren_oud": 8,
+    "per_uur": 4078,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "hdIdY3l96BA",
+    "titel": "Stock Up NOW: We're Under Attack.",
+    "kanaal": "Meet Kevin",
+    "views": 163963,
+    "uren_oud": 28,
+    "per_uur": 5900,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "S1B9R_83-8c",
+    "titel": "America Is Under Attack",
+    "kanaal": "Andrei Jikh",
+    "views": 534616,
+    "uren_oud": 10,
+    "per_uur": 51677,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "5m4AIfW_56U",
+    "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
+    "kanaal": "Meet Kevin",
+    "views": 174366,
+    "uren_oud": 33,
+    "per_uur": 5282,
+    "keer_gewoon": 0.9,
+    "uitschieter": false
+   },
+   {
+    "id": "YYNTzUHobU0",
+    "titel": "Why Retail Investors Are Divided Over Anthropic’s $1.4 Trillion IPO",
+    "kanaal": "CNBC",
+    "views": 98464,
+    "uren_oud": 60,
+    "per_uur": 1632,
+    "keer_gewoon": 0.7,
+    "uitschieter": false
+   },
+   {
+    "id": "Tn8IEhp_iq4",
+    "titel": "The Stock Market is about to do something UNBELIEVABLE.",
+    "kanaal": "Meet Kevin",
+    "views": 189184,
+    "uren_oud": 57,
+    "per_uur": 3309,
+    "keer_gewoon": 0.6,
+    "uitschieter": false
+   },
+   {
+    "id": "3ftcmy8Fi2o",
+    "titel": "Watch Immediately: The Anthropic IPO [Should you Buy]",
+    "kanaal": "Meet Kevin",
+    "views": 64285,
+    "uren_oud": 36,
+    "per_uur": 1810,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "vzGR3e7jkvk",
+    "titel": "Prepare for War.",
+    "kanaal": "Meet Kevin",
+    "views": 88079,
+    "uren_oud": 49,
+    "per_uur": 1797,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "vk198A0VrFI",
+    "titel": "Will A Democratic Congress Ease U.S. Tariffs On Canada?",
+    "kanaal": "CNBC",
+    "views": 86385,
+    "uren_oud": 156,
+    "per_uur": 553,
+    "keer_gewoon": 0.2,
+    "uitschieter": false
+   },
+   {
+    "id": "8BnHqm5BSdI",
+    "titel": "Texas Turned Blue. What’s Next for Elon Musk?",
+    "kanaal": "The Wall Street Journal",
+    "views": 22080,
+    "uren_oud": 29,
+    "per_uur": 765,
+    "keer_gewoon": 0.2,
+    "uitschieter": false
+   },
+   {
+    "id": "DhZU6oek9_M",
+    "titel": "Markets are Nervous.",
+    "kanaal": "Meet Kevin",
+    "views": 74397,
+    "uren_oud": 57,
+    "per_uur": 1298,
+    "keer_gewoon": 0.2,
+    "uitschieter": false
+   }
+  ]
+ },
  "werkplanning": {
   "nu": [
    {
@@ -926,7 +1674,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 04:33)"
+   "tekst": "laatste keer goed (2026-11-21 04:33)"
   },
   {
    "naam": "Git",
@@ -946,7 +1694,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 04:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 04:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -978,8 +1726,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 04:18",
-   "volgende": "2026-11-21 04:48"
+   "laatst": "2026-11-21 04:48",
+   "volgende": "2026-11-21 05:18"
   },
   "titels": {
    "aan": true,
@@ -1090,7 +1838,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 756,
+    "views": 758,
     "verwerkt": "processed"
    }
   ],
@@ -1315,7 +2063,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 593,
+  "geheugen_mb": 507,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -1487,8 +2235,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 04:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 04:56",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3926,7 +4674,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 04:33",
+  "bijgewerkt": "2026-11-21 04:57",
   "accounts": [
    {
     "account": "hoofd",
@@ -3945,28 +4693,28 @@
    },
    {
     "account": "account2",
-    "5uur": 2743152,
-    "week": 109315744,
+    "5uur": 2916913,
+    "week": 109489504,
     "per_dag": {
      "Sat 14-11": 28603729,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 2743153,
+     "Sat 21-11": 2916913,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 28515,
+    "stap_kost": 28399,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 20,
-    "5uur_scripts_over": 16.3,
-    "5uur_stappen_over": 380,
+    "5uur_pct": 21,
+    "5uur_scripts_over": 16.1,
+    "5uur_stappen_over": 375,
     "week_pct": 83,
-    "week_scripts_over": 34.2,
-    "week_stappen_over": 796
+    "week_scripts_over": 34.0,
+    "week_stappen_over": 793
    }
   ]
  },

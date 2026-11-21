@@ -237,6 +237,8 @@ a:active { color: var(--color-focus); }
     <div class="kp-regels" id="kpRegels"></div>
     <h3 style="margin-top:var(--space-md);font-size:var(--text-md)">Nieuwswacht BlackswanVault <small class="zacht" id="nwTijd"></small></h3>
     <div id="nieuws" class="kp-regels"><div class="zacht">Gegevens laden</div></div>
+    <h3 style="margin-top:var(--space-md);font-size:var(--text-md)">YouTube-wachter BlackswanVault <small class="zacht" id="ytTijd"></small></h3>
+    <div id="ytSwan" class="kp-regels"><div class="zacht">Gegevens laden</div></div>
   </section>
 
   <div class="indeling">
@@ -339,6 +341,16 @@ function nieuwswacht(n){
     (rest.length?`<div class="zacht" style="margin-top:4px">Verder in het nieuws:</div>`+rest.map(rij).join(""):"");
 }
 
+function ytWacht(y){
+  const box=$("ytSwan");if(!y){box.innerHTML=`<div class="zacht">Nog niet gedraaid (elke dag 08:10 en 15:55)</div>`;return}
+  $("ytTijd").textContent="bijgewerkt "+tijdLabel(y.bijgewerkt);
+  const sterk=(y.onderwerpen||[]).filter(o=>o.sterk);
+  const uit=(y.kanalen_zoals_wij||[]).filter(x=>x.uitschieter).slice(0,6);
+  box.innerHTML=(sterk.length?sterk.map(o=>`<div><span class="kp-kan noir">STERK</span> <b>${esc(o.onderwerp)}</b> <span class="zacht">${esc(o.kanalen)} kanalen, YouTube + nieuws${o.al_gedaan.length?" · al gedaan: "+esc(o.al_gedaan[0]):""}</span></div>`).join(""):`<div class="zacht">Geen onderwerp dat op YouTube én in het nieuws groot is.</div>`)+
+    (uit.length?`<div class="zacht" style="margin-top:4px">Uitschieters bij kanalen zoals wij (laatste 7 dagen):</div>`+uit.map(x=>`<div><span class="kp-kan swan">${esc(x.keer_gewoon)}x</span> <a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a> <span class="zacht">(${esc(x.kanaal)}, ${kort(x.views)} views)</span></div>`).join(""):"")+
+    `<div class="zacht" style="margin-top:4px">Echt grote hype? Dan mag een geplande video van Sleep Archives of BlackswanVault naar een latere dag.</div>`;
+}
+
 async function laad(){
   let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}
   catch(e){$("updateTekst").textContent="Geen gegevens, de pagina probeert het over 2 minuten opnieuw";$("stip").className="pil uit";
@@ -346,6 +358,7 @@ async function laad(){
   const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000),pcOk=min<=90;
   try{kanalenPlanning(d.kanalen)}catch(e){$("kpWeken").textContent="Planning niet te tonen"}
   try{nieuwswacht(d.nieuws)}catch(e){$("nieuws").textContent="Nieuwswacht niet te tonen"}
+  try{ytWacht(d.yt_swan)}catch(e){$("ytSwan").textContent="YouTube-wachter niet te tonen"}
   $("stip").className="pil "+(pcOk?"goed":"uit");
   $("updateTekst").textContent=pcOk?`Pc actief, bijgewerkt ${min<1?"zojuist":min+" min geleden"}`:`De pc stuurt geen update (laatste ${d.bijgewerkt.slice(11)})`;
   $("vandaag").lastElementChild.textContent=new Date().toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
