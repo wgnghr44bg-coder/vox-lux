@@ -1,0 +1,7 @@
+# Reserve 2: kan Intel terugkomen? (21 nov 2026) — CONCEPT, feiten met * nakijken
+- Q3 2026 (30 okt): omzet $16,5 mld (+21%), Data Center & AI $7,3 mld (+78%), Client $8,1 mld (-5%), Foundry $6,7 mld (+58%) met operationeel verlies $1,85 mld; Q4-verwachting $15-16 mld. https://finviz.com/news/412059/intel-reports-third-quarter-2026-financial-results , https://www.verdict.co.uk/intel-q3-2026-results/ , https://wccftech.com/intel-q3-2026-earnings-data-center-nearly-matches-pc-business/
+- Koersreactie Q3 2026 tegenstrijdig (-15% nabeurs vs "beat") → NIET gebruiken tot nagekeken.
+- Q3 2026 aandelenemissie $23 mld en overname Classiq* (nakijken, evt. toevoegen).
+- Eerste externe 18A-P-klant (Tan, TomorrowX Summit; CTO Ranade op X), naam onbekend; Socionext gebruikt 18A-P (aug). https://thenextweb.com/news/intel-ceo-lip-bu-tan-says-intel-has-signed-its-first-outside-18a-customer , https://www.datacenterdynamics.com/en/news/intel-secures-first-external-customer-for-18a-p-process-node/
+- Uit eigen kennis (2024-2025), nog bron toevoegen*: verlies 2024 ± $18,8 mld; koers 2024 ± -60%; ± 15.000 banen weg en dividend geschrapt (aug 2024); Gelsinger weg 1 dec 2024; Lip-Bu Tan CEO maart 2025 (ex-Cadence); Trump eist aftreden aug 2025, daarna Witte Huis; overheid ± 10% (CHIPS-geld omgezet, ± $8,9 mld); Nvidia $5 mld (sept 2025); SoftBank $2 mld; Otellini over iPhone (The Atlantic, 2013).
+- Nog doen: ± 400 woorden erbij (bv. hoofdstuk AMD die marktaandeel pakte, de fabriek in Ohio die vertraagd is*, wat de overheid eraan verdient*), koers nu ophalen, titel kiezen.
