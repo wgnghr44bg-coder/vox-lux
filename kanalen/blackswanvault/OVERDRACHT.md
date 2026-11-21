@@ -22,6 +22,9 @@ Thumbnails wo/do/vr (eigenaar 21 nov: "alle 3 goed, je leest en ziet meteen waar
 (winkelwagen met lange kassabon / gebroken bitcoin / Starship), gemaakt met `thumb_ding.py`; niet meer een geschrokken gezicht.
 Rood viel weg op rode achtergronden; letters hebben nu een zwarte rand.
 
+**Verzetten mag (eigenaar 21 nov):** komt er echt grote hype (STERK in de wachters), dan mag een geplande privé-video
+naar een latere dag (publishAt aanpassen via de API, kanaal checken) om plaats te maken. Nieuwe video eerst laten zien.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.
