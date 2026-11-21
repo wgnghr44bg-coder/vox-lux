@@ -57,3 +57,5 @@ Alinea-methode hieronder is GETEST EN AFGEWEZEN (niet gebruiken). Wel: afkorting
 (oud) Alinea-proef:
 `proef-asml/stem_alinea.py`: hele @scene in één keer (zinnen lopen door), Whisper-woordtijden voor zinsgrenzen, cache per alinea
 (`--opnieuw 2 --seed 40` = alleen alinea 2 opnieuw). Afkortingen in script.txt als losse letters: "A S M L", "A E X". Controle: `check_nl.py --alinea`.
+## Beelden en personen (eigenaar 21 nov): "gebruik de echte beelden die mogen, maar geen personen plaatsen die het niet zijn".
+Echte foto alleen van de ECHTE persoon (bv. Jensen Huang, Dario Amodei). AI-beelden: GEEN mensen (prompt: no people, no humans, no hands).
