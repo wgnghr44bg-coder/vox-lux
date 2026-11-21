@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 14:03",
+ "bijgewerkt": "2026-11-21 14:33",
  "kanalen": {
   "weken": [
    {
@@ -1889,7 +1889,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -2154,7 +2154,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 14:03)"
+   "tekst": "draait nu (2026-11-21 14:33)"
   },
   {
    "naam": "Git",
@@ -2174,7 +2174,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 13:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 14:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2191,8 +2191,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 14:03",
-   "volgende": "2026-11-21 14:33"
+   "laatst": "2026-11-21 14:33",
+   "volgende": "2026-11-21 15:03"
   },
   "hype": {
    "aan": true,
@@ -2202,12 +2202,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-19 19:10",
-   "volgende": "2026-11-21 14:10"
+   "volgende": "2026-11-21 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 13:48",
-   "volgende": "2026-11-21 14:18"
+   "laatst": "2026-11-21 14:18",
+   "volgende": "2026-11-21 14:48"
   },
   "titels": {
    "aan": true,
@@ -2300,7 +2300,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 138,
+    "views": 136,
     "verwerkt": "processed"
    },
    {
@@ -2318,7 +2318,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 794,
+    "views": 793,
     "verwerkt": "processed"
    }
   ],
@@ -2527,23 +2527,30 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-01-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "84 van 84 beelden",
+  "taken": [
+   "beelden maken (ComfyUI)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 7913,
+  "bezig_procent": 98,
+  "geheugen_mb": 7004,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2727,8 +2734,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-21 14:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 14:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4876,7 +4883,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 14:04",
+  "bijgewerkt": "2026-11-21 14:36",
   "accounts": [
    {
     "account": "hoofd",
@@ -4896,28 +4903,28 @@
    },
    {
     "account": "account2",
-    "5uur": 12876754,
-    "week": 116552224,
+    "5uur": 17560912,
+    "week": 118021181,
     "per_dag": {
-     "Sat 14-11": 21460388,
+     "Sat 14-11": 18245185,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 17122974,
+     "Sat 21-11": 21807133,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 35717,
+    "stap_kost": 38636,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 95,
-    "5uur_scripts_over": 1.1,
-    "5uur_stappen_over": 20,
-    "week_pct": 88,
-    "week_scripts_over": 23.3,
-    "week_stappen_over": 433
+    "5uur_pct": 129,
+    "5uur_scripts_over": 0.0,
+    "5uur_stappen_over": 0,
+    "week_pct": 89,
+    "week_scripts_over": 21.1,
+    "week_stappen_over": 362
    }
   ]
  },
