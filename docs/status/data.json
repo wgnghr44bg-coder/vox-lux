@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 20:33",
+ "bijgewerkt": "2026-11-21 21:03",
  "kanalen": {
   "weken": [
    {
@@ -2271,7 +2271,7 @@
    {
     "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "map": "pearl-harbor-1941",
-    "detail": "Beelden maken · 43%",
+    "detail": "Beelden maken · 72%",
     "soort": "nu"
    }
   ],
@@ -2606,7 +2606,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-21 20:33)"
+   "tekst": "draait nu (2026-11-21 21:03)"
   },
   {
    "naam": "Git",
@@ -2626,7 +2626,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2643,8 +2643,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 20:33",
-   "volgende": "2026-11-21 21:03"
+   "laatst": "2026-11-21 21:03",
+   "volgende": "2026-11-21 21:33"
   },
   "hype": {
    "aan": true,
@@ -2653,13 +2653,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-21 20:23",
+   "laatst": "2026-11-21 21:00",
    "volgende": "2026-11-21 21:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 20:18",
-   "volgende": "2026-11-21 20:48"
+   "laatst": "2026-11-21 20:48",
+   "volgende": "2026-11-21 21:18"
   },
   "titels": {
    "aan": true,
@@ -2671,11 +2671,11 @@
   "naam": "Sleep Archives",
   "abonnees": 20,
   "views_totaal": 3214,
-  "video_aantal": 17,
+  "video_aantal": 18,
   "week": {
-   "views": 336,
-   "uren": 67,
-   "abonnees": 1
+   "views": 423,
+   "uren": 80,
+   "abonnees": 3
   },
   "vorige_week": {
    "views": 684,
@@ -2705,8 +2705,8 @@
     "id": "KU6eoe5vy-U",
     "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
     "duur": "2:06:10",
-    "privacy": "private",
-    "publiceer": "2026-11-21T20:00:00Z",
+    "privacy": "public",
+    "publiceer": "2026-11-21T20:00:12Z",
     "views": 0,
     "verwerkt": "processed"
    },
@@ -2770,26 +2770,196 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 802,
+    "views": 807,
     "verwerkt": "processed"
    }
   ],
-  "dagen": [],
-  "maand": null,
-  "vorige_maand": null,
-  "jaar": null,
-  "top": [],
+  "dagen": [
+   {
+    "dag": "2026-10-24",
+    "views": 99,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-25",
+    "views": 147,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-26",
+    "views": 240,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-10-27",
+    "views": 185,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-10-28",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-29",
+    "views": 94,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-30",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-31",
+    "views": 33,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-01",
+    "views": 65,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-02",
+    "views": 192,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-03",
+    "views": 124,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-04",
+    "views": 24,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-05",
+    "views": 29,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-06",
+    "views": 48,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-07",
+    "views": 71,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-08",
+    "views": 88,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-09",
+    "views": 35,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-10",
+    "views": 77,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-11",
+    "views": 118,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-12",
+    "views": 142,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-11-13",
+    "views": 65,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-14",
+    "views": 88,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-15",
+    "views": 68,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-16",
+    "views": 80,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-17",
+    "views": 14,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-18",
+    "views": 86,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-19",
+    "views": 87,
+    "abonnees": 2
+   }
+  ],
+  "maand": {
+   "views": 2445,
+   "uren": 510,
+   "abonnees": 12
+  },
+  "vorige_maand": {
+   "views": 909,
+   "uren": 218,
+   "abonnees": 7
+  },
+  "jaar": {
+   "views": 3828,
+   "uren": 713,
+   "abonnees": 20
+  },
+  "top": [
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "views": 916,
+    "uren": 202
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "views": 735,
+    "uren": 182
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "views": 347,
+    "uren": 27
+   }
+  ],
   "partner": {
-   "uren": 700,
+   "uren": 713,
    "uren_doel": 4000,
    "abonnees": 20,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 16.8,
-   "tempo_abonnees_per_dag": 0,
-   "datum_uren": "2027-06-06",
-   "datum_abonnees": null
+   "tempo_uren_per_dag": 17.3,
+   "tempo_abonnees_per_dag": 0.43,
+   "datum_uren": "2027-05-31",
+   "datum_abonnees": "2033-02-24"
   }
  },
  "kpi": {
@@ -2822,8 +2992,8 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 43,
-  "detail": "38 van 88 beelden",
+  "voortgang": 72,
+  "detail": "63 van 88 beelden",
   "taken": [
    "routine zonder Claude",
    "beelden maken (ComfyUI)"
@@ -2841,8 +3011,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 44,
-  "geheugen_mb": 4555,
+  "bezig_procent": 98,
+  "geheugen_mb": 7029,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2928,30 +3098,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 04:10",
-   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-21): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 04:10",
-   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-21): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 04:10",
-   "tekst": "nieuwswacht: GROOT Anthropic (2026-11-21): Forget Anthropic: In Europe, the IPO hype is about a blue lagoon -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 04:10",
-   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-21): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-21 08:00",
    "tekst": "nieuwswacht: GROOT Goud (2026-11-21): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
@@ -3010,12 +3156,36 @@
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 20:40",
+   "tekst": "Claude: pearl-harbor-1941 keten weer gestopt (eigenaar: BlackswanVault tekenproef); bewaker hervat later",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 20:48",
+   "tekst": "sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:00",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 21:00",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-21 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-21 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5163,7 +5333,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 20:36",
+  "bijgewerkt": "2026-11-21 21:05",
   "accounts": [
    {
     "account": "hoofd",
@@ -5183,28 +5353,28 @@
    },
    {
     "account": "account2",
-    "5uur": 7184724,
-    "week": 118286314,
+    "5uur": 8002667,
+    "week": 119036065,
     "per_dag": {
-     "Sat 14-11": 10067987,
+     "Sat 14-11": 9999796,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 30249465,
+     "Sat 21-11": 31067407,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 39860,
+    "stap_kost": 40145,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 53,
-    "5uur_scripts_over": 11.2,
-    "5uur_stappen_over": 160,
+    "5uur_pct": 59,
+    "5uur_scripts_over": 9.8,
+    "5uur_stappen_over": 139,
     "week_pct": 90,
-    "week_scripts_over": 24.0,
-    "week_stappen_over": 345
+    "week_scripts_over": 22.7,
+    "week_stappen_over": 323
    }
   ]
  },
