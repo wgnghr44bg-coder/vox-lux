@@ -9,8 +9,11 @@ def T(sc, k=0.0): return ZR(S(sc, k)) - 0.15
 YB = "Bron: Yahoo Finance, slotkoersen"
 MLD = lambda v: f"${v:.1f} mld".replace(".", ",")
 SHOTS = [
- # --- opening ---
- (0.0, fasen(F("asml-hq", (1.0, 1.08), 0.55), [(S("open-val"), ST("VRIJDAG 20 NOVEMBER")), (S("open-val", 1), GR("-9,3%", "ASML in Amsterdam, slot €1.168", ROOD, 190))])),
+ # --- opening: Anthropic, dan ASML ---
+ (0.0, fasen(F("dario", (1.0, 1.06), 0.6), [(S("open-anthropic"), EN(ST("DONDERDAG 19 NOVEMBER"), LT("ANTHROPIC", "Het bedrijf achter chatbot Claude (topman Dario Amodei)"))),
+                                            (S("open-anthropic", 1), GR("$81 MLD", "een van de grootste beursgangen ooit", WIT, 160))])),
+ (T("open-anthropic", 2), fasen(F("ai-rood", (1.0, 1.08), 0.5), [(S("open-anthropic", 2), ON("Een dag later ging de hele AI-sector onderuit"))])),
+ (T("open-val"), fasen(F("asml-hq", (1.0, 1.08), 0.55), [(S("open-val"), ST("VRIJDAG 20 NOVEMBER")), (S("open-val", 1), GR("-9,3%", "ASML in Amsterdam, slot €1.168", ROOD, 190))])),
  (T("open-top"), koersgrafiek("asml", "2026-06-01", "2026-11-20", "ASML (AMSTERDAM)", "Slotkoers in euro, 1 juni t/m 20 november 2026", YB,
                              labels=[("2026-11-20", 1700, 330, "-32%", ROOD)], teken=0.8, eenheid="€", eind_label=False)),
  (T("open-meer"), fasen(F("nvidia-bord", (1.0, 1.08), 0.5), [(S("open-meer"), ON("ASML stond er niet alleen voor")), (S("open-meer", 1), GR("-14%", "Nvidia, vrijdag 20 november", ROOD, 190))])),

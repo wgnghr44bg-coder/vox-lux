@@ -1,8 +1,12 @@
 # Geldverhaal video 1: ASML zakt 9%. Eén zin per regel, getallen uitgeschreven, afkortingen die als woord fout gaan als letters (A E X, S E C, E U V).
-# Titel (voorstel): ASML Zakt 9%: Barst De AI-Bubbel?
+# Titel (voorstel): Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?  (eigenaar 21 nov: combinatie Anthropic + ASML)
 # Feiten en bronnen: bronnen.md. Stem per zin (stem.py), richard-nl 1.1.
+@scene open-anthropic
+Donderdag negentien november ging Anthropic naar de beurs, het AI-bedrijf achter de chatbot Claude.
+Het werd een van de grootste beursgangen ooit.
+Maar een dag later ging de hele AI-sector onderuit.
 @scene open-val
-Vrijdag twintig november was een zwarte dag voor ASML.
+En vrijdag twintig november werd een zwarte dag voor ASML.
 Het aandeel verloor in Amsterdam ruim negen procent, en sloot op elfhonderdachtenzestig euro.
 @scene open-top
 Eind juni stond ASML nog op ruim zeventienhonderd euro.
