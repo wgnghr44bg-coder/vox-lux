@@ -50,3 +50,5 @@ Naamvoorstellen (handles 21 nov gecheckt): Het Geldverhaal @Geldverhaal (advies)
 - Seintje ntfy "Geldverhaal: hype?" (zelfde ntfy-kanaal als BlackswanVault), max 1x per onderwerp per dag (stories/nl-seintjes.txt).
 - Website: kolom "Geldverhaal" in "Hype nu" (docs/status, data uit stories/nl-hype.json).
 - Eerste uitslag: Anthropic STERK (7 NL-kanalen), Nvidia STERK; uitschieters: "Aandelen dalen hard" (Geld op Geld 31x), Anthropic (DoopieCash 22x).
+## Grafieken (eigenaar 21 nov): in ELKE koersgrafiek de top en het laagste punt tonen (groene/rode stip + "Top €1.721" / "Laagste €1.168"),
+verschijnt pas als de lijn er is. Code: proef-asml/render.py, lijn(..., hoog_laag=True). Geldt ook voor BlackswanVault (overnemen in videoN/render.py).

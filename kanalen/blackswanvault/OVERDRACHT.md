@@ -53,6 +53,8 @@ Partnerprogramma telt alleen lange-video-uren (4.000) → elke dag een lange vid
 **AI-label (21 nov):** via de API op alle 16 video's (Shorts + lang) `status.containsSyntheticMedia=true` gezet; YouTube bevestigde het
 in het antwoord, publishAt bleef gelijk. Teruglezen via de API toont het veld niet → controle in Studio. `tools/youtube_upload.py` zet het al bij elke upload.
 
+**Grafieken (eigenaar 21 nov):** elke koersgrafiek toont de TOP en het LAAGSTE punt (stip + bedrag). Code om over te nemen in render.py lijn(): `kanalen/blackswan-nl/proef-asml/render.py` (hoog_laag=True). Doen bij de Nasdaq-video van maandag.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.

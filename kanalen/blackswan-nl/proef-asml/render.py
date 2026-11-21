@@ -218,7 +218,7 @@ def logo_klein(img, a=1.0):
 KOERS = []   # video 2: geen dagkoersen; intraday-grafiek staat in render3.py (data/ant-intraday.json)
 def koers(van, tot): return [(d, v) for d, v in KOERS if D.date.fromisoformat(van) <= d <= D.date.fromisoformat(tot)]
 
-def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_label=True, teken=0.75, eenheid="$"):
+def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_label=True, teken=0.75, eenheid="$", hoog_laag=True):
     img = raster(leeg()); d = ImageDraw.Draw(img, "RGBA")
     pts = koers(van, tot); vs = [v for _, v in pts]
     lo, hi = min(vs), max(vs)
@@ -240,6 +240,21 @@ def lijn(t, dur, van, tot, titel, sub, markers=(), log=False, kleur=ROOD, eind_l
     d.polygon(poly, fill=kleur + (38,)); d.line(xys, fill=kleur + (255,), width=6, joint="curve")
     x, y = xys[-1]; d.ellipse([x - 11, y - 11, x + 11, y + 11], fill=kleur + (255,))
     if eind_label: txt(d, (x + 20, y - 30), (f"€{pts[n - 1][1]:,.2f}".replace(",", "#").replace(".", ",").replace("#", ".") if eenheid == "€" else f"${pts[n - 1][1]:,.2f}" if eenheid == "$" else f"{pts[n - 1][1]:,.0f}"), font(BOLD, 36), WIT, 1)
+    # eigenaar 21 nov: in elke grafiek de top en het laagste punt laten zien (verschijnt pas als de lijn er is)
+    def geld(v):
+        if eenheid == "€": return f"€{v:,.0f}".replace(",", ".") if v >= 100 else f"€{v:,.2f}".replace(",", "#").replace(".", ",").replace("#", ".")
+        return f"{eenheid}{v:,.0f}" if v >= 100 else f"{eenheid}{v:,.2f}"
+    if hoog_laag:
+        ih = max(range(len(pts)), key=lambda i: pts[i][1]); il = min(range(len(pts)), key=lambda i: pts[i][1])
+        for i, woord, boven, k in ((ih, "Top", True, GROEN), (il, "Laagste", False, ROOD)):
+            if i >= n: continue
+            mx, my = xy(i, pts[i][1]); a = ease((n - i) / 6)
+            d.ellipse([mx - 10, my - 10, mx + 10, my + 10], fill=k + (int(255 * a),), outline=(255, 255, 255, int(255 * a)), width=3)
+            ly = my - 34 if boven else my + 34
+            ax = "ms" if boven else "ma"
+            lx = min(max(mx, X0 + 120), X1 - 120)
+            if not boven and my + 34 + 40 > Y0: lx, ly, ax = mx - 24, my, "rm"     # dicht bij de as: links naast de punt
+            txt(d, (lx, ly), f"{woord} {geld(pts[i][1])}", font(BOLD, 30), WIT, a, ax)
     for datum, label in markers:
         i = next((k for k, (dd, _) in enumerate(pts) if str(dd) >= datum), None)
         if i is None or i >= n: continue
