@@ -321,10 +321,51 @@ class Kop:
         doek[:] = np.asarray(im)
 
 
+class Foto:
+    """echte foto die 'getekend' binnenkomt (eigenaar 22 nov): eerst de omtrekken als inktlijnen (pen-volgorde), dan komt de
+    foto tevoorschijn in een wit fotokader; naam eronder in handschrift, bron/licentie klein ernaast.
+    {"foto": jpg, x, y, breed, hoog, start, teken, naam, bron}"""
+    def __init__(self, it):
+        self.it = it
+        im = Image.open(it["foto"]).convert("RGB")
+        s = min(it["breed"] / im.width, it.get("hoog", 10000) / im.height)
+        im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
+        self.foto = np.asarray(im)
+        g = im.convert("L").filter(ImageFilter.GaussianBlur(1.6)).filter(ImageFilter.FIND_EDGES)
+        e = np.asarray(g).astype(float); grens = np.percentile(e, 91)
+        self.lijn = e > grens
+        self.orde = pen_volgorde(self.lijn)
+        self.h, self.w = self.lijn.shape
+
+    def op(self, doek, t):
+        it = self.it
+        if t < it["start"]: return
+        x, y, w, h = it["x"], it["y"], self.w, self.h; rand = 12
+        im = Image.fromarray(doek); d = ImageDraw.Draw(im)
+        d.rectangle((x - rand + 6, y - rand + 8, x + w + rand + 6, y + h + rand * 4 + 8), fill=(225, 225, 225))      # schaduw
+        d.rectangle((x - rand, y - rand, x + w + rand, y + h + rand * 4), fill=(255, 255, 255), outline=INKT, width=3)
+        if it.get("naam"): schrijf(d, (x + 4, y + h + 6), it["naam"], 30)
+        if it.get("bron"):
+            ft = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 13); d.text((x + w, y + h + rand * 4 + 12), it["bron"], font=ft, fill=(140, 140, 146), anchor="ra")
+        doek[:] = np.asarray(im)
+        vak = doek[y:y + h, x:x + w]
+        p = min(1.0, (t - it["start"]) / it.get("teken", 1.8))
+        if p < 1.0:
+            n = int(len(self.orde) * p)
+            m = np.zeros((h // TEGEL + 1, w // TEGEL + 1), bool)
+            if n: m[self.orde[:n, 0], self.orde[:n, 1]] = True
+            m = np.kron(m, np.ones((TEGEL, TEGEL), bool))[:h, :w] & self.lijn
+            vak[m] = INKT
+            return
+        a = min(1.0, (t - it["start"] - it.get("teken", 1.8)) / it.get("kleur", 0.9))
+        lijnen = np.where(self.lijn[..., None], np.array(INKT, np.uint8), 255).astype(float)
+        vak[:] = (lijnen * (1 - a) + self.foto * a).astype(np.uint8)
+
+
 def maak(i):
     import mooi                                                   # 21 nov: mooiere grafieken + logo's
     for k, c in (("bordje", Bordje), ("data", mooi.Lijn), ("delen", Taart), ("tekst", Tekst), ("balken", mooi.Balken),
-                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo), ("streep", Streep), ("kop", Kop)):
+                 ("pijl", Pijl), ("dagen", mooi.Dagen), ("logo", mooi.Logo), ("streep", Streep), ("kop", Kop), ("foto", Foto)):
         if k in i: return c(i)
     return Tekening(i)
 

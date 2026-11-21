@@ -1,0 +1,23 @@
+# Proef 1 min Nvidia (tekenstijl + echte foto Jensen). Feiten: blackswan-nl/video1/bronnen.md (slot NVDA 20 nov -14,0%, 7e daling op rij,
+# Q3 $115,8 mld +103%, Reuters SEC), BlackswanVault video1 script (12 nov opgestapt, 33 jaar, Denny's 1993).
+@scene a
+On Friday, Nvidia stock fell fourteen percent in a single day.
+It was the seventh drop in a row.
+And it came just days after the man who built the company walked away.
+Here is what happened.
+@scene b
+Jensen Huang started Nvidia in nineteen ninety-three, in a booth at a Denny's restaurant.
+For thirty-three years, he was Nvidia.
+He became famous for his black leather jacket, and for the chips behind the AI boom.
+On November twelfth, he stepped down.
+@scene c
+The strange part is that business has never been better.
+On November seventeenth, Nvidia reported one hundred fifteen point eight billion dollars in revenue for a single quarter.
+That is more than double a year ago.
+Big tech companies keep buying its chips for their AI data centers.
+@scene d
+Then Reuters reported that the SEC is looking at possible accounting problems at Nvidia.
+And investors started selling.
+Seven days, seven drops.
+@scene e
+So is this the end of the AI boom, or a chance to buy?
