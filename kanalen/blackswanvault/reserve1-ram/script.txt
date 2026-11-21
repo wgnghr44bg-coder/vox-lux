@@ -1,0 +1,53 @@
+# BlackswanVault reserve 1: waarom RAM zo duur is. CONCEPT 21 nov 2026 — feiten met * in bronnen.md eerst nakijken. Eén zin per regel. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): Why RAM Got So Expensive. AI Is Eating Your Memory
+# Opbouw: antwoord vooraan (AI-datacenters kopen het geheugen op), dan prijzen, waarom, wie verdient, wie betaalt, wanneer het stopt.
+@scene open-prijs
+If you tried to build a computer this year, you probably noticed something strange.
+The memory, the RAM, suddenly cost more than almost anything else in the box.
+A thirty-two gigabyte kit of fast memory now costs around four hundred fifty dollars.
+Not long ago, the same kit cost about a hundred.
+@scene open-antwoord
+So what happened?
+The short answer is artificial intelligence.
+The companies that make memory chips are selling as much as they can to AI data centers.
+And there is simply not enough left for the rest of us.
+@scene open-geld
+In the third quarter of this year, the whole memory industry brought in about two hundred billion dollars.
+That is three hundred sixty-nine percent more than a year earlier.
+But the number of chips they shipped grew by only about four percent.
+Almost all of that extra money came from one thing: higher prices.
+Let's see how we got here, who is making money, and when it might end.
+@scene h1-wat
+First, what is RAM?
+It is your computer's short-term memory.
+Every app you open, every browser tab, every game, lives in RAM while you use it.
+Your phone has it, your laptop has it, your car has it.
+And so does every AI server in the world.
+@scene h1-drie
+Almost all of the world's memory chips come from just three companies.
+Samsung and SK Hynix in South Korea, and Micron in the United States.
+When those three change their plans, the whole world feels it.
+@scene h2-hbm
+And this year, they changed their plans.
+AI chips, like the ones Nvidia sells, need a special kind of memory.
+It is called high bandwidth memory, or H B M.
+It is stacked in layers, right next to the AI chip, so data can move incredibly fast.
+@scene h2-ruil
+H B M is much harder to make than normal memory.
+It uses far more factory space for every gigabyte.
+And it is far more profitable.
+So the big three moved more and more of their factories to AI memory, and to memory for servers.
+According to the research firm I D C, that came at the expense of the chips that go into laptops and phones.
+@scene h3-prijzen
+Then the prices exploded.
+In the first quarter of this year, contract prices for memory almost doubled in just three months.
+The research firm TrendForce called it a record for a single quarter.
+And they kept climbing.
+Up to twenty-three percent more in the third quarter.
+And TrendForce expects up to eighteen percent more in the last quarter of the year.
+@scene h3-winkel
+In stores, you can see it on the price tags.
+Storage is going up too.
+According to Tom's Hardware, a two terabyte drive that cost eighty dollars this summer was back at one hundred thirty dollars in November.
+@scene slot
+# (verder schrijven: h4 wie verdient (Samsung/SK Hynix/Micron winst *), h5 wie betaalt (pc-merken, minder opslag, Dell/Lenovo *, Micron stopt met Crucial *), h6 Altman en de 40%-claim *, h7 wanneer stopt het (2027 *, productie -20 à 40% *), wat nu; slot)

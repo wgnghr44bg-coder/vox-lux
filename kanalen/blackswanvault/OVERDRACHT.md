@@ -35,6 +35,10 @@ naar een latere dag (publishAt aanpassen via de API, kanaal checken) om plaats t
 **CTR-les (21 nov, Studio-AI):** Nvidia 4,6% vs Anthropic 1,6%. Anthropic-video (5C2MIFhR314) kreeg nieuwe thumbnail met Claude-logo
 (`video2/thumbnail-definitief.jpg`, oud: thumbnail-oud.jpg). Titels: mens/drama en bekende naam als het echt klopt.
 
+## Reservevideo's (eigenaar 21 nov: "maak video's voor reserve")
+Video's die niet verouderen, voor dagen zonder groot nieuws. Soorten: "Why X got so expensive", "Can X come back?", "How X makes money".
+- `reserve1-ram/`: waarom RAM zo duur is. STAND: feiten (bronnen.md, * = nakijken) + concept-script tot hoofdstuk 3. Verder: script afmaken, dan stem/beelden/render zoals video9.
+
 ## Maandag 23 nov: markt-video (video4) — NOG NIET geüpload
 - Titel: "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of". Thumbnail: `video4/thumbnail-definitief.jpg` (NASDAQ / -13% / WHY?).
 - Ma-ochtend: koersen ophalen (data/*.json, Yahoo), `{SLOT}` in `video4/script.txt` vervangen door 2-3 zinnen over de laatste stand (GEEN voorspelling), `stem.sh` + `mix.py` + `maak.sh`, controleren, eindversie naar eigenaar.
