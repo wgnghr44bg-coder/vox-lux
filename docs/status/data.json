@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 00:03",
+ "bijgewerkt": "2026-11-22 00:33",
  "kanalen": {
   "weken": [
    {
@@ -2622,7 +2622,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 00:03)"
+   "tekst": "draait nu (2026-11-22 00:33)"
   },
   {
    "naam": "Git",
@@ -2636,8 +2636,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 23:48: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2654,8 +2654,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 00:03",
-   "volgende": "2026-11-22 00:33"
+   "laatst": "2026-11-22 00:33",
+   "volgende": "2026-11-22 01:03"
   },
   "hype": {
    "aan": true,
@@ -2665,12 +2665,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-21 23:10",
-   "volgende": "2026-11-22 00:10"
+   "volgende": "2026-11-22 01:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 23:48",
-   "volgende": "2026-11-22 00:18"
+   "laatst": "2026-11-22 00:18",
+   "volgende": "2026-11-22 00:48"
   },
   "titels": {
    "aan": true,
@@ -2781,7 +2781,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 814,
+    "views": 810,
     "verwerkt": "processed"
    }
   ],
@@ -2975,9 +2975,9 @@
    "totaal": 13,
    "procent": 23
   },
-  "fouten": 0,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 10,
    "totaal": 11
   }
  },
@@ -3005,8 +3005,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 4497,
+  "bezig_procent": 27,
+  "geheugen_mb": 566,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3093,12 +3093,6 @@
  "logboek": [
   {
    "tijd": "2026-11-21 21:51",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 21:51",
    "tekst": "Claude: pearl-harbor-1941 keten even gestopt (hoofdpersonage ontwerpen)",
    "fout": false,
    "klaar": false
@@ -3174,16 +3168,28 @@
    "tekst": "Claude: Sleep OP PAUZE (taak bewaker uit) tot de eigenaar zegt hervatten; pearl-harbor-1941 staat op bezig",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 00:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
   }
  ],
- "fouten": [],
- "opgelost": [
+ "fouten": [
   {
-   "tijd": "2026-11-19 13:14",
-   "tekst": "routine-lokaal: boeren-winter-1300: opnieuw maken GESTOPT (SCRIPT FOUT (1 punten)); de oude versie blijft staan",
+   "tijd": "2026-11-22 00:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
   },
+  {
+   "tijd": "2026-11-22 00:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen",
+   "fout": true
+  }
+ ],
+ "opgelost": [
   {
    "tijd": "2026-11-19 16:20",
    "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 71/84 goedgekeurd, fout: ['001', '003', '006', '012', '018', '020', '034', '036', '040', '048', '051', '054', '083'",
@@ -5384,11 +5390,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 00:03",
+  "bijgewerkt": "2026-11-22 00:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 639594,
+    "5uur": 54761,
     "week": 15312922,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5404,27 +5410,28 @@
    },
    {
     "account": "account2",
-    "5uur": 10811313,
-    "week": 115567697,
+    "5uur": 13449959,
+    "week": 118651012,
     "per_dag": {
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
+     "Sun 22-11": 3083315,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 42293,
+    "stap_kost": 43697,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 80,
-    "5uur_scripts_over": 4.8,
-    "5uur_stappen_over": 65,
-    "week_pct": 88,
-    "week_scripts_over": 28.8,
-    "week_stappen_over": 389
+    "5uur_pct": 99,
+    "5uur_scripts_over": 0.2,
+    "5uur_stappen_over": 3,
+    "week_pct": 90,
+    "week_scripts_over": 23.4,
+    "week_stappen_over": 306
    }
   ]
  },
