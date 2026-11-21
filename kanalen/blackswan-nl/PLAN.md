@@ -5,6 +5,8 @@ Nederlandstalige versie van BlackswanVault, op het kanaal dat nu NOIRTRACES heet
 - NAAM: **Geldverhaal** (eigenaar: "maak er maar van Geldverhaal"), handle **@Geldverhaal** (was vrij op 21 nov).
 - Eigenaar zet in Studio NU: naam, beschrijving (`branding/kanaalbeschrijving.txt`), taal Nederlands, logo `branding/logo-definitief.png`,
   banner `branding/banner-definitief.jpg` (gekozen: logo munt + banner A grachten; opnieuw maken: `python branding/maak.py`).
+- 21 nov 13:20 VIA API GEDAAN: banner (banner-definitief.jpg, 'Alles over financiën'), beschrijving, zoekwoorden, taal nl, land NL.
+  NIET via API mogelijk → eigenaar in Studio: kanaalNAAM 'Geldverhaal' en LOGO (profielfoto).
 - HANDLE pas rond 2 dec 2026 te wijzigen (YouTube: 14 dagen na de vorige wijziging op 18 nov).
 - Upload-token: `YT_KANAAL=altena` (sleutel ~/.yt-altena.json, zie CLAUDE.md). AI-label staat aan (ook op de oude Jack the Ripper-video).
 - Vaste stem, schrijfstijl, NL-wachter: zie hieronder. VOLGENDE STAP: eerste 2-3 Nederlandse video's maken vóór 2 dec (eerst laten zien, uploaden pas na OK).
