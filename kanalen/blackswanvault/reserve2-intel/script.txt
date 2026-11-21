@@ -14,8 +14,10 @@ The short answer is: it is trying, and it has powerful friends.
 The United States government now owns about ten percent of the company.
 Nvidia invested five billion dollars.
 And in the third quarter of this year, Intel's revenue grew twenty-one percent.
-But the part that matters most, its factories, is still losing billions.
-Let's see how a giant fell, and what has to happen for it to rise again.
+For months, investors believed the comeback, and the stock soared.
+But on October thirtieth, after its latest results, Intel fell about twenty-seven percent in a single day.
+Because the part that matters most, its factories, is still losing billions.
+Let's see how a giant fell, how it got back up, and what has to happen for the comeback to last.
 @scene h1-top
 At its peak, Intel was one of the most valuable companies in the world.
 Its chips powered almost every personal computer and most of the internet's servers.
@@ -120,6 +122,11 @@ First, outside customers for the factories, and whether a big name signs up.
 Second, whether its newest chips can really compete with TSMC.
 And third, whether its AI business keeps growing.
 None of this is financial advice.
+@scene h5-risico
+There are also real risks.
+If AI spending slows, the data center growth could slow with it.
+If no big customer signs up, the factories will keep losing money.
+And Intel has already sold new shares to raise money, which means every existing share owns a little less of the company.
 @scene slot
 Intel once missed the phone, and then it missed AI.
 Now the government, Nvidia and a new boss are betting it will not miss again.
