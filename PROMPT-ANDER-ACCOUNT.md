@@ -24,6 +24,7 @@ Pc heeft weinig geheugen: één zware taak tegelijk, als los proces (Start-Proce
 - Uploaden pas na OK: `YT_KANAAL=altena python tools/youtube_upload.py ...` (zelfde kanaal-ID UC_6p9gp5aBf-eHY5VmJEw4w), privé, kanaal checken.
 - Kanaal: naam "Geldverhaal" en logo zet de eigenaar zelf in Studio (API kan dat niet); handle @Geldverhaal kan pas ± 2 dec.
   Banner, beschrijving (staat LOS van BlackswanVault, niet noemen), taal nl zijn al gezet.
+- Uitspraak: "Claude" niet laten zeggen (wordt "kloot"); zeg "een van de bekendste chatbots", toon Claude in beeld. Elke nieuwe zin met Whisper nakijken op zulke woorden.
 - Vaste dingen: stem `richard-nl` speed 1.1 seed 1, PER ZIN (stem.py; per alinea is afgewezen); afkortingen die fout gaan als letters (A E X, S E C);
   thumbnailstijl `kanalen/blackswan-nl/thumb_geld.py` (gouden balken, rood getal, beeld over hele thumbnail; nooit Swan-stijl);
   grafieken tonen top en laagste; echte beelden waar het mag en past, AI-beelden zonder mensen.

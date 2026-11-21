@@ -2,7 +2,7 @@
 # Titel (voorstel): Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?  (eigenaar 21 nov: combinatie Anthropic + ASML)
 # Feiten en bronnen: bronnen.md. Stem per zin (stem.py), richard-nl 1.1.
 @scene open-anthropic
-Donderdag negentien november ging Anthropic naar de beurs, het AI-bedrijf achter de chatbot Claude.
+Donderdag negentien november ging Anthropic naar de beurs, het AI-bedrijf achter een van de bekendste chatbots.
 Het werd een van de grootste beursgangen ooit.
 Maar een dag later ging de hele AI-sector onderuit.
 @scene open-val
@@ -46,7 +46,7 @@ Maar het aandeel zakte die dag veertien procent, de zevende daling op rij.
 @scene h1-rest
 Andere chipbedrijven gingen mee omlaag.
 Broadcom verloor zo'n twaalf procent, na onbevestigde berichten dat Google volgend jaar minder chips gaat afnemen.
-En dan was er nog Anthropic, het AI-bedrijf achter de chatbot Claude.
+En dan was er nog Anthropic, het AI-bedrijf achter een van de bekendste chatbots.
 Op donderdag negentien november ging het naar de beurs, en haalde het meer dan eenentachtig miljard dollar op.
 Het was een van de grootste beursgangen ooit.
 Beleggers betaalden drieëntachtig dollar per aandeel, en bij de opening stond het al op honderdelf.

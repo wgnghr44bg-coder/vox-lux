@@ -2,7 +2,7 @@
 # Geldverhaal video 1, ronde 2: alleen nieuwe zinnen inspreken (Anthropic-opening), dan muziek, render, samenvoegen. Log C:\Users\rane\geld-v1b.log
 R=/c/Users/rane/Documents/vox-lux-routine; cd $R/kanalen/blackswan-nl/video1
 OMNI=C:/Users/rane/omnivoice-venv/Scripts/python.exe; export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
-echo "=== $(date +%H:%M) stem (alleen nieuwe zinnen)"; $OMNI stem.py --opnieuw 9999 2>&1 | tail -1
+echo "=== $(date +%H:%M) stem (alleen nieuwe zinnen)"; $OMNI stem.py --opnieuw 9999 --seed 7 2>&1 | tail -1
 $OMNI check_nl.py > check.log 2>&1; grep -E "^ ?[0-9]+ |^   ->" check.log | head -12
 echo "=== $(date +%H:%M) muziek"; $OMNI mix.py 2>&1 | tail -1
 echo "=== $(date +%H:%M) render"; m=$(grep -n "^def shot_op" $R/kanalen/blackswanvault/video3/render3.py | cut -d: -f1)

@@ -62,3 +62,4 @@ Echte foto alleen van de ECHTE persoon (bv. Jensen Huang, Dario Amodei). AI-beel
 ## Thumbnail-stijl Geldverhaal (eigenaar 21 nov: "moet echt anders, lijkt teveel op Swan"): `thumb_geld.py`
 Beeld over de hele thumbnail (geen donkere linkerkant), zwarte tekst in GOUDEN balken, getal wit in ROOD blok, Segoe UI Black,
 Geldverhaal-logo rechtsboven. Nooit de Swan-stijl (Impact, rood/wit met zwarte rand, donkere linkerkant).
+## Uitspraak: "Claude" NIET laten uitspreken (OmniVoice NL zegt "kloot"/"klad"/"cloud"; 21 nov getest). Zeg "een van de bekendste chatbots", toon "Claude" in beeld.
