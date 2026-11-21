@@ -27,6 +27,16 @@ And so does every AI server in the world.
 Almost all of the world's memory chips come from just three companies.
 Samsung and SK Hynix in South Korea, and Micron in the United States.
 When those three change their plans, the whole world feels it.
+@scene h1-cyclus
+For decades, memory was a famously brutal business.
+When demand was strong, the makers built new factories.
+Then too many chips came out at once, prices crashed, and everyone lost money.
+That happened as recently as 2023.
+Back then, memory prices collapsed after the pandemic boom in laptops and phones.
+SK Hynix lost billions of dollars, and Samsung cut its production to stop the fall.
+So after that crash, the memory makers became careful.
+They did not want to build too much again.
+And then AI arrived.
 @scene h2-hbm
 And this year, they changed their plans.
 AI chips, like the ones Nvidia sells, need a special kind of memory.
@@ -45,6 +55,14 @@ The research firm TrendForce called it a record for a single quarter.
 And they kept climbing.
 Up to twenty-three percent more in the third quarter.
 And TrendForce expects up to eighteen percent more in the last quarter of the year.
+@scene h3-waarom-alles
+But why would normal memory get more expensive, if the factories are making AI memory?
+Because it is a game of musical chairs.
+Every factory line that switches to AI memory is a line that no longer makes chips for laptops and phones.
+At the same time, AI servers do not only use the special memory.
+They also need huge amounts of normal server memory, and even the kind of memory that goes into phones.
+So AI is pulling from every side at once.
+And when the supply of something shrinks while demand grows, there is only one way for the price to go.
 @scene h3-winkel
 In stores, you can see it on the price tags.
 Storage is going up too.
@@ -81,6 +99,9 @@ And then there is Sam Altman, the head of OpenAI.
 At the end of October, on a podcast, he talked about the memory sitting inside our own computers.
 He said that most of it sits unused, and he called that, quote, "quite terrible" for a world that is short on memory.
 His point was that a data center can use the same chips much more efficiently.
+He estimated that the memory in personal computers is used only about five percent of the time.
+That number is his own estimate, and it is not proven.
+But it touched a nerve.
 @scene h6-reactie
 Many people did not like hearing that from the head of one of the biggest buyers of memory in the world.
 A few weeks later, on November sixteenth, he said, quote, "I want people to have a lot of RAM."

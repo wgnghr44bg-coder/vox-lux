@@ -27,3 +27,6 @@ Reservevideo (niet aan nieuwsdag gebonden). Na nakijken: stem.sh/maak.sh van vid
 - Samsung Q3 2026 (29 okt): chipdivisie record, marge ± 72%; exacte cijfers nog nakijken. https://lightreading.com/finance/memory-boom-carries-samsung-to-another-bumper-quarter
 - Sam Altman: podcast Cheeky Pint (John Collison, 29 okt 2026): RAM in pc's "quite terrible" voor het beperkte wereldaanbod, ± 5% benut (zijn schatting). 16 nov (Semafor): "I want people to have a lot of RAM". Exacte woorden nakijken in de opname. https://pcworld.com/article/3274634/sam-altman-says-your-pcs-memory-should-belong-to-him.html , https://mixed-news.com/en/sam-altman-wants-people-to-have-ram-semafor-clarification/
 - Mens-invalshoek (CTR-les): Sam Altman en de RAM-ruzie → titelidee "Sam Altman Wants Your RAM. That's Why It Costs $450" (alleen als het citaat klopt).
+- Toegevoegd h1-cyclus: geheugencrash 2023 (SK hynix verlies, Samsung productie omlaag) = algemeen bekend, wel nog bron toevoegen.
+- h3-waarom-alles: AI-servers gebruiken ook gewoon servergeheugen en telefoongeheugen (LPDDR5X, Nvidia): https://www.tomshardware.com/pc-components/dram/nvidias-demand-for-lpddr5x-could-double-smartphone-and-server-memory-prices-in-2026-seismic-shift-means-even-smartphone-class-memory-isnt-safe-from-ai-induced-crunch
+- Tempo stem ± 180 woorden/min (video8/9) → voor ≥ 8 min ± 1.450 woorden nodig.
