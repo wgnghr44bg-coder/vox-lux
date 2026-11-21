@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-21 13:15",
+ "bijgewerkt": "2026-11-21 13:33",
  "kanalen": {
   "weken": [
    {
@@ -2154,7 +2154,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "laatste keer goed (2026-11-21 13:03)"
+   "tekst": "draait nu (2026-11-21 13:33)"
   },
   {
    "naam": "Git",
@@ -2173,8 +2173,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 12:48: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2191,8 +2191,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-21 13:03",
-   "volgende": "2026-11-21 13:33"
+   "laatst": "2026-11-21 13:33",
+   "volgende": "2026-11-21 14:03"
   },
   "hype": {
    "aan": true,
@@ -2206,13 +2206,13 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-21 12:48",
-   "volgende": "2026-11-21 13:18"
+   "laatst": "2026-11-21 13:18",
+   "volgende": "2026-11-21 13:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-21 11:25",
-   "volgende": "2026-11-21 13:25"
+   "laatst": "2026-11-21 13:25",
+   "volgende": "2026-11-21 15:25"
   }
  },
  "kanaal": {
@@ -2509,12 +2509,12 @@
   "geplande": 3,
   "runs": {
    "goed": 4,
-   "totaal": 15,
-   "procent": 27
+   "totaal": 17,
+   "procent": 24
   },
-  "fouten": 0,
+  "fouten": 3,
   "zelfcontrole": {
-   "goed": 12,
+   "goed": 11,
    "totaal": 12
   }
  },
@@ -2542,8 +2542,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 523,
+  "bezig_procent": 27,
+  "geheugen_mb": 592,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2629,18 +2629,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-20 09:36",
-   "tekst": "Claude: BlackswanVault Anthropic (5C2MIFhR314) nieuwe thumbnail A ($81 BILLION, ANTHROPIC IPO, Dario voor Nasdaq) op verzoek eigenaar; oude = video2/thumbnail-definitief.jpg",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-20 09:39",
-   "tekst": "Claude: Anthropic thumbnail toch versie B (eigenaar: 'B is leuker')",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-20 09:44",
    "tekst": "Claude: BlackswanVault GTA 6 privé geüpload (BPoUJqFruNE), openbaar za 21 nov 15:00 (eigenaar: 'privé tot morgen')",
    "fout": false,
@@ -2711,9 +2699,39 @@
    "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 13:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 13:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-21 13:18",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 13:18",
+   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-21 13:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:18: 2 ding(en) klopt niet, zie meldingen",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-18 19:48",
@@ -4714,7 +4732,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-21 11:25",
+  "bijgewerkt": "2026-11-21 13:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4858,7 +4876,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-21 13:15",
+  "bijgewerkt": "2026-11-21 13:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -4877,28 +4895,28 @@
    },
    {
     "account": "account2",
-    "5uur": 9765270,
-    "week": 113440741,
+    "5uur": 12188973,
+    "week": 115864444,
     "per_dag": {
      "Sat 14-11": 21460388,
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
-     "Sat 21-11": 14011491,
+     "Sat 21-11": 16435194,
      "Wed 18-11": 377953
     },
     "script_kost": 663104,
     "metingen": 12,
-    "stap_kost": 33139,
+    "stap_kost": 34190,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 72,
-    "5uur_scripts_over": 5.7,
-    "5uur_stappen_over": 115,
-    "week_pct": 86,
-    "week_scripts_over": 28.0,
-    "week_stappen_over": 561
+    "5uur_pct": 90,
+    "5uur_scripts_over": 2.1,
+    "5uur_stappen_over": 41,
+    "week_pct": 88,
+    "week_scripts_over": 24.4,
+    "week_stappen_over": 472
    }
   ]
  },
