@@ -1,0 +1,2771 @@
+{
+"duur": 479.09,
+"borden": [
+0.0,
+16.563,
+31.587,
+50.197,
+67.086,
+87.059,
+110.391,
+128.62699999999998,
+148.009,
+178.262,
+198.397,
+220.476,
+237.236,
+260.604,
+275.543,
+302.003,
+314.102,
+340.527,
+356.43899999999996,
+387.41499999999996,
+430.176,
+455.307
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "Launch night",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_nacht.png",
+"x": 30,
+"y": 100,
+"breed": 260,
+"hoog": 260,
+"midden": true,
+"start": 1.42,
+"doel": 1.72,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_kassa.png",
+"x": 300,
+"y": 120,
+"breed": 280,
+"hoog": 230,
+"midden": true,
+"start": 6.69,
+"doel": 6.99,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"tekst": "GTA VI is out!",
+"x": 40,
+"y": 380,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 4.17,
+"doel": 4.32,
+"teken": 0.6
+},
+{
+"bord": 0,
+"logo": "logos/rockstar.png",
+"x": 330,
+"y": 372,
+"hoog": 52,
+"start": 5.1,
+"doel": 5.3
+},
+{
+"bord": 0,
+"tekst": "$79.99",
+"x": 40,
+"y": 450,
+"maat": 100,
+"kleur": [
+46,
+150,
+84
+],
+"start": 8.41,
+"doel": 8.56,
+"teken": 0.45
+},
+{
+"bord": 0,
+"tekst": "paid!",
+"x": 430,
+"y": 500,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 8.959999999999999,
+"doel": 9.11,
+"teken": 0.6
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_denkkoop.png",
+"x": 980,
+"y": 250,
+"breed": 270,
+"hoog": 440,
+"midden": true,
+"start": 10.889999999999999,
+"doel": 11.19,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "...and then you wonder",
+"x": 520,
+"y": 420,
+"maat": 36,
+"kleur": [
+30,
+30,
+30
+],
+"start": 11.79,
+"doel": 11.82,
+"teken": 0.48
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_wolk.png",
+"x": 590,
+"y": 60,
+"breed": 440,
+"hoog": 245,
+"midden": true,
+"start": 13.469999999999999,
+"doel": 13.77,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 1,
+"kop": "Follow your money",
+"rechts": "Not financial advice",
+"start": 16.563
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_geld.png",
+"x": 50,
+"y": 110,
+"breed": 380,
+"hoog": 280,
+"midden": true,
+"start": 17.4,
+"doel": 17.7,
+"teken": 0.75,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "$79.99",
+"x": 470,
+"y": 140,
+"maat": 90,
+"kleur": [
+46,
+150,
+84
+],
+"start": 18.5,
+"doel": 18.65,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "dollar by dollar",
+"x": 480,
+"y": 250,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 19.990000000000002,
+"doel": 20.14,
+"teken": 0.6
+},
+{
+"bord": 1,
+"pijl": [
+480,
+340,
+900,
+340
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 6,
+"start": 22.89,
+"teken": 0.5
+},
+{
+"bord": 1,
+"tekst": "counter",
+"x": 470,
+"y": 360,
+"maat": 36,
+"kleur": [
+30,
+30,
+30
+],
+"start": 22.740000000000002,
+"doel": 22.89,
+"teken": 0.6
+},
+{
+"bord": 1,
+"logo": "logos/rockstar.png",
+"x": 920,
+"y": 300,
+"hoog": 80,
+"start": 23.48,
+"doel": 23.68
+},
+{
+"bord": 1,
+"tekst": "spoiler:",
+"x": 470,
+"y": 460,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 25.360000000000003,
+"doel": 25.51,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "Rockstar is not the only one",
+"x": 470,
+"y": 520,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 26.96,
+"doel": 27.11,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "getting paid tonight",
+"x": 470,
+"y": 580,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 29.240000000000002,
+"doel": 29.39,
+"teken": 0.6
+},
+{
+"bord": 2,
+"kop": "First stop: the store",
+"rechts": "Not financial advice",
+"start": 31.587
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_winkel.png",
+"x": 50,
+"y": 110,
+"breed": 360,
+"hoog": 360,
+"midden": true,
+"start": 33.910000000000004,
+"doel": 34.21,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_overheid.png",
+"x": 960,
+"y": 110,
+"breed": 280,
+"hoog": 200,
+"midden": true,
+"start": 39.220000000000006,
+"doel": 39.52,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 2,
+"tekst": "+ sales tax",
+"x": 460,
+"y": 150,
+"maat": 56,
+"kleur": [
+214,
+32,
+39
+],
+"start": 40.12,
+"doel": 39.72,
+"teken": 0.3
+},
+{
+"bord": 2,
+"tekst": "-> goes to the government",
+"x": 470,
+"y": 230,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 42.81,
+"doel": 42.96,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "(depends on where you live)",
+"x": 470,
+"y": 285,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 37.77,
+"doel": 37.92,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "we follow the $79.99 itself",
+"x": 460,
+"y": 420,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 48.27,
+"doel": 48.42,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "#1 The store",
+"rechts": "Not financial advice",
+"start": 50.197
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/r_winkelier.png",
+"x": 40,
+"y": 100,
+"breed": 330,
+"hoog": 520,
+"midden": true,
+"start": 50.120000000000005,
+"doel": 50.42,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "the shop keeps",
+"x": 420,
+"y": 130,
+"maat": 56,
+"kleur": [
+30,
+30,
+30
+],
+"start": 56.78,
+"doel": 56.93,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "about 30%",
+"x": 420,
+"y": 205,
+"maat": 56,
+"kleur": [
+30,
+30,
+30
+],
+"start": 57.620000000000005,
+"doel": 57.77,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "~ $24",
+"x": 420,
+"y": 290,
+"maat": 140,
+"kleur": [
+214,
+32,
+39
+],
+"start": 60.45,
+"doel": 60.6,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "just for a box on a shelf?",
+"x": 430,
+"y": 480,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 65.27,
+"doel": 65.42,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "estimate: game analyst Serkan Toto",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 55.480000000000004,
+"doel": 55.63,
+"teken": 0.4
+},
+{
+"bord": 4,
+"kop": "But the shop has costs",
+"rechts": "Not financial advice",
+"start": 67.086
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_kosten.png",
+"x": 40,
+"y": 100,
+"breed": 380,
+"hoog": 300,
+"midden": true,
+"start": 69.47,
+"doel": 69.77,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "rent",
+"x": 450,
+"y": 120,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 70.37,
+"doel": 70.07,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "staff",
+"x": 450,
+"y": 175,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 70.77,
+"doel": 70.65,
+"teken": 0.33
+},
+{
+"bord": 4,
+"tekst": "electricity",
+"x": 450,
+"y": 230,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 71.44,
+"doel": 71.59,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "shelf space",
+"x": 450,
+"y": 285,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 74.33999999999999,
+"doel": 74.49,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "real profit: much less",
+"x": 40,
+"y": 440,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 77.11999999999999,
+"doel": 77.27,
+"teken": 0.6
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_extras.png",
+"x": 760,
+"y": 260,
+"breed": 440,
+"hoog": 300,
+"midden": true,
+"start": 82.07000000000001,
+"doel": 82.37,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "real money: the extras",
+"x": 700,
+"y": 130,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 82.97,
+"doel": 82.87,
+"teken": 0.35
+},
+{
+"bord": 5,
+"kop": "#2 Sony",
+"rechts": "Not financial advice",
+"start": 87.059
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/r_pak.png",
+"x": 30,
+"y": 100,
+"breed": 330,
+"hoog": 520,
+"midden": true,
+"start": 86.76,
+"doel": 87.06,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_ps5.png",
+"x": 360,
+"y": 110,
+"breed": 280,
+"hoog": 330,
+"midden": true,
+"start": 88.74000000000001,
+"doel": 89.04,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"logo": "logos/playstation.png",
+"x": 700,
+"y": 110,
+"hoog": 70,
+"start": 93.59,
+"doel": 93.79
+},
+{
+"bord": 5,
+"tekst": "needs Sony's OK",
+"x": 820,
+"y": 125,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 95.05999999999999,
+"doel": 95.21,
+"teken": 0.6
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_contract.png",
+"x": 690,
+"y": 200,
+"breed": 260,
+"hoog": 190,
+"midden": true,
+"start": 102.07000000000001,
+"doel": 102.37,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"tekst": "per disc sold",
+"x": 970,
+"y": 260,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 99.44,
+"doel": 99.59,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "license fee ~15%",
+"x": 680,
+"y": 420,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 105.28,
+"doel": 105.43,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "~ $12",
+"x": 680,
+"y": 480,
+"maat": 120,
+"kleur": [
+214,
+32,
+39
+],
+"start": 108.02,
+"doel": 108.17,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "estimate: about 15% (Serkan Toto)",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 104.44999999999999,
+"doel": 104.6,
+"teken": 0.4
+},
+{
+"bord": 6,
+"kop": "Why does Sony get paid?",
+"rechts": "Not financial advice",
+"start": 110.391
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_tvconsole.png",
+"x": 40,
+"y": 110,
+"breed": 520,
+"hoog": 330,
+"midden": true,
+"start": 113.95,
+"doel": 114.25,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "they built the machine",
+"x": 600,
+"y": 130,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 114.85,
+"doel": 114.61,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "console: sold cheap",
+"x": 600,
+"y": 240,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 119.05,
+"doel": 119.2,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "games: earn it back",
+"x": 600,
+"y": 310,
+"maat": 50,
+"kleur": [
+46,
+150,
+84
+],
+"start": 121.35,
+"doel": 121.5,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "your game helps pay",
+"x": 600,
+"y": 440,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 124.71,
+"doel": 124.86,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "for the console",
+"x": 600,
+"y": 505,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 125.64999999999999,
+"doel": 125.8,
+"teken": 0.6
+},
+{
+"bord": 7,
+"kop": "#3 The disc",
+"rechts": "Not financial advice",
+"start": 128.62699999999998
+},
+{
+"bord": 7,
+"beeld": "afbeeldingen/r_helm.png",
+"x": 30,
+"y": 110,
+"breed": 320,
+"hoog": 480,
+"midden": true,
+"start": 128.97,
+"doel": 129.27,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 7,
+"beeld": "afbeeldingen/n_pers.png",
+"x": 380,
+"y": 100,
+"breed": 330,
+"hoog": 230,
+"midden": true,
+"start": 131.03,
+"doel": 131.33,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 7,
+"beeld": "afbeeldingen/n_truck.png",
+"x": 760,
+"y": 110,
+"breed": 320,
+"hoog": 210,
+"midden": true,
+"start": 134.75,
+"doel": 135.05,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 7,
+"tekst": "~ $4",
+"x": 400,
+"y": 380,
+"maat": 120,
+"kleur": [
+214,
+32,
+39
+],
+"start": 137.54,
+"doel": 137.69,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "the smallest slice",
+"x": 760,
+"y": 390,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 140.15,
+"doel": 140.3,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "digital: $0",
+"x": 760,
+"y": 460,
+"maat": 56,
+"kleur": [
+46,
+150,
+84
+],
+"start": 142.69,
+"doel": 142.84,
+"teken": 0.6
+},
+{
+"bord": 8,
+"kop": "#4 Take-Two & Rockstar",
+"rechts": "Not financial advice",
+"start": 148.009
+},
+{
+"bord": 8,
+"logo": "logos/taketwo.png",
+"x": 60,
+"y": 110,
+"hoog": 110,
+"start": 152.59,
+"doel": 152.79
+},
+{
+"bord": 8,
+"tekst": "~ $40",
+"x": 60,
+"y": 250,
+"maat": 150,
+"kleur": [
+46,
+150,
+84
+],
+"start": 155.55,
+"doel": 155.31,
+"teken": 0.3
+},
+{
+"bord": 8,
+"logo": "logos/rockstar.png",
+"x": 330,
+"y": 110,
+"hoog": 90,
+"start": 159.97,
+"doel": 160.17
+},
+{
+"bord": 8,
+"tekst": "also owns 2K, Zynga",
+"x": 460,
+"y": 130,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 164.12,
+"doel": 164.27,
+"teken": 0.6
+},
+{
+"bord": 8,
+"tekst": "crown jewel: GTA",
+"x": 460,
+"y": 190,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 167.88,
+"doel": 168.03,
+"teken": 0.6
+},
+{
+"bord": 8,
+"tekst": "half of what you paid",
+"x": 60,
+"y": 440,
+"maat": 48,
+"kleur": [
+25,
+55,
+120
+],
+"start": 170.26999999999998,
+"doel": 170.42,
+"teken": 0.6
+},
+{
+"bord": 8,
+"tekst": "great deal for Rockstar?",
+"x": 60,
+"y": 520,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 173.21,
+"doel": 173.36,
+"teken": 0.6
+},
+{
+"bord": 8,
+"tekst": "...not yet.",
+"x": 60,
+"y": 590,
+"maat": 56,
+"kleur": [
+214,
+32,
+39
+],
+"start": 176.39,
+"doel": 176.54,
+"teken": 0.6
+},
+{
+"bord": 8,
+"beeld": "afbeeldingen/p_geld.png",
+"x": 960,
+"y": 220,
+"breed": 280,
+"hoog": 440,
+"midden": true,
+"start": 154.64999999999998,
+"doel": 154.95,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 9,
+"kop": "Why $79.99?",
+"rechts": "Not financial advice",
+"start": 178.262
+},
+{
+"bord": 9,
+"beeld": "afbeeldingen/hoes.png",
+"x": 60,
+"y": 110,
+"breed": 230,
+"hoog": 300,
+"midden": true,
+"start": 178.72,
+"doel": 179.02,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 9,
+"tekst": "most big games: ~$70",
+"x": 340,
+"y": 140,
+"maat": 52,
+"kleur": [
+30,
+30,
+30
+],
+"start": 182.81,
+"doel": 182.96,
+"teken": 0.6
+},
+{
+"bord": 9,
+"tekst": "GTA VI: $80",
+"x": 340,
+"y": 215,
+"maat": 70,
+"kleur": [
+214,
+32,
+39
+],
+"start": 185.39,
+"doel": 185.54,
+"teken": 0.6
+},
+{
+"bord": 9,
+"tekst": "$10 extra",
+"x": 340,
+"y": 360,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 186.71,
+"doel": 186.86,
+"teken": 0.6
+},
+{
+"bord": 9,
+"tekst": "x 20 million copies",
+"x": 340,
+"y": 430,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 189.93,
+"doel": 190.08,
+"teken": 0.6
+},
+{
+"bord": 9,
+"tekst": "= $200 million",
+"x": 340,
+"y": 500,
+"maat": 70,
+"kleur": [
+46,
+150,
+84
+],
+"start": 193.17,
+"doel": 193.32,
+"teken": 0.6
+},
+{
+"bord": 9,
+"tekst": "(before shop + Sony)",
+"x": 350,
+"y": 590,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 196.41,
+"doel": 196.56,
+"teken": 0.6
+},
+{
+"bord": 9,
+"beeld": "afbeeldingen/p_wijs.png",
+"x": 950,
+"y": 230,
+"breed": 300,
+"hoog": 430,
+"midden": true,
+"start": 184.42,
+"doel": 184.72,
+"teken": 0.62,
+"kleur": 0.4
+},
+{
+"bord": 10,
+"kop": "What did it cost?",
+"rechts": "Not financial advice",
+"start": 198.397
+},
+{
+"bord": 10,
+"beeld": "afbeeldingen/n_slot.png",
+"x": 40,
+"y": 110,
+"breed": 320,
+"hoog": 360,
+"midden": true,
+"start": 200.51999999999998,
+"doel": 200.82,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 10,
+"tekst": "first: earn back the cost",
+"x": 400,
+"y": 120,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 201.42,
+"doel": 201.02,
+"teken": 0.3
+},
+{
+"bord": 10,
+"tekst": "Rockstar never said...",
+"x": 400,
+"y": 185,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 208.98,
+"doel": 209.13,
+"teken": 0.6
+},
+{
+"bord": 10,
+"tekst": "$1 - 2 billion",
+"x": 400,
+"y": 250,
+"maat": 86,
+"kleur": [
+214,
+32,
+39
+],
+"start": 212.62,
+"doel": 212.77,
+"teken": 0.55
+},
+{
+"bord": 10,
+"tekst": "estimates by analysts",
+"x": 410,
+"y": 365,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 210.89,
+"doel": 211.04,
+"teken": 0.6
+},
+{
+"bord": 10,
+"tekst": "most expensive game ever?",
+"x": 400,
+"y": 440,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 217.63,
+"doel": 217.78,
+"teken": 0.6
+},
+{
+"bord": 10,
+"tekst": "years of work",
+"x": 400,
+"y": 590,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 206.85999999999999,
+"doel": 207.01,
+"teken": 0.6
+},
+{
+"bord": 10,
+"beeld": "afbeeldingen/p_schrik.png",
+"x": 1040,
+"y": 230,
+"breed": 220,
+"hoog": 420,
+"midden": true,
+"start": 213.27,
+"doel": 213.57,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 11,
+"kop": "Break even",
+"rechts": "Not financial advice",
+"start": 220.476
+},
+{
+"bord": 11,
+"beeld": "afbeeldingen/n_kantoor.png",
+"x": 40,
+"y": 100,
+"breed": 300,
+"hoog": 250,
+"midden": true,
+"start": 220.98,
+"doel": 221.28,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 11,
+"tekst": "+ trailers, ads, marketing",
+"x": 380,
+"y": 140,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 221.88,
+"doel": 221.48,
+"teken": 0.3
+},
+{
+"bord": 11,
+"tekst": "at $40 a copy:",
+"x": 380,
+"y": 260,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 224.84,
+"doel": 224.99,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "25 - 50 million copies",
+"x": 380,
+"y": 320,
+"maat": 66,
+"kleur": [
+25,
+55,
+120
+],
+"start": 227.1,
+"doel": 227.25,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "just to break even",
+"x": 390,
+"y": 420,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 229.71,
+"doel": 229.86,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "until then: paying back the bill",
+"x": 380,
+"y": 530,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 231.04,
+"doel": 231.19,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "not profit yet!",
+"x": 380,
+"y": 600,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 232.88,
+"doel": 233.03,
+"teken": 0.6
+},
+{
+"bord": 12,
+"kop": "A long wait",
+"rechts": "Not financial advice",
+"start": 237.236
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_kalender.png",
+"x": 40,
+"y": 100,
+"breed": 330,
+"hoog": 260,
+"midden": true,
+"start": 240.76,
+"doel": 241.06,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"tekst": "GTA V: Sept 2013",
+"x": 400,
+"y": 130,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 245.25,
+"doel": 245.4,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "= 13 years ago",
+"x": 400,
+"y": 200,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 247.45,
+"doel": 247.6,
+"teken": 0.6
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_views.png",
+"x": 40,
+"y": 390,
+"breed": 330,
+"hoog": 240,
+"midden": true,
+"start": 249.44,
+"doel": 249.74,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"tekst": "trailer 1 (Dec 2023):",
+"x": 400,
+"y": 410,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 251.32999999999998,
+"doel": 251.48,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "90 million+ views in 24h",
+"x": 400,
+"y": 470,
+"maat": 56,
+"kleur": [
+46,
+150,
+84
+],
+"start": 253.98999999999998,
+"doel": 254.14,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "world record (Guinness)",
+"x": 410,
+"y": 550,
+"maat": 36,
+"kleur": [
+214,
+32,
+39
+],
+"start": 258.27000000000004,
+"doel": 258.42,
+"teken": 0.6
+},
+{
+"bord": 13,
+"kop": "Day one",
+"rechts": "Not financial advice",
+"start": 260.604
+},
+{
+"bord": 13,
+"beeld": "afbeeldingen/n_raket.png",
+"x": 40,
+"y": 110,
+"breed": 360,
+"hoog": 290,
+"midden": true,
+"start": 260.47999999999996,
+"doel": 260.78,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 13,
+"tekst": "~19 million copies",
+"x": 440,
+"y": 140,
+"maat": 66,
+"kleur": [
+46,
+150,
+84
+],
+"start": 264.71000000000004,
+"doel": 264.86,
+"teken": 0.6
+},
+{
+"bord": 13,
+"tekst": "~$1.8 billion",
+"x": 440,
+"y": 260,
+"maat": 80,
+"kleur": [
+46,
+150,
+84
+],
+"start": 268.48,
+"doel": 268.63,
+"teken": 0.6
+},
+{
+"bord": 13,
+"tekst": "in a single day",
+"x": 450,
+"y": 365,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 270.94,
+"doel": 271.09,
+"teken": 0.3
+},
+{
+"bord": 13,
+"tekst": "estimates: Sensor Tower",
+"x": 450,
+"y": 440,
+"maat": 36,
+"kleur": [
+214,
+32,
+39
+],
+"start": 272.8,
+"doel": 272.95,
+"teken": 0.6
+},
+{
+"bord": 13,
+"beeld": "afbeeldingen/p_juich.png",
+"x": 1000,
+"y": 250,
+"breed": 250,
+"hoog": 400,
+"midden": true,
+"start": 271.34,
+"doel": 271.33,
+"teken": 0.89,
+"kleur": 0.5
+},
+{
+"bord": 14,
+"kop": "The last one: GTA V",
+"rechts": "Not financial advice",
+"start": 275.543
+},
+{
+"bord": 14,
+"beeld": "afbeeldingen/n_toren.png",
+"x": 40,
+"y": 100,
+"breed": 220,
+"hoog": 360,
+"midden": true,
+"start": 275.34,
+"doel": 275.64,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 14,
+"tekst": "day one: $800 million+",
+"x": 300,
+"y": 130,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 279.27000000000004,
+"doel": 279.42,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "(2013, Take-Two)",
+"x": 310,
+"y": 205,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 283.37,
+"doel": 283.52,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "3 days: $1 billion",
+"x": 300,
+"y": 250,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 286.57000000000005,
+"doel": 286.72,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "230 million+ copies",
+"x": 300,
+"y": 320,
+"maat": 66,
+"kleur": [
+46,
+150,
+84
+],
+"start": 292.09000000000003,
+"doel": 292.24,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "source: Take-Two",
+"x": 310,
+"y": 410,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 293.88,
+"doel": 294.03,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "cost paid back many times",
+"x": 300,
+"y": 500,
+"maat": 50,
+"kleur": [
+46,
+150,
+84
+],
+"start": 299.06,
+"doel": 299.21,
+"teken": 0.6
+},
+{
+"bord": 14,
+"beeld": "afbeeldingen/p_cool.png",
+"x": 1000,
+"y": 220,
+"breed": 250,
+"hoog": 430,
+"midden": true,
+"start": 288.86,
+"doel": 289.16,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 15,
+"kop": "Take-Two needs it",
+"rechts": "Not financial advice",
+"start": 302.003
+},
+{
+"bord": 15,
+"logo": "logos/taketwo.png",
+"x": 60,
+"y": 110,
+"hoog": 80,
+"start": 302.06,
+"doel": 302.26
+},
+{
+"bord": 15,
+"tekst": "Jul - Sep 2026:",
+"x": 380,
+"y": 120,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 305.59000000000003,
+"doel": 305.74,
+"teken": 0.6
+},
+{
+"bord": 15,
+"tekst": "$1.5 billion came in",
+"x": 380,
+"y": 190,
+"maat": 60,
+"kleur": [
+25,
+55,
+120
+],
+"start": 307.83000000000004,
+"doel": 307.98,
+"teken": 0.6
+},
+{
+"bord": 15,
+"tekst": "- $54 million loss",
+"x": 260,
+"y": 320,
+"maat": 76,
+"kleur": [
+214,
+32,
+39
+],
+"start": 312.67,
+"doel": 311.69,
+"teken": 0.3
+},
+{
+"bord": 15,
+"tekst": "official: Take-Two Q2 FY2027, GAAP",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 312.27,
+"doel": 311.62,
+"teken": 0.3
+},
+{
+"bord": 15,
+"beeld": "afbeeldingen/p_denk.png",
+"x": 1040,
+"y": 260,
+"breed": 220,
+"hoog": 380,
+"midden": true,
+"start": 311.37,
+"doel": 311.67,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 16,
+"kop": "Delays and a nervous stock",
+"rechts": "Not financial advice",
+"start": 314.102
+},
+{
+"bord": 16,
+"tekst": "fall 2025 ->",
+"x": 60,
+"y": 100,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 319.61,
+"doel": 319.76,
+"teken": 0.6
+},
+{
+"bord": 16,
+"tekst": "May 2026 ->",
+"x": 345,
+"y": 100,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 322.35,
+"doel": 322.5,
+"teken": 0.6
+},
+{
+"bord": 16,
+"tekst": "Nov 19, 2026",
+"x": 650,
+"y": 100,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 325.15000000000003,
+"doel": 325.3,
+"teken": 0.6
+},
+{
+"bord": 16,
+"data": "data/ttwo.json",
+"logo": "logos/taketwo.png",
+"logohoog": 26,
+"onder": "Take-Two stock, closing price",
+"taal": "en",
+"valuta": "$",
+"x": 60,
+"y": 170,
+"breed": 640,
+"hoog": 430,
+"start": 327.29,
+"doel": 327.59,
+"teken": 3.0
+},
+{
+"bord": 16,
+"tekst": "May 2025 delay:",
+"x": 740,
+"y": 220,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 328.44,
+"doel": 328.59,
+"teken": 0.6
+},
+{
+"bord": 16,
+"tekst": "-7% in a day",
+"x": 740,
+"y": 280,
+"maat": 66,
+"kleur": [
+214,
+32,
+39
+],
+"start": 332.3,
+"doel": 332.45,
+"teken": 0.6
+},
+{
+"bord": 16,
+"tekst": "Nov 2025 delay:",
+"x": 740,
+"y": 400,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 336.1,
+"doel": 336.25,
+"teken": 0.6
+},
+{
+"bord": 16,
+"tekst": "-8% in a day",
+"x": 740,
+"y": 460,
+"maat": 66,
+"kleur": [
+214,
+32,
+39
+],
+"start": 339.02000000000004,
+"doel": 339.17,
+"teken": 0.6
+},
+{
+"bord": 17,
+"kop": "The whole year",
+"rechts": "Not financial advice",
+"start": 340.527
+},
+{
+"bord": 17,
+"beeld": "afbeeldingen/hoes.png",
+"x": 60,
+"y": 110,
+"breed": 230,
+"hoog": 300,
+"midden": true,
+"start": 341.13,
+"doel": 341.43,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 17,
+"tekst": "not just a game:",
+"x": 340,
+"y": 140,
+"maat": 52,
+"kleur": [
+30,
+30,
+30
+],
+"start": 346.18,
+"doel": 346.33,
+"teken": 0.6
+},
+{
+"bord": 17,
+"tekst": "the whole year",
+"x": 340,
+"y": 215,
+"maat": 70,
+"kleur": [
+214,
+32,
+39
+],
+"start": 347.3,
+"doel": 347.45,
+"teken": 0.6
+},
+{
+"bord": 17,
+"tekst": "expected this fiscal year:",
+"x": 340,
+"y": 360,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 351.58000000000004,
+"doel": 351.73,
+"teken": 0.6
+},
+{
+"bord": 17,
+"tekst": "~$8 billion",
+"x": 340,
+"y": 425,
+"maat": 100,
+"kleur": [
+46,
+150,
+84
+],
+"start": 352.28,
+"doel": 352.43,
+"teken": 0.6
+},
+{
+"bord": 17,
+"tekst": "(net bookings, Take-Two outlook)",
+"x": 350,
+"y": 545,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 354.36,
+"doel": 354.51,
+"teken": 0.6
+},
+{
+"bord": 18,
+"kop": "The money keeps coming",
+"rechts": "Not financial advice",
+"start": 356.43899999999996
+},
+{
+"bord": 18,
+"beeld": "afbeeldingen/n_ingame.png",
+"x": 40,
+"y": 100,
+"breed": 380,
+"hoog": 280,
+"midden": true,
+"start": 356.36,
+"doel": 356.66,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 18,
+"tekst": "81%",
+"x": 460,
+"y": 120,
+"maat": 120,
+"kleur": [
+46,
+150,
+84
+],
+"start": 360.39000000000004,
+"doel": 360.54,
+"teken": 0.6
+},
+{
+"bord": 18,
+"tekst": "of revenue: spending",
+"x": 470,
+"y": 260,
+"maat": 42,
+"kleur": [
+30,
+30,
+30
+],
+"start": 363.25,
+"doel": 363.4,
+"teken": 0.6
+},
+{
+"bord": 18,
+"tekst": "after you buy the game",
+"x": 470,
+"y": 315,
+"maat": 42,
+"kleur": [
+30,
+30,
+30
+],
+"start": 366.79,
+"doel": 366.94,
+"teken": 0.6
+},
+{
+"bord": 18,
+"tekst": "in-game currency, extras",
+"x": 470,
+"y": 375,
+"maat": 36,
+"kleur": [
+46,
+150,
+84
+],
+"start": 369.65000000000003,
+"doel": 369.8,
+"teken": 0.6
+},
+{
+"bord": 18,
+"tekst": "GTA V online: for years",
+"x": 60,
+"y": 440,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 375.99,
+"doel": 376.14,
+"teken": 0.6
+},
+{
+"bord": 18,
+"tekst": "GTA VI online: not yet",
+"x": 60,
+"y": 520,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 380.75,
+"doel": 380.9,
+"teken": 0.6
+},
+{
+"bord": 18,
+"beeld": "afbeeldingen/p_wijs.png",
+"x": 1000,
+"y": 250,
+"breed": 260,
+"hoog": 400,
+"midden": true,
+"start": 383.26,
+"doel": 383.56,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 19,
+"kop": "Twist: buy it digitally",
+"rechts": "Not financial advice",
+"start": 387.41499999999996
+},
+{
+"bord": 19,
+"beeld": "afbeeldingen/p_idee.png",
+"x": 40,
+"y": 100,
+"breed": 300,
+"hoog": 300,
+"midden": true,
+"start": 387.95,
+"doel": 388.25,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 19,
+"beeld": "afbeeldingen/n_vrachtleeg.png",
+"x": 40,
+"y": 420,
+"breed": 230,
+"hoog": 200,
+"midden": true,
+"start": 391.76,
+"doel": 392.06,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 19,
+"tekst": "no shop,",
+"x": 380,
+"y": 120,
+"maat": 48,
+"kleur": [
+30,
+30,
+30
+],
+"start": 392.66,
+"doel": 392.26,
+"teken": 0.3
+},
+{
+"bord": 19,
+"tekst": "no disc,",
+"x": 615,
+"y": 120,
+"maat": 48,
+"kleur": [
+30,
+30,
+30
+],
+"start": 393.06,
+"doel": 393.02,
+"teken": 0.41
+},
+{
+"bord": 19,
+"tekst": "no truck",
+"x": 830,
+"y": 120,
+"maat": 48,
+"kleur": [
+30,
+30,
+30
+],
+"start": 393.59000000000003,
+"doel": 393.74,
+"teken": 0.6
+},
+{
+"bord": 19,
+"logo": "logos/playstation.png",
+"x": 1080,
+"y": 190,
+"hoog": 56,
+"start": 394.65000000000003,
+"doel": 394.85
+},
+{
+"bord": 19,
+"tekst": "Sony store: 30% = ~$24",
+"x": 380,
+"y": 200,
+"maat": 48,
+"kleur": [
+214,
+32,
+39
+],
+"start": 398.46000000000004,
+"doel": 398.61,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "Take-Two: ~$56",
+"x": 380,
+"y": 280,
+"maat": 80,
+"kleur": [
+46,
+150,
+84
+],
+"start": 403.86,
+"doel": 404.01,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "(instead of $40)",
+"x": 390,
+"y": 390,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 406.06,
+"doel": 406.21,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "Ultimate $99.99 (digital):",
+"x": 380,
+"y": 470,
+"maat": 42,
+"kleur": [
+25,
+55,
+120
+],
+"start": 408.07000000000005,
+"doel": 408.22,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "Sony ~$30, Take-Two ~$70",
+"x": 380,
+"y": 530,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 414.29,
+"doel": 414.44,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "makers get more: digital",
+"x": 380,
+"y": 595,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 419.96000000000004,
+"doel": 420.11,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "resell the disc: store copy",
+"x": 380,
+"y": 640,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 424.24,
+"doel": 424.39,
+"teken": 0.6
+},
+{
+"bord": 19,
+"tekst": "your choice",
+"x": 1000,
+"y": 620,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 428.06,
+"doel": 428.21,
+"teken": 0.6
+},
+{
+"bord": 20,
+"kop": "Your receipt",
+"rechts": "Not financial advice",
+"start": 430.176
+},
+{
+"bord": 20,
+"beeld": "afbeeldingen/n_bon.png",
+"x": 70,
+"y": 80,
+"breed": 440,
+"hoog": 600,
+"midden": true,
+"start": 430.96,
+"doel": 431.26,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 20,
+"tekst": "GTA VI, store copy",
+"x": 105,
+"y": 125,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 432.76,
+"doel": 431.76,
+"teken": 0.3
+},
+{
+"bord": 20,
+"logo": "logos/rockstar.png",
+"x": 432,
+"y": 108,
+"hoog": 44,
+"start": 431.76,
+"doel": 431.96
+},
+{
+"bord": 20,
+"tekst": "you pay",
+"x": 105,
+"y": 185,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 434.17,
+"doel": 434.32,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "79.99",
+"x": 380,
+"y": 185,
+"maat": 30,
+"kleur": [
+25,
+55,
+120
+],
+"start": 434.57,
+"doel": 434.6,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "the shop",
+"x": 105,
+"y": 230,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 437.6,
+"doel": 437.75,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "-24.00",
+"x": 368,
+"y": 230,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 438.0,
+"doel": 437.75,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "Sony license",
+"x": 105,
+"y": 274,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 439.11,
+"doel": 439.26,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "-12.00",
+"x": 368,
+"y": 274,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 439.51,
+"doel": 439.26,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "disc & box",
+"x": 105,
+"y": 318,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 440.38,
+"doel": 440.53,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "-4.00",
+"x": 368,
+"y": 318,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 440.78,
+"doel": 440.53,
+"teken": 0.3
+},
+{
+"bord": 20,
+"streep": [
+105,
+368,
+460
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 4,
+"start": 441.67,
+"teken": 0.6
+},
+{
+"bord": 20,
+"tekst": "Take-Two",
+"x": 105,
+"y": 385,
+"maat": 36,
+"kleur": [
+46,
+150,
+84
+],
+"start": 442.55,
+"doel": 442.7,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "39.99",
+"x": 370,
+"y": 385,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 442.95,
+"doel": 442.7,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "still to pay back:",
+"x": 105,
+"y": 450,
+"maat": 26,
+"kleur": [
+30,
+30,
+30
+],
+"start": 446.65000000000003,
+"doel": 446.8,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "~$1-2 billion",
+"x": 105,
+"y": 490,
+"maat": 36,
+"kleur": [
+214,
+32,
+39
+],
+"start": 448.35,
+"doel": 448.5,
+"teken": 0.3
+},
+{
+"bord": 20,
+"tekst": "~ = estimate",
+"x": 105,
+"y": 585,
+"maat": 22,
+"kleur": [
+214,
+32,
+39
+],
+"start": 449.23,
+"doel": 449.38,
+"teken": 0.3
+},
+{
+"bord": 20,
+"beeld": "afbeeldingen/p_lijst.png",
+"x": 640,
+"y": 90,
+"breed": 330,
+"hoog": 390,
+"midden": true,
+"start": 431.86,
+"doel": 431.85999999999996,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 20,
+"tekst": "more buyers =",
+"x": 620,
+"y": 500,
+"maat": 54,
+"kleur": [
+30,
+30,
+30
+],
+"start": 450.87,
+"doel": 451.02,
+"teken": 0.6
+},
+{
+"bord": 20,
+"tekst": "more they keep",
+"x": 620,
+"y": 565,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 453.47,
+"doel": 453.62,
+"teken": 0.6
+},
+{
+"bord": 21,
+"kop": "What's next?",
+"rechts": "Not financial advice",
+"start": 455.307
+},
+{
+"bord": 21,
+"tekst": "your money gets split",
+"x": 60,
+"y": 120,
+"maat": 52,
+"kleur": [
+25,
+55,
+120
+],
+"start": 459.48,
+"doel": 459.63,
+"teken": 0.6
+},
+{
+"bord": 21,
+"tekst": "more ways than you think",
+"x": 60,
+"y": 190,
+"maat": 52,
+"kleur": [
+25,
+55,
+120
+],
+"start": 460.18,
+"doel": 460.33,
+"teken": 0.6
+},
+{
+"bord": 21,
+"beeld": "afbeeldingen/n_vraag.png",
+"x": 60,
+"y": 300,
+"breed": 380,
+"hoog": 280,
+"midden": true,
+"start": 462.9,
+"doel": 463.2,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 21,
+"tekst": "iPhone?",
+"x": 480,
+"y": 320,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 464.49,
+"doel": 464.64,
+"teken": 0.6
+},
+{
+"bord": 21,
+"tekst": "Netflix?",
+"x": 480,
+"y": 385,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 466.07000000000005,
+"doel": 466.22,
+"teken": 0.6
+},
+{
+"bord": 21,
+"tekst": "Big Mac?",
+"x": 480,
+"y": 450,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 467.77000000000004,
+"doel": 467.92,
+"teken": 0.6
+},
+{
+"bord": 21,
+"tekst": "-> tell us in the comments",
+"x": 480,
+"y": 530,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 469.13,
+"doel": 469.28,
+"teken": 0.6
+},
+{
+"bord": 21,
+"beeld": "afbeeldingen/p_yt.png",
+"x": 1010,
+"y": 250,
+"breed": 250,
+"hoog": 400,
+"midden": true,
+"start": 473.81,
+"doel": 474.11,
+"teken": 1.2,
+"kleur": 0.5
+}
+]
+}

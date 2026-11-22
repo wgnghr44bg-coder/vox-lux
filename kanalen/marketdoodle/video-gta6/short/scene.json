@@ -1,0 +1,407 @@
+{
+"duur": 38.76,
+"borden": [
+0.0,
+7.595,
+18.994,
+29.951
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "Who got your money?",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_wolk.png",
+"x": 60,
+"y": 170,
+"breed": 960,
+"hoog": 520,
+"midden": true,
+"start": 4.12,
+"doel": 4.42,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_denkkoop.png",
+"x": 290,
+"y": 640,
+"breed": 500,
+"hoog": 800,
+"midden": true,
+"start": 0.14,
+"doel": 0.44,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "$79.99",
+"x": 140,
+"y": 1470,
+"maat": 170,
+"kleur": [
+46,
+150,
+84
+],
+"start": 1.04,
+"doel": 1.09,
+"teken": 0.35
+},
+{
+"bord": 0,
+"tekst": "paid!",
+"x": 160,
+"y": 1680,
+"maat": 80,
+"kleur": [
+30,
+30,
+30
+],
+"start": 1.49,
+"doel": 1.64,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "Who gets what?",
+"rechts": "Not financial advice",
+"start": 7.595
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/r_winkelier.png",
+"x": 50,
+"y": 170,
+"breed": 320,
+"hoog": 500,
+"midden": true,
+"start": 7.3100000000000005,
+"doel": 7.61,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "the store",
+"x": 420,
+"y": 260,
+"maat": 70,
+"kleur": [
+30,
+30,
+30
+],
+"start": 8.21,
+"doel": 7.91,
+"teken": 0.3
+},
+{
+"bord": 1,
+"tekst": "~ $24",
+"x": 420,
+"y": 350,
+"maat": 150,
+"kleur": [
+214,
+32,
+39
+],
+"start": 9.01,
+"doel": 8.66,
+"teken": 0.3
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/r_pak.png",
+"x": 50,
+"y": 700,
+"breed": 320,
+"hoog": 500,
+"midden": true,
+"start": 10.1,
+"doel": 10.4,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "Sony",
+"x": 420,
+"y": 790,
+"maat": 70,
+"kleur": [
+30,
+30,
+30
+],
+"start": 11.0,
+"doel": 10.7,
+"teken": 0.3
+},
+{
+"bord": 1,
+"tekst": "~ $12",
+"x": 420,
+"y": 880,
+"maat": 150,
+"kleur": [
+214,
+32,
+39
+],
+"start": 11.4,
+"doel": 11.46,
+"teken": 0.51
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/r_helm.png",
+"x": 50,
+"y": 1230,
+"breed": 320,
+"hoog": 480,
+"midden": true,
+"start": 14.67,
+"doel": 14.97,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "disc, box, truck",
+"x": 420,
+"y": 1320,
+"maat": 60,
+"kleur": [
+30,
+30,
+30
+],
+"start": 15.6,
+"doel": 15.75,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "~ $4",
+"x": 420,
+"y": 1400,
+"maat": 150,
+"kleur": [
+214,
+32,
+39
+],
+"start": 17.16,
+"doel": 17.31,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "~ = estimate (analyst Serkan Toto)",
+"x": 60,
+"y": 1800,
+"maat": 34,
+"kleur": [
+30,
+30,
+30
+],
+"start": 8.61,
+"doel": 8.43,
+"teken": 0.3
+},
+{
+"bord": 2,
+"kop": "And Rockstar?",
+"rechts": "Not financial advice",
+"start": 18.994
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/p_geld.png",
+"x": 290,
+"y": 170,
+"breed": 500,
+"hoog": 800,
+"midden": true,
+"start": 18.73,
+"doel": 19.03,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"logo": "logos/taketwo.png",
+"x": 80,
+"y": 1020,
+"hoog": 110,
+"start": 20.05,
+"doel": 20.25
+},
+{
+"bord": 2,
+"tekst": "Take-Two: ~$40",
+"x": 80,
+"y": 1170,
+"maat": 110,
+"kleur": [
+46,
+150,
+84
+],
+"start": 21.700000000000003,
+"doel": 21.85,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "but first, pay back",
+"x": 80,
+"y": 1360,
+"maat": 66,
+"kleur": [
+30,
+30,
+30
+],
+"start": 24.790000000000003,
+"doel": 24.94,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "~$1-2 billion",
+"x": 80,
+"y": 1450,
+"maat": 130,
+"kleur": [
+214,
+32,
+39
+],
+"start": 27.01,
+"doel": 27.16,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "(estimate: what the game cost)",
+"x": 90,
+"y": 1630,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 26.41,
+"doel": 26.56,
+"teken": 0.5
+},
+{
+"bord": 3,
+"kop": "The twist",
+"rechts": "Not financial advice",
+"start": 29.951
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/p_idee.png",
+"x": 290,
+"y": 170,
+"breed": 500,
+"hoog": 540,
+"midden": true,
+"start": 29.97,
+"doel": 30.27,
+"teken": 1.04,
+"kleur": 0.4
+},
+{
+"bord": 3,
+"tekst": "buy it digital:",
+"x": 100,
+"y": 790,
+"maat": 86,
+"kleur": [
+25,
+55,
+120
+],
+"start": 31.360000000000003,
+"doel": 31.51,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "Take-Two ~$56",
+"x": 100,
+"y": 910,
+"maat": 100,
+"kleur": [
+46,
+150,
+84
+],
+"start": 33.32,
+"doel": 33.47,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "full breakdown",
+"x": 100,
+"y": 1150,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 35.68,
+"doel": 35.12,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "on the channel",
+"x": 100,
+"y": 1250,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 36.08,
+"doel": 35.92,
+"teken": 0.3
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/p_yt.png",
+"x": 330,
+"y": 1360,
+"breed": 420,
+"hoog": 480,
+"midden": true,
+"start": 34.78,
+"doel": 35.08,
+"teken": 0.6,
+"kleur": 0.4
+}
+],
+"W": 1080,
+"H": 1920
+}
