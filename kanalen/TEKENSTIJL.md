@@ -53,3 +53,7 @@ zet de eigenaar zelf in Studio — GEDAAN 22 nov: snippet.title = "Market Doodle
 teken_anim.py), (2) grafiekkaartjes + schaduw één keer maken (mooi.py), snel verkleinen met reduce, (3) zoom met OpenCV (`pip install
 opencv-python-headless`, valt terug op PIL als het er niet is), (4) opslaan met de videokaart (h264_nvenc; `--cpu` = oude libx264).
 Een video van 6 min kost nu ± 2 min in plaats van ± 11 min.
+
+## Hype-seintje (22 nov)
+Market Doodle gebruikt dezelfde wachters als BlackswanVault (tools/nieuwswacht.py 08:00/15:45, tools/swan_yt_wacht.py 08:10/15:55).
+Het telefoon-seintje "Hype: video maken?" (ntfy) noemt nu beide kanalen. Geen aparte wachter nodig.
