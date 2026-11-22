@@ -60,4 +60,7 @@ Het telefoon-seintje "Hype: video maken?" (ntfy) noemt nu beide kanalen. Geen ap
 
 ## Let op Market Doodle video 1 (22 nov)
 De al gemaakte video (kanalen/marketdoodle/video1) heeft nog de zoom. In maak.py en maak_short.py staat zoom nu op 0;
-als hij nog niet online staat: opnieuw renderen (gaat nu snel, ± 1-2 min) zodat hij de regel volgt.
+GEDAAN 22 nov 05:00: opnieuw gerenderd zonder zoom (lang + Short samen 171 s); oude versies in video1/oud-met-zoom/.
+OPEN PUNT: "the biggest stock market debut ever" (scene d + kop "Reason 2: the biggest IPO ever"): SpaceX haalde in juni $86 mld
+(CNBC: "a record $86 billion", incl. overtoewijzing; basis $75 mld) en Anthropic $81,34 mld -> eerst nakijken of "grootste ooit" klopt
+(bron in bronnen.md regel 14), anders tekst/kop aanpassen ("one of the biggest").
