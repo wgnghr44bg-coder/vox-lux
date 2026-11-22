@@ -97,7 +97,7 @@ class Lijn:
     """{"data": json, "logo": png, "onder": "slotkoers in euro", x, y, breed, hoog, start, teken}"""
     def __init__(self, it):
         self.it = it; self.p = koersen(it["data"]); v = [b for _, b in self.p]
-        lo, hi = min(v), max(v); stap = [s for s in (10, 20, 25, 50, 100, 200, 250, 500, 1000) if (hi - lo) / s <= 5][0]
+        lo, hi = min(v), max(v); stap = [s for s in (1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, 5000, 10000) if (hi - lo) / s <= 5][0]
         self.grid = [g for g in range(int(lo // stap) * stap, int(hi // stap + 2) * stap, stap) if lo - stap * 0.6 <= g <= hi + stap * 0.6]
         self.lo, self.hi = min(self.grid[0], lo) - stap * 0.15, max(self.grid[-1], hi) + stap * 0.15
         self.itop = max(range(len(v)), key=lambda i: v[i]); self.ilaag = min(range(len(v)), key=lambda i: v[i])
@@ -119,9 +119,13 @@ class Lijn:
             y = Y(g)
             for xs in range(int(L), int(R), 18 * S): d.line((xs, y, min(xs + 9 * S, R), y), fill=RAND, width=2 * S)
             d.text((R + 12 * S, y), geld(g), font=f(FS, 20), fill=GRIJS, anchor="lm")
-        gezien = set()
-        for i, (dag, _) in enumerate(self.p):                      # maanden onderaan
-            if dag.month not in gezien and dag.day <= 7:
+        gezien = set(); jaren = it.get("jaren")                    # 22 nov: "jaren": n -> elk n-de jaar onderaan (lange grafiek)
+        for i, (dag, _) in enumerate(self.p):
+            if jaren:
+                if dag.year not in gezien and dag.month == 1 and dag.year % jaren == 0:
+                    gezien.add(dag.year); d.text((X(i), B + 26 * S), str(dag.year), font=f(FS, 20), fill=GRIJS, anchor="mm")
+                continue
+            if dag.month not in gezien and dag.day <= 7:                # maanden onderaan
                 gezien.add(dag.month); d.text((X(i), B + 26 * S), MD[dag.month - 1], font=f(FS, 20), fill=GRIJS, anchor="mm")
         p = ease((q - 0.3) / it.get("teken", 3.0)) if q > 0.3 else 0
         n = max(2, int(len(self.p) * p))
@@ -138,7 +142,7 @@ class Lijn:
             if n - 1 >= i:
                 cx, cy = X(i), Y(self.p[i][1]); dag = self.p[i][0]
                 d.ellipse((cx - 11 * S, cy - 11 * S, cx + 11 * S, cy + 11 * S), fill=(255, 255, 255), outline=kl, width=5 * S)
-                tekst = f"{naam} {geld(self.p[i][1])} · " + (f"{MD[dag.month - 1]} {dag.day}" if en else f"{dag.day} {MD[dag.month - 1]}")
+                tekst = f"{naam} {geld(self.p[i][1])} · " + (f"{MD[dag.month - 1]} {dag.day}" if en else f"{dag.day} {MD[dag.month - 1]}") + (f", {dag.year}" if jaren else "")
                 boven = cy - T > 60 * S
                 links = cx > (L + R) / 2
                 if naam == "Top" and not boven:                       # weinig ruimte boven: pilletje naast de top
@@ -195,7 +199,8 @@ class Dagen:
         mx = max(abs(v) for _, v in self.d); n = len(self.d); slot = (R - L) / n; bw = slot * 0.62
         for k, (dag, v) in enumerate(self.d):
             cx = L + slot * (k + 0.5)
-            d.text((cx, Z - 24 * S), f"{dag.day} {MAAND[dag.month - 1]}", font=f(FS, 20), fill=GRIJS, anchor="mm")
+            en = it.get("taal") == "en"                              # 22 nov: Engels (Market Doodle): "Nov 20", "-14.0%"
+            d.text((cx, Z - 24 * S), f"{MAAND_EN[dag.month - 1]} {dag.day}" if en else f"{dag.day} {MAAND[dag.month - 1]}", font=f(FS, 20), fill=GRIJS, anchor="mm")
             st = it["start"] + 0.3 + k * it.get("per", 0.35)
             if t < st: continue
             g = ease((t - st) / 0.4); bh = (B - Z - 50 * S) * abs(v) / mx * g
@@ -203,7 +208,7 @@ class Dagen:
             staaf(laag, (cx - bw / 2, Z + 2 * S, cx + bw / 2, Z + 2 * S + bh), (176, 24, 24) if laatste else ROOD, rond="onder")
             d = ImageDraw.Draw(laag)
             if g > 0.95:
-                tekst = f"{v:+.1f}%".replace(".", ",").replace("-", "−")
+                tekst = f"{v:+.1f}%".replace("-", "−") if en else f"{v:+.1f}%".replace(".", ",").replace("-", "−")
                 if laatste: pil(d, (cx, Z + bh + 34 * S), tekst, 26, (176, 24, 24))
                 else: d.text((cx, Z + bh + 24 * S), tekst, font=f(FB, 22), fill=ROOD, anchor="mm")
         plak(doek, laag, it["x"] - m // S, it["y"] - m // S, alpha=ease(q / 0.3))

@@ -1,4 +1,5 @@
-"""Whiteboard-animatie (eigenaar 21 nov: "word op beeld getekend gelijk met het verhaal").
+"""Whiteboard-animatie (eigenaar 21 nov: "word op beeld getekend gelijk met het verhaal"). Maat: standaard 1280x720,
+of "W"/"H" in scene.json (Short: 1080x1920).
 Een tekening (zwarte lijnen op wit) wordt eerst lijn voor lijn 'getekend' (pen-volgorde), daarna loopt de kleur erin.
 Meerdere tekeningen komen op hetzelfde witte doek, elk op een eigen moment (straks: begin van de zin uit zinnen.json).
 
@@ -397,7 +398,8 @@ def maak(i):
 
 def main():
     sc = json.load(open(sys.argv[1], encoding="utf-8")); uit = sys.argv[2]
-    global KRIJT, INKT, PAPIER, HAND, PEN
+    global KRIJT, INKT, PAPIER, HAND, PEN, W, H
+    W, H = int(sc.get("W", W)), int(sc.get("H", H))               # 22 nov: instelbaar, bv. Short 1080x1920 ("W"/"H" in scene.json)
     if sc.get("hand"):                                              # {"hand": png, "handjson": json, "handmaat": 0.45}
         hi = Image.open(sc["hand"]).convert("RGBA"); hj = json.load(open(sc["handjson"]))
         k = sc.get("handmaat", 0.45); hi = hi.resize((int(hi.width * k), int(hi.height * k)), Image.LANCZOS)
