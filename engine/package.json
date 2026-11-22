@@ -1,0 +1,27 @@
+{
+  "name": "visual-explainer-engine",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Visual Explainer Engine (22 nov 2026): script + stem -> filmische uitlegvideo (Remotion + Three.js + SVG)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.17.10",
+    "@remotion/cli": "4.0.242",
+    "@remotion/three": "4.0.242",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.242",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/three": "0.169.0",
+    "typescript": "5.6.3"
+  },
+  "allowScripts": {
+    "esbuild@0.24.0": true
+  }
+}
