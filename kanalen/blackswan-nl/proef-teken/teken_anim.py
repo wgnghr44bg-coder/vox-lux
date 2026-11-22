@@ -258,11 +258,12 @@ class Pijl:
         x0, y0, x1, y1 = it["pijl"]; p = min(1.0, (t - it["start"]) / it.get("teken", 0.6))
         xe, ye = x0 + (x1 - x0) * p, y0 + (y1 - y0) * p
         im = Image.fromarray(doek); d = ImageDraw.Draw(im)
-        d.line((x0, y0, xe, ye), fill=INKT, width=6)
+        kl = tuple(it.get("kleur", INKT)); dik = it.get("dik", 6)
+        d.line((x0, y0, xe, ye), fill=kl, width=dik)
         if p >= 1:
             v = np.array([x1 - x0, y1 - y0], float); v /= np.linalg.norm(v) + 1e-9; n = np.array([-v[1], v[0]])
-            pk = np.array([x1, y1]); a = pk - v * 26 + n * 16; b = pk - v * 26 - n * 16
-            d.polygon([tuple(pk), tuple(a), tuple(b)], fill=INKT)
+            g = 26 * dik / 6; pk = np.array([x1, y1]); a = pk - v * g + n * g * 0.62; b = pk - v * g - n * g * 0.62
+            d.polygon([tuple(pk), tuple(a), tuple(b)], fill=kl)
         doek[:] = np.asarray(im)
 
 
