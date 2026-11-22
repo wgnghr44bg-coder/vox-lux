@@ -64,3 +64,7 @@ GEDAAN 22 nov 05:00: opnieuw gerenderd zonder zoom (lang + Short samen 171 s); o
 OPEN PUNT: "the biggest stock market debut ever" (scene d + kop "Reason 2: the biggest IPO ever"): SpaceX haalde in juni $86 mld
 (CNBC: "a record $86 billion", incl. overtoewijzing; basis $75 mld) en Anthropic $81,34 mld -> eerst nakijken of "grootste ooit" klopt
 (bron in bronnen.md regel 14), anders tekst/kop aanpassen ("one of the biggest").
+
+## Planning Market Doodle (eigenaar 22 nov: "market doodle mag net zo snel")
+Zelfde dag als BlackswanVault bij groot nieuws (niet een dag later): lange video ± 16:00 NL (10:00 New York) + Short ± 18:00 NL.
+Op rustige dagen een tijdloze uitleg-video (bv. "What is a stock buyback?"). Uploaden altijd eerst privé, publiceren na OK eigenaar.
