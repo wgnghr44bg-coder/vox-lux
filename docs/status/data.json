@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 05:03",
+ "bijgewerkt": "2026-11-22 05:10",
  "kanalen": {
   "weken": [
    {
@@ -127,6 +127,22 @@
      {
       "datum": "2026-11-22",
       "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-22",
+        "tijd": "04:31",
+        "titel": "The Nasdaq Just Erased All of 2026. Is This 2000 Again?",
+        "stand": "online",
+        "youtube": "ky4IxJH52ac"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-22",
+        "tijd": "04:32",
+        "titel": "The Nasdaq Just Erased 2026. Is This the Dot-Com Crash Again? #shorts",
+        "stand": "online",
+        "youtube": "ykGCjh7bDq4"
+       },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-22",
@@ -338,7 +354,8 @@
   "regels": {
    "Sleep Archives": "2x per week, wo + za 21:00 NL (eigenaar 21 nov avond: 'sleep toch beter 2 video's per week'). Mag ver vooruit; de pc maakt ze zelf (taak 'Sleep Archives bewaker' AAN), maar wacht als BlackswanVault/Geldverhaal rendert. Feestdagen/jaardagen houden hun datum. Bij echt grote hype mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
    "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
-   "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen."
+   "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen.",
+   "Market Doodle": "Getekende video's (whiteboard, Engels) over geld, investeren en bedrijven; ex-Alteraqon (@marketdoodle). Net zo snel als BlackswanVault: bij groot nieuws dezelfde dag lang ± 16:00 + Short ± 18:00; rustige dag: tijdloze uitleg. Regels: kanalen/TEKENSTIJL.md."
   },
   "fouten": []
  },
@@ -2622,7 +2639,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 05:03)"
+   "tekst": "laatste keer goed (2026-11-22 05:03)"
   },
   {
    "naam": "Git",
@@ -2665,7 +2682,7 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-21 23:10",
-   "volgende": "2026-11-22 05:10"
+   "volgende": "2026-11-22 06:10"
   },
   "sitecontrole": {
    "aan": true,
@@ -3006,7 +3023,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 566,
+  "geheugen_mb": 550,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3184,7 +3201,7 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-22 05:03",
+   "tijd": "2026-11-22 05:10",
    "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
@@ -5396,7 +5413,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 05:03",
+  "bijgewerkt": "2026-11-22 05:11",
   "accounts": [
    {
     "account": "hoofd",
@@ -5417,23 +5434,23 @@
    },
    {
     "account": "account2",
-    "5uur": 19093897,
-    "week": 134554419,
+    "5uur": 19339027,
+    "week": 135201299,
     "per_dag": {
      "Sun 15-11": 27232861,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
-     "Sun 22-11": 19093897,
+     "Sun 22-11": 19740778,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 54774,
+    "stap_kost": 55432,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 141,
+    "5uur_pct": 142,
     "5uur_scripts_over": 0.0,
     "5uur_stappen_over": 0,
     "week_pct": 102,

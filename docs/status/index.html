@@ -191,14 +191,14 @@ a:active { color: var(--color-focus); }
 .kp-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px var(--space-xs); padding: 4px 0; font-size: var(--text-sm); }
 .kp-item + .kp-item { border-top: 1px dashed var(--color-rule); }
 .kp-kan { font-size: var(--text-xs); font-weight: 700; padding: 2px 6px; border-radius: 4px; color: var(--color-paper); align-self: start; white-space: nowrap; }
-.kp-kan.sleep { background: #4f6fb3; } .kp-kan.noir { background: #8a3b3b; } .kp-kan.swan { background: #2f7d5b; }
+.kp-kan.doodle { background: #c0571a; } .kp-kan.sleep { background: #4f6fb3; } .kp-kan.noir { background: #8a3b3b; } .kp-kan.swan { background: #2f7d5b; }
 .kp-tit { min-width: 0; overflow-wrap: anywhere; }
 .kp-st { grid-column: 2; font-size: var(--text-xs); color: var(--color-muted); }
 .kp-st.online { color: var(--color-success); } .kp-st.gepland { color: var(--color-accent); } .kp-st.maak { color: var(--color-warn); }
 .kp-leeg { font-size: var(--text-sm); color: var(--color-muted); padding: 4px 0; }
 .kp-regels { margin-top: var(--space-sm); display: grid; gap: var(--space-2xs); font-size: var(--text-sm); }
 /* 21 nov 2026 eigenaar: "overzichtelijker, minder tekst, Noir weg" */
-.plan-rij { display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-sm); padding: 10px 6px; border-top: var(--rule-hair) solid var(--color-rule); align-items: start; }
+.plan-rij { display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-sm); padding: 10px 6px; border-top: var(--rule-hair) solid var(--color-rule); align-items: start; }
 .plan-rij.kop { border-top: 0; padding-block: 0 6px; font-size: var(--text-xs); color: var(--color-muted); font-weight: 600; }
 .plan-rij.vandaag { background: var(--color-paper-3); border-radius: var(--radius-small); }
 .plan-rij.voorbij { opacity: .55; }
@@ -369,7 +369,7 @@ function grafiek(dagen){
 function kanalenPlanning(k){
   // 21 nov 2026: alleen BlackswanVault en Sleep Archives; per dag één regel, de Short als label bij de lange video
   const box=$("kpWeken");if(!k||!k.weken||!k.weken.length){box.innerHTML=`<div class="zacht">Nog geen planning</div>`;return}
-  const KAN=[["BlackswanVault","swan","Swan"],["Sleep Archives","sleep","Sleep"]];
+  const KAN=[["BlackswanVault","swan","Swan"],["Market Doodle","doodle","Doodle"],["Sleep Archives","sleep","Sleep"]];   // 22 nov: Market Doodle erbij
   const st=s=>/online/.test(s)?"online":/gepland/.test(s)?"gepland":"maak";
   const woord={online:"online",gepland:"gepland",maak:"nog maken"};
   const vd=isoDag(new Date()),gisteren=isoDag(new Date(Date.now()-864e5));
@@ -378,13 +378,13 @@ function kanalenPlanning(k){
   const cel=(items,[naam,c,kort])=>{
     const mijn=items.filter(i=>i.kanaal===naam);
     if(!mijn.length)return `<div class="cel leeg">–</div>`;
-    const isShort=i=>/^Short:/i.test(i.titel)||(naam==="BlackswanVault"&&i.tijd==="17:00");
+    const isShort=i=>/^Short:/i.test(i.titel)||/#shorts/i.test(i.titel)||(naam==="BlackswanVault"&&i.tijd==="17:00")||(naam==="Market Doodle"&&i.tijd==="18:00");
     const lang=beste(mijn.filter(i=>!isShort(i))),kortV=beste(mijn.filter(isShort));
     const hoofd=lang||kortV,s1=st(hoofd.stand),tit=hoofd.titel.replace(/^Short:\s*/i,"").replace(/ \| History for Sleep$/,"").replace(/,? zie OVERDRACHT/,"").replace(/ \(video\d+\)/,"");
     const link=hoofd.youtube?`<a href="https://youtu.be/${esc(hoofd.youtube)}" target="_blank" rel="noopener">${esc(tit)}</a>`:`<span>${esc(tit)}</span>`;
     const sh=lang&&kortV?`<span class="short"><i class="dot ${st(kortV.stand)}"></i> Short${kortV.tijd?" "+esc(kortV.tijd):""}</span>`:"";
     return `<div class="cel"><div class="t"><i class="dot ${s1}" title="${esc(woord[s1])}"></i>${link}</div><div class="s"><span class="kp-kan ${c} k">${kort}</span><span>${esc(woord[s1])}${hoofd.tijd?" "+esc(hoofd.tijd):""}</span>${sh}</div></div>`};
-  box.innerHTML=`<div class="plan-rij kop"><div></div><div>BlackswanVault</div><div>Sleep Archives</div></div>`+
+  box.innerHTML=`<div class="plan-rij kop"><div></div><div>BlackswanVault</div><div>Market Doodle</div><div>Sleep Archives</div></div>`+
     dagen.map(d=>{const x=new Date(d.datum+"T12:00");
       return `<div class="plan-rij${d.datum==vd?" vandaag":""}${d.datum<vd?" voorbij":""}"><div class="dg"><b>${d.datum==vd?"Vandaag":DAG[x.getDay()]}</b>${x.getDate()}-${x.getMonth()+1}</div>`+KAN.map(K=>cel(d.items,K)).join("")+`</div>`}).join("");
   $("kpRegels").innerHTML=KAN.map(([n,c,kn])=>k.regels&&k.regels[n]?`<div><span class="kp-kan ${c}">${kn}</span> ${esc(k.regels[n])}</div>`:"").join("");
