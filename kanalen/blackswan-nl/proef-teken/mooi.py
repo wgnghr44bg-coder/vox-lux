@@ -106,7 +106,8 @@ class Lijn:
         it = self.it
         if t < it["start"]: return
         en = it.get("taal") == "en"; MD = MAAND_EN if en else MAAND
-        geld = (lambda v: f"${v:,.0f}") if it.get("valuta") == "$" else eur
+        val = it.get("valuta", "€")
+        geld = (lambda v: f"${v:,.0f}") if val == "$" else ((lambda v: f"{v:,.0f}") if val == "" else eur)   # "" = punten (index)
         q = t - it["start"]; w, h = it["breed"], it["hoog"]
         laag, d, m = kaartje(w, h)
         L, R, T, B = m + 40 * S, m + (w - 110) * S, m + 110 * S, m + (h - 60) * S

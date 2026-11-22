@@ -1,0 +1,40 @@
+# Langere proef (± 3 min) tekenstijl. Feiten: blackswan-nl/video1/bronnen.md (slotkoersen 20 nov, Q3, Reuters/SEC, Broadcom, Anthropic),
+# BlackswanVault video1/script.txt (Denny's 1993 met Malachowsky en Priem, 33 jaar, 12 nov, Kress sinds 2013, -30% tot 18 nov, datacenter $107,6 mld, verwachting $130 mld, Vera Rubin-citaat, getuigen voor Congres).
+@scene a
+On Friday, Nvidia stock fell fourteen percent in a single day.
+It was the seventh drop in a row.
+And it came just days after the man who built the company walked away.
+So what is really going on at the most important company of the AI boom?
+@scene b
+Jensen Huang started Nvidia in nineteen ninety-three, in a booth at a Denny's restaurant.
+He sat there with two engineers, Chris Malachowsky and Curtis Preem.
+For thirty-three years, he was Nvidia.
+He became famous for his black leather jacket, and for the chips behind the AI boom.
+Until the end of October, Nvidia was the most valuable company in the world.
+@scene c
+Then came weeks of reports and investigations.
+On November twelfth, Huang stepped down.
+Chief financial officer Colette Kress became interim CEO.
+And Huang agreed to testify before Congress.
+From the first report to November eighteenth, the stock lost almost thirty percent.
+@scene d
+The strange part is that business has never been better.
+On November seventeenth, Nvidia reported one hundred fifteen point eight billion dollars in revenue for a single quarter.
+That is more than double a year ago.
+Data center chips alone brought in one hundred seven point six billion.
+And for the next quarter, Nvidia expects about one hundred thirty billion dollars.
+Big tech companies keep buying its chips for their AI data centers.
+@scene e
+Then, on Friday, Reuters reported that the SEC is looking at possible accounting problems at Nvidia.
+On the same day, Broadcom fell about twelve percent, after unconfirmed reports that Google could buy fewer of its chips next year.
+The Nasdaq one hundred lost more than five percent.
+And the S and P five hundred is now more than eleven percent below its top.
+@scene f
+It also came one day after Anthropic went public and raised more than eighty-one billion dollars.
+Some investors started to ask a simple question.
+Is too much money chasing the same AI dream?
+@scene g
+So is this the end of the AI boom, or a chance to buy?
+Nvidia says its next chips, called Vera Rubin, are off to an explosive start.
+But until the questions about the company are answered, investors may stay nervous.
+And for now, seven days of selling say more than any forecast.
