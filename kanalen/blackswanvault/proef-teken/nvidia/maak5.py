@@ -11,9 +11,9 @@ def kw(zin, woord, na=0.15):
 A = "afbeeldingen/"; P = "../../../personage/afbeeldingen/"; LG = "logos/nvidia.png"; NV = "../../../blackswan-nl/video1/data/nvda.json"
 BL, RO, GR = [25, 55, 120], [214, 32, 39], [46, 150, 84]
 it = []; borden = [0.0, s[4] - 0.3, s[8] - 0.3, s[12] - 0.3]
-def b(k, naam, x, y, br, h, t0, dur=3.0):
-    it.append({"bord": k, "beeld": (naam + ".png" if naam.startswith("sec") else A + naam + ".png"), "x": x, "y": y, "breed": br, "hoog": h, "midden": True, "start": t0, "teken": max(dur, 2.6), "kleur": 1.2})
-def tx(k, t, x, y, maat, kl, t0, dur=1.3): it.append({"bord": k, "tekst": t, "x": x, "y": y, "maat": maat, "kleur": kl, "start": t0, "teken": max(dur, 1.1)})
+def b(k, naam, x, y, br, h, t0, dur=1.2):
+    it.append({"bord": k, "beeld": (naam + ".png" if naam.startswith("sec") else A + naam + ".png"), "x": x, "y": y, "breed": br, "hoog": h, "midden": True, "start": t0 - 0.3, "doel": t0, "teken": min(dur, 1.3), "kleur": 0.5})
+def tx(k, t, x, y, maat, kl, t0, dur=0.6): it.append({"bord": k, "tekst": t, "x": x, "y": y, "maat": maat, "kleur": kl, "start": t0 - 0.15, "doel": t0, "teken": min(dur, 0.7)})
 def kop(k, t0, titel): it.append({"bord": k, "kop": titel, "rechts": "Not financial advice", "start": t0})
 def F(k, pose, t0, tot=None, snel=False):
     d = {"bord": k, "beeld": P + pose + ".png", "x": 30, "y": 300, "breed": 230, "hoog": 400, "midden": True, "start": t0,
@@ -22,7 +22,7 @@ def F(k, pose, t0, tot=None, snel=False):
     it.append(d)
 def logo(k, x, y, h, t0): it.append({"bord": k, "logo": LG, "x": x, "y": y, "hoog": h, "start": t0})
 def foto(k, pad, x, y, br, h, t0, bron, naam=None, dur=1.4):
-    it.append({"bord": k, "foto": pad, "x": x, "y": y, "breed": br, "hoog": h, "start": t0, "teken": dur, "kleur": 0.7, "naam": naam, "bron": bron})
+    it.append({"bord": k, "foto": pad, "x": x, "y": y, "breed": br, "hoog": h, "start": t0 - 0.3, "doel": t0, "teken": min(dur, 1.1), "kleur": 0.5, "naam": naam, "bron": bron})
 # BEELDPLAN (eigenaar 22 nov: "tekst opdelen, timen, en daar een afbeelding tekenen of laten zien"):
 # elk stukje tekst -> één beeld dat precies dat laat zien; geen goed beeld -> het woord zelf groot schrijven
 # 1: de daling

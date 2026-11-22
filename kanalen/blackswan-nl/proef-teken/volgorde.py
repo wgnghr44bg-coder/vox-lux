@@ -12,13 +12,24 @@ TEKEN = ("beeld", "foto", "tekst", "streep")
 def is_f(i): return "personage" in i.get("beeld", "")
 for bord in sorted({i.get("bord", -1) for i in its}):
     rij = sorted([i for i in its if i.get("bord", -1) == bord and any(k in i for k in TEKEN) and not is_f(i)], key=lambda i: i["start"])
-    eind = -1
+    def einde(i): return i["start"] + i.get("teken", 1) + (i.get("kleur", 0) if "beeld" in i or "foto" in i else 0) * 0.5
+    vorige = None
     for i in rij:
-        minimaal = 0.6 if "tekst" in i else 1.2
-        if i["start"] < eind + 0.15:
-            te_laat = eind + 0.15 - i["start"]; i["start"] = round(eind + 0.15, 2)
-            i["teken"] = round(max(minimaal, i.get("teken", 1) - te_laat), 2)
-        eind = i["start"] + i.get("teken", 1) + (i.get("kleur", 0) if "beeld" in i or "foto" in i else 0) * 0.5
+        if vorige is not None and i["start"] < einde(vorige) + 0.1:
+            # eerst de vorige sneller afmaken (beeld moet de stem bijhouden), dan pas deze later laten beginnen
+            te_veel = einde(vorige) + 0.1 - i["start"]; min_v = 0.3 if "tekst" in vorige else 0.6
+            krimp = min(te_veel, max(0.0, vorige.get("teken", 1) - min_v)); vorige["teken"] = round(vorige.get("teken", 1) - krimp, 2)
+            if "kleur" in vorige and ("beeld" in vorige or "foto" in vorige): vorige["kleur"] = min(vorige["kleur"], 0.4)
+            if i["start"] < einde(vorige) + 0.1:
+                minimaal = 0.3 if "tekst" in i else 0.6
+                te_laat = einde(vorige) + 0.1 - i["start"]; i["start"] = round(einde(vorige) + 0.1, 2)
+                i["teken"] = round(max(minimaal, i.get("teken", 1) - te_laat), 2)
+        vorige = i
+# achterstand t.o.v. het gesproken woord (eigenaar 22 nov: "het beeld gaat langzamer als de stem")
+laat = [(round(i["start"] - i["doel"], 2), (i.get("tekst") or i.get("beeld") or i.get("foto") or "")[-28:]) for i in its if "doel" in i]
+if laat:
+    gem = sum(max(0, l) for l, _ in laat) / len(laat); erg = [x for x in laat if x[0] > 0.5]
+    print(f"achterstand op de stem: gemiddeld {gem:.2f} s; meer dan 0,5 s: {len(erg)}", erg[:6])
 # overlapcontrole
 def vak(i):
     if "beeld" in i or "foto" in i:
