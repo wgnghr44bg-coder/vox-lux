@@ -1,0 +1,24 @@
+# Proef "Wat verdient Nvidia aan jouw videokaart?" (22 nov 2026). SCHATTINGEN, met bron:
+# RTX 5090 adviesprijs $1,999 (Nvidia, jan 2025). GB202-chip ~ $290 om te maken (Tom's Hardware, schatting) = 14,51 per 100.
+# Kaartenbouwers ~5% marge (Jon Peddie Research, 2022, via Yahoo Finance). Officieel: Nvidia GAAP brutomarge 74,8% (Q3 FY2027, SEC q3fy27pr.htm).
+@scene a
+You buy an Nvidia graphics card, the RTX fifty ninety, for nineteen hundred ninety-nine dollars.
+Who gets your money? Let's follow every hundred dollars you pay.
+@scene b
+First, a warning. Nvidia does not say what it makes on one card.
+So these are estimates, and we show where each one comes from.
+@scene c
+The heart of the card is one big chip, made by TSMC in Taiwan.
+Tom's Hardware estimates it costs about two hundred ninety dollars to make. That is about fifteen dollars of your hundred.
+@scene d
+But Nvidia usually does not build the card itself. Brands like ASUS and MSI do that, with memory, a cooler, and a board.
+And those card makers keep very little. About five dollars of every hundred, Jon Peddie Research estimated.
+@scene e
+So where does the rest go? Memory, parts, shipping, the shop, and Nvidia's own price for the chip.
+Nvidia keeps that split a secret. But one number is official.
+@scene f
+Across the whole company, Nvidia keeps almost seventy-five dollars of every hundred, after the cost of making its products.
+Most of that comes from AI chips for data centers, not from gaming.
+@scene g
+Here is the receipt for your card.
+Making the chip is the cheap part. Designing it, that is where Nvidia earns its money.

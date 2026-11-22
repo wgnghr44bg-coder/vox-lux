@@ -1,0 +1,23 @@
+# Proef "Wat doet Netflix met jouw abonnement?" (22 nov 2026). OFFICIEEL: Netflix Q3 2026 (kwartaal tot 30 sep 2026), 8-K ex99.1
+# https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm , GAAP, in duizenden:
+# omzet 12.874.176 | kostprijs 6.079.016 (47,22 per 100) | technologie 1.033.142 (8,02) | verkoop/marketing 837.051 (6,50) | algemeen 466.367 (3,62)
+# bedrijfswinst 4.458.600 (34,63) | rente -184.701 (1,43) | overig +43.006 (0,33) | belasting 652.978 (5,07) | nettowinst 3.663.927 (28,46)
+@scene a
+You pay Netflix every month. Let's follow one hundred dollars of that money.
+Where does it go, and how much does Netflix keep?
+@scene b
+Last quarter, Netflix took in twelve point nine billion dollars.
+@scene c
+The biggest bite is the content. Shows, movies, and getting them to your screen take forty-seven dollars.
+@scene d
+Next, the engineers who build the app. That is eight dollars.
+Ads and marketing take six dollars fifty. Offices and management, about three sixty.
+@scene e
+Netflix also pays interest on its debt, about one dollar.
+Then the government takes its share. Taxes, about five dollars.
+@scene f
+And what is left?
+Twenty-eight dollars of profit, from every hundred dollars.
+@scene g
+Here is Netflix's receipt.
+Almost half of your money goes to what you watch. And more than a quarter is pure profit.

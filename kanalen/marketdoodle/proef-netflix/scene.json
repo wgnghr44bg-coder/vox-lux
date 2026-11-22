@@ -1,0 +1,878 @@
+{
+"duur": 58.87,
+"borden": [
+0.0,
+9.248,
+14.098999999999998,
+21.739,
+32.279,
+41.34,
+47.829
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "Follow the dollar: Netflix",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_geld.png",
+"x": 70,
+"y": 110,
+"breed": 520,
+"hoog": 380,
+"midden": true,
+"start": 2.8000000000000003,
+"doel": 3.1,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "$100",
+"x": 650,
+"y": 150,
+"maat": 130,
+"kleur": [
+46,
+150,
+84
+],
+"start": 3.7,
+"doel": 3.3,
+"teken": 0.3
+},
+{
+"bord": 0,
+"logo": "logos/netflix.png",
+"x": 660,
+"y": 340,
+"hoog": 60,
+"start": 0.52,
+"doel": 0.72
+},
+{
+"bord": 0,
+"tekst": "How much does",
+"x": 650,
+"y": 450,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 6.739999999999999,
+"doel": 6.89,
+"teken": 0.55
+},
+{
+"bord": 0,
+"tekst": "Netflix keep?",
+"x": 650,
+"y": 515,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 7.39,
+"doel": 7.54,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "Last quarter",
+"rechts": "Not financial advice",
+"start": 9.248
+},
+{
+"bord": 1,
+"logo": "logos/netflix.png",
+"x": 70,
+"y": 110,
+"hoog": 50,
+"start": 10.05,
+"doel": 10.25
+},
+{
+"bord": 1,
+"tekst": "$12.9 billion",
+"x": 70,
+"y": 190,
+"maat": 100,
+"kleur": [
+25,
+55,
+120
+],
+"start": 11.35,
+"doel": 11.5,
+"teken": 0.7
+},
+{
+"bord": 1,
+"tekst": "revenue, Jul - Sep 2026",
+"x": 75,
+"y": 320,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 12.33,
+"doel": 12.48,
+"teken": 0.6
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_tv.png",
+"x": 700,
+"y": 140,
+"breed": 480,
+"hoog": 400,
+"midden": true,
+"start": 9.229999999999999,
+"doel": 9.53,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"kop": "Step 1: what you watch",
+"rechts": "Not financial advice",
+"start": 14.098999999999998
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_film.png",
+"x": 60,
+"y": 100,
+"breed": 540,
+"hoog": 400,
+"midden": true,
+"start": 14.94,
+"doel": 15.24,
+"teken": 0.99,
+"kleur": 0.4
+},
+{
+"bord": 2,
+"tekst": "shows, movies,",
+"x": 660,
+"y": 130,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 16.28,
+"doel": 16.43,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "getting them to you",
+"x": 660,
+"y": 190,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 18.220000000000002,
+"doel": 18.37,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "- $47.22",
+"x": 660,
+"y": 290,
+"maat": 120,
+"kleur": [
+214,
+32,
+39
+],
+"start": 19.68,
+"doel": 19.83,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "left: $52.78",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 20.53,
+"doel": 20.68,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "Step 2: app, ads, offices",
+"rechts": "Not financial advice",
+"start": 21.739
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_app.png",
+"x": 60,
+"y": 100,
+"breed": 330,
+"hoog": 250,
+"midden": true,
+"start": 22.08,
+"doel": 22.38,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "- $8.02",
+"x": 420,
+"y": 140,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 24.92,
+"doel": 25.07,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "engineers & app",
+"x": 430,
+"y": 235,
+"maat": 38,
+"kleur": [
+30,
+30,
+30
+],
+"start": 25.32,
+"doel": 25.32,
+"teken": 0.31
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_kantoor.png",
+"x": 60,
+"y": 380,
+"breed": 260,
+"hoog": 230,
+"midden": true,
+"start": 25.73,
+"doel": 26.03,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "- $6.50",
+"x": 420,
+"y": 390,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 27.35,
+"doel": 27.5,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "ads & marketing",
+"x": 430,
+"y": 485,
+"maat": 38,
+"kleur": [
+30,
+30,
+30
+],
+"start": 27.75,
+"doel": 27.85,
+"teken": 0.55
+},
+{
+"bord": 3,
+"tekst": "- $3.62",
+"x": 800,
+"y": 140,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 30.57,
+"doel": 30.72,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "offices & managers",
+"x": 810,
+"y": 235,
+"maat": 38,
+"kleur": [
+30,
+30,
+30
+],
+"start": 31.37,
+"doel": 30.97,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "left: $34.63",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 30.97,
+"doel": 30.77,
+"teken": 0.3
+},
+{
+"bord": 4,
+"kop": "Step 3: debt, then taxes",
+"rechts": "Not financial advice",
+"start": 32.279
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_bank.png",
+"x": 60,
+"y": 100,
+"breed": 340,
+"hoog": 260,
+"midden": true,
+"start": 33.92,
+"doel": 34.22,
+"teken": 1.01,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "- $1.10",
+"x": 440,
+"y": 140,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 35.28,
+"doel": 35.43,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "interest (net)",
+"x": 450,
+"y": 245,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 35.68,
+"doel": 35.78,
+"teken": 0.55
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_overheid.png",
+"x": 60,
+"y": 390,
+"breed": 360,
+"hoog": 250,
+"midden": true,
+"start": 36.43,
+"doel": 36.73,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"tekst": "- $5.07",
+"x": 440,
+"y": 420,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 39.59,
+"doel": 39.74,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "taxes",
+"x": 450,
+"y": 525,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 40.39,
+"doel": 40.09,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "left: $28.46",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 39.99,
+"doel": 39.79,
+"teken": 0.3
+},
+{
+"bord": 5,
+"kop": "What is left",
+"rechts": "Not financial advice",
+"start": 41.34
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_winst.png",
+"x": 70,
+"y": 100,
+"breed": 480,
+"hoog": 480,
+"midden": true,
+"start": 41.36,
+"doel": 41.66,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"tekst": "$28",
+"x": 620,
+"y": 140,
+"maat": 200,
+"kleur": [
+46,
+150,
+84
+],
+"start": 43.38,
+"doel": 43.53,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "profit from",
+"x": 640,
+"y": 400,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 44.480000000000004,
+"doel": 44.63,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "every $100",
+"x": 640,
+"y": 470,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 45.57,
+"doel": 45.72,
+"teken": 0.6
+},
+{
+"bord": 6,
+"kop": "Netflix's receipt",
+"rechts": "Not financial advice",
+"start": 47.829
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_bon.png",
+"x": 70,
+"y": 80,
+"breed": 440,
+"hoog": 600,
+"midden": true,
+"start": 48.17,
+"doel": 48.47,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"logo": "logos/netflix.png",
+"x": 170,
+"y": 110,
+"hoog": 36,
+"start": 48.769999999999996,
+"doel": 48.97
+},
+{
+"bord": 6,
+"tekst": "per $100 you pay",
+"x": 105,
+"y": 165,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 49.07,
+"doel": 49.17,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "shows & movies",
+"x": 105,
+"y": 215,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 49.47,
+"doel": 49.47,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-47.22",
+"x": 372,
+"y": 215,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 49.87,
+"doel": 49.47,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "engineers & app",
+"x": 105,
+"y": 257,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 50.27,
+"doel": 49.72,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-8.02",
+"x": 372,
+"y": 257,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 50.67,
+"doel": 49.72,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "ads & marketing",
+"x": 105,
+"y": 299,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 51.07,
+"doel": 49.97,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-6.50",
+"x": 372,
+"y": 299,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 51.47,
+"doel": 49.97,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "offices",
+"x": 105,
+"y": 341,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 51.87,
+"doel": 50.22,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-3.62",
+"x": 372,
+"y": 341,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 52.27,
+"doel": 50.22,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "interest",
+"x": 105,
+"y": 383,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 53.07,
+"doel": 50.47,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-1.10",
+"x": 372,
+"y": 383,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 53.47,
+"doel": 50.47,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "taxes",
+"x": 105,
+"y": 425,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 53.87,
+"doel": 50.72,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-5.07",
+"x": 372,
+"y": 425,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 54.27,
+"doel": 50.72,
+"teken": 0.3
+},
+{
+"bord": 6,
+"streep": [
+105,
+478,
+460
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 4,
+"start": 54.67,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "PROFIT",
+"x": 105,
+"y": 495,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 55.37,
+"doel": 51.370000000000005,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "$28.46",
+"x": 300,
+"y": 495,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 55.77,
+"doel": 51.370000000000005,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "NETFLIX Q3 2026 GAAP, rounded",
+"x": 105,
+"y": 580,
+"maat": 20,
+"kleur": [
+30,
+30,
+30
+],
+"start": 56.17,
+"doel": 51.57,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "almost half:",
+"x": 600,
+"y": 150,
+"maat": 54,
+"kleur": [
+30,
+30,
+30
+],
+"start": 52.67,
+"doel": 50.29,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "what you watch",
+"x": 600,
+"y": 215,
+"maat": 54,
+"kleur": [
+25,
+55,
+120
+],
+"start": 56.57,
+"doel": 51.67,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "more than 1/4:",
+"x": 600,
+"y": 340,
+"maat": 54,
+"kleur": [
+30,
+30,
+30
+],
+"start": 56.97,
+"doel": 53.61,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "pure profit",
+"x": 600,
+"y": 405,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 57.37,
+"doel": 54.49,
+"teken": 0.3
+}
+]
+}

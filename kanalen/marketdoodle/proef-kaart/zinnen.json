@@ -1,0 +1,86 @@
+[
+[
+0.5,
+6.341,
+"You buy an Nvidia graphics card, the RTX fifty ninety, for nineteen hundred ninety-nine dollars.",
+"a"
+],
+[
+6.941,
+10.659,
+"Who gets your money? Let's follow every hundred dollars you pay.",
+"a"
+],
+[
+11.759,
+15.495,
+"First, a warning. Nvidia does not say what it makes on one card.",
+"b"
+],
+[
+16.095,
+19.521,
+"So these are estimates, and we show where each one comes from.",
+"b"
+],
+[
+20.621,
+24.299,
+"The heart of the card is one big chip, made by TSMC in Taiwan.",
+"c"
+],
+[
+24.899,
+31.85,
+"Tom's Hardware estimates it costs about two hundred ninety dollars to make. That is about fifteen dollars of your hundred.",
+"c"
+],
+[
+32.95,
+40.198,
+"But Nvidia usually does not build the card itself. Brands like ASUS and MSI do that, with memory, a cooler, and a board.",
+"d"
+],
+[
+40.798,
+47.245,
+"And those card makers keep very little. About five dollars of every hundred, Jon Peddie Research estimated.",
+"d"
+],
+[
+48.345,
+54.189,
+"So where does the rest go? Memory, parts, shipping, the shop, and Nvidia's own price for the chip.",
+"e"
+],
+[
+54.789,
+58.433,
+"Nvidia keeps that split a secret. But one number is official.",
+"e"
+],
+[
+59.533,
+66.989,
+"Across the whole company, Nvidia keeps almost seventy-five dollars of every hundred, after the cost of making its products.",
+"f"
+],
+[
+67.589,
+71.582,
+"Most of that comes from AI chips for data centers, not from gaming.",
+"f"
+],
+[
+72.682,
+74.547,
+"Here is the receipt for your card.",
+"g"
+],
+[
+75.147,
+80.25,
+"Making the chip is the cheap part. Designing it, that is where Nvidia earns its money.",
+"g"
+]
+]

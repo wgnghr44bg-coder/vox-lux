@@ -1,0 +1,891 @@
+{
+"duur": 82.25,
+"borden": [
+0.0,
+11.459,
+20.320999999999998,
+32.650000000000006,
+48.045,
+59.233000000000004,
+72.382
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "Your graphics card",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_kaart.png",
+"x": 60,
+"y": 110,
+"breed": 560,
+"hoog": 400,
+"midden": true,
+"start": 0.8999999999999999,
+"doel": 1.2,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"logo": "logos/nvidia.png",
+"x": 660,
+"y": 120,
+"hoog": 50,
+"start": 0.7,
+"doel": 0.9
+},
+{
+"bord": 0,
+"tekst": "RTX 5090",
+"x": 660,
+"y": 185,
+"maat": 60,
+"kleur": [
+30,
+30,
+30
+],
+"start": 2.7,
+"doel": 2.85,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "$1,999",
+"x": 660,
+"y": 255,
+"maat": 120,
+"kleur": [
+46,
+150,
+84
+],
+"start": 4.319999999999999,
+"doel": 4.47,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "Who gets",
+"x": 660,
+"y": 420,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 6.9399999999999995,
+"doel": 7.09,
+"teken": 0.3
+},
+{
+"bord": 0,
+"tekst": "your money?",
+"x": 660,
+"y": 485,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 7.34,
+"doel": 7.2,
+"teken": 0.31
+},
+{
+"bord": 0,
+"tekst": "-> follow every $100",
+"x": 665,
+"y": 570,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 8.78,
+"doel": 8.93,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "First, a warning",
+"rechts": "Not financial advice",
+"start": 11.459
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_slot.png",
+"x": 70,
+"y": 110,
+"breed": 380,
+"hoog": 400,
+"midden": true,
+"start": 12.52,
+"doel": 12.82,
+"teken": 0.68,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "Nvidia does not say",
+"x": 500,
+"y": 150,
+"maat": 54,
+"kleur": [
+30,
+30,
+30
+],
+"start": 13.549999999999999,
+"doel": 13.7,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "what it makes per card",
+"x": 500,
+"y": 215,
+"maat": 54,
+"kleur": [
+30,
+30,
+30
+],
+"start": 14.379999999999999,
+"doel": 14.53,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "= ESTIMATES",
+"x": 500,
+"y": 330,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 16.240000000000002,
+"doel": 16.39,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "source shown with every number",
+"x": 505,
+"y": 460,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 17.89,
+"doel": 18.04,
+"teken": 0.6
+},
+{
+"bord": 2,
+"kop": "Step 1: the chip",
+"rechts": "Not financial advice",
+"start": 20.320999999999998
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_fabriek.png",
+"x": 60,
+"y": 100,
+"breed": 520,
+"hoog": 380,
+"midden": true,
+"start": 21.5,
+"doel": 21.8,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"logo": "logos/tsmc.png",
+"x": 640,
+"y": 120,
+"hoog": 50,
+"start": 22.54,
+"doel": 22.74
+},
+{
+"bord": 2,
+"tekst": "Taiwan",
+"x": 900,
+"y": 125,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 23.720000000000002,
+"doel": 23.87,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "~$290 to make",
+"x": 640,
+"y": 210,
+"maat": 76,
+"kleur": [
+30,
+30,
+30
+],
+"start": 27.1,
+"doel": 27.25,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "= about $15",
+"x": 640,
+"y": 330,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 30.360000000000003,
+"doel": 30.51,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "of your $100",
+"x": 650,
+"y": 445,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 31.17,
+"doel": 31.32,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "estimate: Tom's Hardware (GB202 chip)",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 25.62,
+"doel": 25.77,
+"teken": 0.4
+},
+{
+"bord": 3,
+"kop": "Step 2: the card makers",
+"rechts": "Not financial advice",
+"start": 32.650000000000006
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_doos.png",
+"x": 60,
+"y": 100,
+"breed": 500,
+"hoog": 330,
+"midden": true,
+"start": 33.870000000000005,
+"doel": 34.17,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "ASUS, MSI, ...",
+"x": 600,
+"y": 130,
+"maat": 60,
+"kleur": [
+25,
+55,
+120
+],
+"start": 36.57,
+"doel": 36.72,
+"teken": 0.6
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_onderdelen.png",
+"x": 600,
+"y": 210,
+"breed": 300,
+"hoog": 200,
+"midden": true,
+"start": 37.81,
+"doel": 38.11,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "they keep",
+"x": 600,
+"y": 440,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 41.78,
+"doel": 41.93,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "~ $5",
+"x": 870,
+"y": 420,
+"maat": 100,
+"kleur": [
+214,
+32,
+39
+],
+"start": 43.940000000000005,
+"doel": 44.09,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "of your $100",
+"x": 610,
+"y": 530,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 44.67,
+"doel": 44.82,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "estimate: Jon Peddie Research (2022)",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 45.550000000000004,
+"doel": 45.7,
+"teken": 0.4
+},
+{
+"bord": 4,
+"kop": "The other ~$80",
+"rechts": "Not financial advice",
+"start": 48.045
+},
+{
+"bord": 4,
+"tekst": "memory & parts",
+"x": 80,
+"y": 130,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 49.95,
+"doel": 50.1,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "shipping",
+"x": 80,
+"y": 195,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 51.38,
+"doel": 51.53,
+"teken": 0.3
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_winkel.png",
+"x": 540,
+"y": 140,
+"breed": 170,
+"hoog": 170,
+"midden": true,
+"start": 51.78,
+"doel": 51.72,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "the shop",
+"x": 80,
+"y": 260,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 52.68,
+"doel": 52.17,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "Nvidia's chip price",
+"x": 80,
+"y": 325,
+"maat": 50,
+"kleur": [
+46,
+150,
+84
+],
+"start": 53.08,
+"doel": 53.0,
+"teken": 0.37
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_slot.png",
+"x": 720,
+"y": 110,
+"breed": 360,
+"hoog": 380,
+"midden": true,
+"start": 55.53,
+"doel": 55.83,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "split = secret",
+"x": 80,
+"y": 470,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 56.43,
+"doel": 56.38,
+"teken": 0.4
+},
+{
+"bord": 5,
+"kop": "One official number",
+"rechts": "Not financial advice",
+"start": 59.233000000000004
+},
+{
+"bord": 5,
+"logo": "logos/nvidia.png",
+"x": 80,
+"y": 110,
+"hoog": 50,
+"start": 60.69,
+"doel": 60.89
+},
+{
+"bord": 5,
+"tekst": "whole company",
+"x": 350,
+"y": 115,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 59.92,
+"doel": 60.07,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "$74.80",
+"x": 80,
+"y": 190,
+"maat": 170,
+"kleur": [
+46,
+150,
+84
+],
+"start": 62.27,
+"doel": 62.42,
+"teken": 0.7
+},
+{
+"bord": 5,
+"tekst": "kept from every $100",
+"x": 90,
+"y": 400,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 63.76,
+"doel": 63.91,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "after the cost of making",
+"x": 90,
+"y": 465,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 65.41,
+"doel": 65.56,
+"teken": 0.49
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_chips.png",
+"x": 760,
+"y": 160,
+"breed": 400,
+"hoog": 300,
+"midden": true,
+"start": 68.25,
+"doel": 68.55,
+"teken": 0.84,
+"kleur": 0.4
+},
+{
+"bord": 5,
+"tekst": "mostly AI data centers",
+"x": 760,
+"y": 480,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 69.44,
+"doel": 69.59,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "official: NVIDIA Q3 FY2027, GAAP gross margin 74.8%",
+"x": 70,
+"y": 640,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 66.0,
+"doel": 66.15,
+"teken": 0.4
+},
+{
+"bord": 6,
+"kop": "Your card's receipt",
+"rechts": "Not financial advice",
+"start": 72.382
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_bon.png",
+"x": 70,
+"y": 80,
+"breed": 440,
+"hoog": 600,
+"midden": true,
+"start": 72.3,
+"doel": 72.6,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "RTX 5090, per $100",
+"x": 105,
+"y": 125,
+"maat": 32,
+"kleur": [
+30,
+30,
+30
+],
+"start": 73.2,
+"doel": 73.1,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "chip (TSMC)",
+"x": 105,
+"y": 200,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 73.6,
+"doel": 73.5,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "~15",
+"x": 390,
+"y": 200,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 74.0,
+"doel": 73.5,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "card maker",
+"x": 105,
+"y": 246,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 74.4,
+"doel": 73.8,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "~5",
+"x": 390,
+"y": 246,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 74.8,
+"doel": 73.8,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "memory, parts,",
+"x": 105,
+"y": 292,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 75.2,
+"doel": 74.1,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "shop, Nvidia",
+"x": 105,
+"y": 338,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 75.6,
+"doel": 74.4,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "~80",
+"x": 390,
+"y": 338,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 76.0,
+"doel": 74.4,
+"teken": 0.3
+},
+{
+"bord": 6,
+"streep": [
+105,
+400,
+460
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 4,
+"start": 76.4,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "NVIDIA keeps",
+"x": 105,
+"y": 420,
+"maat": 36,
+"kleur": [
+46,
+150,
+84
+],
+"start": 77.1,
+"doel": 75.1,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "$74.80",
+"x": 105,
+"y": 470,
+"maat": 60,
+"kleur": [
+46,
+150,
+84
+],
+"start": 77.5,
+"doel": 75.3,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "whole company, official",
+"x": 105,
+"y": 545,
+"maat": 24,
+"kleur": [
+30,
+30,
+30
+],
+"start": 77.9,
+"doel": 75.5,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "~ = estimate",
+"x": 105,
+"y": 590,
+"maat": 24,
+"kleur": [
+214,
+32,
+39
+],
+"start": 78.3,
+"doel": 75.6,
+"teken": 0.3
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_ontwerp.png",
+"x": 620,
+"y": 110,
+"breed": 380,
+"hoog": 300,
+"midden": true,
+"start": 79.1,
+"doel": 76.77,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "making it: cheap",
+"x": 620,
+"y": 440,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 78.7,
+"doel": 75.91,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "designing it: $$$",
+"x": 620,
+"y": 510,
+"maat": 50,
+"kleur": [
+46,
+150,
+84
+],
+"start": 80.0,
+"doel": 77.32,
+"teken": 0.3
+}
+]
+}
