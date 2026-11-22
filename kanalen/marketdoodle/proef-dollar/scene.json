@@ -1,0 +1,901 @@
+{
+"duur": 67.03,
+"borden": [
+0.0,
+8.008,
+17.814999999999998,
+25.758,
+35.875,
+47.286,
+54.07
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "Follow the dollar: Nvidia",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_geld.png",
+"x": 70,
+"y": 110,
+"breed": 520,
+"hoog": 380,
+"midden": true,
+"start": 0.54,
+"doel": 0.84,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "$100",
+"x": 650,
+"y": 150,
+"maat": 130,
+"kleur": [
+46,
+150,
+84
+],
+"start": 1.44,
+"doel": 1.04,
+"teken": 0.3
+},
+{
+"bord": 0,
+"logo": "logos/nvidia.png",
+"x": 660,
+"y": 345,
+"hoog": 60,
+"start": 2.8,
+"doel": 3.0
+},
+{
+"bord": 0,
+"pijl": [
+590,
+300,
+645,
+360
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 6,
+"start": 2.77,
+"teken": 0.5
+},
+{
+"bord": 0,
+"tekst": "How much does",
+"x": 650,
+"y": 450,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 4.6,
+"doel": 4.75,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "Nvidia keep?",
+"x": 650,
+"y": 515,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 6.51,
+"doel": 6.66,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "Last quarter",
+"rechts": "Not financial advice",
+"start": 8.008
+},
+{
+"bord": 1,
+"logo": "logos/nvidia.png",
+"x": 70,
+"y": 95,
+"hoog": 44,
+"start": 8.89,
+"doel": 9.09
+},
+{
+"bord": 1,
+"tekst": "$115.8 billion",
+"x": 70,
+"y": 160,
+"maat": 92,
+"kleur": [
+25,
+55,
+120
+],
+"start": 10.29,
+"doel": 10.44,
+"teken": 0.7
+},
+{
+"bord": 1,
+"tekst": "revenue, Aug - Oct 2026",
+"x": 75,
+"y": 280,
+"maat": 36,
+"kleur": [
+30,
+30,
+30
+],
+"start": 11.95,
+"doel": 12.1,
+"teken": 0.6
+},
+{
+"bord": 1,
+"delen": [
+93,
+7
+],
+"x": 120,
+"y": 360,
+"straal": 150,
+"start": 13.51,
+"teken": 1.6
+},
+{
+"bord": 1,
+"tekst": "$93 of every $100",
+"x": 470,
+"y": 420,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 13.709999999999999,
+"doel": 13.86,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "= AI data centers",
+"x": 470,
+"y": 495,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 16.41,
+"doel": 15.91,
+"teken": 0.3
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_datacenter.png",
+"x": 900,
+"y": 100,
+"breed": 330,
+"hoog": 250,
+"midden": true,
+"start": 15.51,
+"doel": 15.81,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 2,
+"kop": "Step 1: building the chips",
+"rechts": "Not financial advice",
+"start": 17.814999999999998
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_fabriek.png",
+"x": 60,
+"y": 100,
+"breed": 560,
+"hoog": 400,
+"midden": true,
+"start": 18.31,
+"doel": 18.61,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"tekst": "factories, materials,",
+"x": 660,
+"y": 130,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 20.580000000000002,
+"doel": 20.73,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "partners like",
+"x": 660,
+"y": 190,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 21.900000000000002,
+"doel": 22.05,
+"teken": 0.6
+},
+{
+"bord": 2,
+"logo": "logos/tsmc.png",
+"x": 950,
+"y": 190,
+"hoog": 50,
+"start": 22.240000000000002,
+"doel": 22.44
+},
+{
+"bord": 2,
+"tekst": "- $25.18",
+"x": 660,
+"y": 300,
+"maat": 120,
+"kleur": [
+214,
+32,
+39
+],
+"start": 23.84,
+"doel": 23.99,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "left: $74.82",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 24.69,
+"doel": 24.84,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "Step 2: brains and offices",
+"rechts": "Not financial advice",
+"start": 25.758
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_lamp.png",
+"x": 60,
+"y": 100,
+"breed": 420,
+"hoog": 300,
+"midden": true,
+"start": 26.2,
+"doel": 26.5,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "- $6.43",
+"x": 520,
+"y": 150,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 29.92,
+"doel": 30.07,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "research",
+"x": 530,
+"y": 260,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 29.330000000000002,
+"doel": 29.48,
+"teken": 0.49
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_kantoor.png",
+"x": 60,
+"y": 420,
+"breed": 300,
+"hoog": 230,
+"midden": true,
+"start": 31.529999999999998,
+"doel": 31.83,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "- $1.47",
+"x": 520,
+"y": 430,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 34.29,
+"doel": 34.44,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "sales & offices",
+"x": 530,
+"y": 540,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 34.69,
+"doel": 34.69,
+"teken": 0.3
+},
+{
+"bord": 3,
+"tekst": "left: $66.92",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 35.09,
+"doel": 34.95,
+"teken": 0.31
+},
+{
+"bord": 4,
+"kop": "Step 3: a bonus, then taxes",
+"rechts": "Not financial advice",
+"start": 35.875
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_kluis.png",
+"x": 60,
+"y": 100,
+"breed": 340,
+"hoog": 260,
+"midden": true,
+"start": 38.03,
+"doel": 38.33,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"tekst": "+ $1.29",
+"x": 440,
+"y": 140,
+"maat": 90,
+"kleur": [
+46,
+150,
+84
+],
+"start": 40.550000000000004,
+"doel": 40.7,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "cash & investments",
+"x": 450,
+"y": 245,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 40.95,
+"doel": 41.05,
+"teken": 0.55
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_overheid.png",
+"x": 60,
+"y": 390,
+"breed": 360,
+"hoog": 250,
+"midden": true,
+"start": 42.06,
+"doel": 42.36,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"tekst": "- $11.85",
+"x": 440,
+"y": 420,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 45.52,
+"doel": 45.67,
+"teken": 0.3
+},
+{
+"bord": 4,
+"tekst": "taxes",
+"x": 450,
+"y": 525,
+"maat": 40,
+"kleur": [
+30,
+30,
+30
+],
+"start": 45.92,
+"doel": 46.02,
+"teken": 0.45
+},
+{
+"bord": 4,
+"tekst": "left: $56.36",
+"x": 820,
+"y": 600,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 46.47,
+"doel": 46.62,
+"teken": 0.6
+},
+{
+"bord": 5,
+"kop": "What is left",
+"rechts": "Not financial advice",
+"start": 47.286
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_winst.png",
+"x": 70,
+"y": 100,
+"breed": 480,
+"hoog": 480,
+"midden": true,
+"start": 47.730000000000004,
+"doel": 48.03,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"tekst": "$56",
+"x": 620,
+"y": 140,
+"maat": 200,
+"kleur": [
+46,
+150,
+84
+],
+"start": 49.83,
+"doel": 49.98,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "profit from",
+"x": 640,
+"y": 400,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 50.910000000000004,
+"doel": 51.06,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "every $100",
+"x": 640,
+"y": 470,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 51.92,
+"doel": 52.07,
+"teken": 0.6
+},
+{
+"bord": 6,
+"kop": "Nvidia's receipt",
+"rechts": "Not financial advice",
+"start": 54.07
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_bon.png",
+"x": 70,
+"y": 80,
+"breed": 440,
+"hoog": 600,
+"midden": true,
+"start": 54.29,
+"doel": 54.589999999999996,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"logo": "logos/nvidia.png",
+"x": 160,
+"y": 110,
+"hoog": 40,
+"start": 54.88999999999999,
+"doel": 55.089999999999996
+},
+{
+"bord": 6,
+"tekst": "per $100 of revenue",
+"x": 105,
+"y": 170,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 55.19,
+"doel": 55.29,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "chips & factories",
+"x": 105,
+"y": 225,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 55.59,
+"doel": 55.69,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-25.18",
+"x": 372,
+"y": 225,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 55.99,
+"doel": 55.69,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "research",
+"x": 105,
+"y": 269,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 56.39,
+"doel": 55.989999999999995,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-6.43",
+"x": 372,
+"y": 269,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 56.79,
+"doel": 55.989999999999995,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "sales & offices",
+"x": 105,
+"y": 313,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 57.19,
+"doel": 56.29,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-1.47",
+"x": 372,
+"y": 313,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 57.59,
+"doel": 56.29,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "investments",
+"x": 105,
+"y": 357,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 57.99,
+"doel": 56.589999999999996,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "+1.29",
+"x": 372,
+"y": 357,
+"maat": 30,
+"kleur": [
+46,
+150,
+84
+],
+"start": 58.39,
+"doel": 56.589999999999996,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "taxes",
+"x": 105,
+"y": 401,
+"maat": 30,
+"kleur": [
+30,
+30,
+30
+],
+"start": 58.79,
+"doel": 56.89,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-11.85",
+"x": 372,
+"y": 401,
+"maat": 30,
+"kleur": [
+214,
+32,
+39
+],
+"start": 59.19,
+"doel": 56.89,
+"teken": 0.3
+},
+{
+"bord": 6,
+"streep": [
+105,
+462,
+460
+],
+"kleur": [
+30,
+30,
+30
+],
+"dik": 4,
+"start": 59.99,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "PROFIT",
+"x": 105,
+"y": 480,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 61.09,
+"doel": 57.79,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "$56.36",
+"x": 300,
+"y": 480,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 61.49,
+"doel": 57.79,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "NVIDIA Q3 FY2027 (GAAP)",
+"x": 105,
+"y": 570,
+"maat": 22,
+"kleur": [
+30,
+30,
+30
+],
+"start": 61.89,
+"doel": 57.99,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "why investors",
+"x": 600,
+"y": 150,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 59.59,
+"doel": 57.02,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "love it",
+"x": 600,
+"y": 215,
+"maat": 54,
+"kleur": [
+46,
+150,
+84
+],
+"start": 60.69,
+"doel": 57.56,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "the big risk:",
+"x": 600,
+"y": 340,
+"maat": 54,
+"kleur": [
+214,
+32,
+39
+],
+"start": 62.29,
+"doel": 59.88,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "customers pay less",
+"x": 600,
+"y": 410,
+"maat": 46,
+"kleur": [
+30,
+30,
+30
+],
+"start": 62.69,
+"doel": 61.75,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "-> $56 shrinks fast",
+"x": 600,
+"y": 475,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 63.77,
+"doel": 63.92,
+"teken": 0.6
+}
+]
+}

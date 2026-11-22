@@ -1,0 +1,25 @@
+# Proef "Follow the Dollar: Nvidia" (22 nov 2026). Cijfers: NVIDIA Q3 FY2027 (kwartaal tot 25 okt 2026), SEC-bericht q3fy27pr.htm, GAAP, in miljoenen:
+# omzet 115.844 | kostprijs 29.168 (25,18 per 100) | R&D 7.454 (6,43) | verkoop/algemeen 1.702 (1,47) | overige baten +1.497 (+1,29) | belasting 13.730 (11,85) | nettowinst 65.287 (56,36). Datacenter 107,6 mld (93%).
+@scene a
+This is one hundred dollars that a customer pays Nvidia.
+Let's follow it, and see how much Nvidia gets to keep.
+@scene b
+Last quarter, Nvidia took in one hundred fifteen point eight billion dollars.
+Ninety-three dollars of every hundred came from AI data centers.
+@scene c
+First, the chips have to be built.
+Factories, materials, and partners like TSMC take twenty-five dollars.
+@scene d
+Next come the engineers who design the next chip.
+Research costs six dollars and forty cents.
+Sales and offices take about one and a half dollars.
+@scene e
+Nvidia also earns a little extra from its cash and investments, about one dollar thirty.
+Then the government takes its share. Taxes, almost twelve dollars.
+@scene f
+And what is left?
+Fifty-six dollars of profit, from every hundred dollars.
+@scene g
+Here is Nvidia's receipt.
+That is why investors love this company.
+And it is also the big risk. If customers ever pay less, those fifty-six dollars can shrink fast.
