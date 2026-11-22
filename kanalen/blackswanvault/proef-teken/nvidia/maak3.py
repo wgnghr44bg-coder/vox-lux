@@ -23,26 +23,26 @@ def F(k, pose, t0, tot=None, snel=False):
 def logo(k, x, y, h, t0): it.append({"bord": k, "logo": LG, "x": x, "y": y, "hoog": h, "start": t0})
 # 1: de daling
 kop(0, 0.0, "Nvidia fell 14% in one day"); F(0, "f2", 0.2, kw(3, "here"))
-logo(0, 320, 90, 46, kw(0, "nvidia"))
+logo(0, 320, 90, 46, 0.3)
 tx(0, "-14%", 330, 150, 96, RO, kw(0, "14"))
 it.append({"bord": 0, "dagen": NV, "logo": LG, "logohoog": 22, "onder": "closing price, change per day", "n": 7,
            "x": 660, "y": 75, "breed": 580, "hoog": 470, "start": kw(1, "seventh", -0.2), "per": 0.22})
-b(0, "n_stoel", 330, 330, 270, 230, kw(2, "built", 0.0), 1.4)
-tx(0, "the founder walked away", 300, 600, 40, BL, kw(2, "walked", 0.6), 1.0)
+b(0, "n_stoel", 330, 330, 270, 230, kw(2, "days", 0.0), 2.0)
+tx(0, "the founder walked away", 300, 600, 40, BL, kw(2, "walked", 0.0), 1.0)
 F(0, "f3", kw(3, "here"), snel=True)
 # 2: Jensen
 kop(1, borden[1], "The man who built Nvidia"); F(1, "f3", borden[1] + 0.2)
-it.append({"bord": 1, "foto": "jensen.jpg", "x": 300, "y": 85, "breed": 300, "hoog": 380, "start": kw(4, "jensen", 0.0), "teken": 1.8, "kleur": 0.9,
+it.append({"bord": 1, "foto": "jensen.jpg", "x": 300, "y": 85, "breed": 300, "hoog": 380, "start": kw(4, "jensen", -0.3), "teken": 1.3, "kleur": 0.6,
            "naam": "Jensen Huang", "bron": "Photo: Anders Eidesvik, CC BY 4.0"})
-b(1, "n_diner", 650, 90, 320, 220, kw(4, "denny", -0.6))
-tx(1, "1993", 700, 240, 48, BL, kw(4, "1993"))
+b(1, "n_diner", 650, 90, 320, 220, kw(4, "1993", 0.0), 2.0)
+tx(1, "1993", 700, 240, 48, BL, kw(4, "denny", 0.0))
 tx(1, "33 years", 1010, 80, 50, BL, kw(5, "33"))
-b(1, "n_jas", 1000, 170, 220, 250, kw(6, "leather", -0.2), 1.4)
-tx(1, "Nov 12: stepped down", 650, 520, 46, RO, kw(7, "stepped"), 0.9)
+b(1, "n_jas", 1000, 170, 220, 250, kw(6, "black", -0.3), 2.0)
+tx(1, "Nov 12: stepped down", 650, 520, 46, RO, kw(7, "november", 0.0), 1.1)
 # 3: zaken gaan goed
 kop(2, borden[2], "Business has never been better"); F(2, "f1", borden[2] + 0.2, kw(8, "strange"))
 F(2, "f4", kw(8, "strange"), kw(9, "reported"), snel=True); F(2, "f1", kw(9, "reported"), snel=True)
-b(2, "n_chips", 300, 150, 330, 300, kw(9, "reported", -0.2), 1.6)
+b(2, "n_chips", 300, 150, 330, 300, kw(8, "strange", 0.0), 2.6)
 tx(2, "$115.8B", 690, 150, 84, GR, kw(9, "$115"))
 tx(2, "in one quarter", 700, 255, 40, GR, kw(9, "quarter", 0.0))
 tx(2, "+103% in a year", 700, 330, 52, GR, kw(10, "double", -0.1))
