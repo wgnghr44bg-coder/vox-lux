@@ -12,7 +12,7 @@ from voice.batch_generator import edge_fade, trim
 from voice.voice_config import VoiceConfig
 H = Path(__file__).parent
 inst = b1.standaard(); SR = ov.SR
-cfg = VoiceConfig(voice="zakelijk-23", speed=1.12,   # 30-s demo (22 nov): vlotter, moet in 30 s passen
+cfg = VoiceConfig(voice="zakelijk-23", speed=0.98,   # 30-s demo (22 nov): vlotter, moet in 30 s passen
  seed=23, num_step=inst["model"]["num_step"],
                   guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
 zinnen, scene = [], None
@@ -47,10 +47,10 @@ t = 0.5; delen = [np.zeros(int(t * SR), np.float32)]; tijden = []
 for k, ((z, sc), c) in enumerate(zip(zinnen, clips)):
     tijden.append([round(t, 3), round(t + len(c) / SR, 3), z, sc])
     volgende = zinnen[k + 1][1] if k + 1 < len(zinnen) else None
-    if volgende is None: p = 0.4
+    if volgende is None: p = 1.0
     elif volgende != sc and (volgende.startswith("h") and "-" not in volgende or volgende == "titel"): p = 1.3   # voor een hoofdstuk
-    elif volgende != sc: p = 0.45   # 30-s demo
-    else: p = 0.3   # 30-s demo
+    elif volgende != sc: p = 0.8   # v3: rustiger
+    else: p = 0.5   # v3: rustiger
     if z.endswith("?"): p += 0.3   # 19 nov: tempo zoals eerste proef (eigenaar)
     if z.endswith("?") and len(z.split()) <= 2: p = max(p, 1.6)   # 20 nov: na een korte vraag ("Why?") een echte pauze (eigenaar)
     if k + 1 < len(zinnen) and zinnen[k + 1][0].endswith("?") and len(zinnen[k + 1][0].split()) <= 2: p = max(p, 1.2)   # en ervoor

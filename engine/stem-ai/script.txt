@@ -1,4 +1,5 @@
-# 30-second demo "How AI chips power the future" (22 nov 2026), narration from the brief
+# v3 (22 nov 2026): rustiger + financieel hoofdstuk. Cijfers: NVIDIA Q3 FY2027 (17 nov 2026): omzet $115,8 mld (+103%; jaar eerder $57,0 mld),
+# datacenter $107,6 mld, verwachting volgend kwartaal ± $130 mld (blackswanvault/video1/script.txt, blackswan-nl/video1/bronnen.md).
 @scene s1
 Artificial intelligence is changing the world.
 But behind every AI breakthrough is one incredibly important piece of technology.
@@ -9,4 +10,9 @@ Companies like NVIDIA design the technology, while manufacturers like TSMC produ
 @scene s4
 These chips power data centers, artificial intelligence systems and technologies used around the world.
 @scene s5
-And as demand for artificial intelligence grows, the companies behind these chips are becoming increasingly important.
+And demand for them is exploding.
+In its latest quarter, NVIDIA's revenue reached one hundred fifteen point eight billion dollars, more than double a year earlier.
+Data center chips alone brought in one hundred seven point six billion.
+And for the next quarter, NVIDIA expects about one hundred thirty billion dollars.
+@scene s6
+As demand for artificial intelligence grows, the companies behind these chips are becoming increasingly important.

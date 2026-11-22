@@ -94,7 +94,7 @@ export const Pijl: React.FC<{ d: string; van: number; duur?: number; kleur?: str
 export const Overgang: React.FC<{ duur: number; children: React.ReactNode; laatste?: boolean; eerste?: boolean }> = ({ duur, children, laatste, eerste }) => {
   const f = useCurrentFrame();
   // v2: eerste scène begint meteen in beeld (geen zwart eerste beeld); laatste dooft uit
-  const o = eerste ? interpolate(f, [duur - 8, duur], [1, 1], clamp) : interpolate(f, [0, 10, duur - (laatste ? 14 : 8), duur], [0, 1, 1, laatste ? 0 : 1], clamp);
-  const s = eerste ? 1 : interpolate(f, [0, 12], [1.04, 1], clamp);
+  const o = eerste ? interpolate(f, [duur - 8, duur], [1, 1], clamp) : interpolate(f, [0, 16, duur - (laatste ? 20 : 8), duur], [0, 1, 1, laatste ? 0 : 1], clamp);
+  const s = eerste ? 1 : interpolate(f, [0, 18], [1.03, 1], clamp);
   return <AbsoluteFill style={{ opacity: o, transform: `scale(${s})` }}>{children}</AbsoluteFill>;
 };
