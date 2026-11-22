@@ -1,0 +1,54 @@
+# Market Doodle video 2: "How much does Anthropic make from my Claude subscription?" (22 nov 2026). Cijfers + bronnen: bronnen.md
+@scene a
+You pay twenty dollars a month for Claude Pro. It helps you write, code, and think.
+But every month, the same question pops up. How much is Anthropic actually earning on my subscription?
+Here is the spoiler. On paper, Anthropic is losing money on you. A lot of money. But that is not the whole story.
+@scene b
+Until this week, nobody could check. Anthropic was a private company.
+But on November nineteenth, Anthropic went public. It sold shares at eighty-three dollars each and raised more than eighty-one billion dollars.
+And to do that, it had to publish its numbers. So we read the prospectus.
+One thing first. We use Claude ourselves, so we will stick to the official numbers only.
+@scene c
+Last quarter, from July to September, Anthropic took in seventeen billion dollars.
+A year earlier, it was one point four billion. That is growth of more than one thousand percent in one year.
+Anthropic does not say how much of that comes from subscriptions like yours. Most of it comes from businesses.
+So we take the company's average, and follow your twenty dollars through it.
+@scene d
+The first stop is the biggest by far. Computers.
+Every question you ask runs on huge data centers full of AI chips. Anthropic rents that power from cloud companies and buys it far in advance.
+That costs about eleven dollars and sixty-three cents of your twenty.
+And some of it was extra expensive. Last quarter, Anthropic bought five billion dollars of short-term computing power, which costs a lot more than its long contracts.
+@scene e
+Next, the people. Researchers and engineers who build and train the models. That is about two dollars.
+Then sales, marketing, and partners who sell Claude to businesses. About two dollars and seventy-eight cents.
+@scene f
+Now a surprise. About two dollars and thirty-six cents went to charity.
+When employees pledge part of their shares to charity, Anthropic matches it with new shares of its own. Last quarter, that cost two billion dollars, on paper. No cash left the company for it.
+And then the rest. Card payment fees, software, offices, and other costs. About one dollar eighty-seven.
+@scene g
+So add it all up. Of your twenty dollars, Anthropic spent about twenty dollars and sixty-seven cents.
+That means it lost about sixty-seven cents on every twenty dollars, before interest.
+Just one quarter earlier, from April to June, it actually made a profit. About one dollar and sixty-nine cents for every twenty.
+The difference? Expensive extra computers, and those donations.
+@scene h
+Anthropic also has a lot of cash in the bank, from all the money it raised. And that cash earns interest.
+About one dollar forty-seven for every twenty dollars of revenue. So before the accounting items, Anthropic was actually about eighty cents ahead.
+@scene i
+So why does the headline say Anthropic lost twenty-three billion dollars in one quarter?
+That is about twenty-seven dollars and forty-seven cents for every twenty you paid.
+The answer is mostly accounting. Anthropic owed money to investors through special notes that turn into shares.
+As the company became more valuable, those notes became more valuable too. And that shows up as a loss on paper.
+In other words, a big part of that loss exists because Anthropic got more successful. No cash left the company for it.
+@scene j
+But there is a real risk too. Anthropic has promised to spend about nine hundred billion dollars on computers and data centers, through twenty forty-five.
+More than seventy billion of that is due in the next twelve months.
+That only works if people and businesses keep paying more and more. If growth slows down, those bills do not.
+@scene k
+So, here is the receipt for your Claude subscription.
+You paid twenty dollars.
+Eleven sixty-three for computers. Two dollars for people. Two seventy-eight for sales and partners. Two thirty-six for charity. One eighty-seven for everything else.
+Result: Anthropic lost about sixty-seven cents on your twenty dollars. And earned back about a dollar forty-seven in interest.
+@scene l
+So next time you ask Claude a question, remember. Most of your money goes straight into computers.
+What should we put on the receipt next? Your iPhone? Netflix? Spotify? Tell us in the comments.
+And subscribe, so you do not miss the next receipt.

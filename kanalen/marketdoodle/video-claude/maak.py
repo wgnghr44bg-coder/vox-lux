@@ -1,0 +1,161 @@
+"""Market Doodle video 2: "How much does Anthropic make from my Claude subscription?" (22 nov 2026). Cijfers + bronnen: bronnen.md
+  python maak.py -> scene.json"""
+import json, re
+Z = json.load(open("zinnen.json", encoding="utf-8")); s = [z[0] for z in Z]; e = [z[1] for z in Z]
+W = json.load(open("woorden.json", encoding="utf-8"))
+def kw(zin, woord, na=0.15):
+    for i, w, t0, t1 in W:
+        if i == zin and re.sub(r"[^\w$%.\-]", "", w.lower()).startswith(woord.lower()): return round(t0 + na, 2)
+    print("LET OP: woord niet gevonden:", zin, woord); return s[zin] + 0.2
+A = "afbeeldingen/"; L = "logos/"
+BL, RO, GR, IN = [25, 55, 120], [214, 32, 39], [46, 150, 84], [30, 30, 30]
+it = []
+GRENS = [0, 3, 7, 11, 15, 17, 20, 24, 26, 28, 31, 34, 38]
+borden = [0.0] + [s[i] - 0.3 for i in GRENS[1:]]
+def b(k, naam, x, y, br, h, t0, dur=1.2):
+    it.append({"bord": k, "beeld": A + naam + ".png", "x": x, "y": y, "breed": br, "hoog": h, "midden": True, "start": t0 - 0.3, "doel": t0, "teken": min(dur, 1.3), "kleur": 0.5})
+def tx(k, t, x, y, maat, kl, t0, dur=0.6): it.append({"bord": k, "tekst": t, "x": x, "y": y, "maat": maat, "kleur": kl, "start": t0 - 0.15, "doel": t0, "teken": min(dur, 0.7)})
+def kop(k, titel): it.append({"bord": k, "kop": titel, "rechts": "Not financial advice", "start": borden[k]})
+def lg(k, naam, x, y, h, t0): it.append({"bord": k, "logo": L + naam + ".png", "x": x, "y": y, "hoog": h, "start": t0 - 0.2, "doel": t0})
+def streep(k, x0, y, x1, t0, kl=IN): it.append({"bord": k, "streep": [x0, y, x1], "kleur": kl, "dik": 4, "start": t0, "teken": 0.6})
+def pijl(k, x0, y0, x1, y1, t0, kl=IN): it.append({"bord": k, "pijl": [x0, y0, x1, y1], "kleur": kl, "dik": 6, "start": t0, "teken": 0.5})
+def over(k, bedrag, t0): tx(k, f"left: {bedrag}", 820, 600, 46, GR, t0)
+
+
+def bron(k, t, t0): tx(k, t, 70, 640, 24, IN, t0, 0.4)
+# 0 jouw abonnement
+kop(0, "Your Claude subscription")
+b(0, "n_chat", 40, 100, 340, 260, kw(0, "claude", -0.3))
+tx(0, "$20 / month", 410, 120, 96, GR, kw(0, "$20", -0.1), 0.6)
+tx(0, "Claude Pro", 420, 240, 44, IN, kw(0, "pro", -0.2))
+b(0, "p_denk", 1020, 280, 230, 400, kw(1, "question", -0.3))
+b(0, "p_wolk2", 470, 300, 520, 270, kw(1, "anthropic", -0.4))
+tx(0, "spoiler:", 40, 420, 44, RO, kw(2, "spoiler", -0.2))
+tx(0, "on paper: a loss!", 40, 480, 46, RO, kw(2, "paper", -0.2))
+tx(0, "...not the whole story", 40, 560, 36, IN, kw(2, "story", -0.4))
+# 1 beursgang
+kop(1, "Now we can check")
+b(1, "n_beurs", 40, 110, 320, 290, kw(4, "public", -0.3))
+lg(1, "anthropic", 400, 120, 46, kw(3, "anthropic", -0.2))
+tx(1, "private... until Nov 19", 400, 190, 44, IN, kw(4, "november", -0.3))
+tx(1, "$83 a share", 400, 260, 60, BL, kw(4, "$83", -0.2))
+tx(1, "$81 billion+ raised", 400, 340, 66, GR, kw(4, "$81", -0.2), 0.6)
+b(1, "n_prospectus", 40, 430, 300, 190, kw(5, "prospectus", -0.4))
+tx(1, "so we read the prospectus", 380, 460, 44, BL, kw(5, "read", -0.2))
+tx(1, "we use Claude too -> official numbers only", 380, 540, 34, IN, kw(6, "ourselves", -0.3))
+# 2 omzet
+kop(2, "Last quarter")
+lg(2, "anthropic", 60, 110, 44, kw(7, "anthropic", -0.2))
+tx(2, "$17.0 billion", 60, 180, 100, BL, kw(7, "17", -0.2), 0.7)
+tx(2, "came in, Jul - Sep 2026", 70, 300, 40, IN, kw(7, "billion"))
+b(2, "n_groei", 760, 100, 440, 300, kw(8, "earlier", -0.3))
+tx(2, "a year earlier: $1.4 billion", 60, 380, 44, IN, kw(8, "earlier", -0.1))
+tx(2, "+1,127%", 60, 440, 90, GR, kw(8, "growth", -0.1), 0.6)
+tx(2, "from subscriptions? not disclosed", 60, 570, 36, RO, kw(9, "subscriptions", -0.3))
+tx(2, "-> company average,", 700, 440, 42, BL, kw(10, "average", -0.4))
+tx(2, "followed per $20", 720, 495, 42, BL, kw(10, "$20", -0.3))
+# 3 computers
+kop(3, "#1 Computers")
+b(3, "r_helm", 30, 110, 290, 460, kw(11, "computers", -0.3))
+b(3, "n_datacenter", 340, 100, 360, 260, kw(12, "data", -0.3))
+tx(3, "~$11.63", 740, 120, 110, RO, kw(13, "$11", -0.2), 0.6)
+tx(3, "of your $20", 750, 250, 44, IN, kw(13, "20", -0.3))
+tx(3, "rented from cloud companies,", 340, 390, 36, IN, kw(12, "rents", -0.2))
+tx(3, "bought far in advance", 340, 435, 36, IN, kw(12, "advance", -0.4))
+b(3, "n_duur", 340, 490, 220, 150, kw(14, "extra", -0.3))
+tx(3, "$5B short-term = extra expensive", 590, 515, 36, RO, kw(14, "$5", -0.2))
+tx(3, "costs more than long contracts", 590, 570, 32, IN, kw(14, "contracts", -0.6))
+# 4 mensen + verkoop
+kop(4, "#2 People, #3 Sales")
+b(4, "r_lab", 30, 110, 280, 460, kw(15, "people", -0.3))
+b(4, "n_bureau", 330, 100, 300, 230, kw(15, "researchers", -0.3))
+tx(4, "~$2.02", 680, 130, 100, RO, kw(15, "two", -0.2), 0.6)
+tx(4, "researchers & engineers", 690, 245, 40, IN, kw(15, "engineers", -0.3))
+b(4, "n_puzzel", 330, 400, 300, 200, kw(16, "sales", -0.3))
+tx(4, "~$2.78", 680, 400, 100, RO, kw(16, "$2", -0.2), 0.6)
+tx(4, "sales, marketing, partners", 690, 515, 40, IN, kw(16, "partners", -0.3))
+# 5 goed doel + rest
+kop(5, "A surprise")
+b(5, "n_hart", 40, 100, 340, 260, kw(17, "charity", -0.4))
+tx(5, "~$2.36 to charity", 420, 120, 70, RO, kw(17, "$2", -0.2), 0.6)
+tx(5, "employees pledge shares", 430, 215, 38, IN, kw(18, "employees", -0.1))
+tx(5, "matched with new shares", 430, 265, 38, IN, kw(18, "matches", -0.2))
+tx(5, "$2 billion last quarter", 430, 315, 38, RO, kw(18, "$2", -0.2))
+tx(5, "on paper: no cash left", 430, 362, 38, GR, kw(18, "paper", -0.2))
+b(5, "n_kosten2", 40, 400, 300, 210, kw(19, "card", -0.3))
+tx(5, "~$1.87 everything else", 400, 430, 50, RO, kw(19, "$1", -0.2), 0.6)
+tx(5, "card fees, software, offices", 410, 515, 36, IN, kw(19, "fees", -0.3))
+b(5, "p_juich", 1030, 260, 230, 380, kw(17, "surprise", -0.2))
+# 6 optellen
+kop(6, "Add it all up")
+tx(6, "you paid: $20.00", 60, 110, 60, BL, kw(20, "$20", -0.2))
+tx(6, "they spent: $20.67", 60, 190, 60, RO, kw(20, "spent", -0.1))
+tx(6, "= -$0.67", 60, 280, 120, RO, kw(21, "$0", -0.2), 0.6)
+tx(6, "per $20, before interest", 70, 435, 36, IN, kw(21, "interest", -0.4))
+tx(6, "Apr - Jun: +$1.69 profit", 60, 490, 56, GR, kw(22, "profit", -0.3))
+tx(6, "why worse? extra computers + donations", 60, 580, 36, BL, kw(23, "difference", -0.2))
+b(6, "p_denk", 1020, 260, 230, 400, kw(21, "lost", -0.2))
+# 7 rente
+kop(7, "The cash pile")
+b(7, "n_spaarvarken", 40, 110, 340, 290, kw(24, "cash", -0.3))
+tx(7, "from the money it raised", 420, 130, 40, IN, kw(24, "raised", -0.3))
+tx(7, "+$1.47 interest", 420, 200, 72, GR, kw(25, "$1", -0.2), 0.6)
+tx(7, "-> about +$0.80", 420, 330, 70, GR, kw(25, "$0", -0.3), 0.6)
+tx(7, "(before accounting items)", 430, 450, 36, IN, kw(25, "accounting", -0.3))
+b(7, "p_geld", 1040, 260, 230, 380, kw(24, "interest", -0.2))
+# 8 de krantenkop
+kop(8, "The headline")
+tx(8, "\"Anthropic lost $23 billion\"", 60, 140, 66, RO, kw(26, "lost", -0.3), 0.6)
+tx(8, "in one quarter?", 70, 250, 50, IN, kw(26, "quarter", -0.3))
+tx(8, "= -$27.47 per $20", 60, 360, 84, RO, kw(27, "$27", -0.2), 0.6)
+b(8, "p_schrik", 1010, 240, 240, 420, kw(26, "headline", -0.2))
+# 9 vooral boekhouding
+kop(9, "Mostly accounting")
+b(9, "n_notes", 40, 110, 380, 280, kw(28, "notes", -0.4))
+tx(9, "notes that turn into shares", 450, 130, 44, IN, kw(28, "notes", -0.1))
+tx(9, "company worth more", 450, 210, 44, GR, kw(29, "valuable", -0.4))
+tx(9, "-> notes worth more", 450, 270, 44, IN, kw(29, "notes", -0.2))
+tx(9, "= loss on paper", 450, 350, 70, RO, kw(29, "paper", -0.3), 0.6)
+tx(9, "because it got more successful", 40, 480, 46, GR, kw(30, "successful", -0.4))
+tx(9, "no cash left for it", 40, 560, 46, BL, kw(30, "cash", -0.2))
+bron(9, "official: Anthropic prospectus (Nov 2026), Q3 2026, GAAP", kw(30, "words", -0.2))
+# 10 het echte risico
+kop(10, "The real risk")
+b(10, "n_servers", 40, 110, 420, 260, kw(31, "computers", -0.3))
+tx(10, "~$900 billion promised", 500, 130, 66, RO, kw(31, "$900", -0.2), 0.6)
+tx(10, "for computers, through 2045", 510, 230, 40, IN, kw(31, "2045", -0.3))
+tx(10, "$70 billion+ due in 12 months", 500, 300, 50, RO, kw(32, "70", -0.2))
+tx(10, "only works if customers keep paying more", 40, 410, 40, IN, kw(33, "works", -0.3))
+tx(10, "growth slows -> bills don't", 40, 480, 60, BL, kw(33, "slows", -0.3))
+bron(10, "official: Anthropic prospectus, commitments as of Sep 30, 2026", kw(31, "promised", -0.2))
+# 11 de bon
+kop(11, "Your receipt")
+t0 = kw(34, "receipt", -0.4)
+b(11, "n_bon", 70, 60, 470, 630, t0 - 0.2, 0.8)
+tx(11, "Claude Pro, 1 month", 105, 100, 30, IN, t0 + 0.3)
+lg(11, "anthropic", 105, 148, 20, t0 + 0.5)
+tx(11, "you pay", 105, 180, 28, IN, kw(35, "paid", -0.2), 0.3); tx(11, "20.00", 410, 180, 28, BL, kw(35, "$20", -0.2), 0.3)
+rij = [("computers", "-11.63", "$11"), ("people", "-2.02", "people"), ("sales & partners", "-2.78", "sales"), ("charity (shares)", "-2.36", "charity"), ("everything else", "-1.87", "everything")]
+for n, (lab, bed, w) in enumerate(rij):
+    tx(11, lab, 105, 222 + n * 40, 28, IN, kw(36, w, -0.3), 0.3); tx(11, bed, 400, 222 + n * 40, 28, RO, kw(36, w, -0.3), 0.3)
+streep(11, 105, 428, 490, kw(36, "else", 0.2))
+tx(11, "Anthropic", 105, 445, 34, RO, kw(37, "lost", -0.3), 0.3); tx(11, "-0.67", 400, 445, 32, RO, kw(37, "$0", -0.3), 0.3)
+tx(11, "+ interest", 105, 500, 28, GR, kw(37, "earned", -0.2), 0.3); tx(11, "+1.47", 400, 500, 28, GR, kw(37, "earned", -0.2), 0.3)
+tx(11, "Q3 2026 company averages,", 105, 580, 20, IN, kw(37, "interest", 0.3), 0.3)
+tx(11, "GAAP, rounded", 105, 606, 20, IN, kw(37, "interest", 0.5), 0.3)
+b(11, "p_lijst", 660, 90, 330, 390, t0 + 0.4)
+tx(11, "most of it:", 640, 500, 50, IN, kw(36, "computers", -0.3))
+tx(11, "computers", 640, 565, 60, RO, kw(36, "computers", 0.1))
+# 12 volgende
+kop(12, "What's next?")
+tx(12, "most of your money", 60, 120, 52, BL, kw(38, "money", -0.4))
+tx(12, "goes into computers", 60, 190, 52, RO, kw(38, "computers", -0.4))
+b(12, "n_vraag", 60, 300, 380, 280, kw(39, "next", -0.3))
+tx(12, "iPhone?", 480, 320, 50, IN, kw(39, "iphone", -0.2))
+tx(12, "Netflix?", 480, 385, 50, IN, kw(39, "netflix", -0.2))
+tx(12, "Spotify?", 480, 450, 50, IN, kw(39, "spotify", -0.2))
+tx(12, "-> tell us in the comments", 480, 530, 34, GR, kw(39, "comments", -0.4))
+b(12, "p_yt", 1010, 250, 250, 400, kw(40, "subscribe", -0.4))
+json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0, "items": it},
+          open("scene.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+print(len(it), "items,", len(borden), "borden")

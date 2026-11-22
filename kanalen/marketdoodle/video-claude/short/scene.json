@@ -1,0 +1,441 @@
+{
+"duur": 39.83,
+"borden": [
+0.0,
+8.100999999999999,
+17.474999999999998,
+30.894
+],
+"schuif": 0,
+"zoom": 0,
+"items": [
+{
+"bord": 0,
+"kop": "My Claude subscription",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_chat.png",
+"x": 140,
+"y": 170,
+"breed": 800,
+"hoog": 420,
+"midden": true,
+"start": 1.44,
+"doel": 1.74,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"tekst": "$20 / month",
+"x": 140,
+"y": 640,
+"maat": 140,
+"kleur": [
+46,
+150,
+84
+],
+"start": 0.44999999999999996,
+"doel": 0.6,
+"teken": 0.6
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_wolk2.png",
+"x": 60,
+"y": 850,
+"breed": 960,
+"hoog": 520,
+"midden": true,
+"start": 3.12,
+"doel": 3.42,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_denk.png",
+"x": 330,
+"y": 1330,
+"breed": 420,
+"hoog": 560,
+"midden": true,
+"start": 5.2,
+"doel": 5.5,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 1,
+"kop": "Where does my $20 go?",
+"rechts": "Not financial advice",
+"start": 8.100999999999999
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/r_helm.png",
+"x": 40,
+"y": 170,
+"breed": 340,
+"hoog": 520,
+"midden": true,
+"start": 7.7,
+"doel": 8.0,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "computers",
+"x": 420,
+"y": 270,
+"maat": 70,
+"kleur": [
+30,
+30,
+30
+],
+"start": 8.6,
+"doel": 8.3,
+"teken": 0.3
+},
+{
+"bord": 1,
+"tekst": "~$11.63",
+"x": 400,
+"y": 360,
+"maat": 125,
+"kleur": [
+214,
+32,
+39
+],
+"start": 9.03,
+"doel": 9.18,
+"teken": 0.6
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/r_lab.png",
+"x": 40,
+"y": 760,
+"breed": 320,
+"hoog": 500,
+"midden": true,
+"start": 11.77,
+"doel": 12.07,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "people",
+"x": 420,
+"y": 850,
+"maat": 70,
+"kleur": [
+30,
+30,
+30
+],
+"start": 12.67,
+"doel": 12.37,
+"teken": 0.3
+},
+{
+"bord": 1,
+"tekst": "~$2.02",
+"x": 420,
+"y": 940,
+"maat": 150,
+"kleur": [
+214,
+32,
+39
+],
+"start": 13.07,
+"doel": 12.99,
+"teken": 0.3
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_puzzel.png",
+"x": 40,
+"y": 1330,
+"breed": 340,
+"hoog": 240,
+"midden": true,
+"start": 13.47,
+"doel": 13.75,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "sales & partners",
+"x": 420,
+"y": 1330,
+"maat": 64,
+"kleur": [
+30,
+30,
+30
+],
+"start": 14.37,
+"doel": 14.05,
+"teken": 0.3
+},
+{
+"bord": 1,
+"tekst": "~$2.78",
+"x": 420,
+"y": 1420,
+"maat": 150,
+"kleur": [
+214,
+32,
+39
+],
+"start": 14.94,
+"doel": 15.09,
+"teken": 0.6
+},
+{
+"bord": 2,
+"kop": "And the rest?",
+"rechts": "Not financial advice",
+"start": 17.474999999999998
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_hart.png",
+"x": 60,
+"y": 170,
+"breed": 420,
+"hoog": 320,
+"midden": true,
+"start": 17.07,
+"doel": 17.37,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 2,
+"tekst": "charity (shares)",
+"x": 520,
+"y": 220,
+"maat": 60,
+"kleur": [
+30,
+30,
+30
+],
+"start": 17.97,
+"doel": 17.67,
+"teken": 0.3
+},
+{
+"bord": 2,
+"tekst": "~$2.36",
+"x": 520,
+"y": 300,
+"maat": 130,
+"kleur": [
+214,
+32,
+39
+],
+"start": 19.5,
+"doel": 19.65,
+"teken": 0.6
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_kosten2.png",
+"x": 60,
+"y": 560,
+"breed": 420,
+"hoog": 300,
+"midden": true,
+"start": 20.349999999999998,
+"doel": 20.65,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 2,
+"tekst": "everything else",
+"x": 520,
+"y": 600,
+"maat": 60,
+"kleur": [
+30,
+30,
+30
+],
+"start": 21.25,
+"doel": 20.95,
+"teken": 0.3
+},
+{
+"bord": 2,
+"tekst": "~$1.87",
+"x": 520,
+"y": 680,
+"maat": 130,
+"kleur": [
+214,
+32,
+39
+],
+"start": 21.68,
+"doel": 21.83,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "Anthropic: -$0.67",
+"x": 60,
+"y": 1000,
+"maat": 92,
+"kleur": [
+214,
+32,
+39
+],
+"start": 24.060000000000002,
+"doel": 24.21,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "per $20",
+"x": 90,
+"y": 1140,
+"maat": 70,
+"kleur": [
+30,
+30,
+30
+],
+"start": 26.0,
+"doel": 26.15,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "+ interest: back above 0",
+"x": 80,
+"y": 1300,
+"maat": 76,
+"kleur": [
+46,
+150,
+84
+],
+"start": 27.46,
+"doel": 27.61,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "~ = Q3 2026 company averages (Anthropic prospectus)",
+"x": 60,
+"y": 1800,
+"maat": 34,
+"kleur": [
+30,
+30,
+30
+],
+"start": 18.37,
+"doel": 17.92,
+"teken": 0.3
+},
+{
+"bord": 3,
+"kop": "But on paper...",
+"rechts": "Not financial advice",
+"start": 30.894
+},
+{
+"bord": 3,
+"tekst": "-$23 billion",
+"x": 50,
+"y": 220,
+"maat": 140,
+"kleur": [
+214,
+32,
+39
+],
+"start": 32.08,
+"doel": 32.23,
+"teken": 0.7
+},
+{
+"bord": 3,
+"tekst": "in one quarter?!",
+"x": 90,
+"y": 420,
+"maat": 90,
+"kleur": [
+30,
+30,
+30
+],
+"start": 34.120000000000005,
+"doel": 34.27,
+"teken": 0.37
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/p_schrik.png",
+"x": 290,
+"y": 600,
+"breed": 500,
+"hoog": 760,
+"midden": true,
+"start": 34.59,
+"doel": 34.89,
+"teken": 1.16,
+"kleur": 0.4
+},
+{
+"bord": 3,
+"tekst": "full breakdown",
+"x": 120,
+"y": 1450,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 36.1,
+"doel": 36.25,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "on the channel",
+"x": 120,
+"y": 1560,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 36.9,
+"doel": 37.05,
+"teken": 0.6
+}
+],
+"W": 1080,
+"H": 1920
+}

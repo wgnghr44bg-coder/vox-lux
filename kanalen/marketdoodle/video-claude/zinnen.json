@@ -1,0 +1,248 @@
+[
+[
+0.5,
+5.961,
+"You pay twenty dollars a month for Claude Pro. It helps you write, code, and think.",
+"a"
+],
+[
+6.661,
+13.226,
+"But every month, the same question pops up. How much is Anthropic actually earning on my subscription?",
+"a"
+],
+[
+14.226,
+21.919,
+"Here is the spoiler. On paper, Anthropic is losing money on you. A lot of money. But that is not the whole story.",
+"a"
+],
+[
+23.219,
+27.79,
+"Until this week, nobody could check. Anthropic was a private company.",
+"b"
+],
+[
+28.49,
+37.92,
+"But on November nineteenth, Anthropic went public. It sold shares at eighty-three dollars each and raised more than eighty-one billion dollars.",
+"b"
+],
+[
+38.62,
+43.463,
+"And to do that, it had to publish its numbers. So we read the prospectus.",
+"b"
+],
+[
+44.163,
+49.12,
+"One thing first. We use Claude ourselves, so we will stick to the official numbers only.",
+"b"
+],
+[
+50.42,
+56.141,
+"Last quarter, from July to September, Anthropic took in seventeen billion dollars.",
+"c"
+],
+[
+56.841,
+63.588,
+"A year earlier, it was one point four billion. That is growth of more than one thousand percent in one year.",
+"c"
+],
+[
+64.288,
+70.823,
+"Anthropic does not say how much of that comes from subscriptions like yours. Most of it comes from businesses.",
+"c"
+],
+[
+71.523,
+74.917,
+"So we take the company's average, and follow your twenty dollars through it.",
+"c"
+],
+[
+76.217,
+79.197,
+"The first stop is the biggest by far. Computers.",
+"d"
+],
+[
+79.897,
+89.044,
+"Every question you ask runs on huge data centers full of AI chips. Anthropic rents that power from cloud companies and buys it far in advance.",
+"d"
+],
+[
+89.744,
+93.531,
+"That costs about eleven dollars and sixty-three cents of your twenty.",
+"d"
+],
+[
+94.231,
+105.596,
+"And some of it was extra expensive. Last quarter, Anthropic bought five billion dollars of short-term computing power, which costs a lot more than its long contracts.",
+"d"
+],
+[
+106.896,
+113.538,
+"Next, the people. Researchers and engineers who build and train the models. That is about two dollars.",
+"e"
+],
+[
+114.238,
+121.507,
+"Then sales, marketing, and partners who sell Claude to businesses. About two dollars and seventy-eight cents.",
+"e"
+],
+[
+122.807,
+126.53,
+"Now a surprise. About two dollars and thirty-six cents went to charity.",
+"f"
+],
+[
+127.23,
+139.403,
+"When employees pledge part of their shares to charity, Anthropic matches it with new shares of its own. Last quarter, that cost two billion dollars, on paper. No cash left the company for it.",
+"f"
+],
+[
+140.103,
+147.168,
+"And then the rest. Card payment fees, software, offices, and other costs. About one dollar eighty-seven.",
+"f"
+],
+[
+148.468,
+154.026,
+"So add it all up. Of your twenty dollars, Anthropic spent about twenty dollars and sixty-seven cents.",
+"g"
+],
+[
+154.726,
+159.941,
+"That means it lost about sixty-seven cents on every twenty dollars, before interest.",
+"g"
+],
+[
+160.641,
+168.587,
+"Just one quarter earlier, from April to June, it actually made a profit. About one dollar and sixty-nine cents for every twenty.",
+"g"
+],
+[
+169.287,
+173.671,
+"The difference? Expensive extra computers, and those donations.",
+"g"
+],
+[
+174.971,
+181.73,
+"Anthropic also has a lot of cash in the bank, from all the money it raised. And that cash earns interest.",
+"h"
+],
+[
+182.43,
+191.488,
+"About one dollar forty-seven for every twenty dollars of revenue. So before the accounting items, Anthropic was actually about eighty cents ahead.",
+"h"
+],
+[
+192.788,
+198.952,
+"So why does the headline say Anthropic lost twenty-three billion dollars in one quarter?",
+"i"
+],
+[
+199.952,
+204.285,
+"That is about twenty-seven dollars and forty-seven cents for every twenty you paid.",
+"i"
+],
+[
+204.985,
+211.88,
+"The answer is mostly accounting. Anthropic owed money to investors through special notes that turn into shares.",
+"i"
+],
+[
+212.58,
+219.619,
+"As the company became more valuable, those notes became more valuable too. And that shows up as a loss on paper.",
+"i"
+],
+[
+220.319,
+227.692,
+"In other words, a big part of that loss exists because Anthropic got more successful. No cash left the company for it.",
+"i"
+],
+[
+228.992,
+238.258,
+"But there is a real risk too. Anthropic has promised to spend about nine hundred billion dollars on computers and data centers, through twenty forty-five.",
+"j"
+],
+[
+238.958,
+243.119,
+"More than seventy billion of that is due in the next twelve months.",
+"j"
+],
+[
+243.819,
+250.613,
+"That only works if people and businesses keep paying more and more. If growth slows down, those bills do not.",
+"j"
+],
+[
+251.913,
+255.438,
+"So, here is the receipt for your Claude subscription.",
+"k"
+],
+[
+256.138,
+257.293,
+"You paid twenty dollars.",
+"k"
+],
+[
+257.993,
+269.27,
+"Eleven sixty-three for computers. Two dollars for people. Two seventy-eight for sales and partners. Two thirty-six for charity. One eighty-seven for everything else.",
+"k"
+],
+[
+269.97,
+279.037,
+"Result: Anthropic lost about sixty-seven cents on your twenty dollars. And earned back about a dollar forty-seven in interest.",
+"k"
+],
+[
+280.337,
+286.323,
+"So next time you ask Claude a question, remember. Most of your money goes straight into computers.",
+"l"
+],
+[
+287.023,
+293.369,
+"What should we put on the receipt next? Your iPhone? Netflix? Spotify? Tell us in the comments.",
+"l"
+],
+[
+294.069,
+297.296,
+"And subscribe, so you do not miss the next receipt.",
+"l"
+]
+]
