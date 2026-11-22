@@ -1,0 +1,21 @@
+# Proef "beurs-stad" (22 nov 2026): elk bedrijf een toren; hoogte = koers t.o.v. de top van 6 okt (slotkoersen, engine/src/ai/data/stad.json). Feiten: kanalen/marketdoodle/video1/bronnen.md
+@scene a
+This is the stock market, as a city.
+Every tower is a company.
+On October sixth, the tech towers stood at a record.
+@scene b
+Six weeks later, this is what is left.
+Meta, down twenty-four percent. Alphabet, down twenty-four.
+And the tallest tower of the AI boom, Nvidia, lost almost half of its height.
+About two and a half trillion dollars, gone.
+@scene c
+Then, on Thursday, a giant new tower went up. Anthropic.
+On its first day, it shot up to one hundred fifteen dollars.
+One day later, it sank back to eighty-nine.
+@scene d
+And above the city, a storm is building.
+Interest rates above five percent. Computers that sell automatically.
+@scene e
+So is the AI city falling apart?
+Or is this the moment to look for bargains?
+Let me know in the comments.
