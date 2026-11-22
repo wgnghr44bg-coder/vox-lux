@@ -1,186 +1,9 @@
 {
- "bijgewerkt": "2026-11-22 23:33",
+ "bijgewerkt": "2026-11-23 00:03",
  "kanalen": {
   "weken": [
    {
     "label": "Deze week",
-    "van": "2026-11-16",
-    "tot": "2026-11-22",
-    "week": 47,
-    "dagen": [
-     {
-      "datum": "2026-11-16",
-      "items": []
-     },
-     {
-      "datum": "2026-11-17",
-      "items": [
-       {
-        "kanaal": "Sleep Archives",
-        "datum": "2026-11-17",
-        "tijd": "21:00",
-        "titel": "A Year in the Great Depression, 1933",
-        "stand": "online",
-        "youtube": "YZ4sZ_EivLc"
-       }
-      ]
-     },
-     {
-      "datum": "2026-11-18",
-      "items": []
-     },
-     {
-      "datum": "2026-11-19",
-      "items": [
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-19",
-        "tijd": "17:03",
-        "titel": "The Man Who Built NVIDIA Just Walked Away",
-        "stand": "online",
-        "youtube": "ioMjKb2_dVI"
-       },
-       {
-        "kanaal": "NOIRTRACES",
-        "datum": "2026-11-19",
-        "tijd": "18:00",
-        "titel": "Who Was Jack the Ripper? | True Crime for Sleep",
-        "stand": "online",
-        "youtube": "AXKM1BEMq10"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-19",
-        "tijd": "19:54",
-        "titel": "Short: Nvidia Lost $1 Trillion While Making Record Money",
-        "stand": "online",
-        "youtube": "5ukyRWt9qUw"
-       }
-      ]
-     },
-     {
-      "datum": "2026-11-20",
-      "items": [
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-20",
-        "tijd": "07:48",
-        "titel": "Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
-        "stand": "online",
-        "youtube": "5C2MIFhR314"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-20",
-        "tijd": "13:34",
-        "titel": "Short: Anthropic Just Had the Biggest IPO Ever",
-        "stand": "online",
-        "youtube": "Lnkr1eh77Dg"
-       }
-      ]
-     },
-     {
-      "datum": "2026-11-21",
-      "items": [
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-21",
-        "tijd": "15:00",
-        "titel": "Why Is Take-Two's Stock Falling After GTA 6?",
-        "stand": "online",
-        "youtube": "GEktvTAsVIw"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-21",
-        "tijd": "17:00",
-        "titel": "Short: GTA 6 Broke Records. So Why Did the Stock Fall?",
-        "stand": "online",
-        "youtube": "HWcKzzN7PzI"
-       },
-       {
-        "kanaal": "NOIRTRACES",
-        "datum": "2026-11-21",
-        "tijd": "18:02",
-        "titel": "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?",
-        "stand": "online",
-        "youtube": "YgXL2OZszm8"
-       },
-       {
-        "kanaal": "NOIRTRACES",
-        "datum": "2026-11-21",
-        "tijd": "19:33",
-        "titel": "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel?",
-        "stand": "online",
-        "youtube": "VWRYOyA7Ao4"
-       },
-       {
-        "kanaal": "Sleep Archives",
-        "datum": "2026-11-21",
-        "tijd": "21:00",
-        "titel": "The First Thanksgiving, Plymouth 1621",
-        "stand": "online",
-        "youtube": "KU6eoe5vy-U"
-       }
-      ]
-     },
-     {
-      "datum": "2026-11-22",
-      "items": [
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-22",
-        "tijd": "04:31",
-        "titel": "The Nasdaq Just Erased All of 2026. Is This 2000 Again?",
-        "stand": "online",
-        "youtube": "ky4IxJH52ac"
-       },
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-22",
-        "tijd": "04:32",
-        "titel": "The Nasdaq Just Erased 2026. Is This the Dot-Com Crash Again? #shorts",
-        "stand": "online",
-        "youtube": "ykGCjh7bDq4"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-22",
-        "tijd": "15:00",
-        "titel": "Microsoft, JPMorgan and the FAA All Went Down. It Wasn't Hackers",
-        "stand": "online",
-        "youtube": "nMqDK9HAAcA"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-22",
-        "tijd": "17:00",
-        "titel": "Short: Microsoft, JPMorgan and the FAA All Went Down in One Week",
-        "stand": "online",
-        "youtube": "l3tU0GKVldM"
-       },
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-22",
-        "tijd": "19:23",
-        "titel": "How Much Did Rockstar Earn From My GTA 6 Purchase?",
-        "stand": "online",
-        "youtube": "hk81h46vHwA"
-       },
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-22",
-        "tijd": "19:23",
-        "titel": "How Much Did Rockstar Earn From My GTA 6 Purchase?",
-        "stand": "online",
-        "youtube": "kpjmJy2dsRk"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "label": "Volgende week",
     "van": "2026-11-23",
     "tot": "2026-11-29",
     "week": 48,
@@ -363,6 +186,60 @@
         "stand": "nog kiezen"
        }
       ]
+     }
+    ]
+   },
+   {
+    "label": "Volgende week",
+    "van": "2026-11-30",
+    "tot": "2026-12-06",
+    "week": 49,
+    "dagen": [
+     {
+      "datum": "2026-11-30",
+      "items": []
+     },
+     {
+      "datum": "2026-12-01",
+      "items": []
+     },
+     {
+      "datum": "2026-12-02",
+      "items": [
+       {
+        "kanaal": "Sleep Archives",
+        "datum": "2026-12-02",
+        "tijd": "21:00",
+        "titel": "Life in Gettysburg, July 1863",
+        "stand": "gepland",
+        "youtube": "4i-gOILazVQ"
+       }
+      ]
+     },
+     {
+      "datum": "2026-12-03",
+      "items": []
+     },
+     {
+      "datum": "2026-12-04",
+      "items": []
+     },
+     {
+      "datum": "2026-12-05",
+      "items": [
+       {
+        "kanaal": "Sleep Archives",
+        "datum": "2026-12-05",
+        "tijd": "21:00",
+        "titel": "Life in Hawaii Before Pearl Harbor, 1941",
+        "stand": "wordt gemaakt",
+        "youtube": ""
+       }
+      ]
+     },
+     {
+      "datum": "2026-12-06",
+      "items": []
      }
     ]
    }
@@ -2545,7 +2422,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 23:33)"
+   "tekst": "draait nu (2026-11-23 00:03)"
   },
   {
    "naam": "Git",
@@ -2560,7 +2437,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2577,8 +2454,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 23:33",
-   "volgende": "2026-11-23 00:03"
+   "laatst": "2026-11-23 00:03",
+   "volgende": "2026-11-23 00:33"
   },
   "hype": {
    "aan": true,
@@ -2592,8 +2469,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-22 23:18",
-   "volgende": "2026-11-22 23:48"
+   "laatst": "2026-11-22 23:48",
+   "volgende": "2026-11-23 00:18"
   },
   "titels": {
    "aan": true,
@@ -2607,14 +2484,14 @@
   "views_totaal": 3274,
   "video_aantal": 18,
   "week": {
-   "views": 402,
-   "uren": 75,
+   "views": 334,
+   "uren": 63,
    "abonnees": 3
   },
   "vorige_week": {
-   "views": 681,
-   "uren": 176,
-   "abonnees": 5
+   "views": 673,
+   "uren": 175,
+   "abonnees": 4
   },
   "recent": [
    {
@@ -2695,7 +2572,7 @@
     "duur": "1:47:15",
     "privacy": "public",
     "publiceer": "2026-10-31T20:18:28Z",
-    "views": 349,
+    "views": 348,
     "verwerkt": "processed"
    },
    {
@@ -2704,16 +2581,11 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 867,
+    "views": 869,
     "verwerkt": "processed"
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-25",
-    "views": 147,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-26",
     "views": 240,
@@ -2846,13 +2718,13 @@
    }
   ],
   "maand": {
-   "views": 2413,
-   "uren": 498,
+   "views": 2266,
+   "uren": 470,
    "abonnees": 11
   },
   "vorige_maand": {
-   "views": 982,
-   "uren": 244,
+   "views": 1208,
+   "uren": 294,
    "abonnees": 6
   },
   "jaar": {
@@ -2862,18 +2734,18 @@
   },
   "top": [
    {
-    "id": "_4LgG7iUoy0",
-    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
-    "duur": "2:27:47",
-    "views": 828,
-    "uren": 182
-   },
-   {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
     "views": 791,
     "uren": 195
+   },
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "views": 697,
+    "uren": 156
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2890,10 +2762,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 16.8,
+   "tempo_uren_per_dag": 14.9,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-06-06",
-   "datum_abonnees": "2033-09-21"
+   "datum_uren": "2027-07-02",
+   "datum_abonnees": "2033-09-22"
   }
  },
  "kpi": {
@@ -2976,12 +2848,6 @@
  ],
  "week": [
   {
-   "datum": "2026-11-22",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-23",
    "plek": false,
    "video": "",
@@ -3016,6 +2882,12 @@
    "plek": true,
    "video": "How People Survived the Ice Age | History for Sleep",
    "soort": "gepland"
+  },
+  {
+   "datum": "2026-11-29",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
@@ -3106,8 +2978,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-22 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5312,7 +5184,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 23:34",
+  "bijgewerkt": "2026-11-23 00:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -5333,7 +5205,7 @@
    },
    {
     "account": "account2",
-    "5uur": 9103976,
+    "5uur": 7847297,
     "week": 135382939,
     "per_dag": {
      "Mon 16-11": 23020683,
@@ -5345,12 +5217,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 54662,
+    "stap_kost": 54896,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 67,
+    "5uur_pct": 58,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 82,
+    "5uur_stappen_over": 104,
     "week_pct": 103,
     "week_scripts_over": null,
     "week_stappen_over": 0
