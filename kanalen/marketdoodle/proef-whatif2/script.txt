@@ -1,0 +1,24 @@
+# What If-proef 2 (22 nov): verhaal-opbouw zoals de grote what-if kanalen. Regel = SPREKER|scene|tekst
+N|k1|It's 7:15 in the morning. You walk into the kitchen.
+N|k2|And above your dad's head, there's a glowing number.
+N|k3|Sixty-four thousand dollars.
+DAD|k4|Morning, buddy. Why are you staring at me?
+N|k5|Then your mom walks in. Ninety-one thousand.
+N|k6|Your dad sees you looking at it.
+DAD|k6|What? What's so funny?
+N|k7|Your little sister has one too. Five dollars. Per week.
+SIS|k8|Stop looking at my money!
+N|t1|So, what if you could see how much everyone earns?
+N|r1|Okay, rules. The number shows what someone makes in one year.
+N|r2|It works on everyone. Except you. In the mirror, there's nothing.
+N|b1|On the bus, it gets weird.
+N|b2|The driver: forty-eight thousand.
+N|b3|The quiet guy in the back, with the old hoodie: two point three million.
+N|f1|And here's the crazy part. In Norway, this is almost real.
+N|f2|Everyone's income is public. Anyone can look it up.
+N|s1|At school, your teacher writes on the board. Fifty-two thousand.
+N|s2|Then the principal walks past. One hundred forty thousand.
+N|s3|Your teacher sees you looking at both numbers.
+TEACH|s3|Eyes on the board, please.
+N|e1|Then your best friend's dad picks him up.
+N|e2|And the number above his head is zero. And it's blinking.

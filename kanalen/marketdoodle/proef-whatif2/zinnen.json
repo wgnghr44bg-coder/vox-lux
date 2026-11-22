@@ -1,0 +1,163 @@
+[
+[
+0.3,
+3.429,
+"It's 7:15 in the morning. You walk into the kitchen.",
+"k1",
+"N"
+],
+[
+3.879,
+6.328,
+"And above your dad's head, there's a glowing number.",
+"k2",
+"N"
+],
+[
+6.778,
+8.335,
+"Sixty-four thousand dollars.",
+"k3",
+"N"
+],
+[
+8.685,
+10.649,
+"Morning, buddy. Why are you staring at me?",
+"k4",
+"DAD"
+],
+[
+10.999,
+13.272,
+"Then your mom walks in. Ninety-one thousand.",
+"k5",
+"N"
+],
+[
+13.722,
+15.201,
+"Your dad sees you looking at it.",
+"k6",
+"N"
+],
+[
+15.551,
+17.032,
+"What? What's so funny?",
+"k6",
+"DAD"
+],
+[
+17.382,
+20.165,
+"Your little sister has one too. Five dollars. Per week.",
+"k7",
+"N"
+],
+[
+20.515,
+22.308,
+"Stop looking at my money!",
+"k8",
+"SIS"
+],
+[
+22.659,
+25.084,
+"So, what if you could see how much everyone earns?",
+"t1",
+"N"
+],
+[
+25.884,
+29.143,
+"Okay, rules. The number shows what someone makes in one year.",
+"r1",
+"N"
+],
+[
+29.593,
+33.026,
+"It works on everyone. Except you. In the mirror, there's nothing.",
+"r2",
+"N"
+],
+[
+33.476,
+34.901,
+"On the bus, it gets weird.",
+"b1",
+"N"
+],
+[
+35.351,
+37.041,
+"The driver: forty-eight thousand.",
+"b2",
+"N"
+],
+[
+37.491,
+41.219,
+"The quiet guy in the back, with the old hoodie: two point three million.",
+"b3",
+"N"
+],
+[
+41.669,
+44.617,
+"And here's the crazy part. In Norway, this is almost real.",
+"f1",
+"N"
+],
+[
+45.067,
+47.522,
+"Everyone's income is public. Anyone can look it up.",
+"f2",
+"N"
+],
+[
+47.972,
+51.245,
+"At school, your teacher writes on the board. Fifty-two thousand.",
+"s1",
+"N"
+],
+[
+51.695,
+54.726,
+"Then the principal walks past. One hundred forty thousand.",
+"s2",
+"N"
+],
+[
+55.176,
+57.461,
+"Your teacher sees you looking at both numbers.",
+"s3",
+"N"
+],
+[
+57.811,
+59.486,
+"Eyes on the board, please.",
+"s3",
+"TEACH"
+],
+[
+59.836,
+61.705,
+"Then your best friend's dad picks him up.",
+"e1",
+"N"
+],
+[
+62.155,
+65.088,
+"And the number above his head is zero. And it's blinking.",
+"e2",
+"N"
+]
+]
