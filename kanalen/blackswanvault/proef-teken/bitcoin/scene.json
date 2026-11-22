@@ -1,0 +1,500 @@
+{
+"duur": 96.89,
+"borden": [
+0.0,
+18.435,
+35.28,
+59.038000000000004,
+71.795,
+83.131
+],
+"schuif": 0,
+"zoom": 0.045,
+"items": [
+{
+"bord": 0,
+"kop": "Bitcoin fell below $60,000",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"logo": "logos/bitcoin.png",
+"x": 65,
+"y": 80,
+"hoog": 90,
+"start": 0.9200000000000002,
+"doel": 1.12
+},
+{
+"bord": 0,
+"tekst": "$58,450",
+"x": 175,
+"y": 95,
+"maat": 70,
+"kleur": [
+214,
+32,
+39
+],
+"start": 2.0900000000000003,
+"doel": 2.24,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "lowest since July",
+"x": 70,
+"y": 200,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 4.72,
+"doel": 4.87,
+"teken": 0.6
+},
+{
+"bord": 0,
+"data": "btc.json",
+"logo": "logos/bitcoin.png",
+"logohoog": 26,
+"onder": "closing price, US dollars",
+"taal": "en",
+"valuta": "$",
+"x": 560,
+"y": 75,
+"breed": 660,
+"hoog": 430,
+"start": 6.9,
+"doel": 7.35,
+"teken": 2.6
+},
+{
+"bord": 0,
+"tekst": "-53%",
+"x": 70,
+"y": 270,
+"maat": 110,
+"kleur": [
+214,
+32,
+39
+],
+"start": 13.709999999999999,
+"doel": 13.86,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "who is selling?",
+"x": 70,
+"y": 560,
+"maat": 56,
+"kleur": [
+25,
+55,
+120
+],
+"start": 15.6,
+"doel": 15.75,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "1. Bitcoin funds",
+"rechts": "Not financial advice",
+"start": 18.435
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_fonds.png",
+"x": 65,
+"y": 80,
+"breed": 320,
+"hoog": 290,
+"midden": true,
+"start": 19.31,
+"doel": 19.61,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 1,
+"logo": "logos/blackrock.png",
+"x": 440,
+"y": 95,
+"hoog": 38,
+"start": 24.96,
+"doel": 25.16
+},
+{
+"bord": 1,
+"tekst": "-$3.5B in November",
+"x": 440,
+"y": 160,
+"maat": 52,
+"kleur": [
+214,
+32,
+39
+],
+"start": 22.770000000000003,
+"doel": 22.92,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "Nov 19: -$541M",
+"x": 440,
+"y": 260,
+"maat": 48,
+"kleur": [
+214,
+32,
+39
+],
+"start": 28.55,
+"doel": 28.7,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "biggest daily outflow ever",
+"x": 440,
+"y": 335,
+"maat": 38,
+"kleur": [
+25,
+55,
+120
+],
+"start": 29.770000000000003,
+"doel": 29.92,
+"teken": 0.6
+},
+{
+"bord": 2,
+"kop": "2. Companies that hold bitcoin",
+"rechts": "Not financial advice",
+"start": 35.28
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_bedrijf.png",
+"x": 65,
+"y": 80,
+"breed": 250,
+"hoog": 260,
+"midden": true,
+"start": 35.92,
+"doel": 36.22,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"tekst": "Strategy: ~850,000 BTC",
+"x": 360,
+"y": 85,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 39.6,
+"doel": 39.75,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "paid ~$75,000 per coin",
+"x": 360,
+"y": 150,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 44.550000000000004,
+"doel": 44.7,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "Friday: $58,450",
+"x": 360,
+"y": 210,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 48.65,
+"doel": 48.8,
+"teken": 0.6
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_verlies.png",
+"x": 360,
+"y": 280,
+"breed": 280,
+"hoog": 240,
+"midden": true,
+"start": 49.760000000000005,
+"doel": 50.06,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_rente.png",
+"x": 720,
+"y": 290,
+"breed": 300,
+"hoog": 210,
+"midden": true,
+"start": 55.11,
+"doel": 55.41,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"tekst": "sold to pay interest (CNBC)",
+"x": 600,
+"y": 540,
+"maat": 36,
+"kleur": [
+214,
+32,
+39
+],
+"start": 56.660000000000004,
+"doel": 56.81,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "3. Traders who borrowed money",
+"rechts": "Not financial advice",
+"start": 59.038000000000004
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_kaarten.png",
+"x": 65,
+"y": 80,
+"breed": 300,
+"hoog": 270,
+"midden": true,
+"start": 59.82,
+"doel": 60.12,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "~$700M wiped out in 1 day",
+"x": 400,
+"y": 100,
+"maat": 48,
+"kleur": [
+214,
+32,
+39
+],
+"start": 63.67,
+"doel": 63.82,
+"teken": 0.6
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_handelaars.png",
+"x": 400,
+"y": 220,
+"breed": 450,
+"hoog": 280,
+"midden": true,
+"start": 65.12,
+"doel": 65.42,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "140,000+ traders",
+"x": 890,
+"y": 330,
+"maat": 34,
+"kleur": [
+214,
+32,
+39
+],
+"start": 68.35,
+"doel": 68.5,
+"teken": 0.6
+},
+{
+"bord": 4,
+"kop": "4. Investors chasing AI",
+"rechts": "Not financial advice",
+"start": 71.795
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_magneet.png",
+"x": 65,
+"y": 80,
+"breed": 460,
+"hoog": 340,
+"midden": true,
+"start": 73.45,
+"doel": 73.75,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"tekst": "“AI is sucking out every",
+"x": 560,
+"y": 120,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 76.3,
+"doel": 76.45,
+"teken": 0.7
+},
+{
+"bord": 4,
+"tekst": "marginal dollar away from crypto”",
+"x": 560,
+"y": 170,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 77.8,
+"doel": 77.95,
+"teken": 0.7
+},
+{
+"bord": 4,
+"tekst": "Jean-Marie Mognetti, CoinShares",
+"x": 580,
+"y": 250,
+"maat": 32,
+"kleur": [
+46,
+150,
+84
+],
+"start": 80.69999999999999,
+"doel": 80.85,
+"teken": 0.6
+},
+{
+"bord": 5,
+"kop": "What comes next",
+"rechts": "Not financial advice",
+"start": 83.131
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_7dagen.png",
+"x": 65,
+"y": 90,
+"breed": 420,
+"hoog": 110,
+"midden": true,
+"start": 84.37,
+"doel": 84.67,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 5,
+"tekst": "heading for a 7th weekly loss",
+"x": 65,
+"y": 230,
+"maat": 42,
+"kleur": [
+214,
+32,
+39
+],
+"start": 85.27,
+"doel": 85.33,
+"teken": 0.51
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_evenwicht.png",
+"x": 620,
+"y": 80,
+"breed": 420,
+"hoog": 260,
+"midden": true,
+"start": 88.94,
+"doel": 89.24,
+"teken": 1.08,
+"kleur": 0.4
+},
+{
+"bord": 5,
+"tekst": "a footing under $60,000?",
+"x": 640,
+"y": 370,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 90.36999999999999,
+"doel": 90.52,
+"teken": 0.6
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_vraag.png",
+"x": 65,
+"y": 380,
+"breed": 140,
+"hoog": 200,
+"midden": true,
+"start": 92.71000000000001,
+"doel": 93.01,
+"teken": 0.96,
+"kleur": 0.4
+},
+{
+"bord": 5,
+"tekst": "the bottom, or just the start?",
+"x": 230,
+"y": 460,
+"maat": 52,
+"kleur": [
+214,
+32,
+39
+],
+"start": 94.02,
+"doel": 94.17,
+"teken": 0.6
+}
+]
+}

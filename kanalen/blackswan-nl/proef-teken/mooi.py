@@ -108,7 +108,7 @@ class Lijn:
     """{"data": json, "logo": png, "onder": "slotkoers in euro", x, y, breed, hoog, start, teken}"""
     def __init__(self, it):
         self.it = it; self.p = koersen(it["data"]); v = [b for _, b in self.p]
-        lo, hi = min(v), max(v); stap = [s for s in (1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, 5000, 10000) if (hi - lo) / s <= 5][0]
+        lo, hi = min(v), max(v); stap = [s for s in (1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 250000, 500000) if (hi - lo) / s <= 5][0]
         self.grid = [g for g in range(int(lo // stap) * stap, int(hi // stap + 2) * stap, stap) if lo - stap * 0.6 <= g <= hi + stap * 0.6]
         self.lo, self.hi = min(self.grid[0], lo) - stap * 0.15, max(self.grid[-1], hi) + stap * 0.15
         self.itop = max(range(len(v)), key=lambda i: v[i]); self.ilaag = min(range(len(v)), key=lambda i: v[i])
@@ -136,8 +136,13 @@ class Lijn:
                 if dag.year not in gezien and dag.month == 1 and dag.year % jaren == 0:
                     gezien.add(dag.year); d.text((X(i), B + 26 * S), str(dag.year), font=f(FS, 20), fill=GRIJS, anchor="mm")
                 continue
-            if dag.month not in gezien and dag.day <= 7:                # maanden onderaan
-                gezien.add(dag.month); d.text((X(i), B + 26 * S), MD[dag.month - 1], font=f(FS, 20), fill=GRIJS, anchor="mm")
+            sl = (dag.year, dag.month)                                  # 22 nov: per jaar+maand, en nooit te dicht op elkaar
+            if sl not in gezien and dag.day <= 7:                       # maanden onderaan
+                gezien.add(sl)
+                if X(i) - getattr(self, "_vorige_x", -1e9) >= 70 * S:
+                    label = MD[dag.month - 1] + (f" {str(dag.year)[2:]}" if dag.month == 1 else "")
+                    d.text((X(i), B + 26 * S), label, font=f(FS, 20), fill=GRIJS, anchor="mm"); self._vorige_x = X(i)
+        self._vorige_x = -1e9
         p = ease((q - 0.3) / it.get("teken", 3.0)) if q > 0.3 else 0
         n = max(2, int(len(self.p) * p))
         if p > 0:

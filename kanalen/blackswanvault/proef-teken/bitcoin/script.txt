@@ -1,0 +1,29 @@
+# Proef 2 min (22 nov): Bitcoin onder $60.000 - wie verkoopt? Feiten: blackswanvault/video8/bronnen.md (CNBC 20 nov, Farside/crypto.news, CoinGlass),
+# slotkoersen btc.json (top 6 okt 2025 $124.753, 20 nov $58.450 = -53%).
+@scene a
+On Friday, bitcoin closed below sixty thousand dollars.
+It was the lowest level since July.
+In October last year, one bitcoin was worth almost one hundred twenty-five thousand dollars.
+So it has lost more than half its value.
+Who is selling, and why now?
+@scene b
+The first group: bitcoin funds.
+In November, investors pulled about three and a half billion dollars out of BlackRock's bitcoin fund alone.
+On November nineteenth, it had its biggest daily outflow ever, more than five hundred forty million dollars.
+@scene c
+The second group: companies that hold bitcoin.
+The biggest one, Strategy, owns about eight hundred fifty thousand bitcoin.
+It paid about seventy-five thousand dollars per coin on average.
+So at today's price, it is sitting on a loss.
+And according to an analyst quoted by CNBC, some of these companies sold bitcoin to pay interest on their debt.
+@scene d
+The third group: traders who borrowed money.
+In just one day, almost seven hundred million dollars of crypto bets were wiped out.
+More than one hundred forty thousand traders were hit.
+@scene e
+And the fourth group: investors who are chasing AI instead.
+"AI is sucking out every marginal dollar away from crypto," said Jean-Marie Mognetti of CoinShares.
+@scene f
+Bitcoin is now heading for its seventh weekly loss in a row.
+One analyst says it is trying to find a footing just under sixty thousand dollars.
+So is this the bottom, or just the start?
