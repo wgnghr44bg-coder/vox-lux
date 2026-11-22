@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 00:33",
+ "bijgewerkt": "2026-11-22 01:03",
  "kanalen": {
   "weken": [
    {
@@ -2622,7 +2622,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 00:33)"
+   "tekst": "draait nu (2026-11-22 01:03)"
   },
   {
    "naam": "Git",
@@ -2632,12 +2632,12 @@
   {
    "naam": "Stem en muziek (B1 + W3)",
    "ok": true,
-   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld (nacht 2026-11-21)"
+   "tekst": "B1 GOED: stem en muziek zijn hetzelfde als het vaste voorbeeld"
   },
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2654,8 +2654,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 00:33",
-   "volgende": "2026-11-22 01:03"
+   "laatst": "2026-11-22 01:03",
+   "volgende": "2026-11-22 01:33"
   },
   "hype": {
    "aan": true,
@@ -2669,8 +2669,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-22 00:18",
-   "volgende": "2026-11-22 00:48"
+   "laatst": "2026-11-22 00:48",
+   "volgende": "2026-11-22 01:18"
   },
   "titels": {
    "aan": true,
@@ -3005,8 +3005,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 566,
+  "bezig_procent": 26,
+  "geheugen_mb": 565,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3092,12 +3092,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 21:51",
-   "tekst": "Claude: pearl-harbor-1941 keten even gestopt (hoofdpersonage ontwerpen)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-21 21:56",
    "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
    "fout": false,
@@ -3174,28 +3168,28 @@
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 00:48",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-22 00:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
+   "tijd": "2026-11-22 00:48",
+   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
    "klaar": false
   },
   {
-   "tijd": "2026-11-22 00:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-22 01:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-19 16:20",
-   "tekst": "routine-lokaal: blackbeard-1718: opnieuw maken GESTOPT (beeldcontrole: BEELDEN FOUT: 71/84 goedgekeurd, fout: ['001', '003', '006', '012', '018', '020', '034', '036', '040', '048', '051', '054', '083'",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-19 20:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
@@ -3223,6 +3217,12 @@
   {
    "tijd": "2026-11-21 21:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 00:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
   }
@@ -5390,11 +5390,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 00:34",
+  "bijgewerkt": "2026-11-22 01:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 54761,
+    "5uur": 0,
     "week": 15312922,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5410,28 +5410,28 @@
    },
    {
     "account": "account2",
-    "5uur": 13449959,
-    "week": 118651012,
+    "5uur": 13357077,
+    "week": 119880827,
     "per_dag": {
      "Sun 15-11": 27340037,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
-     "Sun 22-11": 3083315,
+     "Sun 22-11": 4313130,
      "Wed 18-11": 377953
     },
     "script_kost": 571634,
     "metingen": 9,
-    "stap_kost": 43697,
+    "stap_kost": 43979,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 99,
-    "5uur_scripts_over": 0.2,
-    "5uur_stappen_over": 3,
-    "week_pct": 90,
-    "week_scripts_over": 23.4,
-    "week_stappen_over": 306
+    "5uur_pct": 98,
+    "5uur_scripts_over": 0.4,
+    "5uur_stappen_over": 5,
+    "week_pct": 91,
+    "week_scripts_over": 21.2,
+    "week_stappen_over": 276
    }
   ]
  },
