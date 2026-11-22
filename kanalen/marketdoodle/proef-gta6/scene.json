@@ -21,10 +21,10 @@
 {
 "bord": 0,
 "beeld": "afbeeldingen/n_nacht.png",
-"x": 40,
+"x": 30,
 "y": 100,
-"breed": 300,
-"hoog": 300,
+"breed": 260,
+"hoog": 260,
 "midden": true,
 "start": 1.16,
 "doel": 1.46,
@@ -34,10 +34,10 @@
 {
 "bord": 0,
 "beeld": "afbeeldingen/n_kassa.png",
-"x": 360,
-"y": 100,
-"breed": 340,
-"hoog": 300,
+"x": 300,
+"y": 120,
+"breed": 280,
+"hoog": 230,
 "midden": true,
 "start": 6.2,
 "doel": 6.5,
@@ -47,9 +47,9 @@
 {
 "bord": 0,
 "tekst": "GTA VI is out!",
-"x": 740,
-"y": 110,
-"maat": 46,
+"x": 40,
+"y": 380,
+"maat": 40,
 "kleur": [
 25,
 55,
@@ -62,18 +62,18 @@
 {
 "bord": 0,
 "logo": "logos/rockstar.png",
-"x": 1085,
-"y": 95,
-"hoog": 66,
+"x": 330,
+"y": 372,
+"hoog": 52,
 "start": 4.8,
 "doel": 5.0
 },
 {
 "bord": 0,
 "tekst": "$79.99",
-"x": 740,
-"y": 180,
-"maat": 110,
+"x": 40,
+"y": 450,
+"maat": 100,
 "kleur": [
 46,
 150,
@@ -81,50 +81,63 @@
 ],
 "start": 8.139999999999999,
 "doel": 8.29,
+"teken": 0.45
+},
+{
+"bord": 0,
+"tekst": "paid!",
+"x": 430,
+"y": 500,
+"maat": 50,
+"kleur": [
+30,
+30,
+30
+],
+"start": 8.69,
+"doel": 8.84,
 "teken": 0.6
 },
 {
 "bord": 0,
-"tekst": "How much are they actually",
-"x": 60,
-"y": 470,
-"maat": 58,
-"kleur": [
-25,
-55,
-120
-],
-"start": 11.93,
-"doel": 11.99,
-"teken": 0.51
-},
-{
-"bord": 0,
-"tekst": "earning on MY purchase?",
-"x": 60,
-"y": 545,
-"maat": 58,
-"kleur": [
-214,
-32,
-39
-],
-"start": 13.6,
-"doel": 13.75,
-"teken": 0.6
-},
-{
-"bord": 0,
-"beeld": "afbeeldingen/p_denk.png",
-"x": 1010,
-"y": 335,
-"breed": 240,
-"hoog": 370,
+"beeld": "afbeeldingen/p_koop.png",
+"x": 950,
+"y": 230,
+"breed": 300,
+"hoog": 470,
 "midden": true,
-"start": 11.03,
-"doel": 11.33,
-"teken": 0.6,
+"start": 10.049999999999999,
+"doel": 10.35,
+"teken": 0.68,
 "kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "...and then you wonder",
+"x": 520,
+"y": 420,
+"maat": 36,
+"kleur": [
+30,
+30,
+30
+],
+"start": 11.08,
+"doel": 11.23,
+"teken": 0.6
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/p_ballon.png",
+"x": 600,
+"y": 60,
+"breed": 400,
+"hoog": 186,
+"midden": true,
+"start": 12.75,
+"doel": 13.05,
+"teken": 1.2,
+"kleur": 0.5
 },
 {
 "bord": 1,
