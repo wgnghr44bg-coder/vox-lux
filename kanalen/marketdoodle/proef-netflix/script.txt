@@ -1,23 +1,29 @@
-# Proef "Wat doet Netflix met jouw abonnement?" (22 nov 2026). OFFICIEEL: Netflix Q3 2026 (kwartaal tot 30 sep 2026), 8-K ex99.1
-# https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm , GAAP, in duizenden:
-# omzet 12.874.176 | kostprijs 6.079.016 (47,22 per 100) | technologie 1.033.142 (8,02) | verkoop/marketing 837.051 (6,50) | algemeen 466.367 (3,62)
-# bedrijfswinst 4.458.600 (34,63) | rente -184.701 (1,43) | overig +43.006 (0,33) | belasting 652.978 (5,07) | nettowinst 3.663.927 (28,46)
+# Proef 2 "Netflix: wat houden ze over aan jouw abonnement?" (22 nov 2026). Echte bedragen, geen $100-som.
+# OFFICIEEL: Netflix Q3 2026 (kwartaal tot 30 sep 2026), 8-K ex99.1 https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm , GAAP, in duizenden:
+# omzet 12.874.176 | kostprijs 6.079.016 | technologie 1.033.142 | marketing 837.051 | algemeen 466.367 | bedrijfswinst 4.458.600
+# rente -184.701, overig +43.006 (netto -141.695) | belasting 652.978 | nettowinst 3.663.927 (28,46%); per dag (92 dagen) 39,8 mln.
+# Abonnement: Standard VS $19,99/maand (prijsverhoging maart 2026, o.a. Yahoo Finance/AOL). Verdeling = gemiddelde percentages Q3 2026 x 19,99:
+# inhoud 9,44 | app 1,60 | marketing 1,30 | kantoren 0,72 | rente 0,22 | belasting 1,01 | winst 5,70 (afgerond; exact 5,69)
 @scene a
-You pay Netflix every month. Let's follow one hundred dollars of that money.
-Where does it go, and how much does Netflix keep?
+You pay Netflix every month. But how much of that is pure profit?
+Let's look at the real numbers.
 @scene b
-Last quarter, Netflix took in twelve point nine billion dollars.
+Last quarter, from July to September, Netflix took in twelve point nine billion dollars.
 @scene c
-The biggest bite is the content. Shows, movies, and getting them to your screen take forty-seven dollars.
+The biggest bill is what you watch.
+Shows, movies, and getting them to your screen cost six point one billion.
 @scene d
-Next, the engineers who build the app. That is eight dollars.
-Ads and marketing take six dollars fifty. Offices and management, about three sixty.
+The engineers who build the app cost about one billion.
+Ads and marketing, eight hundred forty million. Offices and management, four hundred seventy million.
 @scene e
-Netflix also pays interest on its debt, about one dollar.
-Then the government takes its share. Taxes, about five dollars.
+Netflix also pays interest on its debt, about one hundred forty million.
+Then the government takes its share. Taxes, six hundred fifty million.
 @scene f
-And what is left?
-Twenty-eight dollars of profit, from every hundred dollars.
+So what did Netflix keep?
+Three point seven billion dollars of profit. In just three months.
+That is about forty million dollars, every single day.
 @scene g
-Here is Netflix's receipt.
-Almost half of your money goes to what you watch. And more than a quarter is pure profit.
+Now, your subscription. The standard plan in the US costs nineteen ninety-nine a month.
+On average, about nine forty of that pays for what you watch.
+And about five dollars seventy is pure profit for Netflix.
+Here is your receipt.

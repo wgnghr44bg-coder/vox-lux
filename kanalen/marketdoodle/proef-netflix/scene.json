@@ -1,95 +1,110 @@
 {
-"duur": 58.87,
+"duur": 72.05,
 "borden": [
 0.0,
-9.248,
-14.098999999999998,
-21.739,
-32.279,
-41.34,
-47.829
+7.7749999999999995,
+14.241999999999999,
+22.625,
+33.468,
+43.829,
+54.718
 ],
 "schuif": 0,
 "zoom": 0,
 "items": [
 {
 "bord": 0,
-"kop": "Follow the dollar: Netflix",
+"kop": "Netflix: what do they keep?",
 "rechts": "Not financial advice",
 "start": 0.0
 },
 {
 "bord": 0,
-"beeld": "afbeeldingen/n_geld.png",
-"x": 70,
+"beeld": "afbeeldingen/n_tv.png",
+"x": 60,
 "y": 110,
 "breed": 520,
-"hoog": 380,
+"hoog": 430,
 "midden": true,
-"start": 2.8000000000000003,
-"doel": 3.1,
+"start": 0.12,
+"doel": 0.42,
 "teken": 0.6,
 "kleur": 0.4
 },
 {
 "bord": 0,
-"tekst": "$100",
-"x": 650,
-"y": 150,
-"maat": 130,
-"kleur": [
-46,
-150,
-84
-],
-"start": 3.7,
-"doel": 3.3,
-"teken": 0.3
-},
-{
-"bord": 0,
 "logo": "logos/netflix.png",
-"x": 660,
-"y": 340,
+"x": 650,
+"y": 130,
 "hoog": 60,
 "start": 0.52,
 "doel": 0.72
 },
 {
 "bord": 0,
-"tekst": "How much does",
+"tekst": "You pay every month.",
 "x": 650,
-"y": 450,
+"y": 230,
 "maat": 50,
 "kleur": [
-25,
-55,
-120
+30,
+30,
+30
 ],
-"start": 6.739999999999999,
-"doel": 6.89,
-"teken": 0.55
+"start": 1.07,
+"doel": 1.22,
+"teken": 0.6
 },
 {
 "bord": 0,
-"tekst": "Netflix keep?",
+"tekst": "How much is",
 "x": 650,
-"y": 515,
-"maat": 50,
+"y": 330,
+"maat": 66,
 "kleur": [
 25,
 55,
 120
 ],
-"start": 7.39,
-"doel": 7.54,
+"start": 2.7600000000000002,
+"doel": 2.91,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "pure profit?",
+"x": 650,
+"y": 410,
+"maat": 66,
+"kleur": [
+46,
+150,
+84
+],
+"start": 3.49,
+"doel": 3.64,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "-> the real numbers",
+"x": 655,
+"y": 530,
+"maat": 44,
+"kleur": [
+30,
+30,
+30
+],
+"start": 5.659999999999999,
+"doel": 5.81,
 "teken": 0.6
 },
 {
 "bord": 1,
 "kop": "Last quarter",
 "rechts": "Not financial advice",
-"start": 9.248
+"start": 7.7749999999999995
 },
 {
 "bord": 1,
@@ -97,8 +112,8 @@
 "x": 70,
 "y": 110,
 "hoog": 50,
-"start": 10.05,
-"doel": 10.25
+"start": 10.030000000000001,
+"doel": 10.23
 },
 {
 "bord": 1,
@@ -111,13 +126,13 @@
 55,
 120
 ],
-"start": 11.35,
-"doel": 11.5,
+"start": 11.31,
+"doel": 11.46,
 "teken": 0.7
 },
 {
 "bord": 1,
-"tekst": "revenue, Jul - Sep 2026",
+"tekst": "came in, Jul - Sep 2026",
 "x": 75,
 "y": 320,
 "maat": 40,
@@ -126,28 +141,28 @@
 30,
 30
 ],
-"start": 12.33,
-"doel": 12.48,
+"start": 12.389999999999999,
+"doel": 12.54,
 "teken": 0.6
 },
 {
 "bord": 1,
-"beeld": "afbeeldingen/n_tv.png",
+"beeld": "afbeeldingen/n_geld.png",
 "x": 700,
-"y": 140,
+"y": 160,
 "breed": 480,
-"hoog": 400,
+"hoog": 340,
 "midden": true,
-"start": 9.229999999999999,
-"doel": 9.53,
-"teken": 1.2,
-"kleur": 0.5
+"start": 10.17,
+"doel": 10.47,
+"teken": 0.79,
+"kleur": 0.4
 },
 {
 "bord": 2,
-"kop": "Step 1: what you watch",
+"kop": "The biggest bill",
 "rechts": "Not financial advice",
-"start": 14.098999999999998
+"start": 14.241999999999999
 },
 {
 "bord": 2,
@@ -157,10 +172,10 @@
 "breed": 540,
 "hoog": 400,
 "midden": true,
-"start": 14.94,
-"doel": 15.24,
-"teken": 0.99,
-"kleur": 0.4
+"start": 15.26,
+"doel": 15.56,
+"teken": 1.2,
+"kleur": 0.5
 },
 {
 "bord": 2,
@@ -173,8 +188,8 @@
 30,
 30
 ],
-"start": 16.28,
-"doel": 16.43,
+"start": 17.1,
+"doel": 17.25,
 "teken": 0.6
 },
 {
@@ -188,28 +203,28 @@
 30,
 30
 ],
-"start": 18.220000000000002,
-"doel": 18.37,
+"start": 18.560000000000002,
+"doel": 18.71,
 "teken": 0.6
 },
 {
 "bord": 2,
-"tekst": "- $47.22",
+"tekst": "- $6.1 billion",
 "x": 660,
 "y": 290,
-"maat": 120,
+"maat": 90,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 19.68,
-"doel": 19.83,
+"start": 20.380000000000003,
+"doel": 20.53,
 "teken": 0.6
 },
 {
 "bord": 2,
-"tekst": "left: $52.78",
+"tekst": "left: $6.8 billion",
 "x": 820,
 "y": 600,
 "maat": 46,
@@ -218,15 +233,15 @@
 150,
 84
 ],
-"start": 20.53,
-"doel": 20.68,
+"start": 21.55,
+"doel": 21.7,
 "teken": 0.6
 },
 {
 "bord": 3,
-"kop": "Step 2: app, ads, offices",
+"kop": "App, ads, offices",
 "rechts": "Not financial advice",
-"start": 21.739
+"start": 22.625
 },
 {
 "bord": 3,
@@ -236,117 +251,117 @@
 "breed": 330,
 "hoog": 250,
 "midden": true,
-"start": 22.08,
-"doel": 22.38,
-"teken": 1.2,
-"kleur": 0.5
+"start": 22.55,
+"doel": 22.85,
+"teken": 0.84,
+"kleur": 0.4
 },
 {
 "bord": 3,
-"tekst": "- $8.02",
+"tekst": "- $1.0 billion",
 "x": 420,
 "y": 140,
-"maat": 80,
+"maat": 70,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 24.92,
-"doel": 25.07,
-"teken": 0.3
+"start": 24.98,
+"doel": 25.13,
+"teken": 0.6
 },
 {
 "bord": 3,
 "tekst": "engineers & app",
 "x": 430,
-"y": 235,
+"y": 225,
 "maat": 38,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 25.32,
-"doel": 25.32,
-"teken": 0.31
+"start": 23.740000000000002,
+"doel": 23.89,
+"teken": 0.6
 },
 {
 "bord": 3,
 "beeld": "afbeeldingen/n_kantoor.png",
 "x": 60,
-"y": 380,
+"y": 370,
 "breed": 260,
 "hoog": 230,
 "midden": true,
-"start": 25.73,
-"doel": 26.03,
-"teken": 1.2,
-"kleur": 0.5
+"start": 25.84,
+"doel": 26.14,
+"teken": 0.6,
+"kleur": 0.4
 },
 {
 "bord": 3,
-"tekst": "- $6.50",
+"tekst": "- $840 million",
 "x": 420,
-"y": 390,
-"maat": 80,
+"y": 365,
+"maat": 64,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 27.35,
-"doel": 27.5,
-"teken": 0.3
+"start": 27.360000000000003,
+"doel": 27.51,
+"teken": 0.6
 },
 {
 "bord": 3,
 "tekst": "ads & marketing",
 "x": 430,
-"y": 485,
-"maat": 38,
+"y": 440,
+"maat": 36,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 27.75,
-"doel": 27.85,
-"teken": 0.55
+"start": 26.74,
+"doel": 26.5,
+"teken": 0.3
 },
 {
 "bord": 3,
-"tekst": "- $3.62",
-"x": 800,
-"y": 140,
-"maat": 80,
+"tekst": "- $470 million",
+"x": 420,
+"y": 500,
+"maat": 56,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 30.57,
-"doel": 30.72,
+"start": 31.080000000000002,
+"doel": 31.23,
 "teken": 0.3
 },
 {
 "bord": 3,
 "tekst": "offices & managers",
-"x": 810,
-"y": 235,
-"maat": 38,
+"x": 430,
+"y": 565,
+"maat": 34,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 31.37,
-"doel": 30.97,
+"start": 31.48,
+"doel": 31.48,
 "teken": 0.3
 },
 {
 "bord": 3,
-"tekst": "left: $34.63",
+"tekst": "left: $4.5 billion",
 "x": 820,
 "y": 600,
 "maat": 46,
@@ -355,15 +370,15 @@
 150,
 84
 ],
-"start": 30.97,
-"doel": 30.77,
-"teken": 0.3
+"start": 31.88,
+"doel": 31.88,
+"teken": 0.45
 },
 {
 "bord": 4,
-"kop": "Step 3: debt, then taxes",
+"kop": "Debt, then taxes",
 "rechts": "Not financial advice",
-"start": 32.279
+"start": 33.468
 },
 {
 "bord": 4,
@@ -373,39 +388,39 @@
 "breed": 340,
 "hoog": 260,
 "midden": true,
-"start": 33.92,
-"doel": 34.22,
-"teken": 1.01,
+"start": 35.11,
+"doel": 35.41,
+"teken": 1.17,
 "kleur": 0.4
 },
 {
 "bord": 4,
-"tekst": "- $1.10",
+"tekst": "- $140 million",
 "x": 440,
 "y": 140,
-"maat": 90,
+"maat": 80,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 35.28,
-"doel": 35.43,
+"start": 36.63,
+"doel": 36.78,
 "teken": 0.3
 },
 {
 "bord": 4,
 "tekst": "interest (net)",
 "x": 450,
-"y": 245,
+"y": 240,
 "maat": 40,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 35.68,
-"doel": 35.78,
+"start": 37.03,
+"doel": 37.13,
 "teken": 0.55
 },
 {
@@ -416,44 +431,44 @@
 "breed": 360,
 "hoog": 250,
 "midden": true,
-"start": 36.43,
-"doel": 36.73,
+"start": 38.470000000000006,
+"doel": 38.77,
 "teken": 1.2,
 "kleur": 0.5
 },
 {
 "bord": 4,
-"tekst": "- $5.07",
+"tekst": "- $650 million",
 "x": 440,
 "y": 420,
-"maat": 90,
+"maat": 80,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 39.59,
-"doel": 39.74,
+"start": 41.71,
+"doel": 41.86,
 "teken": 0.3
 },
 {
 "bord": 4,
 "tekst": "taxes",
 "x": 450,
-"y": 525,
+"y": 520,
 "maat": 40,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 40.39,
-"doel": 40.09,
+"start": 42.11,
+"doel": 42.21,
 "teken": 0.3
 },
 {
 "bord": 4,
-"tekst": "left: $28.46",
+"tekst": "left: $3.7 billion",
 "x": 820,
 "y": 600,
 "maat": 46,
@@ -462,79 +477,94 @@
 150,
 84
 ],
-"start": 39.99,
-"doel": 39.79,
-"teken": 0.3
+"start": 42.51,
+"doel": 42.51,
+"teken": 0.45
 },
 {
 "bord": 5,
-"kop": "What is left",
+"kop": "What Netflix kept",
 "rechts": "Not financial advice",
-"start": 41.34
+"start": 43.829
 },
 {
 "bord": 5,
 "beeld": "afbeeldingen/n_winst.png",
-"x": 70,
+"x": 60,
 "y": 100,
-"breed": 480,
-"hoog": 480,
+"breed": 460,
+"hoog": 460,
 "midden": true,
-"start": 41.36,
-"doel": 41.66,
+"start": 44.31,
+"doel": 44.61,
 "teken": 1.2,
 "kleur": 0.5
 },
 {
 "bord": 5,
-"tekst": "$28",
-"x": 620,
-"y": 140,
-"maat": 200,
+"tekst": "$3.7 billion",
+"x": 560,
+"y": 130,
+"maat": 110,
 "kleur": [
 46,
 150,
 84
 ],
-"start": 43.38,
-"doel": 43.53,
+"start": 46.42,
+"doel": 46.57,
+"teken": 0.7
+},
+{
+"bord": 5,
+"tekst": "profit in 3 months",
+"x": 570,
+"y": 270,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 49.51,
+"doel": 49.66,
 "teken": 0.6
 },
 {
 "bord": 5,
-"tekst": "profit from",
-"x": 640,
+"tekst": "= about $40 million",
+"x": 560,
 "y": 400,
-"maat": 56,
+"maat": 64,
 "kleur": [
-25,
-55,
-120
+46,
+150,
+84
 ],
-"start": 44.480000000000004,
-"doel": 44.63,
+"start": 51.410000000000004,
+"doel": 51.56,
 "teken": 0.6
 },
 {
 "bord": 5,
-"tekst": "every $100",
-"x": 640,
-"y": 470,
-"maat": 56,
+"tekst": "every single day",
+"x": 570,
+"y": 480,
+"maat": 50,
 "kleur": [
 25,
 55,
 120
 ],
-"start": 45.57,
-"doel": 45.72,
+"start": 53.03,
+"doel": 53.18,
 "teken": 0.6
 },
 {
 "bord": 6,
-"kop": "Netflix's receipt",
+"kop": "Your receipt",
 "rechts": "Not financial advice",
-"start": 47.829
+"start": 54.718
 },
 {
 "bord": 6,
@@ -544,8 +574,8 @@
 "breed": 440,
 "hoog": 600,
 "midden": true,
-"start": 48.17,
-"doel": 48.47,
+"start": 54.68,
+"doel": 54.98,
 "teken": 0.6,
 "kleur": 0.4
 },
@@ -555,209 +585,239 @@
 "x": 170,
 "y": 110,
 "hoog": 36,
-"start": 48.769999999999996,
-"doel": 48.97
+"start": 55.279999999999994,
+"doel": 55.48
 },
 {
 "bord": 6,
-"tekst": "per $100 you pay",
+"tekst": "Standard plan, 1 month",
 "x": 105,
 "y": 165,
+"maat": 28,
+"kleur": [
+30,
+30,
+30
+],
+"start": 55.58,
+"doel": 55.68,
+"teken": 0.55
+},
+{
+"bord": 6,
+"tekst": "you pay",
+"x": 105,
+"y": 205,
 "maat": 30,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 49.07,
-"doel": 49.17,
+"start": 58.64,
+"doel": 58.79,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "$19.99",
+"x": 372,
+"y": 205,
+"maat": 30,
+"kleur": [
+25,
+55,
+120
+],
+"start": 59.04,
+"doel": 58.79,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "shows & movies",
 "x": 105,
-"y": 215,
-"maat": 30,
+"y": 250,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 49.47,
-"doel": 49.47,
+"start": 60.86,
+"doel": 61.01,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-47.22",
-"x": 372,
-"y": 215,
-"maat": 30,
+"tekst": "-9.44",
+"x": 380,
+"y": 250,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 49.87,
-"doel": 49.47,
+"start": 61.26,
+"doel": 61.01,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "engineers & app",
 "x": 105,
-"y": 257,
-"maat": 30,
+"y": 290,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 50.27,
-"doel": 49.72,
+"start": 61.66,
+"doel": 61.309999999999995,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-8.02",
-"x": 372,
-"y": 257,
-"maat": 30,
+"tekst": "-1.60",
+"x": 380,
+"y": 290,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 50.67,
-"doel": 49.72,
+"start": 62.06,
+"doel": 61.309999999999995,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "ads & marketing",
 "x": 105,
-"y": 299,
-"maat": 30,
+"y": 330,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 51.07,
-"doel": 49.97,
+"start": 62.46,
+"doel": 61.61,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-6.50",
-"x": 372,
-"y": 299,
-"maat": 30,
+"tekst": "-1.30",
+"x": 380,
+"y": 330,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 51.47,
-"doel": 49.97,
+"start": 62.86,
+"doel": 61.61,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "offices",
 "x": 105,
-"y": 341,
-"maat": 30,
+"y": 370,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 51.87,
-"doel": 50.22,
+"start": 63.26,
+"doel": 61.91,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-3.62",
-"x": 372,
-"y": 341,
-"maat": 30,
+"tekst": "-0.72",
+"x": 380,
+"y": 370,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 52.27,
-"doel": 50.22,
+"start": 63.66,
+"doel": 61.91,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "interest",
 "x": 105,
-"y": 383,
-"maat": 30,
+"y": 410,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 53.07,
-"doel": 50.47,
+"start": 64.46,
+"doel": 62.21,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-1.10",
-"x": 372,
-"y": 383,
-"maat": 30,
+"tekst": "-0.22",
+"x": 380,
+"y": 410,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 53.47,
-"doel": 50.47,
+"start": 64.86,
+"doel": 62.21,
 "teken": 0.3
 },
 {
 "bord": 6,
 "tekst": "taxes",
 "x": 105,
-"y": 425,
-"maat": 30,
+"y": 450,
+"maat": 28,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 53.87,
-"doel": 50.72,
+"start": 65.26,
+"doel": 62.51,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "-5.07",
-"x": 372,
-"y": 425,
-"maat": 30,
+"tekst": "-1.01",
+"x": 380,
+"y": 450,
+"maat": 28,
 "kleur": [
 214,
 32,
 39
 ],
-"start": 54.27,
-"doel": 50.72,
+"start": 65.66,
+"doel": 62.51,
 "teken": 0.3
 },
 {
 "bord": 6,
 "streep": [
 105,
-478,
+498,
 460
 ],
 "kleur": [
@@ -766,42 +826,42 @@
 30
 ],
 "dik": 4,
-"start": 54.67,
+"start": 66.06,
 "teken": 0.6
 },
 {
 "bord": 6,
 "tekst": "PROFIT",
 "x": 105,
-"y": 495,
+"y": 512,
 "maat": 44,
 "kleur": [
 46,
 150,
 84
 ],
-"start": 55.37,
-"doel": 51.370000000000005,
+"start": 67.16,
+"doel": 65.21,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "$28.46",
-"x": 300,
-"y": 495,
+"tekst": "$5.70",
+"x": 320,
+"y": 512,
 "maat": 44,
 "kleur": [
 46,
 150,
 84
 ],
-"start": 55.77,
-"doel": 51.370000000000005,
+"start": 67.56,
+"doel": 65.21,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "NETFLIX Q3 2026 GAAP, rounded",
+"tekst": "Netflix Q3 2026 averages,",
 "x": 105,
 "y": 580,
 "maat": 20,
@@ -810,68 +870,98 @@
 30,
 30
 ],
-"start": 56.17,
-"doel": 51.57,
+"start": 68.76,
+"doel": 67.2,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "almost half:",
-"x": 600,
-"y": 150,
-"maat": 54,
+"tekst": "GAAP, rounded; US price",
+"x": 105,
+"y": 608,
+"maat": 20,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 52.67,
-"doel": 50.29,
+"start": 69.16,
+"doel": 67.35,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "what you watch",
+"tekst": "$19.99 a month",
 "x": 600,
-"y": 215,
-"maat": 54,
+"y": 140,
+"maat": 64,
 "kleur": [
 25,
 55,
 120
 ],
-"start": 56.57,
-"doel": 51.67,
+"start": 59.44,
+"doel": 58.79,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "more than 1/4:",
+"tekst": "~$9.40",
 "x": 600,
-"y": 340,
-"maat": 54,
+"y": 260,
+"maat": 64,
 "kleur": [
 30,
 30,
 30
 ],
-"start": 56.97,
-"doel": 53.61,
+"start": 64.06,
+"doel": 62.18,
 "teken": 0.3
 },
 {
 "bord": 6,
-"tekst": "pure profit",
+"tekst": "what you watch",
+"x": 880,
+"y": 275,
+"maat": 42,
+"kleur": [
+30,
+30,
+30
+],
+"start": 66.76,
+"doel": 63.69,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "~$5.70",
 "x": 600,
-"y": 405,
-"maat": 54,
+"y": 370,
+"maat": 64,
 "kleur": [
 46,
 150,
 84
 ],
-"start": 57.37,
-"doel": 54.49,
+"start": 67.96,
+"doel": 65.46,
+"teken": 0.3
+},
+{
+"bord": 6,
+"tekst": "pure profit",
+"x": 880,
+"y": 385,
+"maat": 42,
+"kleur": [
+46,
+150,
+84
+],
+"start": 68.36,
+"doel": 66.85,
 "teken": 0.3
 }
 ]

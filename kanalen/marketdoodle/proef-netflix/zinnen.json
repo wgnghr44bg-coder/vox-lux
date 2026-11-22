@@ -1,74 +1,98 @@
 [
 [
 0.5,
-4.84,
-"You pay Netflix every month. Let's follow one hundred dollars of that money.",
+4.431,
+"You pay Netflix every month. But how much of that is pure profit?",
 "a"
 ],
 [
-5.44,
-8.148,
-"Where does it go, and how much does Netflix keep?",
+5.331,
+6.975,
+"Let's look at the real numbers.",
 "a"
 ],
 [
-9.548,
-13.299,
-"Last quarter, Netflix took in twelve point nine billion dollars.",
+8.075,
+13.442,
+"Last quarter, from July to September, Netflix took in twelve point nine billion dollars.",
 "b"
 ],
 [
-14.399,
-20.939,
-"The biggest bite is the content. Shows, movies, and getting them to your screen take forty-seven dollars.",
+14.542,
+16.502,
+"The biggest bill is what you watch.",
 "c"
 ],
 [
-22.039,
-25.633,
-"Next, the engineers who build the app. That is eight dollars.",
+17.102,
+21.825,
+"Shows, movies, and getting them to your screen cost six point one billion.",
+"c"
+],
+[
+22.925,
+25.743,
+"The engineers who build the app cost about one billion.",
 "d"
 ],
 [
-26.233,
-31.479,
-"Ads and marketing take six dollars fifty. Offices and management, about three sixty.",
+26.343,
+32.668,
+"Ads and marketing, eight hundred forty million. Offices and management, four hundred seventy million.",
 "d"
 ],
 [
-32.579,
-36.028,
-"Netflix also pays interest on its debt, about one dollar.",
+33.768,
+38.088,
+"Netflix also pays interest on its debt, about one hundred forty million.",
 "e"
 ],
 [
-36.628,
-40.54,
-"Then the government takes its share. Taxes, about five dollars.",
+38.688,
+43.029,
+"Then the government takes its share. Taxes, six hundred fifty million.",
 "e"
 ],
 [
-41.64,
-42.48,
-"And what is left?",
+44.129,
+45.517,
+"So what did Netflix keep?",
 "f"
 ],
 [
-43.38,
-47.029,
-"Twenty-eight dollars of profit, from every hundred dollars.",
+46.417,
+50.498,
+"Three point seven billion dollars of profit. In just three months.",
 "f"
 ],
 [
-48.129,
-49.61,
-"Here is Netflix's receipt.",
+51.098,
+53.918,
+"That is about forty million dollars, every single day.",
+"f"
+],
+[
+55.018,
+60.328,
+"Now, your subscription. The standard plan in the US costs nineteen ninety-nine a month.",
 "g"
 ],
 [
-50.21,
-55.172,
-"Almost half of your money goes to what you watch. And more than a quarter is pure profit.",
+60.928,
+64.371,
+"On average, about nine forty of that pays for what you watch.",
+"g"
+],
+[
+64.971,
+68.326,
+"And about five dollars seventy is pure profit for Netflix.",
+"g"
+],
+[
+68.926,
+70.054,
+"Here is your receipt.",
 "g"
 ]
 ]
