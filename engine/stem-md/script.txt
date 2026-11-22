@@ -1,0 +1,57 @@
+# Proef 3 min Visual Explainer Engine (22 nov 2026): inhoud Market Doodle video 1 (AI-uitverkoop), ingekort. Feiten: kanalen/marketdoodle/video1/bronnen.md
+# Aangepast: "biggest debut ever" -> "giant debut" (SpaceX haalde in juni meer op); ANT vrijdag $88,91 -> "eighty-nine".
+@scene a
+On Friday, the Nasdaq fell more than five percent in a single day.
+For the whole week, it lost ten percent, its worst week since March twenty twenty.
+Every gain of twenty twenty-six is gone.
+So what just happened?
+And is this the dot-com crash all over again?
+@scene b
+On October sixth, the Nasdaq hit a record high.
+Since then, it has fallen eighteen percent.
+The S and P five hundred is more than eleven percent below its top.
+That is what Wall Street calls a correction.
+There was not one reason. There were five.
+@scene c
+Reason one is Nvidia.
+On Friday, it fell fourteen percent, its seventh drop in a row.
+From its top in October, the stock has lost almost half of its value.
+Its founder, Jensen Huang, stepped down on November twelfth.
+And Reuters reported that the SEC is looking at possible accounting problems. Nothing has been proven.
+@scene d
+Reason two is a giant stock market debut.
+On Thursday, Anthropic went public and raised more than eighty-one billion dollars, at eighty-three dollars a share.
+On its first day, the stock jumped above one hundred fifteen dollars.
+By Friday, it was back at eighty-nine.
+Some investors used the big day to sell.
+@scene e
+Reason three is the chips themselves.
+Broadcom fell about twelve percent, and AMD about thirteen percent.
+A fund of the biggest chip makers lost about fifteen percent in one week.
+@scene f
+Reason four is the price of money.
+The ten-year interest rate in America went above five percent.
+When a safe bond pays five percent, profits far in the future look less exciting.
+@scene g
+Reason five is the computers.
+The S and P five hundred fell below its two hundred day average.
+For many trend-following funds, that is an automatic signal to sell.
+So the selling made even more selling.
+@scene h
+So is this two thousand again?
+Back then, the Nasdaq fell seventy-eight percent, and it needed fifteen years to recover.
+But there is a big difference.
+In two thousand, many internet companies had almost no profits.
+Nvidia now earns more than one billion dollars every single day.
+So the money is real. The question is how much of the future is already in the price.
+@scene j
+So what does this mean for you?
+First, corrections are normal.
+Over long periods, the stock market has gone up about eight to nine percent a year on average, according to Wharton professor Jeremy Siegel.
+But never in a straight line.
+Second, a falling price does not always mean the business is broken.
+And a low price does not always mean a bargain.
+@scene k
+In December, the Fed decides on interest rates again.
+For now, the market is asking one question.
+Is the AI boom over, or is this the sale of the year?
