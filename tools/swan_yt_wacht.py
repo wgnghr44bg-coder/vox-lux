@@ -245,7 +245,8 @@ def main():
     except Exception:
         pass
     if meld:
-        seintje("Hype: video maken?", "\n".join(meld) + "\nOpen Claude en zeg: maak de hype-video.")
+        seintje("Hype: video maken?", "\n".join(meld) + "\nVoor BlackswanVault (foto's) en Market Doodle (getekend)."   # 22 nov: ook Market Doodle
+                 "\nOpen Claude en zeg: maak de hype-video.")
 
 
 def seintje(titel, tekst):
