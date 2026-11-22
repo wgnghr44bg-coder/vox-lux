@@ -14,6 +14,10 @@ Pc heeft weinig geheugen: één zware taak tegelijk, als los proces (Start-Proce
 VASTE WERKWIJZE nieuwskanalen (BlackswanVault + Geldverhaal): nieuwsvideo's hooguit 1-2 dagen vooruit, wachters kiezen elke ochtend het onderwerp,
 reservevideo's voor rustige dagen, Shorts dezelfde dag (zie kanalen/blackswanvault/README.md). Sleep Archives mag ver vooruit.
 
+## 0. NIEUW (22 nov nacht): getekende video's (whiteboard) — lees `kanalen/TEKENSTIJL.md`
+Eigenaar: "zo is het perfect eigenlijk". Beste voorbeeld: `kanalen/blackswanvault/proef-teken/nvidia3/`. Kanaal Alteraqon is leeggemaakt om om te bouwen (taal/onderwerp nog bevestigen).
+Sleep Archives staat STIL tot de eigenaar "hervatten" zegt (zie TEKENSTIJL.md, onderaan). BlackswanVault en Geldverhaal: alleen op hype (wachters).
+
 ## 1. Geldverhaal (NL-kanaal, was NOIRTRACES) — video 1 loopt
 - Map `kanalen/blackswan-nl/video1/`. Titel: "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?" (`youtube-titel.txt`).
 - Thumbnail: `thumbnail-definitief.jpg` (gemaakt door de eigenaar; verzonnen percentages zijn eruit gehaald — nooit verzonnen cijfers).

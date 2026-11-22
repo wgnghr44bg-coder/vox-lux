@@ -413,3 +413,6 @@ ValueError: empty separator)
 - 2026-11-21 23:10 bewaker: keten gestart voor pearl-harbor-1941
 - 2026-11-21 23:10 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-21 23:22 Claude: Sleep OP PAUZE (taak bewaker uit) tot de eigenaar zegt hervatten; pearl-harbor-1941 staat op bezig
+- 2026-11-22 00:18 sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site
+- 2026-11-22 00:48 sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
+- 2026-11-22 01:48 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963, pearl-harbor-1941 op bezig staat (taak 'Sleep Archives bewaker' kijken)

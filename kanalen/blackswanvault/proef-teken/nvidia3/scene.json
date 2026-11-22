@@ -1,0 +1,921 @@
+{
+"duur": 146.76,
+"borden": [
+0.0,
+16.883,
+41.07,
+60.482,
+88.843,
+112.664,
+126.479
+],
+"schuif": 0,
+"zoom": 0.045,
+"items": [
+{
+"bord": 0,
+"kop": "Nvidia fell 14% in one day",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"tekst": "Friday",
+"x": 65,
+"y": 72,
+"maat": 48,
+"kleur": [
+25,
+55,
+120
+],
+"start": 0.39,
+"doel": 0.54,
+"teken": 0.6
+},
+{
+"bord": 0,
+"logo": "logos/nvidia.png",
+"x": 65,
+"y": 140,
+"hoog": 56,
+"start": 1.06
+},
+{
+"bord": 0,
+"tekst": "-14%",
+"x": 65,
+"y": 205,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 1.6900000000000002,
+"doel": 1.84,
+"teken": 0.7
+},
+{
+"bord": 0,
+"pijl": [
+370,
+170,
+470,
+300
+],
+"kleur": [
+214,
+32,
+39
+],
+"dik": 14,
+"start": 2.16,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "in 1 day",
+"x": 85,
+"y": 320,
+"maat": 42,
+"kleur": [
+214,
+32,
+39
+],
+"start": 3.23,
+"doel": 3.38,
+"teken": 0.6
+},
+{
+"bord": 0,
+"dagen": "../../../blackswan-nl/video1/data/nvda.json",
+"logo": "logos/nvidia.png",
+"logohoog": 22,
+"onder": "closing price, change per day",
+"n": 7,
+"x": 640,
+"y": 75,
+"breed": 570,
+"hoog": 420,
+"start": 4.98,
+"per": 0.22
+},
+{
+"bord": 0,
+"foto": "hq.jpg",
+"x": 65,
+"y": 420,
+"breed": 250,
+"hoog": 140,
+"start": 8.69,
+"doel": 8.99,
+"teken": 0.6,
+"kleur": 0.4,
+"naam": null,
+"bron": "Photo: Daniel J. Prostak, CC BY-SA 4.0"
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_stoel.png",
+"x": 360,
+"y": 410,
+"breed": 220,
+"hoog": 180,
+"midden": true,
+"start": 9.61,
+"doel": 9.91,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "the founder walked away",
+"x": 650,
+"y": 530,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 10.51,
+"doel": 10.57,
+"teken": 0.51
+},
+{
+"bord": 0,
+"tekst": "what is going on?",
+"x": 650,
+"y": 600,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 12.31,
+"doel": 12.46,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "The man who built Nvidia",
+"rechts": "Not financial advice",
+"start": 16.883
+},
+{
+"bord": 1,
+"foto": "jensen.jpg",
+"x": 65,
+"y": 85,
+"breed": 250,
+"hoog": 320,
+"start": 16.58,
+"doel": 16.88,
+"teken": 1.1,
+"kleur": 0.5,
+"naam": "Jensen Huang",
+"bron": "Photo: Anders Eidesvik, CC BY 4.0"
+},
+{
+"bord": 1,
+"foto": "dennys.jpg",
+"x": 380,
+"y": 85,
+"breed": 270,
+"hoog": 160,
+"start": 20.22,
+"doel": 20.52,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": null,
+"bron": "Photo: Alexis Doine, CC0"
+},
+{
+"bord": 1,
+"tekst": "1993",
+"x": 390,
+"y": 300,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 18.770000000000003,
+"doel": 18.92,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "+ Chris Malachowsky",
+"x": 390,
+"y": 370,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 24.48,
+"doel": 24.63,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "+ Curtis Priem",
+"x": 390,
+"y": 415,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 25.880000000000003,
+"doel": 26.03,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "33 years",
+"x": 720,
+"y": 72,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 27.73,
+"doel": 27.88,
+"teken": 0.6
+},
+{
+"bord": 1,
+"foto": "gtc.jpg",
+"x": 720,
+"y": 165,
+"breed": 250,
+"hoog": 145,
+"start": 31.02,
+"doel": 31.32,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": null,
+"bron": "Photo: NVIDIA Taiwan, CC BY 2.0"
+},
+{
+"bord": 1,
+"foto": "chip_crop.jpg",
+"x": 1010,
+"y": 165,
+"breed": 190,
+"hoog": 145,
+"start": 32.96,
+"doel": 33.26,
+"teken": 0.9,
+"kleur": 0.5,
+"naam": null,
+"bron": "Photo: Fritzchens Fritz, CC0"
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_kroon.png",
+"x": 745,
+"y": 410,
+"breed": 190,
+"hoog": 180,
+"midden": true,
+"start": 37.81,
+"doel": 38.11,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 1,
+"tekst": "#1 in the world",
+"x": 950,
+"y": 450,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 39.56,
+"doel": 39.71,
+"teken": 0.4
+},
+{
+"bord": 1,
+"tekst": "(until October)",
+"x": 960,
+"y": 500,
+"maat": 30,
+"kleur": [
+46,
+150,
+84
+],
+"start": 40.06,
+"doel": 40.21,
+"teken": 0.6
+},
+{
+"bord": 2,
+"kop": "Weeks of reports and investigations",
+"rechts": "Not financial advice",
+"start": 41.07
+},
+{
+"bord": 2,
+"beeld": "afbeeldingen/n_dossiers.png",
+"x": 65,
+"y": 80,
+"breed": 260,
+"hoog": 210,
+"midden": true,
+"start": 41.71,
+"doel": 42.01,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 2,
+"tekst": "Nov 12: stepped down",
+"x": 345,
+"y": 90,
+"maat": 36,
+"kleur": [
+214,
+32,
+39
+],
+"start": 44.78,
+"doel": 44.93,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "interim CEO: Colette Kress",
+"x": 345,
+"y": 155,
+"maat": 30,
+"kleur": [
+25,
+55,
+120
+],
+"start": 48.800000000000004,
+"doel": 48.95,
+"teken": 0.6
+},
+{
+"bord": 2,
+"foto": "capitol.jpg",
+"x": 350,
+"y": 240,
+"breed": 280,
+"hoog": 170,
+"start": 52.260000000000005,
+"doel": 52.56,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": "testify before Congress",
+"bron": "Photo: Noclip, public domain"
+},
+{
+"bord": 2,
+"data": "../../../blackswan-nl/video1/data/nvda.json",
+"logo": "logos/nvidia.png",
+"logohoog": 22,
+"onder": "closing price, US dollars",
+"taal": "en",
+"valuta": "$",
+"x": 790,
+"y": 75,
+"breed": 440,
+"hoog": 400,
+"start": 55.1,
+"doel": 55.55,
+"teken": 3.0
+},
+{
+"bord": 2,
+"tekst": "-29% since the first report",
+"x": 720,
+"y": 540,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 58.53,
+"doel": 58.68,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "Business has never been better",
+"rechts": "Not financial advice",
+"start": 60.482
+},
+{
+"bord": 3,
+"tekst": "?",
+"x": 65,
+"y": 70,
+"maat": 140,
+"kleur": [
+214,
+32,
+39
+],
+"start": 60.63,
+"doel": 60.78,
+"teken": 0.5
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_chips.png",
+"x": 160,
+"y": 75,
+"breed": 260,
+"hoog": 260,
+"midden": true,
+"start": 61.480000000000004,
+"doel": 61.78,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "$115.8B",
+"x": 450,
+"y": 80,
+"maat": 70,
+"kleur": [
+46,
+150,
+84
+],
+"start": 66.6,
+"doel": 66.75,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "in one quarter",
+"x": 455,
+"y": 170,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 70.28999999999999,
+"doel": 70.44,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "+103% in a year",
+"x": 455,
+"y": 220,
+"maat": 34,
+"kleur": [
+46,
+150,
+84
+],
+"start": 72.05999999999999,
+"doel": 72.21,
+"teken": 0.6
+},
+{
+"bord": 3,
+"balken": [
+[
+"Q3",
+115.8,
+"$115.8B"
+],
+[
+"Data ctr",
+107.6,
+"$107.6B"
+],
+[
+"Next Q*",
+130,
+"~$130B"
+]
+],
+"logo": "logos/nvidia.png",
+"logohoog": 22,
+"onder": "revenue, *expected",
+"x": 760,
+"y": 75,
+"breed": 480,
+"hoog": 430,
+"start": 73.78,
+"doel": 74.33,
+"starts": [
+73.98,
+76.02,
+81.5
+]
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_datacenter.png",
+"x": 65,
+"y": 420,
+"breed": 420,
+"hoog": 220,
+"midden": true,
+"start": 83.8,
+"doel": 84.1,
+"teken": 1.0,
+"kleur": 0.4
+},
+{
+"bord": 3,
+"tekst": "big tech keeps buying",
+"x": 500,
+"y": 560,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 85.14999999999999,
+"doel": 85.3,
+"teken": 0.6
+},
+{
+"bord": 4,
+"kop": "Then came the selling",
+"rechts": "Not financial advice",
+"start": 88.843
+},
+{
+"bord": 4,
+"tekst": "Reuters:",
+"x": 65,
+"y": 72,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 90.14999999999999,
+"doel": 90.3,
+"teken": 0.6
+},
+{
+"bord": 4,
+"beeld": "sec_wit.png",
+"x": 65,
+"y": 125,
+"breed": 150,
+"hoog": 150,
+"midden": true,
+"start": 91.04,
+"doel": 91.34,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_boekhouding.png",
+"x": 230,
+"y": 105,
+"breed": 230,
+"hoog": 170,
+"midden": true,
+"start": 92.9,
+"doel": 93.2,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 4,
+"tekst": "SEC probe",
+"x": 80,
+"y": 300,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 93.8,
+"doel": 93.82,
+"teken": 0.47
+},
+{
+"bord": 4,
+"logo": "logos/broadcom.png",
+"x": 520,
+"y": 90,
+"hoog": 36,
+"start": 96.46,
+"doel": 96.66
+},
+{
+"bord": 4,
+"tekst": "-12%",
+"x": 540,
+"y": 140,
+"maat": 64,
+"kleur": [
+214,
+32,
+39
+],
+"start": 97.66999999999999,
+"doel": 97.82,
+"teken": 0.6
+},
+{
+"bord": 4,
+"logo": "logos/google.png",
+"x": 800,
+"y": 85,
+"hoog": 50,
+"start": 100.3,
+"doel": 100.5
+},
+{
+"bord": 4,
+"tekst": "buying fewer chips?",
+"x": 790,
+"y": 160,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 101.41,
+"doel": 101.56,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "Nasdaq 100: -5.6%",
+"x": 80,
+"y": 400,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 103.88,
+"doel": 104.03,
+"teken": 0.6
+},
+{
+"bord": 4,
+"data": "../../../blackswan-nl/video1/data/sp500.json",
+"onder": "S&P 500, closing price",
+"taal": "en",
+"valuta": "",
+"x": 560,
+"y": 270,
+"breed": 660,
+"hoog": 400,
+"start": 107.51,
+"doel": 107.96,
+"teken": 2.6
+},
+{
+"bord": 4,
+"tekst": "-11.6% from the top",
+"x": 80,
+"y": 480,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 110.75999999999999,
+"doel": 110.91,
+"teken": 0.6
+},
+{
+"bord": 5,
+"kop": "Too much money?",
+"rechts": "Not financial advice",
+"start": 112.664
+},
+{
+"bord": 5,
+"logo": "logos/anthropic.png",
+"x": 65,
+"y": 95,
+"hoog": 34,
+"start": 114.48,
+"doel": 114.68
+},
+{
+"bord": 5,
+"tekst": "raised $81B (Nov 19)",
+"x": 65,
+"y": 150,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 116.92999999999999,
+"doel": 117.08,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "a simple question:",
+"x": 65,
+"y": 280,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 121.08999999999999,
+"doel": 121.24,
+"teken": 0.6
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_geldjacht.png",
+"x": 560,
+"y": 90,
+"breed": 620,
+"hoog": 360,
+"midden": true,
+"start": 122.58,
+"doel": 122.88,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"tekst": "too much money, one AI dream?",
+"x": 120,
+"y": 560,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 124.33,
+"doel": 124.48,
+"teken": 0.7
+},
+{
+"bord": 6,
+"kop": "What comes next",
+"rechts": "Not financial advice",
+"start": 126.479
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_bubbel.png",
+"x": 65,
+"y": 80,
+"breed": 220,
+"hoog": 200,
+"midden": true,
+"start": 126.88000000000001,
+"doel": 127.18,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "end of the AI boom?",
+"x": 300,
+"y": 110,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 127.78,
+"doel": 127.82,
+"teken": 0.49
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_koopje.png",
+"x": 980,
+"y": 80,
+"breed": 230,
+"hoog": 210,
+"midden": true,
+"start": 128.38,
+"doel": 128.68,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "or a chance to buy?",
+"x": 300,
+"y": 190,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 129.28,
+"doel": 129.28,
+"teken": 0.45
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_nieuwechip.png",
+"x": 65,
+"y": 340,
+"breed": 230,
+"hoog": 210,
+"midden": true,
+"start": 132.04,
+"doel": 132.34,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 6,
+"tekst": "Vera Rubin: \"explosive start\"",
+"x": 300,
+"y": 380,
+"maat": 38,
+"kleur": [
+46,
+150,
+84
+],
+"start": 134.09,
+"doel": 134.24,
+"teken": 0.6
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_nerveus.png",
+"x": 900,
+"y": 330,
+"breed": 300,
+"hoog": 250,
+"midden": true,
+"start": 139.2,
+"doel": 139.5,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_7dagen.png",
+"x": 300,
+"y": 470,
+"breed": 300,
+"hoog": 80,
+"midden": true,
+"start": 141.61999999999998,
+"doel": 141.92,
+"teken": 0.66,
+"kleur": 0.4
+},
+{
+"bord": 6,
+"tekst": "7 days of selling",
+"x": 300,
+"y": 580,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 142.63,
+"doel": 142.78,
+"teken": 0.6
+}
+]
+}

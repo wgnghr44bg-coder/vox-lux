@@ -1,6 +1,6 @@
 # Notes for Claude sessions
 
-**Overnemen door een ander account (21 nov 2026): lees eerst `PROMPT-ANDER-ACCOUNT.md`.**
+**Overnemen door een ander account (21 nov 2026): lees eerst `PROMPT-ANDER-ACCOUNT.md`.** Getekende video's (22 nov): `kanalen/TEKENSTIJL.md`.
 
 ## Planning alle kanalen (19 nov 2026): `kanalen/PLANNING.md` — FOCUS op BlackswanVault (elke dag lange video + Short als er goed nieuws is, anders alleen Short (20 nov avond); geen slechte video's, niets dubbel vertellen, minimaal 8 min, echte beelden waar het mag en past; alle vaste regels in `kanalen/blackswanvault/README.md`); Sleep Archives WEER 2x PER WEEK wo+za 21:00 (eigenaar 21 nov avond; taak 'Sleep Archives bewaker' AAN, wacht als Swan/Geldverhaal rendert; BlackswanVault en Geldverhaal puur op hype), NOIRTRACES OP PAUZE (eigenaar 19 nov avond: eerst resultaat Jack afwachten; Holmes-script ligt klaar in stories/_nt-hh-holmes). Overzicht op de website, bron `kanalen/PLANNING-KANALEN.json` + `stories/*/planning.txt`.
 

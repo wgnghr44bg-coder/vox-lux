@@ -29,9 +29,9 @@ def lg(k, pad, x, y, h, t0): it.append({"bord": k, "logo": pad, "x": x, "y": y, 
 # a: de daling
 kop(0, 0.0, "Nvidia fell 14% in one day")
 tx(0, "Friday", 65, 72, 48, BL, kw(0, "friday", -0.1))
-logo(0, 65, 150, 46, kw(0, "nvidia", -0.1))
+logo(0, 65, 140, 56, kw(0, "nvidia", -0.1))
 tx(0, "-14%", 65, 205, 96, RO, kw(0, "fell", 0.0), 0.7)
-it.append({"bord": 0, "pijl": [330, 150, 450, 300], "kleur": RO, "dik": 14, "start": kw(0, "14", 0.0), "teken": 0.6})
+it.append({"bord": 0, "pijl": [370, 170, 470, 300], "kleur": RO, "dik": 14, "start": kw(0, "14", 0.0), "teken": 0.6})
 tx(0, "in 1 day", 85, 320, 42, RO, kw(0, "single", 0.0))
 it.append({"bord": 0, "dagen": NV, "logo": LG, "logohoog": 22, "onder": "closing price, change per day", "n": 7,
            "x": 640, "y": 75, "breed": 570, "hoog": 420, "start": kw(1, "seventh", -0.2), "per": 0.22})
