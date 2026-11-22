@@ -1,0 +1,12 @@
+# 30-second demo "How AI chips power the future" (22 nov 2026), narration from the brief
+@scene s1
+Artificial intelligence is changing the world.
+But behind every AI breakthrough is one incredibly important piece of technology.
+@scene s2
+Inside these powerful machines are advanced processors designed to handle billions of calculations.
+@scene s3
+Companies like NVIDIA design the technology, while manufacturers like TSMC produce the advanced chips.
+@scene s4
+These chips power data centers, artificial intelligence systems and technologies used around the world.
+@scene s5
+And as demand for artificial intelligence grows, the companies behind these chips are becoming increasingly important.
