@@ -33,7 +33,7 @@ def koersen(pad):
 
 def plak(doek, laag, x, y, alpha=1.0):
     """laag (RGBA, dubbele grootte) verkleinen en op het doek leggen"""
-    k = laag.resize((laag.width // S, laag.height // S), Image.LANCZOS)
+    k = laag.reduce(S)                                                  # 22 nov: snel verkleinen (box), oogt gelijk
     a = np.asarray(k).astype(np.float32) / 255
     H, W = doek.shape[:2]
     x0, y0, x1, y1 = max(0, x), max(0, y), min(W, x + k.width), min(H, y + k.height)
@@ -43,7 +43,18 @@ def plak(doek, laag, x, y, alpha=1.0):
     doek[y0:y1, x0:x1] = (vak * (1 - al) + a[..., :3] * 255 * al).astype(np.uint8)
 
 
+_KAART = {}
+
+
 def kaartje(w, h):
+    """(22 nov: snelheid) kaart + schaduw één keer maken per maat en thema, daarna een kopie"""
+    sleutel = (w, h, KAART, RAND)
+    if sleutel not in _KAART: _KAART[sleutel] = _kaartje(w, h)
+    laag, m = _KAART[sleutel]; laag = laag.copy()
+    return laag, ImageDraw.Draw(laag), m
+
+
+def _kaartje(w, h):
     """lichte kaart met zachte schaduw; geeft laag + draw (dubbele grootte, 24 px marge voor de schaduw)"""
     m = 24 * S
     laag = Image.new("RGBA", (w * S + 2 * m, h * S + 2 * m), (0, 0, 0, 0))
@@ -52,7 +63,7 @@ def kaartje(w, h):
     laag = Image.alpha_composite(laag, sch.filter(ImageFilter.GaussianBlur(12 * S)))
     d = ImageDraw.Draw(laag)
     d.rounded_rectangle((m, m, m + w * S, m + h * S), 26 * S, fill=KAART + (255,), outline=RAND + (255,), width=2 * S)
-    return laag, d, m
+    return laag, m
 
 
 def logo_op(laag, pad, x, y, hoog):

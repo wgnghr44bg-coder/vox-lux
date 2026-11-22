@@ -122,6 +122,10 @@ class Bordje:
 
 INKT, PAPIER = (28, 28, 34), (255, 255, 255)
 KRIJT = None
+try:
+    import cv2 as CV2
+except ImportError:
+    CV2 = None
 PEN = None                                                          # 22 nov: waar de "pen" nu is (voor de tekenende hand)
 HAND = None
 VAAG = 0.8
@@ -396,6 +400,22 @@ def maak(i):
     return Tekening(i)
 
 
+def klaar_tijd(i):
+    """moment waarop een onderdeel niet meer verandert (22 nov: snelheid -> daarna uit de cache)"""
+    st = i.get("start", 0)
+    if "beeld" in i: return st + i.get("teken", 3.0) + i.get("kleur", 1.0) + 0.05
+    if "foto" in i: return st + i.get("teken", 1.8) + i.get("kleur", 0.9) + 0.05
+    if "tekst" in i or "streep" in i or "pijl" in i: return st + i.get("teken", 1.0) + 0.05
+    if "bordje" in i: return st + 0.5
+    if "kop" in i: return st
+    if "logo" in i and not any(k in i for k in ("data", "dagen", "balken")): return st + 0.65
+    if "data" in i: return st + 0.3 + i.get("teken", 3.0) + 0.35
+    if "dagen" in i: return st + 0.3 + i.get("n", 7) * i.get("per", 0.35) + 0.45
+    if "balken" in i: return max([st + 0.4] + list(i.get("starts", [st + 0.4 + k * 0.7 for k in range(len(i["balken"]))]))) + 0.85
+    if "delen" in i: return st + i.get("teken", 2.0) + 0.05
+    return None
+
+
 def main():
     sc = json.load(open(sys.argv[1], encoding="utf-8")); uit = sys.argv[2]
     global KRIJT, INKT, PAPIER, HAND, PEN, W, H
@@ -408,16 +428,31 @@ def main():
         PAPIER = tuple(sc["bord"]); KRIJT = INKT = (236, 236, 228)
         import mooi; mooi.thema_donker()
     items = [(maak(i), i.get("tot", 1e9)) for i in sc["items"]]   # "tot": tijd waarop het doek weer leeg gaat
+    # 22 nov: videokaart (NVENC) laat opslaan als die er is, anders libx264
+    nv = "h264_nvenc" in subprocess.run(["ffmpeg", "-hide_banner", "-encoders"], capture_output=True, text=True).stdout and "--cpu" not in sys.argv
+    ENC = ["-c:v", "h264_nvenc", "-preset", "p5", "-rc", "vbr", "-cq", "21", "-b:v", "0"] if nv else ["-c:v", "libx264", "-crf", "20"]
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
-                          "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", uit],
+                          "-r", str(FPS), "-i", "-"] + ENC + ["-pix_fmt", "yuv420p", uit],
                          stdin=subprocess.PIPE)
     if "borden" in sc:                                              # 21 nov: rustige stijl, bord schuift opzij
         bt = sc["borden"]; SCH = sc.get("schuif", 1.0)
-        perbord = [[(x, tot) for (x, tot), i in zip(items, sc["items"]) if i.get("bord") == k] for k in range(len(bt))]
+        perbord = [[(x, tot, i) for (x, tot), i in zip(items, sc["items"]) if i.get("bord") == k] for k in range(len(bt))]
+        cache = {}                                                  # bord -> (aantal onderdelen in de laag, laag)
         vast = [(x, tot) for (x, tot), i in zip(items, sc["items"]) if "bord" not in i]
         def teken_bord(k, t):
-            d = np.empty((H, W, 3), np.uint8); d[:] = PAPIER
-            for x, tot in perbord[k]:
+            rij = perbord[k]; n, laag = cache.get(k, (0, None))
+            if laag is None: laag = np.empty((H, W, 3), np.uint8); laag[:] = PAPIER
+            m = n                                                   # hoeveel onderdelen vooraan zijn nu klaar en blijven staan?
+            while m < len(rij):
+                x, tot, i = rij[m]; kt = klaar_tijd(i)
+                if kt is None or t < kt or tot < 1e8: break
+                m += 1
+            if m > n:
+                laag = laag.copy()
+                for x, tot, i in rij[n:m]: x.op(laag, max(t, klaar_tijd(i)))
+                cache[k] = (m, laag)
+            d = laag.copy()
+            for x, tot, i in rij[m:]:
                 if t < tot: x.op(d, t)                              # "tot" ook binnen een bord (houding F wisselt)
             return d
         for f in range(int(sc["duur"] * FPS)):
@@ -440,7 +475,12 @@ def main():
                 onder = doek[KOP:]; HH = H - KOP
                 sch = 1 + z * q; cw, ch = W / sch, HH / sch
                 x0, y0 = (W - cw) / 2, (HH - ch) / 2
-                doek = doek.copy(); doek[KOP:] = np.asarray(Image.fromarray(np.ascontiguousarray(onder)).resize((W, HH), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch)))
+                doek = doek.copy()
+                if CV2 is not None:                                 # 22 nov: snelheid (OpenCV schaalt veel sneller dan PIL)
+                    stuk = onder[int(y0):int(y0 + ch), int(x0):int(x0 + cw)]
+                    doek[KOP:] = CV2.resize(stuk, (W, HH), interpolation=CV2.INTER_LINEAR)
+                else:
+                    doek[KOP:] = np.asarray(Image.fromarray(np.ascontiguousarray(onder)).resize((W, HH), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch)))
             p.stdin.write(np.ascontiguousarray(doek).tobytes())
         p.stdin.close(); p.wait(); print("KLAAR", uit); return
     for f in range(int(sc["duur"] * FPS)):

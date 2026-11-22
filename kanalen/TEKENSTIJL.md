@@ -48,14 +48,8 @@ Token: `YT_REFRESH_TOKEN_ALTERAQON`. Alle oude What-if-video's verwijderd (21 no
 trefwoorden, taal en, banner `kanalen/alteraqon/banner.png` ("Market Doodle — Money news, drawn on a whiteboard"). Profielfoto `kanalen/alteraqon/profielfoto.png` ("MD" + rode koerslijn), naam "Market Doodle" en handle (bv. @marketdoodle)
 zet de eigenaar zelf in Studio — GEDAAN 22 nov: snippet.title = "Market Doodle", handle @marketdoodle (0 video's). Upload altijd privé + kanaal controleren (snippet.channelTitle).
 
-## TODO snelheid (eigenaar 22 nov: "doodle is heel langzaam" -> "ja is prima", NA de eerste Market Doodle-video)
-6,2 min video = ± 11 min renderen. Plan: (1) per bord een cache-laag voor onderdelen die af zijn (alleen actieve onderdelen per frame tekenen),
-(2) h264_nvenc (RTX 2080 Super) i.p.v. libx264, (3) borden in 2-3 losse processen renderen en daarna samenvoegen (concat).
-Eerst de lokale aanpassingen van het andere account in teken_anim.py/mooi.py (staande Short, W/H) committen, dan pas hierop bouwen.
-
-## Market Doodle video 1 (22 nov 2026, 04:40) — ONLINE
-`kanalen/marketdoodle/video1/`: "The Nasdaq Just Erased All of 2026. Is This 2000 Again?" https://youtu.be/ky4IxJH52ac (6:12) + Short https://youtu.be/ykGCjh7bDq4 (50 s),
-beide openbaar (eigenaar: "zet ze beide maar online"), AI-label via PUT gezet. Bouwen: `keten_stem.sh` (stem, Whisper, woordtijden) → `maak.py` → `volgorde.py`
-→ `keten_render.sh [lang]` (render, geluid, `muziek.py`, mix, freezedetect, Short via `maak_short.py`). `stand.py` = eindstand per bord als plaat (controle vóór renderen).
-- **Thumbnail NIET gezet**: kanaal mag nog geen eigen thumbnails (telefoonverificatie in Studio nodig). `thumbnail.jpg` daarna zelf in Studio zetten.
-- Les: stille stukken zitten vooral aan het begin van een bord (alleen de kop) → eerste zin van elk bord altijd een eigen beeld/tekst geven.
+## Snelheid (GEDAAN 22 nov ochtend, eigenaar: "doodle is heel langzaam")
+60 s video renderen: was 123 s, nu 19 s (± 6,5x sneller), beeld gelijk. Hoe: (1) per bord een cache-laag van alles wat al af is (klaar_tijd in
+teken_anim.py), (2) grafiekkaartjes + schaduw één keer maken (mooi.py), snel verkleinen met reduce, (3) zoom met OpenCV (`pip install
+opencv-python-headless`, valt terug op PIL als het er niet is), (4) opslaan met de videokaart (h264_nvenc; `--cpu` = oude libx264).
+Een video van 6 min kost nu ± 2 min in plaats van ± 11 min.
