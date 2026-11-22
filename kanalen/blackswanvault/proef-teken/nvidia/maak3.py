@@ -56,6 +56,10 @@ tx(3, "7 days, 7 drops", 790, 360, 48, RO, kw(14, "7", 0.0))
 F(3, "f4", kw(15, "end"), snel=True)
 tx(3, "the end of the AI boom?", 320, 470, 50, BL, kw(15, "end", 0.0), 1.0)
 tx(3, "or a chance to buy?", 420, 560, 50, GR, kw(15, "chance", 0.0), 0.9)
+# eigenaar 22 nov: "haal onze vaste character er ook maar uit" -> F weg, alles 70 px naar links (geen leeg vak links)
+it = [i for i in it if "personage" not in i.get("beeld", "")]
+for i in it:
+    if "x" in i and "kop" not in i: i["x"] = max(20, i["x"] - 70)
 json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0.06, "items": it},   # eigenaar 22 nov: zonder hand
           open("scene3.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(len(it), "items")

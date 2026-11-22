@@ -433,9 +433,11 @@ def main():
             if z:
                 eind = bt[k + 1] if k + 1 < len(bt) else sc["duur"]
                 q = min(1.0, max(0.0, (t - bt[k]) / max(1.0, eind - bt[k])))
-                sch = 1 + z * q; cw, ch = W / sch, H / sch
-                x0, y0 = (W - cw) / 2, (H - ch) / 2
-                doek = np.asarray(Image.fromarray(doek).resize((W, H), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch)))
+                KOP = 58                                            # de kopregel blijft stil staan, alleen het bord zoomt
+                onder = doek[KOP:]; HH = H - KOP
+                sch = 1 + z * q; cw, ch = W / sch, HH / sch
+                x0, y0 = (W - cw) / 2, (HH - ch) / 2
+                doek = doek.copy(); doek[KOP:] = np.asarray(Image.fromarray(np.ascontiguousarray(onder)).resize((W, HH), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch)))
             p.stdin.write(np.ascontiguousarray(doek).tobytes())
         p.stdin.close(); p.wait(); print("KLAAR", uit); return
     for f in range(int(sc["duur"] * FPS)):
