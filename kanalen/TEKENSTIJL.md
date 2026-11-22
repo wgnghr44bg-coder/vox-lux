@@ -42,3 +42,8 @@ Daarna altijd: `ffmpeg -i uit.mp4 -vf freezedetect=n=0.0005:d=1.5 -f null -` en 
 - Pc heeft weinig geheugen: Sleep-keten (Pearl Harbor) en ComfyUI tegelijk = vastlopen. **Sleep Archives staat STIL sinds 21 nov 23:15
   (taak "Sleep Archives bewaker" Disabled, `~/gpu-bezet.lock`) tot de eigenaar zegt "hervatten"** → dan lock weg + taak Enable + Start.
 - Openstaand in de laatste proef: Nvidia-pijl op bord 1 iets naar rechts (`"pijl": [370, 170, 470, 300]`) en opnieuw renderen.
+
+## Kanaal Alteraqon (omgebouwd 22 nov 2026, eigenaar: "kun je nu account aanpassen")
+Token: `YT_REFRESH_TOKEN_ALTERAQON`. Alle oude What-if-video's verwijderd (21 nov). Gezet via API: Engelse beschrijving (`kanalen/alteraqon/beschrijving.txt`),
+trefwoorden, taal en, banner `kanalen/alteraqon/banner.png` ("Money news, drawn."). Profielfoto `kanalen/alteraqon/profielfoto.png` en eventueel
+nieuwe naam/handle zet de eigenaar zelf in Studio (API kan dat niet). Upload altijd privé + kanaal controleren (snippet.channelTitle).
