@@ -35,3 +35,4 @@ def maak(naam, regels, rows):
     c.save(f"thumb/{naam}.png")
 maak("thumb-c",[("WHAT DID ROCKSTAR",(20,20,20),100),("GET FROM ME?",RO,100)],[("Store","~$24",RO,False),("Sony","~$12",RO,False),("Disc","~$4",RO,False),("Rockstar","$??",GR,True)])
 maak("thumb-d",[("ROCKSTAR ONLY",(20,20,20),100),("GOT $40?!",RO,110)],[("Store","~$24",RO,False),("Sony","~$12",RO,False),("Disc","~$4",RO,False),("Rockstar","~$40",GR,True)])
+maak("thumb-e",[("HOW MUCH DID ROCKSTAR",(20,20,20),92),("EARN FROM ME?",RO,104)],[("Store","~$24",RO,False),("Sony","~$12",RO,False),("Disc","~$4",RO,False),("Rockstar","$??",GR,True)])
