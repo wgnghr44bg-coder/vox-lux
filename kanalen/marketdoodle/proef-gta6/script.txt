@@ -6,7 +6,7 @@
 @scene a
 It's launch night. You walk into a game store, and there it is. Grand Theft Auto Six.
 You take it to the counter. Seventy-nine ninety-nine.
-And as you pay, a question pops into your head. How much is everyone earning on this, right now?
+And as you pay, you start to wonder. How much are they actually earning on my purchase?
 @scene b
 Let's start right where you are standing. The store.
 Analysts estimate a shop keeps about thirty percent of a new game. That is about twenty-four dollars.
