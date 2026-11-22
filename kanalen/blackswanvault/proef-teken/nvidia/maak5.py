@@ -74,6 +74,6 @@ tx(3, "or a chance to buy?", 400, 560, 46, GR, kw(15, "buy", 0.0), 0.8)
 it = [i for i in it if "personage" not in i.get("beeld", "")]
 for i in it:
     if "x" in i and "kop" not in i: pass
-json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0.03, "items": it},   # eigenaar 22 nov: zonder hand
+json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0, "items": it},   # eigenaar 22 nov: zonder hand
           open("scene5.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(len(it), "items")

@@ -105,6 +105,6 @@ tx(6, "Vera Rubin: \"explosive start\"", 300, 380, 38, GR, kw(28, "explosive", 0
 b(6, "n_nerveus", 900, 330, 300, 250, kw(29, "nervous", -0.4))
 b(6, "n_7dagen", 300, 470, 300, 80, kw(30, "seven", -0.2))
 tx(6, "7 days of selling", 300, 580, 46, RO, kw(30, "selling", 0.0))
-json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0.045, "items": it},
+json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0, "items": it},
           open("scene.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(len(it), "items")

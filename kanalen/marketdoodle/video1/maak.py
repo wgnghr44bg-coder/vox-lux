@@ -197,6 +197,6 @@ b(15, "n_bubbel", 920, 80, 290, 240, kw(87, "boom", -0.2))
 tx(15, "AI boom over...", 700, 455, 40, RO, kw(87, "over"))
 tx(15, "...or the sale of the year?", 700, 520, 40, GR, kw(87, "sale"))
 tx(15, "tell me in the comments!", 700, 600, 44, BL, kw(88, "comments"))
-json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0.04, "items": it},
+json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0, "items": it},
           open("scene.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(len(it), "items,", len(borden), "borden")

@@ -71,6 +71,6 @@ b(5, "n_evenwicht", 620, 80, 420, 260, kw(19, "footing", -0.4))
 tx(5, "a footing under $60,000?", 640, 370, 40, BL, kw(19, "$60", 0.0))
 b(5, "n_vraag", 65, 380, 140, 200, kw(20, "bottom", -0.3))
 tx(5, "the bottom, or just the start?", 230, 460, 52, RO, kw(20, "start", -0.3))
-json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0.045, "items": it},
+json.dump({"duur": round(e[-1] + 2.0, 2), "borden": borden, "schuif": 0, "zoom": 0, "items": it},
           open("scene.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print(len(it), "items")

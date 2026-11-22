@@ -25,8 +25,8 @@ over de Nvidia-proef: **"zo is het perfect eigenlijk"**. Daarna een langere proe
    dan het woord/getal zelf groot schrijven (geen half passend plaatje — "bellen bij Friday" en "verrekijker bij watch" afgekeurd).
 2. **Beeld loopt gelijk met de stem** (start 0,3 s vóór het woord, tekenen ± 1,2 s, tekst ± 0,6 s).
 3. **Niet te snel, niet te druk**: opbouw zoals The Dividend Experiment: kop linksboven (blauwe hoofdletters + lijntje), "Not financial advice"
-   rechtsboven, losse tekeningen over het bord, bord blijft staan tot het volgende hoofdstuk, stilstaande camera met heel lichte zoom (3-4,5 %).
-4. **Nooit over elkaar heen / nooit twee tegelijk / beeld nooit stil** (volgorde.py + freezedetect).
+   rechtsboven, losse tekeningen over het bord, bord blijft staan tot het volgende hoofdstuk, stilstaande camera, GEEN zoom.
+4. **Nooit over elkaar heen / nooit twee tegelijk** (volgorde.py). **GEEN zoom/beweging: getekende beelden staan stil als ze af zijn** (eigenaar 22 nov: "beelden hoeven niet te bewegen als ze getekend zijn") → `"zoom": 0`. Stilstand na het tekenen is dus goed; alleen lange stukken zonder nieuw beeld vermijden.
 5. **Geen tekenende hand, geen stiftgeluid, geen vast poppetje in beeld** (F is wel ontworpen en bewaard: `kanalen/personage/personage.md`).
 6. **Echte mensen alleen op echte foto's** met vrije licentie (Wikimedia), naam fotograaf + licentie klein onder de foto.
    Getekende/AI-mensen alleen als anonieme figuren. **Echte bedrijfslogo's** (Wikimedia) mogen.
@@ -57,3 +57,7 @@ Een video van 6 min kost nu ± 2 min in plaats van ± 11 min.
 ## Hype-seintje (22 nov)
 Market Doodle gebruikt dezelfde wachters als BlackswanVault (tools/nieuwswacht.py 08:00/15:45, tools/swan_yt_wacht.py 08:10/15:55).
 Het telefoon-seintje "Hype: video maken?" (ntfy) noemt nu beide kanalen. Geen aparte wachter nodig.
+
+## Let op Market Doodle video 1 (22 nov)
+De al gemaakte video (kanalen/marketdoodle/video1) heeft nog de zoom. In maak.py en maak_short.py staat zoom nu op 0;
+als hij nog niet online staat: opnieuw renderen (gaat nu snel, ± 1-2 min) zodat hij de regel volgt.
