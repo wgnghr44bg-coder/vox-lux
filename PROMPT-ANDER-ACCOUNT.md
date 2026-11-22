@@ -15,7 +15,7 @@ VASTE WERKWIJZE nieuwskanalen (BlackswanVault + Geldverhaal): nieuwsvideo's hoog
 reservevideo's voor rustige dagen, Shorts dezelfde dag (zie kanalen/blackswanvault/README.md). Sleep Archives mag ver vooruit.
 
 ## 0. NIEUW (22 nov nacht): getekende video's (whiteboard) — lees `kanalen/TEKENSTIJL.md`
-Eigenaar: "zo is het perfect eigenlijk". Beste voorbeeld: `kanalen/blackswanvault/proef-teken/nvidia3/`. Kanaal Alteraqon is leeggemaakt om om te bouwen (taal/onderwerp nog bevestigen).
+Eigenaar: "zo is het perfect eigenlijk". Beste voorbeeld: `kanalen/blackswanvault/proef-teken/nvidia3/`. Kanaal heet nu MARKET DOODLE (@marketdoodle, token YT_REFRESH_TOKEN_ALTERAQON): Engels, geld/investeren/bedrijven, op hype, lange video + Short.
 Sleep Archives staat STIL tot de eigenaar "hervatten" zegt (zie TEKENSTIJL.md, onderaan). BlackswanVault en Geldverhaal: alleen op hype (wachters).
 
 ## 1. Geldverhaal (NL-kanaal, was NOIRTRACES) — video 1 loopt
