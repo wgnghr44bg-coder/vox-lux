@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 15:33",
+ "bijgewerkt": "2026-11-22 16:03",
  "kanalen": {
   "weken": [
    {
@@ -360,7 +360,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-22 08:00",
+  "bijgewerkt": "2026-11-22 15:45",
   "markt": [
    {
     "naam": "S&P 500",
@@ -448,7 +448,7 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 0.4,
+    "pct": 1.3,
     "groot": false,
     "grens": 10
    },
@@ -527,10 +527,9 @@
     "groot": true
    },
    {
-    "onderwerp": "Anthropic",
-    "punten": 7,
+    "onderwerp": "Beurs",
+    "punten": 5,
     "bronnen": [
-     "BBC",
      "CNBC"
     ],
     "wat": [
@@ -539,47 +538,17 @@
     ],
     "koppen": [
      {
-      "titel": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
+      "titel": "S&P 500 correction: Five forces behind the market sell-off",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html"
+      "link": "https://www.cnbc.com/2026/11/20/sp-500-correction-market-sell-off.html"
      },
      {
       "titel": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
       "bron": "CNBC",
       "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html"
-     },
-     {
-      "titel": "Tech stock sell-off drags markets down as Anthropic shares slide",
-      "bron": "BBC",
-      "link": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss"
      }
     ],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nvidia",
-    "punten": 7,
-    "bronnen": [
-     "CNBC",
-     "NYT"
-    ],
-    "wat": [
-     "crash",
-     "rechtszaak"
-    ],
-    "koppen": [
-     {
-      "titel": "Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html"
-     },
-     {
-      "titel": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/20/business/nvidia-sec-accounting.html"
-     }
-    ],
-    "groot": true
+    "groot": false
    },
    {
     "onderwerp": "Musk",
@@ -595,6 +564,29 @@
       "titel": "Elon Musk on His Politics, a Potential Merger and Ukraine",
       "bron": "NYT",
       "link": "https://www.nytimes.com/2026/11/21/business/dealbook/elon-musk-dealbook-summit.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Anthropic",
+    "punten": 3,
+    "bronnen": [
+     "CNBC"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html"
+     },
+     {
+      "titel": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html"
      }
     ],
     "groot": false
@@ -618,19 +610,19 @@
     "groot": false
    },
    {
-    "onderwerp": "Beurs",
+    "onderwerp": "Nvidia",
     "punten": 3,
     "bronnen": [
-     "CNBC"
+     "NYT"
     ],
     "wat": [
-     "beursgang"
+     "rechtszaak"
     ],
     "koppen": [
      {
-      "titel": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html"
+      "titel": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/20/business/nvidia-sec-accounting.html"
      }
     ],
     "groot": false
@@ -641,34 +633,45 @@
    "Broadcom",
    "Nvidia",
    "Nasdaq",
-   "S&P 500",
-   "Anthropic",
-   "Nvidia"
+   "S&P 500"
   ],
-  "aantal_koppen": 60
+  "aantal_koppen": 62
  },
  "yt_swan": {
-  "bijgewerkt": "2026-11-22 08:11",
+  "bijgewerkt": "2026-11-22 15:55",
   "uren": 48,
-  "aantal_videos": 247,
+  "aantal_videos": 281,
   "onderwerpen": [
    {
-    "onderwerp": "gold",
-    "views_per_uur": 141775,
-    "kanalen": 11,
+    "onderwerp": "billionaire",
+    "views_per_uur": 228722,
+    "kanalen": 13,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 503,279 views in 18 u)",
-     "Gold Price Crash: ₹1,20,000 तक गिरेगा सोना? (Don't Buy Yet) (Abhishek Kar, 921,538 views in 41 u)",
-     "தங்கம் வாங்குவோர்களே உஷார்.. #Chennai | #GoldPrice | #Gold | #Economy (Polimer News, 338,996 views in 21 u)"
+     "I'm a Billionaire, But Nobody Knows 🤯 (Peter, 3,261,220 views in 28 u)",
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 685,781 views in 22 u)",
+     "He Took Hotel Leftovers Every Night—His Billionaire Boss Followed Him and Froze at What She Saw. (My CEO Romance Story, 414,931 views in 24 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold",
+    "views_per_uur": 168411,
+    "kanalen": 10,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 1,085,386 views in 25 u)",
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 685,781 views in 22 u)",
+     "Gold Price News LIVE: सोने के नए दामों ने मचा दी खलबली! टूट गया रिकॉर्ड!| Big Breaking | Today Rates (ABP NEWS, 192,623 views in 7 u)"
     ]
    },
    {
     "onderwerp": "ipo",
-    "views_per_uur": 123016,
-    "kanalen": 18,
+    "views_per_uur": 91338,
+    "kanalen": 13,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [
@@ -677,15 +680,28 @@
      "2026-11-27: Short: SpaceX Stock Fell Below Its $135 IPO Price"
     ],
     "voorbeelden": [
-     "The Anthropic IPO Didn't Help (Big A, 646,583 views in 25 u)",
-     "Anthropic Lost $230 Billion in Hours and the IPO Is Already a Total Sh*tshow (House of El: AI, 591,999 views in 40 u)",
-     "MAHANADI IPO Review! कोयला बेचकर सोना कमाने वाली कंपनी! (CA Rahul Malodia, 229,168 views in 23 u)"
+     "The Anthropic IPO Didn't Help (Big A, 690,054 views in 32 u)",
+     "Anthropic Lost $230 Billion in Hours and the IPO Is Already a Total Sh*tshow (House of El: AI, 608,934 views in 48 u)",
+     "MAHANADI IPO Review! कोयला बेचकर सोना कमाने वाली कंपनी! (CA Rahul Malodia, 296,520 views in 31 u)"
+    ]
+   },
+   {
+    "onderwerp": "modi",
+    "views_per_uur": 71043,
+    "kanalen": 4,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 1,085,386 views in 25 u)",
+     "👀 📉 बड़ा Economic Shock आने वाला है ? 🚨 Why PM Modi’s Warning is a Wake-Up Call for Every Indian ! (Bitcoin Expert India, 427,113 views in 26 u)",
+     "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News (Vistara News , 23,986 views in 4 u)"
     ]
    },
    {
     "onderwerp": "anthropic",
-    "views_per_uur": 103727,
-    "kanalen": 18,
+    "views_per_uur": 69012,
+    "kanalen": 12,
     "in_nieuws": true,
     "sterk": true,
     "al_gedaan": [
@@ -693,69 +709,53 @@
      "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
     ],
     "voorbeelden": [
-     "The Anthropic IPO Didn't Help (Big A, 646,583 views in 25 u)",
-     "Anthropic Lost $230 Billion in Hours and the IPO Is Already a Total Sh*tshow (House of El: AI, 591,999 views in 40 u)",
-     "Anthropic’s Billion-Dollar IPO: The AI Boom Or An AI Bubble? | The Palki Sharma Show | IGR (India Global Review, 309,233 views in 38 u)"
-    ]
-   },
-   {
-    "onderwerp": "anthropic ipo",
-    "views_per_uur": 59508,
-    "kanalen": 10,
-    "in_nieuws": true,
-    "sterk": true,
-    "al_gedaan": [
-     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
-    ],
-    "voorbeelden": [
-     "The Anthropic IPO Didn't Help (Big A, 646,583 views in 25 u)",
-     "The Anthropic IPO Should Have Been Illegal (Finance Stack, 217,808 views in 43 u)",
-     "Anthropic’s IPO could be bigger than just Claude. 👀🤖 (Pepperstone Asia, 204,992 views in 46 u)"
+     "The Anthropic IPO Didn't Help (Big A, 690,054 views in 32 u)",
+     "Anthropic Lost $230 Billion in Hours and the IPO Is Already a Total Sh*tshow (House of El: AI, 608,934 views in 48 u)",
+     "Anthropic’s Billion-Dollar IPO: The AI Boom Or An AI Bubble? | The Palki Sharma Show | IGR (India Global Review, 329,040 views in 46 u)"
     ]
    },
    {
     "onderwerp": "trump",
-    "views_per_uur": 58359,
-    "kanalen": 9,
+    "views_per_uur": 49097,
+    "kanalen": 7,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Trump News Conference & Stock Market Sell-Off - LIVE Breaking News Coverage (Agenda-Free TV, 398,716 views in 33 u)",
-     "President Trump blames Democrats for stock market losses while claiming credit for lower oil prices (NBC News, 342,362 views in 33 u)",
-     "PUTIN MESSAGES: Melania Trump DROPS major revelation about contact with Russia (Fox Business, 270,977 views in 37 u)"
+     "Trump News Conference & Stock Market Sell-Off - LIVE Breaking News Coverage (Agenda-Free TV, 399,719 views in 41 u)",
+     "தங்கம் முதல் Share Market வரை காலி! | அவசரப்பட்டு விக்காதீங்க! | Trump | Gold Silver Crash | SKA (அகில உலகம், 276,716 views in 31 u)",
+     "President Trump blames Democrats for stock market losses while claiming credit for lower oil prices (NBC News, 366,728 views in 41 u)"
     ]
    },
    {
-    "onderwerp": "gold silver",
-    "views_per_uur": 51846,
-    "kanalen": 5,
+    "onderwerp": "bonds",
+    "views_per_uur": 48311,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "DECODE Live: Sudhir Chaudhary | Gold Price Crash | Silver Rate Today | GTA 6 India | UP Polls (DD News, 222,911 views in 15 u)",
-     "Gold-Silver Prices Short : ₹95000 तक गिरे सोने के दाम, 18 कैरेट खरीदना कैसा?  #silverprice #goldrate (ABP NEWS, 483,713 views in 40 u)",
-     "Gold-Silver Prices Short : ₹2.75 लाख सस्ती हुई चांदी, क्या फिर पहुंचे Rate ₹4 लाख #silverprice (ABP NEWS, 449,732 views in 39 u)"
+     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 1,085,386 views in 25 u)",
+     "If You Don’t Understand Bonds, You Don’t Understand Why Stocks Are Crashing (Eurodollar University, 84,368 views in 15 u)"
     ]
    },
    {
-    "onderwerp": "modi",
-    "views_per_uur": 50627,
+    "onderwerp": "rejected",
+    "views_per_uur": 47656,
     "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 503,279 views in 18 u)",
-     "👀 📉 बड़ा Economic Shock आने वाला है ? 🚨 Why PM Modi’s Warning is a Wake-Up Call for Every Indian ! (Bitcoin Expert India, 200,531 views in 18 u)",
-     "PM Modi’s SCO Message to Pakistan| Trump Praises India’s Economy| Yogi Returns to Work| Dr.Manish Kr (CAPITAL TV, 125,417 views in 18 u)"
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 685,781 views in 22 u)",
+     "Why Ananya Birla Rejected Anant Ambani? 😱 #shorts (Abhishek Money Minds, 291,145 views in 34 u)",
+     "Steve Jurvetson: IPO-ing the Singularity, SpaceX Bet VCs Rejected, & Voyager’s 1 Light Day | EP #314 (Peter H. Diamandis, 122,974 views in 23 u)"
     ]
    },
    {
     "onderwerp": "nasdaq",
-    "views_per_uur": 49924,
-    "kanalen": 9,
+    "views_per_uur": 41739,
+    "kanalen": 7,
     "in_nieuws": true,
     "sterk": true,
     "al_gedaan": [
@@ -763,105 +763,83 @@
      "2026-11-23: Short: The Nasdaq Fell 13%. Investors Fear 4 Things"
     ],
     "voorbeelden": [
-     "NASDAQ wipes out 2026’s gains in AI correction (CNN, 573,089 views in 33 u)",
-     "USA: Beben an Börsen! Tech und KI im freien Fall! Nasdaq verliert Gewinn des gesamten Jahres (WELT Nachrichtensender, 125,350 views in 20 u)",
-     "This Stock Market Crash Is Different… (SP500, Nasdaq, ANT, NVDA) (FX Evolution - Trading Academy, 130,463 views in 25 u)"
+     "NASDAQ wipes out 2026’s gains in AI correction (CNN, 581,704 views in 40 u)",
+     "USA: Beben an Börsen! Tech und KI im freien Fall! Nasdaq verliert Gewinn des gesamten Jahres (WELT Nachrichtensender, 151,185 views in 28 u)",
+     "This Stock Market Crash Is Different… (SP500, Nasdaq, ANT, NVDA) (FX Evolution - Trading Academy, 149,641 views in 33 u)"
+    ]
+   },
+   {
+    "onderwerp": "anthropic ipo",
+    "views_per_uur": 39308,
+    "kanalen": 7,
+    "in_nieuws": true,
+    "sterk": true,
+    "al_gedaan": [
+     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
+    ],
+    "voorbeelden": [
+     "The Anthropic IPO Didn't Help (Big A, 690,054 views in 32 u)",
+     "Anthropic IPO ने Nasdaq listing में रचा इतिहास, Elon Musk की SpaceX का रिकॉर्ड टूटा| Duniyadari (The Lallantop, 154,588 views in 45 u)",
+     "Historic Anthropic IPO FAILS To Stop Stock Market Collapse (The Young Turks, 121,389 views in 36 u)"
     ]
    },
    {
     "onderwerp": "tech",
-    "views_per_uur": 47897,
-    "kanalen": 7,
+    "views_per_uur": 39249,
+    "kanalen": 6,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [
      "2026-11-24: Short: Big Tech Is Spending $700 Billion on AI. For What?"
     ],
     "voorbeelden": [
-     "Markets plummet as tech sell-off intensifies (NBC News, 605,197 views in 33 u)",
-     "Dan Ives Calls This Tech Sell-Off Completely Disconnected (Finance Deep Dive, 149,315 views in 19 u)",
-     "USA: Beben an Börsen! Tech und KI im freien Fall! Nasdaq verliert Gewinn des gesamten Jahres (WELT Nachrichtensender, 125,350 views in 20 u)"
-    ]
-   },
-   {
-    "onderwerp": "india",
-    "views_per_uur": 47454,
-    "kanalen": 6,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "\"LOOK AT INDIA\": AMERICA'S $40T DEBT PANIC | Why Trump's Fed Rate Cut Will CRASH US Economy | Kinjal (World Affairs by Unacademy, 321,479 views in 21 u)",
-     "DECODE Live: Sudhir Chaudhary | Gold Price Crash | Silver Rate Today | GTA 6 India | UP Polls (DD News, 222,911 views in 15 u)",
-     "PM Modi’s SCO Message to Pakistan| Trump Praises India’s Economy| Yogi Returns to Work| Dr.Manish Kr (CAPITAL TV, 125,417 views in 18 u)"
-    ]
-   },
-   {
-    "onderwerp": "rate",
-    "views_per_uur": 46068,
-    "kanalen": 4,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "\"LOOK AT INDIA\": AMERICA'S $40T DEBT PANIC | Why Trump's Fed Rate Cut Will CRASH US Economy | Kinjal (World Affairs by Unacademy, 321,479 views in 21 u)",
-     "DECODE Live: Sudhir Chaudhary | Gold Price Crash | Silver Rate Today | GTA 6 India | UP Polls (DD News, 222,911 views in 15 u)",
-     "Gold-Silver Prices Short : ₹2.75 लाख सस्ती हुई चांदी, क्या फिर पहुंचे Rate ₹4 लाख #silverprice (ABP NEWS, 449,732 views in 39 u)"
+     "Markets plummet as tech sell-off intensifies (NBC News, 624,856 views in 41 u)",
+     "Dan Ives Calls This Tech Sell-Off Completely Disconnected (Finance Deep Dive, 164,669 views in 27 u)",
+     "USA: Beben an Börsen! Tech und KI im freien Fall! Nasdaq verliert Gewinn des gesamten Jahres (WELT Nachrichtensender, 151,185 views in 28 u)"
     ]
    },
    {
     "onderwerp": "correction",
-    "views_per_uur": 42633,
+    "views_per_uur": 35558,
     "kanalen": 5,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "NASDAQ wipes out 2026’s gains in AI correction (CNN, 573,089 views in 33 u)",
-     "Stock market plunges into correction territory (NBC News, 256,354 views in 31 u)",
-     "Without a recession, this is a correction not a bear market, says Ed Yardeni (CNBC Television, 217,745 views in 35 u)"
+     "NASDAQ wipes out 2026’s gains in AI correction (CNN, 581,704 views in 40 u)",
+     "Stock market plunges into correction territory (NBC News, 267,933 views in 39 u)",
+     "Without a recession, this is a correction not a bear market, says Ed Yardeni (CNBC Television, 230,495 views in 42 u)"
     ]
    },
    {
-    "onderwerp": "recession",
-    "views_per_uur": 41910,
-    "kanalen": 7,
+    "onderwerp": "silver",
+    "views_per_uur": 35462,
+    "kanalen": 5,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "What’s Stopping a Recession… Is Now Under Attack (Casual Finance, 248,257 views in 13 u)",
-     "Without a recession, this is a correction not a bear market, says Ed Yardeni (CNBC Television, 217,745 views in 35 u)",
-     "Why the AI Bubble Could Trigger the BIGGEST Recession in History? | upGrad (upGrad, 71,340 views in 17 u)"
+     "Gold-Silver Prices Short : ₹2.75 लाख सस्ती हुई चांदी, क्या फिर पहुंचे Rate ₹4 लाख #silverprice (ABP NEWS, 454,920 views in 47 u)",
+     "தங்கம் முதல் Share Market வரை காலி! | அவசரப்பட்டு விக்காதீங்க! | Trump | Gold Silver Crash | SKA (அகில உலகம், 276,716 views in 31 u)",
+     "GOLD & SILVER PRICE CRASH! |డిసెంబర్ 4, 9న వడ్డీ రేట్ల బాంబ్? బంగారం, వెండి ధరల్లో మరింత పతనం తప్పదా (New Waves, 75,600 views in 10 u)"
     ]
    },
    {
-    "onderwerp": "short",
-    "views_per_uur": 39772,
+    "onderwerp": "poor",
+    "views_per_uur": 34697,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
-    "al_gedaan": [
-     "2026-11-19: Short: Nvidia Lost $1 Trillion While Making Record Money",
-     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever",
-     "2026-11-21: Short: GTA 6 Broke Records. So Why Did the Stock Fall?",
-     "2026-11-22: Short: Microsoft, JPMorgan and the FAA All Went Down in One Week",
-     "2026-11-23: Short: The Nasdaq Fell 13%. Investors Fear 4 Things",
-     "2026-11-24: Short: Big Tech Is Spending $700 Billion on AI. For What?",
-     "2026-11-25: Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
-     "2026-11-26: Short: Bitcoin Fell Below $60,000. Here's Who Is Selling",
-     "2026-11-27: Short: SpaceX Stock Fell Below Its $135 IPO Price"
-    ],
+    "al_gedaan": [],
     "voorbeelden": [
-     "Gold-Silver Prices Short : ₹95000 तक गिरे सोने के दाम, 18 कैरेट खरीदना कैसा?  #silverprice #goldrate (ABP NEWS, 483,713 views in 40 u)",
-     "Gold-Silver Prices Short : ₹2.75 लाख सस्ती हुई चांदी, क्या फिर पहुंचे Rate ₹4 लाख #silverprice (ABP NEWS, 449,732 views in 39 u)",
-     "Rajasthan Election Results 2026 : राजस्थान में बीजेपी की बड़ी हार #short #viralvideo #congress #bjp (ABP NEWS, 430,705 views in 42 u)"
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 685,781 views in 22 u)",
+     "A Poor Waitress Saved a Billionaire's Daughter at His Wedding—Then His Bride Ruined Her Life | Movie (Axis Studio, 108,804 views in 26 u)"
     ]
    },
    {
     "onderwerp": "nvidia",
-    "views_per_uur": 39110,
-    "kanalen": 9,
+    "views_per_uur": 34206,
+    "kanalen": 8,
     "in_nieuws": true,
     "sterk": true,
     "al_gedaan": [
@@ -869,299 +847,300 @@
      "2026-11-19: Short: Nvidia Lost $1 Trillion While Making Record Money"
     ],
     "voorbeelden": [
-     "Nvidia Scam Exposed: How Institutions Tricked Retail Into Selling - Every Investor NEEDS To See This (Gareth Soloway, 169,831 views in 15 u)",
-     "CNBC On NVIDIA Stock, Anthropic, Micron Stock - NVDA Update (FinVid, 196,699 views in 42 u)",
-     "Why Nvidia Stock NVDA Crashed 14% on a Reported SEC Accounting Probe (Comeback or Collapse, 117,205 views in 30 u)"
+     "Nvidia Scam Exposed: How Institutions Tricked Retail Into Selling - Every Investor NEEDS To See This (Gareth Soloway, 195,812 views in 23 u)",
+     "Nvidia Director Reveals the TRUTH behind the Scandal (Brendan Dell , 175,169 views in 24 u)",
+     "NASDAQ -1200 CRASH📉| Nvidia 14% CRASH ( Ai Bubble फूटा?😨 ) Gift Nifty🚀| India Stock Market New High? (Stock Market का Commando, 38,655 views in 10 u)"
     ]
    },
    {
-    "onderwerp": "trade",
-    "views_per_uur": 38855,
-    "kanalen": 6,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Is the AI Trade Headed for a Dot-Com Crash? Dan Niles Weighs In (Yahoo Finance, 413,278 views in 31 u)",
-     "First Trade 20th November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 583,500 views in 45 u)",
-     "Stock Market Crash Warning | VIX Hit 40 + My $240K TQQQ Trade (Options With Ryan) (Options With Ryan, 106,915 views in 29 u)"
-    ]
-   },
-   {
-    "onderwerp": "bonds",
-    "views_per_uur": 36789,
+    "onderwerp": "viral",
+    "views_per_uur": 33155,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात (Zee Business, 503,279 views in 18 u)",
-     "If You Don’t Understand Bonds, You Don’t Understand Why Stocks Are Crashing (Eurodollar University, 61,818 views in 8 u)"
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 685,781 views in 22 u)",
+     "Viral: 'मैंने कहा था सोना ना खरीदें अब सोने के दाम टूट गएलोगों के पैसे बच गए' (Zee News, 64,622 views in 24 u)"
     ]
    },
    {
-    "onderwerp": "panic",
-    "views_per_uur": 32971,
+    "onderwerp": "gold silver",
+    "views_per_uur": 30100,
     "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "\"LOOK AT INDIA\": AMERICA'S $40T DEBT PANIC | Why Trump's Fed Rate Cut Will CRASH US Economy | Kinjal (World Affairs by Unacademy, 321,479 views in 21 u)",
-     "“Panic Driven” AI Selloff: Why Gene Munster Sees Opportunity Now (TheStreet, 291,105 views in 36 u)",
-     "Tech sell-off: Panic driven or red flag moment? AI stocks: Buy more or hold? This or That. (TheStreet, 190,626 views in 36 u)"
+     "Gold-Silver Prices Short : ₹2.75 लाख सस्ती हुई चांदी, क्या फिर पहुंचे Rate ₹4 लाख #silverprice (ABP NEWS, 454,920 views in 47 u)",
+     "தங்கம் முதல் Share Market வரை காலி! | அவசரப்பட்டு விக்காதீங்க! | Trump | Gold Silver Crash | SKA (அகில உலகம், 276,716 views in 31 u)",
+     "GOLD & SILVER PRICE CRASH! |డిసెంబర్ 4, 9న వడ్డీ రేట్ల బాంబ్? బంగారం, వెండి ధరల్లో మరింత పతనం తప్పదా (New Waves, 75,600 views in 10 u)"
     ]
    },
    {
-    "onderwerp": "didn't",
-    "views_per_uur": 28685,
+    "onderwerp": "recession",
+    "views_per_uur": 29332,
+    "kanalen": 5,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "What’s Stopping a Recession… Is Now Under Attack (Casual Finance, 300,076 views in 21 u)",
+     "Without a recession, this is a correction not a bear market, says Ed Yardeni (CNBC Television, 230,495 views in 42 u)",
+     "Why the AI Bubble Could Trigger the BIGGEST Recession in History? | upGrad (upGrad, 88,613 views in 24 u)"
+    ]
+   },
+   {
+    "onderwerp": "bourse",
+    "views_per_uur": 29252,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "The Anthropic IPO Didn't Help (Big A, 646,583 views in 25 u)",
-     "Top tech investor Dan Niles on Anthropic: You can make an argument that IPO didn't go great (CNBC Television, 82,159 views in 35 u)"
+     "Ce qu'il vient de se passer en Bourse est historique (HugoDécrypte - Actus du jour, 397,866 views in 20 u)",
+     "6000 milliards envolés en bourse: les raisons de la chute des marchés financiers ces derniers jours! (Masdak , 247,717 views in 27 u)"
     ]
    },
    {
-    "onderwerp": "ipo didn't",
-    "views_per_uur": 28685,
-    "kanalen": 2,
+    "onderwerp": "bubble",
+    "views_per_uur": 27893,
+    "kanalen": 7,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "The Anthropic IPO Didn't Help (Big A, 646,583 views in 25 u)",
-     "Top tech investor Dan Niles on Anthropic: You can make an argument that IPO didn't go great (CNBC Television, 82,159 views in 35 u)"
+     "Anthropic’s Billion-Dollar IPO: The AI Boom Or An AI Bubble? | The Palki Sharma Show | IGR (India Global Review, 329,040 views in 46 u)",
+     "NASDAQ -1200 CRASH📉| Nvidia 14% CRASH ( Ai Bubble फूटा?😨 ) Gift Nifty🚀| India Stock Market New High? (Stock Market का Commando, 38,655 views in 10 u)",
+     "What Anthropic's record IPO reveals about the AI bubble | DW News (DW News, 151,315 views in 40 u)"
     ]
    }
   ],
   "top_videos": [
    {
-    "id": "XiGjWBUcQqM",
-    "titel": "Rajasthan Panchayat Election Results Hindi News LIVE: जीतकर भी हारी कांग्रेस! | Congress Win | BJP",
+    "id": "Hg8k3t2U_GM",
+    "titel": "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश!",
     "kanaal": "ABP NEWS",
-    "views": 573410,
-    "per_uur": 34731,
-    "uren_oud": 17,
-    "short": false
+    "views": 1648362,
+    "per_uur": 122937,
+    "uren_oud": 13,
+    "short": true
+   },
+   {
+    "id": "hUhBtobj7Yc",
+    "titel": "I'm a Billionaire, But Nobody Knows 🤯",
+    "kanaal": "Peter",
+    "views": 3261220,
+    "per_uur": 114806,
+    "uren_oud": 28,
+    "short": true
+   },
+   {
+    "id": "TiP0g5wnJU0",
+    "titel": "Sandeep Chaudhary: दोगुनी सीटें जीत गई #congress , BJP की करारी हार #rajasthanpanchayatelection2026",
+    "kanaal": "ABP NEWS",
+    "views": 680327,
+    "per_uur": 52677,
+    "uren_oud": 13,
+    "short": true
    },
    {
     "id": "hMBxlVEo3Vg",
     "titel": "PM Modi का बड़ा बयान! 'PSU Bonds में पैसा लगाने वाले मालामाल हो गए', Gold पर भी कही बड़ी बात",
     "kanaal": "Zee Business",
-    "views": 503279,
-    "per_uur": 28565,
-    "uren_oud": 18,
+    "views": 1085386,
+    "per_uur": 42785,
+    "uren_oud": 25,
     "short": true
    },
    {
-    "id": "I2XAug-Uz6M",
-    "titel": "The Anthropic IPO Didn't Help",
-    "kanaal": "Big A",
-    "views": 646583,
-    "per_uur": 26350,
-    "uren_oud": 25,
+    "id": "rUaz01kVyhA",
+    "titel": "Maen Game Sama Anak Konglo #chindo #china #fyp #shortvideo #konglomerat",
+    "kanaal": "Chindo Tajir ",
+    "views": 1248625,
+    "per_uur": 36821,
+    "uren_oud": 34,
+    "short": true
+   },
+   {
+    "id": "XFowCoskZ3A",
+    "titel": "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny",
+    "kanaal": "Bressler Otterholt0619",
+    "views": 685781,
+    "per_uur": 30499,
+    "uren_oud": 22,
+    "short": true
+   },
+   {
+    "id": "9YjjmVFYCrY",
+    "titel": "Rajasthan Election  | Sandeep Chaudhary | राजस्थान जिला परिषद चुनाव, किसे कितने जिलों में बहुमत?",
+    "kanaal": "ABP NEWS",
+    "views": 400195,
+    "per_uur": 28087,
+    "uren_oud": 14,
+    "short": true
+   },
+   {
+    "id": "TwY2rFPeO8Q",
+    "titel": "Gold Price News LIVE: सोने के नए दामों ने मचा दी खलबली! टूट गया रिकॉर्ड!| Big Breaking | Today Rates",
+    "kanaal": "ABP NEWS",
+    "views": 192623,
+    "per_uur": 26258,
+    "uren_oud": 7,
     "short": false
    },
    {
     "id": "uRZ6dxT3QsI",
     "titel": "Rajasthan Election Results 2026 : कार्यकर्ताओं की नाराजगी भारी पड़ी #shorts #bjp #congress",
     "kanaal": "ABP NEWS",
-    "views": 982116,
-    "per_uur": 24405,
-    "uren_oud": 40,
+    "views": 1031422,
+    "per_uur": 21491,
+    "uren_oud": 48,
     "short": true
    },
    {
-    "id": "1m71Jhk22tw",
-    "titel": "Gold Price Crash: ₹1,20,000 तक गिरेगा सोना? (Don't Buy Yet)",
-    "kanaal": "Abhishek Kar",
-    "views": 921538,
-    "per_uur": 22513,
-    "uren_oud": 41,
+    "id": "I2XAug-Uz6M",
+    "titel": "The Anthropic IPO Didn't Help",
+    "kanaal": "Big A",
+    "views": 690054,
+    "per_uur": 21372,
+    "uren_oud": 32,
     "short": false
    },
    {
-    "id": "BbrOh3Er1Hc",
-    "titel": "What’s Stopping a Recession… Is Now Under Attack",
-    "kanaal": "Casual Finance",
-    "views": 248257,
-    "per_uur": 18860,
-    "uren_oud": 13,
-    "short": false
-   },
-   {
-    "id": "8lsuSJgUpoM",
-    "titel": "Markets plummet as tech sell-off intensifies",
-    "kanaal": "NBC News",
-    "views": 605197,
-    "per_uur": 18427,
-    "uren_oud": 33,
-    "short": false
-   },
-   {
-    "id": "E04MbZssvmw",
-    "titel": "[이슈] \"경제성장률 5% 넘는데 나라 망한다고?\"/외국인 돈 빼고 '줄행랑'…무슨 일이?/2026년 11월 20일(금)/KBS",
-    "kanaal": "KBS News",
-    "views": 518179,
-    "per_uur": 17778,
+    "id": "0l9XIufIg5w",
+    "titel": "\"How Rich Are Asian Billionaires?\"☠️🔥 | Crazy Rich Asians |#Trending #Shorts",
+    "kanaal": "Marvin vanegas",
+    "views": 581683,
+    "per_uur": 20104,
     "uren_oud": 29,
-    "short": false
-   },
-   {
-    "id": "FPBSiIqQweo",
-    "titel": "NASDAQ wipes out 2026’s gains in AI correction",
-    "kanaal": "CNN",
-    "views": 573089,
-    "per_uur": 17626,
-    "uren_oud": 33,
-    "short": false
-   },
-   {
-    "id": "D8hMDMosQGE",
-    "titel": "喊買就跌、喊賣就漲，讓人聞風喪膽的股市反指標！？｜叉雞",
-    "kanaal": "叉雞",
-    "views": 467156,
-    "per_uur": 16992,
-    "uren_oud": 27,
-    "short": false
-   },
-   {
-    "id": "elZ0_VOqgME",
-    "titel": "Cyberattack hits major financial companies: What you should do now to protect your information",
-    "kanaal": "Boston 25 News",
-    "views": 573219,
-    "per_uur": 16781,
-    "uren_oud": 34,
     "short": true
    },
    {
-    "id": "V8iV1DysUNw",
-    "titel": "미국 4년 만에 '빅스텝'?...세계 금융시장 촉각 / YTN",
-    "kanaal": " YTN",
-    "views": 289793,
-    "per_uur": 16624,
-    "uren_oud": 17,
-    "short": true
-   },
-   {
-    "id": "RtCKxHGUdc0",
-    "titel": "தங்கம் வாங்குவோர்களே உஷார்.. #Chennai | #GoldPrice | #Gold | #Economy",
-    "kanaal": "Polimer News",
-    "views": 338996,
-    "per_uur": 16086,
-    "uren_oud": 21,
-    "short": true
-   },
-   {
-    "id": "LLd6dhfGpPA",
-    "titel": "NBC Nightly News with Tom Llamas Full Episode - Nov. 20",
-    "kanaal": "NBC News",
-    "views": 453756,
-    "per_uur": 16008,
-    "uren_oud": 28,
+    "id": "A2shKBJser4",
+    "titel": "Ce qu'il vient de se passer en Bourse est historique",
+    "kanaal": "HugoDécrypte - Actus du jour",
+    "views": 397866,
+    "per_uur": 19979,
+    "uren_oud": 20,
     "short": false
    },
    {
-    "id": "qiNEQtSOnWE",
-    "titel": "Say Hello To The AI Crash",
-    "kanaal": "Sasha Yanshin",
-    "views": 190212,
-    "per_uur": 15832,
-    "uren_oud": 12,
+    "id": "zA7YgNbhRi0",
+    "titel": "ఏపీ దెబ్బకు 4 రాష్ట్రాలు బెంబేలు, చంద్రబాబు రీ-ఎంట్రీ మామూలుగా లేదు! #Chandrababu #apinvestments",
+    "kanaal": "Think Andhra",
+    "views": 150504,
+    "per_uur": 17890,
+    "uren_oud": 8,
+    "short": true
+   },
+   {
+    "id": "P-O9Hc7J-Vw",
+    "titel": "He Took Hotel Leftovers Every Night—His Billionaire Boss Followed Him and Froze at What She Saw.",
+    "kanaal": "My CEO Romance Story",
+    "views": 414931,
+    "per_uur": 17356,
+    "uren_oud": 24,
     "short": false
    },
    {
     "id": "gKw98IUtBF8",
     "titel": "Rajasthan Panchayat Election Results : राजस्थान पंचायत चुनाव में BJP को बड़ा झटका | Congress Wins",
     "kanaal": "ABP NEWS",
-    "views": 229994,
-    "per_uur": 15559,
-    "uren_oud": 15,
+    "views": 386613,
+    "per_uur": 17159,
+    "uren_oud": 23,
     "short": true
    },
    {
-    "id": "OEbkTobltAA",
-    "titel": "\"LOOK AT INDIA\": AMERICA'S $40T DEBT PANIC | Why Trump's Fed Rate Cut Will CRASH US Economy | Kinjal",
-    "kanaal": "World Affairs by Unacademy",
-    "views": 321479,
-    "per_uur": 15287,
-    "uren_oud": 21,
+    "id": "iHImmh_4Ylg",
+    "titel": "👀 📉 बड़ा Economic Shock आने वाला है ? 🚨 Why PM Modi’s Warning is a Wake-Up Call for Every Indian !",
+    "kanaal": "Bitcoin Expert India",
+    "views": 427113,
+    "per_uur": 16469,
+    "uren_oud": 26,
+    "short": true
+   },
+   {
+    "id": "8lsuSJgUpoM",
+    "titel": "Markets plummet as tech sell-off intensifies",
+    "kanaal": "NBC News",
+    "views": 624856,
+    "per_uur": 15394,
+    "uren_oud": 41,
     "short": false
    },
    {
-    "id": "x8QvA7UEhrg",
-    "titel": "DECODE Live: Sudhir Chaudhary | Gold Price Crash | Silver Rate Today | GTA 6 India | UP Polls",
-    "kanaal": "DD News",
-    "views": 222911,
-    "per_uur": 15229,
-    "uren_oud": 15,
+    "id": "nZNjI1A4eKY",
+    "titel": "Wife Ki Insult Karne Walon Ko Billionaire Husband Ne Sikha Diya Sabak | Eternal Love",
+    "kanaal": "Kuku TV",
+    "views": 723286,
+    "per_uur": 15097,
+    "uren_oud": 48,
     "short": false
    },
    {
-    "id": "6y8Ew6_ymRk",
-    "titel": "Anthropic Lost $230 Billion in Hours and the IPO Is Already a Total Sh*tshow",
-    "kanaal": "House of El: AI",
-    "views": 591999,
-    "per_uur": 14739,
+    "id": "E04MbZssvmw",
+    "titel": "[이슈] \"경제성장률 5% 넘는데 나라 망한다고?\"/외국인 돈 빼고 '줄행랑'…무슨 일이?/2026년 11월 20일(금)/KBS",
+    "kanaal": "KBS News",
+    "views": 555053,
+    "per_uur": 15043,
+    "uren_oud": 37,
+    "short": false
+   },
+   {
+    "id": "D8hMDMosQGE",
+    "titel": "逢買必崩，喊賣就漲，這些股市冥燈到底有多「神準」！？｜叉雞",
+    "kanaal": "叉雞",
+    "views": 520455,
+    "per_uur": 14767,
+    "uren_oud": 35,
+    "short": false
+   },
+   {
+    "id": "U1Z0pZDyjr8",
+    "titel": "Sandeep Chaudhary | Rajasthan Election Result: Congress ने कैसे BJP को दिया झटका? सटीक विश्लेषण",
+    "kanaal": "ABP NEWS",
+    "views": 343770,
+    "per_uur": 14519,
+    "uren_oud": 24,
+    "short": false
+   },
+   {
+    "id": "FPBSiIqQweo",
+    "titel": "NASDAQ wipes out 2026’s gains in AI correction",
+    "kanaal": "CNN",
+    "views": 581704,
+    "per_uur": 14447,
     "uren_oud": 40,
     "short": false
    },
    {
-    "id": "RJtHQUx8GKQ",
-    "titel": "PERSEGUIÇÃO ABSURDA AOS EMPRESÁRIOS #brasil #política",
-    "kanaal": "Curiosa News",
-    "views": 297057,
-    "per_uur": 13405,
-    "uren_oud": 22,
-    "short": true
-   },
-   {
-    "id": "RT1x8q8ma7I",
-    "titel": "Is the AI Trade Headed for a Dot-Com Crash? Dan Niles Weighs In",
-    "kanaal": "Yahoo Finance",
-    "views": 413278,
-    "per_uur": 13261,
-    "uren_oud": 31,
+    "id": "BbrOh3Er1Hc",
+    "titel": "What’s Stopping a Recession… Is Now Under Attack",
+    "kanaal": "Casual Finance",
+    "views": 300076,
+    "per_uur": 14349,
+    "uren_oud": 21,
     "short": false
    },
    {
-    "id": "VXsSvsS1wyU",
-    "titel": "First Trade 20th November 2026: Zee Business Live | Share Market Live Updates | Stock Market News",
-    "kanaal": "Zee Business",
-    "views": 583500,
-    "per_uur": 13099,
-    "uren_oud": 45,
-    "short": false
-   },
-   {
-    "id": "33ir4EAj4pY",
-    "titel": "🚨BREAKING: USDA Hacked, Stock Market Crash, Senate Showdown Over Iran, Mamdani Closes Rikers",
-    "kanaal": "The Daily Signal",
-    "views": 383320,
-    "per_uur": 13080,
+    "id": "RtCKxHGUdc0",
+    "titel": "தங்கம் வாங்குவோர்களே உஷார்.. #Chennai | #GoldPrice | #Gold | #Economy",
+    "kanaal": "Polimer News",
+    "views": 412712,
+    "per_uur": 14318,
     "uren_oud": 29,
-    "short": false
-   },
-   {
-    "id": "_UhXFWB-rsA",
-    "titel": "반도체주·앤트로픽 '급락' 직격탄 맞았다..미 증시 '폭락' / SBS",
-    "kanaal": "SBS 뉴스",
-    "views": 412418,
-    "per_uur": 12941,
-    "uren_oud": 32,
     "short": true
    },
    {
-    "id": "H4RgbKQVlEk",
-    "titel": "Gold Prices Crash! How Much Further Will Gold Fall?",
-    "kanaal": "Pushkar Raj Thakur: Stock Market Educator 📈",
-    "views": 283169,
-    "per_uur": 12621,
-    "uren_oud": 22,
-    "short": false
+    "id": "elZ0_VOqgME",
+    "titel": "Cyberattack hits major financial companies: What you should do now to protect your information",
+    "kanaal": "Boston 25 News",
+    "views": 581632,
+    "per_uur": 13879,
+    "uren_oud": 42,
+    "short": true
    }
   ],
   "kanalen_zoals_wij": [
@@ -1169,89 +1148,89 @@
     "id": "pIK8dB5BiHY",
     "titel": "Every Crisis Everywhere All At Once",
     "kanaal": "Economics Explained",
-    "views": 302465,
-    "uren_oud": 15,
-    "per_uur": 19948,
-    "keer_gewoon": 19.5,
+    "views": 396340,
+    "uren_oud": 23,
+    "per_uur": 17298,
+    "keer_gewoon": 17.1,
     "uitschieter": true
    },
    {
     "id": "PptRrzYY61w",
     "titel": "The NVIDIA Scandal Goes Deeper than You Think",
     "kanaal": "ColdFusion",
-    "views": 2855414,
-    "uren_oud": 159,
-    "per_uur": 17952,
-    "keer_gewoon": 17.0,
+    "views": 2861313,
+    "uren_oud": 167,
+    "per_uur": 17153,
+    "keer_gewoon": 16.4,
     "uitschieter": true
    },
    {
     "id": "FhVbxweMaWM",
     "titel": "Why is Anthropic's Business Model So... Strange?",
     "kanaal": "How Money Works",
-    "views": 1046276,
-    "uren_oud": 113,
-    "per_uur": 9258,
-    "keer_gewoon": 10.2,
+    "views": 1061654,
+    "uren_oud": 121,
+    "per_uur": 8791,
+    "keer_gewoon": 9.7,
     "uitschieter": true
    },
    {
     "id": "_19PHik8_Jg",
     "titel": "GTA 6's Billion-Dollar Hype Machine",
     "kanaal": "CNBC",
-    "views": 1072482,
-    "uren_oud": 160,
-    "per_uur": 6696,
-    "keer_gewoon": 3.7,
-    "uitschieter": true
-   },
-   {
-    "id": "mCIxUTr1St4",
-    "titel": "Stay Away From My RAM!",
-    "kanaal": "Logically Answered",
-    "views": 49876,
-    "uren_oud": 35,
-    "per_uur": 1418,
-    "keer_gewoon": 3.1,
+    "views": 1075307,
+    "uren_oud": 168,
+    "per_uur": 6404,
+    "keer_gewoon": 3.8,
     "uitschieter": true
    },
    {
     "id": "JcBTr-BhL_0",
     "titel": "What EVERYONE Needs To Do With Their Money ASAP",
     "kanaal": "Graham Stephan",
-    "views": 550569,
-    "uren_oud": 131,
-    "per_uur": 4197,
-    "keer_gewoon": 3.1,
+    "views": 552291,
+    "uren_oud": 139,
+    "per_uur": 3976,
+    "keer_gewoon": 3.0,
+    "uitschieter": true
+   },
+   {
+    "id": "mCIxUTr1St4",
+    "titel": "Stay Away From My RAM!",
+    "kanaal": "Logically Answered",
+    "views": 52128,
+    "uren_oud": 43,
+    "per_uur": 1215,
+    "keer_gewoon": 2.8,
     "uitschieter": true
    },
    {
     "id": "XQxPvJ7H98s",
     "titel": "How Cheap Clothing Got So Expensive",
     "kanaal": "CNBC",
-    "views": 213797,
-    "uren_oud": 40,
-    "per_uur": 5323,
-    "keer_gewoon": 2.9,
+    "views": 232631,
+    "uren_oud": 48,
+    "per_uur": 4855,
+    "keer_gewoon": 2.8,
     "uitschieter": true
    },
    {
     "id": "c6qv_kmcLWE",
     "titel": "Adobe Can’t Come Back From This...",
     "kanaal": "Logically Answered",
-    "views": 163731,
-    "uren_oud": 131,
-    "per_uur": 1248,
-    "keer_gewoon": 2.8,
+    "views": 165102,
+    "uren_oud": 139,
+    "per_uur": 1189,
+    "keer_gewoon": 2.7,
     "uitschieter": true
    },
    {
     "id": "e6mB0dgCkWk",
     "titel": "What U.S. Aircraft Carriers Bring to the Iran War | WSJ Equipped",
     "kanaal": "The Wall Street Journal",
-    "views": 1026203,
-    "uren_oud": 132,
-    "per_uur": 7765,
+    "views": 1045960,
+    "uren_oud": 140,
+    "per_uur": 7476,
     "keer_gewoon": 2.2,
     "uitschieter": true
    },
@@ -1259,19 +1238,19 @@
     "id": "Brh3jhy04TQ",
     "titel": "Something Strange Is Happening In America",
     "kanaal": "Economics Explained",
-    "views": 231989,
-    "uren_oud": 110,
-    "per_uur": 2112,
-    "keer_gewoon": 2.1,
+    "views": 236678,
+    "uren_oud": 118,
+    "per_uur": 2013,
+    "keer_gewoon": 2.0,
     "uitschieter": true
    },
    {
     "id": "dFOLw_CTRPY",
     "titel": "How to Hedge THE CRASH Before It's Too Late.",
     "kanaal": "Meet Kevin",
-    "views": 126120,
-    "uren_oud": 36,
-    "per_uur": 3515,
+    "views": 129162,
+    "uren_oud": 44,
+    "per_uur": 2960,
     "keer_gewoon": 1.3,
     "uitschieter": false
    },
@@ -1279,9 +1258,9 @@
     "id": "zlvcEuxM5xU",
     "titel": "Jensen JUST Crashed the Market: New STARTUP",
     "kanaal": "Meet Kevin",
-    "views": 135190,
-    "uren_oud": 38,
-    "per_uur": 3559,
+    "views": 136668,
+    "uren_oud": 46,
+    "per_uur": 2988,
     "keer_gewoon": 1.3,
     "uitschieter": false
    },
@@ -1289,19 +1268,19 @@
     "id": "hdIdY3l96BA",
     "titel": "Stock Up NOW: We're Under Attack.",
     "kanaal": "Meet Kevin",
-    "views": 170656,
-    "uren_oud": 56,
-    "per_uur": 3069,
-    "keer_gewoon": 1.1,
+    "views": 171326,
+    "uren_oud": 63,
+    "per_uur": 2704,
+    "keer_gewoon": 1.2,
     "uitschieter": false
    },
    {
     "id": "5m4AIfW_56U",
     "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
     "kanaal": "Meet Kevin",
-    "views": 176342,
-    "uren_oud": 61,
-    "per_uur": 2899,
+    "views": 176959,
+    "uren_oud": 69,
+    "per_uur": 2580,
     "keer_gewoon": 1.1,
     "uitschieter": false
    },
@@ -1309,9 +1288,9 @@
     "id": "GbwGP-HxibY",
     "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
     "kanaal": "CNBC",
-    "views": 203247,
-    "uren_oud": 112,
-    "per_uur": 1812,
+    "views": 204636,
+    "uren_oud": 120,
+    "per_uur": 1707,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1319,9 +1298,9 @@
     "id": "Ko-rV1vj-Tk",
     "titel": "Inside California’s Modern-Day Gold Rush",
     "kanaal": "CNBC Make It",
-    "views": 36807,
-    "uren_oud": 16,
-    "per_uur": 2278,
+    "views": 41307,
+    "uren_oud": 24,
+    "per_uur": 1728,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1329,9 +1308,9 @@
     "id": "HQPgvxNU94M",
     "titel": "Why You Can't Focus in an Open Office | WSJ Pro Perfected",
     "kanaal": "The Wall Street Journal",
-    "views": 128516,
-    "uren_oud": 36,
-    "per_uur": 3580,
+    "views": 147125,
+    "uren_oud": 44,
+    "per_uur": 3371,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1339,9 +1318,19 @@
     "id": "_wtHypm4eqQ",
     "titel": "The Collapse...",
     "kanaal": "Meet Kevin",
-    "views": 105433,
-    "uren_oud": 38,
-    "per_uur": 2740,
+    "views": 106495,
+    "uren_oud": 46,
+    "per_uur": 2303,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "8GU-V2QEPQ0",
+    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
+    "kanaal": "Meet Kevin",
+    "views": 107428,
+    "uren_oud": 49,
+    "per_uur": 2189,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1349,39 +1338,29 @@
     "id": "S1B9R_83-8c",
     "titel": "America Is Under Attack",
     "kanaal": "Andrei Jikh",
-    "views": 1052042,
-    "uren_oud": 38,
-    "per_uur": 27569,
+    "views": 1102875,
+    "uren_oud": 46,
+    "per_uur": 24022,
     "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "sxtXz24odps",
-    "titel": "A First Look Inside The Fed’s New AI Task Force",
-    "kanaal": "CNBC",
-    "views": 26422,
-    "uren_oud": 16,
-    "per_uur": 1634,
-    "keer_gewoon": 0.9,
-    "uitschieter": false
-   },
-   {
-    "id": "8GU-V2QEPQ0",
-    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
-    "kanaal": "Meet Kevin",
-    "views": 103918,
-    "uren_oud": 41,
-    "per_uur": 2514,
-    "keer_gewoon": 0.9,
     "uitschieter": false
    },
    {
     "id": "Tn8IEhp_iq4",
     "titel": "The Stock Market is about to do something UNBELIEVABLE.",
     "kanaal": "Meet Kevin",
-    "views": 190269,
-    "uren_oud": 85,
-    "per_uur": 2239,
+    "views": 190443,
+    "uren_oud": 93,
+    "per_uur": 2054,
+    "keer_gewoon": 0.9,
+    "uitschieter": false
+   },
+   {
+    "id": "sxtXz24odps",
+    "titel": "A First Look Inside The Fed’s New AI Task Force",
+    "kanaal": "CNBC",
+    "views": 30895,
+    "uren_oud": 24,
+    "per_uur": 1292,
     "keer_gewoon": 0.8,
     "uitschieter": false
    },
@@ -1389,29 +1368,29 @@
     "id": "YYNTzUHobU0",
     "titel": "Why Retail Investors Are Divided Over Anthropic’s $1.4 Trillion IPO",
     "kanaal": "CNBC",
-    "views": 100924,
-    "uren_oud": 88,
-    "per_uur": 1145,
+    "views": 101410,
+    "uren_oud": 96,
+    "per_uur": 1057,
     "keer_gewoon": 0.6,
-    "uitschieter": false
-   },
-   {
-    "id": "3ftcmy8Fi2o",
-    "titel": "Watch Immediately: The Anthropic IPO [Should you Buy]",
-    "kanaal": "Meet Kevin",
-    "views": 65047,
-    "uren_oud": 63,
-    "per_uur": 1027,
-    "keer_gewoon": 0.4,
     "uitschieter": false
    },
    {
     "id": "vzGR3e7jkvk",
     "titel": "Prepare for War.",
     "kanaal": "Meet Kevin",
-    "views": 89098,
-    "uren_oud": 77,
-    "per_uur": 1160,
+    "views": 89204,
+    "uren_oud": 85,
+    "per_uur": 1055,
+    "keer_gewoon": 0.5,
+    "uitschieter": false
+   },
+   {
+    "id": "3ftcmy8Fi2o",
+    "titel": "Watch Immediately: The Anthropic IPO [Should you Buy]",
+    "kanaal": "Meet Kevin",
+    "views": 65190,
+    "uren_oud": 71,
+    "per_uur": 917,
     "keer_gewoon": 0.4,
     "uitschieter": false
    },
@@ -1419,9 +1398,9 @@
     "id": "DhZU6oek9_M",
     "titel": "Markets are Nervous.",
     "kanaal": "Meet Kevin",
-    "views": 74582,
-    "uren_oud": 85,
-    "per_uur": 876,
+    "views": 74664,
+    "uren_oud": 93,
+    "per_uur": 804,
     "keer_gewoon": 0.3,
     "uitschieter": false
    },
@@ -1429,9 +1408,9 @@
     "id": "8BnHqm5BSdI",
     "titel": "Texas Turned Blue. What’s Next for Elon Musk?",
     "kanaal": "The Wall Street Journal",
-    "views": 26474,
-    "uren_oud": 57,
-    "per_uur": 467,
+    "views": 27270,
+    "uren_oud": 64,
+    "per_uur": 423,
     "keer_gewoon": 0.1,
     "uitschieter": false
    }
@@ -2259,7 +2238,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 15:33)"
+   "tekst": "draait nu (2026-11-22 16:03)"
   },
   {
    "naam": "Git",
@@ -2274,7 +2253,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 15:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2291,8 +2270,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 15:33",
-   "volgende": "2026-11-22 16:03"
+   "laatst": "2026-11-22 16:03",
+   "volgende": "2026-11-22 16:33"
   },
   "hype": {
    "aan": true,
@@ -2306,8 +2285,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-22 15:18",
-   "volgende": "2026-11-22 15:48"
+   "laatst": "2026-11-22 15:48",
+   "volgende": "2026-11-22 16:18"
   },
   "titels": {
    "aan": true,
@@ -2643,7 +2622,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 4889,
+  "geheugen_mb": 4880,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2815,8 +2794,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-22 15:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-22 16:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5021,7 +5000,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 15:34",
+  "bijgewerkt": "2026-11-22 16:04",
   "accounts": [
    {
     "account": "hoofd",
