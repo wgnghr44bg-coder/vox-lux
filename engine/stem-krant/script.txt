@@ -1,0 +1,22 @@
+# Proef "levende krant" (22 nov 2026): zelfde verhaal (AI-uitverkoop). Feiten: kanalen/marketdoodle/video1/bronnen.md
+@scene a
+Friday, November twentieth. The front page of Wall Street.
+The Nasdaq lost ten percent in one week.
+Every gain of twenty twenty-six is gone.
+@scene b
+The biggest story is Nvidia.
+The stock fell fourteen percent in a single day, and almost half since October.
+About two and a half trillion dollars in value, gone in six weeks.
+@scene c
+Inside, a giant debut.
+Anthropic went public on Thursday, at eighty-three dollars a share.
+On day one, it jumped above one hundred fifteen.
+By Friday, it was back at eighty-nine.
+@scene d
+And in the money section, interest rates.
+The ten-year rate in America is above five percent.
+That makes profits far in the future look less exciting.
+@scene e
+So, is the AI boom over?
+Or is this the sale of the year?
+Let me know in the comments.
