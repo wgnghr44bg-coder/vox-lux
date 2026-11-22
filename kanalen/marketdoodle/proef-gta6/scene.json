@@ -61,6 +61,15 @@
 },
 {
 "bord": 0,
+"logo": "logos/rockstar.png",
+"x": 1165,
+"y": 95,
+"hoog": 66,
+"start": 4.8,
+"doel": 5.0
+},
+{
+"bord": 0,
 "tekst": "$79.99",
 "x": 820,
 "y": 180,
@@ -206,16 +215,25 @@
 },
 {
 "bord": 2,
-"beeld": "afbeeldingen/n_console.png",
-"x": 60,
+"beeld": "afbeeldingen/n_ps5.png",
+"x": 40,
 "y": 100,
-"breed": 480,
+"breed": 520,
 "hoog": 430,
 "midden": true,
 "start": 28.45,
 "doel": 28.75,
 "teken": 1.2,
 "kleur": 0.5
+},
+{
+"bord": 2,
+"logo": "logos/playstation.png",
+"x": 1150,
+"y": 110,
+"hoog": 70,
+"start": 29.11,
+"doel": 29.31
 },
 {
 "bord": 2,
@@ -398,6 +416,15 @@
 "start": 49.410000000000004,
 "doel": 49.56,
 "teken": 0.6
+},
+{
+"bord": 3,
+"logo": "logos/taketwo.png",
+"x": 1080,
+"y": 500,
+"hoog": 100,
+"start": 48.019999999999996,
+"doel": 48.22
 },
 {
 "bord": 3,
@@ -724,7 +751,7 @@
 },
 {
 "bord": 6,
-"tekst": "GTA VI, from the store",
+"tekst": "GTA VI, store copy",
 "x": 105,
 "y": 125,
 "maat": 32,
@@ -736,6 +763,15 @@
 "start": 92.49,
 "doel": 92.39,
 "teken": 0.3
+},
+{
+"bord": 6,
+"logo": "logos/rockstar.png",
+"x": 432,
+"y": 108,
+"hoog": 44,
+"start": 92.39,
+"doel": 92.59
 },
 {
 "bord": 6,
