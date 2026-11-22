@@ -33,6 +33,8 @@ def _youtube(kanaal):
     """Video's van een kanaal: id, titel, stand (online/gepland/prive), NL-datum en tijd."""
     if kanaal == "BlackswanVault":
         refresh = os.environ.get("YT_WHATIF_REFRESH_TOKEN")
+    elif kanaal == "Market Doodle":                                      # 22 nov 2026: ex-Alteraqon, getekende video's
+        refresh = os.environ.get("YT_REFRESH_TOKEN_ALTERAQON")
     else:
         p = Path.home() / ".yt-altena.json"
         refresh = json.loads(p.read_text())["refresh_token"] if p.exists() else None
@@ -74,7 +76,7 @@ def maak(sleep_video=(), vandaag=None):
                           "youtube": v.get("id", "")})
     items += [dict(i) for i in cfg.get("items", [])]
     fouten = []
-    for kanaal in ("BlackswanVault", "NOIRTRACES"):
+    for kanaal in ("BlackswanVault", "Market Doodle", "NOIRTRACES"):
         try:
             yt = _youtube(kanaal)
         except Exception as e:
