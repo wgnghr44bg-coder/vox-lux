@@ -43,7 +43,7 @@ Daarna altijd: `ffmpeg -i uit.mp4 -vf freezedetect=n=0.0005:d=1.5 -f null -` en 
   (taak "Sleep Archives bewaker" Disabled, `~/gpu-bezet.lock`) tot de eigenaar zegt "hervatten"** → dan lock weg + taak Enable + Start.
 - Openstaand in de laatste proef: Nvidia-pijl op bord 1 iets naar rechts (`"pijl": [370, 170, 470, 300]`) en opnieuw renderen.
 
-## Kanaal Alteraqon (omgebouwd 22 nov 2026, eigenaar: "kun je nu account aanpassen")
+## Kanaal MARKET DOODLE (was Alteraqon; omgebouwd 22 nov 2026, eigenaar koos de naam "Market Doodle")
 Token: `YT_REFRESH_TOKEN_ALTERAQON`. Alle oude What-if-video's verwijderd (21 nov). Gezet via API: Engelse beschrijving (`kanalen/alteraqon/beschrijving.txt`),
-trefwoorden, taal en, banner `kanalen/alteraqon/banner.png` ("Money news, drawn."). Profielfoto `kanalen/alteraqon/profielfoto.png` en eventueel
-nieuwe naam/handle zet de eigenaar zelf in Studio (API kan dat niet). Upload altijd privé + kanaal controleren (snippet.channelTitle).
+trefwoorden, taal en, banner `kanalen/alteraqon/banner.png` ("Market Doodle — Money news, drawn on a whiteboard"). Profielfoto `kanalen/alteraqon/profielfoto.png` ("MD" + rode koerslijn), naam "Market Doodle" en handle (bv. @marketdoodle)
+zet de eigenaar zelf in Studio (API kan dat niet) — nagaan of dat gebeurd is (snippet.title). Upload altijd privé + kanaal controleren (snippet.channelTitle).
