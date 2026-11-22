@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 08:33",
+ "bijgewerkt": "2026-11-22 09:03",
  "kanalen": {
   "weken": [
    {
@@ -1914,37 +1914,37 @@
   ],
   "daarna": [
    {
-    "wanneer": "zo 22-11 09:00 (routine staat UIT)",
+    "wanneer": "di 24-11 09:00 (routine staat UIT)",
     "wat": "Christmas in the Trenches, 1914 | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "detail": "routine maakt de video voor za 12-12 21:00"
    },
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
     "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
     "map": "bethlehem",
     "detail": "routine maakt de video voor za 19-12 21:00"
    },
    {
-    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
     "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
     "map": "londen-kerst-1843",
     "detail": "routine maakt de video voor za 26-12 21:00"
    },
    {
-    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
     "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
     "map": "alchemie-steen-der-wijzen",
     "detail": "routine maakt de video voor wo 30-12 21:00"
    },
    {
-    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wanneer": "do 3-12 09:00 (routine staat UIT)",
     "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
     "map": "rome-44-vc",
     "detail": "routine maakt de video voor za 2-1 21:00"
    },
    {
-    "wanneer": "do 3-12 09:00 (routine staat UIT)",
+    "wanneer": "zo 6-12 09:00 (routine staat UIT)",
     "wat": "Life in Florence Before the Black Death, 1347 | History for Sleep",
     "map": "zwarte-dood-1348",
     "detail": "routine maakt de video voor wo 6-1 21:00"
@@ -2259,7 +2259,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 08:33)"
+   "tekst": "draait nu (2026-11-22 09:03)"
   },
   {
    "naam": "Git",
@@ -2274,7 +2274,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 08:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2282,7 +2282,7 @@
   "routine": {
    "aan": false,
    "laatst": "2026-11-10 09:00",
-   "volgende": "2026-11-22 09:00"
+   "volgende": "2026-11-24 09:00"
   },
   "scriptgenerator": {
    "aan": false,
@@ -2291,8 +2291,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 08:33",
-   "volgende": "2026-11-22 09:03"
+   "laatst": "2026-11-22 09:03",
+   "volgende": "2026-11-22 09:33"
   },
   "hype": {
    "aan": true,
@@ -2306,8 +2306,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-22 08:18",
-   "volgende": "2026-11-22 08:48"
+   "laatst": "2026-11-22 08:48",
+   "volgende": "2026-11-22 09:18"
   },
   "titels": {
    "aan": true,
@@ -2418,7 +2418,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 841,
+    "views": 836,
     "verwerkt": "processed"
    }
   ],
@@ -2815,8 +2815,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-22 08:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-22 09:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5021,11 +5021,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 08:33",
+  "bijgewerkt": "2026-11-22 09:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1681024,
+    "5uur": 1174392,
     "week": 19960657,
     "per_dag": {
      "Tue 17-11": 1533664,
@@ -5042,7 +5042,7 @@
    },
    {
     "account": "account2",
-    "5uur": 7312860,
+    "5uur": 5782480,
     "week": 128469457,
     "per_dag": {
      "Sun 15-11": 20257673,
@@ -5058,9 +5058,9 @@
     "stap_kost": 56026,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 54,
-    "5uur_scripts_over": 11.0,
-    "5uur_stappen_over": 112,
+    "5uur_pct": 43,
+    "5uur_scripts_over": 13.6,
+    "5uur_stappen_over": 139,
     "week_pct": 97,
     "week_scripts_over": 6.2,
     "week_stappen_over": 63
