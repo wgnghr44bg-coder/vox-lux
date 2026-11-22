@@ -50,5 +50,8 @@ for bord in sorted({i.get("bord", -1) for i in its}):
                 fout += 1
                 naam = lambda q: q.get("tekst") or q.get("beeld") or q.get("foto") or q.get("logo") or q.get("data") or q.get("dagen") or "balken"
                 print(f"OVERLAP bord {bord}: {naam(i)}  <->  {naam(j)}  ({ox}x{oy} px)")
+# laatste bord: video duurt minstens tot alles af is + 1,2 s
+laatste = max(i["start"] + i.get("teken", 0) + (i.get("kleur", 0) if ("beeld" in i or "foto" in i) else 0) for i in its if any(k in i for k in TEKEN))
+if laatste + 1.2 > sc["duur"]: print(f"video verlengd: {sc['duur']} -> {round(laatste + 1.2, 2)} s"); sc["duur"] = round(laatste + 1.2, 2)
 json.dump(sc, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print("volgorde gezet;", "GEEN overlap" if not fout else f"{fout} overlap(s)")
