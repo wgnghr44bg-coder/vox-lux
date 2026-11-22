@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-22 20:33",
+ "bijgewerkt": "2026-11-22 21:03",
  "kanalen": {
   "weken": [
    {
@@ -2545,7 +2545,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-22 20:33)"
+   "tekst": "draait nu (2026-11-22 21:03)"
   },
   {
    "naam": "Git",
@@ -2560,7 +2560,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2577,8 +2577,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-22 20:33",
-   "volgende": "2026-11-22 21:03"
+   "laatst": "2026-11-22 21:03",
+   "volgende": "2026-11-22 21:33"
   },
   "hype": {
    "aan": true,
@@ -2592,8 +2592,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-22 20:18",
-   "volgende": "2026-11-22 20:48"
+   "laatst": "2026-11-22 20:48",
+   "volgende": "2026-11-22 21:18"
   },
   "titels": {
    "aan": true,
@@ -2607,8 +2607,8 @@
   "views_totaal": 3274,
   "video_aantal": 18,
   "week": {
-   "views": 335,
-   "uren": 61,
+   "views": 402,
+   "uren": 75,
    "abonnees": 3
   },
   "vorige_week": {
@@ -2704,7 +2704,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 863,
+    "views": 866,
     "verwerkt": "processed"
    }
   ],
@@ -2838,11 +2838,16 @@
     "dag": "2026-11-19",
     "views": 87,
     "abonnees": 2
+   },
+   {
+    "dag": "2026-11-20",
+    "views": 67,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 2346,
-   "uren": 484,
+   "views": 2413,
+   "uren": 498,
    "abonnees": 11
   },
   "vorige_maand": {
@@ -2851,8 +2856,8 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 3828,
-   "uren": 714,
+   "views": 3895,
+   "uren": 729,
    "abonnees": 20
   },
   "top": [
@@ -2867,27 +2872,27 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 735,
-    "uren": 182
+    "views": 791,
+    "uren": 195
    },
    {
     "id": "qFRyJ6twOzY",
     "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
     "duur": "1:47:15",
-    "views": 347,
+    "views": 348,
     "uren": 27
    }
   ],
   "partner": {
-   "uren": 713,
+   "uren": 728,
    "uren_doel": 4000,
    "abonnees": 20,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 16.2,
+   "tempo_uren_per_dag": 16.8,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-06-13",
+   "datum_uren": "2027-06-06",
    "datum_abonnees": "2033-09-21"
   }
  },
@@ -2929,7 +2934,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 2709,
+  "geheugen_mb": 2635,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3101,8 +3106,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-22 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-22 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5307,7 +5312,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-22 20:34",
+  "bijgewerkt": "2026-11-22 21:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -5328,26 +5333,26 @@
    },
    {
     "account": "account2",
-    "5uur": 12366400,
-    "week": 138210323,
+    "5uur": 13360374,
+    "week": 135647296,
     "per_dag": {
-     "Sun 15-11": 5354469,
+     "Sun 15-11": 1797469,
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
-     "Sun 22-11": 44628193,
+     "Sun 22-11": 45622166,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 56083,
+    "stap_kost": 55483,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 91,
+    "5uur_pct": 98,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 22,
-    "week_pct": 105,
+    "5uur_stappen_over": 4,
+    "week_pct": 103,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
