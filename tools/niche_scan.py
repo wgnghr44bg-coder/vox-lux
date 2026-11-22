@@ -128,7 +128,7 @@ def main():
     if not res: sys.exit("GEEN UITSLAG (quota op of alles gefilterd); oude scan blijft staan")
     rij = sorted(res.items(), key=lambda kv: -kv[1]["score"])
     hoog = max(r["score"] for r in res.values()) or 1
-    L = [f"# Niche-scan geld/financiën (Engels, VS)", "",
+    L = [f"# Niche-scan {uit.stem} (Engels, VS)", "",
          f"Gemaakt: {datetime.now():%d-%m-%Y %H:%M}, video's van de laatste {dagen} dagen, alleen lange video's (4 min of langer).", "",
          "- **Vraag** = mediaan weergaven per dag van de best bekeken video's",
          "- **Grote kanalen** = hoeveel van de best bekeken video's van kanalen met meer dan 1 miljoen abonnees komen (concurrentie)",
