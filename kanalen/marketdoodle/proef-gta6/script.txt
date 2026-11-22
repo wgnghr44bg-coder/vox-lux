@@ -1,25 +1,28 @@
-# Proef "GTA 6: wat houdt Take-Two over aan jouw exemplaar?" (22 nov 2026). Mix van officieel en SCHATTING:
-# Prijs Standard $79,99 (Variety e.a.). PlayStation Store-commissie 30% (standaard, o.a. GameSpot/VGC over rechtszaak) -> $24,00; Take-Two $55,99.
-# Ontwikkelkosten: nooit bekendgemaakt; schattingen ~ $1-2 mld (GamesRadar, NME). Terugverdienen: 1e9/55,99 = 17,9 mln; 2e9/55,99 = 35,7 mln stuks.
-# Dag 1: ~19,1 mln stuks (Sensor Tower, schatting). GTA V: >230 mln verkocht (Take-Two). Take-Two Q2 FY2027 (tot 30 sep 2026): GAAP-nettoverlies $54,0 mln (SEC 8-K).
+# Proef v2 "GTA 6: je koopt het in de winkel - wie verdient er nu aan?" (22 nov 2026). Eigenaar: "leuker brengen, naar de winkel, kopen, dan de vraag".
+# SCHATTINGEN (bron in beeld): verdeling fysiek spel volgens analist Serkan Toto (2020): winkel ~30%, licentie platform ~15%, schijf/doos/vervoer ~5%, uitgever rest.
+#  Op $79,99: winkel 24,00 | Sony 12,00 | schijf 4,00 | Take-Two 39,99. Digitaal: Sony 30% = 24,00 -> Take-Two 55,99.
+# Prijs Standard $79,99 (Variety). Ontwikkelkosten ~ $1-2 mld (schattingen, GamesRadar/NME) -> 25-50 mln stuks bij $40.
+# Dag 1 ~19 mln (Sensor Tower, schatting). GTA V >230 mln (Take-Two).
 @scene a
-You pay seventy-nine ninety-nine for Grand Theft Auto Six.
-So how much of that does the company behind it actually keep?
+It's launch night. You walk into a game store, and there it is. Grand Theft Auto Six.
+You take it to the counter. Seventy-nine ninety-nine.
+And as you pay, a question pops into your head. How much is everyone earning on this, right now?
 @scene b
-Say you buy it digitally, on a PlayStation. Sony takes thirty percent of every sale in its store.
-That is twenty-four dollars, before anyone else sees a cent.
+Let's start right where you are standing. The store.
+Analysts estimate a shop keeps about thirty percent of a new game. That is about twenty-four dollars.
 @scene c
-So Take-Two, the company that owns Rockstar Games, gets about fifty-six dollars.
-But first, it has to earn back what the game cost to make.
+But this is a PlayStation disc. And Sony wants its share too.
+For every disc sold, the publisher pays Sony a license fee. Around fifteen percent, or twelve dollars.
 @scene d
-Rockstar never said what it cost. Estimates run from about one to two billion dollars.
-At fifty-six dollars a copy, that means selling eighteen to thirty-six million copies, just to break even.
+Then the disc itself, the box, and the trip from the factory to the shop. About four dollars.
+So from your seventy-nine ninety-nine, Take-Two, the owner of Rockstar Games, gets about forty dollars.
 @scene e
-On day one, Sensor Tower estimates it sold around nineteen million copies.
-And Grand Theft Auto Five sold more than two hundred thirty million.
+And that is not profit yet. First, it has to earn back what the game cost to make.
+Rockstar never said what it cost. Estimates run from one to two billion dollars.
+At forty dollars a copy, that is twenty-five to fifty million copies, just to break even.
 @scene f
-That is the secret of a game like this. Once the cost is paid back, most of every new copy is profit.
-And Take-Two needs it. In the quarter before the launch, it lost fifty-four million dollars.
+On day one, Sensor Tower estimates around nineteen million copies were sold. And Grand Theft Auto Five sold more than two hundred thirty million.
+Now here is a fun twist. If you had bought it digitally, there is no shop and no disc. Sony takes thirty percent, and Take-Two gets about fifty-six dollars.
 @scene g
-Here is the receipt for your copy.
-Twenty-four dollars to Sony. About fifty-six to Take-Two. And the more people buy it, the more of that they keep.
+So here is the receipt for your copy from the store.
+Twenty-four for the shop, twelve for Sony, four for the disc, and about forty for Take-Two. And the more people buy it, the more of that they keep.

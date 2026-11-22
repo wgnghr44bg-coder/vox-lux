@@ -1,86 +1,98 @@
 [
 [
 0.5,
-3.67,
-"You pay seventy-nine ninety-nine for Grand Theft Auto Six.",
+5.662,
+"It's launch night. You walk into a game store, and there it is. Grand Theft Auto Six.",
 "a"
 ],
 [
-4.27,
-7.96,
-"So how much of that does the company behind it actually keep?",
+6.262,
+9.552,
+"You take it to the counter. Seventy-nine ninety-nine.",
 "a"
 ],
 [
-9.36,
-15.099,
-"Say you buy it digitally, on a PlayStation. Sony takes thirty percent of every sale in its store.",
+10.152,
+16.069,
+"And as you pay, a question pops into your head. How much is everyone earning on this, right now?",
+"a"
+],
+[
+17.469,
+20.593,
+"Let's start right where you are standing. The store.",
 "b"
 ],
 [
-15.699,
-19.051,
-"That is twenty-four dollars, before anyone else sees a cent.",
+21.193,
+27.435,
+"Analysts estimate a shop keeps about thirty percent of a new game. That is about twenty-four dollars.",
 "b"
 ],
 [
-20.151,
-24.989,
-"So Take-Two, the company that owns Rockstar Games, gets about fifty-six dollars.",
+28.535,
+32.146,
+"But this is a PlayStation disc. And Sony wants its share too.",
 "c"
 ],
 [
-25.589,
-28.76,
-"But first, it has to earn back what the game cost to make.",
+32.746,
+38.954,
+"For every disc sold, the publisher pays Sony a license fee. Around fifteen percent, or twelve dollars.",
 "c"
 ],
 [
-29.86,
-35.022,
-"Rockstar never said what it cost. Estimates run from about one to two billion dollars.",
+40.054,
+45.803,
+"Then the disc itself, the box, and the trip from the factory to the shop. About four dollars.",
 "d"
 ],
 [
-35.622,
-41.945,
-"At fifty-six dollars a copy, that means selling eighteen to thirty-six million copies, just to break even.",
+46.403,
+52.72,
+"So from your seventy-nine ninety-nine, Take-Two, the owner of Rockstar Games, gets about forty dollars.",
 "d"
 ],
 [
-43.045,
-47.672,
-"On day one, Sensor Tower estimates it sold around nineteen million copies.",
+53.82,
+58.612,
+"And that is not profit yet. First, it has to earn back what the game cost to make.",
 "e"
 ],
 [
-48.272,
-52.245,
-"And Grand Theft Auto Five sold more than two hundred thirty million.",
+59.212,
+64.036,
+"Rockstar never said what it cost. Estimates run from one to two billion dollars.",
 "e"
 ],
 [
-53.345,
-59.282,
-"That is the secret of a game like this. Once the cost is paid back, most of every new copy is profit.",
+64.636,
+70.169,
+"At forty dollars a copy, that is twenty-five to fifty million copies, just to break even.",
+"e"
+],
+[
+71.269,
+79.952,
+"On day one, Sensor Tower estimates around nineteen million copies were sold. And Grand Theft Auto Five sold more than two hundred thirty million.",
 "f"
 ],
 [
-59.882,
-65.035,
-"And Take-Two needs it. In the quarter before the launch, it lost fifty-four million dollars.",
+80.552,
+90.149,
+"Now here is a fun twist. If you had bought it digitally, there is no shop and no disc. Sony takes thirty percent, and Take-Two gets about fifty-six dollars.",
 "f"
 ],
 [
-66.135,
-67.762,
-"Here is the receipt for your copy.",
+91.249,
+94.181,
+"So here is the receipt for your copy from the store.",
 "g"
 ],
 [
-68.362,
-75.174,
-"Twenty-four dollars to Sony. About fifty-six to Take-Two. And the more people buy it, the more of that they keep.",
+94.781,
+103.431,
+"Twenty-four for the shop, twelve for Sony, four for the disc, and about forty for Take-Two. And the more people buy it, the more of that they keep.",
 "g"
 ]
 ]
