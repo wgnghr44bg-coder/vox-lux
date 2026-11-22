@@ -35,7 +35,7 @@ over de Nvidia-proef: **"zo is het perfect eigenlijk"**. Daarna een langere proe
 8. Cijfers alleen uit nagekeken bronnen / slotkoersen; grafieken tonen top en laagste.
 
 ## Mixen (voorbeeld)
-`ffmpeg -i beeld.mp4 -i stem.wav -stream_loop -1 -i <muziek.wav> -i teken.wav -filter_complex "[2:a]volume=0.07[m];[1:a]apad[v];[3:a]volume=0.55[k];[v][m][k]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]" -map 0:v -map "[a]" -c:v copy -c:a aac uit.mp4`
+`ffmpeg -i beeld.mp4 -i stem.wav -stream_loop -1 -i <muziek.wav> -i teken.wav -filter_complex "[2:a]volume=0.07[m];[1:a]apad[v];[3:a]volume=0.55[k];[v][m][k]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]" -map 0:v -map "[a]" -c:v copy -c:a aac -shortest uit.mp4` (**-shortest is nodig**: zonder loopt apad eindeloos door, 22 nov)
 Daarna altijd: `ffmpeg -i uit.mp4 -vf freezedetect=n=0.0005:d=1.5 -f null -` en per zin een beeld bekijken (zie maak.py-controle).
 
 ## Let op
@@ -52,3 +52,10 @@ zet de eigenaar zelf in Studio — GEDAAN 22 nov: snippet.title = "Market Doodle
 6,2 min video = ± 11 min renderen. Plan: (1) per bord een cache-laag voor onderdelen die af zijn (alleen actieve onderdelen per frame tekenen),
 (2) h264_nvenc (RTX 2080 Super) i.p.v. libx264, (3) borden in 2-3 losse processen renderen en daarna samenvoegen (concat).
 Eerst de lokale aanpassingen van het andere account in teken_anim.py/mooi.py (staande Short, W/H) committen, dan pas hierop bouwen.
+
+## Market Doodle video 1 (22 nov 2026, 04:40) — ONLINE
+`kanalen/marketdoodle/video1/`: "The Nasdaq Just Erased All of 2026. Is This 2000 Again?" https://youtu.be/ky4IxJH52ac (6:12) + Short https://youtu.be/ykGCjh7bDq4 (50 s),
+beide openbaar (eigenaar: "zet ze beide maar online"), AI-label via PUT gezet. Bouwen: `keten_stem.sh` (stem, Whisper, woordtijden) → `maak.py` → `volgorde.py`
+→ `keten_render.sh [lang]` (render, geluid, `muziek.py`, mix, freezedetect, Short via `maak_short.py`). `stand.py` = eindstand per bord als plaat (controle vóór renderen).
+- **Thumbnail NIET gezet**: kanaal mag nog geen eigen thumbnails (telefoonverificatie in Studio nodig). `thumbnail.jpg` daarna zelf in Studio zetten.
+- Les: stille stukken zitten vooral aan het begin van een bord (alleen de kop) → eerste zin van elk bord altijd een eigen beeld/tekst geven.

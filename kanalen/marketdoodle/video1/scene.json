@@ -1,0 +1,2010 @@
+{
+"duur": 372.33,
+"borden": [
+0.0,
+21.651,
+40.760000000000005,
+56.921,
+82.915,
+101.399,
+136.04399999999998,
+167.38799999999998,
+190.289,
+203.417,
+218.117,
+241.581,
+273.351,
+309.002,
+329.099,
+347.947
+],
+"schuif": 0,
+"zoom": 0.04,
+"items": [
+{
+"bord": 0,
+"kop": "The Nasdaq just erased 2026",
+"rechts": "Not financial advice",
+"start": 0.0
+},
+{
+"bord": 0,
+"logo": "logos/nasdaq.png",
+"x": 65,
+"y": 85,
+"hoog": 44,
+"start": 1.02,
+"doel": 1.22
+},
+{
+"bord": 0,
+"tekst": "-5.3%",
+"x": 65,
+"y": 140,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 1.8599999999999999,
+"doel": 2.01,
+"teken": 0.7
+},
+{
+"bord": 0,
+"tekst": "in one day",
+"x": 75,
+"y": 265,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 3.52,
+"doel": 3.67,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "this week: -10%",
+"x": 65,
+"y": 335,
+"maat": 48,
+"kleur": [
+214,
+32,
+39
+],
+"start": 5.369999999999999,
+"doel": 5.52,
+"teken": 0.6
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_virus.png",
+"x": 480,
+"y": 80,
+"breed": 200,
+"hoog": 190,
+"midden": true,
+"start": 9.059999999999999,
+"doel": 9.36,
+"teken": 0.95,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "worst week since March 2020",
+"x": 65,
+"y": 420,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 10.36,
+"doel": 10.51,
+"teken": 0.6
+},
+{
+"bord": 0,
+"data": "data/ixic_2026.json",
+"onder": "Nasdaq, closing points",
+"taal": "en",
+"valuta": "",
+"x": 720,
+"y": 80,
+"breed": 520,
+"hoog": 400,
+"start": 13.08,
+"doel": 13.38,
+"teken": 2.6,
+"logo": "logos/nasdaq.png",
+"logohoog": 22
+},
+{
+"bord": 0,
+"beeld": "afbeeldingen/n_gum.png",
+"x": 65,
+"y": 500,
+"breed": 240,
+"hoog": 170,
+"midden": true,
+"start": 14.29,
+"doel": 14.59,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 0,
+"tekst": "2026: -2.7%",
+"x": 740,
+"y": 505,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 15.19,
+"doel": 15.19,
+"teken": 0.45
+},
+{
+"bord": 0,
+"tekst": "what happened?",
+"x": 340,
+"y": 565,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 16.53,
+"doel": 16.68,
+"teken": 0.6
+},
+{
+"bord": 0,
+"tekst": "dot-com crash again?",
+"x": 340,
+"y": 635,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 18.700000000000003,
+"doel": 18.85,
+"teken": 0.6
+},
+{
+"bord": 1,
+"kop": "The damage",
+"rechts": "Not financial advice",
+"start": 21.651
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_crash.png",
+"x": 65,
+"y": 80,
+"breed": 260,
+"hoog": 200,
+"midden": true,
+"start": 22.83,
+"doel": 23.13,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 1,
+"foto": "fotos/nasdaq.jpg",
+"x": 380,
+"y": 85,
+"breed": 220,
+"hoog": 220,
+"start": 25.31,
+"doel": 25.61,
+"teken": 0.79,
+"kleur": 0.4,
+"naam": null,
+"bron": "Photo: ajay_suresh, CC BY 2.0"
+},
+{
+"bord": 1,
+"tekst": "Oct 6: record high",
+"x": 650,
+"y": 95,
+"maat": 42,
+"kleur": [
+46,
+150,
+84
+],
+"start": 26.450000000000003,
+"doel": 26.6,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "Nasdaq: -18%",
+"x": 650,
+"y": 170,
+"maat": 56,
+"kleur": [
+214,
+32,
+39
+],
+"start": 28.76,
+"doel": 28.91,
+"teken": 0.6
+},
+{
+"bord": 1,
+"tekst": "Nasdaq 100: almost -20%",
+"x": 650,
+"y": 260,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 34.71,
+"doel": 34.86,
+"teken": 0.6
+},
+{
+"bord": 1,
+"beeld": "afbeeldingen/n_beer.png",
+"x": 65,
+"y": 370,
+"breed": 300,
+"hoog": 290,
+"midden": true,
+"start": 38.620000000000005,
+"doel": 38.92,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 1,
+"tekst": "-20% = bear market",
+"x": 400,
+"y": 470,
+"maat": 52,
+"kleur": [
+214,
+32,
+39
+],
+"start": 39.52,
+"doel": 39.49,
+"teken": 0.42
+},
+{
+"bord": 2,
+"kop": "A correction",
+"rechts": "Not financial advice",
+"start": 40.760000000000005
+},
+{
+"bord": 2,
+"data": "data/sp500_2026.json",
+"onder": "S&P 500, closing points",
+"taal": "en",
+"valuta": "",
+"x": 65,
+"y": 80,
+"breed": 620,
+"hoog": 400,
+"start": 40.78,
+"doel": 41.08,
+"teken": 2.6
+},
+{
+"bord": 2,
+"tekst": "-11.6% from the top",
+"x": 720,
+"y": 100,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 43.7,
+"doel": 43.85,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "-10% = correction",
+"x": 720,
+"y": 180,
+"maat": 48,
+"kleur": [
+25,
+55,
+120
+],
+"start": 47.95,
+"doel": 48.1,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "records to correction",
+"x": 720,
+"y": 270,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 51.74,
+"doel": 51.89,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "in just 6 weeks",
+"x": 720,
+"y": 320,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 50.47,
+"doel": 50.62,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "1 reason?",
+"x": 100,
+"y": 540,
+"maat": 50,
+"kleur": [
+25,
+55,
+120
+],
+"start": 54.230000000000004,
+"doel": 54.38,
+"teken": 0.6
+},
+{
+"bord": 2,
+"tekst": "5 reasons!",
+"x": 450,
+"y": 540,
+"maat": 60,
+"kleur": [
+214,
+32,
+39
+],
+"start": 55.59,
+"doel": 55.74,
+"teken": 0.6
+},
+{
+"bord": 3,
+"kop": "Reason 1: Nvidia",
+"rechts": "Not financial advice",
+"start": 56.921
+},
+{
+"bord": 3,
+"logo": "logos/nvidia.png",
+"x": 65,
+"y": 85,
+"hoog": 56,
+"start": 57.94,
+"doel": 58.14
+},
+{
+"bord": 3,
+"beeld": "afbeeldingen/n_chips.png",
+"x": 65,
+"y": 160,
+"breed": 220,
+"hoog": 200,
+"midden": true,
+"start": 59.720000000000006,
+"doel": 60.02,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 3,
+"tekst": "-14%",
+"x": 330,
+"y": 90,
+"maat": 96,
+"kleur": [
+214,
+32,
+39
+],
+"start": 63.32,
+"doel": 63.47,
+"teken": 0.7
+},
+{
+"bord": 3,
+"dagen": "data/nvda.json",
+"logo": "logos/nvidia.png",
+"logohoog": 22,
+"onder": "change per day, closing price",
+"n": 7,
+"taal": "en",
+"x": 680,
+"y": 75,
+"breed": 560,
+"hoog": 380,
+"start": 65.4,
+"doel": 65.75,
+"per": 0.22
+},
+{
+"bord": 3,
+"tekst": "7 losing weeks: longest since 2008",
+"x": 65,
+"y": 480,
+"maat": 34,
+"kleur": [
+214,
+32,
+39
+],
+"start": 68.91999999999999,
+"doel": 69.07,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "-47% from the top",
+"x": 65,
+"y": 550,
+"maat": 50,
+"kleur": [
+214,
+32,
+39
+],
+"start": 76.28,
+"doel": 76.43,
+"teken": 0.6
+},
+{
+"bord": 3,
+"tekst": "about $2.5 trillion gone",
+"x": 650,
+"y": 600,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 79.42999999999999,
+"doel": 79.58,
+"teken": 0.6
+},
+{
+"bord": 4,
+"kop": "The founder left, then came the SEC report",
+"rechts": "Not financial advice",
+"start": 82.915
+},
+{
+"bord": 4,
+"foto": "fotos/jensen.jpg",
+"x": 65,
+"y": 85,
+"breed": 220,
+"hoog": 280,
+"start": 83.96000000000001,
+"doel": 84.26,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": "Jensen Huang",
+"bron": "Photo: Anders Eidesvik, CC BY 4.0"
+},
+{
+"bord": 4,
+"tekst": "Nov 12: stepped down",
+"x": 330,
+"y": 100,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 86.8,
+"doel": 86.95,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "Reuters:",
+"x": 330,
+"y": 190,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 89.66,
+"doel": 89.81,
+"teken": 0.6
+},
+{
+"bord": 4,
+"tekst": "SEC looking at possible accounting problems",
+"x": 330,
+"y": 250,
+"maat": 32,
+"kleur": [
+214,
+32,
+39
+],
+"start": 91.97999999999999,
+"doel": 92.13,
+"teken": 0.37
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_boekhouding.png",
+"x": 330,
+"y": 320,
+"breed": 250,
+"hoog": 180,
+"midden": true,
+"start": 92.45,
+"doel": 92.75,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 4,
+"tekst": "nothing proven",
+"x": 600,
+"y": 330,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 95.66,
+"doel": 95.81,
+"teken": 0.6
+},
+{
+"bord": 4,
+"beeld": "afbeeldingen/n_nerveus.png",
+"x": 900,
+"y": 400,
+"breed": 320,
+"hoog": 260,
+"midden": true,
+"start": 99.45,
+"doel": 99.75,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"kop": "Reason 2: the biggest IPO ever",
+"rechts": "Not financial advice",
+"start": 101.399
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_bel.png",
+"x": 650,
+"y": 80,
+"breed": 260,
+"hoog": 200,
+"midden": true,
+"start": 102.36,
+"doel": 102.66,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"logo": "logos/anthropic.png",
+"x": 65,
+"y": 95,
+"hoog": 38,
+"start": 105.92,
+"doel": 106.12
+},
+{
+"bord": 5,
+"tekst": "went public Nov 19",
+"x": 65,
+"y": 150,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 110.19999999999999,
+"doel": 110.35,
+"teken": 0.6
+},
+{
+"bord": 5,
+"tekst": "raised $81B at $83",
+"x": 65,
+"y": 215,
+"maat": 48,
+"kleur": [
+46,
+150,
+84
+],
+"start": 111.49,
+"doel": 111.64,
+"teken": 0.6
+},
+{
+"bord": 5,
+"balken": [
+[
+"IPO",
+83,
+"$83"
+],
+[
+"Day 1 high",
+115,
+">$115"
+],
+[
+"Friday",
+88.91,
+"$88.91"
+]
+],
+"onder": "Anthropic share price",
+"x": 65,
+"y": 300,
+"breed": 520,
+"hoog": 360,
+"start": 114.25999999999999,
+"doel": 114.66,
+"starts": [
+114.66,
+118.92,
+122.4
+]
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_verkoop.png",
+"x": 640,
+"y": 300,
+"breed": 320,
+"hoog": 190,
+"midden": true,
+"start": 125.27,
+"doel": 125.57,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 5,
+"tekst": "\"buy the rumor, sell the news\"",
+"x": 620,
+"y": 540,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 127.97,
+"doel": 128.12,
+"teken": 0.6
+},
+{
+"bord": 5,
+"beeld": "afbeeldingen/n_geldweg.png",
+"x": 980,
+"y": 300,
+"breed": 250,
+"hoog": 200,
+"midden": true,
+"start": 132.86999999999998,
+"doel": 133.17,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 6,
+"kop": "Reason 3: the chips",
+"rechts": "Not financial advice",
+"start": 136.04399999999998
+},
+{
+"bord": 6,
+"tekst": "#3",
+"x": 1135,
+"y": 60,
+"maat": 80,
+"kleur": [
+214,
+32,
+39
+],
+"start": 136.82,
+"doel": 136.97,
+"teken": 0.3
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_nieuwechip.png",
+"x": 790,
+"y": 420,
+"breed": 150,
+"hoog": 140,
+"midden": true,
+"start": 137.22,
+"doel": 137.38,
+"teken": 1.06,
+"kleur": 0.5
+},
+{
+"bord": 6,
+"logo": "logos/broadcom.png",
+"x": 65,
+"y": 90,
+"hoog": 36,
+"start": 139.88000000000002,
+"doel": 140.08
+},
+{
+"bord": 6,
+"tekst": "-12%",
+"x": 65,
+"y": 140,
+"maat": 70,
+"kleur": [
+214,
+32,
+39
+],
+"start": 141.32,
+"doel": 141.47,
+"teken": 0.6
+},
+{
+"bord": 6,
+"logo": "logos/amd.png",
+"x": 330,
+"y": 90,
+"hoog": 36,
+"start": 142.20000000000002,
+"doel": 142.4
+},
+{
+"bord": 6,
+"tekst": "-13%",
+"x": 330,
+"y": 140,
+"maat": 70,
+"kleur": [
+214,
+32,
+39
+],
+"start": 143.51999999999998,
+"doel": 143.67,
+"teken": 0.6
+},
+{
+"bord": 6,
+"logo": "logos/google.png",
+"x": 620,
+"y": 85,
+"hoog": 46,
+"start": 147.67000000000002,
+"doel": 147.87
+},
+{
+"bord": 6,
+"tekst": "fewer chips? (unconfirmed)",
+"x": 620,
+"y": 150,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 148.81,
+"doel": 148.96,
+"teken": 0.6
+},
+{
+"bord": 6,
+"foto": "fotos/chip_crop.jpg",
+"x": 65,
+"y": 280,
+"breed": 220,
+"hoog": 170,
+"start": 151.28,
+"doel": 151.58,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": null,
+"bron": "Photo: Fritzchens Fritz, CC0"
+},
+{
+"bord": 6,
+"tekst": "chip fund: -15% in 1 week",
+"x": 320,
+"y": 300,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 154.16,
+"doel": 154.31,
+"teken": 0.6
+},
+{
+"bord": 6,
+"tekst": "worst since Sept 2001",
+"x": 320,
+"y": 370,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 158.54999999999998,
+"doel": 158.7,
+"teken": 0.6
+},
+{
+"bord": 6,
+"beeld": "afbeeldingen/n_schep.png",
+"x": 950,
+"y": 300,
+"breed": 280,
+"hoog": 260,
+"midden": true,
+"start": 161.67999999999998,
+"doel": 161.98,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 6,
+"tekst": "how long will the gold rush last?",
+"x": 65,
+"y": 580,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 165.29999999999998,
+"doel": 165.45,
+"teken": 0.6
+},
+{
+"bord": 7,
+"kop": "Reason 4: the price of money",
+"rechts": "Not financial advice",
+"start": 167.38799999999998
+},
+{
+"bord": 7,
+"tekst": "#4",
+"x": 1080,
+"y": 70,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 168.23,
+"doel": 168.38,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "not AI",
+"x": 1070,
+"y": 185,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 169.57,
+"doel": 169.72,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "the price of money = interest rates",
+"x": 65,
+"y": 85,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 171.34,
+"doel": 171.49,
+"teken": 0.6
+},
+{
+"bord": 7,
+"beeld": "afbeeldingen/n_olie.png",
+"x": 65,
+"y": 160,
+"breed": 200,
+"hoog": 220,
+"midden": true,
+"start": 172.48,
+"doel": 172.78,
+"teken": 0.77,
+"kleur": 0.4
+},
+{
+"bord": 7,
+"tekst": "oil > $83",
+"x": 280,
+"y": 190,
+"maat": 52,
+"kleur": [
+214,
+32,
+39
+],
+"start": 173.6,
+"doel": 173.75,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "keeps inflation high",
+"x": 280,
+"y": 265,
+"maat": 34,
+"kleur": [
+214,
+32,
+39
+],
+"start": 175.96,
+"doel": 176.11,
+"teken": 0.6
+},
+{
+"bord": 7,
+"foto": "fotos/fed.jpg",
+"x": 700,
+"y": 160,
+"breed": 300,
+"hoog": 200,
+"start": 177.29,
+"doel": 177.59,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": "Federal Reserve",
+"bron": "Photo: Federal Reserve, public domain"
+},
+{
+"bord": 7,
+"tekst": "Sept: rates up",
+"x": 700,
+"y": 440,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 180.04999999999998,
+"doel": 180.2,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "next: bigger?",
+"x": 1000,
+"y": 440,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 184.32999999999998,
+"doel": 184.48,
+"teken": 0.6
+},
+{
+"bord": 7,
+"tekst": "10-year rate > 5%",
+"x": 65,
+"y": 450,
+"maat": 60,
+"kleur": [
+214,
+32,
+39
+],
+"start": 188.54999999999998,
+"doel": 188.7,
+"teken": 0.6
+},
+{
+"bord": 8,
+"kop": "Why that hurts tech stocks",
+"rechts": "Not financial advice",
+"start": 190.289
+},
+{
+"bord": 8,
+"tekst": "why?",
+"x": 65,
+"y": 85,
+"maat": 60,
+"kleur": [
+25,
+55,
+120
+],
+"start": 190.59,
+"doel": 190.74,
+"teken": 0.6
+},
+{
+"bord": 8,
+"beeld": "afbeeldingen/n_zandloper.png",
+"x": 65,
+"y": 180,
+"breed": 240,
+"hoog": 280,
+"midden": true,
+"start": 195.10999999999999,
+"doel": 195.41,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 8,
+"tekst": "tech = profits far in the future",
+"x": 330,
+"y": 200,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 194.51,
+"doel": 194.66,
+"teken": 0.5
+},
+{
+"bord": 8,
+"beeld": "afbeeldingen/n_spaarvarken.png",
+"x": 330,
+"y": 300,
+"breed": 260,
+"hoog": 220,
+"midden": true,
+"start": 197.85,
+"doel": 198.15,
+"teken": 0.81,
+"kleur": 0.4
+},
+{
+"bord": 8,
+"tekst": "5% safe today",
+"x": 620,
+"y": 360,
+"maat": 52,
+"kleur": [
+46,
+150,
+84
+],
+"start": 199.01,
+"doel": 199.16,
+"teken": 0.6
+},
+{
+"bord": 8,
+"tekst": "future profits look less exciting",
+"x": 330,
+"y": 570,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 201.60999999999999,
+"doel": 201.76,
+"teken": 0.6
+},
+{
+"bord": 9,
+"kop": "Reason 5: growth is slowing",
+"rechts": "Not financial advice",
+"start": 203.417
+},
+{
+"bord": 9,
+"tekst": "#5",
+"x": 1080,
+"y": 70,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 204.23999999999998,
+"doel": 204.39,
+"teken": 0.6
+},
+{
+"bord": 9,
+"beeld": "afbeeldingen/n_slak.png",
+"x": 650,
+"y": 150,
+"breed": 400,
+"hoog": 260,
+"midden": true,
+"start": 205.11999999999998,
+"doel": 205.42,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 9,
+"logo": "logos/anthropic.png",
+"x": 65,
+"y": 90,
+"hoog": 34,
+"start": 206.49,
+"doel": 206.69
+},
+{
+"bord": 9,
+"balken": [
+[
+"Q2",
+144,
+"+144%"
+],
+[
+"Q3",
+47,
+"+47%"
+]
+],
+"onder": "revenue growth vs a year ago",
+"x": 65,
+"y": 150,
+"breed": 500,
+"hoog": 450,
+"start": 207.18,
+"doel": 207.58,
+"starts": [
+208.28,
+213.03
+]
+},
+{
+"bord": 9,
+"tekst": "still fast, but slower",
+"x": 650,
+"y": 470,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 215.15,
+"doel": 215.3,
+"teken": 0.6
+},
+{
+"bord": 10,
+"kop": "Then came the computers",
+"rechts": "Not financial advice",
+"start": 218.117
+},
+{
+"bord": 10,
+"beeld": "afbeeldingen/n_robot.png",
+"x": 65,
+"y": 80,
+"breed": 240,
+"hoog": 240,
+"midden": true,
+"start": 218.64,
+"doel": 218.94,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 10,
+"tekst": "S&P 500 below its 200-day average",
+"x": 330,
+"y": 100,
+"maat": 32,
+"kleur": [
+214,
+32,
+39
+],
+"start": 223.34,
+"doel": 223.49,
+"teken": 0.6
+},
+{
+"bord": 10,
+"tekst": "= automatic sell signal",
+"x": 330,
+"y": 160,
+"maat": 32,
+"kleur": [
+214,
+32,
+39
+],
+"start": 228.34,
+"doel": 228.49,
+"teken": 0.6
+},
+{
+"bord": 10,
+"beeld": "afbeeldingen/n_domino.png",
+"x": 330,
+"y": 230,
+"breed": 420,
+"hoog": 170,
+"midden": true,
+"start": 230.23,
+"doel": 230.53,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 10,
+"foto": "fotos/siegel.jpg",
+"x": 960,
+"y": 80,
+"breed": 220,
+"hoog": 280,
+"start": 232.7,
+"doel": 233.0,
+"teken": 1.0,
+"kleur": 0.5,
+"naam": "Jeremy Siegel",
+"bron": "Photo: Xuthoria, CC BY-SA 4.0"
+},
+{
+"bord": 10,
+"tekst": "\"straws that break the camel's back\"",
+"x": 380,
+"y": 500,
+"maat": 38,
+"kleur": [
+25,
+55,
+120
+],
+"start": 238.63,
+"doel": 238.78,
+"teken": 0.6
+},
+{
+"bord": 10,
+"beeld": "afbeeldingen/n_kameel.png",
+"x": 65,
+"y": 420,
+"breed": 290,
+"hoog": 250,
+"midden": true,
+"start": 239.67,
+"doel": 239.97,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 11,
+"kop": "Is this 2000 all over again?",
+"rechts": "Not financial advice",
+"start": 241.581
+},
+{
+"bord": 11,
+"beeld": "afbeeldingen/n_pc2000.png",
+"x": 65,
+"y": 80,
+"breed": 220,
+"hoog": 200,
+"midden": true,
+"start": 242.38,
+"doel": 242.68,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 11,
+"data": "data/ixic_9915.json",
+"onder": "Nasdaq 1999-2015, closing points",
+"taal": "en",
+"valuta": "",
+"x": 330,
+"y": 75,
+"breed": 600,
+"hoog": 420,
+"start": 247.03,
+"doel": 247.33,
+"teken": 3.0,
+"logo": "logos/nasdaq.png",
+"logohoog": 22,
+"jaren": 5
+},
+{
+"bord": 11,
+"tekst": "-78%",
+"x": 960,
+"y": 120,
+"maat": 90,
+"kleur": [
+214,
+32,
+39
+],
+"start": 256.91,
+"doel": 257.06,
+"teken": 0.6
+},
+{
+"bord": 11,
+"beeld": "afbeeldingen/n_router.png",
+"x": 65,
+"y": 330,
+"breed": 220,
+"hoog": 170,
+"midden": true,
+"start": 260.24,
+"doel": 260.54,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 11,
+"logo": "logos/cisco.png",
+"x": 960,
+"y": 260,
+"hoog": 60,
+"start": 258.6,
+"doel": 258.8
+},
+{
+"bord": 11,
+"tekst": "#1 in the world for a moment",
+"x": 300,
+"y": 530,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 262.86,
+"doel": 263.01,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "Cisco:",
+"x": 960,
+"y": 340,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 266.58000000000004,
+"doel": 266.73,
+"teken": 0.54
+},
+{
+"bord": 11,
+"tekst": "almost -90%",
+"x": 960,
+"y": 395,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 267.22,
+"doel": 267.37,
+"teken": 0.6
+},
+{
+"bord": 11,
+"tekst": "15 years to get back",
+"x": 300,
+"y": 600,
+"maat": 44,
+"kleur": [
+214,
+32,
+39
+],
+"start": 269.92,
+"doel": 270.07,
+"teken": 0.6
+},
+{
+"bord": 12,
+"kop": "The big difference",
+"rechts": "Not financial advice",
+"start": 273.351
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_pc2000.png",
+"x": 270,
+"y": 160,
+"breed": 170,
+"hoog": 200,
+"midden": true,
+"start": 274.37,
+"doel": 274.67,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"tekst": "2000: no sales, no profits",
+"x": 65,
+"y": 90,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 276.06,
+"doel": 276.21,
+"teken": 0.6
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_lege_mand.png",
+"x": 65,
+"y": 160,
+"breed": 200,
+"hoog": 220,
+"midden": true,
+"start": 279.87,
+"doel": 280.17,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"logo": "logos/nvidia.png",
+"x": 570,
+"y": 95,
+"hoog": 46,
+"start": 281.59000000000003,
+"doel": 281.79
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_schat.png",
+"x": 450,
+"y": 160,
+"breed": 280,
+"hoog": 230,
+"midden": true,
+"start": 283.25,
+"doel": 283.55,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"tekst": "> $1B every day",
+"x": 750,
+"y": 200,
+"maat": 52,
+"kleur": [
+46,
+150,
+84
+],
+"start": 285.25,
+"doel": 285.4,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "2008: less in a whole quarter",
+"x": 750,
+"y": 280,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 291.02000000000004,
+"doel": 291.17,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "last quarter: $115.8B revenue",
+"x": 65,
+"y": 440,
+"maat": 44,
+"kleur": [
+46,
+150,
+84
+],
+"start": 294.43,
+"doel": 294.58,
+"teken": 0.6
+},
+{
+"bord": 12,
+"beeld": "afbeeldingen/n_datacenter.png",
+"x": 750,
+"y": 380,
+"breed": 450,
+"hoog": 200,
+"midden": true,
+"start": 301.2,
+"doel": 301.5,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 12,
+"tekst": "the money is real",
+"x": 65,
+"y": 520,
+"maat": 46,
+"kleur": [
+46,
+150,
+84
+],
+"start": 304.03000000000003,
+"doel": 304.18,
+"teken": 0.6
+},
+{
+"bord": 12,
+"tekst": "but how much future is in the price?",
+"x": 65,
+"y": 600,
+"maat": 42,
+"kleur": [
+214,
+32,
+39
+],
+"start": 307.61,
+"doel": 307.76,
+"teken": 0.6
+},
+{
+"bord": 13,
+"kop": "What it means for you",
+"rechts": "Not financial advice",
+"start": 309.002
+},
+{
+"bord": 13,
+"beeld": "afbeeldingen/n_rekenmachine.png",
+"x": 760,
+"y": 420,
+"breed": 240,
+"hoog": 220,
+"midden": true,
+"start": 309.47999999999996,
+"doel": 309.78,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 13,
+"tekst": "1. corrections are normal",
+"x": 65,
+"y": 90,
+"maat": 46,
+"kleur": [
+25,
+55,
+120
+],
+"start": 312.76000000000005,
+"doel": 312.91,
+"teken": 0.6
+},
+{
+"bord": 13,
+"tekst": "after 3 strong years",
+"x": 65,
+"y": 165,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 314.93,
+"doel": 315.08,
+"teken": 0.6
+},
+{
+"bord": 13,
+"beeld": "afbeeldingen/n_achtbaan.png",
+"x": 680,
+"y": 90,
+"breed": 540,
+"hoog": 280,
+"midden": true,
+"start": 318.81,
+"doel": 319.11,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 13,
+"tekst": "~8-9% a year on average (Siegel)",
+"x": 65,
+"y": 420,
+"maat": 40,
+"kleur": [
+46,
+150,
+84
+],
+"start": 321.99,
+"doel": 322.14,
+"teken": 0.6
+},
+{
+"bord": 13,
+"tekst": "never in a straight line",
+"x": 65,
+"y": 500,
+"maat": 46,
+"kleur": [
+214,
+32,
+39
+],
+"start": 327.41,
+"doel": 327.56,
+"teken": 0.6
+},
+{
+"bord": 14,
+"kop": "What it means for you",
+"rechts": "Not financial advice",
+"start": 329.099
+},
+{
+"bord": 14,
+"tekst": "2. a lower price",
+"x": 65,
+"y": 90,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 330.12,
+"doel": 330.27,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "is not always a broken business",
+"x": 368,
+"y": 90,
+"maat": 36,
+"kleur": [
+25,
+55,
+120
+],
+"start": 332.92,
+"doel": 333.07,
+"teken": 0.6
+},
+{
+"bord": 14,
+"beeld": "afbeeldingen/n_koopje.png",
+"x": 65,
+"y": 170,
+"breed": 240,
+"hoog": 200,
+"midden": true,
+"start": 333.96999999999997,
+"doel": 334.27,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 14,
+"tekst": "...and not always a bargain",
+"x": 330,
+"y": 230,
+"maat": 40,
+"kleur": [
+25,
+55,
+120
+],
+"start": 336.21000000000004,
+"doel": 336.36,
+"teken": 0.6
+},
+{
+"bord": 14,
+"beeld": "afbeeldingen/n_mand.png",
+"x": 65,
+"y": 400,
+"breed": 260,
+"hoog": 250,
+"midden": true,
+"start": 339.44,
+"doel": 339.74,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 14,
+"tekst": "3. all your eggs in one basket?",
+"x": 350,
+"y": 470,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 342.46000000000004,
+"doel": 342.61,
+"teken": 0.6
+},
+{
+"bord": 14,
+"tekst": "not financial advice",
+"x": 350,
+"y": 580,
+"maat": 36,
+"kleur": [
+46,
+150,
+84
+],
+"start": 344.45000000000005,
+"doel": 344.6,
+"teken": 0.6
+},
+{
+"bord": 15,
+"kop": "What comes next",
+"rechts": "Not financial advice",
+"start": 347.947
+},
+{
+"bord": 15,
+"beeld": "afbeeldingen/n_glazenbol.png",
+"x": 600,
+"y": 190,
+"breed": 170,
+"hoog": 170,
+"midden": true,
+"start": 348.19,
+"doel": 348.49,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 15,
+"beeld": "afbeeldingen/n_bank.png",
+"x": 65,
+"y": 80,
+"breed": 220,
+"hoog": 180,
+"midden": true,
+"start": 350.82,
+"doel": 350.96,
+"teken": 1.04,
+"kleur": 0.5
+},
+{
+"bord": 15,
+"tekst": "December: Fed decides on rates",
+"x": 310,
+"y": 110,
+"maat": 38,
+"kleur": [
+25,
+55,
+120
+],
+"start": 350.42,
+"doel": 350.57,
+"teken": 0.3
+},
+{
+"bord": 15,
+"beeld": "afbeeldingen/n_dossiers.png",
+"x": 65,
+"y": 290,
+"breed": 220,
+"hoog": 170,
+"midden": true,
+"start": 355.63,
+"doel": 355.93,
+"teken": 1.2,
+"kleur": 0.5
+},
+{
+"bord": 15,
+"logo": "logos/nvidia.png",
+"x": 310,
+"y": 320,
+"hoog": 40,
+"start": 353.79,
+"doel": 353.99
+},
+{
+"bord": 15,
+"tekst": "answer questions about its books",
+"x": 310,
+"y": 380,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 354.91,
+"doel": 355.06,
+"teken": 0.6
+},
+{
+"bord": 15,
+"logo": "logos/anthropic.png",
+"x": 310,
+"y": 470,
+"hoog": 32,
+"start": 357.26,
+"doel": 357.46
+},
+{
+"bord": 15,
+"tekst": "keep growing fast?",
+"x": 310,
+"y": 520,
+"maat": 34,
+"kleur": [
+25,
+55,
+120
+],
+"start": 359.42,
+"doel": 359.57,
+"teken": 0.6
+},
+{
+"bord": 15,
+"beeld": "afbeeldingen/n_bubbel.png",
+"x": 920,
+"y": 80,
+"breed": 290,
+"hoog": 240,
+"midden": true,
+"start": 364.7,
+"doel": 365.0,
+"teken": 0.6,
+"kleur": 0.4
+},
+{
+"bord": 15,
+"tekst": "AI boom over...",
+"x": 700,
+"y": 455,
+"maat": 40,
+"kleur": [
+214,
+32,
+39
+],
+"start": 365.6,
+"doel": 365.71,
+"teken": 0.56
+},
+{
+"bord": 15,
+"tekst": "...or the sale of the year?",
+"x": 700,
+"y": 520,
+"maat": 40,
+"kleur": [
+46,
+150,
+84
+],
+"start": 366.68,
+"doel": 366.83,
+"teken": 0.6
+},
+{
+"bord": 15,
+"tekst": "tell me in the comments!",
+"x": 700,
+"y": 600,
+"maat": 44,
+"kleur": [
+25,
+55,
+120
+],
+"start": 369.78000000000003,
+"doel": 369.93,
+"teken": 0.6
+}
+]
+}
