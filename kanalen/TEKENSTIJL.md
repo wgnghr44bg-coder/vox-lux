@@ -47,3 +47,8 @@ Daarna altijd: `ffmpeg -i uit.mp4 -vf freezedetect=n=0.0005:d=1.5 -f null -` en 
 Token: `YT_REFRESH_TOKEN_ALTERAQON`. Alle oude What-if-video's verwijderd (21 nov). Gezet via API: Engelse beschrijving (`kanalen/alteraqon/beschrijving.txt`),
 trefwoorden, taal en, banner `kanalen/alteraqon/banner.png` ("Market Doodle — Money news, drawn on a whiteboard"). Profielfoto `kanalen/alteraqon/profielfoto.png` ("MD" + rode koerslijn), naam "Market Doodle" en handle (bv. @marketdoodle)
 zet de eigenaar zelf in Studio — GEDAAN 22 nov: snippet.title = "Market Doodle", handle @marketdoodle (0 video's). Upload altijd privé + kanaal controleren (snippet.channelTitle).
+
+## TODO snelheid (eigenaar 22 nov: "doodle is heel langzaam" -> "ja is prima", NA de eerste Market Doodle-video)
+6,2 min video = ± 11 min renderen. Plan: (1) per bord een cache-laag voor onderdelen die af zijn (alleen actieve onderdelen per frame tekenen),
+(2) h264_nvenc (RTX 2080 Super) i.p.v. libx264, (3) borden in 2-3 losse processen renderen en daarna samenvoegen (concat).
+Eerst de lokale aanpassingen van het andere account in teken_anim.py/mooi.py (staande Short, W/H) committen, dan pas hierop bouwen.
