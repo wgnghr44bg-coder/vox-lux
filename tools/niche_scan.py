@@ -1,13 +1,13 @@
 """Niche-scanner (22 nov 2026, eigenaar: "echt scannen welke niche nu hot is").
 Per onderwerp: video's van de laatste 30 dagen (Engels, VS), gesorteerd op weergaven. Meet:
   vraag     = mediaan weergaven per dag van de top-50 lange video's (>= 4 min)
-  aanbod    = hoeveel video's YouTube ongeveer vindt in 30 dagen (ruwe schatting)
+  groot     = video's van kanalen met > 1 mln abonnees (concurrentie)
   kleine    = aantal lange video's van kanalen < 100k abonnees met meer weergaven dan abonnees (kleine kanalen die winnen)
-  score     = vraag x (1 + kleine) / wortel(aanbod)   -> hoog = veel kijkers, weinig makers, nieuwkomers maken kans
+  score     = vraag x (1 + kleine) / wortel(1 + groot)   -> hoog = veel kijkers, weinig grote makers, nieuwkomers maken kans
 Kosten: ±102 punten YouTube-quota per onderwerp (dagquotum 10.000, gedeeld met uploads). Standaard 25 onderwerpen ≈ 2.600.
 Gebruik: python tools/niche_scan.py [--dagen 30] [--uit kanalen/NICHE-SCAN.md] [--git] [onderwerpen.txt]
 Elke maandag 08:00 via taak "Niche-scan" (tools/niche_scan_wekelijks.ps1), met --git: bewaart en pusht de uitslag."""
-import json, math, os, re, statistics, sys, urllib.parse, urllib.request
+import json, math, urllib.error, os, re, statistics, sys, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -23,7 +23,7 @@ ONDERWERPEN = {
     "Beursgangen (IPO)": ("IPO stock", ["ipo", "going public", "public"]),
     "Bedrijf in problemen": ("company bankruptcy", ["bankrupt", "bankruptcy", "collapse", "failing", "dying", "closing"]),
     "Bedrijfsgeschiedenis": ("rise and fall of company", ["rise", "fall", "story", "history", "how"]),
-    "Miljardairs": ("billionaire", ["billionaire", "richest", "net worth", "fortune"]),
+    "Miljardairs (echte)": ("billionaire net worth richest", ["richest", "net worth", "fortune", "musk", "bezos", "buffett", "zuckerberg"]),
     "Huizenmarkt": ("housing market", ["housing", "home", "house", "real estate", "mortgage", "rent"]),
     "Crypto / bitcoin": ("bitcoin", ["bitcoin", "crypto", "btc"]),
     "Goud en zilver": ("gold price", ["gold", "silver"]),
@@ -61,12 +61,22 @@ def sec(iso):
     m = re.match(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
     return sum(int(x or 0) * f for x, f in zip(m.groups(), (3600, 60, 1))) if m else 0
 
+def zoek_web(zoek):
+    import subprocess
+    u = "https://www.youtube.com/results?search_query=" + urllib.parse.quote_plus(zoek) + "&sp=CAMSBAgEEAE%253D"   # meest bekeken, deze maand
+    out = subprocess.run([sys.executable, "-m", "yt_dlp", "--flat-playlist", "--playlist-end", "50", "-J", u],
+                         capture_output=True, text=True, encoding="utf-8", timeout=180).stdout
+    return [e["id"] for e in json.loads(out).get("entries", []) if e.get("id")][:50]
+
 def scan(zoek, woorden, dagen):
     na = (datetime.now(timezone.utc) - timedelta(days=dagen)).strftime("%Y-%m-%dT%H:%M:%SZ")
-    s = g("search", part="id", type="video", maxResults=50, order="viewCount", publishedAfter=na,
-          q=zoek, relevanceLanguage="en", regionCode="US")
-    aanbod = s.get("pageInfo", {}).get("totalResults", 0)
-    ids = [x["id"]["videoId"] for x in s.get("items", [])]
+    try:
+        s = g("search", part="id", type="video", maxResults=50, order="viewCount", publishedAfter=na,
+              q=zoek, relevanceLanguage="en", regionCode="US")
+        ids = [x["id"]["videoId"] for x in s.get("items", [])]
+    except urllib.error.HTTPError as e:      # 22 nov: zoek-quota op -> zelfde zoekopdracht via de website (yt-dlp), kost geen quota
+        if e.code not in (403, 429): raise
+        ids = zoek_web(zoek)
     if not ids: return None
     v = g("videos", part="snippet,statistics,contentDetails", id=",".join(ids))["items"]
     kan = {x["snippet"]["channelId"] for x in v}
@@ -91,8 +101,9 @@ def scan(zoek, woorden, dagen):
     if not lang: return None
     vraag = statistics.median(r["per_dag"] for r in lang)
     kleine = [r for r in lang if r["abo"] < 100_000 and r["views"] > max(r["abo"], 1)]
-    score = vraag * (1 + len(kleine)) / math.sqrt(max(aanbod, 1))
-    return dict(aanbod=aanbod, n_lang=len(lang), vraag=vraag, kleine=kleine, score=score,
+    groot = sum(1 for r in lang if r["abo"] >= 1_000_000)
+    score = vraag * (1 + len(kleine)) / math.sqrt(1 + groot)
+    return dict(groot=groot, n_lang=len(lang), vraag=vraag, kleine=kleine, score=score,
                 top=sorted(lang, key=lambda r: -r["views"])[:3])
 
 def main():
@@ -120,15 +131,15 @@ def main():
     L = [f"# Niche-scan geld/financiën (Engels, VS)", "",
          f"Gemaakt: {datetime.now():%d-%m-%Y %H:%M}, video's van de laatste {dagen} dagen, alleen lange video's (4 min of langer).", "",
          "- **Vraag** = mediaan weergaven per dag van de best bekeken video's",
-         "- **Aanbod** = hoeveel video's YouTube ongeveer vindt (ruwe schatting)",
+         "- **Grote kanalen** = hoeveel van de best bekeken video's van kanalen met meer dan 1 miljoen abonnees komen (concurrentie)",
          "- **Kleine winnaars** = video's van kanalen onder 100k abonnees met meer weergaven dan abonnees",
-         "- **Score** (0-100) = veel vraag, weinig aanbod, en kleine kanalen maken kans", "",
+         "- **Score** (0-100) = veel vraag, weinig grote concurrenten, en kleine kanalen maken kans", "",
          "- **Trend** = vraag vergeleken met de vorige scan", "",
-         "| # | Onderwerp | Score | Vraag (views/dag) | Trend | Aanbod | Kleine winnaars |", "|---|---|---|---|---|---|---|"]
+         "| # | Onderwerp | Score | Vraag (views/dag) | Trend | Grote kanalen | Kleine winnaars |", "|---|---|---|---|---|---|---|"]
     for n, (k, r) in enumerate(rij, 1):
         v0 = (vorig.get(k) or {}).get("vraag")
         trend = "nieuw" if not v0 else f"{100 * (r['vraag'] / v0 - 1):+.0f}%"
-        L.append(f"| {n} | {k} | {100 * r['score'] / hoog:.0f} | {r['vraag']:,.0f} | {trend} | {r['aanbod']:,} | {len(r['kleine'])} |")
+        L.append(f"| {n} | {k} | {100 * r['score'] / hoog:.0f} | {r['vraag']:,.0f} | {trend} | {r['groot']} | {len(r['kleine'])} |")
     L += ["", "## Top 5 in detail", ""]
     for k, r in rij[:5]:
         L += [f"### {k}", "", "Best bekeken:"]
