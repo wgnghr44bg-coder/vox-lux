@@ -3,6 +3,7 @@
 import json, sys
 import numpy as np, wave
 SR = 48000; rng = np.random.default_rng(7)
+KRAS = "--met-kras" in sys.argv                                     # eigenaar 22 nov: stiftgeluid weg (standaard uit)
 sc = json.load(open(sys.argv[1], encoding="utf-8")); n = int((sc["duur"] + 1) * SR); uit = np.zeros(n, np.float32)
 def kras(t0, dur):
     m = int(dur * SR); x = rng.standard_normal(m).astype(np.float32)
@@ -17,7 +18,8 @@ def plop(t0):
     i = int(t0 * SR); uit[i:i + m] += x[:max(0, min(m, n - i))].astype(np.float32)
 for it in sc["items"]:
     if "beeld" in it or "foto" in it:
-        if it.get("teken", 1) > 0.3: kras(it["start"], it["teken"])
-    elif "tekst" in it or "streep" in it: kras(it["start"], max(0.3, it.get("teken", 0.8)))
+        if KRAS and it.get("teken", 1) > 0.3: kras(it["start"], it["teken"])
+    elif "tekst" in it or "streep" in it:
+        if KRAS: kras(it["start"], max(0.3, it.get("teken", 0.8)))
     elif any(k in it for k in ("logo", "data", "dagen", "balken", "bordje")): plop(it["start"])
 w = wave.open(sys.argv[2], "wb"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.clip(uit, -1, 1) * 32767).astype("<i2").tobytes()); w.close(); print("geluid", sys.argv[2])
