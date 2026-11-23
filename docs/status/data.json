@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 21:33",
+ "bijgewerkt": "2026-11-23 21:55",
  "kanalen": {
   "weken": [
    {
@@ -37,7 +37,7 @@
         "datum": "2026-11-24",
         "tijd": "15:00",
         "titel": "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of",
-        "stand": "maken: bijwerken met de val van vr 20 nov (Nasdaq -5,3%, Nvidia -14%) en slot ma 23 nov, dan privé inplannen",
+        "stand": "vervalt: di is geen vaste dag meer, en de beurs herstelde ma 23 nov (Nasdaq +5,8%) dus het verhaal klopt niet meer",
         "youtube": ""
        },
        {
@@ -45,16 +45,8 @@
         "datum": "2026-11-24",
         "tijd": "17:00",
         "titel": "Short: The Nasdaq Fell 13%. Investors Fear 4 Things",
-        "stand": "maken: bijwerken samen met de lange video",
+        "stand": "vervalt: di is geen vaste dag meer, en de beurs herstelde ma 23 nov (Nasdaq +5,8%) dus het verhaal klopt niet meer",
         "youtube": ""
-       },
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-24",
-        "tijd": "17:00",
-        "titel": "What If You Could Pause Time?",
-        "stand": "gepland",
-        "youtube": "7J6yAves9ig"
        }
       ]
      },
@@ -76,6 +68,14 @@
         "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
         "stand": "gepland",
         "youtube": "8de6ZH3YYp4"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-25",
+        "tijd": "19:00",
+        "titel": "What If You Could Pause Time?",
+        "stand": "gepland",
+        "youtube": "13EHf4WZdWs"
        }
       ]
      },
@@ -170,16 +170,7 @@
      },
      {
       "datum": "2026-12-02",
-      "items": [
-       {
-        "kanaal": "Sleep Archives",
-        "datum": "2026-12-02",
-        "tijd": "21:00",
-        "titel": "Life in Gettysburg, July 1863",
-        "stand": "gepland",
-        "youtube": "4i-gOILazVQ"
-       }
-      ]
+      "items": []
      },
      {
       "datum": "2026-12-03",
@@ -210,10 +201,10 @@
    }
   ],
   "regels": {
-   "Sleep Archives": "2x per week, wo + za 21:00 NL (eigenaar 21 nov avond: 'sleep toch beter 2 video's per week'). Mag ver vooruit; de pc maakt ze zelf (taak 'Sleep Archives bewaker' AAN), maar wacht als BlackswanVault/Geldverhaal rendert. Feestdagen/jaardagen houden hun datum. Bij echt grote hype mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
+   "Sleep Archives": "Vaste dag (eigenaar 23 nov avond): alleen zaterdag 21:00 NL.",
    "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
-   "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen.",
-   "Market Doodle": "What If-verhalen in simpele 2D (gezinnetje), Engels; sinds 23 nov 2026. Advies: 2 lange video's + 3-4 Shorts per week."
+   "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Alleen echte hype; geen goed onderwerp = dag overslaan.",
+   "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL. Simpele 2D, gezinnetje, Engels."
   },
   "fouten": []
  },
@@ -2004,14 +1995,6 @@
     "kleur": "goed"
    },
    {
-    "datum": "2026-12-02",
-    "dag": "wo",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "stand": "staat klaar op YouTube",
-    "kleur": "goed"
-   },
-   {
     "datum": "2026-12-05",
     "dag": "za",
     "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
@@ -2043,19 +2026,6 @@
     "flesch": 66,
     "niveau": 7.5,
     "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": null
-   },
-   {
-    "datum": "2026-12-02",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
-    "map": "gettysburg-1863",
-    "klaar": true,
-    "stand": "video staat klaar",
-    "controle": "GOED",
-    "flesch": 70,
-    "niveau": 6.4,
-    "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED",
     "afspraken": null
    },
@@ -2191,7 +2161,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 21:33)"
+   "tekst": "laatste keer goed (2026-11-23 21:33)"
   },
   {
    "naam": "Git",
@@ -2206,7 +2176,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2238,8 +2208,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 21:18",
-   "volgende": "2026-11-23 21:48"
+   "laatst": "2026-11-23 21:48",
+   "volgende": "2026-11-23 22:18"
   },
   "titels": {
    "aan": true,
@@ -2268,7 +2238,7 @@
     "titel": "Life in Gettysburg, July 1863 | History for Sleep",
     "duur": "2:17:38",
     "privacy": "private",
-    "publiceer": "2026-12-02T20:00:00Z",
+    "publiceer": "2027-07-03T19:00:00Z",
     "views": 0,
     "verwerkt": "processed"
    },
@@ -2287,7 +2257,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 55,
+    "views": 54,
     "verwerkt": "processed"
    },
    {
@@ -2350,7 +2320,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 930,
+    "views": 927,
     "verwerkt": "processed"
    }
   ],
@@ -2574,25 +2544,13 @@
   "stapnaam": "",
   "voortgang": null,
   "detail": "",
-  "taken": [
-   "stem inspreken (OmniVoice)",
-   "video samenvoegen (ffmpeg)"
-  ],
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
-  },
-  {
-   "naam": "video samenvoegen (ffmpeg)",
-   "stap": -1
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 1524,
+  "geheugen_mb": 1508,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2765,8 +2723,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 21:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 21:55",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3053,7 +3011,7 @@
   },
   {
    "map": "bronstijd",
-   "datum": "2027-07-03",
+   "datum": "2028-03-25",
    "reserve": false,
    "titel": "Life in the Bronze Age, 1500 BC | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -3401,7 +3359,7 @@
   },
   {
    "map": "gettysburg-1863",
-   "datum": "2026-12-02",
+   "datum": "2027-07-03",
    "reserve": false,
    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
    "status": "klaar",
@@ -3417,7 +3375,7 @@
     true
    ],
    "gereed": 100,
-   "thumb": "thumbs/gettysburg-1863.jpg"
+   "thumb": ""
   },
   {
    "map": "goudkoorts-1849",
@@ -4899,7 +4857,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 21:33",
+  "bijgewerkt": "2026-11-23 21:56",
   "accounts": [
    {
     "account": "hoofd",
@@ -4919,25 +4877,24 @@
    },
    {
     "account": "account2",
-    "5uur": 8368814,
-    "week": 145612615,
+    "5uur": 9834950,
+    "week": 145068522,
     "per_dag": {
      "Tue 17-11": 2969296,
-     "Mon 16-11": 2078182,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 31172177,
+     "Mon 23-11": 32706266,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 79055,
+    "stap_kost": 79994,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 62,
+    "5uur_pct": 72,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 66,
+    "5uur_stappen_over": 47,
     "week_pct": 110,
     "week_scripts_over": null,
     "week_stappen_over": 0
