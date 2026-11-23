@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 22:33",
+ "bijgewerkt": "2026-11-23 23:03",
  "kanalen": {
   "weken": [
    {
@@ -1973,7 +1973,7 @@
    {
     "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "map": "pearl-harbor-1941",
-    "detail": "Beelden maken · 99%",
+    "detail": "Beelden maken · 98%",
     "soort": "nu"
    }
   ],
@@ -2154,7 +2154,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 22:33)"
+   "tekst": "draait nu (2026-11-23 23:03)"
   },
   {
    "naam": "Git",
@@ -2169,7 +2169,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 22:18: alles klopt"
+   "tekst": "laatste ronde 22:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2186,8 +2186,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 22:33",
-   "volgende": "2026-11-23 23:03"
+   "laatst": "2026-11-23 23:03",
+   "volgende": "2026-11-23 23:33"
   },
   "hype": {
    "aan": true,
@@ -2201,8 +2201,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 22:18",
-   "volgende": "2026-11-23 22:48"
+   "laatst": "2026-11-23 22:48",
+   "volgende": "2026-11-23 23:18"
   },
   "titels": {
    "aan": true,
@@ -2535,12 +2535,13 @@
   "thumb": "",
   "stap": 2,
   "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "88 van 88 beelden",
+  "voortgang": 98,
+  "detail": "86 van 88 beelden",
   "taken": [
    "routine zonder Claude",
    "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stem inspreken (OmniVoice)"
+   "stem inspreken (OmniVoice)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -2556,11 +2557,15 @@
   {
    "naam": "stem inspreken (OmniVoice)",
    "stap": -1
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 41,
-  "geheugen_mb": 5066,
+  "bezig_procent": 98,
+  "geheugen_mb": 7127,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -3915,11 +3920,11 @@
    "stappen": [
     true,
     false,
-    true,
+    false,
     false,
     false
    ],
-   "gereed": 40,
+   "gereed": 20,
    "thumb": ""
   },
   {
@@ -4861,7 +4866,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 22:35",
+  "bijgewerkt": "2026-11-23 23:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -4881,7 +4886,7 @@
    },
    {
     "account": "account2",
-    "5uur": 13543077,
+    "5uur": 11141173,
     "week": 148776649,
     "per_dag": {
      "Tue 17-11": 2969296,
@@ -4896,9 +4901,9 @@
     "stap_kost": 80741,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 100,
+    "5uur_pct": 82,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 0,
+    "5uur_stappen_over": 30,
     "week_pct": 113,
     "week_scripts_over": null,
     "week_stappen_over": 0
