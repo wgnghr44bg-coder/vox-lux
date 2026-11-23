@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 16:33",
+ "bijgewerkt": "2026-11-23 17:03",
  "kanalen": {
   "weken": [
    {
@@ -2191,7 +2191,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 16:33)"
+   "tekst": "draait nu (2026-11-23 17:03)"
   },
   {
    "naam": "Git",
@@ -2206,7 +2206,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2223,8 +2223,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 16:33",
-   "volgende": "2026-11-23 17:03"
+   "laatst": "2026-11-23 17:03",
+   "volgende": "2026-11-23 17:33"
   },
   "hype": {
    "aan": true,
@@ -2238,8 +2238,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 16:18",
-   "volgende": "2026-11-23 16:48"
+   "laatst": "2026-11-23 16:48",
+   "volgende": "2026-11-23 17:18"
   },
   "titels": {
    "aan": true,
@@ -2287,7 +2287,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 55,
+    "views": 54,
     "verwerkt": "processed"
    },
    {
@@ -2350,7 +2350,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 923,
+    "views": 924,
     "verwerkt": "processed"
    }
   ],
@@ -2747,8 +2747,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 16:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 17:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4881,15 +4881,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 16:33",
+  "bijgewerkt": "2026-11-23 17:03",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 12915620,
+    "week": 10199359,
     "per_dag": {
      "Tue 17-11": 1533664,
-     "Mon 16-11": 3317913,
+     "Mon 16-11": 601653,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
@@ -4902,26 +4902,26 @@
    },
    {
     "account": "account2",
-    "5uur": 6638716,
-    "week": 150392113,
+    "5uur": 5798390,
+    "week": 148608586,
     "per_dag": {
-     "Mon 16-11": 15226494,
+     "Mon 16-11": 13375013,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 22803363,
+     "Mon 23-11": 22871316,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 51860,
+    "stap_kost": 54264,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 49,
+    "5uur_pct": 43,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 134,
-    "week_pct": 114,
+    "5uur_stappen_over": 143,
+    "week_pct": 113,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
