@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 12:03",
+ "bijgewerkt": "2026-11-23 12:33",
  "kanalen": {
   "weken": [
    {
@@ -1717,40 +1717,10 @@
   ],
   "daarna": [
    {
-    "wanneer": "di 24-11 09:00 (routine staat UIT)",
-    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
-    "map": "kerst-loopgraven-1914",
-    "detail": "routine maakt de video voor za 12-12 21:00"
-   },
-   {
-    "wanneer": "do 26-11 09:00 (routine staat UIT)",
-    "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
-    "map": "bethlehem",
-    "detail": "routine maakt de video voor za 19-12 21:00"
-   },
-   {
-    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
-    "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
-    "map": "londen-kerst-1843",
-    "detail": "routine maakt de video voor za 26-12 21:00"
-   },
-   {
-    "wanneer": "di 1-12 09:00 (routine staat UIT)",
-    "wat": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
-    "map": "alchemie-steen-der-wijzen",
-    "detail": "routine maakt de video voor wo 30-12 21:00"
-   },
-   {
-    "wanneer": "do 3-12 09:00 (routine staat UIT)",
-    "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
-    "map": "rome-44-vc",
-    "detail": "routine maakt de video voor za 2-1 21:00"
-   },
-   {
-    "wanneer": "zo 6-12 09:00 (routine staat UIT)",
-    "wat": "Life in Florence Before the Black Death, 1347 | History for Sleep",
-    "map": "zwarte-dood-1348",
-    "detail": "routine maakt de video voor wo 6-1 21:00"
+    "wanneer": "na Blackbeard",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "keten maakt de video voor za 5-12 21:00"
    }
   ],
   "publicaties": [
@@ -1775,14 +1745,6 @@
     "dag": "za",
     "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "map": "pearl-harbor-1941",
-    "stand": "wordt nu gemaakt",
-    "kleur": "nu"
-   },
-   {
-    "datum": "2026-12-09",
-    "dag": "wo",
-    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
-    "map": "boeren-winter-1300",
     "stand": "wordt nu gemaakt",
     "kleur": "nu"
    },
@@ -1840,19 +1802,6 @@
     "afspraken": []
    },
    {
-    "datum": "2026-12-09",
-    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
-    "map": "boeren-winter-1300",
-    "klaar": true,
-    "stand": "video wordt gemaakt",
-    "controle": "GOED",
-    "flesch": 67,
-    "niveau": 7.2,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
     "datum": "2026-12-12",
     "titel": "Christmas in the Trenches, 1914 | History for Sleep",
     "map": "kerst-loopgraven-1914",
@@ -1866,19 +1815,6 @@
     "afspraken": []
    },
    {
-    "datum": "2026-12-16",
-    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
-    "map": "dallas-1963",
-    "klaar": true,
-    "stand": "video wordt gemaakt",
-    "controle": "GOED",
-    "flesch": 75,
-    "niveau": 6.0,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
     "datum": "2026-12-19",
     "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
     "map": "bethlehem",
@@ -1887,19 +1823,6 @@
     "controle": "GOED",
     "flesch": 70,
     "niveau": 7.2,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
-    "datum": "2026-12-23",
-    "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-    "map": "blackbeard-1718",
-    "klaar": true,
-    "stand": "video wordt gemaakt",
-    "controle": "GOED",
-    "flesch": 64,
-    "niveau": 7.7,
     "leesbaar": "GOED",
     "toon": "TOON GOED",
     "afspraken": []
@@ -1918,19 +1841,6 @@
     "afspraken": []
    },
    {
-    "datum": "2026-12-30",
-    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
-    "map": "alchemie-steen-der-wijzen",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 60,
-    "niveau": 8.2,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
     "datum": "2027-01-02",
     "titel": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
     "map": "rome-44-vc",
@@ -1944,19 +1854,6 @@
     "afspraken": []
    },
    {
-    "datum": "2027-01-06",
-    "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
-    "map": "zwarte-dood-1348",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 65,
-    "niveau": 7.6,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
     "datum": "2027-01-09",
     "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
     "map": "scott-antarctica-1912",
@@ -1965,45 +1862,6 @@
     "controle": "GOED",
     "flesch": 71,
     "niveau": 6.7,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
-    "datum": "2027-01-13",
-    "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
-    "map": "man-ijzeren-masker-1703",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 69,
-    "niveau": 7.1,
-    "leesbaar": "GOED",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
-    "datum": "2027-01-20",
-    "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
-    "map": "mary-celeste-1872",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 73,
-    "niveau": 6.5,
-    "leesbaar": "MAKKELIJK",
-    "toon": "TOON GOED",
-    "afspraken": []
-   },
-   {
-    "datum": "2027-01-27",
-    "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
-    "map": "japan-1600",
-    "klaar": true,
-    "stand": "script klaar en 's nachts goedgekeurd",
-    "controle": "GOED",
-    "flesch": 77,
-    "niveau": 5.0,
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED",
     "afspraken": []
@@ -2062,7 +1920,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 12:03)"
+   "tekst": "draait nu (2026-11-23 12:33)"
   },
   {
    "naam": "Git",
@@ -2077,7 +1935,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 11:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 12:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2094,8 +1952,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 12:03",
-   "volgende": "2026-11-23 12:33"
+   "laatst": "2026-11-23 12:33",
+   "volgende": "2026-11-23 13:03"
   },
   "hype": {
    "aan": true,
@@ -2103,14 +1961,14 @@
    "volgende": "2026-11-24 08:30"
   },
   "bewaker": {
-   "aan": false,
+   "aan": true,
    "laatst": "2026-11-21 23:10",
-   "volgende": "2026-11-23 12:10"
+   "volgende": "2026-11-23 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 11:48",
-   "volgende": "2026-11-23 12:18"
+   "laatst": "2026-11-23 12:18",
+   "volgende": "2026-11-23 12:48"
   },
   "titels": {
    "aan": true,
@@ -2434,7 +2292,7 @@
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-  "datum": "2026-12-23",
+  "datum": "2027-08-14",
   "thumb": "thumbs/blackbeard-1718.jpg",
   "stap": -1,
   "stapnaam": "",
@@ -2445,7 +2303,7 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
+  "bezig_procent": 25,
   "geheugen_mb": 1409,
   "totaal_mb": 8192
  },
@@ -2532,12 +2390,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-22 00:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
-   "fout": true,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-22 00:48",
    "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
    "fout": true,
@@ -2614,12 +2466,18 @@
    "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-23): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 12:17",
+   "tekst": "eigenaar: Sleep 1x per week (za 21:00), focus Market Doodle. Wo-plekken naar za achteraan (boeren-winter t/m jeanne-darc), routine alleen za, bewaker AAN maar start alleen 22:00-08:00 en wacht als Doo",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 12:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 12:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -2664,7 +2522,7 @@
  "video": [
   {
    "map": "alchemie-steen-der-wijzen",
-   "datum": "2026-12-30",
+   "datum": "2027-08-21",
    "reserve": false,
    "titel": "Alchemists and the Philosopher's Stone, 1600 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 14 nov, 2026-11-14, Claude; hype Philosopher's Stone)",
@@ -2684,7 +2542,7 @@
   },
   {
    "map": "alexander-331-vc",
-   "datum": "2027-06-23",
+   "datum": "2028-02-12",
    "reserve": false,
    "titel": "Life with the Army of Alexander the Great, 331 BC | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -2715,7 +2573,7 @@
   },
   {
    "map": "angelsaksen-oogst",
-   "datum": "2027-06-02",
+   "datum": "2028-01-22",
    "reserve": false,
    "titel": "Harvest Time in an Anglo-Saxon Village, 700 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -2775,7 +2633,7 @@
   },
   {
    "map": "atlantis",
-   "datum": "2027-04-14",
+   "datum": "2027-12-04",
    "reserve": false,
    "titel": "The Legend of Atlantis | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -2806,7 +2664,7 @@
   },
   {
    "map": "balmoral-1868",
-   "datum": "2027-07-07",
+   "datum": "2028-02-26",
    "reserve": false,
    "titel": "An Autumn at Balmoral with Queen Victoria, 1868 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -2846,7 +2704,7 @@
   },
   {
    "map": "blackbeard-1718",
-   "datum": "2026-12-23",
+   "datum": "2027-08-14",
    "reserve": false,
    "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
    "status": "bezig (2026-11-19, routine-lokaal)",
@@ -2862,11 +2720,11 @@
     false
    ],
    "gereed": 40,
-   "thumb": "thumbs/blackbeard-1718.jpg"
+   "thumb": ""
   },
   {
    "map": "blitz-1940",
-   "datum": "2027-06-30",
+   "datum": "2028-02-19",
    "reserve": false,
    "titel": "Life in London During the Blitz, September 1940 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -2886,7 +2744,7 @@
   },
   {
    "map": "boeren-winter-1300",
-   "datum": "2026-12-09",
+   "datum": "2027-07-31",
    "reserve": false,
    "titel": "How Medieval Peasants Survived the Winter | History for Sleep",
    "status": "bezig (2026-11-19, routine-lokaal)",
@@ -2902,7 +2760,7 @@
     false
    ],
    "gereed": 40,
-   "thumb": "thumbs/boeren-winter-1300.jpg"
+   "thumb": ""
   },
   {
    "map": "bronstijd",
@@ -2977,7 +2835,7 @@
   },
   {
    "map": "cleopatra",
-   "datum": "2027-04-21",
+   "datum": "2027-12-11",
    "reserve": false,
    "titel": "Life in Ancient Egypt in the Time of Cleopatra, 31 BC | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -2997,7 +2855,7 @@
   },
   {
    "map": "colosseum-80",
-   "datum": "2027-04-28",
+   "datum": "2027-12-18",
    "reserve": false,
    "titel": "Life in the Roman Colosseum and the Gladiators, 80 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -3099,7 +2957,7 @@
   },
   {
    "map": "dallas-1963",
-   "datum": "2026-12-16",
+   "datum": "2027-08-07",
    "reserve": false,
    "titel": "Life in Dallas Before Kennedy Came, November 1963 | History for Sleep",
    "status": "bezig (2026-11-19, routine-lokaal)",
@@ -3115,7 +2973,7 @@
     false
    ],
    "gereed": 80,
-   "thumb": "thumbs/dallas-1963.jpg"
+   "thumb": ""
   },
   {
    "map": "dansplaag-1518",
@@ -3234,7 +3092,7 @@
   },
   {
    "map": "franklin-1845",
-   "datum": "2027-02-17",
+   "datum": "2027-10-09",
    "reserve": false,
    "titel": "Life Aboard Franklin's Lost Ships, 1845 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 18 nov, 2026-11-18, Claude; opnieuw geschreven)",
@@ -3367,7 +3225,7 @@
   },
   {
    "map": "japan-1600",
-   "datum": "2027-01-27",
+   "datum": "2027-09-18",
    "reserve": false,
    "titel": "Life in Japan in the Age of the Samurai, 1600 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 16 nov, 2026-11-16, Claude; opnieuw geschreven)",
@@ -3387,7 +3245,7 @@
   },
   {
    "map": "jeanne-darc-1429",
-   "datum": "2027-07-28",
+   "datum": "2028-03-18",
    "reserve": false,
    "titel": "The Story of Joan of Arc, 1429 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -3427,7 +3285,7 @@
   },
   {
    "map": "kasteel-1250",
-   "datum": "2027-03-10",
+   "datum": "2027-10-30",
    "reserve": false,
    "titel": "Life Inside a Medieval Castle, 1250 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -3529,7 +3387,7 @@
   },
   {
    "map": "londen-1666",
-   "datum": "2027-02-10",
+   "datum": "2027-10-02",
    "reserve": false,
    "titel": "The Great Fire of London, 1666 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 18 nov, 2026-11-18, Claude; opnieuw geschreven)",
@@ -3580,7 +3438,7 @@
   },
   {
    "map": "machu-picchu",
-   "datum": "2027-04-07",
+   "datum": "2027-11-27",
    "reserve": false,
    "titel": "Who Built Machu Picchu? Life in the Inca Empire | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -3600,7 +3458,7 @@
   },
   {
    "map": "man-ijzeren-masker-1703",
-   "datum": "2027-01-13",
+   "datum": "2027-09-04",
    "reserve": false,
    "titel": "The Man in the Iron Mask, France 1703 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
@@ -3620,7 +3478,7 @@
   },
   {
    "map": "mary-celeste-1872",
-   "datum": "2027-01-20",
+   "datum": "2027-09-11",
    "reserve": false,
    "titel": "The Mary Celeste Ghost Ship, 1872 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
@@ -3640,7 +3498,7 @@
   },
   {
    "map": "maya-tikal",
-   "datum": "2027-05-12",
+   "datum": "2028-01-01",
    "reserve": false,
    "titel": "Life in the Maya City of Tikal, 750 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -3660,7 +3518,7 @@
   },
   {
    "map": "middeleeuws-dorp",
-   "datum": "2027-05-19",
+   "datum": "2028-01-08",
    "reserve": false,
    "titel": "Life Inside a Medieval Village, 1300 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -3711,7 +3569,7 @@
   },
   {
    "map": "napoleon-1812",
-   "datum": "2027-03-24",
+   "datum": "2027-11-13",
    "reserve": false,
    "titel": "Life with Napoleon's Army in the Russian Winter, 1812 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -3775,7 +3633,7 @@
   },
   {
    "map": "parijs-1789",
-   "datum": "2027-03-03",
+   "datum": "2027-10-23",
    "reserve": false,
    "titel": "Life in Paris in the Summer of 1789 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -3835,7 +3693,7 @@
   },
   {
    "map": "petra",
-   "datum": "2027-07-14",
+   "datum": "2028-03-04",
    "reserve": false,
    "titel": "Life in Petra, the Rose-Red City, 100 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -3875,7 +3733,7 @@
   },
   {
    "map": "piramide-gizeh",
-   "datum": "2027-03-31",
+   "datum": "2027-11-20",
    "reserve": false,
    "titel": "Building the Great Pyramid of Giza, 2560 BC | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -3895,7 +3753,7 @@
   },
   {
    "map": "polynesiers",
-   "datum": "2027-07-21",
+   "datum": "2028-03-11",
    "reserve": false,
    "titel": "The Polynesian Voyagers: Sailing to Hawaii, 1000 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -3957,7 +3815,7 @@
   },
   {
    "map": "romeinse-soldaat",
-   "datum": "2027-06-09",
+   "datum": "2028-01-29",
    "reserve": false,
    "titel": "Life of a Roman Soldier, 120 AD | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -4041,7 +3899,7 @@
   },
   {
    "map": "stonehenge",
-   "datum": "2027-05-26",
+   "datum": "2028-01-15",
    "reserve": false,
    "titel": "Building Stonehenge, 2500 BC | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -4101,7 +3959,7 @@
   },
   {
    "map": "tempeliers-1250",
-   "datum": "2027-06-16",
+   "datum": "2028-02-05",
    "reserve": false,
    "titel": "Life Among the Knights Templar, 1250 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-03, tweede account)",
@@ -4174,7 +4032,7 @@
   },
   {
    "map": "tower-of-london-1536",
-   "datum": "2027-02-03",
+   "datum": "2027-09-25",
    "reserve": false,
    "titel": "Life in the Tower of London, 1536 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude; NIEUW geschreven)",
@@ -4214,7 +4072,7 @@
   },
   {
    "map": "tudor-1520",
-   "datum": "2027-05-05",
+   "datum": "2027-12-25",
    "reserve": false,
    "titel": "Life in Tudor England Under Henry VIII, 1520 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-02, tweede account)",
@@ -4349,7 +4207,7 @@
   },
   {
    "map": "zijderoute-1271",
-   "datum": "2027-03-17",
+   "datum": "2027-11-06",
    "reserve": false,
    "titel": "Life on the Silk Road with Marco Polo, 1271 | <N> Hours of History for Sleep",
    "status": "script-klaar (2026-11-01, tweede account)",
@@ -4369,7 +4227,7 @@
   },
   {
    "map": "zwarte-dood-1348",
-   "datum": "2027-01-06",
+   "datum": "2027-08-28",
    "reserve": false,
    "titel": "Life in Florence Before the Black Death, 1347 | History for Sleep",
    "status": "script-klaar (nieuwe opbouw, opbouw Sleepy 15 nov, 2026-11-15, Claude)",
@@ -4812,7 +4670,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 12:03",
+  "bijgewerkt": "2026-11-23 12:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -4833,26 +4691,26 @@
    },
    {
     "account": "account2",
-    "5uur": 13183904,
-    "week": 145998115,
+    "5uur": 16131039,
+    "week": 148945250,
     "per_dag": {
      "Mon 16-11": 16562933,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 17072926,
+     "Mon 23-11": 20020060,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 54221,
+    "stap_kost": 51788,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 97,
+    "5uur_pct": 119,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 7,
-    "week_pct": 111,
+    "5uur_stappen_over": 0,
+    "week_pct": 113,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
