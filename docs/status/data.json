@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 01:33",
+ "bijgewerkt": "2026-11-23 02:03",
  "kanalen": {
   "weken": [
    {
@@ -2422,7 +2422,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 01:33)"
+   "tekst": "draait nu (2026-11-23 02:03)"
   },
   {
    "naam": "Git",
@@ -2437,7 +2437,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 01:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2454,8 +2454,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 01:33",
-   "volgende": "2026-11-23 02:03"
+   "laatst": "2026-11-23 02:03",
+   "volgende": "2026-11-23 02:33"
   },
   "hype": {
    "aan": true,
@@ -2469,8 +2469,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 01:18",
-   "volgende": "2026-11-23 01:48"
+   "laatst": "2026-11-23 01:48",
+   "volgende": "2026-11-23 02:18"
   },
   "titels": {
    "aan": true,
@@ -2518,7 +2518,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 23,
+    "views": 25,
     "verwerkt": "processed"
    },
    {
@@ -2527,7 +2527,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 76,
+    "views": 77,
     "verwerkt": "processed"
    },
    {
@@ -2581,7 +2581,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 867,
+    "views": 870,
     "verwerkt": "processed"
    }
   ],
@@ -2805,8 +2805,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 35,
-  "geheugen_mb": 1396,
+  "bezig_procent": 26,
+  "geheugen_mb": 948,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2978,8 +2978,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 01:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 02:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5184,7 +5184,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 01:34",
+  "bijgewerkt": "2026-11-23 02:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -5205,25 +5205,26 @@
    },
    {
     "account": "account2",
-    "5uur": 2527086,
-    "week": 135382939,
+    "5uur": 5145587,
+    "week": 138995414,
     "per_dag": {
      "Mon 16-11": 23020683,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
+     "Mon 23-11": 3612475,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 53588,
+    "stap_kost": 55053,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 19,
+    "5uur_pct": 38,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 206,
-    "week_pct": 103,
+    "5uur_stappen_over": 153,
+    "week_pct": 105,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
