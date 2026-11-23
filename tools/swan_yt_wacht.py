@@ -252,7 +252,9 @@ def main():
 def seintje(titel, tekst):
     """Melding op de telefoon via ntfy.sh (gratis). Geen privégegevens, alleen het onderwerp."""
     try:
-        topic = json.loads((Path.home() / ".swan-ntfy.json").read_text())["topic"]
+        inst = json.loads((Path.home() / ".swan-ntfy.json").read_text()); topic = inst["topic"]
+        if inst.get("alleen_maken"):                      # eigenaar 23 nov avond: alleen nog seintjes "video/Short maken" (tools/week_seintje.py)
+            print("seintje overgeslagen (alleen_maken):", titel); return
         requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"),
                       headers={"Title": titel.encode("utf-8"), "Tags": "chart_with_downwards_trend"}, timeout=20)
         print("seintje verstuurd:", tekst.replace("\n", " | "))

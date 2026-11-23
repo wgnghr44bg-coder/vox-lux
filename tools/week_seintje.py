@@ -1,73 +1,73 @@
-"""Weekplanning als seintje op de telefoon (ntfy), elke maandag 08:45; met --vandaag elke dag 09:00 alleen wat er vandaag gemaakt moet worden (eigenaar 23 nov: "stuur mij een bericht wanneer er
-iets gemaakt moet worden en wat de planning is van deze week"). Bronnen: kanalen/PLANNING-KANALEN.json (BlackswanVault),
-YouTube-inplanning van Sleep Archives, vast ritme Market Doodle (ma/wo/vr). Geen privégegevens in het bericht."""
-import datetime as dt, json, os, sys
+"""Seintje op de telefoon (ntfy) ALLEEN als er een video of Short gemaakt moet worden, van tevoren.
+Eigenaar 23 nov 2026 (avond): "kun je bericht sturen van tevoren als er nog video of short gemaakt moet worden,
+de rest van de berichten kunnen weg op ntfy". Alle andere seintjes staan uit (zie swan_yt_wacht.seintje + ~/.swan-ntfy.json "alleen_maken").
+
+Vaste dagen (kanalen/PLANNING-KANALEN.json "regels"):
+  BlackswanVault ma/wo/za: lang 15:00 + Short 17:00 | Market Doodle ma/wo/za: lang 17:00 + Short 19:00 | Sleep Archives za 21:00.
+Kijkt op YouTube wat er die dag al ingepland of online staat; wat ontbreekt = MAKEN. Geen bericht als alles klaar staat.
+
+  python week_seintje.py --morgen     # 19:00 de avond ervoor: wat moet er morgen nog gemaakt worden
+  python week_seintje.py --vandaag    # 09:00: wat moet er vandaag nog gemaakt worden (alleen als het er nog niet staat)
+  python week_seintje.py --droog ...  # alleen laten zien
+Geen privégegevens in het bericht."""
+import datetime as dt, json, os, sys, urllib.parse, urllib.request
 from pathlib import Path
+from zoneinfo import ZoneInfo
 import requests
-ROOT = Path(__file__).resolve().parent.parent
+
+NL = ZoneInfo("Europe/Amsterdam")
 DAG = ["ma", "di", "wo", "do", "vr", "za", "zo"]
-vandaag = dt.date.today(); maandag = vandaag - dt.timedelta(days=vandaag.weekday()); zondag = maandag + dt.timedelta(days=6)
-regels = {}
-def zet(d, tekst):
-    regels.setdefault(d, []).append(tekst)
-# Market Doodle: ma/wo/vr maken (al online op die dag = klaar)
-online = set()
-try:
-    import urllib.parse, urllib.request
+VAST = {  # kanaal: (token-env of None voor ~/.yt-..., dagen, [(soort, tijd)])
+    "BlackswanVault": ("YT_WHATIF_REFRESH_TOKEN", (0, 2, 5), [("lange video", "15:00"), ("Short", "17:00")]),
+    "Market Doodle": ("YT_REFRESH_TOKEN_ALTERAQON", (0, 2, 5), [("lange video", "17:00"), ("Short", "19:00")]),
+    "Sleep Archives": ("YT_REFRESH_TOKEN", (5,), [("slaapvideo", "21:00")]),
+}
+
+def dur_s(iso):                                             # PT1M8S -> 68
+    n, t = 0, iso.replace("PT", "")
+    for eenheid, f in (("H", 3600), ("M", 60), ("S", 1)):
+        if eenheid in t:
+            a, t = t.split(eenheid, 1); n += int(float(a)) * f
+    return n
+
+def wat_staat(env, dag):
+    """lijst van ('lang'|'short') die op deze dag (NL) online staan of ingepland zijn"""
     q = urllib.parse.urlencode({"client_id": os.environ["YT_CLIENT_ID"], "client_secret": os.environ["YT_CLIENT_SECRET"],
-                                "refresh_token": os.environ["YT_REFRESH_TOKEN_ALTERAQON"], "grant_type": "refresh_token"}).encode()
-    t = json.load(urllib.request.urlopen("https://oauth2.googleapis.com/token", q))["access_token"]; H2 = {"Authorization": "Bearer " + t}
-    def g2(p): return json.load(urllib.request.urlopen(urllib.request.Request("https://www.googleapis.com/youtube/v3/" + p, headers=H2)))
-    up = g2("channels?part=contentDetails&mine=true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
-    ids = ",".join(i["contentDetails"]["videoId"] for i in g2(f"playlistItems?part=contentDetails&maxResults=20&playlistId={up}")["items"])
-    for v in g2(f"videos?part=snippet,contentDetails&id={ids}")["items"]:
-        dur = v["contentDetails"]["duration"]
-        if "M" in dur and not dur.startswith("PT0M"):   # lange video (minuten in de duur)
-            online.add(dt.datetime.fromisoformat(v["snippet"]["publishedAt"].replace("Z", "+00:00")).astimezone().date())
-except Exception as e: print("Doodle niet gelezen:", e)
-for k in (0, 2, 4):
-    d = maandag + dt.timedelta(days=k)
-    if d in online: zet(d, "Doodle: What If-video online")
-    elif d >= vandaag: zet(d, "Doodle: What If-video MAKEN (17:00)")
-# BlackswanVault uit de planning
-try:
-    data = json.load(open(ROOT / "kanalen/PLANNING-KANALEN.json", encoding="utf-8"))
-    items = data if isinstance(data, list) else data.get("videos", data.get("items", []))
-    for x in items:
-        if x.get("kanaal") != "BlackswanVault": continue
-        try: d = dt.date.fromisoformat(x.get("datum", ""))
-        except ValueError: continue
-        stand = x.get("stand", "")
-        if not (vandaag <= d <= zondag) or stand.startswith("vervalt"): continue
-        soort = "Short" if x.get("titel", "").startswith("Short") else "video"
-        actie = "MAKEN/bijwerken" if stand.startswith("maken") else "staat klaar"
-        zet(d, f"Swan {soort} {x.get('tijd','')}: {actie}")
-except Exception as e: print("planning niet gelezen:", e)
-# Sleep Archives: wat staat er ingepland op YouTube
-try:
-    import urllib.parse, urllib.request
-    q = urllib.parse.urlencode({"client_id": os.environ["YT_CLIENT_ID"], "client_secret": os.environ["YT_CLIENT_SECRET"],
-                                "refresh_token": os.environ["YT_REFRESH_TOKEN"], "grant_type": "refresh_token"}).encode()
+                                "refresh_token": os.environ[env], "grant_type": "refresh_token"}).encode()
     t = json.load(urllib.request.urlopen("https://oauth2.googleapis.com/token", q))["access_token"]; H = {"Authorization": "Bearer " + t}
     def g(p): return json.load(urllib.request.urlopen(urllib.request.Request("https://www.googleapis.com/youtube/v3/" + p, headers=H)))
     up = g("channels?part=contentDetails&mine=true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
-    ids = ",".join(i["contentDetails"]["videoId"] for i in g(f"playlistItems?part=contentDetails&maxResults=20&playlistId={up}")["items"])
-    sleep_week = False
-    for v in g(f"videos?part=status&id={ids}")["items"]:
-        pa = v["status"].get("publishAt")
-        if pa:
-            d = dt.datetime.fromisoformat(pa.replace("Z", "+00:00")).astimezone().date()
-            if vandaag <= d <= zondag: zet(d, "Sleep 21:00: staat klaar"); sleep_week = True
-    later = [v["status"].get("publishAt") for v in g(f"videos?part=status&id={ids}")["items"] if v["status"].get("publishAt")]
-    if not any(pa[:10] > zondag.isoformat() for pa in later): zet(zondag, "Sleep: na deze week niets meer ingepland (routine staat stil)")
-except Exception as e: print("Sleep niet gelezen:", e)
-if "--vandaag" in sys.argv:                       # dagelijks 09:00: alleen een seintje als er vandaag iets GEMAAKT moet worden
-    maak = [r for r in regels.get(vandaag, []) if "MAKEN" in r]
-    if not maak: print("vandaag niets te maken"); sys.exit()
-    regels = {vandaag: maak}
-tekst = "\n".join(f"{DAG[d.weekday()]} {d.day}/{d.month}: " + "; ".join(r) for d, r in sorted(regels.items())) or "Niets gepland."
-print(tekst)
-if "--droog" not in sys.argv:
-    topic = json.loads((Path.home() / ".swan-ntfy.json").read_text())["topic"]
-    requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"), headers={"Title": (("Vandaag maken" if "--vandaag" in sys.argv else f"Planning week {maandag.day}/{maandag.month}")).encode("utf-8"), "Tags": "calendar"}, timeout=20)
-    print("seintje verstuurd")
+    ids = ",".join(i["contentDetails"]["videoId"] for i in g(f"playlistItems?part=contentDetails&maxResults=30&playlistId={up}")["items"])
+    uit = []
+    for v in g(f"videos?part=snippet,status,contentDetails&id={ids}")["items"]:
+        tijd = v["status"].get("publishAt") or (v["snippet"]["publishedAt"] if v["status"]["privacyStatus"] == "public" else None)
+        if not tijd: continue
+        d = dt.datetime.fromisoformat(tijd.replace("Z", "+00:00")).astimezone(NL).date()
+        if d == dag: uit.append("short" if dur_s(v["contentDetails"]["duration"]) <= 100 else "lang")
+    return uit
+
+def te_maken(dag):
+    regels = []
+    for kanaal, (env, dagen, wat) in VAST.items():
+        if dag.weekday() not in dagen: continue
+        try: staat = wat_staat(env, dag)
+        except Exception as e: print(kanaal, "niet gelezen:", e); continue
+        for soort, tijd in wat:
+            nodig = "short" if soort == "Short" else "lang"
+            if nodig in staat: staat.remove(nodig); continue
+            extra = " (eigen onderwerp)" if soort == "Short" and kanaal != "Sleep Archives" else ""
+            regels.append(f"{kanaal}: {soort} {tijd}{extra}")
+    return regels
+
+if __name__ == "__main__":
+    morgen = "--morgen" in sys.argv
+    dag = dt.datetime.now(NL).date() + dt.timedelta(days=1 if morgen else 0)
+    regels = te_maken(dag)
+    if not regels: print("niets te maken op", dag); sys.exit()
+    kop = ("Morgen maken" if morgen else "Vandaag nog maken") + f" ({DAG[dag.weekday()]} {dag.day}/{dag.month})"
+    tekst = "\n".join(regels) + "\nOpen Claude en zeg wat je wilt maken."
+    print(kop); print(tekst)
+    if "--droog" not in sys.argv:
+        topic = json.loads((Path.home() / ".swan-ntfy.json").read_text())["topic"]
+        requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"), headers={"Title": kop.encode("utf-8"), "Tags": "clapper"}, timeout=20)
+        print("seintje verstuurd")
