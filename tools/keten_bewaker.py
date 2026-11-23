@@ -138,9 +138,13 @@ def main():
     if slot.exists() and dt.datetime.now().timestamp() - slot.stat().st_mtime < 12 * 3600:
         print("videokaart bezet door ander kanaal:", slot.read_text(errors="replace").strip()[:80])
         return
-    swan = pids(r'(render\w*|[\\/ ]stem|maak_short|[\\/ ]mix|teken_anim)\.py')     # 21 nov 2026: BlackswanVault/Geldverhaal renderen gaat voor (weinig geheugen)
+    swan = pids(r'(render\w*|[\\/ ]stem|maak_short|[\\/ ]mix|teken_anim|maak3|maak_heel|pop_short|woordtijden)\.py')     # 21 nov: Swan/Geldverhaal, 23 nov: ook Market Doodle (focus) gaat voor
     if swan and not keten_draait():
-        print("BlackswanVault/Geldverhaal is bezig (pid", swan, "), Sleep wacht")
+        print("ander kanaal is bezig (pid", swan, "), Sleep wacht")
+        return
+    uur = dt.datetime.now().hour                            # 23 nov (eigenaar: Sleep 1x/week, focus Doodle): nieuwe keten alleen 's nachts starten
+    if not keten_draait() and 8 <= uur < 22 and "--nu" not in sys.argv:
+        print("overdag: Sleep start pas om 22:00 (Doodle gaat overdag voor)")
         return
     if keten_draait():
         if not waakhond(droog):

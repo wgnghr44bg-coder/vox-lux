@@ -416,3 +416,15 @@ ValueError: empty separator)
 - 2026-11-22 00:18 sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site
 - 2026-11-22 00:48 sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten
 - 2026-11-22 01:48 sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963, pearl-harbor-1941 op bezig staat (taak 'Sleep Archives bewaker' kijken)
+- 2026-11-22 05:25 nieuwswacht: GROOT Goud (2026-11-22): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT Broadcom (2026-11-22): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT Nvidia (2026-11-22): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT Nasdaq (2026-11-22): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT S&P 500 (2026-11-22): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT Anthropic (2026-11-22): Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020 -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-22 05:25 nieuwswacht: GROOT Nvidia (2026-11-22): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-23 08:00 nieuwswacht: GROOT Broadcom (2026-11-23): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-23 08:00 nieuwswacht: GROOT Nvidia (2026-11-23): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-23 08:00 nieuwswacht: GROOT Nasdaq (2026-11-23): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-23 08:00 nieuwswacht: GROOT S&P 500 (2026-11-23): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-23 12:17 eigenaar: Sleep 1x per week (za 21:00), focus Market Doodle. Wo-plekken naar za achteraan (boeren-winter t/m jeanne-darc), routine alleen za, bewaker AAN maar start alleen 22:00-08:00 en wacht als Doodle/Swan bezig is.
