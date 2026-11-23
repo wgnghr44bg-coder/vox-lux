@@ -433,3 +433,10 @@ ValueError: empty separator)
 - 2026-11-23 23:25 routine-lokaal: pearl-harbor-1941: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
 - 2026-11-23 23:33 routine-lokaal: pearl-harbor-1941: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl
 - 2026-11-23 23:39 routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan
+- 2026-11-23 23:40 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-23 23:40 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-23 23:56 routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\rane\\Documents\\vox-lux-routine\\stories\\pearl-harbor-1941\\afbeeldingen\\055.png')
+- 2026-11-24 00:34 eigenaar: Sleep-keten Pearl Harbor even gestopt voor Doodle-proef; bewaker hervat hem na het weghalen van ~/gpu-bezet.lock.
+- 2026-11-24 00:47 bewaker: keten gestart voor pearl-harbor-1941
+- 2026-11-24 00:47 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
+- 2026-11-24 00:47 Doodle-proef klaar; slot weg, bewaker opnieuw gestart (Pearl Harbor gaat verder).
