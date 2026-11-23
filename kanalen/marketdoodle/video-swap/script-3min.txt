@@ -1,0 +1,41 @@
+# What If You Swapped Lives With Your Dad for a Week? — 3 min, simpel zoals de Short (eigenaar 23 nov)
+# Alleen jij en papa ruilen. Elke persoon houdt zijn EIGEN stem (jij = jongensstem, papa = mannenstem).
+# Echt feit: USDA, Expenditures on Children by Families, 2015: $233,610 (geboren 2015, tot en met 17 jaar).
+N|slaapkamer-ouders|It's Monday, 7 a.m. You wake up. But the bed is huge. And there's a tie on the door.
+N|badkamer|You look in the mirror. And your dad is looking back at you.
+YOU|badkamer|Oh no. Oh no, no, no.
+N|kamer-jij|In your room, someone screams. It's your body. With your dad inside.
+DAD|kamer-jij|Why am I so short?
+N|titel|So, what if you swapped lives with your dad for a week?
+N|keuken|Okay, rules. Seven days. Then everything goes back.
+N|keuken|You do his job. He goes to your school. And nobody can know.
+DAD|keuken|How hard can school be?
+YOU|keuken|How hard can a job be?
+N|kantoor|Monday. Dad's office. Your own desk. Free coffee. This is great.
+N|kantoor|Then you open his computer. Two hundred and forty emails. All urgent.
+BOSS|kantoor|I need that report by three.
+YOU|kantoor|What's a report?
+N|kantoor|You have no idea. So you just nod. A lot.
+N|klas|Meanwhile, your dad is in your class. Pop quiz. Fractions.
+N|klas|He hasn't done fractions in twenty-five years. Four out of ten.
+DAD|klas|This is harder than my job!
+N|keuken|Tuesday. The bills come in. Rent. The car. Food. The lights. The phone.
+N|keuken|You add it all up. And almost all of Dad's money is already gone.
+YOU|keuken|Wait. Where did all the money go?
+N|winkel|Wednesday. Mom sends you to the store with a list. You come home with four pizzas. And no milk.
+N|kantoor|Thursday. Your boss is back.
+BOSS|kantoor|Where's the report?
+YOU|kantoor|My dog ate it.
+BOSS|kantoor|You don't have a dog.
+N|feit|And here's the real part. The US government added up what it costs to raise one kid, until age seventeen.
+N|feit|About two hundred thirty-three thousand dollars. For one kid.
+YOU|feit|Maybe I should stop asking for new sneakers.
+N|nacht|Friday night. You both sit in the kitchen. Too tired to sleep.
+DAD|nacht|I forgot how hard school is.
+YOU|nacht|And I didn't know how hard your job is.
+SIS|nacht|Why are you two acting so weird?
+N|nacht|For the first time, you really get each other.
+N|keuken|Monday, 7 a.m. The week is over. You close your eyes. You count to three.
+N|keuken|You open your eyes. You look down. And you're still in Dad's body.
+N|keuken|Then the doorbell rings. It's Dad's boss.
+N|keuken|And if anyone finds out, the swap stays forever.

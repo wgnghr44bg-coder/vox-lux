@@ -22,8 +22,8 @@ DAD|keuken|Permanent? I am not doing sixth grade math again.
 YOU|keuken|Relax, Dad. How hard can school be?
 N|keuken|He gives you a long look. With your own face.
 # ---- 3. maandag: het voelt geweldig (1:50) ----
-N|auto|Monday. And at first, being an adult feels amazing.
-N|auto|You drive the car. Well, you sit in the car. Mom drives, because you're twelve inside.
+N|bus|Monday. And at first, being an adult feels amazing.
+N|bus|You want to drive Dad's car. Then you remember you're twelve inside. So you take the bus. In a tie.
 N|kantoor|At Dad's office, you get your own desk. Your own computer. Free coffee. Nobody tells you to sit up straight.
 N|kantoor|Your boss walks in.
 BOSS|kantoor|Morning. I need that report by three.

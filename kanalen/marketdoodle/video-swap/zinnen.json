@@ -14,107 +14,870 @@
 "N"
 ],
 [
-10.86,
-14.015,
+11.36,
+14.515,
 "You walk to the mirror. And your dad is staring back at you.",
 "badkamer",
 "N"
 ],
 [
-14.365,
-15.74,
+14.865,
+16.24,
 "Oh no. Oh no, no, no.",
 "badkamer",
 "YOU"
 ],
 [
-16.09,
-20.63,
+17.09,
+21.63,
 "Across the hall, someone screams. It's you. Well, your body. With your dad inside.",
 "kamer-jij",
 "N"
 ],
 [
-20.98,
-24.256,
+21.98,
+25.256,
 "Why am I so short? Why does this room smell like socks?",
 "kamer-jij",
 "DAD"
 ],
 [
-24.606,
-29.59,
+26.106,
+31.09,
 "In the kitchen, your mom takes a sip of coffee. And makes the worst face you have ever seen.",
 "keuken",
 "N"
 ],
 [
-29.94,
-33.17,
+31.44,
+34.67,
 "This is disgusting. How do you drink this every day?",
 "keuken",
 "SIS"
 ],
 [
-33.52,
-35.916,
+35.02,
+37.416,
 "Give me that. And why are my legs so short?",
 "keuken",
 "MOM"
 ],
 [
-36.266,
-42.292,
+37.766,
+43.792,
 "Somehow, overnight, everyone swapped. You got Dad's life. Dad got yours. Mom and your sister switched too.",
 "keuken",
 "N"
 ],
 [
-42.742,
-45.963,
+44.742,
+47.963,
 "So, what if you swapped lives with your parents for a week?",
 "titel",
 "N"
 ],
 [
-46.763,
-51.641,
+49.263,
+54.141,
 "Okay, rules. It lasts exactly seven days. Next Monday at 7 a.m., everything goes back.",
 "keuken",
 "N"
 ],
 [
-52.091,
-57.402,
+54.591,
+59.902,
 "You have to live their life completely. Their job. Their school. Their bills. Their problems.",
 "keuken",
 "N"
 ],
 [
-57.852,
-62.819,
+60.352,
+65.319,
 "And nobody outside this house can know. If anyone finds out, the swap becomes permanent.",
 "keuken",
 "N"
 ],
 [
-63.169,
-66.013,
+65.669,
+68.513,
 "Permanent? I am not doing sixth grade math again.",
 "keuken",
 "DAD"
 ],
 [
-66.363,
-68.199,
+68.863,
+70.699,
 "Relax, Dad. How hard can school be?",
 "keuken",
 "YOU"
 ],
 [
-68.549,
-70.974,
+71.049,
+73.474,
 "He gives you a long look. With your own face.",
+"keuken",
+"N"
+],
+[
+74.424,
+77.249,
+"Monday. And at first, being an adult feels amazing.",
+"bus",
+"N"
+],
+[
+77.699,
+83.027,
+"You want to drive Dad's car. Then you remember you're twelve inside. So you take the bus. In a tie.",
+"bus",
+"N"
+],
+[
+83.977,
+89.922,
+"At Dad's office, you get your own desk. Your own computer. Free coffee. Nobody tells you to sit up straight.",
+"kantoor",
+"N"
+],
+[
+90.372,
+91.61,
+"Your boss walks in.",
+"kantoor",
+"N"
+],
+[
+91.96,
+93.833,
+"Morning. I need that report by three.",
+"kantoor",
+"BOSS"
+],
+[
+94.183,
+95.655,
+"Sure thing. What report?",
+"kantoor",
+"YOU"
+],
+[
+96.005,
+102.151,
+"You have no idea what a report is. So you open Dad's computer, and you find two hundred and forty unread emails.",
+"kantoor",
+"N"
+],
+[
+102.601,
+104.307,
+"Every single one says urgent.",
+"kantoor",
+"N"
+],
+[
+105.257,
+111.819,
+"Meanwhile, at your school, your dad sits in your seat. His knees don't fit under the desk. Wait, they do. He's tiny now.",
+"klas",
+"N"
+],
+[
+112.169,
+114.547,
+"Okay, pop quiz. Fractions. Phones away.",
+"klas",
+"TEACH"
+],
+[
+114.897,
+117.031,
+"A pop quiz? On a Monday? Who does that?",
+"klas",
+"DAD"
+],
+[
+117.381,
+121.604,
+"Your dad hasn't done fractions in twenty-five years. He gets four out of ten.",
+"klas",
+"N"
+],
+[
+122.554,
+126.979,
+"Monday night. You come home from work, and all you want to do is lie on the couch.",
+"avond",
+"N"
+],
+[
+127.429,
+131.343,
+"But there's a problem. Your kid has homework. And your kid is your dad.",
+"avond",
+"N"
+],
+[
+131.693,
+134.862,
+"Can you help me with this? It's about the water cycle.",
+"avond",
+"DAD"
+],
+[
+135.212,
+137.332,
+"Evaporation, Dad. It's always evaporation.",
+"avond",
+"YOU"
+],
+[
+137.682,
+140.78,
+"At nine o'clock, you send him to bed. He complains. Loudly.",
+"avond",
+"N"
+],
+[
+141.13,
+142.959,
+"Nine? I'm forty-three years old!",
+"avond",
+"DAD"
+],
+[
+143.309,
+145.023,
+"Not this week, buddy. Lights out.",
+"avond",
+"YOU"
+],
+[
+145.373,
+147.879,
+"You have never felt so powerful in your life.",
+"avond",
+"N"
+],
+[
+148.829,
+151.178,
+"Tuesday. Dad's phone buzzes. It's the bank.",
+"bank",
+"N"
+],
+[
+151.628,
+153.875,
+"And this is when you see it. Dad's account.",
+"bank",
+"N"
+],
+[
+154.325,
+157.527,
+"It looks like a lot of money. Way more than your allowance.",
+"bank",
+"N"
+],
+[
+157.877,
+160.23,
+"We're rich! Why didn't anyone tell me we're rich?",
+"bank",
+"YOU"
+],
+[
+161.08,
+162.615,
+"Then the mail comes.",
+"post",
+"N"
+],
+[
+163.065,
+165.07,
+"The rent. Seventeen hundred dollars.",
+"post",
+"N"
+],
+[
+165.52,
+169.729,
+"The car payment. The electricity. Internet. Phone. Insurance. Groceries.",
+"post",
+"N"
+],
+[
+170.179,
+173.793,
+"You put it all on the kitchen table and do the math. On your fingers.",
+"post",
+"N"
+],
+[
+174.143,
+175.889,
+"Wait. Where did the money go?",
+"post",
+"YOU"
+],
+[
+176.239,
+179.728,
+"It's Tuesday. And almost all of Dad's paycheck is already gone.",
+"post",
+"N"
+],
+[
+180.678,
+185.151,
+"And Mom? Mom is in your little sister's body. Which means Mom is in second grade.",
+"kleuterklas",
+"N"
+],
+[
+185.601,
+190.172,
+"At ten o'clock, the teacher says it's nap time. Everyone lies down on a little mat.",
+"kleuterklas",
+"N"
+],
+[
+190.522,
+194.483,
+"Nap time? You mean I'm allowed to sleep? In the middle of the day?",
+"kleuterklas",
+"MOM"
+],
+[
+194.833,
+198.113,
+"She sleeps for two hours. It's the best day of her adult life.",
+"kleuterklas",
+"N"
+],
+[
+198.563,
+204.85,
+"When she wakes up, she has glitter in her hair and a gold star on her hand. She doesn't know why. She doesn't care.",
+"kleuterklas",
+"N"
+],
+[
+205.8,
+209.75,
+"Wednesday, Mom sends you to the grocery store. With a list. And a budget.",
+"winkel",
+"N"
+],
+[
+210.2,
+214.406,
+"You put chips in the cart. Then cookies. Then a pizza. Then three more pizzas.",
+"winkel",
+"N"
+],
+[
+214.856,
+217.103,
+"At the checkout, the number keeps going up.",
+"winkel",
+"N"
+],
+[
+217.453,
+219.109,
+"That's not on the list.",
+"winkel",
+"SIS"
+],
+[
+219.459,
+223.878,
+"Your little sister. In Mom's body. With Mom's exact voice. And Mom's exact look.",
+"winkel",
+"N"
+],
+[
+224.328,
+225.757,
+"You put two pizzas back.",
+"winkel",
+"N"
+],
+[
+226.707,
+232.149,
+"That night, it's your turn to cook dinner. For four people. Every night. Forever. Well, for a week.",
+"keuken",
+"N"
+],
+[
+232.599,
+236.042,
+"You make pasta. You forget the water. The smoke alarm goes off.",
+"keuken",
+"N"
+],
+[
+236.492,
+239.279,
+"Dinner is cereal. Again. Nobody complains. Out loud.",
+"keuken",
+"N"
+],
+[
+240.229,
+242.78,
+"Meanwhile, at school, it's gym class. Dodgeball.",
+"gym",
+"N"
+],
+[
+243.23,
+248.448,
+"Your dad thinks he's still good at sports. He is not. He's twelve now, and his arms are noodles.",
+"gym",
+"N"
+],
+[
+248.898,
+251.955,
+"The first ball hits him in the face. The second one too.",
+"gym",
+"N"
+],
+[
+252.305,
+255.055,
+"Are you okay? You look like you've seen a ghost.",
+"gym",
+"TEACH"
+],
+[
+255.405,
+257.959,
+"I have seen my own childhood. And it hurts.",
+"gym",
+"DAD"
+],
+[
+258.809,
+264.303,
+"Back at the office, you have a video meeting with eleven people. You forget to turn off your camera.",
+"kantoor",
+"N"
+],
+[
+264.753,
+268.133,
+"Everyone watches you eat cereal out of the box for six minutes.",
+"kantoor",
+"N"
+],
+[
+269.083,
+271.082,
+"And here's the part that's actually real.",
+"feit",
+"N"
+],
+[
+271.532,
+279.294,
+"The US government once added up what it costs to raise one kid. Food, clothes, a bedroom, school, doctors. From birth until age seventeen.",
+"feit",
+"N"
+],
+[
+279.744,
+283.883,
+"The answer? About two hundred thirty-three thousand dollars. For one kid.",
+"feit",
+"N"
+],
+[
+284.333,
+286.739,
+"And that was years ago. Today, it's even more.",
+"feit",
+"N"
+],
+[
+287.189,
+293.226,
+"Two hundred thirty-three thousand. That's a house in a lot of places. And your parents are paying it. For you.",
+"feit",
+"N"
+],
+[
+293.576,
+295.996,
+"Huh. Maybe I should stop asking for new sneakers.",
+"feit",
+"YOU"
+],
+[
+296.846,
+299.477,
+"Thursday. You still haven't written the report.",
+"kantoor",
+"N"
+],
+[
+299.827,
+301.691,
+"Where's the report? It was due Monday.",
+"kantoor",
+"BOSS"
+],
+[
+302.041,
+303.138,
+"My dog ate it.",
+"kantoor",
+"YOU"
+],
+[
+303.488,
+304.246,
+"You don't have a dog.",
+"kantoor",
+"BOSS"
+],
+[
+304.596,
+306.624,
+"You don't. You realize that, too late.",
+"kantoor",
+"N"
+],
+[
+307.574,
+312.057,
+"That evening, there's a parent-teacher meeting. About your son. Who is your dad.",
+"ouderavond",
+"N"
+],
+[
+312.407,
+318.059,
+"Your son is having a hard time. Four out of ten on fractions. And he keeps calling me \"ma'am.\"",
+"ouderavond",
+"TEACH"
+],
+[
+318.409,
+321.55,
+"I'll talk to him. He's a good kid. He just needs more screen time.",
+"ouderavond",
+"YOU"
+],
+[
+321.9,
+323.474,
+"More screen time?",
+"ouderavond",
+"TEACH"
+],
+[
+323.824,
+325.087,
+"Less. I meant less.",
+"ouderavond",
+"YOU"
+],
+[
+325.437,
+329.364,
+"In the hallway, your dad is waiting. In your body. With his arms crossed.",
+"ouderavond",
+"N"
+],
+[
+329.714,
+331.378,
+"More screen time? Really?",
+"ouderavond",
+"DAD"
+],
+[
+332.228,
+338.243,
+"Meanwhile, Dad has a very different problem. At recess, he tried to talk to the other kids about mortgages.",
+"schoolplein",
+"N"
+],
+[
+338.693,
+340.789,
+"Now nobody wants to sit with him at lunch.",
+"schoolplein",
+"N"
+],
+[
+341.139,
+343.368,
+"They said I talk like a dad. I am a dad!",
+"schoolplein",
+"DAD"
+],
+[
+344.218,
+349.204,
+"And at home? Mom is in your sister's body. Her feet don't reach the pedals. She can't drive.",
+"keuken",
+"N"
+],
+[
+349.654,
+352.792,
+"And your sister is in Mom's body. She has the credit card.",
+"keuken",
+"N"
+],
+[
+353.142,
+354.592,
+"What did you buy?",
+"keuken",
+"MOM"
+],
+[
+354.942,
+356.702,
+"Just a pony. A small one.",
+"keuken",
+"SIS"
+],
+[
+357.052,
+358.234,
+"A pony?!",
+"keuken",
+"MOM"
+],
+[
+358.584,
+360.251,
+"It's coming on Saturday.",
+"keuken",
+"SIS"
+],
+[
+361.101,
+363.287,
+"Friday. Payday. Dad's paycheck arrives.",
+"bank",
+"N"
+],
+[
+363.737,
+369.184,
+"And for the first time, you don't think \"we're rich.\" You think, \"That's it? For a whole week of this?\"",
+"bank",
+"N"
+],
+[
+370.134,
+374.453,
+"You sit down with the bills again. This time, you do it right. With a calculator.",
+"post",
+"N"
+],
+[
+374.903,
+379.329,
+"Rent first. Then food. Then the car, the lights, the phone. Then everything else.",
+"post",
+"N"
+],
+[
+379.779,
+382.484,
+"And there's a little bit left. Not a lot. But enough.",
+"post",
+"N"
+],
+[
+382.934,
+384.301,
+"You cancel the pony.",
+"post",
+"N"
+],
+[
+385.251,
+388.742,
+"That night, everyone ends up in the kitchen. Nobody can sleep.",
+"nacht",
+"N"
+],
+[
+389.092,
+393.183,
+"I forgot how hard school is. Homework, tests, nobody listens to you.",
+"nacht",
+"DAD"
+],
+[
+393.533,
+396.735,
+"And I didn't know how hard your job is. Or how fast the money goes.",
+"nacht",
+"YOU"
+],
+[
+397.085,
+400.519,
+"I didn't know how small this kitchen looks from down here.",
+"nacht",
+"MOM"
+],
+[
+400.869,
+403.762,
+"And I didn't know a pony costs this much to feed.",
+"nacht",
+"SIS"
+],
+[
+404.112,
+408.185,
+"For a moment, it's quiet. And then everyone laughs. Even the pony, probably.",
+"nacht",
+"N"
+],
+[
+409.135,
+414.542,
+"Saturday, you all go to the park. You in Dad's body. Dad in yours. Pushing each other on the swings.",
+"park",
+"N"
+],
+[
+414.992,
+417.334,
+"It's weird. But it's the best day of the week.",
+"park",
+"N"
+],
+[
+417.784,
+422.874,
+"At five o'clock, a truck stops in front of the house. Somebody forgot to cancel the second pony.",
+"park",
+"N"
+],
+[
+423.824,
+429.443,
+"Sunday, you make a plan. Seven a.m. tomorrow, everyone in the kitchen. Hands together. Count to three.",
+"keuken",
+"N"
+],
+[
+429.793,
+432.641,
+"And after this, you are doing your own fractions.",
+"keuken",
+"DAD"
+],
+[
+432.991,
+434.935,
+"Deal. And you're writing your own report.",
+"keuken",
+"YOU"
+],
+[
+435.285,
+440.768,
+"So on Sunday afternoon, you finally write the report. Dad sits next to you and explains every word.",
+"keuken",
+"N"
+],
+[
+441.218,
+445.808,
+"And then you help him with fractions. You draw a pizza. You cut it into eight pieces.",
+"keuken",
+"N"
+],
+[
+446.158,
+448.563,
+"Oh. Oh! That's what three eighths means?",
+"keuken",
+"DAD"
+],
+[
+448.913,
+451.962,
+"You've been an adult for twenty-five years and you didn't know that?",
+"keuken",
+"YOU"
+],
+[
+452.312,
+455.791,
+"I knew it. I just forgot it. Like you'll forget it. Trust me.",
+"keuken",
+"DAD"
+],
+[
+456.141,
+459.246,
+"Monday. 6:59. Everyone is ready. The clock ticks.",
+"keuken",
+"N"
+],
+[
+459.696,
+462.395,
+"Seven a.m. You close your eyes. You count to three.",
+"keuken",
+"N"
+],
+[
+462.845,
+464.702,
+"You open your eyes. You look down.",
+"keuken",
+"N"
+],
+[
+465.152,
+466.775,
+"And you're still in Dad's body.",
+"keuken",
+"N"
+],
+[
+467.225,
+469.494,
+"Then the front door opens. It's your boss.",
+"keuken",
+"N"
+],
+[
+469.844,
+473.517,
+"Good morning. I just came by to say... wait. Why is everyone holding hands?",
+"keuken",
+"BOSS"
+],
+[
+473.867,
+476.225,
+"Somebody outside the house is about to find out.",
+"keuken",
+"N"
+],
+[
+476.675,
+479.478,
+"And if anyone finds out, the swap becomes permanent.",
 "keuken",
 "N"
 ]
