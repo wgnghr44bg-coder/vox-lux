@@ -77,21 +77,20 @@ def tekst(im, s, x, y, maat, kl, rand=None):
     if rand: d.text((x - w / 2, y - h / 2 - b[1]), s, font=f, fill=kl, stroke_width=maat // 12, stroke_fill=rand)
     else: d.text((x - w / 2, y - h / 2 - b[1]), s, font=f, fill=kl)
 
-for naam, th in THEMA.items():
+for naam, th in [("licht", THEMA["licht"])]:   # 23 nov: eigenaar koos licht
     # logo: jongen (hoofd + schouders) met gloeiend ? erboven, rond uitgesneden door YouTube
     lg = achtergrond(800, 800, th)
-    top = poppen(lg, [("you", 400, 1180, 2.7, 0.0, True)])
-    doodles(lg, [("planeet", 215, 250, 52), ("ster", 600, 215, 42), ("bliksem", 640, 400, 40), ("hart", 165, 430, 36)], GEEL)   # 23 nov: geen ? (eigenaar)
+    top = poppen(lg, [("you", 400, 1290, 3.6, 0.0, False)])
+    pass   # 23 nov: logo zonder plaatjes (eigenaar)
     lg.save(OUT / f"logo-{naam}.png")
     # banner 2560x1440; alles belangrijk binnen het midden (1546x423 = veilig op elk scherm)
     bn = achtergrond(2560, 1440, th)
     cx, cy = 1280, 720
-    t = poppen(bn, [("dad", 600, 912, 0.82, 0.6, False), ("mom", 760, 912, 0.82, 0.4, False), ("you", 1810, 912, 0.9, -0.6, True),
-                    ("sis", 1960, 912, 0.85, -0.8, False)])
-    doodles(bn, [("planeet", 1000, 560, 34), ("bliksem", 1110, 870, 36), ("klok", 1440, 870, 34), ("hart", 1560, 575, 30),
-                 ("ster", 880, 860, 28), ("brein", 1690, 860, 34)], GEEL)
-    tekst(bn, "MARKET DOODLE", cx, cy - 35, 100, th["tekst"])
-    tekst(bn, "What if...?", cx, cy + 65, 62, th["sub"])
+    # 23 nov (eigenaar): familiefoto, iedereen dicht bij elkaar, geen plaatjes; tekst links ervan
+    poppen(bn, [("dad", 1560, 890, 0.9, -0.2, False), ("mom", 1880, 890, 0.9, -0.3, False),
+                ("you", 1665, 900, 0.86, 0.1, False), ("sis", 1785, 905, 0.82, 0.0, False)])
+    tekst(bn, "MARKET DOODLE", 1000, cy - 35, 96, th["tekst"])
+    tekst(bn, "What if...?", 1000, cy + 62, 62, th["sub"])
     bn.save(OUT / f"banner-{naam}.png")
     # voorbeeld zoals YouTube hem op een pc laat zien (midden 2560x423)
     bn.crop((0, cy - 212, 2560, cy + 211)).resize((1280, 212)).save(OUT / f"banner-{naam}-pc.jpg")
