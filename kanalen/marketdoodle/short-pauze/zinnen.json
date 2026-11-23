@@ -1,0 +1,107 @@
+[
+[
+0.3,
+4.632,
+"It's 8:59. The bell rings in one minute. And you're still in the hallway.",
+"gang",
+"N"
+],
+[
+5.082,
+8.243,
+"Then you find a small button in your pocket. You press it.",
+"gang",
+"N"
+],
+[
+8.693,
+12.468,
+"And everything stops. The ball in the air. Your teacher, mid-sentence.",
+"klas",
+"N"
+],
+[
+12.818,
+14.989,
+"Okay. This is the best day of my life.",
+"klas",
+"YOU"
+],
+[
+15.339,
+17.075,
+"So, what if you could pause time?",
+"titel",
+"N"
+],
+[
+17.875,
+23.807,
+"Rules. You can pause the world as long as you want. But every minute it's paused, you get one minute older.",
+"klas",
+"N"
+],
+[
+24.257,
+29.292,
+"At first, it's amazing. You copy the answers. You fix your hair. You eat your friend's cookie.",
+"klas",
+"N"
+],
+[
+29.742,
+33.589,
+"At home, you pause before every test. Ten minutes here. An hour there.",
+"keuken",
+"N"
+],
+[
+34.039,
+41.245,
+"And here's something real. Clocks on GPS satellites run about thirty-eight microseconds faster every day than clocks on Earth.",
+"feit",
+"N"
+],
+[
+41.695,
+45.26,
+"Without fixing that, your phone's map would be off by kilometers.",
+"feit",
+"N"
+],
+[
+45.71,
+49.3,
+"Then one morning, you look in the mirror. And there's a gray hair.",
+"badkamer",
+"N"
+],
+[
+49.65,
+51.688,
+"Wait. How long have I been paused?",
+"badkamer",
+"YOU"
+],
+[
+52.038,
+55.126,
+"You add it up. Almost a whole year. Nobody else noticed.",
+"badkamer",
+"N"
+],
+[
+55.576,
+59.91,
+"So you decide. No more pausing. You press the button one last time, to unpause.",
+"gang",
+"N"
+],
+[
+60.36,
+65.504,
+"Nothing happens. The world stays frozen. And somewhere, a clock starts ticking. Just for you.",
+"gang",
+"N"
+]
+]
