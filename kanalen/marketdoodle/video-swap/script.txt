@@ -1,0 +1,139 @@
+# What If You Swapped Lives With Your Parents for a Week? (lange video, ± 10 min) — 23 nov 2026, eerst laten zien
+# Regel = SPREKER|scene|tekst. N = verteller. YOU = jij (in papa's lijf), DAD = papa (in jouw lijf), MOM, SIS, TEACH, BOSS.
+# Echt feit: USDA, Expenditures on Children by Families, 2015: $233,610 voor een kind geboren in 2015, tot en met 17 jaar.
+
+# ---- 1. begin: de ruil (0:00) ----
+N|slaapkamer-ouders|It's Monday, 7 a.m. Your alarm goes off. But it doesn't sound like your alarm.
+N|slaapkamer-ouders|You open your eyes. The ceiling is wrong. The bed is huge. And there's a tie hanging on the door.
+N|badkamer|You walk to the mirror. And your dad is staring back at you.
+YOU|badkamer|Oh no. Oh no, no, no.
+N|kamer-jij|Across the hall, someone screams. It's you. Well, your body. With your dad inside.
+DAD|kamer-jij|Why am I so short? Why does this room smell like socks?
+N|keuken|In the kitchen, your mom is wearing your little sister's pajamas. And your sister is drinking coffee.
+SIS|keuken|This is disgusting. How do you drink this every day?
+MOM|keuken|Give me that. And why are my legs so short?
+N|keuken|Somehow, overnight, everyone swapped. You got Dad's life. Dad got yours. Mom and your sister switched too.
+# ---- 2. de vraag + regels (0:55) ----
+N|titel|So, what if you swapped lives with your parents for a week?
+N|keuken|Okay, rules. It lasts exactly seven days. Next Monday at 7 a.m., everything goes back.
+N|keuken|You have to live their life completely. Their job. Their school. Their bills. Their problems.
+N|keuken|And nobody outside this house can know. If anyone finds out, the swap becomes permanent.
+DAD|keuken|Permanent? I am not doing sixth grade math again.
+YOU|keuken|Relax, Dad. How hard can school be?
+N|keuken|He gives you a long look. With your own face.
+# ---- 3. maandag: het voelt geweldig (1:50) ----
+N|auto|Monday. And at first, being an adult feels amazing.
+N|auto|You drive the car. Well, you sit in the car. Mom drives, because you're twelve inside.
+N|kantoor|At Dad's office, you get your own desk. Your own computer. Free coffee. Nobody tells you to sit up straight.
+N|kantoor|Your boss walks in.
+BOSS|kantoor|Morning. I need that report by three.
+YOU|kantoor|Sure thing. What report?
+N|kantoor|You have no idea what a report is. So you open Dad's computer, and you find two hundred and forty unread emails.
+N|kantoor|Every single one says urgent.
+N|klas|Meanwhile, at your school, your dad sits in your seat. His knees don't fit under the desk. Wait, they do. He's tiny now.
+TEACH|klas|Okay, pop quiz. Fractions. Phones away.
+DAD|klas|A pop quiz? On a Monday? Who does that?
+N|klas|Your dad hasn't done fractions in twenty-five years. He gets four out of ten.
+N|avond|Monday night. You come home from work, and all you want to do is lie on the couch.
+N|avond|But there's a problem. Your kid has homework. And your kid is your dad.
+DAD|avond|Can you help me with this? It's about the water cycle.
+YOU|avond|Evaporation, Dad. It's always evaporation.
+N|avond|At nine o'clock, you send him to bed. He complains. Loudly.
+DAD|avond|Nine? I'm forty-three years old!
+YOU|avond|Not this week, buddy. Lights out.
+N|avond|You have never felt so powerful in your life.
+# ---- 4. dinsdag + woensdag: geld (3:00) ----
+N|bank|Tuesday. Dad's phone buzzes. It's the bank.
+N|bank|And this is when you see it. Dad's account.
+N|bank|It looks like a lot of money. Way more than your allowance.
+YOU|bank|We're rich! Why didn't anyone tell me we're rich?
+N|post|Then the mail comes.
+N|post|The rent. Seventeen hundred dollars.
+N|post|The car payment. The electricity. Internet. Phone. Insurance. Groceries.
+N|post|You put it all on the kitchen table and do the math. On your fingers.
+YOU|post|Wait. Where did the money go?
+N|post|It's Tuesday. And almost all of Dad's paycheck is already gone.
+N|kleuterklas|And Mom? Mom is in your little sister's body. Which means Mom is in second grade.
+N|kleuterklas|At ten o'clock, the teacher says it's nap time. Everyone lies down on a little mat.
+MOM|kleuterklas|Nap time? You mean I'm allowed to sleep? In the middle of the day?
+N|kleuterklas|She sleeps for two hours. It's the best day of her adult life.
+N|kleuterklas|When she wakes up, she has glitter in her hair and a gold star on her hand. She doesn't know why. She doesn't care.
+N|winkel|Wednesday, Mom sends you to the grocery store. With a list. And a budget.
+N|winkel|You put chips in the cart. Then cookies. Then a pizza. Then three more pizzas.
+N|winkel|At the checkout, the number keeps going up.
+SIS|winkel|That's not on the list.
+N|winkel|Your little sister. In Mom's body. With Mom's exact voice. And Mom's exact look.
+N|winkel|You put two pizzas back.
+N|keuken|That night, it's your turn to cook dinner. For four people. Every night. Forever. Well, for a week.
+N|keuken|You make pasta. You forget the water. The smoke alarm goes off.
+N|keuken|Dinner is cereal. Again. Nobody complains. Out loud.
+N|gym|Meanwhile, at school, it's gym class. Dodgeball.
+N|gym|Your dad thinks he's still good at sports. He is not. He's twelve now, and his arms are noodles.
+N|gym|The first ball hits him in the face. The second one too.
+TEACH|gym|Are you okay? You look like you've seen a ghost.
+DAD|gym|I have seen my own childhood. And it hurts.
+N|kantoor|Back at the office, you have a video meeting with eleven people. You forget to turn off your camera.
+N|kantoor|Everyone watches you eat cereal out of the box for six minutes.
+# ---- 5. het echte feit (4:40) ----
+N|feit|And here's the part that's actually real.
+N|feit|The US government once added up what it costs to raise one kid. Food, clothes, a bedroom, school, doctors. From birth until age seventeen.
+N|feit|The answer? About two hundred thirty-three thousand dollars. For one kid.
+N|feit|And that was years ago. Today, it's even more.
+N|feit|Two hundred thirty-three thousand. That's a house in a lot of places. And your parents are paying it. For you.
+YOU|feit|Huh. Maybe I should stop asking for new sneakers.
+# ---- 6. donderdag: alles gaat mis (5:40) ----
+N|kantoor|Thursday. You still haven't written the report.
+BOSS|kantoor|Where's the report? It was due Monday.
+YOU|kantoor|My dog ate it.
+BOSS|kantoor|You don't have a dog.
+N|kantoor|You don't. You realize that, too late.
+N|ouderavond|That evening, there's a parent-teacher meeting. About your son. Who is your dad.
+TEACH|ouderavond|Your son is having a hard time. Four out of ten on fractions. And he keeps calling me "ma'am."
+YOU|ouderavond|I'll talk to him. He's a good kid. He just needs more screen time.
+TEACH|ouderavond|More screen time?
+YOU|ouderavond|Less. I meant less.
+N|ouderavond|In the hallway, your dad is waiting. In your body. With his arms crossed.
+DAD|ouderavond|More screen time? Really?
+N|schoolplein|Meanwhile, Dad has a very different problem. At recess, he tried to talk to the other kids about mortgages.
+N|schoolplein|Now nobody wants to sit with him at lunch.
+DAD|schoolplein|They said I talk like a dad. I am a dad!
+N|keuken|And at home? Mom is in your sister's body. Her feet don't reach the pedals. She can't drive.
+N|keuken|And your sister is in Mom's body. She has the credit card.
+MOM|keuken|What did you buy?
+SIS|keuken|Just a pony. A small one.
+MOM|keuken|A pony?!
+SIS|keuken|It's coming on Saturday.
+# ---- 7. vrijdag: begrip (7:00) ----
+N|bank|Friday. Payday. Dad's paycheck arrives.
+N|bank|And for the first time, you don't think "we're rich." You think, "That's it? For a whole week of this?"
+N|post|You sit down with the bills again. This time, you do it right. With a calculator.
+N|post|Rent first. Then food. Then the car, the lights, the phone. Then everything else.
+N|post|And there's a little bit left. Not a lot. But enough.
+N|post|You cancel the pony.
+N|nacht|That night, everyone ends up in the kitchen. Nobody can sleep.
+DAD|nacht|I forgot how hard school is. Homework, tests, nobody listens to you.
+YOU|nacht|And I didn't know how hard your job is. Or how fast the money goes.
+MOM|nacht|I didn't know how small this kitchen looks from down here.
+SIS|nacht|And I didn't know a pony costs this much to feed.
+N|nacht|For a moment, it's quiet. And then everyone laughs. Even the pony, probably.
+# ---- 8. weekend (8:10) ----
+N|park|Saturday, you all go to the park. You in Dad's body. Dad in yours. Pushing each other on the swings.
+N|park|It's weird. But it's the best day of the week.
+N|park|At five o'clock, a truck stops in front of the house. Somebody forgot to cancel the second pony.
+N|keuken|Sunday, you make a plan. Seven a.m. tomorrow, everyone in the kitchen. Hands together. Count to three.
+DAD|keuken|And after this, you are doing your own fractions.
+YOU|keuken|Deal. And you're writing your own report.
+N|keuken|So on Sunday afternoon, you finally write the report. Dad sits next to you and explains every word.
+N|keuken|And then you help him with fractions. You draw a pizza. You cut it into eight pieces.
+DAD|keuken|Oh. Oh! That's what three eighths means?
+YOU|keuken|You've been an adult for twenty-five years and you didn't know that?
+DAD|keuken|I knew it. I just forgot it. Like you'll forget it. Trust me.
+# ---- 9. maandag: cliffhanger (9:00) ----
+N|keuken|Monday. 6:59. Everyone is ready. The clock ticks.
+N|keuken|Seven a.m. You close your eyes. You count to three.
+N|keuken|You open your eyes. You look down.
+N|keuken|And you're still in Dad's body.
+N|keuken|Then the front door opens. It's your boss.
+BOSS|keuken|Good morning. I just came by to say... wait. Why is everyone holding hands?
+N|keuken|Somebody outside the house is about to find out.
+N|keuken|And if anyone finds out, the swap becomes permanent.
