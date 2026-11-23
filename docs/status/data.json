@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 11:33",
+ "bijgewerkt": "2026-11-23 12:03",
  "kanalen": {
   "weken": [
    {
@@ -18,6 +18,14 @@
         "titel": "What If You Could See How Much Everyone Earns?",
         "stand": "online",
         "youtube": "Qhjfoib3FIA"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-23",
+        "tijd": "11:53",
+        "titel": "What If You Swapped Lives With Your Dad for a Week?",
+        "stand": "online",
+        "youtube": "jJacEFpBrXY"
        }
       ]
      },
@@ -2054,7 +2062,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 11:33)"
+   "tekst": "draait nu (2026-11-23 12:03)"
   },
   {
    "naam": "Git",
@@ -2069,7 +2077,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 11:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 11:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2086,8 +2094,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 11:33",
-   "volgende": "2026-11-23 12:03"
+   "laatst": "2026-11-23 12:03",
+   "volgende": "2026-11-23 12:33"
   },
   "hype": {
    "aan": true,
@@ -2101,8 +2109,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 11:18",
-   "volgende": "2026-11-23 11:48"
+   "laatst": "2026-11-23 11:48",
+   "volgende": "2026-11-23 12:18"
   },
   "titels": {
    "aan": true,
@@ -2213,7 +2221,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 903,
+    "views": 913,
     "verwerkt": "processed"
    }
   ],
@@ -2437,8 +2445,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 1406,
+  "bezig_procent": 27,
+  "geheugen_mb": 1409,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2610,8 +2618,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 11:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 12:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4804,7 +4812,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 11:34",
+  "bijgewerkt": "2026-11-23 12:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4825,26 +4833,26 @@
    },
    {
     "account": "account2",
-    "5uur": 12275625,
-    "week": 145089836,
+    "5uur": 13183904,
+    "week": 145998115,
     "per_dag": {
      "Mon 16-11": 16562933,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 16164647,
+     "Mon 23-11": 17072926,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 54102,
+    "stap_kost": 54221,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 90,
+    "5uur_pct": 97,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 24,
-    "week_pct": 110,
+    "5uur_stappen_over": 7,
+    "week_pct": 111,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
