@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 10:33",
+ "bijgewerkt": "2026-11-23 11:03",
  "kanalen": {
   "weken": [
    {
@@ -1703,7 +1703,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 99%",
+    "detail": "",
     "soort": "nu"
    }
   ],
@@ -2054,7 +2054,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 10:33)"
+   "tekst": "draait nu (2026-11-23 11:03)"
   },
   {
    "naam": "Git",
@@ -2069,7 +2069,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 10:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 10:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2086,8 +2086,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 10:33",
-   "volgende": "2026-11-23 11:03"
+   "laatst": "2026-11-23 11:03",
+   "volgende": "2026-11-23 11:33"
   },
   "hype": {
    "aan": true,
@@ -2101,8 +2101,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 10:18",
-   "volgende": "2026-11-23 10:48"
+   "laatst": "2026-11-23 10:48",
+   "volgende": "2026-11-23 11:18"
   },
   "titels": {
    "aan": true,
@@ -2213,7 +2213,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 908,
+    "views": 912,
     "verwerkt": "processed"
    }
   ],
@@ -2422,30 +2422,23 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": -1,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2026-12-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "84 van 84 beelden",
-  "taken": [
-   "beelden maken (ComfyUI)"
-  ],
+  "stap": -1,
+  "stapnaam": "",
+  "voortgang": null,
+  "detail": "",
+  "taken": [],
   "eind": null
  },
- "nu_bezig": [
-  {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
-  }
- ],
+ "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 4840,
+  "bezig_procent": 27,
+  "geheugen_mb": 1651,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2617,8 +2610,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 10:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 10:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 11:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 10:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4811,7 +4804,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 10:34",
+  "bijgewerkt": "2026-11-23 11:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -4832,25 +4825,25 @@
    },
    {
     "account": "account2",
-    "5uur": 10304026,
-    "week": 144005028,
+    "5uur": 11444257,
+    "week": 144258467,
     "per_dag": {
-     "Mon 16-11": 17449724,
+     "Mon 16-11": 16562933,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 14193047,
+     "Mon 23-11": 15333278,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 54000,
+    "stap_kost": 53940,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 76,
+    "5uur_pct": 84,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 61,
+    "5uur_stappen_over": 40,
     "week_pct": 109,
     "week_scripts_over": null,
     "week_stappen_over": 0
