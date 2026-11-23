@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 10:03",
+ "bijgewerkt": "2026-11-23 10:33",
  "kanalen": {
   "weken": [
    {
@@ -1703,7 +1703,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "",
+    "detail": "Beelden maken · 99%",
     "soort": "nu"
    }
   ],
@@ -2039,7 +2039,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "148 GB vrij"
+   "tekst": "147 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2054,7 +2054,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 10:03)"
+   "tekst": "draait nu (2026-11-23 10:33)"
   },
   {
    "naam": "Git",
@@ -2069,7 +2069,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 09:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 10:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2086,8 +2086,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 10:03",
-   "volgende": "2026-11-23 10:33"
+   "laatst": "2026-11-23 10:33",
+   "volgende": "2026-11-23 11:03"
   },
   "hype": {
    "aan": true,
@@ -2097,12 +2097,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-21 23:10",
-   "volgende": "2026-11-23 10:10"
+   "volgende": "2026-11-23 11:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 09:48",
-   "volgende": "2026-11-23 10:18"
+   "laatst": "2026-11-23 10:18",
+   "volgende": "2026-11-23 10:48"
   },
   "titels": {
    "aan": true,
@@ -2116,8 +2116,8 @@
   "views_totaal": 3295,
   "video_aantal": 17,
   "week": {
-   "views": 334,
-   "uren": 63,
+   "views": 330,
+   "uren": 61,
    "abonnees": 3
   },
   "vorige_week": {
@@ -2335,7 +2335,7 @@
    },
    {
     "dag": "2026-11-18",
-    "views": 86,
+    "views": 82,
     "abonnees": 0
    },
    {
@@ -2350,8 +2350,8 @@
    }
   ],
   "maand": {
-   "views": 2266,
-   "uren": 470,
+   "views": 2262,
+   "uren": 467,
    "abonnees": 11
   },
   "vorige_maand": {
@@ -2360,8 +2360,8 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 3895,
-   "uren": 729,
+   "views": 3891,
+   "uren": 726,
    "abonnees": 20
   },
   "top": [
@@ -2388,15 +2388,15 @@
    }
   ],
   "partner": {
-   "uren": 728,
+   "uren": 726,
    "uren_doel": 4000,
    "abonnees": 21,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 14.9,
+   "tempo_uren_per_dag": 14.8,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-07-02",
+   "datum_uren": "2027-07-03",
    "datum_abonnees": "2033-09-20"
   }
  },
@@ -2422,23 +2422,30 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": -1,
+ "stap": 2,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2026-12-23",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": -1,
-  "stapnaam": "",
-  "voortgang": null,
-  "detail": "",
-  "taken": [],
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 99,
+  "detail": "84 van 84 beelden",
+  "taken": [
+   "beelden maken (ComfyUI)"
+  ],
   "eind": null
  },
- "nu_bezig": [],
+ "nu_bezig": [
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
+  }
+ ],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 2068,
+  "bezig_procent": 26,
+  "geheugen_mb": 4840,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2610,8 +2617,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 10:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 09:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 10:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 10:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4804,7 +4811,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 10:04",
+  "bijgewerkt": "2026-11-23 10:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -4825,26 +4832,26 @@
    },
    {
     "account": "account2",
-    "5uur": 7587661,
-    "week": 141288663,
+    "5uur": 10304026,
+    "week": 144005028,
     "per_dag": {
      "Mon 16-11": 17449724,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 11476682,
+     "Mon 23-11": 14193047,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 52726,
+    "stap_kost": 54000,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 56,
+    "5uur_pct": 76,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 114,
-    "week_pct": 107,
+    "5uur_stappen_over": 61,
+    "week_pct": 109,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
