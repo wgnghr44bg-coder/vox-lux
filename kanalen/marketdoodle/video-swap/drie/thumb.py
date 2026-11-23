@@ -27,5 +27,17 @@ for (x, y), (s, kl) in ((papa, ("YOU", (70, 130, 220))), (jij, ("DAD", (90, 180,
     f = ps.font(ps.FB, 44); dd = ImageDraw.Draw(im); b = dd.textbbox((0, 0), s, font=f); w, h = b[2] - b[0], b[3] - b[1]
     dd.rounded_rectangle((x - w / 2 - 20, y - 70 - h / 2 - 12, x + w / 2 + 20, y - 70 + h / 2 + 14), 16, fill=kl, outline=(40, 35, 40), width=4)
     dd.text((x - w / 2, y - 70 - h / 2 - b[1]), s, font=f, fill=(255, 255, 255))
-tekst(im, "I'M MY DAD?!", 640, 95, 110, (255, 230, 70), rand=(30, 25, 30))
-im.save(HIER / "thumb.jpg", quality=92); print("thumb.jpg")
+basis = im.copy()
+def titel(im, balk):
+    """23 nov (eigenaar): titel duidelijker: dikke donkere rand + schaduw (A) of donkere balk erachter (B)"""
+    f = ps.font(ps.FB, 118); d = ImageDraw.Draw(im); t = "I'M MY DAD?!"
+    b = d.textbbox((0, 0), t, font=f, stroke_width=12); w, h = b[2] - b[0], b[3] - b[1]; x, y = 640 - w / 2, 95 - h / 2 - b[1]
+    if balk:
+        d.rounded_rectangle((640 - w / 2 - 34, 95 - h / 2 - 22, 640 + w / 2 + 34, 95 + h / 2 + 26), 28, fill=(25, 20, 30), outline=(255, 230, 70), width=6)
+    else:
+        sch = Image.new("RGBA", im.size, (0, 0, 0, 0)); ImageDraw.Draw(sch).text((x + 8, y + 10), t, font=f, fill=(0, 0, 0, 170), stroke_width=14, stroke_fill=(0, 0, 0, 170))
+        from PIL import ImageFilter; sch = sch.filter(ImageFilter.GaussianBlur(4)); im.paste(sch, (0, 0), sch)
+    d.text((x, y), t, font=f, fill=(255, 230, 70), stroke_width=12 if not balk else 6, stroke_fill=(20, 15, 20))
+for naam, balk in (("A", False), ("B", True)):
+    t_im = basis.copy(); titel(t_im, balk); t_im.save(HIER / f"thumb-{naam}.jpg", quality=92)
+print("thumb-A.jpg thumb-B.jpg")
