@@ -1,0 +1,338 @@
+[
+[
+0.3,
+4.827,
+"It's Monday, 7 a.m. You wake up. But the bed is huge. And there's a tie on the door.",
+"slaapkamer-ouders",
+"N"
+],
+[
+5.777,
+8.924,
+"You look in the mirror. And your dad is looking back at you.",
+"badkamer",
+"N"
+],
+[
+9.274,
+10.908,
+"Oh no. Oh no, no, no.",
+"badkamer",
+"YOU"
+],
+[
+11.758,
+15.557,
+"In your room, someone screams. It's your body. With your dad inside.",
+"kamer-jij",
+"N"
+],
+[
+15.907,
+16.761,
+"Why am I so short?",
+"kamer-jij",
+"DAD"
+],
+[
+17.611,
+20.542,
+"So, what if you swapped lives with your dad for a week?",
+"titel",
+"N"
+],
+[
+21.842,
+24.698,
+"Okay, rules. Seven days. Then everything goes back.",
+"keuken",
+"N"
+],
+[
+25.148,
+28.257,
+"You do his job. He goes to your school. And nobody can know.",
+"keuken",
+"N"
+],
+[
+28.607,
+29.644,
+"How hard can school be?",
+"keuken",
+"DAD"
+],
+[
+29.994,
+31.622,
+"How hard can a job be?",
+"keuken",
+"YOU"
+],
+[
+32.472,
+35.993,
+"Monday. Dad's office. Your own desk. Free coffee. This is great.",
+"kantoor",
+"N"
+],
+[
+36.443,
+40.285,
+"Then you open his computer. Two hundred and forty emails. All urgent.",
+"kantoor",
+"N"
+],
+[
+40.635,
+41.934,
+"I need that report by three.",
+"kantoor",
+"BOSS"
+],
+[
+42.284,
+43.808,
+"What's a report?",
+"kantoor",
+"YOU"
+],
+[
+44.158,
+46.275,
+"You have no idea. So you just nod. A lot.",
+"kantoor",
+"N"
+],
+[
+46.725,
+52.012,
+"Your coworkers talk about meetings and deadlines all day. You don't understand a single word.",
+"kantoor",
+"N"
+],
+[
+52.462,
+55.881,
+"So you say \"sounds good\" to everything. It works. Every time.",
+"kantoor",
+"N"
+],
+[
+56.831,
+60.078,
+"Meanwhile, your dad is in your class. Pop quiz. Fractions.",
+"klas",
+"N"
+],
+[
+60.528,
+63.705,
+"He hasn't done fractions in twenty-five years. Four out of ten.",
+"klas",
+"N"
+],
+[
+64.055,
+65.402,
+"This is harder than my job!",
+"klas",
+"DAD"
+],
+[
+66.252,
+69.861,
+"At lunch, Dad sits with your friends. He tries to talk about taxes.",
+"kantine",
+"N"
+],
+[
+70.311,
+71.961,
+"Nobody sits with him after that.",
+"kantine",
+"N"
+],
+[
+72.311,
+74.168,
+"They said I talk like a dad. I am a dad!",
+"kantine",
+"DAD"
+],
+[
+75.018,
+78.733,
+"Tuesday. The bills come in. Rent. The car. Food. The lights. The phone.",
+"keuken",
+"N"
+],
+[
+79.183,
+82.684,
+"You add it all up. And almost all of Dad's money is already gone.",
+"keuken",
+"N"
+],
+[
+83.034,
+84.932,
+"Wait. Where did all the money go?",
+"keuken",
+"YOU"
+],
+[
+85.782,
+91.069,
+"Wednesday. Mom sends you to the store with a list. At the checkout, the number keeps going up.",
+"winkel",
+"N"
+],
+[
+91.419,
+93.359,
+"Can I put one pizza back? Maybe two?",
+"winkel",
+"YOU"
+],
+[
+93.709,
+96.039,
+"You come home with two pizzas. And no milk.",
+"winkel",
+"N"
+],
+[
+96.889,
+99.01,
+"Where is the milk? I asked for milk.",
+"keuken",
+"MOM"
+],
+[
+99.861,
+101.605,
+"Thursday. Your boss is back.",
+"kantoor",
+"N"
+],
+[
+101.955,
+102.668,
+"Where's the report?",
+"kantoor",
+"BOSS"
+],
+[
+103.018,
+104.338,
+"My dog ate it.",
+"kantoor",
+"YOU"
+],
+[
+104.688,
+105.542,
+"You don't have a dog.",
+"kantoor",
+"BOSS"
+],
+[
+106.392,
+111.758,
+"And Dad? He has a science test. So he studies all night. For the first time in twenty-five years.",
+"klas",
+"N"
+],
+[
+112.108,
+113.604,
+"I got an eight! An eight!",
+"klas",
+"DAD"
+],
+[
+114.454,
+120.116,
+"And here's the real part. The US government added up what it costs to raise one kid, until age seventeen.",
+"feit",
+"N"
+],
+[
+120.566,
+123.969,
+"About two hundred thirty-three thousand dollars. For one kid.",
+"feit",
+"N"
+],
+[
+124.319,
+127.011,
+"Maybe I should stop asking for new sneakers.",
+"feit",
+"YOU"
+],
+[
+127.861,
+131.239,
+"Friday night. You both sit in the kitchen. Too tired to sleep.",
+"nacht",
+"N"
+],
+[
+131.589,
+132.958,
+"I forgot how hard school is.",
+"nacht",
+"DAD"
+],
+[
+133.308,
+135.514,
+"And I didn't know how hard your job is.",
+"nacht",
+"YOU"
+],
+[
+135.864,
+137.734,
+"Why are you two acting so weird?",
+"nacht",
+"SIS"
+],
+[
+138.084,
+140.578,
+"For the first time, you really get each other.",
+"nacht",
+"N"
+],
+[
+141.528,
+145.6,
+"Monday, 7 a.m. The week is over. You close your eyes. You count to three.",
+"keuken",
+"N"
+],
+[
+146.05,
+149.559,
+"You open your eyes. You look down. And you're still in Dad's body.",
+"keuken",
+"N"
+],
+[
+150.009,
+152.232,
+"Then the doorbell rings. It's Dad's boss.",
+"keuken",
+"N"
+],
+[
+152.682,
+155.217,
+"And if anyone finds out, the swap stays forever.",
+"keuken",
+"N"
+]
+]
