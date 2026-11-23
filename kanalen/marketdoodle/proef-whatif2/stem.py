@@ -18,7 +18,8 @@ ONTWERP = {"whatif-zus": ("female", "teenager", "high pitch", "american accent",
 for naam, (g, a, p, acc, sd) in ONTWERP.items():
     if not (VOICES / naam / "ref.wav").exists():
         ov.design_voice(naam, g, a, p, acc, sd, ref_text="Okay, everybody, sit down please. We have a lot to do today.", speed=1.0)
-STEM = {"N": ("zakelijk-23", 1.0), "DAD": ("swan-d", 1.0), "SIS": ("whatif-zus", 1.0), "TEACH": ("whatif-juf", 1.0)}
+STEM = {"N": ("eigen-stem-swan", 1.05),   # 23 nov eigenaar koos proef A (eigen stem, levendig)
+         "DAD": ("swan-d", 1.0), "SIS": ("whatif-zus", 1.0), "TEACH": ("whatif-juf", 1.0)}
 regels = [r.split("|", 2) for r in (H / "script.txt").read_text(encoding="utf-8").splitlines() if r.strip() and not r.startswith("#")]
 clips = []
 for k, (sp, sc, z) in enumerate(regels):
