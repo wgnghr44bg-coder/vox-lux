@@ -7,7 +7,7 @@ YOU|klas|Okay. This is the best day of my life.
 N|titel|So, what if you could pause time?
 N|klas|Rules. You can pause the world as long as you want. But every minute it's paused, you get one minute older.
 N|klas|At first, it's amazing. You copy the answers. You fix your hair. You eat your friend's cookie.
-N|keuken|At home, you pause before every test. Ten minutes here. An hour there.
+N|keuken|Before every test, you pause time to study. Ten minutes here. An hour there.
 N|feit|And here's something real. Clocks on GPS satellites run about thirty-eight microseconds faster every day than clocks on Earth.
 N|feit|Without fixing that, your phone's map would be off by kilometers.
 N|badkamer|Then one morning, you look in the mirror. And there's a gray hair.

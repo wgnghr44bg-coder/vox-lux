@@ -33,3 +33,7 @@ audio_engine/voices/eigen-stem/*.mp3
 audio_engine/B1-referentie/stem.wav
 stories/hype.json
 stories/HYPE-SIGNAAL.md
+
+# Market Doodle: geluidseffecten (CC0 van freesound.org, bronnen in gekozen.json) alleen op de pc
+kanalen/marketdoodle/geluiden/*.mp3
+kanalen/marketdoodle/geluiden/*.wav

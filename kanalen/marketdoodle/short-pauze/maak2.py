@@ -53,8 +53,8 @@ SC = [
                kijkpad=[(0, 0.9), (kw(6, "cookie", -1.0), -0.9), (kw(6, "cookie", 0.05), 0.9)],
                gebaar=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "vast"), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "haar"), (kw(6, "cookie", 0.05), 1e9, "vast")]),
       dingen=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "toets", 70), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "kam", 165), (kw(6, "cookie", 0.05), 1e9, "koekje", 70)]),
- dict(t=Zs(7), bg="keuken", vast=[("mom", 760, 1.9, -0.6, "wijs", True), ("sis", 950, 1.7, -0.6, None, False)], jij=dict(x=300, s=1.9, kijk=0.6, gebaar=[(kw(7, "test", -0.3), 1e9, "vast")]),
-      dingen=[(kw(7, "test", -0.3), 1e9, "toets2", 70)], klik=[kw(7, "10", -0.4), kw(7, "hour", -0.4)]),
+ dict(t=Zs(7), bg="keuken", vast=[("mom", 760, 1.9, -0.6, "wijs", True), ("sis", 950, 1.7, -0.6, None, False)], jij=dict(x=300, s=1.9, kijk=0.6, gebaar=[(kw(7, "study", -0.4), 1e9, "vast")]),
+      dingen=[(kw(7, "study", -0.4), 1e9, "boek", 70)], klik=[kw(7, "10", -0.4), kw(7, "hour", -0.4)]),
  dict(t=Zs(8), bg="ruimte", vast=[], jij=None, kop=[], bron="Source: GPS.gov, relativity corrections for GPS satellite clocks", bront=kw(8, "38", -0.1)),
  dict(t=Zs(10), bg="badkamer", vast=[], jij=dict(x=830, s=1.85), spiegel=(276, 266, 788, 658), grijs=kw(10, "gray", -0.2)),
  dict(t=Zs(13), bg="gang", vast=[("kid1", 250, 1.8, 0.4, "zwaai", True), ("kid2", 960, 1.8, -0.4, None, False)], jij=dict(x=540, s=2.0, kijk=0.0, gebaar=[(kw(13, "press", -0.6), 1e9, "vast")]),
@@ -118,6 +118,15 @@ def ding(img, soort, x, y, t0, t, klein=True):
         w, h = 150 * s, 190 * s; d.rectangle((x - w / 2, y - h / 2, x + w / 2, y + h / 2), fill=(255, 255, 250), outline=L, width=6)
         for k in range(4): d.line((x - w / 2 + 18, y - h / 2 + 30 + k * 36, x + w / 4, y - h / 2 + 30 + k * 36), fill=(150, 150, 160), width=5)
         d.text((x + w / 2 - 70 * s, y + h / 2 - 80 * s), "A+", font=font(FB, int(60 * s)), fill=(220, 50, 50))
+    elif soort == "boek":                                 # open schoolboek
+        w, h = 170 * s, 120 * s
+        d.polygon([(x - w, y - h / 2), (x, y - h / 2 + 12 * s), (x, y + h / 2 + 12 * s), (x - w, y + h / 2)], fill=(250, 250, 245), outline=L)
+        d.polygon([(x + w, y - h / 2), (x, y - h / 2 + 12 * s), (x, y + h / 2 + 12 * s), (x + w, y + h / 2)], fill=(250, 250, 245), outline=L)
+        d.line((x, y - h / 2 + 12 * s, x, y + h / 2 + 12 * s), fill=L, width=4)
+        for k in range(4):
+            yy = y - h / 2 + 30 * s + k * 22 * s
+            d.line((x - w + 18 * s, yy, x - 18 * s, yy + 4 * s), fill=(150, 150, 160), width=4); d.line((x + 18 * s, yy + 4 * s, x + w - 18 * s, yy), fill=(150, 150, 160), width=4)
+        d.rectangle((x - w - 6 * s, y + h / 2 - 2 * s, x + w + 6 * s, y + h / 2 + 18 * s), fill=(70, 130, 220), outline=L)
     elif soort == "kam":
         d.rounded_rectangle((x - 90 * s, y - 18 * s, x + 90 * s, y + 18 * s), 8, fill=(120, 80, 220), outline=L, width=5)
         for k in range(12): d.line((x - 80 * s + k * 14 * s, y + 18 * s, x - 80 * s + k * 14 * s, y + 55 * s), fill=(120, 80, 220), width=int(6 * s))
@@ -179,7 +188,7 @@ def frame(t):
         if a <= t < b:
             jx = interp(sc["jij"]["pad"], t)[0] if "pad" in sc.get("jij", {}) else sc["jij"]["x"]
             hx, hy = hand(jx, sc["jij"]["s"], _)
-            ding(img, soort, hx + (10 if soort != "kam" else -5), hy - (10 if soort != "kam" else 40), a, t, klein=soort != "toets2")
+            ding(img, soort, hx + (10 if soort != "kam" else -5) - (60 if soort == "boek" else 0), hy - (10 if soort != "kam" else 40), a, t, klein=soort != "boek")
     for kt in sc.get("klik", []):
         if kt <= t < kt + 0.6:
             a = (t - kt) / 0.6; rr = 80 + 500 * a; hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); ImageDraw.Draw(img).ellipse((hx - rr, hy - rr, hx + rr, hy + rr), outline=(255, 255, 255), width=max(2, int(14 * (1 - a))))
