@@ -10,7 +10,7 @@ De website wordt elk half uur bijgewerkt door `tools/dashboard_bijwerken.py`, da
 |---|---|---|---|
 | **Sleep Archives** (@sleeparchiveshistory), 2x per week (eigenaar 21 nov avond), bewaker AAN | wo + za | 21:00 | `YT_REFRESH_TOKEN` |
 | **NOIRTRACES** (@noirtraces), **OP PAUZE** | (straks 1x per week) | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
-| **Market Doodle** (@marketdoodle), **FOCUS** (eigenaar 22 nov avond) | 1 lange getekende video per week + Shorts (zie kanalen/TEKENSTIJL.md) | nog vast te leggen | `YT_REFRESH_TOKEN_ALTERAQON` |
+| **Market Doodle** (@marketdoodle), **FOCUS** (eigenaar 22 nov avond) | What If (getekende poppetjes): **3 lange video's per week** (ma, wo, vr; ± 3 min, liggend) + **eigen Shorts** (eigen ideeën, hoeven niet uit de lange video te komen; eigenaar 23 nov). Alles eerst laten zien, uploaden pas na OK | 17:00 NL (11:00 New York), nog te bevestigen | `YT_REFRESH_TOKEN_ALTERAQON` |
 | **BlackswanVault** (@blackswanvault), geen focus meer (22 nov) | elke dag een lange video + een Short als er goed nieuws is (veel bekeken op YouTube, past bij geld/bedrijven/AI/beurs, niet dubbel, bronnen kloppen); anders die dag alleen een Short (eigenaar 20 nov avond; na 4 weken evalueren op kijkduur) | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
 
 Alteraqon (@alteraqon) is gestopt.
