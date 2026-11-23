@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 23:33",
+ "bijgewerkt": "2026-11-24 00:03",
  "kanalen": {
   "weken": [
    {
@@ -2067,20 +2067,13 @@
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-    "map": "blackbeard-1718",
-    "detail": "Video bouwen",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "Beelden maken · 92%",
     "soort": "nu"
    }
   ],
-  "daarna": [
-   {
-    "wanneer": "na Blackbeard",
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "keten maakt de video voor za 5-12 21:00"
-   }
-  ],
+  "daarna": [],
   "publicaties": [
    {
     "datum": "2026-11-28",
@@ -2242,7 +2235,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "145 GB vrij"
+   "tekst": "144 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2257,7 +2250,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 23:33)"
+   "tekst": "draait nu (2026-11-24 00:03)"
   },
   {
    "naam": "Git",
@@ -2272,7 +2265,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 23:18: alles klopt"
+   "tekst": "laatste ronde 23:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2289,8 +2282,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 23:33",
-   "volgende": "2026-11-24 00:03"
+   "laatst": "2026-11-24 00:03",
+   "volgende": "2026-11-24 00:33"
   },
   "hype": {
    "aan": true,
@@ -2304,8 +2297,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 23:18",
-   "volgende": "2026-11-23 23:48"
+   "laatst": "2026-11-23 23:48",
+   "volgende": "2026-11-24 00:18"
   },
   "titels": {
    "aan": true,
@@ -2319,14 +2312,14 @@
   "views_totaal": 3399,
   "video_aantal": 17,
   "week": {
-   "views": 411,
-   "uren": 84,
+   "views": 331,
+   "uren": 79,
    "abonnees": 3
   },
   "vorige_week": {
-   "views": 673,
-   "uren": 175,
-   "abonnees": 4
+   "views": 652,
+   "uren": 181,
+   "abonnees": 5
   },
   "recent": [
    {
@@ -2416,16 +2409,11 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 932,
+    "views": 930,
     "verwerkt": "processed"
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-26",
-    "views": 240,
-    "abonnees": 1
-   },
    {
     "dag": "2026-10-27",
     "views": 185,
@@ -2558,13 +2546,13 @@
    }
   ],
   "maand": {
-   "views": 2343,
-   "uren": 490,
-   "abonnees": 11
+   "views": 2103,
+   "uren": 437,
+   "abonnees": 10
   },
   "vorige_maand": {
-   "views": 1208,
-   "uren": 294,
+   "views": 1357,
+   "uren": 351,
    "abonnees": 6
   },
   "jaar": {
@@ -2584,8 +2572,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 697,
-    "uren": 156
+    "views": 465,
+    "uren": 103
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2602,20 +2590,20 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 15.6,
-   "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-06-20",
-   "datum_abonnees": "2033-09-17"
+   "tempo_uren_per_dag": 13.4,
+   "tempo_abonnees_per_dag": 0.36,
+   "datum_uren": "2027-07-24",
+   "datum_abonnees": "2034-05-25"
   }
  },
  "kpi": {
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 12,
-   "procent": 25
+   "totaal": 14,
+   "procent": 21
   },
-  "fouten": 0,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 11,
    "totaal": 11
@@ -2630,21 +2618,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 2,
  "huidig": {
-  "map": "blackbeard-1718",
-  "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-  "datum": "2027-08-14",
-  "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
-  "voortgang": null,
-  "detail": "bezig",
+  "map": "pearl-harbor-1941",
+  "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+  "datum": "2026-12-05",
+  "thumb": "",
+  "stap": 2,
+  "stapnaam": "Beelden maken",
+  "voortgang": 92,
+  "detail": "81 van 88 beelden",
   "taken": [
    "routine zonder Claude",
-   "eindvolume -14 LUFS",
+   "beeldcontrole (Qwen2.5-VL + CLIP)",
    "stem inspreken (OmniVoice)",
-   "video samenvoegen (ffmpeg)"
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -2654,21 +2642,21 @@
    "stap": 0
   },
   {
-   "naam": "eindvolume -14 LUFS",
-   "stap": 4
+   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "stap": 2
   },
   {
    "naam": "stem inspreken (OmniVoice)",
    "stap": -1
   },
   {
-   "naam": "video samenvoegen (ffmpeg)",
-   "stap": -1
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
-  "bezig_procent": 99,
-  "geheugen_mb": 1200,
+  "bezig_procent": 98,
+  "geheugen_mb": 7109,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2711,12 +2699,6 @@
  "gpu_slot": false,
  "week": [
   {
-   "datum": "2026-11-23",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-24",
    "plek": false,
    "video": "",
@@ -2751,33 +2733,15 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-11-30",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-22): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-22): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-22): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT Anthropic (2026-11-22): Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020 -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-22 05:25",
    "tekst": "nieuwswacht: GROOT Nvidia (2026-11-22): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)",
@@ -2837,9 +2801,40 @@
    "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:39",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:40",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:40",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:56",
+   "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
+   "fout": true,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-23 23:56",
+   "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
+   "fout": true,
+   "klaar": false
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-21 13:18",
@@ -2874,6 +2869,12 @@
   {
    "tijd": "2026-11-22 01:48",
    "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963, pearl-harbor-1941 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:39",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan",
    "fout": true,
    "klaar": false
   }
@@ -4957,7 +4958,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 23:39",
+  "bijgewerkt": "2026-11-24 00:06",
   "accounts": [
    {
     "account": "hoofd",
@@ -4977,25 +4978,26 @@
    },
    {
     "account": "account2",
-    "5uur": 13316826,
-    "week": 150952302,
+    "5uur": 15066694,
+    "week": 152702170,
     "per_dag": {
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 38590046,
+     "Mon 23-11": 39741706,
+     "Tue 24-11": 598208,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 81072,
+    "stap_kost": 81330,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 98,
+    "5uur_pct": 111,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 3,
-    "week_pct": 114,
+    "5uur_stappen_over": 0,
+    "week_pct": 116,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
