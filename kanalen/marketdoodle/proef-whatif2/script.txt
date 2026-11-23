@@ -6,7 +6,7 @@ DAD|k4|Morning, buddy. Why are you staring at me?
 N|k5|Then your mom walks in. Ninety-one thousand.
 N|k6|Your dad sees you looking at it.
 DAD|k6|What? What's so funny?
-N|k7|Your little sister has one too. Five dollars. Per week.
+N|k7|Your little sister has one too. Two hundred sixty dollars.
 SIS|k8|Stop looking at my money!
 N|t1|So, what if you could see how much everyone earns?
 N|r1|Okay, rules. The number shows what someone makes in one year.

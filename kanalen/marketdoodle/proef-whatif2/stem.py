@@ -13,7 +13,7 @@ H = Path(__file__).parent
 EXTRA = int(sys.argv[1]) if len(sys.argv) > 1 else 0   # andere seed voor het zusje (zin 8)
 inst = b1.standaard(); SR = ov.SR
 # ontworpen stemmen (geen echte personen)
-ONTWERP = {"whatif-zus": ("female", "teenager", "high pitch", "american accent", 3),
+ONTWERP = {"whatif-zus": ("female", "teenager", "moderate pitch", "american accent", 4),   # 23 nov: hoge stem te hoog (eigenaar)
            "whatif-juf": ("female", "middle-aged", "moderate pitch", "american accent", 11)}
 for naam, (g, a, p, acc, sd) in ONTWERP.items():
     if not (VOICES / naam / "ref.wav").exists():

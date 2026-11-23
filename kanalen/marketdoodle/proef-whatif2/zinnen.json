@@ -50,112 +50,112 @@
 ],
 [
 18.174,
-21.23,
-"Your little sister has one too. Five dollars. Per week.",
+21.406,
+"Your little sister has one too. Two hundred sixty dollars.",
 "k7",
 "N"
 ],
 [
-21.58,
-23.373,
+21.756,
+23.441,
 "Stop looking at my money!",
 "k8",
 "SIS"
 ],
 [
-23.724,
-26.383,
+23.791,
+26.45,
 "So, what if you could see how much everyone earns?",
 "t1",
 "N"
 ],
 [
-27.183,
-30.579,
+27.25,
+30.646,
 "Okay, rules. The number shows what someone makes in one year.",
 "r1",
 "N"
 ],
 [
-31.029,
-34.62,
+31.096,
+34.688,
 "It works on everyone. Except you. In the mirror, there's nothing.",
 "r2",
 "N"
 ],
 [
-35.07,
-36.654,
+35.138,
+36.721,
 "On the bus, it gets weird.",
 "b1",
 "N"
 ],
 [
-37.104,
-38.902,
+37.172,
+38.969,
 "The driver: forty-eight thousand.",
 "b2",
 "N"
 ],
 [
-39.352,
-43.293,
+39.419,
+43.36,
 "The quiet guy in the back, with the old hoodie: two point three million.",
 "b3",
 "N"
 ],
 [
-43.743,
-46.894,
+43.81,
+46.961,
 "And here's the crazy part. In Norway, this is almost real.",
 "f1",
 "N"
 ],
 [
-47.344,
-50.103,
+47.411,
+50.17,
 "Everyone's income is public. Anyone can look it up.",
 "f2",
 "N"
 ],
 [
-50.553,
-54.172,
+50.62,
+54.24,
 "At school, your teacher writes on the board. Fifty-two thousand.",
 "s1",
 "N"
 ],
 [
-54.622,
-57.836,
+54.69,
+57.904,
 "Then the principal walks past. One hundred forty thousand.",
 "s2",
 "N"
 ],
 [
-58.286,
-60.599,
+58.354,
+60.666,
 "Your teacher sees you looking at both numbers.",
 "s3",
 "N"
 ],
 [
-60.949,
-62.624,
+61.016,
+62.691,
 "Eyes on the board, please.",
 "s3",
 "TEACH"
 ],
 [
-62.974,
-65.112,
+63.041,
+65.179,
 "Then your best friend's dad picks him up.",
 "e1",
 "N"
 ],
 [
-65.562,
-68.59,
+65.629,
+68.657,
 "And the number above his head is zero. And it's blinking.",
 "e2",
 "N"

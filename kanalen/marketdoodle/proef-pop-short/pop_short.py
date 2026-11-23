@@ -57,6 +57,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     if gebaar == "stamp": bob = abs(math.sin(t * 14)) * 10 * s
     if gebaar == "schouders": bob -= 6 * s
     been, lijf, hoofd = 78 * s, 105 * s, 60 * s
+    d.ellipse([P(x - 62 * s, y - 8 * s), P(x + 62 * s, y + 12 * s)], fill=(60, 40, 30, 60))   # schaduw op de vloer
     heup = y - been - 14 * s + bob * 0.3
     zw = math.sin(loop * math.pi) * 26 if loop is not None else 0
     for kant, h in ((-1, zw), (1, -zw)):
@@ -138,14 +139,15 @@ SC = [
       lab=[("dad", 0, 0, 64000, "groen", False), ("mom", kw(4, "91", -0.3), kw(4, "91", -0.1), 91000, "groen", False)]),
  dict(t=Zs(7), bg="keuken", pop=[dict(n="you", x=260, s=1.9, kijk=lambda t: 1.0),
                                  dict(n="sis", x=680, s=1.9, kijk=lambda t: -1.0, boos=Z[8][0] - 0.2, gebaar=[(Z[8][0], Z[8][1] + 0.3, "wijslinks"), (Z[8][1] - 0.6, Z[8][1] + 0.3, "stamp")])],
-      lab=[("sis", kw(7, "$5", -0.1), 0, "$5 / WEEK", "groen", False)]),
+      lab=[("sis", kw(7, "$260", -0.3), kw(7, "$260", -0.1), 260, "groen", False)]),
  dict(t=Zs(9), bg="nacht", pop=[dict(n="you", x=540, s=2.3, kijk=lambda t: 0.0, verbaasd=0)],
       kop=[(kw(9, "what"), "WHAT IF YOU COULD SEE", 540, 330, 74, "wit"), (kw(9, "much"), "HOW MUCH", 540, 430, 96, "geel"), (kw(9, "much", 0.3), "EVERYONE EARNS?", 540, 535, 80, "geel")],
       zweef=True),
  dict(t=Zs(10), bg="klas", pop=[dict(n="you", x=760, s=1.9, kijk=lambda t: -1.0, gebaar=[(kw(10, "rules"), Z[10][1], "wijslinks")])],
       kop=[(kw(10, "rules"), "RULE 1:", 330, 330, 70, "wit"), (kw(10, "number"), "PAY PER YEAR", 330, 420, 64, "wit")]),
- dict(t=Zs(11), bg="badkamer", pop=[dict(n="you", x=540, s=2.0, kijk=lambda t: 0.0, verbaasd=kw(11, "mirror"))],
-      lab=[("you", kw(11, "except"), 0, "NO NUMBER", "grijs", False)], kop=[(kw(11, "except"), "RULE 2: NOT ON YOU", 540, 200, 68, "geel")]),
+ dict(t=Zs(11), bg="badkamer", spiegel=(276, 266, 788, 658), verbaasd=kw(11, "mirror"),
+      pop=[dict(n="you", x=840, s=1.85, kijk=lambda t: -1.0 if t < kw(11, "mirror") else -0.3, verbaasd=kw(11, "mirror"))],
+      lab=[("you", kw(11, "except"), 0, "NO NUMBER", "grijs", False)], kop=[(kw(11, "except"), "RULE 2: NOT ON YOU", 540, 150, 68, "geel")]),
  dict(t=Zs(12), bg="bus", pop=[dict(n="you", x=540, s=2.1, loop=(Zs(12, 0.1), Z[12][1], 380, 540), kijk=lambda t: math.sin(t * 2.5))]),
  dict(t=Zs(13), bg="busvoor", pop=[dict(n="driver", x=420, s=1.9, kijk=lambda t: 0.8, gebaar=[(kw(13, "driver"), kw(13, "driver", 1.2), "zwaai")])],
       lab=[("driver", kw(13, "48", -0.3), kw(13, "48", -0.1), 48000, "groen", False)]),
@@ -226,9 +228,14 @@ def frame(t):
                                   knipper=(t + hash(p["n"]) % 7 * 0.4) % 3.4 < 0.13, verbaasd=("verbaasd" in p and t >= p["verbaasd"]),
                                   gebaar=geb, boos=("boos" in p and t >= p["boos"]))
     laag = laag.resize((W, H), Image.LANCZOS)
-    if t - t0 < 0.3 and k > 0:                                   # nieuw beeld ploft even
-        sch = pop((t - t0) / 0.3); w2, h2 = int(W * sch), int(H * sch)
-        img = img.resize((w2, h2)).crop(((w2 - W) // 2, (h2 - H) // 2, (w2 - W) // 2 + W, (h2 - H) // 2 + H))
+    # 23 nov (eigenaar): geen effect bij scènewissel, gewoon knippen
+    if sc.get("spiegel"):                                        # spiegelbeeld van de jongen (zonder getal erboven)
+        x0, y0, x1, y1 = sc["spiegel"]
+        sl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); poppetje(ImageDraw.Draw(sl), "you", (x0 + x1) / 2, 860, 1.5, t, kijk=0.8,
+                                                                          knipper=(t % 3.4) < 0.13, verbaasd=t >= sc.get("verbaasd", 1e9))
+        sl = sl.resize((W, H), Image.LANCZOS).crop((x0, y0, x1, y1))
+        glas = img.crop((x0, y0, x1, y1)).convert("RGBA"); glas.alpha_composite(sl)
+        img.paste(Image.blend(glas.convert("RGB"), img.crop((x0, y0, x1, y1)), 0.25), (x0, y0))
     img.paste(laag, (0, 0), laag)
     if sc.get("zweef"):                                          # titelbeeld: zwevende ?-getallen om de jongen
         for j, (zx, zy) in enumerate([(200, 760), (880, 720), (160, 1060), (920, 1010), (540, 640)]):
@@ -240,13 +247,12 @@ def frame(t):
         if isinstance(v, str): s = v
         else:
             ts = telstart or st
-            s = (f"${round(v * ease((t - ts) / 0.8), -2 if v < 1e6 else -4):,.0f}" if t > ts else "$???") if telstart else f"${v:,.0f}"
+            s = (f"${round(v * ease((t - ts) / 0.8), 0 if v < 1000 else (-2 if v < 1e6 else -4)):,.0f}" if t > ts else "$???") if telstart else f"${v:,.0f}"
         a = 1.0 if not kn else (0.3 + 0.7 * (math.sin((t - st) * 9) > 0))
         label(img, s, hx, hy - 70, KL[kl], pop((t - st) / 0.3), a)
     for st, s, x, y, m, kl in sc.get("kop", []):
         if t >= st: kop(img, s, x, y, m, KL[kl], pop((t - st) / 0.3))
     ondertitel(img, t)
-    if t > EIND - 0.5: img = Image.blend(img, Image.new("RGB", (W, H)), min(1, (t - (EIND - 0.5)) / 0.5))
     return img
 
 if __name__ == "__main__":
