@@ -231,6 +231,14 @@ def main():
             for p in nieuw[:5]:
                 f.write(f"- {dt.datetime.now():%Y-%m-%d %H:%M} hype-wachter: SEINTJE {p.get('titel') or p['naam']}"
                         f" -> {p['advies']}\n")
+    groot = [p for p in nieuw if p["soort"] == "hype" and p.get("breed")]   # 23 nov (eigenaar): seintje bij GROTE hype (bij meerdere grote kanalen tegelijk)
+    if groot:
+        try:
+            from swan_yt_wacht import seintje
+            seintje("Grote hype: Sleep Archives", "\n".join(f"{p['titel']} ({p['per_dag']:,} views/dag, ook bij {p['breed']} andere kanalen)" for p in groot[:3])
+                    + "\nVideo waard voor Sleep Archives?")
+        except Exception as e:
+            print("seintje mislukt:", e)
     print("\n".join(regels))
     try:                                                    # 15 nov: daarna meteen de titels (tools/titel_wacht.py)
         import titel_wacht
