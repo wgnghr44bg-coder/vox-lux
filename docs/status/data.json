@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 07:33",
+ "bijgewerkt": "2026-11-23 08:03",
  "kanalen": {
   "weken": [
    {
@@ -253,7 +253,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-22 15:45",
+  "bijgewerkt": "2026-11-23 08:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -341,36 +341,24 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 1.3,
+    "pct": 2.1,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.2,
+    "pct": -0.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -4.6,
-    "groot": true,
+    "pct": 3.1,
+    "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
-   {
-    "onderwerp": "Goud",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "-4.6% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
    {
     "onderwerp": "Broadcom",
     "punten": 10,
@@ -420,98 +408,21 @@
     "groot": true
    },
    {
-    "onderwerp": "Beurs",
+    "onderwerp": "Nvidia",
     "punten": 5,
     "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "beursgang",
-     "crash"
-    ],
-    "koppen": [
-     {
-      "titel": "S&P 500 correction: Five forces behind the market sell-off",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/sp-500-correction-market-sell-off.html"
-     },
-     {
-      "titel": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Musk",
-    "punten": 4,
-    "bronnen": [
-     "NYT"
-    ],
-    "wat": [
-     "overname/deal"
-    ],
-    "koppen": [
-     {
-      "titel": "Elon Musk on His Politics, a Potential Merger and Ukraine",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/21/business/dealbook/elon-musk-dealbook-summit.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Anthropic",
-    "punten": 3,
-    "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "beursgang"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html"
-     },
-     {
-      "titel": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Wall Street",
-    "punten": 3,
-    "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "beursgang"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Nvidia",
-    "punten": 3,
-    "bronnen": [
+     "CNBC",
      "NYT"
     ],
     "wat": [
      "rechtszaak"
     ],
     "koppen": [
+     {
+      "titel": "U.S. probes Megaspeed, Alice Huang as new figure emerges in Nvidia chip case",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/23/nvidia-megaspeed-chipmaker-us.html"
+     },
      {
       "titel": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
       "bron": "NYT",
@@ -522,13 +433,12 @@
    }
   ],
   "groot": [
-   "Goud",
    "Broadcom",
    "Nvidia",
    "Nasdaq",
    "S&P 500"
   ],
-  "aantal_koppen": 62
+  "aantal_koppen": 55
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-22 15:55",
@@ -2422,7 +2332,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 07:33)"
+   "tekst": "draait nu (2026-11-23 08:03)"
   },
   {
    "naam": "Git",
@@ -2437,7 +2347,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:48: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2454,8 +2364,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 07:33",
-   "volgende": "2026-11-23 08:03"
+   "laatst": "2026-11-23 08:03",
+   "volgende": "2026-11-23 08:33"
   },
   "hype": {
    "aan": true,
@@ -2469,8 +2379,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 07:18",
-   "volgende": "2026-11-23 07:48"
+   "laatst": "2026-11-23 07:48",
+   "volgende": "2026-11-23 08:18"
   },
   "titels": {
    "aan": true,
@@ -2581,7 +2491,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 895,
+    "views": 900,
     "verwerkt": "processed"
    }
   ],
@@ -2805,8 +2715,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 27,
-  "geheugen_mb": 865,
+  "bezig_procent": 26,
+  "geheugen_mb": 860,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2892,30 +2802,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-21 23:02",
-   "tekst": "Claude: Alteraqon: alle 10 oude What-if-video's verwijderd (eigenaar: 'je mag alles verwijderen, we bouwen dit kanaal om' voor getekende video's met F)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 23:10",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 23:10",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 23:22",
-   "tekst": "Claude: Sleep OP PAUZE (taak bewaker uit) tot de eigenaar zegt hervatten; pearl-harbor-1941 staat op bezig",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-22 00:18",
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
@@ -2974,12 +2860,36 @@
    "tekst": "nieuwswacht: GROOT Nvidia (2026-11-22): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 08:00",
+   "tekst": "nieuwswacht: GROOT Broadcom (2026-11-23): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 08:00",
+   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-23): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 08:00",
+   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-23): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 08:00",
+   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-23): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 08:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:48: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5184,7 +5094,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 07:34",
+  "bijgewerkt": "2026-11-23 08:04",
   "accounts": [
    {
     "account": "hoofd",
