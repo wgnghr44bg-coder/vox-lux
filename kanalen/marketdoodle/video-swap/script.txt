@@ -9,7 +9,7 @@ N|badkamer|You walk to the mirror. And your dad is staring back at you.
 YOU|badkamer|Oh no. Oh no, no, no.
 N|kamer-jij|Across the hall, someone screams. It's you. Well, your body. With your dad inside.
 DAD|kamer-jij|Why am I so short? Why does this room smell like socks?
-N|keuken|In the kitchen, your mom is wearing your little sister's pajamas. And your sister is drinking coffee.
+N|keuken|In the kitchen, your mom takes a sip of coffee. And makes the worst face you have ever seen.
 SIS|keuken|This is disgusting. How do you drink this every day?
 MOM|keuken|Give me that. And why are my legs so short?
 N|keuken|Somehow, overnight, everyone swapped. You got Dad's life. Dad got yours. Mom and your sister switched too.
