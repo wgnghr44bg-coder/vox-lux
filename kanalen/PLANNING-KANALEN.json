@@ -1,10 +1,10 @@
 {
  "uitleg": "Planning van NOIRTRACES en BlackswanVault (eigenaar 19 nov 2026). Sleep Archives komt vanzelf uit stories/*/planning.txt. De website (tools/kanalen_planning.py) zet dit samen met YouTube in het paneel 'Planning alle kanalen'. Zie kanalen/PLANNING.md.",
  "regels": {
-  "Sleep Archives": "2x per week, wo + za 21:00 NL (eigenaar 21 nov avond: 'sleep toch beter 2 video's per week'). Mag ver vooruit; de pc maakt ze zelf (taak 'Sleep Archives bewaker' AAN), maar wacht als BlackswanVault/Geldverhaal rendert. Feestdagen/jaardagen houden hun datum. Bij echt grote hype mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
+  "Sleep Archives": "Vaste dag (eigenaar 23 nov avond): alleen zaterdag 21:00 NL.",
   "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
-  "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen.",
-  "Market Doodle": "What If-verhalen in simpele 2D (gezinnetje), Engels; sinds 23 nov 2026. Advies: 2 lange video's + 3-4 Shorts per week."
+  "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Alleen echte hype; geen goed onderwerp = dag overslaan.",
+  "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL. Simpele 2D, gezinnetje, Engels."
  },
  "items": [
   {
@@ -68,7 +68,7 @@
    "datum": "2026-11-24",
    "tijd": "15:00",
    "titel": "The Nasdaq Just Fell 10%. Here's What Investors Are Afraid Of",
-   "stand": "maken: bijwerken met de val van vr 20 nov (Nasdaq -5,3%, Nvidia -14%) en slot ma 23 nov, dan privé inplannen",
+   "stand": "vervalt: di is geen vaste dag meer, en de beurs herstelde ma 23 nov (Nasdaq +5,8%) dus het verhaal klopt niet meer",
    "youtube": ""
   },
   {
@@ -76,7 +76,7 @@
    "datum": "2026-11-24",
    "tijd": "17:00",
    "titel": "Short: The Nasdaq Fell 13%. Investors Fear 4 Things",
-   "stand": "maken: bijwerken samen met de lange video",
+   "stand": "vervalt: di is geen vaste dag meer, en de beurs herstelde ma 23 nov (Nasdaq +5,8%) dus het verhaal klopt niet meer",
    "youtube": ""
   },
   {

@@ -7,7 +7,7 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Niche gekozen met `tools/niche_scan.py` (uitslag `kanalen/niche/ALLE-NICHES.md`): what if = geen grote kanalen, veel kleine winnaars.
 
 ## Ritme
-- **3 lange video's per week**: ma, wo, vr, ± 3 min, **liggend** 1920x1080 (liggend telt als lange video = kijkuren). 17:00 NL, nog te bevestigen.
+- **Vaste dagen ma, wo, za** (eigenaar 23 nov avond, zelfde dagen als BlackswanVault): **lange video 17:00 NL** (± 3 min, **liggend** 1920x1080), **Short 19:00 NL** op dezelfde dag.
 - **Shorts**: eigen ideeën, elk een **eigen nieuw What If-onderwerp**, gemaakt zoals de eerste Short (Qhjfoib3FIA): staand, ± 60-70 s.
 - **Onderwerp kies je zelf**, niet eerst voorleggen, nooit herhalen. Kies wat nu goed loopt op YouTube.
 
