@@ -81,15 +81,13 @@ for naam, th in THEMA.items():
     # logo: jongen (hoofd + schouders) met gloeiend ? erboven, rond uitgesneden door YouTube
     lg = achtergrond(800, 800, th)
     top = poppen(lg, [("you", 400, 1180, 2.7, 0.0, True)])
-    label(lg, "?", 400, 200, 110, GEEL)
+    doodles(lg, [("planeet", 215, 250, 52), ("ster", 600, 215, 42), ("bliksem", 640, 400, 40), ("hart", 165, 430, 36)], GEEL)   # 23 nov: geen ? (eigenaar)
     lg.save(OUT / f"logo-{naam}.png")
     # banner 2560x1440; alles belangrijk binnen het midden (1546x423 = veilig op elk scherm)
     bn = achtergrond(2560, 1440, th)
     cx, cy = 1280, 720
     t = poppen(bn, [("dad", 600, 912, 0.82, 0.6, False), ("mom", 760, 912, 0.82, 0.4, False), ("you", 1810, 912, 0.9, -0.6, True),
                     ("sis", 1960, 912, 0.85, -0.8, False)])
-    for n in ("dad", "mom", "sis", "you"):
-        label(bn, "?", t[n][0], t[n][1] - 34, 40, GEEL)
     doodles(bn, [("planeet", 1000, 560, 34), ("bliksem", 1110, 870, 36), ("klok", 1440, 870, 34), ("hart", 1560, 575, 30),
                  ("ster", 880, 860, 28), ("brein", 1690, 860, 34)], GEEL)
     tekst(bn, "MARKET DOODLE", cx, cy - 35, 100, th["tekst"])
