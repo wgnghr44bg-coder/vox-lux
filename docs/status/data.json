@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 17:33",
+ "bijgewerkt": "2026-11-23 17:37",
  "kanalen": {
   "weken": [
    {
@@ -213,7 +213,7 @@
    "Sleep Archives": "2x per week, wo + za 21:00 NL (eigenaar 21 nov avond: 'sleep toch beter 2 video's per week'). Mag ver vooruit; de pc maakt ze zelf (taak 'Sleep Archives bewaker' AAN), maar wacht als BlackswanVault/Geldverhaal rendert. Feestdagen/jaardagen houden hun datum. Bij echt grote hype mag een geplande privé-video naar een latere dag verzet worden (eigenaar 21 nov).",
    "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
    "BlackswanVault": "Puur op hype (eigenaar 21 nov avond): wachters kiezen elke ochtend; lange video + Short bij groot nieuws, hooguit 1-2 dagen vooruit; reservevideo's voor rustige dagen. Alleen scherpe foto's of goede AI-foto's; niets twee keer vertellen.",
-   "Market Doodle": "Getekende video's (whiteboard, Engels) over geld, investeren en bedrijven; ex-Alteraqon (@marketdoodle). Net zo snel als BlackswanVault: bij groot nieuws dezelfde dag lang ± 16:00 + Short ± 18:00; rustige dag: tijdloze uitleg. Regels: kanalen/TEKENSTIJL.md."
+   "Market Doodle": "What If-verhalen in simpele 2D (gezinnetje), Engels; sinds 23 nov 2026. Advies: 2 lange video's + 3-4 Shorts per week."
   },
   "fouten": []
  },
@@ -2191,7 +2191,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 17:33)"
+   "tekst": "laatste keer goed (2026-11-23 17:33)"
   },
   {
    "naam": "Git",
@@ -2350,7 +2350,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 924,
+    "views": 926,
     "verwerkt": "processed"
    }
   ],
@@ -2574,8 +2574,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 1515,
+  "bezig_procent": 27,
+  "geheugen_mb": 1499,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2615,6 +2615,7 @@
    "ok": true
   }
  ],
+ "gpu_slot": false,
  "week": [
   {
    "datum": "2026-11-23",
@@ -2747,7 +2748,7 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 17:33",
+   "tijd": "2026-11-23 17:37",
    "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 17:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
@@ -4881,7 +4882,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 17:33",
+  "bijgewerkt": "2026-11-23 17:38",
   "accounts": [
    {
     "account": "hoofd",
@@ -4902,25 +4903,25 @@
    },
    {
     "account": "account2",
-    "5uur": 2851256,
-    "week": 148608586,
+    "5uur": 4784178,
+    "week": 149142558,
     "per_dag": {
-     "Mon 16-11": 13375013,
+     "Mon 16-11": 11976063,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 22871316,
+     "Mon 23-11": 24804238,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 56037,
+    "stap_kost": 57874,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 21,
+    "5uur_pct": 35,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 191,
+    "5uur_stappen_over": 152,
     "week_pct": 113,
     "week_scripts_over": null,
     "week_stappen_over": 0

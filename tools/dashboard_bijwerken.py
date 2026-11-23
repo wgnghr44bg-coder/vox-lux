@@ -88,7 +88,11 @@ HERKEN = [("scriptgen", 1, "script schrijven (Qwen3 lokaal)"), ("PROMPT-SCRIPT-P
           ("check_video.py", 5, "videocontrole"), ("qc_video.py", 5, "kwaliteitscontrole"),
           ("vervang_video.py", 6, "uploaden en controleren"), ("youtube_upload.py", 6, "uploaden"),
           ("wacht_verwerkt.py", 6, "wachten op verwerking YouTube"),
-          ("PROMPT-ROUTINE-PC", 0, "routine (Claude) stuurt aan"), ("routine_lokaal.py", 0, "routine zonder Claude")]
+          ("PROMPT-ROUTINE-PC", 0, "routine (Claude) stuurt aan"), ("routine_lokaal.py", 0, "routine zonder Claude"),
+          # 23 nov 2026 (eigenaar: "ik wil zien of de pc nu gebruikt wordt"): ook BlackswanVault / Market Doodle / Geldverhaal
+          ("teken_anim.py", -1, "getekende video maken"), ("i2i_rol.py", -1, "figuur tekenen (ComfyUI)"),
+          ("omnivoice-venv", -1, "stem inspreken (OmniVoice)"), ("remotion", -1, "video renderen (Remotion)"),
+          ("ffmpeg", -1, "video samenvoegen (ffmpeg)"), ("montage_engine", 4, "video bouwen")]
 
 
 RUW = []                                                    # (starttijd, opdrachtregel) van alle processen
@@ -673,6 +677,8 @@ data = {
             "zelfcontrole": {"goed": sum(1 for x in zc if x["ok"]), "totaal": len(zc)}},
     "stappen": STAPPEN, "stap": stap, "huidig": huidig,
     "nu_bezig": draait, "videokaart": gpu(), "programmas": programmas(yt_ok),
+    # 23 nov 2026: "gpu-bezet"-slot (zware taak bezig, Sleep-bewaker wacht) voor de simpele site
+    "gpu_slot": (Path.home() / "gpu-bezet.lock").exists(),
     "week": week, "logboek": log[-14:], "fouten": fouten, "opgelost": opgeloste,
     "video": video,
     # hype-wachter (eigenaar 12 nov 2026: "die je dan een seintje geeft op tijd"): tools/hype_wacht.py, elke dag 08:30

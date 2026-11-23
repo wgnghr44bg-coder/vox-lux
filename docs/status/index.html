@@ -4,537 +4,127 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Studio</title>
-<meta name="description" content="Productie, planning en hype van Sleep Archives, automatisch bijgewerkt vanaf de pc.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="logo.png?v=3" type="image/png">
 <link rel="apple-touch-icon" href="icon-180.png?v=3">
 <link rel="manifest" href="manifest.webmanifest?v=3">
-<meta name="apple-mobile-web-app-title" content="Sleep Archives">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0c0a1d">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<meta name="theme-color" content="#111114">
+<!-- 23 nov 2026, eigenaar: "ik wil alleen zien wat er gedaan moet worden, of de pc nu gebruikt wordt, en de planning
+     voor Sleep, BlackswanVault en Doodle". De oude uitgebreide pagina staat op uitgebreid.html. Data: data.json. -->
 <style>
-/* Hallmark · shape: app screen · genre: atmospheric · theme: brand · redesign: full
- * paper: oklch(15% 0.04 285) · accent: oklch(68% 0.2 300) · display: Inter · body: Inter
- * nav: none, one page (the bottom tab bar is gone) · signature: the production table, one row per video with its five steps · states: loading, empty, error, full
- * axes: night/sans/violet · posture: settled · contrast: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E3 S4 R4 V3 · weakest: E, the extras (partner, Claude, log) moved into folding panels below the table instead of tabs */
-/* Hallmark · dropped #overzicht, #videos, #analytics, #planning, #automatisering · eigenaar 16 nov: "website simpel maken zoals dit": één pagina zonder tabbalk, de inhoud staat in de uitklapblokken */
-/* Hallmark · dropped belTeller, groeiBadge, hypeVink, doelen, ga, gv, i-bel, i-doel, i-huis, i-lagen, i-oog, i-klok, i-euro, i-vuur, i-raket, i-lijst, i-schild, mg, kClaude, kClaudeD, nuBezig-balk, straat, straatNaam, komend, volgende · bel en tabbalk weg; doelen staan in Partnerprogramma, de hype-vinkjes in de meter, de videostraat, komend en volgende in de productietabel */
-@import url("./tokens.css");
-@import url("./base.css");
-
-body { line-height: 1.45; }
-.wrap { max-width: var(--container); margin-inline: auto; padding-block: var(--space-md) var(--space-xl);
-  padding-left: max(var(--space-md), env(safe-area-inset-left, 0px)); padding-right: max(var(--space-md), env(safe-area-inset-right, 0px)); }
-svg.i { width: 20px; height: 20px; flex: none; }
-.zacht { color: var(--color-muted); }
-.num { font-variant-numeric: tabular-nums; }
-
-/* kop */
-.kop { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; padding-block: var(--space-xs) var(--space-md); }
-.kop .merk { display: flex; align-items: center; gap: var(--space-sm); min-width: 0; }
-.kop img { width: 48px; height: 48px; border-radius: 12px; flex: none; }
-.kop h1 { max-width: none; font-size: var(--text-xl); }
-.kop .sub { color: var(--color-muted); font-size: var(--text-sm); }
-.kop .rechts { margin-left: auto; display: flex; gap: var(--space-xs); flex-wrap: wrap; }
-.pil { display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-xs) var(--space-sm); border: var(--rule-hair) solid var(--color-rule);
-  border-radius: var(--radius-small); background: var(--color-paper-2); font-size: var(--text-sm); }
-.pil.goed { color: var(--color-success); } .pil.uit { color: var(--color-error); }
-
-/* tegels */
-.tegels { display: grid; gap: var(--space-sm); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (min-width: 46rem) { .tegels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 72rem) { .tegels { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-.tegel { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-sm) var(--space-md);
-  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2xs) var(--space-sm); align-items: center; min-width: 0; }
-.tegel svg.i { grid-row: span 2; width: 28px; height: 28px; color: var(--color-accent); }
-.tegel .t { font-size: var(--text-sm); color: var(--color-ink-2); }
-.tegel b { font-size: var(--text-2xl); font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.tegel small { grid-column: 2; font-size: var(--text-xs); color: var(--color-muted); }
-.tegel.meter { grid-template-columns: minmax(0, 1fr) auto; }
-.tegel.meter > .t, .tegel.meter > b, .tegel.meter > small { grid-column: 1; }
-.tegel.meter svg.boog { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 64px; height: 40px; }
-.boog .spoor { fill: none; stroke: var(--color-paper-3); stroke-width: 14; stroke-linecap: round; }
-.boog .vul { fill: none; stroke: var(--color-success); stroke-width: 14; stroke-linecap: round; }
-
-/* hoofdindeling */
-.indeling { display: grid; gap: var(--space-md); margin-top: var(--space-md); grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 72rem) { .indeling { grid-template-columns: minmax(0, 1fr) 360px; } }
-.blok { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-md); min-width: 0; }
-.blok h2 { display: flex; align-items: center; gap: var(--space-xs); max-width: none; font-size: var(--text-section); margin-bottom: var(--space-sm); }
-.blok h2 small { font-weight: 500; font-size: var(--text-sm); color: var(--color-muted); letter-spacing: 0; }
-.zij { display: grid; gap: var(--space-md); align-content: start; min-width: 0; }
-
-/* nu bezig */
-.nu { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-md); align-items: baseline; padding: var(--space-sm) var(--space-md); margin-bottom: var(--space-sm);
-  border-radius: var(--radius-small); background: var(--color-paper-3); font-size: var(--text-sm); }
-.nu b { font-size: var(--text-md); }
-
-/* productietabel */
-.tabel { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
-th, td { text-align: left; padding: var(--space-xs); border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: middle; }
-th { color: var(--color-muted); font-weight: 500; font-size: var(--text-xs); }
-.prod td { white-space: nowrap; }
-.prod td.video { white-space: normal; min-width: 180px; }
-.duim { width: 96px; height: 54px; flex: none; border-radius: var(--radius-small); overflow: hidden; background: var(--color-paper-3); }
-/* 16 nov: vaste maat; op de iPhone (Safari) werd height:100% in de tabel veel hoger -> ingezoomd beeld ("ES", "SION") */
-.duim img { display: block; width: 96px; height: 54px; max-width: none; object-fit: cover; object-position: center; }
-.video b { display: block; font-size: var(--text-md); }
-.video small { display: block; color: var(--color-muted); max-width: 42ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.chip { display: inline-block; border-radius: var(--radius-small); padding: var(--space-3xs) var(--space-xs); font-size: var(--text-xs); font-weight: 600;
-  background: var(--color-paper-3); color: var(--color-ink-2); }
-.chip.goed { color: var(--color-success); } .chip.let { color: var(--color-warn); } .chip.fout { color: var(--color-error); } .chip.paars { color: var(--color-accent); }
-.datum b { display: block; } .datum small { color: var(--color-muted); }
-.stappen { display: flex; align-items: center; gap: var(--space-2xs); }
-.st { display: grid; justify-items: center; gap: var(--space-3xs); width: 44px; font-size: var(--text-xs); color: var(--color-muted); }
-.st span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--color-rule); }
-.st span svg { width: 14px; height: 14px; }
-.st.klaar span { background: var(--color-success); border-color: var(--color-success); color: var(--color-accent-ink); }
-.st.nu span { border-color: var(--color-accent); color: var(--color-accent); }
-.st.nu { color: var(--color-ink); }
-.gereed { font-weight: 700; font-variant-numeric: tabular-nums; }
-.gereed.vol { color: var(--color-success); }
-.leeg { padding: var(--space-lg) var(--space-md); color: var(--color-muted); }
-/* telefoon: elke video een kaartje, de stappen op een eigen regel (niet opzij schuiven) */
-@media (max-width: 46rem) {
-  .prod thead { display: none; }
-  .prod tr { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: var(--space-xs) var(--space-sm); align-items: center;
-    padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-rule); }
-  .prod td { border: 0; padding: 0; white-space: normal; }
-  .prod td:nth-child(1) { grid-column: 1; grid-row: 1 / 4; align-self: start; }
-  .prod td.video { grid-column: 2; grid-row: 1; min-width: 0; }
-  .prod td.gereed { grid-column: 3; grid-row: 1; }
-  .prod td:nth-child(3) { grid-column: 2 / -1; grid-row: 2; }
-  .prod td:nth-child(3) br { display: none; }
-  .prod td.datum { grid-column: 2 / -1; grid-row: 3; }
-  .prod td.datum b { display: inline; }
-  .prod td:nth-child(5) { grid-column: 1 / -1; grid-row: 4; }
-  .prod .stappen { justify-content: space-between; }
-  .video small { max-width: none; }
-}
-
-/* zijkolom */
-.balken { display: grid; gap: var(--space-sm); }
-.balken a, .balken div.r { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-sm); text-decoration: none; font-size: var(--text-sm); }
-.balken .naam { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.balken .waarde { color: var(--color-success); font-weight: 600; font-variant-numeric: tabular-nums; }
-.balken .lijn { grid-column: 1 / -1; height: 8px; border-radius: var(--radius-pill); background: var(--color-paper-3); overflow: hidden; }
-.balken .lijn i { display: block; height: 100%; border-radius: var(--radius-pill); background: var(--color-success); transform-origin: left; }
-.momenten { display: grid; gap: var(--space-xs); }
-.moment { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-sm); align-items: center; padding-block: var(--space-xs);
-  border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); }
-.moment:last-child { border-bottom: 0; }
-.moment small { grid-column: 1; color: var(--color-muted); }
-.moment .over { grid-row: span 2; grid-column: 2; }
-.ideeen { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-xs); counter-reset: idee; font-size: var(--text-sm); }
-.ideeen li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-xs); counter-increment: idee; }
-.ideeen li::before { content: counter(idee); color: var(--color-muted); font-variant-numeric: tabular-nums; }
-.ideeen small { display: block; color: var(--color-muted); }
-
-/* uitklapblokken */
-.meer { display: grid; gap: var(--space-sm); margin-top: var(--space-md); }
-details.blok { padding: 0; }
-details.blok > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: var(--space-xs); padding: var(--space-md); font-weight: 600;
-  border-radius: var(--radius-card); transition: background-color var(--dur-micro) var(--ease-out); min-height: 44px; }
-details.blok > summary::-webkit-details-marker { display: none; }
-details.blok > summary:hover { background: var(--color-paper-3); }
-details.blok > summary:active { background: var(--color-rule); }
-details.blok > summary small { font-weight: 400; color: var(--color-muted); }
-details.blok > summary .pijl { margin-left: auto; transition: transform var(--dur-short) var(--ease-out); }
-details.blok[open] > summary .pijl { transform: rotate(180deg); }
-details.blok > .binnen { padding: 0 var(--space-md) var(--space-md); display: grid; gap: var(--space-md); }
-.twee { display: grid; gap: var(--space-md); grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 52rem) { .twee { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.sub h3 { margin-bottom: var(--space-xs); }
-.balk { height: 10px; border-radius: var(--radius-pill); background: var(--color-paper-3); overflow: hidden; margin: var(--space-2xs) 0; }
-.balk i { display: block; height: 100%; border-radius: var(--radius-pill); background: var(--color-accent); }
-.balk.groen i { background: var(--color-success); } .balk.rood i { background: var(--color-error); }
-.groot { font-size: var(--text-xl); font-weight: 700; font-variant-numeric: tabular-nums; }
-.op { color: var(--color-success); font-weight: 600; } .neer { color: var(--color-error); font-weight: 600; } .let { color: var(--color-warn); }
-dl.vast { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: var(--space-xs) var(--space-sm); margin: 0; font-size: var(--text-sm); }
-dl.vast dt { color: var(--color-muted); } dl.vast dd { margin: 0; }
-.lijst { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-xs); font-size: var(--text-sm); }
-.lijst li { display: flex; gap: var(--space-xs); align-items: flex-start; min-width: 0; }
-.lijst li > span:last-child { min-width: 0; overflow-wrap: anywhere; }
-.v { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; flex: none; font-size: var(--text-xs); font-weight: 700;
-  background: var(--color-success); color: var(--color-accent-ink); }
-.v.nee { background: var(--color-paper-3); color: var(--color-muted); } .v.fout { background: var(--color-error); color: var(--color-accent-ink); }
-.log div { display: flex; gap: var(--space-xs); padding-block: var(--space-2xs); border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); min-width: 0; }
-.log span { min-width: 0; overflow-wrap: anywhere; } .log span.fout { color: var(--color-error); }
-.log time { color: var(--color-muted); flex: none; font-variant-numeric: tabular-nums; }
-.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2xs); }
-.dag { border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-small); padding: var(--space-xs) var(--space-2xs); text-align: center;
-  font-size: var(--text-xs); display: grid; gap: var(--space-2xs); min-width: 0; }
-.dag.vandaag { border-color: var(--color-accent); }
-.dag .lang { border-radius: var(--radius-small); padding: var(--space-2xs); font-weight: 700; background: var(--color-accent); color: var(--color-accent-ink); overflow-wrap: anywhere; }
-.dag .lang.script { background: var(--color-paper-3); color: var(--color-ink-2); }
-#grafiek { width: 100%; height: 190px; display: block; }
-#grafiek .as { stroke: var(--color-rule); } #grafiek text { fill: var(--color-muted); font-size: 11px; }
-#grafiek .l-abo { fill: none; stroke: var(--color-accent); stroke-width: 3; } #grafiek .v-abo { fill: color-mix(in oklab, var(--color-accent) 22%, transparent); }
-#grafiek .l-views { fill: none; stroke: var(--color-success); stroke-width: 3; } #grafiek .v-views { fill: color-mix(in oklab, var(--color-success) 16%, transparent); }
-.legenda { display: flex; gap: var(--space-md); font-size: var(--text-xs); color: var(--color-ink-2); }
-.legenda .a { color: var(--color-accent); } .legenda .b { color: var(--color-success); }
-a.link { text-decoration: underline; }
-a:hover { color: var(--color-accent); }
-a:active { color: var(--color-focus); }
-/* planning alle kanalen (19 nov 2026) */
-.kp-weken { display: grid; gap: var(--space-md); grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 60rem) { .kp-weken { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.kp-week h3 { font-size: var(--text-md); margin-bottom: var(--space-xs); }
-.kp-dag { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: var(--space-xs); padding-block: var(--space-xs); border-top: var(--rule-hair) solid var(--color-rule); align-items: start; }
-.kp-dag.vandaag { background: var(--color-paper-3); border-radius: var(--radius-small); padding-inline: var(--space-xs); }
-.kp-dag .dg { font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; }
-.kp-dag .dg b { display: block; color: var(--color-ink); }
-.kp-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px var(--space-xs); padding: 4px 0; font-size: var(--text-sm); }
-.kp-item + .kp-item { border-top: 1px dashed var(--color-rule); }
-.kp-kan { font-size: var(--text-xs); font-weight: 700; padding: 2px 6px; border-radius: 4px; color: var(--color-paper); align-self: start; white-space: nowrap; }
-.kp-kan.doodle { background: #c0571a; } .kp-kan.sleep { background: #4f6fb3; } .kp-kan.noir { background: #8a3b3b; } .kp-kan.swan { background: #2f7d5b; }
-.kp-tit { min-width: 0; overflow-wrap: anywhere; }
-.kp-st { grid-column: 2; font-size: var(--text-xs); color: var(--color-muted); }
-.kp-st.online { color: var(--color-success); } .kp-st.gepland { color: var(--color-accent); } .kp-st.maak { color: var(--color-warn); }
-.kp-leeg { font-size: var(--text-sm); color: var(--color-muted); padding: 4px 0; }
-.kp-regels { margin-top: var(--space-sm); display: grid; gap: var(--space-2xs); font-size: var(--text-sm); }
-/* 21 nov 2026 eigenaar: "overzichtelijker, minder tekst, Noir weg" */
-.plan-rij { display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-sm); padding: 10px 6px; border-top: var(--rule-hair) solid var(--color-rule); align-items: start; }
-.plan-rij.kop { border-top: 0; padding-block: 0 6px; font-size: var(--text-xs); color: var(--color-muted); font-weight: 600; }
-.plan-rij.vandaag { background: var(--color-paper-3); border-radius: var(--radius-small); }
-.plan-rij.voorbij { opacity: .55; }
-.plan-rij .dg { font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; }
-.plan-rij .dg b { display: block; color: var(--color-ink); }
-.cel { min-width: 0; font-size: var(--text-sm); }
-.cel .t { display: flex; gap: 6px; align-items: baseline; }
-.cel .t a, .cel .t span { min-width: 0; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.cel .s { font-size: var(--text-xs); color: var(--color-muted); margin-top: 2px; display: flex; gap: 8px; flex-wrap: wrap; }
-.cel.leeg { color: var(--color-muted); padding: 0; }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--color-muted); flex: none; transform: translateY(-1px); }
-.dot.online { background: var(--color-success); } .dot.gepland { background: var(--color-accent); } .dot.maak { background: var(--color-warn); }
-.short { border: 1px solid var(--color-rule); border-radius: 4px; padding: 0 5px; }
-.legend { display: flex; gap: var(--space-md); margin-top: var(--space-sm); font-size: var(--text-xs); color: var(--color-muted); }
-.legend span { display: inline-flex; gap: 5px; align-items: center; }
-.cel .k { display: none; }
-@media (max-width: 46rem) {
-  .plan-rij { grid-template-columns: 3.2rem minmax(0, 1fr); }
-  .plan-rij.kop { display: none; }
-  .plan-rij .cel + .cel { grid-column: 2; }
-  .plan-rij .cel.leeg { display: none; }
-  .cel .k { display: inline-block; }
-}
-.hype-lijst { display: grid; gap: 6px; font-size: var(--text-sm); margin-bottom: var(--space-sm); }
-.hype-lijst > div { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
-.hype-lijst > div > span:last-child { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.tag { font-size: var(--text-xs); font-weight: 700; padding: 1px 6px; border-radius: 4px; flex: none; background: var(--color-paper-3); }
-.tag.rood { background: #8a3b3b; color: #fff; }
-.klein { font-size: var(--text-xs); margin-top: var(--space-sm); }
-.kp-kan.geld { background: #b8892c; }
-@media (min-width: 72rem) { #hypeKop + .twee { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.sub h3 small { font-weight: 400; }
+:root{--bg:#111114;--kaart:#1c1c21;--lijn:#2c2c33;--tekst:#f2f2f5;--zacht:#9a9aa6;--groen:#3ecf6e;--oranje:#ffb547;--rood:#ff5c5c;--blauw:#6aa6ff;
+--sleep:#a98bff;--swan:#e8e8ee;--doodle:#ff9f43}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tekst);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;padding:16px 16px 40px}
+main{max-width:720px;margin:0 auto}
+html,body{overflow-x:hidden}
+ul.todo li>div,.titel,.pc>div{min-width:0;overflow-wrap:anywhere}
+h1{font-size:22px;margin:4px 0 2px}
+.bij{color:var(--zacht);font-size:13px;margin-bottom:18px}
+h2{font-size:17px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+.kaart{background:var(--kaart);border:1px solid var(--lijn);border-radius:14px;padding:14px 16px}
+.pc{display:flex;align-items:center;gap:14px}
+.stip{width:16px;height:16px;border-radius:50%;flex:none}
+.pc b{font-size:18px}
+.pc .wat{color:var(--zacht);font-size:14px;margin-top:2px}
+ul.todo{list-style:none;margin:0;padding:0}
+ul.todo li{padding:10px 0;border-bottom:1px solid var(--lijn);display:flex;gap:10px}
+ul.todo li:last-child{border-bottom:0}
+.wanneer{color:var(--oranje);font-weight:600;width:96px;flex:none;font-size:14px}
+.klein{color:var(--zacht);font-size:13px}
+.leeg{color:var(--zacht)}
+.dag{margin-top:14px}
+.dag:first-child{margin-top:0}
+.dagnaam{font-weight:700;font-size:14px;color:var(--zacht);text-transform:capitalize;margin-bottom:4px}
+.dagnaam.vandaag{color:var(--blauw)}
+.item{display:flex;gap:10px;padding:6px 0;align-items:baseline}
+.tijd{color:var(--zacht);font-size:13px;min-width:40px;font-variant-numeric:tabular-nums}
+.label{font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap;color:#111}
+.l-Sleep{background:var(--sleep)}.l-Swan{background:var(--swan)}.l-Doodle{background:var(--doodle)}
+.titel{flex:1;min-width:0}
+.stand{font-size:12px;margin-left:4px}
+.ok{color:var(--groen)}.nog{color:var(--oranje)}.fout{color:var(--rood)}
+.weektabs{display:flex;gap:8px;margin-bottom:10px}
+.weektabs button{background:var(--kaart);color:var(--tekst);border:1px solid var(--lijn);border-radius:99px;padding:6px 14px;font:inherit;font-size:14px}
+.weektabs button.aan{background:var(--tekst);color:var(--bg)}
+a{color:var(--blauw)}
+footer{margin-top:30px;font-size:13px;color:var(--zacht)}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="m10 9 5 3-5 3z"/></symbol>
- <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></symbol>
- <symbol id="i-montage" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
- <symbol id="i-upload" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 18a5 5 0 0 1-.5-10A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9M12 12v8M9 15l3-3 3 3"/></symbol>
- <symbol id="i-kal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M3 10h18M8 3v4M16 3v4"/></symbol>
- <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="currentColor"/><path fill="currentColor" d="M2 20c.5-4 3.5-6 7-6s6.5 2 7 6z"/></symbol>
- <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
- <symbol id="i-beeld" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="m3 16 5-5 4 4 3-3 6 6"/></symbol>
- <symbol id="i-vink" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" d="m5 12 4.5 4.5L19 7"/></symbol>
- <symbol id="i-grafiek" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/></symbol>
- <symbol id="i-lamp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></symbol>
- <symbol id="i-omlaag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></symbol>
-</svg>
+<main>
+  <h1>Studio</h1>
+  <div class="bij" id="bij">laden…</div>
 
-<div class="wrap">
-  <header class="kop">
-    <div class="merk"><img src="logo.png?v=3" alt="Sleep Archives logo">
-    <div><h1>Studio</h1><div class="sub">BlackswanVault en Sleep Archives</div></div></div>
-    <div class="rechts"><span class="pil" id="vandaag"><svg class="i" aria-hidden="true"><use href="#i-kal"/></svg><span></span></span><span class="pil" id="stip"><span id="updateTekst">Gegevens laden</span></span></div>
-  </header>
+  <h2>Gebruikt de pc nu?</h2>
+  <div class="kaart pc" id="pc"><span class="leeg">laden…</span></div>
 
-  <section class="blok" aria-labelledby="kpKop" style="margin-top:var(--space-sm)">
-    <h2 id="kpKop"><svg class="i" aria-hidden="true"><use href="#i-kal"/></svg>Planning</h2>
-    <div class="plan" id="kpWeken"><div class="zacht">Gegevens laden</div></div>
-    <div class="legend"><span><i class="dot online"></i>online</span><span><i class="dot gepland"></i>gepland</span><span><i class="dot maak"></i>nog maken</span></div>
-  </section>
+  <h2>Wat moet er gebeuren</h2>
+  <div class="kaart"><ul class="todo" id="todo"><li class="leeg">laden…</li></ul></div>
 
-  <section class="blok" aria-labelledby="hypeKop" style="margin-top:var(--space-md)">
-    <h2 id="hypeKop"><svg class="i" aria-hidden="true"><use href="#i-grafiek"/></svg>Hype nu</h2>
-    <div class="twee">
-      <div class="sub"><h3><span class="kp-kan swan">BlackswanVault</span> <small class="zacht" id="nwTijd"></small></h3>
-        <div id="nieuws" class="hype-lijst"><div class="zacht">Gegevens laden</div></div>
-        <div id="ytSwan" class="hype-lijst"></div></div>
-      <div class="sub"><h3><span class="kp-kan sleep">Sleep Archives</span> <small class="zacht" id="hypeTijd"></small></h3>
-        <div class="balken" id="trends"><div class="zacht">Gegevens laden</div></div></div>
-      <div class="sub"><h3><span class="kp-kan geld">Geldverhaal</span> <small class="zacht" id="nlTijd"></small></h3>
-        <div id="nlHype" class="hype-lijst"><div class="zacht">Gegevens laden</div></div></div>
-    </div>
-    <p class="zacht klein">Echt grote hype? Dan mag een geplande video naar een latere dag.</p>
-  </section>
+  <h2>Planning</h2>
+  <div class="weektabs" id="tabs"></div>
+  <div class="kaart" id="planning"><span class="leeg">laden…</span></div>
 
-  <div class="meer">
-    <details class="blok"><summary>Sleep Archives: productie <small>video's die gemaakt worden</small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen">
-  <section class="tegels" aria-label="Kerncijfers">
-    <div class="tegel"><svg class="i" aria-hidden="true"><use href="#i-film"/></svg><span class="t">Video’s op het kanaal</span><b id="kVideos">…</b></div>
-    <div class="tegel"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><span class="t">Scripts klaar</span><b id="kScripts">…</b><small id="kScriptsD"></small></div>
-    <div class="tegel"><svg class="i" aria-hidden="true"><use href="#i-montage"/></svg><span class="t">In productie</span><b id="kBezig">…</b></div>
-    <div class="tegel"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg><span class="t">Gepland op YouTube</span><b id="kGepland">…</b></div>
-    <div class="tegel"><svg class="i" aria-hidden="true"><use href="#i-mens"/></svg><span class="t">Abonnees</span><b id="kAbo">…</b><small id="kAboD"></small></div>
-    <div class="tegel meter"><span class="t">Hype score</span><svg class="boog" viewBox="0 0 200 120" aria-hidden="true"><path class="spoor" d="M20 105a80 80 0 0 1 160 0"/><path class="vul" id="meterBoog" d="M20 105a80 80 0 0 1 160 0" pathLength="100" stroke-dasharray="0 100"/></svg><b id="meterGetal">…</b><small id="meterUitleg"></small></div>
-  </section>
-    <section aria-labelledby="prodKop">
-      <h2 id="prodKop"><svg class="i" aria-hidden="true"><use href="#i-film"/></svg>Video’s in productie <small>van klaar naar minder klaar</small></h2>
-      <div class="nu" id="nuBezig">De pc wacht op de volgende taak.</div>
-      <div class="tabel"><table class="prod"><thead><tr><th>Video</th><th></th><th>Soort</th><th>Online</th><th>Stappen</th><th>Gereed</th></tr></thead><tbody id="productie"><tr><td colspan="6" class="leeg">Gegevens laden</td></tr></tbody></table></div>
-    </section>
-
-      <div class="twee">
-        <section class="sub"><h3 id="momKop">Aankomende momenten</h3><div class="momenten" id="momenten"></div></section>
-        <section class="sub"><h3 id="ideeKop">Nieuwe onderwerpen <small class="zacht">nog niets van ons</small></h3><ol class="ideeen" id="ideeen"></ol></section>
-      </div>
-      </div></details>
-
-    <details class="blok"><summary>Afspraken per kanaal<svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen"><div class="kp-regels" id="kpRegels"></div></div></details>
-
-    <details class="blok"><summary>Partnerprogramma <small>4.000 kijkuren en 1.000 abonnees</small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen"><div id="partner" class="twee"><div class="zacht">Gegevens laden</div></div></div></details>
-
-    <details class="blok"><summary>Kanaalcijfers <small>weergaven, kijktijd, top video’s</small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen">
-        <div class="twee">
-          <div class="sub"><h3>Laatste 28 dagen</h3><dl class="vast"><dt>Weergaven</dt><dd><b id="kViews">…</b> <span id="kViewsD"></span></dd><dt>Kijktijd</dt><dd><b id="kUren">…</b> <span id="kUrenD"></span></dd><dt>Opbrengst</dt><dd>€ 0, nog geen partner</dd></dl></div>
-          <div class="sub"><h3>Totaal</h3><dl class="vast" id="cijfers"></dl></div>
-        </div>
-        <div class="sub"><div class="legenda"><span class="a">Abonnees (opgeteld)</span><span class="b">Weergaven per dag</span></div>
-          <svg id="grafiek" viewBox="0 0 600 190" preserveAspectRatio="none" role="img" aria-label="Kanaalgroei, laatste 28 dagen"></svg></div>
-        <div class="twee"><div class="sub"><h3>Top video’s, 28 dagen</h3><ul class="lijst" id="top"></ul></div><div class="sub"><h3>Laatste uploads</h3><div class="tabel"><table id="recent"></table></div></div></div>
-      </div></details>
-
-    <details class="blok"><summary>Planning en scripts <small>deze week, titels, scriptcontrole</small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen">
-        <div class="sub"><h3 id="weekNr">Deze week</h3><div class="week" id="week"></div></div>
-        <div class="sub"><h3>Titels <small class="zacht" id="titelTijd"></small></h3><ul class="lijst" id="titels"></ul></div>
-        <div class="sub"><h3>Scripts <small class="zacht" id="scKlaar"></small></h3><div class="tabel"><table id="scripts"></table></div></div>
-        <div class="sub"><h3>Volgende acties</h3><ul class="lijst" id="actieLijst"></ul></div>
-      </div></details>
-
-    <details class="blok"><summary>Claude-gebruik <small id="clTijd"></small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen"><div id="claude"></div><div class="zacht" id="clUitleg"></div></div></details>
-
-    <details class="blok" id="acties"><summary>Automatisering <small>zelfcontrole, taken, logboek, vaste instellingen</small><svg class="i pijl" aria-hidden="true"><use href="#i-omlaag"/></svg></summary>
-      <div class="binnen">
-        <div class="twee"><div class="sub"><h3>Zelfcontrole</h3><ul class="lijst" id="zc"></ul></div><div class="sub"><h3>Automatische taken</h3><div id="taken"></div><div id="gpu" class="zacht"></div></div></div>
-        <div class="twee"><div class="sub"><h3>Logboek</h3><div class="log" id="log"></div></div><div class="sub"><h3>Vaste instellingen</h3><dl class="vast" id="vast"></dl></div></div>
-      </div></details>
-  </div>
-</div>
-
+  <footer>Alleen Sleep Archives, BlackswanVault en Market Doodle. Tijden in Nederlandse tijd. <a href="uitgebreid.html">Uitgebreide pagina</a></footer>
+</main>
 <script>
-const $=id=>document.getElementById(id);
+const KAN={"Sleep Archives":"Sleep","BlackswanVault":"Swan","Market Doodle":"Doodle"};
+const DAGEN=["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const nl=n=>Number(n||0).toLocaleString("nl-NL");
-const kort=n=>n>=1e6?(n/1e6).toLocaleString("nl-NL",{maximumFractionDigits:2})+" mln":n>=1e4?(n/1e3).toLocaleString("nl-NL",{maximumFractionDigits:1})+"K":nl(n);
-const DAG=["Zo","Ma","Di","Wo","Do","Vr","Za"];
-const isoDag=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
-const dagenTot=iso=>Math.round((new Date(iso+"T12:00")-new Date(isoDag(new Date())+"T12:00"))/864e5);
-function delta(a,b){if(b==null||!b)return "";const p=Math.round(100*(a-b)/b);return `<span class="${p>=0?"op":"neer"}">${p>=0?"+":""}${p}% t.o.v. de 28 dagen ervoor</span>`}
-function dagLabel(iso){const x=new Date(iso+"T12:00");return `${DAG[x.getDay()]} ${x.getDate()}-${x.getMonth()+1}`}
-const kortNaam=m=>(m||"").split("-").map(w=>w==="vc"?"v.C.":w.charAt(0).toUpperCase()+w.slice(1)).join(" ");   // "crisis-1933" wordt "Crisis 1933"
-function tijdLabel(s){if(!s)return "";const [dg,tm]=s.split(" "),n=dagenTot(dg);return `${n==0?"vandaag":n==1?"morgen":dagLabel(dg)} rond ${tm}`}
-function weekNr(d){d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const n=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-n);const j=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil(((d-j)/864e5+1)/7)}
-const STAP=[["Script","i-doc"],["Stem","i-mic"],["Beelden","i-beeld"],["Edit","i-montage"],["Upload","i-upload"]];
-// stap op de pc (0..6, dashboard_bijwerken.STAPPEN) naar de vijf stappen van de tabel
-const NAAR5=[0,0,2,1,3,3,4];
-
-function grafiek(dagen){
-  const g=$("grafiek");if(!dagen||!dagen.length){g.innerHTML=`<text x="300" y="95" text-anchor="middle">nog geen gegevens</text>`;return}
-  const W=600,H=190,L=34,B=24,T=10;let som=0;const abo=dagen.map(x=>som+=x.abonnees),v=dagen.map(x=>x.views);
-  const mx=Math.max(...v,1),ma=Math.max(...abo.map(Math.abs),1),n=dagen.length;
-  const X=i=>L+(W-L-8)*i/(n-1||1),Yv=y=>H-B-(H-B-T)*y/mx,Ya=y=>H-B-(H-B-T)*Math.max(y,0)/ma;
-  const lijn=(a,f)=>a.map((y,i)=>`${i?"L":"M"}${X(i).toFixed(1)} ${f(y).toFixed(1)}`).join(" ");
-  const vlak=(a,f)=>lijn(a,f)+` L${X(n-1)} ${H-B} L${X(0)} ${H-B}Z`;
-  let s="";
-  for(let k=0;k<=4;k++){const y=T+(H-B-T)*k/4;s+=`<line class="as" x1="${L}" x2="${W-8}" y1="${y}" y2="${y}"/><text x="${L-6}" y="${y+4}" text-anchor="end">${kort(Math.round(mx*(4-k)/4))}</text>`}
-  [0,Math.floor(n/3),Math.floor(2*n/3),n-1].forEach(i=>{const x=new Date(dagen[i].dag+"T12:00");s+=`<text x="${X(i)}" y="${H-6}" text-anchor="middle">${x.getDate()} ${x.toLocaleString("nl-NL",{month:"short"}).replace(".","")}</text>`});
-  s+=`<path class="v-abo" d="${vlak(abo,Ya)}"/><path class="l-abo" d="${lijn(abo,Ya)}"/><path class="v-views" d="${vlak(v,Yv)}"/><path class="l-views" d="${lijn(v,Yv)}"/>`;
-  g.innerHTML=s;
+const vandaag=new Date().toLocaleDateString("sv-SE");
+function dagLabel(iso){const d=new Date(iso+"T12:00");const t=DAGEN[d.getDay()]+" "+d.getDate()+" "+d.toLocaleDateString("nl-NL",{month:"short"});return iso===vandaag?"vandaag · "+t:t}
+function soortStand(s){s=(s||"").toLowerCase();
+  if(/vervalt/.test(s))return null;
+  if(/online|gepland|klaar op youtube|staat klaar|gaat vanzelf/.test(s))return["ok","staat klaar"];
+  if(/fout|mislukt/.test(s))return["fout",s];
+  return["nog",s.split(/[,(:]/)[0]||"nog maken"]}
+let D,week=0;
+function pc(){
+  const n=D.nu_bezig||[], g=D.videokaart, el=document.getElementById("pc");
+  const druk=g?g.bezig_procent:null, bezig=n.length>0||(druk!==null&&druk>=40);
+  let wat=n.length?n.map(x=>x.naam).join(", "):(bezig?"de videokaart is druk bezig":"er loopt niets zwaars");
+  let extra=g?` · videokaart ${druk}%`:"";
+  el.innerHTML=`<span class="stip" style="background:${bezig?"var(--oranje)":"var(--groen)"}"></span>
+   <div><b>${bezig?"Ja, de pc is bezig":"Nee, de pc is vrij"}</b><div class="wat">${esc(wat)}${extra}</div></div>`;
 }
-
-function kanalenPlanning(k){
-  // 21 nov 2026: alleen BlackswanVault en Sleep Archives; per dag één regel, de Short als label bij de lange video
-  const box=$("kpWeken");if(!k||!k.weken||!k.weken.length){box.innerHTML=`<div class="zacht">Nog geen planning</div>`;return}
-  const KAN=[["BlackswanVault","swan","Swan"],["Market Doodle","doodle","Doodle"],["Sleep Archives","sleep","Sleep"]];   // 22 nov: Market Doodle erbij
-  const st=s=>/online/.test(s)?"online":/gepland/.test(s)?"gepland":"maak";
-  const woord={online:"online",gepland:"gepland",maak:"nog maken"};
-  const vd=isoDag(new Date()),gisteren=isoDag(new Date(Date.now()-864e5));
-  const dagen=k.weken.flatMap(w=>w.dagen).filter(d=>d.datum>=gisteren);
-  const beste=(lijst)=>lijst.sort((a,b)=>(b.youtube?2:0)+(/privé/.test(b.stand)?1:0)-((a.youtube?2:0)+(/privé/.test(a.stand)?1:0)))[0];
-  const cel=(items,[naam,c,kort])=>{
-    const mijn=items.filter(i=>i.kanaal===naam);
-    if(!mijn.length)return `<div class="cel leeg">–</div>`;
-    const isShort=i=>/^Short:/i.test(i.titel)||/#shorts/i.test(i.titel)||(naam==="BlackswanVault"&&i.tijd==="17:00")||(naam==="Market Doodle"&&i.tijd==="18:00");
-    const lang=beste(mijn.filter(i=>!isShort(i))),kortV=beste(mijn.filter(isShort));
-    const hoofd=lang||kortV,s1=st(hoofd.stand),tit=hoofd.titel.replace(/^Short:\s*/i,"").replace(/ \| History for Sleep$/,"").replace(/,? zie OVERDRACHT/,"").replace(/ \(video\d+\)/,"");
-    const link=hoofd.youtube?`<a href="https://youtu.be/${esc(hoofd.youtube)}" target="_blank" rel="noopener">${esc(tit)}</a>`:`<span>${esc(tit)}</span>`;
-    const sh=lang&&kortV?`<span class="short"><i class="dot ${st(kortV.stand)}"></i> Short${kortV.tijd?" "+esc(kortV.tijd):""}</span>`:"";
-    return `<div class="cel"><div class="t"><i class="dot ${s1}" title="${esc(woord[s1])}"></i>${link}</div><div class="s"><span class="kp-kan ${c} k">${kort}</span><span>${esc(woord[s1])}${hoofd.tijd?" "+esc(hoofd.tijd):""}</span>${sh}</div></div>`};
-  box.innerHTML=`<div class="plan-rij kop"><div></div><div>BlackswanVault</div><div>Market Doodle</div><div>Sleep Archives</div></div>`+
-    dagen.map(d=>{const x=new Date(d.datum+"T12:00");
-      return `<div class="plan-rij${d.datum==vd?" vandaag":""}${d.datum<vd?" voorbij":""}"><div class="dg"><b>${d.datum==vd?"Vandaag":DAG[x.getDay()]}</b>${x.getDate()}-${x.getMonth()+1}</div>`+KAN.map(K=>cel(d.items,K)).join("")+`</div>`}).join("");
-  $("kpRegels").innerHTML=KAN.map(([n,c,kn])=>k.regels&&k.regels[n]?`<div><span class="kp-kan ${c}">${kn}</span> ${esc(k.regels[n])}</div>`:"").join("");
+function alleItems(){const u=[];for(const w of D.kanalen?.weken||[])for(const d of w.dagen)for(const x of d.items)if(KAN[x.kanaal])u.push(x);return u}
+function todo(){
+  const L=[];
+  for(const x of alleItems()){const s=soortStand(x.stand);if(!s||s[0]==="ok"||x.datum<vandaag)continue;
+    L.push({datum:x.datum,tekst:`<span class="label l-${KAN[x.kanaal]}">${KAN[x.kanaal]}</span> ${esc(x.titel)}`,klein:x.stand})}
+  for(const p of D.werkplanning?.publicaties||[]){if(p.kleur==="goed"||p.datum<vandaag)continue;
+    if(L.some(l=>l.datum===p.datum&&l.tekst.includes("Sleep")))continue;
+    L.push({datum:p.datum,tekst:`<span class="label l-Sleep">Sleep</span> ${esc(p.titel.replace(" | History for Sleep",""))}`,klein:p.stand})}
+  for(const f of D.fouten||[])L.push({datum:"",tekst:`<span class="fout">Fout:</span> ${esc(f.tekst)}`,klein:f.tijd});
+  if(D.werkplanning&&D.werkplanning.routine_aan===false&&!(D.taken?.bewaker?.aan))L.push({datum:"",tekst:"Sleep Archives staat op pauze",klein:"zeg 'hervatten' om de bewaker weer aan te zetten"});
+  L.sort((a,b)=>(a.datum||"0").localeCompare(b.datum||"0"));
+  document.getElementById("todo").innerHTML=L.length?L.map(l=>`<li><span class="wanneer">${l.datum?esc(dagLabel(l.datum).replace(/^vandaag · /,"vandaag ").split(" ").slice(0,2).join(" ")):"nu"}</span><div>${l.tekst}<div class="klein">${esc(l.klein||"")}</div></div></li>`).join(""):`<li class="leeg">Niets te doen. Alles staat klaar.</li>`;
 }
-
-function nieuwswacht(n){
-  const box=$("nieuws");if(!n){box.innerHTML=`<div class="zacht">Nieuwswacht nog niet gedraaid</div>`;return}
-  $("nwTijd").textContent=tijdLabel(n.bijgewerkt);
-  const gezien=new Set(),groot=(n.onderwerpen||[]).filter(o=>o.groot&&!gezien.has(o.onderwerp)&&gezien.add(o.onderwerp)).slice(0,5);
-  box.innerHTML=groot.length?groot.map(o=>{const k=(o.koppen||[])[0],w=(o.wat||[]).join(", ");
-    return `<div><span class="tag rood">GROOT</span><span><b>${esc(o.onderwerp)}</b> ${k?`<a href="${esc(k.link)}" target="_blank" rel="noopener">${esc(k.titel)}</a>`:`<span class="zacht">${esc(w)}</span>`}</span></div>`}).join(""):`<div class="zacht">Geen groot nieuws.</div>`;
+function planning(){
+  const W=D.kanalen?.weken||[];
+  document.getElementById("tabs").innerHTML=W.map((w,i)=>`<button class="${i===week?"aan":""}" onclick="week=${i};planning()">${esc(w.label)}</button>`).join("");
+  const w=W[week];if(!w){document.getElementById("planning").innerHTML='<span class="leeg">Geen planning gevonden.</span>';return}
+  // Sleep-publicaties uit de werkplanning aanvullen als ze ontbreken
+  const extra=(D.werkplanning?.publicaties||[]).filter(p=>p.datum>=w.van&&p.datum<=w.tot);
+  let html="";
+  for(const d of w.dagen){
+    let items=d.items.filter(x=>KAN[x.kanaal]&&soortStand(x.stand));
+    for(const p of extra)if(p.datum===d.datum&&!items.some(x=>x.kanaal==="Sleep Archives"))items.push({kanaal:"Sleep Archives",tijd:"21:00",titel:p.titel.replace(" | History for Sleep",""),stand:p.stand});
+    items.sort((a,b)=>(a.tijd||"").localeCompare(b.tijd||""));
+    html+=`<div class="dag"><div class="dagnaam ${d.datum===vandaag?"vandaag":""}">${esc(dagLabel(d.datum))}</div>`+
+      (items.length?items.map(x=>{const s=soortStand(x.stand);return `<div class="item"><span class="tijd">${esc(x.tijd||"")}</span><span class="label l-${KAN[x.kanaal]}">${KAN[x.kanaal]}</span><span class="titel">${esc(x.titel.replace(/^Short: /,"Short · "))}<span class="stand ${s[0]}">${s[0]==="ok"?"✓":"● "+esc(s[1])}</span></span></div>`}).join(""):`<div class="item leeg klein">niets gepland</div>`)+`</div>`;
+  }
+  document.getElementById("planning").innerHTML=html;
 }
-
-function ytWacht(y){
-  const box=$("ytSwan");if(!y){box.innerHTML="";return}
-  const uit=(y.kanalen_zoals_wij||[]).filter(x=>x.uitschieter).slice(0,4);
-  box.innerHTML=uit.length?`<div class="zacht" style="margin-top:4px">Snel op YouTube bij kanalen zoals wij:</div>`+uit.map(x=>`<div><span class="tag">${esc(x.keer_gewoon)}x</span><span><a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a> <span class="zacht">${esc(x.kanaal)}</span></span></div>`).join(""):"";
-}
-
-function nlWacht(n){
-  // Geldverhaal (21 nov 2026): NL-nieuws (nu.nl, FD, NOS), koersen wereldwijd, Nederlandse YouTube
-  const box=$("nlHype");if(!n){box.innerHTML=`<div class="zacht">Nog niet gedraaid (08:20 en 16:05)</div>`;return}
-  $("nlTijd").textContent=tijdLabel(n.bijgewerkt);
-  const gezien=new Set(),groot=(n.nieuws||[]).filter(o=>o.groot&&!gezien.has(o.onderwerp)&&gezien.add(o.onderwerp)).slice(0,4);
-  const sterk=(n.youtube||[]).filter(o=>o.sterk).slice(0,3);
-  const uit=(n.kanalen_zoals_wij||[]).filter(x=>x.uitschieter).slice(0,3);
-  box.innerHTML=(groot.length?groot.map(o=>{const k=(o.koppen||[])[0];return `<div><span class="tag rood">GROOT</span><span><b>${esc(o.onderwerp)}</b> ${k?`<a href="${esc(k.link)}" target="_blank" rel="noopener">${esc(k.titel)}</a>`:`<span class="zacht">${esc((o.wat||[]).join(", "))}</span>`}</span></div>`}).join(""):`<div class="zacht">Geen groot nieuws.</div>`)+
-    (sterk.length?`<div class="zacht" style="margin-top:4px">Groot op Nederlandse YouTube én in het nieuws:</div>`+sterk.map(o=>`<div><span class="tag rood">STERK</span><span><b>${esc(o.onderwerp)}</b> <span class="zacht">${esc(o.kanalen)} kanalen</span></span></div>`).join(""):"")+
-    (uit.length?`<div class="zacht" style="margin-top:4px">Uitschieters bij Nederlandse geldkanalen:</div>`+uit.map(x=>`<div><span class="tag">${esc(x.keer_gewoon)}x</span><span><a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel)}</a> <span class="zacht">${esc(x.kanaal)}</span></span></div>`).join(""):"");
-}
-
-async function laad(){
-  let d;try{d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}
-  catch(e){$("updateTekst").textContent="Geen gegevens, de pagina probeert het over 2 minuten opnieuw";$("stip").className="pil uit";
-    $("productie").innerHTML=`<tr><td colspan="6" class="leeg">De gegevens van de pc zijn niet te laden.</td></tr>`;return}
-  const min=Math.round((Date.now()-new Date(d.bijgewerkt.replace(" ","T")))/60000),pcOk=min<=90;
-  try{kanalenPlanning(d.kanalen)}catch(e){$("kpWeken").textContent="Planning niet te tonen"}
-  try{nieuwswacht(d.nieuws)}catch(e){$("nieuws").textContent="Nieuwswacht niet te tonen"}
-  try{ytWacht(d.yt_swan)}catch(e){$("ytSwan").textContent="YouTube-wachter niet te tonen"}
-  try{nlWacht(d.nl_hype)}catch(e){$("nlHype").textContent="NL-wachter niet te tonen"}
-  $("stip").className="pil "+(pcOk?"goed":"uit");
-  $("updateTekst").textContent=pcOk?`Pc actief, bijgewerkt ${min<1?"zojuist":min+" min geleden"}`:`De pc stuurt geen update (laatste ${d.bijgewerkt.slice(11)})`;
-  $("vandaag").lastElementChild.textContent=new Date().toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
-  const k=d.kanaal||{},m=k.maand||k.week||{},vm=k.vorige_maand||k.vorige_week;
-  const vandaag=isoDag(new Date());
-  const komend=(d.video||[]).filter(x=>x.datum>=vandaag).sort((a,b)=>a.datum.localeCompare(b.datum));
-  const hp=(d.hype&&d.hype.punten)||[];
-
-  // tegels
-  $("kVideos").textContent=nl(k.video_aantal);
-  $("kScripts").textContent=nl(komend.filter(x=>x.soort==="script nieuw").length);
-  const sc=d.scripts||{rij:[]};$("kScriptsD").textContent=sc.klaar_tot?`klaar t/m ${dagLabel(sc.klaar_tot)}`:"";
-  $("kBezig").textContent=nl(komend.filter(x=>x.soort==="bezig").length);
-  $("kGepland").textContent=nl(komend.filter(x=>x.soort==="gepland").length);
-  $("kAbo").textContent=nl(k.abonnees);$("kAboD").innerHTML=m.abonnees!=null?`<span class="${m.abonnees>=0?"op":"neer"}">${m.abonnees>=0?"+":""}${m.abonnees} in 28 dagen</span>`:"";
-  const gekoppeld=new Set(hp.flatMap(p=>p.ons||[]));
-  const zes=komend.slice(0,6),meelift=zes.filter(x=>gekoppeld.has(x.map)).length;
-  const scriptKlaar=zes.filter(x=>x.soort!=="script").length;
-  const score=Math.round(55*meelift/Math.max(zes.length,1)+25*scriptKlaar/Math.max(zes.length,1)+(d.fouten.length?0:20));
-  $("meterGetal").textContent=score;$("meterBoog").setAttribute("stroke-dasharray",`${score} 100`);
-  $("meterUitleg").textContent=`${meelift} van ${zes.length} op hype of jubileum`;
-
-  // nu bezig
-  const h=d.huidig;
-  $("nuBezig").innerHTML=h?`<b>Nu bezig: ${esc(kortNaam(h.map))}</b><span>${esc(h.stapnaam)}${h.detail?", "+esc(h.detail):""}</span>${h.eind?`<span class="zacht">klaar ${esc(tijdLabel(h.eind.klaar))}, op YouTube ${esc(tijdLabel(h.eind.youtube))}</span>`:""}`:"De pc wacht op de volgende taak.";
-
-  // productietabel
-  const event=map=>hp.find(p=>(p.ons||[]).includes(map)&&p.soort!=="hype");
-  // eigenaar 16 nov: "in volgorde van klaar naar minder klaar": eerst het verst gevorderd, bij gelijk de vroegste datum
-  const opVolgorde=komend.slice(0,12).sort((a,b)=>(b.gereed??0)-(a.gereed??0)||a.datum.localeCompare(b.datum));
-  $("productie").innerHTML=opVolgorde.map(x=>{
-    const st=x.stappen||[false,false,false,false,false];const nu=h&&h.map===x.map?NAAR5[d.stap]??-1:-1;
-    const ev=event(x.map),n=dagenTot(x.datum);
-    const stappen=STAP.map(([naam,ico],i)=>`<div class="st ${st[i]?"klaar":i===nu?"nu":""}" title="${naam}${st[i]?": klaar":i===nu?": nu bezig":""}"><span>${st[i]?`<svg aria-hidden="true"><use href="#i-vink"/></svg>`:`<svg aria-hidden="true"><use href="#${ico}"/></svg>`}</span>${naam}</div>`).join("");
-    const chip=x.soort==="gepland"?["goed","gepland"]:x.soort==="bezig"?["paars","wordt gemaakt"]:x.soort==="script nieuw"?["","script klaar"]:["let",x.soort];
-    return `<tr><td><div class="duim">${x.thumb?`<img src="${esc(x.thumb)}" alt="" loading="lazy">`:""}</div></td>
-      <td class="video"><b>${esc(kortNaam(x.map))}</b><small>${x.id?`<a href="https://youtu.be/${esc(x.id)}" target="_blank" rel="noopener">${esc(x.titel.replace(/ \| History for Sleep$/,""))}</a>`:esc(x.titel.replace(/ \| History for Sleep$/,""))}</small></td>
-      <td><span class="chip">${esc(x.afspeellijst||"")}</span><br><span class="chip ${chip[0]}">${esc(chip[1])}</span></td>
-      <td class="datum"><b>${dagLabel(x.datum)}</b> <small>${n===0?"vandaag":n===1?"morgen":"over "+n+" dagen"}${ev?`, ${esc(ev.naam)}`:""}</small></td>
-      <td><div class="stappen">${stappen}</div></td>
-      <td class="gereed ${x.gereed===100?"vol":""}">${x.gereed??0}%</td></tr>`}).join("")||`<tr><td colspan="6" class="leeg">Niets gepland. Zet een script in de planning en de bewaker begint vanzelf.</td></tr>`;
-
-  // hype en trends
-  if(d.hype){$("hypeTijd").textContent=tijdLabel(d.hype.bijgewerkt);
-    const tr=hp.filter(p=>p.soort==="hype").slice(0,5),mx=Math.max(...tr.map(p=>p.per_dag),1);
-    $("trends").innerHTML=tr.map(p=>`<a href="https://youtu.be/${esc(p.id)}" target="_blank" rel="noopener" title="${esc(p.kanaal)}: ${esc(p.advies)}"><span class="naam">${esc(p.titel)}</span><span class="waarde">${kort(p.per_dag)} per dag</span><span class="lijn"><i style="width:${(100*p.per_dag/mx).toFixed(0)}%"></i></span></a>`).join("")||`<div class="zacht">Geen grote slaapvideo’s die nu hard groeien.</div>`;
-    const mom=hp.filter(p=>p.soort!=="hype"&&p.soort!=="fout"&&p.datum>=vandaag).slice(0,5);
-    $("momenten").innerHTML=mom.map(p=>{const n=dagenTot(p.datum);return `<div class="moment"><b>${dagLabel(p.datum)}, ${esc(p.naam)}</b><span class="over chip ${/KANS|naar voren/.test(p.advies||"")?"let":"goed"}">${n===0?"vandaag":"over "+n+" dagen"}</span><small>${esc((p.advies||"").replace(/^KANS: /,"kans: "))}</small></div>`}).join("")||`<div class="zacht">Geen jubilea of feestdagen in de komende 10 weken.</div>`;
-    const ide=hp.filter(p=>/KANS/.test(p.advies||"")).slice(0,4);
-    $("ideeen").innerHTML=ide.map(p=>`<li><span>${esc(p.titel||p.naam)}<small>${p.soort==="hype"?kort(p.per_dag)+" per dag bij "+esc(p.kanaal):esc(p.datum)}</small></span></li>`).join("")||`<li><span>Alles wat nu speelt, staat al in de planning.</span></li>`}
-  else{$("trends").innerHTML=`<div class="zacht">De hype-wachter draait elke dag om 08:30.</div>`;$("momenten").innerHTML="";$("ideeen").innerHTML=""}
-
-  // partnerprogramma
-  {const pp=k.partner||null;
-   if(pp){const nlDatum=s=>s?new Date(s).toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"}):"onbekend";
-    const du=pp.datum_uren?dagenTot(pp.datum_uren.slice(0,10)):null,da=pp.datum_abonnees?dagenTot(pp.datum_abonnees.slice(0,10)):null,dv=pp.valt_eruit_vanaf?dagenTot(pp.valt_eruit_vanaf.slice(0,10)):null;
-    $("partner").innerHTML=`<div class="sub"><span class="groot">${nl(pp.uren)}</span> <span class="zacht">van ${nl(pp.uren_doel)} kijkuren</span><div class="balk"><i style="width:${Math.min(100,100*pp.uren/pp.uren_doel).toFixed(1)}%"></i></div>
-      <p class="zacht">Nog ${nl(Math.max(0,pp.uren_doel-pp.uren))} uur, tempo ${pp.tempo_uren_per_dag} uur per dag. ${du!=null?`In dit tempo gehaald over ${du} dagen (${nlDatum(pp.datum_uren)}).`:"In dit tempo nog niet binnen 3 jaar."}</p>
-      <p class="let">Uiterlijk halen: ${nlDatum(pp.valt_eruit_vanaf)} (nog ${dv} dagen); daarna vallen de eerste uren uit de 365 dagen.</p>
-      ${du!=null&&dv!=null?(du<=dv?`<p class="op">Op schema: ${dv-du} dagen voor de grens</p>`:`<p class="neer">Te laat in dit tempo: ${du-dv} dagen na de grens</p>`):""}</div>
-     <div class="sub"><span class="groot">${nl(pp.abonnees)}</span> <span class="zacht">van ${nl(pp.abonnees_doel)} abonnees</span><div class="balk groen"><i style="width:${Math.min(100,100*pp.abonnees/pp.abonnees_doel).toFixed(1)}%"></i></div>
-      <p class="zacht">Nog ${nl(Math.max(0,pp.abonnees_doel-pp.abonnees))} abonnees, tempo ${pp.tempo_abonnees_per_dag} per dag. ${da!=null?`In dit tempo gehaald over ${da} dagen (${nlDatum(pp.datum_abonnees)}).`:"Tempo nog te laag om te schatten."}</p>
-      <p class="let">${(da||0)>(du||0)?"De abonnees zijn nu het knelpunt, niet de uren.":"De kijkuren zijn nu het knelpunt."}</p></div>`}
-   else $("partner").innerHTML=`<div class="zacht">Nog geen gegevens van YouTube Analytics.</div>`;}
-
-  // kanaalcijfers
-  $("kViews").textContent=kort(m.views);$("kViewsD").innerHTML=delta(m.views,vm&&vm.views);
-  $("kUren").textContent=nl(m.uren)+" u";$("kUrenD").innerHTML=delta(m.uren,vm&&vm.uren);
-  grafiek(k.dagen);
-  const w=k.week||{},j=k.jaar||{};
-  $("cijfers").innerHTML=[["Weergaven totaal",nl(k.views_totaal)],["Video’s op het kanaal",nl(k.video_aantal)],["Laatste 7 dagen",`${nl(w.views)} weergaven, ${nl(w.uren)} u`],["Laatste 12 maanden",`${nl(j.views)} weergaven, ${nl(j.uren)} u`]].map(([a,b])=>`<dt>${a}</dt><dd class="num">${b}</dd>`).join("");
-  $("top").innerHTML=(k.top||[]).map(t=>`<li><span class="num">${kort(t.views)}</span><span><a class="link" href="https://youtu.be/${esc(t.id)}" target="_blank" rel="noopener">${esc(t.titel.replace(/ \| History for Sleep$/,""))}</a> <span class="zacht">${nl(t.uren)} u</span></span></li>`).join("")||`<li>Nog geen gegevens.</li>`;
-  $("recent").innerHTML="<thead><tr><th>Titel</th><th>Status</th><th>Weergaven</th></tr></thead><tbody>"+(k.recent||[]).slice(0,8).map(r=>{const gepland=r.privacy==="private"&&new Date(r.publiceer)>new Date();
-    const s=r.privacy==="public"?["goed","online"]:gepland?["let","gepland "+new Date(r.publiceer).toLocaleDateString("nl-NL",{day:"numeric",month:"short"})]:["",r.privacy];
-    return `<tr><td><a class="link" href="https://youtu.be/${esc(r.id)}" target="_blank" rel="noopener">${esc(r.titel.replace(/ \| History for Sleep$/,""))}</a></td><td><span class="chip ${s[0]}">${esc(s[1])}</span></td><td class="num">${nl(r.views)}</td></tr>`}).join("")+"</tbody>";
-
-  // planning en scripts
-  const nu=new Date(),ma=new Date(nu.getFullYear(),nu.getMonth(),nu.getDate()-((nu.getDay()+6)%7),12),zo=new Date(ma.getTime()+6*864e5);
-  const wk=new Map((d.video||[]).map(x=>[x.datum,x]));
-  $("weekNr").textContent=`Week ${weekNr(nu)}, ${ma.getDate()}-${ma.getMonth()+1} t/m ${zo.getDate()}-${zo.getMonth()+1}`;
-  $("week").innerHTML=[0,1,2,3,4,5,6].map(i=>{const x=new Date(ma.getTime()+i*864e5),iso=isoDag(x),v=wk.get(iso);
-    const inh=v?`<div class="lang ${v.soort==="gepland"||v.soort==="online"||v.soort==="bezig"?"":"script"}" title="${esc(v.titel)}">${esc(kortNaam(v.map))}</div>`:`<span class="zacht">${[1,3,6].includes(x.getDay())?"vrij":"rust"}</span>`;
-    return `<div class="dag ${iso===vandaag?"vandaag":""}"><b>${DAG[x.getDay()]} ${x.getDate()}</b>${inh}</div>`}).join("");
-  if(d.titels){$("titelTijd").textContent=d.titels.bijgewerkt.slice(8,10)+"-"+d.titels.bijgewerkt.slice(5,7)+" "+d.titels.bijgewerkt.slice(11);
-    const tl=(d.titels.titels||[]).filter(t=>t.fouten.length||t.voorstel||t.youtube).slice(0,10);
-    $("titels").innerHTML=tl.map(t=>`<li><span class="v ${t.fouten.length||t.youtube?"fout":"nee"}">${t.fouten.length||t.youtube?"!":"?"}</span><span>${esc(t.datum.slice(8,10))}-${esc(t.datum.slice(5,7))} ${esc(t.titel.replace(/ \| History for Sleep$/,""))}${t.voorstel?`<br><span class="zacht">Voorstel: ${esc(t.voorstel.replace(/ \| History for Sleep$/,""))}</span>`:""}${t.fouten.length?`<br><span class="neer">${esc(t.fouten.join(", "))}</span>`:""}</span></li>`).join("")||`<li><span class="v">✓</span><span>Alle titels goed.</span></li>`}
-  else $("titels").innerHTML=`<li><span>De titelwachter draait elke 2 uur.</span></li>`;
-  $("scKlaar").textContent=sc.klaar_tot?`klaar t/m ${dagLabel(sc.klaar_tot)}`:"";
-  $("scripts").innerHTML="<thead><tr><th>Datum</th><th>Script</th><th>Controle</th></tr></thead><tbody>"+sc.rij.filter(r=>r.datum>=vandaag).slice(0,12).map(r=>({...r,g:(komend.find(x=>x.datum===r.datum)||{}).gereed??0})).sort((a,b)=>b.g-a.g||a.datum.localeCompare(b.datum)).map(r=>`<tr><td>${dagLabel(r.datum)}</td><td>${esc(r.titel)}<br><span class="zacht">${esc(r.stand)}</span></td><td>${r.flesch!=null?`<span class="chip ${r.leesbaar==="TE MOEILIJK"?"fout":"goed"}">Flesch ${r.flesch}</span> `:""}${r.toon?`<span class="chip ${r.toon==="TOON GOED"?"goed":"let"}">${r.toon==="TOON GOED"?"kalme gids":"toon nakijken"}</span> `:""}${r.afspraken?`<span class="chip ${r.afspraken.length?"fout":"goed"}" title="${esc(r.afspraken.join("\n"))}">${r.afspraken.length?"afspraken: "+r.afspraken.length+" niet goed":"afspraken goed"}</span>`:""}</td></tr>`).join("")+"</tbody>";
-  const kansen=hp.filter(p=>/KANS|naar voren/.test(p.advies||""));
-  const acties=[...d.fouten.slice(-3).map(f=>f.tekst),...komend.filter(x=>x.soort==="script").slice(0,3).map(x=>`Script schrijven: ${x.titel.replace(/ \| History for Sleep$/,"")} (${dagLabel(x.datum)})`),...kansen.slice(0,3).map(p=>`Kans bekijken: ${p.titel||p.naam}`)];
-  $("actieLijst").innerHTML=acties.map(a=>`<li><span class="v nee">!</span><span>${esc(a)}</span></li>`).join("")||`<li><span class="v">✓</span><span>Niets open.</span></li>`;
-
-  // Claude-gebruik
-  {const acc=(d.claude&&d.claude.accounts||[]).filter(a=>a.week_pct!=null);
-   const rij=(naam,pct,onder)=>`<div class="sub"><div class="legenda"><b>${esc(naam)}</b><span>${pct}% gebruikt</span></div><div class="balk ${pct>=85?"rood":""}"><i style="width:${Math.min(100,pct)}%"></i></div><div class="zacht">${esc(onder)}</div></div>`;
-   if(d.claude) $("clTijd").textContent="bijgewerkt "+d.claude.bijgewerkt.slice(11,16);
-   $("claude").innerHTML=acc.length?acc.map(a=>`<h3>${esc(a.naam)}</h3>${rij("Huidige sessie",a["5uur_pct"]??0,`nog ongeveer ${a["5uur_stappen_over"]??"?"} stappen in dit blok van 5 uur`)}${rij("Week, alle modellen",a.week_pct,(a.week_reset?`Wordt gereset op ${a.week_reset}. `:"")+`Nog ongeveer ${a.week_stappen_over} stappen.`)}`).join(""):`<div class="zacht">Nog niet afgesteld: stuur een schermafbeelding van /usage.</div>`;
-   $("clUitleg").textContent="Gemeten op de pc en afgesteld op /usage in Claude; een schatting. Een stap is één antwoord of actie van Claude.";}
-
-  // automatisering
-  $("log").innerHTML=[...d.logboek].reverse().slice(0,12).map(x=>`<div><time>${esc(x.tijd.slice(5,16))}</time><span class="${x.fout?"fout":""}">${esc(x.tekst)}</span></div>`).join("");
-  $("zc").innerHTML=(d.zelfcontrole||[]).map(x=>`<li><span class="v ${x.ok?"":"fout"}">${x.ok?"✓":"!"}</span><span><b>${esc(x.naam)}</b> <span class="zacht">${esc(x.tekst)}</span></span></li>`).join("");
-  $("taken").innerHTML=Object.entries(d.taken||{}).map(([n,t])=>`<span class="chip ${t&&t.aan?"goed":""}">${esc(n)}: ${t?(t.aan?"aan, volgende "+esc(t.volgende):"uit"):"niet ingesteld"}</span> `).join("");
-  const g=d.videokaart;$("gpu").textContent=g?`Videokaart: ${g.bezig_procent}% bezig, ${(g.geheugen_mb/1024).toFixed(1)} van ${(g.totaal_mb/1024).toFixed(1)} GB geheugen`:"";
-  $("vast").innerHTML=Object.entries(d.vast||{}).map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("");
-}
-laad();setInterval(laad,120000);
-// oude links met #automatisering of #acties openen het juiste uitklapblok
-if(/^#(acties|automatisering)$/.test(location.hash)) $("acties").open=true;
+(async()=>{
+  try{D=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json()}
+  catch(e){document.getElementById("bij").textContent="Kon de gegevens niet laden.";return}
+  document.getElementById("bij").textContent="Bijgewerkt "+(D.bijgewerkt||"?")+" · elk half uur vanaf de pc";
+  pc();todo();planning();
+})();
 </script>
 </body>
 </html>
