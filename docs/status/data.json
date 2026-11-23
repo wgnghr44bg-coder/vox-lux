@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 16:03",
+ "bijgewerkt": "2026-11-23 16:33",
  "kanalen": {
   "weken": [
    {
@@ -47,6 +47,14 @@
         "titel": "Short: The Nasdaq Fell 13%. Investors Fear 4 Things",
         "stand": "maken: bijwerken samen met de lange video",
         "youtube": ""
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-24",
+        "tijd": "17:00",
+        "titel": "What If You Could Pause Time?",
+        "stand": "gepland",
+        "youtube": "7J6yAves9ig"
        }
       ]
      },
@@ -1215,53 +1223,53 @@
   ]
  },
  "nl_hype": {
-  "bijgewerkt": "2026-11-23 08:20",
+  "bijgewerkt": "2026-11-23 16:05",
   "markt": [
    {
     "naam": "AEX",
-    "pct": -2.4,
+    "pct": 1.9,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "ASML",
-    "pct": -9.3,
+    "pct": 8.5,
     "groot": true,
     "grens": 7
    },
    {
     "naam": "Shell",
-    "pct": -0.1,
+    "pct": -0.2,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "ING",
-    "pct": -3.6,
+    "pct": 2.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Adyen",
-    "pct": -1.6,
+    "pct": 3.2,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Prosus",
-    "pct": -5.9,
+    "pct": 4.3,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Unilever",
-    "pct": 2.0,
+    "pct": -1.0,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "Ahold Delhaize",
-    "pct": 0.8,
+    "pct": -0.3,
     "groot": false,
     "grens": 6
    },
@@ -1273,134 +1281,146 @@
    },
    {
     "naam": "Philips",
-    "pct": -1.4,
+    "pct": 0.7,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "ABN AMRO",
-    "pct": -3.2,
+    "pct": 2.6,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "BESI",
-    "pct": -5.6,
+    "pct": 9.3,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Bitcoin",
-    "pct": 0.1,
+    "pct": 3.7,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "S&P 500",
-    "pct": -3.7,
+    "pct": 4.7,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -5.3,
+    "pct": 6.6,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.9,
-    "groot": false,
+    "pct": 2.9,
+    "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -14.0,
+    "pct": 32.5,
     "groot": true,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.9,
+    "pct": 1.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": -2.8,
+    "pct": 4.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": -2.7,
+    "pct": 6.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -4.1,
+    "pct": 3.5,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -5.9,
+    "pct": 5.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -7.6,
-    "groot": false,
-    "grens": 8
-   },
-   {
-    "naam": "Broadcom",
-    "pct": -12.2,
+    "pct": 12.8,
     "groot": true,
     "grens": 8
    },
    {
+    "naam": "Broadcom",
+    "pct": 1.6,
+    "groot": false,
+    "grens": 8
+   },
+   {
     "naam": "Berkshire",
-    "pct": -0.4,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -3.0,
+    "pct": 2.4,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": 1.5,
+    "pct": -0.4,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Olie",
-    "pct": -1.3,
+    "pct": -2.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 3.2,
-    "groot": false,
+    "pct": 4.5,
+    "groot": true,
     "grens": 4
    }
   ],
   "nieuws": [
    {
-    "onderwerp": "Broadcom",
+    "onderwerp": "Goud",
     "punten": 10,
     "bronnen": [
      "koers"
     ],
     "wat": [
-     "-12.2% op één dag"
+     "+4.5% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Tesla",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+12.8% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1412,7 +1432,19 @@
      "koers"
     ],
     "wat": [
-     "-14.0% op één dag"
+     "+32.5% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Dow Jones",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+2.9% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1424,7 +1456,7 @@
      "koers"
     ],
     "wat": [
-     "-5.3% op één dag"
+     "+6.6% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1436,7 +1468,7 @@
      "koers"
     ],
     "wat": [
-     "-3.7% op één dag"
+     "+4.7% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1448,28 +1480,10 @@
      "koers"
     ],
     "wat": [
-     "-9.3% op één dag"
+     "+8.5% op één dag"
     ],
     "koppen": [],
     "groot": true
-   },
-   {
-    "onderwerp": "AI",
-    "punten": 3,
-    "bronnen": [
-     "nu.nl"
-    ],
-    "wat": [
-     "ontslagen"
-    ],
-    "koppen": [
-     {
-      "titel": "AI zorgt juist voor meer banen, grote reorganisaties blijven uit",
-      "bron": "nu.nl",
-      "link": "https://www.nu.nl/economie/6417227/ai-zorgt-juist-voor-meer-banen-grote-reorganisaties-blijven-uit.html"
-     }
-    ],
-    "groot": false
    },
    {
     "onderwerp": "Huizenmarkt",
@@ -1495,265 +1509,471 @@
     "id": "H8QByQKPwjA",
     "titel": "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT",
     "kanaal": "Investeren doe je zo",
-    "views": 2734,
-    "uren_oud": 22,
-    "per_uur": 125,
-    "keer_gewoon": 31.2,
+    "views": 3089,
+    "uren_oud": 30,
+    "per_uur": 104,
+    "keer_gewoon": 26.0,
     "uitschieter": true
    },
    {
-    "id": "6UN_71jkh-U",
-    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
+    "id": "tmdwUqt5FhQ",
+    "titel": "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN?",
     "kanaal": "Focuss Op Financiën",
-    "views": 16813,
-    "uren_oud": 43,
-    "per_uur": 388,
-    "keer_gewoon": 16.9,
+    "views": 1839,
+    "uren_oud": 3,
+    "per_uur": 595,
+    "keer_gewoon": 20.5,
     "uitschieter": true
    },
    {
     "id": "qsayQ23e6sk",
     "titel": "AANDELEN DALEN HARD... DIT MOET JE NU DOEN!",
     "kanaal": "Geld op Geld",
-    "views": 12445,
-    "uren_oud": 62,
-    "per_uur": 201,
-    "keer_gewoon": 15.5,
+    "views": 12913,
+    "uren_oud": 70,
+    "per_uur": 185,
+    "keer_gewoon": 14.2,
     "uitschieter": true
    },
    {
-    "id": "3JaeLdfHaQU",
-    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
+    "id": "6UN_71jkh-U",
+    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
     "kanaal": "Focuss Op Financiën",
-    "views": 9965,
-    "uren_oud": 91,
-    "per_uur": 109,
-    "keer_gewoon": 4.7,
+    "views": 18265,
+    "uren_oud": 51,
+    "per_uur": 357,
+    "keer_gewoon": 12.3,
     "uitschieter": true
    },
    {
-    "id": "4Cz9tvMKe5I",
-    "titel": "Rusland dreigt de Krim te verliezen.",
+    "id": "TovyJV3uTSo",
+    "titel": "De situatie in de oorlog tussen Rusland en Oekraïne",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 43578,
-    "uren_oud": 23,
-    "per_uur": 1912,
-    "keer_gewoon": 4.6,
+    "views": 26482,
+    "uren_oud": 5,
+    "per_uur": 5351,
+    "keer_gewoon": 10.5,
     "uitschieter": true
    },
    {
     "id": "1sMqgJ7aA5Y",
     "titel": "AANDEEL ANTHROPIC IPO - GA IK AANDELEN KOPEN?!",
     "kanaal": "Investeren doe je zo",
-    "views": 1438,
-    "uren_oud": 85,
-    "per_uur": 17,
-    "keer_gewoon": 4.2,
+    "views": 1445,
+    "uren_oud": 93,
+    "per_uur": 16,
+    "keer_gewoon": 4.0,
     "uitschieter": true
    },
    {
     "id": "UwLMFJoZ2WY",
     "titel": "NVIDIA KWARTAALCIJFERS! LIVE DOORNEMEN!",
     "kanaal": "Geld op Geld",
-    "views": 6151,
-    "uren_oud": 118,
-    "per_uur": 52,
-    "keer_gewoon": 4.0,
+    "views": 6155,
+    "uren_oud": 125,
+    "per_uur": 49,
+    "keer_gewoon": 3.8,
+    "uitschieter": true
+   },
+   {
+    "id": "3JaeLdfHaQU",
+    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
+    "kanaal": "Focuss Op Financiën",
+    "views": 10032,
+    "uren_oud": 99,
+    "per_uur": 101,
+    "keer_gewoon": 3.5,
     "uitschieter": true
    },
    {
     "id": "2cFYw2Uecfs",
     "titel": "NVIDIA MOET MORGEN LEVEREN! DIT STAAT OP HET SPEL",
     "kanaal": "Geld op Geld",
-    "views": 7192,
-    "uren_oud": 157,
-    "per_uur": 46,
-    "keer_gewoon": 3.5,
+    "views": 7200,
+    "uren_oud": 164,
+    "per_uur": 44,
+    "keer_gewoon": 3.4,
     "uitschieter": true
    },
    {
     "id": "vAfCrbZngsY",
     "titel": "Beursgang Antropic Laat De AI Bubbel Barsten!!",
     "kanaal": "DoopieCash",
-    "views": 19562,
-    "uren_oud": 44,
-    "per_uur": 443,
-    "keer_gewoon": 3.4,
+    "views": 20748,
+    "uren_oud": 52,
+    "per_uur": 400,
+    "keer_gewoon": 3.2,
     "uitschieter": true
    },
    {
-    "id": "3vzQtxxfI6E",
-    "titel": "IK VERKOOP MEER DAN €11.000 AAN ETF'S || PORTFOLIO SHOW #221",
-    "kanaal": "Focuss Op Financiën",
-    "views": 11057,
-    "uren_oud": 139,
-    "per_uur": 79,
-    "keer_gewoon": 3.4,
+    "id": "4Cz9tvMKe5I",
+    "titel": "Rusland dreigt de Krim te verliezen.",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 47140,
+    "uren_oud": 31,
+    "per_uur": 1544,
+    "keer_gewoon": 3.0,
     "uitschieter": true
    },
    {
     "id": "lEyfaFkglPo",
     "titel": "RICHARD de MOS haalt uit naar NEDERLANDSE POLITIEK!",
     "kanaal": "DoopieCash",
-    "views": 8117,
-    "uren_oud": 21,
-    "per_uur": 380,
-    "keer_gewoon": 2.9,
+    "views": 9666,
+    "uren_oud": 29,
+    "per_uur": 332,
+    "keer_gewoon": 2.6,
     "uitschieter": true
    },
    {
-    "id": "okwgXQlV4MI",
-    "titel": "De situatie aan het front in Oekraïne",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 69079,
-    "uren_oud": 67,
-    "per_uur": 1035,
-    "keer_gewoon": 2.5,
+    "id": "3vzQtxxfI6E",
+    "titel": "IK VERKOOP MEER DAN €11.000 AAN ETF'S || PORTFOLIO SHOW #221",
+    "kanaal": "Focuss Op Financiën",
+    "views": 11070,
+    "uren_oud": 147,
+    "per_uur": 75,
+    "keer_gewoon": 2.6,
     "uitschieter": true
    },
    {
     "id": "M39Wm9Xa90M",
     "titel": "Wat moet ik doen ALS BITCOIN DAALT?!",
     "kanaal": "DoopieCash",
-    "views": 17751,
-    "uren_oud": 61,
-    "per_uur": 289,
-    "keer_gewoon": 2.2,
+    "views": 18426,
+    "uren_oud": 69,
+    "per_uur": 267,
+    "keer_gewoon": 2.1,
     "uitschieter": true
    },
    {
     "id": "Ccm0U-vG0yo",
     "titel": "Wat Betekent Het Nieuwe Box 3 Belastingplan Concreet Voor Jouw Crypto En Aandelen?!",
     "kanaal": "DoopieCash",
-    "views": 30647,
-    "uren_oud": 109,
-    "per_uur": 280,
+    "views": 30989,
+    "uren_oud": 117,
+    "per_uur": 265,
     "keer_gewoon": 2.1,
     "uitschieter": true
+   },
+   {
+    "id": "NWPWHqK0yxM",
+    "titel": "Olieprijs omlaag, gasprijs omlaag, beurzen omlaag",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 5149,
+    "uren_oud": 5,
+    "per_uur": 948,
+    "keer_gewoon": 1.9,
+    "uitschieter": false
+   },
+   {
+    "id": "okwgXQlV4MI",
+    "titel": "De situatie aan het front in Oekraïne",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 70202,
+    "uren_oud": 74,
+    "per_uur": 943,
+    "keer_gewoon": 1.8,
+    "uitschieter": false
    },
    {
     "id": "5z88oITHMBE",
     "titel": "De Krimbrug is nu in perfecte staat gebracht",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 96269,
-    "uren_oud": 119,
-    "per_uur": 810,
-    "keer_gewoon": 1.9,
-    "uitschieter": false
-   },
-   {
-    "id": "DMKHNpzpT8k",
-    "titel": "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307",
-    "kanaal": "DeAandeelHouder TV",
-    "views": 9678,
-    "uren_oud": 70,
-    "per_uur": 138,
-    "keer_gewoon": 1.7,
-    "uitschieter": false
-   },
-   {
-    "id": "Ww-g-8zGxr4",
-    "titel": "To Nvidia Or Not To Nvidia? | Beurs Update",
-    "kanaal": "DeAandeelHouder TV",
-    "views": 12899,
-    "uren_oud": 118,
-    "per_uur": 109,
-    "keer_gewoon": 1.4,
-    "uitschieter": false
-   },
-   {
-    "id": "zKy3ehOMESU",
-    "titel": "Oekraïne heeft de Krimbrug aangevallen en geraakt",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 94885,
-    "uren_oud": 158,
-    "per_uur": 602,
-    "keer_gewoon": 1.4,
+    "views": 96447,
+    "uren_oud": 127,
+    "per_uur": 762,
+    "keer_gewoon": 1.5,
     "uitschieter": false
    },
    {
     "id": "o8FAxUhdEDo",
     "titel": "Anthropic Naar De Beurs! Wat Betekent Dit Voor De Markt?",
     "kanaal": "DoopieCash",
-    "views": 14197,
-    "uren_oud": 83,
-    "per_uur": 171,
-    "keer_gewoon": 1.3,
+    "views": 14258,
+    "uren_oud": 91,
+    "per_uur": 157,
+    "keer_gewoon": 1.2,
     "uitschieter": false
    },
    {
-    "id": "T9fhVJyO8aA",
-    "titel": "De Krimbrug en haar rol in de oorlog",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 48453,
-    "uren_oud": 88,
-    "per_uur": 551,
-    "keer_gewoon": 1.3,
+    "id": "mymJriH6Nu8",
+    "titel": "AEX - Rebound kan niet uitblijven",
+    "kanaal": "DeAandeelHouder TV",
+    "views": 469,
+    "uren_oud": 4,
+    "per_uur": 124,
+    "keer_gewoon": 1.2,
     "uitschieter": false
    }
   ],
   "groot": [
-   "Broadcom",
+   "Goud",
+   "Tesla",
    "Nvidia",
+   "Dow Jones",
    "Nasdaq",
    "S&P 500",
    "ASML"
   ],
-  "aantal_koppen": 36,
+  "aantal_koppen": 43,
   "youtube": [
    {
-    "onderwerp": "asml",
-    "views_per_uur": 17,
+    "onderwerp": "huizenmarkt",
+    "views_per_uur": 1918,
     "kanalen": 2,
     "in_nieuws": true,
     "sterk": false,
     "voorbeelden": [
-     "ASML crasht, Nu Kopen? (Mijn Waardering tot 2030) (Tijd Voor Aandelen, 977 views)",
-     "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel? (Geldverhaal, 0 views)",
+     "Een correctie op de huizenmarkt? Dit zijn de signalen... (Madelon Vos, 53,759 views)",
+     "Bertus Klokkenluider - Woningnood #woningmarkt #stikstof #huizenmarkt #woningbouw #denhaag #co2  (Bertus Klokkenluider, 6 views)"
+    ]
+   },
+   {
+    "onderwerp": "crash",
+    "views_per_uur": 906,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Deze crash is GOED nieuws voor beleggers (StockWatch, 1,693 views)",
+     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
+     "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT (Investeren doe je zo, 3,085 views)"
+    ]
+   },
+   {
+    "onderwerp": "beleggers",
+    "views_per_uur": 522,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Deze crash is GOED nieuws voor beleggers (StockWatch, 1,693 views)",
+     "Beleggers Adyen zélfs in paniek als ceo niets zegt | BNR Beurs (BNR Beurs, 5,452 views)"
+    ]
+   },
+   {
+    "onderwerp": "portfolio",
+    "views_per_uur": 384,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
+     "EERSTE KEER INDIVIDUELE AANDELEN GEKOCHT! 📉 | Portfolio Update #9 (GeldGroeier, 1,154 views)"
+    ]
+   },
+   {
+    "onderwerp": "extra",
+    "views_per_uur": 383,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
+     "Is het slim om je hypotheek extra af te lossen? Nee. (De Financiële Raadgevers, 471 views)",
+     "Extra aflossen of beleggen? De rekensom met € 20.000 (GeldKoppie, 50 views)"
+    ]
+   },
+   {
+    "onderwerp": "per",
+    "views_per_uur": 71,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "€ 100 per maand voor je kind = ruim € 42.000 op 18 (Thijs Verlangen, 3,110 views)",
+     "€200 per maand beleggen: dit heb je na 20 jaar (Jordi van de Pas, 159 views)"
+    ]
+   },
+   {
+    "onderwerp": "anthropic",
+    "views_per_uur": 59,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Anthropic-aandelen kopen? Trap niet in deze IPO-valstrik (Kim De Graeve, 1,186 views)",
+     "Anthropic aandeel kopen? Vul eerst dit in, gratis werkblad #shorts (Dagboek Van Een Trader | Winstroute, 170 views)",
      "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel? (Geldverhaal, 7 views)"
+    ]
+   },
+   {
+    "onderwerp": "spaargeld",
+    "views_per_uur": 33,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Je spaargeld verdient meer. (FIRE Community met Jonas Vermeulen, 751 views)",
+     "€ 1 miljoen spaargeld: betaal je straks 38,5% box 3? Zo werkt de miljonairsbelasting #Shorts (De Financiële Gids, 67 views)"
+    ]
+   },
+   {
+    "onderwerp": "asml",
+    "views_per_uur": 15,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "voorbeelden": [
+     "ASML crasht, Nu Kopen? (Mijn Waardering tot 2030) (Tijd Voor Aandelen, 1,028 views)",
+     "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel? (Geldverhaal, 7 views)",
+     "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel? (Geldverhaal, 0 views)"
+    ]
+   },
+   {
+    "onderwerp": "investeren",
+    "views_per_uur": 6,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Zo spreid je het risico als je vastgoed wilt kopen #investeren #vastgoedbeleggen (Vastgoed Buddies, 40 views)",
+     "Zijn collectibles een goeie investering?🤔 #investeren #beleggen #fyp (Jonge Ondernemers, 37 views)"
+    ]
+   },
+   {
+    "onderwerp": "zelf",
+    "views_per_uur": 0,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Lijfrente of zelf beleggen? Dit verschil kost je €38.000 (NL · ZZP financiën & administratie, 3 views)",
+     "Zelf Leren Beleggen: De Podcast #3 - Laurien: “Ik weet echt van niks” (Zelf Leren Beleggen, 11 views)"
+    ]
+   },
+   {
+    "onderwerp": "omlaag",
+    "views_per_uur": 0,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Beurs flink omlaag: AEX −6,6% in een week. Wat betekent dat? #shorts (RustInJeGeld, 12 views)",
+     "1 op 6 woningen: vraagprijs omlaag | Blokscout Vastgoednieuws (Blokscout, 6 views)"
     ]
    }
   ],
   "top_videos": [
    {
+    "id": "gfc_-BkOKUY",
+    "titel": "Een correctie op de huizenmarkt? Dit zijn de signalen...",
+    "kanaal": "Madelon Vos",
+    "views": 53759,
+    "per_uur": 1917,
+    "uren_oud": 28
+   },
+   {
+    "id": "-OfPz_qy_30",
+    "titel": "Deze crash is GOED nieuws voor beleggers",
+    "kanaal": "StockWatch",
+    "views": 1693,
+    "per_uur": 444,
+    "uren_oud": 4
+   },
+   {
+    "id": "6UN_71jkh-U",
+    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
+    "kanaal": "Focuss Op Financiën",
+    "views": 18265,
+    "per_uur": 358,
+    "uren_oud": 51
+   },
+   {
+    "id": "qsayQ23e6sk",
+    "titel": "AANDELEN DALEN HARD... DIT MOET JE NU DOEN!",
+    "kanaal": "Geld op Geld",
+    "views": 12913,
+    "per_uur": 185,
+    "uren_oud": 70
+   },
+   {
+    "id": "H8QByQKPwjA",
+    "titel": "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT",
+    "kanaal": "Investeren doe je zo",
+    "views": 3085,
+    "per_uur": 104,
+    "uren_oud": 30
+   },
+   {
+    "id": "NySgz2DzMLw",
+    "titel": "Waarom Ik Met €1 Miljoen Niet Alles In Aandelen Beleg",
+    "kanaal": "FIRE Community met Jonas Vermeulen",
+    "views": 129,
+    "per_uur": 81,
+    "uren_oud": 2
+   },
+   {
     "id": "-OmacS35SEs",
     "titel": "Beleggers Adyen zélfs in paniek als ceo niets zegt | BNR Beurs",
     "kanaal": "BNR Beurs",
-    "views": 5145,
-    "per_uur": 82,
-    "uren_oud": 63
+    "views": 5452,
+    "per_uur": 78,
+    "uren_oud": 70
+   },
+   {
+    "id": "5Gis0I8MUPE",
+    "titel": "€ 100 per maand voor je kind = ruim € 42.000 op 18",
+    "kanaal": "Thijs Verlangen",
+    "views": 3110,
+    "per_uur": 66,
+    "uren_oud": 47
+   },
+   {
+    "id": "jNbuUaAhKGw",
+    "titel": "Anthropic-aandelen kopen? Trap niet in deze IPO-valstrik",
+    "kanaal": "Kim De Graeve",
+    "views": 1186,
+    "per_uur": 56,
+    "uren_oud": 21
+   },
+   {
+    "id": "XKL1TxXmZYE",
+    "titel": "Beleggen via je vennootschap of privé?",
+    "kanaal": "Kim De Graeve",
+    "views": 810,
+    "per_uur": 41,
+    "uren_oud": 20
+   },
+   {
+    "id": "ASS5j_cHTT4",
+    "titel": "Je spaargeld verdient meer.",
+    "kanaal": "FIRE Community met Jonas Vermeulen",
+    "views": 751,
+    "per_uur": 32,
+    "uren_oud": 24
+   },
+   {
+    "id": "-MJhiHYJFbU",
+    "titel": "EERSTE KEER INDIVIDUELE AANDELEN GEKOCHT! 📉 | Portfolio Update #9",
+    "kanaal": "GeldGroeier",
+    "views": 1154,
+    "per_uur": 26,
+    "uren_oud": 44
+   },
+   {
+    "id": "GpGhW_4PdDI",
+    "titel": "Trends Beleggen Podcast #284 | Datacenterrisico’s - Aandelen: Nvidia & Umicore | maandag 23/11/26",
+    "kanaal": "Trends Podcasts",
+    "views": 152,
+    "per_uur": 23,
+    "uren_oud": 7
+   },
+   {
+    "id": "w7VPV-nMCWQ",
+    "titel": "Is het slim om je hypotheek extra af te lossen? Nee.",
+    "kanaal": "De Financiële Raadgevers",
+    "views": 471,
+    "per_uur": 22,
+    "uren_oud": 22
    },
    {
     "id": "sQbowlei-X0",
     "titel": "ASML crasht, Nu Kopen? (Mijn Waardering tot 2030)",
     "kanaal": "Tijd Voor Aandelen",
-    "views": 977,
-    "per_uur": 17,
-    "uren_oud": 59
-   },
-   {
-    "id": "yfwVzmZZrJY",
-    "titel": "AEX omlaag, toch stijgen Ahold, Unilever en KPN: defensieve aandelen uitgelegd #shorts",
-    "kanaal": "Beleggenbeginthier",
-    "views": 37,
-    "per_uur": 1,
-    "uren_oud": 65
-   },
-   {
-    "id": "VWRYOyA7Ao4",
-    "titel": "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel?",
-    "kanaal": "Geldverhaal",
-    "views": 0,
-    "per_uur": 0,
-    "uren_oud": 37
-   },
-   {
-    "id": "YgXL2OZszm8",
-    "titel": "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel?",
-    "kanaal": "Geldverhaal",
-    "views": 7,
-    "per_uur": 0,
-    "uren_oud": 38
+    "views": 1028,
+    "per_uur": 15,
+    "uren_oud": 67
    }
   ]
  },
@@ -1971,7 +2191,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 16:03)"
+   "tekst": "draait nu (2026-11-23 16:33)"
   },
   {
    "naam": "Git",
@@ -1986,7 +2206,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2003,8 +2223,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 16:03",
-   "volgende": "2026-11-23 16:33"
+   "laatst": "2026-11-23 16:33",
+   "volgende": "2026-11-23 17:03"
   },
   "hype": {
    "aan": true,
@@ -2013,13 +2233,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-23 15:10",
-   "volgende": "2026-11-23 16:10"
+   "laatst": "2026-11-23 16:10",
+   "volgende": "2026-11-23 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 15:48",
-   "volgende": "2026-11-23 16:18"
+   "laatst": "2026-11-23 16:18",
+   "volgende": "2026-11-23 16:48"
   },
   "titels": {
    "aan": true,
@@ -2067,7 +2287,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 54,
+    "views": 55,
     "verwerkt": "processed"
    },
    {
@@ -2130,7 +2350,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 915,
+    "views": 923,
     "verwerkt": "processed"
    }
   ],
@@ -2355,7 +2575,7 @@
  "nu_bezig": [],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 1494,
+  "geheugen_mb": 1515,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2527,8 +2747,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 16:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 16:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4661,15 +4881,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 16:03",
+  "bijgewerkt": "2026-11-23 16:33",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 14296563,
+    "week": 12915620,
     "per_dag": {
      "Tue 17-11": 1533664,
-     "Mon 16-11": 4698856,
+     "Mon 16-11": 3317913,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
@@ -4682,25 +4902,25 @@
    },
    {
     "account": "account2",
-    "5uur": 7198742,
-    "week": 150120770,
+    "5uur": 6638716,
+    "week": 150392113,
     "per_dag": {
      "Mon 16-11": 15226494,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 22532020,
+     "Mon 23-11": 22803363,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 51693,
+    "stap_kost": 51860,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 53,
+    "5uur_pct": 49,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 123,
+    "5uur_stappen_over": 134,
     "week_pct": 114,
     "week_scripts_over": null,
     "week_stappen_over": 0
