@@ -41,30 +41,24 @@ def bg(n):
     return BG[n]
 Y = 1460
 # scènes: bevroren poppetjes (n, x, s, kijk, gebaar, mondopen) + jij (x, s) + kopteksten + extra
+KLAS = [("teach", 900, 1.55, -0.8, "wijslinks", True), ("kid1", 420, 1.45, 0.8, "zwaai", False), ("kid2", 600, 1.45, -0.8, None, True)]
+TSTART = Zs(1)                                            # juf praat vanaf hier, tot jij op de knop drukt (PAUZE)
 SC = [
- dict(t=0, bg="gang", vast=[], jij=dict(x=540, s=2.2, loop=(kw(0, "hallway", -1.0), kw(0, "hallway", 0.6), 200, 540), kijk=0.0, gebaar=[(kw(1, "button", -0.3), PAUZE + 0.8, "wijs")]), kop=[(0, "8:59", 540, 260, 130, "wit")],
-      knop=(kw(1, "button", -0.2), kw(1, "press", 0.0), PAUZE + 1.2, False)),
- dict(t=Zs(2), bg="klas", vast=[("teach", 900, 1.55, -0.8, "wijslinks", True), ("kid1", 170, 1.5, 0.6, "zwaai", False), ("kid2", 390, 1.5, 0.6, None, True)],
-      jij=dict(x=640, s=1.6, kijk=0.9), bal=(290, 930), ballon=(kw(2, "teacher", -0.2), "So the answer is..."), kop=[]),
+ dict(t=0, bg="gang", vast=[], jij=dict(x=540, s=2.2, loop=(kw(0, "hallway", -1.0), kw(0, "hallway", 0.6), 200, 540), kijk=0.0), kop=[(0, "8:59", 540, 260, 130, "wit")]),
+ dict(t=TSTART, bg="klas", vast=KLAS, live=True, jij=dict(x=110, s=1.6, kijk=0.9, gebaar=[(kw(1, "button", -0.4), PAUZE + 1.0, "vast")]),
+      knop=(kw(1, "button", -0.3), kw(1, "press", 0.0), PAUZE + 1.0, False)),
  dict(t=Zs(4), bg="nacht", vast=[], jij=dict(x=540, s=2.3), kop=[(kw(4, "what"), "WHAT IF YOU COULD", 540, 330, 82, "wit"), (kw(4, "pause"), "PAUSE TIME?", 540, 450, 110, "geel")]),
- dict(t=Zs(5), bg="klas", vast=[("teach", 900, 1.55, -0.8, "wijslinks", True), ("kid1", 170, 1.5, 0.6, "zwaai", False), ("kid2", 390, 1.5, 0.6, None, True)],
-      jij=dict(x=640, s=1.6, pad=[(kw(6, "copy", -0.6), 640), (kw(6, "copy", 0.3), 760), (kw(6, "cookie", -0.9), 760), (kw(6, "cookie", 0.0), 300)],
-               kijkpad=[(0, -0.6), (kw(6, "copy", -0.6), 0.9), (kw(6, "cookie", -0.9), -0.9)],
-               gebaar=[(kw(6, "copy", 0.3), kw(6, "hair", -0.2), "wijs"), (kw(6, "hair", -0.1), kw(6, "cookie", -0.9), "zwaai")]),
-      bal=(290, 930), ballon=(0, "So the answer is..."),
-      dingen=[(kw(6, "copy", 0.3), kw(6, "hair", -0.2), "toets", 0), (kw(6, "hair", -0.1), kw(6, "cookie", -0.9), "kam", 0), (kw(6, "cookie", 0.1), 1e9, "koekje", 0)],
-      kop=[(kw(5, "every"), "1 MINUTE PAUSED", 540, 250, 72, "wit"), (kw(5, "older"), "= 1 MINUTE OLDER", 540, 345, 72, "rood")], kopweg=Zs(6),
-      kop2=[(kw(6, "copy"), "COPY ANSWERS", 540, 250, 70, "wit"), (kw(6, "hair"), "FIX YOUR HAIR", 540, 345, 70, "wit"), (kw(6, "cookie"), "EAT THE COOKIE", 540, 440, 70, "geel")]),
- dict(t=Zs(7), bg="keuken", vast=[("mom", 760, 1.9, -0.6, "wijs", True), ("sis", 950, 1.7, -0.6, None, False)], jij=dict(x=330, s=1.9, kijk=0.6),
-      dingen=[(kw(7, "test", -0.2), 1e9, "toets2", 0)], klik=[kw(7, "10", -0.4), kw(7, "hour", -0.4)],
-      teller=[(kw(7, "10"), "PAUSED: 10 MIN"), (kw(7, "hour"), "PAUSED: 1 HOUR")]),
- dict(t=Zs(8), bg="ruimte", vast=[], jij=None, kop=[(kw(8, "38", -0.1), "+38 MICROSECONDS", 540, 1180, 84, "geel"), (kw(8, "every"), "EVERY DAY", 540, 1290, 72, "wit")],
-      bron="Source: GPS.gov, relativity corrections for GPS satellite clocks"),
- dict(t=Zs(10), bg="badkamer", vast=[], jij=dict(x=830, s=1.85), spiegel=(276, 266, 788, 658), grijs=kw(10, "gray", -0.2),
-      teller=[(kw(12, "almost"), "PAUSED TOTAL: ~1 YEAR")]),
- dict(t=Zs(13), bg="gang", vast=[("kid1", 250, 1.8, 0.4, "zwaai", True), ("kid2", 960, 1.8, -0.4, None, False)], jij=dict(x=540, s=2.0, kijk=0.0, gebaar=[(kw(13, "press", -0.6), 1e9, "wijs")]),
-      knop=(kw(13, "press", -0.8), kw(13, "button", 0.0), 1e9, True),
-      kop=[(kw(14, "nothing"), "NOT WORKING", 540, 330, 96, "rood"), (kw(14, "clock"), "TICK... TICK...", 540, 450, 80, "wit")]),
+ dict(t=Zs(5), bg="klas", vast=KLAS, live=True,
+      jij=dict(x=110, s=1.6, pad=[(kw(6, "copy", -0.9), 110), (kw(6, "copy", 0.2), 700), (kw(6, "cookie", -1.0), 700), (kw(6, "cookie", 0.0), 170)],
+               kijkpad=[(0, 0.9), (kw(6, "cookie", -1.0), -0.9), (kw(6, "cookie", 0.05), 0.9)],
+               gebaar=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "vast"), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "haar"), (kw(6, "cookie", 0.05), 1e9, "vast")]),
+      dingen=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "toets", 70), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "kam", 165), (kw(6, "cookie", 0.05), 1e9, "koekje", 70)]),
+ dict(t=Zs(7), bg="keuken", vast=[("mom", 760, 1.9, -0.6, "wijs", True), ("sis", 950, 1.7, -0.6, None, False)], jij=dict(x=300, s=1.9, kijk=0.6, gebaar=[(kw(7, "test", -0.3), 1e9, "vast")]),
+      dingen=[(kw(7, "test", -0.3), 1e9, "toets2", 70)], klik=[kw(7, "10", -0.4), kw(7, "hour", -0.4)]),
+ dict(t=Zs(8), bg="ruimte", vast=[], jij=None, kop=[], bron="Source: GPS.gov, relativity corrections for GPS satellite clocks", bront=kw(8, "38", -0.1)),
+ dict(t=Zs(10), bg="badkamer", vast=[], jij=dict(x=830, s=1.85), spiegel=(276, 266, 788, 658), grijs=kw(10, "gray", -0.2)),
+ dict(t=Zs(13), bg="gang", vast=[("kid1", 250, 1.8, 0.4, "zwaai", True), ("kid2", 960, 1.8, -0.4, None, False)], jij=dict(x=540, s=2.0, kijk=0.0, gebaar=[(kw(13, "press", -0.6), 1e9, "vast")]),
+      knop=(kw(13, "press", -0.7), kw(13, "button", 0.0), 1e9, True)),
 ]
 FB, FS, KL, font = ps.FB, ps.FS, ps.KL, ps.font
 def kop(img, s, x, y, m, kl, sch): ps.kop(img, s, x, y, m, kl, sch)
@@ -92,9 +86,9 @@ def pauzeknop(img, rood=False):                          # 'PAUSED' bovenin met 
     d.rectangle((370, 85, 390, 135), fill=kl); d.rectangle((405, 85, 425, 135), fill=kl)
     d.text((450, 78), "PAUSED", font=font(FB, 58), fill=kl)
 
-def hand(x, s):                                          # positie van de rechterhand bij gebaar "wijs" (zie pop_short.poppetje)
+def hand(x, s, hoek=70):                                 # positie van de rechterhand bij een armhoek (zie pop_short.poppetje)
     heup = Y - 78 * s - 14 * s; sch = heup - 105 * s + 22 * s
-    return x + 44 * s + 82 * s * math.sin(math.radians(100)), sch + 82 * s * math.cos(math.radians(100))
+    return x + 44 * s + 82 * s * math.sin(math.radians(hoek)), sch + 82 * s * math.cos(math.radians(hoek))
 def knop(img, t, inn, druk, uit, kapot, cx=800, cy=900, R0=120):
     """grote rode knop in beeld (hand), indrukken = knop zakt in + ring; kapot = indrukken maar er gebeurt niets"""
     if not (inn <= t < uit): return
@@ -106,19 +100,20 @@ def knop(img, t, inn, druk, uit, kapot, cx=800, cy=900, R0=120):
     d.ellipse((cx - R, cy - hoog - R * 0.45, cx + R, cy - hoog + R * 0.45), fill=kl, outline=(45, 38, 40), width=8)
     d.rectangle((cx - R, cy - hoog, cx + R, cy), fill=kl); d.line((cx - R, cy - hoog, cx - R, cy), fill=(45, 38, 40), width=8); d.line((cx + R, cy - hoog, cx + R, cy), fill=(45, 38, 40), width=8)
     d.ellipse((cx - R, cy - R * 0.45, cx + R, cy + R * 0.45), outline=(45, 38, 40), width=8)
-    if t < druk: kop(img, "PRESS", cx, cy - R * 2.6, 64, KL["geel"], ps.pop((t - inn) / 0.3))
     if t >= druk and not kapot and t < druk + 0.7:
         a = (t - druk) / 0.7; rr = 60 + 900 * a
         d.ellipse((cx - rr, cy - rr, cx + rr, cy + rr), outline=(255, 255, 255), width=max(2, int(18 * (1 - a))))
-    if kapot and t >= druk + 0.8: kop(img, "?!", cx, cy - R * 2.6, 100, KL["rood"], 1.0)
-def ballon(img, tekst):
-    d = ImageDraw.Draw(img); f = font(FB, 44); b = d.textlength(tekst, font=f)
+    if kapot and t >= druk + 0.8: kop(img, "?!", cx, cy - R * 2.6, 90, KL["rood"], 1.0)
+ZIN = "So the answer is twelve, because we multiply"
+def ballon(img, t):
+    n = max(1, int((min(t, PAUZE) - TSTART) * 8.5)); tekst = ZIN[:n] + ("-" if t >= PAUZE else "")
+    d = ImageDraw.Draw(img); f = font(FB, 40); b = max(d.textlength(tekst, font=f), 120)
     x0, y0 = 1040 - b - 40, 830
     d.rounded_rectangle((x0, y0, 1050, y0 + 90), 30, fill=(255, 255, 255), outline=(45, 38, 40), width=6)
     d.polygon([(960, y0 + 88), (1000, y0 + 88), (990, y0 + 140)], fill=(255, 255, 255)); d.line([(960, y0 + 90), (990, y0 + 140), (1000, y0 + 90)], fill=(45, 38, 40), width=6)
-    d.text((x0 + 20, y0 + 18), tekst, font=f, fill=(45, 38, 40))
-def ding(img, soort, x, y, t0, t):
-    d = ImageDraw.Draw(img); s = ps.pop((t - t0) / 0.3); L = (45, 38, 40)
+    d.text((x0 + 20, y0 + 22), tekst, font=f, fill=(45, 38, 40))
+def ding(img, soort, x, y, t0, t, klein=True):
+    d = ImageDraw.Draw(img); s = ps.pop((t - t0) / 0.3) * (0.62 if klein else 0.8); L = (45, 38, 40)
     if soort in ("toets", "toets2"):
         w, h = 150 * s, 190 * s; d.rectangle((x - w / 2, y - h / 2, x + w / 2, y + h / 2), fill=(255, 255, 250), outline=L, width=6)
         for k in range(4): d.line((x - w / 2 + 18, y - h / 2 + 30 + k * 36, x + w / 4, y - h / 2 + 30 + k * 36), fill=(150, 150, 160), width=5)
@@ -154,9 +149,12 @@ def frame(t):
         img.paste(Image.blend(glas.convert("RGB"), img.crop((x0, y0, x1, y1)), 0.25), (x0, y0))
     vast = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); dv = ImageDraw.Draw(vast)
     for n, x, s, kijk, geb, open_ in sc["vast"]:
-        ps.poppetje(dv, n, x, Y, s, 0.0 if bevroren else t, kijk=kijk, mond=0.5 if open_ else 0.0, knipper=False, gebaar=geb)
-    if sc.get("bal"):
-        bx, by = sc["bal"]; dv.ellipse([((bx - 34) * SS, (by - 34) * SS), ((bx + 34) * SS, (by + 34) * SS)], fill=(230, 80, 60), outline=(45, 38, 40), width=5 * SS)
+        tt = min(t, PAUZE) if sc.get("live") else (0.0 if bevroren else t)
+        mond = (abs(math.sin(tt * 9)) if n == "teach" else 0.0) if sc.get("live") else (0.5 if open_ else 0.0)
+        ps.poppetje(dv, n, x, Y, s, tt, kijk=kijk, mond=mond, knipper=(not bevroren and (t % 3.1) < 0.12), gebaar=geb)
+    if sc.get("live"):                                     # bal vliegt heen en weer tussen de kinderen, stopt bij PAUZE
+        u = ((min(t, PAUZE) - TSTART) / 1.4) % 2; u = u if u <= 1 else 2 - u
+        bx, by = 450 + 120 * u, 1000 - 230 * math.sin(math.pi * u); dv.ellipse([((bx - 34) * SS, (by - 34) * SS), ((bx + 34) * SS, (by + 34) * SS)], fill=(230, 80, 60), outline=(45, 38, 40), width=5 * SS)
     vast = vast.resize((W, H), Image.LANCZOS); img.paste(vast, (0, 0), vast)
     if bevroren: img = Image.blend(img, Image.new("RGB", (W, H), (120, 160, 255)), 0.14)      # stilstaande wereld: lichte blauwe waas
     if sc.get("jij"):
@@ -176,17 +174,17 @@ def frame(t):
         if sc.get("grijs") and t >= sc["grijs"]:
             dl.line([(top[0] * SS - 10 * SS, (top[1] + 6) * SS), (top[0] * SS + 30 * SS, (top[1] + 34) * SS)], fill=(220, 220, 225), width=9 * SS)
         laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
-    if sc.get("ballon") and t >= sc["ballon"][0] and t >= PAUZE: ballon(img, sc["ballon"][1])
+    if sc.get("live"): ballon(img, t)
     for a, b, soort, _ in sc.get("dingen", []):
         if a <= t < b:
             jx = interp(sc["jij"]["pad"], t)[0] if "pad" in sc.get("jij", {}) else sc["jij"]["x"]
-            pos = {"toets": (jx + 150, 1080), "kam": (jx + 150, 960), "koekje": (jx + 140, 1150), "toets2": (150, 1020)}[soort]
-            ding(img, soort, pos[0], pos[1], a, t)
+            hx, hy = hand(jx, sc["jij"]["s"], _)
+            ding(img, soort, hx + (10 if soort != "kam" else -5), hy - (10 if soort != "kam" else 40), a, t, klein=soort != "toets2")
     for kt in sc.get("klik", []):
         if kt <= t < kt + 0.6:
-            a = (t - kt) / 0.6; rr = 80 + 500 * a; ImageDraw.Draw(img).ellipse((150 - rr, 1020 - rr, 150 + rr, 1020 + rr), outline=(255, 255, 255), width=max(2, int(14 * (1 - a))))
+            a = (t - kt) / 0.6; rr = 80 + 500 * a; hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); ImageDraw.Draw(img).ellipse((hx - rr, hy - rr, hx + rr, hy + rr), outline=(255, 255, 255), width=max(2, int(14 * (1 - a))))
     if sc.get("knop"):
-        hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); knop(img, t, *sc["knop"], cx=hx + 10, cy=hy - 8, R0=52)
+        hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); knop(img, t, *sc["knop"], cx=hx + 12, cy=hy - 6, R0=42)
     if bevroren: pauzeknop(img, rood=(k == len(SC) - 1 and t >= kw(14, "nothing")))
     weg = sc.get("kopweg", 1e9)
     for st, s, x, y, m, kl in sc.get("kop", []):
@@ -195,7 +193,7 @@ def frame(t):
         if t >= st: kop(img, s, x, y + 120, m, KL[kl], ps.pop((t - st) / 0.3))
     tel = [s for st, s in sc.get("teller", []) if t >= st]
     if tel: kop(img, tel[-1], 540, 215 if sc.get("spiegel") else 330, 56 if sc.get("spiegel") else 72, KL["geel"], 1.0)
-    if sc.get("bron") and t >= sc["kop"][0][0]: ImageDraw.Draw(img).text((40, 1860), sc["bron"], font=font(FS, 26), fill=(200, 200, 220))
+    if sc.get("bron") and t >= sc["bront"]: ImageDraw.Draw(img).text((40, 1860), sc["bron"], font=font(FS, 26), fill=(200, 200, 220))
     ondertitel(img, t)
     return img
 
