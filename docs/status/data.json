@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 23:03",
+ "bijgewerkt": "2026-11-23 23:33",
  "kanalen": {
   "weken": [
    {
@@ -209,835 +209,820 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-23 15:45",
+  "bijgewerkt": "2026-11-19 17:59",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": 4.0,
-    "groot": true,
+    "pct": -0.9,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": 5.8,
-    "groot": true,
+    "pct": -0.7,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": 2.3,
+    "pct": -1.5,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": 28.8,
-    "groot": true,
+    "pct": -0.3,
+    "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": 1.3,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 3.6,
+    "pct": 0.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 4.6,
+    "pct": 0.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": 2.4,
+    "pct": -0.5,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": 3.6,
+    "pct": -0.8,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": 11.5,
-    "groot": true,
+    "pct": -1.9,
+    "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": 1.5,
+    "pct": -0.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": 0.5,
+    "pct": -1.1,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": 2.3,
+    "pct": -1.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -0.3,
+    "pct": -1.5,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": 3.4,
+    "pct": -0.5,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": -2.3,
+    "pct": 0.4,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 4.6,
-    "groot": true,
+    "pct": -1.4,
+    "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Goud",
+    "onderwerp": "Anthropic",
     "punten": 10,
     "bronnen": [
-     "koers"
+     "BBC",
+     "CNBC",
+     "MarketWatch",
+     "NYT"
     ],
     "wat": [
-     "+4.6% op één dag"
+     "beursgang",
+     "cijfers",
+     "record"
     ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Tesla",
-    "punten": 10,
-    "bronnen": [
-     "koers"
+    "koppen": [
+     {
+      "titel": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html"
+     },
+     {
+      "titel": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html"
+     },
+     {
+      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
+     },
+     {
+      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
+     }
     ],
-    "wat": [
-     "+11.5% op één dag"
-    ],
-    "koppen": [],
     "groot": true
    },
    {
     "onderwerp": "Nvidia",
-    "punten": 10,
+    "punten": 6,
     "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+28.8% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nasdaq",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+5.8% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "S&P 500",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+4.0% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Fed",
-    "punten": 4,
-    "bronnen": [
+     "CNBC",
      "MarketWatch"
     ],
     "wat": [
-     "rente/recessie"
+     "beursgang",
+     "cijfers",
+     "rechtszaak"
     ],
     "koppen": [
      {
-      "titel": "The U.S. may enter a recession if the Fed raises rates, hedge-fund manager Bill Ackman says",
+      "titel": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/18/nvidia-lutnick-china-ai-megaspeed-cantor-fitzgerald.html"
+     },
+     {
+      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
       "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/the-u-s-may-enter-a-recession-if-the-fed-raises-rates-hedge-fund-manager-bill-ackman-says-16738971?mod=mw_rss_topstories"
+      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
      }
     ],
     "groot": false
    },
    {
-    "onderwerp": "Recessie",
+    "onderwerp": "Inflatie",
     "punten": 4,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "rente/recessie"
-    ],
-    "koppen": [
-     {
-      "titel": "The U.S. may enter a recession if the Fed raises rates, hedge-fund manager Bill Ackman says",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/the-u-s-may-enter-a-recession-if-the-fed-raises-rates-hedge-fund-manager-bill-ackman-says-16738971?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Anthropic",
-    "punten": 3,
     "bronnen": [
      "CNBC"
     ],
     "wat": [
-     "beursgang"
+     "rente/recessie"
     ],
     "koppen": [
      {
-      "titel": "Forget Anthropic: In Europe, the IPO hype is about a blue lagoon",
+      "titel": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-iceland-blue-lagoon.html"
+      "link": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
      }
     ],
     "groot": false
    },
    {
-    "onderwerp": "Nvidia",
-    "punten": 3,
+    "onderwerp": "Beurs",
+    "punten": 4,
     "bronnen": [
      "MarketWatch"
+    ],
+    "wat": [
+     "beursgang",
+     "cijfers"
+    ],
+    "koppen": [
+     {
+      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
+     },
+     {
+      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Walmart",
+    "punten": 3,
+    "bronnen": [
+     "CNBC"
     ],
     "wat": [
      "record"
     ],
     "koppen": [
      {
-      "titel": "Nvidia’s stock soars 30%-plus as Jensen Huang returns as CEO",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/nvidia-stock-bounces-as-trump-administration-pushes-for-rehiring-of-jensen-huang-08057c29?mod=mw_rss_topstories"
+      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+     },
+     {
+      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
+      "bron": "CNBC business",
+      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
      }
     ],
     "groot": false
    }
   ],
   "groot": [
-   "Goud",
-   "Tesla",
-   "Nvidia",
-   "Nasdaq",
-   "S&P 500"
+   "Anthropic"
   ],
-  "aantal_koppen": 74
+  "aantal_koppen": 104
  },
  "yt_swan": {
-  "bijgewerkt": "2026-11-23 15:55",
+  "bijgewerkt": "2026-11-21 04:25",
   "uren": 48,
-  "aantal_videos": 288,
+  "aantal_videos": 34,
   "onderwerpen": [
    {
-    "onderwerp": "bjp",
-    "views_per_uur": 298746,
+    "onderwerp": "nvidia",
+    "views_per_uur": 67377,
     "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश! (ABP NEWS, 5,129,580 views in 37 u)",
-     "Sandeep Chaudhary: दोगुनी सीटें जीत गई #congress , BJP की करारी हार #rajasthanpanchayatelection2026 (ABP NEWS, 1,659,524 views in 37 u)",
-     "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp (ABP NEWS, 1,100,721 views in 42 u)"
-    ]
-   },
-   {
-    "onderwerp": "election",
-    "views_per_uur": 278563,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश! (ABP NEWS, 5,129,580 views in 37 u)",
-     "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp (ABP NEWS, 1,100,721 views in 42 u)",
-     "Rajasthan Election  | Sandeep Chaudhary | 30 जिलों के नतीजों में  ऐसा क्या हुआ  BJP सिर्फ 5 में! (ABP NEWS, 723,593 views in 37 u)"
-    ]
-   },
-   {
-    "onderwerp": "updates",
-    "views_per_uur": 265070,
-    "kanalen": 4,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
-     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)"
-    ]
-   },
-   {
-    "onderwerp": "23rd",
-    "views_per_uur": 224029,
-    "kanalen": 4,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
-     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)"
-    ]
-   },
-   {
-    "onderwerp": "zee",
-    "views_per_uur": 199436,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 274,059 views in 14 u)"
-    ]
-   },
-   {
-    "onderwerp": "share",
-    "views_per_uur": 196170,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 274,059 views in 14 u)"
-    ]
-   },
-   {
-    "onderwerp": "november",
-    "views_per_uur": 196134,
-    "kanalen": 4,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
-     "23RD TO 27TH NOVEMBER UPDATES  (Stock Market INDIA, 100,013 views in 27 u)"
-    ]
-   },
-   {
-    "onderwerp": "23rd november",
-    "views_per_uur": 192379,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
-     "Nifty Prediction & Sensex Analysis for Tomorrow & market news | 23rd November 2026 | BIG OPENING 📈🚀 (Marketguide Trading Academy, 60,738 views in 27 u)"
-    ]
-   },
-   {
-    "onderwerp": "trade",
-    "views_per_uur": 185795,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
-    ]
-   },
-   {
-    "onderwerp": "first",
-    "views_per_uur": 159955,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)",
-     "If Fed Gets It Wrong: Huge Market Crash First, Generational Wealth Opportunity Next | Jean Josse (Miles Franklin Media, 91,722 views in 15 u)"
-    ]
-   },
-   {
-    "onderwerp": "first trade",
-    "views_per_uur": 153710,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
-    ]
-   },
-   {
-    "onderwerp": "billionaire",
-    "views_per_uur": 150121,
-    "kanalen": 18,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Exposing Random Billionaire in 60 sec (Abhay Create, 142,881 views in 4 u)",
-     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 986,576 views in 46 u)",
-     "She Thought He Was a Billionaire… But He Was Broke! 😂💸 (ComedyBlip, 566,807 views in 30 u)"
-    ]
-   },
-   {
-    "onderwerp": "nifty",
-    "views_per_uur": 128032,
-    "kanalen": 5,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
-     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
-    ]
-   },
-   {
-    "onderwerp": "man",
-    "views_per_uur": 124944,
-    "kanalen": 2,
-    "in_nieuws": false,
+    "in_nieuws": true,
     "sterk": false,
     "al_gedaan": [
      "2026-11-19: The Man Who Built NVIDIA Just Walked Away",
-     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion"
+     "2026-11-19: Short: Nvidia Lost $1 Trillion While Making Record Money"
     ],
     "voorbeelden": [
-     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 581,923 views in 7 u)",
-     "Homeless Man Offered to Fix a Billionaire's Machine for a Meal — Engineers Laughed, Until It Roared (HOA Tales, 1,176,793 views in 29 u)"
+     "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update (Live Chart Analysis, 17,474 views in 10 u)",
+     "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic (Live Chart Analysis, 10,727 views in 12 u)",
+     "The NVIDIA Scandal Goes Deeper than You Think (ColdFusion, 2,830,140 views in 131 u)"
     ]
    },
    {
-    "onderwerp": "nov",
-    "views_per_uur": 113040,
-    "kanalen": 3,
+    "onderwerp": "model",
+    "views_per_uur": 34783,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
-     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)",
-     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
+     "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today (India Today, 124 views in 1 u)",
+     "Why is Anthropic's Business Model So... Strange? (How Money Works, 984,339 views in 85 u)"
     ]
    },
    {
-    "onderwerp": "sensex",
-    "views_per_uur": 112781,
-    "kanalen": 4,
+    "onderwerp": "dollar",
+    "views_per_uur": 24123,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
-     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)",
+     "GTA 6's Billion-Dollar Hype Machine (CNBC, 1,058,986 views in 132 u)"
     ]
    },
    {
-    "onderwerp": "recession",
-    "views_per_uur": 112268,
-    "kanalen": 5,
+    "onderwerp": "fed",
+    "views_per_uur": 11463,
+    "kanalen": 10,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 581,923 views in 7 u)",
-     "The Start of Recession. (Meet Kevin, 176,004 views in 19 u)",
-     "What’s Stopping a Recession… Is Now Under Attack (Casual Finance, 407,095 views in 45 u)"
+     "The Fed Is Completely Out of Options…Here’s What Happens Next (Ken McElroy, 36,613 views in 8 u)",
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
     ]
    },
    {
-    "onderwerp": "cnbc",
-    "views_per_uur": 91530,
-    "kanalen": 3,
+    "onderwerp": "rate",
+    "views_per_uur": 8004,
+    "kanalen": 8,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
     ]
    },
    {
     "onderwerp": "gold",
-    "views_per_uur": 85046,
-    "kanalen": 7,
+    "views_per_uur": 7855,
+    "kanalen": 9,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)",
-     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 986,576 views in 46 u)",
-     "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News (Vistara News , 445,643 views in 28 u)"
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)"
     ]
    },
    {
-    "onderwerp": "trading",
-    "views_per_uur": 73335,
+    "onderwerp": "fed rate",
+    "views_per_uur": 5740,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash (Kasu Bathram, 14,190 views in 11 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold silver",
+    "views_per_uur": 5361,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
-     "🔴JENSEN HUANG REINSTATED! STOCK MARKET CRAZINESS & NVIDIA NEWS! | LIVE TRADING (Beginner Trading, 7,415 views in 4 u)"
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "come",
+    "views_per_uur": 5087,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)",
+     "Adobe Can’t Come Back From This... (Logically Answered, 158,390 views in 103 u)"
+    ]
+   },
+   {
+    "onderwerp": "happens",
+    "views_per_uur": 4898,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "The Fed Is Completely Out of Options…Here’s What Happens Next (Ken McElroy, 36,613 views in 8 u)",
+     "The Fed Just Sent A Warning... Here Is What Happens Next (Traders Reality, 6,738 views in 37 u)",
+     "Fed Member Warns of 50 Bps Hike: What Happens to Gold? (Gold Silver Forecasting, 3,789 views in 41 u)"
+    ]
+   },
+   {
+    "onderwerp": "bitcoin",
+    "views_per_uur": 4487,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [
+     "2026-11-26: Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
+     "2026-11-26: Short: Bitcoin Fell Below $60,000. Here's Who Is Selling"
+    ],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)"
+    ]
+   },
+   {
+    "onderwerp": "hike",
+    "views_per_uur": 4285,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty (Schwab Network, 7,115 views in 37 u)"
+    ]
+   },
+   {
+    "onderwerp": "rate hike",
+    "views_per_uur": 4192,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty (Schwab Network, 7,115 views in 37 u)"
+    ]
+   },
+   {
+    "onderwerp": "anthropic",
+    "views_per_uur": 3714,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [
+     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
+     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
+    ],
+    "voorbeelden": [
+     "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update (Live Chart Analysis, 17,474 views in 10 u)",
+     "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic (Live Chart Analysis, 10,727 views in 12 u)",
+     "Dan Niles  : Anthropic Stock Future Outlook ( Buy or Sell? ) (Live Chart Analysis, 8,697 views in 10 u)"
+    ]
+   },
+   {
+    "onderwerp": "bitcoin fed",
+    "views_per_uur": 3283,
+    "kanalen": 2,
+    "in_nieuws": true,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ? (Bitcoin Expert India, 50,365 views in 18 u)",
+     "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come (Bitcoin Magazine, 15,187 views in 31 u)"
+    ]
+   },
+   {
+    "onderwerp": "gold rate",
+    "views_per_uur": 1947,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "പലിശപ്പേടിയിൽ തകർന്ന് സ്വർണവിപണി; പവൻ വില 92,080 രൂപയായി!GOLD RATE TODAY (Oneindia Malayalam, 8,089 views in 17 u)",
+     "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026 (Isaac_unscripted, 4,741 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "india",
+    "views_per_uur": 1608,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Gold-Silver Price Crash! Gold Rate Today India 2026 (Ravneet Knowledge Bytes, 48,312 views in 35 u)",
+     "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today (India Today, 124 views in 1 u)",
+     "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026 (Isaac_unscripted, 4,741 views in 39 u)"
+    ]
+   },
+   {
+    "onderwerp": "fomc meeting",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
+    ]
+   },
+   {
+    "onderwerp": "minutes",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
+    ]
+   },
+   {
+    "onderwerp": "meeting minutes",
+    "views_per_uur": 1321,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ? (Bitcoin Expert India, 47,379 views in 39 u)",
+     "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction (Equiti Group, 4,999 views in 43 u)"
     ]
    }
   ],
   "top_videos": [
    {
-    "id": "gQ-TvOYKiUc",
-    "titel": "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News",
-    "kanaal": "Zee Business",
-    "views": 605093,
-    "per_uur": 140997,
-    "uren_oud": 4,
+    "id": "dvgpGaPEdcA",
+    "titel": "The Fed Is Completely Out of Options…Here’s What Happens Next",
+    "kanaal": "Ken McElroy",
+    "views": 36613,
+    "per_uur": 4625,
+    "uren_oud": 8,
     "short": false
    },
    {
-    "id": "Hg8k3t2U_GM",
-    "titel": "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश!",
-    "kanaal": "ABP NEWS",
-    "views": 5129580,
-    "per_uur": 137125,
-    "uren_oud": 37,
+    "id": "XmJlqnGeCY0",
+    "titel": "⚠️ ALERT ! REASONS WHY BIG CRASH IN GOLD SILVER BITCOIN ? MORE CRASH COMING ? FED RATE HIKE ?",
+    "kanaal": "Bitcoin Expert India",
+    "views": 50365,
+    "per_uur": 2795,
+    "uren_oud": 18,
     "short": true
    },
    {
-    "id": "4Unch--PmW0",
-    "titel": "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman",
-    "kanaal": "The Diary Of A CEO",
-    "views": 581923,
-    "per_uur": 84237,
-    "uren_oud": 7,
+    "id": "gWSODuI40L4",
+    "titel": "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update",
+    "kanaal": "Live Chart Analysis",
+    "views": 17474,
+    "per_uur": 1802,
+    "uren_oud": 10,
     "short": false
    },
    {
-    "id": "C5e8z7Q6ets",
-    "titel": "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading",
-    "kanaal": "TRADING CAFE INDIA",
-    "views": 350002,
-    "per_uur": 71233,
-    "uren_oud": 5,
+    "id": "AJnehM1F4Fw",
+    "titel": "Gold-Silver Price Crash! Gold Rate Today India 2026",
+    "kanaal": "Ravneet Knowledge Bytes",
+    "views": 48312,
+    "per_uur": 1362,
+    "uren_oud": 35,
+    "short": true
+   },
+   {
+    "id": "BJFScvqFa4k",
+    "titel": "🚨 FED RATE உயர்ந்தால்  Gold விலை CRASH ஆகுமா? #tamil #kasubathram #tamilfinance #gold #goldcrash",
+    "kanaal": "Kasu Bathram",
+    "views": 14190,
+    "per_uur": 1253,
+    "uren_oud": 11,
+    "short": true
+   },
+   {
+    "id": "g6XbNXOjE1w",
+    "titel": "⚠️ BIG CRASH ? FOMC MEETING MINUTES, FED RATE HIKE RISK & ITS IMPACT ON GOLD SILVER BITCOIN ?",
+    "kanaal": "Bitcoin Expert India",
+    "views": 47379,
+    "per_uur": 1204,
+    "uren_oud": 39,
+    "short": true
+   },
+   {
+    "id": "9oh4iVukrdA",
+    "titel": "Walter Isaacson :- AI INDUSTRY WITHOUT JENSEN HUANG  CNBC On NVIDIA Stock, Micron Stock, Anthropic",
+    "kanaal": "Live Chart Analysis",
+    "views": 10727,
+    "per_uur": 883,
+    "uren_oud": 12,
     "short": false
    },
    {
-    "id": "EnV8JMAEUB8",
-    "titel": "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026",
-    "kanaal": "CNBC Awaaz.",
-    "views": 671173,
-    "per_uur": 49166,
-    "uren_oud": 14,
+    "id": "NlM-_0JACmg",
+    "titel": "Dan Niles  : Anthropic Stock Future Outlook ( Buy or Sell? )",
+    "kanaal": "Live Chart Analysis",
+    "views": 8697,
+    "per_uur": 836,
+    "uren_oud": 10,
     "short": false
    },
    {
-    "id": "TiP0g5wnJU0",
-    "titel": "Sandeep Chaudhary: दोगुनी सीटें जीत गई #congress , BJP की करारी हार #rajasthanpanchayatelection2026",
-    "kanaal": "ABP NEWS",
-    "views": 1659524,
-    "per_uur": 44955,
-    "uren_oud": 37,
+    "id": "o4d-mZhnJk4",
+    "titel": "Trump Praises India's 7% GDP Growth, Demands Lower US Interest Rates #Shorts",
+    "kanaal": "NDTV Profit",
+    "views": 5245,
+    "per_uur": 665,
+    "uren_oud": 8,
     "short": true
    },
    {
-    "id": "GZQ6fj2sZCE",
-    "titel": "Homeless Man Offered to Fix a Billionaire's Machine for a Meal — Engineers Laughed, Until It Roared",
-    "kanaal": "HOA Tales",
-    "views": 1176793,
-    "per_uur": 40707,
-    "uren_oud": 29,
+    "id": "7VhRlzY9R9o",
+    "titel": "The Math Behind the Debt Crisis: Why It Doesn't Add Up",
+    "kanaal": "TheoSym by Sam Sammane ",
+    "views": 9162,
+    "per_uur": 498,
+    "uren_oud": 18,
     "short": true
    },
    {
-    "id": "DXM-D1qs_dA",
-    "titel": "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee",
-    "kanaal": "Zee Telugu News",
-    "views": 95693,
-    "per_uur": 32876,
-    "uren_oud": 3,
+    "id": "GVYglll7Wgs",
+    "titel": "Darius Dale: 2027 Should Be a “Great Year for Bitcoin” as Fed Rate Cuts Come",
+    "kanaal": "Bitcoin Magazine",
+    "views": 15187,
+    "per_uur": 488,
+    "uren_oud": 31,
     "short": false
    },
    {
-    "id": "0FMXZ8ZTToI",
-    "titel": "Exposing Random Billionaire in 60 sec",
-    "kanaal": "Abhay Create",
-    "views": 142881,
-    "per_uur": 32289,
-    "uren_oud": 4,
-    "short": true
-   },
-   {
-    "id": "xyH52c-OdgM",
-    "titel": "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ...",
-    "kanaal": "Zee Business",
-    "views": 126932,
-    "per_uur": 27895,
-    "uren_oud": 5,
+    "id": "guspK6cPagc",
+    "titel": "പലിശപ്പേടിയിൽ തകർന്ന് സ്വർണവിപണി; പവൻ വില 92,080 രൂപയായി!GOLD RATE TODAY",
+    "kanaal": "Oneindia Malayalam",
+    "views": 8089,
+    "per_uur": 463,
+    "uren_oud": 17,
     "short": false
    },
    {
-    "id": "9CJmzsxEXKc",
-    "titel": "Bollywood News : मुंबई के सिनेमाघर में अमित साध और ईशा देओल की सरप्राइज एंट्री | #shorts",
-    "kanaal": "ABP NEWS",
-    "views": 352883,
-    "per_uur": 26977,
-    "uren_oud": 13,
-    "short": true
-   },
-   {
-    "id": "D_pbygEEknY",
-    "titel": "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp",
-    "kanaal": "ABP NEWS",
-    "views": 1100721,
-    "per_uur": 26293,
-    "uren_oud": 42,
-    "short": true
-   },
-   {
-    "id": "SCr90_1yZRA",
-    "titel": "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market",
-    "kanaal": "CNBC Awaaz.",
-    "views": 70077,
-    "per_uur": 25420,
-    "uren_oud": 3,
-    "short": false
-   },
-   {
-    "id": "XFowCoskZ3A",
-    "titel": "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny",
-    "kanaal": "Bressler Otterholt0619",
-    "views": 986576,
-    "per_uur": 21223,
-    "uren_oud": 46,
-    "short": true
-   },
-   {
-    "id": "wCRjmooVGOo",
-    "titel": "Rajasthan Election  | Sandeep Chaudhary | 30 जिलों के नतीजों में  ऐसा क्या हुआ  BJP सिर्फ 5 में!",
-    "kanaal": "ABP NEWS",
-    "views": 723593,
-    "per_uur": 19515,
-    "uren_oud": 37,
-    "short": true
-   },
-   {
-    "id": "w0IQIiTH_V4",
-    "titel": "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz",
-    "kanaal": "Zee Business",
-    "views": 274059,
-    "per_uur": 19456,
-    "uren_oud": 14,
-    "short": false
-   },
-   {
-    "id": "i2SmGesq0vU",
-    "titel": "She Thought He Was a Billionaire… But He Was Broke! 😂💸",
-    "kanaal": "ComedyBlip",
-    "views": 566807,
-    "per_uur": 19205,
-    "uren_oud": 30,
-    "short": true
-   },
-   {
-    "id": "9R_rvQbJvzQ",
-    "titel": "The UK Economy is Genuinely Booming: Why?",
-    "kanaal": "TLDR News",
-    "views": 92315,
-    "per_uur": 18786,
-    "uren_oud": 5,
-    "short": false
-   },
-   {
-    "id": "eqKluw_1Z8g",
-    "titel": "Tyler Perry Became a BILLIONAIRE Doing THIS 🤯",
-    "kanaal": "School of Hard Knocks",
-    "views": 373436,
-    "per_uur": 18190,
-    "uren_oud": 21,
-    "short": true
-   },
-   {
-    "id": "YO0ENYJBN7o",
-    "titel": "Rajasthan Election  | Sandeep Chaudhary | पंचायत चुनाव के नतीजों ने चौंकाया! | BJP | Congress Win",
-    "kanaal": "ABP NEWS",
-    "views": 445984,
-    "per_uur": 18070,
-    "uren_oud": 25,
-    "short": true
-   },
-   {
-    "id": "T0yCIv-LvlY",
-    "titel": "Rajasthan Panchayat Election : राजस्थान पंचायत चुनाव 2026- जानिए किस पार्टी को मिलीं कितनी सीटें ?",
-    "kanaal": "ABP NEWS",
-    "views": 574295,
-    "per_uur": 17895,
+    "id": "QGN3hlbdpsw",
+    "titel": "¡OJO A LO QUE DICE PETER SCHIFF! La Reserva Federal se enfrenta a un callejón sin salida",
+    "kanaal": "Negocios TV",
+    "views": 14952,
+    "per_uur": 462,
     "uren_oud": 32,
     "short": true
    },
    {
-    "id": "gzrbIknZqLw",
-    "titel": "Global Markets Face Turbulence, But India’s Stock Market Shows Resilience! 🇮🇳📈",
-    "kanaal": "TrendLok",
-    "views": 459596,
-    "per_uur": 17399,
-    "uren_oud": 26,
+    "id": "saY_rk8fL30",
+    "titel": "“Gold Just Hit a 14-Month Low — Is $3,500 Next?” #gold #stocks #investing",
+    "kanaal": "American Silver Guy",
+    "views": 8725,
+    "per_uur": 358,
+    "uren_oud": 24,
     "short": true
    },
    {
-    "id": "DGSCkD4HvZU",
-    "titel": "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News",
-    "kanaal": "Vistara News ",
-    "views": 445643,
-    "per_uur": 16142,
-    "uren_oud": 28,
+    "id": "8XsjLRjDl4M",
+    "titel": "Đằng sau mỗi lần FED tăng, giảm lãi suất: Dòng tiền thế giới dịch chuyển ra sao?",
+    "kanaal": "LUẬN BÀN 24H",
+    "views": 12488,
+    "per_uur": 326,
+    "uren_oud": 38,
+    "short": false
+   },
+   {
+    "id": "x-KeVQQIRYg",
+    "titel": "The Number Waller Feared #federalreserve #uspolitics #useconomy #inflation #economics #uspolitics",
+    "kanaal": "UNFTR Media",
+    "views": 6391,
+    "per_uur": 263,
+    "uren_oud": 24,
     "short": true
    },
    {
-    "id": "igIVMq292nM",
-    "titel": "DOOMSDAY PREPPERS: Generac CEO ADDRESSES Americans' reactions to tech outages",
-    "kanaal": "Fox Business",
-    "views": 224273,
-    "per_uur": 14095,
-    "uren_oud": 16,
+    "id": "aHHM5nG1jJo",
+    "titel": "Tech Leads into Anthropic IPO, Fed Governors Clash Amid Rate Hike Uncertainty",
+    "kanaal": "Schwab Network",
+    "views": 7115,
+    "per_uur": 193,
+    "uren_oud": 37,
     "short": false
    },
    {
-    "id": "gzVeBQZ5wzI",
-    "titel": "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir",
-    "kanaal": "Baaten Bazar Ki (BBK)",
-    "views": 151575,
-    "per_uur": 13912,
-    "uren_oud": 11,
+    "id": "lrMPpC5i3-o",
+    "titel": "EL GRAN AVISO sobre el ORO y la FED: \"Se HUNDIRÁN la bolsa, los bonos y la vivienda\"",
+    "kanaal": "Jose Vizner",
+    "views": 7883,
+    "per_uur": 189,
+    "uren_oud": 42,
+    "short": true
+   },
+   {
+    "id": "7fJ3NF9gJSo",
+    "titel": "The Fed Just Sent A Warning... Here Is What Happens Next",
+    "kanaal": "Traders Reality",
+    "views": 6738,
+    "per_uur": 180,
+    "uren_oud": 37,
     "short": false
+   },
+   {
+    "id": "qs-8Cs1JBDk",
+    "titel": "Federal Reserve Is Raising Rates But Mercedes Is Lowering Them!",
+    "kanaal": "BenzsandBowties",
+    "views": 5456,
+    "per_uur": 159,
+    "uren_oud": 34,
+    "short": true
+   },
+   {
+    "id": "S97kdQQo_ws",
+    "titel": "Trump Cites India As Model, Renews Demand For US Federal Reserve Rate Cuts | India Today",
+    "kanaal": "India Today",
+    "views": 124,
+    "per_uur": 124,
+    "uren_oud": 1,
+    "short": false
+   },
+   {
+    "id": "V0OY9LSg2X8",
+    "titel": "Gold Price Crash in India! Ippudu Gold Konala? Leka Wait Cheyyala? | Gold Rate 2026",
+    "kanaal": "Isaac_unscripted",
+    "views": 4741,
+    "per_uur": 122,
+    "uren_oud": 39,
+    "short": true
+   },
+   {
+    "id": "IPT4yM4t5mo",
+    "titel": "FOMC meeting minutes live today | Fed outlook, gold & dollar reaction",
+    "kanaal": "Equiti Group",
+    "views": 4999,
+    "per_uur": 117,
+    "uren_oud": 43,
+    "short": false
+   },
+   {
+    "id": "xO7Zh__541k",
+    "titel": "Fed Member Warns of 50 Bps Hike: What Happens to Gold?",
+    "kanaal": "Gold Silver Forecasting",
+    "views": 3789,
+    "per_uur": 93,
+    "uren_oud": 41,
+    "short": false
+   },
+   {
+    "id": "mvTju2XjE98",
+    "titel": "Dark reality of Gold future",
+    "kanaal": "Compound Money",
+    "views": 3415,
+    "per_uur": 88,
+    "uren_oud": 39,
+    "short": true
    }
   ],
   "kanalen_zoals_wij": [
    {
-    "id": "qxm2ZViNfiE",
-    "titel": "Bars Have 90% Margins. Most Still Go Broke.",
-    "kanaal": "Modern MBA",
-    "views": 119144,
-    "uren_oud": 22,
-    "per_uur": 5437,
-    "keer_gewoon": 64.0,
-    "uitschieter": true
-   },
-   {
-    "id": "-7_-eckjzfI",
-    "titel": "Why Big Pizza Chains Are Struggling",
-    "kanaal": "CNBC",
-    "views": 733446,
-    "uren_oud": 24,
-    "per_uur": 30676,
-    "keer_gewoon": 14.7,
-    "uitschieter": true
-   },
-   {
-    "id": "pIK8dB5BiHY",
-    "titel": "Every Crisis Everywhere All At Once",
-    "kanaal": "Economics Explained",
-    "views": 544409,
-    "uren_oud": 47,
-    "per_uur": 11605,
-    "keer_gewoon": 11.8,
+    "id": "PptRrzYY61w",
+    "titel": "The NVIDIA Scandal Goes Deeper than You Think",
+    "kanaal": "ColdFusion",
+    "views": 2830140,
+    "uren_oud": 131,
+    "per_uur": 21564,
+    "keer_gewoon": 19.9,
     "uitschieter": true
    },
    {
     "id": "FhVbxweMaWM",
     "titel": "Why is Anthropic's Business Model So... Strange?",
     "kanaal": "How Money Works",
-    "views": 1107139,
-    "uren_oud": 145,
-    "per_uur": 7648,
-    "keer_gewoon": 8.6,
+    "views": 984339,
+    "uren_oud": 85,
+    "per_uur": 11553,
+    "keer_gewoon": 12.4,
     "uitschieter": true
    },
    {
-    "id": "SKkiIdfsHGo",
-    "titel": "The Start of Recession.",
-    "kanaal": "Meet Kevin",
-    "views": 176004,
-    "uren_oud": 19,
-    "per_uur": 9108,
-    "keer_gewoon": 4.6,
+    "id": "mCIxUTr1St4",
+    "titel": "Stay Away From My RAM!",
+    "kanaal": "Logically Answered",
+    "views": 20395,
+    "uren_oud": 7,
+    "per_uur": 2775,
+    "keer_gewoon": 5.4,
     "uitschieter": true
    },
    {
-    "id": "fCEY_9vg6Xk",
-    "titel": "Jensen is OFFICIALLY BACK!!! Nvidia!!",
-    "kanaal": "Meet Kevin",
-    "views": 6697,
-    "uren_oud": 1,
-    "per_uur": 6697,
-    "keer_gewoon": 3.4,
+    "id": "JcBTr-BhL_0",
+    "titel": "What EVERYONE Needs To Do With Their Money ASAP",
+    "kanaal": "Graham Stephan",
+    "views": 539240,
+    "uren_oud": 103,
+    "per_uur": 5218,
+    "keer_gewoon": 3.7,
+    "uitschieter": true
+   },
+   {
+    "id": "_19PHik8_Jg",
+    "titel": "GTA 6's Billion-Dollar Hype Machine",
+    "kanaal": "CNBC",
+    "views": 1058986,
+    "uren_oud": 132,
+    "per_uur": 8002,
+    "keer_gewoon": 3.5,
+    "uitschieter": true
+   },
+   {
+    "id": "Brh3jhy04TQ",
+    "titel": "The Truth About The American Economy",
+    "kanaal": "Economics Explained",
+    "views": 218605,
+    "uren_oud": 82,
+    "per_uur": 2666,
+    "keer_gewoon": 3.0,
     "uitschieter": true
    },
    {
     "id": "c6qv_kmcLWE",
     "titel": "Adobe Can’t Come Back From This...",
     "kanaal": "Logically Answered",
-    "views": 168764,
-    "uren_oud": 163,
-    "per_uur": 1036,
-    "keer_gewoon": 2.6,
-    "uitschieter": true
-   },
-   {
-    "id": "mCIxUTr1St4",
-    "titel": "OpenAI Reserved 40% Of The World's RAM. It Never Had To Buy It",
-    "kanaal": "Logically Answered",
-    "views": 57040,
-    "uren_oud": 67,
-    "per_uur": 852,
-    "keer_gewoon": 2.2,
+    "views": 158390,
+    "uren_oud": 103,
+    "per_uur": 1533,
+    "keer_gewoon": 3.0,
     "uitschieter": true
    },
    {
     "id": "XQxPvJ7H98s",
     "titel": "How Cheap Clothing Got So Expensive",
     "kanaal": "CNBC",
-    "views": 331653,
-    "uren_oud": 72,
-    "per_uur": 4612,
+    "views": 63502,
+    "uren_oud": 12,
+    "per_uur": 5142,
     "keer_gewoon": 2.2,
     "uitschieter": true
    },
@@ -1045,39 +1030,59 @@
     "id": "e6mB0dgCkWk",
     "titel": "What U.S. Aircraft Carriers Bring to the Iran War | WSJ Equipped",
     "kanaal": "The Wall Street Journal",
-    "views": 1120871,
-    "uren_oud": 164,
-    "per_uur": 6838,
-    "keer_gewoon": 2.1,
+    "views": 935150,
+    "uren_oud": 104,
+    "per_uur": 8962,
+    "keer_gewoon": 2.2,
     "uitschieter": true
    },
    {
-    "id": "Brh3jhy04TQ",
-    "titel": "Something Strange Is Happening In America",
-    "kanaal": "Economics Explained",
-    "views": 255518,
-    "uren_oud": 142,
-    "per_uur": 1805,
+    "id": "dFOLw_CTRPY",
+    "titel": "How to Hedge THE CRASH Before It's Too Late.",
+    "kanaal": "Meet Kevin",
+    "views": 89395,
+    "uren_oud": 8,
+    "per_uur": 11086,
+    "keer_gewoon": 1.9,
+    "uitschieter": false
+   },
+   {
+    "id": "zlvcEuxM5xU",
+    "titel": "Jensen JUST Crashed the Market: New STARTUP",
+    "kanaal": "Meet Kevin",
+    "views": 108018,
+    "uren_oud": 10,
+    "per_uur": 10623,
     "keer_gewoon": 1.8,
     "uitschieter": false
    },
    {
-    "id": "JcBTr-BhL_0",
-    "titel": "What EVERYONE Needs To Do With Their Money ASAP",
-    "kanaal": "Graham Stephan",
-    "views": 560987,
-    "uren_oud": 163,
-    "per_uur": 3443,
-    "keer_gewoon": 1.8,
+    "id": "_wtHypm4eqQ",
+    "titel": "The Collapse...",
+    "kanaal": "Meet Kevin",
+    "views": 101957,
+    "uren_oud": 11,
+    "per_uur": 9556,
+    "keer_gewoon": 1.6,
     "uitschieter": false
    },
    {
-    "id": "Ko-rV1vj-Tk",
-    "titel": "Inside California’s Modern-Day Gold Rush",
-    "kanaal": "CNBC Make It",
-    "views": 59585,
-    "uren_oud": 48,
-    "per_uur": 1244,
+    "id": "8GU-V2QEPQ0",
+    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
+    "kanaal": "Meet Kevin",
+    "views": 88375,
+    "uren_oud": 14,
+    "per_uur": 6539,
+    "keer_gewoon": 1.1,
+    "uitschieter": false
+   },
+   {
+    "id": "GbwGP-HxibY",
+    "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
+    "kanaal": "CNBC",
+    "views": 194822,
+    "uren_oud": 84,
+    "per_uur": 2310,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1085,29 +1090,9 @@
     "id": "HQPgvxNU94M",
     "titel": "Why You Can't Focus in an Open Office | WSJ Pro Perfected",
     "kanaal": "The Wall Street Journal",
-    "views": 215848,
-    "uren_oud": 68,
-    "per_uur": 3191,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "dFOLw_CTRPY",
-    "titel": "How to Hedge THE CRASH Before It's Too Late.",
-    "kanaal": "Meet Kevin",
-    "views": 134967,
-    "uren_oud": 68,
-    "per_uur": 1996,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "zlvcEuxM5xU",
-    "titel": "Jensen JUST Crashed the Market: New STARTUP",
-    "kanaal": "Meet Kevin",
-    "views": 140173,
-    "uren_oud": 70,
-    "per_uur": 2010,
+    "views": 32972,
+    "uren_oud": 8,
+    "per_uur": 4078,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1115,19 +1100,9 @@
     "id": "hdIdY3l96BA",
     "titel": "Stock Up NOW: We're Under Attack.",
     "kanaal": "Meet Kevin",
-    "views": 172390,
-    "uren_oud": 87,
-    "per_uur": 1973,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "5m4AIfW_56U",
-    "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
-    "kanaal": "Meet Kevin",
-    "views": 177597,
-    "uren_oud": 93,
-    "per_uur": 1918,
+    "views": 163963,
+    "uren_oud": 28,
+    "per_uur": 5900,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1135,132 +1110,142 @@
     "id": "S1B9R_83-8c",
     "titel": "America Is Under Attack",
     "kanaal": "Andrei Jikh",
-    "views": 1247093,
-    "uren_oud": 70,
-    "per_uur": 17838,
+    "views": 534616,
+    "uren_oud": 10,
+    "per_uur": 51677,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
    {
-    "id": "_wtHypm4eqQ",
-    "titel": "The Collapse...",
+    "id": "5m4AIfW_56U",
+    "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
     "kanaal": "Meet Kevin",
-    "views": 108318,
-    "uren_oud": 70,
-    "per_uur": 1542,
-    "keer_gewoon": 0.8,
-    "uitschieter": false
-   },
-   {
-    "id": "8GU-V2QEPQ0",
-    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
-    "kanaal": "Meet Kevin",
-    "views": 110994,
-    "uren_oud": 73,
-    "per_uur": 1519,
-    "keer_gewoon": 0.8,
-    "uitschieter": false
-   },
-   {
-    "id": "GbwGP-HxibY",
-    "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
-    "kanaal": "CNBC",
-    "views": 211600,
-    "uren_oud": 144,
-    "per_uur": 1470,
-    "keer_gewoon": 0.7,
-    "uitschieter": false
-   },
-   {
-    "id": "sxtXz24odps",
-    "titel": "How the Fed Is Preparing For AI’s Economic Impact",
-    "kanaal": "CNBC",
-    "views": 38142,
-    "uren_oud": 48,
-    "per_uur": 796,
-    "keer_gewoon": 0.4,
+    "views": 174366,
+    "uren_oud": 33,
+    "per_uur": 5282,
+    "keer_gewoon": 0.9,
     "uitschieter": false
    },
    {
     "id": "YYNTzUHobU0",
     "titel": "Why Retail Investors Are Divided Over Anthropic’s $1.4 Trillion IPO",
     "kanaal": "CNBC",
-    "views": 102793,
-    "uren_oud": 120,
-    "per_uur": 857,
-    "keer_gewoon": 0.4,
+    "views": 98464,
+    "uren_oud": 60,
+    "per_uur": 1632,
+    "keer_gewoon": 0.7,
+    "uitschieter": false
+   },
+   {
+    "id": "Tn8IEhp_iq4",
+    "titel": "The Stock Market is about to do something UNBELIEVABLE.",
+    "kanaal": "Meet Kevin",
+    "views": 189184,
+    "uren_oud": 57,
+    "per_uur": 3309,
+    "keer_gewoon": 0.6,
     "uitschieter": false
    },
    {
     "id": "3ftcmy8Fi2o",
     "titel": "Watch Immediately: The Anthropic IPO [Should you Buy]",
     "kanaal": "Meet Kevin",
-    "views": 65718,
-    "uren_oud": 95,
-    "per_uur": 691,
-    "keer_gewoon": 0.4,
+    "views": 64285,
+    "uren_oud": 36,
+    "per_uur": 1810,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "vzGR3e7jkvk",
+    "titel": "Prepare for War.",
+    "kanaal": "Meet Kevin",
+    "views": 88079,
+    "uren_oud": 49,
+    "per_uur": 1797,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "vk198A0VrFI",
+    "titel": "Will A Democratic Congress Ease U.S. Tariffs On Canada?",
+    "kanaal": "CNBC",
+    "views": 86385,
+    "uren_oud": 156,
+    "per_uur": 553,
+    "keer_gewoon": 0.2,
     "uitschieter": false
    },
    {
     "id": "8BnHqm5BSdI",
     "titel": "Texas Turned Blue. What’s Next for Elon Musk?",
     "kanaal": "The Wall Street Journal",
-    "views": 30609,
-    "uren_oud": 88,
-    "per_uur": 346,
-    "keer_gewoon": 0.1,
+    "views": 22080,
+    "uren_oud": 29,
+    "per_uur": 765,
+    "keer_gewoon": 0.2,
+    "uitschieter": false
+   },
+   {
+    "id": "DhZU6oek9_M",
+    "titel": "Markets are Nervous.",
+    "kanaal": "Meet Kevin",
+    "views": 74397,
+    "uren_oud": 57,
+    "per_uur": 1298,
+    "keer_gewoon": 0.2,
     "uitschieter": false
    }
   ]
  },
  "nl_hype": {
-  "bijgewerkt": "2026-11-23 16:05",
+  "bijgewerkt": "2026-11-21 13:13",
   "markt": [
    {
     "naam": "AEX",
-    "pct": 1.9,
+    "pct": -2.4,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "ASML",
-    "pct": 8.5,
+    "pct": -9.3,
     "groot": true,
     "grens": 7
    },
    {
     "naam": "Shell",
-    "pct": -0.2,
+    "pct": -0.1,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "ING",
-    "pct": 2.0,
+    "pct": -3.6,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Adyen",
-    "pct": 3.2,
+    "pct": -1.6,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Prosus",
-    "pct": 4.3,
+    "pct": -5.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Unilever",
-    "pct": -1.0,
+    "pct": 2.0,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "Ahold Delhaize",
-    "pct": -0.3,
+    "pct": 0.8,
     "groot": false,
     "grens": 6
    },
@@ -1272,121 +1257,121 @@
    },
    {
     "naam": "Philips",
-    "pct": 0.7,
+    "pct": -1.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "ABN AMRO",
-    "pct": 2.6,
+    "pct": -3.2,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "BESI",
-    "pct": 9.3,
+    "pct": -5.6,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Bitcoin",
-    "pct": 3.7,
+    "pct": -0.8,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "S&P 500",
-    "pct": 4.7,
+    "pct": -3.7,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": 6.6,
+    "pct": -5.3,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": 2.9,
-    "groot": true,
+    "pct": -1.9,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": 32.5,
+    "pct": -14.0,
     "groot": true,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": 1.9,
+    "pct": -1.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 4.2,
+    "pct": -2.8,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 6.0,
+    "pct": -2.7,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": 3.5,
+    "pct": -4.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": 5.1,
+    "pct": -5.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": 12.8,
-    "groot": true,
-    "grens": 8
-   },
-   {
-    "naam": "Broadcom",
-    "pct": 1.6,
+    "pct": -7.6,
     "groot": false,
     "grens": 8
    },
    {
+    "naam": "Broadcom",
+    "pct": -12.2,
+    "groot": true,
+    "grens": 8
+   },
+   {
     "naam": "Berkshire",
-    "pct": 0.4,
+    "pct": -0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": 2.4,
+    "pct": -3.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -0.4,
+    "pct": 1.5,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Olie",
-    "pct": -2.3,
+    "pct": 0.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 4.5,
+    "pct": -4.6,
     "groot": true,
     "grens": 4
    }
@@ -1399,19 +1384,19 @@
      "koers"
     ],
     "wat": [
-     "+4.5% op één dag"
+     "-4.6% op één dag"
     ],
     "koppen": [],
     "groot": true
    },
    {
-    "onderwerp": "Tesla",
+    "onderwerp": "Broadcom",
     "punten": 10,
     "bronnen": [
      "koers"
     ],
     "wat": [
-     "+12.8% op één dag"
+     "-12.2% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1423,19 +1408,7 @@
      "koers"
     ],
     "wat": [
-     "+32.5% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Dow Jones",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+2.9% op één dag"
+     "-14.0% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1447,7 +1420,7 @@
      "koers"
     ],
     "wat": [
-     "+6.6% op één dag"
+     "-5.3% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1459,7 +1432,7 @@
      "koers"
     ],
     "wat": [
-     "+4.7% op één dag"
+     "-3.7% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -1471,25 +1444,137 @@
      "koers"
     ],
     "wat": [
-     "+8.5% op één dag"
+     "-9.3% op één dag"
     ],
     "koppen": [],
     "groot": true
    },
    {
-    "onderwerp": "Huizenmarkt",
-    "punten": 3,
+    "onderwerp": "Anthropic",
+    "punten": 5,
+    "bronnen": [
+     "FD",
+     "NOS"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "AI-aandelen in de uitverkoop na historische beursgang Anthropic",
+      "bron": "FD",
+      "link": "https://fd.nl/financiele-markten/1620184/ai-aandelen-in-de-uitverkoop-na-historische-beursgang-anthropic"
+     },
+     {
+      "titel": "Als een raket vloog Anthropic SpaceX voorbij; nu de grootste beursgang ooit",
+      "bron": "FD",
+      "link": "https://fd.nl/economie/1620124/als-een-raket-vloog-anthropic-spacex-voorbij-nu-de-grootste-beursgang-ooit"
+     },
+     {
+      "titel": "AI-bedrijf Anthropic daalt hard op dag na historische beursgang",
+      "bron": "NOS",
+      "link": "https://nos.nl/l/2640298"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Beurs",
+    "punten": 5,
+    "bronnen": [
+     "FD",
+     "NOS"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "AI-aandelen in de uitverkoop na historische beursgang Anthropic",
+      "bron": "FD",
+      "link": "https://fd.nl/financiele-markten/1620184/ai-aandelen-in-de-uitverkoop-na-historische-beursgang-anthropic"
+     },
+     {
+      "titel": "Als een raket vloog Anthropic SpaceX voorbij; nu de grootste beursgang ooit",
+      "bron": "FD",
+      "link": "https://fd.nl/economie/1620124/als-een-raket-vloog-anthropic-spacex-voorbij-nu-de-grootste-beursgang-ooit"
+     },
+     {
+      "titel": "AI-bedrijf Anthropic daalt hard op dag na historische beursgang",
+      "bron": "NOS",
+      "link": "https://nos.nl/l/2640298"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Goud",
+    "punten": 4,
     "bronnen": [
      "nu.nl"
     ],
     "wat": [
-     "prijzen"
+     "rente/economie"
     ],
     "koppen": [
      {
-      "titel": "Koopwoningen in oktober bijna 3 procent duurder dan vorig jaar",
+      "titel": "Goudprijs blijft dalen door rentezorgen en onrust op beurzen",
       "bron": "nu.nl",
-      "link": "https://www.nu.nl/economie/6417264/koopwoningen-in-oktober-bijna-3-procent-duurder-dan-vorig-jaar.html"
+      "link": "https://www.nu.nl/economie/6417196/goudprijs-blijft-dalen-door-rentezorgen-en-onrust-op-beurzen.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Rente",
+    "punten": 4,
+    "bronnen": [
+     "nu.nl"
+    ],
+    "wat": [
+     "rente/economie"
+    ],
+    "koppen": [
+     {
+      "titel": "Goudprijs blijft dalen door rentezorgen en onrust op beurzen",
+      "bron": "nu.nl",
+      "link": "https://www.nu.nl/economie/6417196/goudprijs-blijft-dalen-door-rentezorgen-en-onrust-op-beurzen.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "SpaceX",
+    "punten": 3,
+    "bronnen": [
+     "FD"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Als een raket vloog Anthropic SpaceX voorbij; nu de grootste beursgang ooit",
+      "bron": "FD",
+      "link": "https://fd.nl/economie/1620124/als-een-raket-vloog-anthropic-spacex-voorbij-nu-de-grootste-beursgang-ooit"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Tata Steel",
+    "punten": 3,
+    "bronnen": [
+     "NOS"
+    ],
+    "wat": [
+     "rechtszaak"
+    ],
+    "koppen": [
+     {
+      "titel": "OM hackte Tata Steel in onderzoek naar mogelijk opzettelijke vervuiling omgeving",
+      "bron": "NOS",
+      "link": "https://nos.nl/l/2640278"
      }
     ],
     "groot": false
@@ -1497,487 +1582,505 @@
   ],
   "kanalen_zoals_wij": [
    {
-    "id": "H8QByQKPwjA",
-    "titel": "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT",
-    "kanaal": "Investeren doe je zo",
-    "views": 3089,
-    "uren_oud": 30,
-    "per_uur": 104,
-    "keer_gewoon": 26.0,
-    "uitschieter": true
-   },
-   {
-    "id": "tmdwUqt5FhQ",
-    "titel": "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN?",
-    "kanaal": "Focuss Op Financiën",
-    "views": 1839,
-    "uren_oud": 3,
-    "per_uur": 595,
-    "keer_gewoon": 20.5,
-    "uitschieter": true
-   },
-   {
     "id": "qsayQ23e6sk",
     "titel": "AANDELEN DALEN HARD... DIT MOET JE NU DOEN!",
     "kanaal": "Geld op Geld",
-    "views": 12913,
-    "uren_oud": 70,
-    "per_uur": 185,
-    "keer_gewoon": 14.2,
-    "uitschieter": true
-   },
-   {
-    "id": "6UN_71jkh-U",
-    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
-    "kanaal": "Focuss Op Financiën",
-    "views": 18265,
-    "uren_oud": 51,
-    "per_uur": 357,
-    "keer_gewoon": 12.3,
-    "uitschieter": true
-   },
-   {
-    "id": "TovyJV3uTSo",
-    "titel": "De situatie in de oorlog tussen Rusland en Oekraïne",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 26482,
-    "uren_oud": 5,
-    "per_uur": 5351,
-    "keer_gewoon": 10.5,
-    "uitschieter": true
-   },
-   {
-    "id": "1sMqgJ7aA5Y",
-    "titel": "AANDEEL ANTHROPIC IPO - GA IK AANDELEN KOPEN?!",
-    "kanaal": "Investeren doe je zo",
-    "views": 1445,
-    "uren_oud": 93,
-    "per_uur": 16,
-    "keer_gewoon": 4.0,
-    "uitschieter": true
-   },
-   {
-    "id": "UwLMFJoZ2WY",
-    "titel": "NVIDIA KWARTAALCIJFERS! LIVE DOORNEMEN!",
-    "kanaal": "Geld op Geld",
-    "views": 6155,
-    "uren_oud": 125,
-    "per_uur": 49,
-    "keer_gewoon": 3.8,
-    "uitschieter": true
-   },
-   {
-    "id": "3JaeLdfHaQU",
-    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
-    "kanaal": "Focuss Op Financiën",
-    "views": 10032,
-    "uren_oud": 99,
-    "per_uur": 101,
-    "keer_gewoon": 3.5,
-    "uitschieter": true
-   },
-   {
-    "id": "2cFYw2Uecfs",
-    "titel": "NVIDIA MOET MORGEN LEVEREN! DIT STAAT OP HET SPEL",
-    "kanaal": "Geld op Geld",
-    "views": 7200,
-    "uren_oud": 164,
-    "per_uur": 44,
-    "keer_gewoon": 3.4,
+    "views": 8303,
+    "uren_oud": 19,
+    "per_uur": 441,
+    "keer_gewoon": 31.5,
     "uitschieter": true
    },
    {
     "id": "vAfCrbZngsY",
     "titel": "Beursgang Antropic Laat De AI Bubbel Barsten!!",
     "kanaal": "DoopieCash",
-    "views": 20748,
-    "uren_oud": 52,
-    "per_uur": 400,
-    "keer_gewoon": 3.2,
+    "views": 3646,
+    "uren_oud": 1,
+    "per_uur": 3613,
+    "keer_gewoon": 21.9,
     "uitschieter": true
    },
    {
-    "id": "4Cz9tvMKe5I",
-    "titel": "Rusland dreigt de Krim te verliezen.",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 47140,
-    "uren_oud": 31,
-    "per_uur": 1544,
-    "keer_gewoon": 3.0,
-    "uitschieter": true
-   },
-   {
-    "id": "lEyfaFkglPo",
-    "titel": "RICHARD de MOS haalt uit naar NEDERLANDSE POLITIEK!",
-    "kanaal": "DoopieCash",
-    "views": 9666,
-    "uren_oud": 29,
-    "per_uur": 332,
-    "keer_gewoon": 2.6,
-    "uitschieter": true
-   },
-   {
-    "id": "3vzQtxxfI6E",
-    "titel": "IK VERKOOP MEER DAN €11.000 AAN ETF'S || PORTFOLIO SHOW #221",
+    "id": "3JaeLdfHaQU",
+    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
     "kanaal": "Focuss Op Financiën",
-    "views": 11070,
+    "views": 9332,
+    "uren_oud": 48,
+    "per_uur": 193,
+    "keer_gewoon": 7.4,
+    "uitschieter": true
+   },
+   {
+    "id": "1sMqgJ7aA5Y",
+    "titel": "AANDEEL ANTHROPIC IPO - GA IK AANDELEN KOPEN?!",
+    "kanaal": "Investeren doe je zo",
+    "views": 1188,
+    "uren_oud": 42,
+    "per_uur": 28,
+    "keer_gewoon": 7.0,
+    "uitschieter": true
+   },
+   {
+    "id": "UwLMFJoZ2WY",
+    "titel": "NVIDIA KWARTAALCIJFERS! LIVE DOORNEMEN!",
+    "kanaal": "Geld op Geld",
+    "views": 6108,
+    "uren_oud": 75,
+    "per_uur": 82,
+    "keer_gewoon": 5.9,
+    "uitschieter": true
+   },
+   {
+    "id": "8RaBTU_eakA",
+    "titel": "GA IK NVIDIA AANDEEL KOPEN of VERMIJDEN?! - MIJN PLAN",
+    "kanaal": "Investeren doe je zo",
+    "views": 2868,
     "uren_oud": 147,
-    "per_uur": 75,
-    "keer_gewoon": 2.6,
+    "per_uur": 20,
+    "keer_gewoon": 5.0,
+    "uitschieter": true
+   },
+   {
+    "id": "6UN_71jkh-U",
+    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
+    "kanaal": "Focuss Op Financiën",
+    "views": 128,
+    "uren_oud": 1,
+    "per_uur": 128,
+    "keer_gewoon": 4.9,
+    "uitschieter": true
+   },
+   {
+    "id": "2cFYw2Uecfs",
+    "titel": "NVIDIA MOET MORGEN LEVEREN! DIT STAAT OP HET SPEL",
+    "kanaal": "Geld op Geld",
+    "views": 7144,
+    "uren_oud": 114,
+    "per_uur": 63,
+    "keer_gewoon": 4.5,
     "uitschieter": true
    },
    {
     "id": "M39Wm9Xa90M",
     "titel": "Wat moet ik doen ALS BITCOIN DAALT?!",
     "kanaal": "DoopieCash",
-    "views": 18426,
-    "uren_oud": 69,
-    "per_uur": 267,
-    "keer_gewoon": 2.1,
+    "views": 13149,
+    "uren_oud": 18,
+    "per_uur": 721,
+    "keer_gewoon": 4.4,
+    "uitschieter": true
+   },
+   {
+    "id": "3vzQtxxfI6E",
+    "titel": "IK VERKOOP MEER DAN €11.000 AAN ETF'S || PORTFOLIO SHOW #221",
+    "kanaal": "Focuss Op Financiën",
+    "views": 10887,
+    "uren_oud": 96,
+    "per_uur": 113,
+    "keer_gewoon": 4.3,
+    "uitschieter": true
+   },
+   {
+    "id": "okwgXQlV4MI",
+    "titel": "De situatie aan het front in Oekraïne",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 52850,
+    "uren_oud": 24,
+    "per_uur": 2237,
+    "keer_gewoon": 4.1,
     "uitschieter": true
    },
    {
     "id": "Ccm0U-vG0yo",
     "titel": "Wat Betekent Het Nieuwe Box 3 Belastingplan Concreet Voor Jouw Crypto En Aandelen?!",
     "kanaal": "DoopieCash",
-    "views": 30989,
-    "uren_oud": 117,
-    "per_uur": 265,
-    "keer_gewoon": 2.1,
+    "views": 28760,
+    "uren_oud": 66,
+    "per_uur": 434,
+    "keer_gewoon": 2.6,
     "uitschieter": true
-   },
-   {
-    "id": "NWPWHqK0yxM",
-    "titel": "Olieprijs omlaag, gasprijs omlaag, beurzen omlaag",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 5149,
-    "uren_oud": 5,
-    "per_uur": 948,
-    "keer_gewoon": 1.9,
-    "uitschieter": false
-   },
-   {
-    "id": "okwgXQlV4MI",
-    "titel": "De situatie aan het front in Oekraïne",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 70202,
-    "uren_oud": 74,
-    "per_uur": 943,
-    "keer_gewoon": 1.8,
-    "uitschieter": false
    },
    {
     "id": "5z88oITHMBE",
     "titel": "De Krimbrug is nu in perfecte staat gebracht",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 96447,
-    "uren_oud": 127,
-    "per_uur": 762,
-    "keer_gewoon": 1.5,
-    "uitschieter": false
+    "views": 94340,
+    "uren_oud": 76,
+    "per_uur": 1245,
+    "keer_gewoon": 2.3,
+    "uitschieter": true
    },
    {
     "id": "o8FAxUhdEDo",
     "titel": "Anthropic Naar De Beurs! Wat Betekent Dit Voor De Markt?",
     "kanaal": "DoopieCash",
-    "views": 14258,
-    "uren_oud": 91,
-    "per_uur": 157,
-    "keer_gewoon": 1.2,
+    "views": 13697,
+    "uren_oud": 40,
+    "per_uur": 342,
+    "keer_gewoon": 2.1,
+    "uitschieter": true
+   },
+   {
+    "id": "cIC_XbeD5l8",
+    "titel": "KAN NETFLIX MET 100% STIJGEN? || S&P500 CHALLENGE #5",
+    "kanaal": "Focuss Op Financiën",
+    "views": 6573,
+    "uren_oud": 144,
+    "per_uur": 46,
+    "keer_gewoon": 1.8,
     "uitschieter": false
    },
    {
-    "id": "mymJriH6Nu8",
-    "titel": "AEX - Rebound kan niet uitblijven",
+    "id": "T9fhVJyO8aA",
+    "titel": "De Krimbrug en haar rol in de oorlog",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 44930,
+    "uren_oud": 45,
+    "per_uur": 1003,
+    "keer_gewoon": 1.8,
+    "uitschieter": false
+   },
+   {
+    "id": "DMKHNpzpT8k",
+    "titel": "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307",
     "kanaal": "DeAandeelHouder TV",
-    "views": 469,
-    "uren_oud": 4,
-    "per_uur": 124,
+    "views": 7447,
+    "uren_oud": 27,
+    "per_uur": 273,
+    "keer_gewoon": 1.7,
+    "uitschieter": false
+   },
+   {
+    "id": "zKy3ehOMESU",
+    "titel": "Oekraïne heeft de Krimbrug aangevallen en geraakt",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 94171,
+    "uren_oud": 115,
+    "per_uur": 821,
+    "keer_gewoon": 1.5,
+    "uitschieter": false
+   },
+   {
+    "id": "A0sEZYECTsE",
+    "titel": "Wat heeft de top in China opgeleverd en gebracht",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 31879,
+    "uren_oud": 43,
+    "per_uur": 735,
+    "keer_gewoon": 1.3,
+    "uitschieter": false
+   },
+   {
+    "id": "4u6vgyb2gQU",
+    "titel": "Markt Staat Onder Druk... S&P 500 Op Cruciaal Lvl.",
+    "kanaal": "DoopieCash",
+    "views": 17644,
+    "uren_oud": 88,
+    "per_uur": 201,
     "keer_gewoon": 1.2,
     "uitschieter": false
    }
   ],
   "groot": [
    "Goud",
-   "Tesla",
+   "Broadcom",
    "Nvidia",
-   "Dow Jones",
    "Nasdaq",
    "S&P 500",
    "ASML"
   ],
-  "aantal_koppen": 43,
+  "aantal_koppen": 58,
   "youtube": [
    {
-    "onderwerp": "huizenmarkt",
-    "views_per_uur": 1918,
-    "kanalen": 2,
-    "in_nieuws": true,
-    "sterk": false,
-    "voorbeelden": [
-     "Een correctie op de huizenmarkt? Dit zijn de signalen... (Madelon Vos, 53,759 views)",
-     "Bertus Klokkenluider - Woningnood #woningmarkt #stikstof #huizenmarkt #woningbouw #denhaag #co2  (Bertus Klokkenluider, 6 views)"
-    ]
-   },
-   {
-    "onderwerp": "crash",
-    "views_per_uur": 906,
-    "kanalen": 3,
+    "onderwerp": "bitcoin",
+    "views_per_uur": 919,
+    "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Deze crash is GOED nieuws voor beleggers (StockWatch, 1,693 views)",
-     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
-     "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT (Investeren doe je zo, 3,085 views)"
-    ]
-   },
-   {
-    "onderwerp": "beleggers",
-    "views_per_uur": 522,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "Deze crash is GOED nieuws voor beleggers (StockWatch, 1,693 views)",
-     "Beleggers Adyen zélfs in paniek als ceo niets zegt | BNR Beurs (BNR Beurs, 5,452 views)"
-    ]
-   },
-   {
-    "onderwerp": "portfolio",
-    "views_per_uur": 384,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
-     "EERSTE KEER INDIVIDUELE AANDELEN GEKOCHT! 📉 | Portfolio Update #9 (GeldGroeier, 1,154 views)"
-    ]
-   },
-   {
-    "onderwerp": "extra",
-    "views_per_uur": 383,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223 (Focuss Op Financiën, 18,265 views)",
-     "Is het slim om je hypotheek extra af te lossen? Nee. (De Financiële Raadgevers, 471 views)",
-     "Extra aflossen of beleggen? De rekensom met € 20.000 (GeldKoppie, 50 views)"
-    ]
-   },
-   {
-    "onderwerp": "per",
-    "views_per_uur": 71,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "€ 100 per maand voor je kind = ruim € 42.000 op 18 (Thijs Verlangen, 3,110 views)",
-     "€200 per maand beleggen: dit heb je na 20 jaar (Jordi van de Pas, 159 views)"
+     "Wat moet ik doen ALS BITCOIN DAALT?! (DoopieCash - Traden & Investeren, 13,149 views)",
+     "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222 (Focuss Op Financiën, 9,332 views)",
+     "📉 Bitcoin onder druk: komt er een flinke daling? ₿| Crypto nieuws vandaag (BLOX, 377 views)"
     ]
    },
    {
     "onderwerp": "anthropic",
-    "views_per_uur": 59,
+    "views_per_uur": 499,
+    "kanalen": 7,
+    "in_nieuws": true,
+    "sterk": true,
+    "voorbeelden": [
+     "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307 (DeAandeelHouder TV, 7,447 views)",
+     "Anthropic, inflatie, olie aandelen en veel meer (Tom Lassing - Beursbox, 3,026 views)",
+     "Waarom Anthropic kopen een riskante gok kan zijn | Voorkennis (Voorkennis | Beleggers Belangen, 1,925 views)"
+    ]
+   },
+   {
+    "onderwerp": "crypto",
+    "views_per_uur": 439,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Anthropic-aandelen kopen? Trap niet in deze IPO-valstrik (Kim De Graeve, 1,186 views)",
-     "Anthropic aandeel kopen? Vul eerst dit in, gratis werkblad #shorts (Dagboek Van Een Trader | Winstroute, 170 views)",
-     "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel? (Geldverhaal, 7 views)"
+     "Wat Betekent Het Nieuwe Box 3 Belastingplan Concreet Voor Jouw Crypto En Aandelen?! (DoopieCash - Traden & Investeren, 28,758 views)",
+     "📉 Bitcoin onder druk: komt er een flinke daling? ₿| Crypto nieuws vandaag (BLOX, 377 views)",
+     "🇳🇱Chips stijgen, bitcoin zakt | AEX, ECB-rente, huizenmarkt & crypto – Nederland 19 nov 2026 (Saduli Strategie 2026 , 14 views)"
     ]
    },
    {
-    "onderwerp": "spaargeld",
-    "views_per_uur": 33,
+    "onderwerp": "etf",
+    "views_per_uur": 195,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Je spaargeld verdient meer. (FIRE Community met Jonas Vermeulen, 751 views)",
-     "€ 1 miljoen spaargeld: betaal je straks 38,5% box 3? Zo werkt de miljonairsbelasting #Shorts (De Financiële Gids, 67 views)"
+     "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222 (Focuss Op Financiën, 9,332 views)",
+     "Wat is een ETF? | Lazy girl beleggen | ING (ING Nederland, 114 views)"
     ]
    },
    {
-    "onderwerp": "asml",
-    "views_per_uur": 15,
+    "onderwerp": "sparen",
+    "views_per_uur": 59,
     "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "‘Op mijn 35ste wil ik één miljoen hebben’ | Ewoud Bogaert over beleggen, sparen en inkomen (Geld is al wat telt, 2,394 views)",
+     "Sparen loont? Volg. Geen financieel advies. #vermogensopbouw #box3 #sparen #beleggen #BusinessMine (Andy de Wit - Business Mine, 1,035 views)"
+    ]
+   },
+   {
+    "onderwerp": "woningmarkt",
+    "views_per_uur": 49,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Een gat in de woningmarkt 🏠 (Luca Mascini, 2,056 views)",
+     "'Wilde westen op de woningmarkt? Is er überhaupt nog sprake van een markt?' (Vastgoed Belang, 228 views)",
+     "Vastgoedcongres in Bussum #zoetermeer #makelaar #vastgoedcongres #woningmarkt #vastgoed #huiskopen (079 Vastgoed, 59 views)"
+    ]
+   },
+   {
+    "onderwerp": "twee",
+    "views_per_uur": 41,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Beleggen in Anthropic? Deze twee partijen verdienen er altijd aan | Beleggen uitleg (CryptoCoiners, 859 views)",
+     "🚿 Vier slaapkamers & twee badkamers: € 595.000,- k.k. (Obèr Makelaardij, 42 views)"
+    ]
+   },
+   {
+    "onderwerp": "nvidia",
+    "views_per_uur": 18,
+    "kanalen": 3,
     "in_nieuws": true,
-    "sterk": false,
+    "sterk": true,
     "voorbeelden": [
-     "ASML crasht, Nu Kopen? (Mijn Waardering tot 2030) (Tijd Voor Aandelen, 1,028 views)",
-     "Anthropic Naar De Beurs, ASML Zakt 9%: Barst De AI-Bubbel? (Geldverhaal, 7 views)",
-     "Anthropic Naar De Beurs, ASML Zakt 9%. Barst De AI-Bubbel? (Geldverhaal, 0 views)"
+     "Technische analyse met Wouter #beleggen #trading #iex #beursnieuws #nvidia (IEX, 340 views)",
+     "Geweldige cijfers Nvidia!  #aandelen #beleggen#nvidia #nederlands (Tijd Voor Aandelen, 69 views)",
+     "Is dit het einde van de Nvidia-hype? #nvidia #aandelen #beleggen (Stijn Bynens, 32 views)"
     ]
    },
    {
-    "onderwerp": "investeren",
-    "views_per_uur": 6,
+    "onderwerp": "vastgoed",
+    "views_per_uur": 1,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Zo spreid je het risico als je vastgoed wilt kopen #investeren #vastgoedbeleggen (Vastgoed Buddies, 40 views)",
-     "Zijn collectibles een goeie investering?🤔 #investeren #beleggen #fyp (Jonge Ondernemers, 37 views)"
+     "Vastgoedcongres in Bussum #zoetermeer #makelaar #vastgoedcongres #woningmarkt #vastgoed #huiskopen (079 Vastgoed, 59 views)",
+     "Beleggen in vastgoed: zo eenvoudig als het smeren van je boterham. (AVL woningbouw, 20 views)"
     ]
    },
    {
-    "onderwerp": "zelf",
-    "views_per_uur": 0,
+    "onderwerp": "uitgelegd",
+    "views_per_uur": 1,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Lijfrente of zelf beleggen? Dit verschil kost je €38.000 (NL · ZZP financiën & administratie, 3 views)",
-     "Zelf Leren Beleggen: De Podcast #3 - Laurien: “Ik weet echt van niks” (Zelf Leren Beleggen, 11 views)"
+     "AEX omlaag, toch stijgen Ahold, Unilever en KPN: defensieve aandelen uitgelegd #shorts (Beleggenbeginthier, 30 views)",
+     "Waarom Is Een Huis Kopen in Nederland Zo Moeilijk? | De Wooncrisis Uitgelegd (GeldInzicht, 3 views)"
+    ]
+   },
+   {
+    "onderwerp": "aex",
+    "views_per_uur": 1,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "AEX omlaag, toch stijgen Ahold, Unilever en KPN: defensieve aandelen uitgelegd #shorts (Beleggenbeginthier, 30 views)",
+     "🇳🇱Chips stijgen, bitcoin zakt | AEX, ECB-rente, huizenmarkt & crypto – Nederland 19 nov 2026 (Saduli Strategie 2026 , 14 views)"
     ]
    },
    {
     "onderwerp": "omlaag",
+    "views_per_uur": 1,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "AEX omlaag, toch stijgen Ahold, Unilever en KPN: defensieve aandelen uitgelegd #shorts (Beleggenbeginthier, 30 views)",
+     "1 op 6 woningen: vraagprijs omlaag | Blokscout Vastgoednieuws (Blokscout, 4 views)"
+    ]
+   },
+   {
+    "onderwerp": "nederland",
     "views_per_uur": 0,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Beurs flink omlaag: AEX −6,6% in een week. Wat betekent dat? #shorts (RustInJeGeld, 12 views)",
-     "1 op 6 woningen: vraagprijs omlaag | Blokscout Vastgoednieuws (Blokscout, 6 views)"
+     "🇳🇱Chips stijgen, bitcoin zakt | AEX, ECB-rente, huizenmarkt & crypto – Nederland 19 nov 2026 (Saduli Strategie 2026 , 14 views)",
+     "Waarom Is Een Huis Kopen in Nederland Zo Moeilijk? | De Wooncrisis Uitgelegd (GeldInzicht, 3 views)"
     ]
    }
   ],
   "top_videos": [
    {
-    "id": "gfc_-BkOKUY",
-    "titel": "Een correctie op de huizenmarkt? Dit zijn de signalen...",
-    "kanaal": "Madelon Vos",
-    "views": 53759,
-    "per_uur": 1917,
-    "uren_oud": 28
+    "id": "7SjxvhrRP30",
+    "titel": "Ze spraken elkaar op de APEC-top, een jaarlijkse bijeenkomst van 21 landen rond de Grote Oceaan. Die",
+    "kanaal": "NU.nl",
+    "views": 40561,
+    "per_uur": 854,
+    "uren_oud": 48
    },
    {
-    "id": "-OfPz_qy_30",
-    "titel": "Deze crash is GOED nieuws voor beleggers",
-    "kanaal": "StockWatch",
-    "views": 1693,
-    "per_uur": 444,
-    "uren_oud": 4
-   },
-   {
-    "id": "6UN_71jkh-U",
-    "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
-    "kanaal": "Focuss Op Financiën",
-    "views": 18265,
-    "per_uur": 358,
-    "uren_oud": 51
+    "id": "M39Wm9Xa90M",
+    "titel": "Wat moet ik doen ALS BITCOIN DAALT?!",
+    "kanaal": "DoopieCash - Traden & Investeren",
+    "views": 13149,
+    "per_uur": 721,
+    "uren_oud": 18
    },
    {
     "id": "qsayQ23e6sk",
     "titel": "AANDELEN DALEN HARD... DIT MOET JE NU DOEN!",
     "kanaal": "Geld op Geld",
-    "views": 12913,
-    "per_uur": 185,
-    "uren_oud": 70
+    "views": 8303,
+    "per_uur": 441,
+    "uren_oud": 19
    },
    {
-    "id": "H8QByQKPwjA",
-    "titel": "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT",
-    "kanaal": "Investeren doe je zo",
-    "views": 3085,
-    "per_uur": 104,
-    "uren_oud": 30
+    "id": "Ccm0U-vG0yo",
+    "titel": "Wat Betekent Het Nieuwe Box 3 Belastingplan Concreet Voor Jouw Crypto En Aandelen?!",
+    "kanaal": "DoopieCash - Traden & Investeren",
+    "views": 28758,
+    "per_uur": 434,
+    "uren_oud": 66
    },
    {
-    "id": "NySgz2DzMLw",
-    "titel": "Waarom Ik Met €1 Miljoen Niet Alles In Aandelen Beleg",
-    "kanaal": "FIRE Community met Jonas Vermeulen",
-    "views": 129,
-    "per_uur": 81,
-    "uren_oud": 2
+    "id": "DMKHNpzpT8k",
+    "titel": "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307",
+    "kanaal": "DeAandeelHouder TV",
+    "views": 7447,
+    "per_uur": 274,
+    "uren_oud": 27
    },
    {
-    "id": "-OmacS35SEs",
-    "titel": "Beleggers Adyen zélfs in paniek als ceo niets zegt | BNR Beurs",
-    "kanaal": "BNR Beurs",
-    "views": 5452,
-    "per_uur": 78,
-    "uren_oud": 70
+    "id": "3JaeLdfHaQU",
+    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
+    "kanaal": "Focuss Op Financiën",
+    "views": 9332,
+    "per_uur": 193,
+    "uren_oud": 48
    },
    {
-    "id": "5Gis0I8MUPE",
-    "titel": "€ 100 per maand voor je kind = ruim € 42.000 op 18",
-    "kanaal": "Thijs Verlangen",
-    "views": 3110,
-    "per_uur": 66,
-    "uren_oud": 47
+    "id": "YwIYgGNlZbk",
+    "titel": "Anthropic, inflatie, olie aandelen en veel meer",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 3026,
+    "per_uur": 69,
+    "uren_oud": 44
    },
    {
-    "id": "jNbuUaAhKGw",
-    "titel": "Anthropic-aandelen kopen? Trap niet in deze IPO-valstrik",
-    "kanaal": "Kim De Graeve",
-    "views": 1186,
-    "per_uur": 56,
+    "id": "m-HkXG9tUMw",
+    "titel": "Waarom Anthropic kopen een riskante gok kan zijn | Voorkennis",
+    "kanaal": "Voorkennis | Beleggers Belangen",
+    "views": 1925,
+    "per_uur": 44,
+    "uren_oud": 44
+   },
+   {
+    "id": "f60mvF6cba4",
+    "titel": "‘Op mijn 35ste wil ik één miljoen hebben’ | Ewoud Bogaert over beleggen, sparen en inkomen",
+    "kanaal": "Geld is al wat telt",
+    "views": 2394,
+    "per_uur": 43,
+    "uren_oud": 56
+   },
+   {
+    "id": "TcQt8vvd704",
+    "titel": "Een gat in de woningmarkt 🏠",
+    "kanaal": "Luca Mascini",
+    "views": 2056,
+    "per_uur": 40,
+    "uren_oud": 51
+   },
+   {
+    "id": "XaEyDvA-baI",
+    "titel": "Beleggen in Anthropic? Deze twee partijen verdienen er altijd aan | Beleggen uitleg",
+    "kanaal": "CryptoCoiners",
+    "views": 859,
+    "per_uur": 40,
     "uren_oud": 21
    },
    {
-    "id": "XKL1TxXmZYE",
-    "titel": "Beleggen via je vennootschap of privé?",
-    "kanaal": "Kim De Graeve",
-    "views": 810,
-    "per_uur": 41,
-    "uren_oud": 20
+    "id": "g0eaKZoFFnI",
+    "titel": "Dít Mis Je Als Je Focust Op Dividend Beleggen",
+    "kanaal": "JULLIE WAARD€",
+    "views": 1600,
+    "per_uur": 35,
+    "uren_oud": 46
    },
    {
-    "id": "ASS5j_cHTT4",
-    "titel": "Je spaargeld verdient meer.",
-    "kanaal": "FIRE Community met Jonas Vermeulen",
-    "views": 751,
-    "per_uur": 32,
-    "uren_oud": 24
+    "id": "1sMqgJ7aA5Y",
+    "titel": "AANDEEL ANTHROPIC IPO - GA IK AANDELEN KOPEN?!",
+    "kanaal": "Investeren doe je zo",
+    "views": 1185,
+    "per_uur": 28,
+    "uren_oud": 42
    },
    {
-    "id": "-MJhiHYJFbU",
-    "titel": "EERSTE KEER INDIVIDUELE AANDELEN GEKOCHT! 📉 | Portfolio Update #9",
-    "kanaal": "GeldGroeier",
-    "views": 1154,
+    "id": "w-sAZ_gmfQs",
+    "titel": "Nu Anthropic op de beurs zit: moet ik aandelen kopen?",
+    "kanaal": "VTM NIEUWS",
+    "views": 1137,
     "per_uur": 26,
     "uren_oud": 44
    },
    {
-    "id": "GpGhW_4PdDI",
-    "titel": "Trends Beleggen Podcast #284 | Datacenterrisico’s - Aandelen: Nvidia & Umicore | maandag 23/11/26",
-    "kanaal": "Trends Podcasts",
-    "views": 152,
-    "per_uur": 23,
-    "uren_oud": 7
-   },
-   {
-    "id": "w7VPV-nMCWQ",
-    "titel": "Is het slim om je hypotheek extra af te lossen? Nee.",
-    "kanaal": "De Financiële Raadgevers",
-    "views": 471,
-    "per_uur": 22,
-    "uren_oud": 22
-   },
-   {
-    "id": "sQbowlei-X0",
-    "titel": "ASML crasht, Nu Kopen? (Mijn Waardering tot 2030)",
-    "kanaal": "Tijd Voor Aandelen",
-    "views": 1028,
-    "per_uur": 15,
-    "uren_oud": 67
+    "id": "V3oSszBN8RA",
+    "titel": "Anthropic aandeel kopen? Vul eerst dit in, gratis werkblad #shorts",
+    "kanaal": "Dagboek Van Een Trader | Winstroute",
+    "views": 66,
+    "per_uur": 18,
+    "uren_oud": 4
    }
   ]
  },
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "Beelden maken · 98%",
+    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+    "map": "blackbeard-1718",
+    "detail": "Video bouwen",
     "soort": "nu"
    }
   ],
-  "daarna": [],
+  "daarna": [
+   {
+    "wanneer": "na Blackbeard",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "keten maakt de video voor za 5-12 21:00"
+   }
+  ],
   "publicaties": [
    {
     "datum": "2026-11-28",
@@ -2154,7 +2257,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 23:03)"
+   "tekst": "draait nu (2026-11-23 23:33)"
   },
   {
    "naam": "Git",
@@ -2169,7 +2272,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 22:48: alles klopt"
+   "tekst": "laatste ronde 23:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2186,8 +2289,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 23:03",
-   "volgende": "2026-11-23 23:33"
+   "laatst": "2026-11-23 23:33",
+   "volgende": "2026-11-24 00:03"
   },
   "hype": {
    "aan": true,
@@ -2196,18 +2299,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-23 22:10",
-   "volgende": "2026-11-23 23:10"
+   "laatst": "2026-11-23 23:10",
+   "volgende": "2026-11-24 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 22:48",
-   "volgende": "2026-11-23 23:18"
+   "laatst": "2026-11-23 23:18",
+   "volgende": "2026-11-23 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-23 21:25",
-   "volgende": "2026-11-23 23:25"
+   "laatst": "2026-11-23 23:25",
+   "volgende": "2026-11-24 01:25"
   }
  },
  "kanaal": {
@@ -2527,21 +2630,21 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 4,
  "huidig": {
-  "map": "pearl-harbor-1941",
-  "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-  "datum": "2026-12-05",
-  "thumb": "",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 98,
-  "detail": "86 van 88 beelden",
+  "map": "blackbeard-1718",
+  "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
+  "datum": "2027-08-14",
+  "thumb": "thumbs/blackbeard-1718.jpg",
+  "stap": 4,
+  "stapnaam": "Video bouwen",
+  "voortgang": null,
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "eindvolume -14 LUFS",
    "stem inspreken (OmniVoice)",
-   "beelden maken (ComfyUI)"
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2551,21 +2654,21 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
-   "stap": 2
+   "naam": "eindvolume -14 LUFS",
+   "stap": 4
   },
   {
    "naam": "stem inspreken (OmniVoice)",
    "stap": -1
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "video samenvoegen (ffmpeg)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7127,
+  "bezig_procent": 99,
+  "geheugen_mb": 1200,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2653,6 +2756,24 @@
  "logboek": [
   {
    "tijd": "2026-11-22 05:25",
+   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-22): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 05:25",
+   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-22): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 05:25",
+   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-22): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-22 05:25",
    "tekst": "nieuwswacht: GROOT Anthropic (2026-11-22): Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020 -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
@@ -2694,44 +2815,26 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-23 12:48",
-   "tekst": "sitecontrole: opgelost: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
+   "tijd": "2026-11-23 23:18",
+   "tekst": "routine-lokaal: pearl-harbor-1941: 9 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-23 15:45",
-   "tekst": "nieuwswacht: GROOT Goud (2026-11-23): +4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "tijd": "2026-11-23 23:19",
+   "tekst": "routine-lokaal: pearl-harbor-1941: beelden-wachter: 3 beelden lijken op een ander beeld (063, 064, 067), nieuwe maken",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-23 15:45",
-   "tekst": "nieuwswacht: GROOT Tesla (2026-11-23): +11.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "tijd": "2026-11-23 23:25",
+   "tekst": "routine-lokaal: pearl-harbor-1941: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
    "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-23 22:10",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 22:10",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 22:18",
-   "tekst": "sitecontrole: opgelost: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 22:18",
-   "tekst": "sitecontrole: opgelost: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963, pearl-harbor-1941 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
+   "tijd": "2026-11-23 23:33",
+   "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
    "fout": false,
    "klaar": false
   }
@@ -4704,7 +4807,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-23 21:25",
+  "bijgewerkt": "2026-11-23 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4769,9 +4872,9 @@
     "bekeken": ""
    },
    {
-    "map": "gettysburg-1863",
-    "datum": "2026-12-02",
-    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "datum": "2026-12-05",
+    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
     "fouten": [],
     "let_op": [],
     "voorstel": "",
@@ -4779,18 +4882,6 @@
     "youtube": "",
     "concurrent": [],
     "bekeken": ""
-   },
-   {
-    "map": "pearl-harbor-1941",
-    "datum": "2026-12-05",
-    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "Life at Pearl Harbor, December 1941 | History for Sleep",
-    "waarom": "Titel bevat beroemdheid, locatie en jaar, belooft inhoud en volgt regels",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": "2026-11-20"
    },
    {
     "map": "kerst-loopgraven-1914",
@@ -4802,7 +4893,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-23"
+    "bekeken": ""
    },
    {
     "map": "bethlehem",
@@ -4814,7 +4905,7 @@
     "waarom": "",
     "youtube": "",
     "concurrent": [],
-    "bekeken": "2026-11-20"
+    "bekeken": ""
    },
    {
     "map": "londen-kerst-1843",
@@ -4842,7 +4933,7 @@
       "per_dag": 1520
      }
     ],
-    "bekeken": "2026-11-20"
+    "bekeken": ""
    },
    {
     "map": "rome-44-vc",
@@ -4860,13 +4951,13 @@
       "per_dag": 1115
      }
     ],
-    "bekeken": "2026-11-21"
+    "bekeken": ""
    }
   ],
-  "model": "niet nodig"
+  "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 23:04",
+  "bijgewerkt": "2026-11-23 23:39",
   "accounts": [
    {
     "account": "hoofd",
@@ -4886,25 +4977,25 @@
    },
    {
     "account": "account2",
-    "5uur": 11141173,
-    "week": 148776649,
+    "5uur": 13316826,
+    "week": 150952302,
     "per_dag": {
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 36414392,
+     "Mon 23-11": 38590046,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 80741,
+    "stap_kost": 81072,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 82,
+    "5uur_pct": 98,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 30,
-    "week_pct": 113,
+    "5uur_stappen_over": 3,
+    "week_pct": 114,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
