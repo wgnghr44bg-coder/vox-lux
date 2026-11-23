@@ -137,9 +137,7 @@ def frame(t):
             for bx in (760, 900, 1040): bord(vlak, bx, 748)
         # zus zweeft boven de tafel (slaapt)
         vlak.ellipse((820, 744, 980, 762), fill=(150, 110, 80))                                   # schaduw op de tafel: ze zweeft echt
-        P("sis", 900, 560 + FLOAT(t), 1.3, kijk=0.0, knipper=True) if n == "ochtend" and t < kw(2, "mom", -0.2) else P("sis", 900, 560 + FLOAT(t), 1.3, kijk=0.5)
-        if n == "ochtend" and t < kw(2, "mom", -0.2):
-            for i, (zx, zy, zm) in enumerate(((960, 250, 40), (1000, 205, 52), (1045, 150, 64))): vlak.text((zx, zy + math.sin(t * 2 + i) * 6), "z", font=ps.font(ps.FB, zm), fill=(90, 110, 200), anchor="mm")
+        P("sis", 900, 560 + FLOAT(t), 1.3, kijk=0.5)
         # papa door de muur
         if n == "ochtend":
             xd = lin(t, kw(0, "dad", -0.2), kw(0, "wall", 0.6), 60, 330)
@@ -189,13 +187,15 @@ def frame(t):
     elif n == "lunch":
         P("kid3", 1200, kijk=1.0, verbaasd=t >= kw(14, "sneezes", -0.1)); P("kid2", 1650, kijk=-1.0, verbaasd=t >= kw(14, "fire", 0.2)); P("you", 600, kijk=1.0, verbaasd=t >= kw(14, "fire", 0.2))
         if kw(14, "sneezes", -0.1) <= t < kw(14, "sneezes", 1.6): vuur(vlak, 1255, 600, t)
-    elif n == "deur":
-        deur(vlak, 500, Y + 10)
-        if nu == 15 and t >= kw(15, "dad", -0.2):              # papa loopt dwars door de deur
-            xd = lin(t, kw(15, "walks", -0.2), kw(15, "door", 0.8), 220, 760)
-            pop(dg, geest, "dad", xd, Y, 1.55, t, kijk=1.0, loop=t * 2.2 if xd < 760 else None, mond=luid(t, "dad"))
-        elif nu is not None and nu >= 16: pop(dg, geest, "dad", 760, Y, 1.55, t, kijk=1.0, mond=luid(t, "dad"), gebaar="schouders" if nu == 17 else None)
-        P("sis", 1350, kijk=-1.0, boos=nu == 16, gebaar="wijslinks" if nu == 16 else None)
+    elif n == "deur":                                     # 23 nov (eigenaar): papa wil op de bank zitten en zakt erdoorheen
+        BANK_X = 1040
+        if nu == 15 and t < kw(15, "falls", -0.2):
+            xd = lin(t, kw(15, "tries", -0.3), kw(15, "couch", 0.2), 300, BANK_X)
+            pop(dg, geest, "dad", xd, Y, 1.55, t, kijk=1.0, loop=t * 2.2 if xd < BANK_X - 5 else None)
+        else:
+            zak = lin(t, kw(15, "falls", -0.2), kw(15, "through", 0.4), 0, 240) if nu == 15 else 240
+            pop(dg, geest, "dad", BANK_X, Y + zak, 1.55, t, kijk=1.0 if nu != 17 else 0.6, mond=luid(t, "dad"), verbaasd=True)
+        P("sis", 1600, kijk=-1.0, verbaasd=nu is not None and nu >= 16, gebaar="wijslinks" if nu == 16 else None)
     elif n == "park":
         if nu == 18:
             a = kw(18, "runs", -0.2); xm = 1900 - ((t - a) * 900 % 3800) if t > a else 1500
@@ -230,7 +230,7 @@ def frame(t):
             mini = mini.resize((W, H), Image.LANCZOS); img.paste(mini, (0, 0), mini)
             if t >= kw(28, "find", -0.2): vlak.text((1620, 290), "!", font=ps.font(ps.FB, 110), fill=(220, 40, 40), anchor="mm")
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
-    geest = geest.resize((W, H), Image.LANCZOS); a = geest.split()[3].point(lambda v: int(v * 0.55)); geest.putalpha(a); img.paste(geest, (0, 0), geest)
+    geest = geest.resize((W, H), Image.LANCZOS); a = geest.split()[3].point(lambda v: int(v * 0.72)); geest.putalpha(a); img.paste(geest, (0, 0), geest)
     ondertitel(img, t)
     return img
 

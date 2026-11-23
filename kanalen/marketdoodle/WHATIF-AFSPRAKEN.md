@@ -21,6 +21,7 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Vaste familie: jij (blauwe hoodie), papa (bril, groen), mama (paardenstaart, paars), zusje (staartjes, geel). Meer mensen in beeld mag "als het maar klopt".
 - **Geen effect bij scènewissel** (gewoon knippen, ook geen fade aan het eind). **Geen muziek.**
 - **Geluidseffecten mag** (eigenaar 23 nov): alleen wat je in de scène echt hoort (voetstappen, klik, papier, hap, klok), zelf gemaakt (`short-pauze/geluid.py`), zacht onder de stem.
+- **Niets ongepasts of ongemakkelijks** (eigenaar 23 nov): bv. geen ouder die bij een kind de badkamer in loopt. Geen rare ogen (geen dichte ogen of doorzichtige gezichten waar het niet klopt), geen "zzz" als het verhaal niet zegt dat iemand slaapt.
 - **Alles moet kloppen als een film** (eigenaar 23 nov): eerst gebeurt iets (juf praat, bal vliegt), dan pas de reactie (knop, stilstand). Spullen echt in de hand (`gebaar="vast"`/`"haar"`), poppetje loopt naar dingen toe en kijkt ernaar. **Geen grote tekst bovenin die hetzelfde zegt als de ondertitel.**
 - Ondertitels onderin, gesproken woord geel, naamlabel bij wie praat. Getallen/labels gloeiend boven hoofden waar het past. Schaduw onder poppetjes.
 - Bedragen in één eenheid (bv. alles per jaar).

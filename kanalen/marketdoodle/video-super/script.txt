@@ -15,9 +15,9 @@ N|klas|And your teacher can read minds. So nobody can cheat anymore.
 TEACH|klas|I heard that.
 N|klas|Pop quiz tomorrow. Everyone groans. Out loud, and in their heads.
 N|schoolplein|At lunch, a kid sneezes fire. Lunch is cancelled.
-N|woonkamer|At home, it gets weird. Dad walks through the bathroom door. Every time. Without knocking.
-SIS|woonkamer|Dad! Knock first!
-DAD|woonkamer|I can't! My hand goes right through!
+N|woonkamer|At home, it gets weird. Dad tries to sit on the couch. And falls right through it.
+SIS|woonkamer|Dad! Where did you go?
+DAD|woonkamer|I'm under the couch!
 N|park|Mom runs to the store and back in four seconds. She forgets the milk. Twice.
 N|park|Your sister flies to the top of a tree. And then she's too scared to come down.
 SIS|park|I don't like it up here!
