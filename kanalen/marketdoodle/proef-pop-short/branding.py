@@ -80,7 +80,7 @@ def tekst(im, s, x, y, maat, kl, rand=None):
 for naam, th in [("licht", THEMA["licht"])]:   # 23 nov: eigenaar koos licht
     # logo: jongen (hoofd + schouders) met gloeiend ? erboven, rond uitgesneden door YouTube
     lg = achtergrond(800, 800, th)
-    top = poppen(lg, [("you", 400, 1290, 3.6, 0.0, False)])
+    top = poppen(lg, [("you", 400, 1290, 3.6, 0.0, True)])   # 23 nov: verbaasd, ronde mond (eigenaar)
     pass   # 23 nov: logo zonder plaatjes (eigenaar)
     lg.save(OUT / f"logo-{naam}.png")
     # banner 2560x1440; alles belangrijk binnen het midden (1546x423 = veilig op elk scherm)
