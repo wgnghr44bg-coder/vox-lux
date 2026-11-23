@@ -41,19 +41,23 @@ def bg(n):
     return BG[n]
 Y = 1460
 # scènes: bevroren poppetjes (n, x, s, kijk, gebaar, mondopen) + jij (x, s) + kopteksten + extra
-KLAS = [("teach", 900, 1.55, -0.8, "wijslinks", True), ("kid1", 420, 1.45, 0.8, "zwaai", False), ("kid2", 600, 1.45, -0.8, None, True)]
-TSTART = Zs(1)                                            # juf praat vanaf hier, tot jij op de knop drukt (PAUZE)
+KLAS = [("teach", 900, 1.55, -0.8, "wijslinks", True), ("kid1", 330, 1.45, 0.8, "zwaai", False), ("kid2", 500, 1.45, -0.8, None, True)]
+KLASSTOP = kw(2, "stops", 0.05)                          # in de klas staat alles stil op het woord "stops"
+TSTART = Zs(2) - 2.6                                     # de juf was al aan het praten (tekst loopt door tot KLASSTOP)
 SC = [
- dict(t=0, bg="gang", vast=[], jij=dict(x=540, s=2.2, loop=(kw(0, "hallway", -1.0), kw(0, "hallway", 0.6), 200, 540), kijk=0.0), kop=[(0, "8:59", 540, 260, 130, "wit")]),
- dict(t=TSTART, bg="klas", vast=KLAS, live=True, jij=dict(x=110, s=1.6, kijk=0.9, gebaar=[(kw(1, "button", -0.4), PAUZE + 1.0, "vast")]),
-      knop=(kw(1, "button", -0.3), kw(1, "press", 0.0), PAUZE + 1.0, False)),
+ dict(t=0, bg="gang", vast=[], jij=dict(x=540, s=2.2, loop=(kw(0, "hallway", -1.0), kw(0, "hallway", 0.6), 200, 540), kijk=0.0,
+      gebaar=[(kw(1, "button", -0.4), 1e9, "vast")]), kop=[(0, "8:59", 540, 260, 130, "wit")],
+      knop=(kw(1, "button", -0.3), kw(1, "press", 0.0), 1e9, False)),                        # eigenaar: knop in de gang, waar het verhaal zegt
+ dict(t=Zs(2), bg="klas", vast=KLAS, live=True, jij=None),                                    # juf praat, bal vliegt, op "stops" bevriest alles
+ dict(t=Zs(3), bg="gang", vast=[("kid1", 250, 1.8, 0.4, "zwaai", True), ("kid2", 960, 1.8, -0.4, None, False)], jij=dict(x=540, s=2.0, kijk=0.0)),
  dict(t=Zs(4), bg="nacht", vast=[], jij=dict(x=540, s=2.3), kop=[(kw(4, "what"), "WHAT IF YOU COULD", 540, 330, 82, "wit"), (kw(4, "pause"), "PAUSE TIME?", 540, 450, 110, "geel")]),
  dict(t=Zs(5), bg="klas", vast=KLAS, live=True,
       jij=dict(x=110, s=1.6, pad=[(kw(6, "copy", -0.9), 110), (kw(6, "copy", 0.2), 700), (kw(6, "cookie", -1.0), 700), (kw(6, "cookie", 0.0), 170)],
                kijkpad=[(0, 0.9), (kw(6, "cookie", -1.0), -0.9), (kw(6, "cookie", 0.05), 0.9)],
                gebaar=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "vast"), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "haar"), (kw(6, "cookie", 0.05), 1e9, "vast")]),
       dingen=[(kw(6, "copy", 0.2), kw(6, "hair", -0.3), "toets", 70), (kw(6, "hair", -0.2), kw(6, "cookie", -1.0), "kam", 165), (kw(6, "cookie", 0.05), 1e9, "koekje", 70)]),
- dict(t=Zs(7), bg="keuken", vast=[("mom", 760, 1.9, -0.6, "wijs", True), ("sis", 950, 1.7, -0.6, None, False)], jij=dict(x=300, s=1.9, kijk=0.6, gebaar=[(kw(7, "study", -0.4), 1e9, "vast")]),
+ dict(t=Zs(7), bg="klas", vast=[("teach", 900, 1.55, -0.8, "wijslinks", False), ("kid1", 600, 1.45, -0.6, None, False), ("kid2", 760, 1.45, 0.6, None, False)], bord="TEST TODAY",   # eigenaar 23 nov: toets is op school, niet thuis
+      jij=dict(x=200, s=1.6, kijk=0.6, gebaar=[(kw(7, "study", -0.4), 1e9, "vast")]),
       dingen=[(kw(7, "study", -0.4), 1e9, "boek", 70)], klik=[kw(7, "10", -0.4), kw(7, "hour", -0.4)]),
  dict(t=Zs(8), bg="ruimte", vast=[], jij=None, kop=[], bron="Source: GPS.gov, relativity corrections for GPS satellite clocks", bront=kw(8, "38", -0.1)),
  dict(t=Zs(10), bg="badkamer", vast=[], jij=dict(x=830, s=1.85), spiegel=(276, 266, 788, 658), grijs=kw(10, "gray", -0.2)),
@@ -106,7 +110,7 @@ def knop(img, t, inn, druk, uit, kapot, cx=800, cy=900, R0=120):
     if kapot and t >= druk + 0.8: kop(img, "?!", cx, cy - R * 2.6, 90, KL["rood"], 1.0)
 ZIN = "So the answer is twelve, because we multiply"
 def ballon(img, t):
-    n = max(1, int((min(t, PAUZE) - TSTART) * 8.5)); tekst = ZIN[:n] + ("-" if t >= PAUZE else "")
+    n = max(1, int((min(t, KLASSTOP) - TSTART) * 8.5)); tekst = ZIN[:n] + ("-" if t >= KLASSTOP else "")
     d = ImageDraw.Draw(img); f = font(FB, 40); b = max(d.textlength(tekst, font=f), 120)
     x0, y0 = 1040 - b - 40, 830
     d.rounded_rectangle((x0, y0, 1050, y0 + 90), 30, fill=(255, 255, 255), outline=(45, 38, 40), width=6)
@@ -147,7 +151,7 @@ def interp(pad, t):
 def frame(t):
     k = max(i for i in range(len(SC)) if SC[i]["t"] <= t); sc = SC[k]
     img = bg(sc["bg"]).copy()
-    bevroren = t >= PAUZE and sc["bg"] != "ruimte"
+    bevroren = t >= PAUZE and sc["bg"] != "ruimte" and not (sc.get("live") and t < KLASSTOP)
     if sc.get("spiegel"):                                 # jouw spiegelbeeld (met grijze haar)
         x0, y0, x1, y1 = sc["spiegel"]
         sl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); ds = ImageDraw.Draw(sl)
@@ -156,14 +160,17 @@ def frame(t):
         sl = sl.resize((W, H), Image.LANCZOS).crop((x0, y0, x1, y1))
         glas = img.crop((x0, y0, x1, y1)).convert("RGBA"); glas.alpha_composite(sl)
         img.paste(Image.blend(glas.convert("RGB"), img.crop((x0, y0, x1, y1)), 0.25), (x0, y0))
+    if sc.get("bord"):
+        db = ImageDraw.Draw(img); fb = font(ps.FS, 96); bb = db.textlength(sc["bord"], font=fb)
+        db.text((540 - bb / 2, 330), sc["bord"], font=fb, fill=(235, 240, 235))
     vast = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); dv = ImageDraw.Draw(vast)
     for n, x, s, kijk, geb, open_ in sc["vast"]:
-        tt = min(t, PAUZE) if sc.get("live") else (0.0 if bevroren else t)
+        tt = min(t, KLASSTOP) if sc.get("live") else (0.0 if bevroren else t)
         mond = (abs(math.sin(tt * 9)) if n == "teach" else 0.0) if sc.get("live") else (0.5 if open_ else 0.0)
         ps.poppetje(dv, n, x, Y, s, tt, kijk=kijk, mond=mond, knipper=(not bevroren and (t % 3.1) < 0.12), gebaar=geb)
     if sc.get("live"):                                     # bal vliegt heen en weer tussen de kinderen, stopt bij PAUZE
-        u = ((min(t, PAUZE) - TSTART) / 1.4) % 2; u = u if u <= 1 else 2 - u
-        bx, by = 450 + 120 * u, 1000 - 230 * math.sin(math.pi * u); dv.ellipse([((bx - 34) * SS, (by - 34) * SS), ((bx + 34) * SS, (by + 34) * SS)], fill=(230, 80, 60), outline=(45, 38, 40), width=5 * SS)
+        u = ((min(t, KLASSTOP) - TSTART) / 1.4) % 2; u = u if u <= 1 else 2 - u
+        bx, by = 340 + 140 * u, 1010 - 200 * math.sin(math.pi * u); dv.ellipse([((bx - 34) * SS, (by - 34) * SS), ((bx + 34) * SS, (by + 34) * SS)], fill=(230, 80, 60), outline=(45, 38, 40), width=5 * SS)
     vast = vast.resize((W, H), Image.LANCZOS); img.paste(vast, (0, 0), vast)
     if bevroren: img = Image.blend(img, Image.new("RGB", (W, H), (120, 160, 255)), 0.14)      # stilstaande wereld: lichte blauwe waas
     if sc.get("jij"):
@@ -192,6 +199,14 @@ def frame(t):
     for kt in sc.get("klik", []):
         if kt <= t < kt + 0.6:
             a = (t - kt) / 0.6; rr = 80 + 500 * a; hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); ImageDraw.Draw(img).ellipse((hx - rr, hy - rr, hx + rr, hy + rr), outline=(255, 255, 255), width=max(2, int(14 * (1 - a))))
+    if k == len(SC) - 1 and t >= kw(14, "clock", -0.1):
+        dk = ImageDraw.Draw(img); cx, cy, R = 540, 560, 120 * ps.pop((t - kw(14, "clock", -0.1)) / 0.3)
+        dk.ellipse((cx - R - 10, cy - R - 10, cx + R + 10, cy + R + 10), fill=(45, 38, 40)); dk.ellipse((cx - R, cy - R, cx + R, cy + R), fill=(255, 255, 250))
+        for u in range(12):
+            a_ = math.radians(u * 30); dk.line((cx + math.sin(a_) * R * 0.8, cy - math.cos(a_) * R * 0.8, cx + math.sin(a_) * R * 0.92, cy - math.cos(a_) * R * 0.92), fill=(45, 38, 40), width=6)
+        sec = int((t - kw(14, "clock")) * 2) if t > kw(14, "clock") else 0; a_ = math.radians(sec * 6)
+        dk.line((cx, cy, cx + math.sin(math.radians(60)) * R * 0.5, cy - math.cos(math.radians(60)) * R * 0.5), fill=(45, 38, 40), width=10)
+        dk.line((cx, cy, cx + math.sin(a_) * R * 0.85, cy - math.cos(a_) * R * 0.85), fill=(220, 50, 50), width=6); dk.ellipse((cx - 12, cy - 12, cx + 12, cy + 12), fill=(45, 38, 40))
     if sc.get("knop"):
         hx, hy = hand(sc["jij"]["x"], sc["jij"]["s"]); knop(img, t, *sc["knop"], cx=hx + 12, cy=hy - 6, R0=42)
     if bevroren: pauzeknop(img, rood=(k == len(SC) - 1 and t >= kw(14, "nothing")))
