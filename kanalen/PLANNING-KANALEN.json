@@ -3,8 +3,8 @@
  "regels": {
   "Sleep Archives": "Vaste dag (eigenaar 23 nov avond): alleen zaterdag 21:00 NL.",
   "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
-  "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Alleen echte hype; geen goed onderwerp = dag overslaan.",
-  "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL. Simpele 2D, gezinnetje, Engels."
+  "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Short = EIGEN apart hype-onderwerp (niet geknipt uit de lange video). Alleen echte hype; geen goed onderwerp = dag overslaan.",
+  "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL met een EIGEN nieuw What If-onderwerp. Simpele 2D, gezinnetje, Engels."
  },
  "items": [
   {

@@ -74,3 +74,8 @@ Geldt voor BlackswanVault en Geldverhaal (Sleep Archives mag wél ver vooruit).
 4. Shorts op dezelfde dag als de lange video.
 5. Toch al vooruit ingepland nieuws: de avond ervoor actualiteitscheck (koersen veranderd? slotzin/titel aanpassen).
 Eigenaar opent dagelijks Claude voor onderwerp en akkoord; zonder Claude maakt de pc geen nieuwe nieuwsvideo.
+
+## Vaste dagen en Shorts (eigenaar 23 nov 2026, avond)
+- Uploaden op **ma, wo, za**: lange video 15:00 NL, Short 17:00 NL.
+- De Short krijgt een **eigen, apart hype-onderwerp** (niet geknipt uit de lange video van die dag), zodat er twee nieuwsonderwerpen per dag zijn.
+- Geen goed onderwerp = dag overslaan (geen slechte video's).
