@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 15:33",
+ "bijgewerkt": "2026-11-23 16:03",
  "kanalen": {
   "weken": [
    {
@@ -210,120 +210,132 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-23 08:00",
+  "bijgewerkt": "2026-11-23 15:45",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -3.7,
+    "pct": 4.0,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -5.3,
+    "pct": 5.8,
     "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.9,
+    "pct": 2.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -14.0,
+    "pct": 28.8,
     "groot": true,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.9,
+    "pct": 1.3,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": -2.8,
+    "pct": 3.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": -2.7,
+    "pct": 4.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -4.1,
+    "pct": 2.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -5.9,
+    "pct": 3.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -7.6,
-    "groot": false,
-    "grens": 8
-   },
-   {
-    "naam": "Broadcom",
-    "pct": -12.2,
+    "pct": 11.5,
     "groot": true,
     "grens": 8
    },
    {
+    "naam": "Broadcom",
+    "pct": 1.5,
+    "groot": false,
+    "grens": 8
+   },
+   {
     "naam": "Berkshire",
-    "pct": -0.4,
+    "pct": 0.5,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -3.0,
+    "pct": 2.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": 1.5,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": 2.1,
+    "pct": 3.4,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": -0.9,
+    "pct": -2.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 3.1,
-    "groot": false,
+    "pct": 4.6,
+    "groot": true,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Broadcom",
+    "onderwerp": "Goud",
     "punten": 10,
     "bronnen": [
      "koers"
     ],
     "wat": [
-     "-12.2% op één dag"
+     "+4.6% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Tesla",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+11.5% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -335,7 +347,7 @@
      "koers"
     ],
     "wat": [
-     "-14.0% op één dag"
+     "+28.8% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -347,7 +359,7 @@
      "koers"
     ],
     "wat": [
-     "-5.3% op één dag"
+     "+5.8% op één dag"
     ],
     "koppen": [],
     "groot": true
@@ -359,307 +371,356 @@
      "koers"
     ],
     "wat": [
-     "-3.7% op één dag"
+     "+4.0% op één dag"
     ],
     "koppen": [],
     "groot": true
    },
    {
-    "onderwerp": "Nvidia",
-    "punten": 5,
+    "onderwerp": "Fed",
+    "punten": 4,
     "bronnen": [
-     "CNBC",
-     "NYT"
+     "MarketWatch"
     ],
     "wat": [
-     "rechtszaak"
+     "rente/recessie"
     ],
     "koppen": [
      {
-      "titel": "U.S. probes Megaspeed, Alice Huang as new figure emerges in Nvidia chip case",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/23/nvidia-megaspeed-chipmaker-us.html"
-     },
+      "titel": "The U.S. may enter a recession if the Fed raises rates, hedge-fund manager Bill Ackman says",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/the-u-s-may-enter-a-recession-if-the-fed-raises-rates-hedge-fund-manager-bill-ackman-says-16738971?mod=mw_rss_topstories"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Recessie",
+    "punten": 4,
+    "bronnen": [
+     "MarketWatch"
+    ],
+    "wat": [
+     "rente/recessie"
+    ],
+    "koppen": [
      {
-      "titel": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/20/business/nvidia-sec-accounting.html"
+      "titel": "The U.S. may enter a recession if the Fed raises rates, hedge-fund manager Bill Ackman says",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/the-u-s-may-enter-a-recession-if-the-fed-raises-rates-hedge-fund-manager-bill-ackman-says-16738971?mod=mw_rss_topstories"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Anthropic",
+    "punten": 3,
+    "bronnen": [
+     "CNBC"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Forget Anthropic: In Europe, the IPO hype is about a blue lagoon",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-iceland-blue-lagoon.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 3,
+    "bronnen": [
+     "MarketWatch"
+    ],
+    "wat": [
+     "record"
+    ],
+    "koppen": [
+     {
+      "titel": "Nvidia’s stock soars 30%-plus as Jensen Huang returns as CEO",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/nvidia-stock-bounces-as-trump-administration-pushes-for-rehiring-of-jensen-huang-08057c29?mod=mw_rss_topstories"
      }
     ],
     "groot": false
    }
   ],
   "groot": [
-   "Broadcom",
+   "Goud",
+   "Tesla",
    "Nvidia",
    "Nasdaq",
    "S&P 500"
   ],
-  "aantal_koppen": 55
+  "aantal_koppen": 74
  },
  "yt_swan": {
-  "bijgewerkt": "2026-11-23 08:15",
+  "bijgewerkt": "2026-11-23 15:55",
   "uren": 48,
-  "aantal_videos": 57,
+  "aantal_videos": 288,
   "onderwerpen": [
    {
+    "onderwerp": "bjp",
+    "views_per_uur": 298746,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश! (ABP NEWS, 5,129,580 views in 37 u)",
+     "Sandeep Chaudhary: दोगुनी सीटें जीत गई #congress , BJP की करारी हार #rajasthanpanchayatelection2026 (ABP NEWS, 1,659,524 views in 37 u)",
+     "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp (ABP NEWS, 1,100,721 views in 42 u)"
+    ]
+   },
+   {
+    "onderwerp": "election",
+    "views_per_uur": 278563,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश! (ABP NEWS, 5,129,580 views in 37 u)",
+     "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp (ABP NEWS, 1,100,721 views in 42 u)",
+     "Rajasthan Election  | Sandeep Chaudhary | 30 जिलों के नतीजों में  ऐसा क्या हुआ  BJP सिर्फ 5 में! (ABP NEWS, 723,593 views in 37 u)"
+    ]
+   },
+   {
     "onderwerp": "updates",
-    "views_per_uur": 189284,
-    "kanalen": 2,
+    "views_per_uur": 265070,
+    "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 416,593 views in 6 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 104,877 views in 6 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
+     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)"
     ]
    },
    {
-    "onderwerp": "november",
-    "views_per_uur": 147120,
-    "kanalen": 2,
+    "onderwerp": "23rd",
+    "views_per_uur": 224029,
+    "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 416,593 views in 6 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
+     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)"
     ]
    },
    {
-    "onderwerp": "23rd november",
-    "views_per_uur": 147120,
+    "onderwerp": "zee",
+    "views_per_uur": 199436,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 416,593 views in 6 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)",
+     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 274,059 views in 14 u)"
     ]
    },
    {
     "onderwerp": "share",
-    "views_per_uur": 125718,
+    "views_per_uur": 196170,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
+     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 274,059 views in 14 u)"
+    ]
+   },
+   {
+    "onderwerp": "november",
+    "views_per_uur": 196134,
     "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 104,877 views in 6 u)",
-     "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 77,791 views in 6 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
+     "23RD TO 27TH NOVEMBER UPDATES  (Stock Market INDIA, 100,013 views in 27 u)"
+    ]
+   },
+   {
+    "onderwerp": "23rd november",
+    "views_per_uur": 192379,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
+     "Nifty Prediction & Sensex Analysis for Tomorrow & market news | 23rd November 2026 | BIG OPENING 📈🚀 (Marketguide Trading Academy, 60,738 views in 27 u)"
     ]
    },
    {
     "onderwerp": "trade",
-    "views_per_uur": 94997,
+    "views_per_uur": 185795,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 48,377 views in 4 u)",
-     "धमाकेदार खबर💥MOTHER OF ALL TRADE DEAL⚫ IPO GMP 92% CRASH😮⚫ TATA Stocks⚫ Share Market News⚫Modi⚫ SMKC (Stock Market का Commando, 79,319 views in 14 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)",
+     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
     ]
    },
    {
     "onderwerp": "first",
-    "views_per_uur": 89199,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 48,377 views in 4 u)"
-    ]
-   },
-   {
-    "onderwerp": "first trade",
-    "views_per_uur": 89199,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 481,597 views in 6 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 48,377 views in 4 u)"
-    ]
-   },
-   {
-    "onderwerp": "ipo",
-    "views_per_uur": 66870,
-    "kanalen": 21,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [
-     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever",
-     "2026-11-27: SpaceX Stock Just Fell Below Its IPO Price. December 8 Could Make It Worse",
-     "2026-11-27: Short: SpaceX Stock Fell Below Its $135 IPO Price"
-    ],
-    "voorbeelden": [
-     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 137,076 views in 11 u)",
-     "A Anthropic perdeu US$ 230 bilhões em poucas horas e seu IPO já é um desastre total (Quadros do Passado, 306,260 views in 35 u)",
-     "MAHANADI IPO Review! कोयला बेचकर सोना कमाने वाली कंपनी! (CA Rahul Malodia, 376,317 views in 47 u)"
-    ]
-   },
-   {
-    "onderwerp": "nifty",
-    "views_per_uur": 65870,
+    "views_per_uur": 159955,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 134,666 views in 4 u)",
-     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 48,377 views in 4 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 51,672 views in 6 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)",
+     "If Fed Gets It Wrong: Huge Market Crash First, Generational Wealth Opportunity Next | Jean Josse (Miles Franklin Media, 91,722 views in 15 u)"
     ]
    },
    {
-    "onderwerp": "trading",
-    "views_per_uur": 65868,
+    "onderwerp": "first trade",
+    "views_per_uur": 153710,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 134,666 views in 4 u)",
-     "LIVE TRADING #livetrading (Karol SEBI Registered IITian, 107,654 views in 4 u)"
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 605,093 views in 4 u)",
+     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
     ]
    },
    {
-    "onderwerp": "livetrading",
-    "views_per_uur": 65868,
-    "kanalen": 2,
+    "onderwerp": "billionaire",
+    "views_per_uur": 150121,
+    "kanalen": 18,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 134,666 views in 4 u)",
-     "LIVE TRADING #livetrading (Karol SEBI Registered IITian, 107,654 views in 4 u)"
+     "Exposing Random Billionaire in 60 sec (Abhay Create, 142,881 views in 4 u)",
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 986,576 views in 46 u)",
+     "She Thought He Was a Billionaire… But He Was Broke! 😂💸 (ComedyBlip, 566,807 views in 30 u)"
     ]
    },
    {
-    "onderwerp": "anthropic",
-    "views_per_uur": 45350,
-    "kanalen": 13,
+    "onderwerp": "nifty",
+    "views_per_uur": 128032,
+    "kanalen": 5,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
+     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
+    ]
+   },
+   {
+    "onderwerp": "man",
+    "views_per_uur": 124944,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [
-     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
-     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
+     "2026-11-19: The Man Who Built NVIDIA Just Walked Away",
+     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion"
     ],
     "voorbeelden": [
-     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 137,076 views in 11 u)",
-     "A Anthropic perdeu US$ 230 bilhões em poucas horas e seu IPO já é um desastre total (Quadros do Passado, 306,260 views in 35 u)",
-     "O MAIOR IPO DA HISTÓRIA: por que eu NÃO coloco 1 real na Anthropic (Investidor Sardinha l Raul Sena, 239,327 views in 32 u)"
+     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 581,923 views in 7 u)",
+     "Homeless Man Offered to Fix a Billionaire's Machine for a Meal — Engineers Laughed, Until It Roared (HOA Tales, 1,176,793 views in 29 u)"
+    ]
+   },
+   {
+    "onderwerp": "nov",
+    "views_per_uur": 113040,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
+     "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ... (Zee Business, 126,932 views in 5 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
     ]
    },
    {
     "onderwerp": "sensex",
-    "views_per_uur": 44868,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 134,666 views in 4 u)",
-     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 51,672 views in 6 u)"
-    ]
-   },
-   {
-    "onderwerp": "india",
-    "views_per_uur": 28013,
+    "views_per_uur": 112781,
     "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Global Markets Face Turbulence, But India’s Stock Market Shows Resilience! 🇮🇳📈 (TrendLok, 359,486 views in 19 u)",
-     "बाज़ार को रोकना मुश्किल है 💥 SHARE MARKET LATEST NEWS TODAY | STOCK MARKET INDIA (Stock Market INDIA, 95,642 views in 19 u)",
-     "NASDAQ -1200 CRASH📉| Nvidia 14% CRASH ( Ai Bubble फूटा?😨 ) Gift Nifty🚀| India Stock Market New High? (Stock Market का Commando, 55,302 views in 26 u)"
+     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
+     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 151,575 views in 11 u)"
     ]
    },
    {
-    "onderwerp": "anthropic's",
-    "views_per_uur": 25758,
+    "onderwerp": "recession",
+    "views_per_uur": 112268,
+    "kanalen": 5,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 581,923 views in 7 u)",
+     "The Start of Recession. (Meet Kevin, 176,004 views in 19 u)",
+     "What’s Stopping a Recession… Is Now Under Attack (Casual Finance, 407,095 views in 45 u)"
+    ]
+   },
+   {
+    "onderwerp": "cnbc",
+    "views_per_uur": 91530,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "What Anthropic's $900 Billion Bet Means for You (Nate Herk | AI Automation, 42,435 views in 41 u)",
-     "New Money | Anthropic's IPO Creates New Billionaires, Elon Says He's Not MAGA, GTA 6 Sales | S6.E211 (Millionaire Morning Show, 25,145 views in 34 u)",
-     "Why is Anthropic's Business Model So... Strange? (How Money Works, 1,095,480 views in 137 u)"
+     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 671,173 views in 14 u)",
+     "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market (CNBC Awaaz., 70,077 views in 3 u)",
+     "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz (CNBC Awaaz., 78,663 views in 6 u)"
     ]
    },
    {
-    "onderwerp": "anthropic ipo",
-    "views_per_uur": 24246,
-    "kanalen": 9,
+    "onderwerp": "gold",
+    "views_per_uur": 85046,
+    "kanalen": 7,
     "in_nieuws": false,
     "sterk": false,
-    "al_gedaan": [
-     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
-    ],
+    "al_gedaan": [],
     "voorbeelden": [
-     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 137,076 views in 11 u)",
-     "Nvidia Twist After Anthropic IPO? Is the AI Bubble in Trouble? • Sridhar Chityala (PGurus, 37,561 views in 17 u)",
-     "Anthropic $1.5 Trillion IPO: Is the AI Bubble About to Burst? Latest News By Ankit Avasthi Sir  (Apni Pathshala -Civil Services , 79,539 views in 41 u)"
+     "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee (Zee Telugu News, 95,693 views in 3 u)",
+     "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny (Bressler Otterholt0619, 986,576 views in 46 u)",
+     "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News (Vistara News , 445,643 views in 28 u)"
     ]
    },
    {
-    "onderwerp": "iran",
-    "views_per_uur": 22926,
+    "onderwerp": "trading",
+    "views_per_uur": 73335,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Iran Targets US Bases | Trump, Xi & Putin’s Historic Meeting | Anthropic IPO | The Palki Sharma Show (India Global Review, 69,562 views in 40 u)",
-     "What U.S. Aircraft Carriers Bring to the Iran War | WSJ Equipped (The Wall Street Journal, 1,102,181 views in 156 u)"
-    ]
-   },
-   {
-    "onderwerp": "bubble",
-    "views_per_uur": 20992,
-    "kanalen": 5,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 137,076 views in 11 u)",
-     "Are we witnessing the burst of the AI bubble? (ITV News, 85,774 views in 33 u)",
-     "Nvidia Twist After Anthropic IPO? Is the AI Bubble in Trouble? • Sridhar Chityala (PGurus, 37,561 views in 17 u)"
-    ]
-   },
-   {
-    "onderwerp": "started",
-    "views_per_uur": 18773,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "80% Tech Crash Just Started: This Is When To Short | Gareth Soloway (David Lin , 189,138 views in 11 u)",
-     "Anthropic’s IPO Problem Has Already Started (Siddharth Chopra, 66,307 views in 48 u)"
-    ]
-   },
-   {
-    "onderwerp": "latest",
-    "views_per_uur": 14668,
-    "kanalen": 5,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "बाज़ार को रोकना मुश्किल है 💥 SHARE MARKET LATEST NEWS TODAY | STOCK MARKET INDIA (Stock Market INDIA, 95,642 views in 19 u)",
-     "बाजार में बदलाव 03 BIG NEWS🔥LATEST STOCK MARKET NEWS⚫DALAL STREET WEEK AHEAD⚫GDP,BUDGET,INFLATION,AI (Stock Market का Commando, 85,199 views in 17 u)",
-     "Anthropic $1.5 Trillion IPO: Is the AI Bubble About to Burst? Latest News By Ankit Avasthi Sir  (Apni Pathshala -Civil Services , 79,539 views in 41 u)"
+     "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading (TRADING CAFE INDIA, 350,002 views in 5 u)",
+     "🔴JENSEN HUANG REINSTATED! STOCK MARKET CRAZINESS & NVIDIA NEWS! | LIVE TRADING (Beginner Trading, 7,415 views in 4 u)"
     ]
    }
   ],
@@ -668,225 +729,225 @@
     "id": "gQ-TvOYKiUc",
     "titel": "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News",
     "kanaal": "Zee Business",
-    "views": 481597,
-    "per_uur": 76526,
-    "uren_oud": 6,
+    "views": 605093,
+    "per_uur": 140997,
+    "uren_oud": 4,
     "short": false
    },
    {
-    "id": "EnV8JMAEUB8",
-    "titel": "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026",
-    "kanaal": "CNBC Awaaz.",
-    "views": 416593,
-    "per_uur": 70594,
-    "uren_oud": 6,
+    "id": "Hg8k3t2U_GM",
+    "titel": "Rajasthan Election Result | Sandeep Chaudhary | 23 जिलों में कांग्रेस को बहुमत, BJP के उड़ गए होश!",
+    "kanaal": "ABP NEWS",
+    "views": 5129580,
+    "per_uur": 137125,
+    "uren_oud": 37,
+    "short": true
+   },
+   {
+    "id": "4Unch--PmW0",
+    "titel": "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman",
+    "kanaal": "The Diary Of A CEO",
+    "views": 581923,
+    "per_uur": 84237,
+    "uren_oud": 7,
     "short": false
    },
    {
     "id": "C5e8z7Q6ets",
     "titel": "LIVE TRADING Nifty BankNifty and SENSEX | Option Buying  | 23 Nov #livetrading",
     "kanaal": "TRADING CAFE INDIA",
-    "views": 134666,
-    "per_uur": 36030,
-    "uren_oud": 4,
+    "views": 350002,
+    "per_uur": 71233,
+    "uren_oud": 5,
     "short": false
    },
    {
-    "id": "7hcWTE4Afsg",
-    "titel": "LIVE TRADING #livetrading",
-    "kanaal": "Karol SEBI Registered IITian",
-    "views": 107654,
-    "per_uur": 29838,
-    "uren_oud": 4,
+    "id": "EnV8JMAEUB8",
+    "titel": "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026",
+    "kanaal": "CNBC Awaaz.",
+    "views": 671173,
+    "per_uur": 49166,
+    "uren_oud": 14,
     "short": false
    },
    {
-    "id": "gzrbIknZqLw",
-    "titel": "Global Markets Face Turbulence, But India’s Stock Market Shows Resilience! 🇮🇳📈",
-    "kanaal": "TrendLok",
-    "views": 359486,
-    "per_uur": 19260,
-    "uren_oud": 19,
+    "id": "TiP0g5wnJU0",
+    "titel": "Sandeep Chaudhary: दोगुनी सीटें जीत गई #congress , BJP की करारी हार #rajasthanpanchayatelection2026",
+    "kanaal": "ABP NEWS",
+    "views": 1659524,
+    "per_uur": 44955,
+    "uren_oud": 37,
     "short": true
    },
    {
-    "id": "h7PnOQTAWiU",
-    "titel": "80% Tech Crash Just Started: This Is When To Short | Gareth Soloway",
-    "kanaal": "David Lin ",
-    "views": 189138,
-    "per_uur": 17384,
-    "uren_oud": 11,
+    "id": "GZQ6fj2sZCE",
+    "titel": "Homeless Man Offered to Fix a Billionaire's Machine for a Meal — Engineers Laughed, Until It Roared",
+    "kanaal": "HOA Tales",
+    "views": 1176793,
+    "per_uur": 40707,
+    "uren_oud": 29,
+    "short": true
+   },
+   {
+    "id": "DXM-D1qs_dA",
+    "titel": "LIVE: GOLD PRICE | Stock Market Updates | GV Satyanarayana | గోల్డ్ భారీగాపెరిగింది! | Zee",
+    "kanaal": "Zee Telugu News",
+    "views": 95693,
+    "per_uur": 32876,
+    "uren_oud": 3,
     "short": false
    },
    {
-    "id": "w0IQIiTH_V4",
-    "titel": "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz",
-    "kanaal": "Zee Business",
-    "views": 104877,
-    "per_uur": 16553,
-    "uren_oud": 6,
-    "short": false
-   },
-   {
-    "id": "AxemwvzBs7k",
-    "titel": "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz",
-    "kanaal": "Zee Business",
-    "views": 77791,
-    "per_uur": 12938,
-    "uren_oud": 6,
-    "short": false
-   },
-   {
-    "id": "FrGw5nFaIqg",
-    "titel": "🔴 First Trade Live Updates: Stock Market | Nifty Bank, Nifty News | Stock Market Update | CNBC Awaaz",
-    "kanaal": "CNBC Awaaz.",
-    "views": 48377,
-    "per_uur": 12673,
+    "id": "0FMXZ8ZTToI",
+    "titel": "Exposing Random Billionaire in 60 sec",
+    "kanaal": "Abhay Create",
+    "views": 142881,
+    "per_uur": 32289,
     "uren_oud": 4,
+    "short": true
+   },
+   {
+    "id": "xyH52c-OdgM",
+    "titel": "Final Trade 23rd Nov 2026 | बनाएं आखिरी डेढ़ घंटे में कमाई की स्ट्रैटेजी #AnilSinghvi के साथ...",
+    "kanaal": "Zee Business",
+    "views": 126932,
+    "per_uur": 27895,
+    "uren_oud": 5,
     "short": false
    },
    {
-    "id": "Qt5F0D6E5f0",
-    "titel": "What Did the Anthropic IPO Tell Us About the AI Bubble?",
-    "kanaal": "Kyla Scanlon",
-    "views": 137076,
-    "per_uur": 12058,
-    "uren_oud": 11,
-    "short": false
+    "id": "9CJmzsxEXKc",
+    "titel": "Bollywood News : मुंबई के सिनेमाघर में अमित साध और ईशा देओल की सरप्राइज एंट्री | #shorts",
+    "kanaal": "ABP NEWS",
+    "views": 352883,
+    "per_uur": 26977,
+    "uren_oud": 13,
+    "short": true
    },
    {
-    "id": "HdduoRUGNyg",
-    "titel": "Tomorrow Will Be Even Crazier: -$6 Trillion In 45 Days",
-    "kanaal": "StockedUp",
-    "views": 75054,
-    "per_uur": 9201,
-    "uren_oud": 8,
-    "short": false
+    "id": "D_pbygEEknY",
+    "titel": "Rajasthan Election Result: #cmbhajanlalsharma के जिले में हार गई BJP, कांग्रेस की जीत #congress #bjp",
+    "kanaal": "ABP NEWS",
+    "views": 1100721,
+    "per_uur": 26293,
+    "uren_oud": 42,
+    "short": true
    },
    {
     "id": "SCr90_1yZRA",
     "titel": "Share Bazaar Today LIVE: Anuj Singhal Decodes Nifty, Sensex & Bank Nifty | CNBC Awaaz | Stock Market",
     "kanaal": "CNBC Awaaz.",
-    "views": 51672,
-    "per_uur": 8838,
-    "uren_oud": 6,
+    "views": 70077,
+    "per_uur": 25420,
+    "uren_oud": 3,
     "short": false
    },
    {
-    "id": "s4n3Ki7vFHg",
-    "titel": "A Anthropic perdeu US$ 230 bilhões em poucas horas e seu IPO já é um desastre total",
-    "kanaal": "Quadros do Passado",
-    "views": 306260,
-    "per_uur": 8713,
-    "uren_oud": 35,
-    "short": false
-   },
-   {
-    "id": "-Lc5eri8XlI",
-    "titel": "MAHANADI IPO Review! कोयला बेचकर सोना कमाने वाली कंपनी!",
-    "kanaal": "CA Rahul Malodia",
-    "views": 376317,
-    "per_uur": 8027,
-    "uren_oud": 47,
-    "short": false
-   },
-   {
-    "id": "-hntSLTDjp4",
-    "titel": "코스피 초토화 우려…정점식 \"정부, 증시 폭락 대비책 마련해야\" [뉴스플레이리스트] / 채널A",
-    "kanaal": "채널A News",
-    "views": 217405,
-    "per_uur": 7691,
-    "uren_oud": 28,
-    "short": false
-   },
-   {
-    "id": "FK_9h7nJ11w",
-    "titel": "O MAIOR IPO DA HISTÓRIA: por que eu NÃO coloco 1 real na Anthropic",
-    "kanaal": "Investidor Sardinha l Raul Sena",
-    "views": 239327,
-    "per_uur": 7427,
-    "uren_oud": 32,
-    "short": false
-   },
-   {
-    "id": "PA7oUg4qscg",
-    "titel": "Nifty to hit all time high on Monday? | Anuj Singhal | N18S",
-    "kanaal": "CNBC Awaaz.",
-    "views": 288878,
-    "per_uur": 6196,
-    "uren_oud": 47,
+    "id": "XFowCoskZ3A",
+    "titel": "Gold digger sister rejected the billionaire CEO pretending to be poor! 😂💰🔥 #Comedy #Viral  #Funny",
+    "kanaal": "Bressler Otterholt0619",
+    "views": 986576,
+    "per_uur": 21223,
+    "uren_oud": 46,
     "short": true
    },
    {
-    "id": "HbuKoZeTQYQ",
-    "titel": "धमाकेदार खबर💥MOTHER OF ALL TRADE DEAL⚫ IPO GMP 92% CRASH😮⚫ TATA Stocks⚫ Share Market News⚫Modi⚫ SMKC",
-    "kanaal": "Stock Market का Commando",
-    "views": 79319,
-    "per_uur": 5798,
+    "id": "wCRjmooVGOo",
+    "titel": "Rajasthan Election  | Sandeep Chaudhary | 30 जिलों के नतीजों में  ऐसा क्या हुआ  BJP सिर्फ 5 में!",
+    "kanaal": "ABP NEWS",
+    "views": 723593,
+    "per_uur": 19515,
+    "uren_oud": 37,
+    "short": true
+   },
+   {
+    "id": "w0IQIiTH_V4",
+    "titel": "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz",
+    "kanaal": "Zee Business",
+    "views": 274059,
+    "per_uur": 19456,
     "uren_oud": 14,
     "short": false
    },
    {
-    "id": "Zy4UsEQTe9c",
-    "titel": "DON'T Miss The Next Indian Stock Market Bull-Run In 2027 ! - Where to Invest? | Rahul Jain",
-    "kanaal": "Rahul Jain",
-    "views": 229204,
-    "per_uur": 5569,
-    "uren_oud": 41,
+    "id": "i2SmGesq0vU",
+    "titel": "She Thought He Was a Billionaire… But He Was Broke! 😂💸",
+    "kanaal": "ComedyBlip",
+    "views": 566807,
+    "per_uur": 19205,
+    "uren_oud": 30,
+    "short": true
+   },
+   {
+    "id": "9R_rvQbJvzQ",
+    "titel": "The UK Economy is Genuinely Booming: Why?",
+    "kanaal": "TLDR News",
+    "views": 92315,
+    "per_uur": 18786,
+    "uren_oud": 5,
     "short": false
    },
    {
-    "id": "MM8uW4cn4_Y",
-    "titel": "बाज़ार को रोकना मुश्किल है 💥 SHARE MARKET LATEST NEWS TODAY | STOCK MARKET INDIA",
-    "kanaal": "Stock Market INDIA",
-    "views": 95642,
-    "per_uur": 5065,
-    "uren_oud": 19,
+    "id": "eqKluw_1Z8g",
+    "titel": "Tyler Perry Became a BILLIONAIRE Doing THIS 🤯",
+    "kanaal": "School of Hard Knocks",
+    "views": 373436,
+    "per_uur": 18190,
+    "uren_oud": 21,
+    "short": true
+   },
+   {
+    "id": "YO0ENYJBN7o",
+    "titel": "Rajasthan Election  | Sandeep Chaudhary | पंचायत चुनाव के नतीजों ने चौंकाया! | BJP | Congress Win",
+    "kanaal": "ABP NEWS",
+    "views": 445984,
+    "per_uur": 18070,
+    "uren_oud": 25,
+    "short": true
+   },
+   {
+    "id": "T0yCIv-LvlY",
+    "titel": "Rajasthan Panchayat Election : राजस्थान पंचायत चुनाव 2026- जानिए किस पार्टी को मिलीं कितनी सीटें ?",
+    "kanaal": "ABP NEWS",
+    "views": 574295,
+    "per_uur": 17895,
+    "uren_oud": 32,
+    "short": true
+   },
+   {
+    "id": "gzrbIknZqLw",
+    "titel": "Global Markets Face Turbulence, But India’s Stock Market Shows Resilience! 🇮🇳📈",
+    "kanaal": "TrendLok",
+    "views": 459596,
+    "per_uur": 17399,
+    "uren_oud": 26,
+    "short": true
+   },
+   {
+    "id": "DGSCkD4HvZU",
+    "titel": "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News",
+    "kanaal": "Vistara News ",
+    "views": 445643,
+    "per_uur": 16142,
+    "uren_oud": 28,
+    "short": true
+   },
+   {
+    "id": "igIVMq292nM",
+    "titel": "DOOMSDAY PREPPERS: Generac CEO ADDRESSES Americans' reactions to tech outages",
+    "kanaal": "Fox Business",
+    "views": 224273,
+    "per_uur": 14095,
+    "uren_oud": 16,
     "short": false
    },
    {
-    "id": "ZbMMU48c3w0",
-    "titel": "बाजार में बदलाव 03 BIG NEWS🔥LATEST STOCK MARKET NEWS⚫DALAL STREET WEEK AHEAD⚫GDP,BUDGET,INFLATION,AI",
-    "kanaal": "Stock Market का Commando",
-    "views": 85199,
-    "per_uur": 4959,
-    "uren_oud": 17,
-    "short": false
-   },
-   {
-    "id": "QGVaCrY5tY8",
-    "titel": "Terrible News for Nvidia Stock Investors | NVDA Stock Analysis",
-    "kanaal": "Parkev Tatevosian, CFA",
-    "views": 95424,
-    "per_uur": 4916,
-    "uren_oud": 19,
-    "short": false
-   },
-   {
-    "id": "bfFube8binA",
-    "titel": "Why Capital Market Stocks in Focus Now?",
-    "kanaal": "DAY TRADER తెలుగు",
-    "views": 182924,
-    "per_uur": 4666,
-    "uren_oud": 39,
-    "short": false
-   },
-   {
-    "id": "DEHWWoc6SWM",
-    "titel": "SILVER GAME OVER? 😢 INVESTORS TRAPPED? | Sona Chandi News",
-    "kanaal": "Stock Market का Commando",
-    "views": 60399,
-    "per_uur": 3914,
-    "uren_oud": 15,
-    "short": false
-   },
-   {
-    "id": "yHkaq5TUH-M",
-    "titel": "🚨 IPO DA ANTHROPIC: O LIMITE DO CLAUDE PODE MUDAR",
-    "kanaal": "mano deyvin",
-    "views": 50320,
-    "per_uur": 3824,
-    "uren_oud": 13,
+    "id": "gzVeBQZ5wzI",
+    "titel": "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir",
+    "kanaal": "Baaten Bazar Ki (BBK)",
+    "views": 151575,
+    "per_uur": 13912,
+    "uren_oud": 11,
     "short": false
    }
   ],
@@ -895,89 +956,99 @@
     "id": "qxm2ZViNfiE",
     "titel": "Bars Have 90% Margins. Most Still Go Broke.",
     "kanaal": "Modern MBA",
-    "views": 91939,
-    "uren_oud": 14,
-    "per_uur": 6492,
-    "keer_gewoon": 76.4,
+    "views": 119144,
+    "uren_oud": 22,
+    "per_uur": 5437,
+    "keer_gewoon": 64.0,
     "uitschieter": true
    },
    {
     "id": "-7_-eckjzfI",
     "titel": "Why Big Pizza Chains Are Struggling",
     "kanaal": "CNBC",
-    "views": 606848,
-    "uren_oud": 16,
-    "per_uur": 37554,
-    "keer_gewoon": 17.4,
+    "views": 733446,
+    "uren_oud": 24,
+    "per_uur": 30676,
+    "keer_gewoon": 14.7,
     "uitschieter": true
    },
    {
     "id": "pIK8dB5BiHY",
     "titel": "Every Crisis Everywhere All At Once",
     "kanaal": "Economics Explained",
-    "views": 515302,
-    "uren_oud": 39,
-    "per_uur": 13158,
-    "keer_gewoon": 13.2,
+    "views": 544409,
+    "uren_oud": 47,
+    "per_uur": 11605,
+    "keer_gewoon": 11.8,
     "uitschieter": true
    },
    {
     "id": "FhVbxweMaWM",
     "titel": "Why is Anthropic's Business Model So... Strange?",
     "kanaal": "How Money Works",
-    "views": 1095480,
-    "uren_oud": 137,
-    "per_uur": 7995,
-    "keer_gewoon": 8.9,
+    "views": 1107139,
+    "uren_oud": 145,
+    "per_uur": 7648,
+    "keer_gewoon": 8.6,
     "uitschieter": true
    },
    {
     "id": "SKkiIdfsHGo",
     "titel": "The Start of Recession.",
     "kanaal": "Meet Kevin",
-    "views": 153334,
-    "uren_oud": 12,
-    "per_uur": 13248,
-    "keer_gewoon": 6.3,
+    "views": 176004,
+    "uren_oud": 19,
+    "per_uur": 9108,
+    "keer_gewoon": 4.6,
+    "uitschieter": true
+   },
+   {
+    "id": "fCEY_9vg6Xk",
+    "titel": "Jensen is OFFICIALLY BACK!!! Nvidia!!",
+    "kanaal": "Meet Kevin",
+    "views": 6697,
+    "uren_oud": 1,
+    "per_uur": 6697,
+    "keer_gewoon": 3.4,
     "uitschieter": true
    },
    {
     "id": "c6qv_kmcLWE",
     "titel": "Adobe Can’t Come Back From This...",
     "kanaal": "Logically Answered",
-    "views": 167562,
-    "uren_oud": 155,
-    "per_uur": 1080,
-    "keer_gewoon": 2.7,
+    "views": 168764,
+    "uren_oud": 163,
+    "per_uur": 1036,
+    "keer_gewoon": 2.6,
     "uitschieter": true
    },
    {
     "id": "mCIxUTr1St4",
     "titel": "OpenAI Reserved 40% Of The World's RAM. It Never Had To Buy It",
     "kanaal": "Logically Answered",
-    "views": 55697,
-    "uren_oud": 59,
-    "per_uur": 941,
-    "keer_gewoon": 2.3,
+    "views": 57040,
+    "uren_oud": 67,
+    "per_uur": 852,
+    "keer_gewoon": 2.2,
     "uitschieter": true
    },
    {
     "id": "XQxPvJ7H98s",
     "titel": "How Cheap Clothing Got So Expensive",
     "kanaal": "CNBC",
-    "views": 313571,
-    "uren_oud": 64,
-    "per_uur": 4887,
-    "keer_gewoon": 2.3,
+    "views": 331653,
+    "uren_oud": 72,
+    "per_uur": 4612,
+    "keer_gewoon": 2.2,
     "uitschieter": true
    },
    {
     "id": "e6mB0dgCkWk",
     "titel": "What U.S. Aircraft Carriers Bring to the Iran War | WSJ Equipped",
     "kanaal": "The Wall Street Journal",
-    "views": 1102181,
-    "uren_oud": 156,
-    "per_uur": 7058,
+    "views": 1120871,
+    "uren_oud": 164,
+    "per_uur": 6838,
     "keer_gewoon": 2.1,
     "uitschieter": true
    },
@@ -985,49 +1056,29 @@
     "id": "Brh3jhy04TQ",
     "titel": "Something Strange Is Happening In America",
     "kanaal": "Economics Explained",
-    "views": 249582,
-    "uren_oud": 134,
-    "per_uur": 1865,
-    "keer_gewoon": 1.9,
+    "views": 255518,
+    "uren_oud": 142,
+    "per_uur": 1805,
+    "keer_gewoon": 1.8,
     "uitschieter": false
    },
    {
     "id": "JcBTr-BhL_0",
     "titel": "What EVERYONE Needs To Do With Their Money ASAP",
     "kanaal": "Graham Stephan",
-    "views": 559398,
-    "uren_oud": 155,
-    "per_uur": 3605,
-    "keer_gewoon": 1.9,
-    "uitschieter": false
-   },
-   {
-    "id": "dFOLw_CTRPY",
-    "titel": "How to Hedge THE CRASH Before It's Too Late.",
-    "kanaal": "Meet Kevin",
-    "views": 134461,
-    "uren_oud": 60,
-    "per_uur": 2246,
-    "keer_gewoon": 1.1,
-    "uitschieter": false
-   },
-   {
-    "id": "zlvcEuxM5xU",
-    "titel": "Jensen JUST Crashed the Market: New STARTUP",
-    "kanaal": "Meet Kevin",
-    "views": 139726,
-    "uren_oud": 62,
-    "per_uur": 2254,
-    "keer_gewoon": 1.1,
+    "views": 560987,
+    "uren_oud": 163,
+    "per_uur": 3443,
+    "keer_gewoon": 1.8,
     "uitschieter": false
    },
    {
     "id": "Ko-rV1vj-Tk",
     "titel": "Inside California’s Modern-Day Gold Rush",
     "kanaal": "CNBC Make It",
-    "views": 56935,
-    "uren_oud": 40,
-    "per_uur": 1418,
+    "views": 59585,
+    "uren_oud": 48,
+    "per_uur": 1244,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1035,9 +1086,29 @@
     "id": "HQPgvxNU94M",
     "titel": "Why You Can't Focus in an Open Office | WSJ Pro Perfected",
     "kanaal": "The Wall Street Journal",
-    "views": 197351,
-    "uren_oud": 60,
-    "per_uur": 3295,
+    "views": 215848,
+    "uren_oud": 68,
+    "per_uur": 3191,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "dFOLw_CTRPY",
+    "titel": "How to Hedge THE CRASH Before It's Too Late.",
+    "kanaal": "Meet Kevin",
+    "views": 134967,
+    "uren_oud": 68,
+    "per_uur": 1996,
+    "keer_gewoon": 1.0,
+    "uitschieter": false
+   },
+   {
+    "id": "zlvcEuxM5xU",
+    "titel": "Jensen JUST Crashed the Market: New STARTUP",
+    "kanaal": "Meet Kevin",
+    "views": 140173,
+    "uren_oud": 70,
+    "per_uur": 2010,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1045,9 +1116,9 @@
     "id": "hdIdY3l96BA",
     "titel": "Stock Up NOW: We're Under Attack.",
     "kanaal": "Meet Kevin",
-    "views": 172053,
-    "uren_oud": 80,
-    "per_uur": 2161,
+    "views": 172390,
+    "uren_oud": 87,
+    "per_uur": 1973,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1055,9 +1126,9 @@
     "id": "5m4AIfW_56U",
     "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
     "kanaal": "Meet Kevin",
-    "views": 177249,
-    "uren_oud": 85,
-    "per_uur": 2090,
+    "views": 177597,
+    "uren_oud": 93,
+    "per_uur": 1918,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1065,9 +1136,9 @@
     "id": "S1B9R_83-8c",
     "titel": "America Is Under Attack",
     "kanaal": "Andrei Jikh",
-    "views": 1214427,
-    "uren_oud": 62,
-    "per_uur": 19537,
+    "views": 1247093,
+    "uren_oud": 70,
+    "per_uur": 17838,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1075,9 +1146,9 @@
     "id": "_wtHypm4eqQ",
     "titel": "The Collapse...",
     "kanaal": "Meet Kevin",
-    "views": 108138,
-    "uren_oud": 62,
-    "per_uur": 1731,
+    "views": 108318,
+    "uren_oud": 70,
+    "per_uur": 1542,
     "keer_gewoon": 0.8,
     "uitschieter": false
    },
@@ -1085,19 +1156,9 @@
     "id": "8GU-V2QEPQ0",
     "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
     "kanaal": "Meet Kevin",
-    "views": 110769,
-    "uren_oud": 65,
-    "per_uur": 1696,
-    "keer_gewoon": 0.8,
-    "uitschieter": false
-   },
-   {
-    "id": "Tn8IEhp_iq4",
-    "titel": "The Stock Market is about to do something UNBELIEVABLE.",
-    "kanaal": "Meet Kevin",
-    "views": 190698,
-    "uren_oud": 109,
-    "per_uur": 1750,
+    "views": 110994,
+    "uren_oud": 73,
+    "per_uur": 1519,
     "keer_gewoon": 0.8,
     "uitschieter": false
    },
@@ -1105,9 +1166,9 @@
     "id": "GbwGP-HxibY",
     "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
     "kanaal": "CNBC",
-    "views": 210255,
-    "uren_oud": 136,
-    "per_uur": 1544,
+    "views": 211600,
+    "uren_oud": 144,
+    "per_uur": 1470,
     "keer_gewoon": 0.7,
     "uitschieter": false
    },
@@ -1115,9 +1176,9 @@
     "id": "sxtXz24odps",
     "titel": "How the Fed Is Preparing For AI’s Economic Impact",
     "kanaal": "CNBC",
-    "views": 36768,
-    "uren_oud": 40,
-    "per_uur": 915,
+    "views": 38142,
+    "uren_oud": 48,
+    "per_uur": 796,
     "keer_gewoon": 0.4,
     "uitschieter": false
    },
@@ -1125,9 +1186,9 @@
     "id": "YYNTzUHobU0",
     "titel": "Why Retail Investors Are Divided Over Anthropic’s $1.4 Trillion IPO",
     "kanaal": "CNBC",
-    "views": 102496,
-    "uren_oud": 112,
-    "per_uur": 914,
+    "views": 102793,
+    "uren_oud": 120,
+    "per_uur": 857,
     "keer_gewoon": 0.4,
     "uitschieter": false
    },
@@ -1135,19 +1196,9 @@
     "id": "3ftcmy8Fi2o",
     "titel": "Watch Immediately: The Anthropic IPO [Should you Buy]",
     "kanaal": "Meet Kevin",
-    "views": 65534,
-    "uren_oud": 87,
-    "per_uur": 750,
-    "keer_gewoon": 0.4,
-    "uitschieter": false
-   },
-   {
-    "id": "vzGR3e7jkvk",
-    "titel": "Prepare for War.",
-    "kanaal": "Meet Kevin",
-    "views": 89480,
-    "uren_oud": 101,
-    "per_uur": 887,
+    "views": 65718,
+    "uren_oud": 95,
+    "per_uur": 691,
     "keer_gewoon": 0.4,
     "uitschieter": false
    },
@@ -1155,9 +1206,9 @@
     "id": "8BnHqm5BSdI",
     "titel": "Texas Turned Blue. What’s Next for Elon Musk?",
     "kanaal": "The Wall Street Journal",
-    "views": 29820,
-    "uren_oud": 81,
-    "per_uur": 370,
+    "views": 30609,
+    "uren_oud": 88,
+    "per_uur": 346,
     "keer_gewoon": 0.1,
     "uitschieter": false
    }
@@ -1920,7 +1971,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 15:33)"
+   "tekst": "draait nu (2026-11-23 16:03)"
   },
   {
    "naam": "Git",
@@ -1935,7 +1986,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:18: 2 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1952,8 +2003,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 15:33",
-   "volgende": "2026-11-23 16:03"
+   "laatst": "2026-11-23 16:03",
+   "volgende": "2026-11-23 16:33"
   },
   "hype": {
    "aan": true,
@@ -1967,8 +2018,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 15:18",
-   "volgende": "2026-11-23 15:48"
+   "laatst": "2026-11-23 15:48",
+   "volgende": "2026-11-23 16:18"
   },
   "titels": {
    "aan": true,
@@ -2303,8 +2354,8 @@
  },
  "nu_bezig": [],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 1486,
+  "bezig_procent": 26,
+  "geheugen_mb": 1494,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2390,18 +2441,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-22 01:48",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963, pearl-harbor-1941 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT Goud (2026-11-22): -4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-22 05:25",
    "tekst": "nieuwswacht: GROOT Broadcom (2026-11-22): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
@@ -2472,12 +2511,24 @@
    "tekst": "sitecontrole: opgelost: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 15:45",
+   "tekst": "nieuwswacht: GROOT Goud (2026-11-23): +4.6% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 15:45",
+   "tekst": "nieuwswacht: GROOT Tesla (2026-11-23): +11.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 15:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:18: 2 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 16:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 2 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4610,15 +4661,15 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 15:34",
+  "bijgewerkt": "2026-11-23 16:03",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 0,
-    "week": 18662035,
+    "week": 14296563,
     "per_dag": {
      "Tue 17-11": 1533664,
-     "Mon 16-11": 9064328,
+     "Mon 16-11": 4698856,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
@@ -4631,25 +4682,25 @@
    },
    {
     "account": "account2",
-    "5uur": 8119592,
-    "week": 150155619,
+    "5uur": 7198742,
+    "week": 150120770,
     "per_dag": {
-     "Mon 16-11": 15532832,
+     "Mon 16-11": 15226494,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 22260531,
+     "Mon 23-11": 22532020,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 51603,
+    "stap_kost": 51693,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 60,
+    "5uur_pct": 53,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 106,
+    "5uur_stappen_over": 123,
     "week_pct": 114,
     "week_scripts_over": null,
     "week_stappen_over": 0
