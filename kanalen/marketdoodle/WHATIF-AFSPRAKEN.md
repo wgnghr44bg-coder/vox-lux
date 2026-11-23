@@ -44,3 +44,10 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 ## Online
 - Short: Qhjfoib3FIA (What If You Could See How Much Everyone Earns?), 23 nov.
 - Lang: jJacEFpBrXY (What If You Swapped Lives With Your Dad for a Week?), 23 nov.
+
+## Lessen uit de cijfers (Studio-rapport 23 nov 2026)
+- Short "How Much Everyone Earns": 1.235 views, 52% bekeken vs. 48% weggeswipet, 67,6% gemiddeld bekeken (0:47), 29 likes, +3 abonnees. Werkt: meteen een beeld dat iedereen snapt in seconde 1 ("glowing number above your dad's head").
+- Lange video "Swapped Lives": 27 vertoningen, kijker weg na 0:15 (bij de regels). Les: **eerste 5 seconden = midden in de chaos**, regels pas daarna.
+- **Shorts ± 45-50 s** (niet 60-70 s).
+- Zoektermen die mensen al naar ons brengen: superkrachten ("everyone gets superpowers overnight") en overleven ("can you survive being swallowed"). Kies zulke onderwerpen.
+- Kijkers: 74% mobiel; tijden 17:00/19:00 NL passen.
