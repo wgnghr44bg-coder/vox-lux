@@ -428,3 +428,8 @@ ValueError: empty separator)
 - 2026-11-23 08:00 nieuwswacht: GROOT Nasdaq (2026-11-23): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)
 - 2026-11-23 08:00 nieuwswacht: GROOT S&P 500 (2026-11-23): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)
 - 2026-11-23 12:17 eigenaar: Sleep 1x per week (za 21:00), focus Market Doodle. Wo-plekken naar za achteraan (boeren-winter t/m jeanne-darc), routine alleen za, bewaker AAN maar start alleen 22:00-08:00 en wacht als Doodle/Swan bezig is.
+- 2026-11-23 23:18 routine-lokaal: pearl-harbor-1941: 9 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën
+- 2026-11-23 23:19 routine-lokaal: pearl-harbor-1941: beelden-wachter: 3 beelden lijken op een ander beeld (063, 064, 067), nieuwe maken
+- 2026-11-23 23:25 routine-lokaal: pearl-harbor-1941: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën
+- 2026-11-23 23:33 routine-lokaal: pearl-harbor-1941: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl
+- 2026-11-23 23:39 routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan
