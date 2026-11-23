@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-23 09:03",
+ "bijgewerkt": "2026-11-23 09:33",
  "kanalen": {
   "weken": [
    {
@@ -10,7 +10,16 @@
     "dagen": [
      {
       "datum": "2026-11-23",
-      "items": []
+      "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-23",
+        "tijd": "09:10",
+        "titel": "What If You Could See How Much Everyone Earns?",
+        "stand": "online",
+        "youtube": "Qhjfoib3FIA"
+       }
+      ]
      },
      {
       "datum": "2026-11-24",
@@ -2045,7 +2054,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-23 09:03)"
+   "tekst": "draait nu (2026-11-23 09:33)"
   },
   {
    "naam": "Git",
@@ -2060,7 +2069,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:48: 3 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 09:18: 3 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2077,8 +2086,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-23 09:03",
-   "volgende": "2026-11-23 09:33"
+   "laatst": "2026-11-23 09:33",
+   "volgende": "2026-11-23 10:03"
   },
   "hype": {
    "aan": true,
@@ -2088,17 +2097,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-21 23:10",
-   "volgende": "2026-11-23 09:10"
+   "volgende": "2026-11-23 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-23 08:48",
-   "volgende": "2026-11-23 09:18"
+   "laatst": "2026-11-23 09:18",
+   "volgende": "2026-11-23 09:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-23 07:25",
-   "volgende": "2026-11-23 09:25"
+   "laatst": "2026-11-23 09:25",
+   "volgende": "2026-11-23 11:25"
   }
  },
  "kanaal": {
@@ -2141,7 +2150,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 44,
+    "views": 39,
     "verwerkt": "processed"
    },
    {
@@ -2186,7 +2195,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 144,
+    "views": 143,
     "verwerkt": "processed"
    },
    {
@@ -2204,7 +2213,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 903,
+    "views": 908,
     "verwerkt": "processed"
    }
   ],
@@ -2601,8 +2610,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-23 09:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 3 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-23 09:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 09:18: 3 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4573,7 +4582,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-23 08:30",
+  "bijgewerkt": "2026-11-23 09:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4795,7 +4804,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-23 09:04",
+  "bijgewerkt": "2026-11-23 09:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -4816,26 +4825,26 @@
    },
    {
     "account": "account2",
-    "5uur": 4946465,
-    "week": 138647467,
+    "5uur": 6140666,
+    "week": 139841668,
     "per_dag": {
      "Mon 16-11": 17449724,
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
-     "Mon 23-11": 8835487,
+     "Mon 23-11": 10029687,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 53107,
+    "stap_kost": 52767,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 36,
+    "5uur_pct": 45,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 163,
-    "week_pct": 105,
+    "5uur_stappen_over": 141,
+    "week_pct": 106,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
