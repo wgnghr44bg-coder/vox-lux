@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 13:03",
+ "bijgewerkt": "2026-11-24 13:33",
  "kanalen": {
   "weken": [
    {
@@ -2049,10 +2049,40 @@
   ],
   "daarna": [
    {
-    "wanneer": "na Blackbeard",
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "keten maakt de video voor za 5-12 21:00"
+    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wat": "Christmas in the Trenches, 1914 | History for Sleep",
+    "map": "kerst-loopgraven-1914",
+    "detail": "routine maakt de video voor za 12-12 21:00"
+   },
+   {
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
+    "map": "bethlehem",
+    "detail": "routine maakt de video voor za 19-12 21:00"
+   },
+   {
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
+    "map": "londen-kerst-1843",
+    "detail": "routine maakt de video voor za 26-12 21:00"
+   },
+   {
+    "wanneer": "do 3-12 09:00 (routine staat UIT)",
+    "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
+    "map": "rome-44-vc",
+    "detail": "routine maakt de video voor za 2-1 21:00"
+   },
+   {
+    "wanneer": "zo 6-12 09:00 (routine staat UIT)",
+    "wat": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
+    "map": "scott-antarctica-1912",
+    "detail": "routine maakt de video voor za 9-1 21:00"
+   },
+   {
+    "wanneer": "di 8-12 09:00 (routine staat UIT)",
+    "wat": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
+    "map": "dansplaag-1518",
+    "detail": "routine maakt de video voor za 30-1 21:00"
    }
   ],
   "publicaties": [
@@ -2231,7 +2261,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 13:03)"
+   "tekst": "draait nu (2026-11-24 13:33)"
   },
   {
    "naam": "Git",
@@ -2246,7 +2276,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:48: alles klopt"
+   "tekst": "laatste ronde 13:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2263,8 +2293,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 13:03",
-   "volgende": "2026-11-24 13:33"
+   "laatst": "2026-11-24 13:33",
+   "volgende": "2026-11-24 14:03"
   },
   "hype": {
    "aan": true,
@@ -2272,19 +2302,19 @@
    "volgende": "2026-11-25 08:30"
   },
   "bewaker": {
-   "aan": true,
-   "laatst": "2026-11-24 12:10",
-   "volgende": "2026-11-24 13:10"
+   "aan": false,
+   "laatst": "2026-11-24 13:10",
+   "volgende": "2026-11-24 14:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 12:48",
-   "volgende": "2026-11-24 13:18"
+   "laatst": "2026-11-24 13:18",
+   "volgende": "2026-11-24 13:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-24 11:25",
-   "volgende": "2026-11-24 13:25"
+   "laatst": "2026-11-24 13:25",
+   "volgende": "2026-11-24 15:25"
   }
  },
  "kanaal": {
@@ -2390,7 +2420,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 999,
+    "views": 983,
     "verwerkt": "processed"
    }
   ],
@@ -5066,7 +5096,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-24 11:25",
+  "bijgewerkt": "2026-11-24 13:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5243,21 +5273,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 13:03",
+  "bijgewerkt": "2026-11-24 13:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1047564,
-    "week": 12327575,
+    "5uur": 1453288,
+    "week": 12733299,
     "per_dag": {
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 4263533
+     "Tue 24-11": 4669256
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 28050,
+    "stap_kost": 26835,
     "naam": "hoofd",
     "week_reset": ""
    },
