@@ -1,0 +1,200 @@
+[
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A phone is buzzing",
+   "A character opens a bank app",
+   "A character blinks and looks again"
+  ],
+  "zin": 1,
+  "t": 2.5,
+  "tekst": "It's 6 a.m. Your phone won't stop buzzing. You open your bank app. You blink. You look again."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A character looks at a phone",
+   "A character holds a coupon for free fries",
+   "A character has a lot of money in their account"
+  ],
+  "zin": 2,
+  "t": 8.2,
+  "tekst": "One million dollars. In your account. Yesterday you had twelve dollars and a coupon for free fries."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "You run downstairs.",
+   "Dad is staring at his phone.",
+   "Mom is staring at hers."
+  ],
+  "zin": 4,
+  "t": 16.1,
+  "tekst": "You run downstairs. Dad is staring at his phone. Mom is staring at hers. Your little sister is staring at hers."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [],
+  "zin": 8,
+  "t": 33.4,
+  "tekst": "Nobody knows where it came from. Nobody cares. You're rich. Everyone is rich."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [],
+  "zin": 9,
+  "t": 38.2,
+  "tekst": "So, what happens next? Day one is amazing. Day two is weird. And by day thirty... well. Let's see."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your street looks like a car show",
+   "Your neighbor bought a sports car",
+   "The sports car is pink"
+  ],
+  "zin": 10,
+  "t": 43.8,
+  "tekst": "Day one. Your street looks like a car show. Your neighbor bought a sports car. In pink."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A guy is across the street.",
+   "The guy bought three items.",
+   "The guy is driving one item at a time."
+  ],
+  "zin": 11,
+  "t": 49.1,
+  "tekst": "The guy across the street bought three. He can only drive one at a time. He doesn't care."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Dad orders a boat",
+   "You don't live near water"
+  ],
+  "zin": 12,
+  "t": 54.4,
+  "tekst": "Dad orders a boat. You don't live near water."
+ },
+ {
+  "ok": false,
+  "mist": "A character is buying games; A character is sitting in a chair",
+  "zie": "There is no character buying games in the frames.; There is no character sitting in a chair in the frames.",
+  "zien": [
+   "A gaming chair is present",
+   "A character is buying games",
+   "A character is sitting in a chair"
+  ],
+  "zin": 16,
+  "t": 63.7,
+  "tekst": "You buy every game ever made. Plus a gaming chair that cost more than your old house."
+ },
+ {
+  "ok": false,
+  "mist": "The armrest has a cooling feature.",
+  "zie": "No cooling feature is visible.",
+  "zien": [
+   "The armrest has a massage feature.",
+   "The armrest has a cooling feature.",
+   "The armrest has a tiny fridge."
+  ],
+  "zin": 17,
+  "t": 68.8,
+  "tekst": "It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair."
+ },
+ {
+  "ok": false,
+  "mist": "Mister Pancake eats the fence",
+  "zie": "No fence is visible in the frames.",
+  "zien": [
+   "Mister Pancake eats Mom's flowers",
+   "Mister Pancake eats the fence",
+   "Mister Pancake eats the doormat"
+  ],
+  "zin": 19,
+  "t": 78.5,
+  "tekst": "Mister Pancake eats Mom's flowers. Then the fence. Then the doormat."
+ },
+ {
+  "ok": false,
+  "mist": "A teacher is present.",
+  "zie": "No teacher is visible in the frames.",
+  "zien": [
+   "A character goes to school.",
+   "A teacher is present.",
+   "No other people are present."
+  ],
+  "zin": 22,
+  "t": 87.1,
+  "tekst": "Day two. You go to school. Nobody else does. Not even the teacher."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "There's a note on the door.",
+   "The note says 'Gone to Hawaii. Forever.'"
+  ],
+  "zin": 23,
+  "t": 91.2,
+  "tekst": "There's a note on the door. \"Gone to Hawaii. Forever.\""
+ },
+ {
+  "ok": false,
+  "mist": "The person goes home.",
+  "zie": "No person is visible in the frame.",
+  "zien": [
+   "A person sits alone in an empty classroom.",
+   "The person goes home.",
+   "The person plays games."
+  ],
+  "zin": 25,
+  "t": 96.1,
+  "tekst": "You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours."
+ },
+ {
+  "ok": false,
+  "mist": "Dad goes to work out of habit.",
+  "zie": "Dad goes to work out of habit.",
+  "zien": [
+   "Dad goes to work out of habit.",
+   "The office is empty.",
+   "His boss is wearing a crown."
+  ],
+  "zin": 26,
+  "t": 102.9,
+  "tekst": "Dad goes to work out of habit. The office is empty. His boss is wearing a crown."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A bus driver is present",
+   "A cook is present",
+   "A guy who fixes the internet is present"
+  ],
+  "zin": 30,
+  "t": 114.3,
+  "tekst": "And that's the problem. Nobody wants to work anymore. Not the bus driver. Not the cook. Not the guy who fixes the internet."
+ }
+]

@@ -48,6 +48,42 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Short: -tP-eeJUYtU (What If You Built a Real Cyborg?), 24 nov (eigenaar zette hem zelf openbaar). Pause Time (13EHf4WZdWs) is verwijderd.
 - **Ingepland op YouTube: NIETS** (eigenaar 24 nov: "er staat nu niks gepland"). Volgende plekken: wo 25 nov en za 28 nov (lang 17:00, Short 19:00), onderwerp nog kiezen.
 
+## VASTE WERKWIJZE LANGE VIDEO (eigenaar 24 nov 2026: "zet dit zo vast voor andere nieuwe video's")
+Voorbeeld en sjabloon: `video-miljoen/` (What If Everyone on Earth Got $1 Million Tonight?). Eigenaar vond de proef "perfect".
+Aanleiding: de eerste lange video (Swapped Lives) kreeg 6 views; AI Studio-analyse: saai begin (regels), stilstaande
+poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
+- **Lengte: minimaal 8 minuten** (± 1.400 woorden, 115 zinnen; tempo ± 178 woorden/min). Steeds gekker met nieuwe gebeurtenissen,
+  nooit opvulling/uitleg.
+- **Onderwerp in de lijn van een Short die al loopt** (geld, techniek, superkrachten, overleven), zodat die Short de lange
+  video als "Gerelateerde video" kan krijgen.
+- **Opbouw (zoals miljoen):**
+  1. Seconde 1 = midden in de chaos, iemand roept iets ("Mom! Dad! Check your phones! Now!") + meteen het gekke beeld.
+  2. Familie reageert (iedereen eigen zin), dan pas "So, what happens next?" met een belofte ("Day one is amazing. Day two is
+     weird. And by day thirty... well."). **Geen regels-blok, geen titelkaart.**
+  3. **Dagen** (Day 1, 2, 3 ... 30), elke dag één nieuwe gekke gebeurtenis die erger wordt. "DAY X" geel linksboven.
+  4. Halverwege **het echte feit, verweven in het verhaal** (personage reageert erop), met bron onderin beeld.
+  5. Omslag: mensen gaan samenwerken / leren iets (kort, één zin les).
+  6. **Cliffhanger** als laatste zin + korte reactie ("Congratulations." – "Oh no.").
+- **Humor (eigenaar: "laat het script zo, ik vind hem leuk"):** running gags die terugkomen (Mister Pancake, papa's "How hard can
+  it be?", de boot op de oprit), droge verteller-zinnen ("Nobody asked for a spreadsheet."), een twist aan het eind van een stuk
+  (reparateur zit op een jacht; juf gaf haar miljoen uit aan één kokosnoot; eiland zonder wc), korte reacties van zusje.
+  Geen kindertekenfilm.
+- **Geen muziek** (eigenaar 24 nov, na muziekproeven: "ik hoef geen muziek"). Stiltes opvangen met strakke timing,
+  geluidseffecten van wat je ziet (telefoon trilt, kassa, deur slaat, rookmelder, kippen, stempel bij "SOLD OUT") en beweging.
+- **Laten zien wat er gezegd wordt:** elk voorwerp/elke handeling uit de zin staat in beeld op het moment van het woord
+  (woordtijden uit Whisper, `kw(zin, woord)`): telefoon in de hand, saldo dat verspringt, auto rijdt binnen, paard eet,
+  prijskaartje dat oploopt, chef-muts, rook, briefje op de deur. Voorwerpen: ComfyUI Z-Image op witte achtergrond, uitgeknipt.
+  Camera: rustige push-in per scène (6%), gewoon knippen tussen scènes.
+- **Stemzinnen niet "One. Million. Dollars."** (punt na elk woord klinkt als een robot) maar natuurlijk: "One million dollars?! No way!".
+- **Altijd eerst een proef van 2 minuten** laten zien, daarna pas de hele video.
+- **BEELDWACHTER verplicht** (eigenaar 24 nov: "er moet een wachter op komen die controleert dat er op beeld gedaan wordt wat er
+  gezegd wordt"): `python tools/beeldwachter.py <video.mp4> <zinnen.json>` (gratis, Ollama: qwen3:14b bepaalt per vertellerzin wat
+  je moet zien, qwen2.5vl:7b kijkt naar 3 beelden). Uitslag in `BEELDWACHTER.md`; elke terechte melding herstellen en opnieuw
+  draaien. Onzin-meldingen (iets wat de zin juist ontkent, of niet te tekenen is) mag je negeren, maar noem ze aan de eigenaar.
+- Stem nakijken met Whisper (woorden.json vs script); verkeerd verstaan -> die zin opnieuw met `OPNIEUW=<nrs>` (andere seed).
+- Gereedschap: `video-miljoen/stem.py` -> `woordtijden.py` -> `maak_miljoen.py --plaat` (controlebladen) -> `maak_miljoen.py`
+  (render) -> beeldwachter.
+
 ## Lessen uit de cijfers (Studio-rapport 23 nov 2026)
 - Short "How Much Everyone Earns": 1.235 views, 52% bekeken vs. 48% weggeswipet, 67,6% gemiddeld bekeken (0:47), 29 likes, +3 abonnees. Werkt: meteen een beeld dat iedereen snapt in seconde 1 ("glowing number above your dad's head").
 - Lange video "Swapped Lives": 27 vertoningen, kijker weg na 0:15 (bij de regels). Les: **eerste 5 seconden = midden in de chaos**, regels pas daarna.

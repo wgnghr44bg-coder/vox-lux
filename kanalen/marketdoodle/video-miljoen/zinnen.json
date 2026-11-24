@@ -1,0 +1,219 @@
+[
+[
+0.3,
+2.2,
+"Mom! Dad! Check your phones! Now!",
+"slaapkamer-jij",
+"YOU"
+],
+[
+2.55,
+7.743,
+"It's 6 a.m. Your phone won't stop buzzing. You open your bank app. You blink. You look again.",
+"slaapkamer-jij",
+"N"
+],
+[
+8.193,
+13.83,
+"One million dollars. In your account. Yesterday you had twelve dollars and a coupon for free fries.",
+"slaapkamer-jij",
+"N"
+],
+[
+14.18,
+16.083,
+"One million dollars?! No way!",
+"slaapkamer-jij",
+"YOU"
+],
+[
+16.433,
+22.701,
+"You run downstairs. Dad is staring at his phone. Mom is staring at hers. Your little sister is staring at hers.",
+"keuken",
+"N"
+],
+[
+23.051,
+24.946,
+"I'm a millionaire! I'm seven!",
+"keuken",
+"SIS"
+],
+[
+25.296,
+28.317,
+"This has to be a mistake. Banks don't just do this.",
+"keuken",
+"MOM"
+],
+[
+28.667,
+33.385,
+"It's on the news. Everybody got it. Every single person on Earth. One million dollars. Overnight.",
+"keuken",
+"DAD"
+],
+[
+33.735,
+38.07,
+"Nobody knows where it came from. Nobody cares. You're rich. Everyone is rich.",
+"keuken",
+"N"
+],
+[
+38.52,
+43.669,
+"So, what happens next? Day one is amazing. Day two is weird. And by day thirty... well. Let's see.",
+"keuken",
+"N"
+],
+[
+44.119,
+48.948,
+"Day one. Your street looks like a car show. Your neighbor bought a sports car. In pink.",
+"straat",
+"N"
+],
+[
+49.398,
+54.3,
+"The guy across the street bought three. He can only drive one at a time. He doesn't care.",
+"straat",
+"N"
+],
+[
+54.75,
+57.185,
+"Dad orders a boat. You don't live near water.",
+"straat",
+"N"
+],
+[
+57.535,
+59.63,
+"It's for the driveway. It's a driveway boat.",
+"straat",
+"DAD"
+],
+[
+59.98,
+61.489,
+"You can't even swim.",
+"straat",
+"MOM"
+],
+[
+61.839,
+63.65,
+"I don't need to swim. I'm a millionaire.",
+"straat",
+"DAD"
+],
+[
+64.0,
+68.671,
+"You buy every game ever made. Plus a gaming chair that cost more than your old house.",
+"slaapkamer-jij",
+"N"
+],
+[
+69.121,
+74.103,
+"It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair.",
+"slaapkamer-jij",
+"N"
+],
+[
+74.453,
+78.507,
+"I bought a horse. He's in the backyard. His name is Mister Pancake.",
+"slaapkamer-jij",
+"SIS"
+],
+[
+78.857,
+82.696,
+"Mister Pancake eats Mom's flowers. Then the fence. Then the doormat.",
+"tuin",
+"N"
+],
+[
+83.046,
+85.155,
+"Who sold a seven-year-old a horse?",
+"tuin",
+"MOM"
+],
+[
+85.505,
+87.109,
+"A millionaire did.",
+"tuin",
+"SIS"
+],
+[
+87.459,
+91.073,
+"Day two. You go to school. Nobody else does. Not even the teacher.",
+"school",
+"N"
+],
+[
+91.523,
+94.331,
+"There's a note on the door. \"Gone to Hawaii. Forever.\"",
+"school",
+"N"
+],
+[
+94.681,
+96.101,
+"Best. Day. Ever.",
+"school",
+"YOU"
+],
+[
+96.451,
+102.84,
+"You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours.",
+"school",
+"N"
+],
+[
+103.29,
+107.623,
+"Dad goes to work out of habit. The office is empty. His boss is wearing a crown.",
+"kantoor",
+"N"
+],
+[
+107.973,
+109.597,
+"I quit. You quit. Everybody quit.",
+"kantoor",
+"BOSS"
+],
+[
+109.947,
+110.854,
+"But who runs the company?",
+"kantoor",
+"DAD"
+],
+[
+111.204,
+114.337,
+"Who cares? I'm buying an island. A small one. Okay, a medium one.",
+"kantoor",
+"BOSS"
+],
+[
+114.687,
+121.389,
+"And that's the problem. Nobody wants to work anymore. Not the bus driver. Not the cook. Not the guy who fixes the internet.",
+"kantoor",
+"N"
+]
+]

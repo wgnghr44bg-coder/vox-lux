@@ -1,0 +1,9 @@
+*.wav
+*.mp4
+*.flac
+*.log
+proef/
+beeldwachter/
+plaat-*.jpg
+check-afb.jpg
+__pycache__/

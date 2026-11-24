@@ -1,0 +1,31 @@
+YOU|slaapkamer-jij|Mom! Dad! Check your phones! Now!
+N|slaapkamer-jij|It's 6 a.m. Your phone won't stop buzzing. You open your bank app. You blink. You look again.
+N|slaapkamer-jij|One million dollars. In your account. Yesterday you had twelve dollars and a coupon for free fries.
+YOU|slaapkamer-jij|One million dollars?! No way!
+N|keuken|You run downstairs. Dad is staring at his phone. Mom is staring at hers. Your little sister is staring at hers.
+SIS|keuken|I'm a millionaire! I'm seven!
+MOM|keuken|This has to be a mistake. Banks don't just do this.
+DAD|keuken|It's on the news. Everybody got it. Every single person on Earth. One million dollars. Overnight.
+N|keuken|Nobody knows where it came from. Nobody cares. You're rich. Everyone is rich.
+N|keuken|So, what happens next? Day one is amazing. Day two is weird. And by day thirty... well. Let's see.
+N|straat|Day one. Your street looks like a car show. Your neighbor bought a sports car. In pink.
+N|straat|The guy across the street bought three. He can only drive one at a time. He doesn't care.
+N|straat|Dad orders a boat. You don't live near water.
+DAD|straat|It's for the driveway. It's a driveway boat.
+MOM|straat|You can't even swim.
+DAD|straat|I don't need to swim. I'm a millionaire.
+N|slaapkamer-jij|You buy every game ever made. Plus a gaming chair that cost more than your old house.
+N|slaapkamer-jij|It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair.
+SIS|slaapkamer-jij|I bought a horse. He's in the backyard. His name is Mister Pancake.
+N|tuin|Mister Pancake eats Mom's flowers. Then the fence. Then the doormat.
+MOM|tuin|Who sold a seven-year-old a horse?
+SIS|tuin|A millionaire did.
+N|school|Day two. You go to school. Nobody else does. Not even the teacher.
+N|school|There's a note on the door. "Gone to Hawaii. Forever."
+YOU|school|Best. Day. Ever.
+N|school|You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours.
+N|kantoor|Dad goes to work out of habit. The office is empty. His boss is wearing a crown.
+BOSS|kantoor|I quit. You quit. Everybody quit.
+DAD|kantoor|But who runs the company?
+BOSS|kantoor|Who cares? I'm buying an island. A small one. Okay, a medium one.
+N|kantoor|And that's the problem. Nobody wants to work anymore. Not the bus driver. Not the cook. Not the guy who fixes the internet.
