@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 12:33",
+ "bijgewerkt": "2026-11-24 13:03",
  "kanalen": {
   "weken": [
    {
@@ -2231,7 +2231,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 12:33)"
+   "tekst": "draait nu (2026-11-24 13:03)"
   },
   {
    "naam": "Git",
@@ -2246,7 +2246,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 12:18: alles klopt"
+   "tekst": "laatste ronde 12:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2263,8 +2263,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 12:33",
-   "volgende": "2026-11-24 13:03"
+   "laatst": "2026-11-24 13:03",
+   "volgende": "2026-11-24 13:33"
   },
   "hype": {
    "aan": true,
@@ -2278,8 +2278,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 12:18",
-   "volgende": "2026-11-24 12:48"
+   "laatst": "2026-11-24 12:48",
+   "volgende": "2026-11-24 13:18"
   },
   "titels": {
    "aan": true,
@@ -2354,7 +2354,7 @@
     "duur": "1:57:36",
     "privacy": "public",
     "publiceer": "2026-11-12T22:23:52Z",
-    "views": 75,
+    "views": 76,
     "verwerkt": "processed"
    },
    {
@@ -2390,7 +2390,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 995,
+    "views": 999,
     "verwerkt": "processed"
    }
   ],
@@ -5243,21 +5243,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 12:33",
+  "bijgewerkt": "2026-11-24 13:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 936050,
-    "week": 12216061,
+    "5uur": 1047564,
+    "week": 12327575,
     "per_dag": {
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 4152019
+     "Tue 24-11": 4263533
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 28635,
+    "stap_kost": 28050,
     "naam": "hoofd",
     "week_reset": ""
    },
