@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 20:33",
+ "bijgewerkt": "2026-11-24 21:03",
  "kanalen": {
   "weken": [
    {
@@ -95,11 +95,27 @@
      },
      {
       "datum": "2026-11-26",
-      "items": []
+      "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-26",
+        "tijd": "19:00",
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
+       }
+      ]
      },
      {
       "datum": "2026-11-27",
-      "items": []
+      "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-27",
+        "tijd": "19:00",
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
+       }
+      ]
      },
      {
       "datum": "2026-11-28",
@@ -160,6 +176,13 @@
         "tijd": "15:00",
         "titel": "Hype-onderwerp (video11), zie OVERDRACHT",
         "stand": "vervalt: minder vaak uploaden (eigenaar 23 nov), alleen bij echte hype"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-29",
+        "tijd": "19:00",
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
        }
       ]
      }
@@ -189,6 +212,13 @@
         "titel": "Short: Big Tech Is Spending $700 Billion on AI. For What?",
         "stand": "gepland",
         "youtube": "_Te7gcc9RAs"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-30",
+        "tijd": "19:00",
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
        }
       ]
      },
@@ -232,7 +262,7 @@
    "Sleep Archives": "Vaste dag (eigenaar 23 nov avond): alleen zaterdag 21:00 NL.",
    "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
    "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Short = EIGEN apart hype-onderwerp (niet geknipt uit de lange video). Alleen echte hype; geen goed onderwerp = dag overslaan.",
-   "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL met een EIGEN nieuw What If-onderwerp. Simpele 2D, gezinnetje, Engels."
+   "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za lange What If-video 17:00 NL. ELKE DAG een Short 19:00 NL met een EIGEN nieuw What If-onderwerp, liefst in de lijn van de lange video (eigenaar 24 nov: 3 lang per week + elke dag Short; rond 22 dec evalueren). Simpele 2D, gezinnetje, Engels."
   },
   "fouten": []
  },
@@ -2225,7 +2255,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 20:33)"
+   "tekst": "draait nu (2026-11-24 21:03)"
   },
   {
    "naam": "Git",
@@ -2240,7 +2270,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2257,8 +2287,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 20:33",
-   "volgende": "2026-11-24 21:03"
+   "laatst": "2026-11-24 21:03",
+   "volgende": "2026-11-24 21:33"
   },
   "hype": {
    "aan": true,
@@ -2272,8 +2302,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 20:18",
-   "volgende": "2026-11-24 20:48"
+   "laatst": "2026-11-24 20:48",
+   "volgende": "2026-11-24 21:18"
   },
   "titels": {
    "aan": true,
@@ -2287,9 +2317,9 @@
   "views_totaal": 3511,
   "video_aantal": 17,
   "week": {
-   "views": 331,
-   "uren": 79,
-   "abonnees": 3
+   "views": 438,
+   "uren": 96,
+   "abonnees": 4
   },
   "vorige_week": {
    "views": 652,
@@ -2518,12 +2548,17 @@
     "dag": "2026-11-21",
     "views": 81,
     "abonnees": 0
+   },
+   {
+    "dag": "2026-11-22",
+    "views": 107,
+    "abonnees": 1
    }
   ],
   "maand": {
-   "views": 2103,
-   "uren": 437,
-   "abonnees": 10
+   "views": 2210,
+   "uren": 454,
+   "abonnees": 11
   },
   "vorige_maand": {
    "views": 1357,
@@ -2531,17 +2566,17 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 3972,
-   "uren": 749,
-   "abonnees": 20
+   "views": 4079,
+   "uren": 766,
+   "abonnees": 21
   },
   "top": [
    {
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 848,
-    "uren": 202
+    "views": 913,
+    "uren": 209
    },
    {
     "id": "_4LgG7iUoy0",
@@ -2554,21 +2589,21 @@
     "id": "qFRyJ6twOzY",
     "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
     "duur": "1:47:15",
-    "views": 348,
+    "views": 349,
     "uren": 27
    }
   ],
   "partner": {
-   "uren": 749,
+   "uren": 766,
    "uren_doel": 4000,
    "abonnees": 23,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 13.4,
-   "tempo_abonnees_per_dag": 0.36,
-   "datum_uren": "2027-07-24",
-   "datum_abonnees": "2034-05-22"
+   "tempo_uren_per_dag": 14.1,
+   "tempo_abonnees_per_dag": 0.39,
+   "datum_uren": "2027-07-13",
+   "datum_abonnees": "2033-09-15"
   }
  },
  "kpi": {
@@ -2607,8 +2642,7 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)",
-   "stem inspreken (OmniVoice)"
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2628,14 +2662,10 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 27,
+  "bezig_procent": 26,
   "geheugen_mb": 541,
   "totaal_mb": 8192
  },
@@ -2815,8 +2845,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5254,21 +5284,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 20:34",
+  "bijgewerkt": "2026-11-24 21:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6513259,
-    "week": 21722331,
+    "5uur": 7087294,
+    "week": 22296366,
     "per_dag": {
-     "Tue 24-11": 13658288,
+     "Tue 24-11": 14232323,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 34146,
+    "stap_kost": 33409,
     "naam": "hoofd",
     "week_reset": ""
    },
@@ -5286,12 +5316,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 89282,
+    "stap_kost": 90866,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 152,
+    "5uur_stappen_over": 149,
     "week_pct": 124,
     "week_scripts_over": null,
     "week_stappen_over": 0
