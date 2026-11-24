@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 06:33",
+ "bijgewerkt": "2026-11-24 07:03",
  "kanalen": {
   "weken": [
    {
@@ -2242,7 +2242,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "137 GB vrij"
+   "tekst": "136 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2257,7 +2257,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 06:33)"
+   "tekst": "draait nu (2026-11-24 07:03)"
   },
   {
    "naam": "Git",
@@ -2272,7 +2272,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 06:18: alles klopt"
+   "tekst": "laatste ronde 06:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2289,8 +2289,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 06:33",
-   "volgende": "2026-11-24 07:03"
+   "laatst": "2026-11-24 07:03",
+   "volgende": "2026-11-24 07:33"
   },
   "hype": {
    "aan": true,
@@ -2304,8 +2304,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 06:18",
-   "volgende": "2026-11-24 06:48"
+   "laatst": "2026-11-24 06:48",
+   "volgende": "2026-11-24 07:18"
   },
   "titels": {
    "aan": true,
@@ -2315,7 +2315,7 @@
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 22,
+  "abonnees": 23,
   "views_totaal": 3427,
   "video_aantal": 17,
   "week": {
@@ -2416,7 +2416,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 948,
+    "views": 947,
     "verwerkt": "processed"
    }
   ],
@@ -2593,14 +2593,14 @@
   "partner": {
    "uren": 749,
    "uren_doel": 4000,
-   "abonnees": 22,
+   "abonnees": 23,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
    "tempo_uren_per_dag": 13.4,
    "tempo_abonnees_per_dag": 0.36,
    "datum_uren": "2027-07-24",
-   "datum_abonnees": "2034-05-25"
+   "datum_abonnees": "2034-05-22"
   }
  },
  "kpi": {
@@ -4952,14 +4952,14 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 06:34",
+  "bijgewerkt": "2026-11-24 07:04",
   "accounts": [
    {
     "account": "hoofd",
     "5uur": 1466334,
-    "week": 12136774,
+    "week": 11772703,
     "per_dag": {
-     "Tue 17-11": 856763,
+     "Tue 17-11": 492692,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
