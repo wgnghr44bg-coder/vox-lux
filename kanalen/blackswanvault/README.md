@@ -19,7 +19,7 @@ Sleutel: `YT_WHATIF_REFRESH_TOKEN`.
   - Geen AI-gezichten van echte mensen.
 - **Geluid:**
   - Stem `zakelijk-23` op speed 1.0.
-  - Zelfgemaakte muziek (`mix.py`), zonder geluidseffecten.
+  - Zelfgemaakte muziek (`mix.py`), zonder geluidseffecten. **Vast sinds 25 nov (eigenaar: "zo is goed en zet dit vast"): geen beat (geen kick/hi-hat), alleen een heel zachte toon op -42 LUFS onder de stem (-16). Sjabloon: `video10/mix.py`.**
   - Geen hoofdstukkaarten in beeld, geen intro, geen zwaan, geen outro of abonneer-oproep.
 - **Tekst:**
   - Alleen bevestigde feiten (`bronnen.md` per video). Schattingen benoemen we als schatting.

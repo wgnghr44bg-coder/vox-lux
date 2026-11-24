@@ -1,0 +1,163 @@
+# BlackswanVault video 10: Jensen Huang weg en terug bij Nvidia. Eén zin per regel. Feiten: bronnen.md. Getallen voor de stem uitgeschreven.
+# Titel (voorstel): Jensen Huang Is Back. How Trump Brought Him Back to Nvidia
+# Opbouw: antwoord vooraan (weg, crash, Trump, terug), dan het record (geschiedenis Huang staat al in video1), de val, het nee van de board, de ommekeer, wat nog open is, wat nu.
+@scene open-sprong
+Jensen Huang is back.
+Just eleven days after he resigned, the founder of Nvidia is in charge again.
+@scene open-huang
+And investors loved it.
+On Monday, November twenty-third, Nvidia added almost one trillion dollars in market value in a single day.
+By our calculation, no company has ever gained that much in one day.
+@scene open-antwoord
+So how did he come back so fast?
+The short answer is a personal scandal, a falling stock, and a phone call from the White House.
+Huang admitted to an affair.
+News reports then linked the woman to Chinese intelligence.
+He stepped down, and the stock kept falling.
+Then the president of the United States stepped in.
+@scene open-start
+First, let's look at how big that day really was.
+@scene h1-record
+Before this, the biggest one-day gains were around four hundred fifty billion dollars.
+In April twenty twenty-five, Nvidia gained about four hundred forty billion, when President Trump paused his tariffs.
+In July of this year, Microsoft gained about four hundred fifty billion after its earnings.
+And in August, Nvidia added four hundred forty-two billion.
+On November twenty-third, Nvidia gained more than twice as much as any of them.
+@scene h1-maar
+But this was not a normal good day.
+It was a rebound from one of the worst crashes in the company's history.
+And it was all about the man who has run Nvidia since he co-founded it in nineteen ninety-three.
+@scene h1-leider
+For more than thirty years, he was the only chief executive the company ever had.
+He is the face of the company, the man in the leather jacket who presents every new chip on stage.
+To investors, Nvidia and Jensen Huang were almost the same thing.
+That is exactly why the next few weeks were so dangerous.
+@scene h2-memo
+On Sunday, November eighth, Huang sent a note to Nvidia employees.
+In it, he admitted to an extramarital affair.
+He wrote that there was no excuse for what he did.
+@scene h2-spion
+Then the story got much bigger.
+According to news reports, the woman was suspected of having ties to Chinese intelligence.
+For the world's most important AI chip company, that was a national security question.
+It is important to say that this is an allegation.
+Huang has admitted to the affair, not to anything else.
+On November twenty-second, The New York Times went further.
+It reported that the woman had been in contact with an officer of China's Ministry of State Security during at least part of the relationship.
+@scene h2-weg
+On Thursday, November twelfth, Nvidia announced that Huang had resigned, effective immediately.
+He also left the board.
+Nvidia's announcement did not give a reason.
+Chief financial officer Colette Kress became interim chief executive.
+Kress has been Nvidia's finance chief since twenty thirteen.
+And longtime board member Harvey Jones became the first chairman in the company's history.
+@scene h2-koers
+Investors did not like it.
+On Monday, November ninth, the first trading day after the memo, the stock fell four percent.
+On Tuesday, it fell almost six percent more.
+On the day of the announcement, the stock fell as much as fourteen percent before it recovered part of the loss.
+And it kept sliding, day after day.
+@scene h3-nee
+Many investors hoped Huang would come back.
+On November seventeenth, the board gave its answer.
+Chairman Harvey Jones said the board did not intend to reinstate Jensen as chief executive.
+Colette Kress said the same in an interview with CNBC.
+@scene h3-sec
+Then came more bad news.
+The Wall Street Journal and Reuters reported that the Securities and Exchange Commission had opened an investigation.
+The S E C declined to comment.
+@scene h3-vrijdag
+On Friday, November twentieth, the whole tech sector was selling off.
+Nvidia fell fourteen percent in one day.
+It closed at one hundred twenty-five dollars and fifty-three cents.
+That same day, the Nasdaq one hundred fell more than five percent.
+For Nvidia, it ended the longest weekly losing streak since the financial crisis of two thousand eight.
+@scene h3-schade
+Before the scandal, on November sixth, the stock had closed at one hundred eighty-six dollars.
+In two weeks, it lost almost a third of its value.
+That is roughly one and a half trillion dollars of market value, gone.
+And compared with its peak in early October, the stock had almost halved.
+@scene h3-ai
+It was not just Nvidia.
+Companies that rent out Nvidia chips, like CoreWeave and Nebius, were falling too.
+For many investors, Nvidia is the AI trade.
+And without Huang, the AI trade looked shaky.
+@scene h4-weekend
+Behind the scenes, something was changing.
+According to CNBC, senior government officials briefed the board late that week.
+They said, according to those sources, that no national security laws had been broken.
+The board then reached out to Huang.
+At the same time, well-known investors like Brad Gerstner and Gavin Baker were publicly pushing for his return.
+@scene h4-trump
+Over the weekend, there were talks.
+And President Donald Trump got involved.
+He later told CNBC that he spoke with the board directly and indirectly.
+In his words: I made the deal.
+Trump said the board wanted guarantees about national security.
+And he said: we gave them assurances, at least with everything we know.
+He also said he asked Huang to promise to work hard.
+@scene h4-terug
+On Monday, November twenty-third, Nvidia made it official.
+The board had voted unanimously to reinstate Jensen Huang as chief executive and as a board member.
+The board said it had received input from senior levels of the United States government.
+Huang said he was honored to return.
+He also said he fully supports the board's investigation.
+@scene h4-sprong
+The market loved it.
+Nvidia closed at one hundred sixty-five dollars and five cents.
+That was the record day: the market's verdict on his comeback.
+Analysts at Mizuho wrote that his return restores investor confidence in the AI trade.
+Several analysts raised their ratings on the stock.
+@scene h4-reacties
+On Truth Social, Trump called Huang a great patriot and a national treasure.
+He wrote that the government does not possess evidence that Huang has engaged in any unlawful conduct.
+Elon Musk posted that the board's mistake had been corrected.
+@scene h5-dinsdag
+But on Tuesday, the excitement cooled.
+Nvidia fell almost six percent.
+It gave back part of Monday's gain, and other AI chip stocks fell with it.
+It closed at one hundred fifty-five dollars and thirty-eight cents.
+Bank of America put it simply: reinstatement should not be confused with the end of scrutiny.
+@scene h5-onderzoek
+Because the investigations are not over.
+Nvidia's board set up a new national security and export control committee, made up of independent directors.
+That committee is investigating whether company secrets or national security were put at risk.
+It hired the law firm Wachtell, Lipton, Rosen and Katz.
+And the board said the investigation will proceed to conclusion.
+It is also searching for a new chief compliance officer.
+@scene h5-californie
+In California, the attorney general's office says it is still probing Nvidia.
+It wants to know whether Nvidia misled investors and the public.
+@scene h5-congres
+And then there is Congress.
+@scene h5-data
+On December first, Huang is set to sit for a closed-door interview with three House committees.
+On December second, Nvidia's general counsel will appear before the same panels.
+And on December third, Huang is the only witness at a public hearing of the Senate Banking Committee.
+@scene h5-senatoren
+Not everyone in Washington is convinced.
+Senator John Cornyn asked: no national security risk? Based on what?
+Senator Elizabeth Warren called the decision to bring Huang back reckless.
+Still, analysts at Piper Sandler wrote that they do not expect the hearings to change much for the stock.
+@scene h6-sleutel
+So why does one man move a company this much?
+Investors call it key person risk.
+Huang owns only about three and a half percent of Nvidia.
+But he shaped its products, its customers, and its vision for AI.
+@scene h6-opvolger
+And when he left, there was no clear successor.
+According to NBC News, Arm's chief executive, Rene Haas, was reportedly considered.
+He chose to stay at Arm.
+One analyst told CNBC that if the investigation finds that confidential information was shared, the leadership question would be back.
+The stock's crash and comeback show what investors think Nvidia is worth without him.
+@scene h7-wat
+So what should you watch now?
+@scene h7-lijst
+First, the hearings in Washington on December first, second, and third.
+Second, the board's own investigation, and what it finds.
+Third, the probe in California.
+And fourth, the stock itself, which is still well below its October high.
+@scene h7-advies
+This video is not financial advice.
+@scene slot
+Jensen Huang is back, but this story is not over.

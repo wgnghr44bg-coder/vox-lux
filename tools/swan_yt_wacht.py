@@ -255,11 +255,22 @@ def seintje(titel, tekst):
         inst = json.loads((Path.home() / ".swan-ntfy.json").read_text()); topic = inst["topic"]
         if inst.get("alleen_maken") and not titel.startswith("Grote hype"):   # eigenaar 23 nov avond: alleen "maken" (week_seintje.py) + "grote hype"
             print("seintje overgeslagen (alleen_maken):", titel); return
-        requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"),
-                      headers={"Title": titel.encode("utf-8"), "Tags": "chart_with_downwards_trend"}, timeout=20)
-        print("seintje verstuurd:", tekst.replace("\n", " | "))
+        for poging in range(3):                          # 24 nov: Nvidia-seintje kwam niet aan -> opnieuw proberen + uitslag in het log
+            try:
+                r = requests.post(f"https://ntfy.sh/{topic}", data=tekst.encode("utf-8"),
+                                  headers={"Title": titel.encode("utf-8"), "Tags": "chart_with_downwards_trend"}, timeout=20)
+                r.raise_for_status(); break
+            except Exception:
+                if poging == 2: raise
+                time.sleep(30)
+        print("seintje verstuurd:", tekst.replace("\n", " | ")); uitslag = "verstuurd"
     except Exception as e:
-        print("seintje mislukt:", e)
+        print("seintje mislukt:", e); uitslag = f"MISLUKT ({e})"
+    try:
+        with LOG.open("a", encoding="utf-8") as f:
+            f.write(f"\n- {time.strftime('%Y-%m-%d %H:%M')} ntfy-seintje {uitslag}: {titel}\n")
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
