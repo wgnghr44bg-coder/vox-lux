@@ -53,7 +53,8 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Zoektermen die mensen al naar ons brengen: superkrachten ("everyone gets superpowers overnight") en overleven ("can you survive being swallowed"). Kies zulke onderwerpen.
 - Kijkers: 74% mobiel; tijden 17:00/19:00 NL passen.
 
-## 3D met three.js (eigenaar 24 nov 2026) — DE RICHTING
+## 3D met three.js (eigenaar 24 nov 2026) — GESTOPT
+- **Eigenaar 24 nov middag: "Stop maar, we houden het op de detail versie van de 2D".** De What If-video's blijven 2D (poppetjes uit code op ComfyUI-achtergronden), met **meer details**: echte voorwerpen als losse plaatjes (bv. koelkast uit de achtergrond geknipt, AI-rugzak met witte achtergrond weg, `short-cyborg/sprites.py`), spullen echt in de hand. Het 3D-werk hieronder blijft bewaard maar wordt niet gebruikt.
 - Eigenaar: "Ik wil gewoon dezelfde beeld houden van 2D alleen jij zet het om in 3D met threejs ... ik wil de armen enzo alles blijven zien".
   Dus: **dezelfde poppetjes** (rond hoofd, puntogen, blauwe hoodie, papa met bril, enz.) en dezelfde soort ruimtes, maar **in 3D**,
   met een camera die door de ruimte beweegt (zoals de voorbeeld-Short van @RicksClips3000).
