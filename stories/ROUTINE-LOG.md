@@ -440,3 +440,23 @@ ValueError: empty separator)
 - 2026-11-24 00:47 bewaker: keten gestart voor pearl-harbor-1941
 - 2026-11-24 00:47 routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)
 - 2026-11-24 00:47 Doodle-proef klaar; slot weg, bewaker opnieuw gestart (Pearl Harbor gaat verder).
+- 2026-11-24 04:39 routine-lokaal: pearl-harbor-1941: 1 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 038
+- 2026-11-24 04:46 routine-lokaal: pearl-harbor-1941: thumbnail v3 gemaakt (PEARL HARBOR DECEMBER 1941)
+- 2026-11-24 08:00 nieuwswacht: GROOT Tesla (2026-11-24): +11.5% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-24 08:00 nieuwswacht: GROOT Nvidia (2026-11-24): +31.5% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-24 08:00 nieuwswacht: GROOT Dow Jones (2026-11-24): +3.0% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-24 08:00 nieuwswacht: GROOT Nasdaq (2026-11-24): +6.5% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-24 08:00 nieuwswacht: GROOT S&P 500 (2026-11-24): +4.7% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-24 08:00 nieuwswacht: GROOT Nvidia (2026-11-24): Nvidia surge: What investors should do with the stock and the AI trade now -> BlackswanVault-video? (eigenaar beslist)
+
+- 2026-11-24 YouTube-hype: nvidia ceo (STERK: YouTube + nieuws, 3 kanalen, 56554 views/uur). BlackswanVault: video waard?
+- 2026-11-24 08:30 hype-wachter: SEINTJE Occult History for 9 Nonstop Hours | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-24 08:30 hype-wachter: SEINTJE Drift Away in a Magical City | A Dreamy Night in the City of Lights | Bedtime Story -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-24 08:30 hype-wachter: SEINTJE Fall Asleep in 10 Minutes | A Sleepy Scottish Coffeehouse in 1743 | The SLEEPIEST Bedtime Story -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-24 08:30 hype-wachter: SEINTJE The Complete Guide to Medieval Serial Killers | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp
+- 2026-11-24 08:30 hype-wachter: SEINTJE A Rainy Night in Old Montreal: A Cozy Bedtime Story -> KANS: nog niets van ons over dit onderwerp
+
+- 2026-11-24 Doodle-hype: What if you were stuck in a bedrock hole? (169867 views/uur)
+
+- 2026-11-24 Doodle-hype: What If You Built a Real Cyborg?! 🦾⚡ #shorts (74687 views/uur)
+- 2026-11-24 12:02 Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.
