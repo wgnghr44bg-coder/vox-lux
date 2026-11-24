@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-25 00:03",
+ "bijgewerkt": "2026-11-25 00:33",
  "kanalen": {
   "weken": [
    {
@@ -64,18 +64,18 @@
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-25",
-        "tijd": "15:00",
-        "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
-        "stand": "gepland",
-        "youtube": "c4xgBH1o4AE"
+        "tijd": "00:09",
+        "titel": "Jensen Huang Is Back. How Trump Brought Him Back to Nvidia",
+        "stand": "online",
+        "youtube": "j_fHa-ZcDxI"
        },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-25",
-        "tijd": "17:00",
-        "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
-        "stand": "gepland",
-        "youtube": "8de6ZH3YYp4"
+        "tijd": "00:09",
+        "titel": "Short: Jensen Huang Is Back. Nvidia Added $1 Trillion in One Day",
+        "stand": "online",
+        "youtube": "joO-JiKSDYU"
        },
        {
         "kanaal": "Market Doodle",
@@ -96,6 +96,22 @@
      {
       "datum": "2026-11-26",
       "items": [
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "15:00",
+        "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
+        "stand": "gepland",
+        "youtube": "c4xgBH1o4AE"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-26",
+        "tijd": "17:00",
+        "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
+        "stand": "gepland",
+        "youtube": "8de6ZH3YYp4"
+       },
        {
         "kanaal": "Market Doodle",
         "datum": "2026-11-26",
@@ -2255,7 +2271,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-25 00:03)"
+   "tekst": "draait nu (2026-11-25 00:33)"
   },
   {
    "naam": "Git",
@@ -2270,7 +2286,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2287,8 +2303,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-25 00:03",
-   "volgende": "2026-11-25 00:33"
+   "laatst": "2026-11-25 00:33",
+   "volgende": "2026-11-25 01:03"
   },
   "hype": {
    "aan": true,
@@ -2298,12 +2314,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-25 00:10"
+   "volgende": "2026-11-25 01:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 23:48",
-   "volgende": "2026-11-25 00:18"
+   "laatst": "2026-11-25 00:18",
+   "volgende": "2026-11-25 00:48"
   },
   "titels": {
    "aan": true,
@@ -2351,7 +2367,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 82,
+    "views": 83,
     "verwerkt": "processed"
    },
    {
@@ -2414,7 +2430,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1035,
+    "views": 1034,
     "verwerkt": "processed"
    }
   ],
@@ -2608,7 +2624,7 @@
    "totaal": 12,
    "procent": 25
   },
-  "fouten": 2,
+  "fouten": 1,
   "zelfcontrole": {
    "goed": 10,
    "totaal": 11
@@ -2666,7 +2682,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 490,
+  "geheugen_mb": 582,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2753,12 +2769,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 04:46",
-   "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 gemaakt (PEARL HARBOR DECEMBER 1941)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 08:00",
    "tekst": "nieuwswacht: GROOT Tesla (2026-11-24): +11.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
@@ -2835,28 +2845,22 @@
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-25 00:35",
+   "tekst": "Claude: BlackswanVault Nvidia/Huang terug (j_fHa-ZcDxI) + Short (joO-JiKSDYU) openbaar op verzoek eigenaar (kanaal + AI-label gecontroleerd). Black Friday (c4xgBH1o4AE, 8de6ZH3YYp4) verzet naar do 26 ",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-24 14:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-25 00:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-25 00:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-22 00:18",
-   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-22 00:48",
    "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
@@ -2878,6 +2882,12 @@
   {
    "tijd": "2026-11-23 23:56",
    "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 14:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
    "klaar": false
   }
@@ -5284,22 +5294,22 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-25 00:04",
+  "bijgewerkt": "2026-11-25 00:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 18297314,
-    "week": 38740935,
+    "5uur": 18929647,
+    "week": 39373268,
     "per_dag": {
      "Tue 24-11": 29948208,
-     "Wed 25-11": 728684,
+     "Wed 25-11": 1361017,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 38980,
+    "stap_kost": 38942,
     "naam": "hoofd",
     "week_reset": ""
    },
@@ -5317,12 +5327,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 101816,
+    "stap_kost": 97090,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 133,
+    "5uur_stappen_over": 140,
     "week_pct": 124,
     "week_scripts_over": null,
     "week_stappen_over": 0
