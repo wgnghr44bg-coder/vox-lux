@@ -4,7 +4,7 @@
   "Sleep Archives": "Vaste dag (eigenaar 23 nov avond): alleen zaterdag 21:00 NL.",
   "NOIRTRACES": "IS NU GELDVERHAAL (Nederlands, geld/bedrijven/beleggen). Puur op hype via tools/nl_wacht.py, hooguit 1-2 dagen vooruit. Plan: kanalen/blackswan-nl/PLAN.md.",
   "BlackswanVault": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange video 15:00, Short 17:00 NL. Short = EIGEN apart hype-onderwerp (niet geknipt uit de lange video). Alleen echte hype; geen goed onderwerp = dag overslaan.",
-  "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za. Lange What If-video 17:00, Short 19:00 NL met een EIGEN nieuw What If-onderwerp. Simpele 2D, gezinnetje, Engels."
+  "Market Doodle": "Vaste dagen (eigenaar 23 nov avond): ma, wo, za lange What If-video 17:00 NL. ELKE DAG een Short 19:00 NL met een EIGEN nieuw What If-onderwerp, liefst in de lijn van de lange video (eigenaar 24 nov: 3 lang per week + elke dag Short; rond 22 dec evalueren). Simpele 2D, gezinnetje, Engels."
  },
  "items": [
   {
@@ -205,6 +205,34 @@
   {
    "kanaal": "Market Doodle",
    "datum": "2026-11-28",
+   "tijd": "19:00",
+   "titel": "Short: What If (nieuw onderwerp)",
+   "stand": "onderwerp kiezen"
+  },
+  {
+   "kanaal": "Market Doodle",
+   "datum": "2026-11-26",
+   "tijd": "19:00",
+   "titel": "Short: What If (nieuw onderwerp)",
+   "stand": "onderwerp kiezen"
+  },
+  {
+   "kanaal": "Market Doodle",
+   "datum": "2026-11-27",
+   "tijd": "19:00",
+   "titel": "Short: What If (nieuw onderwerp)",
+   "stand": "onderwerp kiezen"
+  },
+  {
+   "kanaal": "Market Doodle",
+   "datum": "2026-11-29",
+   "tijd": "19:00",
+   "titel": "Short: What If (nieuw onderwerp)",
+   "stand": "onderwerp kiezen"
+  },
+  {
+   "kanaal": "Market Doodle",
+   "datum": "2026-11-30",
    "tijd": "19:00",
    "titel": "Short: What If (nieuw onderwerp)",
    "stand": "onderwerp kiezen"
