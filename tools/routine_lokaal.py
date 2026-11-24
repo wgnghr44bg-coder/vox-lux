@@ -36,6 +36,20 @@ def log(t):
         f.write(r)
 
 
+def klaar_seintje(m, datum):
+    """Eigenaar 24 nov 2026: "geef seintje via ntfy als video klaar is". Alleen titel en datum, geen privégegevens."""
+    try:
+        import json, urllib.request
+        topic = json.loads((Path.home() / ".swan-ntfy.json").read_text())["topic"]
+        titel = (re.search(r"^titel\s+(.+?)\s*\|", planning(m)[0], re.M) or [None, m.name])[1]
+        req = urllib.request.Request(f"https://ntfy.sh/{topic}",
+                                     data=f"{titel}\nKlaar en ingepland op YouTube: {datum} 21:00".encode("utf-8"),
+                                     headers={"Title": "Video klaar: Sleep Archives", "Tags": "white_check_mark"})
+        urllib.request.urlopen(req, timeout=20)
+    except Exception as e:
+        log(f"{m.name}: klaar-seintje niet verstuurd ({e})")
+
+
 def run(cmd, **kw):
     print("$", " ".join(map(str, cmd))[:200], flush=True)
     return subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, encoding="utf-8", errors="replace", **kw)
@@ -458,6 +472,7 @@ if __name__ == "__main__":
     try:
         maak_video(m, datum)
         log(f"{m.name}: KLAAR, gepland op {datum} 21:00")
+        klaar_seintje(m, datum)
     except Exception as e:
         log(f"{m.name}: GESTOPT ({e}); niets online gezet")
         try:
