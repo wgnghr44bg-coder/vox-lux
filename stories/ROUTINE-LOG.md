@@ -460,3 +460,6 @@ ValueError: empty separator)
 
 - 2026-11-24 Doodle-hype: What If You Built a Real Cyborg?! 🦾⚡ #shorts (74687 views/uur)
 - 2026-11-24 12:02 Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.
+- 2026-11-24 14:18 sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site
+
+- 2026-11-25 00:35 Claude: BlackswanVault Nvidia/Huang terug (j_fHa-ZcDxI) + Short (joO-JiKSDYU) openbaar op verzoek eigenaar (kanaal + AI-label gecontroleerd). Black Friday (c4xgBH1o4AE, 8de6ZH3YYp4) verzet naar do 26 nov 15:00/17:00.
