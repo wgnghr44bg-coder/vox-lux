@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 07:33",
+ "bijgewerkt": "2026-11-24 08:03",
  "kanalen": {
   "weken": [
    {
@@ -209,178 +209,204 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-19 17:59",
+  "bijgewerkt": "2026-11-24 08:00",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -0.9,
-    "groot": false,
+    "pct": 4.7,
+    "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -0.7,
-    "groot": false,
+    "pct": 6.5,
+    "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.5,
-    "groot": false,
+    "pct": 3.0,
+    "groot": true,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -0.3,
-    "groot": false,
+    "pct": 31.5,
+    "groot": true,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.2,
+    "pct": 1.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 0.1,
+    "pct": 1.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 0.9,
+    "pct": 6.3,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -0.5,
+    "pct": 3.5,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -0.8,
+    "pct": 6.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -1.9,
-    "groot": false,
+    "pct": 11.5,
+    "groot": true,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": -0.0,
+    "pct": 3.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": -1.1,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -1.3,
+    "pct": 2.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -1.5,
+    "pct": 1.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -0.5,
+    "pct": -1.2,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -1.4,
+    "pct": -0.7,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Anthropic",
+    "onderwerp": "Tesla",
     "punten": 10,
     "bronnen": [
-     "BBC",
+     "koers"
+    ],
+    "wat": [
+     "+11.5% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+31.5% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Dow Jones",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+3.0% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Nasdaq",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+6.5% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "S&P 500",
+    "punten": 10,
+    "bronnen": [
+     "koers"
+    ],
+    "wat": [
+     "+4.7% op één dag"
+    ],
+    "koppen": [],
+    "groot": true
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 7,
+    "bronnen": [
      "CNBC",
      "MarketWatch",
      "NYT"
     ],
     "wat": [
-     "beursgang",
-     "cijfers",
      "record"
     ],
     "koppen": [
      {
-      "titel": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
+      "titel": "Nvidia surge: What investors should do with the stock and the AI trade now",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html"
+      "link": "https://www.cnbc.com/2026/11/23/nvidia-stock-jensen-huang-ai-trade.html"
      },
      {
-      "titel": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html"
-     },
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
+      "titel": "These stocks are the biggest gainers after Jensen Huang’s return to Nvidia",
       "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
+      "link": "https://www.marketwatch.com/story/these-stocks-are-the-biggest-gainers-after-jensen-huangs-return-to-nvidia-bb886140?mod=mw_rss_topstories"
      },
      {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
+      "titel": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html"
      }
     ],
     "groot": true
    },
    {
-    "onderwerp": "Nvidia",
-    "punten": 6,
-    "bronnen": [
-     "CNBC",
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers",
-     "rechtszaak"
-    ],
-    "koppen": [
-     {
-      "titel": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/nvidia-lutnick-china-ai-megaspeed-cantor-fitzgerald.html"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Inflatie",
+    "onderwerp": "Recessie",
     "punten": 4,
     "bronnen": [
      "CNBC"
@@ -390,65 +416,47 @@
     ],
     "koppen": [
      {
-      "titel": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
+      "titel": "Why France is at risk of recession — and what could keep it out of one",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
+      "link": "https://www.cnbc.com/2026/11/24/france-recession-risk-pmi.html"
      }
     ],
     "groot": false
    },
    {
-    "onderwerp": "Beurs",
+    "onderwerp": "Amazon",
     "punten": 4,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Walmart",
-    "punten": 3,
     "bronnen": [
      "CNBC"
     ],
     "wat": [
-     "record"
+     "overname/deal",
+     "rechtszaak"
     ],
     "koppen": [
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
+      "titel": "Amazon faces FAA probe after delivery drone strikes Michigan fiber cable, garage",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "link": "https://www.cnbc.com/2026/11/23/amazon-drone-crash-michigan-faa-investigation.html"
      },
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC business",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "titel": "Amazon to acquire AI startup Decart's chip software, hire founders",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/23/amazon-decarts-ai-acquisition.html"
      }
     ],
     "groot": false
    }
   ],
   "groot": [
-   "Anthropic"
+   "Tesla",
+   "Nvidia",
+   "Dow Jones",
+   "Nasdaq",
+   "S&P 500",
+   "Nvidia"
   ],
-  "aantal_koppen": 104
+  "aantal_koppen": 86
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-21 04:25",
@@ -2242,7 +2250,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "132 GB vrij"
+   "tekst": "129 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2257,7 +2265,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 07:33)"
+   "tekst": "draait nu (2026-11-24 08:03)"
   },
   {
    "naam": "Git",
@@ -2272,7 +2280,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 07:18: alles klopt"
+   "tekst": "laatste ronde 07:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2289,8 +2297,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 07:33",
-   "volgende": "2026-11-24 08:03"
+   "laatst": "2026-11-24 08:03",
+   "volgende": "2026-11-24 08:33"
   },
   "hype": {
    "aan": true,
@@ -2304,8 +2312,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 07:18",
-   "volgende": "2026-11-24 07:48"
+   "laatst": "2026-11-24 07:48",
+   "volgende": "2026-11-24 08:18"
   },
   "titels": {
    "aan": true,
@@ -2315,7 +2323,7 @@
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 22,
+  "abonnees": 23,
   "views_totaal": 3427,
   "video_aantal": 17,
   "week": {
@@ -2353,7 +2361,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 59,
+    "views": 66,
     "verwerkt": "processed"
    },
    {
@@ -2371,7 +2379,7 @@
     "duur": "2:04:50",
     "privacy": "public",
     "publiceer": "2026-11-14T20:00:16Z",
-    "views": 18,
+    "views": 19,
     "verwerkt": "processed"
    },
    {
@@ -2416,7 +2424,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 962,
+    "views": 965,
     "verwerkt": "processed"
    }
   ],
@@ -2593,14 +2601,14 @@
   "partner": {
    "uren": 749,
    "uren_doel": 4000,
-   "abonnees": 22,
+   "abonnees": 23,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
    "tempo_uren_per_dag": 13.4,
    "tempo_abonnees_per_dag": 0.36,
    "datum_uren": "2027-07-24",
-   "datum_abonnees": "2034-05-25"
+   "datum_abonnees": "2034-05-22"
   }
  },
  "kpi": {
@@ -2662,8 +2670,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 469,
+  "bezig_procent": 25,
+  "geheugen_mb": 476,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2750,42 +2758,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-23 23:18",
-   "tekst": "routine-lokaal: pearl-harbor-1941: 9 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:19",
-   "tekst": "routine-lokaal: pearl-harbor-1941: beelden-wachter: 3 beelden lijken op een ander beeld (063, 064, 067), nieuwe maken",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:25",
-   "tekst": "routine-lokaal: pearl-harbor-1941: 3 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:33",
-   "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 lukte niet (alle beelden afgekeurd), oude stijl",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:39",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:40",
-   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-23 23:40",
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
    "fout": false,
@@ -2830,6 +2802,42 @@
   {
    "tijd": "2026-11-24 04:46",
    "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 gemaakt (PEARL HARBOR DECEMBER 1941)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT Tesla (2026-11-24): +11.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-24): +31.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT Dow Jones (2026-11-24): +3.0% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-24): +6.5% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-24): +4.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 08:00",
+   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-24): Nvidia surge: What investors should do with the stock and the AI trade now -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
   }
@@ -4952,7 +4960,7 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 07:34",
+  "bijgewerkt": "2026-11-24 08:04",
   "accounts": [
    {
     "account": "hoofd",
