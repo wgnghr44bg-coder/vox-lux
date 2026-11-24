@@ -1,0 +1,202 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>keuken 1 min</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<canvas id="uit" width="1080" height="1920"></canvas>
+<script type="module">
+// 3D-proef 1 minuut, één scène (eigenaar 24 nov: "maak de scène langer 1 min", bril weg). Zelfde poppetjes als 2D, in 3D.
+// Regels eigenaar: vooruit lopen, kijken naar wie de tekst noemt, alles klopt met de tekst.
+import * as THREE from 'three';
+import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
+const W = 1080, H = 1920;
+const D = await (await fetch('/keuken1min/data.json')).json();
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const effect = new OutlineEffect(renderer, { defaultThickness: 0.005, defaultColor: [0.16, 0.13, 0.14] });
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0xf6e8d4);
+const cam = new THREE.PerspectiveCamera(50, W / H, 0.05, 100);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9c2a5, 1.6));
+const zon = new THREE.DirectionalLight(0xfff1dc, 1.6); zon.position.set(3, 6, 4); zon.castShadow = true;
+zon.shadow.mapSize.set(2048, 2048); Object.assign(zon.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7 }); scene.add(zon);
+const grad = new THREE.DataTexture(new Uint8Array([120, 200, 255]), 3, 1, THREE.RedFormat); grad.minFilter = grad.magFilter = THREE.NearestFilter; grad.needsUpdate = true;
+const M = c => new THREE.MeshToonMaterial({ color: c, gradientMap: grad });
+const doos = (w, h, d, c, x, y, z, ouder = scene) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), M(c)); m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; ouder.add(m); return m; };
+const cil = (r, h, c, x, y, z) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, h, 24), M(c)); m.position.set(x, y, z); m.castShadow = true; scene.add(m); return m; };
+// ---- keuken (voller) ----
+doos(12, 0.1, 12, 0xd9a877, 0, -0.05, 0);
+doos(12, 4, 0.1, 0xf3e6cf, 0, 2, -4); doos(0.1, 4, 12, 0xcfe6d2, -4, 2, 1);
+doos(4.6, 1.0, 0.7, 0xc98b55, 1.2, 0.5, -3.6); doos(4.7, 0.08, 0.8, 0xe8d8c0, 1.2, 1.04, -3.6);
+for (let i = 0; i < 6; i++) { doos(0.7, 0.85, 0.03, 0xb67a48, -0.65 + i * 0.75, 0.5, -3.24); doos(0.12, 0.03, 0.03, 0x6b4a33, -0.65 + i * 0.75, 0.82, -3.21); }   // kastdeurtjes + knopjes
+doos(1.1, 2.3, 0.8, 0xa8dcc8, 3.4, 1.15, -3.5); doos(0.04, 0.6, 0.04, 0x55756a, 3.0, 1.55, -3.08); doos(0.04, 0.45, 0.04, 0x55756a, 3.0, 0.7, -3.08);
+doos(4.6, 0.8, 0.45, 0xc98b55, 1.2, 2.9, -3.75);
+for (let i = 0; i < 4; i++) doos(1.05, 0.7, 0.03, 0xb67a48, -0.55 + i * 1.15, 2.9, -3.51);
+doos(1.6, 1.1, 0.06, 0x8a5a3a, -0.2, 2.05, -3.93); doos(1.4, 0.95, 0.07, 0xbfe3f5, -0.2, 2.05, -3.9);
+doos(0.7, 0.5, 0.06, 0xdddddd, -0.2, 1.1, -3.55);                          // gootsteen
+cil(0.03, 0.35, 0x999999, -0.2, 1.3, -3.75);
+cil(0.13, 0.22, 0xd8392f, 0.9, 1.2, -3.5); cil(0.1, 0.3, 0xe8b23a, 2.1, 1.23, -3.5); cil(0.07, 0.14, 0xffffff, 1.5, 1.15, -3.45);   // pan, pot, mok
+doos(0.08, 2.4, 1.2, 0x8a5a3a, -3.94, 1.2, 1.6); const deur = doos(0.06, 2.25, 1.05, 0xa8764e, -3.92, 1.13, 1.6);    // voordeur
+doos(1.4, 0.06, 0.9, 0xb5784a, -1.3, 0.78, -1.2);
+for (const [x, z] of [[-1.9, -1.55], [-0.7, -1.55], [-1.9, -0.85], [-0.7, -0.85]]) doos(0.06, 0.76, 0.06, 0x8a5a3a, x, 0.38, z);
+for (const [x, z] of [[-2.3, -1.2], [-0.3, -1.2]]) { doos(0.45, 0.05, 0.45, 0xc98b55, x, 0.48, z); doos(0.45, 0.5, 0.05, 0xc98b55, x + (x < -1 ? -0.2 : 0.2), 0.75, z); }
+cil(0.18, 0.08, 0xf5f5f5, -1.5, 0.84, -1.2); cil(0.06, 0.18, 0xffd27a, -1.0, 0.9, -1.1);           // bord + glas sap
+doos(2.2, 0.02, 1.4, 0x7fb3d5, -1.3, 0.01, -1.2);                                                 // kleedje
+// klok 7:15
+const klok = new THREE.Group(); klok.position.set(-2.4, 2.75, -3.92); scene.add(klok);
+{ const r = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.08, 48), M(0xd8392f)); r.rotation.x = Math.PI / 2; klok.add(r);
+  const p = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.09, 48), M(0xffffff)); p.rotation.x = Math.PI / 2; klok.add(p);
+  for (let i = 0; i < 12; i++) { const s = new THREE.Mesh(new THREE.BoxGeometry(0.025, 0.07, 0.01), M(0x333333)); const a = i / 12 * Math.PI * 2; s.position.set(Math.sin(a) * 0.3, Math.cos(a) * 0.3, 0.05); s.rotation.z = -a; klok.add(s); } }
+const wijzer = (lang, dik, hoek, kleur) => { const g = new THREE.Group(); const m = new THREE.Mesh(new THREE.BoxGeometry(dik, lang, 0.012), M(kleur)); m.position.y = lang / 2; g.add(m); g.position.z = 0.06; g.rotation.z = -hoek; klok.add(g); return g; };
+wijzer(0.19, 0.035, (7 + 15 / 60) / 12 * Math.PI * 2, 0x222222); wijzer(0.28, 0.025, 15 / 60 * Math.PI * 2, 0x222222); const sec = wijzer(0.3, 0.008, 0, 0xd8392f);
+// ---- personages (zelfde als 2D) ----
+const HUID = 0xffdec4, LIJN = 0x2d2628;
+function persoon(k) {
+  const g = new THREE.Group(); scene.add(g); g.scale.setScalar(k.groot || 1);
+  const benen = [-1, 1].map(z => { const p = new THREE.Group(); p.position.set(z * 0.13, 0.78, 0); g.add(p);
+    const b = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 0.55, 6, 12), M(k.jurk ? HUID : k.broek)); b.position.y = -0.38; b.castShadow = true; p.add(b);
+    const sch = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 12), M(0x3a3236)); sch.scale.set(1, 0.6, 1.4); sch.position.set(0, -0.72, 0.05); p.add(sch); return p; });
+  const lijf = k.jurk ? new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.42, 0.85, 24), M(k.shirt)) : new THREE.Mesh(new THREE.CapsuleGeometry(0.3, 0.45, 8, 20), M(k.shirt));
+  lijf.position.y = k.jurk ? 1.12 : 1.2; lijf.castShadow = true; g.add(lijf);
+  const armen = [-1, 1].map(z => { const p = new THREE.Group(); p.position.set(z * 0.36, 1.48, 0); g.add(p);
+    const a = new THREE.Mesh(new THREE.CapsuleGeometry(0.085, 0.45, 6, 12), M(k.shirt)); a.position.y = -0.27; a.castShadow = true; p.add(a);
+    const h = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 12), M(HUID)); h.position.y = -0.56; p.add(h); return p; });
+  const hoofd = new THREE.Group(); hoofd.position.y = 2.05; g.add(hoofd);
+  const kop = new THREE.Mesh(new THREE.SphereGeometry(0.46, 40, 30), M(HUID)); kop.castShadow = true; hoofd.add(kop);
+  const haar = new THREE.Mesh(new THREE.SphereGeometry(0.48, 40, 30, 0, Math.PI * 2, 0, Math.PI * 0.42), M(k.haar)); haar.rotation.x = -0.25; hoofd.add(haar);
+  if (k.kapsel === 'paard') { const s = new THREE.Mesh(new THREE.SphereGeometry(0.17, 20, 16), M(k.haar)); s.scale.set(0.8, 1.6, 0.8); s.position.set(0, -0.05, -0.5); hoofd.add(s); }
+  if (k.kapsel === 'staartjes') for (const z of [-1, 1]) { const s = new THREE.Mesh(new THREE.SphereGeometry(0.15, 20, 16), M(k.haar)); s.scale.set(0.8, 1.3, 0.8); s.position.set(z * 0.5, 0.0, -0.1); hoofd.add(s); }
+  if (k.pet) { const p = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 20, 0, Math.PI * 2, 0, Math.PI * 0.38), M(k.pet)); p.rotation.x = -0.2; hoofd.add(p);
+    const klep = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.04, 24, 1, false, -Math.PI / 2, Math.PI), M(k.pet)); klep.position.set(0, 0.2, 0.3); klep.rotation.x = 0.15; hoofd.add(klep); }
+  const ogen = [-1, 1].map(z => { const o = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 12), new THREE.MeshBasicMaterial({ color: LIJN })); o.position.set(z * 0.16, 0.02, 0.43); hoofd.add(o);
+    const gl = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff })); gl.position.set(z * 0.16 + 0.015, 0.04, 0.48); hoofd.add(gl); return [o, gl]; });
+  for (const z of [-1, 1]) { const w = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 8), new THREE.MeshBasicMaterial({ color: 0xffaaa0 })); w.scale.set(1, 0.5, 0.3); w.position.set(z * 0.25, -0.1, 0.4); hoofd.add(w); }
+  const mond = new THREE.Mesh(new THREE.SphereGeometry(0.07, 20, 12), new THREE.MeshBasicMaterial({ color: 0x78283a })); mond.scale.set(1, 0.18, 0.4); mond.position.set(0, -0.2, 0.43); hoofd.add(mond);
+  const tas = k.tas ? (() => { const t = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.18), M(0x7a5230)); t.position.set(0.4, 1.0, 0.1); g.add(t); return t; })() : null;
+  return { g, benen, armen, hoofd, ogen, mond, k };
+}
+const jij = persoon({ broek: 0x373c55, shirt: 0x4682dc, haar: 0x3c2d28, groot: 0.92 });
+const papa = persoon({ broek: 0x5a5046, shirt: 0x5ab46e, haar: 0x78502f, groot: 1.12 });                  // 24 nov: geen bril (eigenaar)
+const mama = persoon({ broek: 0x50405a, shirt: 0xa078dc, haar: 0x6e462d, kapsel: 'paard', groot: 1.05 });
+const zus = persoon({ shirt: 0xfad750, haar: 0x46302a, kapsel: 'staartjes', jurk: true, groot: 0.72 });
+const post = persoon({ broek: 0x2f3e66, shirt: 0x4a6fa5, haar: 0x3c2d28, pet: 0x2f3e66, tas: true, groot: 1.08 });
+// ---- tijden uit de tekst ----
+const ease = x => (1 - Math.cos(Math.PI * Math.min(1, Math.max(0, x)))) / 2;
+const Z = D.Z;
+const kw = (zin, w) => { for (const x of D.WO) if (x[0] === zin && x[1].toLowerCase().replace(/[^\w$]/g, '').startsWith(w)) return x[2]; return Z[zin][0]; };
+const T = { in0: kw(0, 'walk') - 0.4, in1: kw(0, 'kitchen') + 0.9, dad: kw(1, 'dads'), lab: kw(1, 'glowing'), tel: kw(1, '$64'), praat: Z[2][0],
+  mom0: kw(3, 'mom') - 0.6, mom1: kw(3, 'in') + 0.6, momLab: kw(3, '$91'), zus: kw(5, 'sister'), zusLab: kw(5, '$260'), zusPraat: Z[6][0],
+  what: Z[7][0], rules: Z[8][0], except: kw(8, 'except'), bel: kw(9, 'doorbell'), post: kw(9, 'mailman'), postLab: kw(9, '52'),
+  hands: kw(10, 'hands'), opens: kw(10, 'opens'), change: kw(10, 'change'), wait: Z[11][0], n70: kw(12, '70'), n75: kw(12, '75'), n80: kw(12, '80'),
+  promo: Z[13][0], hug: kw(14, 'hugs'), dance: kw(14, 'dancing'), look: kw(14, 'look'), tiny: kw(15, 'tiny'), count: kw(15, 'counting') };
+// ---- bewegen ----
+const plek = { jij: [-0.6, 0.3], papa: [1.55, -2.75], mama: [0.5, -1.3], zus: [-2.0, -0.4], post: [-3.3, 1.6] };
+function lopen(p, van, naar, t0, t1, t) {           // vooruit lopen: gezicht in de looprichting
+  const f = ease((t - t0) / (t1 - t0)); p.g.position.x = van[0] + (naar[0] - van[0]) * f; p.g.position.z = van[1] + (naar[1] - van[1]) * f;
+  const loopt = t > t0 && t < t1; if (loopt) p.g.rotation.y = Math.atan2(naar[0] - van[0], naar[1] - van[1]);
+  return loopt ? (t - t0) * 2.2 : null;
+}
+function kijk(p, naar, t, snel = 0.15) {             // lijf 3/4 naar het doel (half naar de camera), hoofd helemaal
+  const doel = Math.atan2(naar.x - p.g.position.x, naar.z - p.g.position.z); const lijf = doel * 0.65 + 0.35 * 0;
+  p.g.rotation.y += (lijf - p.g.rotation.y) * snel; p.hoofd.rotation.y += ((doel - p.g.rotation.y) - p.hoofd.rotation.y) * snel;
+}
+function pose(p, t, o = {}) {
+  const z = o.loop == null ? 0 : Math.sin(o.loop * Math.PI) * 0.5;
+  p.benen[0].rotation.x = z; p.benen[1].rotation.x = -z;
+  p.armen[0].rotation.set(-z * 0.8, 0, -0.12); p.armen[1].rotation.set(z * 0.8, 0, 0.12);
+  p.g.position.y = o.loop == null ? Math.sin(t * 2.2 + p.k.groot * 5) * 0.008 : Math.abs(Math.sin(o.loop * Math.PI)) * 0.05;
+  if (o.zwaai) p.armen[1].rotation.set(0, 0, 2.5 + Math.sin(t * 11) * 0.35);
+  if (o.wijs) p.armen[1].rotation.set(-1.4, 0, 0.1);
+  if (o.vast) p.armen[1].rotation.set(-1.2, 0, 0.25);
+  if (o.knuffel) { p.armen[0].rotation.set(-1.3, 0, -0.5); p.armen[1].rotation.set(-1.3, 0, 0.5); }
+  if (o.dans) { p.g.position.y = Math.abs(Math.sin(t * 9)) * 0.12; p.armen[0].rotation.set(0, 0, -2.4 - Math.sin(t * 9) * 0.4); p.armen[1].rotation.set(0, 0, 2.4 + Math.sin(t * 9) * 0.4); p.g.rotation.y = Math.sin(t * 4) * 0.5; }
+  const oog = o.verbaasd ? 1.45 : 1; const dicht = (t + p.k.groot * 3) % 3.4 < 0.13 && !o.verbaasd;
+  for (const [e, gl] of p.ogen) { e.scale.set(oog, dicht ? 0.12 : oog, oog); gl.visible = !dicht; }
+  const m = o.mond || 0; p.mond.scale.set(o.verbaasd && m < 0.1 ? 0.7 : 1, 0.18 + m * 0.9 + (o.verbaasd && m < 0.1 ? 0.5 : 0) + (o.lach ? 0.25 : 0), 0.4);
+}
+const mondVan = (sp, t) => (D.mond[sp] || [])[Math.floor(t * D.FPS)] || 0;
+// ---- getallen boven hoofden ----
+function label(kleur) {
+  const c = document.createElement('canvas'); c.width = 640; c.height = 200; const tex = new THREE.CanvasTexture(c);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false })); s.scale.set(1.2, 0.375, 1); s.visible = false; scene.add(s);
+  let laatste = '';
+  s.zet = (tekst, a = 1) => { if (tekst + a === laatste) return; laatste = tekst + a; const x = c.getContext('2d'); x.clearRect(0, 0, 640, 200); x.globalAlpha = a;
+    x.shadowColor = kleur; x.shadowBlur = 30; x.fillStyle = '#0f1914'; x.strokeStyle = kleur; x.lineWidth = 10; x.beginPath(); x.roundRect(30, 30, 580, 140, 40); x.fill(); x.stroke();
+    x.shadowBlur = 0; x.fillStyle = kleur; x.font = '900 92px "Segoe UI Black"'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(tekst, 320, 104); tex.needsUpdate = true; };
+  return s;
+}
+const L = { papa: label('#3ce678'), mama: label('#3ce678'), zus: label('#3ce678'), post: label('#3ce678'), klok: label('#ff4d4d') };
+const geld = v => '$' + Math.round(v).toLocaleString('en-US');
+function boven(lb, p, h = 1.35) { lb.position.set(p.g.position.x, p.g.position.y + 2.05 * p.k.groot + 0.5 + h * 0 + 0.55, p.g.position.z); }
+// ---- camera-reis ----
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const REIS = [
+  [0, V(-2.4, 2.72, -2.0), V(-2.4, 2.72, -4)], [1.8, V(-2.2, 2.6, -1.5), V(-2.4, 2.6, -4)],
+  [T.in0 + 0.6, V(-0.6, 2.1, 5.2), V(-2.4, 1.3, 1.0)], [T.in1, V(0.6, 2.2, 5.6), V(-0.4, 1.4, -0.8)],
+  [T.dad + 0.3, V(0.9, 2.6, 2.6), V(1.55, 2.5, -2.75)], [T.tel + 0.9, V(1.0, 2.7, 1.9), V(1.55, 2.6, -2.75)],
+  [T.praat + 0.2, V(0.4, 2.2, 5.6), V(0.5, 1.5, -1.2)],                                   // jij + papa
+  [T.mom1, V(0.6, 2.4, 5.2), V(0.6, 1.6, -1.6)],                                          // mama komt binnen
+  [Z[4][0] + 0.3, V(1.2, 2.6, 2.6), V(1.1, 2.4, -2.0)],                                   // papa ziet je naar beide getallen kijken
+  [T.zus + 0.4, V(-1.2, 1.9, 2.2), V(-2.0, 1.2, -0.4)],                                   // het zusje
+  [T.zusPraat + 1.2, V(-1.5, 1.6, 1.4), V(-2.0, 1.3, -0.4)],
+  [T.what + 0.3, V(-2.2, 3.2, 5.6), V(0.0, 1.4, -1.2)],                                   // wijd: de hele familie
+  [T.rules + 2.5, V(2.4, 3.0, 5.0), V(0.0, 1.4, -1.2)],                                   // langzaam rond
+  [T.except - 0.3, V(1.0, 2.4, 3.0), V(-0.6, 1.4, 0.3)], [T.except + 0.8, V(0.2, 1.9, 2.4), V(-0.6, 1.6, 0.3)],   // 'except you': op jou, niets boven je hoofd
+  [T.bel + 0.2, V(-0.6, 2.2, 4.8), V(-3.2, 1.4, 1.6)], [T.postLab + 0.6, V(-1.2, 2.4, 4.2), V(-3.0, 2.0, 1.6)],      // de deur, de postbode
+  [T.opens + 0.2, V(-0.4, 2.6, 5.4), V(-2.2, 1.7, 1.0)],                                  // envelop (camera hoog en ver: niet door hoofden)
+  [T.wait + 0.2, V(-0.9, 3.0, 4.6), V(-1.9, 2.4, 0.9)], [T.n80 + 0.6, V(-1.2, 3.6, 4.2), V(-1.9, 3.1, 0.9)],      // papa's getal verandert
+  [T.promo + 0.3, V(0.4, 2.8, 6.0), V(-1.2, 1.6, 0.2)], [T.look, V(0.6, 2.9, 6.2), V(-1.0, 1.6, 0.0)],
+  [T.tiny + 0.4, V(-1.4, 3.7, 3.9), V(-1.8, 3.2, 0.9)], [D.EIND, V(-1.5, 3.7, 3.5), V(-1.8, 3.2, 0.9)]];
+function camera(t) { let i = 0; while (i < REIS.length - 2 && t > REIS[i + 1][0]) i++;
+  const [t0, p0, k0] = REIS[i], [t1, p1, k1] = REIS[i + 1]; const f = ease((t - t0) / Math.max(0.01, t1 - t0));
+  cam.position.lerpVectors(p0, p1, f); cam.lookAt(new THREE.Vector3().lerpVectors(k0, k1, f)); }
+const groepen = []; for (let i = 0; i < D.WO.length;) { const g = [D.WO[i]]; if (!/[.,!?]$/.test(D.WO[i][1]) && i + 1 < D.WO.length && D.WO[i][1].length + D.WO[i + 1][1].length < 14) g.push(D.WO[i + 1]); groepen.push(g); i += g.length; }
+const uit = document.getElementById('uit'), ctx = uit.getContext('2d');
+const envelop = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.28, 0.02), M(0xfaf3e3)); scene.add(envelop);
+window.render = (t) => {
+  // --- jij ---
+  let lp = lopen(jij, [-3.7, 1.6], plek.jij, T.in0, T.in1, t); if (t < T.in0) jij.g.position.x = -6;
+  const doelJij = t < T.mom0 ? papa.g.position : t < T.zus ? (t < Z[4][0] ? mama.g.position : papa.g.position) : t < T.bel ? zus.g.position : t < T.promo ? papa.g.position : papa.g.position;
+  if (lp == null && t > T.in1) kijk(jij, doelJij, t);
+  pose(jij, t, { loop: lp, verbaasd: t > T.lab + 0.3 && t < T.what || t > T.change });
+  // --- papa: bij het aanrecht, draait om, loopt later naar de deur voor de envelop ---
+  if (t < T.dad - 0.2) { papa.g.position.set(...[1.55, 0, -2.75]); papa.g.rotation.y = Math.PI; }
+  let lpp = null; if (t >= T.bel + 0.8) lpp = lopen(papa, [1.55, -2.75], [-1.9, 0.9], T.bel + 0.8, T.hands, t);
+  else if (t >= T.dad - 0.2) { papa.g.position.set(1.55, 0, -2.75); kijk(papa, t < T.mom1 ? jij.g.position : jij.g.position, t, 0.1); }
+  if (t >= T.hands && lpp == null) kijk(papa, t < T.promo ? post.g.position : mama.g.position, t, 0.12);
+  pose(papa, t, { loop: lpp, zwaai: t > T.praat && t < T.praat + 1.5, mond: mondVan('DAD', t), vast: t > T.hands && t < T.hug, knuffel: t > T.hug && t < T.look + 1,
+    verbaasd: t > T.wait - 0.3 && t < T.promo, lach: t > T.promo });
+  // --- mama: komt binnen bij 'your mom walks in', knuffelt papa ---
+  let lm = null; if (t < T.mom0) mama.g.position.set(-6, 0, 0);
+  else if (t < T.hug - 0.6) { lm = lopen(mama, [-3.6, 1.6], plek.mama, T.mom0, T.mom1, t); if (lm == null) kijk(mama, t < T.bel ? jij.g.position : post.g.position, t, 0.1); }
+  else { lm = lopen(mama, plek.mama, [-1.2, 0.9], T.hug - 0.6, T.hug + 0.2, t); if (lm == null) kijk(mama, papa.g.position, t, 0.2); }
+  pose(mama, t, { loop: lm, mond: mondVan('MOM', t), knuffel: t > T.hug + 0.2 && t < T.look + 1, lach: t > T.promo, verbaasd: t > T.change && t < T.promo });
+  // --- zusje: bij de tafel, boos, danst ---
+  zus.g.position.set(...[plek.zus[0], 0, plek.zus[1]]); if (t < T.dance) kijk(zus, jij.g.position, t, 0.12);
+  pose(zus, t, { mond: mondVan('SIS', t), wijs: t > T.zusPraat && t < T.zusPraat + 1.6, dans: t > T.dance && t < T.look + 3 });
+  // --- postbode: verschijnt in de deur bij 'doorbell' ---
+  if (t < T.bel) post.g.position.set(-8, 0, 0);
+  else { const lpo = lopen(post, [-3.9, 1.6], [-3.0, 1.4], T.bel, T.bel + 1.2, t); if (lpo == null) kijk(post, papa.g.position, t, 0.15); pose(post, t, { loop: lpo, vast: t > T.bel + 1.2 && t < T.hands + 0.3 }); }
+  deur.rotation.y = t > T.bel - 0.3 ? -1.2 * ease((t - T.bel + 0.3) / 0.6) : 0; deur.position.z = 1.6 + (t > T.bel - 0.3 ? 0.45 * ease((t - T.bel + 0.3) / 0.6) : 0);
+  // --- envelop: van postbode naar papa ---
+  const h = t < T.hands + 0.3 ? post : papa; const hp = new THREE.Vector3(); h.armen[1].children[1].getWorldPosition(hp);
+  envelop.visible = t > T.bel + 1.0 && t < T.promo; envelop.position.copy(hp); envelop.position.y += 0.12; envelop.rotation.y = h.g.rotation.y;
+  if (t > T.opens) envelop.scale.set(1, 1 + 0.6 * ease((t - T.opens) / 0.5), 1);
+  sec.rotation.z = -t * Math.PI * 2 / 60 * 6;
+  // --- getallen ---
+  L.papa.visible = t >= T.lab; boven(L.papa, papa);
+  if (t >= T.lab) { let v = t < T.tel ? null : 64000 * Math.min(1, (t - T.tel) / 0.8);
+    if (t > T.n70 - 0.3) v = 64000 + 6000 * ease((t - T.n70 + 0.3) / 0.5); if (t > T.n75 - 0.3) v = 70000 + 5000 * ease((t - T.n75 + 0.3) / 0.5); if (t > T.n80 - 0.3) v = 75000 + 5000 * ease((t - T.n80 + 0.3) / 0.5);
+    L.papa.zet(v == null ? '$???' : geld(Math.round(v / 100) * 100)); }
+  L.mama.visible = t >= T.momLab - 0.3 && (t < T.bel || (t > T.hug && t < T.tiny));   // alleen als mama in beeld centraal staat boven(L.mama, mama); if (L.mama.visible) L.mama.zet(geld(91000 * Math.min(1, (t - T.momLab + 0.3) / 0.8)));
+  L.zus.visible = t >= T.zusLab - 0.3 && (t < T.bel || (t > T.hug && t < T.tiny)); boven(L.zus, zus); if (L.zus.visible) L.zus.zet(geld(260 * Math.min(1, (t - T.zusLab + 0.3) / 0.6)));
+  L.post.visible = t >= T.postLab - 0.3 && t < T.wait; boven(L.post, post); if (L.post.visible) L.post.zet(geld(52000 * Math.min(1, (t - T.postLab + 0.3) / 0.6)));
+  L.klok.visible = t >= T.tiny; L.klok.position.copy(L.papa.position).add(V(0, 0.42, 0)); L.klok.scale.set(0.85, 0.26, 1);   // klein tweede getal er vlak boven
+  if (L.klok.visible) { const r = Math.max(0, 99 - Math.floor((t - T.tiny) * 3)); L.klok.zet('-' + String(Math.floor(r / 60)).padStart(2, '0') + ':' + String(r % 60).padStart(2, '0') + ':' + String(Math.floor((t * 100) % 100)).padStart(2, '0')); }
+  camera(t); effect.render(scene, cam); ctx.drawImage(renderer.domElement, 0, 0);
+  const g = groepen.find((g, k) => t >= g[0][2] - 0.05 && t < (k + 1 < groepen.length ? groepen[k + 1][0][2] : D.EIND));
+  if (g) { const s = g.map(w => w[1]).join(' ').replace(/[,?!]/g, '').replace(/\.$/, '').replace(/(\d)\.(\d\d)/, '$1:$2'); ctx.font = '900 104px "Segoe UI Black"'; ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+    ctx.lineWidth = 20; ctx.strokeStyle = '#000'; ctx.strokeText(s, W / 2, 1300); ctx.fillStyle = '#fff'; ctx.fillText(s, W / 2, 1300); }
+  return uit.toDataURL('image/jpeg', 0.92);
+};
+window.klaar = true;
+</script></body></html>

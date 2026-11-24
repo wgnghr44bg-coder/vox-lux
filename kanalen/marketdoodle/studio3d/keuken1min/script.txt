@@ -1,0 +1,17 @@
+# 3D-proef 1 minuut, één scène in de keuken (eigenaar 24 nov: "maak de scène langer 1 min", bril weg). Spreker|scene|tekst
+N|keuken|It's 7:15 in the morning. You walk into the kitchen.
+N|keuken|And above your dad's head, there's a glowing number. Sixty-four thousand dollars.
+DAD|keuken|Morning, buddy. Why are you staring at me?
+N|keuken|Then your mom walks in. Ninety-one thousand.
+DAD|keuken|What? What's so funny?
+N|keuken|Your little sister has one too. Two hundred sixty dollars. A year.
+SIS|keuken|Stop looking at my money!
+N|keuken|So, what if you could see how much everyone earns?
+N|keuken|Rules. The number shows what someone makes in one year. It works on everyone. Except you.
+N|keuken|Then the doorbell rings. It's the mailman. Fifty-two thousand.
+N|keuken|He hands your dad an envelope. Your dad opens it. And his number starts to change.
+DAD|keuken|Wait. What is this?
+N|keuken|Seventy thousand. Seventy-five. Eighty thousand.
+MOM|keuken|You got the promotion?
+N|keuken|Your mom hugs him. Your sister starts dancing. And you look at your dad's number one more time.
+N|keuken|Because next to it, a tiny second number just appeared. And it's counting down.
