@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 14:33",
+ "bijgewerkt": "2026-11-24 15:03",
  "kanalen": {
   "weken": [
    {
@@ -2261,7 +2261,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 14:33)"
+   "tekst": "draait nu (2026-11-24 15:03)"
   },
   {
    "naam": "Git",
@@ -2276,7 +2276,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2293,8 +2293,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 14:33",
-   "volgende": "2026-11-24 15:03"
+   "laatst": "2026-11-24 15:03",
+   "volgende": "2026-11-24 15:33"
   },
   "hype": {
    "aan": true,
@@ -2308,8 +2308,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 14:18",
-   "volgende": "2026-11-24 14:48"
+   "laatst": "2026-11-24 14:48",
+   "volgende": "2026-11-24 15:18"
   },
   "titels": {
    "aan": true,
@@ -2643,8 +2643,7 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)",
-   "stem inspreken (OmniVoice)"
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2664,15 +2663,11 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 538,
+  "bezig_procent": 95,
+  "geheugen_mb": 7077,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2851,8 +2846,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 14:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 15:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5290,21 +5285,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 14:34",
+  "bijgewerkt": "2026-11-24 15:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 2926296,
-    "week": 14206307,
+    "5uur": 3129801,
+    "week": 14409812,
     "per_dag": {
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 6142265
+     "Tue 24-11": 6345769
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 26249,
+    "stap_kost": 26331,
     "naam": "hoofd",
     "week_reset": ""
    },
