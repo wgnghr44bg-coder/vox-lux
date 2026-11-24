@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 15:33",
+ "bijgewerkt": "2026-11-24 16:03",
  "kanalen": {
   "weken": [
    {
@@ -237,83 +237,83 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-24 08:00",
+  "bijgewerkt": "2026-11-24 15:45",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": 4.7,
-    "groot": true,
+    "pct": -0.6,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": 6.5,
-    "groot": true,
+    "pct": -1.4,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": 3.0,
-    "groot": true,
+    "pct": 0.3,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": 31.5,
-    "groot": true,
+    "pct": -6.2,
+    "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": 1.9,
+    "pct": 0.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 1.6,
+    "pct": 0.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 6.3,
+    "pct": -1.3,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": 3.5,
+    "pct": -0.8,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": 6.6,
+    "pct": -0.3,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": 11.5,
-    "groot": true,
+    "pct": 0.1,
+    "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": 3.0,
+    "pct": -4.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": 0.4,
+    "pct": 0.8,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": 2.0,
+    "pct": 0.2,
     "groot": false,
     "grens": 7
    },
@@ -325,113 +325,47 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": -1.2,
+    "pct": -1.4,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": -0.3,
+    "pct": 1.2,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -0.7,
+    "pct": -0.9,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Tesla",
-    "punten": 10,
+    "onderwerp": "Amazon",
+    "punten": 4,
     "bronnen": [
-     "koers"
+     "CNBC"
     ],
     "wat": [
-     "+11.5% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nvidia",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+31.5% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Dow Jones",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+3.0% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nasdaq",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+6.5% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "S&P 500",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "+4.7% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nvidia",
-    "punten": 7,
-    "bronnen": [
-     "CNBC",
-     "MarketWatch",
-     "NYT"
-    ],
-    "wat": [
-     "record"
+     "overname/deal",
+     "rechtszaak"
     ],
     "koppen": [
      {
-      "titel": "Nvidia surge: What investors should do with the stock and the AI trade now",
+      "titel": "Amazon to acquire AI startup Decart's chip software, hire founders",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/23/nvidia-stock-jensen-huang-ai-trade.html"
+      "link": "https://www.cnbc.com/2026/11/23/amazon-decarts-ai-acquisition.html"
      },
      {
-      "titel": "These stocks are the biggest gainers after Jensen Huang’s return to Nvidia",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/these-stocks-are-the-biggest-gainers-after-jensen-huangs-return-to-nvidia-bb886140?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html"
+      "titel": "Amazon faces FAA probe after delivery drone strikes Michigan fiber cable, garage",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/23/amazon-drone-crash-michigan-faa-investigation.html"
      }
     ],
-    "groot": true
+    "groot": false
    },
    {
     "onderwerp": "Recessie",
@@ -452,62 +386,67 @@
     "groot": false
    },
    {
-    "onderwerp": "Amazon",
-    "punten": 4,
+    "onderwerp": "Anthropic",
+    "punten": 3,
     "bronnen": [
      "CNBC"
     ],
     "wat": [
-     "overname/deal",
-     "rechtszaak"
+     "beursgang"
     ],
     "koppen": [
      {
-      "titel": "Amazon faces FAA probe after delivery drone strikes Michigan fiber cable, garage",
+      "titel": "Anthropic stock falls below $83 IPO price, but analysts are still largely positive",
       "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/23/amazon-drone-crash-michigan-faa-investigation.html"
-     },
+      "link": "https://www.cnbc.com/2026/11/24/anthropic-stock-ipo-price.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 3,
+    "bronnen": [
+     "NYT"
+    ],
+    "wat": [
+     "record"
+    ],
+    "koppen": [
      {
-      "titel": "Amazon to acquire AI startup Decart's chip software, hire founders",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/23/amazon-decarts-ai-acquisition.html"
+      "titel": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html"
      }
     ],
     "groot": false
    }
   ],
-  "groot": [
-   "Tesla",
-   "Nvidia",
-   "Dow Jones",
-   "Nasdaq",
-   "S&P 500",
-   "Nvidia"
-  ],
-  "aantal_koppen": 86
+  "groot": [],
+  "aantal_koppen": 97
  },
  "yt_swan": {
-  "bijgewerkt": "2026-11-24 08:11",
+  "bijgewerkt": "2026-11-24 15:55",
   "uren": 48,
-  "aantal_videos": 287,
+  "aantal_videos": 279,
   "onderwerpen": [
    {
-    "onderwerp": "jensen",
-    "views_per_uur": 247594,
+    "onderwerp": "ceo",
+    "views_per_uur": 208505,
     "kanalen": 16,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 496,378 views in 14 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 740,828 views in 22 u)"
     ]
    },
    {
     "onderwerp": "nvidia",
-    "views_per_uur": 245809,
-    "kanalen": 19,
+    "views_per_uur": 200080,
+    "kanalen": 18,
     "in_nieuws": true,
     "sterk": true,
     "al_gedaan": [
@@ -515,119 +454,132 @@
      "2026-11-19: Short: Nvidia Lost $1 Trillion While Making Record Money"
     ],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 496,378 views in 14 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 740,828 views in 22 u)"
     ]
    },
    {
-    "onderwerp": "ceo",
-    "views_per_uur": 236433,
+    "onderwerp": "jensen",
+    "views_per_uur": 197500,
     "kanalen": 15,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 496,378 views in 14 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 740,828 views in 22 u)"
     ]
    },
    {
     "onderwerp": "huang",
-    "views_per_uur": 211994,
+    "views_per_uur": 166894,
     "kanalen": 15,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 402,167 views in 17 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 411,316 views in 25 u)"
     ]
    },
    {
     "onderwerp": "jensen huang",
-    "views_per_uur": 208291,
-    "kanalen": 14,
+    "views_per_uur": 160493,
+    "kanalen": 13,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 402,167 views in 17 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 411,316 views in 25 u)"
     ]
    },
    {
     "onderwerp": "billionaire",
-    "views_per_uur": 139805,
-    "kanalen": 17,
+    "views_per_uur": 150932,
+    "kanalen": 15,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Exposing Random Billionaire in 60 sec (Abhay Create, 409,531 views in 21 u)",
-     "Tyler Perry Became a BILLIONAIRE Doing THIS 🤯 (School of Hard Knocks, 683,116 views in 37 u)",
-     "The Billionaire Boyfriend Who Shocked Her Entire Family! 😱💰#shorts (Cloud recap , 262,829 views in 18 u)"
+     "The Billionaire Boyfriend Who Shocked Her Entire Family! 😱💰#shorts (Cloud recap , 545,876 views in 26 u)",
+     "Exposing Random Billionaire in 60 sec (Abhay Create, 528,136 views in 28 u)",
+     "Tyler Perry Became a BILLIONAIRE Doing THIS 🤯 (School of Hard Knocks, 724,237 views in 45 u)"
     ]
    },
    {
     "onderwerp": "recession",
-    "views_per_uur": 118039,
-    "kanalen": 4,
+    "views_per_uur": 130417,
+    "kanalen": 6,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 1,998,567 views in 23 u)",
-     "A RECESSION IS COMING! (The Diary Of A CEO, 215,144 views in 12 u)",
-     "christian women are in a friendship recession. (The Antibot, 75,672 views in 14 u)"
-    ]
-   },
-   {
-    "onderwerp": "huang ceo",
-    "views_per_uur": 102225,
-    "kanalen": 7,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 556,099 views in 15 u)",
-     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 402,167 views in 17 u)",
-     "LIVE: Nvidia stock price after board reinstates Jensen Huang as CEO (Associated Press, 105,679 views in 10 u)"
+     "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman (The Diary Of A CEO, 2,339,496 views in 31 u)",
+     "Argentina Slips Into Recession: Is Milei Finished? (TLDR News Global, 128,663 views in 5 u)",
+     "A RECESSION IS COMING! (The Diary Of A CEO, 275,420 views in 20 u)"
     ]
    },
    {
     "onderwerp": "gold",
-    "views_per_uur": 95506,
-    "kanalen": 8,
+    "views_per_uur": 94740,
+    "kanalen": 10,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Gold Price News LIVE: 23 नवंबर सोने के नए दामों ने चौंकाया! | Big Breaking | 24 Carat Gold (ABP NEWS, 791,437 views in 16 u)",
-     "Modi on Gold Price Drop; ಚಿನ್ನದ ಬೆಲೆ ಇಳಿಕೆಗೆ ಕಾರಣವೇನು? | PNS Vistaara News (Vistara News , 481,394 views in 44 u)",
-     "Jensen's Back! Epic Crash, HUGE Insider Buys as Scared Retail Dumps: Stocks, Gold, Silver, BTC (Verified Investing, 162,600 views in 17 u)"
+     "Gold Price News LIVE: 23 नवंबर सोने के नए दामों ने चौंकाया! | Big Breaking | 24 Carat Gold (ABP NEWS, 795,164 views in 23 u)",
+     "They’re About To Reset The Price Of Gold, Silver, And Bitcoin (Minority Mindset, 415,852 views in 26 u)",
+     "CRASH Alert! Market FALL Start? Gold Buying Modi view, Silver price (DAY TRADER తెలుగు, 270,464 views in 25 u)"
     ]
    },
    {
-    "onderwerp": "updates",
-    "views_per_uur": 88638,
-    "kanalen": 2,
+    "onderwerp": "huang ceo",
+    "views_per_uur": 78781,
+    "kanalen": 6,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 622,458 views in 21 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 829,822 views in 30 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 376,923 views in 30 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 411,316 views in 25 u)",
+     "LIVE: Nvidia stock price after board reinstates Jensen Huang as CEO (Associated Press, 106,850 views in 18 u)"
+    ]
+   },
+   {
+    "onderwerp": "share",
+    "views_per_uur": 66714,
+    "kanalen": 5,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 626,814 views in 28 u)",
+     "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 113,291 views in 6 u)",
+     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 403,288 views in 38 u)"
+    ]
+   },
+   {
+    "onderwerp": "sir",
+    "views_per_uur": 64681,
+    "kanalen": 3,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 740,828 views in 22 u)",
+     "24 Nov Stock Market Special  | Global Markets, Nifty & Sensex Outlook | Market Analysis by Ankit Sir (Baaten Bazar Ki (BBK), 153,266 views in 11 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 189,820 views in 35 u)"
     ]
    },
    {
     "onderwerp": "ipo",
-    "views_per_uur": 64473,
-    "kanalen": 8,
+    "views_per_uur": 61512,
+    "kanalen": 9,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [
@@ -636,124 +588,115 @@
      "2026-12-07: Short: SpaceX Stock Fell Below Its $135 IPO Price"
     ],
     "voorbeelden": [
-     "Anthropic engineer post-IPO (Alberta Tech, 385,951 views in 11 u)",
-     "JENSEN HUANG RETURNS, NVIDIA SURGES 25%!🚨Tech Market Recovers From IPO Launch Day| Stock Market Live (TraderTV Live, 129,228 views in 15 u)",
-     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 254,706 views in 35 u)"
+     "Anthropic engineer post-IPO (Alberta Tech, 511,459 views in 19 u)",
+     "(실시간) 엔트로픽, IPO 가격 하회 | 젠슨 황, 엔비디아 CEO 복귀 | 어제 큰 상승 후 약조정세 | 이번주 목요일 휴장, 금요일 조기 종료 | 미국 증시 실시간 (미국 주식 채널 - 에디 Eddie, 83,348 views in 7 u)",
+     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 265,074 views in 43 u)"
     ]
    },
    {
-    "onderwerp": "november",
-    "views_per_uur": 62590,
+    "onderwerp": "updates",
+    "views_per_uur": 58862,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "al_gedaan": [],
+    "voorbeelden": [
+     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 626,814 views in 28 u)",
+     "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 113,291 views in 6 u)",
+     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 403,288 views in 38 u)"
+    ]
+   },
+   {
+    "onderwerp": "jensenhuang",
+    "views_per_uur": 53103,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 622,458 views in 21 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 829,822 views in 30 u)",
-     "बाजार में अचानक गिरावट | Why NIFTY SENSEX DOWN TODAY | STOCK MARKET CRASHED 23 NOVEMBER 2026 | SMKC (Stock Market का Commando, 90,808 views in 20 u)"
+     "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang (Aditya Gautam, 952,912 views in 23 u)",
+     "Jensen's Back… and NVIDIA Stock Goes to the Moon 🚀📈 #jensenhuang #nvidia #shorts (Amit Sharma, 194,828 views in 23 u)",
+     "Is Jensen Huang Back at Nvidia? 🚨📈 #Nvidia #sanjaykathuria #JensenHuang (Sanjay Kathuria , 62,484 views in 24 u)"
     ]
    },
    {
-    "onderwerp": "reinstates",
-    "views_per_uur": 59608,
-    "kanalen": 5,
+    "onderwerp": "analysis",
+    "views_per_uur": 52885,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 402,167 views in 17 u)",
-     "LIVE: Nvidia stock price after board reinstates Jensen Huang as CEO (Associated Press, 105,679 views in 10 u)",
-     "Nvidia Reinstates Jensen Huang as CEO - LIVE Breaking News Coverage (Agenda-Free TV, 128,182 views in 12 u)"
+     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 740,828 views in 22 u)",
+     "24 Nov Stock Market Special  | Global Markets, Nifty & Sensex Outlook | Market Analysis by Ankit Sir (Baaten Bazar Ki (BBK), 153,266 views in 11 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 189,820 views in 35 u)"
     ]
    },
    {
-    "onderwerp": "reinstates jensen",
-    "views_per_uur": 59608,
-    "kanalen": 5,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Nvidia reinstates Jensen Huang as CEO (CNBC Television, 402,167 views in 17 u)",
-     "LIVE: Nvidia stock price after board reinstates Jensen Huang as CEO (Associated Press, 105,679 views in 10 u)",
-     "Nvidia Reinstates Jensen Huang as CEO - LIVE Breaking News Coverage (Agenda-Free TV, 128,182 views in 12 u)"
-    ]
-   },
-   {
-    "onderwerp": "share",
-    "views_per_uur": 58254,
+    "onderwerp": "billionaire's",
+    "views_per_uur": 49995,
     "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 622,458 views in 21 u)",
-     "Zee Business 24x7 Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 376,923 views in 30 u)",
-     "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz (Zee Business, 89,468 views in 14 u)"
+     "A POOR WAITRESS TOUCHED THE BILLIONAIRE'S UNTOUCHABLE DOG… WHAT HAPPENED NEXT... (The Last Word, 743,672 views in 24 u)",
+     "🩸 From a cheating husband to a billionaire's true love. 🔥 #cdrama (Bangkit Drama, 334,665 views in 30 u)",
+     "The Billionaire's Hidden Bloodline E4 (TechInsightEd, 179,919 views in 41 u)"
     ]
    },
    {
-    "onderwerp": "23rd",
-    "views_per_uur": 58054,
+    "onderwerp": "poor",
+    "views_per_uur": 47593,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 622,458 views in 21 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 829,822 views in 30 u)"
+     "A POOR WAITRESS TOUCHED THE BILLIONAIRE'S UNTOUCHABLE DOG… WHAT HAPPENED NEXT... (The Last Word, 743,672 views in 24 u)",
+     "Everyone Mocked Ethan for Being Poor, Until His Billionaire Parents Showed Up! #fyp  #movie #shorts (Bugs Bunny, 191,542 views in 12 u)"
     ]
    },
    {
-    "onderwerp": "23rd november",
-    "views_per_uur": 58054,
-    "kanalen": 2,
+    "onderwerp": "nov",
+    "views_per_uur": 47274,
+    "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News (Zee Business, 622,458 views in 21 u)",
-     "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026 (CNBC Awaaz., 829,822 views in 30 u)"
+     "NBC Nightly News with Tom Llamas Full Episode - Nov. 23 (NBC News, 288,138 views in 12 u)",
+     "24 Nov Stock Market Special  | Global Markets, Nifty & Sensex Outlook | Market Analysis by Ankit Sir (Baaten Bazar Ki (BBK), 153,266 views in 11 u)",
+     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 189,820 views in 35 u)"
+    ]
+   },
+   {
+    "onderwerp": "anthropic",
+    "views_per_uur": 43862,
+    "kanalen": 6,
+    "in_nieuws": true,
+    "sterk": true,
+    "al_gedaan": [
+     "2026-11-20: Anthropic Warned About the End of Humanity. Then It Raised $81 Billion",
+     "2026-11-20: Short: Anthropic Just Had the Biggest IPO Ever"
+    ],
+    "voorbeelden": [
+     "Anthropic engineer post-IPO (Alberta Tech, 511,459 views in 19 u)",
+     "What Did the Anthropic IPO Tell Us About the AI Bubble? (Kyla Scanlon, 265,074 views in 43 u)",
+     "CNBC On NVIDIA Stock, Micron Stock, Anthropic, Memory Stocks - NVDA Update (Live Chart Analysis, 64,693 views in 21 u)"
     ]
    },
    {
     "onderwerp": "huang reinstated",
-    "views_per_uur": 57846,
+    "views_per_uur": 42746,
     "kanalen": 3,
     "in_nieuws": false,
     "sterk": false,
     "al_gedaan": [],
     "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Dow Jones 1500+🔥 Nasdaq 1700+🔥 NVIDIA 40%+🔥NVIDIA CEO की वापसी🔥Jensen Huang reinstated as Nvidia CEO (Stock Market का Commando, 80,021 views in 15 u)",
-     "Stock market SURGES, Nvidia stock SKYROCKETS after Huang is reinstated as CEO (MS NOW, 52,130 views in 14 u)"
-    ]
-   },
-   {
-    "onderwerp": "nvidia ceo",
-    "views_per_uur": 56554,
-    "kanalen": 3,
-    "in_nieuws": true,
-    "sterk": true,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 797,997 views in 16 u)",
-     "Dow Jones 1500+🔥 Nasdaq 1700+🔥 NVIDIA 40%+🔥NVIDIA CEO की वापसी🔥Jensen Huang reinstated as Nvidia CEO (Stock Market का Commando, 80,021 views in 15 u)",
-     "Jensen Huang is BACK as NVIDIA CEO (I bought shares) (Ross Cameron - Warrior Trading, 39,496 views in 16 u)"
-    ]
-   },
-   {
-    "onderwerp": "sir",
-    "views_per_uur": 56496,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "al_gedaan": [],
-    "voorbeelden": [
-     "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir (GYRUS SULCUS, 496,378 views in 14 u)",
-     "NVIDIA Crash: Is America's Stock Market Heading for a Major Crisis?  By Ankit Avasthi Sir। (Ankit Avasthi Insights, 109,701 views in 15 u)",
-     "23 Nov Stock Market Analysis  | सोमवार को बाजार में क्या होगा? Nifty, Sensex & Market Ankit Sir (Baaten Bazar Ki (BBK), 186,658 views in 27 u)"
+     "Jensen Huang reinstated as Nvidia CEO: What to know (CNN, 878,230 views in 24 u)",
+     "Dow Jones 1500+🔥 Nasdaq 1700+🔥 NVIDIA 40%+🔥NVIDIA CEO की वापसी🔥Jensen Huang reinstated as Nvidia CEO (Stock Market का Commando, 87,225 views in 23 u)",
+     "Stock market SURGES, Nvidia stock SKYROCKETS after Huang is reinstated as CEO (MS NOW, 53,928 views in 22 u)"
     ]
    }
   ],
@@ -762,226 +705,226 @@
     "id": "4Unch--PmW0",
     "titel": "The Man Who Predicted The Last Crash WARNS A Recession Starts If These 2 Fail! | Steve Eisman",
     "kanaal": "The Diary Of A CEO",
-    "views": 1998567,
-    "per_uur": 86300,
-    "uren_oud": 23,
-    "short": false
-   },
-   {
-    "id": "sBlZINpHQgg",
-    "titel": "Gold Price News LIVE: 23 नवंबर सोने के नए दामों ने चौंकाया! | Big Breaking | 24 Carat Gold",
-    "kanaal": "ABP NEWS",
-    "views": 791437,
-    "per_uur": 50412,
-    "uren_oud": 16,
-    "short": false
-   },
-   {
-    "id": "hQiUMK-QDjU",
-    "titel": "Jensen Huang reinstated as Nvidia CEO: What to know",
-    "kanaal": "CNN",
-    "views": 797997,
-    "per_uur": 48797,
-    "uren_oud": 16,
+    "views": 2339496,
+    "per_uur": 75692,
+    "uren_oud": 31,
     "short": false
    },
    {
     "id": "5BvXZVQtO9Q",
     "titel": "Nvidia and govt puts his kneels down to make jensen huang CEO again #trending #nvidia #jensenhuang",
     "kanaal": "Aditya Gautam",
-    "views": 556099,
-    "per_uur": 37292,
-    "uren_oud": 15,
+    "views": 952912,
+    "per_uur": 42049,
+    "uren_oud": 23,
     "short": true
+   },
+   {
+    "id": "hQiUMK-QDjU",
+    "titel": "Jensen Huang reinstated as Nvidia CEO: What to know",
+    "kanaal": "CNN",
+    "views": 878230,
+    "per_uur": 36436,
+    "uren_oud": 24,
+    "short": false
+   },
+   {
+    "id": "sBlZINpHQgg",
+    "titel": "Gold Price News LIVE: 23 नवंबर सोने के नए दामों ने चौंकाया! | Big Breaking | 24 Carat Gold",
+    "kanaal": "ABP NEWS",
+    "views": 795164,
+    "per_uur": 33910,
+    "uren_oud": 23,
+    "short": false
    },
    {
     "id": "FxeDrTBgGNw",
     "titel": "NVIDIA Stock EXPLODES and Jensen reappointed as CEO| NVIDIA Analysis  by Dharmendra Sir",
     "kanaal": "GYRUS SULCUS",
-    "views": 496378,
-    "per_uur": 34533,
-    "uren_oud": 14,
-    "short": false
-   },
-   {
-    "id": "eiR2bnhppqE",
-    "titel": "Anthropic engineer post-IPO",
-    "kanaal": "Alberta Tech",
-    "views": 385951,
-    "per_uur": 34457,
-    "uren_oud": 11,
-    "short": true
-   },
-   {
-    "id": "KvzQzXk93nE",
-    "titel": "NBC Nightly News with Tom Llamas Full Episode - Nov. 23",
-    "kanaal": "NBC News",
-    "views": 136087,
-    "per_uur": 31766,
-    "uren_oud": 4,
+    "views": 740828,
+    "per_uur": 33485,
+    "uren_oud": 22,
     "short": false
    },
    {
     "id": "VFuJ4xQaiwQ",
     "titel": "A POOR WAITRESS TOUCHED THE BILLIONAIRE'S UNTOUCHABLE DOG… WHAT HAPPENED NEXT...",
     "kanaal": "The Last Word",
-    "views": 495105,
-    "per_uur": 31115,
-    "uren_oud": 16,
+    "views": 743672,
+    "per_uur": 31429,
+    "uren_oud": 24,
     "short": true
-   },
-   {
-    "id": "gQ-TvOYKiUc",
-    "titel": "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News",
-    "kanaal": "Zee Business",
-    "views": 622458,
-    "per_uur": 30302,
-    "uren_oud": 21,
-    "short": false
-   },
-   {
-    "id": "Z6-4O2bhCvA",
-    "titel": "₹6.39 Lakh Crore WIPED OUT! Today's Market Crash EXPOSED",
-    "kanaal": "Abhishek Kar",
-    "views": 520661,
-    "per_uur": 27942,
-    "uren_oud": 19,
-    "short": false
-   },
-   {
-    "id": "EnV8JMAEUB8",
-    "titel": "Stock Market Updates Live: आज कहां करें इन्वेस्ट | Anuj Singhal | CNBC Awaaz | 23rd November 2026",
-    "kanaal": "CNBC Awaaz.",
-    "views": 829822,
-    "per_uur": 27752,
-    "uren_oud": 30,
-    "short": false
    },
    {
     "id": "Y2e1KjNM-xc",
     "titel": "Rajasthan Panchayat Election : राजस्थान में कांग्रेस ने मारी बाजी, BJP रह गई पीछे #RajasthanNews",
     "kanaal": "ABP NEWS",
-    "views": 491856,
-    "per_uur": 26364,
+    "views": 740471,
+    "per_uur": 28041,
+    "uren_oud": 26,
+    "short": true
+   },
+   {
+    "id": "aIfX80XWxFI",
+    "titel": "MY NEW BUSINESS 🤣🤣",
+    "kanaal": "Play Like Incognito",
+    "views": 327829,
+    "per_uur": 27523,
+    "uren_oud": 12,
+    "short": true
+   },
+   {
+    "id": "eiR2bnhppqE",
+    "titel": "Anthropic engineer post-IPO",
+    "kanaal": "Alberta Tech",
+    "views": 511459,
+    "per_uur": 26989,
     "uren_oud": 19,
     "short": true
    },
    {
-    "id": "Slb7fu42dkc",
-    "titel": "Something REALLY Strange Is Happening To The Stock Market...",
-    "kanaal": "Graham Stephan",
-    "views": 311015,
-    "per_uur": 25623,
+    "id": "KvzQzXk93nE",
+    "titel": "NBC Nightly News with Tom Llamas Full Episode - Nov. 23",
+    "kanaal": "NBC News",
+    "views": 288138,
+    "per_uur": 23944,
     "uren_oud": 12,
     "short": false
    },
    {
-    "id": "N9XrPQi9ZTA",
-    "titel": "Nvidia reinstates Jensen Huang as CEO",
-    "kanaal": "CNBC Television",
-    "views": 402167,
-    "per_uur": 23889,
-    "uren_oud": 17,
+    "id": "MN5yzyMkfOI",
+    "titel": "Argentina Slips Into Recession: Is Milei Finished?",
+    "kanaal": "TLDR News Global",
+    "views": 128663,
+    "per_uur": 23793,
+    "uren_oud": 5,
     "short": false
+   },
+   {
+    "id": "zZ8N3raXH4Q",
+    "titel": "Is Childbirth Becoming a Business in India? #ytshorts",
+    "kanaal": "Richa J",
+    "views": 608342,
+    "per_uur": 23383,
+    "uren_oud": 26,
+    "short": true
+   },
+   {
+    "id": "Z6-4O2bhCvA",
+    "titel": "₹6.39 Lakh Crore WIPED OUT! Today's Market Crash EXPOSED",
+    "kanaal": "Abhishek Kar",
+    "views": 593347,
+    "per_uur": 22489,
+    "uren_oud": 26,
+    "short": false
+   },
+   {
+    "id": "gQ-TvOYKiUc",
+    "titel": "First Trade 23rd November 2026: Zee Business Live | Share Market Live Updates | Stock Market News",
+    "kanaal": "Zee Business",
+    "views": 626814,
+    "per_uur": 22156,
+    "uren_oud": 28,
+    "short": false
+   },
+   {
+    "id": "K0Wp2pnPjBs",
+    "titel": "The Billionaire Boyfriend Who Shocked Her Entire Family! 😱💰#shorts",
+    "kanaal": "Cloud recap ",
+    "views": 545876,
+    "per_uur": 21069,
+    "uren_oud": 26,
+    "short": true
    },
    {
     "id": "9R_rvQbJvzQ",
     "titel": "The UK Economy is Genuinely Booming: Why?",
     "kanaal": "TLDR News",
-    "views": 444644,
-    "per_uur": 21009,
-    "uren_oud": 21,
+    "views": 572508,
+    "per_uur": 19800,
+    "uren_oud": 29,
     "short": false
    },
    {
-    "id": "9CJmzsxEXKc",
-    "titel": "Bollywood News : मुंबई के सिनेमाघर में अमित साध और ईशा देओल की सरप्राइज एंट्री | #shorts",
-    "kanaal": "ABP NEWS",
-    "views": 614948,
-    "per_uur": 20966,
-    "uren_oud": 29,
-    "short": true
+    "id": "mGKkPwm0TXM",
+    "titel": "Stealing SUPERCARS From PRIVATE ISLAND in GTA 6",
+    "kanaal": "Caylus  ",
+    "views": 422985,
+    "per_uur": 18748,
+    "uren_oud": 23,
+    "short": false
    },
    {
-    "id": "fcmNw7ys47Y",
-    "titel": "[이슈] 포퓰리즘 역풍에 '전쟁 수준' 증시 폭락 맞은 인도네시아…\"수십조 원 이탈 우려, 패닉 상태\"/2026년 11월 22일(일)/KBS",
-    "kanaal": "KBS News",
-    "views": 627787,
-    "per_uur": 19819,
-    "uren_oud": 32,
+    "id": "SrVT8jL5lVc",
+    "titel": "Zee Business Live | Share Market Live Updates | Stock Market News | Zee Biz",
+    "kanaal": "Zee Business",
+    "views": 113291,
+    "per_uur": 18585,
+    "uren_oud": 6,
     "short": false
    },
    {
     "id": "0FMXZ8ZTToI",
     "titel": "Exposing Random Billionaire in 60 sec",
     "kanaal": "Abhay Create",
-    "views": 409531,
-    "per_uur": 19808,
-    "uren_oud": 21,
+    "views": 528136,
+    "per_uur": 18580,
+    "uren_oud": 28,
     "short": true
+   },
+   {
+    "id": "9CJmzsxEXKc",
+    "titel": "Bollywood News : मुंबई के सिनेमाघर में अमित साध और ईशा देओल की सरप्राइज एंट्री | #shorts",
+    "kanaal": "ABP NEWS",
+    "views": 671131,
+    "per_uur": 18099,
+    "uren_oud": 37,
+    "short": true
+   },
+   {
+    "id": "fcmNw7ys47Y",
+    "titel": "[이슈] 포퓰리즘 역풍에 '전쟁 수준' 증시 폭락 맞은 인도네시아…\"수십조 원 이탈 우려, 패닉 상태\"/2026년 11월 22일(일)/KBS",
+    "kanaal": "KBS News",
+    "views": 687355,
+    "per_uur": 17434,
+    "uren_oud": 39,
+    "short": false
+   },
+   {
+    "id": "Slb7fu42dkc",
+    "titel": "Something REALLY Strange Is Happening To The Stock Market...",
+    "kanaal": "Graham Stephan",
+    "views": 344459,
+    "per_uur": 17320,
+    "uren_oud": 20,
+    "short": false
+   },
+   {
+    "id": "N9XrPQi9ZTA",
+    "titel": "Nvidia reinstates Jensen Huang as CEO",
+    "kanaal": "CNBC Television",
+    "views": 411316,
+    "per_uur": 16731,
+    "uren_oud": 25,
+    "short": false
    },
    {
     "id": "eqKluw_1Z8g",
     "titel": "Tyler Perry Became a BILLIONAIRE Doing THIS 🤯",
     "kanaal": "School of Hard Knocks",
-    "views": 683116,
-    "per_uur": 18573,
-    "uren_oud": 37,
+    "views": 724237,
+    "per_uur": 16264,
+    "uren_oud": 45,
     "short": true
    },
    {
-    "id": "pEIWY6lXw8I",
-    "titel": "A RECESSION IS COMING!",
-    "kanaal": "The Diary Of A CEO",
-    "views": 215144,
-    "per_uur": 17693,
+    "id": "PJtlSG2CxO8",
+    "titel": "Everyone Mocked Ethan for Being Poor, Until His Billionaire Parents Showed Up! #fyp  #movie #shorts",
+    "kanaal": "Bugs Bunny",
+    "views": 191542,
+    "per_uur": 16164,
     "uren_oud": 12,
     "short": true
-   },
-   {
-    "id": "Frv1D27ZJwQ",
-    "titel": "LIVE | Nvidia's Big U-Turn: Jensen Huang Returns as CEO After Tainted Exit | The Palki Sharma Show",
-    "kanaal": "India Global Review",
-    "views": 243635,
-    "per_uur": 16884,
-    "uren_oud": 14,
-    "short": false
-   },
-   {
-    "id": "V3dXTbJO5jo",
-    "titel": "Rajasthan Election | Sandeep Chaudhary | राजस्थान में BJP की चुनावी रणनीति फेल? | Congress",
-    "kanaal": "ABP NEWS",
-    "views": 613767,
-    "per_uur": 16347,
-    "uren_oud": 38,
-    "short": true
-   },
-   {
-    "id": "txccMuQrE_4",
-    "titel": "Trump's CORRUPTION is 'UNPRECEDENTED': Economic analyst",
-    "kanaal": "MS NOW",
-    "views": 165793,
-    "per_uur": 16223,
-    "uren_oud": 10,
-    "short": false
-   },
-   {
-    "id": "AsbJUZIPtYI",
-    "titel": "\"젠슨황 복귀\"   삼전닉스 반도체 슈퍼사이클!  #김대호박사  #엔비디아 #마이크론",
-    "kanaal": "김대호박사TV",
-    "views": 128902,
-    "per_uur": 15615,
-    "uren_oud": 8,
-    "short": false
-   },
-   {
-    "id": "eQ8uWh_tfxM",
-    "titel": "Gen Jack Keane: He's going to FINISH this",
-    "kanaal": "Fox Business",
-    "views": 192338,
-    "per_uur": 15189,
-    "uren_oud": 13,
-    "short": false
    }
   ],
   "kanalen_zoals_wij": [
@@ -989,129 +932,69 @@
     "id": "qxm2ZViNfiE",
     "titel": "Bars Have 90% Margins. Most Still Go Broke.",
     "kanaal": "Modern MBA",
-    "views": 210160,
-    "uren_oud": 38,
-    "per_uur": 5507,
-    "keer_gewoon": 64.8,
+    "views": 229102,
+    "uren_oud": 46,
+    "per_uur": 4990,
+    "keer_gewoon": 58.7,
     "uitschieter": true
    },
    {
     "id": "-7_-eckjzfI",
     "titel": "Why Big Pizza Chains Are Struggling",
     "kanaal": "CNBC",
-    "views": 1220057,
-    "uren_oud": 40,
-    "per_uur": 30380,
-    "keer_gewoon": 15.5,
+    "views": 1289966,
+    "uren_oud": 48,
+    "per_uur": 26925,
+    "keer_gewoon": 14.1,
     "uitschieter": true
    },
    {
     "id": "pIK8dB5BiHY",
     "titel": "Every Crisis Everywhere All At Once",
     "kanaal": "Economics Explained",
-    "views": 598175,
-    "uren_oud": 63,
-    "per_uur": 9470,
-    "keer_gewoon": 9.8,
+    "views": 628609,
+    "uren_oud": 71,
+    "per_uur": 8865,
+    "keer_gewoon": 9.3,
     "uitschieter": true
    },
    {
     "id": "Slb7fu42dkc",
     "titel": "Something REALLY Strange Is Happening To The Stock Market...",
     "kanaal": "Graham Stephan",
-    "views": 311015,
-    "uren_oud": 12,
-    "per_uur": 25623,
-    "keer_gewoon": 8.1,
-    "uitschieter": true
-   },
-   {
-    "id": "FhVbxweMaWM",
-    "titel": "Why is Anthropic's Business Model So... Strange?",
-    "kanaal": "How Money Works",
-    "views": 1127851,
-    "uren_oud": 161,
-    "per_uur": 7005,
-    "keer_gewoon": 8.0,
-    "uitschieter": true
-   },
-   {
-    "id": "I2gE6Y7nHWw",
-    "titel": "Beer w/ Kevin Q&A & Jensen Returns.",
-    "kanaal": "Meet Kevin",
-    "views": 48506,
-    "uren_oud": 4,
-    "per_uur": 13117,
-    "keer_gewoon": 7.9,
+    "views": 344459,
+    "uren_oud": 20,
+    "per_uur": 17320,
+    "keer_gewoon": 5.7,
     "uitschieter": true
    },
    {
     "id": "UPbixF0MU8M",
     "titel": "Why Homeowners And Renters Feel Stuck",
     "kanaal": "CNBC",
-    "views": 174218,
-    "uren_oud": 16,
-    "per_uur": 10777,
-    "keer_gewoon": 5.5,
-    "uitschieter": true
-   },
-   {
-    "id": "R2h713oaklU",
-    "titel": "What Trump JUST Said!",
-    "kanaal": "Meet Kevin",
-    "views": 118907,
-    "uren_oud": 13,
-    "per_uur": 9134,
-    "keer_gewoon": 5.5,
+    "views": 192040,
+    "uren_oud": 24,
+    "per_uur": 8030,
+    "keer_gewoon": 4.2,
     "uitschieter": true
    },
    {
     "id": "Yz-BTcyCkTY",
     "titel": "How Cuba’s Population Collapse Is Making Its Crisis Worse | WSJ",
     "kanaal": "The Wall Street Journal",
-    "views": 190210,
-    "uren_oud": 13,
-    "per_uur": 15016,
-    "keer_gewoon": 5.1,
-    "uitschieter": true
-   },
-   {
-    "id": "fCEY_9vg6Xk",
-    "titel": "Jensen is OFFICIALLY BACK!!! Nvidia!!",
-    "kanaal": "Meet Kevin",
-    "views": 122352,
-    "uren_oud": 17,
-    "per_uur": 7257,
-    "keer_gewoon": 4.4,
-    "uitschieter": true
-   },
-   {
-    "id": "lP9Xja618dY",
-    "titel": "The Recovery Begins.",
-    "kanaal": "Meet Kevin",
-    "views": 87062,
-    "uren_oud": 14,
-    "per_uur": 6280,
-    "keer_gewoon": 3.8,
+    "views": 236183,
+    "uren_oud": 20,
+    "per_uur": 11568,
+    "keer_gewoon": 4.1,
     "uitschieter": true
    },
    {
     "id": "SwUCVqj3Uo4",
     "titel": "Americans Paid $21 Billion For Data Centers That Don’t Exist",
     "kanaal": "Logically Answered",
-    "views": 19957,
-    "uren_oud": 11,
-    "per_uur": 1871,
-    "keer_gewoon": 3.7,
-    "uitschieter": true
-   },
-   {
-    "id": "SKkiIdfsHGo",
-    "titel": "The Start of Recession.",
-    "kanaal": "Meet Kevin",
-    "views": 185169,
-    "uren_oud": 36,
-    "per_uur": 5205,
+    "views": 28337,
+    "uren_oud": 18,
+    "per_uur": 1539,
     "keer_gewoon": 3.1,
     "uitschieter": true
    },
@@ -1119,39 +1002,89 @@
     "id": "XQxPvJ7H98s",
     "titel": "How Cheap Clothing Got So Expensive",
     "kanaal": "CNBC",
-    "views": 378860,
-    "uren_oud": 88,
-    "per_uur": 4297,
-    "keer_gewoon": 2.2,
+    "views": 391856,
+    "uren_oud": 96,
+    "per_uur": 4085,
+    "keer_gewoon": 2.1,
     "uitschieter": true
    },
    {
     "id": "Brh3jhy04TQ",
     "titel": "Something Strange Is Happening In America",
     "kanaal": "Economics Explained",
-    "views": 266240,
-    "uren_oud": 158,
-    "per_uur": 1687,
+    "views": 272308,
+    "uren_oud": 166,
+    "per_uur": 1645,
     "keer_gewoon": 1.7,
+    "uitschieter": false
+   },
+   {
+    "id": "9apc5YGrqA4",
+    "titel": "Tesla is about to Explode.",
+    "kanaal": "Meet Kevin",
+    "views": 6759,
+    "uren_oud": 1,
+    "per_uur": 6759,
+    "keer_gewoon": 1.7,
+    "uitschieter": false
+   },
+   {
+    "id": "R2h713oaklU",
+    "titel": "What Trump JUST Said!",
+    "kanaal": "Meet Kevin",
+    "views": 126805,
+    "uren_oud": 21,
+    "per_uur": 6106,
+    "keer_gewoon": 1.5,
     "uitschieter": false
    },
    {
     "id": "mCIxUTr1St4",
     "titel": "OpenAI Reserved 40% Of The World's RAM. It Never Had To Buy It",
     "kanaal": "Logically Answered",
-    "views": 59827,
-    "uren_oud": 83,
-    "per_uur": 719,
-    "keer_gewoon": 1.4,
+    "views": 61129,
+    "uren_oud": 91,
+    "per_uur": 672,
+    "keer_gewoon": 1.3,
+    "uitschieter": false
+   },
+   {
+    "id": "I2gE6Y7nHWw",
+    "titel": "Beer w/ Kevin Q&A & Jensen Returns.",
+    "kanaal": "Meet Kevin",
+    "views": 58874,
+    "uren_oud": 11,
+    "per_uur": 5143,
+    "keer_gewoon": 1.3,
+    "uitschieter": false
+   },
+   {
+    "id": "fCEY_9vg6Xk",
+    "titel": "Jensen is OFFICIALLY BACK!!! Nvidia!!",
+    "kanaal": "Meet Kevin",
+    "views": 123973,
+    "uren_oud": 25,
+    "per_uur": 5038,
+    "keer_gewoon": 1.2,
+    "uitschieter": false
+   },
+   {
+    "id": "SKkiIdfsHGo",
+    "titel": "The Start of Recession.",
+    "kanaal": "Meet Kevin",
+    "views": 186172,
+    "uren_oud": 43,
+    "per_uur": 4297,
+    "keer_gewoon": 1.1,
     "uitschieter": false
    },
    {
     "id": "Ko-rV1vj-Tk",
     "titel": "Inside California’s Modern-Day Gold Rush",
     "kanaal": "CNBC Make It",
-    "views": 68002,
-    "uren_oud": 64,
-    "per_uur": 1060,
+    "views": 69573,
+    "uren_oud": 72,
+    "per_uur": 968,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1159,49 +1092,19 @@
     "id": "HQPgvxNU94M",
     "titel": "Why You Can't Focus in an Open Office | WSJ Pro Perfected",
     "kanaal": "The Wall Street Journal",
-    "views": 249222,
-    "uren_oud": 84,
-    "per_uur": 2970,
+    "views": 259755,
+    "uren_oud": 92,
+    "per_uur": 2834,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
    {
-    "id": "dFOLw_CTRPY",
-    "titel": "How to Hedge THE CRASH Before It's Too Late.",
+    "id": "lP9Xja618dY",
+    "titel": "The Recovery Begins.",
     "kanaal": "Meet Kevin",
-    "views": 135573,
-    "uren_oud": 84,
-    "per_uur": 1616,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "zlvcEuxM5xU",
-    "titel": "Jensen JUST Crashed the Market: New STARTUP",
-    "kanaal": "Meet Kevin",
-    "views": 141013,
-    "uren_oud": 86,
-    "per_uur": 1640,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "hdIdY3l96BA",
-    "titel": "Stock Up NOW: We're Under Attack.",
-    "kanaal": "Meet Kevin",
-    "views": 172786,
-    "uren_oud": 104,
-    "per_uur": 1668,
-    "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "5m4AIfW_56U",
-    "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
-    "kanaal": "Meet Kevin",
-    "views": 177980,
-    "uren_oud": 109,
-    "per_uur": 1635,
+    "views": 88045,
+    "uren_oud": 22,
+    "per_uur": 4074,
     "keer_gewoon": 1.0,
     "uitschieter": false
    },
@@ -1209,39 +1112,19 @@
     "id": "S1B9R_83-8c",
     "titel": "America Is Under Attack",
     "kanaal": "Andrei Jikh",
-    "views": 1300115,
-    "uren_oud": 86,
-    "per_uur": 15089,
+    "views": 1313965,
+    "uren_oud": 94,
+    "per_uur": 13992,
     "keer_gewoon": 1.0,
-    "uitschieter": false
-   },
-   {
-    "id": "_wtHypm4eqQ",
-    "titel": "The Collapse...",
-    "kanaal": "Meet Kevin",
-    "views": 108714,
-    "uren_oud": 86,
-    "per_uur": 1257,
-    "keer_gewoon": 0.8,
     "uitschieter": false
    },
    {
     "id": "GbwGP-HxibY",
     "titel": "How Automakers Are Digging Into Used Car Sales To Compete With Carvana",
     "kanaal": "CNBC",
-    "views": 222895,
-    "uren_oud": 160,
-    "per_uur": 1392,
-    "keer_gewoon": 0.7,
-    "uitschieter": false
-   },
-   {
-    "id": "8GU-V2QEPQ0",
-    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
-    "kanaal": "Meet Kevin",
-    "views": 111549,
-    "uren_oud": 89,
-    "per_uur": 1249,
+    "views": 226599,
+    "uren_oud": 168,
+    "per_uur": 1350,
     "keer_gewoon": 0.7,
     "uitschieter": false
    },
@@ -1249,9 +1132,49 @@
     "id": "YYNTzUHobU0",
     "titel": "Why Retail Investors Are Divided Over Anthropic’s $1.4 Trillion IPO",
     "kanaal": "CNBC",
-    "views": 103856,
-    "uren_oud": 136,
-    "per_uur": 763,
+    "views": 104114,
+    "uren_oud": 144,
+    "per_uur": 723,
+    "keer_gewoon": 0.4,
+    "uitschieter": false
+   },
+   {
+    "id": "dFOLw_CTRPY",
+    "titel": "How to Hedge THE CRASH Before It's Too Late.",
+    "kanaal": "Meet Kevin",
+    "views": 135701,
+    "uren_oud": 92,
+    "per_uur": 1481,
+    "keer_gewoon": 0.4,
+    "uitschieter": false
+   },
+   {
+    "id": "zlvcEuxM5xU",
+    "titel": "Jensen JUST Crashed the Market: New STARTUP",
+    "kanaal": "Meet Kevin",
+    "views": 141224,
+    "uren_oud": 94,
+    "per_uur": 1507,
+    "keer_gewoon": 0.4,
+    "uitschieter": false
+   },
+   {
+    "id": "hdIdY3l96BA",
+    "titel": "Stock Up NOW: We're Under Attack.",
+    "kanaal": "Meet Kevin",
+    "views": 172850,
+    "uren_oud": 111,
+    "per_uur": 1552,
+    "keer_gewoon": 0.4,
+    "uitschieter": false
+   },
+   {
+    "id": "5m4AIfW_56U",
+    "titel": "The Next Jensen of Nvidia is CRASHING the MARKET",
+    "kanaal": "Meet Kevin",
+    "views": 178025,
+    "uren_oud": 117,
+    "per_uur": 1527,
     "keer_gewoon": 0.4,
     "uitschieter": false
    },
@@ -1259,9 +1182,29 @@
     "id": "sxtXz24odps",
     "titel": "How the Fed Is Preparing For AI’s Economic Impact",
     "kanaal": "CNBC",
-    "views": 40363,
-    "uren_oud": 64,
-    "per_uur": 629,
+    "views": 40842,
+    "uren_oud": 72,
+    "per_uur": 568,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "_wtHypm4eqQ",
+    "titel": "The Collapse...",
+    "kanaal": "Meet Kevin",
+    "views": 108750,
+    "uren_oud": 94,
+    "per_uur": 1154,
+    "keer_gewoon": 0.3,
+    "uitschieter": false
+   },
+   {
+    "id": "8GU-V2QEPQ0",
+    "titel": "The Fed is Engineering a Total Stock Market Wipeout.",
+    "kanaal": "Meet Kevin",
+    "views": 111623,
+    "uren_oud": 97,
+    "per_uur": 1150,
     "keer_gewoon": 0.3,
     "uitschieter": false
    },
@@ -1269,9 +1212,9 @@
     "id": "8BnHqm5BSdI",
     "titel": "Texas Turned Blue. What’s Next for Elon Musk?",
     "kanaal": "The Wall Street Journal",
-    "views": 31660,
-    "uren_oud": 105,
-    "per_uur": 302,
+    "views": 31880,
+    "uren_oud": 112,
+    "per_uur": 284,
     "keer_gewoon": 0.1,
     "uitschieter": false
    }
@@ -2261,7 +2204,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 15:33)"
+   "tekst": "draait nu (2026-11-24 16:03)"
   },
   {
    "naam": "Git",
@@ -2276,7 +2219,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 15:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2293,8 +2236,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 15:33",
-   "volgende": "2026-11-24 16:03"
+   "laatst": "2026-11-24 16:03",
+   "volgende": "2026-11-24 16:33"
   },
   "hype": {
    "aan": true,
@@ -2308,8 +2251,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 15:18",
-   "volgende": "2026-11-24 15:48"
+   "laatst": "2026-11-24 15:48",
+   "volgende": "2026-11-24 16:18"
   },
   "titels": {
    "aan": true,
@@ -2357,7 +2300,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 75,
+    "views": 76,
     "verwerkt": "processed"
    },
    {
@@ -2420,7 +2363,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1010,
+    "views": 1002,
     "verwerkt": "processed"
    }
   ],
@@ -2667,7 +2610,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 7055,
+  "geheugen_mb": 516,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2846,8 +2789,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 15:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 16:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5285,11 +5228,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 15:34",
+  "bijgewerkt": "2026-11-24 16:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 3525656,
+    "5uur": 3380524,
     "week": 15209072,
     "per_dag": {
      "Thu 19-11": 371807,
@@ -5305,7 +5248,7 @@
    },
    {
     "account": "account2",
-    "5uur": 7463379,
+    "5uur": 6221100,
     "week": 164420429,
     "per_dag": {
      "Fri 20-11": 24260895,
@@ -5318,12 +5261,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 90101,
+    "stap_kost": 90350,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 55,
+    "5uur_pct": 46,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 68,
+    "5uur_stappen_over": 81,
     "week_pct": 125,
     "week_scripts_over": null,
     "week_stappen_over": 0
