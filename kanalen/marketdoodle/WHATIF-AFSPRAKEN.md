@@ -62,4 +62,6 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Eerste goedgekeurde proef: `proef3d.mp4` (keuken, klok 7:15, jij loopt binnen, getal boven papa, papa zwaait/praat). Eigenaar: "Ja".
 - Regels die de eigenaar bij de proef gaf: **lopen = gezicht in de looprichting** (niet achteruit), **kijken naar wie/wat de tekst noemt**
   (jij kijkt naar papa bij "your dad's head", papa draait naar jou), **bril moet er normaal uitzien** (glazen plat op het gezicht, brug, pootjes).
-- Nog te doen: keuken voller (kastjes, spullen), duidelijkere zwarte lijnen, mama/zusje/anderen in 3D, draaiboek per video.
+- 24 nov (keuken 1 min, `studio3d/keuken1min/`): **bril weg bij papa**; **blosjes plat op de huid zonder zwarte rand** (anders lijken het neuzen);
+  **camera rustig**: vooral wijde/halfwijde shots, lang stilstaan, langzaam bewegen, niet steeds inzoomen, nooit door hoofden heen;
+  getallen alleen boven wie op dat moment centraal staat (anders overlappen ze). Mama, zusje, postbode staan al in 3D.
