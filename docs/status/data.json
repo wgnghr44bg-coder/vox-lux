@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 14:03",
+ "bijgewerkt": "2026-11-24 14:33",
  "kanalen": {
   "weken": [
    {
@@ -2261,7 +2261,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 14:03)"
+   "tekst": "draait nu (2026-11-24 14:33)"
   },
   {
    "naam": "Git",
@@ -2275,8 +2275,8 @@
   },
   {
    "naam": "Sitecontrole",
-   "ok": true,
-   "tekst": "laatste ronde 13:48: alles klopt"
+   "ok": false,
+   "tekst": "laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2293,8 +2293,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 14:03",
-   "volgende": "2026-11-24 14:33"
+   "laatst": "2026-11-24 14:33",
+   "volgende": "2026-11-24 15:03"
   },
   "hype": {
    "aan": true,
@@ -2304,12 +2304,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-24 14:10"
+   "volgende": "2026-11-24 15:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 13:48",
-   "volgende": "2026-11-24 14:18"
+   "laatst": "2026-11-24 14:18",
+   "volgende": "2026-11-24 14:48"
   },
   "titels": {
    "aan": true,
@@ -2420,7 +2420,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1002,
+    "views": 1006,
     "verwerkt": "processed"
    }
   ],
@@ -2611,12 +2611,12 @@
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 11,
-   "procent": 27
+   "totaal": 12,
+   "procent": 25
   },
-  "fouten": 0,
+  "fouten": 2,
   "zelfcontrole": {
-   "goed": 11,
+   "goed": 10,
    "totaal": 11
   }
  },
@@ -2643,7 +2643,8 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)"
+   "video samenvoegen (ffmpeg)",
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2663,11 +2664,15 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
+  },
+  {
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 3032,
+  "bezig_procent": 25,
+  "geheugen_mb": 538,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2754,12 +2759,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 04:39",
-   "tekst": "routine-lokaal: pearl-harbor-1941: 1 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 038",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 04:46",
    "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 gemaakt (PEARL HARBOR DECEMBER 1941)",
    "fout": false,
@@ -2836,9 +2835,27 @@
    "tekst": "Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 14:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
   }
  ],
- "fouten": [],
+ "fouten": [
+  {
+   "tijd": "2026-11-24 14:18",
+   "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 14:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen",
+   "fout": true
+  }
+ ],
  "opgelost": [
   {
    "tijd": "2026-11-22 00:18",
@@ -5273,21 +5290,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 14:04",
+  "bijgewerkt": "2026-11-24 14:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1909961,
-    "week": 13189972,
+    "5uur": 2926296,
+    "week": 14206307,
     "per_dag": {
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 5125929
+     "Tue 24-11": 6142265
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 26020,
+    "stap_kost": 26249,
     "naam": "hoofd",
     "week_reset": ""
    },
@@ -5306,12 +5323,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 92215,
+    "stap_kost": 89369,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 75,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 37,
+    "5uur_stappen_over": 38,
     "week_pct": 125,
     "week_scripts_over": null,
     "week_stappen_over": 0
