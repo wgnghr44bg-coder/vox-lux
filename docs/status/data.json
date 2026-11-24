@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 11:33",
+ "bijgewerkt": "2026-11-24 12:03",
  "kanalen": {
   "weken": [
    {
@@ -73,9 +73,9 @@
         "kanaal": "Market Doodle",
         "datum": "2026-11-25",
         "tijd": "19:00",
-        "titel": "What If You Could Pause Time?",
+        "titel": "What If You Built a Real Cyborg?",
         "stand": "gepland",
-        "youtube": "13EHf4WZdWs"
+        "youtube": "-tP-eeJUYtU"
        }
       ]
      },
@@ -2203,7 +2203,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 11:33)"
+   "tekst": "draait nu (2026-11-24 12:03)"
   },
   {
    "naam": "Git",
@@ -2218,7 +2218,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:18: alles klopt"
+   "tekst": "laatste ronde 11:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2235,8 +2235,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 11:33",
-   "volgende": "2026-11-24 12:03"
+   "laatst": "2026-11-24 12:03",
+   "volgende": "2026-11-24 12:33"
   },
   "hype": {
    "aan": true,
@@ -2250,8 +2250,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 11:18",
-   "volgende": "2026-11-24 11:48"
+   "laatst": "2026-11-24 11:48",
+   "volgende": "2026-11-24 12:18"
   },
   "titels": {
    "aan": true,
@@ -2362,7 +2362,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 988,
+    "views": 993,
     "verwerkt": "processed"
    }
   ],
@@ -2608,7 +2608,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 27,
+  "bezig_procent": 26,
   "geheugen_mb": 1412,
   "totaal_mb": 8192
  },
@@ -2696,12 +2696,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 00:47",
-   "tekst": "Doodle-proef klaar; slot weg, bewaker opnieuw gestart (Pearl Harbor gaat verder).",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 04:39",
    "tekst": "routine-lokaal: pearl-harbor-1941: 1 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 038",
    "fout": false,
@@ -2776,6 +2770,12 @@
   {
    "tijd": "2026-11-24 08:30",
    "tekst": "hype-wachter: SEINTJE A Rainy Night in Old Montreal: A Cozy Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 12:02",
+   "tekst": "Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.",
    "fout": false,
    "klaar": false
   }
@@ -5215,7 +5215,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 11:34",
+  "bijgewerkt": "2026-11-24 12:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -5235,26 +5235,26 @@
    },
    {
     "account": "account2",
-    "5uur": 7267519,
-    "week": 161777455,
+    "5uur": 9596494,
+    "week": 164106430,
     "per_dag": {
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
-     "Tue 24-11": 12249026,
+     "Tue 24-11": 14578001,
      "Tue 17-11": 393762,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 87594,
+    "stap_kost": 89107,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 54,
+    "5uur_pct": 71,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 72,
-    "week_pct": 123,
+    "5uur_stappen_over": 45,
+    "week_pct": 124,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
