@@ -36,9 +36,9 @@ def bg(n):
         BG[n] = Image.open(p if p.exists() else HIER.parent / "proef-pop-short" / "afbeeldingen" / f"{n}.png").convert("RGB").resize((W, H))
     return BG[n]
 Y = 1460
-def hand(x, s, hoek, naam="cyborg"):                  # waar de rechterhand is (zelfde maten als pop_short.poppetje)
-    s *= ps.C[naam].get("groot", 1.0)
-    return x + 44 * s + 82 * s * math.sin(math.radians(hoek)), Y - 175 * s + 82 * s * math.cos(math.radians(hoek))
+def hand(x, s, hoek, naam="cyborg", y=None):          # waar de rechterhand is (zelfde maten als pop_short.poppetje)
+    s *= ps.C[naam].get("groot", 1.0); y = Y if y is None else y
+    return x + 44 * s + 82 * s * math.sin(math.radians(hoek)), y - 175 * s + 82 * s * math.cos(math.radians(hoek))
 T_PLUG, T_MOVED = kw(3, "plugged"), kw(3, "moved")
 T_GIVE, T_HARD = kw(5, "give"), kw(5, "hard")
 T_WAVE, T_LAPTOP = kw(8, "waves", -0.3), kw(10, "laptop")
@@ -74,6 +74,11 @@ def rugzakken(d, cx, onder, n=10):                        # stapel rugzakken aan
     for k in range(n):
         x = cx + (k % 2) * 40 - 20 + math.sin(k) * 10; y = onder - k * 52
         d.rounded_rectangle([((x - 55) * SS, (y - 50) * SS), ((x + 55) * SS, y * SS)], 16 * SS, fill=kleuren[k % 5], outline=(45, 38, 40), width=4 * SS)
+SPR = {}
+def zet_sprite(img, naam, cx, onder, schaal):            # plaatje met onderkant-midden op (cx, onder); geeft de bovenkant terug
+    if (naam, schaal) not in SPR:
+        s = Image.open(HIER / "afbeeldingen" / f"{naam}.png").convert("RGBA"); SPR[naam, schaal] = s.resize((int(s.width * schaal), int(s.height * schaal)), Image.LANCZOS)
+    s = SPR[naam, schaal]; img.paste(s, (int(cx - s.width / 2), int(onder - s.height)), s); return onder - s.height
 def popup(img, t):                                        # bericht op de laptop, groot in beeld
     a = min(1, (t - kw(10, "upgrade", -0.2)) / 0.3)
     if a <= 0: return
@@ -92,10 +97,12 @@ def frame(t):
     laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag)
     if n == "koelkast":
         img = bg("keuken-leeg").copy()                     # koelkast is weg uit de hoek: hij zit in jouw hand
-        ps.poppetje(d, "mom", 820, Y, 1.75, t, kijk=-1.0, mond=luid(t, "MOM"), verbaasd=t < Z[1][0], boos=t >= Z[1][0],
+        Y2 = 1585                                             # dichter bij de camera: koelkast hangt duidelijk vóór de keuken
+        ps.poppetje(d, "mom", 900, Y2, 1.9, t, kijk=-1.0, mond=luid(t, "MOM"), verbaasd=t < Z[1][0], boos=t >= Z[1][0],
                     gebaar="wijslinks" if t >= Z[1][0] else None, knipper=False)
-        x = 380; ps.poppetje(d, "cyborg", x, Y, 1.8, t, kijk=0.4, verbaasd=True, gebaar="haar", knipper=knip(0))
-        hx, hy = hand(x, 1.8, 165); koelkast(d, hx - 20 + math.sin(t * 9) * 4, hy + 25)      # trilt een beetje: zwaar
+        x = 300; hx, hy = hand(x, 2.1, 100, y=Y2)               # arm opzij gestrekt, koelkast op de handpalm (als een ober)
+        zet_sprite(img, "sprite-koelkast", hx + 10 + math.sin(t * 9) * 3, hy + 6, 0.75)
+        ps.poppetje(d, "cyborg", x, Y2, 2.1, t, kijk=0.6, verbaasd=True, gebaar="wijs", knipper=knip(0))
     elif n == "werk":
         img = bg("werkkamer").copy(); geplugd = t >= T_PLUG
         naam = "cyborg" if geplugd else "you"
@@ -115,8 +122,11 @@ def frame(t):
         else:
             ps.poppetje(d, "kid2", 230, Y, 1.55, t, kijk=0.9, gebaar="zwaai", verbaasd=True)
             ps.poppetje(d, "kid1", 880, Y, 1.6, t, kijk=-0.9, gebaar="wijslinks", verbaasd=True)
+            hx, hy = hand(x, 1.75, 165); onder = hy + 2
+            for k2 in range(10):                              # 10 echte rugzakken op de hand gestapeld
+                kl = ("rood", "blauw", "geel", "groen", "paars")[k2 % 5]
+                onder = zet_sprite(img, f"sprite-rugzak-{kl}", hx + (k2 % 2) * 14 - 7 + math.sin(t * 3 + k2 * 0.5) * k2 * 1.5, onder + 24, 0.17)
             ps.poppetje(d, "cyborg", x, Y, 1.75, t, kijk=0.0, gebaar="haar", knipper=knip(0.1))
-            hx, hy = hand(x, 1.75, 165); rugzakken(d, hx, hy + 20)
     elif n == "feit":
         img = bg("lab").copy()
     else:
