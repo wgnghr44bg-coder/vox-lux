@@ -66,3 +66,9 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - 24 nov (keuken 1 min, `studio3d/keuken1min/`): **bril weg bij papa**; **blosjes plat op de huid zonder zwarte rand** (anders lijken het neuzen);
   **camera rustig**: vooral wijde/halfwijde shots, lang stilstaan, langzaam bewegen, niet steeds inzoomen, nooit door hoofden heen;
   getallen alleen boven wie op dat moment centraal staat (anders overlappen ze). Mama, zusje, postbode staan al in 3D.
+
+## Gebaren van de poppetjes (24 nov, eigenaar: "andere bewegingen dan alleen zwaaien")
+`pop_short.poppetje(..., gebaar=...)`: zwaai, wijs, wijslinks, vast (iets vasthouden), haar, schouders, stamp, **juich** (armen omhoog),
+**schrik** (handen omhoog, trillen), **denk** (hand aan de kin), **facepalm**, **heupen** (handen in de zij, ellebogen), **klap**, **duim** (duim omhoog),
+**praat** (handen bewegen mee met praten), **armen-open** ('wat?!'), **rennen** (met loop=), **knik** (ja), **nee** (nee schudden).
+Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per zin een gebaar dat bij de tekst past; niet steeds zwaaien.

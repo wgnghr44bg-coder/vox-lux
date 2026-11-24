@@ -81,7 +81,28 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "wijslinks": links = -100
     elif gebaar == "schouders": links, rechts = -58, 58
     elif gebaar == "stamp": links, rechts = -35 - 10 * math.sin(t * 14), 35 + 10 * math.sin(t * 14)
+    # 24 nov (eigenaar: "andere bewegingen dan alleen zwaaien"):
+    elif gebaar == "juich": links, rechts = -160 - 12 * math.sin(t * 9), 160 + 12 * math.sin(t * 9)          # beide armen omhoog
+    elif gebaar == "schrik": links, rechts = -128 + 6 * math.sin(t * 30), 128 - 6 * math.sin(t * 30)         # handen omhoog naast het hoofd, trillen
+    elif gebaar == "denk": rechts = -116                                                                      # hand aan de kin
+    elif gebaar == "facepalm": rechts = -152                                                                  # hand voor het gezicht
+    elif gebaar == "heupen": links, rechts = -28, 28                                                          # handen in de zij
+    elif gebaar == "klap": links, rechts = 38 + 14 * math.sin(t * 16), -38 - 14 * math.sin(t * 16)            # in de handen klappen
+    elif gebaar == "duim": rechts = 125                                                                       # duim omhoog (arm schuin omhoog)
+    elif gebaar == "praat": links, rechts = -25 - 14 * math.sin(t * 5), 30 + 18 * math.sin(t * 6.5)           # handen bewegen mee met praten
+    elif gebaar == "armen-open": links, rechts = -75, 75                                                      # 'wat?!' / uitleggen
+    elif gebaar == "rennen": links, rechts = -16 - zw * 1.6, 16 + zw * 1.6                                    # armen zwaaien hard (met loop=)
+    elif gebaar in ("knik", "nee"): pass                                                                      # alleen het hoofd beweegt
+    na_hoofd = gebaar in ("denk", "facepalm")                               # 24 nov: hand vóór het gezicht -> na het hoofd tekenen
     for kant, h in ((-1, links), (1, rechts)):
+        if gebaar == "heupen":                                             # 24 nov: ellebogen naar buiten, handen op de heupen
+            ex, ey = x + kant * 44 * s + kant * 34 * s, sch + 38 * s; hx2, hy2 = x + kant * 46 * s, sch + 78 * s
+            for (a0, b0, a1, b1) in ((x + kant * 44 * s, sch, ex, ey), (ex, ey, hx2, hy2)):
+                d.line([P(a0, b0), P(a1, b1)], fill=LIJN, width=int(28 * s * SS)); d.line([P(a0, b0), P(a1, b1)], fill=kl["shirt"], width=int(22 * s * SS))
+            for (cx, cy) in ((x + kant * 44 * s, sch), (ex, ey)): d.ellipse([P(cx - 11 * s, cy - 11 * s), P(cx + 11 * s, cy + 11 * s)], fill=kl["shirt"])
+            d.ellipse([P(hx2 - 15 * s, hy2 - 15 * s), P(hx2 + 15 * s, hy2 + 15 * s)], fill=LIJN); d.ellipse([P(hx2 - 12 * s, hy2 - 12 * s), P(hx2 + 12 * s, hy2 + 12 * s)], fill=HUID)
+            continue
+        if kant == 1 and na_hoofd: continue
         if kant == 1 and kl.get("robot"):                                  # 24 nov: robotarm (cyborg-Short), metaal met gewrichten + blauw lampje
             x0r, y0r = x + 44 * s, sch; lg = 82 * s
             ex, ey = x0r + math.sin(math.radians(h)) * lg * 0.5, y0r + math.cos(math.radians(h)) * lg * 0.5
@@ -91,6 +112,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
             continue
         ledemaat(d, x + kant * 44 * s, sch, h, 82 * s, 22 * s, kl["shirt"], (12 * s, HUID))
     hx, hy = x, top - hoofd * 0.82
+    if gebaar == "knik": hy += abs(math.sin(t * 7)) * 6 * s                                                   # 24 nov: ja knikken
     kap = kl["kapsel"]; hk = kl["haar"]; lw = int(4 * s * SS)
     if kap == "paard": d.ellipse([P(hx + hoofd * 0.55, hy - 10 * s), P(hx + hoofd * 1.15, hy + 75 * s)], fill=hk, outline=LIJN, width=lw)
     if kap == "staartjes":
@@ -110,6 +132,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
         d.arc([P(hx - hoofd - 10 * s, hy - hoofd - 14 * s), P(hx + hoofd + 10 * s, hy + hoofd)], 180, 360, fill=(70, 70, 75), width=int(10 * s * SS))
         for k in (-1, 1): d.rounded_rectangle([P(hx + k * hoofd - 16 * s, hy - 22 * s), P(hx + k * hoofd + 16 * s, hy + 24 * s)], int(12 * s * SS), fill=(80, 80, 85), outline=LIJN, width=lw)
     ox = kijk * 12 * s; oy = 6 * s
+    if gebaar == "nee": ox += math.sin(t * 10) * 10 * s; hx += math.sin(t * 10) * 3 * s                     # 24 nov: nee schudden
     for k in (-1, 1):
         ex, ey = hx + k * 22 * s + ox, hy + oy
         if knipper: d.line([P(ex - 8 * s, ey), P(ex + 8 * s, ey)], fill=LIJN, width=lw)
@@ -132,6 +155,12 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif verbaasd: d.ellipse([P(mx - 6 * s, my - 6 * s), P(mx + 6 * s, my + 6 * s)], fill=MONDK, outline=LIJN, width=int(3 * s * SS))
     elif boos: d.arc([P(mx - 12 * s, my + 2 * s), P(mx + 12 * s, my + 16 * s)], 200, 340, fill=LIJN, width=lw)
     else: d.arc([P(mx - 12 * s, my - 8 * s), P(mx + 12 * s, my + 6 * s)], 20, 160, fill=LIJN, width=lw)
+    if na_hoofd:                                                           # 24 nov: rechterarm vóór het gezicht (denken / facepalm)
+        ledemaat(d, x + 44 * s, sch, rechts, 82 * s, 22 * s, kl["shirt"] if not kl.get("robot") else (165, 175, 190), (12 * s, HUID if not kl.get("robot") else (120, 130, 148)))
+    if gebaar == "duim":                                                   # 24 nov: duim omhoog op de hand
+        ux = x + 44 * s + math.sin(math.radians(rechts)) * 82 * s; uy = sch + math.cos(math.radians(rechts)) * 82 * s
+        d.ellipse([P(ux - 15 * s, uy - 15 * s), P(ux + 15 * s, uy + 15 * s)], fill=LIJN); d.ellipse([P(ux - 12 * s, uy - 12 * s), P(ux + 12 * s, uy + 12 * s)], fill=HUID)   # vuist
+        d.rounded_rectangle([P(ux - 16 * s, uy - 30 * s), P(ux - 3 * s, uy - 4 * s)], int(7 * s * SS), fill=HUID, outline=LIJN, width=int(3 * s * SS))   # brede duim aan de zijkant
     return hx, hy - hoofd - (14 * s if kl.get("koptelefoon") or kap == "krul" else 0)
 
 # ---------- scènes ----------
