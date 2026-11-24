@@ -1,0 +1,182 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>proef-goud</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script src="/node_modules/three/examples/jsm/libs/ammo.wasm.js"></script>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<canvas id="uit" width="1080" height="1920"></canvas>
+<script type="module">
+// proef-goud (24 nov): goudstapel stort in met Ammo-natuurkunde, daarna weegschaal goud (0%) tegen obligatie (5%).
+// Tekenfilm-look zoals studio3d/scene.html (toon + omtreklijnen). window.render(t) moet met oplopende t worden aangeroepen.
+import * as THREE from 'three';
+import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+const W = 1080, H = 1920;
+const D = await (await fetch('data.json')).json();
+const FONT = await new FontLoader().loadAsync('/node_modules/three/examples/fonts/helvetiker_bold.typeface.json');
+const A = await Ammo();
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const effect = new OutlineEffect(renderer, { defaultThickness: 0.0045, defaultColor: [0.16, 0.13, 0.14] });
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0xf6e8d4);
+const cam = new THREE.PerspectiveCamera(50, W / H, 0.05, 200);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9c2a5, 1.6));
+const zon = new THREE.DirectionalLight(0xfff1dc, 1.8); zon.position.set(4, 9, 6); zon.castShadow = true;
+zon.shadow.mapSize.set(2048, 2048); Object.assign(zon.shadow.camera, { left: -12, right: 12, top: 12, bottom: -12, far: 40 }); scene.add(zon);
+const grad = new THREE.DataTexture(new Uint8Array([120, 200, 255]), 3, 1, THREE.RedFormat); grad.minFilter = grad.magFilter = THREE.NearestFilter; grad.needsUpdate = true;
+const M = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: grad });
+const mesh = (geo, c, ouder = scene) => { const m = new THREE.Mesh(geo, M(c)); m.castShadow = m.receiveShadow = true; ouder.add(m); return m; };
+const GOUD = 0xf2c230, ROOD = 0xd6202a, GROEN = 0x2e9654, BLAUW = 0x1b4fa0;
+const tekst3d = (s, size, c) => { const g = new TextGeometry(s, { font: FONT, size, depth: size * 0.3, bevelEnabled: true, bevelThickness: size * 0.04, bevelSize: size * 0.03, bevelSegments: 2, curveSegments: 6 }); g.center(); return mesh(g, c); };
+// ---- tijden uit de stem ----
+const ease = x => (1 - Math.cos(Math.PI * Math.min(1, Math.max(0, x)))) / 2;
+const uitBots = x => { x = Math.min(1, Math.max(0, x)); const n = 7.5625, d = 2.75; if (x < 1 / d) return n * x * x; if (x < 2 / d) return n * (x -= 1.5 / d) * x + 0.75; if (x < 2.5 / d) return n * (x -= 2.25 / d) * x + 0.9375; return n * (x -= 2.625 / d) * x + 0.984375; };
+const pop = x => { x = Math.min(1, Math.max(0, x)); return x === 0 ? 0 : 1 + 2.7 * Math.pow(x - 1, 3) + 1.7 * Math.pow(x - 1, 2); };
+const kw = (w, n = 1) => { let k = 0; const ws = [].concat(w); for (const x of D.WO) if (ws.some(v => x[1].toLowerCase().replace(/[^\w$%]/g, '').startsWith(v)) && ++k === n) return x[2]; console.warn('woord niet gevonden', w); return 0; };
+const T_VEILIG = kw('safest'), T_VAL = kw('fell'), T_PROC = kw(['five', '5']), T_RENTE = D.Z[2][0], T_NIETS = kw('nothing'),
+      T_BOND = kw('bond'), T_VIJF = kw(['five', '5'], 2), T_SLOT = D.Z[4][0], T_SAFE2 = kw('safe', 3);
+// ---- natuurkunde (Ammo / Bullet) ----
+const cfgA = new A.btDefaultCollisionConfiguration();
+const world = new A.btDiscreteDynamicsWorld(new A.btCollisionDispatcher(cfgA), new A.btDbvtBroadphase(), new A.btSequentialImpulseConstraintSolver(), cfgA);
+world.setGravity(new A.btVector3(0, -12, 0));
+const lijf = []; const TR = new A.btTransform();
+function body(m, massa, hx, hy, hz, wereld = true) {
+  const tr = new A.btTransform(); tr.setIdentity(); tr.setOrigin(new A.btVector3(m.position.x, m.position.y, m.position.z));
+  tr.setRotation(new A.btQuaternion(m.quaternion.x, m.quaternion.y, m.quaternion.z, m.quaternion.w));
+  const vorm = new A.btBoxShape(new A.btVector3(hx, hy, hz)); const tr0 = new A.btVector3(0, 0, 0); if (massa) vorm.calculateLocalInertia(massa, tr0);
+  const b = new A.btRigidBody(new A.btRigidBodyConstructionInfo(massa, new A.btDefaultMotionState(tr), vorm, tr0));
+  b.setFriction(0.7); b.setRestitution(0.25); b.setDamping(0.05, 0.25);
+  if (massa) { b.setActivationState(4); lijf.push([m, b]); }
+  if (wereld) world.addRigidBody(b); return b;
+}
+// vloer: kluisvloer met tegels
+const vloer = mesh(new THREE.BoxGeometry(60, 1, 60), 0xd9c7a8); vloer.position.y = -0.5; body(vloer, 0, 30, 0.5, 30);
+for (let i = -6; i <= 6; i++) for (const r of [0, 1]) { const l = mesh(new THREE.BoxGeometry(r ? 0.03 : 60, 0.01, r ? 60 : 0.03), 0xc4b090); l.position.set(r ? i * 2.5 : 0, 0.005, r ? 0 : i * 2.5); l.castShadow = false; }
+// achterwand met kluisdeur
+const wand = mesh(new THREE.BoxGeometry(60, 14, 0.4), 0xefe0c6); wand.position.set(0, 7, -5);
+const deur = new THREE.Group(); deur.position.set(-4.2, 3.2, -4.75); scene.add(deur);
+mesh(new THREE.CylinderGeometry(2.4, 2.4, 0.3, 64), 0x9aa3ad, deur).rotation.x = Math.PI / 2;
+mesh(new THREE.CylinderGeometry(1.9, 1.9, 0.4, 64), 0xb8c0c8, deur).rotation.x = Math.PI / 2;
+const wiel = new THREE.Group(); wiel.position.z = 0.3; deur.add(wiel);
+for (let i = 0; i < 3; i++) { const s = mesh(new THREE.BoxGeometry(1.8, 0.12, 0.12), 0x6d7680, wiel); s.rotation.z = i * Math.PI / 3; }
+mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.3, 24), 0x6d7680, wiel).rotation.x = Math.PI / 2;
+// ---- de goudstapel (piramide 4-3-2-1, twee rijen diep) ----
+const BAR = new RoundedBoxGeometry(0.9, 0.34, 0.46, 2, 0.05);
+const staven = [];
+for (let laag = 0; laag < 4; laag++) for (let i = 0; i < 4 - laag; i++) for (const z of [-0.25, 0.25]) {
+  const m = mesh(BAR, GOUD); m.position.set((i - (3 - laag) / 2) * 0.93, 0.17 + laag * 0.345, z); body(m, 2, 0.45, 0.17, 0.23); staven.push(m);
+}
+// glinsters op het goud (alleen vóór de val)
+const glinster = []; for (let i = 0; i < 6; i++) { const s = new THREE.Mesh(new THREE.OctahedronGeometry(0.09, 0), new THREE.MeshBasicMaterial({ color: 0xffffff })); s.scale.set(0.35, 1, 0.35); scene.add(s); glinster.push(s); }
+// "SAFE" met vinkje boven de stapel
+const safe = tekst3d('SAFE', 0.62, GROEN); const safeStart = new THREE.Vector3(0, 2.55, 0.1);
+// rode pijl die van boven op de stapel klapt
+const pijl = new THREE.Group(); scene.add(pijl);
+mesh(new THREE.CylinderGeometry(0.22, 0.22, 1.4, 20), ROOD, pijl).position.y = 0.55;
+const punt = mesh(new THREE.ConeGeometry(0.5, 0.8, 24), ROOD, pijl); punt.rotation.x = Math.PI; punt.position.y = -0.45;
+pijl.position.set(0.15, 30, 0.1); let pijlLijf = null;
+// -4.6% stuitert voor de stapel
+const proc = tekst3d('-4.6%', 0.7, ROOD);
+// ---- weegschaal: goud tegen obligatie ----
+const WX = 8, weeg = new THREE.Group(); weeg.position.set(WX, 0, -0.4); scene.add(weeg);
+mesh(new THREE.CylinderGeometry(1.0, 1.25, 0.3, 40), 0x7a5232, weeg).position.y = 0.15;
+mesh(new THREE.CylinderGeometry(0.12, 0.16, 3.4, 20), 0x8a5a3a, weeg).position.y = 1.95;
+const balk = new THREE.Group(); balk.position.y = 3.65; weeg.add(balk);
+mesh(new THREE.BoxGeometry(3.4, 0.16, 0.2), 0x8a5a3a, balk);
+mesh(new THREE.SphereGeometry(0.22, 24, 16), 0xc98b55, balk);
+const schaal = (x) => { const hang = new THREE.Group(); hang.position.x = x; balk.add(hang);
+  for (const a of [0, 2.1, 4.2]) { const d = mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.5, 6), 0x555555, hang); d.position.set(Math.cos(a) * 0.45, -0.72, Math.sin(a) * 0.45); d.rotation.set(Math.sin(a) * 0.35, 0, -Math.cos(a) * 0.35); }
+  const bak = new THREE.Group(); bak.position.y = -1.45; hang.add(bak);
+  mesh(new THREE.CylinderGeometry(0.8, 0.62, 0.16, 40), 0xc98b55, bak); return { hang, bak }; };
+const links = schaal(-1.5), rechts = schaal(1.5);
+for (const [x, y, z] of [[-0.25, 0.25, -0.2], [0.25, 0.25, 0.2], [0, 0.59, 0]]) { const m = mesh(BAR, GOUD, links.bak); m.position.set(x * 0.8, y * 0.8 + 0.02, z * 0.8); m.scale.setScalar(0.8); m.rotation.y = 0.15; }
+// obligatie: papier met blauwe band en "BOND 5%"
+const pap = document.createElement('canvas'); pap.width = 512; pap.height = 360; const pc = pap.getContext('2d');
+pc.fillStyle = '#fffdf6'; pc.fillRect(0, 0, 512, 360); pc.fillStyle = '#1b4fa0'; pc.fillRect(0, 0, 512, 70); pc.strokeStyle = '#1b4fa0'; pc.lineWidth = 12; pc.strokeRect(6, 6, 500, 348);
+pc.fillStyle = '#fff'; pc.font = '900 48px "Segoe UI Black", sans-serif'; pc.textAlign = 'center'; pc.fillText('GOVERNMENT', 256, 54);
+pc.fillStyle = '#1b4fa0'; pc.font = '900 120px "Segoe UI Black", sans-serif'; pc.fillText('BOND', 256, 210); pc.fillStyle = '#2e9654'; pc.font = '900 86px "Segoe UI Black", sans-serif'; pc.fillText('5%', 256, 315);
+const papTex = new THREE.CanvasTexture(pap); papTex.colorSpace = THREE.SRGBColorSpace;
+const bond = new THREE.Group(); scene.add(bond);
+const bondM = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.88, 0.05), [M(0xfffdf6), M(0xfffdf6), M(0xfffdf6), M(0xfffdf6), new THREE.MeshBasicMaterial({ map: papTex }), M(0xfffdf6)]);
+bondM.castShadow = true; bond.add(bondM);
+// labels boven de schalen
+function label(s, kleur) { const c = document.createElement('canvas'); c.width = 400; c.height = 220; const x = c.getContext('2d');
+  x.fillStyle = '#fff'; x.strokeStyle = kleur; x.lineWidth = 14; x.beginPath(); x.roundRect(14, 14, 372, 192, 50); x.fill(); x.stroke();
+  x.fillStyle = kleur; x.font = '900 140px "Segoe UI Black", sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(s, 200, 118);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false })); sp.renderOrder = 5; scene.add(sp); return sp; }
+const lab0 = label('0%', '#d6202a'), lab5 = label('5%', '#2e9654');
+// slotvraag
+const vraag = tekst3d('STILL SAFE?', 0.52, GOUD);
+// ---- camera-reis: [tijd, positie, kijkpunt] ----
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const REIS = [
+  [0, V(3.2, 1.0, 8.2), V(0, 1.5, 0)],                          // laag, heldhaftig naar het goud
+  [T_VAL - 0.5, V(-1.6, 1.8, 8.0), V(0, 1.6, 0)],               // langzaam om de stapel heen
+  [T_VAL + 0.3, V(-0.8, 2.6, 9.6), V(0, 1.2, 0.4)],             // terug: de klap
+  [T_RENTE - 0.2, V(0.6, 2.8, 10.2), V(0.3, 0.9, 0.6)],
+  [T_RENTE + 1.3, V(WX - 0.6, 2.4, 9.0), V(WX, 2.2, -0.4)],     // naar de weegschaal
+  [T_SLOT - 0.2, V(WX + 0.4, 2.3, 8.6), V(WX, 2.2, -0.4)],
+  [T_SLOT + 1.6, V(WX - 0.9, 3.6, 12.5), V(WX - 0.6, 2.9, 0)],   // terug: weegschaal + vraag
+  [D.EIND, V(WX - 1.0, 3.8, 13.2), V(WX - 0.6, 2.9, 0)]];
+function camera(t) {
+  let i = 0; while (i < REIS.length - 2 && t > REIS[i + 1][0]) i++;
+  const [t0, p0, k0] = REIS[i], [t1, p1, k1] = REIS[i + 1]; const f = ease((t - t0) / Math.max(0.01, t1 - t0));
+  cam.position.lerpVectors(p0, p1, f); const kijk = new THREE.Vector3().lerpVectors(k0, k1, f);
+  const s = Math.max(0, 1 - (t - T_VAL) / 0.7); if (t > T_VAL && s > 0) { cam.position.x += Math.sin(t * 61) * 0.12 * s; cam.position.y += Math.sin(t * 47 + 1) * 0.1 * s; }
+  cam.lookAt(kijk);
+}
+// ---- ondertitels: 1-2 woorden groot (zoals studio3d) ----
+const groepen = []; for (let i = 0; i < D.WO.length;) { const g = [D.WO[i]]; if (!/[.,!?]$/.test(D.WO[i][1]) && i + 1 < D.WO.length && D.WO[i + 1][0] === D.WO[i][0] && D.WO[i][1].length + D.WO[i + 1][1].length < 14) g.push(D.WO[i + 1]); groepen.push(g); i += g.length; }
+const uit = document.getElementById('uit'), ctx = uit.getContext('2d');
+let simT = null;
+function natuur(t) {
+  const start = T_VAL - 0.34;
+  if (t < start) return;
+  if (simT === null) {                                           // pijl erin, met vaart naar beneden
+    simT = start; pijl.position.set(0.15, 6.0, 0.1); pijlLijf = body(pijl, 10, 0.3, 1.0, 0.3); pijlLijf.setLinearVelocity(new A.btVector3(0, -14, 0));
+  }
+  if (!window._klap && simT >= T_VAL) { window._klap = 1;           // de klap: staven vliegen alle kanten op
+    for (const [m, b] of lijf) if (b !== pijlLijf) { const d = new THREE.Vector3(m.position.x - 0.15, 0, m.position.z + 0.3).normalize();
+      const k = 5 + m.position.y * 4; b.applyCentralImpulse(new A.btVector3(d.x * k, 3 + m.position.y * 2.5, d.z * k)); b.setAngularVelocity(new A.btVector3(d.z * 6, 2, -d.x * 6)); } }
+  while (simT < t) { world.stepSimulation(1 / 120, 0); simT += 1 / 120; }
+  for (const [m, b] of lijf) { b.getMotionState().getWorldTransform(TR); const o = TR.getOrigin(), q = TR.getRotation(); m.position.set(o.x(), o.y(), o.z()); m.quaternion.set(q.x(), q.y(), q.z(), q.w()); }
+}
+window.render = (t) => {
+  natuur(t);
+  // glinsters
+  glinster.forEach((s, i) => { const f = ((t * 0.9 + i * 0.37) % 1.6) / 0.5; s.visible = t < T_VAL && f < 1; const st = staven[(i * 7) % staven.length];
+    s.position.set(st.position.x + 0.3 * Math.sin(i * 3), st.position.y + 0.2, st.position.z + 0.26); s.scale.setScalar(Math.sin(Math.PI * Math.min(1, f)) * 1.2); s.scale.x *= 0.35; s.scale.z *= 0.35; s.rotation.y = t * 2; });
+  // SAFE: verschijnt, wiebelt, wordt weggeslagen
+  if (t < T_VAL) { const p = pop((t - T_VEILIG + 0.1) / 0.5); safe.scale.setScalar(Math.max(0.001, p)); safe.position.copy(safeStart); safe.position.y += Math.sin(t * 2.4) * 0.05; safe.rotation.set(0, Math.sin(t * 1.3) * 0.12, 0); }
+  else { const d = t - T_VAL; safe.position.set(safeStart.x - d * 1.6, Math.max(0.12, safeStart.y + d * 2.2 - 6 * d * d), safeStart.z - d * 2.0);
+    safe.rotation.set(-Math.min(Math.PI / 2, d * 4), 0, Math.min(1.2, d * 3)); safe.material.color.lerpColors(new THREE.Color(GROEN), new THREE.Color(0x8a8a8a), Math.min(1, d * 2)); }
+  // -4.6%: valt van boven en stuitert voor de stapel
+  proc.visible = t >= T_PROC - 0.1; { const f = pop((t - T_PROC + 0.1) / 0.5); proc.scale.setScalar(Math.max(0.001, f)); proc.position.set(0.25, 2.5 + Math.sin(t * 2.3) * 0.05, 2.2); proc.rotation.set(0.1, 0.05, -0.06 + Math.sin(t * 1.7) * 0.04); }
+  // wiel van de kluisdeur draait langzaam
+  wiel.rotation.z = t * 0.25;
+  // weegschaal: eerst zakt het goud (zwaar), dan de obligatie erop -> kantelt naar de obligatie
+  const landt = T_BOND + 0.55;
+  const hoek = t < landt ? 0.16 + Math.sin(t * 1.7) * 0.015 : 0.16 - 0.4 * uitBots((t - landt) / 1.1);
+  balk.rotation.z = hoek; links.hang.rotation.z = rechts.hang.rotation.z = -hoek;
+  // obligatie zweeft omlaag in de rechterschaal
+  const doel = new THREE.Vector3(); rechts.bak.getWorldPosition(doel); doel.y += 0.52;
+  if (t < T_BOND - 0.2) bond.position.set(WX + 2, 12, -0.4);
+  else { const f = ease((t - T_BOND + 0.2) / 0.75); bond.position.set(doel.x + (1 - f) * 0.6, doel.y + (1 - f) * 4.5, doel.z); bond.rotation.set(-0.25 * f, (1 - f) * 2.5, (1 - f) * 0.5); }
+  // labels
+  const goud = new THREE.Vector3(); links.bak.getWorldPosition(goud);
+  lab0.visible = t > T_NIETS - 0.05; lab0.position.set(goud.x, goud.y + 1.75, goud.z + 0.4); lab0.scale.set(1.25, 0.69, 1).multiplyScalar(Math.max(0.001, pop((t - T_NIETS + 0.05) / 0.4)));
+  lab5.visible = t > T_VIJF - 0.05; lab5.position.set(doel.x, doel.y + 1.25, doel.z + 0.4); lab5.scale.set(1.25, 0.69, 1).multiplyScalar(Math.max(0.001, pop((t - T_VIJF + 0.05) / 0.4)));
+  // slotvraag
+  const v = pop((t - T_SAFE2 + 0.25) / 0.6); vraag.visible = v > 0; vraag.scale.setScalar(Math.max(0.001, v)); vraag.position.set(WX - 0.6, 5.4 + Math.sin(t * 2) * 0.06, 0.5); vraag.rotation.y = Math.sin(t * 1.1) * 0.1;
+  camera(t); effect.render(scene, cam);
+  ctx.drawImage(renderer.domElement, 0, 0);
+  const g = groepen.find((g, k) => t >= g[0][2] - 0.05 && t < (k + 1 < groepen.length ? Math.min(groepen[k + 1][0][2], g[g.length - 1][3] + 0.6) : D.EIND));
+  if (g) { const s = g.map(w => w[1]).join(' ').replace(/[,?.]/g, '').toUpperCase(); ctx.font = '900 104px "Segoe UI Black"'; ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+    ctx.lineWidth = 20; ctx.strokeStyle = '#000'; ctx.strokeText(s, W / 2, 1640); ctx.fillStyle = '#fff'; ctx.fillText(s, W / 2, 1640); }
+  return uit.toDataURL('image/jpeg', 0.92);
+};
+window.klaar = true;
+</script></body></html>

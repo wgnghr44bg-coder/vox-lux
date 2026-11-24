@@ -1,0 +1,11 @@
+# studio3d proef-goud (24 nov 2026): 20 s 3D-proef, goud valt (Ammo-natuurkunde) + weegschaal goud tegen obligatie.
+# Feiten: goud vr 20 nov -4,6% (nieuwswacht), 10-jaarsrente VS > 5% (video1/bronnen.md, CNBC Melloy 20 nov).
+@scene a
+Gold is supposed to be the safest place for your money.
+@scene b
+But on Friday, gold fell almost five percent in a single day.
+@scene c
+When interest rates go up, gold pays you nothing.
+A government bond pays you about five percent.
+@scene d
+So is the safe haven still safe?
