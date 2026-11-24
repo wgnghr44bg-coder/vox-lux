@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 02:33",
+ "bijgewerkt": "2026-11-24 03:03",
  "kanalen": {
   "weken": [
    {
@@ -2250,7 +2250,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 02:33)"
+   "tekst": "draait nu (2026-11-24 03:03)"
   },
   {
    "naam": "Git",
@@ -2265,7 +2265,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 02:18: alles klopt"
+   "tekst": "laatste ronde 02:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2282,8 +2282,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 02:33",
-   "volgende": "2026-11-24 03:03"
+   "laatst": "2026-11-24 03:03",
+   "volgende": "2026-11-24 03:33"
   },
   "hype": {
    "aan": true,
@@ -2297,8 +2297,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 02:18",
-   "volgende": "2026-11-24 02:48"
+   "laatst": "2026-11-24 02:48",
+   "volgende": "2026-11-24 03:18"
   },
   "titels": {
    "aan": true,
@@ -2409,7 +2409,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 940,
+    "views": 944,
     "verwerkt": "processed"
    }
   ],
@@ -5159,7 +5159,7 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 02:34",
+  "bijgewerkt": "2026-11-24 03:04",
   "accounts": [
    {
     "account": "hoofd",
@@ -5180,7 +5180,7 @@
    },
    {
     "account": "account2",
-    "5uur": 13551036,
+    "5uur": 11352510,
     "week": 157085470,
     "per_dag": {
      "Tue 17-11": 2969296,
@@ -5196,9 +5196,9 @@
     "stap_kost": 79290,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 100,
+    "5uur_pct": 84,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 0,
+    "5uur_stappen_over": 28,
     "week_pct": 119,
     "week_scripts_over": null,
     "week_stappen_over": 0
