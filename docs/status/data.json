@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 23:03",
+ "bijgewerkt": "2026-11-24 23:33",
  "kanalen": {
   "weken": [
    {
@@ -2255,7 +2255,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 23:03)"
+   "tekst": "draait nu (2026-11-24 23:33)"
   },
   {
    "naam": "Git",
@@ -2270,7 +2270,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2287,8 +2287,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 23:03",
-   "volgende": "2026-11-24 23:33"
+   "laatst": "2026-11-24 23:33",
+   "volgende": "2026-11-25 00:03"
   },
   "hype": {
    "aan": true,
@@ -2298,17 +2298,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-24 23:10"
+   "volgende": "2026-11-25 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 22:48",
-   "volgende": "2026-11-24 23:18"
+   "laatst": "2026-11-24 23:18",
+   "volgende": "2026-11-24 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-24 21:25",
-   "volgende": "2026-11-24 23:25"
+   "laatst": "2026-11-24 23:25",
+   "volgende": "2026-11-25 01:25"
   }
  },
  "kanaal": {
@@ -2670,8 +2670,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 7200,
+  "bezig_procent": 26,
+  "geheugen_mb": 540,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2850,8 +2850,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 23:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 23:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5112,7 +5112,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-24 21:25",
+  "bijgewerkt": "2026-11-24 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5289,21 +5289,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 23:04",
+  "bijgewerkt": "2026-11-24 23:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 12926495,
-    "week": 32468284,
+    "5uur": 16402303,
+    "week": 35944092,
     "per_dag": {
-     "Tue 24-11": 24404241,
+     "Tue 24-11": 27880050,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 36533,
+    "stap_kost": 37473,
     "naam": "hoofd",
     "week_reset": ""
    },
@@ -5321,12 +5321,12 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 98732,
+    "stap_kost": 100538,
     "naam": "Account 2",
     "week_reset": "za 10:59",
     "5uur_pct": 0,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 138,
+    "5uur_stappen_over": 135,
     "week_pct": 124,
     "week_scripts_over": null,
     "week_stappen_over": 0
