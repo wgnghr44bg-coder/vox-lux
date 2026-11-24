@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 04:33",
+ "bijgewerkt": "2026-11-24 05:03",
  "kanalen": {
   "weken": [
    {
@@ -2067,20 +2067,13 @@
  "werkplanning": {
   "nu": [
    {
-    "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-    "map": "blackbeard-1718",
-    "detail": "Onderwerp & planning",
+    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+    "map": "pearl-harbor-1941",
+    "detail": "Stem (B1)",
     "soort": "nu"
    }
   ],
-  "daarna": [
-   {
-    "wanneer": "na Blackbeard",
-    "wat": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-    "map": "pearl-harbor-1941",
-    "detail": "keten maakt de video voor za 5-12 21:00"
-   }
-  ],
+  "daarna": [],
   "publicaties": [
    {
     "datum": "2026-11-28",
@@ -2257,7 +2250,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 04:33)"
+   "tekst": "draait nu (2026-11-24 05:03)"
   },
   {
    "naam": "Git",
@@ -2272,7 +2265,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 04:18: alles klopt"
+   "tekst": "laatste ronde 04:48: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2289,8 +2282,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 04:33",
-   "volgende": "2026-11-24 05:03"
+   "laatst": "2026-11-24 05:03",
+   "volgende": "2026-11-24 05:33"
   },
   "hype": {
    "aan": true,
@@ -2304,8 +2297,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 04:18",
-   "volgende": "2026-11-24 04:48"
+   "laatst": "2026-11-24 04:48",
+   "volgende": "2026-11-24 05:18"
   },
   "titels": {
    "aan": true,
@@ -2353,7 +2346,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 59,
+    "views": 60,
     "verwerkt": "processed"
    },
    {
@@ -2416,7 +2409,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 940,
+    "views": 948,
     "verwerkt": "processed"
    }
   ],
@@ -2607,8 +2600,8 @@
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 13,
-   "procent": 23
+   "totaal": 12,
+   "procent": 25
   },
   "fouten": 0,
   "zelfcontrole": {
@@ -2625,21 +2618,25 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 0,
+ "stap": 3,
  "huidig": {
-  "map": "blackbeard-1718",
-  "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
-  "datum": "2027-08-14",
-  "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 0,
-  "stapnaam": "Onderwerp & planning",
+  "map": "pearl-harbor-1941",
+  "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
+  "datum": "2026-12-05",
+  "thumb": "thumbs/pearl-harbor-1941.jpg",
+  "stap": 3,
+  "stapnaam": "Stem (B1)",
   "voortgang": null,
-  "detail": "",
+  "detail": "bezig",
   "taken": [
    "routine zonder Claude",
+   "stem inspreken (OmniVoice B1)",
    "stem inspreken (OmniVoice)"
   ],
-  "eind": null
+  "eind": {
+   "klaar": "2026-11-24 18:08",
+   "youtube": "2026-11-24 18:28"
+  }
  },
  "nu_bezig": [
   {
@@ -2647,13 +2644,17 @@
    "stap": 0
   },
   {
+   "naam": "stem inspreken (OmniVoice B1)",
+   "stap": 3
+  },
+  {
    "naam": "stem inspreken (OmniVoice)",
    "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 553,
+  "bezig_procent": 100,
+  "geheugen_mb": 7907,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2740,12 +2741,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-23 12:17",
-   "tekst": "eigenaar: Sleep 1x per week (za 21:00), focus Market Doodle. Wo-plekken naar za achteraan (boeren-winter t/m jeanne-darc), routine alleen za, bewaker AAN maar start alleen 22:00-08:00 en wacht als Doo",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-23 23:18",
    "tekst": "routine-lokaal: pearl-harbor-1941: 9 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën",
    "fout": false,
@@ -2818,20 +2813,20 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 04:33",
-   "tekst": "routine-lokaal: pearl-harbor-1941: 1 beelden (fout) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 041",
+   "tijd": "2026-11-24 04:39",
+   "tekst": "routine-lokaal: pearl-harbor-1941: 1 beelden (lijkt) opnieuw gemaakt met een andere opbouw, geen kopieën; nog nakijken: 038",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 04:46",
+   "tekst": "routine-lokaal: pearl-harbor-1941: thumbnail v3 gemaakt (PEARL HARBOR DECEMBER 1941)",
    "fout": false,
    "klaar": false
   }
  ],
  "fouten": [],
  "opgelost": [
-  {
-   "tijd": "2026-11-21 13:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-21 21:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
@@ -4019,7 +4014,7 @@
     false
    ],
    "gereed": 40,
-   "thumb": ""
+   "thumb": "thumbs/pearl-harbor-1941.jpg"
   },
   {
    "map": "perzie-500-vc",
@@ -5155,28 +5150,28 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 04:35",
+  "bijgewerkt": "2026-11-24 05:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 2463210,
-    "week": 12060916,
+    "5uur": 2792250,
+    "week": 12331096,
     "per_dag": {
-     "Tue 17-11": 1533664,
+     "Tue 17-11": 1474803,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 2463210
+     "Tue 24-11": 2792250
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 26204,
+    "stap_kost": 26342,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 6133168,
+    "5uur": 4813017,
     "week": 154509936,
     "per_dag": {
      "Fri 20-11": 24260895,
@@ -5192,9 +5187,9 @@
     "stap_kost": 79290,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 45,
+    "5uur_pct": 35,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 94,
+    "5uur_stappen_over": 111,
     "week_pct": 117,
     "week_scripts_over": null,
     "week_stappen_over": 0
