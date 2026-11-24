@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 06:03",
+ "bijgewerkt": "2026-11-24 06:33",
  "kanalen": {
   "weken": [
    {
@@ -2242,7 +2242,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "138 GB vrij"
+   "tekst": "137 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2257,7 +2257,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 06:03)"
+   "tekst": "draait nu (2026-11-24 06:33)"
   },
   {
    "naam": "Git",
@@ -2272,7 +2272,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 05:48: alles klopt"
+   "tekst": "laatste ronde 06:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2289,8 +2289,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 06:03",
-   "volgende": "2026-11-24 06:33"
+   "laatst": "2026-11-24 06:33",
+   "volgende": "2026-11-24 07:03"
   },
   "hype": {
    "aan": true,
@@ -2299,13 +2299,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-24 05:10",
-   "volgende": "2026-11-24 06:10"
+   "laatst": "2026-11-24 06:10",
+   "volgende": "2026-11-24 07:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 05:48",
-   "volgende": "2026-11-24 06:18"
+   "laatst": "2026-11-24 06:18",
+   "volgende": "2026-11-24 06:48"
   },
   "titels": {
    "aan": true,
@@ -2416,7 +2416,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 947,
+    "views": 948,
     "verwerkt": "processed"
    }
   ],
@@ -2638,8 +2638,7 @@
   "taken": [
    "routine zonder Claude",
    "video bouwen",
-   "muziek maken (Audio Engine W3)",
-   "stem inspreken (OmniVoice)",
+   "beelden en geluid samenvoegen",
    "video samenvoegen (ffmpeg)"
   ],
   "eind": null
@@ -2654,12 +2653,8 @@
    "stap": 4
   },
   {
-   "naam": "muziek maken (Audio Engine W3)",
+   "naam": "beelden en geluid samenvoegen",
    "stap": 4
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
   },
   {
    "naam": "video samenvoegen (ffmpeg)",
@@ -4957,11 +4952,11 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 06:04",
+  "bijgewerkt": "2026-11-24 06:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 2568373,
+    "5uur": 1466334,
     "week": 12136774,
     "per_dag": {
      "Tue 17-11": 856763,
