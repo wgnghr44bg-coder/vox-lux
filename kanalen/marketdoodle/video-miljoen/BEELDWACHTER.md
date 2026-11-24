@@ -1,22 +1,70 @@
-# Beeldwachter: miljoen-proef.mp4
+# Beeldwachter: miljoen.mp4
 
-16 zinnen bekeken, **6 kloppen niet** met het beeld.
+69 zinnen bekeken, **22 kloppen niet** met het beeld.
 
-- **zin 16** (1:03.7) "You buy every game ever made. Plus a gaming chair that cost more than your old house."
+- **zin 16** (1:04.0) "You buy every game ever made. Plus a gaming chair that cost more than your old house."
   - mist: A character is buying games; A character is sitting in a chair
   - ziet: There is no character buying games in the frames.; There is no character sitting in a chair in the frames.
-- **zin 17** (1:08.8) "It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair."
+- **zin 17** (1:09.1) "It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair."
   - mist: The armrest has a cooling feature.
   - ziet: No cooling feature is visible.
-- **zin 19** (1:18.5) "Mister Pancake eats Mom's flowers. Then the fence. Then the doormat."
-  - mist: Mister Pancake eats the fence
-  - ziet: No fence is visible in the frames.
-- **zin 22** (1:27.1) "Day two. You go to school. Nobody else does. Not even the teacher."
+- **zin 19** (1:18.9) "Mister Pancake eats Mom's flowers. Then the fence. Then the doormat."
+  - mist: Mister Pancake eats the fence; Mister Pancake eats the doormat
+  - ziet: No clear object identified as the fence.; No clear object identified as the doormat.
+- **zin 22** (1:27.5) "Day two. You go to school. Nobody else does. Not even the teacher."
   - mist: A teacher is present.
   - ziet: No teacher is visible in the frames.
-- **zin 25** (1:36.1) "You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours."
+- **zin 25** (1:36.5) "You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours."
   - mist: The person goes home.
-  - ziet: No person is visible in the frame.
-- **zin 26** (1:42.9) "Dad goes to work out of habit. The office is empty. His boss is wearing a crown."
+  - ziet: No clear indication of the person going home.
+- **zin 26** (1:43.3) "Dad goes to work out of habit. The office is empty. His boss is wearing a crown."
   - mist: Dad goes to work out of habit.
   - ziet: Dad goes to work out of habit.
+- **zin 31** (2:01.8) "Day three. The garbage truck doesn't come. Neither does the mail. Or the pizza guy."
+  - mist: The garbage truck doesn't come
+  - ziet: There are no garbage trucks visible in the frames.
+- **zin 37** (2:28.2) "Nobody wants her autograph anymore. Everyone already has a mansion. Being rich isn't special when everybody is."
+  - mist: A character is holding an autograph; Characters are standing in front of mansions
+  - ziet: A character is not holding an autograph. Instead, a character is shown with arms raised in a distressed manner.; Characters are not standing in front of mansions. Instead, they are standing in front of a TV screen.
+- **zin 40** (2:39.1) "Day five. The internet goes down. Your sister screams like the world is ending."
+  - mist: A character screams
+  - ziet: The character in the yellow dress appears to be speaking or reacting, but not screaming.
+- **zin 43** (2:48.2) "Dad calls a repair guy. The repair guy is also a millionaire. He's on a yacht. He laughs. He hangs up."
+  - mist: The repair guy is on a yacht.; The repair guy laughs and hangs up.
+  - ziet: No yacht is visible in any of the frames.; The repair guy does not laugh or hang up in any of the frames.
+- **zin 46** (3:00.6) "Dad unplugs the router. Plugs it back in. Unplugs it again. Now the TV is broken too."
+  - mist: Dad plugs it back in.
+  - ziet: No action of plugging it back in.
+- **zin 53** (3:33.2) "Day eight. Mom has had enough. Tonight, the family goes to the fanciest restaurant in town. The one with the tiny food on big plates."
+  - mist: Mom is showing her frustration.
+  - ziet: There is no indication of frustration in the frames provided.
+- **zin 56** (3:49.3) "Nobody answers. So Dad walks into the kitchen and puts on the chef's hat."
+  - mist: Dad walks into the kitchen
+  - ziet: nothing
+- **zin 58** (3:54.8) "Forty minutes later, the smoke alarm goes off. Dinner is cereal. Fancy cereal. On a very big plate."
+  - mist: The smoke alarm goes off.
+  - ziet: no smoke alarm visible
+- **zin 62** (4:13.9) "In Zimbabwe, the government printed so much money that prices went up every single day. Sometimes twice a day."
+  - mist: A character is printing money; People are reacting to rising prices
+  - ziet: No character is printing money.; No people are reacting to rising prices in the frames provided.
+- **zin 63** (4:20.5) "In 2009, the country printed a single bill worth one hundred trillion dollars. And it still couldn't buy a week of groceries."
+  - mist: A bill is printed.; Groceries are on display.
+  - ziet: nothing; nothing
+- **zin 66** (4:36.3) "Day ten. Dad holds a family meeting. He has a spreadsheet. Nobody asked for a spreadsheet."
+  - mist: Dad holds a family meeting.; Nobody is present in the meeting.
+  - ziet: The family is standing in a kitchen, but there is no indication that a family meeting is taking place.; The family is standing in a kitchen, and there is no indication that nobody is present.
+- **zin 79** (5:22.9) "So you play a board game. By candlelight. It's called Monopoly. Nobody finds it funny."
+  - mist: The board game is called Monopoly.
+  - ziet: The board game is not called Monopoly.
+- **zin 85** (5:46.4) "Grandma ties one end to the tooth. And the other end to the door. She doesn't count to three."
+  - mist: Grandma ties one end to the tooth.
+  - ziet: No tooth is visible in the frames.
+- **zin 86** (5:51.9) "The door slams. The tooth is out. Dad is fine. Mostly."
+  - mist: Dad is fine.
+  - ziet: No clear indication of 'Dad is fine'.
+- **zin 109** (7:18.3) "Dad sits down at his desk. Two hundred and forty emails. He has never been this happy to see them."
+  - mist: He looks at the emails.
+  - ziet: No clear indication of him looking at the emails.
+- **zin 114** (7:37.5) "And you learned something. Money doesn't make bread. People make bread. Money is just how we say thank you."
+  - mist: People are making bread; Money is being used to say thank you
+  - ziet: There is no visible activity of making bread in any of the frames.; There is no visible exchange of money or any indication of money being used to say thank you in any of the frames.

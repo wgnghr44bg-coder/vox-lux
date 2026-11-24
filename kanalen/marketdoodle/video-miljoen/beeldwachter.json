@@ -35,7 +35,7 @@
    "Mom is staring at hers."
   ],
   "zin": 4,
-  "t": 16.1,
+  "t": 16.4,
   "tekst": "You run downstairs. Dad is staring at his phone. Mom is staring at hers. Your little sister is staring at hers."
  },
  {
@@ -44,7 +44,7 @@
   "zie": "",
   "zien": [],
   "zin": 8,
-  "t": 33.4,
+  "t": 33.7,
   "tekst": "Nobody knows where it came from. Nobody cares. You're rich. Everyone is rich."
  },
  {
@@ -53,7 +53,7 @@
   "zie": "",
   "zien": [],
   "zin": 9,
-  "t": 38.2,
+  "t": 38.5,
   "tekst": "So, what happens next? Day one is amazing. Day two is weird. And by day thirty... well. Let's see."
  },
  {
@@ -66,7 +66,7 @@
    "The sports car is pink"
   ],
   "zin": 10,
-  "t": 43.8,
+  "t": 44.1,
   "tekst": "Day one. Your street looks like a car show. Your neighbor bought a sports car. In pink."
  },
  {
@@ -79,7 +79,7 @@
    "The guy is driving one item at a time."
   ],
   "zin": 11,
-  "t": 49.1,
+  "t": 49.4,
   "tekst": "The guy across the street bought three. He can only drive one at a time. He doesn't care."
  },
  {
@@ -91,7 +91,7 @@
    "You don't live near water"
   ],
   "zin": 12,
-  "t": 54.4,
+  "t": 54.8,
   "tekst": "Dad orders a boat. You don't live near water."
  },
  {
@@ -104,7 +104,7 @@
    "A character is sitting in a chair"
   ],
   "zin": 16,
-  "t": 63.7,
+  "t": 64.0,
   "tekst": "You buy every game ever made. Plus a gaming chair that cost more than your old house."
  },
  {
@@ -117,20 +117,20 @@
    "The armrest has a tiny fridge."
   ],
   "zin": 17,
-  "t": 68.8,
+  "t": 69.1,
   "tekst": "It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair."
  },
  {
   "ok": false,
-  "mist": "Mister Pancake eats the fence",
-  "zie": "No fence is visible in the frames.",
+  "mist": "Mister Pancake eats the fence; Mister Pancake eats the doormat",
+  "zie": "No clear object identified as the fence.; No clear object identified as the doormat.",
   "zien": [
    "Mister Pancake eats Mom's flowers",
    "Mister Pancake eats the fence",
    "Mister Pancake eats the doormat"
   ],
   "zin": 19,
-  "t": 78.5,
+  "t": 78.9,
   "tekst": "Mister Pancake eats Mom's flowers. Then the fence. Then the doormat."
  },
  {
@@ -143,7 +143,7 @@
    "No other people are present."
   ],
   "zin": 22,
-  "t": 87.1,
+  "t": 87.5,
   "tekst": "Day two. You go to school. Nobody else does. Not even the teacher."
  },
  {
@@ -155,20 +155,20 @@
    "The note says 'Gone to Hawaii. Forever.'"
   ],
   "zin": 23,
-  "t": 91.2,
+  "t": 91.5,
   "tekst": "There's a note on the door. \"Gone to Hawaii. Forever.\""
  },
  {
   "ok": false,
   "mist": "The person goes home.",
-  "zie": "No person is visible in the frame.",
+  "zie": "No clear indication of the person going home.",
   "zien": [
    "A person sits alone in an empty classroom.",
    "The person goes home.",
    "The person plays games."
   ],
   "zin": 25,
-  "t": 96.1,
+  "t": 96.5,
   "tekst": "You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours."
  },
  {
@@ -181,7 +181,7 @@
    "His boss is wearing a crown."
   ],
   "zin": 26,
-  "t": 102.9,
+  "t": 103.3,
   "tekst": "Dad goes to work out of habit. The office is empty. His boss is wearing a crown."
  },
  {
@@ -194,7 +194,676 @@
    "A guy who fixes the internet is present"
   ],
   "zin": 30,
-  "t": 114.3,
+  "t": 114.7,
   "tekst": "And that's the problem. Nobody wants to work anymore. Not the bus driver. Not the cook. Not the guy who fixes the internet."
+ },
+ {
+  "ok": false,
+  "mist": "The garbage truck doesn't come",
+  "zie": "There are no garbage trucks visible in the frames.",
+  "zien": [
+   "The garbage truck doesn't come",
+   "The mail doesn't come",
+   "The pizza guy doesn't come"
+  ],
+  "zin": 31,
+  "t": 121.8,
+  "tekst": "Day three. The garbage truck doesn't come. Neither does the mail. Or the pizza guy."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Seven sports cars are on the street.",
+   "A boat is on the street.",
+   "A mountain of trash bags is on the street."
+  ],
+  "zin": 32,
+  "t": 126.8,
+  "tekst": "Your street now has seven sports cars, one boat, one horse, and a mountain of trash bags."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Everybody looks at somebody else",
+   "Nobody picks it up"
+  ],
+  "zin": 34,
+  "t": 133.8,
+  "tekst": "Everybody looks at somebody else. Nobody picks it up."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The trash pile is taller than the boat.",
+   "A family of raccoons moves in.",
+   "The raccoons look very happy."
+  ],
+  "zin": 35,
+  "t": 137.2,
+  "tekst": "By the end of the day, the trash pile is taller than the boat. A family of raccoons moves in. They look very happy."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A TV is turned on.",
+   "A famous movie star is crying.",
+   "A news broadcast is happening."
+  ],
+  "zin": 36,
+  "t": 143.9,
+  "tekst": "Day four. You turn on the TV. A famous movie star is crying on the news."
+ },
+ {
+  "ok": false,
+  "mist": "A character is holding an autograph; Characters are standing in front of mansions",
+  "zie": "A character is not holding an autograph. Instead, a character is shown with arms raised in a distressed manner.; Characters are not standing in front of mansions. Instead, they are standing in front of a TV screen.",
+  "zien": [
+   "A character is holding an autograph",
+   "Characters are standing in front of mansions",
+   "Characters are not interacting with each other"
+  ],
+  "zin": 37,
+  "t": 148.2,
+  "tekst": "Nobody wants her autograph anymore. Everyone already has a mansion. Being rich isn't special when everybody is."
+ },
+ {
+  "ok": false,
+  "mist": "A character screams",
+  "zie": "The character in the yellow dress appears to be speaking or reacting, but not screaming.",
+  "zien": [
+   "A character screams",
+   "A character is present",
+   "A character is looking at a phone"
+  ],
+  "zin": 40,
+  "t": 159.1,
+  "tekst": "Day five. The internet goes down. Your sister screams like the world is ending."
+ },
+ {
+  "ok": false,
+  "mist": "The repair guy is on a yacht.; The repair guy laughs and hangs up.",
+  "zie": "No yacht is visible in any of the frames.; The repair guy does not laugh or hang up in any of the frames.",
+  "zien": [
+   "Dad calls a repair guy.",
+   "The repair guy is on a yacht.",
+   "The repair guy laughs and hangs up."
+  ],
+  "zin": 43,
+  "t": 168.2,
+  "tekst": "Dad calls a repair guy. The repair guy is also a millionaire. He's on a yacht. He laughs. He hangs up."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Dad calls ten more.",
+   "Same answer.",
+   "One of them is on the same yacht."
+  ],
+  "zin": 44,
+  "t": 174.2,
+  "tekst": "Dad calls ten more. Same answer. One of them is on the same yacht."
+ },
+ {
+  "ok": false,
+  "mist": "Dad plugs it back in.",
+  "zie": "No action of plugging it back in.",
+  "zien": [
+   "Dad unplugs the router.",
+   "Dad plugs it back in.",
+   "Dad unplugs it again."
+  ],
+  "zin": 46,
+  "t": 180.6,
+  "tekst": "Dad unplugs the router. Plugs it back in. Unplugs it again. Now the TV is broken too."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Mom goes to the store",
+   "A carton of milk is present",
+   "Mom is at the store"
+  ],
+  "zin": 47,
+  "t": 185.7,
+  "tekst": "Day seven. Mom goes to the store for milk. A carton of milk now costs fifty dollars."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The cashier shrugs.",
+   "Everyone has a million dollars.",
+   "The store raises prices again."
+  ],
+  "zin": 49,
+  "t": 192.8,
+  "tekst": "The cashier shrugs. Everyone has a million dollars, so the store raised the prices. Then raised them again."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Price tags change while you're looking at them",
+   "A character is looking at price tags",
+   "Price tags are present"
+  ],
+  "zin": 50,
+  "t": 199.3,
+  "tekst": "By lunch it's a hundred dollars. By dinner, two hundred. The price tags change while you're looking at them."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The cashier says a number.",
+   "Mom puts the banana back.",
+   "The banana is being put back very, very slowly."
+  ],
+  "zin": 52,
+  "t": 208.9,
+  "tekst": "The cashier says a number. Mom puts the banana back very, very slowly."
+ },
+ {
+  "ok": false,
+  "mist": "Mom is showing her frustration.",
+  "zie": "There is no indication of frustration in the frames provided.",
+  "zien": [
+   "The family is going to the fanciest restaurant in town.",
+   "The restaurant has tiny food on big plates.",
+   "Mom is showing her frustration."
+  ],
+  "zin": 53,
+  "t": 213.2,
+  "tekst": "Day eight. Mom has had enough. Tonight, the family goes to the fanciest restaurant in town. The one with the tiny food on big plates."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The doors are open.",
+   "The candles are lit.",
+   "There's nobody inside."
+  ],
+  "zin": 54,
+  "t": 221.0,
+  "tekst": "The doors are open. The candles are lit. And there's nobody inside. No waiter. No chef. Nobody."
+ },
+ {
+  "ok": false,
+  "mist": "Dad walks into the kitchen",
+  "zie": "nothing",
+  "zien": [
+   "Dad walks into the kitchen",
+   "Dad puts on the chef's hat",
+   "Nobody answers"
+  ],
+  "zin": 56,
+  "t": 229.3,
+  "tekst": "Nobody answers. So Dad walks into the kitchen and puts on the chef's hat."
+ },
+ {
+  "ok": false,
+  "mist": "The smoke alarm goes off.",
+  "zie": "no smoke alarm visible",
+  "zien": [
+   "The smoke alarm goes off.",
+   "Dinner is cereal.",
+   "Cereal is on a very big plate."
+  ],
+  "zin": 58,
+  "t": 234.8,
+  "tekst": "Forty minutes later, the smoke alarm goes off. Dinner is cereal. Fancy cereal. On a very big plate."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Dad leaves a tip.",
+   "There is a million dollars.",
+   "Nobody is there to take it."
+  ],
+  "zin": 60,
+  "t": 243.0,
+  "tekst": "On the way out, Dad leaves a tip. One million dollars. There's nobody there to take it."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [],
+  "zin": 61,
+  "t": 248.1,
+  "tekst": "And here's the crazy part. This has really happened. Not with free money, but with too much money."
+ },
+ {
+  "ok": false,
+  "mist": "A character is printing money; People are reacting to rising prices",
+  "zie": "No character is printing money.; No people are reacting to rising prices in the frames provided.",
+  "zien": [
+   "A character is printing money",
+   "Prices are increasing",
+   "People are reacting to rising prices"
+  ],
+  "zin": 62,
+  "t": 253.9,
+  "tekst": "In Zimbabwe, the government printed so much money that prices went up every single day. Sometimes twice a day."
+ },
+ {
+  "ok": false,
+  "mist": "A bill is printed.; Groceries are on display.",
+  "zie": "nothing; nothing",
+  "zien": [
+   "A bill is printed.",
+   "A character holds a bill.",
+   "Groceries are on display."
+  ],
+  "zin": 63,
+  "t": 260.5,
+  "tekst": "In 2009, the country printed a single bill worth one hundred trillion dollars. And it still couldn't buy a week of groceries."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [],
+  "zin": 65,
+  "t": 271.9,
+  "tekst": "Pretty much. Money is only worth something when there isn't too much of it."
+ },
+ {
+  "ok": false,
+  "mist": "Dad holds a family meeting.; Nobody is present in the meeting.",
+  "zie": "The family is standing in a kitchen, but there is no indication that a family meeting is taking place.; The family is standing in a kitchen, and there is no indication that nobody is present.",
+  "zien": [
+   "Dad holds a family meeting.",
+   "Dad has a spreadsheet.",
+   "Nobody is present in the meeting."
+  ],
+  "zin": 66,
+  "t": 276.3,
+  "tekst": "Day ten. Dad holds a family meeting. He has a spreadsheet. Nobody asked for a spreadsheet."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Stores are running out.",
+   "Trucks stopped coming.",
+   "Truck drivers are millionaires too."
+  ],
+  "zin": 71,
+  "t": 294.8,
+  "tekst": "And the stores are running out. The trucks stopped coming. Truck drivers are millionaires too."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The shelves get emptier every day",
+   "Snacks are disappearing",
+   "Toilet paper is disappearing"
+  ],
+  "zin": 72,
+  "t": 300.5,
+  "tekst": "The shelves get emptier every day. First the snacks. Then the bread. Then the toilet paper."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The toilet paper."
+  ],
+  "zin": 74,
+  "t": 308.0,
+  "tekst": "Yes. The toilet paper."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The lights go out.",
+   "The whole city is in pitch black."
+  ],
+  "zin": 75,
+  "t": 309.9,
+  "tekst": "Day fourteen. The lights go out. The whole city. Pitch black."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "People running the power plant",
+   "Island",
+   "Yacht"
+  ],
+  "zin": 76,
+  "t": 313.8,
+  "tekst": "The people who run the power plant? You guessed it. Island. Yacht. Hawaii."
+ },
+ {
+  "ok": false,
+  "mist": "The board game is called Monopoly.",
+  "zie": "The board game is not called Monopoly.",
+  "zien": [
+   "A person is playing a board game.",
+   "There is candlelight.",
+   "The board game is called Monopoly."
+  ],
+  "zin": 79,
+  "t": 322.9,
+  "tekst": "So you play a board game. By candlelight. It's called Monopoly. Nobody finds it funny."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Dad wakes up with a toothache",
+   "His face looks like a balloon",
+   "It is day sixteen"
+  ],
+  "zin": 80,
+  "t": 328.1,
+  "tekst": "Day sixteen. Dad wakes up with a toothache. A big one. His face looks like a balloon."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Ten thousand dollars",
+   "three apples",
+   "dentists on vacation"
+  ],
+  "zin": 82,
+  "t": 336.4,
+  "tekst": "Ten thousand dollars now buys about three apples. Every dentist in town is on vacation."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Grandma shows up",
+   "a piece of string is present",
+   "a door is present"
+  ],
+  "zin": 83,
+  "t": 341.7,
+  "tekst": "Then Grandma shows up. With a piece of string and a door."
+ },
+ {
+  "ok": false,
+  "mist": "Grandma ties one end to the tooth.",
+  "zie": "No tooth is visible in the frames.",
+  "zien": [
+   "Grandma ties one end to the tooth.",
+   "Grandma ties the other end to the door.",
+   "Grandma does not count to three."
+  ],
+  "zin": 85,
+  "t": 346.4,
+  "tekst": "Grandma ties one end to the tooth. And the other end to the door. She doesn't count to three."
+ },
+ {
+  "ok": false,
+  "mist": "Dad is fine.",
+  "zie": "No clear indication of 'Dad is fine'.",
+  "zien": [
+   "The door slams.",
+   "The tooth is out.",
+   "Dad is fine."
+  ],
+  "zin": 86,
+  "t": 351.9,
+  "tekst": "The door slams. The tooth is out. Dad is fine. Mostly."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Grandma wants one thing.",
+   "A loaf of bread is present.",
+   "You realize something about the value of bread."
+  ],
+  "zin": 88,
+  "t": 356.3,
+  "tekst": "Grandma wants one thing. A loaf of bread. And for the first time, you realize: bread might be worth more than a million dollars."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "The pink sports car is out of gas.",
+   "The gas station is closed.",
+   "The guy who owns it is on vacation."
+  ],
+  "zin": 89,
+  "t": 363.9,
+  "tekst": "Day twenty. The pink sports car is out of gas. The gas station is closed. The guy who owns it is on vacation."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Expensive cars are present on the street.",
+   "No cars are moving.",
+   "People are walking on the street."
+  ],
+  "zin": 90,
+  "t": 370.4,
+  "tekst": "The whole street is full of expensive cars. None of them move. Everybody walks."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "People start talking to each other",
+   "Something weird is being discussed"
+  ],
+  "zin": 91,
+  "t": 375.2,
+  "tekst": "And for the first time in weeks, people start talking to each other. About something weird."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [],
+  "zin": 92,
+  "t": 380.7,
+  "tekst": "Who still knows how to do stuff?"
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your neighbor can fix pipes.",
+   "Grandma can bake bread.",
+   "The quiet guy at number twelve can fix the power."
+  ],
+  "zin": 93,
+  "t": 383.0,
+  "tekst": "Turns out, a lot of people do. Your neighbor can fix pipes. Grandma can bake bread. The quiet guy at number twelve can fix the power."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your sister is riding a horse",
+   "A horse is present",
+   "Your sister is present"
+  ],
+  "zin": 94,
+  "t": 390.8,
+  "tekst": "Your sister can ride a horse. That's suddenly very useful."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Bread is being traded for a pipe fix.",
+   "Horse rides are being traded for eggs.",
+   "A boat is being traded for six chickens."
+  ],
+  "zin": 95,
+  "t": 394.3,
+  "tekst": "Nobody pays with money anymore. You trade. Bread for a pipe fix. Horse rides for eggs. Dad trades the boat for six chickens."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your teacher is coming back from Hawaii",
+   "Your teacher is sunburned",
+   "Your teacher is broke"
+  ],
+  "zin": 98,
+  "t": 406.4,
+  "tekst": "Day twenty-five. Your teacher comes back from Hawaii. She's sunburned and broke."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A character is talking to someone else",
+   "A character is smiling",
+   "A character is at school"
+  ],
+  "zin": 103,
+  "t": 420.7,
+  "tekst": "And you know what? You're kind of happy to be back at school. Don't tell anyone."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "She hands out homework.",
+   "A little less happy."
+  ],
+  "zin": 104,
+  "t": 425.3,
+  "tekst": "Then she hands out homework. Okay. A little less happy."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Dad is going back to the office.",
+   "His boss is there.",
+   "There is no crown."
+  ],
+  "zin": 105,
+  "t": 428.7,
+  "tekst": "Dad goes back to the office. His boss is there too. No crown this time."
+ },
+ {
+  "ok": false,
+  "mist": "He looks at the emails.",
+  "zie": "No clear indication of him looking at the emails.",
+  "zien": [
+   "Dad sits down at his desk.",
+   "Two hundred and forty emails are present.",
+   "He looks at the emails."
+  ],
+  "zin": 109,
+  "t": 438.3,
+  "tekst": "Dad sits down at his desk. Two hundred and forty emails. He has never been this happy to see them."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your family sits at the kitchen table.",
+   "The boat is gone.",
+   "The gaming chair is firewood."
+  ],
+  "zin": 110,
+  "t": 444.1,
+  "tekst": "Day thirty. Your family sits at the kitchen table. The boat is gone. The gaming chair is firewood."
+ },
+ {
+  "ok": false,
+  "mist": "People are making bread; Money is being used to say thank you",
+  "zie": "There is no visible activity of making bread in any of the frames.; There is no visible exchange of money or any indication of money being used to say thank you in any of the frames.",
+  "zien": [
+   "A character is speaking",
+   "People are making bread",
+   "Money is being used to say thank you"
+  ],
+  "zin": 114,
+  "t": 457.5,
+  "tekst": "And you learned something. Money doesn't make bread. People make bread. Money is just how we say thank you."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Every phone on Earth buzzes again",
+   "A new message appears on the phones"
+  ],
+  "zin": 115,
+  "t": 463.8,
+  "tekst": "Then, at midnight, every phone on Earth buzzes again. A new message."
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "A character says, 'Thanks for testing.'",
+   "A character says, 'Round two starts tomorrow.'",
+   "A character says, 'This time, only one person gets the money.'"
+  ],
+  "zin": 116,
+  "t": 468.0,
+  "tekst": "\"Thanks for testing. Round two starts tomorrow. This time, only one person gets the money.\""
+ },
+ {
+  "ok": true,
+  "mist": "",
+  "zie": "",
+  "zien": [
+   "Your phone buzzes",
+   "It says, \"Congratulations.\""
+  ],
+  "zin": 117,
+  "t": 473.3,
+  "tekst": "Your phone buzzes one more time. It says, \"Congratulations.\""
  }
 ]

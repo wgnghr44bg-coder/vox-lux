@@ -80,6 +80,19 @@ poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
   gezegd wordt"): `python tools/beeldwachter.py <video.mp4> <zinnen.json>` (gratis, Ollama: qwen3:14b bepaalt per vertellerzin wat
   je moet zien, qwen2.5vl:7b kijkt naar 3 beelden). Uitslag in `BEELDWACHTER.md`; elke terechte melding herstellen en opnieuw
   draaien. Onzin-meldingen (iets wat de zin juist ontkent, of niet te tekenen is) mag je negeren, maar noem ze aan de eigenaar.
+- **EXTRA CONTROLE VOOR HET VERSTUREN, ook verplicht** (eigenaar 24 nov, na een zwevende roze schijf bij papa's kiespijn en
+  tekst buiten kaders: "dit moet echt beter gecontroleerd worden, graag extra controle of wachter op"):
+  1. `tekstcheck.py` -> elk moment met tekst (koppen, prijskaartje, sheet, biljet, tv, telefoon) op bladen; alles moet leesbaar,
+     goed gespeld en binnen zijn kader staan. Programmacheck `LAYOUT` (in de renderer) meldt koppen buiten beeld en tekst die
+     niet past; moet leeg zijn.
+  2. `python tools/rariteitenwachter.py <video.mp4>` -> elke 2 s een beeld, 12 per blad (`rariteiten/overzicht-NN.jpg`).
+     **Claude loopt ALLE bladen zelf na** op: zwevende of losse vormen, half weggepoetste plekken, voorwerpen over gezichten,
+     afgesneden hoofden/tekst, tekst buiten kaders. Het kleine beeldmodel (`--model`) is onbetrouwbaar (zag blosjes als fout,
+     miste een echte losse schijf) en nooit de enige controle.
+  3. Gevonden fouten herstellen, opnieuw renderen, de herstelde momenten opnieuw bekijken. Pas dan naar de eigenaar.
+  Lessen uit miljoen: koppen ná de camera-zoom tekenen (anders valt "DAY X" links af); iets "opgegeten/weg" tonen door de
+  schone achtergrond terug te plakken op precies de goede plek (niet een los stuk eroverheen); dieren/voorwerpen altijd met lijf
+  en op iets staand, nooit losse koppen; rook zacht en doorzichtig, niet als grijze schijven.
 - Stem nakijken met Whisper (woorden.json vs script); verkeerd verstaan -> die zin opnieuw met `OPNIEUW=<nrs>` (andere seed).
 - Gereedschap: `video-miljoen/stem.py` -> `woordtijden.py` -> `maak_miljoen.py --plaat` (controlebladen) -> `maak_miljoen.py`
   (render) -> beeldwachter.

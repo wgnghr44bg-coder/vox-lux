@@ -39,6 +39,7 @@ N|straat|Day three. The garbage truck doesn't come. Neither does the mail. Or th
 N|straat|Your street now has seven sports cars, one boat, one horse, and a mountain of trash bags.
 DAD|straat|Somebody should really pick that up.
 N|straat|Everybody looks at somebody else. Nobody picks it up.
+N|straat|By the end of the day, the trash pile is taller than the boat. A family of raccoons moves in. They look very happy.
 N|tv|Day four. You turn on the TV. A famous movie star is crying on the news.
 N|tv|Nobody wants her autograph anymore. Everyone already has a mansion. Being rich isn't special when everybody is.
 YOU|tv|Huh. I feel kind of bad for her.
@@ -63,6 +64,7 @@ N|restaurant|Nobody answers. So Dad walks into the kitchen and puts on the chef'
 DAD|restaurant|How hard can it be?
 N|restaurant|Forty minutes later, the smoke alarm goes off. Dinner is cereal. Fancy cereal. On a very big plate.
 SIS|restaurant|This is the best restaurant ever.
+N|restaurant|On the way out, Dad leaves a tip. One million dollars. There's nobody there to take it.
 N|feit|And here's the crazy part. This has really happened. Not with free money, but with too much money.
 N|feit|In Zimbabwe, the government printed so much money that prices went up every single day. Sometimes twice a day.
 N|feit|In 2009, the country printed a single bill worth one hundred trillion dollars. And it still couldn't buy a week of groceries.
@@ -88,7 +90,7 @@ N|keuken|Ten thousand dollars now buys about three apples. Every dentist in town
 N|keuken|Then Grandma shows up. With a piece of string and a door.
 MOM|keuken|Mom, no.
 N|keuken|Grandma ties one end to the tooth. And the other end to the door. She doesn't count to three.
-N|keuken|Slam. The tooth is out. Dad is fine. Mostly.
+N|keuken|The door slams. The tooth is out. Dad is fine. Mostly.
 DAD|keuken|How much do I owe you?
 N|keuken|Grandma wants one thing. A loaf of bread. And for the first time, you realize: bread might be worth more than a million dollars.
 N|straat|Day twenty. The pink sports car is out of gas. The gas station is closed. The guy who owns it is on vacation.
@@ -106,10 +108,12 @@ TEACH|school|I spent it on a coconut.
 YOU|school|One coconut?
 TEACH|school|It was a really good coconut. Now open your books.
 N|school|And you know what? You're kind of happy to be back at school. Don't tell anyone.
+N|school|Then she hands out homework. Okay. A little less happy.
 N|kantoor|Dad goes back to the office. His boss is there too. No crown this time.
 BOSS|kantoor|The island didn't have Wi-Fi. Or food. Or a toilet.
 DAD|kantoor|So... back to work?
 BOSS|kantoor|Back to work.
+N|kantoor|Dad sits down at his desk. Two hundred and forty emails. He has never been this happy to see them.
 N|keuken|Day thirty. Your family sits at the kitchen table. The boat is gone. The gaming chair is firewood.
 DAD|keuken|We had a million dollars and now we're poorer than before.
 MOM|keuken|At least we still have the horse.

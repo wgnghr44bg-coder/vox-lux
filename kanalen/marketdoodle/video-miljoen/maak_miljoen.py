@@ -5,7 +5,7 @@ scènewissel), geluidseffecten. GEEN muziek. Gebruik: python maak_miljoen.py [--
 import colorsys, json, math, os, re, subprocess, sys
 from pathlib import Path
 import numpy as np, soundfile as sf
-from PIL import Image, ImageDraw, ImageChops
+from PIL import ImageFilter, Image, ImageDraw, ImageChops
 HIER = Path(__file__).parent
 _c = os.getcwd(); os.chdir(HIER.parent / "proef-pop-short"); sys.path.insert(0, os.getcwd()); import pop_short as ps; os.chdir(_c)
 
@@ -20,7 +20,34 @@ WO = []
 for w in json.load(open(HIER / "woorden.json", encoding="utf-8")):
     if WO and WO[-1][0] == w[0] and w[1][:1] in ".," and w[1][1:2].isalnum(): WO[-1] = [w[0], WO[-1][1] + w[1], WO[-1][2], w[3]]
     else: WO.append(list(w))
-EIND = Z[-1][1] + 1.5
+import difflib
+def _norm(w): return re.sub(r"[^a-z0-9]", "", w.lower())
+def _script_woorden():
+    """Per zin de woorden van het script met tijden: Whisper-tijden waar de woorden overeenkomen, anders verdeeld naar lengte."""
+    uit = []
+    for i, z in enumerate(Z):
+        sw = z[2].replace('"', "").split(); ww = [w for w in WO if w[0] == i]
+        if not ww: ww = [[i, z[2], z[0], z[1]]]
+        t0s, t1s = [None] * len(sw), [None] * len(sw)
+        sm = difflib.SequenceMatcher(None, [_norm(w) for w in sw], [_norm(w[1]) for w in ww], autojunk=False)
+        for a, b, n in sm.get_matching_blocks():
+            for k in range(n): t0s[a + k], t1s[a + k] = ww[b + k][2], ww[b + k][3]
+        begin, eind = ww[0][2], ww[-1][3]
+        k = 0
+        while k < len(sw):                               # gaten opvullen: tussen vorige eind en volgende begin, naar woordlengte
+            if t0s[k] is not None: k += 1; continue
+            j = k
+            while j < len(sw) and t0s[j] is None: j += 1
+            a = t1s[k - 1] if k > 0 else begin; b = t0s[j] if j < len(sw) else eind
+            if b <= a: b = a + 0.25 * (j - k)
+            lens = [max(1, len(_norm(w))) for w in sw[k:j]]; tot = sum(lens); t = a
+            for q in range(k, j):
+                d = (b - a) * lens[q - k] / tot; t0s[q], t1s[q] = t, t + d; t += d
+            k = j
+        uit += [[i, w, round(t0s[q], 2), round(t1s[q], 2)] for q, w in enumerate(sw)]
+    return uit
+SW = _script_woorden()
+EIND = Z[-1][1] + 3.0                                  # even laten hangen na "Oh no." (en net boven 8 min)
 AUD, SR = sf.read(HIER / "stem.wav", dtype="float32")
 if AUD.ndim > 1: AUD = AUD.mean(axis=1)
 def kw(zin, woord, na=0.0):
@@ -58,9 +85,13 @@ def zet(img, n, hoogte, x, voet, **kw_):
     s = sprite(n, hoogte, **kw_); img.paste(s, (int(x - s.width / 2), int(voet - s.height)), s)
 
 # ---------- scènes ----------
-SCENE = {25: "klas", 69: "winkel", 70: "winkel", 71: "winkel", 72: "winkel", 96: "klas", 97: "klas", 98: "klas", 99: "klas",
-         100: "klas", 101: "klas"}                       # lege schappen in de winkel; juf terug in de klas                                     # 'sit alone in an empty classroom' -> binnen
-BGNAAM = {"slaapkamer-jij": "kamer-jij", "school": "schooldeur"}
+def _van_tot(van, tot):                                  # zinnummers van zin die met 'van' begint t/m 'tot'
+    i0 = next(i for i, z in enumerate(Z) if z[2].startswith(van)); i1 = next(i for i, z in enumerate(Z) if z[2].startswith(tot))
+    return range(i0, i1 + 1)
+SCENE = {next(i for i, z in enumerate(Z) if z[2].startswith("You sit alone")): "klas"}
+SCENE.update({i: "winkel" for i in _van_tot("And the stores are running", "Yes. The toilet paper")})     # lege schappen
+SCENE.update({i: "klas" for i in _van_tot("Day twenty-five", "Then she hands out homework")})       # juf terug in de klas
+BGNAAM = {"slaapkamer-jij": "kamer-jij", "school": "schooldeur", "tv": "woonkamer", "nacht": "keuken-nacht"}
 blokken = []
 for i, z in enumerate(Z):
     sc = SCENE.get(i, z[3]); dag = z[2].startswith("Day ")
@@ -86,11 +117,11 @@ for naam, a, b in blokken:
         pop = [dict(n="dad", x=700, s=1.6, geb="vast"), dict(n="sis", x=1250, s=1.6, geb="vast")]
         i0 = zi("Day five"); kop += [(Z[i0][0], "DAY 5", 160, 90, 70, "geel"), (kw(i0, "internet"), "NO INTERNET", 960, 170, 96, "rood")]
         i1 = zi("Dad calls a repair"); extra["bel"] = [(kw(i1, "laughs"), "HA HA HA"), (kw(i1, "hangs", 0.3), "*click*")]
-        i2 = zi("Dad calls ten"); kop.append((kw(i2, "ten"), "10 CALLS · 10 x NO", 960, 170, 80, "rood"))
+        i2 = zi("Dad calls ten"); kop.append((kw(i2, "10"), "10 CALLS · 10 x NO", 960, 170, 80, "rood"))
         i3 = zi("Dad unplugs"); extra["router"] = (kw(i3, "unplugs"), kw(i3, "plugs"), kw(i3, "again"))
         kop.append((kw(i3, "TV"), "TV: BROKEN", 960, 170, 96, "rood")); extra["kapot"] = kw(i3, "TV", -0.1)
     elif naam == "keuken" and "family meeting" in T:
-        pop = [dict(n="dad", x=560, s=1.55), dict(n="mom", x=1300, s=1.55), dict(n="you", x=1530, s=1.55), dict(n="sis", x=1740, s=1.55)]
+        pop = [dict(n="dad", x=1000, s=1.55), dict(n="mom", x=1300, s=1.55), dict(n="you", x=1530, s=1.55), dict(n="sis", x=1740, s=1.55)]
         i0 = zi("Day ten"); i1 = zi("The boat was"); i2 = zi("And milk is now")
         kop.append((Z[i0][0], "DAY 10", 160, 90, 70, "geel"))
         extra["sheet"] = [(kw(i0, "spreadsheet"), "SPREADSHEET", ""), (kw(i1, "boat"), "Boat", "$200,000"), (kw(i1, "horse"), "Horse", "$50,000"),
@@ -99,7 +130,7 @@ for naam, a, b in blokken:
         pop = [dict(n="dad", x=900, s=1.6), dict(n="mom", x=1300, s=1.6)]
         i0 = zi("Day sixteen"); kop.append((Z[i0][0], "DAY 16", 160, 90, 70, "geel"))
         i1 = zi("Then Grandma shows up"); pop.append(dict(n="oma", x=1600, s=1.6, loop=(kw(i1, "grandma", -0.3), kw(i1, "grandma", 1.3), 2100, 1600)))
-        i2 = zi("Grandma ties"); i3 = zi("Slam."); extra["tand"] = (Z[i0][0], kw(i2, "tooth"), kw(i3, "slam", -0.05))
+        i2 = zi("Grandma ties"); i3 = zi("The door slams"); extra["tand"] = (Z[i0][0], kw(i2, "tooth"), kw(i3, "slams", -0.05))
         i4 = zi("Ten thousand dollars now"); kop.append((kw(i4, "three", -0.1), "$10,000 = 3 APPLES", 960, 170, 90, "rood"))
         i5 = zi("Grandma wants"); kop.append((kw(i5, "loaf", -0.1), "PRICE: 1 LOAF OF BREAD", 960, 170, 84, "geel")); extra["broodje"] = kw(i5, "loaf", -0.1)
     elif naam == "keuken" and "You trade" in T:
@@ -118,13 +149,15 @@ for naam, a, b in blokken:
     elif naam == "keuken":
         pop = [dict(n="dad", x=820, s=1.55), dict(n="mom", x=1120, s=1.55)]
     elif naam == "straat" and "garbage truck" in T:
-        pop = [dict(n="dad", x=1250, s=1.55), dict(n="mom", x=1500, s=1.55), dict(n="you", x=1730, s=1.55)]
+        pop = [dict(n="dad", x=1000, s=1.55), dict(n="mom", x=1230, s=1.55), dict(n="you", x=1440, s=1.55)]
         i0 = zi("Day three"); kop.append((Z[i0][0], "DAY 3", 160, 90, 70, "geel")); extra["vuil"] = kw(i0, "garbage", -0.1); extra["vol"] = True
         i1 = zi("Your street now"); kop.append((kw(i1, "mountain"), "7 CARS · 1 BOAT · 1 HORSE · 1 MOUNTAIN OF TRASH", 960, 170, 56, "wit"))
         extra["kijk"] = kw(zi("Everybody looks"), "looks")
+        i2 = zi("By the end of the day, the trash"); extra["wasbeer"] = kw(i2, "raccoons", -0.1)
+        kop.append((kw(i2, "raccoons"), "NEW NEIGHBORS: RACCOONS", 960, 170, 64, "geel"))
     elif naam == "straat" and "out of gas" in T:
         pop = [dict(n="you", x=1350, s=1.55), dict(n="sis", x=1560, s=1.55), dict(n="oma", x=1760, s=1.55)]
-        i0 = zi("Day twenty."); kop += [(Z[i0][0], "DAY 20", 160, 90, 70, "geel"), (kw(i0, "gas"), "OUT OF GAS", 520, 560, 80, "rood")]
+        i0 = zi("Day twenty."); kop += [(Z[i0][0], "DAY 20", 160, 90, 70, "geel"), (kw(i0, "gas"), "OUT OF GAS", 400, 760, 64, "rood")]
         extra["vol"] = True
         extra["lopers"] = kw(zi("The whole street is full"), "walks", -0.6)
         i1 = zi("Turns out"); kop += [(kw(i1, "pipes", -0.2), "NEIGHBOR: FIXES PIPES", 960, 150, 66, "wit"), (kw(i1, "bake", -0.2), "GRANDMA: BAKES BREAD", 960, 235, 66, "wit"),
@@ -147,6 +180,7 @@ for naam, a, b in blokken:
     elif naam == "klas" and "Your teacher comes back" in T:
         pop = [dict(n="teach", x=1300, s=1.6, loop=(Z[a][0] + 0.3, Z[a][0] + 1.8, 2100, 1300)), dict(n="you", x=700, s=1.6)]
         i0 = zi("Day twenty-five"); kop.append((Z[i0][0], "DAY 25", 160, 90, 70, "geel")); extra["zon"] = kw(i0, "sunburned", -0.2)
+        i4 = zi("Then she hands out"); kop.append((kw(i4, "homework"), "HOMEWORK", 960, 170, 96, "rood")); extra["huiswerk"] = kw(i4, "homework", -0.1)
         i1 = zi("I spent it on"); extra["kokos"] = kw(i1, "coconut", -0.2); kop.append((kw(i1, "coconut"), "$1,000,000 COCONUT", 960, 170, 84, "geel"))
     elif naam == "klas":
         pop = [dict(n="you", x=960, s=1.6, y=1010)]; i0 = zi("You sit alone"); extra["thuis"] = kw(i0, "home", -0.2)
@@ -169,7 +203,8 @@ for naam, a, b in blokken:
         i0 = zi("Day eight"); kop.append((Z[i0][0], "DAY 8", 160, 90, 70, "geel"))
         i1 = zi("Nobody answers"); i2 = zi("Forty minutes")
         extra["muts"] = kw(i1, "hat", -0.1); extra["rook"] = kw(i2, "smoke", -0.2); extra["cereal"] = kw(i2, "cereal", -0.1)
-        kop.append((kw(i2, "forty"), "40 MINUTES LATER", 960, 170, 80, "geel"))
+        kop.append((kw(i2, "40"), "40 MINUTES LATER", 960, 170, 80, "geel"))
+        i3 = zi("On the way out"); kop.append((kw(i3, "tip"), "TIP: $1,000,000", 960, 170, 84, "groen")); extra["fooi"] = kw(i3, "tip", -0.1)
     elif naam == "feit":
         pop = [dict(n="you", x=360, s=1.5)]
         i0 = zi("In Zimbabwe"); i1 = zi("In 2009")
@@ -183,15 +218,17 @@ for naam, a, b in blokken:
         extra["accu"] = kw(zi("I can't charge"), "charge", -0.2)
     elif naam == "kantoor":
         pop = [dict(n="dad", x=700, s=1.7, loop=(Z[a][0], Z[a][0] + 1.6, -150, 700)), dict(n="boss", x=1250, s=1.7)]; extra["kroon"] = "No crown" not in T
+        if "Dad sits down at his desk" in T:
+            i5 = zi("Dad sits down at his desk"); kop.append((kw(i5, "240", -0.1), "240 EMAILS!", 960, 170, 90, "groen"))
         if "Nobody wants to work" in T:
             i0 = zi("And that's the problem")
-            kop += [(kw(i0, "bus"), "BUS DRIVER: QUIT", 960, 150, 70, "rood"), (kw(i0, "cook"), "COOK: QUIT", 960, 250, 70, "rood"),
-                    (kw(i0, "internet", -0.3), "INTERNET GUY: QUIT", 960, 350, 70, "rood")]
+            kop += [(kw(i0, "bus"), "BUS DRIVER: QUIT", 560, 90, 62, "rood"), (kw(i0, "cook"), "COOK: QUIT", 560, 170, 62, "rood"),
+                    (kw(i0, "internet", -0.3), "INTERNET GUY: QUIT", 560, 250, 62, "rood")]
     SC.append(dict(t=0.0 if not SC else Z[a][0] - 0.1, eind=Z[b][1] + 0.4, naam=naam, bg=BGNAAM.get(naam, naam), pop=pop, kop=kop, a=a, b=b, **extra))
 for k in range(len(SC) - 1): SC[k]["eind"] = SC[k + 1]["t"]
 SC[-1]["eind"] = EIND
 
-VERBAASD = ("One million dollars?", "blink", "Oh", "screams", "Nobody", "three", "boat", "can't even swim", "horse", "Gone to Hawaii", "crown")
+VERBAASD = ("toothache", "balloon", "dentist", "Twenty thousand", "One million dollars?", "blink", "Oh", "screams", "Nobody", "three", "boat", "can't even swim", "horse", "Gone to Hawaii", "crown")
 BLIJ = ("millionaire", "Best. Day", "rich")
 ACTIE = {"I'm a millionaire": "juich", "Best. Day. Ever": "juich", "This has to be a mistake": "denk", "It's on the news": "armen-open",
          "It's for the driveway": "praat", "You can't even swim": "heupen", "I don't need to swim": "duim", "Who sold a seven": "armen-open",
@@ -205,15 +242,17 @@ def bg(n):
         if not p.exists(): p = HIER.parent / "video-swap" / "afbeeldingen" / f"{n}.png"
         BG[n] = Image.open(p).convert("RGB").resize((W, H))
     return BG[n]
+LAYOUT = set()                                          # layoutcheck: tekst buiten beeld/kader -> melding bij --plaat en render
 def kop(img, s, x, y, m, kl, sch):
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
+    if sch >= 1 and (x - w / 2 < 20 or x + w / 2 > W - 20 or y - h / 2 < 10): LAYOUT.add(f"kop '{s}' valt (deels) buiten beeld")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30))
 def ondertitel(img, t):
     zi_ = [i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25]
     if not zi_: return
-    i = zi_[-1]; ws = [w for w in WO if w[0] == i]
+    i = zi_[-1]; ws = [w for w in SW if w[0] == i]
     if not ws: return
     f = font(FS, 56); d = ImageDraw.Draw(img); stukken, cur = [], []
     for w in ws:
@@ -310,12 +349,14 @@ def prijsbord(img, t, prijzen):
     d = ImageDraw.Draw(img); x0, y0 = 980, 520
     d.rectangle((x0, y0, x0 + 110, y0 + 190), fill=(250, 250, 255), outline=INK, width=5)                  # melkpak
     d.polygon([(x0, y0), (x0 + 55, y0 - 50), (x0 + 110, y0)], fill=(230, 230, 240), outline=INK)
-    d.rectangle((x0 + 12, y0 + 60, x0 + 98, y0 + 120), fill=(70, 130, 220)); d.text((x0 + 22, y0 + 70), "MILK", font=font(FB, 34), fill=(255, 255, 255))
+    d.rectangle((x0 + 12, y0 + 60, x0 + 98, y0 + 120), fill=(70, 130, 220)); d.text((x0 + 16, y0 + 72), "MILK", font=font(FB, 32), fill=(255, 255, 255))
     nu = [pr for t0, pr in prijzen if t >= t0]
     if nu:
         t0 = max(t0 for t0, pr in prijzen if t >= t0); sch = ps.pop((t - t0) / 0.3)
-        d.rounded_rectangle((x0 + 120, y0 - 40, x0 + 120 + 230 * sch, y0 + 70 * sch), 14, fill=(255, 225, 60), outline=INK, width=5)
-        d.text((x0 + 140, y0 - 30), nu[-1], font=font(FB, int(78 * sch)), fill=(200, 30, 30))
+        f = font(FB, int(72 * sch)); b = d.textbbox((0, 0), nu[-1], font=f); tw, th = b[2] - b[0], b[3] - b[1]
+        bx, by = x0 + 130, y0 - 40
+        d.rounded_rectangle((bx, by, bx + tw + 44, by + th + 40), 14, fill=(255, 225, 60), outline=INK, width=5)
+        d.text((bx + 22 - b[0], by + 20 - b[1]), nu[-1], font=f, fill=(200, 30, 30))
 def banaan(img, x, y, s=1.0):
     d = ImageDraw.Draw(img); d.chord((x - 40 * s, y - 60 * s, x + 40 * s, y + 20 * s), 20, 160, fill=(250, 215, 60), outline=INK, width=4)
 def chefmuts(img, x, y, s):
@@ -324,10 +365,15 @@ def chefmuts(img, x, y, s):
     d.rectangle((x - 48 * s, y - 45 * s, x + 48 * s, y + 4 * s), fill=(255, 255, 255), outline=INK, width=4)
 def rook(img, t, t0):
     if t < t0: return
-    d = ImageDraw.Draw(img); f = min(1, (t - t0) / 1.5)
-    for k in range(9):
-        x = 300 + k * 170 + 30 * math.sin(t * 1.3 + k); y = 260 - 60 * math.sin(t + k) * f; r = (70 + 20 * math.sin(t * 2 + k)) * f
-        d.ellipse((x - r, y - r, x + r, y + r), fill=(150, 150, 160))
+    f = min(1, (t - t0) / 1.5)                           # zachte rookwolk: uit de keukendeur omhoog, dan een waas langs het plafond
+    laag = Image.new("RGBA", img.size, (0, 0, 0, 0)); d = ImageDraw.Draw(laag)
+    for k in range(7):                                    # pluimen uit de deuropening
+        fase = (t * 0.35 + k / 7) % 1; x = 1010 + 60 * math.sin(t * 1.5 + k * 2) * fase; y = 330 - 200 * fase; r = (35 + 45 * fase) * f
+        d.ellipse((x - r, y - r, x + r, y + r), fill=(120, 120, 130, int(150 * (1 - 0.4 * fase))))
+    for k in range(12):                                   # waas langs het plafond, groeit vanuit het midden
+        x = 1010 + (k - 5.5) * 150 * f + 25 * math.sin(t * 1.1 + k); y = 170 + 25 * math.sin(t * 0.8 + k * 1.7); r = 90 + 15 * math.sin(t * 1.6 + k)
+        d.ellipse((x - r, y - r * 0.7, x + r, y + r * 0.7), fill=(120, 120, 130, int(140 * f)))
+    laag = laag.filter(ImageFilter.GaussianBlur(10)); img.paste(laag, (0, 0), laag)
     if int(t * 3) % 2: kop(img, "BEEP! BEEP!", 1600, 120, 64, KL["rood"], 1)
 def cereal(img, t, t0):
     if t < t0: return
@@ -337,22 +383,26 @@ def cereal(img, t, t0):
     for k in range(9): a = k * 0.7; d.ellipse((cx + math.cos(a) * 30 * sch - 8, cy + math.sin(a) * 10 * sch - 8, cx + math.cos(a) * 30 * sch + 8, cy + math.sin(a) * 10 * sch + 8), fill=(200, 130, 50), outline=INK)
 def biljet(img, t, t0):
     if t < t0: return
-    d = ImageDraw.Draw(img); sch = ps.pop((t - t0) / 0.35); cx, cy = 1250, 560; w, h = 720 * sch, 330 * sch
+    leeg = bg(SC_NU.get("bg", "feit")).crop((100, 380, 900, 960)); img.paste(leeg, (910, 380))   # huisje + spaarvarken weg: lege muur en vloer
+    d = ImageDraw.Draw(img); sch = ps.pop((t - t0) / 0.35); cx, cy = 1250, 530; w, h = 860 * sch, 330 * sch
     d.rectangle((cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2), fill=(170, 210, 160), outline=(40, 80, 40), width=6)
     d.rectangle((cx - w / 2 + 20, cy - h / 2 + 20, cx + w / 2 - 20, cy + h / 2 - 20), outline=(60, 110, 60), width=3)
-    for k, (r, m) in enumerate((("RESERVE BANK OF ZIMBABWE", 30), ("ONE HUNDRED TRILLION DOLLARS", 40), ("100 000 000 000 000", 52))):
+    for k, (r, m) in enumerate((("RESERVE BANK OF ZIMBABWE", 30), ("ONE HUNDRED TRILLION DOLLARS", 38), ("100 000 000 000 000", 52))):
         f = font(FB, int(m * sch)); tw = d.textlength(r, font=f); d.text((cx - tw / 2, cy - 110 * sch + k * 80 * sch), r, font=f, fill=(30, 70, 30))
-    d.text((40, 1035), "Source: Reserve Bank of Zimbabwe, Z$100 trillion banknote (2009)", font=font(FS, 28), fill=(60, 50, 50))
+    bron = "Source: Reserve Bank of Zimbabwe, Z$100 trillion banknote (2009)"; fb = font(FS, 26)
+    bw = d.textlength(bron, font=fb); by = cy + h / 2 + 16
+    d.rounded_rectangle((cx - bw / 2 - 14, by - 6, cx + bw / 2 + 14, by + 36), 10, fill=(255, 255, 255), outline=(60, 50, 50), width=2)
+    d.text((cx - bw / 2, by), bron, font=fb, fill=(50, 40, 40))
 def sheet(img, t, regels):
     if t < regels[0][0]: return
-    d = ImageDraw.Draw(img); x0, y0 = 780, 330
+    d = ImageDraw.Draw(img); x0, y0 = 150, 330
     d.rectangle((x0 + 160, y0 + 400, x0 + 175, y0 + 640), fill=(120, 90, 60)); d.rectangle((x0 + 345, y0 + 400, x0 + 360, y0 + 640), fill=(120, 90, 60))
-    d.rectangle((x0, y0, x0 + 520, y0 + 420), fill=(255, 255, 255), outline=INK, width=6)
-    d.rectangle((x0, y0, x0 + 520, y0 + 70), fill=(60, 160, 90)); d.text((x0 + 20, y0 + 12), regels[0][1], font=font(FB, 44), fill=(255, 255, 255))
+    d.rectangle((x0, y0, x0 + 600, y0 + 420), fill=(255, 255, 255), outline=INK, width=6)
+    d.rectangle((x0, y0, x0 + 600, y0 + 70), fill=(60, 160, 90)); d.text((x0 + 20, y0 + 12), regels[0][1], font=font(FB, 44), fill=(255, 255, 255))
     for k, (t0, a, b) in enumerate(regels[1:]):
         if t < t0: continue
-        y = y0 + 90 + k * 78; d.line((x0, y + 66, x0 + 520, y + 66), fill=(200, 200, 210), width=2)
-        d.text((x0 + 20, y + 10), a, font=font(FS, 40), fill=INK); d.text((x0 + 500 - d.textlength(b, font=font(FB, 40)), y + 10), b, font=font(FB, 40), fill=(200, 40, 40))
+        y = y0 + 90 + k * 78; d.line((x0, y + 66, x0 + 600, y + 66), fill=(200, 200, 210), width=2)
+        d.text((x0 + 20, y + 10), a, font=font(FS, 38), fill=INK); d.text((x0 + 580 - d.textlength(b, font=font(FB, 38)), y + 10), b, font=font(FB, 38), fill=(200, 40, 40))
 def keukentafel(img):
     d = ImageDraw.Draw(img); d.rectangle((380, 820, 1600, 850), fill=(190, 140, 90), outline=INK, width=5)
     d.rectangle((400, 850, 1580, 900), fill=(170, 120, 75), outline=INK, width=4)
@@ -377,9 +427,16 @@ def accu(img, t, t0):
     d.rounded_rectangle((x0, y0, x0 + 220, y0 + 100), 14, outline=(255, 255, 255), width=8); d.rectangle((x0 + 220, y0 + 30, x0 + 240, y0 + 70), fill=(255, 255, 255))
     if int(t * 2) % 2: d.rectangle((x0 + 14, y0 + 14, x0 + 34, y0 + 86), fill=(230, 50, 50))
     d.text((x0 + 60, y0 + 16), "0%", font=font(FB, 60), fill=(230, 50, 50))
-def wang(img, x, y, s):                                 # dikke wang (kiespijn): papa's gezicht als een ballon
-    d = ImageDraw.Draw(img); d.ellipse((x + 10 * s, y + 55 * s, x + 95 * s, y + 140 * s), fill=(250, 200, 170), outline=INK, width=4)
-    d.ellipse((x + 40 * s, y + 80 * s, x + 70 * s, y + 105 * s), fill=(240, 150, 140))
+def wang(img, x, y, s, t=0.0):                          # kiespijn: dikke wang die uit het gezicht bolt + pijnstreepjes
+    d = ImageDraw.Draw(img); R = 60 * s * 1.12; cx, cy = x, y + R            # (x, y) = bovenkant hoofd
+    bx, by, br = cx + R * 1.0, cy + R * 0.5, R * 0.46
+    d.ellipse((bx - br, by - br, bx + br, by + br), fill=ps.HUID)
+    d.arc((bx - br, by - br, bx + br, by + br), -100, 110, fill=INK, width=max(3, int(4 * s)))
+    d.ellipse((bx - br * 0.2, by - br * 0.15, bx + br * 0.55, by + br * 0.45), fill=(245, 150, 140))
+    tril = 4 * math.sin(t * 25)
+    for k, (dx, dy) in enumerate(((1.55, -0.45), (1.7, 0.3), (1.5, 0.95))):   # rode pijnstreepjes
+        px, py = cx + R * dx + tril, cy + R * dy
+        d.line((px, py, px + 14 * s, py - 8 * s, px + 6 * s, py + 2 * s, px + 22 * s, py - 6 * s), fill=(220, 40, 40), width=max(3, int(4 * s)))
 def deur(img, open_):
     d = ImageDraw.Draw(img)
     if open_: d.polygon([(110, 330), (230, 300), (230, 1010), (110, 960)], fill=(150, 100, 60), outline=INK)
@@ -393,41 +450,95 @@ def tv(img, t, t0, laag_pop):
     if t < t0: d.rectangle((x0, y0, x1, y1), fill=(15, 15, 20)); return
     d.rectangle((x0, y0, x1, y1), fill=(120, 170, 220))
     sl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0))
-    ps.poppetje(ImageDraw.Draw(sl), "ster", 630, 760, 1.9, t, kijk=0.0, mond=0.6 * abs(math.sin(t * 9)), verbaasd=False, gebaar="facepalm", boos=False)
+    hx, hy = ps.poppetje(ImageDraw.Draw(sl), "ster", 630, 790, 1.55, t, kijk=0.0, mond=0.6 * abs(math.sin(t * 9)), verbaasd=True, gebaar="schrik")
     sl = sl.resize((W, H), Image.LANCZOS).crop((x0, y0, x1, y1)); img.paste(sl, (x0, y0), sl)
-    for k in range(3):                                   # tranen
-        ty = y0 + 210 + ((t * 160 + k * 60) % 180); d.ellipse((560 + k * 120 - 10, ty, 560 + k * 120 + 10, ty + 26), fill=(90, 170, 255))
-    for k, xx in enumerate((540, 680)): d.ellipse((xx - 50, y0 + 150, xx + 50, y0 + 200), fill=(30, 30, 30))   # zonnebril
-    d.rectangle((x0, y1 - 80, x1, y1), fill=(200, 30, 30)); d.text((x0 + 20, y1 - 68), "BREAKING: STAR SAYS 'NOBODY WANTS MY AUTOGRAPH'", font=font(FB, 30), fill=(255, 255, 255))
+    S = 1.55; cy = hy + 62 * S
+    for k, ox in enumerate((-26, 26)):                  # tranen
+        ty = cy + ((t * 140 + k * 50) % 120); d.ellipse((hx + ox * S - 9, ty, hx + ox * S + 9, ty + 24), fill=(90, 170, 255), outline=(40, 90, 160))
+    d.rectangle((x0, y1 - 70, x1, y1), fill=(200, 30, 30)); br_ = "BREAKING: NOBODY WANTS HER AUTOGRAPH"; fz = 34
+    while d.textlength(br_, font=font(FB, fz)) > x1 - x0 - 40: fz -= 1          # tekst past altijd binnen het scherm
+    if fz < 24: LAYOUT.add("tv-balk te lang")
+    d.text(((x0 + x1) / 2 - d.textlength(br_, font=font(FB, fz)) / 2, y1 - 35 - fz * 0.6), br_, font=font(FB, fz), fill=(255, 255, 255))
 def kokosnoot(img, x, y, s=1.0):
     d = ImageDraw.Draw(img); d.ellipse((x - 42 * s, y - 42 * s, x + 42 * s, y + 42 * s), fill=(120, 80, 45), outline=INK, width=4)
     for k in range(3): d.ellipse((x - 20 * s + k * 16 * s, y - 20 * s, x - 10 * s + k * 16 * s, y - 10 * s), fill=(70, 45, 25))
-def zonnebrand(img, x, y, s):
-    d = ImageDraw.Draw(img); d.ellipse((x - 60 * s, y + 20 * s, x + 60 * s, y + 120 * s), fill=(240, 110, 90))
+def zonnebrand(img, x, y, s):                         # verbrand: knalrode wangen en neus (gezicht blijft zichtbaar)
+    d = ImageDraw.Draw(img); S = s * ps.C["teach"].get("groot", 1); cy = y + 62 * S
+    for ox in (-32, 32): d.ellipse((x + ox * S - 12 * S, cy + 24 * S, x + ox * S + 12 * S, cy + 40 * S), fill=(235, 90, 80))
+    d.ellipse((x - 7 * S, cy + 16 * S, x + 7 * S, cy + 30 * S), fill=(230, 80, 70))
 def telefoon_bericht(img, t, regels):
-    d = ImageDraw.Draw(img); x0, y0, x1, y1 = 1180, 110, 1640, 900
+    d = ImageDraw.Draw(img); x0, y0, x1, y1 = 1120, 60, 1720, 930
     d.rounded_rectangle((x0, y0, x1, y1), 48, fill=(25, 25, 32), outline=(10, 10, 14), width=6)
     d.rounded_rectangle((x0 + 18, y0 + 18, x1 - 18, y1 - 18), 34, fill=(245, 247, 250))
     d.rectangle((x0 + 18, y0 + 90, x1 - 18, y0 + 170), fill=(40, 110, 220)); d.text((x0 + 50, y0 + 105), "NEW MESSAGE", font=font(FB, 40), fill=(255, 255, 255))
     y = y0 + 210
     for r, kl in regels:
-        f = font(FB, 40 if kl != "groot" else 58)
+        f = font(FB, 40 if kl != "groot" else 54)
         woorden, lijn = r.split(), ""
         for w_ in woorden:
             if d.textlength(lijn + " " + w_, font=f) > x1 - x0 - 100: d.text((x0 + 50, y), lijn, font=f, fill=INK); y += 56; lijn = w_
             else: lijn = (lijn + " " + w_).strip()
+        if d.textlength(lijn, font=f) > x1 - x0 - 80 or y > y1 - 80: LAYOUT.add(f"telefoontekst '{lijn}' past niet")
         d.text((x0 + 50, y), lijn, font=f, fill=(30, 160, 80) if kl == "groot" else INK); y += 80
 
+def wasberen(img, t, t0):
+    if t < t0: return
+    d = ImageDraw.Draw(img)
+    top = SC_NU["_vuiltop"] if "_vuiltop" in SC_NU else 330
+    for k, (x, y) in enumerate(((1600, top + 10), (1705, top - 5), (1810, top + 15))):
+        y += 4 * math.sin(t * 5 + k); GR = (140, 140, 150)
+        for r in range(4):                                 # gestreepte staart
+            tx, ty = x - 40 - r * 16, y + 70 - r * 10
+            d.ellipse((tx - 13, ty - 13, tx + 13, ty + 13), fill=GR if r % 2 == 0 else (60, 60, 70), outline=INK, width=3)
+        d.ellipse((x - 36, y + 12, x + 36, y + 92), fill=GR, outline=INK, width=4)       # lijf
+        d.ellipse((x - 18, y + 38, x + 18, y + 82), fill=(200, 200, 205))                # buik
+        for ox in (-22, 22): d.ellipse((x + ox - 11, y + 74, x + ox + 11, y + 96), fill=(60, 60, 70), outline=INK, width=3)
+        d.ellipse((x - 34, y - 30, x + 34, y + 30), fill=GR, outline=INK, width=4)
+        d.rectangle((x - 30, y - 10, x + 30, y + 6), fill=(50, 50, 60))
+        for ox in (-14, 14): d.ellipse((x + ox - 7, y - 8, x + ox + 7, y + 4), fill=(255, 255, 255)); d.ellipse((x + ox - 3, y - 5, x + ox + 3, y + 1), fill=INK)
+        for ox in (-26, 26): d.polygon([(x + ox - 10, y - 22), (x + ox, y - 44), (x + ox + 10, y - 22)], fill=(140, 140, 150), outline=INK)
+def fooi(img, t, t0):
+    if t < t0: return
+    d = ImageDraw.Draw(img); sch = ps.pop((t - t0) / 0.3); cx, cy = 1600, 830
+    d.rectangle((cx - 120 * sch, cy - 50 * sch, cx + 120 * sch, cy + 50 * sch), fill=(170, 220, 160), outline=(40, 90, 40), width=4)
+    d.text((cx - 95 * sch, cy - 26 * sch), "$1,000,000", font=font(FB, int(40 * sch)), fill=(30, 80, 30))
+def huiswerk(img, t, t0):
+    if t < t0: return
+    d = ImageDraw.Draw(img)
+    for k in range(min(6, int((t - t0) * 6) + 1)):
+        x, y = 820 + k * 6, 700 - k * 14; d.rectangle((x, y, x + 150, y + 190), fill=(255, 255, 255), outline=INK, width=3)
+        for r in range(5): d.line((x + 18, y + 30 + r * 30, x + 130, y + 30 + r * 30), fill=(150, 160, 200), width=3)
+SC_NU = {}
+def leeg_schap(img, groep):
+    """Leeg schap tekenen in een deel van de winkel (snacks links, brood midden, wc-papier rechts): achterwand + planken."""
+    x0, x1 = {0: (140, 760), 1: (760, 1330), 2: (1330, 1800)}[groep]
+    d = ImageDraw.Draw(img); d.rectangle((x0, 190, x1, 731), fill=(238, 230, 214))
+    for y0, y1 in ((287, 324), (438, 493), (587, 627)):
+        h = y1 - y0; d.rectangle((x0, y0, x1, y0 + int(h * 0.4)), fill=(206, 213, 223)); d.rectangle((x0, y0 + int(h * 0.4), x1, y1), fill=(160, 170, 182))
+        d.line((x0, y1, x1, y1), fill=(120, 128, 140), width=3)
+    if groep == 0:                                       # winkelwagen weer voor het schap (donkerblauwe lijnen uit de achtergrond)
+        k = np.array(bg("winkel").crop((180, 640, 470, 740))).astype(int)
+        m = Image.fromarray((((k[..., 2] > k[..., 0] + 30) & (k[..., 0] < 110)) * 255).astype(np.uint8), "L")
+        img.paste(bg("winkel").crop((180, 640, 470, 740)), (180, 640), m)
 def frame(t):
-    k = max(i for i in range(len(SC)) if SC[i]["t"] <= t); sc = SC[k]
+    global SC_NU
+    k = max(i for i in range(len(SC)) if SC[i]["t"] <= t); sc = SC[k]; SC_NU = sc
     thuis = sc.get("thuis") is not None and t >= sc["thuis"]
     img = bg("kamer-jij" if thuis else sc["bg"]).copy()
     if sc.get("eet"):
         tb, tf, tm = sc["eet"]
-        if t >= tb + 0.7: img.paste(img.crop((800, 425, 1085, 545)), (1225, 425)); img.paste(img.crop((800, 425, 1085, 545)), (1225 + 285 - 285, 425))
-        if t >= tf + 0.6:                                  # hap uit het hek: gekartelde opening met de struiken erachter
-            ImageDraw.Draw(img).polygon([(1330, 270), (1350, 330), (1372, 300), (1392, 352), (1414, 310), (1434, 345), (1452, 270)],
-                                        fill=(118, 167, 117), outline=(70, 50, 35))
+        if t >= tb + 0.7:                                  # bloemen opgegeten: zelfde hekplanken eroverheen (planken zijn 115 px breed)
+            schoon = bg("tuin")
+            img.paste(schoon.crop((825, 425, 1170, 575)), (1170, 425)); img.paste(schoon.crop((830, 425, 870, 575)), (1515, 425))
+            dd = ImageDraw.Draw(img)
+            for sx in (1240, 1345, 1465):                  # afgeknabbelde steeltjes
+                dd.line((sx, 572, sx, 540), fill=(80, 130, 70), width=9)
+                dd.line((sx - 6, 540, sx - 2, 533, sx + 2, 541, sx + 6, 534), fill=(80, 130, 70), width=4)
+        if t >= tf + 0.6:                                  # hap uit één plank: groene struiken erachter, gekartelde rand
+            dd = ImageDraw.Draw(img)
+            rand = [(1402, 395), (1385, 360), (1368, 402), (1350, 362), (1332, 405), (1314, 366), (1290, 398)]
+            dd.polygon([(1286, 266), (1346, 214), (1406, 266)] + rand, fill=bg("tuin").getpixel((1346, 222)))
+            dd.line(rand, fill=(110, 75, 50), width=5)
     nu = next((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.3), None)
     tekst_nu = Z[nu][2] if nu is not None else ""
     spreker = LIJF.get(Z[nu][4]) if nu is not None and Z[nu][4] != "N" else None
@@ -453,11 +564,16 @@ def frame(t):
     if sc.get("vol"):                                    # straat vol: 7 auto's, boot, (paard), vuilnis
         for xx, tn in ((260, 0.15), (470, 0.6), (880, 0.55), (1080, 0.33), (1280, 0.75)): zet(img, "sportwagen", 105, xx, 645, tint=tn)
         zet(img, "sportwagen", 230, 400, 975); zet(img, "boot", 300, 1010, 990)
-    if sc.get("vuil") is not None and t >= sc["vuil"]: zet(img, "vuilniszakken", int(150 + min(1, (t - sc["vuil"]) / 3) * 230), 1650, 700)
+    if sc.get("vuil") is not None and t >= sc["vuil"]:
+        hoog = 150 + min(1, (t - sc["vuil"]) / 3) * 230
+        if sc.get("wasbeer") is not None and t >= sc["wasbeer"] - 3: hoog = 380 + min(1, (t - sc["wasbeer"] + 3) / 2) * 120   # hoger dan de boot
+        zet(img, "vuilniszakken", int(hoog), 1720, 760); sc["_vuiltop"] = 760 - hoog
     if sc.get("paard_straat") is not None and t >= sc["paard_straat"]: zet(img, "paard", 330, 1050 - 0 * t, 985)
     if sc.get("tv") is not None: tv(img, t, sc["tv"], None)
     if sc.get("prijs"): prijsbord(img, t, sc["prijs"])
-    if sc.get("leeg") and False: pass
+    if sc.get("leeg"):
+        for gr, t0 in enumerate(sc["leeg"]):
+            if t >= t0: leeg_schap(img, gr)
     if sc.get("sheet"): sheet(img, t, sc["sheet"])
     if sc.get("tand"): deur(img, t >= sc["tand"][2])
     if sc.get("kippen") is not None and t >= sc["kippen"]:
@@ -490,7 +606,7 @@ def frame(t):
         knip = (t + hash(p["n"]) % 7 * 0.4) % 3.4 < 0.13
         koppen[p["n"]] = ps.poppetje(d, p["n"], x, p.get("y", 960), p["s"], t, loop=loop, kijk=kijk, mond=luid(t, p["n"]), knipper=knip, verbaasd=verb, gebaar=geb)
         koppen_x[p["n"]] = x
-        if geb == "vast": vast.append(hand(p["n"], x, p.get("y", 960), p["s"]))
+        if geb == "vast" and not (sc.get("banaan") and p["n"] == "mom"): vast.append(hand(p["n"], x, p.get("y", 960), p["s"]))
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
     for hx, hy, S in vast: telefoontje(img, hx, hy, S, t)
     if sc["naam"] == "klas" and not thuis and sc.get("zon") is None: tafel(img)
@@ -505,12 +621,15 @@ def frame(t):
     if sc.get("rook") is not None: rook(img, t, sc["rook"])
     if sc.get("cereal") is not None: cereal(img, t, sc["cereal"])
     if sc.get("biljet") is not None: biljet(img, t, sc["biljet"])
+    if sc.get("wasbeer") is not None: wasberen(img, t, sc["wasbeer"])
+    if sc.get("fooi") is not None: fooi(img, t, sc["fooi"])
+    if sc.get("huiswerk") is not None: huiswerk(img, t, sc["huiswerk"])
     if sc.get("tand") and "dad" in koppen:
         t_in, t_touw, t_slam = sc["tand"]; hx, hy = koppen["dad"]; S = 1.6 * ps.C["dad"].get("groot", 1)
-        if t < t_slam + 0.1: wang(img, hx, hy, S)
+        if t < t_slam + 0.1: wang(img, hx, hy, S, t)
         if t_touw <= t < t_slam: ImageDraw.Draw(img).line((hx + 20, hy + 110 * S / 1.6, 230, 620), fill=(240, 240, 240), width=4)
         if t_slam <= t < t_slam + 0.8: f = (t - t_slam) / 0.8; tandje(img, hx + 20 + (230 - hx) * f, hy + 110 - 260 * math.sin(math.pi * f))
-    if sc.get("broodje") is not None and t >= sc["broodje"]: zet(img, "brood", 120, 1600, 760)
+    if sc.get("broodje") is not None and t >= sc["broodje"]: zet(img, "brood", 95, 1600, 845)
     if sc.get("bel"):
         for t0, tekst in sc["bel"]:
             if t0 <= t < t0 + 1.3 and "dad" in koppen: ballon(img, koppen["dad"][0] + 260, koppen["dad"][1] - 40, tekst, ps.pop((t - t0) / 0.3))
@@ -518,7 +637,7 @@ def frame(t):
     if sc.get("banaan") and "mom" in koppen:
         t_pak, t_terug, _ = sc["banaan"]
         if t_pak <= t < t_terug: hx, hy, S = hand("mom", koppen_x["mom"], 960, 1.7); banaan(img, hx, hy, 1.0)
-        elif t < t_pak or t >= t_terug: banaan(img, 1160, 520, 1.1)
+        elif t < t_pak or t >= t_terug: banaan(img, 900, 690, 1.1)
     if sc.get("zon") is not None and t >= sc["zon"] and "teach" in koppen: zonnebrand(img, koppen["teach"][0], koppen["teach"][1], 1.6)
     if sc.get("kokos") is not None and t >= sc["kokos"] and "teach" in koppen: kokosnoot(img, koppen_x["teach"] - 150, 720, 1.2)
     if sc.get("slot"):
@@ -526,15 +645,16 @@ def frame(t):
         if t >= t_msg: telefoon_bericht(img, t, [("Thanks for testing.", "n"), ("Round two starts tomorrow.", "n"), ("This time, only one person gets the money.", "n")] + ([("Congratulations.", "groot")] if t >= t_con else []))
     if sc.get("kroon") and "boss" in koppen: kroon(img, koppen["boss"][0], koppen["boss"][1], 1.7)
     if sc.get("telefoon"): telefoon(img, t)
-    if thuis: kop(img, "9 HOURS LATER", 960, 120, 84, KL["geel"], ps.pop((t - sc["thuis"]) / 0.3))
     if sc.get("briefje") is not None: briefje(img, t, sc["briefje"])
-    for st, s, x, y, m, kl in sc["kop"]:
-        later = [st2 for st2, s2, x2, y2, *_ in sc["kop"] if (x2, y2) == (x, y) and st2 > st]
-        if t >= st and not (later and t >= min(later)): kop(img, s, x, y, m, KL[kl], ps.pop((t - st) / 0.3))
     # rustige push-in per scène (camera), geen effect bij de wissel zelf
     f = 1 + 0.06 * ps.ease((t - sc["t"]) / max(1.0, sc["eind"] - sc["t"]))
     if f > 1.001:
         cw, ch = W / f, H / f; img = img.crop((int((W - cw) / 2), int((H - ch) * 0.45), int((W + cw) / 2), int((H - ch) * 0.45 + ch))).resize((W, H), Image.BICUBIC)
+    # koppen NA de zoom: blijven scherp en vallen nooit buiten beeld
+    if thuis: kop(img, "9 HOURS LATER", 960, 120, 84, KL["geel"], ps.pop((t - sc["thuis"]) / 0.3))
+    for st, s, x, y, m, kl in ([] if sc.get("slot") and t >= sc["slot"][1] else sc["kop"]):
+        later = [st2 for st2, s2, x2, y2, *_ in sc["kop"] if (x2, y2) == (x, y) and st2 > st]
+        if t >= st and not (later and t >= min(later)): kop(img, s, x, y, m, KL[kl], ps.pop((t - st) / 0.3))
     ondertitel(img, t)
     return img
 
@@ -601,7 +721,7 @@ if __name__ == "__main__":
             pl = Image.new("RGB", (400 * 6, 225 * 4))
             for i, im in enumerate(ims[v:v + 24]): pl.paste(im, (400 * (i % 6), 225 * (i // 6)))
             pl.save(HIER / f"plaat-{v // 24}.jpg", quality=80)
-        print("platen", (len(ims) + 23) // 24); sys.exit()
+        print("platen", (len(ims) + 23) // 24); print("LAYOUT:", sorted(LAYOUT) or "alles past"); sys.exit()
     geluid()
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-i", str(HIER / "stem.wav"), "-i", str(HIER / "sfx.wav"), "-filter_complex",
@@ -611,4 +731,4 @@ if __name__ == "__main__":
     for i in range(int(EIND * FPS)):
         p.stdin.write(frame(i / FPS).tobytes())
         if i % (FPS * 20) == 0: print(f"{i / FPS:.0f} / {EIND:.0f} s", flush=True)
-    p.stdin.close(); p.wait(); print("KLAAR miljoen.mp4", round(EIND, 1), "s")
+    p.stdin.close(); p.wait(); print("LAYOUT:", sorted(LAYOUT) or "alles past"); print("KLAAR miljoen.mp4", round(EIND, 1), "s")
