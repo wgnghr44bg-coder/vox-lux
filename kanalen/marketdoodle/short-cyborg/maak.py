@@ -99,29 +99,29 @@ def frame(t):
         img = bg("keuken-leeg").copy()                     # koelkast is weg uit de hoek: hij zit in jouw hand
         Y2 = 1585                                             # dichter bij de camera: koelkast hangt duidelijk vóór de keuken
         ps.poppetje(d, "mom", 900, Y2, 1.9, t, kijk=-1.0, mond=luid(t, "MOM"), verbaasd=t < Z[1][0], boos=t >= Z[1][0],
-                    gebaar="wijslinks" if t >= Z[1][0] else None, knipper=False)
+                    gebaar="schrik" if t < Z[1][0] else ("wijslinks" if t < Z[1][0] + 0.9 else "heupen"), knipper=False)   # 24 nov: meer gebaren
         x = 300; hx, hy = hand(x, 2.1, 100, y=Y2)               # arm opzij gestrekt, koelkast op de handpalm (als een ober)
         zet_sprite(img, "sprite-koelkast", hx + 10 + math.sin(t * 9) * 3, hy + 6, 0.75)
         ps.poppetje(d, "cyborg", x, Y2, 2.1, t, kijk=0.6, verbaasd=True, gebaar="wijs", knipper=knip(0))
     elif n == "werk":
         img = bg("werkkamer").copy(); geplugd = t >= T_PLUG
         naam = "cyborg" if geplugd else "you"
-        geb = "zwaai" if T_MOVED <= t <= T_MOVED + 1.6 else None
+        geb = "denk" if not geplugd else ("zwaai" if T_MOVED <= t <= T_MOVED + 1.2 else ("juich" if t > T_MOVED + 1.2 else "vast"))
         ps.poppetje(d, naam, 620, Y, 1.9, t, kijk=0.6 if geplugd else -0.6, verbaasd=t >= T_MOVED, gebaar=geb, knipper=knip(0.4))
         if not geplugd:                                    # de arm ligt nog op de vloer (nog niet aangesloten)
             d.rounded_rectangle([(700 * SS, 1440 * SS), (900 * SS, 1470 * SS)], 14 * SS, fill=(165, 175, 190), outline=(45, 38, 40), width=4 * SS)
             d.ellipse([(890 * SS, 1436 * SS), (930 * SS, 1474 * SS)], fill=(120, 130, 148), outline=(45, 38, 40), width=3 * SS)
     elif n == "vraag":
-        img = bg("nacht").copy(); ps.poppetje(d, "cyborg", 540, Y, 2.3, t, kijk=0.0, gebaar="haar" if t > Zs(4) + 1.2 else None, knipper=knip(0.2))
+        img = bg("nacht").copy(); ps.poppetje(d, "cyborg", 540, Y, 2.3, t, kijk=0.0, gebaar="denk", knipper=knip(0.2))
     elif n == "klas":
         img = bg("klas").copy(); x = 560
         if t < Zs(6):                                      # high five: de klasgenoot schuift achteruit
             terug = ps.ease((t - T_HARD) / 0.5) if t > T_HARD else 0
-            ps.poppetje(d, "kid1", 860 + 140 * terug, Y, 1.6, t, kijk=-0.9, gebaar="wijslinks" if t < T_HARD else None, verbaasd=t > T_HARD)
+            ps.poppetje(d, "kid1", 860 + 140 * terug, Y, 1.6, t, kijk=-0.9, gebaar="wijslinks" if t < T_HARD else "schrik", verbaasd=t > T_HARD)
             ps.poppetje(d, "cyborg", x, Y, 1.75, t, kijk=0.9, gebaar="wijs" if t >= T_GIVE else None, verbaasd=t > T_HARD, knipper=knip(0.1))
         else:
-            ps.poppetje(d, "kid2", 230, Y, 1.55, t, kijk=0.9, gebaar="zwaai", verbaasd=True)
-            ps.poppetje(d, "kid1", 880, Y, 1.6, t, kijk=-0.9, gebaar="wijslinks", verbaasd=True)
+            ps.poppetje(d, "kid2", 230, Y, 1.55, t, kijk=0.9, gebaar="juich", verbaasd=True)
+            ps.poppetje(d, "kid1", 880, Y, 1.6, t, kijk=-0.9, gebaar="klap", verbaasd=True)
             hx, hy = hand(x, 1.75, 165); onder = hy + 2
             for k2 in range(10):                              # 10 echte rugzakken op de hand gestapeld
                 kl = ("rood", "blauw", "geel", "groen", "paars")[k2 % 5]
@@ -132,7 +132,7 @@ def frame(t):
     else:
         img = bg("kamer-nacht").copy(); zwaait = t >= T_WAVE
         ps.poppetje(d, "cyborg", 760, Y, 1.9, t, kijk=-0.4 if t < T_LAPTOP else -0.9, verbaasd=zwaait, mond=luid(t, "YOU"),
-                    gebaar="zwaai" if zwaait and t < T_LAPTOP else None, knipper=knip(0.3) and not zwaait)
+                    gebaar="zwaai" if zwaait and t < Z[9][0] else ("praat" if t < T_LAPTOP else "schrik"), knipper=knip(0.3) and not zwaait)
         if t >= T_LAPTOP:                                  # laptop gaat aan: scherm licht op
             d.rectangle([(414 * SS, 612 * SS), (628 * SS, 742 * SS)], fill=(80, 200, 255))
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
