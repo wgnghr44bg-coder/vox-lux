@@ -52,3 +52,14 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - **Shorts ± 45-50 s** (niet 60-70 s).
 - Zoektermen die mensen al naar ons brengen: superkrachten ("everyone gets superpowers overnight") en overleven ("can you survive being swallowed"). Kies zulke onderwerpen.
 - Kijkers: 74% mobiel; tijden 17:00/19:00 NL passen.
+
+## 3D met three.js (eigenaar 24 nov 2026) — DE RICHTING
+- Eigenaar: "Ik wil gewoon dezelfde beeld houden van 2D alleen jij zet het om in 3D met threejs ... ik wil de armen enzo alles blijven zien".
+  Dus: **dezelfde poppetjes** (rond hoofd, puntogen, blauwe hoodie, papa met bril, enz.) en dezelfde soort ruimtes, maar **in 3D**,
+  met een camera die door de ruimte beweegt (zoals de voorbeeld-Short van @RicksClips3000).
+- Programma: `kanalen/marketdoodle/studio3d/` — `scene.html` (three.js: toon-materiaal + omtreklijnen, poppetjes, ruimte, camera-reis `REIS`,
+  ondertitels 1-2 woorden) + `render.mjs` (Edge headless via puppeteer-core -> ffmpeg). `node render.mjs uit.mp4`. 12 s video = ± 12 s rekentijd.
+- Eerste goedgekeurde proef: `proef3d.mp4` (keuken, klok 7:15, jij loopt binnen, getal boven papa, papa zwaait/praat). Eigenaar: "Ja".
+- Regels die de eigenaar bij de proef gaf: **lopen = gezicht in de looprichting** (niet achteruit), **kijken naar wie/wat de tekst noemt**
+  (jij kijkt naar papa bij "your dad's head", papa draait naar jou), **bril moet er normaal uitzien** (glazen plat op het gezicht, brug, pootjes).
+- Nog te doen: keuken voller (kastjes, spullen), duidelijkere zwarte lijnen, mama/zusje/anderen in 3D, draaiboek per video.

@@ -65,7 +65,16 @@ function persoon(k) {
     const gl = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff })); gl.position.set(z * 0.16 + 0.015, 0.04, 0.48); hoofd.add(gl); return [o, gl]; });
   for (const z of [-1, 1]) { const w = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 8), new THREE.MeshBasicMaterial({ color: 0xffaaa0 })); w.scale.set(1, 0.5, 0.3); w.position.set(z * 0.25, -0.1, 0.4); hoofd.add(w); }
   const mond = new THREE.Mesh(new THREE.SphereGeometry(0.07, 20, 12), new THREE.MeshBasicMaterial({ color: 0x78283a })); mond.scale.set(1, 0.18, 0.4); mond.position.set(0, -0.2, 0.43); hoofd.add(mond);
-  if (k.bril) for (const z of [-1, 1]) { const r = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.014, 8, 30), new THREE.MeshBasicMaterial({ color: LIJN })); r.position.set(z * 0.16, 0.02, 0.47); hoofd.add(r); }
+  if (k.bril) {                                        // 24 nov (eigenaar: bril zag er raar uit): glazen plat op het gezicht, brug en pootjes naar de oren
+    const zw = new THREE.MeshBasicMaterial({ color: LIJN });
+    for (const z of [-1, 1]) {
+      const r = new THREE.Mesh(new THREE.TorusGeometry(0.105, 0.016, 10, 40), zw); r.position.set(z * 0.165, 0.02, 0.425); r.rotation.y = z * 0.36; hoofd.add(r);
+      const glas = new THREE.Mesh(new THREE.CircleGeometry(0.1, 32), new THREE.MeshBasicMaterial({ color: 0xdff3ff, transparent: true, opacity: 0.25 }));
+      glas.position.copy(r.position); glas.rotation.y = r.rotation.y; hoofd.add(glas);
+      const poot = new THREE.Mesh(new THREE.BoxGeometry(0.014, 0.014, 0.34), zw); poot.position.set(z * 0.42, 0.05, 0.2); poot.rotation.y = z * 0.25; hoofd.add(poot);
+    }
+    const brug = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, 0.1, 8), zw); brug.rotation.z = Math.PI / 2; brug.position.set(0, 0.05, 0.455); hoofd.add(brug);
+  }
   return { g, benen, armen, hoofd, ogen, mond };
 }
 const jij = persoon({ broek: 0x373c55, shirt: 0x4682dc, haar: 0x3c2d28, groot: 0.92 });
@@ -114,10 +123,15 @@ const uit = document.getElementById('uit'), ctx = uit.getContext('2d');
 window.render = (t) => {
   // papa: eerst met zijn rug naar ons bij het aanrecht (koffie), draait om als jij binnen bent
   const draai = ease((t - (T_DAD - 0.2)) / 0.9);
-  papa.g.position.x = 1.55; papa.g.position.z = -2.75; papa.g.rotation.y = Math.PI * (1 - draai) + (-0.45) * draai;
+  papa.g.position.x = 1.55; papa.g.position.z = -2.75; papa.g.rotation.y = Math.PI * (1 - draai) + (-0.75) * draai;   // draait naar jou toe
   pose(papa, t, { zwaai: t > T_PRAAT && t < T_PRAAT + 1.5, mond: D.mond[Math.floor(t * D.FPS)] || 0, knip: (t % 3.3) < 0.13 });
   const f = ease((t - T_IN0) / (T_IN1 - T_IN0));
-  jij.g.position.set(-3.7 + 3.1 * f, 0, 1.6 - 1.4 * f);   // eindigt dichter bij papa: allebei in beeld jij.g.rotation.y = t < T_IN1 ? Math.PI / 2 - 0.5 : 0.55 + Math.sin(t) * 0.05;
+  jij.g.position.set(-3.7 + 3.1 * f, 0, 1.6 - 1.4 * f);   // eindigt dichter bij papa: allebei in beeld
+  // 24 nov (eigenaar: 'hij loopt achteruit, kijkt niet naar de vader'): lopen = gezicht in de looprichting;
+  // vanaf 'your dad's head' draait hij naar papa (lijf 3/4, hoofd nog verder naar papa)
+  const naarPapa = ease((t - (T_DAD - 0.3)) / 0.6);
+  jij.g.rotation.y = t < T_IN1 ? Math.atan2(3.1, -1.4) : 1.0 + 0.3 * naarPapa;
+  jij.hoofd.rotation.y = 0.6 * naarPapa;
   if (t < T_IN0) jij.g.position.x = -5;                         // nog buiten de deur
   pose(jij, t, { loop: (t > T_IN0 && t < T_IN1) ? (t - T_IN0) * 2.2 : null, verbaasd: t > T_LAB + 0.3, knip: (t % 3.7) < 0.13 && t < T_LAB });
   sec.rotation.z = -t * Math.PI * 2 / 60 * 6;
