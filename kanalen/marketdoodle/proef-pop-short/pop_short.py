@@ -82,6 +82,13 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "schouders": links, rechts = -58, 58
     elif gebaar == "stamp": links, rechts = -35 - 10 * math.sin(t * 14), 35 + 10 * math.sin(t * 14)
     for kant, h in ((-1, links), (1, rechts)):
+        if kant == 1 and kl.get("robot"):                                  # 24 nov: robotarm (cyborg-Short), metaal met gewrichten + blauw lampje
+            x0r, y0r = x + 44 * s, sch; lg = 82 * s
+            ex, ey = x0r + math.sin(math.radians(h)) * lg * 0.5, y0r + math.cos(math.radians(h)) * lg * 0.5
+            ledemaat(d, x0r, y0r, h, lg, 24 * s, (165, 175, 190), (14 * s, (120, 130, 148)))
+            d.ellipse([P(ex - 11 * s, ey - 11 * s), P(ex + 11 * s, ey + 11 * s)], fill=(95, 105, 120), outline=LIJN, width=int(3 * s * SS))
+            d.ellipse([P(ex - 5 * s, ey - 5 * s), P(ex + 5 * s, ey + 5 * s)], fill=(80, 200, 255))
+            continue
         ledemaat(d, x + kant * 44 * s, sch, h, 82 * s, 22 * s, kl["shirt"], (12 * s, HUID))
     hx, hy = x, top - hoofd * 0.82
     kap = kl["kapsel"]; hk = kl["haar"]; lw = int(4 * s * SS)

@@ -1,0 +1,13 @@
+# What If You Built a Real Cyborg? — Short ± 45-50 s (24 nov, eigenaar; vervangt Pause Time op wo 25 nov 19:00).
+# Echt feit: BrainGate (2012, Nature): mensen met verlamming bewogen een robotarm met hersensensoren.
+N|keuken|Your robot arm just lifted the fridge. With one finger.
+MOM|keuken|Put. That. Down.
+N|werkkamer|You built it last week, for the science fair. Out of an old vacuum cleaner and Dad's drill.
+N|werkkamer|Then you plugged it into your shoulder. And it moved. Like it was yours.
+N|nacht|So, what if you built a real cyborg?
+N|klas|At school, everyone wants a high five. You give one. A little too hard.
+N|klas|The arm carries ten backpacks at once. Your friends love it.
+N|feit|And here's something real. Some people already move robot arms with their thoughts, using tiny sensors in the brain.
+N|kamer-nacht|But that night, the arm moves on its own. It waves at you.
+YOU|kamer-nacht|Hello?
+N|kamer-nacht|Then your laptop turns on. One message. Upgrade available. Install the other arm?
