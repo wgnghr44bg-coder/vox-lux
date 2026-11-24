@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 19:33",
+ "bijgewerkt": "2026-11-24 20:03",
  "kanalen": {
   "weken": [
    {
@@ -2225,7 +2225,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 19:33)"
+   "tekst": "draait nu (2026-11-24 20:03)"
   },
   {
    "naam": "Git",
@@ -2240,7 +2240,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2257,8 +2257,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 19:33",
-   "volgende": "2026-11-24 20:03"
+   "laatst": "2026-11-24 20:03",
+   "volgende": "2026-11-24 20:33"
   },
   "hype": {
    "aan": true,
@@ -2272,8 +2272,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 19:18",
-   "volgende": "2026-11-24 19:48"
+   "laatst": "2026-11-24 19:48",
+   "volgende": "2026-11-24 20:18"
   },
   "titels": {
    "aan": true,
@@ -2635,8 +2635,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 15,
-  "geheugen_mb": 6754,
+  "bezig_procent": 26,
+  "geheugen_mb": 541,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2815,8 +2815,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 19:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5254,21 +5254,21 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 19:34",
+  "bijgewerkt": "2026-11-24 20:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6237314,
-    "week": 20443621,
+    "5uur": 7236440,
+    "week": 21646252,
     "per_dag": {
-     "Tue 24-11": 12379578,
+     "Tue 24-11": 13582210,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 34872,
+    "stap_kost": 34212,
     "naam": "hoofd",
     "week_reset": ""
    },
