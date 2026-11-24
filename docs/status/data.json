@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 12:03",
+ "bijgewerkt": "2026-11-24 12:33",
  "kanalen": {
   "weken": [
    {
@@ -15,7 +15,7 @@
         "kanaal": "Market Doodle",
         "datum": "2026-11-23",
         "tijd": "09:10",
-        "titel": "What If You Could See How Much Everyone Earns?",
+        "titel": "Short: What If You Could See How Much Everyone Earns?",
         "stand": "online",
         "youtube": "Qhjfoib3FIA"
        },
@@ -32,6 +32,14 @@
      {
       "datum": "2026-11-24",
       "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-24",
+        "tijd": "12:03",
+        "titel": "Short: What If You Built a Real Cyborg?",
+        "stand": "online",
+        "youtube": "-tP-eeJUYtU"
+       },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-24",
@@ -72,10 +80,16 @@
        {
         "kanaal": "Market Doodle",
         "datum": "2026-11-25",
+        "tijd": "17:00",
+        "titel": "Lange What If-video (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-25",
         "tijd": "19:00",
-        "titel": "What If You Built a Real Cyborg?",
-        "stand": "gepland",
-        "youtube": "-tP-eeJUYtU"
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
        }
       ]
      },
@@ -112,6 +126,20 @@
         "titel": "Short: Bitcoin Fell Below $60,000. Here's Who Is Selling",
         "stand": "gepland",
         "youtube": "gtqCj_lhfm4"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-28",
+        "tijd": "17:00",
+        "titel": "Lange What If-video (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-28",
+        "tijd": "19:00",
+        "titel": "Short: What If (nieuw onderwerp)",
+        "stand": "onderwerp kiezen"
        },
        {
         "kanaal": "Sleep Archives",
@@ -2203,7 +2231,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 12:03)"
+   "tekst": "draait nu (2026-11-24 12:33)"
   },
   {
    "naam": "Git",
@@ -2218,7 +2246,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 11:48: alles klopt"
+   "tekst": "laatste ronde 12:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2235,8 +2263,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 12:03",
-   "volgende": "2026-11-24 12:33"
+   "laatst": "2026-11-24 12:33",
+   "volgende": "2026-11-24 13:03"
   },
   "hype": {
    "aan": true,
@@ -2245,13 +2273,13 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-24 11:10",
-   "volgende": "2026-11-24 12:10"
+   "laatst": "2026-11-24 12:10",
+   "volgende": "2026-11-24 13:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 11:48",
-   "volgende": "2026-11-24 12:18"
+   "laatst": "2026-11-24 12:18",
+   "volgende": "2026-11-24 12:48"
   },
   "titels": {
    "aan": true,
@@ -2362,7 +2390,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 993,
+    "views": 995,
     "verwerkt": "processed"
    }
   ],
@@ -5215,46 +5243,46 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 12:03",
+  "bijgewerkt": "2026-11-24 12:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 548538,
-    "week": 11828549,
+    "5uur": 936050,
+    "week": 12216061,
     "per_dag": {
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Tue 24-11": 3764506
+     "Tue 24-11": 4152019
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 30359,
+    "stap_kost": 28635,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 9596494,
-    "week": 164106430,
+    "5uur": 10153980,
+    "week": 164663916,
     "per_dag": {
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
-     "Tue 24-11": 14578001,
+     "Tue 24-11": 15135487,
      "Tue 17-11": 393762,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 89107,
+    "stap_kost": 92215,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 71,
+    "5uur_pct": 75,
     "5uur_scripts_over": null,
-    "5uur_stappen_over": 45,
-    "week_pct": 124,
+    "5uur_stappen_over": 37,
+    "week_pct": 125,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
