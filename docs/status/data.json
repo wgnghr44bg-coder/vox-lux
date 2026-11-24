@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 19:03",
+ "bijgewerkt": "2026-11-24 19:33",
  "kanalen": {
   "weken": [
    {
@@ -2225,7 +2225,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 19:03)"
+   "tekst": "draait nu (2026-11-24 19:33)"
   },
   {
    "naam": "Git",
@@ -2240,7 +2240,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2257,8 +2257,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 19:03",
-   "volgende": "2026-11-24 19:33"
+   "laatst": "2026-11-24 19:33",
+   "volgende": "2026-11-24 20:03"
   },
   "hype": {
    "aan": true,
@@ -2268,17 +2268,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-24 19:10"
+   "volgende": "2026-11-24 20:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 18:48",
-   "volgende": "2026-11-24 19:18"
+   "laatst": "2026-11-24 19:18",
+   "volgende": "2026-11-24 19:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-24 17:25",
-   "volgende": "2026-11-24 19:25"
+   "laatst": "2026-11-24 19:25",
+   "volgende": "2026-11-24 21:25"
   }
  },
  "kanaal": {
@@ -2384,7 +2384,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1017,
+    "views": 1018,
     "verwerkt": "processed"
    }
   ],
@@ -2635,8 +2635,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 558,
+  "bezig_procent": 15,
+  "geheugen_mb": 6754,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2815,8 +2815,8 @@
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 19:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-24 19:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5077,7 +5077,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-24 17:25",
+  "bijgewerkt": "2026-11-24 19:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5254,11 +5254,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 19:04",
+  "bijgewerkt": "2026-11-24 19:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 7253649,
+    "5uur": 6237314,
     "week": 20443621,
     "per_dag": {
      "Tue 24-11": 12379578,
@@ -5275,14 +5275,13 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 164279904,
+    "week": 164270154,
     "per_dag": {
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
      "Tue 24-11": 15135487,
-     "Tue 17-11": 9751,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
