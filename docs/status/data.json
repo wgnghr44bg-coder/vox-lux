@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24 00:33",
+ "bijgewerkt": "2026-11-24 01:33",
  "kanalen": {
   "weken": [
    {
@@ -2219,8 +2219,8 @@
   },
   {
    "naam": "ComfyUI (beelden)",
-   "ok": false,
-   "tekst": "staat uit (de routine start hem zelf)"
+   "ok": true,
+   "tekst": "draait"
   },
   {
    "naam": "ffmpeg",
@@ -2235,7 +2235,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "144 GB vrij"
+   "tekst": "142 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2250,7 +2250,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-24 00:33)"
+   "tekst": "draait nu (2026-11-24 01:33)"
   },
   {
    "naam": "Git",
@@ -2265,7 +2265,7 @@
   {
    "naam": "Sitecontrole",
    "ok": true,
-   "tekst": "laatste ronde 00:18: alles klopt"
+   "tekst": "laatste ronde 01:18: alles klopt"
   }
  ],
  "automatisering": false,
@@ -2282,8 +2282,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-24 00:33",
-   "volgende": "2026-11-24 01:03"
+   "laatst": "2026-11-24 01:33",
+   "volgende": "2026-11-24 02:03"
   },
   "hype": {
    "aan": true,
@@ -2292,18 +2292,18 @@
   },
   "bewaker": {
    "aan": true,
-   "laatst": "2026-11-24 00:10",
-   "volgende": "2026-11-24 01:10"
+   "laatst": "2026-11-24 01:10",
+   "volgende": "2026-11-24 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-24 00:18",
-   "volgende": "2026-11-24 00:48"
+   "laatst": "2026-11-24 01:18",
+   "volgende": "2026-11-24 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-23 23:25",
-   "volgende": "2026-11-24 01:25"
+   "laatst": "2026-11-24 01:25",
+   "volgende": "2026-11-24 03:25"
   }
  },
  "kanaal": {
@@ -2346,7 +2346,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 55,
+    "views": 56,
     "verwerkt": "processed"
    },
    {
@@ -2382,7 +2382,7 @@
     "duur": "2:42:38",
     "privacy": "public",
     "publiceer": "2026-11-08T10:53:11Z",
-    "views": 16,
+    "views": 17,
     "verwerkt": "processed"
    },
    {
@@ -2409,7 +2409,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 938,
+    "views": 939,
     "verwerkt": "processed"
    }
   ],
@@ -2600,12 +2600,12 @@
   "geplande": 2,
   "runs": {
    "goed": 3,
-   "totaal": 14,
-   "procent": 21
+   "totaal": 12,
+   "procent": 25
   },
-  "fouten": 2,
+  "fouten": 0,
   "zelfcontrole": {
-   "goed": 10,
+   "goed": 11,
    "totaal": 11
   }
  },
@@ -2630,7 +2630,7 @@
   "detail": "87 van 88 beelden",
   "taken": [
    "routine zonder Claude",
-   "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "beelden maken (ComfyUI)",
    "stem inspreken (OmniVoice)"
   ],
   "eind": null
@@ -2641,7 +2641,7 @@
    "stap": 0
   },
   {
-   "naam": "beeldcontrole (Qwen2.5-VL + CLIP)",
+   "naam": "beelden maken (ComfyUI)",
    "stap": 2
   },
   {
@@ -2650,8 +2650,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 324,
+  "bezig_procent": 100,
+  "geheugen_mb": 7761,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2738,30 +2738,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-22 05:25",
-   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-22): Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 08:00",
-   "tekst": "nieuwswacht: GROOT Broadcom (2026-11-23): -12.2% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 08:00",
-   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-23): -14.0% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 08:00",
-   "tekst": "nieuwswacht: GROOT Nasdaq (2026-11-23): -5.3% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-23 08:00",
    "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-23): -3.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
@@ -2820,34 +2796,34 @@
    "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
    "fout": true,
    "klaar": false
-  }
- ],
- "fouten": [
+  },
   {
-   "tijd": "2026-11-23 23:56",
-   "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
-   "fout": true,
+   "tijd": "2026-11-24 00:34",
+   "tekst": "eigenaar: Sleep-keten Pearl Harbor even gestopt voor Doodle-proef; bewaker hervat hem na het weghalen van ~/gpu-bezet.lock.",
+   "fout": false,
    "klaar": false
   },
   {
-   "tijd": "2026-11-24 00:33",
-   "tekst": "Zelfcontrole: ComfyUI (beelden): staat uit (de routine start hem zelf)",
-   "fout": true
+   "tijd": "2026-11-24 00:47",
+   "tekst": "bewaker: keten gestart voor pearl-harbor-1941",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 00:47",
+   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken voor 2026-12-05 21:00 (eigen stem, nieuwe toon)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-24 00:47",
+   "tekst": "Doodle-proef klaar; slot weg, bewaker opnieuw gestart (Pearl Harbor gaat verder).",
+   "fout": false,
+   "klaar": false
   }
  ],
+ "fouten": [],
  "opgelost": [
-  {
-   "tijd": "2026-11-21 13:18",
-   "tekst": "sitecontrole: NIET GOED: site zegt dat blackbeard-1718 nu gemaakt wordt, maar er draait geen keten",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-21 13:18",
-   "tekst": "sitecontrole: NIET GOED: al ruim een uur draait er geen keten, terwijl blackbeard-1718, boeren-winter-1300, dallas-1963 op bezig staat (taak 'Sleep Archives bewaker' kijken)",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-21 21:18",
    "tekst": "sitecontrole: NIET GOED: site zegt dat pearl-harbor-1941 nu gemaakt wordt, maar er draait geen keten",
@@ -2875,6 +2851,12 @@
   {
    "tijd": "2026-11-23 23:39",
    "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan",
+   "fout": true,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-23 23:56",
+   "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
    "fout": true,
    "klaar": false
   }
@@ -4016,7 +3998,7 @@
    "datum": "2026-12-05",
    "reserve": false,
    "titel": "Life in Hawaii Before Pearl Harbor, 1941 | History for Sleep",
-   "status": "bezig (2026-11-23, routine-lokaal)",
+   "status": "bezig (2026-11-24, routine-lokaal)",
    "soort": "bezig",
    "id": "",
    "afspeellijst": "oorlog",
@@ -4808,7 +4790,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-23 23:25",
+  "bijgewerkt": "2026-11-24 01:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4958,46 +4940,47 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-24 00:35",
+  "bijgewerkt": "2026-11-24 01:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 0,
-    "week": 9597707,
+    "5uur": 1749634,
+    "week": 11347341,
     "per_dag": {
      "Tue 17-11": 1533664,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
-     "Sun 22-11": 4647735
+     "Sun 22-11": 4647735,
+     "Tue 24-11": 1749634
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 0,
+    "stap_kost": 25730,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
-    "5uur": 17970043,
-    "week": 155605519,
+    "5uur": 16362920,
+    "week": 157085470,
     "per_dag": {
      "Tue 17-11": 2969296,
      "Fri 20-11": 24260895,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
-     "Tue 24-11": 3501557,
+     "Tue 24-11": 4981507,
      "Wed 18-11": 377953
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 83320,
+    "stap_kost": 82974,
     "naam": "Account 2",
     "week_reset": "za 10:59",
-    "5uur_pct": 132,
+    "5uur_pct": 121,
     "5uur_scripts_over": null,
     "5uur_stappen_over": 0,
-    "week_pct": 118,
+    "week_pct": 119,
     "week_scripts_over": null,
     "week_stappen_over": 0
    }
