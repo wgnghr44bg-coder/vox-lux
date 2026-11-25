@@ -47,7 +47,7 @@ class Scenewachter:
         """Geeft (dx, dy) terug waarmee het voorwerp verschoven moet worden zodat het klopt (0, 0 = klopt al)."""
         x0, y0, x1, y1 = box; dx = dy = 0.0
         if voor: self.voor.append((naam, box, op))
-        self.gezien.setdefault((naam, self.bg), []).append((self.t, tuple(box)))   # voor de herkenwachter
+        if op != "beeld": self.gezien.setdefault((naam, self.bg), []).append((self.t, tuple(box)))   # voor de herkenwachter (grafieken niet)
         A = self.A.get(self.bg)
         if A is None or op == "beeld": return 0.0, 0.0
         if op is None:

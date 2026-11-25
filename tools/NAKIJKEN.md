@@ -3,6 +3,12 @@
 Eigenaar 24 nov 2026: "wat kunnen we maken zodat dit voortaan automatisch wordt gezien en aangepast als het niet klopt, ik moet
 nu elke keer zelf kijken". Drie lagen; pas als alle drie schoon zijn gaat de video naar de eigenaar.
 
+## Laag 0: achtergrondwachter (eigenaar 25 nov 2026: cerealdozen met "Milk" -> "zorg dat je een pak melk ziet, als je pizza
+hebt zie je een pizzadoos, dat verschil moet je laten controleren")
+`python tools/achtergrondwachter.py <map>/afbeeldingen` -> OCR vindt elk woord, het woord wordt weggepoetst, het beeldmodel zegt
+wat het voorwerp is (zonder de tekst te zien) en het tekstmodel beslist of het woord past. **0 fouten vereist**; anders de
+achtergrond opnieuw maken (prompt: noem het woord dat op elk soort pak moet staan, bv. "milk cartons with the word MILK").
+
 ## Laag 1 + 2: scènewachter (automatisch, in de renderer)
 `tools/scenewachter.py` + `kanalen/marketdoodle/achtergronden.json`. Elk voorwerp meldt waar het op staat (`op=`):
 vlak (stoep, aanrecht, tafel-rechts, vloer ...), `muur`, `hand:<naam>` / `bek` / `aan:<iets>` (met `punt=`) of `beeld`.
@@ -47,6 +53,7 @@ Beantwoord voor ELK van de 12 beelden deze vragen en meld alleen echte fouten:
 6. TEKST? Tekst die buiten zijn kader loopt, afgesneden is, onleesbaar klein is of verkeerd gespeld.
    Bedekt een kop/tekst iets belangrijks (een hoofd, het dier of voorwerp waar de zin over gaat)? Is het herkenbare deel
    (hoofd van een dier, gezicht) echt te zien?
+6b. PAST DE TEKST BIJ HET VOORWERP? Staat er "MILK" op iets wat geen melkpak is (cerealdoos, pot), of nep-letters op dozen/borden?
 7. AFGESNEDEN? Hoofden, personen of belangrijke voorwerpen die door de beeldrand worden afgesneden (een stapel vuilniszakken of
    een auto die het beeld in rijdt mag wel).
 Normaal en GEEN fout: tekenfilmstijl, blosjes op de wangen, koppen bovenin die zweven (dat is tekst), ondertitels, naamlabels,

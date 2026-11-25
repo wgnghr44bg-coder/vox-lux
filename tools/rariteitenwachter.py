@@ -78,22 +78,25 @@ def main():
         im = beeld(a.video, t); r = vraag(im) if a.model else {"ok": True}; kant = rand(im)
         prob = [p for p in r.get("problemen", []) if isinstance(p, str) and p.strip()] if not r.get("ok", True) else []
         prob += [f"iets loopt tegen de {k}rand (afgesneden?)" for k in kant]
-        klein = Image.new("RGB", (640, 420), "white"); klein.paste(im.resize((640, 360)), (0, 0)); d = ImageDraw.Draw(klein)
+        staand = im.height > im.width                     # 25 nov: staande Shorts niet platdrukken (hulpje las $1,000,000 als een miljard)
+        IW, IH = (360, 640) if staand else (640, 360); TW, TH = IW, IH + (80 if staand else 60)
+        klein = Image.new("RGB", (TW, TH), "white"); klein.paste(im.resize((IW, IH)), (0, 0)); d = ImageDraw.Draw(klein)
         d.text((6, 4), f"{int(t // 60)}:{t % 60:04.1f}", font=f, fill=(255, 0, 0))
         z_ = zin(t); tekst.append(f"{int(t // 60)}:{t % 60:04.1f}  {z_}"); regel, rr = "", []
         for w in z_.split():
-            if d.textlength(regel + " " + w, font=fz) > 625: rr.append(regel); regel = w
+            if d.textlength(regel + " " + w, font=fz) > TW - 15: rr.append(regel); regel = w
             else: regel = (regel + " " + w).strip()
         rr.append(regel)
-        for k, r in enumerate(rr[:3]): d.text((6, 362 + k * 19), r, font=fz, fill=(20, 20, 20))
+        for k, r in enumerate(rr[:4 if staand else 3]): d.text((6, IH + 2 + k * 19), r, font=fz, fill=(20, 20, 20))
         if prob:
-            meld.append({"t": t, "problemen": prob}); d.rectangle((0, 0, 639, 419), outline=(255, 0, 0), width=6)
+            meld.append({"t": t, "problemen": prob}); d.rectangle((0, 0, TW - 1, TH - 1), outline=(255, 0, 0), width=6)
             im.save(uit / f"t{int(t * 10):05d}.jpg", quality=85)
         ims.append(klein)
         print(f"{int(t // 60)}:{t % 60:04.1f} {'OK' if not prob else 'LET OP: ' + ' | '.join(prob)}", flush=True)
     for v in range(0, len(ims), 12):                    # overzicht van ALLE beelden, 12 per blad (rood kader = melding)
-        pl = Image.new("RGB", (640 * 3, 420 * 4), "black")
-        for i, im in enumerate(ims[v:v + 12]): pl.paste(im, (640 * (i % 3), 420 * (i // 3)))
+        TW, TH = ims[0].size; K = 6 if TH > TW else 3       # staand: 6 naast elkaar, 2 rijen
+        pl = Image.new("RGB", (TW * K, TH * (12 // K)), "black")
+        for i, im in enumerate(ims[v:v + 12]): pl.paste(im, (TW * (i % K), TH * (i // K)))
         pl.save(uit / f"overzicht-{v // 12:02d}.jpg", quality=82)
         (uit / f"overzicht-{v // 12:02d}.txt").write_text(chr(10).join(tekst[v:v + 12]) + chr(10), encoding="utf-8")
     regels = [f"# Rariteitenwachter: {a.video.name}", "", f"{len(ts)} beelden bekeken (elke {a.stap:g} s), **{len(meld)} met een melding**.",
