@@ -26,7 +26,11 @@ for naam, (g, a, p, acc) in ONTWERP.items():
 # stem van het LIJF
 STEM = {"N": ("eigen-stem-swan", 1.05), "YOU": ("whatif-zoon", 1.0), "DAD": ("whatif-papa", 1.0), "MOM": ("whatif-moeder2", 1.0),   # 23 nov: iedereen EIGEN stem (optie A)
         "SIS": ("whatif-meisje", 1.0), "TEACH": ("whatif-juf", 1.0), "BOSS": ("whatif-baas", 1.0)}
-regels = [r.rstrip("\n").split("|", 2) for r in SCRIPT.read_text(encoding="utf-8").splitlines() if r.strip() and not r.startswith("#")]
+regels, STILTE = [], {}                                  # "STILTE|2.0" in het script = echte stilte na de vorige regel (eigenaar 25 nov: krekels)
+for r in SCRIPT.read_text(encoding="utf-8").splitlines():
+    if not r.strip() or r.startswith("#"): continue
+    if r.startswith("STILTE|"): STILTE[len(regels) - 1] = float(r.split("|")[1]); continue
+    regels.append(r.rstrip(chr(10)).split("|", 2))
 import os
 OPNIEUW = {int(x) for x in os.environ.get("OPNIEUW", "").split(",") if x.strip()}   # zinnen met een andere seed (Whisper hoorde iets anders)
 MAXWPM, ZINPAUZE = 195, 0.32                              # per zin; pauze tussen zinnen binnen één regel
@@ -64,6 +68,7 @@ for k, ((sp, sc, z), c) in enumerate(zip(regels, clips)):
     p = 0.35 if k + 1 < len(regels) and regels[k + 1][0] != sp else 0.45
     if z.endswith("?") and sp == "N": p = 0.8
     if k + 1 == len(regels): p = 1.2
+    p = max(p, STILTE.get(k, 0))
     delen += [c, np.zeros(int(p * SR), np.float32)]; t += len(c) / SR + p
 sf.write(H / "stem.wav", np.concatenate(delen), SR)
 (H / "zinnen.json").write_text(json.dumps(tijden, indent=0, ensure_ascii=False), encoding="utf-8")

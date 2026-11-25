@@ -1,0 +1,9 @@
+{
+ "0": {"gezicht": "schrik", "teken": "!", "wie": "you", "woord": "Mom", "camera": false},
+ "4": {"gezicht": "verward", "teken": "?", "wie": "paard", "woord": "doormat", "camera": true},
+ "6": {"gezicht": "schrik", "teken": "!?", "wie": "mom", "woord": "milk", "camera": false},
+ "7": {"gezicht": "schrik", "teken": "!", "wie": "mom", "woord": "hundred", "camera": false},
+ "8": {"gezicht": "verdriet", "teken": "...", "wie": "allemaal", "woord": "yacht", "camera": false},
+ "9": {"gezicht": "verdriet", "teken": "zweet", "wie": "allemaal", "woord": "part", "camera": false},
+ "10": {"gezicht": "schrik", "teken": "?", "wie": "you", "woord": "worst", "camera": false}
+}

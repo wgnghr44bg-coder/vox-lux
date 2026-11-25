@@ -10,4 +10,5 @@ MOM|winkel|Fifty dollars? For milk?
 N|winkel|Everyone is rich, so the store raised the prices. By dinner, it's two hundred.
 N|nacht|Day fourteen. The lights go out. The whole city. The people who run the power plant are on a yacht.
 N|nacht|By day thirty, a loaf of bread is worth more than your million. And that's not even the worst part.
+STILTE|2.2
 YOU|nacht|Wait. What's the worst part?

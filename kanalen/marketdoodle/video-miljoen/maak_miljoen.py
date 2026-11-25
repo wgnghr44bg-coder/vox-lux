@@ -50,10 +50,12 @@ SW = _script_woorden()
 EIND = Z[-1][1] + 3.0                                  # even laten hangen na "Oh no." (en net boven 8 min)
 AUD, SR = sf.read(HIER / "stem.wav", dtype="float32")
 if AUD.ndim > 1: AUD = AUD.mean(axis=1)
-def kw(zin, woord, na=0.0):
-    for i, w, t0, t1 in WO:
-        if i == zin and re.sub(r"[^\w$%]", "", w.lower()).startswith(woord.lower()): return t0 + na
-    print("LET OP: niet gevonden", zin, woord); return Z[zin][0] + na
+LAYOUT = set()                                          # layoutcheck (vroeg, zodat kw() erin kan melden)
+def kw(zin, woord, na=0.0):                              # 25 nov: eerst de scriptwoorden (goede spelling, Whisper schrijft "un -plugs"/"$1")
+    for bron in (SW, WO):
+        for i, w, t0, t1 in bron:
+            if i == zin and re.sub(r"[^\w$%]", "", w.lower()).startswith(woord.lower()): return t0 + na
+    print("LET OP: niet gevonden", zin, woord); LAYOUT.add(f"woord '{woord}' niet gevonden in zin {zin}: tijd klopt niet"); return Z[zin][0] + na
 LIJF = {"YOU": "you", "DAD": "dad", "MOM": "mom", "SIS": "sis", "BOSS": "boss", "TEACH": "teach"}
 NAAM = {"YOU": "YOU", "DAD": "DAD", "MOM": "MOM", "SIS": "SISTER", "TEACH": "TEACHER", "BOSS": "BOSS"}
 def luid(t, lijf):
@@ -220,7 +222,7 @@ for naam, a, b in blokken:
         i0 = zi("Day eight"); kop.append((Z[i0][0], "DAY 8", 185, 90, 70, "geel"))
         i1 = zi("Nobody answers"); i2 = zi("Forty minutes"); extra["minibord"] = kw(zi("Day eight"), "tiny", -0.2)
         extra["muts"] = kw(i1, "puts", -0.1); extra["rook"] = kw(i2, "smoke", -0.2); extra["cereal"] = kw(i2, "cereal", -0.1)
-        kop.append((kw(i2, "40"), "40 MINUTES LATER", 960, 170, 80, "geel"))
+        kop.append((kw(i2, "Forty"), "40 MINUTES LATER", 960, 170, 80, "geel"))
         i3 = zi("On the way out"); kop.append((kw(i3, "tip"), "TIP: $1,000,000", 960, 170, 84, "groen")); extra["fooi"] = kw(i3, "tip", -0.1)
     elif naam == "feit":
         pop = [dict(n="you", x=360, s=1.5)]
@@ -289,7 +291,7 @@ def bg(n):
             d_.rectangle((612, 478, 716, 546), fill=(255, 255, 255)); d_.rectangle((618, 484, 710, 540), fill=(150, 205, 240))
             d_.line((664, 484, 664, 540), fill=(255, 255, 255), width=6); d_.line((618, 512, 710, 512), fill=(255, 255, 255), width=6)
     return BG[n]
-LAYOUT = set()                                          # layoutcheck: tekst buiten beeld/kader -> melding bij --plaat en render
+LAYOUT = globals().get("LAYOUT", set())                # layoutcheck: tekst buiten beeld/kader -> melding bij --plaat en render
 def kop(img, s, x, y, m, kl, sch):
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
@@ -922,6 +924,19 @@ def geluid():
     x = tt(0.6); klap = np.sin(2 * np.pi * 70 * x * (1 - 0.4 * x)) * np.exp(-x * 9) + rng.normal(0, 1, len(x)) * np.exp(-x * 35) * 0.6
     x = tt(0.25); tok = np.sin(2 * np.pi * (700 + 300 * np.sin(2 * np.pi * 14 * x)) * x) * np.exp(-x * 14) * 0.4
     x = tt(0.4); stempel = np.sin(2 * np.pi * 85 * x) * np.exp(-x * 14) + rng.normal(0, 1, len(x)) * np.exp(-x * 35) * 0.5
+    # 25 nov (eigenaar keurde de Short met ECHTE geluiden goed): zelfde soort CC0-opnames uit ../geluiden (bron in gekozen.json)
+    def echt(n, dur=None):
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(HIER.parent / "geluiden" / f"{n}.mp3"), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True).stdout
+        x = np.frombuffer(raw, np.float32).copy(); x /= (np.abs(x).max() + 1e-6)
+        if dur:
+            m_ = min(len(x) - 1, int(dur * SR)); e = np.convolve(x ** 2, np.ones(SR // 10), "same")
+            b_ = max(range(0, max(1, len(x) - m_), SR // 20), key=lambda i: e[i:i + m_].sum()); x = x[b_:b_ + m_]
+        k_ = min(len(x) // 3, int(0.04 * SR)); x[:k_] *= np.linspace(0, 1, k_); x[-k_:] *= np.linspace(1, 0, k_); return x
+    bzz, kaching, stap, vroem = echt("trillen", 0.45) * 0.7, echt("kassa"), echt("stappen", 0.25) * 0.7, echt("auto", 1.4)
+    plof, papier, tingel, klik = echt("plof"), echt("papier-ritsel", 0.5), echt("ting", 0.9) * 0.7, echt("klik")
+    knetter, uitgaan, klap, tok = echt("vonken", 0.7), echt("stroom-uit", 1.4), echt("deur-dicht"), echt("kip", 0.7) * 0.8
+    stempel, hap_ = echt("stempel"), echt("paard-eet", 0.9)
+    piep = echt("rookmelder", 0.6) * 0.6
     for j in range(3): leg(bzz, 0.05 + j * 0.6, 0.5)
     i1 = zi("It's 6 a.m."); leg(bzz, Z[i1][0] + 0.2, 0.5); leg(bzz, Z[i1][0] + 0.8, 0.5)
     leg(kaching, T_SALDO + 0.25, 0.7)
@@ -936,8 +951,8 @@ def geluid():
         if s.get("boot") is not None: leg(plof, s["boot"], 0.9)
         if s.get("briefje") is not None: leg(papier, s["briefje"], 0.8)
         if s.get("kroon"): leg(tingel, s["t"] + 0.3, 0.5)
-        for e in s.get("eet", []):
-            for q in (0.15, 0.45, 0.75): leg(papier, e + q, 0.9)
+        for e in s.get("eet", []): leg(hap_, e + 0.1, 0.9)                     # echt paard dat kauwt
+        if s.get("eet"): leg(echt("slok", 0.7), s["eet"][-1] + 1.1, 0.8)         # en een slok na de deurmat (grapje, net als in de Short)
         if s.get("vuil") is not None: [leg(plof, s["vuil"] + 0.5 + j * 0.4, 0.5) for j in range(6)]
         if s.get("tv") is not None: leg(klik, s["tv"], 0.8)
         for t0, tekst in s.get("bel", []): leg(klik if tekst.startswith("*") else bzz, t0, 0.6)

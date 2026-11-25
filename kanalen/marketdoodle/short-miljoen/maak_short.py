@@ -118,6 +118,32 @@ def emotie(t, nu_i):
                 if st - 0.15 <= t and st > best[1]: best = (soort, st)
     return best[0]
 
+# ---------- grappen (tools/grappenkiezer.py -> grappen.json, door Claude nagekeken): striptekens + in de camera kijken ----------
+GRAP = {int(k): v for k, v in json.loads((HIER / "grappen.json").read_text(encoding="utf-8")).items()} if (HIER / "grappen.json").exists() else {}
+def _grap_tijd(i, g):
+    if g.get("wie") == "paard" and "door" in (g.get("woord") or "").lower(): return T_MAT + 0.5          # pas als de mat in de bek hangt
+    return kw(i, g["woord"], 0.1) if g.get("woord") else Z[i][0]
+GRAPT = [(i, _grap_tijd(i, g), g) for i, g in GRAP.items() if g.get("teken")]
+def grap_actief(t, wie):                                  # (teken, sch, camera) als 'wie' nu een grap heeft
+    for i, t0, g in GRAPT:
+        eind = min(t0 + 1.8, Z[i + 1][0] - 0.05) if i + 1 < len(Z) else t0 + 1.8      # weg zodra de volgende zin begint
+        if g.get("wie") == "paard": eind = Zs(I_MELK)                                     # paard blijft kijken tot de scène wisselt
+        if g.get("wie") == "allemaal" and i + 1 < len(Z) and Z[i + 1][0] - Z[i][1] > 1.0: eind = Z[i + 1][0] - 0.1   # stilte: blijft staan
+        if t0 <= t < eind and g.get("wie") in (wie, "allemaal") and not (wie == "paard" and g["wie"] == "allemaal"):
+            return g["teken"], ps.pop((t - t0) / 0.3), bool(g.get("camera"))
+    return None
+def grap_gezicht(t, nu_i):
+    g = GRAP.get(nu_i) if nu_i is not None else None
+    return {"schrik": "schrik", "verward": "schrik", "verdriet": "verdriet", "ongemakkelijk": "verdriet"}.get((g or {}).get("gezicht"))
+def stripteken(img, x, y, teken, sch):                   # "?", "!", "!?", "...", "zweet" boven een hoofd (stripstijl)
+    d = ImageDraw.Draw(img)
+    if teken == "zweet":                                  # blauwe zweetdruppel naast het hoofd
+        r = 24 * sch; d.polygon([(x, y - 2.2 * r), (x - r, y), (x + r, y)], fill=(120, 190, 250), outline=INK)
+        d.ellipse((x - r, y - r, x + r, y + r), fill=(120, 190, 250), outline=INK, width=3); d.ellipse((x - r * 0.4, y - r * 0.5, x - r * 0.05, y - r * 0.1), fill=(235, 248, 255)); return
+    f = font(FB, int(78 * sch)); tw = d.textlength(teken, font=f)
+    if x - tw / 2 < 10 or x + tw / 2 > W - 10 or y - 60 * sch < 0: LAYOUT.add(f"stripteken '{teken}' valt buiten beeld")
+    d.text((x, y), teken, font=f, fill=(255, 214, 64) if teken != "..." else (255, 255, 255), stroke_width=7, stroke_fill=INK, anchor="mm")
+
 # ---------- tekeningen ----------
 LAYOUT = set()
 def kop(img, s, x, y, m, kl, sch):
@@ -178,11 +204,17 @@ PAARD_X, PAARD_VOET, PAARD_H = 470, 930, 390       # paard achterin bij de achte
 def paard(img, t):
     if t < T_PAARD: return
     sch = ps.pop((t - T_PAARD) / 0.35); hh = int(PAARD_H * sch)
-    pd = sprite("paard", hh, spiegel=True); hap = T_EET <= t < T_MAT + 1.2 and int((t - T_EET) * 5) % 2 == 0
+    pd = sprite("paard", hh, spiegel=True); hap = T_EET <= t < T_MAT + 0.5 and int((t - T_EET) * 5) % 2 == 0   # stopt met kauwen als hij in de camera kijkt
     if hap: pd = pd.rotate(6, resample=Image.BICUBIC, expand=True, center=(pd.width, pd.height))     # hoofd omlaag = happen
     WACHT.plaats("paard", (PAARD_X - pd.width / 2, PAARD_VOET - pd.height, PAARD_X + pd.width / 2, PAARD_VOET), op="gras")
     w0 = sprite("paard", hh, spiegel=True).width
     img.paste(pd, (int(PAARD_X + w0 / 2 - pd.width), int(PAARD_VOET - pd.height)), pd)
+OOG = (66.5, -49.0)                                      # oog t.o.v. de bek (gespiegeld paard, PAARD_H 390, niet gedraaid)
+def paard_camera(img, teken, sch):                       # paard stopt met kauwen, kijkt recht in de camera, "?" boven zijn hoofd
+    bx, by = bek(); ox, oy = bx + OOG[0], by + OOG[1]; d = ImageDraw.Draw(img)
+    d.ellipse((ox - 11, oy - 12, ox + 11, oy + 12), fill=(255, 255, 255), outline=INK, width=2)
+    d.ellipse((ox - 6, oy - 5, ox + 6, oy + 7), fill=(25, 20, 20)); d.ellipse((ox - 3, oy - 3, ox, oy), fill=(255, 255, 255))
+    if TEKST_AAN: stripteken(img, ox + 10, oy - 95, teken, sch)
 def bek():                                               # bek van het paard (gespiegeld: kijkt naar links), verhouding uit de lange video
     s = PAARD_H / 470; return PAARD_X - 285 * s, PAARD_VOET - 335 * s
 MATKL = ((176, 126, 64), (90, 60, 30), (140, 95, 45))
@@ -267,6 +299,8 @@ def frame(t):
         if sp is not None and p is not sp: kijk = 0.9 if sp["x"] > x else -0.9
         else: kijk = 0.5 if x < 540 else -0.5
         if n == "tuin" and t >= T_PAARD: kijk = -0.9                    # zus kijkt naar haar paard (links van haar)
+        if n == "nacht" and Z[I_BROOD][1] + 0.2 <= t < Z[I_SLOT][0]:     # ongemakkelijke stilte (krekels): iedereen kijkt opzij naar elkaar
+            kijk = (1 if int((t - Z[I_BROOD][1]) * 1.4 + hash(p["n"]) % 2) % 2 else -1) * 0.9
         if n == "winkel" and t >= T_50: kijk = -0.9                     # mama kijkt naar het prijskaartje (links van haar)
         geb = "telefoon" if p["n"] in TELEFOON.get(n, ()) else None
         if n == "tuin" and T_PAARD <= t < T_MAT: geb = "wijslinks"
@@ -275,7 +309,9 @@ def frame(t):
             geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb)   # gewoon praten = geen armgebaar (eigenaar 25 nov)
         if geb == "praat": LAYOUT.add(f"armgebaar 'praat' bij gewoon praten ({p['n']}, {t:.1f} s): weghalen")
         if loop is not None: geb = "rennen"
-        emo = emotie(t, nu)
+        emo = emotie(t, nu) or grap_gezicht(t, nu)
+        gr = grap_actief(t, p["n"])
+        if gr and gr[2]: kijk = 0.0                       # kijkt recht in de camera
         verb, boos_ = emo == "schrik", emo == "verdriet"
         knip = (t + hash(p["n"]) % 7 * 0.4) % 3.4 < 0.13
         koppen[p["n"]] = ps.poppetje(d, p["n"], x, p.get("y", 1460), p["s"], t, loop=loop, kijk=kijk, mond=luid(t, p["n"]), knipper=knip,
@@ -285,6 +321,11 @@ def frame(t):
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
     for hx, hy, S in vast: WACHT.plaats("telefoon in de hand", (hx - 14 * S, hy - 38 * S, hx + 14 * S, hy + 8 * S), op="aan:hand"); telefoontje(img, hx, hy, S, t)
     if n == "tuin" and t >= T_EET + 0.6: mat(img)
+    if n == "tuin" and grap_actief(t, "paard"): paard_camera(img, *grap_actief(t, "paard")[:2])
+    for nm, (hx_, hy_) in koppen.items():                 # striptekens boven de hoofden (grappen.json)
+        gr = grap_actief(t, nm)
+        kant = -1 if n == "kamer" else 1                   # in de slaapkamer staat het naamlabel rechts van het hoofd -> teken links
+        if gr and TEKST_AAN: stripteken(img, hx_ + kant * 62 * GEZ[nm][2], hy_ - 18, gr[0], gr[1])
     if n == "nacht":
         tafel(img)
         if t >= T_BROOD:
@@ -333,7 +374,7 @@ def geluid():
     for k, t0 in enumerate((T_50, T_100, T_200)): zet(t0, "scanner", _fade(_laad("scanner")), 0.35 + 0.12 * k, "prijskaartje")   # steeds harder: steeds erger
     zet(T_UIT - 0.1, "stroom-uit", _fade(_drukste(_laad("stroom-uit"), 1.6)), 0.6, "keukentafel")
     zet(T_KAARS - 0.12, "lucifer", _fade(_drukste(_laad("lucifer"), 1.2)), 0.6, "kaars")
-    zet(Z[I_BROOD][1] + 0.05, "krekels", _fade(_drukste(_laad("krekels"), max(0.6, Z[I_SLOT][0] - Z[I_BROOD][1] + 0.3)), 0.15), 0.4, "keukentafel")   # ongemakkelijke stilte
+    zet(Z[I_BROOD][1] + 0.15, "krekels", _fade(_drukste(_laad("krekels"), max(0.6, Z[I_SLOT][0] - Z[I_BROOD][1] + 0.2)), 0.25), 0.55, "keukentafel")   # ongemakkelijke stilte
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():                                       # elk geluid alleen als het ding waar het bij hoort in beeld is
@@ -341,6 +382,9 @@ def geluidcheck():                                       # elk geluid alleen als
     for t, n, zie in GELUIDEN:
         frame(t + 0.15); gezien = {k[0] for k, v in WACHT.gezien.items() if any(abs(tt - (t + 0.15)) < 1e-6 for tt, _ in v)} | set(GEZ)
         if zie != "bank-app" and zie not in gezien: fout.append(f"{t:.1f} s: geluid '{n}' maar '{zie}' is niet in beeld")
+        if n == "krekels":                               # krekels = ongemakkelijke stilte: er moet echt even niemand praten
+            vrij = min([z[0] for z in Z if z[0] > t] or [EIND]) - t
+            if vrij < 1.5: fout.append(f"{t:.1f} s: krekels maar maar {vrij:.1f} s stilte (minstens 1,5 s)")
     return fout
 
 if __name__ == "__main__":
