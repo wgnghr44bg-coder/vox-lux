@@ -44,7 +44,17 @@ for k, (sp, sc, z) in enumerate(regels):
             c = edge_fade(trim(ov.speak([zz], cfg, seed=100 * k + 10 * q + p + (7 if k in OPNIEUW else 0))[0], SR), SR); d = len(c) / SR
             wpm = len(zz.split()) / (d / 60) if d > 0 else 999; poging.append((wpm if d >= 0.3 else 999, c))
             if d >= 0.3 and (wpm <= MAXWPM or len(zz.split()) < 4): break
-        stukken.append(min(poging, key=lambda x: x[0])[1])
+        best = min(poging, key=lambda x: x[0])
+        if best[0] > MAXWPM + 15 and len(zz.split()) >= 6:    # nog steeds te snel (tempowachter): rustiger inspreken
+            for f_ in (0.88, 0.78):
+                cfg2 = VoiceConfig(voice=v, speed=spd * f_, seed=23, num_step=inst["model"]["num_step"], guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
+                for p in range(4):
+                    c = edge_fade(trim(ov.speak([zz], cfg2, seed=100 * k + 10 * q + 50 + p)[0], SR), SR); d = len(c) / SR
+                    if d >= 0.3: poging.append((len(zz.split()) / (d / 60), c))
+                    if d >= 0.3 and len(zz.split()) / (d / 60) <= MAXWPM + 10: break
+                if min(x[0] for x in poging) <= MAXWPM + 15: break
+            best = min(poging, key=lambda x: x[0])
+        stukken.append(best[1])
     c = stukken[0]
     for st in stukken[1:]: c = np.concatenate([c, np.zeros(int((ZINPAUZE if sp == "N" else ZINPAUZE * 0.75) * SR), np.float32), st])
     d = len(c) / SR; clips.append(c); print(k, sp, round(d, 2), f"{len(z.split()) / (d / 60):.0f} w/min", flush=True)

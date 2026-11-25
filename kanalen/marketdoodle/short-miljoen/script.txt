@@ -1,7 +1,7 @@
 # Short "What If Everyone Got $1 Million?" (25 nov 2026) — voorproefje van de lange video (video-miljoen), ± 45 s, staand.
 # Eigenaar koos: Short over hetzelfde onderwerp; lange video eronder als Gerelateerde video. Einde verklapt day 30 niet.
 YOU|kamer|Mom! Dad! Check your phones! Now!
-N|kamer|It's 6 a.m. Your bank app says one million dollars. Yesterday you had twelve.
+N|kamer|It's 6 a.m. Your bank app says one million dollars. Yesterday you had twelve dollars and a coupon for free fries.
 DAD|keuken|Everybody got it. Every single person on Earth.
 SIS|keuken|I'm a millionaire! I'm seven!
 N|tuin|Day one. Your sister buys a horse. His name is Mister Pancake. He eats the doormat.

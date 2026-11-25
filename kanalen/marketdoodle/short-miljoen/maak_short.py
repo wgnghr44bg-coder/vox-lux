@@ -85,7 +85,7 @@ def bg(n):
 def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
 I_BANK, I_DAD, I_SIS, I_PAARD = zi("It's 6"), zi("Everybody got"), zi("I'm a millionaire"), zi("Day one")
 I_MELK, I_MOM, I_PRIJS, I_DONKER, I_BROOD, I_SLOT = zi("Day seven"), zi("Fifty dollars?"), zi("Everyone is rich"), zi("Day fourteen"), zi("By day thirty"), zi("Wait.")
-T_BANK = kw(I_BANK, "bank", -0.2); T_GISTER = kw(I_BANK, "Yesterday", -0.1)
+T_BANK = kw(I_BANK, "bank", -0.2); T_GISTER = kw(I_BANK, "Yesterday", -0.1); T_COUPON = kw(I_BANK, "coupon", -0.1)
 T_SIS_IN, T_PAARD, T_EET, T_MAT = kw(I_PAARD, "sister", -0.1), kw(I_PAARD, "horse", -0.15), kw(I_PAARD, "eats", -0.1), kw(I_PAARD, "doormat", -0.1)
 T_MOM_IN = kw(I_MELK, "Mom", -0.2); T_50 = kw(I_MELK, "fifty", -0.1)
 T_100 = kw(I_PRIJS, "raised", -0.05); T_200 = kw(I_PRIJS, "two", -0.1)
@@ -101,7 +101,7 @@ SCHRIK = ("Mom! Dad!", "It's 6", "Check your phones", "Fifty dollars", "fifty do
           "worth more", "Wait", "eats the doormat")
 BLIJ = ("one million dollars", "I'm a millionaire", "Everybody got it", "buys a horse")
 VERDRIET = ("Everyone is rich", "By day thirty", "The whole city", "on a yacht", "not even the worst part")
-ACTIE = {"Mom! Dad!": "telefoon", "Everybody got it": "praat", "I'm a millionaire": "juich", "Fifty dollars?": "armen-open",
+ACTIE = {"Mom! Dad!": "telefoon", "I'm a millionaire": "juich", "Fifty dollars?": "armen-open",
          "Wait.": "schrik"}
 def _start(i, frase):
     w0 = _norm(frase.split()[0])
@@ -143,7 +143,7 @@ def ondertitel(img, t):
         d.text((x, y), w[1].upper(), font=f, fill=KL["geel"] if w[2] <= t <= w[3] + 0.05 else (255, 255, 255), stroke_width=6, stroke_fill=(0, 0, 0))
         x += d.textlength(w[1].upper() + " ", font=f)
 def telefoon(img, t):                                    # grote telefoon met bank-app (beeld-grafiek boven het hoofd)
-    d = ImageDraw.Draw(img); x0, y0, x1, y1 = 300, 90, 780, 680
+    d = ImageDraw.Draw(img); x0, y0, x1, y1 = 300, 80, 780, 720
     tril = math.sin(t * 60) * 6 if t < Z[0][1] else 0; x0 += tril; x1 += tril
     sch = ps.pop(t / 0.3)
     WACHT.plaats("bank-app", (x0, y0, x1, y1), op="beeld")
@@ -156,6 +156,13 @@ def telefoon(img, t):                                    # grote telefoon met ba
     m = int(50 * (ps.pop((t - T_BANK) / 0.35) if t >= T_BANK else sch))
     d.text((x0 + 50, y0 + 300), "$1,000,000.00", font=font(FB, m), fill=(30, 170, 80))
     if d.textlength("$1,000,000.00", font=font(FB, 50)) > x1 - x0 - 90: LAYOUT.add("saldo past niet op het telefoonscherm")   # tekst binnen het kader
+    if t >= T_COUPON:                                    # "... and a coupon for free fries" (grapje uit de lange video)
+        yy = y0 + 545
+        if yy + 50 > y1 - 18: LAYOUT.add("coupon-regel past niet op het telefoonscherm")
+        d.text((x0 + 50, yy), "Free fries", font=font(FS, 34), fill=(60, 60, 70))
+        v = "1 coupon"; d.text((x1 - 60 - d.textlength(v, font=font(FB, 34)), yy), v, font=font(FB, 34), fill=(230, 140, 30))
+        fx, fy = x0 + 62 + d.textlength("Free fries", font=font(FS, 34)), yy + 2; d.polygon([(fx, fy + 10), (fx + 34, fy + 10), (fx + 30, fy + 40), (fx + 4, fy + 40)], fill=(220, 50, 50))   # bakje friet
+        for k in range(5): d.rectangle((fx + 4 + k * 6, fy - 2 - (k % 2) * 6, fx + 8 + k * 6, fy + 12), fill=(250, 200, 60))
     if t >= T_GISTER:                                    # "Yesterday you had twelve"
         yy = y0 + 470; d.line((x0 + 50, yy - 20, x1 - 50, yy - 20), fill=(220, 220, 228), width=3)
         d.text((x0 + 50, yy), "Yesterday", font=font(FS, 34), fill=(60, 60, 70))
@@ -265,8 +272,8 @@ def frame(t):
         if n == "tuin" and T_PAARD <= t < T_MAT: geb = "wijslinks"
         if n == "winkel" and T_50 <= t < Z[I_MOM][0]: geb = "wijslinks"
         if sp is p and nu is not None:
-            geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb or ("praat" if t - Z[nu][0] < 2.0 else None))
-            if p["n"] in TELEFOON.get(n, ()) and geb == "praat": geb = "telefoon"
+            geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb)   # gewoon praten = geen armgebaar (eigenaar 25 nov)
+        if geb == "praat": LAYOUT.add(f"armgebaar 'praat' bij gewoon praten ({p['n']}, {t:.1f} s): weghalen")
         if loop is not None: geb = "rennen"
         emo = emotie(t, nu)
         verb, boos_ = emo == "schrik", emo == "verdriet"

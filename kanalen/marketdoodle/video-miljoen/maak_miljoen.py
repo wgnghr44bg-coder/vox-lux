@@ -272,9 +272,10 @@ VERBAASD = ("toothache", "balloon", "dentist", "Twenty thousand", "One million d
 BLIJ = ("millionaire", "Best. Day", "rich")
 NACTIE = {"The cashier shrugs": ("kassa", "schouders"), "Then she hands out homework": ("teach", "wijslinks"),
           "Day twenty. The car": None}
-ACTIE = {"I'm a millionaire": "praat", "Best. Day. Ever": "juich", "This has to be a mistake": "praat", "It's on the news": "praat",
-         "It's for the driveway": "praat", "You can't even swim": "heupen", "I don't need to swim": "praat", "Who sold a seven": "armen-open",
-         "A millionaire did": "juich", "I quit": "zwaai", "But who runs": "schouders", "Who cares? I'm buying": "praat", "One million dollars?": "schrik"}
+# 25 nov (eigenaar: "elke keer dat er iets gezegd wordt zwaaien ze met de armen, dat hoeft toch niet"): gewoon praten = GEEN
+# armgebaar. Alleen een gebaar als de zin erom vraagt (juichen, schrikken, 'wat?!', handen in de zij ...).
+ACTIE = {"Best. Day. Ever": "juich", "You can't even swim": "heupen", "Who sold a seven": "armen-open",
+         "A millionaire did": "juich", "I quit": "zwaai", "But who runs": "schouders", "One million dollars?": "schrik"}
 
 FB, FS, KL, font = ps.FB, ps.FS, ps.KL, ps.font
 BG = {}
@@ -789,7 +790,9 @@ def frame(t):
         if sc.get("praten") is not None and sc["praten"] <= t < sc["praten"] + 3.0 and sp is None:
             geb = "praat"; kijk = 0.9 if (hash(p["n"]) + int(t)) % 2 else -0.9          # iedereen praat met elkaar
         if sp is p and nu is not None:
-            geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb or ("praat" if t - Z[nu][0] < 2.0 else None))
+            geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb)
+        if geb == "praat" and not (sc.get("praten") is not None and sc["praten"] <= t < sc["praten"] + 3.0):
+            LAYOUT.add(f"armgebaar 'praat' bij gewoon praten ({p['n']}, {t:.1f} s): weghalen")
         if sc.get("lopers") is not None and sc["lopers"] <= t < sc["lopers"] + 2.5: loop = t * 1.6; x = x - 120 * ((t - sc["lopers"]) / 2.5)
         if loop is not None and not (p["n"] == "oma" and geb in ("wijs", "wijslinks")): geb = "rennen"   # oma houdt het touw vast tijdens het lopen
         verb = any(w in tekst_nu for w in VERBAASD) and p["n"] in ("you", "dad", "mom", "sis"); boos_ = False
