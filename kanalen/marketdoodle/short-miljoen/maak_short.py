@@ -52,6 +52,7 @@ def kw(zin, woord, na=0.0):                              # tijd van een woord in
     print("LET OP: niet gevonden", zin, woord); return Z[zin][0] + na
 LIJF = {"YOU": "you", "DAD": "dad", "MOM": "mom", "SIS": "sis"}
 NAAM = {"YOU": "YOU", "DAD": "DAD", "MOM": "MOM", "SIS": "SISTER"}
+NAAMLABELS = False                                       # eigenaar 25 nov: "alle tekens bij de characters mogen ook weg"
 def luid(t, lijf):
     if not any(Z[i][0] <= t <= Z[i][1] and LIJF.get(Z[i][4]) == lijf for i in range(len(Z))): return 0.0
     s = AUD[int(t * SR): int((t + 1 / FPS) * SR)]
@@ -339,7 +340,7 @@ def frame(t):
         if t >= T_BROOD: img = gloed(img, 380, TAFEL[2] - 40, 160, 0.35)
     if n == "kamer" and TEKST_AAN: telefoon(img, t)
     if TEKST_AAN:
-        if nu is not None and Z[nu][4] in NAAM and spreker in koppen:      # naamlabel boven het hoofd van wie praat
+        if NAAMLABELS and nu is not None and Z[nu][4] in NAAM and spreker in koppen:      # naamlabel (eigenaar 25 nov: uit)
             hx_, hy_ = koppen[spreker]; dd = ImageDraw.Draw(img); fn = font(FB, 30); n_ = NAAM[Z[nu][4]]; nb = dd.textlength(n_, font=fn); yy = hy_ - 30
             if n == "kamer": R_ = 60 * GEZ[spreker][2]; hx_ = hx_ + R_ + nb / 2 + 26; yy = hy_ + R_ * 0.55     # boven het hoofd staat de telefoon
             dd.rounded_rectangle((hx_ - nb / 2 - 14, yy - 42, hx_ + nb / 2 + 14, yy - 2), 10, fill=(120, 80, 220)); dd.text((hx_ - nb / 2, yy - 40), n_, font=fn, fill=(255, 255, 255))

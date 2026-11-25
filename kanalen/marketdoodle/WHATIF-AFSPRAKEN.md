@@ -23,7 +23,7 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - **Geluidseffecten mag** (eigenaar 23 nov): alleen wat je in de scène echt hoort (voetstappen, klik, papier, hap, klok), zelf gemaakt (`short-pauze/geluid.py`), zacht onder de stem.
 - **Niets ongepasts of ongemakkelijks** (eigenaar 23 nov): bv. geen ouder die bij een kind de badkamer in loopt. Geen rare ogen (geen dichte ogen of doorzichtige gezichten waar het niet klopt), geen "zzz" als het verhaal niet zegt dat iemand slaapt.
 - **Alles moet kloppen als een film** (eigenaar 23 nov): eerst gebeurt iets (juf praat, bal vliegt), dan pas de reactie (knop, stilstand). Spullen echt in de hand (`gebaar="vast"`/`"haar"`), poppetje loopt naar dingen toe en kijkt ernaar. **Geen grote tekst bovenin die hetzelfde zegt als de ondertitel.**
-- Ondertitels onderin, gesproken woord geel, naamlabel bij wie praat. Getallen/labels gloeiend boven hoofden waar het past. Schaduw onder poppetjes.
+- Ondertitels onderin, gesproken woord geel. **Geen naamlabels of tekens bij de personages** (eigenaar 25 nov: "alle tekens bij de characters mogen ook weg"; `NAAMLABELS = False`): wie praat zie je aan de mond. Getallen/labels gloeiend boven hoofden waar het past. Schaduw onder poppetjes.
 - Bedragen in één eenheid (bv. alles per jaar).
 - **Geen Wan/AI-videoclips** (vervormt, eigenaar: "geen optie").
 
@@ -57,8 +57,7 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
 - Script volgens "VASTE WERKWIJZE LANGE VIDEO" hieronder (chaos in seconde 1, dagen, feit, cliffhanger, running gags, geen muziek).
 - Elke zin: wat gezegd wordt staat in beeld op het woord (`kw(zin, woord)`); wat de verteller alleen vertelt hoeft niet.
 - Gezicht past bij de zin: emotielijsten `SCHRIK` / `VERDRIET` / `BLIJ` (eerste woorden van de zin, hoofdletters maakt niet uit).
-- Gebaar past bij de zin (`ACTIE`/`NACTIE`), armen nooit door een ander heen. Naamlabel boven het hoofd van wie nu praat, naast het
-  hoofd als het tegen een kop botst.
+- Gebaar past bij de zin (`ACTIE`/`NACTIE`), armen nooit door een ander heen. Geen naamlabels (25 nov).
 - Elk voorwerp via `WACHT.plaats(naam, box, op=...)` op een vlak uit `achtergronden.json` (nieuwe achtergrond: eerst meten met
   `tools/meet_achtergrond.py` en vlakken/muren/meubels toevoegen). Logische plek (huiswerk op een bureau, tv aan de muur, bord op
   tafel); ontbreekt het meubel, teken het erbij. Simpel: geen extra labels/blaadjes als het beeld al duidelijk is.

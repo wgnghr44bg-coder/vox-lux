@@ -56,6 +56,7 @@ def kw(zin, woord, na=0.0):                              # 25 nov: eerst de scri
         for i, w, t0, t1 in bron:
             if i == zin and re.sub(r"[^\w$%]", "", w.lower()).startswith(woord.lower()): return t0 + na
     print("LET OP: niet gevonden", zin, woord); LAYOUT.add(f"woord '{woord}' niet gevonden in zin {zin}: tijd klopt niet"); return Z[zin][0] + na
+NAAMLABELS = False                                       # eigenaar 25 nov: "alle tekens bij de characters mogen ook weg"
 LIJF = {"YOU": "you", "DAD": "dad", "MOM": "mom", "SIS": "sis", "BOSS": "boss", "TEACH": "teach"}
 NAAM = {"YOU": "YOU", "DAD": "DAD", "MOM": "MOM", "SIS": "SISTER", "TEACH": "TEACHER", "BOSS": "BOSS"}
 def luid(t, lijf):
@@ -310,7 +311,7 @@ def ondertitel(img, t):
     if cur: stukken.append(cur)
     stuk = next((s for s in stukken if t <= s[-1][3] + 0.1), stukken[-1])
     br = sum(d.textlength(w[1] + " ", font=f) for w in stuk); x = W / 2 - br / 2; y = 985
-    if Z[i][4] in NAAM and not NAAM_GETOOND:
+    if NAAMLABELS and Z[i][4] in NAAM and not NAAM_GETOOND:
         fn = font(FB, 30); n = NAAM[Z[i][4]]; nb = d.textlength(n, font=fn)
         d.rounded_rectangle((W / 2 - nb / 2 - 14, y - 50, W / 2 + nb / 2 + 14, y - 10), 10, fill=(120, 80, 220)); d.text((W / 2 - nb / 2, y - 48), n, font=fn, fill=(255, 255, 255))
     for w in stuk:
@@ -811,7 +812,7 @@ def frame(t):
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
     for hx, hy, S in vast: WACHT.plaats("telefoon in de hand", (hx - 14 * S, hy - 38 * S, hx + 14 * S, hy + 8 * S), op="aan:hand"); telefoontje(img, hx, hy, S, t)
     global NAAM_GETOOND; NAAM_GETOOND = False
-    if nu is not None and Z[nu][4] in NAAM and spreker in koppen:      # label boven het hoofd van wie praat
+    if NAAMLABELS and nu is not None and Z[nu][4] in NAAM and spreker in koppen:      # label boven het hoofd (eigenaar 25 nov: uit)
         hx_, hy_ = koppen[spreker]; extra_ = 0
         if spreker == "dad" and sc.get("muts") is not None and t >= sc["muts"]: extra_ = 150
         if spreker == "boss" and sc.get("kroon"): extra_ = 95
