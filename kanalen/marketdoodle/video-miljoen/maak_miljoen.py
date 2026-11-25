@@ -390,11 +390,14 @@ def mat(img, half):                                      # deurmat met "WELCOME"
         d.polygon([(1332, 951), (1558, 951), (1584, 984), (1306, 984)], outline=(110, 70, 40))
         f_ = font(FB, 28); tw = d.textlength("WELCOME", font=f_); d.text((1445 - tw / 2, 951), "WELCOME", font=f_, fill=(90, 55, 30))
         return
-    x0, y0 = 1330, 650                                    # hangt breed uit de bek (bek op x 1385, y 625-677), hap uit de rechterkant
-    rand = [(x0 + 170, y0 + 22), (x0 + 152, y0 + 36), (x0 + 168, y0 + 50), (x0 + 150, y0 + 64), (x0 + 166, y0 + 78)]
-    d.polygon([(x0, y0), (x0 + 170, y0)] + rand + [(x0 + 166, y0 + 90), (x0, y0 + 90)], fill=BR, outline=RD)
-    d.rectangle((x0 + 8, y0 + 8, x0 + 148, y0 + 82), outline=(110, 70, 40), width=2)
-    d.text((x0 + 14, y0 + 28), "WELCO", font=font(FB, 34), fill=(90, 55, 30))
+    bx, by = 1385, 650; DK = (140, 95, 45); BR = (176, 126, 64); RD = (90, 60, 30)   # 25 nov: zelfde kokosmat als in de Short (geen houten bordje)
+    x0, x1, y0 = bx - 30, bx + 150, by
+    rand = [(x1 + 3, y0 + 62), (x1 - 14, y0 + 76), (x1 - 3, y0 + 90), (bx + 70, y0 + 84), (bx + 20, y0 + 96), (x0 + 6, y0 + 88), (x0 - 3, y0 + 58)]
+    d.polygon([(x0, y0 + 6), (x1, y0)] + rand, fill=BR, outline=RD)
+    for k in range(60): px = x0 + 8 + (k * 37) % (x1 - x0 - 16); py = y0 + 12 + (k * 53) % 70; d.line((px, py, px + 4, py + 3), fill=DK, width=2)
+    for k in range(int((x1 - x0) / 10)): d.line((x0 + 4 + k * 10, y0 + 86 + (k % 2) * 4, x0 + 6 + k * 10, y0 + 98 + (k % 2) * 4), fill=RD, width=2)
+    d.text((x0 + 14, y0 + 26), "WELC", font=font(FB, 30), fill=(80, 50, 25))
+
 # ---------- tekeningen voor de rest van het verhaal (laten zien wat er gezegd wordt) ----------
 INK = (40, 35, 40)
 def ballon(img, x, y, tekst, sch=1.0):                  # tekstballon (telefoon/roep)
@@ -725,7 +728,11 @@ def frame(t):
         pd = sprite("paard", 470); hoek = -9 * abs(math.sin((t - 0) * 9)) if hap else 0   # hoofd omlaag = happen
         if hoek: pd = pd.rotate(hoek, resample=Image.BICUBIC, expand=True, center=(0, pd.height))
         img.paste(pd, (int(1100 - sprite("paard", 470).width / 2), int(985 - pd.height)), pd)
-        if sc.get("eet") and t >= sc["eet"][2] + 0.9: WACHT.plaats("deurmat", (1330, 650, 1500, 740), op="bek", punt=(1385, 652)); mat(img, True)
+        if sc.get("eet") and sc["eet"][2] + 1.1 <= t < sc["eet"][2] + 4.0:          # 25 nov: kijkt met grote ogen recht in de camera
+            dd_ = ImageDraw.Draw(img); ox, oy = 1324, 598
+            dd_.ellipse((ox - 13, oy - 14, ox + 13, oy + 14), fill=(255, 255, 255), outline=INK, width=2)
+            dd_.ellipse((ox - 7, oy - 6, ox + 7, oy + 8), fill=(25, 20, 20)); dd_.ellipse((ox - 4, oy - 4, ox, oy), fill=(255, 255, 255))
+        if sc.get("eet") and t >= sc["eet"][2] + 0.9: WACHT.plaats("deurmat", (1352, 650, 1538, 750), op="bek", punt=(1385, 652)); mat(img, True)
     if sc.get("games") is not None and t >= sc["games"]: WACHT.plaats("spellen", (1440, 500, 1640, 980), op="vloer"); games(img, t, sc["games"])
     if sc.get("vol"):                                    # straat vol: 7 auto's, boot, (paard), vuilnis
         zet(img, "sportwagen", 230, 480, 975, op="weg"); zet(img, "boot", 300, 1180, 990, op="weg")
@@ -773,6 +780,9 @@ def frame(t):
         geb = p.get("geb")
         if sc.get("slot") and t >= sc["slot"][0]: geb = "vast"
         if sc.get("kijk") is not None and t >= sc["kijk"]: kijk = 1.0 if x < 1200 else -1.0          # iedereen kijkt naar iemand anders
+        if Z[-2][1] + 0.2 <= t < Z[-1][0]:                # ongemakkelijke stilte (één krekel): langzaam één keer opzij kijken en terug
+            u_ = (t - Z[-2][1] - 0.2) / max(0.5, Z[-1][0] - Z[-2][1] - 0.2)
+            kijk = (1 if hash(p["n"]) % 2 else -1) * 0.9 * math.sin(math.pi * min(1, u_))
         if sc.get("banaan") and p["n"] == "mom" and sc["banaan"][0] <= t < sc["banaan"][1]: geb = "vast"
         if sc.get("oma_pad") and p["n"] == "oma" and t >= sc["oma_pad"][0][0]:
             pad = sc["oma_pad"]; x = pad[-1][1]
@@ -800,6 +810,7 @@ def frame(t):
         if loop is not None and not (p["n"] == "oma" and geb in ("wijs", "wijslinks")): geb = "rennen"   # oma houdt het touw vast tijdens het lopen
         verb = any(w in tekst_nu for w in VERBAASD) and p["n"] in ("you", "dad", "mom", "sis"); boos_ = False
         emo = emotie(t, nu) if p["n"] in ("you", "dad", "mom", "sis", "teach", "kassa") else None
+        if Z[-2][1] <= t < Z[-1][0] and p["n"] in ("you", "dad", "mom", "sis"): emo = "schrik"   # stilte na "Congratulations.": geschrokken
         if emo == "schrik": verb, boos_ = True, False
         elif emo == "verdriet": verb, boos_ = False, True
         elif emo == "blij": verb, boos_ = False, False
@@ -970,6 +981,9 @@ def geluid():
         if s.get("slot"): [leg(bzz, s["slot"][0] + q * 0.6, 0.6) for q in range(3)]; leg(bzz, s["slot"][3], 0.7)
         for st, tx, *_ in s["kop"]:
             if "SOLD OUT" in tx or "QUIT" in tx or "BROKEN" in tx or "GONE" in tx or "FIREWOOD" in tx: leg(stempel, st, 0.6)
+    tj = echt("krekel"); raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(HIER.parent / "geluiden" / "krekel.mp3"), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True).stdout
+    tj = np.frombuffer(raw, np.float32).copy(); tj = tj[int(82.83 * SR):int(83.10 * SR)] / (np.abs(tj).max() + 1e-6); k_ = int(0.03 * SR); tj[:k_] *= np.linspace(0, 1, k_); tj[-k_:] *= np.linspace(1, 0, k_)
+    leg(tj, Z[-2][1] + (Z[-1][0] - Z[-2][1]) * 0.45, 0.55)   # precies één krekel-tjirp in de stilte (eigenaar 25 nov)
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, SR)
 

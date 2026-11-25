@@ -8,826 +8,826 @@
 ],
 [
 2.55,
-7.743,
+9.499,
 "It's 6 a.m. Your phone won't stop buzzing. You open your bank app. You blink. You look again.",
 "slaapkamer-jij",
 "N"
 ],
 [
-8.193,
-13.83,
+9.949,
+16.698,
 "One million dollars. In your account. Yesterday you had twelve dollars and a coupon for free fries.",
 "slaapkamer-jij",
 "N"
 ],
 [
-14.18,
-16.083,
+17.048,
+18.951,
 "One million dollars?! No way!",
 "slaapkamer-jij",
 "YOU"
 ],
 [
-16.433,
-22.701,
+19.301,
+26.961,
 "You run downstairs. Dad is staring at his phone. Mom is staring at hers. Your little sister is staring at hers.",
 "keuken",
 "N"
 ],
 [
-23.051,
-24.946,
+27.311,
+29.206,
 "I'm a millionaire! I'm seven!",
 "keuken",
 "SIS"
 ],
 [
-25.296,
-28.317,
+29.556,
+33.043,
 "This has to be a mistake. Banks don't just do this.",
 "keuken",
 "MOM"
 ],
 [
-28.667,
-33.385,
+33.393,
+38.378,
 "It's on the news. Everybody got it. Every single person on Earth. One million dollars. Overnight.",
 "keuken",
 "DAD"
 ],
 [
-33.735,
-38.07,
+38.728,
+44.453,
 "Nobody knows where it came from. Nobody cares. You're rich. Everyone is rich.",
 "keuken",
 "N"
 ],
 [
-38.52,
-43.669,
+44.903,
+52.666,
 "So, what happens next? Day one is amazing. Day two is weird. And by day thirty... well. Let's see.",
 "keuken",
 "N"
 ],
 [
-44.119,
-48.948,
+53.116,
+59.312,
 "Day one. Your street looks like a car show. Your neighbor bought a sports car. In pink.",
 "straat",
 "N"
 ],
 [
-49.398,
-54.3,
+59.762,
+65.69,
 "The guy across the street bought three. He can only drive one at a time. He doesn't care.",
 "straat",
 "N"
 ],
 [
-54.75,
-57.185,
+66.14,
+69.227,
 "Dad orders a boat. You don't live near water.",
 "straat",
 "N"
 ],
 [
-57.535,
-59.63,
+69.577,
+71.933,
 "It's for the driveway. It's a driveway boat.",
 "straat",
 "DAD"
 ],
 [
-59.98,
-61.489,
+72.283,
+73.792,
 "You can't even swim.",
 "straat",
 "MOM"
 ],
 [
-61.839,
-63.65,
+74.142,
+76.578,
 "I don't need to swim. I'm a millionaire.",
 "straat",
 "DAD"
 ],
 [
-64.0,
-68.671,
+76.928,
+82.411,
 "You buy every game ever made. Plus a gaming chair that cost more than your old house.",
 "slaapkamer-jij",
 "N"
 ],
 [
-69.121,
-74.103,
+82.861,
+88.195,
 "It has massage, cooling, and a tiny fridge in the armrest. You will never leave this chair.",
 "slaapkamer-jij",
 "N"
 ],
 [
-74.453,
-78.507,
+88.545,
+92.6,
 "I bought a horse. He's in the backyard. His name is Mister Pancake.",
 "slaapkamer-jij",
 "SIS"
 ],
 [
-78.857,
-82.696,
+92.95,
+97.415,
 "Mister Pancake eats Mom's flowers. Then the fence. Then the doormat.",
 "tuin",
 "N"
 ],
 [
-83.046,
-85.155,
+97.765,
+99.874,
 "Who sold a seven-year-old a horse?",
 "tuin",
 "MOM"
 ],
 [
-85.505,
-87.109,
+100.224,
+101.828,
 "A millionaire did.",
 "tuin",
 "SIS"
 ],
 [
-87.459,
-91.073,
+102.178,
+107.503,
 "Day two. You go to school. Nobody else does. Not even the teacher.",
 "school",
 "N"
 ],
 [
-91.523,
-94.331,
+107.953,
+112.881,
 "There's a note on the door. \"Gone to Hawaii. Forever.\"",
 "school",
 "N"
 ],
 [
-94.681,
-96.101,
+113.231,
+114.651,
 "Best. Day. Ever.",
 "school",
 "YOU"
 ],
 [
-96.451,
-102.84,
+115.001,
+123.074,
 "You sit alone in an empty classroom for ten minutes. Just to feel it. Then you go home and play games for nine hours.",
 "school",
 "N"
 ],
 [
-103.29,
-107.623,
+123.524,
+129.205,
 "Dad goes to work out of habit. The office is empty. His boss is wearing a crown.",
 "kantoor",
 "N"
 ],
 [
-107.973,
-109.597,
+129.555,
+131.433,
 "I quit. You quit. Everybody quit.",
 "kantoor",
 "BOSS"
 ],
 [
-109.947,
-110.854,
+131.783,
+132.773,
 "But who runs the company?",
 "kantoor",
 "DAD"
 ],
 [
-111.204,
-114.337,
+133.123,
+137.094,
 "Who cares? I'm buying an island. A small one. Okay, a medium one.",
 "kantoor",
 "BOSS"
 ],
 [
-114.687,
-121.389,
+137.444,
+146.109,
 "And that's the problem. Nobody wants to work anymore. Not the bus driver. Not the cook. Not the guy who fixes the internet.",
 "kantoor",
 "N"
 ],
 [
-121.839,
-126.301,
+146.559,
+152.574,
 "Day three. The garbage truck doesn't come. Neither does the mail. Or the pizza guy.",
 "straat",
 "N"
 ],
 [
-126.751,
-131.529,
+153.024,
+157.979,
 "Your street now has seven sports cars, one boat, one horse, and a mountain of trash bags.",
 "straat",
 "N"
 ],
 [
-131.879,
-133.447,
+158.329,
+159.896,
 "Somebody should really pick that up.",
 "straat",
 "DAD"
 ],
 [
-133.797,
-136.706,
+160.246,
+163.529,
 "Everybody looks at somebody else. Nobody picks it up.",
 "straat",
 "N"
 ],
 [
-137.156,
-143.423,
+163.979,
+172.011,
 "By the end of the day, the trash pile is taller than the boat. A family of raccoons moves in. They look very happy.",
 "straat",
 "N"
 ],
 [
-143.873,
-147.773,
+172.461,
+177.843,
 "Day four. You turn on the TV. A famous movie star is crying on the news.",
 "tv",
 "N"
 ],
 [
-148.223,
-154.508,
+178.293,
+184.822,
 "Nobody wants her autograph anymore. Everyone already has a mansion. Being rich isn't special when everybody is.",
 "tv",
 "N"
 ],
 [
-154.858,
-156.732,
+185.172,
+187.612,
 "Huh. I feel kind of bad for her.",
 "tv",
 "YOU"
 ],
 [
-157.082,
-158.798,
+187.962,
+189.679,
 "I don't. I have a horse.",
 "tv",
 "SIS"
 ],
 [
-159.148,
-163.569,
+190.029,
+195.511,
 "Day five. The internet goes down. Your sister screams like the world is ending.",
 "keuken",
 "N"
 ],
 [
-163.919,
-165.716,
+195.861,
+197.658,
 "My tablet! Somebody fix it!",
 "keuken",
 "SIS"
 ],
 [
-166.066,
-167.814,
+198.008,
+199.757,
 "We'll pay someone. We're millionaires.",
 "keuken",
 "DAD"
 ],
 [
-168.164,
-173.732,
+200.107,
+207.716,
 "Dad calls a repair guy. The repair guy is also a millionaire. He's on a yacht. He laughs. He hangs up.",
 "keuken",
 "N"
 ],
 [
-174.182,
-177.784,
+208.166,
+213.43,
 "Dad calls ten more. Same answer. One of them is on the same yacht.",
 "keuken",
 "N"
 ],
 [
-178.134,
-180.202,
+213.78,
+216.459,
 "Okay. How hard can it be? I'll fix it myself.",
 "keuken",
 "DAD"
 ],
 [
-180.552,
-185.259,
+216.809,
+223.687,
 "Dad unplugs the router. Plugs it back in. Unplugs it again. Now the TV is broken too.",
 "keuken",
 "N"
 ],
 [
-185.709,
-190.383,
+224.137,
+230.386,
 "Day seven. Mom goes to the store for milk. A carton of milk now costs fifty dollars.",
 "winkel",
 "N"
 ],
 [
-190.733,
-192.464,
+230.736,
+232.467,
 "Fifty dollars? For milk?",
 "winkel",
 "MOM"
 ],
 [
-192.814,
-198.886,
+232.817,
+239.894,
 "The cashier shrugs. Everyone has a million dollars, so the store raised the prices. Then raised them again.",
 "winkel",
 "N"
 ],
 [
-199.336,
-205.212,
+240.344,
+247.044,
 "By lunch it's a hundred dollars. By dinner, two hundred. The price tags change while you're looking at them.",
 "winkel",
 "N"
 ],
 [
-205.562,
-208.512,
+247.394,
+250.441,
 "I'll just take one banana. How much is one banana?",
 "winkel",
 "MOM"
 ],
 [
-208.862,
-212.726,
+250.791,
+255.061,
 "The cashier says a number. Mom puts the banana back very, very slowly.",
 "winkel",
 "N"
 ],
 [
-213.176,
-220.599,
+255.511,
+264.817,
 "Day eight. Mom has had enough. Tonight, the family goes to the fanciest restaurant in town. The one with the tiny food on big plates.",
 "restaurant",
 "N"
 ],
 [
-221.049,
-226.347,
+265.267,
+273.618,
 "The doors are open. The candles are lit. And there's nobody inside. No waiter. No chef. Nobody.",
 "restaurant",
 "N"
 ],
 [
-226.697,
-228.906,
+273.968,
+276.176,
 "Hello? We're millionaires! We'd like a table!",
 "restaurant",
 "DAD"
 ],
 [
-229.256,
-233.265,
+276.526,
+281.488,
 "Nobody answers. So Dad walks into the kitchen and puts on the chef's hat.",
 "restaurant",
 "N"
 ],
 [
-233.615,
-234.4,
+281.838,
+282.745,
 "How hard can it be?",
 "restaurant",
 "DAD"
 ],
 [
-234.75,
-240.215,
+283.095,
+290.183,
 "Forty minutes later, the smoke alarm goes off. Dinner is cereal. Fancy cereal. On a very big plate.",
 "restaurant",
 "N"
 ],
 [
-240.565,
-242.628,
+290.533,
+292.597,
 "This is the best restaurant ever.",
 "restaurant",
 "SIS"
 ],
 [
-242.978,
-247.617,
+292.947,
+298.905,
 "On the way out, Dad leaves a tip. One million dollars. There's nobody there to take it.",
 "restaurant",
 "N"
 ],
 [
-248.067,
-253.436,
+299.355,
+305.565,
 "And here's the crazy part. This has really happened. Not with free money, but with too much money.",
 "feit",
 "N"
 ],
 [
-253.886,
-260.031,
+306.015,
+312.599,
 "In Zimbabwe, the government printed so much money that prices went up every single day. Sometimes twice a day.",
 "feit",
 "N"
 ],
 [
-260.481,
-268.267,
+313.049,
+321.142,
 "In 2009, the country printed a single bill worth one hundred trillion dollars. And it still couldn't buy a week of groceries.",
 "feit",
 "N"
 ],
 [
-268.617,
-271.549,
+321.492,
+324.883,
 "So being a millionaire is only cool if nobody else is?",
 "feit",
 "YOU"
 ],
 [
-271.899,
-275.878,
+325.233,
+330.046,
 "Pretty much. Money is only worth something when there isn't too much of it.",
 "feit",
 "N"
 ],
 [
-276.328,
-281.395,
+330.496,
+336.854,
 "Day ten. Dad holds a family meeting. He has a spreadsheet. Nobody asked for a spreadsheet.",
 "keuken",
 "N"
 ],
 [
-281.745,
-287.314,
+337.204,
+343.243,
 "The boat was two hundred thousand. The horse was fifty thousand. The gaming chair was... how much was the gaming chair?",
 "keuken",
 "DAD"
 ],
 [
-287.664,
-290.157,
+343.593,
+346.275,
 "I don't want to talk about the gaming chair.",
 "keuken",
 "YOU"
 ],
 [
-290.507,
-292.287,
+346.625,
+348.738,
 "And milk is now five hundred dollars.",
 "keuken",
 "DAD"
 ],
 [
-292.637,
-294.413,
+349.088,
+350.864,
 "Mister Pancake eats a lot.",
 "keuken",
 "SIS"
 ],
 [
-294.763,
-300.081,
+351.214,
+356.913,
 "And the stores are running out. The trucks stopped coming. Truck drivers are millionaires too.",
 "keuken",
 "N"
 ],
 [
-300.531,
-305.657,
+357.363,
+363.818,
 "The shelves get emptier every day. First the snacks. Then the bread. Then the toilet paper.",
 "keuken",
 "N"
 ],
 [
-306.007,
-307.639,
+364.168,
+365.801,
 "Not the toilet paper.",
 "keuken",
 "MOM"
 ],
 [
-307.989,
-309.46,
+366.151,
+368.167,
 "Yes. The toilet paper.",
 "keuken",
 "N"
 ],
 [
-309.91,
-313.321,
+368.617,
+373.899,
 "Day fourteen. The lights go out. The whole city. Pitch black.",
 "nacht",
 "N"
 ],
 [
-313.771,
-317.857,
+374.349,
+380.397,
 "The people who run the power plant? You guessed it. Island. Yacht. Hawaii.",
 "nacht",
 "N"
 ],
 [
-318.207,
-320.341,
+380.747,
+383.544,
 "I can't charge my phone. What do I do?",
 "nacht",
 "YOU"
 ],
 [
-320.691,
-322.516,
+383.894,
+386.025,
 "When I was a kid, we played board games.",
 "nacht",
 "DAD"
 ],
 [
-322.866,
-327.669,
+386.375,
+392.733,
 "So you play a board game. By candlelight. It's called Monopoly. Nobody finds it funny.",
 "nacht",
 "N"
 ],
 [
-328.119,
-332.812,
+393.183,
+399.615,
 "Day sixteen. Dad wakes up with a toothache. A big one. His face looks like a balloon.",
 "keuken",
 "N"
 ],
 [
-333.162,
-336.082,
+399.965,
+402.885,
 "I'll pay any dentist ten thousand dollars. Twenty thousand!",
 "keuken",
 "DAD"
 ],
 [
-336.432,
-341.245,
+403.235,
+408.32,
 "Ten thousand dollars now buys about three apples. Every dentist in town is on vacation.",
 "keuken",
 "N"
 ],
 [
-341.695,
-344.657,
+408.769,
+412.758,
 "Then Grandma shows up. With a piece of string and a door.",
 "keuken",
 "N"
 ],
 [
-345.007,
-346.04,
+413.108,
+414.141,
 "Mom, no.",
 "keuken",
 "MOM"
 ],
 [
-346.39,
-351.407,
+414.491,
+420.835,
 "Grandma ties one end to the tooth. And the other end to the door. She doesn't count to three.",
 "keuken",
 "N"
 ],
 [
-351.857,
-354.754,
+421.285,
+426.294,
 "The door slams. The tooth is out. Dad is fine. Mostly.",
 "keuken",
 "N"
 ],
 [
-355.104,
-355.946,
+426.644,
+427.72,
 "How much do I owe you?",
 "keuken",
 "DAD"
 ],
 [
-356.296,
-363.449,
+428.07,
+436.401,
 "Grandma wants one thing. A loaf of bread. And for the first time, you realize: bread might be worth more than a million dollars.",
 "keuken",
 "N"
 ],
 [
-363.899,
-369.901,
+436.851,
+444.929,
 "Day twenty. The pink sports car is out of gas. The gas station is closed. The guy who owns it is on vacation.",
 "straat",
 "N"
 ],
 [
-370.351,
-374.758,
+445.379,
+450.835,
 "The whole street is full of expensive cars. None of them move. Everybody walks.",
 "straat",
 "N"
 ],
 [
-375.208,
-380.217,
+451.285,
+456.634,
 "And for the first time in weeks, people start talking to each other. About something weird.",
 "straat",
 "N"
 ],
 [
-380.667,
-382.197,
+457.084,
+459.283,
 "Who still knows how to do stuff?",
 "straat",
 "N"
 ],
 [
-382.997,
-390.341,
+460.083,
+469.135,
 "Turns out, a lot of people do. Your neighbor can fix pipes. Grandma can bake bread. The quiet guy at number twelve can fix the power.",
 "straat",
 "N"
 ],
 [
-390.791,
-393.873,
+469.585,
+473.188,
 "Your sister can ride a horse. That's suddenly very useful.",
 "straat",
 "N"
 ],
 [
-394.323,
-401.274,
+473.638,
+482.308,
 "Nobody pays with money anymore. You trade. Bread for a pipe fix. Horse rides for eggs. Dad trades the boat for six chickens.",
 "keuken",
 "N"
 ],
 [
-401.624,
-402.562,
+482.658,
+483.793,
 "Best deal I ever made.",
 "keuken",
 "DAD"
 ],
 [
-402.912,
-406.011,
+484.143,
+487.242,
 "Mister Pancake is the richest one in the family now.",
 "keuken",
 "SIS"
 ],
 [
-406.361,
-410.977,
+487.592,
+493.176,
 "Day twenty-five. Your teacher comes back from Hawaii. She's sunburned and broke.",
 "school",
 "N"
 ],
 [
-411.327,
-413.115,
+493.526,
+495.314,
 "What happened to your million?",
 "school",
 "YOU"
 ],
 [
-413.465,
-415.27,
+495.664,
+497.468,
 "I spent it on a coconut.",
 "school",
 "TEACH"
 ],
 [
-415.62,
-416.977,
+497.818,
+499.176,
 "One coconut?",
 "school",
 "YOU"
 ],
 [
-417.327,
-420.323,
+499.526,
+502.605,
 "It was a really good coconut. Now open your books.",
 "school",
 "TEACH"
 ],
 [
-420.673,
-424.876,
+502.955,
+508.873,
 "And you know what? You're kind of happy to be back at school. Don't tell anyone.",
 "school",
 "N"
 ],
 [
-425.326,
-428.294,
+509.323,
+513.553,
 "Then she hands out homework. Okay. A little less happy.",
 "school",
 "N"
 ],
 [
-428.744,
-432.592,
+514.003,
+519.255,
 "Dad goes back to the office. His boss is there too. No crown this time.",
 "kantoor",
 "N"
 ],
 [
-432.942,
-435.363,
+519.605,
+522.574,
 "The island didn't have Wi-Fi. Or food. Or a toilet.",
 "kantoor",
 "BOSS"
 ],
 [
-435.713,
-437.038,
+522.924,
+524.249,
 "So... back to work?",
 "kantoor",
 "DAD"
 ],
 [
-437.388,
-437.911,
+524.599,
+525.336,
 "Back to work.",
 "kantoor",
 "BOSS"
 ],
 [
-438.261,
-443.68,
+525.686,
+532.58,
 "Dad sits down at his desk. Two hundred and forty emails. He has never been this happy to see them.",
 "kantoor",
 "N"
 ],
 [
-444.13,
-449.596,
+533.03,
+539.793,
 "Day thirty. Your family sits at the kitchen table. The boat is gone. The gaming chair is firewood.",
 "keuken",
 "N"
 ],
 [
-449.946,
-452.847,
+540.143,
+543.366,
 "We had a million dollars and now we're poorer than before.",
 "keuken",
 "DAD"
 ],
 [
-453.197,
-455.222,
+543.716,
+545.741,
 "At least we still have the horse.",
 "keuken",
 "MOM"
 ],
 [
-455.572,
-457.13,
+546.091,
+547.649,
 "And six chickens.",
 "keuken",
 "SIS"
 ],
 [
-457.48,
-463.323,
+547.999,
+555.561,
 "And you learned something. Money doesn't make bread. People make bread. Money is just how we say thank you.",
 "keuken",
 "N"
 ],
 [
-463.773,
-467.524,
+556.011,
+560.177,
 "Then, at midnight, every phone on Earth buzzes again. A new message.",
 "keuken",
 "N"
 ],
 [
-467.974,
-472.865,
+560.627,
+566.119,
 "\"Thanks for testing. Round two starts tomorrow. This time, only one person gets the money.\"",
 "keuken",
 "N"
 ],
 [
-473.315,
-476.667,
+566.569,
+570.288,
 "Your phone buzzes one more time. It says, \"Congratulations.\"",
 "keuken",
 "N"
 ],
 [
-477.017,
-477.964,
+572.488,
+573.435,
 "Oh no.",
 "keuken",
 "YOU"

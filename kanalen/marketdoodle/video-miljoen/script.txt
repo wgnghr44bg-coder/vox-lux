@@ -122,6 +122,7 @@ N|keuken|And you learned something. Money doesn't make bread. People make bread.
 N|keuken|Then, at midnight, every phone on Earth buzzes again. A new message.
 N|keuken|"Thanks for testing. Round two starts tomorrow. This time, only one person gets the money."
 N|keuken|Your phone buzzes one more time. It says, "Congratulations."
+STILTE|2.2
 YOU|keuken|Oh no.
 
 # Scènes / achtergronden nodig (ComfyUI, leeg, geen mensen/tekst):
