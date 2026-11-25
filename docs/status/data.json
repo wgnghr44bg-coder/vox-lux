@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-25 18:33",
+ "bijgewerkt": "2026-11-25 19:03",
  "kanalen": {
   "weken": [
    {
@@ -83,6 +83,22 @@
         "tijd": "17:00",
         "titel": "Lange What If-video (nieuw onderwerp)",
         "stand": "onderwerp kiezen"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-25",
+        "tijd": "18:36",
+        "titel": "What If Everyone Got $1 Million? (It Goes Wrong Fast)",
+        "stand": "online",
+        "youtube": "yP2Rbw88ibI"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-25",
+        "tijd": "18:47",
+        "titel": "What If Everyone Got $1 Million? 💸",
+        "stand": "online",
+        "youtube": "K8i1CWqi7r8"
        },
        {
         "kanaal": "Market Doodle",
@@ -2312,7 +2328,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-25 18:33)"
+   "tekst": "draait nu (2026-11-25 19:03)"
   },
   {
    "naam": "Git",
@@ -2327,7 +2343,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2344,8 +2360,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-25 18:33",
-   "volgende": "2026-11-25 19:03"
+   "laatst": "2026-11-25 19:03",
+   "volgende": "2026-11-25 19:33"
   },
   "hype": {
    "aan": true,
@@ -2359,8 +2375,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-25 18:18",
-   "volgende": "2026-11-25 18:48"
+   "laatst": "2026-11-25 18:48",
+   "volgende": "2026-11-25 19:18"
   },
   "titels": {
    "aan": true,
@@ -2471,7 +2487,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1142,
+    "views": 1145,
     "verwerkt": "processed"
    }
   ],
@@ -2694,8 +2710,7 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)",
-   "stem inspreken (OmniVoice)"
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2714,10 +2729,6 @@
   },
   {
    "naam": "video samenvoegen (ffmpeg)",
-   "stap": -1
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
    "stap": -1
   }
  ],
@@ -2896,8 +2907,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-25 18:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-25 19:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5027,22 +5038,22 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-25 18:33",
+  "bijgewerkt": "2026-11-25 19:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 4976387,
-    "week": 57290279,
+    "5uur": 4813790,
+    "week": 57813143,
     "per_dag": {
      "Tue 24-11": 29948208,
-     "Wed 25-11": 19278028,
+     "Wed 25-11": 19800892,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 44202,
+    "stap_kost": 43302,
     "naam": "hoofd",
     "week_reset": ""
    },
