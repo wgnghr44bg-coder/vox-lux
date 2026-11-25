@@ -9,6 +9,11 @@ hebt zie je een pizzadoos, dat verschil moet je laten controleren")
 wat het voorwerp is (zonder de tekst te zien) en het tekstmodel beslist of het woord past. **0 fouten vereist**; anders de
 achtergrond opnieuw maken (prompt: noem het woord dat op elk soort pak moet staan, bv. "milk cartons with the word MILK").
 
+## Laag 0b: tempowachter (eigenaar 25 nov 2026: "It's 6 a.m. Your bank app gaat te snel in een zin, klinkt heel raar")
+`<omnivoice-venv>/python tools/tempowachter.py <map>` (na stem.py + woordtijden.py): meet in het geluid of de verteller na elke
+zin een echte pauze houdt en niet sneller praat dan 215 woorden/min. **0 fouten vereist.** stem.py spreekt daarom elke
+vertellerzin los in (pauze 0,32 s ertussen, max 195 woorden/min per zin); personages roepen in één adem.
+
 ## Laag 1 + 2: scènewachter (automatisch, in de renderer)
 `tools/scenewachter.py` + `kanalen/marketdoodle/achtergronden.json`. Elk voorwerp meldt waar het op staat (`op=`):
 vlak (stoep, aanrecht, tafel-rechts, vloer ...), `muur`, `hand:<naam>` / `bek` / `aan:<iets>` (met `punt=`) of `beeld`.

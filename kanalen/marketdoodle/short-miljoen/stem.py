@@ -1,6 +1,6 @@
 """Stem What If $1 Million (24 nov), zelfde stemmen als Swapped Lives. Iedereen eigen stem.
 Gebruik: <omnivoice-venv>/python stem.py [script-bestand]  -> stem.wav + zinnen.json [start, eind, tekst, scene, spreker]"""
-import json, sys
+import json, re, sys
 from pathlib import Path
 ROOT = Path(r"C:/Users/rane/Documents/vox-lux-routine")
 sys.path.insert(0, str(ROOT / "tools")); sys.path.insert(0, str(ROOT / "audio_engine"))
@@ -29,14 +29,25 @@ STEM = {"N": ("eigen-stem-swan", 1.05), "YOU": ("whatif-zoon", 1.0), "DAD": ("wh
 regels = [r.rstrip("\n").split("|", 2) for r in SCRIPT.read_text(encoding="utf-8").splitlines() if r.strip() and not r.startswith("#")]
 import os
 OPNIEUW = {int(x) for x in os.environ.get("OPNIEUW", "").split(",") if x.strip()}   # zinnen met een andere seed (Whisper hoorde iets anders)
+MAXWPM, ZINPAUZE = 195, 0.32                              # per zin; pauze tussen zinnen binnen één regel
 clips = []
 for k, (sp, sc, z) in enumerate(regels):
     v, spd = STEM[sp]
     cfg = VoiceConfig(voice=v, speed=spd, seed=23, num_step=inst["model"]["num_step"], guidance_scale=inst["model"]["guidance_scale"], denoise=inst["model"]["denoise"])
-    for p in range(6):
-        c = edge_fade(trim(ov.speak([z], cfg, seed=100 * k + p + (7 if k in OPNIEUW else 0))[0], SR), SR); d = len(c) / SR
-        if d >= 0.3 and len(z.split()) / (d / 60) <= 230: break
-    clips.append(c); print(k, sp, round(d, 2), flush=True)
+    # 25 nov (eigenaar: "It's 6 a.m. Your bank app gaat te snel in een zin, klinkt heel raar"): elke ZIN los inspreken en er een
+    # echte pauze tussen zetten; per zin niet sneller dan MAXWPM (anders andere seed, en anders de rustigste poging).
+    zinnen_ = [z] if sp != "N" else [x for x in re.split(r'(?<=[.!?])\s+(?=["A-Z0-9])', z) if x.strip()]                  # personages (roepen/uitroepen) in één adem, verteller per zin
+    stukken = []
+    for q, zz in enumerate(zinnen_):
+        poging = []
+        for p in range(6):
+            c = edge_fade(trim(ov.speak([zz], cfg, seed=100 * k + 10 * q + p + (7 if k in OPNIEUW else 0))[0], SR), SR); d = len(c) / SR
+            wpm = len(zz.split()) / (d / 60) if d > 0 else 999; poging.append((wpm if d >= 0.3 else 999, c))
+            if d >= 0.3 and (wpm <= MAXWPM or len(zz.split()) < 4): break
+        stukken.append(min(poging, key=lambda x: x[0])[1])
+    c = stukken[0]
+    for st in stukken[1:]: c = np.concatenate([c, np.zeros(int((ZINPAUZE if sp == "N" else ZINPAUZE * 0.75) * SR), np.float32), st])
+    d = len(c) / SR; clips.append(c); print(k, sp, round(d, 2), f"{len(z.split()) / (d / 60):.0f} w/min", flush=True)
 t = 0.3; delen = [np.zeros(int(t * SR), np.float32)]; tijden = []
 for k, ((sp, sc, z), c) in enumerate(zip(regels, clips)):
     tijden.append([round(t, 3), round(t + len(c) / SR, 3), z, sc, sp])

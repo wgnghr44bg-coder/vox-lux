@@ -100,7 +100,7 @@ KOP = {"tuin": "DAY 1", "winkel": "DAY 7", "nacht": "DAY 14"}
 SCHRIK = ("Mom! Dad!", "It's 6", "Check your phones", "Fifty dollars", "fifty dollars", "For milk", "raised the prices", "two hundred", "The lights go out",
           "worth more", "Wait", "eats the doormat")
 BLIJ = ("one million dollars", "I'm a millionaire", "Everybody got it", "buys a horse")
-VERDRIET = ("By day thirty", "The whole city", "on a yacht", "not even the worst part")
+VERDRIET = ("Everyone is rich", "By day thirty", "The whole city", "on a yacht", "not even the worst part")
 ACTIE = {"Mom! Dad!": "telefoon", "Everybody got it": "praat", "I'm a millionaire": "juich", "Fifty dollars?": "armen-open",
          "Wait.": "schrik"}
 def _start(i, frase):

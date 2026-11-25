@@ -70,6 +70,8 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
 3. `python tools/rariteitenwachter.py <video.mp4>` (beelden elke 2 s met de zin eronder) + nakijkronde volgens `tools/NAKIJKEN.md`
    (hulpjes per blad, vaste vragenlijst: zweeft iets, logische plek, gezicht past bij de zin, tekst over belangrijke delen).
 4. `tools/beeldwachter.py` (zegt het beeld wat de zin zegt).
+4b. `tools/achtergrondwachter.py <map>/afbeeldingen` (tekst moet bij het voorwerp passen: MILK alleen op melk) en
+   `tools/tempowachter.py <map>` (verteller houdt pauze tussen zinnen, niet te snel). Beide 0 fouten.
 5. Alles herstellen, opnieuw renderen, herstelde momenten zelf nakijken. Vindt de eigenaar toch iets: **de controle aanpassen**
    zodat die soort fout voortaan automatisch gevonden wordt, niet alleen het ene beeld.
 6. Klaar: `python tools/seintje.py "Titel" "Tekst"` (ntfy), video sturen (`display: render`; telefoon < 30 MB).
