@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-25 13:03",
+ "bijgewerkt": "2026-11-25 13:33",
  "kanalen": {
   "weken": [
    {
@@ -2224,7 +2224,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "126 GB vrij"
+   "tekst": "125 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2239,7 +2239,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-25 13:03)"
+   "tekst": "draait nu (2026-11-25 13:33)"
   },
   {
    "naam": "Git",
@@ -2254,7 +2254,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 13:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2271,8 +2271,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-25 13:03",
-   "volgende": "2026-11-25 13:33"
+   "laatst": "2026-11-25 13:33",
+   "volgende": "2026-11-25 14:03"
   },
   "hype": {
    "aan": true,
@@ -2282,17 +2282,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-25 13:10"
+   "volgende": "2026-11-25 14:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-25 12:48",
-   "volgende": "2026-11-25 13:18"
+   "laatst": "2026-11-25 13:18",
+   "volgende": "2026-11-25 13:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-25 11:25",
-   "volgende": "2026-11-25 13:25"
+   "laatst": "2026-11-25 13:25",
+   "volgende": "2026-11-25 15:25"
   }
  },
  "kanaal": {
@@ -2823,8 +2823,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-25 13:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-25 13:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4777,7 +4777,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-25 11:25",
+  "bijgewerkt": "2026-11-25 13:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4954,22 +4954,22 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-25 13:04",
+  "bijgewerkt": "2026-11-25 13:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6124351,
-    "week": 51600516,
+    "5uur": 6837726,
+    "week": 52313892,
     "per_dag": {
      "Tue 24-11": 29948208,
-     "Wed 25-11": 13588265,
+     "Wed 25-11": 14301641,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 43831,
+    "stap_kost": 44545,
     "naam": "hoofd",
     "week_reset": ""
    },
