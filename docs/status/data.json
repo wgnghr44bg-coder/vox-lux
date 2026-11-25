@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-25 23:33",
+ "bijgewerkt": "2026-11-26 00:03",
  "kanalen": {
   "weken": [
    {
@@ -2313,7 +2313,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "125 GB vrij"
+   "tekst": "124 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2328,12 +2328,17 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-25 23:33)"
+   "tekst": "draait nu (2026-11-26 00:03)"
   },
   {
    "naam": "Git",
    "ok": true,
    "tekst": "alles gepusht"
+  },
+  {
+   "naam": "Video 2026-11-28 (ijstijd-20000-vc)",
+   "ok": true,
+   "tekst": "staat op YouTube ingepland"
   },
   {
    "naam": "Stem en muziek (B1 + W3)",
@@ -2343,7 +2348,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2360,8 +2365,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-25 23:33",
-   "volgende": "2026-11-26 00:03"
+   "laatst": "2026-11-26 00:03",
+   "volgende": "2026-11-26 00:33"
   },
   "hype": {
    "aan": true,
@@ -2375,8 +2380,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-25 23:18",
-   "volgende": "2026-11-25 23:48"
+   "laatst": "2026-11-25 23:48",
+   "volgende": "2026-11-26 00:18"
   },
   "titels": {
    "aan": true,
@@ -2390,14 +2395,14 @@
   "views_totaal": 3656,
   "video_aantal": 17,
   "week": {
-   "views": 525,
-   "uren": 119,
+   "views": 443,
+   "uren": 98,
    "abonnees": 5
   },
   "vorige_week": {
-   "views": 657,
-   "uren": 173,
-   "abonnees": 5
+   "views": 626,
+   "uren": 140,
+   "abonnees": 6
   },
   "recent": [
    {
@@ -2492,11 +2497,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-28",
-    "views": 73,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-29",
     "views": 94,
@@ -2629,13 +2629,13 @@
    }
   ],
   "maand": {
-   "views": 2126,
-   "uren": 424,
+   "views": 2053,
+   "uren": 401,
    "abonnees": 11
   },
   "vorige_maand": {
-   "views": 1339,
-   "uren": 374,
+   "views": 1396,
+   "uren": 397,
    "abonnees": 6
   },
   "jaar": {
@@ -2648,8 +2648,8 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 952,
-    "uren": 222
+    "views": 934,
+    "uren": 217
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2662,8 +2662,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 323,
-    "uren": 55
+    "views": 271,
+    "uren": 41
    }
   ],
   "partner": {
@@ -2673,10 +2673,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 14.3,
+   "tempo_uren_per_dag": 13.5,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-07-07",
-   "datum_abonnees": "2033-09-16"
+   "datum_uren": "2027-07-22",
+   "datum_abonnees": "2033-09-17"
   }
  },
  "kpi": {
@@ -2688,8 +2688,8 @@
   },
   "fouten": 1,
   "zelfcontrole": {
-   "goed": 10,
-   "totaal": 11
+   "goed": 11,
+   "totaal": 12
   }
  },
  "stappen": [
@@ -2738,8 +2738,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
-  "geheugen_mb": 630,
+  "bezig_procent": 27,
+  "geheugen_mb": 622,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2782,12 +2782,6 @@
  "gpu_slot": false,
  "week": [
   {
-   "datum": "2026-11-25",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-26",
    "plek": false,
    "video": "",
@@ -2819,6 +2813,12 @@
   },
   {
    "datum": "2026-12-01",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-12-02",
    "plek": false,
    "video": "",
    "soort": ""
@@ -2912,8 +2912,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-25 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5043,11 +5043,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-25 23:34",
+  "bijgewerkt": "2026-11-26 00:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1641833,
+    "5uur": 1118968,
     "week": 58932112,
     "per_dag": {
      "Tue 24-11": 29948208,
@@ -5058,7 +5058,7 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 45075,
+    "stap_kost": 43236,
     "naam": "hoofd",
     "week_reset": ""
    },
