@@ -48,6 +48,35 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Short: -tP-eeJUYtU (What If You Built a Real Cyborg?), 24 nov (eigenaar zette hem zelf openbaar). Pause Time (13EHf4WZdWs) is verwijderd.
 - **Ingepland op YouTube: NIETS** (eigenaar 24 nov: "er staat nu niks gepland"). Volgende plekken: wo 25 nov en za 28 nov (lang 17:00, Short 19:00), onderwerp nog kiezen.
 
+## GOEDGEKEURD SJABLOON VOOR ELKE NIEUWE VIDEO, SHORTS ÉN LANG (eigenaar 25 nov 2026: "de video is goed, graag opslaan voor nieuwe shorts en long video's")
+De $1 Million-video (`video-miljoen/`, "What If Everyone Got $1 Million? (It Goes Wrong Fast)") is goedgekeurd: "perfect".
+Elke nieuwe Short en lange video wordt op precies deze manier gemaakt en gecontroleerd. Kopieer `video-miljoen/maak_miljoen.py`
+als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfde controles).
+
+**Maken**
+- Script volgens "VASTE WERKWIJZE LANGE VIDEO" hieronder (chaos in seconde 1, dagen, feit, cliffhanger, running gags, geen muziek).
+- Elke zin: wat gezegd wordt staat in beeld op het woord (`kw(zin, woord)`); wat de verteller alleen vertelt hoeft niet.
+- Gezicht past bij de zin: emotielijsten `SCHRIK` / `VERDRIET` / `BLIJ` (eerste woorden van de zin, hoofdletters maakt niet uit).
+- Gebaar past bij de zin (`ACTIE`/`NACTIE`), armen nooit door een ander heen. Naamlabel boven het hoofd van wie nu praat, naast het
+  hoofd als het tegen een kop botst.
+- Elk voorwerp via `WACHT.plaats(naam, box, op=...)` op een vlak uit `achtergronden.json` (nieuwe achtergrond: eerst meten met
+  `tools/meet_achtergrond.py` en vlakken/muren/meubels toevoegen). Logische plek (huiswerk op een bureau, tv aan de muur, bord op
+  tafel); ontbreekt het meubel, teken het erbij. Simpel: geen extra labels/blaadjes als het beeld al duidelijk is.
+
+**Controleren vóór de eigenaar iets ziet (is Claude's taak, niet die van de eigenaar)**
+1. Render-uitvoer: `LAYOUT: alles past` en `SCENEWACHTER: 0 fouten` (`SCENEWACHTER.md`).
+2. `python tools/herkenwachter.py <map>` -> een hulpje dat het verhaal niet kent noemt elk genummerd voorwerp; verkeerd genoemd =
+   opnieuw tekenen.
+3. `python tools/rariteitenwachter.py <video.mp4>` (beelden elke 2 s met de zin eronder) + nakijkronde volgens `tools/NAKIJKEN.md`
+   (hulpjes per blad, vaste vragenlijst: zweeft iets, logische plek, gezicht past bij de zin, tekst over belangrijke delen).
+4. `tools/beeldwachter.py` (zegt het beeld wat de zin zegt).
+5. Alles herstellen, opnieuw renderen, herstelde momenten zelf nakijken. Vindt de eigenaar toch iets: **de controle aanpassen**
+   zodat die soort fout voortaan automatisch gevonden wordt, niet alleen het ene beeld.
+6. Klaar: `python tools/seintje.py "Titel" "Tekst"` (ntfy), video sturen (`display: render`; telefoon < 30 MB).
+
+**Uploaden** pas na "ja" van de eigenaar: privé, `snippet.channelTitle` = Market Doodle, AI-label aan, titel stijl
+"What If ...? (It Goes Wrong Fast)", thumbnail alleen bij lange video's.
+
 ## VASTE WERKWIJZE LANGE VIDEO (eigenaar 24 nov 2026: "zet dit zo vast voor andere nieuwe video's")
 Voorbeeld en sjabloon: `video-miljoen/` (What If Everyone on Earth Got $1 Million Tonight?). Eigenaar vond de proef "perfect".
 Aanleiding: de eerste lange video (Swapped Lives) kreeg 6 views; AI Studio-analyse: saai begin (regels), stilstaande
