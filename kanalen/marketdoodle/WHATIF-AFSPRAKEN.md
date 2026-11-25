@@ -176,3 +176,4 @@ poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
 **schrik** (handen omhoog, trillen), **denk** (hand aan de kin), **facepalm**, **heupen** (handen in de zij, ellebogen), **klap**, **duim** (duim omhoog),
 **praat** (handen bewegen mee met praten), **armen-open** ('wat?!'), **rennen** (met loop=), **knik** (ja), **nee** (nee schudden).
 Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per zin een gebaar dat bij de tekst past; niet steeds zwaaien.
+- **YouTube-beschrijving kort** (eigenaar 25 nov): openingsvraag, hoofdstukken, vraag voor de reacties, hashtags. Geen samenvatting, geen bronregel, geen regel over geluidseffecten.
