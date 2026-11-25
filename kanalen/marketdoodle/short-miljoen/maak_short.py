@@ -307,30 +307,41 @@ def frame(t):
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
     return img
 
-# ---------- geluid (zelf gemaakt, alleen wat je ziet) ----------
+# ---------- geluid: ECHTE opnames (CC0, freesound.org, bronnen in ../geluiden/gekozen.json), alleen wat je ziet ----------
+# Eigenaar 25 nov: "echte geluidseffecten ... als een paard eet dat gesmek, mag wel een beetje humor in zitten" -> proef goedgekeurd.
+GSR = 48000
+def _laad(n):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(HIER.parent / "geluiden" / f"{n}.mp3"), "-ac", "1", "-ar", str(GSR), "-f", "f32le", "-"], capture_output=True).stdout
+    x = np.frombuffer(raw, np.float32).copy(); return x / (np.abs(x).max() + 1e-6)
+def _drukste(x, dur):                                    # stuk met het meeste geluid (geen stilte uit de opname)
+    n = min(len(x) - 1, int(dur * GSR)); e = np.convolve(x ** 2, np.ones(GSR // 10), "same")
+    best = max(range(0, max(1, len(x) - n), GSR // 20), key=lambda i: e[i:i + n].sum()); return x[best:best + n]
+def _fade(x, f=0.04):
+    k = min(len(x) // 3, int(f * GSR)); x = x.copy(); x[:k] *= np.linspace(0, 1, k); x[-k:] *= np.linspace(1, 0, k); return x
+GELUIDEN = []                                            # (tijd, naam, wat er in beeld moet zijn) -> controle in geluidcheck()
 def geluid():
-    rng = np.random.default_rng(5); uit = np.zeros(int((EIND + 1) * SR), np.float32)
-    def tt(d): return np.arange(int(d * SR)) / SR
-    def leg(x, t, v):
-        i = int(t * SR); m = min(len(x), len(uit) - i)
-        if m > 0 and i >= 0: uit[i:i + m] += v * x[:m].astype(np.float32)
-    x = tt(0.45); bzz = np.sign(np.sin(2 * np.pi * 150 * x)) * 0.3 * (np.sin(2 * np.pi * 8 * x) > 0)
-    x = tt(1.2); kaching = sum(np.sin(2 * np.pi * f * (x - o)) * (x > o) * np.exp(-np.maximum(0, x - o) * 5) for f, o in [(1319, 0), (1760, 0.08), (2637, 0.16)]) * 0.4 + rng.normal(0, 1, len(x)) * np.exp(-x * 40) * 0.3
-    x = tt(0.3); papier = np.convolve(rng.normal(0, 1, len(x)), np.ones(6) / 6, "same") * np.exp(-x * 12) * 0.6
-    x = tt(0.18); stap = np.sin(2 * np.pi * 110 * x) * np.exp(-x * 30) * 0.5
-    x = tt(0.06); klik = rng.normal(0, 1, len(x)) * np.exp(-x * 90) + np.sin(2 * np.pi * 1200 * x) * np.exp(-x * 80)
-    x = tt(0.8); uitgaan = np.sin(2 * np.pi * np.cumsum(220 - 180 * x / 0.8) / SR) * np.exp(-x * 3) * 0.6
-    x = tt(0.25); plof = np.sin(2 * np.pi * (90 - 60 * x) * x) * np.exp(-x * 18)
-    for j in range(3): leg(bzz, 0.05 + j * 0.6, 0.5)
-    leg(kaching, T_BANK + 0.25, 0.6)
-    for q in np.arange(T_SIS_IN - 0.9, T_SIS_IN + 0.2, 0.22): leg(stap, q, 0.5)
-    leg(plof, T_PAARD, 0.8)
-    for q in (0.15, 0.45, 0.75, 1.05): leg(papier, T_EET + q, 0.9)
-    for q in np.arange(T_MOM_IN, T_MOM_IN + 1.3, 0.22): leg(stap, q, 0.5)
-    for t0 in (T_50, T_100, T_200): leg(kaching, t0, 0.45)
-    leg(uitgaan, T_UIT - 0.1, 0.8); leg(klik, T_KAARS, 0.5)
+    uit = np.zeros(int((EIND + 1) * GSR), np.float32)
+    def zet(t, n, x, g, zie):
+        i = int(t * GSR); j = min(len(uit), i + len(x)); uit[i:j] += x[:j - i] * g; GELUIDEN.append((t, n, zie))
+    zet(0.0, "trillen", _fade(_drukste(_laad("trillen"), Z[0][1] + 0.3)), 0.35, "bank-app")
+    zet(T_BANK + 0.2, "kassa", _fade(_laad("kassa")), 0.45, "bank-app")
+    for q in np.arange(T_SIS_IN - 0.9, T_SIS_IN + 0.2, 0.3): zet(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "sis")
+    zet(T_PAARD, "paard-hinnik", _fade(_laad("paard-hinnik")), 0.45, "paard")
+    zet(T_EET, "paard-eet", _fade(_drukste(_laad("paard-eet"), T_MAT + 1.3 - T_EET)), 0.9, "paard")
+    zet(min(Z[I_PAARD][1] + 0.35, Zs(I_MELK) - 0.8), "slok", _fade(_drukste(_laad("slok"), 0.7)), 0.9, "paard")
+    for q in np.arange(T_MOM_IN, T_MOM_IN + 1.3, 0.3): zet(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "mom")
+    for k, t0 in enumerate((T_50, T_100, T_200)): zet(t0, "scanner", _fade(_laad("scanner")), 0.35 + 0.12 * k, "prijskaartje")   # steeds harder: steeds erger
+    zet(T_UIT - 0.1, "stroom-uit", _fade(_drukste(_laad("stroom-uit"), 1.6)), 0.6, "keukentafel")
+    zet(T_KAARS - 0.12, "lucifer", _fade(_drukste(_laad("lucifer"), 1.2)), 0.6, "kaars")
+    zet(Z[I_BROOD][1] + 0.05, "krekels", _fade(_drukste(_laad("krekels"), max(0.6, Z[I_SLOT][0] - Z[I_BROOD][1] + 0.3)), 0.15), 0.4, "keukentafel")   # ongemakkelijke stilte
     uit /= max(1, np.abs(uit).max() / 0.9)
-    sf.write(HIER / "sfx.wav", uit, SR)
+    sf.write(HIER / "sfx.wav", uit, GSR)
+def geluidcheck():                                       # elk geluid alleen als het ding waar het bij hoort in beeld is
+    fout = []
+    for t, n, zie in GELUIDEN:
+        frame(t + 0.15); gezien = {k[0] for k, v in WACHT.gezien.items() if any(abs(tt - (t + 0.15)) < 1e-6 for tt, _ in v)} | set(GEZ)
+        if zie != "bank-app" and zie not in gezien: fout.append(f"{t:.1f} s: geluid '{n}' maar '{zie}' is niet in beeld")
+    return fout
 
 if __name__ == "__main__":
     if "--plaat" in sys.argv:
@@ -338,7 +349,7 @@ if __name__ == "__main__":
         pl = Image.new("RGB", (270 * 6, 480 * 2)); [pl.paste(im, (270 * (i % 6), 480 * (i // 6))) for i, im in enumerate(ims)]
         pl.save(HIER / "plaat.jpg", quality=85); print("plaat.jpg"); print("LAYOUT:", sorted(LAYOUT) or "alles past")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)"); sys.exit()
-    geluid()
+    geluid(); gf = geluidcheck(); print("GELUIDCHECK:", gf or "elk geluid hoort bij iets in beeld")
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-i", str(HIER / "stem.wav"), "-i", str(HIER / "sfx.wav"), "-filter_complex",
                           "[1:a]apad[v];[2:a]volume=0.45[k];[v][k]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]",

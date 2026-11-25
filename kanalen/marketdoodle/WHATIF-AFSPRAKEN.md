@@ -63,6 +63,13 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
   `tools/meet_achtergrond.py` en vlakken/muren/meubels toevoegen). Logische plek (huiswerk op een bureau, tv aan de muur, bord op
   tafel); ontbreekt het meubel, teken het erbij. Simpel: geen extra labels/blaadjes als het beeld al duidelijk is.
 
+- **Geluid = echte opnames** (eigenaar 25 nov: "echte geluidseffecten ... als een paard eet dat gesmek, mag wel een beetje
+  humor in zitten"; Short goedgekeurd): CC0 van freesound.org in `geluiden/` (bron in `gekozen.json`), op het woord geplakt,
+  zacht onder de stem, met een grapje waar het kan (slok na het opeten, steeds hardere kassa-piep, krekels bij een ongemakkelijke
+  stilte). `geluidcheck()` in de renderer: elk geluid alleen als het ding erbij in beeld is. Voorbeeld: `short-miljoen/maak_short.py`.
+- **Gewoon praten = geen armgebaar** (eigenaar 25 nov); alleen een gebaar als de zin erom vraagt. De renderer meldt het in LAYOUT.
+- **Verteller per zin inspreken met pauze** (eigenaar 25 nov: "It's 6 a.m. Your bank app gaat te snel"): `stem.py` + `tools/tempowachter.py`.
+
 **Controleren vóór de eigenaar iets ziet (is Claude's taak, niet die van de eigenaar)**
 1. Render-uitvoer: `LAYOUT: alles past` en `SCENEWACHTER: 0 fouten` (`SCENEWACHTER.md`).
 2. `python tools/herkenwachter.py <map>` -> een hulpje dat het verhaal niet kent noemt elk genummerd voorwerp; verkeerd genoemd =
