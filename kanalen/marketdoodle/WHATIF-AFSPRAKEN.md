@@ -177,4 +177,4 @@ poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
 **praat** (handen bewegen mee met praten), **armen-open** ('wat?!'), **rennen** (met loop=), **knik** (ja), **nee** (nee schudden).
 Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per zin een gebaar dat bij de tekst past; niet steeds zwaaien.
 - **YouTube-beschrijving kort** (eigenaar 25 nov): openingsvraag, hoofdstukken, vraag voor de reacties, hashtags. Geen samenvatting, geen bronregel, geen regel over geluidseffecten.
-- **Elke keer een nieuw onderwerp** (eigenaar 25 nov): geen extra Shorts uit een bestaande lange video. Ritme: 2-3 lange video's per week, elk met een Short over hetzelfde onderwerp; de andere dagen een losse Short over een nieuw onderwerp.
+- **Elke keer een nieuw onderwerp** (eigenaar 25 nov): geen extra Shorts uit een bestaande lange video. Ritme (eigenaar 25 nov): om de dag een lange video met een Short over hetzelfde onderwerp; de dag ertussen een losse Short over een nieuw onderwerp.
