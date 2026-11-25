@@ -1,0 +1,576 @@
+{
+  "_uitleg": "Scènewachter (tools/scenewachter.py). Coördinaten 1920x1080. vlakken: naam -> [x0, x1, y_achter, y_voor] = band waarin de onderkant van een voorwerp moet liggen. muur: rechthoeken [x0, y0, x1, y1] waar iets mag hangen. meubels: naam -> [x0, y0, x1, y1]; een voorwerp waarvan de onderkant binnen de voetafdruk van een meubel valt, staat er dóórheen. Nieuwe achtergrond: python tools/meet_achtergrond.py <png> en hier invullen. Optioneel 5e veld bij een vlak: het meubel waar dat vlak bij hoort (plank -> schap), dan telt dat niet als botsing.",
+  "straat": {
+    "vlakken": {
+      "stoep": [
+        0,
+        1920,
+        730,
+        772
+      ],
+      "weg": [
+        0,
+        1920,
+        772,
+        1080
+      ],
+      "gras": [
+        0,
+        1920,
+        690,
+        735
+      ]
+    },
+    "muur": [],
+    "meubels": {
+      "huis-links": [
+        255,
+        350,
+        800,
+        705
+      ],
+      "huis-rechts": [
+        1160,
+        355,
+        1700,
+        705
+      ]
+    }
+  },
+  "tuin": {
+    "vlakken": {
+      "gras": [
+        0,
+        1920,
+        575,
+        1080
+      ]
+    },
+    "muur": [],
+    "meubels": {
+      "huis": [
+        0,
+        0,
+        300,
+        640
+      ],
+      "hek": [
+        280,
+        215,
+        1920,
+        575
+      ]
+    }
+  },
+  "keuken": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        830,
+        1080
+      ],
+      "aanrecht": [
+        540,
+        1470,
+        553,
+        600,
+        "onderkast"
+      ],
+      "aanrecht-links": [
+        105,
+        540,
+        578,
+        645,
+        "onderkast-links"
+      ]
+    },
+    "muur": [
+      [
+        345,
+        380,
+        690,
+        560
+      ],
+      [
+        1125,
+        380,
+        1440,
+        545
+      ],
+      [
+        1470,
+        40,
+        1920,
+        300
+      ]
+    ],
+    "meubels": {
+      "koelkast": [
+        1440,
+        300,
+        1775,
+        865
+      ],
+      "onderkast": [
+        540,
+        600,
+        1465,
+        830
+      ],
+      "onderkast-links": [
+        110,
+        640,
+        540,
+        945
+      ],
+      "koffiezetter": [
+        1220,
+        445,
+        1360,
+        575
+      ]
+    }
+  },
+  "keuken-nacht": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        820,
+        1080
+      ],
+      "aanrecht": [
+        260,
+        1340,
+        500,
+        535,
+        "onderkast"
+      ]
+    },
+    "muur": [
+      [
+        930,
+        270,
+        1300,
+        495
+      ]
+    ],
+    "meubels": {
+      "koelkast": [
+        1300,
+        165,
+        1690,
+        840
+      ],
+      "onderkast": [
+        265,
+        535,
+        1335,
+        820
+      ],
+      "deur": [
+        0,
+        0,
+        215,
+        810
+      ]
+    }
+  },
+  "woonkamer": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        780,
+        1080
+      ],
+      "salontafel": [
+        820,
+        1265,
+        728,
+        760
+      ]
+    },
+    "muur": [
+      [
+        690,
+        40,
+        1500,
+        520
+      ],
+      [
+        0,
+        40,
+        520,
+        540
+      ]
+    ],
+    "meubels": {
+      "bank": [
+        690,
+        525,
+        1385,
+        815
+      ],
+      "stoel-links": [
+        170,
+        545,
+        580,
+        880
+      ],
+      "stoel-rechts": [
+        1440,
+        585,
+        1740,
+        880
+      ],
+      "lamp": [
+        535,
+        370,
+        675,
+        805
+      ],
+      "salontafel": [
+        815,
+        730,
+        1270,
+        895
+      ]
+    }
+  },
+  "restaurant": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        700,
+        1080
+      ],
+      "tafel-links": [
+        150,
+        500,
+        625,
+        700
+      ],
+      "tafel-rechts": [
+        1450,
+        1800,
+        625,
+        700
+      ],
+      "tafel-achter-links": [
+        415,
+        685,
+        578,
+        610
+      ],
+      "tafel-achter-rechts": [
+        1295,
+        1565,
+        578,
+        610
+      ]
+    },
+    "muur": [
+      [
+        0,
+        120,
+        800,
+        560
+      ],
+      [
+        1230,
+        120,
+        1920,
+        560
+      ]
+    ],
+    "meubels": {
+      "tafel-links": [
+        140,
+        620,
+        510,
+        880
+      ],
+      "tafel-rechts": [
+        1440,
+        620,
+        1810,
+        880
+      ],
+      "deur": [
+        820,
+        270,
+        1225,
+        690
+      ]
+    }
+  },
+  "winkel": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        770,
+        1080
+      ],
+      "plank-1": [
+        240,
+        1660,
+        262,
+        285,
+        "schap"
+      ],
+      "plank-2": [
+        240,
+        1660,
+        412,
+        435,
+        "schap"
+      ],
+      "plank-3": [
+        240,
+        1660,
+        562,
+        585,
+        "schap"
+      ],
+      "plank-4": [
+        240,
+        1660,
+        705,
+        730,
+        "schap"
+      ]
+    },
+    "muur": [],
+    "meubels": {
+      "schap": [
+        150,
+        150,
+        1750,
+        760
+      ]
+    }
+  },
+  "kantoor": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        750,
+        1080
+      ],
+      "bureau-links": [
+        60,
+        665,
+        565,
+        590
+      ],
+      "bureau-rechts": [
+        1150,
+        1620,
+        570,
+        592
+      ]
+    },
+    "muur": [
+      [
+        0,
+        40,
+        210,
+        560
+      ],
+      [
+        1700,
+        40,
+        1920,
+        720
+      ]
+    ],
+    "meubels": {
+      "bureau-links": [
+        55,
+        570,
+        665,
+        790
+      ],
+      "bureau-rechts": [
+        1150,
+        570,
+        1620,
+        780
+      ],
+      "plant": [
+        1550,
+        360,
+        1760,
+        775
+      ],
+      "stoel-links": [
+        270,
+        550,
+        450,
+        810
+      ],
+      "stoel-rechts": [
+        1310,
+        500,
+        1480,
+        790
+      ]
+    }
+  },
+  "klas": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        930,
+        1080
+      ],
+      "krijtrand": [
+        215,
+        1700,
+        640,
+        668
+      ]
+    },
+    "muur": [
+      [
+        0,
+        0,
+        215,
+        920
+      ],
+      [
+        1700,
+        0,
+        1920,
+        920
+      ],
+      [
+        0,
+        700,
+        1920,
+        920
+      ]
+    ],
+    "meubels": {}
+  },
+  "kamer-jij": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        700,
+        1080
+      ],
+      "bureau": [
+        1480,
+        1845,
+        500,
+        530
+      ],
+      "bed": [
+        870,
+        1440,
+        555,
+        600
+      ]
+    },
+    "muur": [
+      [
+        0,
+        40,
+        860,
+        640
+      ],
+      [
+        1250,
+        40,
+        1920,
+        400
+      ]
+    ],
+    "meubels": {
+      "bed": [
+        860,
+        450,
+        1460,
+        740
+      ],
+      "bureau": [
+        1480,
+        500,
+        1850,
+        740
+      ]
+    }
+  },
+  "schooldeur": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        840,
+        1080
+      ],
+      "trap": [
+        200,
+        1760,
+        770,
+        850
+      ]
+    },
+    "muur": [
+      [
+        0,
+        600,
+        280,
+        760
+      ],
+      [
+        1700,
+        600,
+        1920,
+        760
+      ]
+    ],
+    "meubels": {
+      "deur": [
+        800,
+        360,
+        1210,
+        735
+      ]
+    }
+  },
+  "feit": {
+    "vlakken": {
+      "vloer": [
+        0,
+        1920,
+        745,
+        1080
+      ]
+    },
+    "muur": [
+      [
+        0,
+        0,
+        1920,
+        740
+      ]
+    ],
+    "meubels": {
+      "huisje": [
+        920,
+        400,
+        1700,
+        890
+      ]
+    }
+  }
+}

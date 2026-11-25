@@ -93,6 +93,16 @@ poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
   Lessen uit miljoen: koppen ná de camera-zoom tekenen (anders valt "DAY X" links af); iets "opgegeten/weg" tonen door de
   schone achtergrond terug te plakken op precies de goede plek (niet een los stuk eroverheen); dieren/voorwerpen altijd met lijf
   en op iets staand, nooit losse koppen; rook zacht en doorzichtig, niet als grijze schijven.
+  **NIETS MAG ZWEVEN** (eigenaar 24 nov, tweede ronde: "deze beelden kloppen niet"): elk voorwerp staat op iets wat in de
+  achtergrond zit (auto's op de stoep/weg, router op het aanrecht met stekker in een stopcontact, bord op een tafel, mat op de
+  grond) of wordt vastgehouden/hangt aan iets (mat in de bek, touw precies naar de mond). Wat in de zin genoemd wordt moet er
+  echt zijn ("TV broken" -> er staat een tv die kapotgaat). Voorwerpen niet over elkaar schuiven. Verbrand/ziek = hele gezicht
+  getint, geen losse rode stippen (clown). Tranen blijven op de wangen. Bij het nalopen per beeld vragen: waar staat dit op?
+  **EN: WAAR HOORT HET LOGISCH?** (eigenaar 24 nov: "waarom maak je geen bureau waar het huiswerk zich opstapelt, je moet het
+  echt slimmer doen"). Niet alleen "niet zweven", maar de plek die je in het echt zou kiezen: huiswerk op het bureau (jij zit
+  erachter), bord op tafel, tv aan de muur. Ontbreekt dat meubel, dan teken je het erbij. "Op de vloer gezet zodat het niet
+  zweeft" is meestal fout. Gezicht past bij de zin (teleurgesteld bij "a little less happy", niet lachen).
+  Automatisch: `tools/scenewachter.py` + `achtergronden.json` (elk voorwerp `op=`), nakijkronde volgens `tools/NAKIJKEN.md`.
 - Stem nakijken met Whisper (woorden.json vs script); verkeerd verstaan -> die zin opnieuw met `OPNIEUW=<nrs>` (andere seed).
 - Gereedschap: `video-miljoen/stem.py` -> `woordtijden.py` -> `maak_miljoen.py --plaat` (controlebladen) -> `maak_miljoen.py`
   (render) -> beeldwachter.

@@ -77,6 +77,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     if gebaar == "zwaai": rechts = 150 + 22 * math.sin(t * 11)
     elif gebaar == "wijs": rechts = 100
     elif gebaar == "vast": rechts = 70                                    # 23 nov: iets vasthouden voor je (knop, toets, koekje)
+    elif gebaar == "telefoon": rechts = -32                               # 24 nov: telefoon voor de eigen borst (niet bij de buurman)
     elif gebaar == "haar": rechts = 165                                   # 23 nov: hand bij het hoofd (haar kammen)
     elif gebaar == "wijslinks": links = -100
     elif gebaar == "schouders": links, rechts = -58, 58
