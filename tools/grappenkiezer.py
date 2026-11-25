@@ -8,7 +8,7 @@ Het gratis taalmodel op de pc (Ollama qwen3:14b) leest het script en kiest per r
   - "camera": true als het personage/dier (wie) even recht in de camera kijkt (droge grap, zoals in sitcoms).
 Uitvoer: <map>/grappen.json  ->  de renderer gebruikt dit vanzelf (handmatige lijsten in de renderer gaan voor).
 Het model is een EERSTE VOORSTEL: Claude loopt grappen.json altijd na (wie is echt in beeld? niet op elke regel een teken;
-dieren die iets geks doen -> "?" + camera) en verbetert het, daarna pas renderen. Max. ongeveer 1 teken per 3 regels.
+dieren die iets geks doen -> camera) en verbetert het. Eigenaar 25 nov: GEEN striptekens tonen (teken leeg laten), daarna pas renderen. Max. ongeveer 1 teken per 3 regels.
 
   python tools/grappenkiezer.py <map-met-script.txt>
 """

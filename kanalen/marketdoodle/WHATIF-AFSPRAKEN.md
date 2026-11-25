@@ -69,9 +69,9 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
   stilte). `geluidcheck()` in de renderer: elk geluid alleen als het ding erbij in beeld is. Voorbeeld: `short-miljoen/maak_short.py`.
 - **Grappen en gezichten vanzelf** (eigenaar 25 nov: "het paard naar de camera laten kijken met een vraagteken ... zulke dingen
   moet je erbij doen en het moet vanzelf gaan, ook met uitdrukking van gezichten"): `tools/grappenkiezer.py <map>` maakt een
-  voorstel (`grappen.json`: per regel gezicht, stripteken ?/!/!?/.../zweet, wie, woord, camera), Claude loopt het na (max. ±1 per
+  voorstel (`grappen.json`: per regel gezicht, wie, woord, camera; **GEEN striptekens ? ... ! boven hoofden**, eigenaar 25 nov: "laat die tekens maar weg"), Claude loopt het na (max. ±1 per
   3 regels, alleen wie echt in beeld is) en de renderer tekent het (`stripteken()`, kijken in de camera). Echte stilte met
-  `STILTE|2.0` in het script (krekels; de geluidcheck eist minstens 1,5 s).
+  `STILTE|2.0` in het script met **precies één krekel-tjirp** (eigenaar: "1 krekel, dit lijken er wel 100") en de familie die **langzaam** opzij kijkt; de geluidcheck eist minstens 1,5 s stilte.
 - **Gewoon praten = geen armgebaar** (eigenaar 25 nov); alleen een gebaar als de zin erom vraagt. De renderer meldt het in LAYOUT.
 - **Verteller per zin inspreken met pauze** (eigenaar 25 nov: "It's 6 a.m. Your bank app gaat te snel"): `stem.py` + `tools/tempowachter.py`.
 

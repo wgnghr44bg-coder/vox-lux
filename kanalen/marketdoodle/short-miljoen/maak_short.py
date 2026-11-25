@@ -123,7 +123,7 @@ GRAP = {int(k): v for k, v in json.loads((HIER / "grappen.json").read_text(encod
 def _grap_tijd(i, g):
     if g.get("wie") == "paard" and "door" in (g.get("woord") or "").lower(): return T_MAT + 0.5          # pas als de mat in de bek hangt
     return kw(i, g["woord"], 0.1) if g.get("woord") else Z[i][0]
-GRAPT = [(i, _grap_tijd(i, g), g) for i, g in GRAP.items() if g.get("teken")]
+GRAPT = [(i, _grap_tijd(i, g), g) for i, g in GRAP.items() if g.get("teken") or g.get("camera")]
 def grap_actief(t, wie):                                  # (teken, sch, camera) als 'wie' nu een grap heeft
     for i, t0, g in GRAPT:
         eind = min(t0 + 1.8, Z[i + 1][0] - 0.05) if i + 1 < len(Z) else t0 + 1.8      # weg zodra de volgende zin begint
@@ -214,7 +214,7 @@ def paard_camera(img, teken, sch):                       # paard stopt met kauwe
     bx, by = bek(); ox, oy = bx + OOG[0], by + OOG[1]; d = ImageDraw.Draw(img)
     d.ellipse((ox - 11, oy - 12, ox + 11, oy + 12), fill=(255, 255, 255), outline=INK, width=2)
     d.ellipse((ox - 6, oy - 5, ox + 6, oy + 7), fill=(25, 20, 20)); d.ellipse((ox - 3, oy - 3, ox, oy), fill=(255, 255, 255))
-    if TEKST_AAN: stripteken(img, ox + 10, oy - 95, teken, sch)
+    if TEKST_AAN and teken: stripteken(img, ox + 10, oy - 95, teken, sch)
 def bek():                                               # bek van het paard (gespiegeld: kijkt naar links), verhouding uit de lange video
     s = PAARD_H / 470; return PAARD_X - 285 * s, PAARD_VOET - 335 * s
 MATKL = ((176, 126, 64), (90, 60, 30), (140, 95, 45))
@@ -300,7 +300,8 @@ def frame(t):
         else: kijk = 0.5 if x < 540 else -0.5
         if n == "tuin" and t >= T_PAARD: kijk = -0.9                    # zus kijkt naar haar paard (links van haar)
         if n == "nacht" and Z[I_BROOD][1] + 0.2 <= t < Z[I_SLOT][0]:     # ongemakkelijke stilte (krekels): iedereen kijkt opzij naar elkaar
-            kijk = (1 if int((t - Z[I_BROOD][1]) * 1.4 + hash(p["n"]) % 2) % 2 else -1) * 0.9
+            u_ = (t - Z[I_BROOD][1] - 0.2) / max(0.5, Z[I_SLOT][0] - Z[I_BROOD][1] - 0.2)          # langzaam: één keer opzij kijken en weer terug
+            kijk = (1 if hash(p["n"]) % 2 else -1) * 0.9 * math.sin(math.pi * min(1, u_))
         if n == "winkel" and t >= T_50: kijk = -0.9                     # mama kijkt naar het prijskaartje (links van haar)
         geb = "telefoon" if p["n"] in TELEFOON.get(n, ()) else None
         if n == "tuin" and T_PAARD <= t < T_MAT: geb = "wijslinks"
@@ -325,7 +326,7 @@ def frame(t):
     for nm, (hx_, hy_) in koppen.items():                 # striptekens boven de hoofden (grappen.json)
         gr = grap_actief(t, nm)
         kant = -1 if n == "kamer" else 1                   # in de slaapkamer staat het naamlabel rechts van het hoofd -> teken links
-        if gr and TEKST_AAN: stripteken(img, hx_ + kant * 62 * GEZ[nm][2], hy_ - 18, gr[0], gr[1])
+        if gr and gr[0] and TEKST_AAN: stripteken(img, hx_ + kant * 62 * GEZ[nm][2], hy_ - 18, gr[0], gr[1])
     if n == "nacht":
         tafel(img)
         if t >= T_BROOD:
@@ -374,7 +375,9 @@ def geluid():
     for k, t0 in enumerate((T_50, T_100, T_200)): zet(t0, "scanner", _fade(_laad("scanner")), 0.35 + 0.12 * k, "prijskaartje")   # steeds harder: steeds erger
     zet(T_UIT - 0.1, "stroom-uit", _fade(_drukste(_laad("stroom-uit"), 1.6)), 0.6, "keukentafel")
     zet(T_KAARS - 0.12, "lucifer", _fade(_drukste(_laad("lucifer"), 1.2)), 0.6, "kaars")
-    zet(Z[I_BROOD][1] + 0.15, "krekels", _fade(_drukste(_laad("krekels"), max(0.6, Z[I_SLOT][0] - Z[I_BROOD][1] + 0.2)), 0.25), 0.55, "keukentafel")   # ongemakkelijke stilte
+    tjirp = _laad("krekel")[int(82.83 * GSR):int(83.10 * GSR)].copy(); tjirp = _fade(tjirp, 0.03)   # één krekel, één tjirpje (eigenaar: "1 krekel, dit lijken er wel 100")
+    stil0, stil1 = Z[I_BROOD][1], Z[I_SLOT][0]
+    zet(stil0 + (stil1 - stil0) * 0.45, "krekels", tjirp, 0.55, "keukentafel")          # precies één tjirp midden in de stilte
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():                                       # elk geluid alleen als het ding waar het bij hoort in beeld is
@@ -383,7 +386,7 @@ def geluidcheck():                                       # elk geluid alleen als
         frame(t + 0.15); gezien = {k[0] for k, v in WACHT.gezien.items() if any(abs(tt - (t + 0.15)) < 1e-6 for tt, _ in v)} | set(GEZ)
         if zie != "bank-app" and zie not in gezien: fout.append(f"{t:.1f} s: geluid '{n}' maar '{zie}' is niet in beeld")
         if n == "krekels":                               # krekels = ongemakkelijke stilte: er moet echt even niemand praten
-            vrij = min([z[0] for z in Z if z[0] > t] or [EIND]) - t
+            vrij = min([z[0] for z in Z if z[0] > t] or [EIND]) - max([z[1] for z in Z if z[1] <= t] or [0])   # hele stilte rond het tjirpje
             if vrij < 1.5: fout.append(f"{t:.1f} s: krekels maar maar {vrij:.1f} s stilte (minstens 1,5 s)")
     return fout
 
