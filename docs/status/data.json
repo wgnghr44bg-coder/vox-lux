@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-25 12:33",
+ "bijgewerkt": "2026-11-25 13:03",
  "kanalen": {
   "weken": [
    {
@@ -2239,7 +2239,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-25 12:33)"
+   "tekst": "draait nu (2026-11-25 13:03)"
   },
   {
    "naam": "Git",
@@ -2254,7 +2254,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2271,8 +2271,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-25 12:33",
-   "volgende": "2026-11-25 13:03"
+   "laatst": "2026-11-25 13:03",
+   "volgende": "2026-11-25 13:33"
   },
   "hype": {
    "aan": true,
@@ -2286,8 +2286,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-25 12:18",
-   "volgende": "2026-11-25 12:48"
+   "laatst": "2026-11-25 12:48",
+   "volgende": "2026-11-25 13:18"
   },
   "titels": {
    "aan": true,
@@ -2296,10 +2296,297 @@
   }
  },
  "kanaal": {
-  "fout": "HTTPSConnectionPool(host='www.googleapis.com', port=443): Read timed out. (read timeout=30)"
+  "naam": "Sleep Archives",
+  "abonnees": 23,
+  "views_totaal": 3560,
+  "video_aantal": 17,
+  "week": {
+   "views": 423,
+   "uren": 88,
+   "abonnees": 3
+  },
+  "vorige_week": {
+   "views": 657,
+   "uren": 173,
+   "abonnees": 5
+  },
+  "recent": [
+   {
+    "id": "4i-gOILazVQ",
+    "titel": "Life in Gettysburg, July 1863 | History for Sleep",
+    "duur": "2:17:38",
+    "privacy": "private",
+    "publiceer": "2027-07-03T19:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "z1E4tQDqMG0",
+    "titel": "How People Survived the Ice Age | History for Sleep",
+    "duur": "1:57:49",
+    "privacy": "private",
+    "publiceer": "2026-11-28T20:00:00Z",
+    "views": 0,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "KU6eoe5vy-U",
+    "titel": "The First Thanksgiving, Plymouth 1621 | History for Sleep",
+    "duur": "2:06:10",
+    "privacy": "public",
+    "publiceer": "2026-11-21T20:00:12Z",
+    "views": 90,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "YZ4sZ_EivLc",
+    "titel": "A Year in the Great Depression, 1933 | History for Sleep",
+    "duur": "2:10:23",
+    "privacy": "public",
+    "publiceer": "2026-11-17T20:00:19Z",
+    "views": 80,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "Y46Rpy4703k",
+    "titel": "Life in Egypt When Tutankhamun Was King, 1330 BC | History for Sleep",
+    "duur": "2:04:50",
+    "privacy": "public",
+    "publiceer": "2026-11-14T20:00:16Z",
+    "views": 19,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "KwUvlP42M34",
+    "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
+    "duur": "1:57:36",
+    "privacy": "public",
+    "publiceer": "2026-11-12T22:23:52Z",
+    "views": 78,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "ZZ5JMtF9kuI",
+    "titel": "Quiet WW2 Facts to Fall Asleep To | History for Sleep",
+    "duur": "2:42:38",
+    "privacy": "public",
+    "publiceer": "2026-11-08T10:53:11Z",
+    "views": 17,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "OC0WGLbKD8M",
+    "titel": "Life Aboard the Hindenburg, May 1937 | History for Sleep",
+    "duur": "1:56:34",
+    "privacy": "public",
+    "publiceer": "2026-11-04T20:00:36Z",
+    "views": 145,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "privacy": "public",
+    "publiceer": "2026-10-31T20:18:28Z",
+    "views": 349,
+    "verwerkt": "processed"
+   },
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "privacy": "public",
+    "publiceer": "2026-10-28T00:27:13Z",
+    "views": 1120,
+    "verwerkt": "processed"
+   }
+  ],
+  "dagen": [
+   {
+    "dag": "2026-10-28",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-29",
+    "views": 94,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-30",
+    "views": 73,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-10-31",
+    "views": 33,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-01",
+    "views": 65,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-02",
+    "views": 192,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-03",
+    "views": 124,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-04",
+    "views": 24,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-05",
+    "views": 29,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-06",
+    "views": 48,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-07",
+    "views": 71,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-08",
+    "views": 88,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-09",
+    "views": 35,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-10",
+    "views": 77,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-11",
+    "views": 118,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-12",
+    "views": 142,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-11-13",
+    "views": 65,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-14",
+    "views": 88,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-15",
+    "views": 68,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-16",
+    "views": 80,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-17",
+    "views": 14,
+    "abonnees": 1
+   },
+   {
+    "dag": "2026-11-18",
+    "views": 82,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-19",
+    "views": 87,
+    "abonnees": 2
+   },
+   {
+    "dag": "2026-11-20",
+    "views": 66,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-21",
+    "views": 81,
+    "abonnees": 0
+   },
+   {
+    "dag": "2026-11-22",
+    "views": 107,
+    "abonnees": 1
+   }
+  ],
+  "maand": {
+   "views": 2024,
+   "uren": 394,
+   "abonnees": 9
+  },
+  "vorige_maand": {
+   "views": 1339,
+   "uren": 374,
+   "abonnees": 6
+  },
+  "jaar": {
+   "views": 4078,
+   "uren": 766,
+   "abonnees": 21
+  },
+  "top": [
+   {
+    "id": "_duWLxwIEss",
+    "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
+    "duur": "2:03:36",
+    "views": 878,
+    "uren": 196
+   },
+   {
+    "id": "qFRyJ6twOzY",
+    "titel": "Life on the Oregon Trail, 1846 | History for Sleep",
+    "duur": "1:47:15",
+    "views": 349,
+    "uren": 27
+   },
+   {
+    "id": "_4LgG7iUoy0",
+    "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
+    "duur": "2:27:47",
+    "views": 321,
+    "uren": 55
+   }
+  ],
+  "partner": {
+   "uren": 766,
+   "uren_doel": 4000,
+   "abonnees": 23,
+   "abonnees_doel": 1000,
+   "eerste_uren": "2026-09-18",
+   "valt_eruit_vanaf": "2027-09-18",
+   "tempo_uren_per_dag": 13.2,
+   "tempo_abonnees_per_dag": 0.32,
+   "datum_uren": "2027-07-28",
+   "datum_abonnees": "2035-03-23"
+  }
  },
  "kpi": {
-  "geplande": 0,
+  "geplande": 2,
   "runs": {
    "goed": 3,
    "totaal": 12,
@@ -2362,8 +2649,8 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 32,
-  "geheugen_mb": 7253,
+  "bezig_procent": 26,
+  "geheugen_mb": 599,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2400,7 +2687,7 @@
   {
    "naam": "YouTube",
    "wat": "API",
-   "ok": false
+   "ok": true
   }
  ],
  "gpu_slot": false,
@@ -2536,8 +2823,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-25 12:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-25 13:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4667,22 +4954,22 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-25 12:34",
+  "bijgewerkt": "2026-11-25 13:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 5991070,
-    "week": 51467235,
+    "5uur": 6124351,
+    "week": 51600516,
     "per_dag": {
      "Tue 24-11": 29948208,
-     "Wed 25-11": 13454984,
+     "Wed 25-11": 13588265,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 43612,
+    "stap_kost": 43831,
     "naam": "hoofd",
     "week_reset": ""
    },
