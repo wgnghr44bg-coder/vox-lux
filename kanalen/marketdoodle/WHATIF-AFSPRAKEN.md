@@ -73,6 +73,7 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
   `STILTE|2.0` in het script met **precies één krekel-tjirp** (eigenaar: "1 krekel, dit lijken er wel 100") en de familie die **langzaam** opzij kijkt; de geluidcheck eist minstens 1,5 s stilte.
 - **Gewoon praten = geen armgebaar** (eigenaar 25 nov); alleen een gebaar als de zin erom vraagt. De renderer meldt het in LAYOUT.
 - **Verteller per zin inspreken met pauze** (eigenaar 25 nov: "It's 6 a.m. Your bank app gaat te snel"): `stem.py` + `tools/tempowachter.py`.
+- **Tempo verteller: 180 woorden/min** (eigenaar 25 nov: 161 te langzaam, 200 te snel, 180 "dit is goed" voor Short én lange video). Na stem.py + woordtijden.py: `tools/stemtempo.py <map> 180`, dan tempowachter.
 
 **Controleren vóór de eigenaar iets ziet (is Claude's taak, niet die van de eigenaar)**
 1. Render-uitvoer: `LAYOUT: alles past` en `SCENEWACHTER: 0 fouten` (`SCENEWACHTER.md`).
@@ -94,7 +95,7 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
 Voorbeeld en sjabloon: `video-miljoen/` (What If Everyone on Earth Got $1 Million Tonight?). Eigenaar vond de proef "perfect".
 Aanleiding: de eerste lange video (Swapped Lives) kreeg 6 views; AI Studio-analyse: saai begin (regels), stilstaande
 poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
-- **Lengte: minimaal 8 minuten** (± 1.400 woorden, 115 zinnen; tempo ± 178 woorden/min). Steeds gekker met nieuwe gebeurtenissen,
+- **Lengte: minimaal 8 minuten** (± 1.400 woorden, 115 zinnen; tempo 180 woorden/min via tools/stemtempo.py). Steeds gekker met nieuwe gebeurtenissen,
   nooit opvulling/uitleg.
 - **Onderwerp in de lijn van een Short die al loopt** (geld, techniek, superkrachten, overleven), zodat die Short de lange
   video als "Gerelateerde video" kan krijgen.
