@@ -463,3 +463,15 @@ ValueError: empty separator)
 - 2026-11-24 14:18 sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site
 
 - 2026-11-25 00:35 Claude: BlackswanVault Nvidia/Huang terug (j_fHa-ZcDxI) + Short (joO-JiKSDYU) openbaar op verzoek eigenaar (kanaal + AI-label gecontroleerd). Black Friday (c4xgBH1o4AE, 8de6ZH3YYp4) verzet naar do 26 nov 15:00/17:00.
+
+- 2026-11-25 YouTube-hype: nvidia ceo (STERK: YouTube + nieuws, 5 kanalen, 77775 views/uur). BlackswanVault: video waard?
+
+- 2026-11-25 08:10 ntfy-seintje verstuurd: Grote hype: BlackswanVault
+- 2026-11-25 15:45 nieuwswacht: GROOT Nvidia (2026-11-25): -8.9% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-25 15:45 nieuwswacht: GROOT Nasdaq (2026-11-25): -4.5% op één dag -> BlackswanVault-video? (eigenaar beslist)
+- 2026-11-25 15:45 nieuwswacht: GROOT S&P 500 (2026-11-25): -3.1% op één dag -> BlackswanVault-video? (eigenaar beslist)
+
+- 2026-11-26 04:43 ntfy-seintje verstuurd: Grote hype: BlackswanVault - Short
+- 2026-11-26 04:48 BlackswanVault: Anthropic-video (5C2MIFhR314) nieuwe thumbnail met Dario Amodei (CTR was 1,8% met logo), eigenaar akkoord 26 nov
+- 2026-11-26 04:49 eigenaar: Pearl Harbor-montage gepauzeerd (pc overdag vrij); gaat om 00:00 vanzelf verder.
+- 2026-11-26 04:55 BlackswanVault: Jensen-video (j_fHa-ZcDxI) thumbnail in kanaalstijl ($1 TRILLION / HE'S BACK., huang-f), eigenaar akkoord 26 nov; oude eigen thumbnail blijft als video10/thumbnail-definitief.jpg

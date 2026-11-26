@@ -1,0 +1,1 @@
+python thumb.py video10/echt/huang-f.jpg video10/thumbnail-stijl.jpg '$1 TRILLION' "HE'S BACK." 0.62 rood nee 0.33 1.9   # 26 nov: kanaalstijl zoals Part 1 (huang-f: Anders Eidesvik, CC BY 4.0)
