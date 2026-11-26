@@ -261,7 +261,7 @@ def figuren(n, t):
                 ("jij99", 400, 1780, 1.85, ("hoek", -16, 145) if nu == I_BABY else None, False, 0.0)]
     if n == "ai":
         chip = t >= T_CHIPS
-        return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, "juich" if nu == I_ONDZ else None, False)]
+        return [("collega", 300, 1750, 3.15, ("hoek", -16, 40) if chip else None, False), ("onderzoeker", 790, 1750, 3.4, "juich" if nu == I_ONDZ else None, False)]
     if n == "woon2":
         g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
         f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]

@@ -129,7 +129,7 @@ class Scenewachter:
                     if x0 < cx + r * 0.45 and x1 > cx - r * 0.45 and y0 < cy + r * 0.45 and y1 > cy - r * 0.45: self._m("FOUT", naam, f"bedekt het eigen gezicht van {pn}")
                     continue
                 ox = max(x0, min(cx, x1)); oy = max(y0, min(cy, y1))
-                if (ox - cx) ** 2 + (oy - cy) ** 2 < (r * 0.8) ** 2: self._m("FOUT", naam, f"bedekt het gezicht van {pn}")
+                if (ox - cx) ** 2 + (oy - cy) ** 2 < (r * 1.05) ** 2: self._m("FOUT", naam, f"bedekt het gezicht van {pn}")   # 26 nov: héél het gezicht, ook de kin
 
     # ---------- rapport ----------
     def rapport(self, soort=None):
