@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 20:33",
+ "bijgewerkt": "2026-11-26 21:03",
  "kanalen": {
   "weken": [
    {
@@ -2377,12 +2377,12 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 20:33)"
+   "tekst": "draait nu (2026-11-26 21:03)"
   },
   {
    "naam": "Git",
    "ok": true,
-   "tekst": "vastgelopen rebase gevonden en veilig opgelost (wijzigingen bewaard als stash)"
+   "tekst": "alles gepusht"
   },
   {
    "naam": "Video 2026-11-28 (ijstijd-20000-vc)",
@@ -2397,7 +2397,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2414,8 +2414,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 20:33",
-   "volgende": "2026-11-26 21:03"
+   "laatst": "2026-11-26 21:03",
+   "volgende": "2026-11-26 21:33"
   },
   "hype": {
    "aan": true,
@@ -2429,8 +2429,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 20:18",
-   "volgende": "2026-11-26 20:48"
+   "laatst": "2026-11-26 20:48",
+   "volgende": "2026-11-26 21:18"
   },
   "titels": {
    "aan": true,
@@ -2444,8 +2444,8 @@
   "views_totaal": 3785,
   "video_aantal": 18,
   "week": {
-   "views": 442,
-   "uren": 98,
+   "views": 594,
+   "uren": 119,
    "abonnees": 5
   },
   "vorige_week": {
@@ -2675,11 +2675,16 @@
     "dag": "2026-11-23",
     "views": 102,
     "abonnees": 2
+   },
+   {
+    "dag": "2026-11-24",
+    "views": 152,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 2052,
-   "uren": 401,
+   "views": 2204,
+   "uren": 422,
    "abonnees": 11
   },
   "vorige_maand": {
@@ -2688,8 +2693,8 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 4179,
-   "uren": 797,
+   "views": 4331,
+   "uren": 817,
    "abonnees": 23
   },
   "top": [
@@ -2697,8 +2702,8 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 934,
-    "uren": 217
+    "views": 1059,
+    "uren": 237
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2716,15 +2721,15 @@
    }
   ],
   "partner": {
-   "uren": 796,
+   "uren": 817,
    "uren_doel": 4000,
    "abonnees": 23,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 13.5,
+   "tempo_uren_per_dag": 14.2,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-07-22",
+   "datum_uren": "2027-07-09",
    "datum_abonnees": "2033-09-17"
   }
  },
@@ -2793,7 +2798,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 851,
+  "geheugen_mb": 853,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2966,8 +2971,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5277,22 +5282,22 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 20:34",
+  "bijgewerkt": "2026-11-26 21:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 11504618,
-    "week": 82275659,
+    "5uur": 11257201,
+    "week": 83211687,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 23715354,
+     "Thu 26-11": 24651382,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 38696,
+    "stap_kost": 38166,
     "naam": "hoofd",
     "week_reset": ""
    },
