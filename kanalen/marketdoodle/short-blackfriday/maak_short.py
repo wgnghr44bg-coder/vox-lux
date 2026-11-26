@@ -244,9 +244,9 @@ def prijskaart(d, x, y, tekst, sch):                       # prijsbordje (grafie
     if sch > 0.3: d.text((x, y), tekst, font=font(FB, int(78 * sch)), fill=(220, 40, 40), anchor="mm")
 def kar_iconen(d, t):                                      # "Take fifty!": 50 winkelwagen-icoontjes (10 x 5)
     if t < T_50 or t > Z[I_MASC][1] + 0.6: return
-    n = min(50, 1 + int((t - T_50) / 0.02)); WACHT.plaats("kar-icoon", (90, 560, 990, 860), op="beeld")
+    n = min(50, 1 + int((t - T_50) / 0.02)); WACHT.plaats("kar-icoon", (90, 230, 990, 560), op="beeld")
     for k_ in range(n):
-        c, r = k_ % 10, k_ // 10; x, y = 140 + c * 89, 600 + r * 58
+        c, r = k_ % 10, k_ // 10; x, y = 140 + c * 89, 270 + r * 62
         d.rounded_rectangle((x - 30, y - 22, x + 30, y + 22), 8, fill=(255, 255, 255), outline=INK, width=3)
         d.line((x - 20, y - 10, x + 18, y - 10), fill=(220, 40, 40), width=4); d.line((x - 16, y - 10, x - 10, y + 8), fill=(220, 40, 40), width=4)
         d.line((x + 18, y - 10, x + 12, y + 8), fill=(220, 40, 40), width=4); d.line((x - 10, y + 8, x + 12, y + 8), fill=(220, 40, 40), width=4)
@@ -296,9 +296,9 @@ def hond(img, t):                                          # de hond ligt op de 
     zet(img, "hond", 360, 470, 1790, op="vloer", naam="hond")
 def tv_iconen(d, t):                                       # "another TV ... eleventh": 11 tv-icoontjes, de 11e springt erbij
     if t < T_TVK: return
-    n = 10 if t < T_ELFDE else 11; WACHT.plaats("tv-icoon", (60, 560, 1020, 700), op="beeld")
+    n = 10 if t < T_ELFDE else 11; WACHT.plaats("tv-icoon", (60, 220, 1020, 330), op="beeld")
     for k_ in range(n):
-        x = 105 + k_ * 87; y = 630; sch = ps.pop((t - T_ELFDE) / 0.3) if k_ == 10 else 1.0
+        x = 105 + k_ * 87; y = 270; sch = ps.pop((t - T_ELFDE) / 0.3) if k_ == 10 else 1.0
         d.rounded_rectangle((x - 36 * sch, y - 26 * sch, x + 36 * sch, y + 22 * sch), 6, fill=(30, 30, 38), outline=(255, 255, 255) if k_ < 10 else KL["geel"], width=4)
         d.rectangle((x - 6 * sch, y + 22 * sch, x + 6 * sch, y + 32 * sch), fill=(30, 30, 38))
 KADO = (540, 1330)
@@ -376,7 +376,7 @@ def figuren(n, t):
         kijk = math.sin(t * 2.5) * 0.9 if nu != I_SALE else 0.0
         return [("dad", x, y, schaal("failliet", "dad", y), "armen-open" if nu == I_SALE else None, False, kijk, loop)]
     if n == "laatst":
-        y = 1450; a = ps.ease(min(1, (t - T_DADIN) / 1.2)); x = -150 + (360 + 150) * a; loop = (t - T_DADIN) * 2.2 if a < 1 else None
+        y = 1350; a = ps.ease(min(1, (t - T_DADIN) / 1.2)); x = -150 + (190 + 150) * a; loop = (t - T_DADIN) * 2.2 if a < 1 else None
         dg = ("hoek", -16, 140) if nu == I_LAATST and t >= T_PRIJS else ("schrik" if nu == I_ROOF else None)
         kg = ("hoek", -150, -16) if nu == I_KASSA and t >= T_CYBER else None                # kassière wijst naar de tv
         dkijk = 0.0 if t >= Z[I_SLOT][0] else 0.8
@@ -400,7 +400,7 @@ def _doel(t):
     if n == "tent": zm = 1.0 + min(0.2, (t - sc["t"]) * 0.05); cx, cy = 420, 1150         # langzaam naar de tent
     if n == "laatst" and T_PRIJS <= t < Z[I_ROOF][0]: cx, cy, zm = 470, 900, 1.6           # vitrine met telefoon en prijskaartje
     if n == "laatst" and nu == I_KASSA: cx, cy, zm = 560, 800, 1.25
-    if n == "laatst" and t >= Z[I_SLOT][0]: cx, cy, zm = 420, 1050, 1.3                     # papa draait naar de camera, kar vult zich
+    if n == "laatst" and t >= Z[I_SLOT][0]: cx, cy, zm = 380, 1050, 1.3                     # papa draait naar de camera, kar vult zich
     return cx, cy, zm
 CAMTRACK = []
 def _maak_track():
@@ -431,7 +431,7 @@ def frame(t):
     img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t_b); GEZ.clear(); GEB.clear(); SCHERM.clear(); d = ImageDraw.Draw(img)
     figs = figuren(n, t_b)
     if n == "winkel":
-        if t_b < Z[I_TWINTIG][0]: shoppers(d, t_b); winkelkar(d, 230, 1560, 0.95 * pxm("mall-tv", 1560) * 0.55, inhoud=0.7)
+        if t_b < Z[I_TWINTIG][0]: winkelkar(d, 230, 1560, 0.95 * pxm("mall-tv", 1560) * 0.55, inhoud=0.7)
         twintig(img, t_b)
         if t_b >= Z[I_MASC][0] - 0.6: mascotte(img, t_b)
     if n == "dozen": dozenzee(img, False)
@@ -466,11 +466,10 @@ def frame(t):
         if n == "winkel" and nu == I_TWINTIG and t_b >= T_20: kop(img, "x20", W / 2, 560, 110, (255, 255, 255), ps.pop((t_b - T_20) / 0.3))
         if n == "winkel":
             kar_iconen(d, t_b)
-            if T_50 <= t_b <= Z[I_MASC][1] + 0.6: kop(img, "x50", W / 2, 470, 90, KL["geel"], ps.pop((t_b - T_50) / 0.3))
+            if T_50 <= t_b <= Z[I_MASC][1] + 0.6: kop(img, "x50", W / 2, 640, 100, KL["geel"], ps.pop((t_b - T_50) / 0.3))
         if n == "hond" and t_b >= T_BED: kop(img, "47 BEDS", W / 2, 400, 110, (255, 255, 255), ps.pop((t_b - T_BED) / 0.3))
         if n == "feit" and t_b >= T_POLITIE: kop(img, "PHILADELPHIA POLICE", W / 2, 400, 64, (255, 255, 255), ps.pop((t_b - T_POLITIE) / 0.3))
         if n == "kerst": tv_iconen(d, t_b)
-        if n == "kerst" and t_b >= T_ELFDE: kop(img, "TV #11", W / 2, 470, 100, KL["geel"], ps.pop((t_b - T_ELFDE) / 0.3))
         if n == "failliet" and t_b >= T_BANK: kop(img, "CLOSED", W / 2, 400, 130, (255, 90, 80), ps.pop((t_b - T_BANK) / 0.3))
         if n == "laatst" and T_1000 <= t_b < T_CYBER: kop(img, "$1,000", W / 2, 400, 150, (235, 45, 45), ps.pop((t_b - T_1000) / 0.35))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
