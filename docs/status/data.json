@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 05:33",
+ "bijgewerkt": "2026-11-26 06:03",
  "kanalen": {
   "weken": [
    {
@@ -2311,7 +2311,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 05:33)"
+   "tekst": "draait nu (2026-11-26 06:03)"
   },
   {
    "naam": "Git",
@@ -2331,7 +2331,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 05:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2344,12 +2344,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-26 06:00"
+   "volgende": "2026-11-27 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 05:33",
-   "volgende": "2026-11-26 06:03"
+   "laatst": "2026-11-26 06:03",
+   "volgende": "2026-11-26 06:33"
   },
   "hype": {
    "aan": true,
@@ -2363,8 +2363,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 05:18",
-   "volgende": "2026-11-26 05:48"
+   "laatst": "2026-11-26 05:48",
+   "volgende": "2026-11-26 06:18"
   },
   "titels": {
    "aan": true,
@@ -2698,7 +2698,8 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)"
+   "video samenvoegen (ffmpeg)",
+   "beelden maken (ComfyUI)"
   ],
   "eind": null
  },
@@ -2718,11 +2719,15 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
+  },
+  {
+   "naam": "beelden maken (ComfyUI)",
+   "stap": 2
   }
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 690,
+  "geheugen_mb": 4714,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2895,8 +2900,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 05:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 06:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5026,23 +5031,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 05:33",
+  "bijgewerkt": "2026-11-26 06:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 3806912,
-    "week": 62739023,
+    "5uur": 4944362,
+    "week": 63876474,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 3806912,
+     "Thu 26-11": 4944363,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 35302,
+    "stap_kost": 35660,
     "naam": "hoofd",
     "week_reset": ""
    },
