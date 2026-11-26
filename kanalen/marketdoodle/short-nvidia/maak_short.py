@@ -228,7 +228,7 @@ I_HOOK, I_RIJK, I_OFFER, I_GELD, I_PLAN, I_FINE, I_DEAL = zi("What if"), zi("Wai
 I_JAREN, I_ALIVE, I_GAME, I_BABY, I_AI, I_ONDZ = zi("Years pass"), zi("Is this"), zi("Then PC"), zi("Look at"), zi("Then artificial"), zi("We need")
 I_FORT, I_ISLAND, I_CONGR, I_RETIRE, I_VRAAG, I_SOLD, I_WHY, I_PS2, I_SLOT = (zi("Your little"), zi("I'm buying"), zi("Congratulations"),
     zi("I'm retiring"), zi("Just one"), zi("Well..."), zi("Why"), zi("I needed"), zi("I built"))
-T_KOOP = 1e9; T_BILJET = kw(I_FINE, "fine", -0.1); T_620 = kw(I_FORT, "small", -0.1); T_DEUR = Z[I_CONGR][0] - 1.4; T_2002 = kw(I_SOLD, "2002", -0.1); T_CHIPS = kw(I_AI, "everyone", -0.2)
+T_KOOP = 1e9; T_BILJET = kw(I_FINE, "fine", -0.1); T_HONDERD = kw(I_OFFER, "hundred", -0.1); T_620 = kw(I_FORT, "small", -0.1); T_DEUR = Z[I_CONGR][0] - 1.4; T_2002 = kw(I_SOLD, "2002", -0.1); T_CHIPS = kw(I_AI, "everyone", -0.2)
 def Zs(i): return Z[i][0] - 0.1
 SC = [dict(t=0, naam="woon", bg="woon2026"), dict(t=Zs(I_OFFER), naam="diner", bg="denny"), dict(t=Zs(I_JAREN), naam="kamer", bg="beurs"),
       dict(t=Zs(I_GAME), naam="gaming", bg="gaming"), dict(t=Zs(I_AI), naam="ai", bg="ai"), dict(t=Zs(I_FORT), naam="woon2", bg="woon2026")]
@@ -298,9 +298,17 @@ def laptop(img, x, t, n, ty):                              # opengeklapte laptop
     d.line(pts, fill=(120, 255, 140), width=5)
 def kom(img, x, ty):                                        # kom ontbijtgranen op tafel
     zet(img, "ontbijtkom", 110, x, ty + 4, op="tafel", naam="ontbijtkom")
+def krant(img, t):                                           # 26 nov (tekstwachter): krant op tafel bij "NVIDIA is going public" (beursgang jan 1999, $12 per aandeel)
+    d = ImageDraw.Draw(img); x0, x1, y1 = 690, 860, TAFEL_Y + 2; y0 = y1 - 120
+    WACHT.plaats("krant", (x0, y0, x1, y1), op="tafel")
+    d.polygon([(x0, y1), (x1, y1), (x1 - 6, y0), (x0 + 6, y0)], fill=(245, 242, 230), outline=INK)
+    d.text(((x0 + x1) / 2, y0 + 16), "GOES PUBLIC", font=font(FB, 22), fill=INK, anchor="mm")
+    plak_logo(img, x0 + 30, y0 + 32, 26); d = ImageDraw.Draw(img)
+    d.text(((x0 + x1) / 2, y0 + 80), "IPO · $12 A SHARE", font=font(FS, 16), fill=(90, 90, 90), anchor="mm")
+    for k_ in range(2): d.line((x0 + 18, y0 + 96 + k_ * 9, x1 - 18, y0 + 96 + k_ * 9), fill=(170, 170, 170), width=3)
 def biljet(d, t):                                           # $100-biljet schuift over de tafel naar Jensen
-    if t < T_BILJET: return
-    a = ps.ease((t - T_BILJET) / 0.8); x = 420 + (640 - 420) * a; y = TAFEL_Y - 4
+    if t < T_HONDERD: return                                 # 26 nov (tekstwachter): ligt al op tafel bij "a hundred bucks", schuift bij "Fine."
+    a = ps.ease(max(0, t - T_BILJET) / 0.8); x = 420 + (640 - 420) * a; y = TAFEL_Y - 4
     WACHT.plaats("biljet", (x - 60, y - 14, x + 60, y + 4), op="tafel")
     d.polygon([(x - 60, y - 10), (x + 56, y - 14), (x + 60, y + 4), (x - 56, y + 6)], fill=(150, 205, 140), outline=(40, 90, 40))
     d.text((x, y - 4), "$100", font=font(FB, 20), fill=(30, 80, 30), anchor="mm")
@@ -328,6 +336,9 @@ def in_hand(img, naam, figs, t, wat):                          # voorwerp in de 
     hx, hy = rhand(naam, f[1], f[2], f[3], hoek); S = f[3] * ps.C[naam].get("groot", 1.0); d = ImageDraw.Draw(img)
     if wat == "gpu":
         k = sprite("videokaart", int(70 * S)); img.paste(k, (int(hx - k.width / 2), int(hy - k.height * 0.7)), k)
+        lh = max(10, int(11 * S)); lw = logo(lh, True).width                         # NVIDIA-logo op de kaart (tekstwachter: "NVIDIA chips")
+        d.rounded_rectangle((hx - lw / 2 - 6, hy - k.height * 0.7 - lh - 14, hx + lw / 2 + 6, hy - k.height * 0.7 - 2), 6, fill=(20, 20, 24))
+        plak_logo(img, hx - lw / 2, hy - k.height * 0.7 - lh - 8, lh, wit=True); d = ImageDraw.Draw(img)
         WACHT.plaats("videokaart-hand", (hx - k.width / 2, hy - k.height * 0.7, hx + k.width / 2, hy + k.height * 0.3), op="hand:" + naam, punt=(hx, hy), voor=True)
     elif wat == "ps2":                                            # zwarte spelcomputer (eigen tekening, geen logo) met controller
         w, h = 150 * S, 32 * S; x0, y0 = hx - w * 0.5, hy - h - 2 * S
@@ -407,7 +418,7 @@ def frame(t):
     koppen = teken(img, zit, t_beeld, nu); d = ImageDraw.Draw(img)
     if n in ("woon", "woon2"): salontafel(d); laptop(img, 545, t_beeld, n, SALON_Y); kom(img, 125, SALON_Y); ps2(img, t_beeld, n)
     if n == "diner":
-        tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); biljet(ImageDraw.Draw(img), t_beeld)
+        tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); krant(img, t_beeld); biljet(ImageDraw.Draw(img), t_beeld)
     if staan: koppen.update(teken(img, staan, t_beeld, nu))
     if n == "gaming": gloed(img, t_beeld)
     if n == "ai": in_hand(img, "collega", figs, t_beeld, "gpu"); in_hand(img, "onderzoeker", figs, t_beeld, "gpu")
@@ -426,7 +437,7 @@ def frame(t):
                 if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 370, 120, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
                 elif t_beeld >= T_H: kop(img, "$100", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
         else: plaatskaart(img, t_beeld, sc)
-        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][0]: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
+        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
         if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 370, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
         if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)

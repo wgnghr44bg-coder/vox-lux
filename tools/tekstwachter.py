@@ -76,7 +76,7 @@ class Tekstwachter:
                 uit.append((t, "gevoel", f'"{tekst}" is blij, maar {z[4]} doet {", ".join(sorted(set(g) & WEE))}'))
             for woord, nodig in self.regels.items():
                 if woord in laag:
-                    ok = any((n[5:] in " ".join(P["teksten"])) if n.startswith("tekst:") else (n in P["gezien"]) for n in nodig)
+                    ok = any((n[6:] in " ".join(P["teksten"])) if n.startswith("tekst:") else (n in P["gezien"]) for n in nodig)
                     if not ok: uit.append((t, "genoemd", f'zegt "{woord}" maar er is geen {" / ".join(nodig)} in beeld'))
         return uit
 
