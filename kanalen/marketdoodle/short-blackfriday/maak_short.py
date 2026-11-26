@@ -462,7 +462,7 @@ def geluid():
     def zet_(t, n, x, g, zie):
         i = int(t * GSR); j = min(len(uit), i + len(x)); uit[i:j] += x[:j - i] * g; GELUIDEN.append((t, n, zie))
     piep = _fade(_drukste(_laad("scanner"), 0.15))
-    for q in range(0, 20, 2): zet_(T_20 + q * 0.04, "scanner", piep, 0.3, "tvdoos")                    # piepjes: de dozen komen erbij
+    for q in range(0, 20, 2): zet_(T_20 + q * 0.02, "scanner", piep, 0.3, "tvdoos")                    # piepjes: de dozen komen erbij
     for q in np.arange(T_SISIN + 0.2, T_SISIN + 1.1, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.3, "sis")
     zet_(T_TVK - 0.05, "papier", _fade(_drukste(_laad("papier"), 0.4)), 0.4, "tv")
     for q in np.arange(T_DADIN + 0.2, T_DADIN + 1.2, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "dad")
