@@ -258,7 +258,7 @@ def figuren(n, t):
         return [("jij99", 800, 1330, 2.8, "telefoon", False, 0.9)]                       # 'barely gets your attention': rug naar de pc, speelt op een spelcomputertje
     if n == "gaming":
         return [("gamer1", 190, 1650, 1.75, "juich" if nu == I_BABY else None, False), ("gamer2", 860, 1690, 1.8, "wijs", False),
-                ("jij99", 520, 1780, 1.85, ("hoek", -16, 145) if nu == I_BABY else None, False, 0.0)]
+                ("jij99", 400, 1780, 1.85, ("hoek", -16, 145) if nu == I_BABY else None, False, 0.0)]
     if n == "ai":
         chip = t >= T_CHIPS
         return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, "juich" if nu == I_ONDZ else None, False)]
@@ -332,7 +332,7 @@ def kaartpodium(img, t):                                    # 26 nov (eigenaar: 
     WACHT.vlak("sokkel", [x0 + 10, x1 - 10, y0 - 8, y0 + 14], staat_op="vloer", voet=(x0, x1, y1))
     d.ellipse((x0 - 30, y1 - 22, x1 + 30, y1 + 18), fill=(60, 50, 110))                                   # schaduw op de vloer
     d.rectangle((x0, y0, x1, y1), fill=(30, 32, 40), outline=INK, width=5); d.rectangle((x0 - 14, y0 - 14, x1 + 14, y0 + 6), fill=(118, 185, 0), outline=INK, width=4)
-    plak_logo(img, (x0 + x1) / 2 - logo(44, True).width / 2, y0 + 50, 44, wit=True)
+    plak_logo(img, (x0 + x1) / 2 - logo(40, True).width / 2, y0 + 18, 40, wit=True)
     zet(img, "videokaart", 190, (x0 + x1) / 2, y0 - 12, op="sokkel", naam="videokaart")
 
 def in_hand(img, naam, figs, t, wat):                          # voorwerp in de rechterhand van een poppetje (26 nov: beeld moet bij de tekst passen)
