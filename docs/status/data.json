@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 08:33",
+ "bijgewerkt": "2026-11-26 09:03",
  "kanalen": {
   "weken": [
    {
@@ -2032,37 +2032,37 @@
   ],
   "daarna": [
    {
-    "wanneer": "do 26-11 09:00 (routine staat UIT)",
+    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
     "wat": "Christmas in the Trenches, 1914 | History for Sleep",
     "map": "kerst-loopgraven-1914",
     "detail": "routine maakt de video voor za 12-12 21:00"
    },
    {
-    "wanneer": "zo 29-11 09:00 (routine staat UIT)",
+    "wanneer": "di 1-12 09:00 (routine staat UIT)",
     "wat": "Life in Bethlehem, the First Christmas | History for Sleep",
     "map": "bethlehem",
     "detail": "routine maakt de video voor za 19-12 21:00"
    },
    {
-    "wanneer": "di 1-12 09:00 (routine staat UIT)",
+    "wanneer": "do 3-12 09:00 (routine staat UIT)",
     "wat": "Life in Victorian London at Christmas, 1843 | History for Sleep",
     "map": "londen-kerst-1843",
     "detail": "routine maakt de video voor za 26-12 21:00"
    },
    {
-    "wanneer": "do 3-12 09:00 (routine staat UIT)",
+    "wanneer": "zo 6-12 09:00 (routine staat UIT)",
     "wat": "Life in Rome When Caesar Ruled, 44 BC | History for Sleep",
     "map": "rome-44-vc",
     "detail": "routine maakt de video voor za 2-1 21:00"
    },
    {
-    "wanneer": "zo 6-12 09:00 (routine staat UIT)",
+    "wanneer": "di 8-12 09:00 (routine staat UIT)",
     "wat": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
     "map": "scott-antarctica-1912",
     "detail": "routine maakt de video voor za 9-1 21:00"
    },
    {
-    "wanneer": "di 8-12 09:00 (routine staat UIT)",
+    "wanneer": "do 10-12 09:00 (routine staat UIT)",
     "wat": "The Dancing Plague of Strasbourg, 1518 | History for Sleep",
     "map": "dansplaag-1518",
     "detail": "routine maakt de video voor za 30-1 21:00"
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 08:33)"
+   "tekst": "draait nu (2026-11-26 09:03)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2272,7 +2272,7 @@
   "routine": {
    "aan": false,
    "laatst": "2026-11-10 09:00",
-   "volgende": "2026-11-26 09:00"
+   "volgende": "2026-11-29 09:00"
   },
   "scriptgenerator": {
    "aan": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 08:33",
-   "volgende": "2026-11-26 09:03"
+   "laatst": "2026-11-26 09:03",
+   "volgende": "2026-11-26 09:33"
   },
   "hype": {
    "aan": true,
@@ -2296,8 +2296,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 08:18",
-   "volgende": "2026-11-26 08:48"
+   "laatst": "2026-11-26 08:48",
+   "volgende": "2026-11-26 09:18"
   },
   "titels": {
    "aan": true,
@@ -2408,7 +2408,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1194,
+    "views": 1195,
     "verwerkt": "processed"
    }
   ],
@@ -2655,7 +2655,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 2122,
+  "geheugen_mb": 1587,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2828,8 +2828,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 08:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 09:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4959,23 +4959,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 08:34",
+  "bijgewerkt": "2026-11-26 09:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6360509,
-    "week": 65292621,
+    "5uur": 6825678,
+    "week": 65757790,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 6360509,
+     "Thu 26-11": 6825678,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 35387,
+    "stap_kost": 35373,
     "naam": "hoofd",
     "week_reset": ""
    },
