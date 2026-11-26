@@ -1,17 +1,24 @@
-# What If You Invested $100 in NVIDIA? (Short, 26 nov 2026). Echt: NVIDIA bedacht in een Denny's in San Jose (april 1993) door Jensen Huang,
-# Chris Malachowsky en Curtis Priem; eerste chip NV1 flopte bijna (1995); Sega-baas investeerde toch $5 miljoen ("young man he liked");
-# beursgang jan 1999 a $12 (= $0,025 na splitsingen); $100 -> ~4.000 aandelen x $155 (24 nov 2026) = ~$620.000. Eigenaar: elke scène eigen personages met eigen stem.
-N|denny|San Jose, 1993. You're eating pancakes at Denny's. Next to you, three engineers draw chips on napkins.
-JENSEN|denny|Hey kid. We're starting a company. Want in? Just a hundred bucks.
-YOU|denny|For a napkin? No thanks.
-SERVEERSTER|denny|More coffee, boys? You've been here four hours.
-N|kantoor|Two years later, their first chip flops. The money is almost gone.
-CURTIS|kantoor|Most games don't even work on it!
-N|sega|But the boss of Sega still invests five million dollars.
-SEGA|sega|I like this young man.
-N|beurs|1999. NVIDIA hits the stock market. This time, you buy. A hundred dollars.
-N|ai|Then AI explodes. And it all runs on NVIDIA chips.
+# v4 (26 nov 2026): script van de eigenaar "WHAT IF YOU INVESTED $100 IN NVIDIA IN 1999?". Feiten: beursgang jan 1999 ($12), gaming (GeForce),
+# AI; in 2002 stond het aandeel laag (verkopen klopt). $100 -> ~$620.000 (24 nov 2026). Hoofdletters voor de stem gewoon geschreven.
+N|woon|What if you invested just a hundred dollars in NVIDIA back in 1999?
+YOU2|woon|Wait... I could've been rich?!
+JENSEN|diner|Hey! NVIDIA is going public. Wanna invest a hundred bucks?
+YOU|diner|Does it actually make money?
+JENSEN|diner|That's the plan.
+YOU|diner|Fine. But if I lose this, I'm eating at home!
+JENSEN|diner|Deal.
+N|kamer|Years pass. Your investment barely gets your attention.
+YOU|kamer|Is this thing even alive?
+N|gaming|Then PC gaming explodes. NVIDIA becomes a giant in graphics cards.
+YOU|gaming|Look at my little baby go!
+N|ai|Then artificial intelligence takes over. Suddenly, everyone needs NVIDIA chips!
 ONDERZOEKER|ai|We need ten thousand more!
-N|nu|Today, your hundred dollars is worth about six hundred thousand.
-YOU2|nu|Six hundred THOUSAND?!
-JENSEN2|nu|Still want that napkin, kid?
+N|woon2|Your little hundred-dollar investment could now be worth a small fortune!
+YOU2|woon2|I'm buying a private island!
+JENSEN2|woon2|Congratulations! You've made a fortune.
+YOU2|woon2|I'm retiring!
+JENSEN2|woon2|Just one question. You never sold your shares, right?
+YOU2|woon2|Well... I sold everything in 2002.
+JENSEN2|woon2|Why?!
+YOU2|woon2|I needed a PlayStation 2!
+JENSEN2|woon2|I built a trillion-dollar company for this?
