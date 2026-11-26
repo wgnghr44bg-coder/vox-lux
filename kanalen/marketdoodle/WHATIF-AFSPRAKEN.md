@@ -53,6 +53,7 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Short: Qhjfoib3FIA (What If You Could See How Much Everyone Earns?), 23 nov.
 - Lang: jJacEFpBrXY (What If You Swapped Lives With Your Dad for a Week?), 23 nov.
 - Short: -tP-eeJUYtU (What If You Built a Real Cyborg?), 24 nov (eigenaar zette hem zelf openbaar). Pause Time (13EHf4WZdWs) is verwijderd.
+- Short: 3Tk4Cf0zR2w (What If You Invested $100 in NVIDIA in 1999?), 26 nov ± 21:20 openbaar (eigenaar: "zet hem maar online"), AI-label via API meegestuurd.
 - **Ingepland op YouTube: NIETS** (eigenaar 24 nov: "er staat nu niks gepland"). Volgende plekken: wo 25 nov en za 28 nov (lang 17:00, Short 19:00), onderwerp nog kiezen.
 
 ## GOEDGEKEURD SJABLOON VOOR ELKE NIEUWE VIDEO, SHORTS ÉN LANG (eigenaar 25 nov 2026: "de video is goed, graag opslaan voor nieuwe shorts en long video's")
