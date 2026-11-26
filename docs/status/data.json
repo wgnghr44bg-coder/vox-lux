@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 23:03",
+ "bijgewerkt": "2026-11-26 23:33",
  "kanalen": {
   "weken": [
    {
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 23:03)"
+   "tekst": "draait nu (2026-11-26 23:33)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 23:03",
-   "volgende": "2026-11-26 23:33"
+   "laatst": "2026-11-26 23:33",
+   "volgende": "2026-11-27 00:03"
   },
   "hype": {
    "aan": true,
@@ -2433,17 +2433,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-26 23:10"
+   "volgende": "2026-11-27 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 22:48",
-   "volgende": "2026-11-26 23:18"
+   "laatst": "2026-11-26 23:18",
+   "volgende": "2026-11-26 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-26 21:25",
-   "volgende": "2026-11-26 23:25"
+   "laatst": "2026-11-26 23:25",
+   "volgende": "2026-11-27 01:25"
   }
  },
  "kanaal": {
@@ -2974,8 +2974,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 23:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 23:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4928,7 +4928,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-26 21:31",
+  "bijgewerkt": "2026-11-26 23:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5075,14 +5075,14 @@
     "bekeken": "2026-11-26"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 23:03",
+  "bijgewerkt": "2026-11-26 23:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8089218,
+    "5uur": 7798253,
     "week": 87684559,
     "per_dag": {
      "Tue 24-11": 29948208,
