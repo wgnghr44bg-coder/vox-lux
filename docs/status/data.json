@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 03:03",
+ "bijgewerkt": "2026-11-26 03:33",
  "kanalen": {
   "weken": [
    {
@@ -2328,7 +2328,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 03:03)"
+   "tekst": "draait nu (2026-11-26 03:33)"
   },
   {
    "naam": "Git",
@@ -2348,7 +2348,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 03:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2365,8 +2365,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 03:03",
-   "volgende": "2026-11-26 03:33"
+   "laatst": "2026-11-26 03:33",
+   "volgende": "2026-11-26 04:03"
   },
   "hype": {
    "aan": true,
@@ -2376,17 +2376,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-26 03:10"
+   "volgende": "2026-11-26 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 02:48",
-   "volgende": "2026-11-26 03:18"
+   "laatst": "2026-11-26 03:18",
+   "volgende": "2026-11-26 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-26 01:25",
-   "volgende": "2026-11-26 03:25"
+   "laatst": "2026-11-26 03:25",
+   "volgende": "2026-11-26 05:25"
   }
  },
  "kanaal": {
@@ -2492,7 +2492,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1152,
+    "views": 1155,
     "verwerkt": "processed"
    }
   ],
@@ -2912,8 +2912,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 03:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 03:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 03:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4866,7 +4866,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-26 01:25",
+  "bijgewerkt": "2026-11-26 03:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -5043,7 +5043,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 03:04",
+  "bijgewerkt": "2026-11-26 03:34",
   "accounts": [
    {
     "account": "hoofd",
@@ -5058,7 +5058,7 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 38880,
+    "stap_kost": 37152,
     "naam": "hoofd",
     "week_reset": ""
    },
