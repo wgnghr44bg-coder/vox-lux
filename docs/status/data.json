@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 16:33",
+ "bijgewerkt": "2026-11-26 17:03",
  "kanalen": {
   "weken": [
    {
@@ -117,7 +117,7 @@
         "datum": "2026-11-26",
         "tijd": "17:00",
         "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "c4xgBH1o4AE"
        },
        {
@@ -2207,7 +2207,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "119 GB vrij"
+   "tekst": "120 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2222,7 +2222,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 16:33)"
+   "tekst": "draait nu (2026-11-26 17:03)"
   },
   {
    "naam": "Git",
@@ -2242,7 +2242,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2259,8 +2259,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 16:33",
-   "volgende": "2026-11-26 17:03"
+   "laatst": "2026-11-26 17:03",
+   "volgende": "2026-11-26 17:33"
   },
   "hype": {
    "aan": true,
@@ -2274,8 +2274,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 16:18",
-   "volgende": "2026-11-26 16:48"
+   "laatst": "2026-11-26 16:48",
+   "volgende": "2026-11-26 17:18"
   },
   "titels": {
    "aan": true,
@@ -2609,8 +2609,7 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)",
-   "stem inspreken (OmniVoice)"
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2630,15 +2629,11 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 872,
+  "geheugen_mb": 860,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2811,8 +2806,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 16:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 17:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4942,23 +4937,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 16:34",
+  "bijgewerkt": "2026-11-26 17:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8634963,
-    "week": 74733407,
+    "5uur": 8586474,
+    "week": 75278122,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 15801295,
+     "Thu 26-11": 16346010,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 32935,
+    "stap_kost": 33922,
     "naam": "hoofd",
     "week_reset": ""
    },
