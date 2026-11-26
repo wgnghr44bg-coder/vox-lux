@@ -11,7 +11,7 @@ De website wordt elk half uur bijgewerkt door `tools/dashboard_bijwerken.py`, da
 | **Sleep Archives** (@sleeparchiveshistory), **1x per week** (eigenaar 23 nov: "sleep gewoon elke week aanhouden, focus op doodle"), bewaker AAN, maakt alleen 's nachts (22:00-08:00) | za | 21:00 | `YT_REFRESH_TOKEN` |
 | **NOIRTRACES** (@noirtraces), **OP PAUZE** | (straks 1x per week) | vr 21:00 | `YT_KANAAL=altena` (`~/.yt-altena.json`) |
 | **Market Doodle** (@marketdoodle), **FOCUS** (eigenaar 22 nov avond) | What If (getekende poppetjes): **3 lange video's per week** (ma, wo, za; ± 3 min, liggend) + **elke dag een eigen Short** (eigenaar 24 nov; rond 22 dec evalueren) (eigen ideeën, hoeven niet uit de lange video te komen; eigenaar 23 nov). Alles eerst laten zien, uploaden pas na OK | 17:00 NL (11:00 New York), nog te bevestigen | `YT_REFRESH_TOKEN_ALTERAQON` |
-| **BlackswanVault** (@blackswanvault), geen focus meer (22 nov) | elke dag een lange video + een Short als er goed nieuws is (veel bekeken op YouTube, past bij geld/bedrijven/AI/beurs, niet dubbel, bronnen kloppen); anders die dag alleen een Short (eigenaar 20 nov avond; na 4 weken evalueren op kijkduur) | werkdag 15:00 (9:00 New York) | `YT_WHATIF_REFRESH_TOKEN` |
+| **BlackswanVault** (@blackswanvault), geen focus meer (22 nov) | elke dag een lange video + een Short als er goed nieuws is (veel bekeken op YouTube, past bij geld/bedrijven/AI/beurs, niet dubbel, bronnen kloppen); anders die dag alleen een Short (eigenaar 20 nov avond; na 4 weken evalueren op kijkduur) | lange video 17:00, Short 19:00 (26 nov: Studio-piek 19-20 u, eigenaar akkoord) | `YT_WHATIF_REFRESH_TOKEN` |
 
 Alteraqon (@alteraqon) is gestopt.
 
@@ -34,7 +34,7 @@ Alteraqon (@alteraqon) is gestopt.
   - Komt een zaak in het nieuws (nieuwe docu, ontdekking, jaardag), dan schuift die naar de eerstvolgende vrijdag.
 - **BlackswanVault**
   - Een kalender met bekende momenten (kwartaalcijfers van grote bedrijven, rentebesluiten, Black Friday, CES).
-  - Een nieuwswacht: `tools/nieuwswacht.py` (Taakplanner "BlackswanVault nieuwswacht", 08:00 en 15:45). Hij leest koersen en de koppen van CNBC, MarketWatch, BBC en NYT, schrijft `stories/nieuws.json` (paneel op de website) en geeft bij GROOT een seintje in `stories/ROUTINE-LOG.md`.
+  - Een nieuwswacht: `tools/nieuwswacht.py` (Taakplanner "BlackswanVault nieuwswacht", 08:00, 12:00, 15:45 en 20:00). Hij leest koersen en de koppen van CNBC, MarketWatch, BBC en NYT, schrijft `stories/nieuws.json` (paneel op de website) en geeft bij GROOT een seintje in `stories/ROUTINE-LOG.md` én via ntfy op de telefoon ("Grote hype: BlackswanVault - Short" of "- Short + lange video", 26 nov).
   - Bij echt groot nieuws (crash, CEO weg, overname, schokkende cijfers): vraag de eigenaar en maak de video binnen 2 tot 3 dagen.
   - Is er geen groot nieuws, dan gaat er een reservevideo online (een tijdloos bedrijfsverhaal).
 

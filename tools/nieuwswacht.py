@@ -1,6 +1,6 @@
 """Nieuwswacht voor BlackswanVault (eigenaar 19 nov 2026: "als er economisch echt iets groots is dan moet wel video maken").
 
-Elke ochtend (Taakplanner "BlackswanVault nieuwswacht", 08:00 en 15:45) op de pc. Alleen lezen, gratis:
+Elke ochtend (Taakplanner "BlackswanVault nieuwswacht", 08:00, 12:00, 15:45 en 20:00) op de pc. Alleen lezen, gratis:
   1. koersen (Yahoo chart API): S&P 500, Nasdaq, Dow, de grootste bedrijven, bitcoin, olie, goud.
      GROOT bij: index >= 2,5 % op een dag, groot bedrijf >= 8 %, bitcoin >= 10 %, olie >= 7 %.
   2. koppen (RSS van CNBC, MarketWatch, BBC Business, NYT Business, laatste 36 uur): punten voor een grote naam
@@ -49,7 +49,8 @@ GEBEURT = [(r"\b(steps? down|resign|ousted|fired|departs?|retire[sd]?|succession
            (r"\b(ipo|going public)\b", 2, "beursgang"),
            (r"\b(rate cut|rate hike|raises rates|cuts rates|recession|stagflation)", 3, "rente/recessie"),
            (r"\b(earnings|quarter|revenue|guidance)\b", 1, "cijfers")]
-GROOT = 7
+GROOT = 7          # Short waard; ntfy "Grote hype: BlackswanVault - Short"
+LANG = 10          # 26 nov (eigenaar): Short + lange video waard (veel bronnen tegelijk, of een koerssprong)
 
 
 def koersen():
@@ -125,13 +126,26 @@ def main():
     UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
     log = STORIES / "ROUTINE-LOG.md"
     oud = log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
+    seintjes = []
     with open(log, "a", encoding="utf-8") as f:
         for o in lijst:
             if o["groot"]:
-                sleutel = f"nieuwswacht: GROOT {o['onderwerp']} ({nu:%Y-%m-%d})"
+                soort = "Short + lange video" if o["punten"] >= LANG else "Short"
+                sleutel = f"nieuwswacht: GROOT {o['onderwerp']} ({nu:%Y-%m-%d})" + (" LANG" if soort != "Short" else "")
                 if sleutel not in oud:
                     kop = o["koppen"][0]["titel"] if o["koppen"] else ", ".join(o["wat"])
-                    f.write(f"- {nu:%Y-%m-%d %H:%M} {sleutel}: {kop[:140]} -> BlackswanVault-video? (eigenaar beslist)\n")
+                    f.write(f"- {nu:%Y-%m-%d %H:%M} {sleutel}: {kop[:140]} -> BlackswanVault: {soort}? (eigenaar beslist)\n")
+                    seintjes.append((soort, o, kop))
+    # 26 nov (eigenaar): "bericht sturen zodra er hype is voor een short of een short+long" -> ntfy op de telefoon
+    if seintjes:
+        try:
+            sys.path.insert(0, str(HIER))
+            from swan_yt_wacht import seintje
+            for soort, o, kop in seintjes[:3]:
+                seintje(f"Grote hype: BlackswanVault - {soort}",
+                        f"{o['onderwerp']}: {kop[:160]}\n({o['punten']} punten, bronnen: {', '.join(o['bronnen'])})")
+        except Exception as e:
+            print("seintje mislukt:", e)
     print(f"nieuwswacht {data['bijgewerkt']}: {len(kp)} koppen, groot: {', '.join(data['groot']) or 'niets'}")
     for o in lijst[:8]:
         print(f"  {o['punten']:2d} {'GROOT ' if o['groot'] else '      '}{o['onderwerp']:12s} {', '.join(o['wat'])[:40]:40s} | {(o['koppen'][0]['titel'] if o['koppen'] else '')[:70]}")
