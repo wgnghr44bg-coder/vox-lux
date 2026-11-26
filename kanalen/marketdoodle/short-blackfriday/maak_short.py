@@ -15,7 +15,8 @@ from scenewachter import Scenewachter
 W, H, FPS, SS = 1080, 1920, 30, ps.SS
 FB, FS, KL, font = ps.FB, ps.FS, ps.KL, ps.font
 INK = (40, 35, 40)
-ps.C["oma"] = dict(broek=(110, 90, 120), shirt=(205, 120, 165), haar=(205, 205, 210), kapsel="grijs", bril=True, groot=0.95)
+ps.C["agent"] = dict(broek=(30, 35, 60), shirt=(40, 50, 95), haar=(70, 50, 40), kapsel="kort", pet=(30, 35, 70), groot=1.12)      # politie, jaren 60
+ps.C["kassa"] = dict(broek=(50, 55, 70), shirt=(200, 40, 50), haar=(60, 40, 30), kapsel="paard", groot=1.0)                   # kassamedewerker
 Z = json.load(open(HIER / "zinnen.json", encoding="utf-8"))
 WO = []
 for w in json.load(open(HIER / "woorden.json", encoding="utf-8")):
@@ -87,27 +88,31 @@ def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
 # v3 (eigenaar 26 nov: begin met "imagine Black Friday forever", meer scenario's, krekel hoeft niet elke keer)
 # v4 (eigenaar 26 nov: "script niet zo leuk", stilte/naar elkaar kijken alleen als het past): elke scène een eigen grap,
 # einde = papa valt flauw bij een normale prijs. Geen stilte, geen krekel.
+# v5 (eigenaar 26 nov: "net zo leuk als de eerste 2 shorts", geen mama-tegen-oma): meer reacties, echt feitje (politie Philadelphia),
+# week 3 papa in een tent, week 4 de hond met 47 manden, einde = wending (Cyber Monday. Forever.) i.p.v. flauwvallen.
 I_SALE, I_DADL, I_DOZ, I_SISL = zi("Imagine"), zi("A TV for"), zi("Week two"), zi("I live")
-I_D3, I_KERST, I_D7, I_LAATST, I_LAST = zi("Week three"), zi("Christmas"), zi("Month six"), zi("Then Dad"), zi("Thirty dollars")
+I_TENT, I_HOND, I_FEIT = zi("Week three"), zi("Week four"), zi("Fun fact")
+I_KERST, I_D7, I_LAATST, I_LAST, I_KASSA = zi("Christmas"), zi("Month six"), zi("Then Dad"), zi("Thirty dollars"), zi("The cashier")
 T_FOREVER = kw(I_SALE, "forever", -0.1); T_90 = kw(I_SALE, "ninety", -0.1); T_NOOIT = kw(I_SALE, "never", -0.1)
 T_9 = kw(I_DADL, "nine", -0.1); T_TIEN = kw(I_DADL, "ten", -0.1)
 T_SISUP = Z[I_SISL][0] - 0.4
-T_OMA = kw(I_D3, "grandma", -0.2); T_ROOSTER = kw(I_D3, "toaster", -0.1); T_WINT = kw(I_D3, "wins", -0.05)
+T_TENT = kw(I_TENT, "tent", -0.1); T_BED = kw(I_HOND, "forty", -0.1); T_POLITIE = kw(I_FEIT, "police", -0.1)
 T_OPEN = kw(I_KERST, "open", -0.1); T_TVK = kw(I_KERST, "tv", -0.1); T_ELF = kw(I_KERST, "eleven", -0.1)
 T_LEEG = kw(I_D7, "stores", -0.1); T_DICHT = kw(I_D7, "close", -0.1)
 T_DADIN = Z[I_LAATST][0]; T_PRIJS = kw(I_LAATST, "full", -0.1); T_30 = kw(I_LAATST, "thirty", -0.1)
-T_VAL = Z[I_LAST][1] + 0.2                                  # papa valt flauw na zijn zin
+T_CYBER = kw(I_KASSA, "cyber", -0.1); T_FOREVER2 = kw(I_KASSA, "forever", -0.1)
+TENT_VOET = 1395                                            # voet van de tent op de stoep (buiten-nacht.png)
 def Zs(i): return Z[i][0] - 0.1
 SC = [dict(t=0, naam="begin", bg="woonkamer"), dict(t=Zs(I_DADL), naam="winkel", bg="winkel"), dict(t=Zs(I_DOZ), naam="dozen", bg="woonkamer"),
-      dict(t=Zs(I_D3), naam="oma", bg="winkel"), dict(t=Zs(I_KERST), naam="kerst", bg="woonkamer"), dict(t=Zs(I_D7), naam="leeg", bg="leeg"),
-      dict(t=Zs(I_LAATST), naam="laatst", bg="leeg")]
-KOP = {"winkel": "WEEK 1", "dozen": "WEEK 2", "oma": "WEEK 3", "kerst": "CHRISTMAS", "leeg": "MONTH 6"}
+      dict(t=Zs(I_TENT), naam="tent", bg="buiten-nacht"), dict(t=Zs(I_HOND), naam="hond", bg="woonkamer"), dict(t=Zs(I_FEIT), naam="feit", bg="straat-oud"),
+      dict(t=Zs(I_KERST), naam="kerst", bg="woonkamer"), dict(t=Zs(I_D7), naam="leeg", bg="leeg"), dict(t=Zs(I_LAATST), naam="laatst", bg="leeg")]
+KOP = {"winkel": "WEEK 1", "dozen": "WEEK 2", "tent": "WEEK 3", "hond": "WEEK 4", "feit": "FUN FACT", "kerst": "CHRISTMAS", "leeg": "MONTH 6"}
 
 # ---------- gezicht en gebaar passen bij de zin ----------
-SCHRIK = ("can't see", "fights a grandma", "It's a TV", "Full price", "Thirty dollars")
-BLIJ = ("Imagine", "A TV for", "I live here", "You open", "Then Dad finds")
-VERDRIET = ("grandma wins", "already have", "The stores sold")
-ACTIE = {"A TV for": "juich", "Thirty dollars": "schrik"}
+SCHRIK = ("can't see", "It's a TV", "Full price", "Thirty dollars", "Cyber Monday")
+BLIJ = ("Imagine", "A TV for", "I live here", "The deals", "You open", "Then Dad finds", "The cashier")
+VERDRIET = ("He still", "They hated", "already have", "Wow", "The stores sold")
+ACTIE = {"A TV for": "juich", "The deals": "juich", "Thirty dollars": "schrik"}
 def _start(i, frase):
     w0 = _norm(frase.split()[0])
     for j, w, t0, t1 in SW:
@@ -251,6 +256,18 @@ def stoelen(img, t):                                     # 1 gamestoel bij "gami
     if t < T_STOEL: return
     n = 1 if t < T_NEGEN else min(10, 2 + int((t - T_NEGEN) / 0.12))
     for x, v in sorted(STOELEN[:n], key=lambda q: q[1]): zet(img, "gamestoel", 320, x, v, op="vloer", naam="gamestoel")
+def tent(img):                                           # tentje van papa op de stoep voor de winkel
+    zet(img, "tent", 360, 330, TENT_VOET, op="stoep", naam="tent")
+MANDEN = []                                              # 47 hondenmanden: rijen op de vloer, achter klein, voor groot (gat in het midden voor de hond)
+for y_, h_, xs in ((1060, 70, range(240, 800, 92)), (1175, 85, range(240, 800, 92)), (1300, 100, range(60, 1040, 108)),   # achter: tussen bank en tv-kast
+                   (1440, 115, range(70, 1040, 120)), (1600, 130, [80, 240, 860, 1010]), (1780, 145, [90, 260, 830, 1000]),
+                   (1915, 150, [80, 260, 440, 620, 800, 980])):
+    MANDEN += [(x_, y_, h_) for x_ in xs]
+assert len(MANDEN) == 47, len(MANDEN)                    # "forty-seven beds": er staan er echt 47
+def manden(img):
+    for x_, y_, h_ in MANDEN: zet(img, "hondenmand", h_, x_, y_, op="vloer", naam="hondenmand")
+def hond(img):                                           # de hond slaapt gewoon op de vloer, vooraan in het midden, naast al die manden
+    zet(img, "hond", 360, 470, 1790, op="vloer", naam="hond")
 def brood(img, hx, hy, S):                               # sneetje koud brood in de hand (korst + kruim, geen letters)
     d = ImageDraw.Draw(img); w = 15 * S; x0, y0 = hx - w, hy - 1.7 * w
     WACHT.plaats("brood in de hand", (x0, y0 - 0.5 * w, x0 + 2 * w, y0 + 2 * w), op="aan:hand")
@@ -259,21 +276,17 @@ def brood(img, hx, hy, S):                               # sneetje koud brood in
         d.rectangle((x0 + k, y0 + k, x0 + 2 * w - k, y0 + 2 * w - k), fill=kl)
     for q in range(5):
         cx_, cy_ = x0 + w * (0.5 + 0.25 * q), y0 + w * (0.6 + 0.25 * (q % 3)); d.ellipse((cx_ - 2, cy_ - 2, cx_ + 2, cy_ + 2), fill=(215, 190, 135))
-def rooster(img, t, oma_hand, mom_hand):                 # broodrooster tussen de handen; na "wins" bij oma
-    if t < T_ROOSTER: return
-    if t < T_WINT: f = 0.5 + 0.08 * math.sin(t * 22)    # trekken: heen en weer
-    else: f = max(0.0, 0.5 - (t - T_WINT) / 0.25 * 0.5)
-    hx = oma_hand[0] + (mom_hand[0] - oma_hand[0]) * f; hy = oma_hand[1] + (mom_hand[1] - oma_hand[1]) * f
-    zet(img, "broodrooster", 120, hx, hy + 45, op="aan:hand", naam="broodrooster", punt=(hx, hy))
 
 # ---------- frame ----------
 FAM = [dict(n="mom", x=530, y=1560, s=1.6), dict(n="you", x=710, y=1560, s=1.6), dict(n="sis", x=880, y=1560, s=1.6), dict(n="dad", x=175, y=1560, s=1.6)]
 POPS = {"begin": FAM, "dozen": [dict(n="you", x=760, y=1600, s=1.6), dict(n="sis", x=300, y=1780, s=1.6)],
         "winkel": [dict(n="dad", x=760, y=1570, s=1.55)],
-        "oma": [dict(n="oma", x=330, y=1570, s=1.55, loop=(T_OMA - 0.2, T_OMA + 0.9, -150, 330)), dict(n="mom", x=760, y=1570, s=1.55)],
+        "tent": [dict(n="dad", x=740, y=TENT_VOET + 10, s=1.55)],
+        "hond": [dict(n="you", x=690, y=1580, s=1.6)],
+        "feit": [dict(n="agent", x=640, y=1850, s=1.7)],
         "kerst": [dict(n="mom", x=330, y=1560, s=1.6), dict(n="you", x=600, y=1560, s=1.6)],
         "leeg": [dict(n="mom", x=870, y=1570, s=1.55), dict(n="dad", x=200, y=1570, s=1.55)],
-        "laatst": [dict(n="dad", x=800, y=1570, s=1.55, loop=(T_DADIN - 0.1, T_DADIN + 0.9, 1250, 800))]}
+        "laatst": [dict(n="kassa", x=170, y=1600, s=1.5), dict(n="dad", x=800, y=1570, s=1.55, loop=(T_DADIN - 0.1, T_DADIN + 0.9, 1250, 800))]}
 ZOOM_AAN = True; TEKST_AAN = True
 GEZ = {}
 def frame(t):
@@ -286,7 +299,9 @@ def frame(t):
     if n == "dozen": dozenzee(img, False)
     if n == "kerst": kerstboom(img); tvs(img, t)
     if n == "laatst": laatste_rooster(img, t)
-    flauw = n == "laatst" and t >= T_VAL
+    if n == "tent": tent(img)
+    if n == "hond": manden(img); hond(img)
+    flauw = False
     laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag); koppen = {}; vast = []; handen = {}; GEZ.clear()
     pops = POPS[n]; sp = next((p for p in pops if p["n"] == spreker), None)
     for p in pops:
@@ -299,24 +314,22 @@ def frame(t):
         if sp is not None and p is not sp: kijk = 0.9 if sp["x"] > x else -0.9
         else: kijk = 0.5 if x < 540 else -0.5
         if n == "winkel" and t >= T_TIEN: kijk = -0.9                                        # papa kijkt trots naar zijn dozen
-        if n == "oma": kijk = 0.9 if p["n"] == "oma" else -0.9                               # ze kijken elkaar aan
+        if n == "hond": kijk = -0.9                                                          # jij kijkt naar de hond
         if n == "leeg": kijk = -0.9 if p["n"] == "mom" else 0.9                              # kijken naar de lege kast
-        if n == "laatst": kijk = -0.9                                                        # papa kijkt naar de broodrooster
+        if n == "laatst": kijk = 0.9 if p["n"] == "kassa" else -0.9                         # papa kijkt naar rooster en kassa, kassa naar papa
         if n == "kerst": kijk = 0.6 if p["n"] == "mom" else -0.2                             # kijken naar het cadeau
         if n == "dozen" and p["n"] == "sis":                                                # zus komt uit haar doos omhoog
             if t < T_SISUP: continue
             y_op = p["y"] - 250 * ps.ease(min(1, (t - T_SISUP) / 0.3)); kijk = 0.6
         if n == "dozen" and p["n"] == "you": kijk = -0.9 if t >= T_SISUP else 0.0
         geb = None
-        if n == "oma" and t >= T_ROOSTER and loop is None:
-            geb = "wijs" if p["n"] == "oma" else "wijslinks"                               # allebei een arm naar de broodrooster
-            if p["n"] == "mom" and t >= T_WINT + 0.25: geb = "schouders"
+        if n == "feit" and t >= T_POLITIE: geb = "stamp"                                    # agent baalt van de drukte
         if sp is p and nu is not None:
             geb = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), geb)
         if geb == "praat": LAYOUT.add(f"armgebaar 'praat' bij gewoon praten ({p['n']}, {t:.1f} s): weghalen")
         if loop is not None: geb = "rennen"
         emo = emotie(t, nu)
-        if n == "oma" and p["n"] == "oma" and t >= T_WINT: emo = "blij"
+        if n == "laatst" and nu == I_KASSA: emo = "schrik" if p["n"] == "dad" else "blij"       # kassa glimlacht, papa schrikt
         verb, boos_ = emo == "schrik", emo == "verdriet"
         knip = (t + hash(p["n"]) % 7 * 0.4) % 3.4 < 0.13
         y = p.get("y", 1460)
@@ -338,14 +351,16 @@ def frame(t):
     for l2 in vast: img.paste(l2, (0, 0), l2)
     if n == "dozen": dozenzee(img, True)
     if n == "kerst": cadeau(img, t)
-    if n == "oma" and "oma" in handen:
-        mh = handen.get("mom") or hand("mom", 760, 1570, 1.55, -100)
-        rooster(img, t, handen["oma"], mh)
     if TEKST_AAN:
         if n in KOP: kop(img, KOP[n], None, 150, 84, KL["geel"], ps.pop((t - sc["t"]) / 0.3))
         if n == "leeg" and t >= T_DICHT: kop(img, "STORES: CLOSED", W / 2, 300, 80, (255, 90, 80), ps.pop((t - T_DICHT) / 0.3))
         if n == "kerst" and t >= T_ELF: kop(img, "TV #12", W / 2, 330, 120, (255, 255, 255), ps.pop((t - T_ELF) / 0.3))
-        if n == "laatst" and t >= T_30: kop(img, "$30", W / 2, 330, 200, (235, 45, 45), ps.pop((t - T_30) / 0.35))
+        if n == "laatst" and T_30 <= t < T_CYBER: kop(img, "$30", W / 2, 330, 200, (235, 45, 45), ps.pop((t - T_30) / 0.35))
+        if n == "laatst" and t >= T_CYBER:
+            kop(img, "CYBER MONDAY", W / 2, 300, 110, (80, 200, 255), ps.pop((t - T_CYBER) / 0.3))
+            if t >= T_FOREVER2: kop(img, "FOREVER", W / 2, 440, 120, KL["geel"], ps.pop((t - T_FOREVER2) / 0.3))
+        if n == "hond" and t >= T_BED: kop(img, "47 BEDS", W / 2, 330, 120, (255, 255, 255), ps.pop((t - T_BED) / 0.3))
+        if n == "feit" and t >= T_POLITIE: kop(img, "PHILADELPHIA, 1960s", W / 2, 300, 70, (255, 255, 255), ps.pop((t - T_POLITIE) / 0.3))
         if n == "begin" and t < T_90:
             kop(img, "BLACK FRIDAY", W / 2, 260, 110, (255, 255, 255), ps.pop(t / 0.3))
             if t >= T_FOREVER: kop(img, "FOREVER", W / 2, 400, 120, KL["geel"], ps.pop((t - T_FOREVER) / 0.3))
@@ -375,11 +390,9 @@ def geluid():
     for q in range(10): zet_(T_TIEN + q * 0.05, "scanner", piep, 0.3, "stapel tv-dozen")             # tien piepjes: tien tv's
     zet_(T_SISUP, "papier-ritsel", _fade(_drukste(_laad("papier-ritsel"), 0.5)), 0.35, "sis")            # zus komt uit haar doos
     zet_(T_TVK - 0.25, "papier", _fade(_drukste(_laad("papier"), 0.4)), 0.4, "cadeau")                  # cadeaupapier eraf
-    for q in np.arange(T_OMA - 0.2, T_OMA + 0.9, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "oma")
-    zet_(T_WINT, "ting", _fade(_laad("ting")), 0.5, "broodrooster")                                  # broodrooster-ping: oma wint
     zet_(T_LEEG, "papier-ritsel", _fade(_drukste(_laad("papier-ritsel"), 0.8)), 0.3, "mom")
     for q in np.arange(T_DADIN - 0.1, T_DADIN + 0.9, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "dad")
-    zet_(T_VAL + 0.33, "plof", _fade(_drukste(_laad("plof"), 0.3)), 0.5, "dad")                       # papa valt flauw
+    zet_(T_CYBER, "kassa", _fade(_laad("kassa")), 0.45, "kassa")                                         # kassa: de volgende uitverkoop begint
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():
@@ -395,7 +408,7 @@ def geluidcheck():
 if __name__ == "__main__":
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.8 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
-        pl = Image.new("RGB", (270 * 6, 480 * 2)); [pl.paste(im, (270 * (i % 6), 480 * (i // 6))) for i, im in enumerate(ims)]
+        pl = Image.new("RGB", (270 * 7, 480 * 2)); [pl.paste(im, (270 * (i % 7), 480 * (i // 7))) for i, im in enumerate(ims)]
         pl.save(HIER / "plaat.jpg", quality=85); print("plaat.jpg"); print("LAYOUT:", sorted(LAYOUT) or "alles past")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)"); sys.exit()
     geluid(); gf = geluidcheck(); print("GELUIDCHECK:", gf or "elk geluid hoort bij iets in beeld")

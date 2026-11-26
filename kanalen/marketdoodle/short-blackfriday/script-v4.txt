@@ -1,0 +1,9 @@
+N|begin|Imagine Black Friday... forever. Ninety percent off. Every day. It never ends.
+DAD|winkel|A TV for nine dollars? I'll take ten!
+N|dozen|Week two. You can't see the floor anymore. Just boxes.
+SIS|dozen|I live here now.
+N|oma|Week three. Mom fights a grandma for the last toaster. The grandma wins.
+N|kerst|Christmas. You open your present. It's a TV. You already have eleven.
+N|leeg|Month six. The stores sold everything for almost nothing. One by one, they close.
+N|laatst|Then Dad finds the last store on Earth. One toaster. Full price: thirty dollars.
+DAD|laatst|Thirty dollars?! That's a scam!

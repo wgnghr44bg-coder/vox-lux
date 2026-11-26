@@ -1,9 +1,14 @@
-N|begin|Imagine Black Friday... forever. Ninety percent off. Every day. It never ends.
+N|begin|Imagine Black Friday... forever. Every store, ninety percent off. Every single day. It never ends.
 DAD|winkel|A TV for nine dollars? I'll take ten!
 N|dozen|Week two. You can't see the floor anymore. Just boxes.
 SIS|dozen|I live here now.
-N|oma|Week three. Mom fights a grandma for the last toaster. The grandma wins.
+N|tent|Week three. Dad sleeps in a tent outside the store. Every night. Just in case.
+DAD|tent|The deals start at five a.m.!
+N|hond|Week four. Your dog has forty-seven beds. He still sleeps on the floor.
+N|feit|Fun fact. The name Black Friday came from police in Philadelphia. They hated the crazy crowds.
 N|kerst|Christmas. You open your present. It's a TV. You already have eleven.
+YOU|kerst|Wow. Thanks.
 N|leeg|Month six. The stores sold everything for almost nothing. One by one, they close.
 N|laatst|Then Dad finds the last store on Earth. One toaster. Full price: thirty dollars.
 DAD|laatst|Thirty dollars?! That's a scam!
+N|laatst|The cashier just smiles. Don't worry. Tomorrow is Cyber Monday. Forever.
