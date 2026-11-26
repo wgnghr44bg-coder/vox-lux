@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 18:33",
+ "bijgewerkt": "2026-11-26 19:03",
  "kanalen": {
   "weken": [
    {
@@ -125,7 +125,7 @@
         "datum": "2026-11-26",
         "tijd": "19:00",
         "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "8de6ZH3YYp4"
        },
        {
@@ -2377,7 +2377,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 18:33)"
+   "tekst": "draait nu (2026-11-26 19:03)"
   },
   {
    "naam": "Git",
@@ -2397,7 +2397,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2414,8 +2414,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 18:33",
-   "volgende": "2026-11-26 19:03"
+   "laatst": "2026-11-26 19:03",
+   "volgende": "2026-11-26 19:33"
   },
   "hype": {
    "aan": true,
@@ -2429,8 +2429,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 18:18",
-   "volgende": "2026-11-26 18:48"
+   "laatst": "2026-11-26 18:48",
+   "volgende": "2026-11-26 19:18"
   },
   "titels": {
    "aan": true,
@@ -2444,7 +2444,7 @@
   "views_totaal": 3785,
   "video_aantal": 18,
   "week": {
-   "views": 443,
+   "views": 442,
    "uren": 98,
    "abonnees": 5
   },
@@ -2668,7 +2668,7 @@
    },
    {
     "dag": "2026-11-22",
-    "views": 107,
+    "views": 106,
     "abonnees": 1
    },
    {
@@ -2678,7 +2678,7 @@
    }
   ],
   "maand": {
-   "views": 2053,
+   "views": 2052,
    "uren": 401,
    "abonnees": 11
   },
@@ -2688,7 +2688,7 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 4180,
+   "views": 4179,
    "uren": 797,
    "abonnees": 23
   },
@@ -2961,8 +2961,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 18:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 19:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 18:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5272,11 +5272,11 @@
   "model": "overgeslagen: kaart bezet"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 18:33",
+  "bijgewerkt": "2026-11-26 19:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 13208253,
+    "5uur": 13110992,
     "week": 79886306,
     "per_dag": {
      "Tue 24-11": 29948208,
@@ -5287,7 +5287,7 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 38666,
+    "stap_kost": 39446,
     "naam": "hoofd",
     "week_reset": ""
    },
