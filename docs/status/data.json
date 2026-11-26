@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 09:03",
+ "bijgewerkt": "2026-11-26 09:33",
  "kanalen": {
   "weken": [
    {
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 09:03)"
+   "tekst": "draait nu (2026-11-26 09:33)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 09:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 09:03",
-   "volgende": "2026-11-26 09:33"
+   "laatst": "2026-11-26 09:33",
+   "volgende": "2026-11-26 10:03"
   },
   "hype": {
    "aan": true,
@@ -2292,17 +2292,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-26 09:10"
+   "volgende": "2026-11-26 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 08:48",
-   "volgende": "2026-11-26 09:18"
+   "laatst": "2026-11-26 09:18",
+   "volgende": "2026-11-26 09:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-26 07:25",
-   "volgende": "2026-11-26 09:25"
+   "laatst": "2026-11-26 09:25",
+   "volgende": "2026-11-26 11:25"
   }
  },
  "kanaal": {
@@ -2408,7 +2408,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1195,
+    "views": 1183,
     "verwerkt": "processed"
    }
   ],
@@ -2654,7 +2654,7 @@
   }
  ],
  "videokaart": {
-  "bezig_procent": 26,
+  "bezig_procent": 25,
   "geheugen_mb": 1587,
   "totaal_mb": 8192
  },
@@ -2828,8 +2828,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 09:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 09:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 09:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4782,7 +4782,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-26 08:30",
+  "bijgewerkt": "2026-11-26 09:25",
   "titels": [
    {
     "map": "babylon-600-vc",
@@ -4959,7 +4959,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 09:04",
+  "bijgewerkt": "2026-11-26 09:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -4975,7 +4975,7 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 35373,
+    "stap_kost": 35460,
     "naam": "hoofd",
     "week_reset": ""
    },
