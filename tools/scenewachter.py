@@ -30,11 +30,11 @@ class Scenewachter:
     def __init__(self, achtergronden, marge=6):
         self.A = json.loads(Path(achtergronden).read_text(encoding="utf-8")); self.marge = marge
         self.meld = {}                                    # (soort, voorwerp, bg, detail) -> eerste tijd
-        self.bg = None; self.t = 0.0; self.voor = []; self.extra = {}; self.gezien = {}
+        self.bg = None; self.t = 0.0; self.voor = []; self.extra = {}; self.gezien = {}; self.dit_frame = []
 
     # ---------- per frame ----------
     def begin(self, bg, t):
-        self.bg = bg; self.t = t; self.voor = []; self.extra = {}
+        self.bg = bg; self.t = t; self.voor = []; self.extra = {}; self.dit_frame = []   # dit_frame: (naam, kader) voor de tekstwachter
         if bg not in self.A: self._m("FOUT", "achtergrond", f"'{bg}' staat niet in achtergronden.json (eerst opmeten)")
 
     def vlak(self, naam, band):
@@ -47,7 +47,7 @@ class Scenewachter:
 
     def plaats(self, naam, box, op=None, punt=None, voor=False):
         """Geeft (dx, dy) terug waarmee het voorwerp verschoven moet worden zodat het klopt (0, 0 = klopt al)."""
-        x0, y0, x1, y1 = box; dx = dy = 0.0
+        x0, y0, x1, y1 = box; dx = dy = 0.0; self.dit_frame.append((naam, tuple(box)))
         if voor: self.voor.append((naam, box, op))
         if op != "beeld": self.gezien.setdefault((naam, self.bg), []).append((self.t, tuple(box)))   # voor de herkenwachter (grafieken niet)
         A = self.A.get(self.bg)

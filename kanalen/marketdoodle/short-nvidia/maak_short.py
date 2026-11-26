@@ -10,6 +10,7 @@ HIER = Path(__file__).parent
 _c = os.getcwd(); os.chdir(HIER.parent / "proef-pop-short"); sys.path.insert(0, os.getcwd()); import pop_short as ps; os.chdir(_c)
 sys.path.insert(0, str(HIER.parents[2] / "tools"))
 from scenewachter import Scenewachter
+from tekstwachter import Tekstwachter, blad
 
 W, H, FPS, SS = 1080, 1920, 30, ps.SS
 FB, FS, KL, font = ps.FB, ps.FS, ps.KL, ps.font
@@ -112,8 +113,9 @@ def emotie(t, nu_i):
     return best[0]
 
 # ---------- tekeningen ----------
-LAYOUT = set(); TEKST_AAN = True
+LAYOUT = set(); TEKST_AAN = True; SCHERM = []; GEB = {}; CROP = [None]
 def kop(img, s, x, y, m, kl, sch):
+    SCHERM.append(s)
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
     if x is None: x = 50 + w / 2
@@ -158,14 +160,14 @@ def teken(img, figs, t, nu):                               # poppetjes op één 
         loop = t * 2.2 if geb == "rennen" else None
         koppen[naam] = ps.poppetje(d, naam, x, y, s, t, loop=loop, kijk=kijk, mond=luid(t, naam), knipper=(t + hash(naam) % 7 * 0.4) % 3.4 < 0.13,
                                    verbaasd=emo == "schrik", boos=emo == "verdriet", gebaar=None if geb == "rennen" else geb)
-        GEZ[naam] = (*hoofd(naam, x, y, s), s * ps.C[naam].get("groot", 1))
+        GEZ[naam] = (*hoofd(naam, x, y, s), s * ps.C[naam].get("groot", 1)); GEB[naam] = geb
         WACHT.persoon(naam, y, 306 * s * ps.C[naam].get("groot", 1), zit=zit)                 # maatwachter: klopt de grootte met de kamer?
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag); return koppen
 def plaatskaart(img, t, sc):                               # 26 nov (eigenaar: "label Denny's 1993 met motion graphics"): titel schuift in en weer uit
     dt = t - sc["t"]; r1, r2 = PLAATS[sc["naam"]]
     if dt > 2.8:
         kop(img, JAAR[sc["naam"]], None, 150, 70, KL["geel"], 1.0); return
-    f1, f2 = font(FB, 74), font(FS, 44); d0 = ImageDraw.Draw(img)
+    f1, f2 = font(FB, 74), font(FS, 44); d0 = ImageDraw.Draw(img); SCHERM.extend([r1, r2])
     w = max(d0.textlength(r1, font=f1), d0.textlength(r2, font=f2)) + 110
     if w > W - 60: LAYOUT.add(f"plaatskaart '{r1}' te breed")
     inn = ps.ease(dt / 0.4); uit = ps.ease(max(0.0, dt - 2.4) / 0.4); x0 = 40 - (w + 60) * (1 - inn) - (w + 60) * uit; y0 = 110
@@ -276,7 +278,7 @@ def logo(hoogte, wit=False):                               # echte NVIDIA-logo (
         _LOGO[k] = im.resize((int(im.width * hoogte / im.height), hoogte), Image.LANCZOS)
     return _LOGO[k]
 def plak_logo(img, x, y, hoogte, wit=False):               # x, y = linksboven
-    l = logo(hoogte, wit); img.paste(l, (int(x), int(y)), l); return l.width
+    l = logo(hoogte, wit); img.paste(l, (int(x), int(y)), l); WACHT.plaats("logo", (x, y, x + l.width, y + hoogte), op="beeld"); return l.width
 def deur(d, t):                                             # voordeur (woon2026.png, rechts): gaat open als Jensen binnenkomt
     if t < T_DEUR: return
     d.rectangle((752, 432, 988, 1100), fill=(70, 60, 55)); d.polygon([(752, 432), (800, 450), (800, 1080), (752, 1100)], fill=(245, 245, 240), outline=INK)
@@ -384,14 +386,19 @@ def _maak_track():
 _maak_track()
 def camera(img, t):
     cx, cy, zm = CAMTRACK[min(len(CAMTRACK) - 1, int(t * FPS))]; bw, bh = W / zm, H / zm
-    x0 = min(max(0, cx - bw / 2), W - bw); y0 = min(max(0, cy - bh / 2), H - bh)
+    x0 = min(max(0, cx - bw / 2), W - bw); y0 = min(max(0, cy - bh / 2), H - bh); CROP[0] = (x0, y0, x0 + bw, y0 + bh)
     return img.crop((int(x0), int(y0), int(x0 + bw), int(y0 + bh))).resize((W, H), Image.LANCZOS)
 
+# tekstwachter (26 nov): wat genoemd wordt, moet in beeld zijn
+ZIE = {"hundred dollars": ["tekst:$100", "biljet"], "hundred bucks": ["biljet", "tekst:$100"], "nvidia": ["logo"], "graphics cards": ["videokaart"],
+       "chips": ["videokaart-hand", "videokaart"], "artificial intelligence": ["tekst:AI"], "playstation": ["ps2", "ps2-hand"],
+       "fortune": ["tekst:$"], "2002": ["tekst:2002"], "pc gaming": ["gamer1", "gamer2"]}
+TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 GEZ = {}
 def frame(t):
     t_beeld = min(t, Z[-1][1] + 0.6)                                                  # daarna bevroren eindbeeld
     sc = scene(t_beeld); n = sc["naam"]; nu = nu_i(t_beeld)
-    img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t_beeld); GEZ.clear(); d = ImageDraw.Draw(img)
+    img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t_beeld); GEZ.clear(); GEB.clear(); SCHERM.clear(); d = ImageDraw.Draw(img)
     if n == "woon2": deur(d, t_beeld)
     figs = figuren(n, t_beeld); zit = [f for f in figs if f[5]]; staan = [f for f in figs if not f[5]]
     if n == "diner": bank_achter(d, 0, 1080)
@@ -424,6 +431,7 @@ def frame(t):
         if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
+    TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
     return img
 
 # ---------- geluid: ECHTE opnames (CC0, freesound.org, ../geluiden/gekozen.json), alleen wat je ziet ----------
@@ -456,6 +464,10 @@ def geluidcheck():
     return fout
 
 if __name__ == "__main__":
+    if "--tekst" in sys.argv:                               # snelle tekstcontrole zonder video (6 beelden per seconde)
+        for i in range(int(EIND * 6)): frame(i / 6)
+        print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
+        print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); sys.exit()
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.8 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
         pl = Image.new("RGB", (270 * 11, 480 * 2)); [pl.paste(im, (270 * (i % 11), 480 * (i // 11))) for i, im in enumerate(ims)]
@@ -469,4 +481,7 @@ if __name__ == "__main__":
                           "-t", f"{EIND:.2f}", str(HIER / "short-nvidia.mp4")], stdin=subprocess.PIPE)
     for i in range(int(EIND * FPS)): p.stdin.write(frame(i / FPS).tobytes())
     p.stdin.close(); p.wait(); print("LAYOUT:", sorted(LAYOUT) or "alles past")
-    print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)"); print("KLAAR short-nvidia.mp4", round(EIND, 1), "s")
+    print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)")
+    print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
+    blad(HIER / "short-nvidia.mp4", Z, HIER / "TEKSTCONTROLE.jpg"); print("TEKSTCONTROLE.jpg: per zin begin/midden/eind (zelf nakijken)")
+    print("KLAAR short-nvidia.mp4", round(EIND, 1), "s")
