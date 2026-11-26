@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 21:33",
+ "bijgewerkt": "2026-11-26 22:03",
  "kanalen": {
   "weken": [
    {
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 21:33)"
+   "tekst": "draait nu (2026-11-26 22:03)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 21:33",
-   "volgende": "2026-11-26 22:03"
+   "laatst": "2026-11-26 22:03",
+   "volgende": "2026-11-26 22:33"
   },
   "hype": {
    "aan": true,
@@ -2437,8 +2437,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 21:18",
-   "volgende": "2026-11-26 21:48"
+   "laatst": "2026-11-26 21:48",
+   "volgende": "2026-11-26 22:18"
   },
   "titels": {
    "aan": true,
@@ -2549,7 +2549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1266,
+    "views": 1261,
     "verwerkt": "processed"
    }
   ],
@@ -2778,7 +2778,7 @@
    "video bouwen",
    "beweging en hoofdstuktitels",
    "video samenvoegen (ffmpeg)",
-   "beelden maken (ComfyUI)"
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2800,13 +2800,13 @@
    "stap": -1
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 93,
-  "geheugen_mb": 5766,
+  "bezig_procent": 25,
+  "geheugen_mb": 598,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2979,8 +2979,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 21:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 22:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5083,22 +5083,22 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 21:34",
+  "bijgewerkt": "2026-11-26 22:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 10095061,
-    "week": 84456661,
+    "5uur": 11525018,
+    "week": 86431333,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 25896356,
+     "Thu 26-11": 27871028,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 38157,
+    "stap_kost": 39422,
     "naam": "hoofd",
     "week_reset": ""
    },
