@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 11:33",
+ "bijgewerkt": "2026-11-26 12:03",
  "kanalen": {
   "weken": [
    {
@@ -299,7 +299,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-26 08:00",
+  "bijgewerkt": "2026-11-26 12:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -387,38 +387,38 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 1.2,
+    "pct": 0.1,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": 0.5,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 1.7,
+    "pct": 1.3,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Boeing",
-    "punten": 4,
+    "onderwerp": "Beurs",
+    "punten": 5,
     "bronnen": [
-     "CNBC"
+     "MarketWatch"
     ],
     "wat": [
-     "overname/deal"
+     "crash"
     ],
     "koppen": [
      {
-      "titel": "China’s Xiamen Airlines to buy 50 Boeing jets in $7.4 billion deal",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/25/china-xiamen-boeing-deal.html"
+      "titel": "The tech rout should bottom soon, with a 25% rally for the S&P 500 to follow, says Deutsche Bank",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/the-tech-rout-should-bottom-soon-with-a-25-rally-for-the-s-p-500-to-follow-says-deutsche-bank-c9070bf6?mod=mw_rss_topstories"
      }
     ],
     "groot": false
@@ -466,7 +466,7 @@
    }
   ],
   "groot": [],
-  "aantal_koppen": 107
+  "aantal_koppen": 101
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-26 08:10",
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 11:33)"
+   "tekst": "draait nu (2026-11-26 12:03)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 11:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 11:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 11:33",
-   "volgende": "2026-11-26 12:03"
+   "laatst": "2026-11-26 12:03",
+   "volgende": "2026-11-26 12:33"
   },
   "hype": {
    "aan": true,
@@ -2296,8 +2296,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 11:18",
-   "volgende": "2026-11-26 11:48"
+   "laatst": "2026-11-26 11:48",
+   "volgende": "2026-11-26 12:18"
   },
   "titels": {
    "aan": true,
@@ -2655,7 +2655,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 1595,
+  "geheugen_mb": 1555,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2828,8 +2828,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 11:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 12:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4959,23 +4959,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 11:33",
+  "bijgewerkt": "2026-11-26 12:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1493505,
-    "week": 66098444,
+    "5uur": 2086709,
+    "week": 66691648,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 7166332,
+     "Thu 26-11": 7759536,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 34552,
+    "stap_kost": 34665,
     "naam": "hoofd",
     "week_reset": ""
    },
