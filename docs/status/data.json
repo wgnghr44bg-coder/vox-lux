@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 16:03",
+ "bijgewerkt": "2026-11-26 16:33",
  "kanalen": {
   "weken": [
    {
@@ -1273,83 +1273,83 @@
   ]
  },
  "nl_hype": {
-  "bijgewerkt": "2026-11-26 08:20",
+  "bijgewerkt": "2026-11-26 16:05",
   "markt": [
    {
     "naam": "AEX",
-    "pct": -1.3,
+    "pct": 1.9,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "ASML",
-    "pct": -5.6,
+    "pct": 3.5,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Shell",
-    "pct": -0.6,
+    "pct": 2.0,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "ING",
-    "pct": -2.1,
+    "pct": 2.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Adyen",
-    "pct": 1.7,
+    "pct": 4.7,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Prosus",
-    "pct": -2.2,
+    "pct": 2.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Unilever",
-    "pct": 1.9,
+    "pct": -0.1,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "Ahold Delhaize",
-    "pct": 2.3,
+    "pct": 0.5,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "Heineken",
-    "pct": 1.6,
+    "pct": 0.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Philips",
-    "pct": 0.8,
+    "pct": 1.6,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "ABN AMRO",
-    "pct": -2.3,
+    "pct": 1.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "BESI",
-    "pct": -8.8,
+    "pct": 3.5,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Bitcoin",
-    "pct": 0.1,
+    "pct": -0.2,
     "groot": false,
     "grens": 10
    },
@@ -1439,50 +1439,74 @@
    },
    {
     "naam": "Olie",
-    "pct": 0.3,
+    "pct": 1.2,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 1.7,
+    "pct": 2.0,
     "groot": false,
     "grens": 4
    }
   ],
   "nieuws": [
    {
-    "onderwerp": "Wall Street",
-    "punten": 5,
+    "onderwerp": "Beurs",
+    "punten": 6,
     "bronnen": [
      "FD"
     ],
     "wat": [
-     "daling"
+     "beursgang",
+     "overname/deal"
     ],
     "koppen": [
      {
-      "titel": "Ommekeer op Wall Street na dieprood begin",
+      "titel": "Beursgang lonkt voor bouwbedrijf Wessels Stevin na fusie",
       "bron": "FD",
-      "link": "https://fd.nl/financiele-markten/1620784/ommekeer-op-wall-street-na-dieprood-begin"
+      "link": "https://fd.nl/bedrijfsleven/1620797/nieuwe-bouwcombinatie-wessels-stevin-krijgt-peter-berdowski-als-ceo"
+     },
+     {
+      "titel": "Anthropics beursgang wakkert vastgoedgekte aan in grote techhubs",
+      "bron": "FD",
+      "link": "https://fd.nl/economie/1620375/anthropics-beursgang-wakkert-vastgoedgekte-aan-in-grote-techhubs"
      }
     ],
     "groot": false
    },
    {
-    "onderwerp": "Belastingen",
-    "punten": 4,
+    "onderwerp": "Boodschappen",
+    "punten": 3,
     "bronnen": [
-     "FD"
+     "nu.nl"
     ],
     "wat": [
-     "overname/deal"
+     "prijzen"
     ],
     "koppen": [
      {
-      "titel": "Europees belastingplan kost Nederlandse schatkist miljarden",
-      "bron": "FD",
-      "link": "https://fd.nl/economie/1620589/europees-belastingplan-kost-nederlandse-schatkist-miljarden"
+      "titel": "Boodschappen worden mogelijk duurder door hoge energieprijzen",
+      "bron": "nu.nl",
+      "link": "https://www.nu.nl/economie/6417829/boodschappen-worden-mogelijk-duurder-door-hoge-energieprijzen.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Energie",
+    "punten": 3,
+    "bronnen": [
+     "nu.nl"
+    ],
+    "wat": [
+     "prijzen"
+    ],
+    "koppen": [
+     {
+      "titel": "Boodschappen worden mogelijk duurder door hoge energieprijzen",
+      "bron": "nu.nl",
+      "link": "https://www.nu.nl/economie/6417829/boodschappen-worden-mogelijk-duurder-door-hoge-energieprijzen.html"
      }
     ],
     "groot": false
@@ -1501,30 +1525,6 @@
       "titel": "Tata Steel riskeert niet langer boetes voor tegenwerken controles",
       "bron": "nu.nl",
       "link": "https://www.nu.nl/economie/6417730/tata-steel-riskeert-niet-langer-boetes-voor-tegenwerken-controles.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Beurs",
-    "punten": 3,
-    "bronnen": [
-     "FD"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers"
-    ],
-    "koppen": [
-     {
-      "titel": "Stijgende dollar is opsteker voor Nederlandse beursfondsen met Amerikaanse omzet",
-      "bron": "FD",
-      "link": "https://fd.nl/financiele-markten/1620517/stijgende-dollar-opsteker-voor-nederlandse-beursfondsen-met-amerikaanse-omzet"
-     },
-     {
-      "titel": "Anthropics beursgang wakkert vastgoedgekte aan in grote techhubs",
-      "bron": "FD",
-      "link": "https://fd.nl/economie/1620375/anthropics-beursgang-wakkert-vastgoedgekte-aan-in-grote-techhubs"
      }
     ],
     "groot": false
@@ -1553,128 +1553,148 @@
     "id": "cS9SJhPqMwg",
     "titel": "AANDELEN DALEN HARD... DIT GA IK NU DOEN!",
     "kanaal": "Geld op Geld",
-    "views": 6740,
-    "uren_oud": 14,
-    "per_uur": 497,
-    "keer_gewoon": 22.6,
+    "views": 8423,
+    "uren_oud": 21,
+    "per_uur": 395,
+    "keer_gewoon": 18.0,
+    "uitschieter": true
+   },
+   {
+    "id": "n9AO8-IqZto",
+    "titel": "BODEM NEERGEZET OF CRASHEN WE VERDER?",
+    "kanaal": "Focuss Op Financiën",
+    "views": 1135,
+    "uren_oud": 3,
+    "per_uur": 367,
+    "keer_gewoon": 15.3,
+    "uitschieter": true
+   },
+   {
+    "id": "fa7os_1fLZ0",
+    "titel": "Rusland bluft, de vraag is, trapt de NAVO er dan in...",
+    "kanaal": "Tom Lassing - Beursbox",
+    "views": 16540,
+    "uren_oud": 5,
+    "per_uur": 3579,
+    "keer_gewoon": 11.1,
     "uitschieter": true
    },
    {
     "id": "H8QByQKPwjA",
     "titel": "NASDAQ CRASH 2026?! DEZE 4 AANDELEN VIND IK MEEST INTERESSANT",
     "kanaal": "Investeren doe je zo",
-    "views": 4045,
-    "uren_oud": 94,
-    "per_uur": 43,
-    "keer_gewoon": 10.8,
+    "views": 4063,
+    "uren_oud": 102,
+    "per_uur": 40,
+    "keer_gewoon": 10.0,
     "uitschieter": true
    },
    {
     "id": "tmdwUqt5FhQ",
     "titel": "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN?",
     "kanaal": "Focuss Op Financiën",
-    "views": 13836,
-    "uren_oud": 67,
-    "per_uur": 205,
-    "keer_gewoon": 8.2,
+    "views": 14077,
+    "uren_oud": 75,
+    "per_uur": 187,
+    "keer_gewoon": 7.8,
     "uitschieter": true
    },
    {
     "id": "XegtxkympXI",
     "titel": "DE CYCLE IS GEBROKEN?! Q4 HAD HET MOETEN DOEN...",
     "kanaal": "DoopieCash",
-    "views": 12728,
-    "uren_oud": 13,
-    "per_uur": 954,
-    "keer_gewoon": 7.2,
+    "views": 17741,
+    "uren_oud": 21,
+    "per_uur": 841,
+    "keer_gewoon": 6.8,
     "uitschieter": true
    },
    {
     "id": "6UN_71jkh-U",
     "titel": "CRASH: IK INVESTEER €6000 EXTRA || PORTFOLIO SHOW #223",
     "kanaal": "Focuss Op Financiën",
-    "views": 19845,
-    "uren_oud": 115,
-    "per_uur": 172,
-    "keer_gewoon": 6.9,
-    "uitschieter": true
-   },
-   {
-    "id": "VB-Fq3AIfkc",
-    "titel": "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update",
-    "kanaal": "DeAandeelHouder TV",
-    "views": 7504,
-    "uren_oud": 22,
-    "per_uur": 336,
-    "keer_gewoon": 6.9,
+    "views": 19915,
+    "uren_oud": 123,
+    "per_uur": 162,
+    "keer_gewoon": 6.8,
     "uitschieter": true
    },
    {
     "id": "TovyJV3uTSo",
     "titel": "De situatie in de oorlog tussen Rusland en Oekraïne",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 140994,
-    "uren_oud": 69,
-    "per_uur": 2038,
-    "keer_gewoon": 6.6,
+    "views": 143642,
+    "uren_oud": 77,
+    "per_uur": 1867,
+    "keer_gewoon": 5.8,
     "uitschieter": true
    },
    {
     "id": "Kw5dkLFF3VM",
     "titel": "DE BEURS EXPLODEERT! S&P 500 +5%, NASDAQ +6%",
     "kanaal": "Geld op Geld",
-    "views": 7122,
-    "uren_oud": 60,
-    "per_uur": 118,
-    "keer_gewoon": 5.4,
+    "views": 7140,
+    "uren_oud": 68,
+    "per_uur": 105,
+    "keer_gewoon": 4.8,
     "uitschieter": true
    },
    {
     "id": "qsayQ23e6sk",
     "titel": "AANDELEN DALEN HARD... DIT MOET JE NU DOEN!",
     "kanaal": "Geld op Geld",
-    "views": 13646,
-    "uren_oud": 134,
-    "per_uur": 102,
-    "keer_gewoon": 4.6,
+    "views": 13664,
+    "uren_oud": 142,
+    "per_uur": 96,
+    "keer_gewoon": 4.4,
+    "uitschieter": true
+   },
+   {
+    "id": "VB-Fq3AIfkc",
+    "titel": "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update",
+    "kanaal": "DeAandeelHouder TV",
+    "views": 8131,
+    "uren_oud": 30,
+    "per_uur": 270,
+    "keer_gewoon": 4.0,
     "uitschieter": true
    },
    {
     "id": "quRcu8XlNr0",
     "titel": "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving....",
     "kanaal": "DoopieCash",
-    "views": 17479,
-    "uren_oud": 35,
-    "per_uur": 498,
-    "keer_gewoon": 3.7,
+    "views": 17869,
+    "uren_oud": 43,
+    "per_uur": 417,
+    "keer_gewoon": 3.4,
     "uitschieter": true
    },
    {
     "id": "8-FzUJP8qsg",
     "titel": "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?!",
     "kanaal": "DoopieCash",
-    "views": 21262,
-    "uren_oud": 61,
-    "per_uur": 347,
-    "keer_gewoon": 2.6,
+    "views": 21499,
+    "uren_oud": 69,
+    "per_uur": 311,
+    "keer_gewoon": 2.5,
     "uitschieter": true
    },
    {
-    "id": "3JaeLdfHaQU",
-    "titel": "BITCOIN ETF KOPEN BIJ DEGIRO || PORTFOLIO SHOW #222",
-    "kanaal": "Focuss Op Financiën",
-    "views": 10506,
-    "uren_oud": 163,
-    "per_uur": 64,
-    "keer_gewoon": 2.6,
+    "id": "VTOiB_PlAm4",
+    "titel": "ForFarmers ziet ruimte voor €200 miljoen aan overnames | CEO Talk",
+    "kanaal": "DeAandeelHouder TV",
+    "views": 1030,
+    "uren_oud": 7,
+    "per_uur": 156,
+    "keer_gewoon": 2.3,
     "uitschieter": true
    },
    {
     "id": "1sMqgJ7aA5Y",
     "titel": "AANDEEL ANTHROPIC IPO - GA IK AANDELEN KOPEN?!",
     "kanaal": "Investeren doe je zo",
-    "views": 1480,
-    "uren_oud": 157,
+    "views": 1481,
+    "uren_oud": 165,
     "per_uur": 9,
     "keer_gewoon": 2.2,
     "uitschieter": true
@@ -1683,343 +1703,299 @@
     "id": "4Cz9tvMKe5I",
     "titel": "Rusland dreigt de Krim te verliezen.",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 60548,
-    "uren_oud": 95,
-    "per_uur": 639,
-    "keer_gewoon": 2.1,
-    "uitschieter": true
+    "views": 61470,
+    "uren_oud": 103,
+    "per_uur": 599,
+    "keer_gewoon": 1.9,
+    "uitschieter": false
    },
    {
     "id": "okwgXQlV4MI",
     "titel": "De situatie aan het front in Oekraïne",
     "kanaal": "Tom Lassing - Beursbox",
-    "views": 72794,
-    "uren_oud": 139,
-    "per_uur": 525,
-    "keer_gewoon": 1.7,
-    "uitschieter": false
-   },
-   {
-    "id": "DMKHNpzpT8k",
-    "titel": "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307",
-    "kanaal": "DeAandeelHouder TV",
-    "views": 10635,
-    "uren_oud": 142,
-    "per_uur": 75,
-    "keer_gewoon": 1.5,
+    "views": 72941,
+    "uren_oud": 146,
+    "per_uur": 498,
+    "keer_gewoon": 1.6,
     "uitschieter": false
    },
    {
     "id": "vAfCrbZngsY",
     "titel": "Beursgang Antropic Laat De AI Bubbel Barsten!!",
     "kanaal": "DoopieCash",
-    "views": 21860,
-    "uren_oud": 116,
-    "per_uur": 188,
+    "views": 21884,
+    "uren_oud": 124,
+    "per_uur": 177,
     "keer_gewoon": 1.4,
-    "uitschieter": false
-   },
-   {
-    "id": "NWPWHqK0yxM",
-    "titel": "Olieprijs omlaag, gasprijs omlaag, beurzen omlaag",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 28107,
-    "uren_oud": 70,
-    "per_uur": 403,
-    "keer_gewoon": 1.3,
     "uitschieter": false
    },
    {
     "id": "M39Wm9Xa90M",
     "titel": "Wat moet ik doen ALS BITCOIN DAALT?!",
     "kanaal": "DoopieCash",
-    "views": 19765,
-    "uren_oud": 133,
-    "per_uur": 148,
+    "views": 19788,
+    "uren_oud": 141,
+    "per_uur": 140,
     "keer_gewoon": 1.1,
     "uitschieter": false
    },
    {
-    "id": "lEyfaFkglPo",
-    "titel": "RICHARD de MOS haalt uit naar NEDERLANDSE POLITIEK!",
-    "kanaal": "DoopieCash",
-    "views": 12454,
-    "uren_oud": 93,
-    "per_uur": 133,
-    "keer_gewoon": 1.0,
+    "id": "DMKHNpzpT8k",
+    "titel": "Beursgang Anthropic: De Prijs Van AI-groei | De Aandeelhouder Podcast Afl. 307",
+    "kanaal": "DeAandeelHouder TV",
+    "views": 10668,
+    "uren_oud": 150,
+    "per_uur": 71,
+    "keer_gewoon": 1.1,
     "uitschieter": false
    }
   ],
   "groot": [],
-  "aantal_koppen": 53,
+  "aantal_koppen": 67,
   "youtube": [
    {
     "onderwerp": "nvidia",
-    "views_per_uur": 857,
-    "kanalen": 5,
+    "views_per_uur": 731,
+    "kanalen": 4,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,479 views)",
-     "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?! (DoopieCash - Traden & Investeren, 21,262 views)",
-     "Trends Beleggen Podcast #284 | Datacenterrisico’s - Aandelen: Nvidia & Umicore | maandag 23/11/26 (Trends Podcasts, 545 views)"
+     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,869 views)",
+     "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?! (DoopieCash - Traden & Investeren, 21,499 views)",
+     "CEO Nvidia is Back! #beleggen #nvidia #aandelen #jensenhuang #stocks (Stijn Bynens, 220 views)"
     ]
    },
    {
     "onderwerp": "ceo",
-    "views_per_uur": 502,
+    "views_per_uur": 420,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,479 views)",
+     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,869 views)",
      "CEO Nvidia is Back! #beleggen #nvidia #aandelen #jensenhuang #stocks (Stijn Bynens, 220 views)"
     ]
    },
    {
     "onderwerp": "ceo nvidia",
-    "views_per_uur": 502,
+    "views_per_uur": 420,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,479 views)",
+     "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving.... (DoopieCash - Traden & Investeren, 17,869 views)",
      "CEO Nvidia is Back! #beleggen #nvidia #aandelen #jensenhuang #stocks (Stijn Bynens, 220 views)"
     ]
    },
    {
     "onderwerp": "moment",
-    "views_per_uur": 367,
+    "views_per_uur": 330,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?! (DoopieCash - Traden & Investeren, 21,262 views)",
-     "Een goed moment om in Dubai te investeren (Zo Word Je Steenrijk Podcast, 1,269 views)"
+     "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?! (DoopieCash - Traden & Investeren, 21,499 views)",
+     "Een goed moment om in Dubai te investeren (Zo Word Je Steenrijk Podcast, 1,309 views)"
     ]
    },
    {
-    "onderwerp": "crash",
-    "views_per_uur": 361,
-    "kanalen": 3,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN? (Focuss Op Financiën, 13,836 views)",
-     "Deze crash is GOED nieuws voor beleggers (StockWatch, 10,259 views)",
-     "AI-Aandelen Kopen na de Crash? 6 Chipaandelen die Ik Volg (Tijd Voor Aandelen, 51 views)"
-    ]
-   },
-   {
-    "onderwerp": "beleggers",
-    "views_per_uur": 356,
+    "onderwerp": "huang",
+    "views_per_uur": 281,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN? (Focuss Op Financiën, 13,836 views)",
-     "Deze crash is GOED nieuws voor beleggers (StockWatch, 10,259 views)"
-    ]
-   },
-   {
-    "onderwerp": "jensen",
-    "views_per_uur": 349,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update (DeAandeelHouder TV, 7,504 views)",
-     "De miljardencomeback van Jensen Huang | BNR Beurs (BNR Beurs, 526 views)"
+     "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update (DeAandeelHouder TV, 8,131 views)",
+     "De miljardencomeback van Jensen Huang | BNR Beurs (BNR Beurs, 539 views)"
     ]
    },
    {
     "onderwerp": "jensen huang",
-    "views_per_uur": 349,
+    "views_per_uur": 281,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update (DeAandeelHouder TV, 7,504 views)",
-     "De miljardencomeback van Jensen Huang | BNR Beurs (BNR Beurs, 526 views)"
+     "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update (DeAandeelHouder TV, 8,131 views)",
+     "De miljardencomeback van Jensen Huang | BNR Beurs (BNR Beurs, 539 views)"
     ]
    },
    {
     "onderwerp": "s&p",
-    "views_per_uur": 193,
+    "views_per_uur": 154,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "DE BEURS EXPLODEERT! S&P 500 +5%, NASDAQ +6% (Geld op Geld, 7,122 views)",
-     "S&P 500 rendementen 2018-2026 #beleggen #etf #sp500 (BeleggenmetMartijn, 1,095 views)"
-    ]
-   },
-   {
-    "onderwerp": "goed",
-    "views_per_uur": 171,
-    "kanalen": 2,
-    "in_nieuws": false,
-    "sterk": false,
-    "voorbeelden": [
-     "Deze crash is GOED nieuws voor beleggers (StockWatch, 10,259 views)",
-     "Een goed moment om in Dubai te investeren (Zo Word Je Steenrijk Podcast, 1,269 views)"
+     "DE BEURS EXPLODEERT! S&P 500 +5%, NASDAQ +6% (Geld op Geld, 7,140 views)",
+     "S&P 500 rendementen 2018-2026 #beleggen #etf #sp500 (BeleggenmetMartijn, 1,106 views)"
     ]
    },
    {
     "onderwerp": "nederland",
-    "views_per_uur": 62,
+    "views_per_uur": 58,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit (Vergeten Nederland, 2,132 views)",
-     "Extra pensioen inleggen of zelf beleggen in Nederland — wie wint er na 23 jaar? (De Echte Rekensom, 1,230 views)"
+     "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit (Vergeten Nederland, 2,201 views)",
+     "Extra pensioen inleggen of zelf beleggen in Nederland — wie wint er na 23 jaar? (De Echte Rekensom, 1,396 views)"
     ]
    },
    {
     "onderwerp": "vanaf",
-    "views_per_uur": 35,
+    "views_per_uur": 32,
     "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit (Vergeten Nederland, 2,132 views)",
-     "Hoe Koop Je Nvidia Aandelen vanaf 10 $ (Beginnersgids van A tot Z) (Trading voor Beginners TUTO, 0 views)"
+     "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit (Vergeten Nederland, 2,201 views)",
+     "Hoe Koop Je Nvidia Aandelen vanaf 10 $ (Beginnersgids van A tot Z) (Trading voor Beginners TUTO, 1 views)"
+    ]
+   },
+   {
+    "onderwerp": "mogelijk",
+    "views_per_uur": 10,
+    "kanalen": 2,
+    "in_nieuws": false,
+    "sterk": false,
+    "voorbeelden": [
+     "Stijgende #dollar duidt mogelijk op een barstende #bubbel (Jack Hoogland (www.topaandelen.com), 352 views)",
+     "Portfolio breakdown nu mogelijk (gratis) (Beleggen met Thomas, 123 views)"
     ]
    },
    {
     "onderwerp": "huizenmarkt",
-    "views_per_uur": 8,
-    "kanalen": 3,
+    "views_per_uur": 7,
+    "kanalen": 2,
     "in_nieuws": false,
     "sterk": false,
     "voorbeelden": [
-     "Hoe ziet de Spaanse huizenmarkt eruit in 2027? (Rene Cooiman, 336 views)",
-     "KOELT DE HUIZENMARKT EINDELIJK AF? 4 signalen die kopers nú moeten zien (GeldKompas, 10 views)",
-     "Bertus Klokkenluider - Woningnood #woningmarkt #stikstof #huizenmarkt #woningbouw #denhaag #co2  (Bertus Klokkenluider, 11 views)"
+     "Hoe ziet de Spaanse huizenmarkt eruit in 2027? (Rene Cooiman, 352 views)",
+     "KOELT DE HUIZENMARKT EINDELIJK AF? 4 signalen die kopers nú moeten zien (GeldKompas, 19 views)"
     ]
    }
   ],
   "top_videos": [
    {
-    "id": "cS9SJhPqMwg",
-    "titel": "AANDELEN DALEN HARD... DIT GA IK NU DOEN!",
-    "kanaal": "Geld op Geld",
-    "views": 6740,
-    "per_uur": 498,
-    "uren_oud": 14
-   },
-   {
     "id": "quRcu8XlNr0",
     "titel": "CEO Nvidia Terug! Markt Onderuit Na Korte Opleving....",
     "kanaal": "DoopieCash - Traden & Investeren",
-    "views": 17479,
-    "per_uur": 498,
-    "uren_oud": 35
+    "views": 17869,
+    "per_uur": 417,
+    "uren_oud": 43
    },
    {
-    "id": "NWPWHqK0yxM",
-    "titel": "Olieprijs omlaag, gasprijs omlaag, beurzen omlaag",
-    "kanaal": "Tom Lassing - Beursbox",
-    "views": 28107,
-    "per_uur": 403,
-    "uren_oud": 70
+    "id": "cS9SJhPqMwg",
+    "titel": "AANDELEN DALEN HARD... DIT GA IK NU DOEN!",
+    "kanaal": "Geld op Geld",
+    "views": 8423,
+    "per_uur": 396,
+    "uren_oud": 21
    },
    {
     "id": "8-FzUJP8qsg",
     "titel": "NVIDIA -50%! IS DIT HET MOMENT OM TOE TE SLAAN?!",
     "kanaal": "DoopieCash - Traden & Investeren",
-    "views": 21262,
-    "per_uur": 347,
-    "uren_oud": 61
+    "views": 21499,
+    "per_uur": 311,
+    "uren_oud": 69
    },
    {
     "id": "VB-Fq3AIfkc",
     "titel": "Hoe Jensen Huang in één uur de beurs op zijn kop zette | Beurs Update",
     "kanaal": "DeAandeelHouder TV",
-    "views": 7504,
-    "per_uur": 336,
-    "uren_oud": 22
-   },
-   {
-    "id": "tmdwUqt5FhQ",
-    "titel": "CRASH OP DE BEURS: WAT MOETEN BELEGGERS NU DOEN?",
-    "kanaal": "Focuss Op Financiën",
-    "views": 13836,
-    "per_uur": 205,
-    "uren_oud": 67
-   },
-   {
-    "id": "-OfPz_qy_30",
-    "titel": "Deze crash is GOED nieuws voor beleggers",
-    "kanaal": "StockWatch",
-    "views": 10259,
-    "per_uur": 151,
-    "uren_oud": 68
+    "views": 8131,
+    "per_uur": 270,
+    "uren_oud": 30
    },
    {
     "id": "Kw5dkLFF3VM",
     "titel": "DE BEURS EXPLODEERT! S&P 500 +5%, NASDAQ +6%",
     "kanaal": "Geld op Geld",
-    "views": 7122,
-    "per_uur": 118,
-    "uren_oud": 60
-   },
-   {
-    "id": "NySgz2DzMLw",
-    "titel": "Waarom Ik Met €1 Miljoen Niet Alles In Aandelen Beleg",
-    "kanaal": "FIRE Community met Jonas Vermeulen",
-    "views": 5826,
-    "per_uur": 88,
-    "uren_oud": 66
+    "views": 7140,
+    "per_uur": 105,
+    "uren_oud": 68
    },
    {
     "id": "OodRB2jyy4g",
     "titel": "Dealen met prijsdalingen: verkopen, vasthouden of bijkopen? | Crypto beleggen",
     "kanaal": "CryptoCoiners",
-    "views": 1232,
-    "per_uur": 81,
-    "uren_oud": 15
-   },
-   {
-    "id": "2eZoRnhgC2c",
-    "titel": "S&P 500 rendementen 2018-2026 #beleggen #etf #sp500",
-    "kanaal": "BeleggenmetMartijn",
-    "views": 1095,
-    "per_uur": 75,
-    "uren_oud": 15
+    "views": 1673,
+    "per_uur": 73,
+    "uren_oud": 23
    },
    {
     "id": "IRcKHu_68zs",
     "titel": "DCA Dinsdag - Acomo kopen en mijlpaal gehaald!",
     "kanaal": "Leven van Dividend",
-    "views": 2696,
-    "per_uur": 71,
-    "uren_oud": 38
+    "views": 2825,
+    "per_uur": 62,
+    "uren_oud": 46
    },
    {
-    "id": "Yo1gK8jpRZU",
-    "titel": "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit",
-    "kanaal": "Vergeten Nederland",
-    "views": 2132,
+    "id": "2eZoRnhgC2c",
+    "titel": "S&P 500 rendementen 2018-2026 #beleggen #etf #sp500",
+    "kanaal": "BeleggenmetMartijn",
+    "views": 1106,
+    "per_uur": 49,
+    "uren_oud": 22
+   },
+   {
+    "id": "D7rOa1v0e9c",
+    "titel": "Privé beleggen of met vennootschap",
+    "kanaal": "Thomas Guenter",
+    "views": 321,
     "per_uur": 35,
-    "uren_oud": 61
+    "uren_oud": 9
    },
    {
     "id": "WzMrL0Qio88",
     "titel": "Welke rol speelt risico bij beleggen? | Zo Belegd, Zo gedaan | ING",
     "kanaal": "ING Nederland",
-    "views": 2200,
-    "per_uur": 34,
-    "uren_oud": 64
+    "views": 2298,
+    "per_uur": 32,
+    "uren_oud": 72
+   },
+   {
+    "id": "Yo1gK8jpRZU",
+    "titel": "12 plekken in Nederland met appartementen vanaf €99.500 — en waar het addertje zit",
+    "kanaal": "Vergeten Nederland",
+    "views": 2201,
+    "per_uur": 32,
+    "uren_oud": 69
    },
    {
     "id": "W3snrvm0IKs",
     "titel": "Extra pensioen inleggen of zelf beleggen in Nederland — wie wint er na 23 jaar?",
     "kanaal": "De Echte Rekensom",
-    "views": 1230,
-    "per_uur": 27,
-    "uren_oud": 45
+    "views": 1396,
+    "per_uur": 26,
+    "uren_oud": 53
+   },
+   {
+    "id": "zQG2iDT2X-4",
+    "titel": "Het ergste achter de rug?  #beleggen #trading #iex #beursnieuws",
+    "kanaal": "IEX",
+    "views": 1078,
+    "per_uur": 22,
+    "uren_oud": 50
+   },
+   {
+    "id": "OJnuGtKln1g",
+    "titel": "Een goed moment om in Dubai te investeren",
+    "kanaal": "Zo Word Je Steenrijk Podcast",
+    "views": 1309,
+    "per_uur": 19,
+    "uren_oud": 70
+   },
+   {
+    "id": "XTZ13chsdxI",
+    "titel": "Heb jij de (pakjes)boot gemist als vastgoedbelegger? 🎁 #shorts #beleggen  #vastgoedbeleggen #podcast",
+    "kanaal": "Annexum",
+    "views": 467,
+    "per_uur": 16,
+    "uren_oud": 30
    }
   ]
  },
@@ -2231,7 +2207,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "120 GB vrij"
+   "tekst": "119 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2246,7 +2222,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 16:03)"
+   "tekst": "draait nu (2026-11-26 16:33)"
   },
   {
    "naam": "Git",
@@ -2266,7 +2242,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 15:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2283,8 +2259,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 16:03",
-   "volgende": "2026-11-26 16:33"
+   "laatst": "2026-11-26 16:33",
+   "volgende": "2026-11-26 17:03"
   },
   "hype": {
    "aan": true,
@@ -2294,12 +2270,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-26 16:10"
+   "volgende": "2026-11-26 17:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 15:48",
-   "volgende": "2026-11-26 16:18"
+   "laatst": "2026-11-26 16:18",
+   "volgende": "2026-11-26 16:48"
   },
   "titels": {
    "aan": true,
@@ -2410,7 +2386,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1250,
+    "views": 1254,
     "verwerkt": "processed"
    }
   ],
@@ -2634,7 +2610,7 @@
    "video bouwen",
    "beweging en hoofdstuktitels",
    "video samenvoegen (ffmpeg)",
-   "beelden maken (ComfyUI)"
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2656,13 +2632,13 @@
    "stap": -1
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 100,
-  "geheugen_mb": 6369,
+  "bezig_procent": 25,
+  "geheugen_mb": 872,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2835,8 +2811,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 16:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 16:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4966,23 +4942,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 16:05",
+  "bijgewerkt": "2026-11-26 16:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6568503,
-    "week": 72326294,
+    "5uur": 8634963,
+    "week": 74733407,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 13394182,
+     "Thu 26-11": 15801295,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 31199,
+    "stap_kost": 32935,
     "naam": "hoofd",
     "week_reset": ""
    },
