@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 23:33",
+ "bijgewerkt": "2026-11-27 00:03",
  "kanalen": {
   "weken": [
    {
@@ -2370,7 +2370,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "119 GB vrij"
+   "tekst": "118 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 23:33)"
+   "tekst": "draait nu (2026-11-27 00:03)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 23:33",
-   "volgende": "2026-11-27 00:03"
+   "laatst": "2026-11-27 00:03",
+   "volgende": "2026-11-27 00:33"
   },
   "hype": {
    "aan": true,
@@ -2437,8 +2437,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 23:18",
-   "volgende": "2026-11-26 23:48"
+   "laatst": "2026-11-26 23:48",
+   "volgende": "2026-11-27 00:18"
   },
   "titels": {
    "aan": true,
@@ -2452,14 +2452,14 @@
   "views_totaal": 3785,
   "video_aantal": 18,
   "week": {
-   "views": 594,
-   "uren": 119,
-   "abonnees": 5
+   "views": 507,
+   "uren": 106,
+   "abonnees": 3
   },
   "vorige_week": {
-   "views": 626,
-   "uren": 140,
-   "abonnees": 6
+   "views": 550,
+   "uren": 107,
+   "abonnees": 4
   },
   "recent": [
    {
@@ -2554,11 +2554,6 @@
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-29",
-    "views": 94,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-30",
     "views": 73,
@@ -2691,13 +2686,13 @@
    }
   ],
   "maand": {
-   "views": 2204,
-   "uren": 422,
+   "views": 2110,
+   "uren": 398,
    "abonnees": 11
   },
   "vorige_maand": {
-   "views": 1396,
-   "uren": 397,
+   "views": 1443,
+   "uren": 399,
    "abonnees": 6
   },
   "jaar": {
@@ -2710,8 +2705,8 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 1059,
-    "uren": 237
+    "views": 1031,
+    "uren": 233
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2724,8 +2719,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 271,
-    "uren": 41
+    "views": 210,
+    "uren": 26
    }
   ],
   "partner": {
@@ -2735,10 +2730,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 14.2,
+   "tempo_uren_per_dag": 14.0,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-07-09",
-   "datum_abonnees": "2033-09-17"
+   "datum_uren": "2027-07-13",
+   "datum_abonnees": "2033-09-18"
   }
  },
  "kpi": {
@@ -2844,12 +2839,6 @@
  "gpu_slot": false,
  "week": [
   {
-   "datum": "2026-11-26",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-27",
    "plek": false,
    "video": "",
@@ -2884,15 +2873,15 @@
    "plek": false,
    "video": "",
    "soort": ""
+  },
+  {
+   "datum": "2026-12-03",
+   "plek": false,
+   "video": "",
+   "soort": ""
   }
  ],
  "logboek": [
-  {
-   "tijd": "2026-11-24 08:30",
-   "tekst": "hype-wachter: SEINTJE Fall Asleep in 10 Minutes | A Sleepy Scottish Coffeehouse in 1743 | The SLEEPIEST Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-24 08:30",
    "tekst": "hype-wachter: SEINTJE The Complete Guide to Medieval Serial Killers | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
@@ -2970,28 +2959,22 @@
    "tekst": "BlackswanVault: Jensen-video (j_fHa-ZcDxI) thumbnail in kanaalstijl ($1 TRILLION / HE'S BACK., huang-f), eigenaar akkoord 26 nov; oude eigen thumbnail blijft als video10/thumbnail-definitief.jpg",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-27 00:00",
+   "tekst": "eigenaar: Pearl Harbor-montage weer gestart (00:00).",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
  "opgelost": [
-  {
-   "tijd": "2026-11-23 23:39",
-   "tekst": "routine-lokaal: pearl-harbor-1941: opnieuw maken GESTOPT (geen goede thumbnail); de oude versie blijft staan",
-   "fout": true,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-23 23:56",
-   "tekst": "routine-lokaal: pearl-harbor-1941: beeldcontrole brak af zonder uitslag, opnieuw (leNotFoundError: [Errno 2] No such file or directory: '…')",
-   "fout": true,
-   "klaar": false
-  },
   {
    "tijd": "2026-11-24 14:18",
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
@@ -5078,7 +5061,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 23:33",
+  "bijgewerkt": "2026-11-27 00:04",
   "accounts": [
    {
     "account": "hoofd",
