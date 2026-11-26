@@ -150,8 +150,10 @@ def teken(img, figs, t, nu):                               # poppetjes op één 
     laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag); koppen = {}
     sp = LIJF.get(Z[nu][4]) if nu is not None and Z[nu][4] != "N" else None
     spx = next((f[1] for f in figs if f[0] == sp), None)
-    for naam, x, y, s, geb, zit in figs:
+    for f_ in figs:
+        naam, x, y, s, geb, zit = f_[:6]
         kijk = (0.9 if spx > x else -0.9) if spx is not None and naam != sp else (0.5 if x < 540 else -0.5)
+        if len(f_) > 6: kijk = f_[6]                       # vaste kijkrichting (bv. van de pc weg kijken)
         emo = emotie(t, nu) if (sp is None or naam == sp) else None
         loop = t * 2.2 if geb == "rennen" else None
         koppen[naam] = ps.poppetje(d, naam, x, y, s, t, loop=loop, kijk=kijk, mond=luid(t, naam), knipper=(t + hash(naam) % 7 * 0.4) % 3.4 < 0.13,
@@ -224,14 +226,14 @@ I_HOOK, I_RIJK, I_OFFER, I_GELD, I_PLAN, I_FINE, I_DEAL = zi("What if"), zi("Wai
 I_JAREN, I_ALIVE, I_GAME, I_BABY, I_AI, I_ONDZ = zi("Years pass"), zi("Is this"), zi("Then PC"), zi("Look at"), zi("Then artificial"), zi("We need")
 I_FORT, I_ISLAND, I_CONGR, I_RETIRE, I_VRAAG, I_SOLD, I_WHY, I_PS2, I_SLOT = (zi("Your little"), zi("I'm buying"), zi("Congratulations"),
     zi("I'm retiring"), zi("Just one"), zi("Well..."), zi("Why"), zi("I needed"), zi("I built"))
-T_KOOP = 1e9; T_BILJET = kw(I_FINE, "fine", -0.1); T_620 = kw(I_FORT, "small", -0.1); T_DEUR = Z[I_CONGR][0] - 1.4; T_2002 = kw(I_SOLD, "2002", -0.1)
+T_KOOP = 1e9; T_BILJET = kw(I_FINE, "fine", -0.1); T_620 = kw(I_FORT, "small", -0.1); T_DEUR = Z[I_CONGR][0] - 1.4; T_2002 = kw(I_SOLD, "2002", -0.1); T_CHIPS = kw(I_AI, "everyone", -0.2)
 def Zs(i): return Z[i][0] - 0.1
 SC = [dict(t=0, naam="woon", bg="woon2026"), dict(t=Zs(I_OFFER), naam="diner", bg="denny"), dict(t=Zs(I_JAREN), naam="kamer", bg="beurs"),
       dict(t=Zs(I_GAME), naam="gaming", bg="gaming"), dict(t=Zs(I_AI), naam="ai", bg="ai"), dict(t=Zs(I_FORT), naam="woon2", bg="woon2026")]
 def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
 SCHRIK = ("Wait", "I'm buying", "Why", "I built", "Well...")
 BLIJ = ("Hey!", "That's the plan", "Deal", "Look at", "We need", "Congratulations", "I'm retiring", "Fine.", "Then PC", "Then artificial")
-VERDRIET = ("Is this", "Years pass", "I needed")
+VERDRIET = ("Is this", "I needed")
 PLAATS = {"woon": ("YOUR LIVING ROOM", "2026"), "diner": ("A DINER", "SAN JOSE · 1999"), "kamer": ("YOUR BEDROOM", "2000 – 2005"),
           "gaming": ("GAME CONVENTION", "2000s"), "ai": ("AI DATA CENTER", "2023"), "woon2": ("YOUR LIVING ROOM", "2026")}
 JAAR = {"woon": "2026", "diner": "1999", "kamer": "2002", "gaming": "2000s", "ai": "2023", "woon2": "2026"}
@@ -241,20 +243,22 @@ SALON_Y = 1180                                              # bovenkant salontaf
 def figuren(n, t):
     nu = nu_i(t)
     if n == "woon":
-        return [("jijpyjama", 320, SALON_Y + 210, 2.1, "schrik" if nu == I_RIJK else ("hoek", -16, 40), True)]       # zit óp de bank
+        return [("jijpyjama", 320, SALON_Y + 210, 2.1, "hoofdhanden" if nu == I_RIJK else ("hoek", -16, 40), True)]       # zit óp de bank
     if n == "diner":
         jg = ("hoek", -16, 95) if nu in (I_OFFER, I_PLAN) else ("duim" if nu == I_DEAL else None)
         yg = ("hoek", -16, 70) if nu == I_FINE else ("denk" if nu == I_GELD else None)
         return [("jij99", 300, ZY, 2.4, yg, True), ("jensen", 780, ZY, 2.3, jg, True)]
     if n == "kamer":
-        return [("jij99", 800, 1330, 2.8, "denk" if nu == I_ALIVE else None, False)]                                 # naast het bureau
+        if nu == I_ALIVE: return [("jij99", 800, 1330, 2.8, "denk", False, -0.9)]                                    # kijkt eindelijk naar de pc
+        return [("jij99", 800, 1330, 2.8, "telefoon", False, 0.9)]                       # 'barely gets your attention': rug naar de pc, speelt op een spelcomputertje
     if n == "gaming":
         return [("gamer1", 190, 1650, 1.75, "juich" if nu == I_BABY else None, False), ("gamer2", 860, 1690, 1.8, "wijs", False),
-                ("jij99", 520, 1780, 1.85, "juich" if nu == I_BABY else None, False)]
+                ("jij99", 520, 1780, 1.85, ("hoek", -16, 168) if nu == I_BABY else None, False, 0.0)]
     if n == "ai":
-        return [("collega", 300, 1750, 3.15, None, False), ("onderzoeker", 790, 1750, 3.4, "juich" if nu == I_ONDZ else None, False)]
+        chip = t >= T_CHIPS
+        return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, ("hoek", -16, 160) if nu == I_ONDZ else ("vast" if chip else None), False)]
     if n == "woon2":
-        g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
+        g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "vast"}.get(nu, ("hoek", -16, 40))
         f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]
         if t >= T_DEUR:                                     # Jensen komt door de voordeur binnen (op de juiste maat bij de deur, groter vooraan)
             a = ps.ease((t - T_DEUR) / 1.3); x = 870 + (905 - 870) * a; y = 1110 + (1400 - 1110) * a; s = 1.48 + (2.43 - 1.48) * a
@@ -314,6 +318,31 @@ def kaartpodium(img, t):                                    # grafische kaart op
     plak_logo(img, 400, 925, 42, wit=True)
     zet(img, "videokaart", 150, 540, 904, op="podium", naam="videokaart")
 
+def in_hand(img, naam, figs, t, wat):                          # voorwerp in de rechterhand van een poppetje (26 nov: beeld moet bij de tekst passen)
+    f = next((f for f in figs if f[0] == naam), None)
+    if f is None or not isinstance(f[4], (str, tuple)): return
+    hoek = {"vast": 70, "telefoon": -32}.get(f[4], f[4][2] if isinstance(f[4], tuple) else None)
+    if hoek is None: return
+    hx, hy = rhand(naam, f[1], f[2], f[3], hoek); S = f[3] * ps.C[naam].get("groot", 1.0); d = ImageDraw.Draw(img)
+    if wat == "gpu":
+        k = sprite("videokaart", int(70 * S)); img.paste(k, (int(hx - k.width / 2), int(hy - k.height * 0.7)), k)
+        WACHT.plaats("videokaart-hand", (hx - k.width / 2, hy - k.height * 0.7, hx + k.width / 2, hy + k.height * 0.3), op="beeld")
+    elif wat == "ps2":                                            # zwarte spelcomputer (eigen tekening, geen logo) met controller
+        w, h = 120 * S, 26 * S; x0, y0 = hx - w * 0.55, hy - h - 4 * S
+        d.polygon([(x0, y0 + h), (x0 + w, y0 + h), (x0 + w, y0), (x0, y0)], fill=(22, 22, 26), outline=INK)
+        for k_ in range(1, 5): d.line((x0 + 8 * S, y0 + k_ * h / 5, x0 + w * 0.6, y0 + k_ * h / 5), fill=(55, 55, 65), width=max(2, int(2 * S)))
+        d.rectangle((x0 + w * 0.68, y0 + h * 0.3, x0 + w * 0.92, y0 + h * 0.55), fill=(40, 40, 48)); d.ellipse((x0 + w * 0.94, y0 + h * 0.35, x0 + w * 0.94 + 5 * S, y0 + h * 0.35 + 5 * S), fill=(70, 140, 255))
+        WACHT.plaats("ps2-hand", (x0, y0, x0 + w, y0 + h), op="beeld")
+    elif wat == "handheld":                                       # klein spelcomputertje (begin jaren 2000) voor de borst
+        w, h = 34 * S, 48 * S; x0, y0 = hx - w / 2, hy - h * 0.8
+        d.rounded_rectangle((x0, y0, x0 + w, y0 + h), int(6 * S), fill=(110, 90, 170), outline=INK, width=max(3, int(2 * S)))
+        d.rectangle((x0 + 5 * S, y0 + 5 * S, x0 + w - 5 * S, y0 + h * 0.45), fill=(150, 200, 120))
+        WACHT.plaats("handheld", (x0, y0, x0 + w, y0 + h), op="beeld")
+def gloed(img, t):                                              # kaart op het podium licht op als jij ernaar wijst
+    if nu_i(t) != I_BABY: return
+    d = ImageDraw.Draw(img); r = 120 + 12 * math.sin(t * 8)
+    for k_ in range(6): d.arc((540 - r - k_ * 6, 860 - r * 0.55 - k_ * 4, 540 + r + k_ * 6, 860 + r * 0.55 + k_ * 4), 0, 360, fill=(150, 230, 40), width=3)
+
 # ---------- camera ----------
 SCENE_MID = {"woon": (540, 1080), "diner": (540, 1250), "kamer": (560, 1150), "gaming": (540, 1200), "ai": (540, 1250), "woon2": (560, 1080)}
 def _doel(t):
@@ -324,6 +353,7 @@ def _doel(t):
         naam = LIJF[Z[nu][4]]
         for f in figuren(n, t):
             if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 260, 1.32
+    if n == "gaming" and nu == I_BABY: cx, cy, zm = 540, 1300, 1.12                 # jij én de kaart waar je naar wijst
     if n == "woon2" and nu == I_FORT: cx, cy, zm = 520, SALON_Y - 200, 1.5          # de koers schiet omhoog
     if n == "woon2" and T_DEUR <= t < Z[I_CONGR][0]: cx, cy, zm = 760, 1080, 1.15   # deur gaat open
     if n == "woon2" and t > Z[I_SLOT][1]: cx, cy, zm = 320, 1000, 1.8                # bevroren eindbeeld op jouw gezicht
@@ -358,6 +388,10 @@ def frame(t):
     if n == "diner":
         tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); biljet(ImageDraw.Draw(img), t_beeld)
     if staan: koppen.update(teken(img, staan, t_beeld, nu))
+    if n == "gaming": gloed(img, t_beeld)
+    if n == "ai": in_hand(img, "collega", figs, t_beeld, "gpu"); in_hand(img, "onderzoeker", figs, t_beeld, "gpu")
+    if n == "kamer" and nu != I_ALIVE: in_hand(img, "jij99", figs, t_beeld, "handheld")
+    if n == "woon2" and nu == I_PS2: in_hand(img, "jijpyjama", figs, t_beeld, "ps2")
     ps.W, ps.H = W, H
     for naam, (hx_, top_) in koppen.items():
         tekst, kl = NAAM[naam]

@@ -98,6 +98,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "schrik": links, rechts = -128 + 6 * math.sin(t * 30), 128 - 6 * math.sin(t * 30)         # handen omhoog naast het hoofd, trillen
     elif gebaar == "denk": rechts = -116                                                                      # hand aan de kin
     elif gebaar == "facepalm": rechts = -152                                                                  # hand voor het gezicht
+    elif gebaar == "hoofdhanden": links, rechts = 172, -172                                                    # 26 nov: beide handen op het hoofd ("oh nee!", spijt/schrik)
     elif gebaar == "heupen": links, rechts = -28, 28                                                          # handen in de zij
     elif gebaar == "klap": links, rechts = 38 + 14 * math.sin(t * 16), -38 - 14 * math.sin(t * 16)            # in de handen klappen
     elif gebaar == "duim": rechts = 125                                                                       # duim omhoog (arm schuin omhoog)
@@ -105,7 +106,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "armen-open": links, rechts = -75, 75                                                      # 'wat?!' / uitleggen
     elif gebaar == "rennen": links, rechts = -16 - zw * 1.6, 16 + zw * 1.6                                    # armen zwaaien hard (met loop=)
     elif gebaar in ("knik", "nee"): pass                                                                      # alleen het hoofd beweegt
-    na_hoofd = gebaar in ("denk", "facepalm")                               # 24 nov: hand vóór het gezicht -> na het hoofd tekenen
+    na_hoofd = gebaar in ("denk", "facepalm", "hoofdhanden")                               # 24 nov: hand vóór het gezicht -> na het hoofd tekenen
     for kant, h in ((-1, links), (1, rechts)):
         if gebaar == "heupen":                                             # 24 nov: ellebogen naar buiten, handen op de heupen
             ex, ey = x + kant * 44 * s + kant * 34 * s, sch + 38 * s; hx2, hy2 = x + kant * 46 * s, sch + 78 * s
@@ -114,7 +115,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
             for (cx, cy) in ((x + kant * 44 * s, sch), (ex, ey)): d.ellipse([P(cx - 11 * s, cy - 11 * s), P(cx + 11 * s, cy + 11 * s)], fill=kl["shirt"])
             d.ellipse([P(hx2 - 15 * s, hy2 - 15 * s), P(hx2 + 15 * s, hy2 + 15 * s)], fill=LIJN); d.ellipse([P(hx2 - 12 * s, hy2 - 12 * s), P(hx2 + 12 * s, hy2 + 12 * s)], fill=HUID)
             continue
-        if kant == 1 and na_hoofd: continue
+        if (kant == 1 or gebaar == "hoofdhanden") and na_hoofd: continue
         if kant == 1 and kl.get("robot"):                                  # 24 nov: robotarm (cyborg-Short), metaal met gewrichten + blauw lampje
             x0r, y0r = x + 44 * s, sch; lg = 82 * s
             ex, ey = x0r + math.sin(math.radians(h)) * lg * 0.5, y0r + math.cos(math.radians(h)) * lg * 0.5
@@ -180,6 +181,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     else: d.arc([P(mx - 12 * s, my - 8 * s), P(mx + 12 * s, my + 6 * s)], 20, 160, fill=LIJN, width=lw)
     if na_hoofd:                                                           # 24 nov: rechterarm vóór het gezicht (denken / facepalm)
         ledemaat(d, x + 44 * s, sch, rechts, 82 * s, 22 * s, kl["shirt"] if not kl.get("robot") else (165, 175, 190), (12 * s, HUID if not kl.get("robot") else (120, 130, 148)))
+        if gebaar == "hoofdhanden": ledemaat(d, x - 44 * s, sch, links, 82 * s, 22 * s, kl["shirt"], (12 * s, HUID))
     if gebaar == "duim":                                                   # 24 nov: duim omhoog op de hand
         ux = x + 44 * s + math.sin(math.radians(rechts)) * 82 * s; uy = sch + math.cos(math.radians(rechts)) * 82 * s
         d.ellipse([P(ux - 15 * s, uy - 15 * s), P(ux + 15 * s, uy + 15 * s)], fill=LIJN); d.ellipse([P(ux - 12 * s, uy - 12 * s), P(ux + 12 * s, uy + 12 * s)], fill=HUID)   # vuist
