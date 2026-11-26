@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 01:33",
+ "bijgewerkt": "2026-11-26 02:03",
  "kanalen": {
   "weken": [
    {
@@ -2328,7 +2328,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 01:33)"
+   "tekst": "draait nu (2026-11-26 02:03)"
   },
   {
    "naam": "Git",
@@ -2348,7 +2348,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2365,8 +2365,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 01:33",
-   "volgende": "2026-11-26 02:03"
+   "laatst": "2026-11-26 02:03",
+   "volgende": "2026-11-26 02:33"
   },
   "hype": {
    "aan": true,
@@ -2380,8 +2380,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 01:18",
-   "volgende": "2026-11-26 01:48"
+   "laatst": "2026-11-26 01:48",
+   "volgende": "2026-11-26 02:18"
   },
   "titels": {
    "aan": true,
@@ -2492,7 +2492,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1154,
+    "views": 1152,
     "verwerkt": "processed"
    }
   ],
@@ -2912,8 +2912,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 01:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 02:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5043,11 +5043,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 01:34",
+  "bijgewerkt": "2026-11-26 02:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1011607,
+    "5uur": 805346,
     "week": 58932112,
     "per_dag": {
      "Tue 24-11": 29948208,
