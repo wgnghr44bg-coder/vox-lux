@@ -257,7 +257,7 @@ def figuren(n, t):
         g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
         f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]
         if t >= T_DEUR:                                     # Jensen komt door de voordeur binnen (op de juiste maat bij de deur, groter vooraan)
-            a = ps.ease((t - T_DEUR) / 1.3); x = 870 + (830 - 870) * a; y = 1110 + (1400 - 1110) * a; s = 1.48 + (2.43 - 1.48) * a
+            a = ps.ease((t - T_DEUR) / 1.3); x = 870 + (905 - 870) * a; y = 1110 + (1400 - 1110) * a; s = 1.48 + (2.43 - 1.48) * a
             jg = "rennen" if a < 1 else {I_CONGR: "duim", I_WHY: "armen-open", I_SLOT: "facepalm"}.get(nu)
             f.append(("jensennu", x, y, s, jg, False))
         return f
@@ -324,7 +324,7 @@ def _doel(t):
         naam = LIJF[Z[nu][4]]
         for f in figuren(n, t):
             if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 260, 1.32
-    if n == "woon2" and nu == I_FORT: cx, cy, zm = 560, SALON_Y - 200, 1.5          # de koers schiet omhoog
+    if n == "woon2" and nu == I_FORT: cx, cy, zm = 520, SALON_Y - 200, 1.5          # de koers schiet omhoog
     if n == "woon2" and T_DEUR <= t < Z[I_CONGR][0]: cx, cy, zm = 760, 1080, 1.15   # deur gaat open
     if n == "woon2" and t > Z[I_SLOT][1]: cx, cy, zm = 320, 1000, 1.8                # bevroren eindbeeld op jouw gezicht
     return cx, cy, zm
@@ -354,7 +354,7 @@ def frame(t):
     if n == "gaming": kaartpodium(img, t_beeld)
     if n == "kamer": oudscherm(img, t_beeld); kalender(ImageDraw.Draw(img), t_beeld)
     koppen = teken(img, zit, t_beeld, nu); d = ImageDraw.Draw(img)
-    if n in ("woon", "woon2"): salontafel(d); laptop(img, 600, t_beeld, n, SALON_Y); kom(img, 190, SALON_Y)
+    if n in ("woon", "woon2"): salontafel(d); laptop(img, 545, t_beeld, n, SALON_Y); kom(img, 190, SALON_Y)
     if n == "diner":
         tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); biljet(ImageDraw.Draw(img), t_beeld)
     if staan: koppen.update(teken(img, staan, t_beeld, nu))
