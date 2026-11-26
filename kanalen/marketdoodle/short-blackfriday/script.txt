@@ -1,11 +1,11 @@
-N|begin|This is day three hundred sixty-five of Black Friday. We own forty-seven TVs.
-N|kamer|It started like every year. Ninety percent off. But this year, the sale never ended.
+N|begin|Imagine Black Friday... forever. Ninety percent off everything. Every single day. It never ends.
 DAD|winkel|A TV for nine dollars? I'll take ten!
 N|winkel|Week one. Everyone buys everything.
-N|oma|Mom fights a grandma for the last toaster. The grandma wins.
+N|stoelen|Week two. You buy a gaming chair for two dollars. Then nine more, for your friends. You don't have nine friends.
+N|oma|Week three. Mom fights a grandma for the last toaster. The grandma wins.
 N|leeg|Month two. Every shelf is empty. Stores lose money on every sale, so they close. Then the factories close.
 SIS|keuken|Mom, can we buy a toaster?
 MOM|keuken|Nobody makes toasters anymore, sweetie.
-N|tvs|So now we eat cold bread, in front of forty-seven TVs.
-STILTE|2.0
+N|tvs|One year later, you eat cold bread, in front of forty-seven TVs.
+STILTE|1.0
 DAD|tvs|Best deal ever.

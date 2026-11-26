@@ -78,6 +78,8 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
   voorstel (`grappen.json`: per regel gezicht, wie, woord, camera; **GEEN striptekens ? ... ! boven hoofden**, eigenaar 25 nov: "laat die tekens maar weg"), Claude loopt het na (max. ±1 per
   3 regels, alleen wie echt in beeld is) en de renderer tekent het (`stripteken()`, kijken in de camera). Echte stilte met
   `STILTE|2.0` in het script met **precies één krekel-tjirp** (eigenaar: "1 krekel, dit lijken er wel 100") en de familie die **langzaam** opzij kijkt; de geluidcheck eist minstens 1,5 s stilte.
+  **Krekel niet elke keer** (eigenaar 26 nov: "krekel geluid hoeft niet elke keer erin"): af en toe, niet als vast trucje;
+  een korte pauze (`STILTE|1.0`) zonder geluid mag ook.
 - **Gewoon praten = geen armgebaar** (eigenaar 25 nov); alleen een gebaar als de zin erom vraagt. De renderer meldt het in LAYOUT.
 - **Verteller per zin inspreken met pauze** (eigenaar 25 nov: "It's 6 a.m. Your bank app gaat te snel"): `stem.py` + `tools/tempowachter.py`.
 - **Tempo verteller: 180 woorden/min** (eigenaar 25 nov: 161 te langzaam, 200 te snel, 180 "dit is goed" voor Short én lange video). Na stem.py + woordtijden.py: `tools/stemtempo.py <map> 180`, dan tempowachter.
@@ -185,3 +187,6 @@ poppetjes, uitleg i.p.v. beeld, te kort, onderwerp los van de Shorts.
 Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per zin een gebaar dat bij de tekst past; niet steeds zwaaien.
 - **YouTube-beschrijving kort** (eigenaar 25 nov): openingsvraag, hoofdstukken, vraag voor de reacties, hashtags. Geen samenvatting, geen bronregel, geen regel over geluidseffecten.
 - **Elke keer een nieuw onderwerp** (eigenaar 25 nov): geen extra Shorts uit een bestaande lange video. Ritme (eigenaar 25 nov): om de dag een lange video met een Short over hetzelfde onderwerp; de dag ertussen een losse Short over een nieuw onderwerp.
+
+- **Opening Shorts** (eigenaar 26 nov, Black Friday): begin met "Imagine ..." + het onderwerp en schets daarna **meerdere
+  scenario's** (week 1, week 2, ...) i.p.v. één lijn; niet elke keer dezelfde opbouw (geen telefoon-begin als vast trucje).
