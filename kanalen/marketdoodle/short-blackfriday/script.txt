@@ -1,17 +1,19 @@
-N|begin|Imagine Black Friday... forever. Every store, ninety percent off. Every single day. It never ends.
-DAD|winkel|A TV for nine dollars? I'll take ten!
-MASCOTTE|winkel|Why stop at ten? Take eleven!
-N|dozen|Week two. You can't see the floor anymore. Just boxes.
-SIS|dozen|I live here now.
-N|tent|Week three. Dad sleeps in a tent outside the store. Every single night.
-DAD|tent|If they restock, at least I'm on time!
-N|hond|Week four. Your dog has forty-seven beds. He still sleeps on the floor.
-N|feit|Fun fact. The name Black Friday came from police in Philadelphia.
-AGENT|feit|Not these crowds again. What a black Friday!
-N|kerst|Christmas. You open your present. It's a TV. You already have eleven.
-YOU|kerst|Wow. Thanks.
-N|leeg|Month six. The stores sold everything for almost nothing. One by one, they close.
+N|winkel|Imagine Black Friday... but it never ends. Everything is ninety percent off. Every single day.
+DAD|winkel|Nine-dollar TVs?! I'll take twenty!
+MASCOTTE|winkel|Twenty?! Coward! Take fifty!
+N|dozen|Week two. Their house is now basically a warehouse.
+SIS|dozen|Good news! I found the bathroom!
+N|tent|Week three. Dad has officially moved into the parking lot.
+DAD|tent|If they restock at six a.m., I'm first!
+N|hond|Your dog now owns forty-seven luxury beds.
+YOU|hond|Why is he sleeping on the floor?
+N|feit|Fun fact: the term Black Friday was made popular by Philadelphia police, to describe the chaos after Thanksgiving.
+AGENT|feit|Not again! I just got here!
+N|kerst|Christmas arrives. Your family gives you another TV.
+YOU|kerst|Wow. I... really needed an eleventh one.
+N|failliet|Six months later, the stores have sold everything at ridiculous prices. One by one, they go bankrupt.
+DAD|failliet|Where's the sale?!
 N|laatst|Then Dad finds the last store on Earth. One phone. Full price: a thousand dollars.
-DAD|laatst|A thousand dollars?! That's a scam!
-N|laatst|The cashier just smiles.
-KASSA|laatst|Don't worry, sir. Tomorrow is Cyber Monday. Forever.
+DAD|laatst|A thousand dollars?! That's daylight robbery!
+KASSA|laatst|Relax, sir. Tomorrow is Cyber Monday.
+N|laatst|And it never ends.
