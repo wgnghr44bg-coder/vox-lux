@@ -409,8 +409,33 @@ ZIE = {"hundred dollars": ["tekst:$100", "biljet"], "hundred bucks": ["biljet", 
        "fortune": ["tekst:$"], "2002": ["tekst:2002"], "pc gaming": ["gamer1", "gamer2"]}
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 GEZ = {}
+from PIL import ImageOps
+def flashback(t):                                           # 26 nov (eigenaar: "zelfde achtergrond in 1999 als in 2026"): bij "back in 1999?" een oud sepia-beeld van de diner
+    tb = t; T0 = kw(I_HOOK, "back", -0.1)
+    img = bg("denny").copy(); WACHT.begin("v-denny", tb); GEZ.clear(); GEB.clear(); SCHERM.clear(); d = ImageDraw.Draw(img)
+    bank_achter(d, 0, 1080)
+    koppen = teken(img, [("jij99", 300, ZY, 2.4, None, True), ("jensen", 780, ZY, 2.3, None, True)], tb, None); d = ImageDraw.Draw(img)
+    tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); krant(img, tb)
+    ps.W, ps.H = W, H
+    for naam, (hx_, top_) in koppen.items():
+        tekst, kl = NAAM[naam]
+        if tekst: ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
+    zm = 1.12 + 0.05 * (tb - T0); bw, bh = W / zm, H / zm; x0 = (W - bw) / 2; y0 = min(H - bh, max(0, 1250 - bh / 2)); CROP[0] = (x0, y0, x0 + bw, y0 + bh)
+    img = img.crop((int(x0), int(y0), int(x0 + bw), int(y0 + bh))).resize((W, H), Image.LANCZOS)
+    img = ImageOps.colorize(img.convert("L"), (45, 30, 15), (255, 238, 200))                      # oude foto
+    d = ImageDraw.Draw(img); d.rectangle((0, 0, W - 1, H - 1), outline=(250, 245, 230), width=26)
+    LABELS.clear()
+    if TEKST_AAN:
+        kop(img, "1999", None, 150, 70, KL["geel"], 1.0)
+        kop(img, "$100 IN 1999", W / 2, 300, 105, KL["geel"], ps.pop((tb - kw(I_HOOK, "1999", -0.1)) / 0.3) if tb >= kw(I_HOOK, "1999", -0.1) else 0)
+        ondertitel(img, t)
+    if tb - T0 < 0.15: img = Image.blend(img, Image.new("RGB", (W, H), (255, 255, 255)), 1 - (tb - T0) / 0.15)   # flits
+    WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
+    TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
+    return img
 def frame(t):
     t_beeld = min(t, Z[-1][1] + 0.6)                                                  # daarna bevroren eindbeeld
+    if kw(I_HOOK, "back", -0.1) <= t_beeld < Z[I_RIJK][0] - 0.15: return flashback(t)
     sc = scene(t_beeld); n = sc["naam"]; nu = nu_i(t_beeld)
     img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t_beeld); GEZ.clear(); GEB.clear(); SCHERM.clear(); d = ImageDraw.Draw(img)
     if n == "woon2": deur(d, t_beeld)
@@ -441,8 +466,7 @@ def frame(t):
             if t_beeld >= T_W: plaatskaart(img, t_beeld, dict(sc, t=T_W))
             else:
                 T_H, T_J = kw(I_HOOK, "hundred", -0.1), kw(I_HOOK, "1999", -0.1)
-                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 235, 105, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
-                elif t_beeld >= T_H: kop(img, "$100", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
+                if t_beeld >= T_H: kop(img, "$100", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
         else: plaatskaart(img, t_beeld, sc)
         if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
         if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 235, 100, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
