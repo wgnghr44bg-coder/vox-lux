@@ -189,7 +189,7 @@ def bank_achter(d, x0, x1):
     d.rounded_rectangle((x0, TAFEL_Y - 520, x1, TAFEL_Y + 20), 30, fill=(205, 60, 60), outline=INK, width=5)
     for k in range(int((x1 - x0) / 90)): d.line((x0 + 45 + k * 90, TAFEL_Y - 490, x0 + 45 + k * 90, TAFEL_Y), fill=(175, 45, 45), width=4)
 def tafel(d, x0, x1, blad=(235, 230, 220), voor=(205, 60, 60), naam="tafel"):   # tafelblad + voorkant (bankje of bureau): bovenlijf erachter
-    WACHT.vlak(naam, [x0, x1, TAFEL_Y - 10, TAFEL_Y + 16])
+    WACHT.vlak(naam, [x0, x1, TAFEL_Y - 10, TAFEL_Y + 16], staat_op="beeldrand", voet=(x0, x1, H + 40))
     d.rectangle((x0, TAFEL_Y, x1, TAFEL_Y + 40), fill=blad, outline=INK, width=5)
     d.rectangle((x0 + 10, TAFEL_Y + 40, x1 - 10, TAFEL_Y + 58), fill=(180, 180, 185), outline=INK, width=3)
     d.rounded_rectangle((x0 - 10, TAFEL_Y + 58, x1 + 10, H + 40), 26, fill=voor, outline=INK, width=5)
@@ -286,7 +286,7 @@ def deur(d, t):                                             # voordeur (woon2026
     if t < T_DEUR: return
     d.rectangle((752, 432, 988, 1100), fill=(70, 60, 55)); d.polygon([(752, 432), (800, 450), (800, 1080), (752, 1100)], fill=(245, 245, 240), outline=INK)
 def salontafel(d):                                         # lage salontafel: verbergt je benen, jij zit erachter op de bank
-    WACHT.vlak("tafel", [120, 940, SALON_Y - 10, SALON_Y + 16])
+    WACHT.vlak("tafel", [120, 940, SALON_Y - 10, SALON_Y + 16], staat_op="vloer", voet=(160, 902, SALON_Y + 150))
     d.rounded_rectangle((120, SALON_Y, 940, SALON_Y + 34), 10, fill=(170, 120, 80), outline=INK, width=5)
     d.rectangle((140, SALON_Y + 34, 920, SALON_Y + 110), fill=(135, 95, 62), outline=INK, width=5)
     for x_ in (160, 880): d.rectangle((x_, SALON_Y + 110, x_ + 22, SALON_Y + 150), fill=(110, 75, 50), outline=INK, width=4)
@@ -317,7 +317,7 @@ def biljet(d, t):                                           # $100-biljet schuif
     d.text((x, y - 4), "$100", font=font(FB, 20), fill=(30, 80, 30), anchor="mm")
 def oudscherm(img, t):                                     # koers op het CRT-scherm van de pc op het bureau (beurs.png: scherm x 256-400, y 662-798)
     d = ImageDraw.Draw(img); x0, y0, x1, y1 = 258, 664, 400, 798
-    WACHT.vlak("bureau-achtergrond", [130, 660, 880, 910]); WACHT.plaats("computer", (200, 620, 600, 895), op="bureau-achtergrond")
+    WACHT.plaats("computer", (200, 620, 600, 895), op="bureau")
     d.rectangle((x0, y0, x1, y1), fill=(10, 25, 60)); plak_logo(img, x0 + 8, y0 + 8, 16, wit=True); d = ImageDraw.Draw(img)
     pts = [(x0 + 10 + k * (x1 - x0 - 20) / 7, y1 - 40 - (6 if k % 2 else 0) - (8 if k > 4 else 0)) for k in range(8)]   # koers kabbelt: bijna niks
     d.line(pts, fill=(120, 255, 140), width=3)
@@ -326,10 +326,14 @@ def kalender(d, t):                                         # scheurkalender aan
     jaar = 2000 + min(5, int(max(0, t - Z[I_JAREN][0]) / 0.5))
     d.rounded_rectangle((x0, y0, x0 + 180, y0 + 200), 10, fill=(255, 255, 255), outline=INK, width=5); d.rectangle((x0, y0, x0 + 180, y0 + 50), fill=(220, 60, 60))
     d.text((x0 + 90, y0 + 125), str(jaar), font=font(FB, 54), fill=INK, anchor="mm")
-def kaartpodium(img, t):                                    # grafische kaart op een podium onder het grote scherm, met het NVIDIA-logo
-    d = ImageDraw.Draw(img); d.ellipse((360, 975, 720, 1015), fill=(118, 185, 0)); d.rectangle((380, 900, 700, 995), fill=(30, 32, 40), outline=INK, width=5)
-    plak_logo(img, 400, 925, 42, wit=True)
-    zet(img, "videokaart", 150, 540, 904, op="podium", naam="videokaart")
+SOK = (402, 678, 1090, 1262)                                 # sokkel op de vloer van de hal (vloer begint op y 1250; 1 m = ± 172 px op die diepte)
+def kaartpodium(img, t):                                    # 26 nov (eigenaar: "waarom zweeft de kaart daar"): showkaart op een sokkel die op de vloer staat
+    x0, x1, y0, y1 = SOK; d = ImageDraw.Draw(img)
+    WACHT.vlak("sokkel", [x0 + 10, x1 - 10, y0 - 8, y0 + 14], staat_op="vloer", voet=(x0, x1, y1))
+    d.ellipse((x0 - 30, y1 - 22, x1 + 30, y1 + 18), fill=(60, 50, 110))                                   # schaduw op de vloer
+    d.rectangle((x0, y0, x1, y1), fill=(30, 32, 40), outline=INK, width=5); d.rectangle((x0 - 14, y0 - 14, x1 + 14, y0 + 6), fill=(118, 185, 0), outline=INK, width=4)
+    plak_logo(img, (x0 + x1) / 2 - logo(44, True).width / 2, y0 + 50, 44, wit=True)
+    zet(img, "videokaart", 190, (x0 + x1) / 2, y0 - 12, op="sokkel", naam="videokaart")
 
 def in_hand(img, naam, figs, t, wat):                          # voorwerp in de rechterhand van een poppetje (26 nov: beeld moet bij de tekst passen)
     f = next((f for f in figs if f[0] == naam), None)
@@ -370,7 +374,7 @@ def ps2(img, t, n):                                            # 26 nov: de Play
 def gloed(img, t):                                              # kaart op het podium licht op als jij ernaar wijst
     if nu_i(t) != I_BABY: return
     d = ImageDraw.Draw(img); r = 120 + 12 * math.sin(t * 8)
-    for k_ in range(6): d.arc((540 - r - k_ * 6, 860 - r * 0.55 - k_ * 4, 540 + r + k_ * 6, 860 + r * 0.55 + k_ * 4), 0, 360, fill=(150, 230, 40), width=3)
+    for k_ in range(6): d.arc((540 - r - k_ * 6, 985 - r * 0.6 - k_ * 4, 540 + r + k_ * 6, 985 + r * 0.6 + k_ * 4), 0, 360, fill=(150, 230, 40), width=3)
 
 # ---------- camera ----------
 SCENE_MID = {"woon": (540, 1080), "diner": (540, 1250), "kamer": (560, 1150), "gaming": (540, 1200), "ai": (540, 1250), "woon2": (560, 1080)}

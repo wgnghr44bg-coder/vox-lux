@@ -37,9 +37,25 @@ class Scenewachter:
         self.bg = bg; self.t = t; self.voor = []; self.extra = {}; self.dit_frame = []   # dit_frame: (naam, kader) voor de tekstwachter
         if bg not in self.A: self._m("FOUT", "achtergrond", f"'{bg}' staat niet in achtergronden.json (eerst opmeten)")
 
-    def vlak(self, naam, band):
-        """Vlak van een zelfgetekend meubel (bv. keukentafel) voor de rest van dit frame: [x0, x1, y_achter, y_voor]."""
+    def vlak(self, naam, band, staat_op=None, voet=None):
+        """Vlak van een zelfgetekend meubel (bv. keukentafel) voor de rest van dit frame: [x0, x1, y_achter, y_voor].
+        26 nov 2026 (eigenaar: "waarom zweeft de kaart daar"): een zelfgetekend meubel moet zeggen waar het OP staat:
+        staat_op = vlaknaam uit achtergronden.json (bv. "vloer") met voet=(x0, x1, y_onderkant poten), of "beeldrand"
+        (loopt onder de rand van het beeld door, voet y >= beeldhoogte). Zonder ondergrond, of poten die niet op dat vlak
+        staan -> FOUT (zweeft). Een niet-bestaand vlak in achtergronden.json zetten om dit te omzeilen mag niet."""
         self.extra[naam] = band
+        if staat_op is None: self._m("FOUT", naam, "zelfgetekend meubel zonder ondergrond (staat_op=...): zweeft het?"); return
+        if voet is None: self._m("FOUT", naam, f"staat op '{staat_op}' maar zonder voet=(x0, x1, y) kan ik dat niet controleren"); return
+        x0, x1, y = voet
+        if staat_op == "beeldrand":
+            if y < 1900: self._m("FOUT", naam, f"zou onder de beeldrand doorlopen maar stopt op y {y:.0f}: zweeft")
+            return
+        A = self.A.get(self.bg)
+        if A is None: return
+        vl = A["vlakken"].get(staat_op)
+        if vl is None: self._m("FOUT", naam, f"ondergrond '{staat_op}' bestaat niet in deze achtergrond"); return
+        if not (vl[2] - self.marge <= y <= vl[3] + self.marge and x1 > vl[0] and x0 < vl[1]):
+            self._m("FOUT", naam, f"poten op y {y:.0f} staan niet op '{staat_op}' (y {vl[2]}-{vl[3]}): zweeft")
 
     def _m(self, soort, naam, tekst):
         k = (soort, naam, self.bg, tekst)
