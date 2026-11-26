@@ -834,7 +834,12 @@
    ]
   },
   "muur": [],
-  "meubels": {}
+  "meubels": {},
+  "maat": {
+   "horizon": 780,
+   "k": 0.905,
+   "_uitleg": "voorste bankje rugleuning 420 px (1,1 m), voet y 1520"
+  }
  },
  "v-kantoor": {
   "vlakken": {
@@ -869,8 +874,20 @@
     1920
    ]
   },
-  "muur": [],
-  "meubels": {}
+  "muur": [
+   [
+    500,
+    300,
+    1080,
+    900
+   ]
+  ],
+  "meubels": {},
+  "maat": {
+   "horizon": 760,
+   "k": 1.71,
+   "_uitleg": "bureau 410 px hoog (0,75 m), poten op y 1320"
+  }
  },
  "v-ai": {
   "vlakken": {
@@ -882,7 +899,12 @@
    ]
   },
   "muur": [],
-  "meubels": {}
+  "meubels": {},
+  "maat": {
+   "horizon": 760,
+   "k": 1.26,
+   "_uitleg": "voorste serverkast 1240 px (2 m), voet y 1620"
+  }
  },
  "v-gaming": {
   "vlakken": {
@@ -904,7 +926,24 @@
   "maat": {
    "horizon": 784,
    "k": 0.63,
-   "_uitleg": "gamers in beeld: 300 px op y 1260, 420 px op y 1450 (ooghoogte-versie, 26 nov)"
+   "_uitleg": "gamers in beeld: 300 px op y 1260, 420 px op y 1450 (ooghoogte-versie)"
+  }
+ },
+ "v-woon2026": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1100,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 740,
+   "k": 1.3,
+   "_uitleg": "deur 668 px op y 1100 (2,1 m) en zitting bank 120 px op y 1170"
   }
  }
 }

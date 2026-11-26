@@ -362,7 +362,6 @@ def frame(t):
     for naam, (hx_, top_) in koppen.items():
         tekst, kl = NAAM[naam]
         if tekst: ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
-    if n == "ai": plak_logo(img, 300, 560, 90, wit=True)                                 # NVIDIA-logo op de servers
     img = camera(img, t)
     if TEKST_AAN:
         plaatskaart(img, t_beeld, sc)
