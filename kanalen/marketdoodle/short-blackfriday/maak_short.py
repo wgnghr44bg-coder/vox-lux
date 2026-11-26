@@ -109,7 +109,7 @@ SC = [dict(t=0, naam="winkel", bg="mall-tv"), dict(t=Zs(I_WEEK2), naam="dozen", 
       dict(t=Zs(I_FAIL), naam="failliet", bg="failliet"), dict(t=Zs(I_LAATST), naam="laatst", bg="winkeltje")]
 def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
 PLAATS = {"winkel": ("BLACK FRIDAY", "WEEK 1"), "dozen": ("YOUR HOUSE", "WEEK 2"), "tent": ("THE PARKING LOT", "WEEK 3"),
-          "hond": ("YOUR HOUSE", "WEEK 4"), "feit": ("PHILADELPHIA", "1960s"), "kerst": ("CHRISTMAS", "WEEK 5"),
+          "hond": ("YOUR HOUSE", "WEEK 4"), "feit": ("PHILADELPHIA", "1960s"), "kerst": ("CHRISTMAS", "DECEMBER 25"),
           "failliet": ("THE MALL", "MONTH 6"), "laatst": ("THE LAST STORE", "ON EARTH")}
 def nu_i(t): return max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25), default=None)
 
@@ -296,9 +296,9 @@ def hond(img, t):                                          # de hond ligt op de 
     zet(img, "hond", 360, 470, 1790, op="vloer", naam="hond")
 def tv_iconen(d, t):                                       # "another TV ... eleventh": 11 tv-icoontjes, de 11e springt erbij
     if t < T_TVK: return
-    n = 10 if t < T_ELFDE else 11; WACHT.plaats("tv-icoon", (60, 220, 1020, 330), op="beeld")
+    n = 10 if t < T_ELFDE else 11; WACHT.plaats("tv-icoon", (60, 1340, 1020, 1440), op="beeld")
     for k_ in range(n):
-        x = 105 + k_ * 87; y = 270; sch = ps.pop((t - T_ELFDE) / 0.3) if k_ == 10 else 1.0
+        x = 105 + k_ * 87; y = 1385; sch = ps.pop((t - T_ELFDE) / 0.3) if k_ == 10 else 1.0
         d.rounded_rectangle((x - 36 * sch, y - 26 * sch, x + 36 * sch, y + 22 * sch), 6, fill=(30, 30, 38), outline=(255, 255, 255) if k_ < 10 else KL["geel"], width=4)
         d.rectangle((x - 6 * sch, y + 22 * sch, x + 6 * sch, y + 32 * sch), fill=(30, 30, 38))
 KADO = (540, 1330)
@@ -471,7 +471,7 @@ def frame(t):
         if n == "feit" and t_b >= T_POLITIE: kop(img, "PHILADELPHIA POLICE", W / 2, 400, 64, (255, 255, 255), ps.pop((t_b - T_POLITIE) / 0.3))
         if n == "kerst": tv_iconen(d, t_b)
         if n == "failliet" and t_b >= T_BANK: kop(img, "CLOSED", W / 2, 400, 130, (255, 90, 80), ps.pop((t_b - T_BANK) / 0.3))
-        if n == "laatst" and T_1000 <= t_b < T_CYBER: kop(img, "$1,000", W / 2, 400, 150, (235, 45, 45), ps.pop((t_b - T_1000) / 0.35))
+        if n == "laatst" and T_1000 <= t_b < T_CYBER: kop(img, "$1,000", W / 2, 1240, 140, (235, 45, 45), ps.pop((t_b - T_1000) / 0.35))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
