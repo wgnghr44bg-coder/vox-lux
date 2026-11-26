@@ -446,7 +446,7 @@ def frame(t):
         else: plaatskaart(img, t_beeld, sc)
         if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
         if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 235, 100, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
-        if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
+        if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 235, 130, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
@@ -485,7 +485,7 @@ if __name__ == "__main__":
     if "--tekst" in sys.argv:                               # snelle tekstcontrole zonder video (6 beelden per seconde)
         for i in range(int(EIND * 6)): frame(i / 6)
         print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
-        print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); sys.exit()
+        print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); print("LAYOUT:", sorted(LAYOUT) or "alles past"); sys.exit()
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.8 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
         pl = Image.new("RGB", (270 * 11, 480 * 2)); [pl.paste(im, (270 * (i % 11), 480 * (i // 11))) for i, im in enumerate(ims)]
