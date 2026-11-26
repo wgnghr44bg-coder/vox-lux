@@ -411,7 +411,14 @@ def frame(t):
         if tekst: ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
     img = camera(img, t)
     if TEKST_AAN:
-        plaatskaart(img, t_beeld, sc)
+        if n == "woon":                                     # 26 nov (eigenaar): tijdens "What if ... in 1999?" geen '2026' in beeld; label pas bij "Wait..."
+            T_W = Z[I_RIJK][0] - 0.1
+            if t_beeld >= T_W: plaatskaart(img, t_beeld, dict(sc, t=T_W))
+            else:
+                T_H, T_J = kw(I_HOOK, "hundred", -0.1), kw(I_HOOK, "1999", -0.1)
+                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 370, 120, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
+                elif t_beeld >= T_H: kop(img, "$100", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
+        else: plaatskaart(img, t_beeld, sc)
         if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][0]: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
         if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 370, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
         if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
