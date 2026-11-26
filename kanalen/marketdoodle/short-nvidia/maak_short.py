@@ -326,14 +326,21 @@ def kalender(d, t):                                         # scheurkalender aan
     jaar = 2000 + min(5, int(max(0, t - Z[I_JAREN][0]) / 0.5))
     d.rounded_rectangle((x0, y0, x0 + 180, y0 + 200), 10, fill=(255, 255, 255), outline=INK, width=5); d.rectangle((x0, y0, x0 + 180, y0 + 50), fill=(220, 60, 60))
     d.text((x0 + 90, y0 + 125), str(jaar), font=font(FB, 54), fill=INK, anchor="mm")
-SOK = (402, 678, 1090, 1262)                                 # sokkel op de vloer van de hal (vloer begint op y 1250; 1 m = ± 172 px op die diepte)
-def kaartpodium(img, t):                                    # 26 nov (eigenaar: "waarom zweeft de kaart daar"): showkaart op een sokkel die op de vloer staat
-    x0, x1, y0, y1 = SOK; d = ImageDraw.Draw(img)
-    WACHT.vlak("sokkel", [x0 + 10, x1 - 10, y0 - 8, y0 + 14], staat_op="vloer", voet=(x0, x1, y1))
-    d.ellipse((x0 - 30, y1 - 22, x1 + 30, y1 + 18), fill=(60, 50, 110))                                   # schaduw op de vloer
-    d.rectangle((x0, y0, x1, y1), fill=(30, 32, 40), outline=INK, width=5); d.rectangle((x0 - 14, y0 - 14, x1 + 14, y0 + 6), fill=(118, 185, 0), outline=INK, width=4)
-    plak_logo(img, (x0 + x1) / 2 - logo(40, True).width / 2, y0 + 18, 40, wit=True)
-    zet(img, "videokaart", 190, (x0 + x1) / 2, y0 - 12, op="sokkel", naam="videokaart")
+SCHERM_HAL = (206, 428, 842, 800)                           # binnenkant van het grote scherm in gaming.png (opgemeten met raster)
+def kaartpodium(img, t):                                    # 26 nov (eigenaar: "zet de kaart op het tv-scherm of de beamer"): presentatie op het grote scherm
+    T0 = kw(I_GAME, "NVIDIA", -0.1)
+    if t < T0: return
+    x0, y0, x1, y1 = SCHERM_HAL; w, h = x1 - x0, y1 - y0
+    pres = Image.new("RGB", (w, h), (14, 16, 20)); d = ImageDraw.Draw(pres)
+    for k_ in range(0, h, 6): d.line((0, k_, w, k_), fill=(14 + k_ // 30, 18 + k_ // 12, 20 + k_ // 30))                  # donker met groene gloed onderaan
+    for k_ in range(3): d.line((0, h - 40 - k_ * 14, w, h - 70 - k_ * 14), fill=(118, 185, 0), width=3)
+    kaart = sprite("videokaart", int(h * 0.62)); dans = math.sin(t * 2.2) * 4
+    pres.paste(kaart, (int(w / 2 - kaart.width / 2), int(h * 0.30 + dans)), kaart)
+    lg = logo(52, True); pres.paste(lg, (int(w / 2 - lg.width / 2), 24), lg)
+    a = min(1.0, (t - T0) / 0.35)                                                                                          # overvloeien van game naar presentatie
+    onder = img.crop((x0, y0, x1, y1)); img.paste(Image.blend(onder, pres, a), (x0, y0))
+    WACHT.plaats("videokaart", (x0 + w / 2 - kaart.width / 2, y0 + h * 0.30, x0 + w / 2 + kaart.width / 2, y0 + h * 0.30 + kaart.height), op="beeld")
+    WACHT.plaats("logo", (x0 + w / 2 - lg.width / 2, y0 + 24, x0 + w / 2 + lg.width / 2, y0 + 76), op="beeld")
 
 def in_hand(img, naam, figs, t, wat):                          # voorwerp in de rechterhand van een poppetje (26 nov: beeld moet bij de tekst passen)
     f = next((f for f in figs if f[0] == naam), None)
@@ -374,7 +381,7 @@ def ps2(img, t, n):                                            # 26 nov: de Play
 def gloed(img, t):                                              # kaart op het podium licht op als jij ernaar wijst
     if nu_i(t) != I_BABY: return
     d = ImageDraw.Draw(img); r = 120 + 12 * math.sin(t * 8)
-    for k_ in range(6): d.arc((540 - r - k_ * 6, 985 - r * 0.6 - k_ * 4, 540 + r + k_ * 6, 985 + r * 0.6 + k_ * 4), 0, 360, fill=(150, 230, 40), width=3)
+    for k_ in range(5): d.rectangle((206 - 6 - k_ * 5 - r / 30, 428 - 6 - k_ * 5 - r / 30, 842 + 6 + k_ * 5 + r / 30, 800 + 6 + k_ * 5 + r / 30), outline=(150, 230, 40), width=3)   # scherm licht op
 
 # ---------- camera ----------
 SCENE_MID = {"woon": (540, 1080), "diner": (540, 1250), "kamer": (560, 1150), "gaming": (540, 1200), "ai": (540, 1250), "woon2": (560, 1080)}
