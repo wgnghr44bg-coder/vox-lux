@@ -823,5 +823,65 @@
     1920
    ]
   }
+ },
+ "v-denny": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1100,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {}
+ },
+ "v-kantoor": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1350,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {}
+ },
+ "v-sega": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1580,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {}
+ },
+ "v-beurs": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1350,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {}
+ },
+ "v-ai": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1400,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {}
  }
 }

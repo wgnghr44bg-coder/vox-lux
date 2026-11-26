@@ -74,7 +74,8 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
         d.polygon([P(x - 30 * s, top + 2 * s), P(x - 8 * s, top + 4 * s), P(x - 14 * s, top + 34 * s)], fill=(240, 240, 240), outline=LIJN, width=int(2 * s * SS))
         d.polygon([P(x + 30 * s, top + 2 * s), P(x + 8 * s, top + 4 * s), P(x + 14 * s, top + 34 * s)], fill=(240, 240, 240), outline=LIJN, width=int(2 * s * SS))
     links, rechts = -16 - zw * 0.8, 16 + zw * 0.8                     # armhoeken (0 = omlaag)
-    if gebaar == "zwaai": rechts = 150 + 22 * math.sin(t * 11)
+    if isinstance(gebaar, tuple): links, rechts = gebaar[1], gebaar[2]            # 26 nov: vrije armhoeken ("hoek", links, rechts) voor echte handelingen
+    elif gebaar == "zwaai": rechts = 150 + 22 * math.sin(t * 11)
     elif gebaar == "wijs": rechts = 100
     elif gebaar == "vast": rechts = 70                                    # 23 nov: iets vasthouden voor je (knop, toets, koekje)
     elif gebaar == "telefoon": rechts = -32                               # 24 nov: telefoon voor de eigen borst (niet bij de buurman)
