@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 04:33",
+ "bijgewerkt": "2026-11-26 05:03",
  "kanalen": {
   "weken": [
    {
@@ -115,7 +115,7 @@
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-26",
-        "tijd": "15:00",
+        "tijd": "17:00",
         "titel": "Black Friday Starts a $1 Trillion Season. Here's the Catch",
         "stand": "gepland",
         "youtube": "c4xgBH1o4AE"
@@ -123,7 +123,7 @@
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-26",
-        "tijd": "17:00",
+        "tijd": "19:00",
         "titel": "Short: Black Friday Season Hits $1 Trillion. Half the Growth Is Just Prices",
         "stand": "gepland",
         "youtube": "8de6ZH3YYp4"
@@ -156,14 +156,6 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-28",
         "tijd": "15:00",
-        "titel": "Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
-        "stand": "gepland",
-        "youtube": "_dJmQs0VNt0"
-       },
-       {
-        "kanaal": "BlackswanVault",
-        "datum": "2026-11-28",
-        "tijd": "15:00",
         "titel": "Hype-onderwerp (video10), zie OVERDRACHT",
         "stand": "vervalt: minder vaak uploaden (eigenaar 23 nov), alleen bij echte hype"
        },
@@ -171,9 +163,9 @@
         "kanaal": "BlackswanVault",
         "datum": "2026-11-28",
         "tijd": "17:00",
-        "titel": "Short: Bitcoin Fell Below $60,000. Here's Who Is Selling",
+        "titel": "Bitcoin Just Lost Half Its Value. Here's Who Is Selling",
         "stand": "gepland",
-        "youtube": "gtqCj_lhfm4"
+        "youtube": "_dJmQs0VNt0"
        },
        {
         "kanaal": "Market Doodle",
@@ -181,6 +173,14 @@
         "tijd": "17:00",
         "titel": "Lange What If-video (nieuw onderwerp)",
         "stand": "onderwerp kiezen"
+       },
+       {
+        "kanaal": "BlackswanVault",
+        "datum": "2026-11-28",
+        "tijd": "19:00",
+        "titel": "Short: Bitcoin Fell Below $60,000. Here's Who Is Selling",
+        "stand": "gepland",
+        "youtube": "gtqCj_lhfm4"
        },
        {
         "kanaal": "Market Doodle",
@@ -232,7 +232,7 @@
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-30",
-        "tijd": "15:00",
+        "tijd": "17:00",
         "titel": "Is AI Actually Working? Harvard Looked Inside 655 Companies",
         "stand": "gepland",
         "youtube": "T8SutKp3Ao8"
@@ -240,7 +240,7 @@
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-30",
-        "tijd": "17:00",
+        "tijd": "19:00",
         "titel": "Short: Big Tech Is Spending $700 Billion on AI. For What?",
         "stand": "gepland",
         "youtube": "_Te7gcc9RAs"
@@ -299,148 +299,112 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-25 15:45",
+  "bijgewerkt": "2026-11-26 04:43",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -3.1,
-    "groot": true,
+    "pct": -0.3,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -4.5,
-    "groot": true,
+    "pct": -0.6,
+    "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -2.1,
+    "pct": 0.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -8.9,
-    "groot": true,
+    "pct": -3.9,
+    "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.7,
+    "pct": 0.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": -3.7,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": -5.8,
+    "pct": -2.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -5.7,
+    "pct": -3.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -3.7,
+    "pct": 3.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -6.8,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": -7.6,
+    "pct": -0.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": -0.3,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -2.1,
+    "pct": -0.1,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": 0.0,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -4.2,
+    "pct": 1.5,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.9,
+    "pct": 0.8,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -1.9,
+    "pct": 2.0,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
-   {
-    "onderwerp": "Nvidia",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "-8.9% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nasdaq",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "-4.5% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
-   {
-    "onderwerp": "S&P 500",
-    "punten": 10,
-    "bronnen": [
-     "koers"
-    ],
-    "wat": [
-     "-3.1% op één dag"
-    ],
-    "koppen": [],
-    "groot": true
-   },
    {
     "onderwerp": "Nvidia",
     "punten": 6,
@@ -459,45 +423,14 @@
       "link": "https://www.cnbc.com/2026/11/24/jensen-huang-nvidia-employee-meeting.html"
      },
      {
-      "titel": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
+      "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
       "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Inflatie",
-    "punten": 5,
-    "bronnen": [
-     "NYT"
-    ],
-    "wat": [
-     "crash"
-    ],
-    "koppen": [
+      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
+     },
      {
-      "titel": "Stock Sell-Off Set to Continue as Investors Fret About A.I., Tariffs and Inflation",
+      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
       "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Tarieven",
-    "punten": 5,
-    "bronnen": [
-     "NYT"
-    ],
-    "wat": [
-     "crash"
-    ],
-    "koppen": [
-     {
-      "titel": "Stock Sell-Off Set to Continue as Investors Fret About A.I., Tariffs and Inflation",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html"
+      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
      }
     ],
     "groot": false
@@ -519,14 +452,64 @@
      }
     ],
     "groot": false
+   },
+   {
+    "onderwerp": "Olie",
+    "punten": 4,
+    "bronnen": [
+     "CNBC"
+    ],
+    "wat": [
+     "overname/deal"
+    ],
+    "koppen": [
+     {
+      "titel": "Investors led by U.S. billionaire Todd Boehly to buy Lukoil's oil and gas assets outside Russia, sources say",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/25/investors-led-by-todd-boehly-to-buy-lukoil-oil-and-gas-assets-outside-russia.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Anthropic",
+    "punten": 3,
+    "bronnen": [
+     "CNBC"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Anthropic's stock has been a clunker post-IPO. Why that matters for the AI trade",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/investingclub/2026/11/25/anthropics-stock-has-been-a-clunker-post-ipo-why-that-matters-for-the-ai-trade.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "OpenAI",
+    "punten": 3,
+    "bronnen": [
+     "CNBC"
+    ],
+    "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Prediction markets push OpenAI IPO expectations later into 2027",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/2026/11/25/openai-ipo-odds-2027-prediction-markets.html"
+     }
+    ],
+    "groot": false
    }
   ],
-  "groot": [
-   "Nvidia",
-   "Nasdaq",
-   "S&P 500"
-  ],
-  "aantal_koppen": 101
+  "groot": [],
+  "aantal_koppen": 107
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-25 15:55",
@@ -2328,7 +2311,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 04:33)"
+   "tekst": "draait nu (2026-11-26 05:03)"
   },
   {
    "naam": "Git",
@@ -2348,7 +2331,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 04:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 04:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2365,8 +2348,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 04:33",
-   "volgende": "2026-11-26 05:03"
+   "laatst": "2026-11-26 05:03",
+   "volgende": "2026-11-26 05:33"
   },
   "hype": {
    "aan": true,
@@ -2380,8 +2363,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 04:18",
-   "volgende": "2026-11-26 04:48"
+   "laatst": "2026-11-26 04:48",
+   "volgende": "2026-11-26 05:18"
   },
   "titels": {
    "aan": true,
@@ -2492,7 +2475,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1163,
+    "views": 1171,
     "verwerkt": "processed"
    }
   ],
@@ -2739,7 +2722,7 @@
  ],
  "videokaart": {
   "bezig_procent": 26,
-  "geheugen_mb": 616,
+  "geheugen_mb": 643,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2826,30 +2809,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 08:00",
-   "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-24): +4.7% op één dag -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-24 08:00",
-   "tekst": "nieuwswacht: GROOT Nvidia (2026-11-24): Nvidia surge: What investors should do with the stock and the AI trade now -> BlackswanVault-video? (eigenaar beslist)",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-24 08:30",
-   "tekst": "hype-wachter: SEINTJE Occult History for 9 Nonstop Hours | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-24 08:30",
-   "tekst": "hype-wachter: SEINTJE Drift Away in a Magical City | A Dreamy Night in the City of Lights | Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 08:30",
    "tekst": "hype-wachter: SEINTJE Fall Asleep in 10 Minutes | A Sleepy Scottish Coffeehouse in 1743 | The SLEEPIEST Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
    "fout": false,
@@ -2908,12 +2867,36 @@
    "tekst": "nieuwswacht: GROOT S&P 500 (2026-11-25): -3.1% op één dag -> BlackswanVault-video? (eigenaar beslist)",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-26 04:43",
+   "tekst": "ntfy-seintje verstuurd: Grote hype: BlackswanVault - Short",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-26 04:48",
+   "tekst": "BlackswanVault: Anthropic-video (5C2MIFhR314) nieuwe thumbnail met Dario Amodei (CTR was 1,8% met logo), eigenaar akkoord 26 nov",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-26 04:49",
+   "tekst": "eigenaar: Pearl Harbor-montage gepauzeerd (pc overdag vrij); gaat om 00:00 vanzelf verder.",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-26 04:55",
+   "tekst": "BlackswanVault: Jensen-video (j_fHa-ZcDxI) thumbnail in kanaalstijl ($1 TRILLION / HE'S BACK., huang-f), eigenaar akkoord 26 nov; oude eigen thumbnail blijft als video10/thumbnail-definitief.jpg",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 04:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 05:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5043,22 +5026,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 04:34",
+  "bijgewerkt": "2026-11-26 05:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 0,
-    "week": 58932112,
+    "5uur": 3806912,
+    "week": 62739023,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
+     "Thu 26-11": 3806912,
      "Thu 19-11": 371807,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 36665,
+    "stap_kost": 35302,
     "naam": "hoofd",
     "week_reset": ""
    },
