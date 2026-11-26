@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 07:33",
+ "bijgewerkt": "2026-11-26 08:03",
  "kanalen": {
   "weken": [
    {
@@ -299,7 +299,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-26 04:43",
+  "bijgewerkt": "2026-11-26 08:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -387,54 +387,24 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 1.5,
+    "pct": 1.2,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.8,
+    "pct": 0.4,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 2.0,
+    "pct": 1.7,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
-   {
-    "onderwerp": "Nvidia",
-    "punten": 6,
-    "bronnen": [
-     "CNBC",
-     "NYT"
-    ],
-    "wat": [
-     "CEO/top weg",
-     "record"
-    ],
-    "koppen": [
-     {
-      "titel": "Jensen Huang tells staff that Nvidia doesn't need a succession plan",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/24/jensen-huang-nvidia-employee-meeting.html"
-     },
-     {
-      "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
-     },
-     {
-      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
-     }
-    ],
-    "groot": false
-   },
    {
     "onderwerp": "Boeing",
     "punten": 4,
@@ -449,24 +419,6 @@
       "titel": "China’s Xiamen Airlines to buy 50 Boeing jets in $7.4 billion deal",
       "bron": "CNBC",
       "link": "https://www.cnbc.com/2026/11/25/china-xiamen-boeing-deal.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Olie",
-    "punten": 4,
-    "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "overname/deal"
-    ],
-    "koppen": [
-     {
-      "titel": "Investors led by U.S. billionaire Todd Boehly to buy Lukoil's oil and gas assets outside Russia, sources say",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/25/investors-led-by-todd-boehly-to-buy-lukoil-oil-and-gas-assets-outside-russia.html"
      }
     ],
     "groot": false
@@ -490,19 +442,24 @@
     "groot": false
    },
    {
-    "onderwerp": "OpenAI",
+    "onderwerp": "Nvidia",
     "punten": 3,
     "bronnen": [
-     "CNBC"
+     "NYT"
     ],
     "wat": [
-     "beursgang"
+     "record"
     ],
     "koppen": [
      {
-      "titel": "Prediction markets push OpenAI IPO expectations later into 2027",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/25/openai-ipo-odds-2027-prediction-markets.html"
+      "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
+     },
+     {
+      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
      }
     ],
     "groot": false
@@ -2311,7 +2268,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 07:33)"
+   "tekst": "draait nu (2026-11-26 08:03)"
   },
   {
    "naam": "Git",
@@ -2331,7 +2288,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2348,8 +2305,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 07:33",
-   "volgende": "2026-11-26 08:03"
+   "laatst": "2026-11-26 08:03",
+   "volgende": "2026-11-26 08:33"
   },
   "hype": {
    "aan": true,
@@ -2363,8 +2320,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 07:18",
-   "volgende": "2026-11-26 07:48"
+   "laatst": "2026-11-26 07:48",
+   "volgende": "2026-11-26 08:18"
   },
   "titels": {
    "aan": true,
@@ -2475,7 +2432,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1171,
+    "views": 1190,
     "verwerkt": "processed"
    }
   ],
@@ -2895,8 +2852,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 08:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5026,7 +4983,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 07:33",
+  "bijgewerkt": "2026-11-26 08:03",
   "accounts": [
    {
     "account": "hoofd",
