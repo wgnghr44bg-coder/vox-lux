@@ -1,8 +1,7 @@
 N|winkel|Imagine Black Friday... but it never ends. Everything is ninety percent off. Every single day.
 DAD|winkel|Nine-dollar TVs?! I'll take twenty!
-MASCOTTE|winkel|Twenty?! Coward! Take fifty!
 N|dozen|Week two. Their house is now basically a warehouse.
-SIS|dozen|Good news! I found the bathroom!
+SIS|dozen|Dad! Can you move these stupid boxes? I can't get to the toilet!
 N|tent|Week three. Dad has officially moved into the parking lot.
 DAD|tent|If they restock at six a.m., I'm first!
 N|hond|Your dog now owns forty-seven luxury beds.
