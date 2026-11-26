@@ -1,6 +1,6 @@
 """Stemtempo (eigenaar 25 nov 2026: 161 woorden/min "stuk langzamer", 200 "wat te snel" -> "dit is goed": 180 voor Short en lange video).
 Zet de stem (stem.wav + zinnen.json + woorden.json) per regel op het doeltempo van de VERTELLER, zonder opnieuw in te spreken
-(ffmpeg atempo). Regels van 8+ woorden niet boven 211 wpm (tempowachter); niets wordt trager; lange stiltes (>= 1,5 s, zoals
+(ffmpeg atempo), ELKE REGEL APART naar het doel (26 nov: één vaste factor maakte het begin 154 en de rest 195-220 wpm); niets wordt trager; lange stiltes (>= 1,5 s, zoals
 STILTE|x) blijven gelijk. Origineel blijft bewaard als *.voor-sneller (opnieuw draaien gaat altijd vanaf het origineel).
   <omnivoice-venv>/python tools/stemtempo.py <map> [doel=180]     -> daarna tools/tempowachter.py <map>
 """
@@ -29,7 +29,7 @@ for i, z in enumerate(Z):
     ng = gat if gat >= 1.5 else gat / F
     if ng > 0: uit.append(np.zeros((int(round(ng * sr)),) + A.shape[1:], np.float32)); t += ng
     n = len(z[2].split()); d = z[1] - z[0]; wpm = n / d * 60
-    f = F if n < 8 else max(1.0, min(F, 211 / wpm))
+    f = max(1.0, min(F * 1.15, DOEL / wpm))  # elke zin apart naar het doel (eigenaar 26 nov: begin rustig, rest te snel); nooit trager
     seg = rek(A[int(z[0] * sr):int(z[1] * sr)], f); nd = len(seg) / sr
     s = nd / d  # tijdschaal binnen de regel
     nZ.append([round(t, 3), round(t + nd, 3)] + z[2:])
