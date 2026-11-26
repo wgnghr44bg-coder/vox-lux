@@ -192,3 +192,4 @@ Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per
 
 - **Opening Shorts** (eigenaar 26 nov, Black Friday): begin met "Imagine ..." + het onderwerp en schets daarna **meerdere
   scenario's** (week 1, week 2, ...) i.p.v. één lijn; niet elke keer dezelfde opbouw (geen telefoon-begin als vast trucje).
+- **Meer eigen stemmen** (eigenaar 26 nov): niet alleen papa, mama, zoon en dochter laten praten; ook bijfiguren (kassière, agent, buurman, ...) krijgen een eigen stem (OmniVoice voice design in `stem.py`, `ONTWERP`) en praten zelf, ook tegen elkaar, i.p.v. dat de verteller hun zin zegt.

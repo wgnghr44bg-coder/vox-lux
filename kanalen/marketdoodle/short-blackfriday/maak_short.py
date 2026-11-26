@@ -16,6 +16,8 @@ W, H, FPS, SS = 1080, 1920, 30, ps.SS
 FB, FS, KL, font = ps.FB, ps.FS, ps.KL, ps.font
 INK = (40, 35, 40)
 ps.C["agent"] = dict(broek=(30, 35, 60), shirt=(40, 50, 95), haar=(70, 50, 40), kapsel="kort", pet=(30, 35, 70), groot=1.12)      # politie, jaren 60
+sys.path.insert(0, str(HIER.parent / "personage")); import piraat as PIR   # mascotte Captain Discount (eigen piraat, geen Jack Sparrow)
+ps.C["piraat"] = PIR.PIRAAT
 ps.C["kassa"] = dict(broek=(50, 55, 70), shirt=(200, 40, 50), haar=(60, 40, 30), kapsel="paard", groot=1.0)                   # kassamedewerker
 Z = json.load(open(HIER / "zinnen.json", encoding="utf-8"))
 WO = []
@@ -52,7 +54,8 @@ def kw(zin, woord, na=0.0):
     for i, w, t0, t1 in SW:
         if i == zin and _norm(w).startswith(_norm(woord)): return t0 + na
     print("LET OP: niet gevonden", zin, woord); return Z[zin][0] + na
-LIJF = {"YOU": "you", "DAD": "dad", "MOM": "mom", "SIS": "sis"}
+LIJF = {"YOU": "you", "DAD": "dad", "MOM": "mom", "SIS": "sis", "KASSA": "kassa", "AGENT": "agent", "PIRAAT": "piraat"}
+I_MASC = next(i for i, z in enumerate(Z) if z[4] == "MASCOTTE")                     # winkelmascotte (pak met vaste kop) praat zelf   # 26 nov: ook kassière en agent praten zelf
 def luid(t, lijf):
     if not any(Z[i][0] <= t <= Z[i][1] and LIJF.get(Z[i][4]) == lijf for i in range(len(Z))): return 0.0
     s = AUD[int(t * SR): int((t + 1 / FPS) * SR)]
@@ -92,14 +95,14 @@ def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
 # week 3 papa in een tent, week 4 de hond met 47 manden, einde = wending (Cyber Monday. Forever.) i.p.v. flauwvallen.
 I_SALE, I_DADL, I_DOZ, I_SISL = zi("Imagine"), zi("A TV for"), zi("Week two"), zi("I live")
 I_TENT, I_HOND, I_FEIT = zi("Week three"), zi("Week four"), zi("Fun fact")
-I_KERST, I_D7, I_LAATST, I_LAST, I_KASSA = zi("Christmas"), zi("Month six"), zi("Then Dad"), zi("Thirty dollars"), zi("The cashier")
+I_KERST, I_D7, I_LAATST, I_LAST, I_KASSA = zi("Christmas"), zi("Month six"), zi("Then Dad"), zi("A thousand dollars"), zi("Don't worry")
 T_FOREVER = kw(I_SALE, "forever", -0.1); T_90 = kw(I_SALE, "ninety", -0.1); T_NOOIT = kw(I_SALE, "never", -0.1)
 T_9 = kw(I_DADL, "nine", -0.1); T_TIEN = kw(I_DADL, "ten", -0.1)
 T_SISUP = Z[I_SISL][0] - 0.4
 T_TENT = kw(I_TENT, "tent", -0.1); T_BED = kw(I_HOND, "forty", -0.1); T_POLITIE = kw(I_FEIT, "police", -0.1)
 T_OPEN = kw(I_KERST, "open", -0.1); T_TVK = kw(I_KERST, "tv", -0.1); T_ELF = kw(I_KERST, "eleven", -0.1)
 T_LEEG = kw(I_D7, "stores", -0.1); T_DICHT = kw(I_D7, "close", -0.1)
-T_DADIN = Z[I_LAATST][0]; T_PRIJS = kw(I_LAATST, "full", -0.1); T_30 = kw(I_LAATST, "thirty", -0.1)
+T_DADIN = Z[I_LAATST][0]; T_PRIJS = kw(I_LAATST, "full", -0.1); T_30 = kw(I_LAATST, "thousand", -0.1)          # v6 (eigenaar 26 nov): telefoon i.p.v. broodrooster, $1,000
 T_CYBER = kw(I_KASSA, "cyber", -0.1); T_FOREVER2 = kw(I_KASSA, "forever", -0.1)
 TENT_VOET = 1395                                            # voet van de tent op de stoep (buiten-nacht.png)
 def Zs(i): return Z[i][0] - 0.1
@@ -109,10 +112,10 @@ SC = [dict(t=0, naam="begin", bg="woonkamer"), dict(t=Zs(I_DADL), naam="winkel",
 KOP = {"winkel": "WEEK 1", "dozen": "WEEK 2", "tent": "WEEK 3", "hond": "WEEK 4", "feit": "FUN FACT", "kerst": "CHRISTMAS", "leeg": "MONTH 6"}
 
 # ---------- gezicht en gebaar passen bij de zin ----------
-SCHRIK = ("can't see", "It's a TV", "Full price", "Thirty dollars", "Cyber Monday")
-BLIJ = ("Imagine", "A TV for", "I live here", "The deals", "You open", "Then Dad finds", "The cashier")
-VERDRIET = ("He still", "They hated", "already have", "Wow", "The stores sold")
-ACTIE = {"A TV for": "juich", "The deals": "juich", "Thirty dollars": "schrik"}
+SCHRIK = ("can't see", "It's a TV", "Full price", "A thousand dollars", "Cyber Monday")
+BLIJ = ("Why stop", "Imagine", "A TV for", "I live here", "If they", "You open", "Then Dad finds", "Don't worry")
+VERDRIET = ("He still", "Not these crowds", "already have", "Wow", "The stores sold")
+ACTIE = {"A TV for": "juich", "If they": "juich", "A thousand dollars": "schrik"}
 def _start(i, frase):
     w0 = _norm(frase.split()[0])
     for j, w, t0, t1 in SW:
@@ -232,16 +235,30 @@ def cadeau(img, t):                                      # ingepakt cadeau; bij 
         zet(img, "tv", 170, x, v, op="vloer", naam="tv")
         for k, (dx, dy, a) in enumerate(((-170, -10, 20), (150, -25, -30), (-120, 30, -10), (175, 25, 15))):   # stukken papier op de vloer
             px, py = x + dx, v + dy; d.polygon([(px - 30, py), (px + 25, py - 18), (px + 32, py + 12), (px - 20, py + 22)], fill=(215, 45, 55), outline=INK)
+TB = (20, 1440, 360, 1660)                               # toonbank (x0, boven, x1, voet) vooraan links; kassière staat erachter
+def toonbank(img):                                       # eigenaar 26 nov: "ik zie helemaal geen kassière": toonbank met kassa
+    d = ImageDraw.Draw(img); x0, y0, x1, v = TB
+    WACHT.plaats("toonbank", (x0, y0, x1, v), op="vloer")
+    d.rectangle((x0, y0 + 26, x1, v), fill=(150, 105, 70), outline=INK, width=5)                 # kast
+    d.rectangle((x0 - 10, y0, x1 + 10, y0 + 30), fill=(205, 175, 130), outline=INK, width=5)     # blad
+    for k in range(3): d.line((x0 + 20, y0 + 80 + k * 50, x1 - 20, y0 + 80 + k * 50), fill=(125, 85, 55), width=4)
+    kx, kv = 230, y0                                     # kassa op het blad
+    WACHT.vlak("toonbankblad", [x0, x1, y0 - 6, y0 + 16]); WACHT.plaats("kassa-apparaat", (kx - 85, kv - 150, kx + 85, kv), op="toonbankblad")
+    d.polygon([(kx - 85, kv), (kx + 85, kv), (kx + 70, kv - 70), (kx - 70, kv - 70)], fill=(70, 75, 90), outline=INK)      # onderkant met toetsen
+    for a in range(3):
+        for b in range(4): d.rectangle((kx - 55 + b * 28, kv - 58 + a * 18, kx - 37 + b * 28, kv - 46 + a * 18), fill=(220, 220, 228))
+    d.rectangle((kx - 40, kv - 150, kx + 40, kv - 72), fill=(45, 50, 60), outline=INK, width=4)                          # schermpje
+    d.rectangle((kx - 30, kv - 140, kx + 30, kv - 95), fill=(120, 230, 140))
 PLANK_Y = 1058                                           # plank in de lege winkel (gemeten op leeg.png, 1080x1920)
-def laatste_rooster(img, t):                             # één broodrooster op de plank, prijskaartje $30 bij "Full price"
+def laatste_rooster(img, t):                             # één telefoon op de plank, prijskaartje $1,000 bij "Full price"
     WACHT.vlak("plank", [190, 880, PLANK_Y - 10, PLANK_Y + 16])
-    zet(img, "broodrooster", 120, 540, PLANK_Y, op="plank", naam="broodrooster")
+    zet(img, "telefoon", 175, 470, PLANK_Y, op="plank", naam="telefoon")
     if t >= T_PRIJS:
-        d = ImageDraw.Draw(img); sch = ps.pop((t - T_PRIJS) / 0.3); bx = 660                 # prijsbordje staat op de plank naast de rooster
-        WACHT.plaats("prijskaartje", (bx - 58, PLANK_Y - 74, bx + 58, PLANK_Y), op="plank")
+        d = ImageDraw.Draw(img); sch = ps.pop((t - T_PRIJS) / 0.3); bx = 650                 # prijsbordje staat op de plank naast de telefoon
+        WACHT.plaats("prijskaartje", (bx - 90, PLANK_Y - 74, bx + 90, PLANK_Y), op="plank")
         d.rectangle((bx - 4, PLANK_Y - 14, bx + 4, PLANK_Y), fill=INK)
-        d.rounded_rectangle((bx - 58 * sch, PLANK_Y - 14 - 60 * sch, bx + 58 * sch, PLANK_Y - 14), 10, fill=(255, 255, 255), outline=INK, width=4)
-        if sch > 0.3: d.text((bx, PLANK_Y - 14 - 30 * sch), "$30", font=font(FB, int(44 * sch)), fill=(220, 40, 40), anchor="mm")
+        d.rounded_rectangle((bx - 90 * sch, PLANK_Y - 14 - 60 * sch, bx + 90 * sch, PLANK_Y - 14), 10, fill=(255, 255, 255), outline=INK, width=4)
+        if sch > 0.3: d.text((bx, PLANK_Y - 14 - 30 * sch), "$1,000", font=font(FB, int(40 * sch)), fill=(220, 40, 40), anchor="mm")
 def tvs(img, t):
     onder = {}                                           # elke tv staat op de vloer of bovenop de tv eronder (eigen vlak per tv)
     for k, (x, laag) in enumerate(TV_RIJ):
@@ -256,6 +273,10 @@ def stoelen(img, t):                                     # 1 gamestoel bij "gami
     if t < T_STOEL: return
     n = 1 if t < T_NEGEN else min(10, 2 + int((t - T_NEGEN) / 0.12))
     for x, v in sorted(STOELEN[:n], key=lambda q: q[1]): zet(img, "gamestoel", 320, x, v, op="vloer", naam="gamestoel")
+def mascotte(img, t):                                    # winkelmascotte in een groot pak (boodschappentas); huppelt als hij praat
+    z0, z1 = Z[I_MASC][0], Z[I_MASC][1]
+    hup = abs(math.sin((t - z0) * 9)) * 28 if z0 <= t <= z1 else 0
+    zet(img, "mascotte-buik", 560, 890, 1640 - hup, op="vloer", naam="mascotte")
 def tent(img):                                           # tentje van papa op de stoep voor de winkel
     zet(img, "tent", 360, 330, TENT_VOET, op="stoep", naam="tent")
 MANDEN = []                                              # 47 hondenmanden: rijen op de vloer, achter klein, voor groot (gat in het midden voor de hond)
@@ -280,13 +301,13 @@ def brood(img, hx, hy, S):                               # sneetje koud brood in
 # ---------- frame ----------
 FAM = [dict(n="mom", x=530, y=1560, s=1.6), dict(n="you", x=710, y=1560, s=1.6), dict(n="sis", x=880, y=1560, s=1.6), dict(n="dad", x=175, y=1560, s=1.6)]
 POPS = {"begin": FAM, "dozen": [dict(n="you", x=760, y=1600, s=1.6), dict(n="sis", x=300, y=1780, s=1.6)],
-        "winkel": [dict(n="dad", x=760, y=1570, s=1.55)],
+        "winkel": [dict(n="dad", x=600, y=1570, s=1.55)],
         "tent": [dict(n="dad", x=740, y=TENT_VOET + 10, s=1.55)],
         "hond": [dict(n="you", x=690, y=1580, s=1.6)],
         "feit": [dict(n="agent", x=640, y=1850, s=1.7)],
         "kerst": [dict(n="mom", x=330, y=1560, s=1.6), dict(n="you", x=600, y=1560, s=1.6)],
         "leeg": [dict(n="mom", x=870, y=1570, s=1.55), dict(n="dad", x=200, y=1570, s=1.55)],
-        "laatst": [dict(n="kassa", x=170, y=1600, s=1.5), dict(n="dad", x=800, y=1570, s=1.55, loop=(T_DADIN - 0.1, T_DADIN + 0.9, 1250, 800))]}
+        "laatst": [dict(n="kassa", x=190, y=1560, s=1.5), dict(n="dad", x=800, y=1570, s=1.55, loop=(T_DADIN - 0.1, T_DADIN + 0.9, 1250, 800))]}
 ZOOM_AAN = True; TEKST_AAN = True
 GEZ = {}
 def frame(t):
@@ -295,7 +316,7 @@ def frame(t):
     nu = max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.3), default=None)
     tekst_nu = Z[nu][2] if nu is not None else ""
     spreker = LIJF.get(Z[nu][4]) if nu is not None and Z[nu][4] != "N" else None
-    if n == "winkel": dozen(img, t)
+    if n == "winkel": dozen(img, t); mascotte(img, t)
     if n == "dozen": dozenzee(img, False)
     if n == "kerst": kerstboom(img); tvs(img, t)
     if n == "laatst": laatste_rooster(img, t)
@@ -313,10 +334,10 @@ def frame(t):
             if a <= t < b: loop = (t - a) * 2.2
         if sp is not None and p is not sp: kijk = 0.9 if sp["x"] > x else -0.9
         else: kijk = 0.5 if x < 540 else -0.5
-        if n == "winkel" and t >= T_TIEN: kijk = -0.9                                        # papa kijkt trots naar zijn dozen
+        if n == "winkel" and t >= T_TIEN: kijk = 0.9 if nu == I_MASC else -0.9               # papa kijkt naar zijn dozen, dan naar de mascotte
         if n == "hond": kijk = -0.9                                                          # jij kijkt naar de hond
         if n == "leeg": kijk = -0.9 if p["n"] == "mom" else 0.9                              # kijken naar de lege kast
-        if n == "laatst": kijk = 0.9 if p["n"] == "kassa" else -0.9                         # papa kijkt naar rooster en kassa, kassa naar papa
+        if n == "laatst": kijk = 0.9 if p["n"] == "kassa" else -0.9                         # papa kijkt naar telefoon en kassa, kassa naar papa
         if n == "kerst": kijk = 0.6 if p["n"] == "mom" else -0.2                             # kijken naar het cadeau
         if n == "dozen" and p["n"] == "sis":                                                # zus komt uit haar doos omhoog
             if t < T_SISUP: continue
@@ -329,7 +350,7 @@ def frame(t):
         if geb == "praat": LAYOUT.add(f"armgebaar 'praat' bij gewoon praten ({p['n']}, {t:.1f} s): weghalen")
         if loop is not None: geb = "rennen"
         emo = emotie(t, nu)
-        if n == "laatst" and nu == I_KASSA: emo = "schrik" if p["n"] == "dad" else "blij"       # kassa glimlacht, papa schrikt
+        if n == "laatst" and nu is not None and nu >= I_KASSA - 1: emo = "schrik" if p["n"] == "dad" else "blij"       # kassa glimlacht, papa schrikt
         verb, boos_ = emo == "schrik", emo == "verdriet"
         knip = (t + hash(p["n"]) % 7 * 0.4) % 3.4 < 0.13
         y = p.get("y", 1460)
@@ -349,13 +370,16 @@ def frame(t):
         if geb == "wijslinks": handen[p["n"]] = hand(p["n"], x, y, p["s"], -100)
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
     for l2 in vast: img.paste(l2, (0, 0), l2)
+    for p in pops:                                                                          # hoed, bandana, haar, snor van de piraat
+        if p["n"] == "piraat" and "piraat" in koppen: PIR.versier(img, koppen["piraat"][0], koppen["piraat"][1], p["s"], p["x"], p.get("y", 1460))
     if n == "dozen": dozenzee(img, True)
+    if n == "laatst": toonbank(img)
     if n == "kerst": cadeau(img, t)
     if TEKST_AAN:
         if n in KOP: kop(img, KOP[n], None, 150, 84, KL["geel"], ps.pop((t - sc["t"]) / 0.3))
         if n == "leeg" and t >= T_DICHT: kop(img, "STORES: CLOSED", W / 2, 300, 80, (255, 90, 80), ps.pop((t - T_DICHT) / 0.3))
         if n == "kerst" and t >= T_ELF: kop(img, "TV #12", W / 2, 330, 120, (255, 255, 255), ps.pop((t - T_ELF) / 0.3))
-        if n == "laatst" and T_30 <= t < T_CYBER: kop(img, "$30", W / 2, 330, 200, (235, 45, 45), ps.pop((t - T_30) / 0.35))
+        if n == "laatst" and T_30 <= t < T_CYBER: kop(img, "$1,000", W / 2, 330, 180, (235, 45, 45), ps.pop((t - T_30) / 0.35))
         if n == "laatst" and t >= T_CYBER:
             kop(img, "CYBER MONDAY", W / 2, 300, 110, (80, 200, 255), ps.pop((t - T_CYBER) / 0.3))
             if t >= T_FOREVER2: kop(img, "FOREVER", W / 2, 440, 120, KL["geel"], ps.pop((t - T_FOREVER2) / 0.3))
@@ -392,7 +416,7 @@ def geluid():
     zet_(T_TVK - 0.25, "papier", _fade(_drukste(_laad("papier"), 0.4)), 0.4, "cadeau")                  # cadeaupapier eraf
     zet_(T_LEEG, "papier-ritsel", _fade(_drukste(_laad("papier-ritsel"), 0.8)), 0.3, "mom")
     for q in np.arange(T_DADIN - 0.1, T_DADIN + 0.9, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "dad")
-    zet_(T_CYBER, "kassa", _fade(_laad("kassa")), 0.45, "kassa")                                         # kassa: de volgende uitverkoop begint
+    zet_(T_CYBER, "kassa", _fade(_laad("kassa")), 0.45, "kassa-apparaat")                                         # kassa: de volgende uitverkoop begint
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():
@@ -408,7 +432,7 @@ def geluidcheck():
 if __name__ == "__main__":
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.8 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
-        pl = Image.new("RGB", (270 * 7, 480 * 2)); [pl.paste(im, (270 * (i % 7), 480 * (i // 7))) for i, im in enumerate(ims)]
+        pl = Image.new("RGB", (270 * 9, 480 * 2)); [pl.paste(im, (270 * (i % 9), 480 * (i // 9))) for i, im in enumerate(ims)]
         pl.save(HIER / "plaat.jpg", quality=85); print("plaat.jpg"); print("LAYOUT:", sorted(LAYOUT) or "alles past")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)"); sys.exit()
     geluid(); gf = geluidcheck(); print("GELUIDCHECK:", gf or "elk geluid hoort bij iets in beeld")

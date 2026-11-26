@@ -12,7 +12,11 @@ H = Path(__file__).parent; inst = b1.standaard(); SR = ov.SR
 SCRIPT = H / (sys.argv[1] if len(sys.argv) > 1 else "script.txt")
 ONTWERP = {"whatif-jongen": ("male", "teenager", "moderate pitch", "american accent"),
            "whatif-mama": ("female", "young adult", "moderate pitch", "american accent"),
-           "whatif-baas": ("male", "middle-aged", "low pitch", "american accent")}
+           "whatif-baas": ("male", "middle-aged", "low pitch", "american accent"),
+           "whatif-kassa": ("female", "young adult", "high pitch", "american accent"),       # 26 nov: kassière (eigenaar: meer eigen stemmen)
+           "whatif-agent": ("male", "middle-aged", "moderate pitch", "american accent"),
+           "whatif-piraat": ("male", "middle-aged", "low pitch", "british accent"),
+           "whatif-mascotte": ("male", "young adult", "high pitch", "american accent")}   # 26 nov: winkelmascotte (pak)      # 26 nov: mascotte Captain Discount    # 26 nov: politieagent jaren 60
 asr = None
 for naam, (g, a, p, acc) in ONTWERP.items():
     if (VOICES / naam / "ref.wav").exists(): continue
@@ -25,7 +29,8 @@ for naam, (g, a, p, acc) in ONTWERP.items():
         if "sit down" in asr({"raw": w, "sampling_rate": sr}, generate_kwargs={"language": "en"})["text"].lower(): print("stem", naam, "seed", sd); break
 # stem van het LIJF
 STEM = {"N": ("eigen-stem-swan", 1.05), "YOU": ("whatif-zoon", 1.0), "DAD": ("whatif-papa", 1.0), "MOM": ("whatif-moeder2", 1.0),   # 23 nov: iedereen EIGEN stem (optie A)
-        "SIS": ("whatif-meisje", 1.0), "TEACH": ("whatif-juf", 1.0), "BOSS": ("whatif-baas", 1.0)}
+        "SIS": ("whatif-meisje", 1.0), "TEACH": ("whatif-juf", 1.0), "BOSS": ("whatif-baas", 1.0),
+        "KASSA": ("whatif-kassa", 1.0), "AGENT": ("whatif-agent", 1.0), "PIRAAT": ("whatif-piraat", 1.0), "MASCOTTE": ("whatif-mascotte", 1.0)}
 regels, STILTE = [], {}                                  # "STILTE|2.0" in het script = echte stilte na de vorige regel (eigenaar 25 nov: krekels)
 for r in SCRIPT.read_text(encoding="utf-8").splitlines():
     if not r.strip() or r.startswith("#"): continue
