@@ -33,7 +33,14 @@ Voor elk Claude-account dat hiermee verdergaat. Kanaal @marketdoodle, token `YT_
 - Mama en zusje moeten duidelijk verschillen (eigenaar koos optie A). Elke zin nakijken met Whisper.
 
 ## Thumbnail (alleen lange video's)
-- Fel oranje met stralen, 1-2 poppetjes met sterke emotie, groot woord bovenin **op een donkere balk met gele rand** (eigenaar koos B). Voorbeeld: `video-swap/drie/thumb.py`.
+- **Vaste huisstijl (eigenaar 26 nov 2026, na CTR 0,97% van de oude oranje Swap-thumb):** links/rechts twee scènes (voor/na of
+  wie/wie), **witte lijn** in het midden, achtergronden iets **vaag**, poppetjes **groot**, max. **2 schuine banners** (wit met zwarte
+  rand op rood/groen/blauw) en hooguit één groot getal in de scène (bv. "4/10" op het bord). **Weinig spullen** ("het is teveel op
+  een thumbnail"). Geen naamlabels/pijlen.
+- **Wie is wie moet je zien zonder tekst:** grootteverschil (kind klein achter groot bureau, papa groot achter piepklein
+  schoolbankje) en kleding ruilen (kind in pak met das, papa met kinderpetje) - zo doen de best bekeken video's het.
+- Voorbeelden: `video-swap/drie/thumb4.py`, `video-miljoen/thumbnail3.py` (banner-functie daarin hergebruiken).
+- Altijd zelf klein bekijken (246x138, telefoon) en controleren dat niets zweeft/overlapt (getal niet achter een hoofd).
 
 ## Gereedschap
 - Poppetjes + Short: `proef-pop-short/pop_short.py` (functie `poppetje`, 10+ personages).
