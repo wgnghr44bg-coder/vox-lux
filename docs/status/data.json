@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 00:03",
+ "bijgewerkt": "2026-11-27 00:33",
  "kanalen": {
   "weken": [
    {
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 00:03)"
+   "tekst": "draait nu (2026-11-27 00:33)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 00:03",
-   "volgende": "2026-11-27 00:33"
+   "laatst": "2026-11-27 00:33",
+   "volgende": "2026-11-27 01:03"
   },
   "hype": {
    "aan": true,
@@ -2433,12 +2433,12 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 00:10"
+   "volgende": "2026-11-27 01:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 23:48",
-   "volgende": "2026-11-27 00:18"
+   "laatst": "2026-11-27 00:18",
+   "volgende": "2026-11-27 00:48"
   },
   "titels": {
    "aan": true,
@@ -2549,7 +2549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1270,
+    "views": 1281,
     "verwerkt": "processed"
    }
   ],
@@ -2796,7 +2796,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 598,
+  "geheugen_mb": 616,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2969,8 +2969,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 00:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 00:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5061,7 +5061,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 00:04",
+  "bijgewerkt": "2026-11-27 00:34",
   "accounts": [
    {
     "account": "hoofd",
