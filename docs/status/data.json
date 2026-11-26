@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-26 19:33",
+ "bijgewerkt": "2026-11-26 20:03",
  "kanalen": {
   "weken": [
    {
@@ -299,107 +299,107 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-19 17:59",
+  "bijgewerkt": "2026-11-26 20:00",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -0.9,
+    "pct": -0.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -0.7,
+    "pct": -0.6,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.5,
+    "pct": 0.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -0.3,
+    "pct": -3.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.2,
+    "pct": 0.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 0.1,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 0.9,
+    "pct": -2.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -0.5,
+    "pct": -3.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -0.8,
+    "pct": 3.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -1.9,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": -0.0,
+    "pct": -0.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": -1.1,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -1.3,
+    "pct": -0.1,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -1.5,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -0.5,
+    "pct": 0.0,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": 1.5,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -1.4,
+    "pct": 1.7,
     "groot": false,
     "grens": 4
    }
@@ -407,138 +407,48 @@
   "onderwerpen": [
    {
     "onderwerp": "Anthropic",
-    "punten": 10,
-    "bronnen": [
-     "BBC",
-     "CNBC",
-     "MarketWatch",
-     "NYT"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers",
-     "record"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html"
-     },
-     {
-      "titel": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html"
-     },
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": true
-   },
-   {
-    "onderwerp": "Nvidia",
-    "punten": 6,
-    "bronnen": [
-     "CNBC",
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers",
-     "rechtszaak"
-    ],
-    "koppen": [
-     {
-      "titel": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/nvidia-lutnick-china-ai-megaspeed-cantor-fitzgerald.html"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Inflatie",
-    "punten": 4,
-    "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "rente/recessie"
-    ],
-    "koppen": [
-     {
-      "titel": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Beurs",
-    "punten": 4,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Walmart",
     "punten": 3,
     "bronnen": [
      "CNBC"
     ],
     "wat": [
+     "beursgang"
+    ],
+    "koppen": [
+     {
+      "titel": "Anthropic's stock has been a clunker post-IPO. Why that matters for the AI trade",
+      "bron": "CNBC",
+      "link": "https://www.cnbc.com/investingclub/2026/11/25/anthropics-stock-has-been-a-clunker-post-ipo-why-that-matters-for-the-ai-trade.html"
+     }
+    ],
+    "groot": false
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 3,
+    "bronnen": [
+     "NYT"
+    ],
+    "wat": [
      "record"
     ],
     "koppen": [
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
      },
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC business",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
      }
     ],
     "groot": false
    }
   ],
-  "groot": [
-   "Anthropic"
-  ],
-  "aantal_koppen": 104
+  "groot": [],
+  "aantal_koppen": 102
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-21 04:25",
@@ -2377,7 +2287,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-26 19:33)"
+   "tekst": "draait nu (2026-11-26 20:03)"
   },
   {
    "naam": "Git",
@@ -2397,7 +2307,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2414,8 +2324,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-26 19:33",
-   "volgende": "2026-11-26 20:03"
+   "laatst": "2026-11-26 20:03",
+   "volgende": "2026-11-26 20:33"
   },
   "hype": {
    "aan": true,
@@ -2429,8 +2339,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-26 19:18",
-   "volgende": "2026-11-26 19:48"
+   "laatst": "2026-11-26 19:48",
+   "volgende": "2026-11-26 20:18"
   },
   "titels": {
    "aan": true,
@@ -2541,7 +2451,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1253,
+    "views": 1261,
     "verwerkt": "processed"
    }
   ],
@@ -2764,7 +2674,8 @@
    "routine zonder Claude",
    "video bouwen",
    "beweging en hoofdstuktitels",
-   "video samenvoegen (ffmpeg)"
+   "video samenvoegen (ffmpeg)",
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2784,11 +2695,15 @@
   {
    "naam": "video samenvoegen (ffmpeg)",
    "stap": -1
+  },
+  {
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 870,
+  "geheugen_mb": 848,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2961,8 +2876,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-26 19:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-26 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5065,22 +4980,22 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-26 19:34",
+  "bijgewerkt": "2026-11-26 20:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 12189345,
-    "week": 79886306,
+    "5uur": 12176108,
+    "week": 81145267,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
-     "Thu 26-11": 21326001,
+     "Thu 26-11": 22584962,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 39606,
+    "stap_kost": 39592,
     "naam": "hoofd",
     "week_reset": ""
    },
