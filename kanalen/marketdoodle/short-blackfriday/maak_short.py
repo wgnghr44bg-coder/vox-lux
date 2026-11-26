@@ -100,7 +100,7 @@ I_LAATST, I_ROOF, I_KASSA, I_SLOT = zi("Then Dad"), zi("A thousand"), zi("Relax"
 T_NOOIT = kw(I_HOOK, "never", -0.1); T_90 = kw(I_HOOK, "ninety", -0.1)
 T_9 = kw(I_TWINTIG, "nine", -0.1); T_20 = kw(I_TWINTIG, "twenty", -0.1)
 T_SISIN = Z[I_SIS][0] - 1.3;                            # 26 nov (eigenaar): zus komt aanlopen
- T_BED = kw(I_HOND, "forty", -0.1); T_POLITIE = kw(I_FEIT, "police", -0.1)
+T_BED = kw(I_HOND, "forty", -0.1); T_POLITIE = kw(I_FEIT, "police", -0.1)
 T_TVK = kw(I_KERST, "another", -0.1); T_ELFDE = kw(I_ELF, "eleventh", -0.1)
 T_BANK = kw(I_FAIL, "bankrupt", -0.1); T_DADIN = Z[I_LAATST][0]; T_PRIJS = kw(I_LAATST, "full", -0.1); T_1000 = kw(I_LAATST, "thousand", -0.1)
 T_CYBER = kw(I_KASSA, "cyber", -0.1)
@@ -341,9 +341,9 @@ def figuren(n, t):
     if n == "feit":
         return [("agent", 640, 1850, schaal("straat-oud", "agent", 1850), "hoofdhanden" if nu == I_AGENT else None, False, 0.0 if nu == I_AGENT else -0.4)]
     if n == "kerst":
-        y = 1250
-        return [("dad", 250, y, schaal("kerst", "dad", y), ("hoek", -16, 60) if t < T_TVK else None, False, 0.9),
-                ("you", 830, y, schaal("kerst", "you", y), None, False, -0.6 if nu != I_ELF else 0.0)]
+        y = 1300                                            # iets kleiner, zodat de 10 tv's aan de muur boven hun hoofd te zien zijn
+        return [("dad", 250, y, schaal("kerst", "dad", y, 0.8), ("hoek", -16, 60) if t < T_TVK else None, False, 0.9),
+                ("you", 830, y, schaal("kerst", "you", y, 0.8), None, False, -0.6 if nu != I_ELF else 0.0)]
     if n == "failliet":
         y = 1500; a = ps.ease(min(1, (t - Z[I_FAIL][0]) / 3.0)); x = 140 + (500 - 140) * a; loop = (t - Z[I_FAIL][0]) * 2.0 if a < 1 else None
         kijk = math.sin(t * 2.5) * 0.9 if nu != I_SALE else 0.0
@@ -370,6 +370,7 @@ def _doel(t):
             if f[0] == naam: hx, hy = hoofd(*f[:4]); cx, cy, zm = hx, hy + 300, 1.3
     if n == "winkel" and nu == I_TWINTIG and t >= T_20: cx, cy, zm = 540, 1300, 1.05       # de 20 dozen
     if n == "tent": zm = 1.0 + min(0.2, (t - sc["t"]) * 0.05); cx, cy = 420, 1150         # langzaam naar de tent
+    if n == "kerst": cx, cy, zm = 540, 960, 1.0                                            # wijd: alle 10 tv's aan de muur in beeld
     if n == "laatst" and T_PRIJS <= t < Z[I_ROOF][0]: cx, cy, zm = 470, 900, 1.6           # vitrine met telefoon en prijskaartje
     if n == "laatst" and nu == I_KASSA: cx, cy, zm = 560, 800, 1.25
     if n == "laatst" and t >= Z[I_SLOT][0]: cx, cy, zm = 260, 900, 1.5                      # papa draait naar de camera
