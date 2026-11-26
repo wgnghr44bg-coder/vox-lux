@@ -883,5 +883,28 @@
   },
   "muur": [],
   "meubels": {}
+ },
+ "v-gaming": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1250,
+    1920
+   ],
+   "podium": [
+    380,
+    700,
+    890,
+    916
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 784,
+   "k": 0.63,
+   "_uitleg": "gamers in beeld: 300 px op y 1260, 420 px op y 1450 (ooghoogte-versie, 26 nov)"
+  }
  }
 }

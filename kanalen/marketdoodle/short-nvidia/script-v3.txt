@@ -1,0 +1,17 @@
+# What If You Invested $100 in NVIDIA? (Short, 26 nov 2026). Echt: NVIDIA bedacht in een Denny's in San Jose (april 1993) door Jensen Huang,
+# Chris Malachowsky en Curtis Priem; eerste chip NV1 flopte bijna (1995); Sega-baas investeerde toch $5 miljoen ("young man he liked");
+# beursgang jan 1999 a $12 (= $0,025 na splitsingen); $100 -> ~4.000 aandelen x $155 (24 nov 2026) = ~$620.000. Eigenaar: elke scène eigen personages met eigen stem.
+N|denny|San Jose, 1993. You're eating pancakes at Denny's. Next to you, three engineers draw chips on napkins.
+JENSEN|denny|Hey kid. We're starting a company. Want in? Just a hundred bucks.
+YOU|denny|For a napkin? No thanks.
+SERVEERSTER|denny|More coffee, boys? You've been here four hours.
+N|kantoor|Two years later, their first chip flops. The money is almost gone.
+CURTIS|kantoor|Most games don't even work on it!
+N|sega|But the boss of Sega still invests five million dollars.
+SEGA|sega|I like this young man.
+N|beurs|1999. NVIDIA hits the stock market. This time, you buy. A hundred dollars.
+N|ai|Then AI explodes. And it all runs on NVIDIA chips.
+ONDERZOEKER|ai|We need ten thousand more!
+N|nu|Today, your hundred dollars is worth about six hundred thousand.
+YOU2|nu|Six hundred THOUSAND?!
+JENSEN2|nu|Still want that napkin, kid?

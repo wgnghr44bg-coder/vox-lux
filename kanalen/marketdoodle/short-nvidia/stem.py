@@ -40,7 +40,7 @@ OPNIEUW = {int(x) for x in os.environ.get("OPNIEUW", "").split(",") if x.strip()
 MAXWPM, ZINPAUZE = 195, 0.32                              # per zin; pauze tussen zinnen binnen één regel
 # 26 nov (eigenaar: "de stemmen lijken veel op elkaar ... iedere personage een eigen stem die past"): bijfiguren via Kokoro (echte stemmen)
 KOKORO = {"JENSEN": "am_michael", "JENSEN2": "am_michael", "SERVEERSTER": "af_sarah", "CURTIS": "am_puck", "SEGA": "am_santa",
-          "ONDERZOEKER": "af_sky", "YOU2": "am_eric", "YOU": "am_liam"}
+          "ONDERZOEKER": "af_sky", "YOU2": "am_eric", "YOU": "am_eric"}
 import subprocess, tempfile
 _kk = Path(tempfile.mkdtemp()); _taken = [{"stem": KOKORO[sp], "tekst": z, "uit": str(_kk / f"{k}.wav"), "speed": 0.95 if sp == "JENSEN2" else 1.0}
                                          for k, (sp, sc, z) in enumerate(regels) if sp in KOKORO]

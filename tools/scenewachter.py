@@ -10,6 +10,8 @@ Elk voorwerp dat de renderer tekent, meldt zich met zijn kader en waar het OP st
      schuift het opzij naar de dichtstbijzijnde vrije plek op hetzelfde vlak; lukt dat niet -> FOUT.
   4. GEZICHT: iets wat vóór de poppetjes getekend wordt, mag geen gezicht bedekken (behalve wat die persoon vasthoudt).
   5. GEEN ANKER opgegeven -> FOUT ("waar staat dit op?").
+  6. MAAT (26 nov 2026): W.persoon(naam, voet_y, lengte) -> te klein / te groot t.o.v. deur, bank, bureau of mensen in de
+     achtergrond op die diepte (achtergronden.json "maat": horizon + k). Zonder opgemeten maat -> FOUT.
 op-waarden: een vlaknaam uit achtergronden.json | "muur" | "hand:<naam>" / "bek" / "aan:<iets>" (vastgehouden, met
 punt=(x, y): het voorwerp moet dat punt raken) | "beeld" (grafiek bovenop het beeld: telefoonscherm, biljet, kop) .
 
@@ -87,6 +89,21 @@ class Scenewachter:
                     dx += sch; bx0 += sch; bx1 += sch; self._m("AANGEPAST", naam, f"stond door '{mn}' -> opzij geschoven ({sch:+.0f})")
                 else: self._m("FOUT", naam, f"staat door meubel '{mn}' en kan niet opzij")
         return dx, dy
+
+    def persoon(self, naam, voet_y, hoogte, zit=False, marge=(0.75, 1.3)):
+        """MAATWACHTER (eigenaar 26 nov 2026: "waarom ben ik zo klein, het klopt gewoon niet"; "er waren toch wachters?").
+        Een persoon moet even groot zijn als de deur/bank/bureau/mensen in de achtergrond op die diepte.
+        achtergronden.json: "maat": {"horizon": y_h, "k": k}  -> verwachte lengte (staand, voeten tot kruin) = k * (voet_y - y_h).
+        voet_y = waar de voeten staan (bij zitten: waar ze zouden staan); hoogte = lengte van het poppetje in pixels."""
+        A = self.A.get(self.bg)
+        if A is None: return
+        m = A.get("maat")
+        if not m: self._m("FOUT", "maat", "geen maat opgemeten voor deze achtergrond (horizon + k): eerst opmeten"); return
+        verwacht = m["k"] * (voet_y - m["horizon"])
+        if verwacht <= 0: self._m("FOUT", naam, f"staat boven de horizon (voet y {voet_y:.0f})"); return
+        r = hoogte / verwacht
+        if r < marge[0]: self._m("FOUT", naam, f"te KLEIN voor deze plek: {r:.0%} van de echte maat (hoort ± {verwacht:.0f} px, is {hoogte:.0f})")
+        elif r > marge[1]: self._m("FOUT", naam, f"te GROOT voor deze plek: {r:.0%} van de echte maat (hoort ± {verwacht:.0f} px, is {hoogte:.0f})")
 
     def einde(self, gezichten=None):
         for naam, (x0, y0, x1, y1), op in self.voor:

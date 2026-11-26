@@ -1,4 +1,4 @@
-"""v3 (26 nov): oude 2D-poppetjes, herkenbare Jensen, kleine naamlabels, zitten, plaatstitels met animatie, camera volgt de spreker.
+"""v4 (26 nov): script van de eigenaar; oude 2D-poppetjes, herkenbare Jensen, kleine naamlabels, zitten, plaatstitels met animatie, camera volgt de spreker.
 Short 'What If You Invested $100 in NVIDIA?' (26 nov 2026), staand 1080x1920. Echt verhaal (Denny's 1993, NV1, Sega, beursgang 1999, AI),
 elke scène eigen personages met eigen stem (eigenaar 26 nov). Zelfde controles als de Black Friday-Short.
 Gebruik: <omnivoice-venv>/python maak_short.py [--plaat]  -> short-nvidia.mp4"""
@@ -95,19 +95,6 @@ def luid(t, naam):
     s = AUD[int(t * SR): int((t + 1 / FPS) * SR)]
     return float(min(1.0, np.sqrt((s ** 2).mean()) * 9)) if len(s) else 0.0
 
-# ---------- tijden ----------
-def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
-I_START, I_JEN, I_NEE, I_KOF = zi("San Jose"), zi("Hey kid"), zi("For a napkin"), zi("More coffee")
-I_FLOP, I_CUR, I_SEGA, I_SEGA2 = zi("Two years"), zi("Most games"), zi("But the boss"), zi("I like")
-I_BEURS, I_AI, I_ONDZ, I_NU, I_WOW, I_SLOT = zi("1999"), zi("Then AI"), zi("We need"), zi("Today"), zi("Six hundred"), zi("Still want")
-T_SERV = Z[I_KOF][0] - 1.1; T_SCHENK = Z[I_KOF][0] - 0.1
-T_DRIE = kw(I_START, "three", -0.1); T_FLOP = kw(I_FLOP, "flops", -0.1)
-T_5M = kw(I_SEGA, "five", -0.1); T_KOOP = kw(I_BEURS, "buy", -0.1); T_12 = Z[I_BEURS][0] + 0.2
-T_620 = kw(I_NU, "six", -0.1)
-def Zs(i): return Z[i][0] - 0.1
-SC = [dict(t=0, naam="denny", bg="denny"), dict(t=Zs(I_FLOP), naam="kantoor", bg="kantoor"), dict(t=Zs(I_SEGA), naam="sega", bg="sega"),
-      dict(t=Zs(I_BEURS), naam="beurs", bg="beurs"), dict(t=Zs(I_AI), naam="ai", bg="ai"), dict(t=Zs(I_NU), naam="nu", bg="denny")]
-def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
 # ---------- tekst ----------
 def _start(i, frase):
     w0 = _norm(frase.split()[0])
@@ -154,30 +141,6 @@ def ondertitel(img, t):
 TAFEL_Y = 1560
 ZY = TAFEL_Y + 140                                         # voet van iemand die zit (onderlijf achter de tafel)
 def nu_i(t): return max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25), default=None)
-def figuren(n, t):
-    nu = nu_i(t)
-    if n == "denny":
-        f = [("you", 170, ZY, 1.6, ("hoek", -16, 40 + 12 * math.sin(t * 5)), True),                       # prikt in de pannenkoeken
-             ("jensen", 640, ZY, 1.6, ("hoek", -16, 55 + 8 * math.sin(t * 14) if nu == I_START else 95), True),   # tekent, dan naar jou
-             ("chris", 830, ZY, 1.6, None, True), ("curtis", 1010, ZY, 1.6, ("hoek", -16, 40), True)]
-        if t >= T_SERV:
-            f_ = ps.ease((t - T_SERV) / 1.0)
-            f.append(("serveerster", -150 + 555 * f_, 1900, 1.5, "rennen" if f_ < 1 else ("hoek", -16, 105), False))
-        return f
-    if n == "kantoor":
-        return [("curtis", 790, ZY, 1.6, ("hoek", -16, 50 + 10 * math.sin(t * 16)) if t < Z[I_CUR][0] else "schrik", True),
-                ("jensen", 210, 1900, 1.95, "denk", False)]
-    if n == "sega":
-        return [("jensen", 300, ZY, 1.6, None, True), ("sega", 790, ZY, 1.6, "duim" if nu == I_SEGA2 else None, True)]
-    if n == "beurs":
-        return [("jij99", 760, ZY, 1.65, ("hoek", -16, -60) if t >= T_KOOP else None, True)]
-    if n == "ai":
-        return [("collega", 280, 1900, 2.0, "juich" if nu == I_ONDZ else None, False),
-                ("onderzoeker", 770, 1900, 2.0, "vast", False)]
-    if n == "nu":
-        return [("jijoud", 300, ZY, 1.6, "schrik" if nu == I_WOW else None, True),
-                ("jensennu", 790, ZY, 1.6, "duim" if nu == I_SLOT else None, True)]
-    return []
 def hoofd(naam, x, y, s, *_):                              # midden van het hoofd (camera, scènewachter)
     S = s * ps.C[naam].get("groot", 1.0); return x, y - 246 * S
 def rhand(naam, x, y, s, hoek):                            # rechterhand bij armhoek (0 = omlaag, 90 = opzij)
@@ -190,17 +153,12 @@ def teken(img, figs, t, nu):                               # poppetjes op één 
     for naam, x, y, s, geb, zit in figs:
         kijk = (0.9 if spx > x else -0.9) if spx is not None and naam != sp else (0.5 if x < 540 else -0.5)
         emo = emotie(t, nu) if (sp is None or naam == sp) else None
-        loop = (t - T_SERV) * 2.2 if geb == "rennen" else None
+        loop = t * 2.2 if geb == "rennen" else None
         koppen[naam] = ps.poppetje(d, naam, x, y, s, t, loop=loop, kijk=kijk, mond=luid(t, naam), knipper=(t + hash(naam) % 7 * 0.4) % 3.4 < 0.13,
                                    verbaasd=emo == "schrik", boos=emo == "verdriet", gebaar=None if geb == "rennen" else geb)
         GEZ[naam] = (*hoofd(naam, x, y, s), s * ps.C[naam].get("groot", 1))
+        WACHT.persoon(naam, y, 306 * s * ps.C[naam].get("groot", 1), zit=zit)                 # maatwachter: klopt de grootte met de kamer?
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag); return koppen
-SCHRIK = ("flops", "Most games", "Six hundred")
-BLIJ = ("Hey kid", "More coffee", "I like", "This time", "Still want", "We need", "Then AI")
-VERDRIET = ("The money", "For a napkin")
-PLAATS = {"denny": ("DENNY'S", "SAN JOSE · 1993"), "kantoor": ("NVIDIA'S FIRST OFFICE", "SUNNYVALE · 1995"), "sega": ("SEGA HQ", "TOKYO · 1995"),
-          "beurs": ("YOUR APARTMENT", "1999"), "ai": ("AI DATA CENTER", "2023"), "nu": ("DENNY'S", "SAN JOSE · TODAY")}
-JAAR = {"denny": "1993", "kantoor": "1995", "sega": "1995", "beurs": "1999", "ai": "2023", "nu": "TODAY"}
 def plaatskaart(img, t, sc):                               # 26 nov (eigenaar: "label Denny's 1993 met motion graphics"): titel schuift in en weer uit
     dt = t - sc["t"]; r1, r2 = PLAATS[sc["naam"]]
     if dt > 2.8:
@@ -254,26 +212,130 @@ def scherm(img, x, t):                                    # CRT met beurskoers (
     if t >= T_KOOP:
         d.rounded_rectangle((sx0 + 40, sy1 - 62, sx1 - 40, sy1 - 22), 8, fill=(40, 170, 70)); d.text(((sx0 + sx1) / 2, sy1 - 42), "BUY", font=font(FB, 28), fill="white", anchor="mm")
 
-# ---------- camera: zacht naar wie praat; bij de verteller rustig inzoomen op de scène ----------
-SCENE_MID = {"denny": (560, 1250), "kantoor": (540, 1250), "sega": (540, 1250), "beurs": (560, 1250), "ai": (540, 1300), "nu": (540, 1250)}
+
+# ---------- v4 (26 nov 2026): script van de eigenaar "What If You Invested $100 in NVIDIA in 1999?" ----------
+ps.C["jijpyjama"] = dict(ps.C["you"], haar=(140, 130, 125), hoodie=False, shirt=(150, 185, 235), groot=1.12)     # 2026: pyjama, grijze slapen
+ps.C["gamer1"] = dict(broek=(50, 60, 90), shirt=(230, 90, 60), haar=(240, 200, 80), kapsel="krul", groot=0.95)
+ps.C["gamer2"] = dict(broek=(40, 40, 45), shirt=(60, 170, 90), haar=(30, 25, 25), kapsel="kort", pet=(200, 40, 40), groot=1.0)
+LIJF.update({"YOU": "jij99", "YOU2": "jijpyjama"})
+NAAM.update({"jijpyjama": ("YOU", (255, 215, 60)), "gamer1": ("", (0, 0, 0)), "gamer2": ("", (0, 0, 0))})
+def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
+I_HOOK, I_RIJK, I_OFFER, I_GELD, I_PLAN, I_FINE, I_DEAL = zi("What if"), zi("Wait"), zi("Hey!"), zi("Does it"), zi("That's the plan"), zi("Fine."), zi("Deal")
+I_JAREN, I_ALIVE, I_GAME, I_BABY, I_AI, I_ONDZ = zi("Years pass"), zi("Is this"), zi("Then PC"), zi("Look at"), zi("Then artificial"), zi("We need")
+I_FORT, I_ISLAND, I_CONGR, I_RETIRE, I_VRAAG, I_SOLD, I_WHY, I_PS2, I_SLOT = (zi("Your little"), zi("I'm buying"), zi("Congratulations"),
+    zi("I'm retiring"), zi("Just one"), zi("Well..."), zi("Why"), zi("I needed"), zi("I built"))
+T_KOOP = 1e9; T_BILJET = kw(I_FINE, "fine", -0.1); T_620 = kw(I_FORT, "small", -0.1); T_DEUR = Z[I_CONGR][0] - 1.4; T_2002 = kw(I_SOLD, "2002", -0.1)
+def Zs(i): return Z[i][0] - 0.1
+SC = [dict(t=0, naam="woon", bg="woon2026"), dict(t=Zs(I_OFFER), naam="diner", bg="denny"), dict(t=Zs(I_JAREN), naam="kamer", bg="beurs"),
+      dict(t=Zs(I_GAME), naam="gaming", bg="gaming"), dict(t=Zs(I_AI), naam="ai", bg="ai"), dict(t=Zs(I_FORT), naam="woon2", bg="woon2026")]
+def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
+SCHRIK = ("Wait", "I'm buying", "Why", "I built", "Well...")
+BLIJ = ("Hey!", "That's the plan", "Deal", "Look at", "We need", "Congratulations", "I'm retiring", "Fine.", "Then PC", "Then artificial")
+VERDRIET = ("Is this", "Years pass", "I needed")
+PLAATS = {"woon": ("YOUR LIVING ROOM", "2026"), "diner": ("A DINER", "SAN JOSE · 1999"), "kamer": ("YOUR BEDROOM", "2000 – 2005"),
+          "gaming": ("GAME CONVENTION", "2000s"), "ai": ("AI DATA CENTER", "2023"), "woon2": ("YOUR LIVING ROOM", "2026")}
+JAAR = {"woon": "2026", "diner": "1999", "kamer": "2002", "gaming": "2000s", "ai": "2023", "woon2": "2026"}
+SALON_Y = 1180                                              # bovenkant salontafel vóór de bank (woon2026.png: zitting ± y 1050, rugleuning ± 840)
+
+# maten volgens de maatwachter (achtergronden.json "maat"): ± 85-95% van de echte maat op die plek
+def figuren(n, t):
+    nu = nu_i(t)
+    if n == "woon":
+        return [("jijpyjama", 320, SALON_Y + 210, 2.1, "schrik" if nu == I_RIJK else ("hoek", -16, 40), True)]       # zit óp de bank
+    if n == "diner":
+        jg = ("hoek", -16, 95) if nu in (I_OFFER, I_PLAN) else ("duim" if nu == I_DEAL else None)
+        yg = ("hoek", -16, 70) if nu == I_FINE else ("denk" if nu == I_GELD else None)
+        return [("jij99", 300, ZY, 2.4, yg, True), ("jensen", 780, ZY, 2.3, jg, True)]
+    if n == "kamer":
+        return [("jij99", 800, 1330, 2.8, "denk" if nu == I_ALIVE else None, False)]                                 # naast het bureau
+    if n == "gaming":
+        return [("gamer1", 190, 1650, 1.75, "juich" if nu == I_BABY else None, False), ("gamer2", 860, 1690, 1.8, "wijs", False),
+                ("jij99", 520, 1780, 1.85, "juich" if nu == I_BABY else None, False)]
+    if n == "ai":
+        return [("collega", 300, 1750, 3.15, None, False), ("onderzoeker", 790, 1750, 3.4, "juich" if nu == I_ONDZ else None, False)]
+    if n == "woon2":
+        g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
+        f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]
+        if t >= T_DEUR:                                     # Jensen komt door de voordeur binnen (op de juiste maat bij de deur, groter vooraan)
+            a = ps.ease((t - T_DEUR) / 1.3); x = 870 + (830 - 870) * a; y = 1110 + (1400 - 1110) * a; s = 1.48 + (2.43 - 1.48) * a
+            jg = "rennen" if a < 1 else {I_CONGR: "duim", I_WHY: "armen-open", I_SLOT: "facepalm"}.get(nu)
+            f.append(("jensennu", x, y, s, jg, False))
+        return f
+    return []
+_LOGO = {}
+def logo(hoogte, wit=False):                               # echte NVIDIA-logo (Wikimedia Commons, File:NVIDIA_logo.svg); wit = witte letters voor donkere schermen
+    k = (hoogte, wit)
+    if k not in _LOGO:
+        im = Image.open(HIER / "afbeeldingen" / "nvidia-logo.png").convert("RGBA")
+        if wit:
+            px = np.array(im); donker = (px[..., 0] < 90) & (px[..., 1] < 90) & (px[..., 2] < 90); px[donker, :3] = 255; im = Image.fromarray(px)
+        _LOGO[k] = im.resize((int(im.width * hoogte / im.height), hoogte), Image.LANCZOS)
+    return _LOGO[k]
+def plak_logo(img, x, y, hoogte, wit=False):               # x, y = linksboven
+    l = logo(hoogte, wit); img.paste(l, (int(x), int(y)), l); return l.width
+def deur(d, t):                                             # voordeur (woon2026.png, rechts): gaat open als Jensen binnenkomt
+    if t < T_DEUR: return
+    d.rectangle((752, 432, 988, 1100), fill=(70, 60, 55)); d.polygon([(752, 432), (800, 450), (800, 1080), (752, 1100)], fill=(245, 245, 240), outline=INK)
+def salontafel(d):                                         # lage salontafel: verbergt je benen, jij zit erachter op de bank
+    WACHT.vlak("tafel", [120, 940, SALON_Y - 10, SALON_Y + 16])
+    d.rounded_rectangle((120, SALON_Y, 940, SALON_Y + 34), 10, fill=(170, 120, 80), outline=INK, width=5)
+    d.rectangle((140, SALON_Y + 34, 920, SALON_Y + 110), fill=(135, 95, 62), outline=INK, width=5)
+    for x_ in (160, 880): d.rectangle((x_, SALON_Y + 110, x_ + 22, SALON_Y + 150), fill=(110, 75, 50), outline=INK, width=4)
+def laptop(img, x, t, n, ty):                              # opengeklapte laptop op tafel; scherm naar de kijker met de koers + echt logo
+    d = ImageDraw.Draw(img); w, h = 240, 155; x0, y0 = x - w / 2, ty - h - 14
+    WACHT.plaats("laptop", (x0, y0, x0 + w, ty), op="tafel")
+    d.rounded_rectangle((x0, y0, x0 + w, y0 + h), 12, fill=(55, 58, 66), outline=INK, width=5)
+    sx0, sy0, sx1, sy1 = x0 + 14, y0 + 14, x0 + w - 14, y0 + h - 14; d.rectangle((sx0, sy0, sx1, sy1), fill=(12, 20, 35))
+    d.polygon([(x0 - 20, ty - 14), (x0 + w + 20, ty - 14), (x0 + w + 6, ty + 2), (x0 - 6, ty + 2)], fill=(150, 152, 160), outline=INK)
+    plak_logo(img, sx0 + 8, sy0 + 6, 20, wit=True); d = ImageDraw.Draw(img)
+    pts = [(sx0 + 12 + k * (sx1 - sx0 - 24) / 11, sy1 - 10 - (sy1 - sy0 - 44) * (k / 11) ** 3) for k in range(12)]
+    d.line(pts, fill=(120, 255, 140), width=5)
+def kom(img, x, ty):                                        # kom ontbijtgranen op tafel
+    zet(img, "ontbijtkom", 110, x, ty + 4, op="tafel", naam="ontbijtkom")
+def biljet(d, t):                                           # $100-biljet schuift over de tafel naar Jensen
+    if t < T_BILJET: return
+    a = ps.ease((t - T_BILJET) / 0.8); x = 420 + (640 - 420) * a; y = TAFEL_Y - 4
+    WACHT.plaats("biljet", (x - 60, y - 14, x + 60, y + 4), op="tafel")
+    d.polygon([(x - 60, y - 10), (x + 56, y - 14), (x + 60, y + 4), (x - 56, y + 6)], fill=(150, 205, 140), outline=(40, 90, 40))
+    d.text((x, y - 4), "$100", font=font(FB, 20), fill=(30, 80, 30), anchor="mm")
+def oudscherm(img, t):                                     # koers op het CRT-scherm van de pc op het bureau (beurs.png: scherm x 256-400, y 662-798)
+    d = ImageDraw.Draw(img); x0, y0, x1, y1 = 258, 664, 400, 798
+    WACHT.vlak("bureau-achtergrond", [130, 660, 880, 910]); WACHT.plaats("computer", (200, 620, 600, 895), op="bureau-achtergrond")
+    d.rectangle((x0, y0, x1, y1), fill=(10, 25, 60)); plak_logo(img, x0 + 8, y0 + 8, 16, wit=True); d = ImageDraw.Draw(img)
+    pts = [(x0 + 10 + k * (x1 - x0 - 20) / 7, y1 - 40 - (6 if k % 2 else 0) - (8 if k > 4 else 0)) for k in range(8)]   # koers kabbelt: bijna niks
+    d.line(pts, fill=(120, 255, 140), width=3)
+def kalender(d, t):                                         # scheurkalender aan de muur: de jaren vliegen voorbij
+    x0, y0 = 740, 330; WACHT.plaats("kalender", (x0, y0, x0 + 180, y0 + 200), op="muur")
+    jaar = 2000 + min(5, int(max(0, t - Z[I_JAREN][0]) / 0.5))
+    d.rounded_rectangle((x0, y0, x0 + 180, y0 + 200), 10, fill=(255, 255, 255), outline=INK, width=5); d.rectangle((x0, y0, x0 + 180, y0 + 50), fill=(220, 60, 60))
+    d.text((x0 + 90, y0 + 125), str(jaar), font=font(FB, 54), fill=INK, anchor="mm")
+def kaartpodium(img, t):                                    # grafische kaart op een podium onder het grote scherm, met het NVIDIA-logo
+    d = ImageDraw.Draw(img); d.ellipse((360, 975, 720, 1015), fill=(118, 185, 0)); d.rectangle((380, 900, 700, 995), fill=(30, 32, 40), outline=INK, width=5)
+    plak_logo(img, 400, 925, 42, wit=True)
+    zet(img, "videokaart", 150, 540, 904, op="podium", naam="videokaart")
+
+# ---------- camera ----------
+SCENE_MID = {"woon": (540, 1080), "diner": (540, 1250), "kamer": (560, 1150), "gaming": (540, 1200), "ai": (540, 1250), "woon2": (560, 1080)}
 def _doel(t):
     sc = scene(t); n = sc["naam"]; nu = nu_i(t)
     cx, cy = SCENE_MID[n]; zm = 1.0 + min(0.15, (t - sc["t"]) * 0.03)
-    if n == "denny" and nu == I_START and t >= T_DRIE: cx, cy, zm = 790, 1250, 1.25          # "three engineers"
+    if n == "woon" and t < 1.6: cx, cy, zm = 560, SALON_Y - 100, 2.4                 # extreme close-up op de koers, dan snel uitzoomen
     if nu is not None and Z[nu][4] in LIJF:
         naam = LIJF[Z[nu][4]]
         for f in figuren(n, t):
             if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 260, 1.32
-    for tt, c in ((T_5M, "sega"), (T_620, "nu")):
-        if n == c and t >= tt and nu is not None and Z[nu][4] == "N": zm = 1.25
+    if n == "woon2" and nu == I_FORT: cx, cy, zm = 560, SALON_Y - 200, 1.5          # de koers schiet omhoog
+    if n == "woon2" and T_DEUR <= t < Z[I_CONGR][0]: cx, cy, zm = 760, 1080, 1.15   # deur gaat open
+    if n == "woon2" and t > Z[I_SLOT][1]: cx, cy, zm = 320, 1000, 1.8                # bevroren eindbeeld op jouw gezicht
     return cx, cy, zm
 CAMTRACK = []
 def _maak_track():
     cx, cy, zm = _doel(0); vorige = None
     for i in range(int((EIND + 1) * FPS)):
         t = i / FPS; dx, dy, dz = _doel(t); n = scene(t)["naam"]
-        if n != vorige: cx, cy, zm = dx, dy, dz * 0.92
-        a = 0.06; cx += (dx - cx) * a; cy += (dy - cy) * a; zm += (dz - zm) * a
+        if n != vorige: cx, cy, zm = dx, dy, dz * (1.0 if i == 0 else 0.92)
+        a = 0.06 if not (n == "woon" and 1.6 <= t < 2.4) else 0.2                       # snelle zoom-out na het begin
+        cx += (dx - cx) * a; cy += (dy - cy) * a; zm += (dz - zm) * a
         CAMTRACK.append((cx, cy, zm)); vorige = n
 _maak_track()
 def camera(img, t):
@@ -283,48 +345,31 @@ def camera(img, t):
 
 GEZ = {}
 def frame(t):
-    sc = scene(t); n = sc["naam"]; nu = nu_i(t)
-    img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t); GEZ.clear(); d = ImageDraw.Draw(img)
-    figs = figuren(n, t); zit = [f for f in figs if f[5]]; staan = [f for f in figs if not f[5]]
-    if n == "denny": bank_achter(d, 0, 330); bank_achter(d, 480, 1080)
-    if n == "nu": bank_achter(d, 0, 1080)
-    koppen = teken(img, zit, t, nu); d = ImageDraw.Draw(img)
-    if n == "denny":
-        tafel(d, 0, 330, naam="tafel-links"); tafel(d, 480, 1080)
-        servet(d, 700, 0.6, t); mok(d, 860); mok(d, 1010); mok(d, 560)
-        zet(img, "pannenkoek", 100, 270, TAFEL_Y + 4, op="tafel-links", naam="pannenkoeken")
-        hx, hy = rhand("you", 170, ZY, 1.6, 40 + 12 * math.sin(t * 5)); ImageDraw.Draw(img).line((hx, hy, hx + 30, hy + 30), fill=(150, 150, 160), width=6)
-    if n == "nu": tafel(d, 0, 1080); servet(d, 560, -99, t); mok(d, 330); mok(d, 880)
-    if n in ("kantoor", "beurs"): tafel(d, 0, 1080, blad=(200, 200, 205), voor=(150, 150, 160), naam="bureau")
-    if n == "sega": tafel(d, 0, 1080, blad=(120, 80, 50), voor=(95, 60, 38), naam="vergadertafel")
-    if n == "kantoor":
-        s = sprite("crt", 300); img.paste(s, (int(470 - s.width / 2), int(TAFEL_Y - s.height + 6)), s)
-        WACHT.plaats("computer", (470 - s.width / 2, TAFEL_Y - s.height, 470 + s.width / 2, TAFEL_Y), op="bureau")
-        zet(img, "videokaart", 150, 640, TAFEL_Y + 2, op="bureau", naam="videokaart")
-        if t >= T_FLOP: rook(ImageDraw.Draw(img), 640, TAFEL_Y - 80, t, T_FLOP)
-    if n == "beurs": scherm(img, 330, t)
-    if staan: koppen.update(teken(img, staan, t, nu))
-    if n == "denny" and t >= T_SERV + 1.0:                 # koffiekan in de hand van de serveerster, schenkt in de mok
-        kx, ky = rhand("serveerster", 405, 1900, 1.5, 105); schenk = T_SCHENK <= t < T_SCHENK + 1.6
-        kan = sprite("koffiekan", 130).rotate(-40 if schenk else 0, expand=True, resample=Image.BICUBIC)
-        px, py = int(kx - kan.width * 0.3), int(ky - kan.height * 0.75); img.paste(kan, (px, py), kan)
-        WACHT.plaats("koffiekan", (px, py, px + kan.width, py + kan.height), op="aan:hand")
-        if schenk: ImageDraw.Draw(img).line((px + kan.width * 0.92, py + kan.height * 0.35, 560, TAFEL_Y - 44), fill=(110, 65, 35), width=7)
-    if n == "ai":                                          # AI-chipkaart in de hand van de onderzoeker
-        kx, ky = rhand("onderzoeker", 770, 1900, 2.0, 70)
-        zet(img, "videokaart", 190, kx, ky + 60, op="aan:hand", naam="videokaart", punt=(kx, ky))
+    t_beeld = min(t, Z[-1][1] + 0.6)                                                  # daarna bevroren eindbeeld
+    sc = scene(t_beeld); n = sc["naam"]; nu = nu_i(t_beeld)
+    img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t_beeld); GEZ.clear(); d = ImageDraw.Draw(img)
+    if n == "woon2": deur(d, t_beeld)
+    figs = figuren(n, t_beeld); zit = [f for f in figs if f[5]]; staan = [f for f in figs if not f[5]]
+    if n == "diner": bank_achter(d, 0, 1080)
+    if n == "gaming": kaartpodium(img, t_beeld)
+    if n == "kamer": oudscherm(img, t_beeld); kalender(ImageDraw.Draw(img), t_beeld)
+    koppen = teken(img, zit, t_beeld, nu); d = ImageDraw.Draw(img)
+    if n in ("woon", "woon2"): salontafel(d); laptop(img, 600, t_beeld, n, SALON_Y); kom(img, 190, SALON_Y)
+    if n == "diner":
+        tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); biljet(ImageDraw.Draw(img), t_beeld)
+    if staan: koppen.update(teken(img, staan, t_beeld, nu))
     ps.W, ps.H = W, H
-    for naam, (hx_, top_) in koppen.items():               # kleine naamlabels boven de hoofden (oude stijl)
-        tekst, kl = NAAM[naam]; ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
+    for naam, (hx_, top_) in koppen.items():
+        tekst, kl = NAAM[naam]
+        if tekst: ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
+    if n == "ai": plak_logo(img, 300, 560, 90, wit=True)                                 # NVIDIA-logo op de servers
     img = camera(img, t)
     if TEKST_AAN:
-        plaatskaart(img, t, sc)
-        if n == "kantoor" and t >= T_FLOP: kop(img, "FIRST CHIP: FLOP", W / 2, 370, 90, (255, 90, 80), ps.pop((t - T_FLOP) / 0.3))
-        if n == "sega" and t >= T_5M: kop(img, "$5,000,000", W / 2, 370, 130, (90, 220, 110), ps.pop((t - T_5M) / 0.3))
-        if n == "beurs" and t >= T_KOOP: kop(img, "YOU BUY: $100", W / 2, 370, 100, (90, 220, 110), ps.pop((t - T_KOOP) / 0.3))
-        if n == "ai" and t >= Z[I_AI][0] + 0.6: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t - Z[I_AI][0] - 0.6) / 0.3))
-        if n == "nu" and t >= T_620: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t - T_620) / 0.35))
-        ondertitel(img, t)
+        plaatskaart(img, t_beeld, sc)
+        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][0]: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
+        if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 370, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
+        if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
+        if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
     return img
 
@@ -343,8 +388,8 @@ def geluid():
     uit = np.zeros(int((EIND + 1) * GSR), np.float32)
     def zet_(t, n, x, g, zie):
         i = int(t * GSR); j = min(len(uit), i + len(x)); uit[i:j] += x[:j - i] * g; GELUIDEN.append((t, n, zie))
-    for q in np.arange(T_SERV, T_SERV + 0.9, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.3, "serveerster")   # serveerster loopt
-    zet_(T_KOOP + 0.2, "klik", _fade(_laad("klik")), 0.5, "computer")                                                             # kopen met de muis
+    zet_(T_BILJET + 0.1, "papier", _fade(_drukste(_laad("papier"), 0.4)), 0.4, "biljet")                         # biljet over tafel
+    for q in np.arange(T_DEUR + 0.2, T_DEUR + 1.3, 0.3): zet_(q, "stappen", _fade(_drukste(_laad("stappen"), 0.25)), 0.35, "jensennu")
     uit /= max(1, np.abs(uit).max() / 0.9)
     sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():
@@ -360,7 +405,7 @@ def geluidcheck():
 if __name__ == "__main__":
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.8 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
-        pl = Image.new("RGB", (270 * 7, 480 * 2)); [pl.paste(im, (270 * (i % 7), 480 * (i // 7))) for i, im in enumerate(ims)]
+        pl = Image.new("RGB", (270 * 11, 480 * 2)); [pl.paste(im, (270 * (i % 11), 480 * (i // 11))) for i, im in enumerate(ims)]
         pl.save(HIER / "plaat.jpg", quality=85); print("plaat.jpg"); print("LAYOUT:", sorted(LAYOUT) or "alles past")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)"); sys.exit()
     geluid(); gf = geluidcheck(); print("GELUIDCHECK:", gf or "elk geluid hoort bij iets in beeld")
