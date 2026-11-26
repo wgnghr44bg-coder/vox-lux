@@ -784,6 +784,11 @@
     1080,
     1180
    ]
+  },
+  "maat": {
+   "horizon": 700,
+   "k": 0.56,
+   "_uitleg": "afgeleid van v6 (eigenaar gezien): 1,6 schaal op y 1580"
   }
  },
  "v-buiten-nacht": {
@@ -795,7 +800,14 @@
     1410
    ]
   },
-  "muur": [],
+  "muur": [
+   [
+    430,
+    600,
+    650,
+    1250
+   ]
+  ],
   "meubels": {
    "paal": [
     985,
@@ -803,6 +815,11 @@
     1080,
     1390
    ]
+  },
+  "maat": {
+   "horizon": 1000,
+   "k": 1.17,
+   "_uitleg": "afgeleid van v6: papa 1,55 op y 1405; deur 2,2 m"
   }
  },
  "v-straat-oud": {
@@ -822,6 +839,11 @@
     230,
     1920
    ]
+  },
+  "maat": {
+   "horizon": 900,
+   "k": 0.61,
+   "_uitleg": "afgeleid van v6: agent 1,7 op y 1850"
   }
  },
  "v-denny": {
@@ -944,6 +966,93 @@
    "horizon": 740,
    "k": 1.3,
    "_uitleg": "deur 668 px op y 1100 (2,1 m) en zitting bank 120 px op y 1170"
+  }
+ },
+ "v-mall-tv": {
+  "vlakken": {
+   "vloer": [
+    120,
+    960,
+    1440,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 1000,
+   "k": 0.9,
+   "_uitleg": "kast onder de tv-wand ± 0,45 m = 100 px op y 1440"
+  }
+ },
+ "v-kerst": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    940,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {
+   "kerstboom": [
+    60,
+    880,
+    430,
+    975
+   ]
+  },
+  "maat": {
+   "horizon": 400,
+   "k": 1.09,
+   "_uitleg": "schoorsteenmantel 1,2 m = 420 px op y 960; ooghoogte 1,6 m"
+  }
+ },
+ "v-failliet": {
+  "vlakken": {
+   "vloer": [
+    180,
+    900,
+    920,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 820,
+   "k": 1.02,
+   "_uitleg": "winkelluik links 3 m = 580 px, onderkant y 1150"
+  }
+ },
+ "v-winkeltje": {
+  "vlakken": {
+   "vloer": [
+    150,
+    640,
+    1160,
+    1920
+   ],
+   "toonbank": [
+    90,
+    860,
+    862,
+    895
+   ],
+   "plank": [
+    130,
+    800,
+    420,
+    445
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 672,
+   "k": 1.09,
+   "_uitleg": "toonbank achter 0,95 m = 290 px, voet y 1160; ooghoogte 1,6 m"
   }
  }
 }
