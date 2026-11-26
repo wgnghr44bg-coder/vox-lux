@@ -287,7 +287,7 @@ def salontafel(d):                                         # lage salontafel: ve
     for x_ in (160, 880): d.rectangle((x_, SALON_Y + 110, x_ + 22, SALON_Y + 150), fill=(110, 75, 50), outline=INK, width=4)
 def laptop(img, x, t, n, ty):                              # opengeklapte laptop op tafel; scherm naar de kijker met de koers + echt logo
     d = ImageDraw.Draw(img); w, h = 240, 155; x0, y0 = x - w / 2, ty - h - 14
-    WACHT.plaats("laptop", (x0, y0, x0 + w, ty), op="tafel")
+    WACHT.plaats("laptop", (x0, y0, x0 + w, ty), op="tafel", voor=True)
     d.rounded_rectangle((x0, y0, x0 + w, y0 + h), 12, fill=(55, 58, 66), outline=INK, width=5)
     sx0, sy0, sx1, sy1 = x0 + 14, y0 + 14, x0 + w - 14, y0 + h - 14; d.rectangle((sx0, sy0, sx1, sy1), fill=(12, 20, 35))
     d.polygon([(x0 - 20, ty - 14), (x0 + w + 20, ty - 14), (x0 + w + 6, ty + 2), (x0 - 6, ty + 2)], fill=(150, 152, 160), outline=INK)
@@ -326,7 +326,7 @@ def in_hand(img, naam, figs, t, wat):                          # voorwerp in de 
     hx, hy = rhand(naam, f[1], f[2], f[3], hoek); S = f[3] * ps.C[naam].get("groot", 1.0); d = ImageDraw.Draw(img)
     if wat == "gpu":
         k = sprite("videokaart", int(70 * S)); img.paste(k, (int(hx - k.width / 2), int(hy - k.height * 0.7)), k)
-        WACHT.plaats("videokaart-hand", (hx - k.width / 2, hy - k.height * 0.7, hx + k.width / 2, hy + k.height * 0.3), op="beeld")
+        WACHT.plaats("videokaart-hand", (hx - k.width / 2, hy - k.height * 0.7, hx + k.width / 2, hy + k.height * 0.3), op="hand:" + naam, punt=(hx, hy), voor=True)
     elif wat == "ps2":                                            # zwarte spelcomputer (eigen tekening, geen logo) met controller
         w, h = 150 * S, 32 * S; x0, y0 = hx - w * 0.5, hy - h - 2 * S
         d.polygon([(x0, y0 + h), (x0 + w, y0 + h), (x0 + w, y0), (x0, y0)], fill=(22, 22, 26), outline=INK)
@@ -336,15 +336,15 @@ def in_hand(img, naam, figs, t, wat):                          # voorwerp in de 
         d.line((x0, y0 + h * 0.6, cx_ + 20 * S, cy_), fill=INK, width=max(2, int(2 * S)))
         d.rounded_rectangle((cx_ - 30 * S, cy_ - 12 * S, cx_ + 30 * S, cy_ + 16 * S), int(10 * S), fill=(30, 30, 36), outline=INK, width=max(2, int(2 * S)))
         for k_, kl_ in enumerate(((90, 200, 120), (230, 80, 80), (80, 140, 240), (230, 120, 200))): d.ellipse((cx_ + 8 * S + (k_ % 2) * 9 * S, cy_ - 6 * S + (k_ // 2) * 9 * S, cx_ + 14 * S + (k_ % 2) * 9 * S, cy_ + (k_ // 2) * 9 * S), fill=kl_)
-        WACHT.plaats("ps2-hand", (x0 - 80 * S, y0, x0 + w, y0 + h), op="beeld")
+        WACHT.plaats("ps2-hand", (x0 - 80 * S, y0, x0 + w, y0 + h), op="hand:" + naam, punt=(hx, hy), voor=True)
     elif wat == "handheld":                                       # klein spelcomputertje (begin jaren 2000) voor de borst
         w, h = 34 * S, 48 * S; x0, y0 = hx - w / 2, hy - h * 0.8
         d.rounded_rectangle((x0, y0, x0 + w, y0 + h), int(6 * S), fill=(110, 90, 170), outline=INK, width=max(3, int(2 * S)))
         d.rectangle((x0 + 5 * S, y0 + 5 * S, x0 + w - 5 * S, y0 + h * 0.45), fill=(150, 200, 120))
-        WACHT.plaats("handheld", (x0, y0, x0 + w, y0 + h), op="beeld")
+        WACHT.plaats("handheld", (x0, y0, x0 + w, y0 + h), op="hand:" + naam, punt=(hx, hy), voor=True)
 def ps2(img, t, n):                                            # 26 nov: de PlayStation 2 (gekocht in 2002) staat nog op de salontafel; licht op bij "I needed a PlayStation 2!"
     d = ImageDraw.Draw(img); x0, x1, y1 = 232, 412, SALON_Y + 2; y0 = y1 - 40
-    WACHT.plaats("ps2", (x0, y0, x1, y1), op="tafel")
+    WACHT.plaats("ps2", (x0, y0, x1, y1), op="tafel", voor=True)
     if n == "woon2" and nu_i(t) == I_PS2:
         r = 1 + 0.04 * math.sin(t * 8)
         for k_ in range(5): d.rounded_rectangle((x0 - 14 * r - k_ * 6, y0 - 14 * r - k_ * 6, x1 + 14 * r + k_ * 6, y1 + 6 + k_ * 3), 18, outline=(120, 170, 255), width=3)

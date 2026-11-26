@@ -109,7 +109,9 @@ class Scenewachter:
         for naam, (x0, y0, x1, y1), op in self.voor:
             if op == "beeld": continue
             for pn, (cx, cy, r) in (gezichten or {}).items():
-                if op and op.endswith(":" + pn): continue
+                if op and op.endswith(":" + pn):            # 26 nov: eigen voorwerp mag tegen het gezicht (telefoon aan oor), niet ervóór (ogen/mond)
+                    if x0 < cx + r * 0.45 and x1 > cx - r * 0.45 and y0 < cy + r * 0.45 and y1 > cy - r * 0.45: self._m("FOUT", naam, f"bedekt het eigen gezicht van {pn}")
+                    continue
                 ox = max(x0, min(cx, x1)); oy = max(y0, min(cy, y1))
                 if (ox - cx) ** 2 + (oy - cy) ** 2 < (r * 0.8) ** 2: self._m("FOUT", naam, f"bedekt het gezicht van {pn}")
 
