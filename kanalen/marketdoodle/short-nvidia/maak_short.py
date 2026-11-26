@@ -253,12 +253,12 @@ def figuren(n, t):
         return [("jij99", 800, 1330, 2.8, "telefoon", False, 0.9)]                       # 'barely gets your attention': rug naar de pc, speelt op een spelcomputertje
     if n == "gaming":
         return [("gamer1", 190, 1650, 1.75, "juich" if nu == I_BABY else None, False), ("gamer2", 860, 1690, 1.8, "wijs", False),
-                ("jij99", 520, 1780, 1.85, ("hoek", -16, 168) if nu == I_BABY else None, False, 0.0)]
+                ("jij99", 520, 1780, 1.85, ("hoek", -16, 145) if nu == I_BABY else None, False, 0.0)]
     if n == "ai":
         chip = t >= T_CHIPS
         return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, ("hoek", -16, 160) if nu == I_ONDZ else ("vast" if chip else None), False)]
     if n == "woon2":
-        g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "vast"}.get(nu, ("hoek", -16, 40))
+        g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
         f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]
         if t >= T_DEUR:                                     # Jensen komt door de voordeur binnen (op de juiste maat bij de deur, groter vooraan)
             a = ps.ease((t - T_DEUR) / 1.3); x = 870 + (905 - 870) * a; y = 1110 + (1400 - 1110) * a; s = 1.48 + (2.43 - 1.48) * a
@@ -328,16 +328,29 @@ def in_hand(img, naam, figs, t, wat):                          # voorwerp in de 
         k = sprite("videokaart", int(70 * S)); img.paste(k, (int(hx - k.width / 2), int(hy - k.height * 0.7)), k)
         WACHT.plaats("videokaart-hand", (hx - k.width / 2, hy - k.height * 0.7, hx + k.width / 2, hy + k.height * 0.3), op="beeld")
     elif wat == "ps2":                                            # zwarte spelcomputer (eigen tekening, geen logo) met controller
-        w, h = 120 * S, 26 * S; x0, y0 = hx - w * 0.55, hy - h - 4 * S
+        w, h = 150 * S, 32 * S; x0, y0 = hx - w * 0.5, hy - h - 2 * S
         d.polygon([(x0, y0 + h), (x0 + w, y0 + h), (x0 + w, y0), (x0, y0)], fill=(22, 22, 26), outline=INK)
         for k_ in range(1, 5): d.line((x0 + 8 * S, y0 + k_ * h / 5, x0 + w * 0.6, y0 + k_ * h / 5), fill=(55, 55, 65), width=max(2, int(2 * S)))
         d.rectangle((x0 + w * 0.68, y0 + h * 0.3, x0 + w * 0.92, y0 + h * 0.55), fill=(40, 40, 48)); d.ellipse((x0 + w * 0.94, y0 + h * 0.35, x0 + w * 0.94 + 5 * S, y0 + h * 0.35 + 5 * S), fill=(70, 140, 255))
-        WACHT.plaats("ps2-hand", (x0, y0, x0 + w, y0 + h), op="beeld")
+        cx_, cy_ = x0 - 40 * S, y0 + h * 0.4                    # controller in de andere... aan een snoer ernaast
+        d.line((x0, y0 + h * 0.6, cx_ + 20 * S, cy_), fill=INK, width=max(2, int(2 * S)))
+        d.rounded_rectangle((cx_ - 30 * S, cy_ - 12 * S, cx_ + 30 * S, cy_ + 16 * S), int(10 * S), fill=(30, 30, 36), outline=INK, width=max(2, int(2 * S)))
+        for k_, kl_ in enumerate(((90, 200, 120), (230, 80, 80), (80, 140, 240), (230, 120, 200))): d.ellipse((cx_ + 8 * S + (k_ % 2) * 9 * S, cy_ - 6 * S + (k_ // 2) * 9 * S, cx_ + 14 * S + (k_ % 2) * 9 * S, cy_ + (k_ // 2) * 9 * S), fill=kl_)
+        WACHT.plaats("ps2-hand", (x0 - 80 * S, y0, x0 + w, y0 + h), op="beeld")
     elif wat == "handheld":                                       # klein spelcomputertje (begin jaren 2000) voor de borst
         w, h = 34 * S, 48 * S; x0, y0 = hx - w / 2, hy - h * 0.8
         d.rounded_rectangle((x0, y0, x0 + w, y0 + h), int(6 * S), fill=(110, 90, 170), outline=INK, width=max(3, int(2 * S)))
         d.rectangle((x0 + 5 * S, y0 + 5 * S, x0 + w - 5 * S, y0 + h * 0.45), fill=(150, 200, 120))
         WACHT.plaats("handheld", (x0, y0, x0 + w, y0 + h), op="beeld")
+def ps2(img, t, n):                                            # 26 nov: de PlayStation 2 (gekocht in 2002) staat nog op de salontafel; licht op bij "I needed a PlayStation 2!"
+    d = ImageDraw.Draw(img); x0, x1, y1 = 232, 412, SALON_Y + 2; y0 = y1 - 40
+    WACHT.plaats("ps2", (x0, y0, x1, y1), op="tafel")
+    if n == "woon2" and nu_i(t) == I_PS2:
+        r = 1 + 0.04 * math.sin(t * 8)
+        for k_ in range(5): d.rounded_rectangle((x0 - 14 * r - k_ * 6, y0 - 14 * r - k_ * 6, x1 + 14 * r + k_ * 6, y1 + 6 + k_ * 3), 18, outline=(120, 170, 255), width=3)
+    d.rectangle((x0, y0, x1, y1), fill=(24, 24, 28), outline=INK, width=4)                      # zwarte, platte spelcomputer (eigen tekening, geen logo)
+    for k_ in range(1, 5): d.line((x0 + 10, y0 + k_ * 8, x0 + 110, y0 + k_ * 8), fill=(60, 60, 70), width=2)
+    d.rectangle((x0 + 120, y0 + 12, x1 - 14, y0 + 22), fill=(45, 45, 52)); d.ellipse((x1 - 12, y0 + 28, x1 - 5, y0 + 35), fill=(70, 140, 255))
 def gloed(img, t):                                              # kaart op het podium licht op als jij ernaar wijst
     if nu_i(t) != I_BABY: return
     d = ImageDraw.Draw(img); r = 120 + 12 * math.sin(t * 8)
@@ -353,7 +366,8 @@ def _doel(t):
         naam = LIJF[Z[nu][4]]
         for f in figuren(n, t):
             if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 260, 1.32
-    if n == "gaming" and nu == I_BABY: cx, cy, zm = 540, 1300, 1.12                 # jij én de kaart waar je naar wijst
+    if n == "gaming" and nu == I_BABY: cx, cy, zm = 540, 1150, 1.05                 # jij én de kaart waar je naar wijst
+    if n == "woon2" and nu == I_PS2: cx, cy, zm = 380, SALON_Y - 180, 1.45        # jij én de PS2 op tafel
     if n == "woon2" and nu == I_FORT: cx, cy, zm = 520, SALON_Y - 200, 1.5          # de koers schiet omhoog
     if n == "woon2" and T_DEUR <= t < Z[I_CONGR][0]: cx, cy, zm = 760, 1080, 1.15   # deur gaat open
     if n == "woon2" and t > Z[I_SLOT][1]: cx, cy, zm = 320, 1000, 1.8                # bevroren eindbeeld op jouw gezicht
@@ -384,14 +398,13 @@ def frame(t):
     if n == "gaming": kaartpodium(img, t_beeld)
     if n == "kamer": oudscherm(img, t_beeld); kalender(ImageDraw.Draw(img), t_beeld)
     koppen = teken(img, zit, t_beeld, nu); d = ImageDraw.Draw(img)
-    if n in ("woon", "woon2"): salontafel(d); laptop(img, 545, t_beeld, n, SALON_Y); kom(img, 190, SALON_Y)
+    if n in ("woon", "woon2"): salontafel(d); laptop(img, 545, t_beeld, n, SALON_Y); kom(img, 125, SALON_Y); ps2(img, t_beeld, n)
     if n == "diner":
         tafel(d, 0, 1080); mok(d, 220); mok(d, 900); zet(img, "pannenkoek", 100, 470, TAFEL_Y + 4, op="tafel", naam="pannenkoeken"); biljet(ImageDraw.Draw(img), t_beeld)
     if staan: koppen.update(teken(img, staan, t_beeld, nu))
     if n == "gaming": gloed(img, t_beeld)
     if n == "ai": in_hand(img, "collega", figs, t_beeld, "gpu"); in_hand(img, "onderzoeker", figs, t_beeld, "gpu")
     if n == "kamer" and nu != I_ALIVE: in_hand(img, "jij99", figs, t_beeld, "handheld")
-    if n == "woon2" and nu == I_PS2: in_hand(img, "jijpyjama", figs, t_beeld, "ps2")
     ps.W, ps.H = W, H
     for naam, (hx_, top_) in koppen.items():
         tekst, kl = NAAM[naam]

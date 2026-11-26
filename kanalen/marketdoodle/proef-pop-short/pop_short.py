@@ -98,7 +98,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "schrik": links, rechts = -128 + 6 * math.sin(t * 30), 128 - 6 * math.sin(t * 30)         # handen omhoog naast het hoofd, trillen
     elif gebaar == "denk": rechts = -116                                                                      # hand aan de kin
     elif gebaar == "facepalm": rechts = -152                                                                  # hand voor het gezicht
-    elif gebaar == "hoofdhanden": links, rechts = 172, -172                                                    # 26 nov: beide handen op het hoofd ("oh nee!", spijt/schrik)
+    elif gebaar == "hoofdhanden": links, rechts = -172, 172                                                   # 26 nov: beide handen op het hoofd ("oh nee!", spijt/schrik)
     elif gebaar == "heupen": links, rechts = -28, 28                                                          # handen in de zij
     elif gebaar == "klap": links, rechts = 38 + 14 * math.sin(t * 16), -38 - 14 * math.sin(t * 16)            # in de handen klappen
     elif gebaar == "duim": rechts = 125                                                                       # duim omhoog (arm schuin omhoog)
