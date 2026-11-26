@@ -80,6 +80,8 @@ als begin (voor een Short: staand 1080x1920, ± 45-50 s, zelfde poppetjes, zelfd
   `STILTE|2.0` in het script met **precies één krekel-tjirp** (eigenaar: "1 krekel, dit lijken er wel 100") en de familie die **langzaam** opzij kijkt; de geluidcheck eist minstens 1,5 s stilte.
   **Krekel niet elke keer** (eigenaar 26 nov: "krekel geluid hoeft niet elke keer erin"): af en toe, niet als vast trucje;
   een korte pauze (`STILTE|1.0`) zonder geluid mag ook.
+  **Stilte + naar elkaar kijken is GEEN vast einde** (eigenaar 26 nov: "dat naar elkaar kijken hoeft niet, die stilte alleen
+  als het past"): alleen gebruiken als de grap er echt om vraagt.
 - **Gewoon praten = geen armgebaar** (eigenaar 25 nov); alleen een gebaar als de zin erom vraagt. De renderer meldt het in LAYOUT.
 - **Verteller per zin inspreken met pauze** (eigenaar 25 nov: "It's 6 a.m. Your bank app gaat te snel"): `stem.py` + `tools/tempowachter.py`.
 - **Tempo verteller: 180 woorden/min** (eigenaar 25 nov: 161 te langzaam, 200 te snel, 180 "dit is goed" voor Short én lange video). Na stem.py + woordtijden.py: `tools/stemtempo.py <map> 180`, dan tempowachter.
