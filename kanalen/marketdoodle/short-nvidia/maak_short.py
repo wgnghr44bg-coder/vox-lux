@@ -113,13 +113,16 @@ def emotie(t, nu_i):
     return best[0]
 
 # ---------- tekeningen ----------
-LAYOUT = set(); TEKST_AAN = True; SCHERM = []; GEB = {}; CROP = [None]
+LAYOUT = set(); TEKST_AAN = True; SCHERM = []; GEB = {}; CROP = [None]; LABELS = []
 def kop(img, s, x, y, m, kl, sch):
     SCHERM.append(s)
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
     if x is None: x = 50 + w / 2
     if sch >= 1 and (x - w / 2 < 20 or x + w / 2 > W - 20 or y - h / 2 < 10): LAYOUT.add(f"kop '{s}' valt (deels) buiten beeld")
+    if sch >= 1:                                            # 26 nov: kop mag niet over een naamlabel vallen
+        for ln, (a0, b0, a1, b1) in LABELS:
+            if x - w / 2 < a1 and x + w / 2 > a0 and y - h / 2 < b1 and y + h / 2 > b0: LAYOUT.add(f"kop '{s}' valt over naamlabel {ln}")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30))
 def ondertitel(img, t):
@@ -428,17 +431,21 @@ def frame(t):
         tekst, kl = NAAM[naam]
         if tekst: ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
     img = camera(img, t)
+    LABELS.clear(); cx0, cy0, cx1, cy1 = CROP[0]; zm_ = W / (cx1 - cx0)
+    for naam, (hx_, top_) in koppen.items():               # naamlabels in beeldcoördinaten (na de camera)
+        tekst, kl = NAAM[naam]
+        if tekst: bw_ = 14 * len(tekst) + 40; LABELS.append((tekst, ((hx_ - bw_ / 2 - cx0) * zm_, (top_ - 70 - cy0) * zm_, (hx_ + bw_ / 2 - cx0) * zm_, (top_ - 20 - cy0) * zm_)))
     if TEKST_AAN:
         if n == "woon":                                     # 26 nov (eigenaar): tijdens "What if ... in 1999?" geen '2026' in beeld; label pas bij "Wait..."
             T_W = Z[I_RIJK][0] - 0.1
             if t_beeld >= T_W: plaatskaart(img, t_beeld, dict(sc, t=T_W))
             else:
                 T_H, T_J = kw(I_HOOK, "hundred", -0.1), kw(I_HOOK, "1999", -0.1)
-                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 270, 120, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
-                elif t_beeld >= T_H: kop(img, "$100", W / 2, 270, 150, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
+                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 235, 105, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
+                elif t_beeld >= T_H: kop(img, "$100", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
         else: plaatskaart(img, t_beeld, sc)
-        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 270, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
-        if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 270, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
+        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 235, 120, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
+        if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 235, 100, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
         if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
