@@ -247,7 +247,7 @@ def figuren(n, t):
     if n == "woon":
         return [("jijpyjama", 320, SALON_Y + 210, 2.1, "hoofdhanden" if nu == I_RIJK else ("hoek", -16, 40), True)]       # zit óp de bank
     if n == "diner":
-        jg = ("hoek", -16, 95) if nu in (I_OFFER, I_PLAN) else ("duim" if nu == I_DEAL else None)
+        jg = ("hoek", -100, -16) if nu in (I_OFFER, I_PLAN) else ("duim" if nu == I_DEAL else None)
         yg = ("hoek", -16, 70) if nu == I_FINE else ("denk" if nu == I_GELD else None)
         return [("jij99", 300, ZY, 2.4, yg, True), ("jensen", 780, ZY, 2.3, jg, True)]
     if n == "kamer":
@@ -258,7 +258,7 @@ def figuren(n, t):
                 ("jij99", 520, 1780, 1.85, ("hoek", -16, 145) if nu == I_BABY else None, False, 0.0)]
     if n == "ai":
         chip = t >= T_CHIPS
-        return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, ("hoek", -16, 160) if nu == I_ONDZ else ("vast" if chip else None), False)]
+        return [("collega", 300, 1750, 3.15, "vast" if chip else None, False), ("onderzoeker", 790, 1750, 3.4, ("hoek", -16, 160) if nu == I_ONDZ else None, False)]
     if n == "woon2":
         g = {I_ISLAND: "juich", I_RETIRE: "juich", I_SOLD: "schouders", I_PS2: "schouders"}.get(nu, ("hoek", -16, 40))
         f = [("jijpyjama", 320, SALON_Y + 210, 2.1, g, True)]
@@ -434,11 +434,11 @@ def frame(t):
             if t_beeld >= T_W: plaatskaart(img, t_beeld, dict(sc, t=T_W))
             else:
                 T_H, T_J = kw(I_HOOK, "hundred", -0.1), kw(I_HOOK, "1999", -0.1)
-                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 370, 120, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
-                elif t_beeld >= T_H: kop(img, "$100", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
+                if t_beeld >= T_J: kop(img, "$100 IN 1999", W / 2, 270, 120, KL["geel"], ps.pop((t_beeld - T_J) / 0.3))
+                elif t_beeld >= T_H: kop(img, "$100", W / 2, 270, 150, (90, 220, 110), ps.pop((t_beeld - T_H) / 0.3))
         else: plaatskaart(img, t_beeld, sc)
-        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
-        if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 370, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
+        if n == "woon2" and T_620 <= t_beeld < Z[I_CONGR][1] + 0.2: kop(img, "$620,000", W / 2, 270, 150, (90, 220, 110), ps.pop((t_beeld - T_620) / 0.35))
+        if n == "woon2" and t_beeld >= T_2002 and nu in (I_SOLD, I_WHY, I_PS2): kop(img, "SOLD IN 2002", W / 2, 270, 110, (255, 90, 80), ps.pop((t_beeld - T_2002) / 0.3))
         if n == "ai" and t_beeld >= Z[I_AI][0] + 0.8: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t_beeld - Z[I_AI][0] - 0.8) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
