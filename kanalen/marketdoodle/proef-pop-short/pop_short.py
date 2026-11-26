@@ -69,6 +69,16 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
         d.rounded_rectangle([P(x - 48 * s, top), P(x + 48 * s, heup + 12 * s)], int(26 * s * SS), fill=kl["shirt"], outline=LIJN, width=int(4 * s * SS))
     if kl.get("hoodie"):
         for k in (-1, 1): d.line([P(x + k * 10 * s, top + 8 * s), P(x + k * 12 * s, top + 40 * s)], fill=LIJN, width=int(3 * s * SS))
+    if kl.get("jack"):                                                   # 26 nov: leren jack (Jensen Huang): T-shirt in een V, kraag, rits, glans
+        d.polygon([P(x - 20 * s, top + 2 * s), P(x + 20 * s, top + 2 * s), P(x + 4 * s, heup + 10 * s), P(x - 4 * s, heup + 10 * s)], fill=kl.get("tee", (20, 20, 22)), outline=LIJN, width=int(3 * s * SS))
+        for k in (-1, 1):
+            d.polygon([P(x + k * 20 * s, top + 1 * s), P(x + k * 44 * s, top + 4 * s), P(x + k * 30 * s, top + 34 * s), P(x + k * 10 * s, top + 26 * s)], fill=kl["shirt"], outline=(110, 110, 120), width=int(3 * s * SS))
+            d.line([P(x + k * 6 * s, top + 34 * s), P(x + k * 5 * s, heup + 8 * s)], fill=(150, 150, 160), width=int(3 * s * SS))
+        d.line([P(x - 36 * s, top + 40 * s), P(x - 30 * s, top + 80 * s)], fill=(95, 95, 105), width=int(5 * s * SS))
+    if kl.get("polo"):                                                   # 26 nov: polo (kraagje + knoopjes)
+        for k in (-1, 1): d.polygon([P(x, top + 4 * s), P(x + k * 26 * s, top), P(x + k * 22 * s, top + 16 * s)], fill=kl["shirt"], outline=LIJN, width=int(3 * s * SS))
+        d.line([P(x, top + 4 * s), P(x, top + 34 * s)], fill=LIJN, width=int(3 * s * SS))
+        for k in (14, 26): d.ellipse([P(x - 2.5 * s, top + k * s), P(x + 2.5 * s, top + (k + 5) * s)], fill=(235, 235, 240))
     if kl.get("das"):
         d.polygon([P(x - 8 * s, top + 4 * s), P(x + 8 * s, top + 4 * s), P(x + 11 * s, top + 70 * s), P(x, top + 82 * s), P(x - 11 * s, top + 70 * s)], fill=kl["das"], outline=LIJN, width=int(2 * s * SS))
         d.polygon([P(x - 30 * s, top + 2 * s), P(x - 8 * s, top + 4 * s), P(x - 14 * s, top + 34 * s)], fill=(240, 240, 240), outline=LIJN, width=int(2 * s * SS))
@@ -122,6 +132,15 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     if kap == "grijs": d.rounded_rectangle([P(hx - hoofd - 10 * s, hy - hoofd - 8 * s), P(hx + hoofd + 10 * s, hy + 25 * s)], int(40 * s * SS), fill=hk, outline=LIJN, width=lw)
     d.ellipse([P(hx - hoofd - 4 * s, hy - hoofd - 4 * s), P(hx + hoofd + 4 * s, hy + hoofd + 4 * s)], fill=LIJN)
     d.ellipse([P(hx - hoofd, hy - hoofd), P(hx + hoofd, hy + hoofd)], fill=HUID)
+    if kap == "achterover":                                              # 26 nov: dik haar achterover gekamd (Jensen nu): golf boven het voorhoofd, grijze slapen
+        d.chord([P(hx - hoofd - 4 * s, hy - hoofd - 12 * s), P(hx + hoofd + 4 * s, hy + hoofd * 0.15)], 180, 360, fill=hk, outline=LIJN, width=lw)
+        for k in (-1, 1): d.rounded_rectangle([P(hx + k * hoofd * 0.93 - 7 * s, hy - hoofd * 0.6), P(hx + k * hoofd * 0.93 + 7 * s, hy - hoofd * 0.05)], int(6 * s * SS), fill=hk, outline=LIJN, width=int(3 * s * SS))
+        d.chord([P(hx - hoofd * 1.0, hy - hoofd - 26 * s), P(hx + hoofd * 0.95, hy - hoofd * 0.25)], 160, 380, fill=hk, outline=LIJN, width=lw)
+        for k in range(-2, 3): d.arc([P(hx + k * 16 * s - 34 * s, hy - hoofd - 20 * s), P(hx + k * 16 * s + 34 * s, hy - hoofd * 0.35)], 205, 290, fill=tuple(max(0, c - 55) for c in hk), width=int(3 * s * SS))
+    if kap == "scheiding":                                               # 26 nov: kort haar met scheiding opzij (Jensen 1993)
+        d.chord([P(hx - hoofd - 3 * s, hy - hoofd - 8 * s), P(hx + hoofd + 3 * s, hy + hoofd * 0.6)], 180, 360, fill=hk, outline=LIJN, width=lw)
+        d.polygon([P(hx - 18 * s, hy - hoofd - 6 * s), P(hx + hoofd * 0.95, hy - hoofd * 0.55), P(hx + hoofd * 0.9, hy - hoofd * 0.25), P(hx - 10 * s, hy - hoofd * 0.62)], fill=hk, outline=LIJN)
+        d.line([P(hx - 18 * s, hy - hoofd - 4 * s), P(hx - 22 * s, hy - hoofd * 0.55)], fill=tuple(min(255, c + 60) for c in hk), width=int(3 * s * SS))
     if kap in ("kort", "paard", "staartjes", "grijs"):
         d.chord([P(hx - hoofd - 3 * s, hy - hoofd - 6 * s), P(hx + hoofd + 3 * s, hy + hoofd * 0.6)], 180, 360, fill=hk, outline=LIJN, width=lw)
     if kap == "kort": d.ellipse([P(hx + 5 * s, hy - hoofd - 16 * s), P(hx + 30 * s, hy - hoofd + 4 * s)], fill=hk, outline=LIJN, width=int(3 * s * SS))
@@ -147,7 +166,9 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     if kl.get("bril"):
         for k in (-1, 1):
             ex, ey = hx + k * 22 * s + ox, hy + oy
-            d.ellipse([P(ex - 17 * s, ey - 15 * s), P(ex + 17 * s, ey + 15 * s)], outline=LIJN, width=lw)
+            if kl["bril"] == "recht": d.rounded_rectangle([P(ex - 18 * s, ey - 11 * s), P(ex + 18 * s, ey + 11 * s)], int(4 * s * SS), outline=LIJN, width=int(3 * s * SS))   # dun rechthoekig (Jensen nu)
+            elif kl["bril"] == "groot": d.rounded_rectangle([P(ex - 20 * s, ey - 18 * s), P(ex + 20 * s, ey + 18 * s)], int(9 * s * SS), outline=LIJN, width=lw)          # groot jaren-90 montuur
+            else: d.ellipse([P(ex - 17 * s, ey - 15 * s), P(ex + 17 * s, ey + 15 * s)], outline=LIJN, width=lw)
         d.line([P(hx - 5 * s + ox, hy + oy - 2 * s), P(hx + 5 * s + ox, hy + oy - 2 * s)], fill=LIJN, width=lw)
     mx, my = hx + ox * 0.6, hy + 32 * s
     if kl.get("baard"): d.chord([P(hx - hoofd + 2 * s, hy - hoofd * 0.2), P(hx + hoofd - 2 * s, hy + hoofd + 14 * s)], 0, 180, fill=kl["haar"], outline=LIJN, width=lw)

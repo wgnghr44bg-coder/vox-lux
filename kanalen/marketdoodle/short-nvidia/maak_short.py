@@ -1,4 +1,5 @@
-"""Short 'What If You Invested $100 in NVIDIA?' (26 nov 2026), staand 1080x1920. Echt verhaal (Denny's 1993, NV1, Sega, beursgang 1999, AI),
+"""v3 (26 nov): oude 2D-poppetjes, herkenbare Jensen, kleine naamlabels, zitten, plaatstitels met animatie, camera volgt de spreker.
+Short 'What If You Invested $100 in NVIDIA?' (26 nov 2026), staand 1080x1920. Echt verhaal (Denny's 1993, NV1, Sega, beursgang 1999, AI),
 elke scène eigen personages met eigen stem (eigenaar 26 nov). Zelfde controles als de Black Friday-Short.
 Gebruik: <omnivoice-venv>/python maak_short.py [--plaat]  -> short-nvidia.mp4"""
 import json, math, os, re, subprocess, sys, difflib
@@ -72,13 +73,23 @@ def bg(n):
     if n not in BG: BG[n] = Image.open(HIER / "afbeeldingen" / f"{n}.png").convert("RGB").resize((W, H))
     return BG[n]
 
-# ---------- personages v2 (eigenaar 26 nov: "gebruik betere personages die er meer op lijken", "laten zitten", "camera bewegen") ----------
-# Uitgewerkte cartoon-portretten (ComfyUI, personages/prompts.txt), bovenlijf. Mond = (x, y) als fractie van het bijgesneden plaatje.
-MOND = {"jensen-1993": (0.49, 0.405), "jensen-nu": (0.55, 0.487), "chris-1993": (0.50, 0.41), "curtis-1993": (0.48, 0.355),
-        "jij-1993": (0.47, 0.375), "jij-1999": (0.50, 0.27), "jij-nu": (0.55, 0.32), "serveerster": (0.50, 0.30),
-        "sega-baas": (0.49, 0.31), "onderzoeker": (0.48, 0.28), "collega": (0.50, 0.32)}
-LIJF = {"YOU": "jij-1993", "YOU2": "jij-nu", "JENSEN": "jensen-1993", "JENSEN2": "jensen-nu", "SERVEERSTER": "serveerster",
-        "CURTIS": "curtis-1993", "SEGA": "sega-baas", "ONDERZOEKER": "onderzoeker"}
+# ---------- personages v3 (eigenaar 26 nov: "hou het op de oude style 2D", Jensen herkenbaar, kleine naamlabels, zitten, camera) ----------
+sys.path.insert(0, str(HIER.parent / "personage")); from jensen_proef import JENSEN_1993, JENSEN_NU
+ps.C["jensen"] = JENSEN_1993; ps.C["jensennu"] = JENSEN_NU
+ps.C["chris"] = dict(broek=(80, 70, 60), shirt=(150, 190, 230), haar=(80, 55, 35), kapsel="kort", baard=True, groot=1.12)
+ps.C["curtis"] = dict(broek=(60, 70, 90), shirt=(80, 130, 80), haar=(120, 80, 45), kapsel="krul", baard=True, bril=True, groot=1.1)
+ps.C["serveerster"] = dict(broek=(200, 90, 110), shirt=(120, 180, 230), haar=(225, 190, 95), kapsel="paard", jurk=True, groot=1.0)
+ps.C["sega"] = dict(broek=(40, 40, 48), shirt=(70, 72, 82), haar=(135, 135, 140), kapsel="grijs", bril=True, das=(150, 30, 40), groot=1.05)
+ps.C["onderzoeker"] = dict(broek=(50, 55, 70), shirt=(60, 120, 80), haar=(30, 25, 25), kapsel="paard", hoodie=True, groot=0.98)
+ps.C["collega"] = dict(broek=(55, 55, 65), shirt=(110, 110, 120), haar=(45, 35, 30), kapsel="krul", koptelefoon=True, groot=1.05)
+ps.C["jij99"] = dict(ps.C["you"], shirt=(130, 130, 140), hoodie=True)
+ps.C["jijoud"] = dict(ps.C["you"], haar=(140, 130, 125), hoodie=False, shirt=(45, 65, 110), groot=1.12)
+LIJF = {"YOU": "you", "YOU2": "jijoud", "JENSEN": "jensen", "JENSEN2": "jensennu", "SERVEERSTER": "serveerster",
+        "CURTIS": "curtis", "SEGA": "sega", "ONDERZOEKER": "onderzoeker"}
+NAAM = {"you": ("YOU", (255, 215, 60)), "jij99": ("YOU", (255, 215, 60)), "jijoud": ("YOU", (255, 215, 60)),
+        "jensen": ("JENSEN", (118, 185, 0)), "jensennu": ("JENSEN", (118, 185, 0)), "chris": ("CHRIS", (120, 200, 255)),
+        "curtis": ("CURTIS", (255, 190, 80)), "serveerster": ("WAITRESS", (255, 140, 170)), "sega": ("SEGA BOSS", (255, 110, 110)),
+        "onderzoeker": ("RESEARCHER", (120, 220, 200)), "collega": ("ENGINEER", (200, 170, 255))}
 def luid(t, naam):
     if not any(Z[i][0] <= t <= Z[i][1] and LIJF.get(Z[i][4]) == naam for i in range(len(Z))): return 0.0
     s = AUD[int(t * SR): int((t + 1 / FPS) * SR)]
@@ -96,38 +107,7 @@ T_620 = kw(I_NU, "six", -0.1)
 def Zs(i): return Z[i][0] - 0.1
 SC = [dict(t=0, naam="denny", bg="denny"), dict(t=Zs(I_FLOP), naam="kantoor", bg="kantoor"), dict(t=Zs(I_SEGA), naam="sega", bg="sega"),
       dict(t=Zs(I_BEURS), naam="beurs", bg="beurs"), dict(t=Zs(I_AI), naam="ai", bg="ai"), dict(t=Zs(I_NU), naam="nu", bg="denny")]
-KOP = {"denny": "1993", "kantoor": "1995", "sega": "1995", "beurs": "1999", "ai": "2023", "nu": "TODAY"}
 def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
-
-# ---------- indeling per scène: (plaatje, x, voet, hoogte); voet ligt achter de tafel of onder de rand (bovenlijf) ----------
-TAFEL_Y = 1450
-def V(h): return TAFEL_Y + 0.42 * h                       # voet zo dat het middel net achter de tafel zit
-def figuren(n, t):
-    if n == "denny":
-        f = [("chris-1993", 830, V(640) - 40, 640), ("curtis-1993", 1010, V(660), 660), ("jensen-1993", 610, V(720), 720), ("jij-1993", 215, V(660), 660)]
-        if t >= T_SERV: f.append(("serveerster", -300 + 700 * ps.ease((t - T_SERV) / 1.0), H + 430, 1150))
-        return f
-    if n == "kantoor": return [("jensen-1993", 300, V(820), 820), ("curtis-1993", 790, V(800), 800)]
-    if n == "sega": return [("jensen-1993", 280, V(800), 800), ("sega-baas", 800, V(820), 820)]
-    if n == "beurs": return [("jij-1999", 760, V(820), 820)]
-    if n == "ai": return [("collega", 280, H + 380, 1100), ("onderzoeker", 790, H + 400, 1120)]
-    if n == "nu": return [("jij-nu", 290, V(800), 800), ("jensen-nu", 800, V(820), 820)]
-    return []
-def hoofd(naam, x, voet, h):                              # midden van het gezicht (voor de camera)
-    s = sprite(naam, h); mx, my = MOND[naam]
-    return x - s.width / 2 + mx * s.width, voet - h + (my - 0.08) * h
-
-def figuur(img, naam, x, voet, h, t):
-    s = sprite(naam, h); l = luid(t, naam)
-    dy = -abs(math.sin(t * 11)) * h * 0.008 if l > 0.05 else math.sin(t * 1.7 + x) * h * 0.002     # wippen bij praten, ademen anders
-    x0, y0 = int(x - s.width / 2), int(voet - h + dy); img.paste(s, (x0, y0), s)
-    if l > 0.08:                                          # mond open, mee met het geluid
-        mx, my = x0 + MOND[naam][0] * s.width, y0 + MOND[naam][1] * h; bw = s.width * 0.055; bh = s.width * (0.012 + 0.03 * l)
-        ImageDraw.Draw(img).ellipse((mx - bw, my - bh * 0.6, mx + bw, my + bh), fill=(95, 35, 40), outline=INK, width=3)
-    GEZ[naam] = (*hoofd(naam, x, voet, h), h / 520)
-
-SCHRIK, BLIJ, VERDRIET = (), (), ()
-ZOOM_AAN = True; TEKST_AAN = True
 # ---------- tekst ----------
 def _start(i, frase):
     w0 = _norm(frase.split()[0])
@@ -145,7 +125,7 @@ def emotie(t, nu_i):
     return best[0]
 
 # ---------- tekeningen ----------
-LAYOUT = set()
+LAYOUT = set(); TEKST_AAN = True
 def kop(img, s, x, y, m, kl, sch):
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
@@ -169,6 +149,75 @@ def ondertitel(img, t):
     for w in stuk:
         d.text((x, y), w[1].upper(), font=f, fill=KL["geel"] if w[2] <= t <= w[3] + 0.05 else (255, 255, 255), stroke_width=6, stroke_fill=(0, 0, 0))
         x += d.textlength(w[1].upper() + " ", font=f)
+
+# ---------- indeling per scène: (poppetje, x, voet, schaal, gebaar, zit) ----------
+TAFEL_Y = 1560
+ZY = TAFEL_Y + 140                                         # voet van iemand die zit (onderlijf achter de tafel)
+def nu_i(t): return max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25), default=None)
+def figuren(n, t):
+    nu = nu_i(t)
+    if n == "denny":
+        f = [("you", 170, ZY, 1.6, ("hoek", -16, 40 + 12 * math.sin(t * 5)), True),                       # prikt in de pannenkoeken
+             ("jensen", 640, ZY, 1.6, ("hoek", -16, 55 + 8 * math.sin(t * 14) if nu == I_START else 95), True),   # tekent, dan naar jou
+             ("chris", 830, ZY, 1.6, None, True), ("curtis", 1010, ZY, 1.6, ("hoek", -16, 40), True)]
+        if t >= T_SERV:
+            f_ = ps.ease((t - T_SERV) / 1.0)
+            f.append(("serveerster", -150 + 555 * f_, 1900, 1.5, "rennen" if f_ < 1 else ("hoek", -16, 105), False))
+        return f
+    if n == "kantoor":
+        return [("curtis", 790, ZY, 1.6, ("hoek", -16, 50 + 10 * math.sin(t * 16)) if t < Z[I_CUR][0] else "schrik", True),
+                ("jensen", 210, 1900, 1.95, "denk", False)]
+    if n == "sega":
+        return [("jensen", 300, ZY, 1.6, None, True), ("sega", 790, ZY, 1.6, "duim" if nu == I_SEGA2 else None, True)]
+    if n == "beurs":
+        return [("jij99", 760, ZY, 1.65, ("hoek", -16, -60) if t >= T_KOOP else None, True)]
+    if n == "ai":
+        return [("collega", 280, 1900, 2.0, "juich" if nu == I_ONDZ else None, False),
+                ("onderzoeker", 770, 1900, 2.0, "vast", False)]
+    if n == "nu":
+        return [("jijoud", 300, ZY, 1.6, "schrik" if nu == I_WOW else None, True),
+                ("jensennu", 790, ZY, 1.6, "duim" if nu == I_SLOT else None, True)]
+    return []
+def hoofd(naam, x, y, s, *_):                              # midden van het hoofd (camera, scènewachter)
+    S = s * ps.C[naam].get("groot", 1.0); return x, y - 246 * S
+def rhand(naam, x, y, s, hoek):                            # rechterhand bij armhoek (0 = omlaag, 90 = opzij)
+    S = s * ps.C[naam].get("groot", 1.0); heup = y - 78 * S - 14 * S; sch = heup - 105 * S + 22 * S
+    return x + 44 * S + math.sin(math.radians(hoek)) * 82 * S, sch + math.cos(math.radians(hoek)) * 82 * S
+def teken(img, figs, t, nu):                               # poppetjes op één laag; geeft hoofdposities terug
+    laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag); koppen = {}
+    sp = LIJF.get(Z[nu][4]) if nu is not None and Z[nu][4] != "N" else None
+    spx = next((f[1] for f in figs if f[0] == sp), None)
+    for naam, x, y, s, geb, zit in figs:
+        kijk = (0.9 if spx > x else -0.9) if spx is not None and naam != sp else (0.5 if x < 540 else -0.5)
+        emo = emotie(t, nu) if (sp is None or naam == sp) else None
+        loop = (t - T_SERV) * 2.2 if geb == "rennen" else None
+        koppen[naam] = ps.poppetje(d, naam, x, y, s, t, loop=loop, kijk=kijk, mond=luid(t, naam), knipper=(t + hash(naam) % 7 * 0.4) % 3.4 < 0.13,
+                                   verbaasd=emo == "schrik", boos=emo == "verdriet", gebaar=None if geb == "rennen" else geb)
+        GEZ[naam] = (*hoofd(naam, x, y, s), s * ps.C[naam].get("groot", 1))
+    laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag); return koppen
+SCHRIK = ("flops", "Most games", "Six hundred")
+BLIJ = ("Hey kid", "More coffee", "I like", "This time", "Still want", "We need", "Then AI")
+VERDRIET = ("The money", "For a napkin")
+PLAATS = {"denny": ("DENNY'S", "SAN JOSE · 1993"), "kantoor": ("NVIDIA'S FIRST OFFICE", "SUNNYVALE · 1995"), "sega": ("SEGA HQ", "TOKYO · 1995"),
+          "beurs": ("YOUR APARTMENT", "1999"), "ai": ("AI DATA CENTER", "2023"), "nu": ("DENNY'S", "SAN JOSE · TODAY")}
+JAAR = {"denny": "1993", "kantoor": "1995", "sega": "1995", "beurs": "1999", "ai": "2023", "nu": "TODAY"}
+def plaatskaart(img, t, sc):                               # 26 nov (eigenaar: "label Denny's 1993 met motion graphics"): titel schuift in en weer uit
+    dt = t - sc["t"]; r1, r2 = PLAATS[sc["naam"]]
+    if dt > 2.8:
+        kop(img, JAAR[sc["naam"]], None, 150, 70, KL["geel"], 1.0); return
+    f1, f2 = font(FB, 74), font(FS, 44); d0 = ImageDraw.Draw(img)
+    w = max(d0.textlength(r1, font=f1), d0.textlength(r2, font=f2)) + 110
+    if w > W - 60: LAYOUT.add(f"plaatskaart '{r1}' te breed")
+    inn = ps.ease(dt / 0.4); uit = ps.ease(max(0.0, dt - 2.4) / 0.4); x0 = 40 - (w + 60) * (1 - inn) - (w + 60) * uit; y0 = 110
+    laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(laag)
+    d.rounded_rectangle((x0 + 8, y0 + 10, x0 + w + 8, y0 + 190), 22, fill=(0, 0, 0, 110))
+    d.rounded_rectangle((x0, y0, x0 + w, y0 + 180), 22, fill=(18, 20, 26, 235))
+    d.rectangle((x0, y0 + 14, x0 + 14, y0 + 166), fill=(118, 185, 0, 255))
+    lijn = min(1.0, max(0.0, (dt - 0.25) / 0.5)); d.rectangle((x0 + 44, y0 + 104, x0 + 44 + (w - 90) * lijn, y0 + 108), fill=(118, 185, 0, 255))
+    d.text((x0 + 44, y0 + 18), r1, font=f1, fill=(255, 255, 255, 255))
+    n_ = int(len(r2) * min(1.0, max(0.0, (dt - 0.45) / 0.6)))                      # typemachine
+    d.text((x0 + 46, y0 + 118), r2[:n_], font=f2, fill=(170, 230, 90, 255))
+    img.paste(laag, (0, 0), laag)
 
 # ---------- meubels en spullen ----------
 def bank_achter(d, x0, x1):
@@ -206,24 +255,24 @@ def scherm(img, x, t):                                    # CRT met beurskoers (
         d.rounded_rectangle((sx0 + 40, sy1 - 62, sx1 - 40, sy1 - 22), 8, fill=(40, 170, 70)); d.text(((sx0 + sx1) / 2, sy1 - 42), "BUY", font=font(FB, 28), fill="white", anchor="mm")
 
 # ---------- camera: zacht naar wie praat; bij de verteller rustig inzoomen op de scène ----------
-SCENE_MID = {"denny": (560, 1150), "kantoor": (560, 1150), "sega": (540, 1150), "beurs": (560, 1150), "ai": (540, 1250), "nu": (540, 1150)}
+SCENE_MID = {"denny": (560, 1250), "kantoor": (540, 1250), "sega": (540, 1250), "beurs": (560, 1250), "ai": (540, 1300), "nu": (540, 1250)}
 def _doel(t):
-    sc = scene(t); n = sc["naam"]; nu = max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.2), default=None)
-    cx, cy = SCENE_MID[n]; zm = 1.0 + min(0.18, (t - sc["t"]) * 0.03)
-    if n == "denny" and nu == I_START and t >= T_DRIE: cx, cy, zm = 780, 1150, 1.25          # "three engineers"
+    sc = scene(t); n = sc["naam"]; nu = nu_i(t)
+    cx, cy = SCENE_MID[n]; zm = 1.0 + min(0.15, (t - sc["t"]) * 0.03)
+    if n == "denny" and nu == I_START and t >= T_DRIE: cx, cy, zm = 790, 1250, 1.25          # "three engineers"
     if nu is not None and Z[nu][4] in LIJF:
         naam = LIJF[Z[nu][4]]
         for f in figuren(n, t):
-            if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 200, 1.3
+            if f[0] == naam: hx, hy = hoofd(*f); cx, cy, zm = hx, hy + 260, 1.32
     for tt, c in ((T_5M, "sega"), (T_620, "nu")):
-        if n == c and t >= tt and nu is not None and Z[nu][4] == "N": zm = 1.3
+        if n == c and t >= tt and nu is not None and Z[nu][4] == "N": zm = 1.25
     return cx, cy, zm
 CAMTRACK = []
 def _maak_track():
     cx, cy, zm = _doel(0); vorige = None
     for i in range(int((EIND + 1) * FPS)):
         t = i / FPS; dx, dy, dz = _doel(t); n = scene(t)["naam"]
-        if n != vorige: cx, cy, zm = dx, dy, dz * 0.92                               # nieuwe scène: meteen erheen (iets wijder)
+        if n != vorige: cx, cy, zm = dx, dy, dz * 0.92
         a = 0.06; cx += (dx - cx) * a; cy += (dy - cy) * a; zm += (dz - zm) * a
         CAMTRACK.append((cx, cy, zm)); vorige = n
 _maak_track()
@@ -234,45 +283,47 @@ def camera(img, t):
 
 GEZ = {}
 def frame(t):
-    sc = scene(t); n = sc["naam"]
+    sc = scene(t); n = sc["naam"]; nu = nu_i(t)
     img = bg(sc["bg"]).copy(); WACHT.begin("v-" + sc["bg"], t); GEZ.clear(); d = ImageDraw.Draw(img)
-    figs = figuren(n, t)
-    if n in ("denny", "nu"): bank_achter(d, 0, 400) if n == "denny" else None; bank_achter(d, 470 if n == "denny" else 0, 1080)
-    for f in figs:
-        if f[0] != "serveerster": figuur(img, *f, t)
-    d = ImageDraw.Draw(img)
+    figs = figuren(n, t); zit = [f for f in figs if f[5]]; staan = [f for f in figs if not f[5]]
+    if n == "denny": bank_achter(d, 0, 330); bank_achter(d, 480, 1080)
+    if n == "nu": bank_achter(d, 0, 1080)
+    koppen = teken(img, zit, t, nu); d = ImageDraw.Draw(img)
     if n == "denny":
-        tafel(d, 0, 400, naam="tafel-links"); tafel(d, 470, 1080)
-        servet(d, 640, 0.6, t); mok(d, 870); mok(d, 1010); mok(d, 560)
-        zet(img, "pannenkoek", 100, 330, TAFEL_Y + 4, op="tafel-links", naam="pannenkoeken")
-        for f in figs:
-            if f[0] == "serveerster":
-                figuur(img, *f, t); kx, ky = f[1] + 250, 1330
-                schenk = T_SCHENK <= t < T_SCHENK + 1.6
-                kan = sprite("koffiekan", 150).rotate(-40 if schenk else 0, expand=True, resample=Image.BICUBIC)
-                px, py = int(kx - kan.width * 0.3), int(ky - kan.height * 0.6); img.paste(kan, (px, py), kan)
-                WACHT.plaats("koffiekan", (px, py, px + kan.width, py + kan.height), op="aan:hand")
-                if schenk: ImageDraw.Draw(img).line((px + kan.width * 0.92, py + kan.height * 0.32, 560, TAFEL_Y - 44), fill=(110, 65, 35), width=8)
-    if n == "nu":
-        tafel(d, 0, 1080); servet(d, 560, -99, t); mok(d, 330); mok(d, 880)
-    if n in ("kantoor", "beurs"):
-        tafel(d, 0, 1080, blad=(200, 200, 205), voor=(150, 150, 160), naam="bureau")
-    if n == "kantoor":
-        zet(img, "videokaart", 170, 550, TAFEL_Y + 2, op="bureau", naam="videokaart")
-        if t >= T_FLOP: rook(ImageDraw.Draw(img), 550, TAFEL_Y - 90, t, T_FLOP)
-    if n == "beurs": scherm(img, 290, t)
+        tafel(d, 0, 330, naam="tafel-links"); tafel(d, 480, 1080)
+        servet(d, 700, 0.6, t); mok(d, 860); mok(d, 1010); mok(d, 560)
+        zet(img, "pannenkoek", 100, 270, TAFEL_Y + 4, op="tafel-links", naam="pannenkoeken")
+        hx, hy = rhand("you", 170, ZY, 1.6, 40 + 12 * math.sin(t * 5)); ImageDraw.Draw(img).line((hx, hy, hx + 30, hy + 30), fill=(150, 150, 160), width=6)
+    if n == "nu": tafel(d, 0, 1080); servet(d, 560, -99, t); mok(d, 330); mok(d, 880)
+    if n in ("kantoor", "beurs"): tafel(d, 0, 1080, blad=(200, 200, 205), voor=(150, 150, 160), naam="bureau")
     if n == "sega": tafel(d, 0, 1080, blad=(120, 80, 50), voor=(95, 60, 38), naam="vergadertafel")
-    if n == "ai":
-        for f in figs: figuur(img, *f, t)
-        zet(img, "videokaart", 230, 790, 1890, op="aan:hand", naam="videokaart", punt=(790, 1860))
+    if n == "kantoor":
+        s = sprite("crt", 300); img.paste(s, (int(470 - s.width / 2), int(TAFEL_Y - s.height + 6)), s)
+        WACHT.plaats("computer", (470 - s.width / 2, TAFEL_Y - s.height, 470 + s.width / 2, TAFEL_Y), op="bureau")
+        zet(img, "videokaart", 150, 640, TAFEL_Y + 2, op="bureau", naam="videokaart")
+        if t >= T_FLOP: rook(ImageDraw.Draw(img), 640, TAFEL_Y - 80, t, T_FLOP)
+    if n == "beurs": scherm(img, 330, t)
+    if staan: koppen.update(teken(img, staan, t, nu))
+    if n == "denny" and t >= T_SERV + 1.0:                 # koffiekan in de hand van de serveerster, schenkt in de mok
+        kx, ky = rhand("serveerster", 405, 1900, 1.5, 105); schenk = T_SCHENK <= t < T_SCHENK + 1.6
+        kan = sprite("koffiekan", 130).rotate(-40 if schenk else 0, expand=True, resample=Image.BICUBIC)
+        px, py = int(kx - kan.width * 0.3), int(ky - kan.height * 0.75); img.paste(kan, (px, py), kan)
+        WACHT.plaats("koffiekan", (px, py, px + kan.width, py + kan.height), op="aan:hand")
+        if schenk: ImageDraw.Draw(img).line((px + kan.width * 0.92, py + kan.height * 0.35, 560, TAFEL_Y - 44), fill=(110, 65, 35), width=7)
+    if n == "ai":                                          # AI-chipkaart in de hand van de onderzoeker
+        kx, ky = rhand("onderzoeker", 770, 1900, 2.0, 70)
+        zet(img, "videokaart", 190, kx, ky + 60, op="aan:hand", naam="videokaart", punt=(kx, ky))
+    ps.W, ps.H = W, H
+    for naam, (hx_, top_) in koppen.items():               # kleine naamlabels boven de hoofden (oude stijl)
+        tekst, kl = NAAM[naam]; ps.label(img, tekst, hx_, top_ - 45, kl, 0.55)
     img = camera(img, t)
     if TEKST_AAN:
-        if n in KOP: kop(img, KOP[n], None, 150, 84, KL["geel"], ps.pop((t - sc["t"]) / 0.3))
-        if n == "kantoor" and t >= T_FLOP: kop(img, "FIRST CHIP: FLOP", W / 2, 330, 90, (255, 90, 80), ps.pop((t - T_FLOP) / 0.3))
-        if n == "sega" and t >= T_5M: kop(img, "$5,000,000", W / 2, 330, 130, (90, 220, 110), ps.pop((t - T_5M) / 0.3))
-        if n == "beurs" and t >= T_KOOP: kop(img, "YOU BUY: $100", W / 2, 330, 100, (90, 220, 110), ps.pop((t - T_KOOP) / 0.3))
-        if n == "ai" and t >= Z[I_AI][0] + 0.3: kop(img, "AI", W / 2, 330, 160, (118, 185, 0), ps.pop((t - Z[I_AI][0] - 0.3) / 0.3))
-        if n == "nu" and t >= T_620: kop(img, "$620,000", W / 2, 330, 150, (90, 220, 110), ps.pop((t - T_620) / 0.35))
+        plaatskaart(img, t, sc)
+        if n == "kantoor" and t >= T_FLOP: kop(img, "FIRST CHIP: FLOP", W / 2, 370, 90, (255, 90, 80), ps.pop((t - T_FLOP) / 0.3))
+        if n == "sega" and t >= T_5M: kop(img, "$5,000,000", W / 2, 370, 130, (90, 220, 110), ps.pop((t - T_5M) / 0.3))
+        if n == "beurs" and t >= T_KOOP: kop(img, "YOU BUY: $100", W / 2, 370, 100, (90, 220, 110), ps.pop((t - T_KOOP) / 0.3))
+        if n == "ai" and t >= Z[I_AI][0] + 0.6: kop(img, "AI", W / 2, 370, 160, (118, 185, 0), ps.pop((t - Z[I_AI][0] - 0.6) / 0.3))
+        if n == "nu" and t >= T_620: kop(img, "$620,000", W / 2, 370, 150, (90, 220, 110), ps.pop((t - T_620) / 0.35))
         ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1], 60 * v[2]) for k_, v in GEZ.items()})
     return img
