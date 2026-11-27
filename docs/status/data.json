@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 07:33",
+ "bijgewerkt": "2026-11-27 08:03",
  "kanalen": {
   "weken": [
    {
@@ -315,246 +315,152 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-19 17:59",
+  "bijgewerkt": "2026-11-27 08:00",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": -0.9,
+    "pct": -0.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": -0.7,
+    "pct": -0.6,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": -1.5,
+    "pct": 0.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -0.3,
+    "pct": -3.9,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": -1.2,
+    "pct": 0.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 0.1,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Alphabet",
-    "pct": 0.9,
+    "pct": -2.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Amazon",
-    "pct": -0.5,
+    "pct": -3.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": -0.8,
+    "pct": 3.4,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Tesla",
-    "pct": -1.9,
+    "pct": -1.2,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Broadcom",
-    "pct": -0.0,
+    "pct": -0.1,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Berkshire",
-    "pct": -1.1,
+    "pct": 0.4,
     "groot": false,
     "grens": 6
    },
    {
     "naam": "JPMorgan",
-    "pct": -1.3,
+    "pct": -0.1,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": -1.5,
+    "pct": -0.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -0.5,
+    "pct": 2.1,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": 2.7,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": -1.4,
-    "groot": false,
+    "pct": 4.0,
+    "groot": true,
     "grens": 4
    }
   ],
   "onderwerpen": [
    {
-    "onderwerp": "Anthropic",
+    "onderwerp": "Goud",
     "punten": 10,
     "bronnen": [
-     "BBC",
-     "CNBC",
-     "MarketWatch",
-     "NYT"
+     "koers"
     ],
     "wat": [
-     "beursgang",
-     "cijfers",
-     "record"
+     "+4.0% op één dag"
     ],
-    "koppen": [
-     {
-      "titel": "Anthropic IPO: Investors who flip the stock may face brokerage penalty",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-flipping-rules.html"
-     },
-     {
-      "titel": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html"
-     },
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
+    "koppen": [],
     "groot": true
    },
    {
     "onderwerp": "Nvidia",
-    "punten": 6,
-    "bronnen": [
-     "CNBC",
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers",
-     "rechtszaak"
-    ],
-    "koppen": [
-     {
-      "titel": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/nvidia-lutnick-china-ai-megaspeed-cantor-fitzgerald.html"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Inflatie",
-    "punten": 4,
-    "bronnen": [
-     "CNBC"
-    ],
-    "wat": [
-     "rente/recessie"
-    ],
-    "koppen": [
-     {
-      "titel": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Beurs",
-    "punten": 4,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "beursgang",
-     "cijfers"
-    ],
-    "koppen": [
-     {
-      "titel": "Anthropic’s IPO poses this big risk to an already shaky stock market",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/anthropics-ipo-poses-this-big-risk-to-an-already-shaky-stock-market-83ce7794?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/can-anthropics-ipo-do-for-the-stock-market-what-nvidias-earnings-couldnt-be67a434?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
-   {
-    "onderwerp": "Walmart",
     "punten": 3,
     "bronnen": [
-     "CNBC"
+     "NYT"
     ],
     "wat": [
      "record"
     ],
     "koppen": [
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
      },
      {
-      "titel": "Walmart hikes outlook as CEO tells CNBC retailer aims to keep prices low despite soaring fuel costs",
-      "bron": "CNBC business",
-      "link": "https://www.cnbc.com/2026/11/19/walmart-wmt-q3-2026-earnings.html"
+      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
+      "bron": "NYT",
+      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
      }
     ],
     "groot": false
    }
   ],
   "groot": [
-   "Anthropic"
+   "Goud"
   ],
-  "aantal_koppen": 104
+  "aantal_koppen": 88
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-21 04:25",
@@ -2393,7 +2299,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 07:33)"
+   "tekst": "draait nu (2026-11-27 08:03)"
   },
   {
    "naam": "Git",
@@ -2413,7 +2319,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2430,8 +2336,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 07:33",
-   "volgende": "2026-11-27 08:03"
+   "laatst": "2026-11-27 08:03",
+   "volgende": "2026-11-27 08:33"
   },
   "hype": {
    "aan": true,
@@ -2445,8 +2351,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 07:18",
-   "volgende": "2026-11-27 07:48"
+   "laatst": "2026-11-27 07:48",
+   "volgende": "2026-11-27 08:18"
   },
   "titels": {
    "aan": true,
@@ -2539,7 +2445,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 147,
+    "views": 149,
     "verwerkt": "processed"
    },
    {
@@ -2789,7 +2695,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 607,
+  "geheugen_mb": 610,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2876,18 +2782,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 08:30",
-   "tekst": "hype-wachter: SEINTJE The Complete Guide to Medieval Serial Killers | Human Voiced, No Ads -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
-   "tijd": "2026-11-24 08:30",
-   "tekst": "hype-wachter: SEINTJE A Rainy Night in Old Montreal: A Cozy Bedtime Story -> KANS: nog niets van ons over dit onderwerp",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 12:02",
    "tekst": "Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.",
    "fout": false,
@@ -2958,12 +2852,24 @@
    "tekst": "eigenaar: Pearl Harbor-montage weer gestart (00:00).",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-27 08:00",
+   "tekst": "nieuwswacht: GROOT Goud (2026-11-27) LANG: +4.0% op één dag -> BlackswanVault: Short + lange video? (eigenaar beslist)",
+   "fout": false,
+   "klaar": false
+  },
+  {
+   "tijd": "2026-11-27 08:00",
+   "tekst": "ntfy-seintje verstuurd: Grote hype: BlackswanVault - Short + lange video",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 08:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -5042,7 +4948,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 07:33",
+  "bijgewerkt": "2026-11-27 08:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -5065,9 +4971,9 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 163892201,
+    "week": 163640000,
     "per_dag": {
-     "Fri 20-11": 24260895,
+     "Fri 20-11": 24008693,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
