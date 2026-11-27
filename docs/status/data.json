@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 23:03",
+ "bijgewerkt": "2026-11-27 23:33",
  "kanalen": {
   "weken": [
    {
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 23:03)"
+   "tekst": "draait nu (2026-11-27 23:33)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 23:03",
-   "volgende": "2026-11-27 23:33"
+   "laatst": "2026-11-27 23:33",
+   "volgende": "2026-11-28 00:03"
   },
   "hype": {
    "aan": true,
@@ -2292,17 +2292,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 23:10"
+   "volgende": "2026-11-28 00:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 22:48",
-   "volgende": "2026-11-27 23:18"
+   "laatst": "2026-11-27 23:18",
+   "volgende": "2026-11-27 23:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 21:25",
-   "volgende": "2026-11-27 23:25"
+   "laatst": "2026-11-27 23:25",
+   "volgende": "2026-11-28 01:25"
   }
  },
  "kanaal": {
@@ -2408,7 +2408,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1388,
+    "views": 1389,
     "verwerkt": "processed"
    }
   ],
@@ -2645,7 +2645,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 616,
+  "geheugen_mb": 602,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2818,8 +2818,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 23:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 22:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 23:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4743,7 +4743,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 21:25",
+  "bijgewerkt": "2026-11-27 23:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4881,11 +4881,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 23:04",
+  "bijgewerkt": "2026-11-27 23:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 19669565,
+    "5uur": 17261833,
     "week": 133409629,
     "per_dag": {
      "Tue 24-11": 29948208,
@@ -4904,9 +4904,8 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 139927238,
+    "week": 139631306,
     "per_dag": {
-     "Fri 20-11": 295932,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
