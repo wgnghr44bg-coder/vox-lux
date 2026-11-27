@@ -294,10 +294,18 @@ def kop(img, s, x, y, m, kl, sch):
             if (ox - fx) ** 2 + (oy - fy) ** 2 < fr ** 2: LAYOUT.add(f"kop '{s}' valt over het gezicht van {gn}")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30)); SCHERM.append(s)
+def _toon(ws):                                            # 27 nov (eigenaar: "maak ervan GTA6, niet het Romeins cijfer"): GTA Six -> GTA 6
+    uit = []
+    for k, w in enumerate(ws):
+        s = w[1]
+        if k > 0 and ws[k - 1][1].strip(".,!?").upper() == "GTA":
+            kern = s.strip(".,!?"); s = s.replace(kern, {"six": "6", "five": "5"}.get(kern.lower(), kern))
+        uit.append([w[0], s, w[2], w[3]])
+    return uit
 def ondertitel(img, t):
     zi_ = [i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25]
     if not zi_: return
-    i = zi_[-1]; ws = [w for w in SW if w[0] == i]
+    i = zi_[-1]; ws = _toon([w for w in SW if w[0] == i])
     if not ws: return
     f = font(FS, 56); d = ImageDraw.Draw(img); stukken, cur = [], []
     for w in ws:
@@ -579,7 +587,7 @@ for B in BLOK:
                      (kw(65, "hundred"), "100%", 960, 170, 130, "groen"), (kw(65, "Plus"), "+200 RESPECT", 960, 270, 80, "groen")]
     elif k == "feit":
         B["figs"] = [F("you", 560), F("dad", 1460, geb="telefoon", houd_vast=True)]
-        B["kop"] += [(kw(68, "2013"), "GTA V · 2013", 960, 150, 84, "geel"), (kw(68, "billion"), "$1,000,000,000", 960, 265, 110, "groen"),
+        B["kop"] += [(kw(68, "2013"), "GTA 5 · 2013", 960, 150, 84, "geel"), (kw(68, "billion"), "$1,000,000,000", 960, 265, 110, "groen"),
                      (kw(68, "three"), "IN 3 DAYS", 960, 380, 84, "wit")]
         B["bron"] = kw(68, "2013")
     elif k == "strand":

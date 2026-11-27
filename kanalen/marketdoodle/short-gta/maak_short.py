@@ -125,10 +125,18 @@ def kop(img, s, x, y, m, kl, sch):
             if (ox - fx) ** 2 + (oy - fy) ** 2 < fr ** 2: LAYOUT.add(f"kop '{s}' valt over het gezicht van {gn}")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30))
+def _toon(ws):                                            # 27 nov (eigenaar: "maak ervan GTA6, niet het Romeins cijfer"): GTA Six -> GTA 6
+    uit = []
+    for k, w in enumerate(ws):
+        s = w[1]
+        if k > 0 and ws[k - 1][1].strip(".,!?").upper() == "GTA":
+            kern = s.strip(".,!?"); s = s.replace(kern, {"six": "6", "five": "5"}.get(kern.lower(), kern))
+        uit.append([w[0], s, w[2], w[3]])
+    return uit
 def ondertitel(img, t):
     zi_ = [i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] + 0.25]
     if not zi_: return
-    i = zi_[-1]; ws = [w for w in SW if w[0] == i]
+    i = zi_[-1]; ws = _toon([w for w in SW if w[0] == i])
     f = font(FS, 58); d = ImageDraw.Draw(img); stukken, cur = [], []
     for w in ws:
         if cur and sum(d.textlength(v[1].upper() + " ", font=f) for v in cur + [w]) > W - 60: stukken.append(cur); cur = []
