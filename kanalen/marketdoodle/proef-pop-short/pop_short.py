@@ -51,7 +51,7 @@ C = {
 }
 SPREKER = {"DAD": "dad", "SIS": "sis", "TEACH": "teach"}
 
-def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, verbaasd=False, gebaar=None, boos=False):
+def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, verbaasd=False, gebaar=None, boos=False, viseem=None):
     kl = C[naam]; s *= kl.get("groot", 1.0)
     bob = abs(math.sin(loop * math.pi)) * 6 * s if loop is not None else math.sin(t * 2.2 + x) * 1.5 * s
     if gebaar == "stamp": bob = abs(math.sin(t * 14)) * 10 * s
@@ -173,7 +173,18 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
         d.line([P(hx - 5 * s + ox, hy + oy - 2 * s), P(hx + 5 * s + ox, hy + oy - 2 * s)], fill=LIJN, width=lw)
     mx, my = hx + ox * 0.6, hy + 32 * s
     if kl.get("baard"): d.chord([P(hx - hoofd + 2 * s, hy - hoofd * 0.2), P(hx + hoofd - 2 * s, hy + hoofd + 14 * s)], 0, 180, fill=kl["haar"], outline=LIJN, width=lw)
-    if mond > 0.08:
+    if viseem is not None:                                                 # 27 nov: lip sync, mondvorm per klank (tools/lipsync.py)
+        ow = int(3 * s * SS); g = 0.75 + 0.5 * min(1.0, mond)
+        if viseem == "M": d.line([P(mx - 12 * s, my), P(mx + 12 * s, my)], fill=LIJN, width=int(4 * s * SS))
+        elif viseem == "F":
+            d.rounded_rectangle([P(mx - 12 * s, my - 4 * s), P(mx + 12 * s, my + 4 * s)], int(3 * s * SS), fill=MONDK, outline=LIJN, width=ow)
+            d.rectangle([P(mx - 8 * s, my - 4 * s), P(mx + 8 * s, my)], fill=(250, 250, 250))
+        else:
+            bw, bh = {"A": (12, 19), "E": (15, 8), "O": (9, 13), "U": (6, 7), "L": (11, 11)}[viseem]; bh *= g
+            d.ellipse([P(mx - bw * s, my - bh / 2 * s), P(mx + bw * s, my + bh / 2 * s)], fill=MONDK, outline=LIJN, width=ow)
+            if viseem in ("A", "E"): d.chord([P(mx - bw * 0.8 * s, my - bh / 2 * s + 2 * s), P(mx + bw * 0.8 * s, my - bh / 2 * s + 9 * s)], 0, 180, fill=(250, 250, 250))
+            if viseem in ("A", "L"): d.chord([P(mx - bw * 0.6 * s, my + bh / 2 * s - 8 * s), P(mx + bw * 0.6 * s, my + bh / 2 * s - 1 * s)], 180, 360, fill=(230, 110, 120))
+    elif mond > 0.08:
         mh = (5 + 14 * mond) * s
         d.ellipse([P(mx - 11 * s, my - mh / 2), P(mx + 11 * s, my + mh / 2)], fill=MONDK, outline=LIJN, width=int(3 * s * SS))
     elif verbaasd: d.ellipse([P(mx - 6 * s, my - 6 * s), P(mx + 6 * s, my + 6 * s)], fill=MONDK, outline=LIJN, width=int(3 * s * SS))
