@@ -209,5 +209,6 @@ Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per
   2. **Lengte:** 35-45 s.
   3. **Loop:** de laatste zin wijst terug naar het begin (onderwerp opnieuw genoemd of een vervolg-haak zoals "Day thirty is way worse").
   Daarnaast blijven alle andere controles verplicht: tekstwachter (genoemd = gezien, spreker, gevoel, RIJDEN: wie rijdt zit ín de auto, DOEN: wat iemand doet zie je), scènewachter + maat, LAYOUT (ook: grote tekst niet over een gezicht), geluidcheck, tempowachter per zin (ook personages, korte uitroepen niet afraffelen) en zelf TEKSTCONTROLE.jpg nalopen.
-- Lang: fqN3ZBbJ_tM (What If GTA 6 Was Real Life? (It Goes Wrong Fast), 8:26, thumbnail GUM WRAPPER / 5 STARS?!), ingepland za 28 nov 17:00 NL.
+- Lang: fqN3ZBbJ_tM (What If GTA 6 Was Real Life? (It Goes Wrong Fast), 8:26, thumbnail v2 = game-cover-collage, eigenaar: "nieuwe"), ingepland za 28 nov 17:00 NL.
 - Short: AA_YjRHlkQw (What If GTA 6 Was Real Life?, 35 s), ingepland za 28 nov 19:00 NL. Na publicatie: in Studio de Short koppelen aan de lange video (Gerelateerde video).
+- **Thumbnail bij een game-onderwerp** (eigenaar 27 nov, GTA 6: "zoals de cover van GTA 6 zelf maar dan onze style"): collage van 5 panelen + 1 titelpaneel met witte randen, zonsondergang-kleuren op de achtergrond, poppetjes fel; nooit het echte logo/artwork van de game (beschermd). Voorbeeld: `video-gta-echt/thumbnail2.py`.
