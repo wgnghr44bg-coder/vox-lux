@@ -113,13 +113,13 @@ def bg(n):
     return BG[n]
 
 # ---------- blokken (scènes) ----------
-START = {"Mom! Dad! There's": "open", "You run back inside": "keuken1", "Day one.": "dag1", "Day two.": "winkel", "Day three.": "val",
+START = {"Mom! Dad! There's": "open", "You run back inside": "keuken1", "Day one.": "dag1", "Dad gets in the car": "radio1", "Day two.": "winkel", "Day three.": "val",
          "One second later": "zh1", "Day five.": "garage", "Day seven.": "cheat", "It rains rubber": "eenden", "Nobody laughs": "cheat2",
          "Day nine.": "kantoor1", "A giant timer": "timer", "Huge red letters": "kantoor2", "Day ten.": "klas", "Day twelve.": "feit",
          "Day fourteen.": "strand", "Dad is back outside": "zh2", "Day sixteen.": "teddy", "Day eighteen.": "rest", "Day nineteen.": "fiets",
          "Day twenty-one.": "chaos", "Day twenty-four.": "save1", "Super Suck Three Thousand! It sucks": "radio2", "Then you find it": "save2",
          "Day twenty-six.": "team", "Day thirty.": "wakker", "You run downstairs": "eind"}
-DAG = {"dag1": 1, "winkel": 2, "val": 3, "zh1": 3, "garage": 5, "cheat": 7, "eenden": 7, "cheat2": 7, "kantoor1": 9, "timer": 9, "kantoor2": 9,
+DAG = {"dag1": 1, "radio1": 1, "winkel": 2, "val": 3, "zh1": 3, "garage": 5, "cheat": 7, "eenden": 7, "cheat2": 7, "kantoor1": 9, "timer": 9, "kantoor2": 9,
        "klas": 10, "feit": 12, "strand": 14, "zh2": 14, "teddy": 16, "rest": 18, "fiets": 19, "chaos": 21, "save1": 24, "radio2": 24, "save2": 24,
        "team": 26, "wakker": 30, "eind": 30}
 BLOK = []
@@ -417,7 +417,7 @@ for B in BLOK:
         B["health"] = kw(2, "above", -0.1)
     elif k == "keuken1":
         B["figs"] = [F("you", 480, pad=[(Z[a][0], -150), (Z[a][0] + 1.1, 480)]), F("dad", 820, geb="vast", houd_vast=True),
-                     F("mom", 1120, geb="telefoon", houd_vast=True), F("sis", 1400)]
+                     F("mom", 1190, geb="telefoon", houd_vast=True), F("sis", 1430)]
         B["geld"] = kw(4, "money", -0.1); B["tafel"] = (650, 1620)
         B["kop"].append((kw(6, "video"), "THE WHOLE WORLD = A VIDEO GAME", 960, 160, 70, "wit"))
         B["kop"].append((kw(9, "Day"), "DAY 1: FUN", 960, 160, 76, "groen")); B["kop"].append((kw(9, "two"), "DAY 2: WEIRD", 960, 250, 76, "geel"))
@@ -425,13 +425,15 @@ for B in BLOK:
     elif k == "dag1":
         tg = kw(15, "drops"); tp = kw(19, "picks")
         B["figs"] = [F("buur", 330, geb="vast", houd_vast=True), F("you", 1080, gebt=[(kw(12, "hi", -0.2), kw(12, "hi", 1.2), "zwaai")]),
-                     F("dad", 1300, pad=[(Z[21][0], 1300), (Z[21][0] + 1.6, 900)], gebt=[(tg - 0.3, tg + 0.3, ("hoek", -16, 20)), (tp - 0.2, tp + 0.8, ("hoek", -16, 10))]),
+                     F("dad", 1300, gebt=[(tg - 0.3, tg + 0.3, ("hoek", -16, 20)), (tp - 0.2, tp + 0.8, ("hoek", -16, 10))]),
                      F("mom", 1580)]
         B["kauw"] = (tg, tp + 0.5)
         B["ster"] = [(kw(15, "Ding"), 1), (kw(17, "Two"), 2), (kw(19, "blink"), -2), (kw(19, "disappear"), 0)]
         B["politie"] = (kw(17, "police", -0.3), kw(19, "drives", -0.1))
-        B["auto"] = Z[21][0]; B["radio"] = (kw(21, "radio", -0.1), Z[24][1] + 0.3)
         B["kop"].append((kw(14, "four"), "x400", 560, 330, 110, "geel", Z[15][0]))
+    elif k == "radio1":                                    # papa alleen bij de auto: rustig beeld, ballon raakt niemand
+        B["figs"] = [F("dad", 900, pad=[(Z[a][0], 1500), (Z[a][0] + 1.6, 1000)])]
+        B["auto"] = -99; B["radio"] = (kw(21, "radio", -0.1), Z[24][1] + 0.3)
         B["kop"].append((kw(24, "every"), "EVERY CAR. SAME RADIO. FOREVER.", 960, 170, 64, "wit"))
     elif k == "winkel":
         ts = kw(26, "steps")
@@ -486,7 +488,7 @@ for B in BLOK:
         B["klok"] = (kw(56, "timer", -0.1), kw(56, "Eighty"), kw(56, "zero")); B["vlieg"] = kw(56, "trips", 0.1)
     elif k == "kantoor2":
         B["figs"] = [F("dad", 860, geb="vast", houd_vast=True, gebt=[(Z[a][0], Z[59][0] - 0.2, None)]), F("boss", 1260)]
-        B["kop"] += [(kw(57, "mission"), "MISSION FAILED", 960, 170, 110, "rood"), (kw(58, "seventeen"), "TRY 17", 960, 170, 110, "wit"),
+        B["kop"] += [(kw(57, "Mission"), "MISSION FAILED", 960, 170, 110, "rood"), (kw(58, "seventeen"), "TRY 17", 960, 170, 110, "wit"),
                      (kw(58, "eighteenth"), "TRY 18", 960, 170, 110, "wit"), (kw(58, "one"), "0:01 LEFT · MISSION COMPLETE", 960, 170, 80, "goud")]
         B["pizza_dad"] = Z[59][0] - 0.2
     elif k == "klas":
@@ -546,7 +548,7 @@ for B in BLOK:
         B["figs"] = [F("you", 1000)]
         B["weg"] = dict(pijl=kw(114, "arrow", 0.5), health=kw(114, "health", 0.6), map=kw(114, "map", 0.5))
     elif k == "eind":
-        B["figs"] = [F("you", 480, pad=[(Z[a][0], -150), (Z[a][0] + 1.1, 480)]), F("dad", 820, geb="vast", houd_vast=True, gebt=[(Z[122][0] - 0.1, 99999, "hoofdhanden")]), F("mom", 1120), F("sis", 1400),
+        B["figs"] = [F("you", 480, pad=[(Z[a][0], -150), (Z[a][0] + 1.1, 480)]), F("dad", 820, geb="vast", houd_vast=True, gebt=[(Z[122][0] - 0.1, 99999, "hoofdhanden")]), F("mom", 1190), F("sis", 1430),
                      F("buur", 890, s=1.0, y=640, groen=True, clip=(700, 195, 1080, 430), zichtbaar=(kw(120, "Gary", -0.2), 99999), kijk=0.0)]
         B["tafel"] = (650, 1620); B["tvaan"] = kw(118, "TV", -0.1); B["zombie"] = kw(118, "zombie", -0.1)
         B["kop"].append((kw(118, "zombie"), "UPDATE: ZOMBIE MODE", 960, 150, 84, "rood"))
@@ -579,7 +581,7 @@ def frame(t):
     figs = [dict(p) for p in B["figs"]]
     # --- achter de poppetjes ---
     if k == "open": pijl(img, 527, 215, t, 1.25)
-    if k in ("dag1", "radio2") and B.get("auto") is not None and t >= B["auto"]:
+    if k in ("radio1", "radio2") and B.get("auto") is not None and t >= B["auto"]:
         zet(img, "gezinsauto", 210, 620, 905, op="weg", naam="auto", tint=0.13 if B.get("goud") else None)
     if k == "dag1":
         zet(img, "tuinslang", 70, 470, 990, op="weg")
@@ -647,7 +649,7 @@ def frame(t):
     if B.get("tafel"):
         koppen = teken_figuren(img, [p for p in figs if p["n"] == "you" or p.get("clip")], t, nu)
         keukentafel(img, *B["tafel"]); koppen.update(teken_figuren(img, [p for p in figs if not (p["n"] == "you" or p.get("clip"))], t, nu))
-        kom(img, 1400, 826)
+        kom(img, 1430, 826)
     elif k == "klas":
         koppen = teken_figuren(img, figs, t, nu); tafel(img, 540, 880)
         if t >= B["toets"]: toets(img, 640, 818, t >= B["honderd"])
@@ -673,12 +675,11 @@ def frame(t):
         for tt_, n_ in B["ster"]:
             if t >= tt_: n_s, kn = abs(n_), n_ < 0
         if kp("dad"): sterren(img, kp("dad")[0], kp("dad")[1] - 55, n_s, t, kn)
-    if k in ("dag1", "radio2") and B.get("radio"):
+    if k in ("radio1", "radio2") and B.get("radio"):
         r0, r1 = B["radio"]
         if r0 <= t < r1:
             ballon(img, 620, 520, "SUPER SUCK 3000!", ps.pop((t - r0) / 0.3), naam="radio")
             zet(img, "stofzuiger", 110, 620, 466, op="beeld", naam="stofzuiger")
-    if k == "radio2": zet(img, "gezinsauto", 210, 620, 905, op="weg", naam="auto", tint=0.13)
     if k == "winkel":
         if t >= B["melk"] and kp("mom"): held(img, "melk", 90, "mom", kp("mom"), t)
         if Z[29][0] <= t < Z[29][1] + 0.3 and kp("kassa"):
@@ -807,7 +808,7 @@ def geluid():
             for tt_, n_ in B["ster"]:
                 if n_ > 0: zet_(tt_, "ding", ding, 0.6, "ster")
             zet_(B["politie"][0] + 0.1, "sirene", sir, 0.5, "politieauto"); zet_(B["politie"][1], "auto", auto, 0.5, "politieauto")
-            zet_(B["kauw"][0] + 0.35, "papier", papier, 0.4, "kauwgompapiertje"); zet_(B["radio"][0], "klik", klik, 0.6, "radio")
+            zet_(B["kauw"][0] + 0.35, "papier", papier, 0.4, "kauwgompapiertje")
         if k == "winkel": zet_(B["cirkel"][0], "ding", ding, 0.4, "cirkel")
         if k == "val": zet_(kw(31, "fall", -0.1), "plof", ploff, 0.6, "tuinslang")
         if k == "garage":
@@ -826,7 +827,7 @@ def geluid():
         if k == "teddy": zet_(kw(79, "hidden"), "ding", ding, 0.5, "teddy")
         if k == "fiets": zet_(B["fiets"], "bel", bel, 0.5, "fiets"); zet_(B["ster"][0][0], "ding", ding, 0.6, "ster")
         if k == "chaos": zet_(B["t"] + 0.2, "sirene", sir, 0.4, "politieauto"); zet_(B["t"] + 3.0, "sirene", sir, 0.35, "politieauto")
-        if k == "radio2": zet_(B["radio"][0], "klik", klik, 0.6, "radio")
+        if k in ("radio1", "radio2"): zet_(B["radio"][0], "klik", klik, 0.6, "radio")
         if k == "save2": zet_(B["floppy"], "ding", ding, 0.5, "floppy")
         if k == "eind": zet_(B["tvaan"], "klik", klik, 0.6, "tv")
     uit /= max(1, np.abs(uit).max() / 0.9); sf.write(HIER / "sfx.wav", uit, GSR)

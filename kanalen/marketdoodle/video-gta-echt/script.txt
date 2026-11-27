@@ -17,7 +17,7 @@ N|straat|Day one. Your neighbor Gary is watering his lawn.
 BUUR|straat|Nice weather today, huh?
 N|straat|You say hi. He says it again.
 BUUR|straat|Nice weather today, huh?
-N|straat|He has said that exact sentence four hundred times since sunrise. He looks very tired.
+N|straat|He has said that exact sentence four hundred times since sunrise. He looks very tired. Remember Gary. He's important later.
 N|straat|Then Dad drops a gum wrapper on the sidewalk. Ding. A white star appears above his head.
 DAD|straat|What? It was an accident!
 N|straat|Ding. Two stars. A police car comes around the corner. Siren on. For a gum wrapper.
@@ -60,7 +60,7 @@ BOSS|kantoor|I've got a job for you. Deliver this pizza across town in ninety se
 DAD|kantoor|I'm an accountant.
 BOSS|kantoor|Not anymore. Go! Go! Go!
 N|straat|A giant timer appears in the sky. Ninety. Eighty-nine. Dad runs. He trips. The pizza flies. The timer hits zero.
-N|kantoor|Huge red letters: mission failed. Dad has to start over.
+N|kantoor|Huge red letters. Mission failed. Dad has to start over.
 N|kantoor|He tries seventeen times. On the eighteenth try, he makes it with one second left.
 DAD|kantoor|I have never been so proud of a pizza.
 N|klas|Day ten. You go to school. Your teacher has a yellow arrow above her head too.
@@ -74,7 +74,7 @@ N|woonkamer|Day twelve. You're on the couch. Dad is reading something on his pho
 DAD|woonkamer|Listen to this. In 2013, GTA Five made one billion dollars in just three days. Faster than any movie or game before it.
 YOU|woonkamer|One billion dollars? In three days?
 DAD|woonkamer|And now we live inside the next one. For free. Where's my billion?
-N|woonkamer|That part is real, by the way. The company behind the game announced it in 2013.
+N|woonkamer|That part is real, by the way. The company behind the game announced it in 2013. And from here, it gets a lot worse.
 N|strand|Day fourteen. The family goes to the beach. Everyone in town is there, doing the exact same thing.
 N|strand|Jogging in a straight line. Turning around. Jogging back. Again and again.
 SIS|strand|Mom, that man has been jogging for six hours.
