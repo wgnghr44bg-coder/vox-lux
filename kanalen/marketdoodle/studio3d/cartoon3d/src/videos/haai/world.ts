@@ -268,11 +268,11 @@ export class World {
 
     // ---- mensen (oude pop_short-poppetjes, lipsync op hun eigen zinnen) ----
     const blinkOf = (k: number) => ((t + k * 0.7) % 3.1) > 2.95;
-    const person = (c: Card, blob: THREE.Mesh, naam: string, pos: V3, o: { g?: string; verb?: boolean; loop?: number; zinnen?: number[]; k?: number }) => {
+    const person = (c: Card, blob: THREE.Mesh, naam: string, pos: V3, o: { g?: string; verb?: boolean; loop?: number; zinnen?: number[]; k?: number; mirror?: boolean }) => {
       const vis = o.zinnen ? visOp(t, o.zinnen) : null, verb = o.verb ? 1 : 0;
       const key = o.loop !== undefined ? `${naam}_loop${Math.round(o.loop * 16) % 16}_${verb}`
         : `${naam}_${o.g ?? "none"}_${verb}_${!vis && blinkOf(o.k ?? 0) ? 1 : 0}_${vis ?? "x"}`;
-      c.set(oud(key), pos, cam.position, false);
+      c.set(oud(key), pos, cam.position, !!o.mirror);
       blob.position.set(pos[0], 0.05, pos[2]); blob.visible = true;
     };
     for (const [c, b] of this.people) { c.mesh.visible = false; b.visible = false; }

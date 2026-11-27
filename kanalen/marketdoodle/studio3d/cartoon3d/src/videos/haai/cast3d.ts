@@ -11,26 +11,39 @@ export const hoofd = (naam: string) => ({ y: 492 * GROOT[naam] * PXM, r: 125 * G
 /** haaienkop t.o.v. het midden van het kaartje (neus naar +x van het kaartje) */
 export const HAAI_KOP = { x: 0.8, y: 1.48, r: 0.42 };
 
-export type Fig = { naam: string; slot: number; pos: V3; g?: string; verb?: boolean; loop?: number; zinnen?: number[]; k?: number };
+export type Fig = { naam: string; slot: number; pos: V3; g?: string; verb?: boolean; loop?: number; zinnen?: number[]; k?: number; mirror?: boolean };
 /** gebaar voor de tekstwachter (DOEN/GEVOEL) */
-export const gebaarVan = (f: Fig) => (f.loop !== undefined ? "rennen" : f.g ? f.g.replace(/[0-9]+$/, "") : null);
+export const gebaarVan = (f: Fig) => (f.loop !== undefined ? "rennen" : f.g && f.g !== "none" ? f.g.replace(/[0-9]+$/, "") : null);
 
+// gebaren op het verhaal (eigenaar 27 nov: "bewegingen van de personen ... wat bij het verhaal past")
+const anim = (g: string, n: number, t: number, dt: number) => `${g}${Math.floor(t / dt) % n}`;
 export const castAt = (t: number, s: Shot): Fig[] => {
   const out: Fig[] = [];
-  const zwaai = `zwaai${Math.floor(t * 12) % 4}`;
-  if (s.id === 5) out.push({ naam: "you", slot: 0, pos: KID_IN, g: t > 6.2 && t < 7.0 ? zwaai : "none", zinnen: [1] });
-  if (s.id === 6) out.push({ naam: "you", slot: 0, pos: KID_OUT, g: t > T_DEUR ? "schrik" : "none", verb: t > T_BONK[0] });
+  // garage: "Okay, buddy." zwaaien, "Just one step." naar de haai wijzen (de haai staat links -> gespiegeld)
+  if (s.id === 5) out.push({ naam: "you", slot: 0, pos: KID_IN, g: t < 6.67 ? anim("zwaai", 4, t, 0.07) : t < 7.7 ? "wijs" : "none", zinnen: [1], mirror: t >= 6.67 && t < 7.7 });
+  // oprit: rustig -> schrikken bij de bonken -> handen op het hoofd als de deur breekt
+  if (s.id === 6) out.push({ naam: "you", slot: 0, pos: KID_OUT, g: t > T_DEUR ? "hoofdhanden" : t > T_BONK[0] ? anim("schrik", 2, t, 0.05) : "none", verb: t > T_BONK[0] });
   if (s.place === "straat") {
     if (t < 16.9) out.push({ naam: "sis", slot: 1, pos: sisAt(t), loop: (t / 0.9) % 1 });
-    else out.push({ naam: "sis", slot: 1, pos: sisAt(t), g: `juich${Math.floor(t * 8) % 2}`, zinnen: [4], k: 5 });
+    else out.push({ naam: "sis", slot: 1, pos: sisAt(t), g: anim("juich", 4, t, 0.17), zinnen: [4], k: 5 });
+    // pestkoppen: stoer (handen in de zij) -> schrikken van de haai -> wegrennen
     [0, 1].forEach((i) => {
-      const run = t > T_NOBODY + 0.55 + i * 0.12;
-      out.push({ naam: i ? "rich" : "friend", slot: 2 + i, pos: bullyAt(i, t), ...(run ? { loop: (t / 0.45) % 1, verb: true } : { verb: t > T_NOBODY + 0.2, k: 7 + i }) });
+      const run = t > T_NOBODY + 0.55 + i * 0.12, bang = t > T_NOBODY + 0.2;
+      out.push({ naam: i ? "rich" : "friend", slot: 2 + i, pos: bullyAt(i, t),
+        ...(run ? { loop: (t / 0.45) % 1, verb: true } : { g: bang ? anim("schrik", 2, t, 0.05) : "heupen", verb: bang, k: 7 + i }) });
     });
   }
+  // keuken: vader schrikt bij de eerste hap (handen op het hoofd), "That was a brand new fridge!" armen open
   if (s.place === "keuken" && s.id >= 12)
-    out.push({ naam: "dad", slot: 4, pos: DAD_POS, g: s.id === 13 ? "armen-open" : t > T_HAP[0] + 0.1 ? "hoofdhanden" : "none", verb: t > T_HAP[0] + 0.1, zinnen: [6], k: 9 });
-  if (s.place === "strand") out.push({ naam: "you", slot: 0, pos: KID_BEACH, g: s.id === 15 && t > T_KEER ? "schrik" : "none", verb: s.id === 15 && t > T_KEER, zinnen: [8] });
+    out.push({ naam: "dad", slot: 4, pos: DAD_POS, g: s.id === 13 ? (t < 24.5 ? "armen-open" : "wijs") : t > T_HAP[0] + 0.1 ? "hoofdhanden" : "none", verb: t > T_HAP[0] + 0.1, zinnen: [6], k: 9 });
+  // strand: blij juichen -> naar de zee wijzen -> schrikken als de haai terugrent -> "Wait." armen open, "scared of water?" nadenken
+  if (s.place === "strand") {
+    let g = "none", verb = false, mirror = false;
+    if (s.id === 14) g = anim("juich", 4, t, 0.17);
+    else if (s.id === 15) { if (t < T_KEER) { g = "wijs"; mirror = true; } else { g = anim("schrik", 2, t, 0.05); verb = true; } }
+    else g = t < 32.55 ? "armen-open" : "denk";
+    out.push({ naam: "you", slot: 0, pos: KID_BEACH, g, verb, zinnen: [8], mirror });
+  }
   return out;
 };
 export const haaiZichtbaar = (t: number, s: Shot) => !(s.id === 6 && t < T_DEUR - 0.05);

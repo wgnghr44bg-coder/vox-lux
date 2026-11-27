@@ -20,7 +20,7 @@ os.chdir(_cwd)
 
 UIT = HIER / "public" / "oud"; UIT.mkdir(parents=True, exist_ok=True)
 SS = ps.SS
-CW, CH, FX, FY, S = 500, 780, 250, 750, 2.0          # doek, voetpunt, schaal
+CW, CH, FX, FY, S = 640, 780, 320, 750, 2.0          # doek, voetpunt, schaal
 VIS = [None, "A", "E", "O", "U", "M", "F", "L"]
 ps.BEWEGEN = False; ps.LEVENDIG = False
 
@@ -38,14 +38,18 @@ def sla(im, naam):
 
 
 n = 0
-ROLLEN = {"you": ["none", "zwaai0", "zwaai1", "zwaai2", "zwaai3", "schrik", "hoofdhanden"],
-          "sis": ["none", "juich0", "juich1"],
-          "dad": ["none", "hoofdhanden", "armen-open"],
-          "friend": ["none"], "rich": ["none"]}
+# gebaren die bij het verhaal passen (eigenaar 27 nov: "bewegingen van de personen ... wat bij het verhaal past");
+# een cijfer achter het gebaar = animatiebeeld (tijdstap per gebaar in DT)
+DT = {"zwaai": 0.07, "juich": 0.17, "schrik": 0.05, "praat": 0.25}
+an = lambda g, n: [f"{g}{i}" for i in range(n)]
+ROLLEN = {"you": ["none", "schrik", "hoofdhanden", "wijs", "armen-open", "denk"] + an("zwaai", 4) + an("juich", 4) + an("schrik", 2) + an("praat", 4),
+          "sis": ["none"] + an("juich", 4),
+          "dad": ["none", "hoofdhanden", "armen-open", "wijs"],
+          "friend": ["none", "heupen"] + an("schrik", 2), "rich": ["none", "heupen"] + an("schrik", 2)}
 for naam, gebs in ROLLEN.items():
     praat = naam in ("you", "sis", "dad")
     for g in gebs:
-        geb = None if g == "none" else g.rstrip("0123456789"); t = int(g[-1]) * 0.07 if g[-1].isdigit() else 0.0
+        geb = None if g == "none" else g.rstrip("0123456789"); t = int(g[-1]) * DT.get(geb, 0.07) if g[-1].isdigit() else 0.0
         for verb in (0, 1):
             for vis in (VIS if praat else [None]):
                 sla(mens(naam, geb, bool(verb), False, vis, t=t), f"{naam}_{g}_{verb}_0_{vis or 'x'}"); n += 1

@@ -67,6 +67,26 @@ for naam, ts in lay.items():
         else: reeks.append([t, t])
     for a, b in reeks:
         if b - a >= 0.1: layf.append(f"{a:.1f}-{b:.1f} s: ondertitel bedekt het gezicht van {naam}")
+# hoofd half buiten beeld (mensen; de haai is te lang om altijd helemaal in beeld te passen)
+for fr in F:
+    for naam, (cx, cy, r) in fr["koppen"].items():
+        if naam == "haai" or not (0 <= cx <= 1080 and 0 <= cy <= 1920): continue
+        if cx - 0.7 * r < 0 or cx + 0.7 * r > 1080 or cy - 0.7 * r < 0: lay.setdefault(f"{naam}+rand (hoofd half buiten beeld)", []).append(fr["t"])
+# figuur voor andermans gezicht (kop over kop)
+for fr in F:
+    k = [(n, v) for n, v in fr["koppen"].items() if 0 <= v[0] <= 1080 and 0 <= v[1] <= 1920]
+    for i in range(len(k)):
+        for j in range(i + 1, len(k)):
+            (a_, (x1, y1, r1)), (b_, (x2, y2, r2)) = k[i], k[j]
+            if ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5 < 0.75 * (r1 + r2): lay.setdefault(f"{a_}+{b_} (kop over kop)", []).append(fr["t"])
+layf = []
+for naam, ts in lay.items():
+    reeks = [[ts[0], ts[0]]]
+    for t in ts[1:]:
+        if t - reeks[-1][1] < 0.1: reeks[-1][1] = t
+        else: reeks.append([t, t])
+    for a, b in reeks:
+        if b - a >= 0.1: layf.append(f"{a:.1f}-{b:.1f} s: {'ondertitel bedekt het gezicht van ' + naam if '+' not in naam else naam}")
 fouten += len(layf)
 uit += [f"## LAYOUT (gezichten): {len(layf)} fouten"] + [f"- {x}" for x in layf] + [""]
 # ---------- geluid ----------

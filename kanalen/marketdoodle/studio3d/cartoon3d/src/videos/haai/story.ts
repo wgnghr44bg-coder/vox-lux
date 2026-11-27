@@ -92,10 +92,10 @@ export const sharkAt = (t: number, s: Shot): SharkState => {
 };
 // het kind ("jij"), de zus, pestkoppen, vader
 export const KID_IN: V3 = [2.1, 0, -1.6];
-export const KID_OUT: V3 = [2.7, 0, 3.2];
-export const KID_BEACH: V3 = [BX + 2.0, 0, 3.4];
-export const sisAt = (t: number): V3 => [streetX(t) + 0.9, 0, 10.45];
-export const BULLY0: V3[] = [[-21.2, 0, 10.0], [-20.3, 0, 10.6]];
+export const KID_OUT: V3 = [2.2, 0, 3.7];
+export const KID_BEACH: V3 = [BX + 2.3, 0, 4.6];
+export const sisAt = (t: number): V3 => [streetX(t) + 1.5, 0, 10.45];
+export const BULLY0: V3[] = [[-21.4, 0, 9.9], [-19.6, 0, 10.5]];
 export const bullyAt = (i: number, t: number): V3 => {
   const r = Math.max(0, t - (T_NOBODY + 0.55 + i * 0.12));
   return [BULLY0[i][0] + 4.2 * r, 0, BULLY0[i][2] + 1.2 * r * (i ? 1 : -0.4)];
@@ -126,14 +126,14 @@ export const CAMS: Record<number, Key[]> = {
   6: [{ f: 232, c: { pos: [5.6, 1.55, 9.6], look: [-0.6, 1.3, 0.6], fov: 50 } }, { f: 300, c: { pos: [5.2, 1.5, 9.0], look: [-0.6, 1.3, 0.6], fov: 48 } },
       { f: 370, c: { pos: [4.6, 1.4, 8.6], look: [-0.4, 1.2, 1.6], fov: 47 } }],
   8: two(447, 508, { pos: [-15.5, 1.4, 15.5], look: [-22.8, 1.0, 10.2], fov: 46 }, { pos: [-15.8, 1.4, 15.1], look: [-22.4, 1.0, 10.2], fov: 44 }),
-  9: two(508, 559, { pos: [-22.2, 1.05, 14.6], look: [-23.6, 0.72, 10.2], fov: 40 }, { pos: [-22.4, 1.05, 14.2], look: [-23.6, 0.72, 10.2], fov: 38 }),
+  9: two(508, 559, { pos: [-21.5, 1.05, 14.8], look: [-23.0, 0.72, 10.2], fov: 42 }, { pos: [-21.7, 1.05, 14.4], look: [-23.0, 0.72, 10.2], fov: 40 }),
   10: two(559, 614, { pos: [KX - 0.4, 1.65, 3.6], look: [KX + 0.6, 1.0, -2.2], fov: 56 }, { pos: [KX - 0.2, 1.6, 3.2], look: [KX + 0.6, 1.0, -2.2], fov: 53 }),
   11: two(614, 657, { pos: [KX - 0.2, 1.6, 3.2], look: [KX + 0.8, 1.0, -2.2], fov: 53 }, { pos: [KX + 0.4, 1.55, 2.6], look: [KX + 1.6, 1.0, -2.4], fov: 50 }),
   12: two(657, 709, { pos: [KX + 1.3, 1.3, 0.9], look: [KX + 2.3, 1.15, -2.7], fov: 48 }, { pos: [KX + 1.4, 1.3, 0.6], look: [KX + 2.3, 1.1, -2.7], fov: 46 }),
   13: two(709, 772, { pos: [KX - 0.5, 1.25, 3.4], look: [KX - 2.1, 1.0, 0.9], fov: 42 }, { pos: [KX - 0.7, 1.25, 3.2], look: [KX - 2.1, 1.0, 0.9], fov: 39 }),
-  14: two(772, 860, { pos: [BX + 1.2, 1.7, 10.5], look: [BX + 0.2, 1.0, 0.5], fov: 50 }, { pos: [BX + 1.0, 1.6, 9.4], look: [BX + 0.2, 1.0, 0.5], fov: 48 }),
+  14: two(772, 860, { pos: [BX + 1.8, 1.7, 10.5], look: [BX + 1.0, 1.0, 0.5], fov: 50 }, { pos: [BX + 1.8, 1.6, 9.6], look: [BX + 1.3, 1.0, 0.5], fov: 49 }),
   15: two(860, 955, { pos: [BX + 5.2, 1.35, 4.6], look: [BX - 0.2, 0.7, -0.2], fov: 46 }, { pos: [BX + 4.8, 1.3, 4.3], look: [BX - 0.2, 0.7, -0.2], fov: 44 }),
-  16: two(955, 1027, { pos: [BX + 3.6, 1.15, 7.4], look: [BX + 1.1, 0.75, 2.7], fov: 44 }, { pos: [BX + 3.4, 1.15, 7.0], look: [BX + 1.1, 0.75, 2.7], fov: 42 }),
+  16: two(955, 1027, { pos: [BX + 3.2, 1.2, 9.2], look: [BX + 1.4, 0.75, 2.4], fov: 46 }, { pos: [BX + 3.1, 1.2, 8.8], look: [BX + 1.4, 0.75, 2.4], fov: 44 }),
   17: two(1027, 1104, { pos: [AX + 0.9, 1.55, 2.5], look: [AX, 1.1, -2.4], fov: 52 }, { pos: [AX + 0.8, 1.5, 1.6], look: [AX, 1.1, -2.4], fov: 50 }),
   19: two(1104, 1150, { pos: [AX + 2.7, 1.0, -0.6], look: [AX + 1.55, 0.6, -3.0], fov: 52 }, { pos: [AX + 2.6, 0.95, -0.9], look: [AX + 1.6, 0.6, -3.0], fov: 50 }),
   18: two(1150, TOTAL, { pos: [AX + 0.85, 1.75, 0.6], look: [AX + 0.6, 1.25, -2.45], fov: 40 }, { pos: [AX + 0.75, 1.75, -0.3], look: [AX + 0.6, 1.25, -2.45], fov: 36 }),
@@ -150,5 +150,5 @@ export const camAt = (f: number): Cam => {
   return { pos: [c.pos[0], c.pos[1] + dy, c.pos[2]], look: c.look, fov: c.fov, roll: (c.roll ?? 0) + rl };
 };
 // lensblur per shot: cInf (px bij oneindig)
-export const DOF: Record<number, number> = { 1: 9, 2: 12, 3: 16, 4: 16, 5: 12, 6: 7, 7: 8, 8: 8, 9: 12, 10: 8, 11: 8, 12: 12, 13: 12, 14: 7, 15: 8, 16: 11, 17: 9, 18: 13, 19: 10 };
+export const DOF: Record<number, number> = { 1: 9, 2: 12, 3: 16, 4: 16, 5: 12, 6: 7, 7: 8, 8: 8, 9: 12, 10: 8, 11: 8, 12: 12, 13: 12, 14: 7, 15: 8, 16: 6, 17: 9, 18: 13, 19: 10 };
 export const FLASH_AT = 77;
