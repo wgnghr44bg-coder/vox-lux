@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 16:33",
+ "bijgewerkt": "2026-11-27 17:03",
  "kanalen": {
   "weken": [
    {
@@ -161,7 +161,7 @@
         "datum": "2026-11-27",
         "tijd": "17:00",
         "titel": "What If Black Friday Never Ended?",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "Lg-Beh3sS7M"
        },
        {
@@ -2238,7 +2238,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 16:33)"
+   "tekst": "draait nu (2026-11-27 17:03)"
   },
   {
    "naam": "Git",
@@ -2258,7 +2258,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2275,8 +2275,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 16:33",
-   "volgende": "2026-11-27 17:03"
+   "laatst": "2026-11-27 17:03",
+   "volgende": "2026-11-27 17:33"
   },
   "hype": {
    "aan": true,
@@ -2290,8 +2290,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 16:18",
-   "volgende": "2026-11-27 16:48"
+   "laatst": "2026-11-27 16:48",
+   "volgende": "2026-11-27 17:18"
   },
   "titels": {
    "aan": true,
@@ -2339,7 +2339,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 105,
+    "views": 108,
     "verwerkt": "processed"
    },
    {
@@ -2634,7 +2634,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 734,
+  "geheugen_mb": 732,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2807,8 +2807,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 16:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 17:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 16:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4870,11 +4870,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 16:33",
+  "bijgewerkt": "2026-11-27 17:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 11414519,
+    "5uur": 10607212,
     "week": 111881999,
     "per_dag": {
      "Tue 24-11": 29948208,
@@ -4886,16 +4886,16 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 56677,
+    "stap_kost": 56711,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 150753066,
+    "week": 149856202,
     "per_dag": {
-     "Fri 20-11": 11121759,
+     "Fri 20-11": 10224896,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
