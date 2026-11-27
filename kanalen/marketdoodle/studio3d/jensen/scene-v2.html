@@ -1,0 +1,200 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>CEO explainer</title>
+<style>html,body{margin:0;background:#000}canvas{display:block;image-rendering:pixelated}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js"}}</script>
+</head><body>
+<script type="module">
+// Proef 27 nov 2026: CEO-cartoon (leren jasje) op een keynote-podium, zelfde recept als de wasbeer. Geen logo's, eigen stem.
+// 1 low poly (± 300 driehoeken), flat shading · 2 texturen van 64 px door code geschilderd · 3 render op 270x480 zonder smoothing
+// 4 hoekpunten op een raster + kleuren gedithered · 5 open snijden + één deel labelen · 6 nieuwe pose bij elke zin.
+import * as THREE from 'three';
+const RW = 360, RH = 640;                                  // v2: 1,5x scherper
+const D = await (await fetch('data.json')).json();
+const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(RW, RH); renderer.localClippingEnabled = true; renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.BasicShadowMap;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0b1020);
+const camera = new THREE.PerspectiveCamera(38, RW / RH, 0.1, 50); camera.position.set(0.35, 1.35, 4.6); camera.lookAt(0.15, 1.0, 0);
+scene.add(new THREE.HemisphereLight(0xcfe8ff, 0x101820, 1.2)); const zon = new THREE.DirectionalLight(0xfff2d0, 2.2); zon.position.set(2, 5, 4); scene.add(zon);
+zon.castShadow = true; zon.shadow.mapSize.set(512, 512); Object.assign(zon.shadow.camera, { left: -3, right: 3, top: 3, bottom: -2, near: 0.5, far: 15 });
+const tegen = new THREE.DirectionalLight(0x5fffd0, 2.5); tegen.position.set(-1.5, 2.5, -3); scene.add(tegen);            // blauwgroen tegenlicht (randen)
+
+// ---- 2. texturen van 64 px, door code geschilderd ----
+function tex(teken) { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); teken(g);
+  const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.generateMipmaps = false; t.colorSpace = THREE.SRGBColorSpace; return t; }
+let zaad = 7; const rnd = () => (zaad = (zaad * 16807) % 2147483647) / 2147483647;
+const ruis = (g, basis, sp) => { for (let y = 0; y < 64; y += 2) for (let x = 0; x < 64; x += 2) { const v = (rnd() - 0.5) * sp; g.fillStyle = `rgb(${basis.map(b => Math.max(0, Math.min(255, b + v))).join(',')})`; g.fillRect(x, y, 2, 2); } };
+const T = {
+  vacht: tex(g => { ruis(g, [138, 138, 145], 40); g.fillStyle = 'rgba(80,80,90,0.5)'; for (let y = 4; y < 64; y += 12) g.fillRect(0, y, 64, 3); }),
+  pak: tex(g => { ruis(g, [238, 196, 40], 30); g.fillStyle = 'rgba(150,110,10,0.6)'; g.fillRect(31, 0, 2, 64); for (let y = 12; y < 64; y += 16) { g.fillStyle = '#3a2a10'; g.fillRect(26, y, 4, 4); } }),
+  gras: tex(g => { ruis(g, [92, 168, 70], 50); g.fillStyle = 'rgba(40,110,40,0.7)'; for (let i = 0; i < 40; i++) g.fillRect(Math.floor(rnd() * 62), Math.floor(rnd() * 62), 1, 3); }),
+  hek: tex(g => { ruis(g, [170, 120, 80], 35); g.fillStyle = '#6d4626'; for (let x = 0; x < 64; x += 16) g.fillRect(x, 0, 2, 64); g.fillRect(0, 20, 64, 2); }),
+  hout: tex(g => { ruis(g, [150, 100, 60], 30); g.fillStyle = 'rgba(90,55,30,0.6)'; for (let y = 6; y < 64; y += 10) g.fillRect(0, y, 64, 1); }),
+  staart: tex(g => { for (let y = 0; y < 64; y += 16) { g.fillStyle = '#8a8a92'; g.fillRect(0, y, 64, 9); g.fillStyle = '#2a2a30'; g.fillRect(0, y + 9, 64, 7); } }),
+  eend: tex(g => { ruis(g, [255, 214, 40], 25); }),
+  leer: tex(g => { ruis(g, [34, 34, 38], 18); g.fillStyle = 'rgba(160,160,175,0.35)'; for (let i = 0; i < 6; i++) g.fillRect(8 + i * 3, 4 + i * 9, 10, 2); g.fillStyle = '#b8b8c0'; g.fillRect(31, 0, 2, 64); }),
+  vloer: tex(g => { ruis(g, [24, 28, 40], 12); g.fillStyle = 'rgba(80,200,170,0.35)'; for (let x = 0; x < 64; x += 16) g.fillRect(x, 0, 1, 64); for (let y = 0; y < 64; y += 16) g.fillRect(0, y, 64, 1); }),
+  scherm: tex(g => { for (let y = 0; y < 64; y += 2) { const f = y / 64; g.fillStyle = `rgb(${20 + 30 * f},${90 + 100 * (1 - f)},${120 + 60 * f})`; g.fillRect(0, y, 64, 2); }
+    g.fillStyle = 'rgba(255,255,255,0.25)'; for (let i = 0; i < 18; i++) g.fillRect(Math.floor(rnd() * 60), Math.floor(rnd() * 60), 2, 2); }),
+  kaart: tex(g => { ruis(g, [58, 60, 66], 14); g.fillStyle = '#9aa0a8'; g.fillRect(0, 0, 64, 3); g.fillRect(0, 61, 64, 3); }),
+  print: tex(g => { ruis(g, [30, 110, 60], 20); g.fillStyle = '#d8b040'; for (let i = 0; i < 12; i++) g.fillRect(Math.floor(rnd() * 60), Math.floor(rnd() * 60), 6, 1); }),
+};
+T.vloer.wrapS = T.vloer.wrapT = THREE.RepeatWrapping; T.vloer.repeat.set(6, 6);
+
+// ---- 4. hoekpunten op een raster + kleuren dithering (in elke materiaal-shader) ----
+const DITHER = `float bayer4(vec2 p){ int i = int(mod(p.x,4.)) + int(mod(p.y,4.))*4; float m[16] = float[16](0.,8.,2.,10.,12.,4.,14.,6.,3.,11.,1.,9.,15.,7.,13.,5.); return m[i]/16.; }\n`;
+function mat(opts) {
+  const m = new THREE.MeshLambertMaterial({ flatShading: true, ...opts });
+  m.onBeforeCompile = (sh) => {
+    sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', `#include <project_vertex>
+      vec2 raster = vec2(${RW / 2}.0, ${RH / 2}.0); gl_Position.xy = floor(gl_Position.xy / gl_Position.w * raster + 0.5) / raster * gl_Position.w;`);
+    sh.fragmentShader = DITHER + sh.fragmentShader.replace('#include <dithering_fragment>', `#include <dithering_fragment>
+      float lv = 10.0; gl_FragColor.rgb = floor(gl_FragColor.rgb * lv + bayer4(gl_FragCoord.xy)) / lv;`);
+  };
+  return m;
+}
+const M = { vacht: mat({ map: T.vacht }), pak: mat({ map: T.pak }), zwart: mat({ color: 0x1e1e24 }), wit: mat({ color: 0xffffff }), licht: mat({ color: 0xd8d8dc }),
+  roze: mat({ color: 0xe88a9a }), rood: mat({ color: 0xd8342c }), gras: mat({ map: T.gras }), hek: mat({ map: T.hek }), hout: mat({ map: T.hout }), staart: mat({ map: T.staart }),
+  blad: mat({ color: 0xc9d2dc }), groen: mat({ color: 0x3f8f45 }), stam: mat({ color: 0x7a4e2c }), oranje: mat({ color: 0xf08a20 }),
+  leer: mat({ map: T.leer }), shirt: mat({ color: 0x18181c }), huid: mat({ color: 0xf0c49a }), haar: mat({ color: 0x3a3a40 }), vloer: mat({ map: T.vloer }),
+  scherm: mat({ map: T.scherm }), kaart: mat({ map: T.kaart }), fan: mat({ color: 0x2a2c30 }), print: mat({ map: T.print }), chip: mat({ color: 0x15151a }), goud: mat({ color: 0xd8b040 }) };
+let DRIEHOEKEN = 0;
+function deel(geo, m, parent, x = 0, y = 0, z = 0) { const me = new THREE.Mesh(geo, m); me.position.set(x, y, z); me.castShadow = true; me.receiveShadow = true; (parent || scene).add(me); DRIEHOEKEN += geo.index ? geo.index.count / 3 : geo.attributes.position.count / 3; return me; }
+
+// ---- keynote-podium ----
+const grond = deel(new THREE.PlaneGeometry(14, 14), M.vloer); grond.rotation.x = -Math.PI / 2;
+const scherm = deel(new THREE.BoxGeometry(6, 3.2, 0.1), M.scherm, null, 0, 1.9, -2.6);
+for (const k of [-1, 1]) { const lamp = deel(new THREE.ConeGeometry(0.25, 0.4, 5), M.zwart, null, k * 2.2, 3.4, -1.2); lamp.rotation.x = Math.PI; }
+const tafel = deel(new THREE.BoxGeometry(0.8, 0.08, 0.6), M.zwart, null, 0.75, 0.72, 0.2);
+for (const [px, pz] of [[0.42, 0], [1.08, 0], [0.42, 0.4], [1.08, 0.4]]) deel(new THREE.BoxGeometry(0.06, 0.7, 0.06), M.zwart, null, px, 0.35, pz);
+for (const k of [-1, 1]) {                                                         // lichtbundels van de spots (doorzichtig)
+  const bundel = new THREE.Mesh(new THREE.ConeGeometry(0.9, 3.4, 6, 1, true), new THREE.MeshBasicMaterial({ color: 0x9fffe0, transparent: true, opacity: 0.08, depthWrite: false, side: THREE.DoubleSide }));
+  bundel.position.set(k * 1.6, 1.8, -1.0); bundel.rotation.z = k * 0.3; scene.add(bundel); }
+const tekstC = document.createElement('canvas'); tekstC.width = 128; tekstC.height = 64; const tg = tekstC.getContext('2d');
+tg.fillStyle = '#fff'; tg.font = 'bold 30px monospace'; tg.textAlign = 'center'; tg.fillText('WHAT IF?', 64, 42);
+const tt = new THREE.CanvasTexture(tekstC); tt.magFilter = tt.minFilter = THREE.NearestFilter; tt.generateMipmaps = false;
+const schermTekst = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.75), new THREE.MeshBasicMaterial({ map: tt, transparent: true })); schermTekst.position.set(0.3, 3.0, -2.54); scene.add(schermTekst);
+for (let i = 0; i < 9; i++) {                                                      // publiek als silhouetten op de voorgrond
+  const px = -1.0 + i * 0.28 + (i % 2) * 0.06, pz = 3.7 + (i % 2) * 0.2;
+  deel(new THREE.IcosahedronGeometry(0.12, 0), M.zwart, null, px, 0.42 + (i % 3) * 0.03, pz); deel(new THREE.BoxGeometry(0.3, 0.3, 0.2), M.zwart, null, px, 0.18, pz);
+}
+const spot = new THREE.SpotLight(0x9fffe0, 6, 8, 0.5, 0.6); spot.position.set(0, 4, 2.5); spot.target.position.set(0.2, 0.8, 0.2); scene.add(spot, spot.target);
+
+// ---- 1. de CEO (low poly): zwart leren jasje, zwart T-shirt, bril, grijs-zwart haar ----
+const wb = new THREE.Group(); wb.position.set(-0.3, 0, 0.3); scene.add(wb);
+const lijf = deel(new THREE.BoxGeometry(0.6, 0.78, 0.4), M.leer, wb, 0, 0.98, 0);
+deel(new THREE.BoxGeometry(0.2, 0.6, 0.03), M.shirt, wb, 0, 1.06, 0.205);                                  // T-shirt in de V
+deel(new THREE.BoxGeometry(0.015, 0.5, 0.02), M.blad, wb, 0.11, 0.92, 0.215);                               // rits
+for (const k of [-1, 1]) deel(new THREE.BoxGeometry(0.12, 0.08, 0.02), M.leer, wb, k * 0.17, 0.78, 0.215);   // zakken
+for (const k of [-1, 1]) { const kr = deel(new THREE.BoxGeometry(0.12, 0.2, 0.04), M.leer, wb, k * 0.14, 1.3, 0.21); kr.rotation.z = k * 0.4; }   // kraag
+const kop = new THREE.Group(); kop.position.set(0, 1.6, 0); wb.add(kop);
+const hoofd = deel(new THREE.IcosahedronGeometry(0.3, 1), M.huid, kop); hoofd.scale.set(1.0, 1.1, 0.95);
+deel(new THREE.CylinderGeometry(0.1, 0.12, 0.14, 6), M.huid, wb, 0, 1.4, 0);                         // nek
+for (const k of [-1, 1]) deel(new THREE.IcosahedronGeometry(0.06, 0), M.huid, kop, k * 0.3, 0.0, 0);   // oren
+const kuif = deel(new THREE.IcosahedronGeometry(0.29, 1), M.haar, kop, 0, 0.2, -0.04); kuif.scale.set(1.08, 0.55, 1.0);      // haar bovenop (rond, naar achter gekamd)
+const pony = deel(new THREE.BoxGeometry(0.42, 0.08, 0.12), M.haar, kop, 0.02, 0.27, 0.2); pony.rotation.x = -0.3;
+for (const k of [-1, 1]) deel(new THREE.BoxGeometry(0.05, 0.18, 0.34), M.haar, kop, k * 0.29, 0.13, -0.06); // haar opzij
+for (const k of [-1, 1]) { const wb_ = deel(new THREE.BoxGeometry(0.11, 0.025, 0.02), M.haar, kop, k * 0.12, 0.13, 0.3); wb_.rotation.z = -k * 0.15; }   // wenkbrauwen
+for (const k of [-1, 1]) {
+  deel(new THREE.BoxGeometry(0.15, 0.1, 0.03), M.zwart, kop, k * 0.12, 0.04, 0.3);                           // brilmontuur
+  deel(new THREE.BoxGeometry(0.02, 0.02, 0.3), M.zwart, kop, k * 0.2, 0.05, 0.16);                            // pootjes
+  deel(new THREE.BoxGeometry(0.11, 0.06, 0.02), M.wit, kop, k * 0.12, 0.04, 0.315);
+  deel(new THREE.BoxGeometry(0.045, 0.05, 0.02), M.zwart, kop, k * 0.12, 0.04, 0.325).name = 'pupil' + k;
+}
+deel(new THREE.BoxGeometry(0.06, 0.03, 0.03), M.zwart, kop, 0, 0.05, 0.31);                                   // brugje
+deel(new THREE.BoxGeometry(0.06, 0.08, 0.06), M.huid, kop, 0, -0.05, 0.31);                                   // neus
+const mond = deel(new THREE.BoxGeometry(0.1, 0.025, 0.03), mat({ color: 0x6a2228 }), kop, 0, -0.16, 0.29);
+function arm(k) { const g = new THREE.Group(); g.position.set(k * 0.37, 1.3, 0); wb.add(g);
+  deel(new THREE.BoxGeometry(0.15, 0.48, 0.15), M.leer, g, 0, -0.23, 0); deel(new THREE.BoxGeometry(0.16, 0.05, 0.16), M.zwart, g, 0, -0.45, 0); deel(new THREE.IcosahedronGeometry(0.07, 0), M.huid, g, 0, -0.53, 0); return g; }
+const armL = arm(-1), armR = arm(1);
+for (const k of [-1, 1]) { deel(new THREE.BoxGeometry(0.2, 0.58, 0.2), M.shirt, wb, k * 0.15, 0.31, 0); deel(new THREE.BoxGeometry(0.22, 0.09, 0.3), M.zwart, wb, k * 0.15, 0.04, 0.05); }
+// mes in de rechterhand
+const mes = new THREE.Group(); mes.position.set(0, -0.56, 0.08); armR.add(mes);
+deel(new THREE.BoxGeometry(0.05, 0.12, 0.05), M.stam, mes, 0, 0, 0); deel(new THREE.BoxGeometry(0.03, 0.3, 0.09), M.blad, mes, 0, -0.2, 0); mes.visible = false;
+
+// ---- 5. videokaart die open gaat; binnenin de chip met label ----
+const eendG = new THREE.Group(); eendG.position.set(0.75, 0.76, 0.2); scene.add(eendG);
+function kaarthelft(vlak) {
+  const g = new THREE.Group(); eendG.add(g); const clip = [vlak];
+  const mk = mat({ map: T.kaart, side: THREE.DoubleSide, clippingPlanes: clip }), mf = mat({ color: 0x2a2c30, clippingPlanes: clip }), ms = mat({ color: 0x9aa0a8, clippingPlanes: clip });
+  deel(new THREE.BoxGeometry(0.7, 0.34, 0.12), mk, g, 0, 0.2, 0);
+  const mr = mat({ color: 0xb8bcc4, clippingPlanes: clip }), mg = mat({ color: 0xd8b040, clippingPlanes: clip });
+  deel(new THREE.BoxGeometry(0.7, 0.34, 0.02), mf, g, 0, 0.2, -0.07);                                           // achterplaat
+  for (let i = 0; i < 9; i++) deel(new THREE.BoxGeometry(0.012, 0.28, 0.08), mr, g, -0.32 + i * 0.08, 0.2, -0.01); // koelribben
+  deel(new THREE.BoxGeometry(0.3, 0.04, 0.03), mg, g, -0.1, 0.02, 0);                                             // goud contact
+  for (const fx of [-0.17, 0.17]) { const f = deel(new THREE.CylinderGeometry(0.13, 0.13, 0.02, 7), mf, g, fx, 0.2, 0.07); f.rotation.x = Math.PI / 2;
+    const n = deel(new THREE.CylinderGeometry(0.035, 0.035, 0.03, 5), ms, g, fx, 0.2, 0.08); n.rotation.x = Math.PI / 2; }
+  return g;
+}
+const vlakL = new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0), vlakR = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0);
+const helftL = kaarthelft(vlakL), helftR = kaarthelft(vlakR);
+const basisL = vlakL.clone(), basisR = vlakR.clone();                                   // snijvlak beweegt mee met elke helft
+const binnen = new THREE.Group(); binnen.position.set(0, 0.2, 0.08); eendG.add(binnen); binnen.visible = false;          // printplaat + chip (pas zichtbaar als hij open is)
+deel(new THREE.BoxGeometry(0.36, 0.3, 0.02), M.print, binnen, 0, 0, 0); deel(new THREE.BoxGeometry(0.18, 0.18, 0.03), M.goud, binnen, 0, 0, 0.015); deel(new THREE.BoxGeometry(0.14, 0.14, 0.04), M.chip, binnen, 0, 0, 0.02);
+
+// ---- 6. een nieuwe pose bij elke zin ----
+const POSES = [
+  { aL: [0, 0, 0.15], aR: [-0.2, 0, -1.35], kop: [0, -0.25, 0.1], lijf: 0.05 },     // wijst naar de eend
+  { aL: [0, 0, 1.1], aR: [0, 0, -1.1], kop: [0, 0, -0.18], lijf: 0 },                // schouders omhoog: "denken mensen"
+  { aL: [0, 0, 0.5], aR: [-2.6, 0, -0.3], kop: [0.1, 0.2, 0], lijf: -0.05 },          // mes omhoog
+  { aL: [0, 0, 0.3], aR: [-0.5, 0, -0.9], kop: [0.25, -0.35, 0], lijf: 0.12 },        // snijdt en kijkt erin
+  { aL: [0, 0, 2.3], aR: [0, 0, -2.3], kop: [-0.15, 0, 0], lijf: 0 },                // armen omhoog: lucht!
+  { aL: [0, 0, 0.2], aR: [-2.9, 0, 0.1], kop: [0, 0.15, 0.12], lijf: 0.08 },          // vinger omhoog: volgende keer
+];
+const zinIndex = (t) => { let k = 0; D.zinnen.forEach((z, i) => { if (t >= z[0] - 0.12) k = i; }); return k; };
+const lerp = (a, b, f) => a + (b - a) * f, ease = x => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
+function zetPose(t) {
+  const k = zinIndex(t), p = POSES[Math.min(k, POSES.length - 1)], v = POSES[Math.max(0, Math.min(k - 1, POSES.length - 1))];
+  const f = k === 0 ? 1 : ease((t - (D.zinnen[k][0] - 0.12)) / 0.22);
+  const mix = (A, B) => [0, 1, 2].map(i => lerp(A[i], B[i], f)); armL.rotation.set(...mix(v.aL, p.aL)); armR.rotation.set(...mix(v.aR, p.aR)); kop.rotation.set(...mix(v.kop, p.kop));
+  wb.rotation.y = lerp(v.lijf, p.lijf, f) + 0.25; kop.position.y = 1.6 + Math.sin(t * 2.2) * 0.012;
+  return k;
+}
+// lip sync: klanken uit de woordtijden (zelfde regels als tools/lipsync.py)
+const KL = [['th','L'],['ee','E'],['ea','E'],['oo','U'],['ou','O'],['ow','O'],['a','A'],['e','E'],['i','E'],['y','E'],['o','O'],['u','U'],['w','U'],['m','M'],['b','M'],['p','M'],['f','F'],['v','F'],['l','L'],['t','L'],['d','L'],['n','L'],['s','E'],['z','E'],['c','E'],['k','E'],['g','E'],['h','A'],['r','O']];
+const GETAL = { 0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' };
+const VTL = [];
+for (const [, w, t0, t1] of D.woorden) { let s_ = w.toLowerCase().replace(/[0-9]/g, c => GETAL[c]).replace(/[^a-z]/g, ''), ks = [];
+  for (let i = 0; i < s_.length;) { const r = KL.find(([l]) => s_.startsWith(l, i)); if (r) { if (ks[ks.length - 1] !== r[1]) ks.push(r[1]); i += r[0].length; } else i++; }
+  if (!ks.length) ks = ['E']; const gw = ks.map(k => 'AEOU'.includes(k) ? 2 : 1), tot = gw.reduce((a, b) => a + b); let tt_ = t0;
+  ks.forEach((k, i) => { const d = (t1 - t0) * gw[i] / tot; VTL.push([tt_, tt_ + d, k]); tt_ += d; }); }
+const viseem = (t) => { const v = VTL.find(([a, b]) => a - 0.03 <= t && t <= b + 0.03); return v ? v[2] : null; };
+const woord = (zin, w) => (D.woorden.find(x => x[0] === zin && x[1].toLowerCase().replace(/[^a-z]/g, '').startsWith(w)) || [0, '', D.zinnen[zin][0]])[2];
+const T_SNEE = woord(3, 'cut'), T_OPEN = woord(3, 'look'), T_LUCHT = woord(4, 'transistor');
+
+// ---- 3. render op 270x480 + ondertitel en label in pixels ----
+const doek = document.createElement('canvas'); doek.width = RW; doek.height = RH; const g2 = doek.getContext('2d'); g2.imageSmoothingEnabled = false;
+document.body.appendChild(doek);
+function ondertitel(t) {
+  const zi = D.zinnen.findIndex(z => z[0] - 0.05 <= t && t <= z[1] + 0.25); if (zi < 0) return;
+  const ww = D.woorden.filter(w => w[0] === zi); const stukken = []; let cur = [];
+  for (const w of ww) { cur.push(w); if (cur.length >= 3 || /[.?!,]$/.test(w[1])) { stukken.push(cur); cur = []; } } if (cur.length) stukken.push(cur);
+  const st = stukken.find(s => t <= s[s.length - 1][3] + 0.1) || stukken[stukken.length - 1];
+  g2.font = 'bold 22px monospace'; g2.textBaseline = 'top'; const br = st.reduce((a, w) => a + g2.measureText(w[1].toUpperCase() + ' ').width, 0); let x = (RW - br) / 2;
+  for (const w of st) { const s = w[1].toUpperCase(); g2.lineWidth = 4; g2.strokeStyle = '#000'; g2.strokeText(s, x, 525); g2.fillStyle = (w[2] <= t && t <= w[3] + 0.05) ? '#ffd640' : '#fff'; g2.fillText(s, x, 525); x += g2.measureText(s + ' ').width; }
+}
+function label(t) {
+  if (t < T_LUCHT - 0.1) return;
+  const p = new THREE.Vector3(0.75, 0.96, 0.3).project(camera); const px = (p.x + 1) / 2 * RW, py = (1 - p.y) / 2 * RH;
+  const lx = 60, ly = py - 150; g2.strokeStyle = '#fff'; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(px, py); g2.lineTo(lx + 115, ly + 46); g2.stroke();
+  g2.fillStyle = '#fff'; g2.fillRect(lx - 4, ly, 236, 46); g2.strokeStyle = '#000'; g2.lineWidth = 3; g2.strokeRect(lx - 4, ly, 236, 46);
+  g2.fillStyle = '#1f9a5a'; g2.font = 'bold 19px monospace'; g2.textBaseline = 'top'; g2.fillText('208 BILLION', lx + 50, ly + 4); g2.fillText('TRANSISTORS', lx + 47, ly + 24);
+}
+window.render = (t) => {
+  const k = zetPose(t);
+  mes.visible = k >= 2;
+  const f = (D.mond[Math.floor(t * D.FPS)] || 0); const vs = f > 0.05 ? viseem(t) : null;
+  const VORM = { A: [1.0, 3.2], E: [1.3, 1.6], O: [0.7, 2.6], U: [0.5, 1.8], M: [1.0, 0.5], F: [1.1, 0.8], L: [0.9, 2.0] };
+  const [vx, vy] = vs ? VORM[vs] : [0.9, 0.7]; mond.scale.set(vx, vy, 1); mond.position.y = -0.16 - (vy - 1) * 0.012;
+  for (const k2 of [-1, 1]) { const pu = kop.getObjectByName('pupil' + k2); pu.scale.y = (t % 3.3) < 0.12 ? 0.2 : 1; }
+  if (k === 3 && t >= T_SNEE) armR.rotation.x = lerp(-2.6, -0.5, ease((t - T_SNEE) / 0.25));
+  const open = ease((t - T_OPEN) / 0.5); helftL.position.x = -0.42 * open; helftR.position.x = 0.42 * open; helftL.rotation.y = 0.7 * open; helftR.rotation.y = -0.7 * open; binnen.visible = open > 0.3;
+  eendG.updateMatrixWorld(true); vlakL.copy(basisL).applyMatrix4(helftL.matrixWorld); vlakR.copy(basisR).applyMatrix4(helftR.matrixWorld);
+  camera.position.x = 0.35 + Math.sin(t * 0.4) * 0.05;
+  if (k >= 3 && k <= 4) { camera.position.set(0.45, 1.25, 5.0); camera.lookAt(0.4, 0.95, 0.2); } else { camera.position.set(0.3 + Math.sin(t * 0.4) * 0.05, 1.35, 6.2); camera.lookAt(0.3, 1.0, 0); }
+  renderer.render(scene, camera);
+  g2.drawImage(renderer.domElement, 0, 0); ondertitel(t); label(t);
+  return doek.toDataURL('image/png');
+};
+console.log('driehoeken', Math.round(DRIEHOEKEN));
+window.klaar = true;
+</script></body></html>

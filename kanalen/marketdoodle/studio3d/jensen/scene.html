@@ -8,14 +8,14 @@
 // 1 low poly (± 300 driehoeken), flat shading · 2 texturen van 64 px door code geschilderd · 3 render op 270x480 zonder smoothing
 // 4 hoekpunten op een raster + kleuren gedithered · 5 open snijden + één deel labelen · 6 nieuwe pose bij elke zin.
 import * as THREE from 'three';
-const RW = 360, RH = 640;                                  // v2: 1,5x scherper
+const RW = 540, RH = 960;                                  // v3: 2x scherper dan v1
 const D = await (await fetch('data.json')).json();
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1); renderer.setSize(RW, RH); renderer.localClippingEnabled = true; renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.BasicShadowMap;
 const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0b1020);
 const camera = new THREE.PerspectiveCamera(38, RW / RH, 0.1, 50); camera.position.set(0.35, 1.35, 4.6); camera.lookAt(0.15, 1.0, 0);
 scene.add(new THREE.HemisphereLight(0xcfe8ff, 0x101820, 1.2)); const zon = new THREE.DirectionalLight(0xfff2d0, 2.2); zon.position.set(2, 5, 4); scene.add(zon);
-zon.castShadow = true; zon.shadow.mapSize.set(512, 512); Object.assign(zon.shadow.camera, { left: -3, right: 3, top: 3, bottom: -2, near: 0.5, far: 15 });
+zon.castShadow = true; zon.shadow.mapSize.set(1024, 1024); Object.assign(zon.shadow.camera, { left: -3, right: 3, top: 3, bottom: -2, near: 0.5, far: 15 });
 const tegen = new THREE.DirectionalLight(0x5fffd0, 2.5); tegen.position.set(-1.5, 2.5, -3); scene.add(tegen);            // blauwgroen tegenlicht (randen)
 
 // ---- 2. texturen van 64 px, door code geschilderd ----
@@ -48,7 +48,7 @@ function mat(opts) {
     sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', `#include <project_vertex>
       vec2 raster = vec2(${RW / 2}.0, ${RH / 2}.0); gl_Position.xy = floor(gl_Position.xy / gl_Position.w * raster + 0.5) / raster * gl_Position.w;`);
     sh.fragmentShader = DITHER + sh.fragmentShader.replace('#include <dithering_fragment>', `#include <dithering_fragment>
-      float lv = 10.0; gl_FragColor.rgb = floor(gl_FragColor.rgb * lv + bayer4(gl_FragCoord.xy)) / lv;`);
+      float lv = 16.0; gl_FragColor.rgb = floor(gl_FragColor.rgb * lv + bayer4(gl_FragCoord.xy)) / lv;`);
   };
   return m;
 }
@@ -169,15 +169,15 @@ function ondertitel(t) {
   const ww = D.woorden.filter(w => w[0] === zi); const stukken = []; let cur = [];
   for (const w of ww) { cur.push(w); if (cur.length >= 3 || /[.?!,]$/.test(w[1])) { stukken.push(cur); cur = []; } } if (cur.length) stukken.push(cur);
   const st = stukken.find(s => t <= s[s.length - 1][3] + 0.1) || stukken[stukken.length - 1];
-  g2.font = 'bold 22px monospace'; g2.textBaseline = 'top'; const br = st.reduce((a, w) => a + g2.measureText(w[1].toUpperCase() + ' ').width, 0); let x = (RW - br) / 2;
-  for (const w of st) { const s = w[1].toUpperCase(); g2.lineWidth = 4; g2.strokeStyle = '#000'; g2.strokeText(s, x, 525); g2.fillStyle = (w[2] <= t && t <= w[3] + 0.05) ? '#ffd640' : '#fff'; g2.fillText(s, x, 525); x += g2.measureText(s + ' ').width; }
+  g2.font = 'bold 33px monospace'; g2.textBaseline = 'top'; const br = st.reduce((a, w) => a + g2.measureText(w[1].toUpperCase() + ' ').width, 0); let x = (RW - br) / 2;
+  for (const w of st) { const s = w[1].toUpperCase(); g2.lineWidth = 6; g2.strokeStyle = '#000'; g2.strokeText(s, x, 790); g2.fillStyle = (w[2] <= t && t <= w[3] + 0.05) ? '#ffd640' : '#fff'; g2.fillText(s, x, 790); x += g2.measureText(s + ' ').width; }
 }
 function label(t) {
   if (t < T_LUCHT - 0.1) return;
   const p = new THREE.Vector3(0.75, 0.96, 0.3).project(camera); const px = (p.x + 1) / 2 * RW, py = (1 - p.y) / 2 * RH;
-  const lx = 60, ly = py - 150; g2.strokeStyle = '#fff'; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(px, py); g2.lineTo(lx + 115, ly + 46); g2.stroke();
-  g2.fillStyle = '#fff'; g2.fillRect(lx - 4, ly, 236, 46); g2.strokeStyle = '#000'; g2.lineWidth = 3; g2.strokeRect(lx - 4, ly, 236, 46);
-  g2.fillStyle = '#1f9a5a'; g2.font = 'bold 19px monospace'; g2.textBaseline = 'top'; g2.fillText('208 BILLION', lx + 50, ly + 4); g2.fillText('TRANSISTORS', lx + 47, ly + 24);
+  const lx = Math.min(RW - 360, Math.max(10, px - 170)), ly = py + 150;          // label ónder de chip (niet over het gezicht) g2.strokeStyle = '#fff'; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(px, py); g2.lineTo(lx + 172, ly); g2.stroke();
+  g2.fillStyle = '#fff'; g2.fillRect(lx - 6, ly, 354, 69); g2.strokeStyle = '#000'; g2.lineWidth = 4; g2.strokeRect(lx - 6, ly, 354, 69);
+  g2.fillStyle = '#1f9a5a'; g2.font = 'bold 28px monospace'; g2.textBaseline = 'top'; g2.fillText('208 BILLION', lx + 75, ly + 6); g2.fillText('TRANSISTORS', lx + 70, ly + 36);
 }
 window.render = (t) => {
   const k = zetPose(t);
@@ -190,7 +190,7 @@ window.render = (t) => {
   const open = ease((t - T_OPEN) / 0.5); helftL.position.x = -0.42 * open; helftR.position.x = 0.42 * open; helftL.rotation.y = 0.7 * open; helftR.rotation.y = -0.7 * open; binnen.visible = open > 0.3;
   eendG.updateMatrixWorld(true); vlakL.copy(basisL).applyMatrix4(helftL.matrixWorld); vlakR.copy(basisR).applyMatrix4(helftR.matrixWorld);
   camera.position.x = 0.35 + Math.sin(t * 0.4) * 0.05;
-  if (k >= 3 && k <= 4) { camera.position.set(0.45, 1.25, 5.0); camera.lookAt(0.4, 0.95, 0.2); } else { camera.position.set(0.3 + Math.sin(t * 0.4) * 0.05, 1.35, 6.2); camera.lookAt(0.3, 1.0, 0); }
+  if (k >= 3 && k <= 4) { camera.position.set(0.25, 1.25, 5.2); camera.lookAt(0.22, 0.95, 0.2); } else { camera.position.set(0.3 + Math.sin(t * 0.4) * 0.05, 1.35, 6.2); camera.lookAt(0.3, 1.0, 0); }
   renderer.render(scene, camera);
   g2.drawImage(renderer.domElement, 0, 0); ondertitel(t); label(t);
   return doek.toDataURL('image/png');
