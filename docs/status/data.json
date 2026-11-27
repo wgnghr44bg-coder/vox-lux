@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 03:03",
+ "bijgewerkt": "2026-11-27 03:33",
  "kanalen": {
   "weken": [
    {
@@ -2167,7 +2167,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Video bouwen",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -2370,7 +2370,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "114 GB vrij"
+   "tekst": "113 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 03:03)"
+   "tekst": "draait nu (2026-11-27 03:33)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 03:19: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 03:03",
-   "volgende": "2026-11-27 03:33"
+   "laatst": "2026-11-27 03:33",
+   "volgende": "2026-11-27 04:03"
   },
   "hype": {
    "aan": true,
@@ -2433,17 +2433,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 03:10"
+   "volgende": "2026-11-27 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 02:48",
-   "volgende": "2026-11-27 03:18"
+   "laatst": "2026-11-27 03:18",
+   "volgende": "2026-11-27 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 01:25",
-   "volgende": "2026-11-27 03:25"
+   "laatst": "2026-11-27 03:25",
+   "volgende": "2026-11-27 05:25"
   }
  },
  "kanaal": {
@@ -2486,7 +2486,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 102,
+    "views": 103,
     "verwerkt": "processed"
    },
    {
@@ -2758,21 +2758,18 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 4,
+ "stap": 0,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-08-14",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 4,
-  "stapnaam": "Video bouwen",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
   "voortgang": null,
-  "detail": "bezig",
+  "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "video bouwen",
-   "16mm-look",
-   "video samenvoegen (ffmpeg)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -2780,23 +2777,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "video bouwen",
-   "stap": 4
-  },
-  {
-   "naam": "16mm-look",
-   "stap": 4
-  },
-  {
-   "naam": "video samenvoegen (ffmpeg)",
-   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 616,
+  "geheugen_mb": 600,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2969,8 +2954,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 03:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 03:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 03:19: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4911,7 +4896,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 01:25",
+  "bijgewerkt": "2026-11-27 03:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -5049,11 +5034,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 03:05",
+  "bijgewerkt": "2026-11-27 03:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1253226,
+    "5uur": 0,
     "week": 87684559,
     "per_dag": {
      "Tue 24-11": 29948208,
