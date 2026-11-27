@@ -568,7 +568,7 @@ for B in BLOK:
                      (kw(64, "Mission"), "MISSION FAILED", 960, 170, 100, "rood"), (kw(64, "eleven"), "TRY 11", 960, 270, 90, "wit"),
                      (kw(65, "hundred"), "100%", 960, 170, 130, "groen"), (kw(65, "Plus"), "+200 RESPECT", 960, 270, 80, "groen")]
     elif k == "feit":
-        B["figs"] = [F("you", 700), F("dad", 1250, geb="telefoon", houd_vast=True)]
+        B["figs"] = [F("you", 560), F("dad", 1460, geb="telefoon", houd_vast=True)]
         B["kop"] += [(kw(68, "2013"), "GTA V · 2013", 960, 150, 84, "geel"), (kw(68, "billion"), "$1,000,000,000", 960, 265, 110, "groen"),
                      (kw(68, "three"), "IN 3 DAYS", 960, 380, 84, "wit")]
         B["bron"] = kw(68, "2013")
