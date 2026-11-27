@@ -53,11 +53,14 @@ SPREKER = {"DAD": "dad", "SIS": "sis", "TEACH": "teach"}
 
 BEWEGEN = False                                                            # 27 nov (eigenaar: "kun je ook iets maken voor de bewegingen"): renderer zet ps.BEWEGEN = True
 _VEER = {}                                                                 # per poppetje: (t, links, rechts, v_links, v_rechts)
+_WISSEL = {}                                                               # per poppetje: (doel_links, doel_rechts, t_wissel)
 def _veer(sleutel, t, links, rechts):
     """Armen veren soepel naar de nieuwe houding (lichte overshoot) i.p.v. in één beeldje te springen."""
     oud = _VEER.get(sleutel)
     if oud is None or not (0 < t - oud[0] < 0.25):                         # eerste beeld of een sprong in de tijd: meteen goed
-        _VEER[sleutel] = (t, links, rechts, 0.0, 0.0); return links, rechts
+        _VEER[sleutel] = (t, links, rechts, 0.0, 0.0); _WISSEL[sleutel] = (links, rechts, -9.0); return links, rechts
+    vl, vr, tw = _WISSEL.get(sleutel, (links, rechts, -9.0))
+    if abs(links - vl) > 40 or abs(rechts - vr) > 40: _WISSEL[sleutel] = (links, rechts, t)   # nieuwe houding: hupje
     dt = t - oud[0]; uit = []; k, c = 170.0, 17.0                          # veer (iets onder kritisch gedempt -> kleine overshoot)
     for pos, v, doel in ((oud[1], oud[3], links), (oud[2], oud[4], rechts)):
         for _ in range(4):                                                 # in kleine stapjes, stabiel
@@ -70,6 +73,11 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     bob = abs(math.sin(loop * math.pi)) * 6 * s if loop is not None else math.sin(t * 2.2 + x) * 1.5 * s
     if gebaar == "stamp": bob = abs(math.sin(t * 14)) * 10 * s
     if gebaar == "schouders": bob -= 6 * s
+    beweeg = BEWEGEN if bewegen is None else bewegen
+    if beweeg and loop is None:
+        tw = _WISSEL.get(sleutel or naam, (0, 0, -9.0))[2]
+        if 0 <= t - tw < 0.35: bob += math.sin(math.pi * (t - tw) / 0.35) * 9 * s      # hupje bij een nieuwe houding (tekenfilm)
+        if mond > 0.1: x += math.sin(t * 2.6) * 3.5 * s                                 # wie praat, wiegt een beetje
     been, lijf, hoofd = 78 * s, 105 * s, 60 * s
     d.ellipse([P(x - 62 * s, y - 8 * s), P(x + 62 * s, y + 12 * s)], fill=(60, 40, 30, 60))   # schaduw op de vloer
     heup = y - been - 14 * s + bob * 0.3
@@ -120,7 +128,6 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "armen-open": links, rechts = -75, 75                                                      # 'wat?!' / uitleggen
     elif gebaar == "rennen": links, rechts = -16 - zw * 1.6, 16 + zw * 1.6                                    # armen zwaaien hard (met loop=)
     elif gebaar in ("knik", "nee"): pass                                                                      # alleen het hoofd beweegt
-    beweeg = BEWEGEN if bewegen is None else bewegen
     if beweeg:                                                                                # 27 nov: levendiger bewegen
         if gebaar is None and loop is None: links += 3 * math.sin(t * 1.3 + x * 0.01); rechts -= 3 * math.sin(t * 1.3 + x * 0.01 + 0.6)   # ademen
         if gebaar != "heupen": links, rechts = _veer(sleutel or naam, t, links, rechts)
@@ -145,7 +152,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     hx, hy = x, top - hoofd * 0.82
     if beweeg:
         if mond > 0.1 and gebaar not in ("knik", "nee"):                   # wie praat, knikt en beweegt het hoofd een beetje mee
-            hy += math.sin(t * 6.5) * 3.0 * s * min(1.0, mond + 0.3); hx += math.sin(t * 3.1 + 1) * 2.0 * s
+            hy += math.sin(t * 6.5) * 4.5 * s * min(1.0, mond + 0.3); hx += math.sin(t * 3.1 + 1) * 2.5 * s + kijk * 4 * s   # knikken + naar de ander leunen
         if loop is not None: hx += (1 if kijk >= 0 else -1) * 5 * s       # lopen: iets naar voren leunen
     if gebaar == "knik": hy += abs(math.sin(t * 7)) * 6 * s                                                   # 24 nov: ja knikken
     kap = kl["kapsel"]; hk = kl["haar"]; lw = int(4 * s * SS)
