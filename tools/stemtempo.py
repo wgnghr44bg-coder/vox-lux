@@ -18,6 +18,16 @@ Z = json.loads((M / "zinnen.json.voor-sneller").read_text(encoding="utf-8")); W 
 N = [z for z in Z if z[4] == "N"]; huidig = sum(len(z[2].split()) for z in N) / sum(z[1] - z[0] for z in N) * 60
 F = DOEL / huidig; print(f"verteller nu {huidig:.0f} wpm -> factor {F:.3f}")
 tmp = M / "_seg"; tmp.mkdir(exist_ok=True)
+MAX_ZIN, MIN_KORT = 210, 0.30                           # woorden/min binnen één zin (zonder pauzes); seconden per woord bij korte uitroepen
+import re as _re
+def zin_wpm(i, z):                                      # tempo per zin binnen regel i (alleen zinnen van 3+ woorden), uit de Whisper-woordtijden
+    ww = [w for w in W if w[0] == i]; uit_, cur = [], []
+    for w in ww:
+        cur.append(w)
+        if _re.search(r"[.!?]$", w[1]) or w is ww[-1]:
+            if len(cur) >= 3 and cur[-1][3] > cur[0][2]: uit_.append(len(cur) / (cur[-1][3] - cur[0][2]) * 60)
+            cur = []
+    return uit_
 def rek(x, f):
     if abs(f - 1) < 0.005: return x
     sf.write(tmp / "a.wav", x, sr)
@@ -30,6 +40,11 @@ for i, z in enumerate(Z):
     if ng > 0: uit.append(np.zeros((int(round(ng * sr)),) + A.shape[1:], np.float32)); t += ng
     n = len(z[2].split()); d = z[1] - z[0]; wpm = n / d * 60
     f = max(1.0, min(F * 1.15, DOEL / wpm)) if wpm <= 205 else 200 / wpm  # elke zin apart naar het doel (26 nov); alleen veel te snelle zinnen (>205) iets trager, naar 200
+    # 27 nov (eigenaar: "dat de stem niet te snel gaat, af en toe hoor ik dat"): het regel-gemiddelde telt de pauzes mee, dus
+    # binnen een zin kon het tempo veel hoger zijn. Nu per ZIN (zonder pauzes) begrenzen op MAX_ZIN, voor ELKE stem.
+    mz = max(zin_wpm(i, z), default=0)
+    if mz * f > MAX_ZIN + 10: f = MAX_ZIN / mz               # uitschieters (> 220 binnen een zin, normaal ± 200) naar 210
+    if n <= 3 and d / f < MIN_KORT * n: f = d / (MIN_KORT * n)   # korte uitroep ("Oh no.") niet afraffelen
     seg = rek(A[int(z[0] * sr):int(z[1] * sr)], f); nd = len(seg) / sr
     s = nd / d  # tijdschaal binnen de regel
     nZ.append([round(t, 3), round(t + nd, 3)] + z[2:])
