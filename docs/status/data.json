@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 23:33",
+ "bijgewerkt": "2026-11-28 00:03",
  "kanalen": {
   "weken": [
    {
@@ -234,7 +234,7 @@
         "datum": "2026-11-28",
         "tijd": "21:00",
         "titel": "How People Survived the Ice Age",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "z1E4tQDqMG0"
        }
       ]
@@ -2074,7 +2074,7 @@
     "dag": "za",
     "titel": "How People Survived the Ice Age | History for Sleep",
     "map": "ijstijd-20000-vc",
-    "stand": "staat klaar op YouTube",
+    "stand": "online",
     "kleur": "goed"
    },
    {
@@ -2090,6 +2090,14 @@
     "dag": "za",
     "titel": "Christmas in the Trenches, 1914 | History for Sleep",
     "map": "kerst-loopgraven-1914",
+    "stand": "script klaar, video volgt",
+    "kleur": "zacht"
+   },
+   {
+    "datum": "2026-12-19",
+    "dag": "za",
+    "titel": "Life in Bethlehem, the First Christmas | History for Sleep",
+    "map": "bethlehem",
     "stand": "script klaar, video volgt",
     "kleur": "zacht"
    }
@@ -2202,6 +2210,23 @@
     "leesbaar": "MAKKELIJK",
     "toon": "TOON GOED",
     "afspraken": []
+   },
+   {
+    "datum": "2027-02-06",
+    "titel": "Chinese New Year in Ancient China, Han Dynasty | <N> Hours of History for Sleep",
+    "map": "china-nieuwjaar-han",
+    "klaar": false,
+    "stand": "nog in de oude opbouw, moet omgebouwd",
+    "controle": "nog niet",
+    "flesch": null,
+    "niveau": null,
+    "leesbaar": null,
+    "toon": null,
+    "afspraken": [
+     "titel mist of eindigt niet op '| History for Sleep'",
+     "geen src-feiten/begin.txt (nog oude opbouw)",
+     "geen thumbnail-v3.jpg en geen regel 'thumbnail kenmerk:' in planning.txt"
+    ]
    }
   ]
  },
@@ -2244,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 23:33)"
+   "tekst": "draait nu (2026-11-28 00:03)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2306,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 23:33",
-   "volgende": "2026-11-28 00:03"
+   "laatst": "2026-11-28 00:03",
+   "volgende": "2026-11-28 00:33"
   },
   "hype": {
    "aan": true,
@@ -2296,8 +2321,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 23:18",
-   "volgende": "2026-11-27 23:48"
+   "laatst": "2026-11-27 23:48",
+   "volgende": "2026-11-28 00:18"
   },
   "titels": {
    "aan": true,
@@ -2311,14 +2336,14 @@
   "views_totaal": 3924,
   "video_aantal": 18,
   "week": {
-   "views": 634,
-   "uren": 138,
+   "views": 568,
+   "uren": 123,
    "abonnees": 3
   },
   "vorige_week": {
-   "views": 550,
-   "uren": 107,
-   "abonnees": 4
+   "views": 566,
+   "uren": 116,
+   "abonnees": 3
   },
   "recent": [
    {
@@ -2408,16 +2433,11 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1389,
+    "views": 1390,
     "verwerkt": "processed"
    }
   ],
   "dagen": [
-   {
-    "dag": "2026-10-30",
-    "views": 73,
-    "abonnees": 0
-   },
    {
     "dag": "2026-10-31",
     "views": 33,
@@ -2550,13 +2570,13 @@
    }
   ],
   "maand": {
-   "views": 2237,
-   "uren": 430,
+   "views": 2164,
+   "uren": 424,
    "abonnees": 11
   },
   "vorige_maand": {
-   "views": 1442,
-   "uren": 399,
+   "views": 1451,
+   "uren": 404,
    "abonnees": 6
   },
   "jaar": {
@@ -2569,7 +2589,7 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 1140,
+    "views": 1100,
     "uren": 262
    },
    {
@@ -2583,8 +2603,8 @@
     "id": "_4LgG7iUoy0",
     "titel": "Life Aboard the Titanic, April 1912 | History for Sleep",
     "duur": "2:27:47",
-    "views": 210,
-    "uren": 26
+    "views": 183,
+    "uren": 21
    }
   ],
   "partner": {
@@ -2594,10 +2614,10 @@
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 15.1,
+   "tempo_uren_per_dag": 14.9,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-06-24",
-   "datum_abonnees": "2033-09-18"
+   "datum_uren": "2027-06-28",
+   "datum_abonnees": "2033-09-19"
   }
  },
  "kpi": {
@@ -2688,16 +2708,10 @@
  "gpu_slot": false,
  "week": [
   {
-   "datum": "2026-11-27",
-   "plek": false,
-   "video": "",
-   "soort": ""
-  },
-  {
    "datum": "2026-11-28",
    "plek": true,
    "video": "How People Survived the Ice Age | History for Sleep",
-   "soort": "gepland"
+   "soort": "online"
   },
   {
    "datum": "2026-11-29",
@@ -2725,6 +2739,12 @@
   },
   {
    "datum": "2026-12-03",
+   "plek": false,
+   "video": "",
+   "soort": ""
+  },
+  {
+   "datum": "2026-12-04",
    "plek": false,
    "video": "",
    "soort": ""
@@ -2818,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 23:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 00:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 23:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -3483,7 +3503,7 @@
    "reserve": false,
    "titel": "How People Survived the Ice Age | History for Sleep",
    "status": "klaar",
-   "soort": "gepland",
+   "soort": "online",
    "id": "z1E4tQDqMG0",
    "afspeellijst": "oudheid",
    "opening": "scène",
@@ -4881,11 +4901,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 23:33",
+  "bijgewerkt": "2026-11-28 00:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 17261833,
+    "5uur": 15814937,
     "week": 133409629,
     "per_dag": {
      "Tue 24-11": 29948208,
