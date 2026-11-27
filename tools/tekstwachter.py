@@ -85,13 +85,13 @@ class Tekstwachter:
         for t, soort, tekst in f: r.append(f"- {int(t // 60)}:{t % 60:04.1f} **FOUT** {soort}: {tekst}")
         Path(pad).write_text("\n".join(r) + "\n", encoding="utf-8"); return len(f)
 
-def blad(mp4, zinnen, uit, breed=270):
+def blad(mp4, zinnen, uit, breed=270, hoog=None):      # hoog: voor liggende video (bv. 400x225)
     """Overzichtsblad: per zin begin/midden/eind-beeld met de zin eronder (voor de eigen beeldcontrole)."""
     from PIL import Image, ImageDraw, ImageFont
     import io
     try: f = ImageFont.truetype("arialbd.ttf", 18)
     except OSError: f = ImageFont.load_default()
-    hoog = int(breed * 16 / 9); rij = []
+    hoog = hoog or int(breed * 16 / 9); rij = []
     for i, z in enumerate(zinnen):
         ims = []
         for tt in (z[0] + 0.3, (z[0] + z[1]) / 2, z[1] - 0.1):

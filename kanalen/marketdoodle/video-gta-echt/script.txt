@@ -3,17 +3,17 @@
 # Echt feit: GTA V haalde in 2013 1 miljard dollar omzet in 3 dagen (Take-Two Interactive, persbericht sept 2013; Guinness World Records).
 # Running gags: buurman Gary ("Nice weather today, huh?"), de radio (Super Suck 3000), de respawn-zuster ("sweetie"), papa's sterren.
 # Formaat: SPREKER|scène|tekst. Sprekers: N, YOU, DAD, MOM, SIS, BOSS, TEACH, KASSA, BUUR, ZUSTER, OBER, RADIO.
-YOU|kamer-jij|Mom! Dad! There's a giant yellow arrow floating over our house!
-N|kamer-jij|It's 7 a.m. You look out the window. A huge yellow arrow is spinning above the roof.
-N|kamer-jij|And above your own head, in tiny glowing letters, it says: health, one hundred percent.
-YOU|kamer-jij|Why do I have a health bar?!
-N|keuken|You run downstairs. Dad is holding his coffee. There's a money counter floating above his head.
+YOU|straat|Mom! Dad! There's a giant yellow arrow floating over our house!
+N|straat|It's 7 a.m. You're standing outside in your pajamas. A huge yellow arrow is spinning above your roof.
+N|straat|And above your own head, in tiny glowing letters, it says: health, one hundred percent.
+YOU|straat|Why do I have a health bar?!
+N|keuken|You run back inside. Dad is holding his coffee. There's a money counter floating above his head.
 DAD|keuken|It says I have three hundred and twelve dollars. That's actually correct. That's terrifying.
 MOM|keuken|The news says the whole world turned into a video game overnight. Like GTA Six.
 SIS|keuken|Does that mean I can drive a car?
 MOM|keuken|No. Eat your cereal.
 N|keuken|So, what happens next? Day one is fun. Day two is weird. And by day thirty... well. Let's see.
-N|straat|Day one. You step outside. Your neighbor Gary is watering his lawn.
+N|straat|Day one. Your neighbor Gary is watering his lawn.
 BUUR|straat|Nice weather today, huh?
 N|straat|You say hi. He says it again.
 BUUR|straat|Nice weather today, huh?
@@ -106,8 +106,8 @@ DAD|straat|Says the guy with a loyalty card at the hospital.
 N|woonkamer|Day twenty-four. Mom has an idea.
 MOM|woonkamer|If this is a game, there has to be a save button somewhere.
 N|woonkamer|The family searches the whole house. Under the couch. Inside the fridge. Even in Dad's car.
-RADIO|woonkamer|Super Suck Three Thousand! It sucks so good!
-DAD|woonkamer|Not you again.
+RADIO|straat|Super Suck Three Thousand! It sucks so good!
+DAD|straat|Not you again.
 N|kamer-jij|Then you find it. A glowing floppy disk, floating right above your bed.
 YOU|kamer-jij|Guys! When I sleep in my bed, the game saves!
 SIS|kamer-jij|So if something goes wrong, we just load?
