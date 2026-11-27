@@ -1,0 +1,13 @@
+# What If You Built A Shark That Can Walk? — Short (27 nov 2026), hype: "What If You Built A Snake That Can Fly" (52k views/uur).
+# Eigen versie, regels Studio-analyse: vraag in seconde 1, ± 40 s, laatste zin loopt terug naar de eerste (loop).
+N|garage|What if you built a shark that can walk? Big legs. Tiny arms. Zero brain.
+YOU|garage|Okay, buddy. Just one step.
+N|oprit|It takes one step. Then it walks straight through the garage door.
+N|straat|Day one. It walks your sister to school. Nobody bullies her ever again.
+SIS|straat|Best bodyguard ever!
+N|keuken|Day two. It's hungry. It walks to the fridge... and eats the whole fridge.
+DAD|keuken|That was a brand new fridge!
+N|strand|Day three. You take it to the beach. It walks into the sea... and walks right back out.
+YOU|strand|Wait. Are you scared of water?
+N|badkamer|So now your shark sleeps in your bathtub. With a night light.
+N|badkamer|And that's why you never build a shark that can walk.

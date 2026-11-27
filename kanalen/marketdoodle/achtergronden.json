@@ -656,6 +656,11 @@
     250,
     1050
    ]
+  },
+  "maat": {
+   "horizon": 492,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
   }
  },
  "v-tuin": {
@@ -1140,6 +1145,188 @@
     1920,
     650
    ]
+  }
+ },
+ "v-garage": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1060,
+    1920
+   ],
+   "werkbank": [
+    160,
+    850,
+    750,
+    780
+   ]
+  },
+  "muur": [
+   [
+    60,
+    300,
+    1040,
+    700
+   ]
+  ],
+  "meubels": {
+   "werkbank": [
+    160,
+    750,
+    850,
+    990
+   ]
+  },
+  "maat": {
+   "horizon": 600,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
+  }
+ },
+ "v-oprit": {
+  "vlakken": {
+   "oprit": [
+    0,
+    1080,
+    1260,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {
+   "garagedeur": [
+    240,
+    900,
+    830,
+    1260
+   ]
+  },
+  "maat": {
+   "horizon": 986,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
+  }
+ },
+ "v-straat": {
+  "vlakken": {
+   "stoep": [
+    0,
+    1080,
+    1000,
+    1920
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 690,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
+  }
+ },
+ "v-strand": {
+  "vlakken": {
+   "zand": [
+    0,
+    1080,
+    1140,
+    1920
+   ],
+   "zee": [
+    0,
+    1080,
+    945,
+    1140
+   ]
+  },
+  "muur": [],
+  "meubels": {},
+  "maat": {
+   "horizon": 945,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
+  }
+ },
+ "v-badkamer": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1155,
+    1920
+   ],
+   "bad": [
+    130,
+    980,
+    790,
+    840
+   ]
+  },
+  "muur": [
+   [
+    150,
+    600,
+    1000,
+    780
+   ]
+  ],
+  "meubels": {
+   "bad": [
+    130,
+    790,
+    980,
+    1155
+   ]
+  },
+  "maat": {
+   "horizon": 235,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
+  }
+ },
+ "v-keuken-leeg": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    960,
+    1920
+   ],
+   "aanrecht": [
+    250,
+    830,
+    665,
+    705,
+    "onderkast"
+   ]
+  },
+  "muur": [
+   [
+    270,
+    190,
+    720,
+    265
+   ]
+  ],
+  "meubels": {
+   "onderkast": [
+    250,
+    700,
+    830,
+    945
+   ],
+   "fornuis": [
+    0,
+    690,
+    250,
+    1050
+   ]
+  },
+  "maat": {
+   "horizon": 492,
+   "k": 1.09,
+   "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
   }
  }
 }
