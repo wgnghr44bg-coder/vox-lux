@@ -43,7 +43,7 @@ def _script_woorden():
         uit += [[i, w, round(t0s[q], 2), round(t1s[q], 2)] for q, w in enumerate(sw)]
     return uit
 SW = _script_woorden()
-EIND = Z[-1][1] + 0.7                                      # kort: de laatste zin loopt terug naar de eerste (loop)
+EIND = Z[-1][1] + 1.4                                      # eindbeeld "DAY 30: ???" even laten staan (shortregels: minimaal 35 s)
 AUD, SR = sf.read(HIER / "stem.wav", dtype="float32")
 if AUD.ndim > 1: AUD = AUD.mean(axis=1)
 LAYOUT = set()
@@ -89,7 +89,8 @@ ps.C["agent"] = dict(broek=(30, 35, 60), shirt=(40, 50, 95), haar=(70, 50, 40), 
 def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
 I_HOOK, I_WAAROM, I_KAUW, I_DADZ = zi("What if"), zi("Why do I"), zi("Dad drops"), zi("It was an")
 I_MELK, I_MOMZ, I_GARY, I_BUUR, I_SLOT = zi("Mom puts"), zi("I just"), zi("And your neighbor"), zi("Nice weather"), zi("And that's only")
-T_HEALTH = kw(I_HOOK, "health", -0.1); T_DROP = kw(I_KAUW, "drops", -0.1); T_DING = kw(I_KAUW, "Ding", -0.05)
+T_HEALTH = 0.0                                             # 27 nov (shortregels): HUD vanaf het eerste beeld
+T_DROP = kw(I_KAUW, "drops", -0.1); T_DING = kw(I_KAUW, "Ding", -0.05)
 T_POLITIE = kw(I_KAUW, "police", -0.4); T_PUTS = kw(I_MELK, "puts", -0.1); T_FRIDGE = kw(I_MELK, "fridge", 0.2)
 T_MISSIE = kw(I_MELK, "Mission", -0.05); T_400 = kw(I_GARY, "Four", -0.1); T_DAG30 = kw(I_SLOT, "thirty", -0.1)
 def Zs(i): return Z[i][0] - 0.1
@@ -197,6 +198,12 @@ def minimap(img, t):
     m = Image.new("L", (2 * r, 2 * r), 0); ImageDraw.Draw(m).ellipse((0, 0, 2 * r - 1, 2 * r - 1), fill=255); L.putalpha(ImageChops.multiply(L.getchannel("A"), m))
     img.paste(L, (cx - r, cy - r), L); d = ImageDraw.Draw(img); d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=(20, 20, 25), width=7)
     a = t * 0.6; d.polygon([(cx + 22 * math.sin(a), cy - 22 * math.cos(a)), (cx + 14 * math.sin(a + 2.4), cy - 14 * math.cos(a + 2.4)), (cx, cy), (cx + 14 * math.sin(a - 2.4), cy - 14 * math.cos(a - 2.4))], fill=(255, 255, 255), outline=INK)
+def pijl(img, cx, cy, t, s=1.0):                           # gele game-pijl die draait en dobbert
+    cy += math.sin(t * 3) * 12 * s; f = abs(math.cos(t * 2.2)) * 0.85 + 0.15; w = 70 * s * f; h = 120 * s
+    WACHT.plaats("pijl", (cx - 70 * s, cy - h / 2, cx + 70 * s, cy + h / 2), op="beeld")
+    gloed(img, cx, cy, 130 * s, sterk=0.45); d = ImageDraw.Draw(img)
+    pts = [(cx - w * 0.45, cy - h / 2), (cx + w * 0.45, cy - h / 2), (cx + w * 0.45, cy), (cx + w, cy), (cx, cy + h / 2), (cx - w, cy), (cx - w * 0.45, cy)]
+    d.polygon(pts, fill=(255, 214, 40), outline=INK); d.line(pts + [pts[0]], fill=INK, width=max(3, int(5 * s)))
 def cirkel(img, cx, cy, t):
     gloed(img, cx, cy - 30, 230, sterk=0.5); d = ImageDraw.Draw(img); p = 1 + 0.06 * math.sin(t * 5)
     WACHT.plaats("cirkel", (cx - 170, cy - 45, cx + 170, cy + 45), op="vloer")
@@ -271,7 +278,8 @@ def _doel(t):
     sc = scene(t); n = sc["naam"]; nu = nu_i(t)
     cx, cy, zm = 540, 1100, 1.0 + min(0.1, (t - sc["t"]) * 0.03)
     if n == "straat":
-        if t < Z[I_KAUW][0]: cx, cy, zm = 760, 1000, 1.25
+        if t < 1.2: cx, cy, zm = 720, 950, 1.7 - 0.45 * (t / 1.2)                     # snelle zoom uit in de eerste seconde
+        elif t < Z[I_KAUW][0]: cx, cy, zm = 680, 950, 1.2
         else: cx, cy, zm = 540, 1050, 1.0
     if n == "keuken": cx, cy, zm = 600, 960, 1.05
     if n == "gary": cx, cy, zm = 560, 1000, 1.15
@@ -282,6 +290,7 @@ def _maak_track():
     for i in range(int((EIND + 1) * FPS)):
         t = i / FPS; dx, dy, dz = _doel(t); n = scene(t)["naam"]
         if n != vorige: cx, cy, zm = dx, dy, dz
+        if t < 1.2: cx, cy, zm = dx, dy, dz; CAMTRACK.append((cx, cy, zm)); vorige = n; continue
         cx += (dx - cx) * 0.08; cy += (dy - cy) * 0.08; zm += (dz - zm) * 0.08
         CAMTRACK.append((cx, cy, zm)); vorige = n
 _maak_track()
@@ -296,7 +305,7 @@ ZIE = {"real life": ["minimap"], "health bar": ["health"], "gum wrapper": ["kauw
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 
 def frame(t):
-    t_b = min(t, Z[-1][1] + 0.4)
+    t_b = min(t, Z[-1][1] + 1.2)
     sc = scene(t_b); n = sc["naam"]; nu = nu_i(t_b); bgn = BGN[n]
     img = bg(bgn).copy(); WACHT.begin("v-" + bgn, t_b); GEZ.clear(); GEB.clear(); SCHERM.clear()
     if n == "straat" and t_b >= T_POLITIE:
@@ -311,6 +320,7 @@ def frame(t):
             gloed(img, 950, 560, 120, kl=(255, 255, 230), sterk=0.4)
             zet(img, "melk", 70, 950, 596, op="aan:koelkast")
     if n == "straat" and t_b < T_DROP: pass
+    if n == "straat" and t_b < Z[I_KAUW][0]: pijl(img, 560, 470, t_b, 1.1)               # gele pijl boven de school: het leven is een game
     figs = figuren(n, t_b); koppen = teken(img, figs, t_b, nu)
     if n == "straat" and t_b >= T_DROP and "dad" in koppen:                         # kauwgompapiertje valt uit papa's hand op de stoep
         f_ = [f for f in figs if f[0] == "dad"][0]; hx, hy = rhand("dad", f_[1], f_[2], f_[3], 20); u = min(1, (t_b - T_DROP) / 0.5)
@@ -379,6 +389,8 @@ def geluidcheck():
 
 if __name__ == "__main__":
     if "--tekst" in sys.argv:
+        from shortregels import controleer
+        frame(0.3); print("SHORTREGELS:", controleer(Z, EIND, [n_ for n_, b_ in WACHT.dit_frame], SW) or "alles goed (haak, lengte, loop)")
         for i in range(int(EIND * 6)): frame(i / 6)
         print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); print("LAYOUT:", sorted(LAYOUT) or "alles past"); sys.exit()
@@ -387,6 +399,8 @@ if __name__ == "__main__":
         pl = Image.new("RGB", (270 * 5, 480 * 2)); [pl.paste(im, (270 * (i % 5), 480 * (i // 5))) for i, im in enumerate(ims)]
         pl.save(HIER / "plaat.jpg", quality=85); print("plaat.jpg"); print("LAYOUT:", sorted(LAYOUT) or "alles past")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); sys.exit()
+    from shortregels import controleer
+    frame(0.3); print("SHORTREGELS:", controleer(Z, EIND, [n_ for n_, b_ in WACHT.dit_frame], SW) or "alles goed (haak, lengte, loop)")
     geluid(); gf = geluidcheck(); print("GELUIDCHECK:", gf or "elk geluid hoort bij iets in beeld")
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-i", str(HIER / "stem.wav"), "-i", str(HIER / "sfx.wav"), "-filter_complex",

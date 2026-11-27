@@ -204,3 +204,9 @@ Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per
 - **NIEUW RITME (27 nov, eigenaar: "doe maar wat jij denkt het beste is") — vervangt 'om de dag een lange video' en 'vaste dagen ma, wo, za':** **elke dag één sterke Short** (19:00 NL, of eerder op de dag zelf als het onderwerp een hype van die dag is) en **één lange video per week, op zaterdag 17:00 NL**, over het grootste onderwerp van die week, met een Short erbij. Reden: Shorts halen ± 1.200 views, lange video's nog maar tientallen. Rond 22 dec evalueren: komen Shorts ruim boven 1.200 en groeien de abonnees, dan terug naar vaker lang.
 - Short: Lg-Beh3sS7M (What If Black Friday Never Ended?, 42 s), ingepland 27 nov 17:00 NL openbaar.
 - Short: Awzd3RcysAE (What If You Built A Shark That Can Walk?, 42 s, hype 'snake that can fly'), ingepland 27 nov 14:00 NL openbaar.
+- **VASTE SHORTREGELS, ELKE NIEUWE SHORT (eigenaar 27 nov: "zorg dat je je eraan houdt, elke nieuwe video, zet dat vast")** – automatisch gecontroleerd door `tools/shortregels.py` (SHORTREGELS in de render-uitvoer, moet "alles goed" zijn):
+  1. **Haak:** eerste zin begint met "What if" en de vraag is binnen 3,2 s uitgesproken; in het allereerste beeld staat al iets bijzonders (game-HUD, het dier/ding, een grote prijs) én de camera beweegt (snelle zoom). Geen leeg beeld met alleen een poppetje.
+  2. **Lengte:** 35-45 s.
+  3. **Loop:** de laatste zin wijst terug naar het begin (onderwerp opnieuw genoemd of een vervolg-haak zoals "Day thirty is way worse").
+  Daarnaast blijven alle andere controles verplicht: tekstwachter (genoemd = gezien, spreker, gevoel, RIJDEN: wie rijdt zit ín de auto, DOEN: wat iemand doet zie je), scènewachter + maat, LAYOUT (ook: grote tekst niet over een gezicht), geluidcheck, tempowachter per zin (ook personages, korte uitroepen niet afraffelen) en zelf TEKSTCONTROLE.jpg nalopen.
+
