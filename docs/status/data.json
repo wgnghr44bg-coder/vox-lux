@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 15:03",
+ "bijgewerkt": "2026-11-27 15:33",
  "kanalen": {
   "weken": [
    {
@@ -1958,7 +1958,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 15:03)"
+   "tekst": "draait nu (2026-11-27 15:33)"
   },
   {
    "naam": "Git",
@@ -1978,7 +1978,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 15:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1995,8 +1995,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 15:03",
-   "volgende": "2026-11-27 15:33"
+   "laatst": "2026-11-27 15:33",
+   "volgende": "2026-11-27 16:03"
   },
   "hype": {
    "aan": true,
@@ -2006,17 +2006,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 15:10"
+   "volgende": "2026-11-27 16:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 14:48",
-   "volgende": "2026-11-27 15:18"
+   "laatst": "2026-11-27 15:18",
+   "volgende": "2026-11-27 15:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 13:25",
-   "volgende": "2026-11-27 15:25"
+   "laatst": "2026-11-27 15:25",
+   "volgende": "2026-11-27 17:25"
   }
  },
  "kanaal": {
@@ -2059,7 +2059,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 105,
+    "views": 107,
     "verwerkt": "processed"
    },
    {
@@ -2122,7 +2122,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1367,
+    "views": 1366,
     "verwerkt": "processed"
    }
   ],
@@ -2354,7 +2354,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 642,
+  "geheugen_mb": 752,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2527,8 +2527,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 15:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 15:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 15:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4452,7 +4452,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 13:25",
+  "bijgewerkt": "2026-11-27 15:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4590,32 +4590,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 15:03",
+  "bijgewerkt": "2026-11-27 15:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 9488245,
-    "week": 106319677,
+    "5uur": 10244571,
+    "week": 109215980,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 18635118,
+     "Fri 27-11": 21531421,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 52722,
+    "stap_kost": 55000,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 151757082,
+    "week": 151445116,
     "per_dag": {
-     "Fri 20-11": 12125775,
+     "Fri 20-11": 11813809,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
