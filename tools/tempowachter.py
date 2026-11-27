@@ -7,6 +7,8 @@ Controleert de stem met de Whisper-woordtijden (woorden.json) en zinnen.json:
   3. ZINTEMPO (27 nov, eigenaar: "dat de stem niet te snel gaat, af en toe hoor ik dat"): per ZIN, zonder de pauzes, voor
      ELKE stem (ook personages): zinnen van 3+ woorden niet sneller dan MAX_ZIN; korte uitroepen (1-3 woorden) minstens
      MIN_KORT seconden per woord ("Oh no." in 0,37 s is afgeraffeld).
+  4. SPRONG (27 nov, eigenaar: "soms praat hij ineens te snel ... zorg dat dat niet meer voorkomt"): twee vertellerzinnen na
+     elkaar mogen niet meer dan SPRONG (25%) in tempo verschillen, en elke vertellerzin ligt tussen MIN_ZIN_N en MAX_ZIN.
   python tools/tempowachter.py <map-met-zinnen.json-en-woorden.json>   -> TEMPOWACHTER.md, exit 1 bij fouten
 stem.py van de What If-video's spreekt daarom elke zin LOS in en zet er zelf een pauze tussen.
 """
@@ -14,9 +16,12 @@ import json, re, sys
 from pathlib import Path
 import numpy as np, soundfile as sf
 
-MIN_PAUZE, MAX_WPM, MAX_ZIN, MIN_KORT = 0.15, 215, 225, 0.27   # ZINTEMPO: normaal ± 200 binnen een zin; uitschieters zijn het probleem                           # tempo alleen bij regels van 8+ woorden (korte uitroepen zijn vanzelf snel)
+MIN_PAUZE, MAX_WPM, MAX_ZIN, MIN_KORT, SPRONG, MIN_ZIN_N = 0.15, 225, 225, 0.27, 1.25, 160   # ZINTEMPO: normaal ± 200 binnen een zin; uitschieters zijn het probleem                           # tempo alleen bij regels van 8+ woorden (korte uitroepen zijn vanzelf snel)
 AFK = {"mr.", "mrs.", "dr.", "st.", "a", "p"}                # "a.m." aan het eind van een zin telt WEL (eigenaar: "6 a.m. Your bank app")
 
+def gewicht(w):                                         # Whisper schrijft getallen als cijfers ("$312" = "three hundred and twelve dollars")
+    c = re.sub(r"[^0-9]", "", w)
+    return 1 if not c else min(6, len(c) + (1 if "$" in w else 0) + (1 if "%" in w else 0))
 def stilte(a, sr, t0, t1, drempel):                       # langste stil stuk (20 ms-vakjes onder de drempel) tussen t0 en t1
     i0, i1 = max(0, int(t0 * sr)), min(len(a), int(t1 * sr)); n = int(0.02 * sr); best = cur = 0
     for k in range(i0, i1 - n, n):
@@ -27,7 +32,7 @@ def stilte(a, sr, t0, t1, drempel):                       # langste stil stuk (2
 def controleer(map_):
     Z = json.loads((map_ / "zinnen.json").read_text(encoding="utf-8")); W = json.loads((map_ / "woorden.json").read_text(encoding="utf-8"))
     AUD, sr = sf.read(map_ / "stem.wav", dtype="float32"); AUD = AUD.mean(axis=1) if AUD.ndim > 1 else AUD
-    fout = []
+    fout = []; vorige = None
     for i, z in enumerate(Z):
         seg = AUD[int(z[0] * sr):int(z[1] * sr)]; drempel = np.sqrt((seg ** 2).mean()) * 0.12 if len(seg) else 0.01
         n = len(z[2].split()); d = z[1] - z[0]; wpm = n / d * 60 if d > 0 else 0
@@ -39,8 +44,13 @@ def controleer(map_):
             cur.append(w)
             if re.search(r"[.!?]$", w[1]) or w is ww[-1]:
                 if len(cur) >= 3 and cur[-1][3] > cur[0][2]:
-                    zw = len(cur) / (cur[-1][3] - cur[0][2]) * 60
+                    zw = sum(gewicht(x[1]) for x in cur) / (cur[-1][3] - cur[0][2]) * 60
                     if zw > MAX_ZIN: fout.append(f"regel {i} ({z[4]}): zin te snel, {zw:.0f} woorden/min (max {MAX_ZIN}): {' '.join(x[1] for x in cur)[:70]}")
+                    if z[4] == "N" and len(cur) >= 4:              # zinnen van 3 woorden: Whisper-tijden te onnauwkeurig
+                        tekst_ = ' '.join(x[1] for x in cur)[:60]
+                        if zw < MIN_ZIN_N: fout.append(f"regel {i} (N): zin te traag, {zw:.0f} woorden/min (min {MIN_ZIN_N}): {tekst_}")
+                        if vorige and (zw > vorige * SPRONG or zw * SPRONG < vorige): fout.append(f"regel {i} (N): tempo-SPRONG {vorige:.0f} -> {zw:.0f} woorden/min: {tekst_}")
+                        vorige = zw
                 cur = []
         for v, b in zip(ww, ww[1:]):
             if z[4] == "N" and re.search(r"[.!?]$", v[1]) and v[1].lower() not in AFK and b[1][:1].isalpha():
