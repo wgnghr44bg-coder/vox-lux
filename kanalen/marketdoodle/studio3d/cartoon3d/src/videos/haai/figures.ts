@@ -7,7 +7,7 @@ type P2 = [number, number];
 const rad = (d: number) => (d * Math.PI) / 180;
 
 export const SHARK = { skin: "#7f9cc0", skinDark: "#5f7ba0", belly: "#f4efe4", shoe: "#e8463a", sole: "#ffffff", lace: "#ffffff" };
-export type SharkOpts = { phase: number; walk: number; arm: number; look: "dumb" | "happy" | "focus"; blink: number; squash?: number };
+export type SharkOpts = { phase: number; walk: number; arm: number; look: "dumb" | "happy" | "focus" | "sleep" | "scared"; blink: number; squash?: number; chomp?: number; shiver?: number };
 
 /** één been: heup -> knie -> enkel, dik en rond, met een grote sneaker */
 const leg = (p: Pen, hip: P2, ph: number, A: number, far: boolean) => {
@@ -32,6 +32,7 @@ export const drawShark = (p: Pen, o: SharkOpts) => {
   const ph = o.phase * Math.PI * 2, A = o.walk;
   const bob = -Math.abs(Math.sin(ph)) * 16 * A + (o.squash ?? 0) * 30;
   const cy = 410 + bob;
+  p.g.save(); if (o.shiver) p.g.translate(Math.sin(o.shiver * 40) * 9, 0);
   // ver been (achter het lijf)
   leg(p, [610, cy + 150], ph + Math.PI, A, true);
   // staart: twee lobben
@@ -58,8 +59,8 @@ export const drawShark = (p: Pen, o: SharkOpts) => {
   for (let i = 0; i < 3; i++) p.arc(770 - i * 34, cy + 10, 26, 70, 250, 110, 8);
   // bek: brede domme glimlach met tandjes
   const m0: P2 = [865, cy + 62], m1: P2 = [1030, cy + 30];
-  const mouth: P2[] = [];
-  for (let i = 0; i <= 16; i++) { const u = i / 16; mouth.push([m0[0] + (m1[0] - m0[0]) * u, m0[1] + (m1[1] - m0[1]) * u + Math.sin(Math.PI * u) * 46]); }
+  const mouth: P2[] = [], open = 46 + (o.chomp ?? 0) * 110;
+  for (let i = 0; i <= 16; i++) { const u = i / 16; mouth.push([m0[0] + (m1[0] - m0[0]) * u, m0[1] + (m1[1] - m0[1]) * u + Math.sin(Math.PI * u) * open]); }
   p.poly([...mouth, [m1[0] - 10, m1[1] + 4], [m0[0] + 10, m0[1] - 2]], "#5a1e28", 9);
   for (let i = 1; i < 8; i++) {
     const u = i / 8, x = m0[0] + (m1[0] - m0[0]) * u, y = m0[1] + (m1[1] - m0[1]) * u;
@@ -75,6 +76,8 @@ export const drawShark = (p: Pen, o: SharkOpts) => {
   };
   if (o.look === "dumb") { eye(985, cy - 78, 30, -14, 10); eye(915, cy - 70, 46, 18, -14); }
   else if (o.look === "focus") { eye(985, cy - 78, 30, 12, 4); eye(915, cy - 70, 46, 16, 4); }
+  else if (o.look === "sleep") { p.arc(985, cy - 80, 24, 12, 20, 160, 10); p.arc(915, cy - 72, 38, 18, 20, 160, 11); }
+  else if (o.look === "scared") { eye(985, cy - 82, 34, 0, 0); eye(915, cy - 74, 54, 0, 0); p.ell(1050, cy - 150, 12, 20, "#9fd4ff", 6); }
   else { p.arc(985, cy - 74, 26, 18, 200, 340, 10); p.arc(915, cy - 66, 40, 26, 200, 340, 11); }
   // wenkbrauw
   p.stroke([[878, cy - 132], [948, cy - 140]], 12, INK);
@@ -87,6 +90,29 @@ export const drawShark = (p: Pen, o: SharkOpts) => {
   }
   // dichtbij been (voor het lijf)
   leg(p, [690, cy + 160], ph, A, false);
+  p.g.restore();
+};
+
+/** Zzz boven de slapende haai (500 x 500) */
+export const drawZzz = (p: Pen, t: number) => {
+  for (let i = 0; i < 3; i++) {
+    const u = (t * 0.6 + i / 3) % 1, x = 120 + u * 200 + i * 20, y = 420 - u * 330, s = 40 + u * 50;
+    p.g.globalAlpha = Math.min(1, (1 - u) * 2.5);
+    p.poly([[x, y], [x + s, y], [x + s, y + 10], [x + 12, y + s - 10], [x + s, y + s - 10], [x + s, y + s], [x, y + s], [x, y + s - 10], [x + s - 12, y + 10], [x, y + 10]], "#ffffff", 8);
+    p.g.globalAlpha = 1;
+  }
+};
+/** bord van de school (800 x 220) */
+export const drawSchoolSign = (p: Pen) => {
+  p.poly([[20, 20], [780, 20], [780, 200], [20, 200]], "#2f5d3a", 14);
+  p.g.fillStyle = "#ffffff"; p.g.font = "900 120px Arial Black, Arial"; p.g.textAlign = "center"; p.g.fillText("SCHOOL", 400, 155);
+};
+/** koelkasthapjes: kruimels die wegspatten (400 x 400) */
+export const drawCrumbs = (p: Pen, t: number) => {
+  for (let i = 0; i < 10; i++) {
+    const a = rad(200 + i * 16), d = 30 + 190 * t, x = 200 + Math.cos(a) * d, y = 200 + Math.sin(a) * d + 160 * t * t;
+    p.rot = [i + t * 5, x, y]; p.poly([[x - 14, y - 10], [x + 16, y - 8], [x + 10, y + 12], [x - 12, y + 10]], i % 3 ? "#f3f3f6" : "#9fb4c8", 5); p.rot = null;
+  }
 };
 
 /** contactschaduw onder voeten: zacht ovaal, op een plat kaartje (multiply) */

@@ -226,6 +226,8 @@ export const thickAngle = (light: number) => Math.atan2(-Math.sin(light) + 0.8, 
 const DEF_LIGHT = rad(-120);
 
 // ---------------- faces ----------------
+/** lipsync (Market Doodle): mondvorm die de expressie-mond vervangt zolang hij gezet is */
+export const LIP: { m: string | null } = { m: null };
 export type Expr = "neutral" | "stern" | "grin" | "laugh" | "whistle" | "nervous" | "shock" | "relief" | "relief_open" | "dazed"
   | "pained" | "smile" | "smile_closed" | "lick";
 type EyeK = "dot" | "small" | "lid" | "slit" | "happy" | "dash" | "squeeze" | "shock" | "shockHalf" | "spiral";
@@ -318,7 +320,7 @@ const faceFront = (p: Pen, cx: number, cy: number, W: number, expr: Expr, facing
     else taper(p, [x - side * 8.5 * u, by + dI * u], [x + side * 8.5 * u, by + dO * u], 5 * u, 2.5 * u);
   }
   const mx = cx + 8 * u * facing, my = cy + 20 * u;
-  mouth(p, F.mouth, mx, my, u);
+  mouth(p, (LIP.m as MouthK) ?? F.mouth, mx, my, u);
   if (moustache) for (const s of [-1, 1])
     taper(p, [mx + s * 1.5 * u, cy + 12.5 * u], [mx + s * (stout ? 19 : 15) * u, cy + (stout ? 10.5 : 15) * u], stout ? 5.5 * u : 4.5 * u, 1.6 * u, moustache);
   if (expr === "nervous") p.ell(cx + 40 * u * (facing || 1), cy - 22 * u, 3 * u, 5 * u, "#9fd4ff", 2 * u);

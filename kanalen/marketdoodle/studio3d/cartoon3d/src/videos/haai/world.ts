@@ -4,14 +4,14 @@
 import * as THREE from "three";
 import { Batch, V, lam, boxGeo, house, quad, tri } from "../bridge/build";
 import { ctex, rep, grassHD, cloudHD, stoneHD } from "../bridge/paint";
-import { Pen, bodyFront, KID, Outfit, Expr, fxBurst, fxPuff } from "../bridge/toon";
+import { Pen, bodyFront, KID, PARENT, Outfit, Expr, fxBurst, fxPuff, fxSplash, LIP } from "../bridge/toon";
 import { LIGHTS, LOOK } from "../bridge/lights";
 import { TONE, CHAR, untone } from "../bridge/shade";
 import { NOINK } from "../bridge/ink";
 import { cardShade, blobMaterial, CARD_K } from "../bridge/cardshade";
-import { drawShark, drawBlob, drawSplinters } from "./figures";
-import { FPS, shotAt, camAt, sharkAt, KID_IN, KID_OUT, T_DEUR, T_BONK, V3, smooth, clamp01 } from "./story";
-import { WORDS } from "./words";
+import { drawShark, drawBlob, drawSplinters, drawZzz, drawSchoolSign, drawCrumbs } from "./figures";
+import { mondOp } from "./lipsync";
+import { FPS, shotAt, camAt, sharkAt, KID_IN, KID_OUT, KID_BEACH, T_DEUR, T_BONK, T_NOBODY, T_HAP, T_SLOK, T_IN, T_UIT, T_KEER, T_LAMP, KX, BX, AX, sisAt, bullyAt, DAD_POS, V3, smooth, clamp01 } from "./story";
 
 // ---------------- kaartjes ----------------
 const texCache = new Map<string, THREE.CanvasTexture>();
@@ -46,7 +46,9 @@ class Card {
 }
 
 const YOU: Outfit = { ...KID, jacket: "#2f80ed", pants: "#2d3142", boots: "#f4f1ea", cap: "#f2c94c", hat: "cap" };
-const inWord = (t: number) => WORDS.some(([, a, b, z]) => z === 1 && t >= a + 0.03 && t < b - 0.04 && Math.floor(((t - a) * 9)) % 2 === 0);
+const SIS: Outfit = { jacket: "#e85d9a", pants: "#2d3142", boots: "#f4f1ea", hat: "hair", hair: "#7a4a2a", dress: "#e85d9a", build: "kid", skin: "#f5c9a0" };
+const BULLIES: Outfit[] = [{ ...KID, jacket: "#5b5f6b", cap: "#2d3142", skin: "#ecd0b6" }, { ...KID, jacket: "#8a5a3c", hat: "hair", hair: "#2a2a30", cap: undefined, skin: "#c99067" }];
+const DAD: Outfit = { ...PARENT, jacket: "#3c8d5a", moustache: "#5a3b2a", build: "stout" };
 
 // ---------------- texturen ----------------
 const concrete = () => ctex("concrete", 1024, 1024, (g, r) => {
@@ -83,8 +85,11 @@ export class World {
   private fog = new THREE.Fog("#b8d0ec", 30, 260);
   private door: THREE.Mesh[] = [];
   private clouds: THREE.Mesh[] = [];
-  private shark: Card; private sharkBlob: THREE.Mesh; private kid: Card; private kidBlob: THREE.Mesh;
+  private shark: Card; private sharkBlob: THREE.Mesh;
   private fx: Card[] = [];
+  private people: [Card, THREE.Mesh][] = [];
+  private fridge = new THREE.Group();
+  private nightBulb!: THREE.Mesh;
 
   constructor() {
     const R = this.root;
@@ -123,6 +128,7 @@ export class World {
     const b = new Batch();
     const grass = lam("grassH", () => ({ map: rep(grassHD(), 30, 30) }));
     b.add(quad(V(-150, 0, 150), V(150, 0, 150), V(150, 0, -150), V(-150, 0, -150)), grass);
+    b.add(quad(V(KX - 60, 0, 60), V(AX + 60, 0, 60), V(AX + 60, 0, -60), V(KX - 60, 0, -60)), grass);
     const drive = lam("drive", () => ({ map: rep(concrete(), 2, 3) }));
     b.add(boxGeo(V(-2.6, 0, 0), V(2.6, 0.04, 9)), drive);
     const walk = lam("walk", () => ({ map: rep(stoneHD("walkHD", ["#d8d1c4", "#cfc7b9", "#e0d9cc", "#c9c1b3"], "#a59b8b"), 30, 1) }));
@@ -200,11 +206,12 @@ export class World {
     }
     // ---- cast ----
     this.shark = new Card(R, 1100 * 0.0024, 1000 * 0.0024, 25 * 0.0024);
-    this.kid = new Card(R, 600 * 0.00175, 1000 * 0.00175, 25 * 0.00175);
     const blobT = cardTex("blob", 600, 200, 1, drawBlob);
     const mkBlob = (w: number) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, w / 3).rotateX(-Math.PI / 2), blobMaterial(blobT)); m.layers.set(NOINK); m.renderOrder = 0.5; R.add(m); return m; };
-    this.sharkBlob = mkBlob(2.4); this.kidBlob = mkBlob(0.7);
+    this.sharkBlob = mkBlob(2.4);
+    for (let i = 0; i < 5; i++) { const sc = i === 4 ? 0.0021 : i === 0 ? 0.00175 : 0.0016; this.people.push([new Card(R, 600 * sc, 1000 * sc, 25 * sc), mkBlob(0.7)]); }
     for (let i = 0; i < 3; i++) this.fx.push(new Card(R, 1, 1, 0, false));
+    this.buildPlaces(R);
   }
 
   update(f: number, cam: THREE.PerspectiveCamera, scene: THREE.Scene) {
@@ -216,7 +223,7 @@ export class World {
     // zon camera-relatief per shot (skill: az vanaf kijkrichting, el = hoogte), bevroren per shot
     const L = LIGHTS.day, CAM0 = camAt(s.a);
     const fw = V(CAM0.look[0] - CAM0.pos[0], 0, CAM0.look[2] - CAM0.pos[2]).normalize(), rt = V(-fw.z, 0, fw.x);
-    const az = THREE.MathUtils.degToRad(s.place === "binnen" ? 140 : 160), el = THREE.MathUtils.degToRad(L.el);
+    const az = THREE.MathUtils.degToRad(({ binnen: 140, buiten: 160, straat: 150, keuken: 130, strand: 150, bad: 130 } as Record<string, number>)[s.place]), el = THREE.MathUtils.degToRad(L.el);
     const dir = fw.clone().multiplyScalar(Math.cos(az)).addScaledVector(rt, Math.sin(az)).multiplyScalar(Math.cos(el)).add(V(0, Math.sin(el), 0)).normalize();
     this.sun.position.copy(look).addScaledVector(dir, 120); this.sun.target.position.copy(look);
     const sc = this.sun.shadow.camera, Rr = 22; sc.left = -Rr; sc.right = Rr; sc.top = Rr; sc.bottom = -Rr; sc.near = 10; sc.far = 300; sc.updateProjectionMatrix();
@@ -243,47 +250,164 @@ export class World {
     });
 
     // ---- haai ----
-    const sh = sharkAt(t);
+    const sh = sharkAt(t, s);
     const right = V(0, 0, 0).setFromMatrixColumn(cam.matrixWorld, 0);
-    const mv = V(...sh.dir);
-    const mirror = mv.dot(right) < -0.05 || (Math.abs(mv.dot(right)) <= 0.05 && false);
-    const arm = s.id === 3 ? 0.5 + 0.5 * Math.sin(t * 14) : 0.15 + 0.1 * Math.sin(t * 3);
-    const look2 = s.id === 4 ? "dumb" : s.id === 6 && t > T_DEUR ? "happy" : "dumb";
-    const blink = (t % 2.6) > 2.45 && s.id !== 4 && s.id !== 1 ? 1 : 0;
+    const mirror = V(...sh.dir).dot(right) < -0.05;
+    const blink = (t % 2.6) > 2.45 && s.id !== 4 && s.id !== 1 && sh.look !== "sleep" ? 1 : 0;
     const squash = shakeK > 0.3 && t < T_DEUR ? 0.4 : 0;
-    const ph = Math.round(sh.phase * 24) / 24, wq = Math.round(sh.walk * 10) / 10, aq = Math.round(arm * 12) / 12;
-    const close = s.id >= 2 && s.id <= 4 ? 2 : 1.3;
-    const sT = cardTex(`shark|${ph}|${wq}|${aq}|${look2}|${blink}|${squash}|${close}`, 1100, 1000, close, (p) => drawShark(p, { phase: ph, walk: wq, arm: aq, look: look2 as any, blink, squash }));
+    const ph = Math.round(sh.phase * 24) / 24, wq = Math.round(sh.walk * 10) / 10, aq = Math.round(sh.arm * 12) / 12;
+    const cq = Math.round(sh.chomp * 6) / 6, sv = sh.shiver ? Math.round(sh.shiver * 30) % 8 : 0;
+    const close = [2, 3, 4, 12, 18].includes(s.id) ? 2 : 1.3;
+    const sT = cardTex(`shark|${ph}|${wq}|${aq}|${sh.look}|${blink}|${squash}|${close}|${cq}|${sv}`, 1100, 1000, close,
+      (p) => drawShark(p, { phase: ph, walk: wq, arm: aq, look: sh.look, blink, squash, chomp: cq, shiver: sv ? sv / 8 + 0.01 : 0 }));
     const showShark = !(s.id === 6 && t < T_DEUR - 0.05);
     this.shark.set(sT, sh.pos, cam.position, mirror);
     this.shark.mesh.visible = showShark;
-    this.sharkBlob.position.set(sh.pos[0] + 0.15, 0.05, sh.pos[2]); this.sharkBlob.visible = showShark;
+    this.sharkBlob.position.set(sh.pos[0] + 0.15, 0.05, sh.pos[2]); this.sharkBlob.visible = showShark && sh.pos[1] > -0.05 && s.place !== "bad";
     this.sharkBlob.rotation.y = Math.atan2(cam.position.x - sh.pos[0], cam.position.z - sh.pos[2]);
 
-    // ---- kind ("jij") ----
-    const kidPos = s.place === "binnen" ? KID_IN : KID_OUT;
-    const talking = s.id === 5 && inWord(t);
-    let expr: Expr = s.id === 5 ? (talking ? "relief_open" : "smile_closed") : t > T_DEUR ? "shock" : t > T_BONK[0] ? "nervous" : "neutral";
-    const facing = s.id === 5 ? -1 : 1;
-    const kT = cardTex(`kid|${expr}|${facing}|${(t % 3.1) > 2.95 ? 1 : 0}`, 600, 1000, 1.6, (p) => bodyFront(p, YOU, { mode: "stand", expr, facing: facing as -1 | 1, blink: (t % 3.1) > 2.95, light: -2.1, seed: 3, wave: s.id === 5 && t > 6.2 && t < 7.0 ? 1 : 0 }));
-    this.kid.set(kT, kidPos, cam.position, false);
-    this.kid.mesh.visible = s.id === 5 || s.id === 6;
-    this.kidBlob.position.set(kidPos[0], 0.05, kidPos[2]); this.kidBlob.visible = this.kid.mesh.visible;
+    // ---- mensen (bodyFront-kaartjes, lipsync op hun eigen zinnen) ----
+    const blinkOf = (k: number) => ((t + k * 0.7) % 3.1) > 2.95;
+    const person = (c: Card, blob: THREE.Mesh, o: Outfit, key: string, pos: V3, opts: { expr: Expr; facing: -1 | 0 | 1; mode?: "stand" | "stroll"; phase?: number; wave?: number; zinnen?: number[]; k?: number }) => {
+      const m = opts.zinnen ? mondOp(t, opts.zinnen) : null;
+      const ph2 = opts.mode === "stroll" ? Math.round((opts.phase ?? 0) * 16) / 16 : 0, bl = blinkOf(opts.k ?? 0);
+      const tx = cardTex(`${key}|${opts.expr}|${opts.facing}|${bl}|${m}|${ph2}|${opts.wave ?? 0}`, 600, 1000, 1.6, (p) => {
+        LIP.m = m; bodyFront(p, o, { mode: opts.mode ?? "stand", phase: ph2, expr: opts.expr, facing: opts.facing as any, blink: bl, light: -2.1, seed: opts.k ?? 3, wave: opts.wave ?? 0 }); LIP.m = null; });
+      c.set(tx, pos, cam.position, false);
+      blob.position.set(pos[0], 0.05, pos[2]); blob.visible = true;
+    };
+    for (const [c, b] of this.people) { c.mesh.visible = false; b.visible = false; }
+    const [kidC, sisC, b1C, b2C, dadC] = this.people;
+    if (s.id === 5) person(kidC[0], kidC[1], YOU, "kid", KID_IN, { expr: "smile_closed", facing: -1, wave: t > 6.2 && t < 7.0 ? 1 : 0, zinnen: [1] });
+    if (s.id === 6) person(kidC[0], kidC[1], YOU, "kid", KID_OUT, { expr: t > T_DEUR ? "shock" : t > T_BONK[0] ? "nervous" : "neutral", facing: -1 });
+    if (s.place === "straat") {
+      const walking = t < 16.9;
+      person(sisC[0], sisC[1], SIS, "sis", sisAt(t), { expr: s.id === 9 ? "grin" : "smile", facing: s.id === 9 ? -1 : 1, mode: walking ? "stroll" : "stand", phase: (t / 0.9) % 1, zinnen: [4], k: 5 });
+      [b1C, b2C].forEach((c, i) => {
+        const run = t > T_NOBODY + 0.55 + i * 0.12;
+        person(c[0], c[1], BULLIES[i], "bully" + i, bullyAt(i, t), { expr: t > T_NOBODY + 0.2 ? "shock" : "stern", facing: run ? 1 : -1, mode: run ? "stroll" : "stand", phase: (t / 0.45) % 1, k: 7 + i });
+      });
+    }
+    if (s.place === "keuken" && s.id >= 12) person(dadC[0], dadC[1], DAD, "dad", DAD_POS, { expr: t > T_HAP[0] + 0.1 ? "shock" : "neutral", facing: 1, zinnen: [6], k: 9 });
+    if (s.place === "strand") person(kidC[0], kidC[1], YOU, "kidb", KID_BEACH, { expr: t > T_KEER ? (s.id === 16 ? "nervous" : "shock") : "smile", facing: -1, zinnen: [8] });
 
-    // ---- effecten bij de klap ----
+    // ---- keuken: koelkast wordt in drie happen opgegeten ----
+    const bites = T_HAP.filter((th) => t >= th + 0.06).length;
+    const fs = t >= T_SLOK ? 0 : 1 - bites / 3;
+    this.fridge.visible = fs > 0.01; this.fridge.scale.set(1, Math.max(0.01, fs), 1);
+    // ---- bad: nachtlampje ----
+    const night = s.place === "bad" && t >= T_LAMP;
+    (this.nightBulb.material as THREE.MeshBasicMaterial).color.copy(night ? new THREE.Color(5, 3.6, 1.6) : new THREE.Color(0.9, 0.85, 0.7));
+    if (night) {
+      TONE.uLitCol.value.set(L.lit[0] * 0.28, L.lit[1] * 0.3, L.lit[2] * 0.52); TONE.uShadeCol.value.set(L.shade[0] * 0.5, L.shade[1] * 0.55, L.shade[2] * 0.9);
+      CHAR.uCharTint.value.set(0.42, 0.44, 0.68);
+    } else { TONE.uLitCol.value.set(...L.lit); TONE.uShadeCol.value.set(...L.shade); CHAR.uCharTint.value.set(...L.charTint); }
+
+    // ---- effecten ----
     this.fx.forEach((x) => (x.mesh.visible = false));
+    const fxAt = (i: number, tex: THREE.Texture, pos: V3, sc: number, dy: number) => { this.fx[i].set(tex, pos, cam.position); this.fx[i].mesh.scale.set(sc, sc, 1); this.fx[i].mesh.position.y += dy; };
     const u = (t - T_DEUR) / 0.6;
-    if (u >= 0 && u < 1) {
-      const bt = cardTex(`burst|${Math.round(u * 20)}`, 500, 500, 1.2, (p) => fxBurst(p, Math.round(u * 20) / 20, "#fff3b0", 12, 50, 240));
-      this.fx[0].set(bt, [0, 0.0, 0.35], cam.position); this.fx[0].mesh.scale.set(3.6, 3.6, 1); this.fx[0].mesh.position.y = -0.2;
-      const st = cardTex(`spl|${Math.round(u * 20)}`, 800, 800, 1, (p) => drawSplinters(p, Math.round(u * 20) / 20));
-      this.fx[1].set(st, [0, 0.0, 0.5], cam.position); this.fx[1].mesh.scale.set(3.2, 3.2, 1); this.fx[1].mesh.position.y = -0.1;
+    if (s.id === 6 && u >= 0 && u < 1) {
+      fxAt(0, cardTex(`burst|${Math.round(u * 20)}`, 500, 500, 1.2, (p) => fxBurst(p, Math.round(u * 20) / 20, "#fff3b0", 12, 50, 240)), [0, 0, 0.35], 3.6, -0.2);
+      fxAt(1, cardTex(`spl|${Math.round(u * 20)}`, 800, 800, 1, (p) => drawSplinters(p, Math.round(u * 20) / 20)), [0, 0, 0.5], 3.2, -0.1);
     }
     const pu = (t - T_DEUR - 0.1) / 1.1;
-    if (pu >= 0 && pu < 1) {
-      const pt = cardTex(`puff|${Math.round(pu * 20)}`, 300, 300, 2, (p) => fxPuff(p, Math.round(pu * 20) / 20));
-      this.fx[2].set(pt, [0.3, 0, 0.9], cam.position); this.fx[2].mesh.scale.set(4.5, 4.5, 1); this.fx[2].mesh.position.y = -0.6;
-    }
+    if (s.id === 6 && pu >= 0 && pu < 1) fxAt(2, cardTex(`puff|${Math.round(pu * 20)}`, 300, 300, 2, (p) => fxPuff(p, Math.round(pu * 20) / 20)), [0.3, 0, 0.9], 4.5, -0.6);
+    if (s.place === "keuken") T_HAP.forEach((th, i) => {
+      const k = (t - th) / 0.5;
+      if (k >= 0 && k < 1) fxAt(i, cardTex(`crumb|${Math.round(k * 16)}`, 400, 400, 1.2, (p) => drawCrumbs(p, Math.round(k * 16) / 16)), [KX + 2.4, 0.6, -2.2], 1.6, 0);
+    });
+    if (s.place === "strand") [T_IN, T_UIT].forEach((ts, i) => {
+      const k = (t - ts) / 0.7;
+      if (k >= 0 && k < 1) fxAt(i, cardTex(`splash|${Math.round(k * 16)}`, 500, 500, 1.2, (p) => fxSplash(p, Math.round(k * 16) / 16)), [BX - 0.2, -0.3, i ? 0.1 : -0.1], 2.8, 0);
+    });
+    if (s.place === "bad" && t > 34.8) fxAt(0, cardTex(`zzz|${Math.round((t * 20) % 100)}`, 500, 500, 1, (p) => drawZzz(p, Math.round((t * 20) % 100) / 20)), [AX + 0.6, 1.55, -2.3], 1.1, 0);
     return look;
+  }
+
+  // ---------------- keuken, strand, badkamer, school ----------------
+  private buildPlaces(R: THREE.Object3D) {
+    const b = new Batch();
+    // schoolbord langs de stoep
+    const sign = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.66), new THREE.MeshLambertMaterial({ map: cardTex("schoolsign", 800, 220, 1, drawSchoolSign) }));
+    sign.position.set(-17.5, 2.0, 8.75); R.add(sign);
+    b.add(boxGeo(V(-18.6, 0, 8.68), V(-18.5, 2.1, 8.74)), lam("signpost", () => ({ color: "#5a3b2a" }))); b.add(boxGeo(V(-16.5, 0, 8.68), V(-16.4, 2.1, 8.74)), lam("signpost", () => ({ color: "#5a3b2a" })));
+    b.build(R, true);
+
+    // ---- keuken (binnen, geen schaduw van muren/plafond) ----
+    const k = new Batch(), H = 2.8;
+    const kw = lam("kWall", () => ({ color: "#f6e7c8" })), kf = lam("kFloor", () => ({ map: rep(ctex("kTiles", 512, 512, (g) => {
+      for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) { g.fillStyle = (x + y) % 2 ? "#f4f1ea" : "#3f6fb5"; g.fillRect(x * 64, y * 64, 64, 64); } }), 3, 3) }));
+    k.add(boxGeo(V(KX - 4.6, 0, -4.1), V(KX + 4.6, 0.02, 4.1)), kf);
+    k.add(boxGeo(V(KX - 4.8, 0, -4.3), V(KX + 4.8, H, -4.1)), kw);
+    k.add(boxGeo(V(KX - 4.8, 0, -4.3), V(KX - 4.6, H, 4.3)), kw); k.add(boxGeo(V(KX + 4.6, 0, -4.3), V(KX + 4.8, H, 4.3)), kw);
+    k.add(boxGeo(V(KX - 4.8, 0, 4.1), V(KX + 4.8, H, 4.3)), kw);
+    k.add(boxGeo(V(KX - 4.8, H, -4.3), V(KX + 4.8, H + 0.1, 4.3), 0, true), lam("kCeil", () => ({ color: "#fbf6ec" })));
+    const cab = lam("kCab", () => ({ color: "#7fb7a4" })), top = lam("kTop", () => ({ color: "#efe9df" })), handle = lam("kHandle", () => ({ color: "#3a3a46" }));
+    k.add(boxGeo(V(KX - 4.5, 0, -4.1), V(KX + 2.2, 0.9, -3.45)), cab); k.add(boxGeo(V(KX - 4.55, 0.9, -4.1), V(KX + 2.25, 0.96, -3.4)), top);
+    for (let x = KX - 4.3; x < KX + 2.0; x += 0.75) k.add(boxGeo(V(x, 0.7, -3.44), V(x + 0.3, 0.74, -3.4)), handle);
+    k.add(boxGeo(V(KX - 4.5, 1.7, -4.1), V(KX - 1.5, 2.5, -3.7)), cab);
+    k.add(boxGeo(V(KX - 0.9, 1.25, -4.12), V(KX + 1.4, 2.35, -4.08)), lam("kWin", () => ({ map: ctex("kWinTex", 512, 256, (g) => {
+      const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, "#5a9be0"); gr.addColorStop(1, "#cfe6fb"); g.fillStyle = gr; g.fillRect(0, 0, 512, 256);
+      g.fillStyle = "#6aab4f"; g.beginPath(); g.ellipse(120, 250, 160, 70, 0, 0, 7); g.fill(); g.beginPath(); g.ellipse(400, 260, 190, 80, 0, 0, 7); g.fill();
+      g.strokeStyle = "#ffffff"; g.lineWidth = 18; g.strokeRect(9, 9, 494, 238); g.beginPath(); g.moveTo(256, 0); g.lineTo(256, 256); g.stroke(); }) })));
+    k.add(new THREE.CylinderGeometry(0.6, 0.6, 0.06, 24).translate(KX - 2.8, 0.78, 1.0), lam("kTable", () => ({ color: "#c08a5a" })));
+    k.add(new THREE.CylinderGeometry(0.06, 0.08, 0.76, 10).translate(KX - 2.8, 0.38, 1.0), lam("kTable", () => ({ color: "#c08a5a" })));
+    k.add(new THREE.CylinderGeometry(0.12, 0.1, 0.2, 14).translate(KX - 2.7, 0.9, 0.9), lam("kMug", () => ({ color: "#e8463a" })));
+    k.build(R, false);
+    // koelkast (eigen groep, schaalt omlaag bij elke hap)
+    const fr = new Batch(), fw = lam("fridge", () => ({ color: "#f2f4f8" })), fh = lam("fridgeH", () => ({ color: "#9aa3b0" }));
+    fr.add(boxGeo(V(-0.48, 0, -0.4), V(0.48, 1.95, 0.4)), fw);
+    fr.add(boxGeo(V(-0.46, 1.25, 0.4), V(0.46, 1.27, 0.42)), fh);
+    fr.add(boxGeo(V(-0.38, 1.4, 0.4), V(-0.33, 1.8, 0.47)), fh); fr.add(boxGeo(V(-0.38, 0.5, 0.4), V(-0.33, 1.1, 0.47)), fh);
+    fr.build(this.fridge, true);
+    this.fridge.position.set(KX + 2.85, 0, -3.55); R.add(this.fridge);
+
+    // ---- strand ----
+    const s = new Batch();
+    const sand = lam("sand", () => ({ map: rep(ctex("sandTex", 512, 512, (g, r) => {
+      g.fillStyle = "#f3d99b"; g.fillRect(0, 0, 512, 512);
+      for (let i = 0; i < 1200; i++) { g.fillStyle = `rgba(${r() < 0.5 ? "255,255,255" : "160,120,60"},${0.08 + r() * 0.1})`; g.fillRect(r() * 512, r() * 512, 3, 3); } }), 20, 20) }));
+    s.add(boxGeo(V(BX - 120, -0.02, 0), V(BX + 120, 0.01, 80)), sand);
+    const sea = lam("sea", () => ({ map: rep(ctex("seaTex", 512, 512, (g, r) => {
+      g.fillStyle = "#2fa9c9"; g.fillRect(0, 0, 512, 512);
+      g.strokeStyle = "rgba(255,255,255,0.55)"; g.lineWidth = 6; g.lineCap = "round";
+      for (let i = 0; i < 40; i++) { const x = r() * 512, y = r() * 512; g.beginPath(); g.arc(x, y, 18, 3.6, 5.8); g.stroke(); } }), 30, 30) }));
+    s.add(boxGeo(V(BX - 160, -0.05, -500), V(BX + 160, 0.04, 0)), sea);
+    s.add(boxGeo(V(BX - 120, 0.0, -0.25), V(BX + 120, 0.06, 0.25)), lam("foam", () => ({ color: "#ffffff" })));
+    // parasol, handdoek, emmertje
+    s.add(new THREE.CylinderGeometry(0.04, 0.04, 2.3, 8).translate(BX - 3.2, 1.15, 4.6), lam("pole", () => ({ color: "#f4f1ea" })));
+    s.add(new THREE.ConeGeometry(1.5, 0.6, 12).translate(BX - 3.2, 2.35, 4.6), lam("umb", () => ({ map: ctex("umbTex", 512, 64, (g) => { for (let i = 0; i < 8; i++) { g.fillStyle = i % 2 ? "#ffffff" : "#e8463a"; g.fillRect(i * 64, 0, 64, 64); } }) })));
+    s.add(boxGeo(V(BX - 4.3, 0.01, 5.0), V(BX - 2.6, 0.03, 6.0)), lam("towel", () => ({ map: ctex("towelTex", 256, 256, (g) => { for (let i = 0; i < 8; i++) { g.fillStyle = i % 2 ? "#f2c94c" : "#2f80ed"; g.fillRect(0, i * 32, 256, 32); } }) })));
+    s.add(new THREE.CylinderGeometry(0.16, 0.12, 0.26, 14).translate(BX + 3.0, 0.13, 4.2), lam("bucket", () => ({ color: "#e8463a" })));
+    s.add(new THREE.SphereGeometry(0.3, 16, 12).translate(BX + 3.6, 0.3, 5.2), lam("ball", () => ({ map: ctex("ballTex", 256, 128, (g) => { ["#e8463a", "#ffffff", "#2f80ed", "#ffffff", "#f2c94c", "#ffffff"].forEach((c, i) => { g.fillStyle = c; g.fillRect(i * 43, 0, 43, 128); }); }) })));
+    s.build(R, true);
+
+    // ---- badkamer ----
+    const a = new Batch(), HB = 2.7;
+    const tiles = lam("bTiles", () => ({ map: rep(ctex("bTileTex", 512, 512, (g) => {
+      g.fillStyle = "#bfe3ea"; g.fillRect(0, 0, 512, 512); g.strokeStyle = "#8fc1cc"; g.lineWidth = 6;
+      for (let i = 0; i <= 512; i += 64) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 512); g.moveTo(0, i); g.lineTo(512, i); g.stroke(); } }), 3, 2) }));
+    a.add(boxGeo(V(AX - 3.2, 0, -3.2), V(AX + 3.2, 0.02, 3.2)), lam("bFloor", () => ({ map: rep(ctex("bFloorTex", 256, 256, (g) => { for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) { g.fillStyle = (x + y) % 2 ? "#f4f1ea" : "#d9d4cc"; g.fillRect(x * 64, y * 64, 64, 64); } }), 4, 4) })));
+    a.add(boxGeo(V(AX - 3.4, 0, -3.4), V(AX + 3.4, HB, -3.2)), tiles);
+    a.add(boxGeo(V(AX - 3.4, 0, -3.4), V(AX - 3.2, HB, 3.4)), tiles); a.add(boxGeo(V(AX + 3.2, 0, -3.4), V(AX + 3.4, HB, 3.4)), tiles);
+    a.add(boxGeo(V(AX - 3.4, 0, 3.2), V(AX + 3.4, HB, 3.4)), tiles);
+    a.add(boxGeo(V(AX - 3.4, HB, -3.4), V(AX + 3.4, HB + 0.1, 3.4), 0, true), lam("bCeil", () => ({ color: "#fbf6ec" })));
+    const tub = lam("tub", () => ({ color: "#ffffff" })), tubFeet = lam("tubFeet", () => ({ color: "#e8c45a" }));
+    a.add(boxGeo(V(AX - 1.8, 0.12, -3.2), V(AX + 1.6, 0.75, -2.95)), tub);   // achterkant
+    a.add(boxGeo(V(AX - 1.8, 0.12, -1.95), V(AX + 1.6, 0.75, -1.7)), tub);   // voorkant (verbergt de benen)
+    a.add(boxGeo(V(AX - 1.8, 0.12, -3.2), V(AX - 1.55, 0.75, -1.7)), tub); a.add(boxGeo(V(AX + 1.35, 0.12, -3.2), V(AX + 1.6, 0.75, -1.7)), tub);
+    a.add(boxGeo(V(AX - 1.55, 0.12, -2.95), V(AX + 1.35, 0.5, -1.95)), lam("bathWater", () => ({ color: "#7cc8e8" })));
+    for (const [x, z] of [[-1.7, -3.1], [1.5, -3.1], [-1.7, -1.8], [1.5, -1.8]]) a.add(new THREE.SphereGeometry(0.1, 10, 8).translate(AX + x, 0.1, z), tubFeet);
+    a.add(new THREE.SphereGeometry(0.12, 14, 10).translate(AX + 1.2, 0.86, -1.82), lam("duck", () => ({ color: "#f2c94c" })));
+    a.add(new THREE.SphereGeometry(0.07, 12, 8).translate(AX + 1.27, 0.99, -1.8), lam("duck", () => ({ color: "#f2c94c" })));
+    a.add(boxGeo(V(AX + 1.33, 0.95, -1.82), V(AX + 1.4, 0.98, -1.76)), lam("duckBeak", () => ({ color: "#f2994a" })));
+    a.add(boxGeo(V(AX - 3.2, 1.4, -1.2), V(AX - 3.1, 1.44, 0.4)), lam("rack", () => ({ color: "#9aa3b0" })));
+    a.add(boxGeo(V(AX - 3.15, 0.8, -1.0), V(AX - 3.05, 1.45, 0.2)), lam("towelB", () => ({ color: "#e85d9a" })));
+    a.add(boxGeo(V(AX + 2.0, 0.3, -3.2), V(AX + 2.2, 0.5, -3.12)), lam("plug", () => ({ color: "#f4f1ea" })));
+    a.add(boxGeo(V(AX - 1.0, 0.0, 0.3), V(AX + 0.6, 0.03, 1.2)), lam("bMat", () => ({ color: "#2f80ed" })));
+    a.build(R, false);
+    this.nightBulb = new THREE.Mesh(new THREE.SphereGeometry(0.09, 16, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.9, 0.85, 0.7) }));
+    this.nightBulb.position.set(AX + 2.1, 0.45, -3.05); this.nightBulb.layers.set(NOINK); R.add(this.nightBulb);
   }
 }
