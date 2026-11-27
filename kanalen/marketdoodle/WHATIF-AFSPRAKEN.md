@@ -202,3 +202,4 @@ Overzicht: `proef-pop-short/gebaren.jpg` (maken met `gebaren_demo.py`). Kies per
   2. **Lengte 35-45 s** (niet 55-70), vooral het midden strakker.
   3. **Laatste zin loopt terug in het begin** (loop), zodat hij vanzelf opnieuw start.
 - **NIEUW RITME (27 nov, eigenaar: "doe maar wat jij denkt het beste is") — vervangt 'om de dag een lange video' en 'vaste dagen ma, wo, za':** **elke dag één sterke Short** (19:00 NL, of eerder op de dag zelf als het onderwerp een hype van die dag is) en **één lange video per week, op zaterdag 17:00 NL**, over het grootste onderwerp van die week, met een Short erbij. Reden: Shorts halen ± 1.200 views, lange video's nog maar tientallen. Rond 22 dec evalueren: komen Shorts ruim boven 1.200 en groeien de abonnees, dan terug naar vaker lang.
+- Short: Lg-Beh3sS7M (What If Black Friday Never Ended?, 42 s), ingepland 27 nov 17:00 NL openbaar.
