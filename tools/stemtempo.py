@@ -15,7 +15,7 @@ for f in ("stem.wav", "zinnen.json", "woorden.json"):
     if not b.exists() or not eigen: shutil.copy(M / f, b)  # nieuwe stem (stem.py opnieuw gedraaid) -> nieuwe reservekopie
 A, sr = sf.read(M / "stem.wav.voor-sneller", dtype="float32")
 Z = json.loads((M / "zinnen.json.voor-sneller").read_text(encoding="utf-8")); W = json.loads((M / "woorden.json.voor-sneller").read_text(encoding="utf-8"))
-N = [z for z in Z if z[4] == "N"]; huidig = sum(len(z[2].split()) for z in N) / sum(z[1] - z[0] for z in N) * 60
+N = [z for z in Z if z[4] == "N"] or Z; huidig = sum(len(z[2].split()) for z in N) / max(0.1, sum(z[1] - z[0] for z in N)) * 60   # geen verteller (bv. alleen een wasbeer): alle regels
 print(f"verteller nu {huidig:.0f} wpm (regel-gemiddelde); doel per zin {195} binnen de zin")
 tmp = M / "_seg"; tmp.mkdir(exist_ok=True)
 MAX_ZIN, MIN_KORT = 210, 0.30                           # woorden/min binnen één zin (zonder pauzes); seconden per woord bij korte uitroepen
@@ -72,4 +72,4 @@ sf.write(M / "stem.wav", np.concatenate(uit), sr)
 (M / "zinnen.json").write_text(json.dumps(nZ, ensure_ascii=False), encoding="utf-8")
 (M / "woorden.json").write_text(json.dumps(nW, ensure_ascii=False), encoding="utf-8")
 shutil.rmtree(tmp); MERK.write_text(json.dumps({"grootte": (M / "stem.wav").stat().st_size, "doel": DOEL}))
-NN = [z for z in nZ if z[4] == "N"]; print(f"klaar: verteller {sum(len(z[2].split()) for z in NN) / sum(z[1]-z[0] for z in NN) * 60:.0f} wpm, lengte {nZ[-1][1]:.0f} s")
+NN = [z for z in nZ if z[4] == "N"] or nZ; print(f"klaar: verteller {sum(len(z[2].split()) for z in NN) / sum(z[1]-z[0] for z in NN) * 60:.0f} wpm, lengte {nZ[-1][1]:.0f} s")

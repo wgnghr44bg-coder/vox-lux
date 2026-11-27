@@ -1,0 +1,152 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Wasbeer explainer</title>
+<style>html,body{margin:0;background:#000}canvas{display:block;image-rendering:pixelated}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js"}}</script>
+</head><body>
+<script type="module">
+// Proef 27 nov 2026 (eigenaar stuurde een recept): wasbeer-explainer in geel pak, achtertuin, three.js in één HTML-bestand.
+// 1 low poly (± 300 driehoeken), flat shading · 2 texturen van 64 px door code geschilderd · 3 render op 270x480 zonder smoothing
+// 4 hoekpunten op een raster + kleuren gedithered · 5 open snijden + één deel labelen · 6 nieuwe pose bij elke zin.
+import * as THREE from 'three';
+const RW = 270, RH = 480;
+const D = await (await fetch('data.json')).json();
+const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(RW, RH); renderer.localClippingEnabled = true;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x8fd0f0);
+const camera = new THREE.PerspectiveCamera(38, RW / RH, 0.1, 50); camera.position.set(0.35, 1.35, 4.6); camera.lookAt(0.15, 1.0, 0);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x556644, 1.6)); const zon = new THREE.DirectionalLight(0xfff2d0, 1.8); zon.position.set(2, 4, 3); scene.add(zon);
+
+// ---- 2. texturen van 64 px, door code geschilderd ----
+function tex(teken) { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); teken(g);
+  const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.generateMipmaps = false; t.colorSpace = THREE.SRGBColorSpace; return t; }
+let zaad = 7; const rnd = () => (zaad = (zaad * 16807) % 2147483647) / 2147483647;
+const ruis = (g, basis, sp) => { for (let y = 0; y < 64; y += 2) for (let x = 0; x < 64; x += 2) { const v = (rnd() - 0.5) * sp; g.fillStyle = `rgb(${basis.map(b => Math.max(0, Math.min(255, b + v))).join(',')})`; g.fillRect(x, y, 2, 2); } };
+const T = {
+  vacht: tex(g => { ruis(g, [138, 138, 145], 40); g.fillStyle = 'rgba(80,80,90,0.5)'; for (let y = 4; y < 64; y += 12) g.fillRect(0, y, 64, 3); }),
+  pak: tex(g => { ruis(g, [238, 196, 40], 30); g.fillStyle = 'rgba(150,110,10,0.6)'; g.fillRect(31, 0, 2, 64); for (let y = 12; y < 64; y += 16) { g.fillStyle = '#3a2a10'; g.fillRect(26, y, 4, 4); } }),
+  gras: tex(g => { ruis(g, [92, 168, 70], 50); g.fillStyle = 'rgba(40,110,40,0.7)'; for (let i = 0; i < 40; i++) g.fillRect(Math.floor(rnd() * 62), Math.floor(rnd() * 62), 1, 3); }),
+  hek: tex(g => { ruis(g, [170, 120, 80], 35); g.fillStyle = '#6d4626'; for (let x = 0; x < 64; x += 16) g.fillRect(x, 0, 2, 64); g.fillRect(0, 20, 64, 2); }),
+  hout: tex(g => { ruis(g, [150, 100, 60], 30); g.fillStyle = 'rgba(90,55,30,0.6)'; for (let y = 6; y < 64; y += 10) g.fillRect(0, y, 64, 1); }),
+  staart: tex(g => { for (let y = 0; y < 64; y += 16) { g.fillStyle = '#8a8a92'; g.fillRect(0, y, 64, 9); g.fillStyle = '#2a2a30'; g.fillRect(0, y + 9, 64, 7); } }),
+  eend: tex(g => { ruis(g, [255, 214, 40], 25); }),
+};
+T.gras.wrapS = T.gras.wrapT = T.hek.wrapS = THREE.RepeatWrapping; T.gras.repeat.set(6, 6); T.hek.repeat.set(5, 1);
+
+// ---- 4. hoekpunten op een raster + kleuren dithering (in elke materiaal-shader) ----
+const DITHER = `float bayer4(vec2 p){ int i = int(mod(p.x,4.)) + int(mod(p.y,4.))*4; float m[16] = float[16](0.,8.,2.,10.,12.,4.,14.,6.,3.,11.,1.,9.,15.,7.,13.,5.); return m[i]/16.; }\n`;
+function mat(opts) {
+  const m = new THREE.MeshLambertMaterial({ flatShading: true, ...opts });
+  m.onBeforeCompile = (sh) => {
+    sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', `#include <project_vertex>
+      vec2 raster = vec2(${RW / 2}.0, ${RH / 2}.0); gl_Position.xy = floor(gl_Position.xy / gl_Position.w * raster + 0.5) / raster * gl_Position.w;`);
+    sh.fragmentShader = DITHER + sh.fragmentShader.replace('#include <dithering_fragment>', `#include <dithering_fragment>
+      float lv = 6.0; gl_FragColor.rgb = floor(gl_FragColor.rgb * lv + bayer4(gl_FragCoord.xy)) / lv;`);
+  };
+  return m;
+}
+const M = { vacht: mat({ map: T.vacht }), pak: mat({ map: T.pak }), zwart: mat({ color: 0x1e1e24 }), wit: mat({ color: 0xffffff }), licht: mat({ color: 0xd8d8dc }),
+  roze: mat({ color: 0xe88a9a }), rood: mat({ color: 0xd8342c }), gras: mat({ map: T.gras }), hek: mat({ map: T.hek }), hout: mat({ map: T.hout }), staart: mat({ map: T.staart }),
+  blad: mat({ color: 0xc9d2dc }), groen: mat({ color: 0x3f8f45 }), stam: mat({ color: 0x7a4e2c }), oranje: mat({ color: 0xf08a20 }) };
+let DRIEHOEKEN = 0;
+function deel(geo, m, parent, x = 0, y = 0, z = 0) { const me = new THREE.Mesh(geo, m); me.position.set(x, y, z); (parent || scene).add(me); DRIEHOEKEN += geo.index ? geo.index.count / 3 : geo.attributes.position.count / 3; return me; }
+
+// ---- achtertuin ----
+const grond = deel(new THREE.PlaneGeometry(14, 14), M.gras); grond.rotation.x = -Math.PI / 2;
+const hek = deel(new THREE.BoxGeometry(12, 1.3, 0.08), M.hek, null, 0, 0.65, -2.4);
+const stam = deel(new THREE.CylinderGeometry(0.12, 0.16, 1.4, 5), M.stam, null, -2.1, 0.7, -1.6);
+const kruin = deel(new THREE.IcosahedronGeometry(0.75, 0), M.groen, null, -2.1, 1.75, -1.6);
+const tafel = deel(new THREE.BoxGeometry(0.8, 0.08, 0.6), M.hout, null, 0.75, 0.72, 0.2);
+for (const [px, pz] of [[0.42, 0], [1.08, 0], [0.42, 0.4], [1.08, 0.4]]) deel(new THREE.BoxGeometry(0.06, 0.7, 0.06), M.hout, null, px, 0.35, pz);
+
+// ---- 1. de wasbeer (low poly) ----
+const wb = new THREE.Group(); wb.position.set(-0.3, 0, 0.3); scene.add(wb);
+const lijf = deel(new THREE.BoxGeometry(0.62, 0.78, 0.42), M.pak, wb, 0, 0.98, 0);
+deel(new THREE.BoxGeometry(0.1, 0.34, 0.03), M.rood, wb, 0, 1.12, 0.22);                 // stropdas
+const kop = new THREE.Group(); kop.position.set(0, 1.62, 0); wb.add(kop);
+const hoofd = deel(new THREE.IcosahedronGeometry(0.36, 0), M.vacht, kop); hoofd.scale.set(1.1, 0.92, 0.95);
+deel(new THREE.BoxGeometry(0.6, 0.13, 0.08), M.zwart, kop, 0, 0.04, 0.3);                // masker
+for (const k of [-1, 1]) {
+  deel(new THREE.BoxGeometry(0.1, 0.08, 0.04), M.wit, kop, k * 0.13, 0.05, 0.35);
+  deel(new THREE.BoxGeometry(0.05, 0.06, 0.04), M.zwart, kop, k * 0.13, 0.05, 0.37).name = 'pupil' + k;
+  const oor = deel(new THREE.ConeGeometry(0.11, 0.2, 4), M.vacht, kop, k * 0.22, 0.33, 0); oor.rotation.z = -k * 0.35;
+}
+const snuit = deel(new THREE.ConeGeometry(0.11, 0.24, 5), M.licht, kop, 0, -0.08, 0.36); snuit.rotation.x = Math.PI / 2;
+deel(new THREE.BoxGeometry(0.07, 0.05, 0.05), M.zwart, kop, 0, -0.08, 0.49);              // neus
+const mond = deel(new THREE.BoxGeometry(0.1, 0.03, 0.03), M.roze, kop, 0, -0.18, 0.36);
+function arm(k) { const g = new THREE.Group(); g.position.set(k * 0.38, 1.3, 0); wb.add(g);
+  deel(new THREE.BoxGeometry(0.15, 0.46, 0.15), M.pak, g, 0, -0.22, 0); deel(new THREE.BoxGeometry(0.15, 0.12, 0.15), M.vacht, g, 0, -0.5, 0); return g; }
+const armL = arm(-1), armR = arm(1);
+for (const k of [-1, 1]) { deel(new THREE.BoxGeometry(0.2, 0.55, 0.2), M.pak, wb, k * 0.16, 0.32, 0); deel(new THREE.BoxGeometry(0.22, 0.1, 0.3), M.zwart, wb, k * 0.16, 0.05, 0.05); }
+const staart = deel(new THREE.CylinderGeometry(0.08, 0.13, 0.8, 6, 1), M.staart, wb, 0.35, 0.55, -0.35); staart.rotation.set(-0.9, 0, -0.6);
+// mes in de rechterhand
+const mes = new THREE.Group(); mes.position.set(0, -0.56, 0.08); armR.add(mes);
+deel(new THREE.BoxGeometry(0.05, 0.12, 0.05), M.stam, mes, 0, 0, 0); deel(new THREE.BoxGeometry(0.03, 0.3, 0.09), M.blad, mes, 0, -0.2, 0); mes.visible = false;
+
+// ---- 5. badeend die open gaat (twee helften, binnenkant zichtbaar) ----
+const eendG = new THREE.Group(); eendG.position.set(0.75, 0.76, 0.2); scene.add(eendG);
+function eend(vlak) {
+  const g = new THREE.Group(); eendG.add(g); const clip = [vlak];
+  const m = mat({ map: T.eend, side: THREE.DoubleSide, clippingPlanes: clip }), mo = mat({ color: 0xf08a20, clippingPlanes: clip }), mz = mat({ color: 0x1e1e24, clippingPlanes: clip });
+  const lijf = deel(new THREE.IcosahedronGeometry(0.2, 0), m, g, 0, 0.17, 0); lijf.scale.set(1.3, 0.9, 1);
+  deel(new THREE.IcosahedronGeometry(0.12, 0), m, g, 0.12, 0.38, 0);
+  const snavel = deel(new THREE.ConeGeometry(0.05, 0.12, 4), mo, g, 0.26, 0.36, 0); snavel.rotation.z = -Math.PI / 2;
+  deel(new THREE.BoxGeometry(0.03, 0.03, 0.03), mz, g, 0.18, 0.42, 0.08);
+  return g;
+}
+const helftL = eend(new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0.75)), helftR = eend(new THREE.Plane(new THREE.Vector3(1, 0, 0), -0.75));
+
+// ---- 6. een nieuwe pose bij elke zin ----
+const POSES = [
+  { aL: [0, 0, 0.15], aR: [-0.2, 0, -1.35], kop: [0, -0.25, 0.1], lijf: 0.05 },     // wijst naar de eend
+  { aL: [0, 0, 1.1], aR: [0, 0, -1.1], kop: [0, 0, -0.18], lijf: 0 },                // schouders omhoog: "denken mensen"
+  { aL: [0, 0, 0.5], aR: [-2.6, 0, -0.3], kop: [0.1, 0.2, 0], lijf: -0.05 },          // mes omhoog
+  { aL: [0, 0, 0.3], aR: [-0.5, 0, -0.9], kop: [0.25, -0.35, 0], lijf: 0.12 },        // snijdt en kijkt erin
+  { aL: [0, 0, 2.3], aR: [0, 0, -2.3], kop: [-0.15, 0, 0], lijf: 0 },                // armen omhoog: lucht!
+  { aL: [0, 0, 0.2], aR: [-2.9, 0, 0.1], kop: [0, 0.15, 0.12], lijf: 0.08 },          // vinger omhoog: volgende keer
+];
+const zinIndex = (t) => { let k = 0; D.zinnen.forEach((z, i) => { if (t >= z[0] - 0.12) k = i; }); return k; };
+const lerp = (a, b, f) => a + (b - a) * f, ease = x => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
+function zetPose(t) {
+  const k = zinIndex(t), p = POSES[Math.min(k, POSES.length - 1)], v = POSES[Math.max(0, Math.min(k - 1, POSES.length - 1))];
+  const f = k === 0 ? 1 : ease((t - (D.zinnen[k][0] - 0.12)) / 0.22);
+  const mix = (A, B) => [0, 1, 2].map(i => lerp(A[i], B[i], f)); armL.rotation.set(...mix(v.aL, p.aL)); armR.rotation.set(...mix(v.aR, p.aR)); kop.rotation.set(...mix(v.kop, p.kop));
+  wb.rotation.y = lerp(v.lijf, p.lijf, f) + 0.25; kop.position.y = 1.62 + Math.sin(t * 2.2) * 0.012;
+  return k;
+}
+const woord = (zin, w) => (D.woorden.find(x => x[0] === zin && x[1].toLowerCase().replace(/[^a-z]/g, '').startsWith(w)) || [0, '', D.zinnen[zin][0]])[2];
+const T_SNEE = woord(3, 'cut'), T_OPEN = woord(3, 'look'), T_LUCHT = woord(4, 'air');
+
+// ---- 3. render op 270x480 + ondertitel en label in pixels ----
+const doek = document.createElement('canvas'); doek.width = RW; doek.height = RH; const g2 = doek.getContext('2d'); g2.imageSmoothingEnabled = false;
+document.body.appendChild(doek);
+function ondertitel(t) {
+  const zi = D.zinnen.findIndex(z => z[0] - 0.05 <= t && t <= z[1] + 0.25); if (zi < 0) return;
+  const ww = D.woorden.filter(w => w[0] === zi); const stukken = []; let cur = [];
+  for (const w of ww) { cur.push(w); if (cur.length >= 3 || /[.?!,]$/.test(w[1])) { stukken.push(cur); cur = []; } } if (cur.length) stukken.push(cur);
+  const st = stukken.find(s => t <= s[s.length - 1][3] + 0.1) || stukken[stukken.length - 1];
+  g2.font = 'bold 17px monospace'; g2.textBaseline = 'top'; const br = st.reduce((a, w) => a + g2.measureText(w[1].toUpperCase() + ' ').width, 0); let x = (RW - br) / 2;
+  for (const w of st) { const s = w[1].toUpperCase(); g2.lineWidth = 4; g2.strokeStyle = '#000'; g2.strokeText(s, x, 392); g2.fillStyle = (w[2] <= t && t <= w[3] + 0.05) ? '#ffd640' : '#fff'; g2.fillText(s, x, 392); x += g2.measureText(s + ' ').width; }
+}
+function label(t) {
+  if (t < T_LUCHT - 0.1) return;
+  const p = new THREE.Vector3(0.75, 0.95, 0.2).project(camera); const px = (p.x + 1) / 2 * RW, py = (1 - p.y) / 2 * RH;
+  const lx = Math.min(RW - 60, px + 10), ly = py - 80; g2.strokeStyle = '#fff'; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(px, py); g2.lineTo(lx, ly + 12); g2.stroke();
+  g2.fillStyle = '#fff'; g2.fillRect(lx - 4, ly, 52, 24); g2.strokeStyle = '#000'; g2.strokeRect(lx - 4, ly, 52, 24);
+  g2.fillStyle = '#d8342c'; g2.font = 'bold 18px monospace'; g2.fillText('AIR', lx + 4, ly + 4);
+}
+window.render = (t) => {
+  const k = zetPose(t);
+  mes.visible = k >= 2;
+  const f = (D.mond[Math.floor(t * D.FPS)] || 0); mond.scale.y = 1 + f * 1.6; mond.position.y = -0.18 - f * 0.012;
+  for (const k2 of [-1, 1]) { const pu = kop.getObjectByName('pupil' + k2); pu.scale.y = (t % 3.3) < 0.12 ? 0.2 : 1; }
+  if (k === 3 && t >= T_SNEE) armR.rotation.x = lerp(-2.6, -0.5, ease((t - T_SNEE) / 0.25));
+  const open = ease((t - T_OPEN) / 0.5); helftL.position.x = -0.16 * open; helftR.position.x = 0.16 * open; helftL.rotation.y = -0.5 * open; helftR.rotation.y = 0.5 * open;
+  camera.position.x = 0.35 + Math.sin(t * 0.4) * 0.05;
+  if (k >= 3 && k <= 4) { camera.position.set(0.35, 1.25, 4.4); camera.lookAt(0.3, 0.95, 0.2); } else { camera.position.set(0.25 + Math.sin(t * 0.4) * 0.05, 1.35, 5.8); camera.lookAt(0.25, 0.95, 0); }
+  renderer.render(scene, camera);
+  g2.drawImage(renderer.domElement, 0, 0); ondertitel(t); label(t);
+  return doek.toDataURL('image/png');
+};
+console.log('driehoeken', Math.round(DRIEHOEKEN));
+window.klaar = true;
+</script></body></html>

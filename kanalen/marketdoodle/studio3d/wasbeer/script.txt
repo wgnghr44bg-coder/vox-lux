@@ -1,0 +1,7 @@
+# Proef wasbeer-explainer (27 nov): low poly, pixel-look, nieuwe pose per zin, open snijden + label.
+WASBEER|tuin|What if you sliced open a rubber duck?
+WASBEER|tuin|Most people think it's full of squeak.
+WASBEER|tuin|So I brought my tools.
+WASBEER|tuin|One clean cut... and look inside.
+WASBEER|tuin|It's air. Just air. In every single duck.
+WASBEER|tuin|Next time: what if we slice open a shark?
