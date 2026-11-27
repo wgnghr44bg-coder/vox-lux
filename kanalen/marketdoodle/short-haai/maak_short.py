@@ -348,7 +348,7 @@ def frame(t):
             bw_ = 14 * len(tekst) + 40; LABELS.append((tekst, (X - bw_ / 2, Y - 70, X + bw_ / 2, Y - 20)))
         plaatskaart(img, t_b, sc)
         if n == "straat" and t_b >= T_NOBODY: kop(img, "BULLIES: 0", W / 2, 420, 110, KL["groen"], ps.pop((t_b - T_NOBODY) / 0.3))
-        if n == "keuken" and nu == I_DAD: kop(img, "FRIDGE: GONE", W / 2 + 120, 1250, 100, (235, 60, 60), ps.pop((t_b - Z[I_DAD][0]) / 0.3))
+        if n == "keuken" and nu == I_DAD: kop(img, "FRIDGE: GONE", W / 2 + 20, 1250, 96, (235, 60, 60), ps.pop((t_b - Z[I_DAD][0]) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1] + 60 * v[2], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1] + 60 * v[2]) for k_, v in GEZ.items()},
