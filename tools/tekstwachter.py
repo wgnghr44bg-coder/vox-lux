@@ -10,6 +10,10 @@ Kijkt PER ZIN of het beeld past bij wat er gezegd wordt:
   4. GENOEMD = GEZIEN  regels {"playstation": ["ps2"], "chips": ["videokaart-hand"], "hundred dollars": ["tekst:$100"]}:
                komt het woord in de zin voor, dan moet (één van) die voorwerpen of teksten tijdens de zin in beeld zijn -> anders FOUT.
   5. BLAD      blad(mp4, uit): per zin 3 beelden (begin/midden/eind) met de zin eronder, voor de eigen beeldcontrole.
+  6. RIJDEN    (27 nov, eigenaar: "rijdt de vader ook echt in de auto ... kun je daar een controle voor maken") zegt de zin
+               "drives", "driving", "gets in the car" of "drive right past", dan moet er tijdens de zin iemand ÍN een auto zitten
+               (gezicht binnen het kader van een voorwerp met 'auto' in de naam) -> anders FOUT. Regel "in:<persoon>@<voorwerp>"
+               in de ZIE-regels eist een bepaalde persoon in een bepaald voorwerp (bv. "gets in the car": ["in:dad@auto"]).
 
 Gebruik in een renderer (naast de scènewachter):
     TW = Tekstwachter(Z, ZIE, lijf=LIJF)                       # Z = zinnen.json [(t0, t1, tekst, scène, rol)], LIJF = rol -> poppetje
@@ -22,6 +26,7 @@ from pathlib import Path
 SPIJT = ("could've", "could have", "lose", "lost", "sold", "why", "needed", "never", "for this", "broke", "missed", "should've")
 BLIJ = ("congratulations", "fortune", "island", "retiring", "baby go", "deal", "rich!", "we did it", "yes!")
 JUICH = {"juich", "zwaai", "duim", "klap"}
+RIJDEN = ("drives", "driving", "gets in the car", "drive right past")
 WEE = {"facepalm", "hoofdhanden"}
 
 def jaren(s):
@@ -52,6 +57,9 @@ class Tekstwachter:
             P["teksten"].add(s)
             for r in jaren(s): P["jaren"].add(r)
         sp = self.lijf.get(z[4])
+        for naam, (hx, hy) in (koppen or {}).items():                     # wie zit er IN iets (auto)?
+            for obj, (a0, b0, a1, b1) in voorwerpen:
+                if a0 <= hx <= a1 and b0 <= hy <= b1: P["gezien"].add(f"in:{naam}@{obj}")
         for naam, (hx, hy) in (koppen or {}).items():
             if x0 <= hx <= x1 and y0 <= hy <= y1: P["gezien"].add(naam)
             if naam == sp and x0 <= hx <= x1 and y0 <= hy <= y1: P["spreker_gezien"] = True
@@ -74,6 +82,8 @@ class Tekstwachter:
                 uit.append((t, "gevoel", f'"{tekst}" is spijt/schrik, maar {z[4]} juicht ({", ".join(sorted(set(g) & JUICH))})'))
             if any(w in laag for w in BLIJ) and not any(w in laag for w in SPIJT) and any(x in WEE for x in g):
                 uit.append((t, "gevoel", f'"{tekst}" is blij, maar {z[4]} doet {", ".join(sorted(set(g) & WEE))}'))
+            if any(w in laag for w in RIJDEN) and not any(g.startswith("in:") and "auto" in g.split("@")[1] for g in P["gezien"]):
+                uit.append((t, "rijden", f'"{tekst}": er rijdt iemand, maar niemand zit in een auto'))
             for woord, nodig in self.regels.items():
                 if woord in laag:
                     ok = any((n[6:] in " ".join(P["teksten"])) if n.startswith("tekst:") else (n in P["gezien"]) for n in nodig)

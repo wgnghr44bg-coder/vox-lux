@@ -24,6 +24,7 @@ ps.C.update({                                            # bijfiguren (andere kl
  "jogger":  dict(broek=(40, 40, 50), shirt=(230, 60, 60), haar=(200, 160, 80), kapsel="kort", groot=1.08),
  "collega": dict(broek=(60, 60, 70), shirt=(150, 160, 175), haar=(70, 50, 40), kapsel="krul", groot=1.05),
 })
+ps.C["agent"] = dict(broek=(30, 35, 60), shirt=(40, 50, 95), haar=(70, 50, 40), kapsel="kort", pet=(30, 35, 70), groot=1.12)
 ps.C["ober2"] = dict(ps.C["ober"], haar=(110, 70, 40)); ps.C["ober3"] = dict(ps.C["ober"], haar=(60, 60, 60), kapsel="krul")
 ps.C["jogger2"] = dict(ps.C["jogger"], shirt=(60, 160, 220), haar=(60, 40, 30), kapsel="paard")
 ps.C["jogger3"] = dict(ps.C["jogger"], shirt=(250, 200, 60), haar=(40, 30, 25))
@@ -86,14 +87,57 @@ def herkleur(im, tint):                                   # alle kleurige pixels
     m = hsv[..., 1] > 40; hsv[..., 0] = np.where(m, int(tint * 255), hsv[..., 0]); hsv[..., 1] = np.where(m, np.maximum(hsv[..., 1], 150), hsv[..., 1])
     out = Image.fromarray(hsv.astype(np.uint8), "HSV").convert("RGBA"); out.putalpha(a); return out
 SPR = {}
+# 27 nov (eigenaar: "rijdt de vader ook echt in de auto ... kun je daar een controle voor maken"): auto's krijgen doorzichtige
+# ramen en een bestuurder achter het stuur. raam = midden + hoogte van het bestuurdersraam in het originele plaatje.
+AUTOINFO = {"gezinsauto": dict(regio=(420, 240, 1000, 345), glas=(0.0, 0.2, 0.35), raam=(600, 298, 95), voor=-1),
+            "politieauto": dict(regio=(395, 252, 870, 360), glas=(0.08, 0.45, 0.45), raam=(735, 312, 95), voor=1)}
+RAAM = {}
 def sprite(n, hoogte, spiegel=False, tint=None):
     k = (n, int(hoogte), spiegel, tint)
     if k not in SPR:
-        im = los(Image.open(HIER / "afbeeldingen" / f"{n}.png"))
+        bron = Image.open(HIER / "afbeeldingen" / f"{n}.png").convert("RGB"); w0, h0 = bron.size; m0 = bron.copy()
+        for p_ in ((0, 0), (w0 - 1, 0), (0, h0 - 1), (w0 - 1, h0 - 1)): ImageDraw.floodfill(m0, p_, (255, 0, 255), thresh=30)
+        a0 = Image.eval(ImageChops.difference(m0, Image.new("RGB", m0.size, (255, 0, 255))).convert("L"), lambda v: 255 if v > 8 else 0)
+        bx0, by0, bx1, by1 = a0.getbbox(); im = bron.convert("RGBA"); im.putalpha(a0); im = im.crop((bx0, by0, bx1, by1))
+        info = AUTOINFO.get(n)
+        if info:
+            hsv = np.array(bron.convert("HSV")).astype(float) / 255; x0, y0, x1, y1 = info["regio"]; smin, smax, vmin = info["glas"]
+            m = np.zeros(hsv.shape[:2], bool); sub = hsv[y0:y1, x0:x1]
+            m[y0:y1, x0:x1] = (sub[..., 1] >= smin) & (sub[..., 1] <= smax) & (sub[..., 2] >= vmin)
+            m = m[by0:by1, bx0:bx1]; a = np.array(im.getchannel("A")); a[m & (a > 0)] = 105; im.putalpha(Image.fromarray(a))
         if tint is not None: im = herkleur(im, tint)
-        im = im.resize((max(1, int(im.width * hoogte / im.height)), max(1, int(hoogte))), Image.LANCZOS)
-        SPR[k] = im.transpose(Image.FLIP_LEFT_RIGHT) if spiegel else im
+        sc = hoogte / im.height
+        im = im.resize((max(1, int(im.width * sc)), max(1, int(hoogte))), Image.LANCZOS)
+        if spiegel: im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        if info:
+            cx, cy, hh = info["raam"]; rx, ry = (cx - bx0) * sc, (cy - by0) * sc
+            RAAM[k] = (im.width - rx if spiegel else rx, ry, hh * sc, info["voor"] * (-1 if spiegel else 1))
+        SPR[k] = im
     return SPR[k]
+KHOOFD = {}
+def _khoofd(n):                                           # afstand voeten -> bovenkant hoofd per eenheid S
+    if n not in KHOOFD:
+        d_ = ImageDraw.Draw(Image.new("RGBA", (W * SS, H * SS))); hx, hy = ps.poppetje(d_, n, 500, 1000, 1.0, 0.0)
+        KHOOFD[n] = (1000 - hy) / ps.C[n].get("groot", 1.0)
+    return KHOOFD[n]
+def auto(img, n, h, x, voet, op="weg", spiegel=False, tint=None, bestuurder=None, naam=None, t=0.0):
+    """Auto met (optioneel) een bestuurder achter het stuur: hoofd zichtbaar door het raam, lijf achter de deur."""
+    s_ = sprite(n, h, spiegel, tint)
+    dx, dy = WACHT.plaats(naam or n, (x - s_.width / 2, voet - s_.height, x + s_.width / 2, voet), op=op)
+    left, top = x + dx - s_.width / 2, voet + dy - s_.height
+    if os.environ.get("TEST_ZONDER_BESTUURDER"): bestuurder = None          # alleen om te testen of de controle het ziet
+    if bestuurder and left < W and left + s_.width > 0:
+        rx, ry, hh, richting = RAAM[(n, int(h), spiegel, tint)]
+        wx, wy = left + rx, top + ry; S = 0.42 * hh / 60; s = S / ps.C[bestuurder].get("groot", 1.0)
+        y = wy - 60 * S + _khoofd(bestuurder) * S
+        L = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(L)
+        knip = (t + hash(bestuurder) % 7 * 0.4) % 3.4 < 0.13
+        ps.poppetje(d, bestuurder, wx, y, s, t, kijk=0.9 * richting, mond=luid(t, bestuurder), knipper=knip)
+        L = L.resize((W, H), Image.LANCZOS); m = Image.new("L", (W, H), 0)
+        ImageDraw.Draw(m).rectangle((left, wy - hh * 0.62, left + s_.width, top + s_.height), fill=255)
+        L.putalpha(ImageChops.multiply(L.getchannel("A"), m)); img.paste(L, (0, 0), L)
+        GEZ[bestuurder] = (wx, wy, S)
+    img.paste(s_, (int(left), int(top)), s_)
 WACHT = Scenewachter(HIER.parent / "achtergronden.json")
 def zet(img, n, hoogte, x, voet, op=None, punt=None, voor=False, naam=None, **kw_):
     s = sprite(n, hoogte, **kw_)
@@ -432,7 +476,8 @@ for B in BLOK:
         B["politie"] = (kw(17, "police", -0.3), kw(19, "drives", -0.1))
         B["kop"].append((kw(14, "four"), "x400", 560, 330, 110, "geel", Z[15][0]))
     elif k == "radio1":                                    # papa alleen bij de auto: rustig beeld, ballon raakt niemand
-        B["figs"] = [F("dad", 900, pad=[(Z[a][0], 1500), (Z[a][0] + 1.6, 1000)])]
+        B["instap"] = kw(21, "car", 0.3)
+        B["figs"] = [F("dad", 900, pad=[(Z[a][0], 1500), (B["instap"] - 0.1, 900)], zichtbaar=(-1, B["instap"]))]
         B["auto"] = -99; B["radio"] = (kw(21, "radio", -0.1), Z[24][1] + 0.3)
         B["kop"].append((kw(24, "every"), "EVERY CAR. SAME RADIO. FOREVER.", 960, 170, 64, "wit"))
     elif k == "winkel":
@@ -460,7 +505,7 @@ for B in BLOK:
                         tint=[(topen, 0.78), (kw(42, "orange"), 0.07), (kw(42, "green"), 0.33), (kw(42, "gold"), 0.13)],
                         dicht=(tin + 0.9, topen), ster=(Z[a][0], tdicht))
         B["politie"] = (Z[a][0], kw(39, "police", -0.2))
-        B["figs"] = [F("dad", 1460, zichtbaar=(Z[40][0] - 0.4, 99999)), F("mom", 1690, zichtbaar=(Z[41][0] - 0.6, 99999))]
+        B["figs"] = [F("mom", 1600, pad=[(Z[41][0] - 1.2, 2150), (Z[41][0] - 0.1, 1600)])]
         B["kop"].append((kw(37, "three"), "+3 MPH", 960, 170, 90, "rood"))
     elif k in ("cheat", "cheat2"):
         B["figs"] = [F("you", 640, emo="blij" if k == "cheat2" else None), F("sis", 1000, geb="vast", houd_vast=True), F("mom", 1420)]
@@ -556,14 +601,14 @@ for B in BLOK:
 # tekstwachter: wat genoemd wordt, moet in beeld zijn
 ZIE = {"yellow arrow": ["pijl", "pijl-boss", "pijl-juf"], "health": ["health"], "coffee": ["koffiemok"], "money counter floating": ["geldteller"],
        "three hundred and twelve dollars": ["geldteller", "tekst:$312"], "cereal": ["kom"], "gary is watering": ["buur", "tuinslang"],
-       "gum wrapper": ["kauwgompapiertje"], "white star": ["ster"], "two stars": ["ster"], "one star": ["ster"], "police car": ["politieauto"],
+       "gum wrapper": ["kauwgompapiertje"], "white star": ["ster"], "two stars": ["ster"], "one star": ["ster"], "police car": ["in:agent@politieauto"], "gets in the car": ["in:dad@auto"],
        "radio turns on": ["radio"], "milk": ["melk"], "glowing yellow circle": ["cirkel"], "mission complete": ["tekst:MISSION COMPLETE", "tekst:0:01 LEFT · MISSION COMPLETE"],
        "fifty respect": ["tekst:+50 RESPECT"], "autograph": ["notitieblok"], "garden hose": ["tuinslang"], "minus one hundred": ["tekst:-$100"],
        "you now have a loyalty card": ["spaarkaart"], "purple car": ["auto"], "remote": ["afstandsbediening"], "rubber ducks": ["badeend"],
        "this pizza": ["pizzadoos"], "pizza flies": ["pizzadoos"], "proud of a pizza": ["pizzadoos"], "carries the pizzas": ["pizzadoos"],
        "giant timer": ["timer"], "holds the timer": ["timer"], "mission failed": ["tekst:MISSION FAILED"], "math test": ["toets"],
        "one billion dollars": ["tekst:$1,000,000,000"], "on his phone": ["telefoon"], "jet ski": ["jetski"], "glowing teddy": ["teddy"],
-       "dog house": ["hondenhok"], "bring her bread": ["broodmand"], "bicycle": ["fiets"], "more police cars": ["politieauto"],
+       "dog house": ["hondenhok"], "bring her bread": ["broodmand"], "bicycle": ["fiets"], "more police cars": ["in:agent@politieauto"],
        "floppy disk": ["floppy"], "tv turns on": ["tv"], "zombie mode": ["tekst:UPDATE: ZOMBIE MODE"], "very green": ["buur"],
        "six hours": ["tekst:6 HOURS"], "eleven dollars": ["tekst:$11 LEFT"]}
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
@@ -582,23 +627,24 @@ def frame(t):
     # --- achter de poppetjes ---
     if k == "open": pijl(img, 527, 215, t, 1.25)
     if k in ("radio1", "radio2") and B.get("auto") is not None and t >= B["auto"]:
-        zet(img, "gezinsauto", 210, 620, 905, op="weg", naam="auto", tint=0.13 if B.get("goud") else None)
+        auto(img, "gezinsauto", 210, 620, 905, naam="auto", tint=0.13 if B.get("goud") else None, t=t,
+             bestuurder="dad" if k == "radio1" and t >= B["instap"] else None)
     if k == "dag1":
         zet(img, "tuinslang", 70, 470, 990, op="weg")
         p0, p1 = B["politie"]
         if p0 <= t < p1 + 2.2:
             x = POLITIE_X[0] + (POLITIE_X[1] - POLITIE_X[0]) * ps.ease((t - p0) / 1.4) if t < p1 else POLITIE_X[1] - (POLITIE_X[1] + 500) * ((t - p1) / 2.2)
-            zet(img, "politieauto", 190, x, 900, op="weg", spiegel=t >= p1); sirene(img, x, 900 - 190, t)
+            auto(img, "politieauto", 190, x, 900, spiegel=True, bestuurder="agent", t=t); sirene(img, x, 900 - 190, t)
     if k == "garage":
         c = B["car"]; x, loopt, _ = pad_x(c["pad"], t); tint = None
         for tt_, tn in c["tint"]:
             if t >= tt_: tint = tn
         dicht = c["dicht"][0] <= t < c["dicht"][1]
-        if not dicht: zet(img, "gezinsauto", 230, x, 1000, op="weg", naam="auto", tint=tint)
+        if not dicht: auto(img, "gezinsauto", 230, x, 1000, spiegel=True, naam="auto", tint=tint, bestuurder="dad", t=t)
         if c["ster"][0] <= t < c["ster"][1] and not dicht: sterren(img, x, 700, 2, t)
         p0, p1 = B["politie"]
-        if t < p1: px = x - 520 if not dicht else 600; zet(img, "politieauto", 200, px, 1010, op="weg"); sirene(img, px, 810, t)
-        elif t < p1 + 2.5: px = -400 + (2400) * ((t - p1) / 2.5); zet(img, "politieauto", 200, px, 1040, op="weg"); sirene(img, px, 840, t)
+        if t < p1: px = x - 520 if not dicht else 600; auto(img, "politieauto", 200, px, 1010, bestuurder="agent", t=t); sirene(img, px, 810, t)
+        elif t < p1 + 2.5: px = -400 + (2400) * ((t - p1) / 2.5); auto(img, "politieauto", 200, px, 1040, bestuurder="agent", t=t); sirene(img, px, 840, t)
     if k == "winkel":
         c0, c1 = B["cirkel"]
         if c0 <= t < c1: cirkel(img, 960, 950, t)
@@ -623,9 +669,9 @@ def frame(t):
         for j, (y_, v_, o_) in enumerate(((840, 520, 0), (885, -640, 900), (1060, 700, 300))):
             x = (o_ + v_ * t) % 2600 - 300
             if j == 2: continue
-            zet(img, "politieauto", 150 + j * 25, x, y_, op="weg", spiegel=v_ < 0); sirene(img, x, y_ - 150 - j * 25, t + j)
-        zet(img, "politieauto", 190, 1650, 905, op="weg"); sirene(img, 1650, 715, t)
-    if k == "team" and B.get("stilauto"): zet(img, "politieauto", 190, 1760, 880, op="weg")
+            auto(img, "politieauto", 150 + j * 25, x, y_, spiegel=v_ < 0, bestuurder="agent", t=t); sirene(img, x, y_ - 150 - j * 25, t + j)
+        auto(img, "politieauto", 190, 1650, 905, bestuurder="agent", t=t); sirene(img, 1650, 715, t)
+    if k == "team" and B.get("stilauto"): auto(img, "politieauto", 190, 1760, 880, spiegel=True, bestuurder="agent", t=t)
     if k == "cheat" or k == "cheat2":
         if t >= B["eendjes"]:
             for j in range(6):
