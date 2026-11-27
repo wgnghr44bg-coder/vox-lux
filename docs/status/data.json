@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 14:33",
+ "bijgewerkt": "2026-11-27 15:03",
  "kanalen": {
   "weken": [
    {
@@ -199,6 +199,14 @@
         "stand": "onderwerp kiezen"
        },
        {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-28",
+        "tijd": "17:00",
+        "titel": "What If GTA 6 Was Real Life? (It Goes Wrong Fast)",
+        "stand": "gepland",
+        "youtube": "fqN3ZBbJ_tM"
+       },
+       {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-28",
         "tijd": "19:00",
@@ -212,6 +220,14 @@
         "tijd": "19:00",
         "titel": "Short: What If (nieuw onderwerp)",
         "stand": "onderwerp kiezen"
+       },
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-28",
+        "tijd": "19:00",
+        "titel": "What If GTA 6 Was Real Life? #Shorts",
+        "stand": "gepland",
+        "youtube": "AA_YjRHlkQw"
        },
        {
         "kanaal": "Sleep Archives",
@@ -1942,7 +1958,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 14:33)"
+   "tekst": "draait nu (2026-11-27 15:03)"
   },
   {
    "naam": "Git",
@@ -1962,7 +1978,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1979,8 +1995,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 14:33",
-   "volgende": "2026-11-27 15:03"
+   "laatst": "2026-11-27 15:03",
+   "volgende": "2026-11-27 15:33"
   },
   "hype": {
    "aan": true,
@@ -1994,8 +2010,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 14:18",
-   "volgende": "2026-11-27 14:48"
+   "laatst": "2026-11-27 14:48",
+   "volgende": "2026-11-27 15:18"
   },
   "titels": {
    "aan": true,
@@ -2338,7 +2354,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 613,
+  "geheugen_mb": 642,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2511,8 +2527,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 14:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 15:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 14:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4574,32 +4590,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 14:33",
+  "bijgewerkt": "2026-11-27 15:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8456701,
-    "week": 103912356,
+    "5uur": 9488245,
+    "week": 106319677,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 16227797,
+     "Fri 27-11": 18635118,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 50510,
+    "stap_kost": 52722,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 152434006,
+    "week": 151757082,
     "per_dag": {
-     "Fri 20-11": 12802700,
+     "Fri 20-11": 12125775,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
