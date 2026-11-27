@@ -1,0 +1,7 @@
+# Proef Jensen-cartoon (27 nov): low poly, pixel-look, leren jasje, snijdt een videokaart open. Feit: NVIDIA Blackwell = 208 miljard transistors.
+CEO|podium|What if you sliced open a graphics card?
+CEO|podium|Most people think it's just fans and lights.
+CEO|podium|So I brought my tools.
+CEO|podium|One clean cut... and look inside.
+CEO|podium|Two hundred and eight billion transistors. On one chip.
+CEO|podium|Next time: what if we slice open a robot?
