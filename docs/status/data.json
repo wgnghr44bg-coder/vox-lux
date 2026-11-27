@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 12:33",
+ "bijgewerkt": "2026-11-27 13:03",
  "kanalen": {
   "weken": [
    {
@@ -1942,7 +1942,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 12:33)"
+   "tekst": "draait nu (2026-11-27 13:03)"
   },
   {
    "naam": "Git",
@@ -1962,7 +1962,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1979,8 +1979,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 12:33",
-   "volgende": "2026-11-27 13:03"
+   "laatst": "2026-11-27 13:03",
+   "volgende": "2026-11-27 13:33"
   },
   "hype": {
    "aan": true,
@@ -1994,8 +1994,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 12:18",
-   "volgende": "2026-11-27 12:48"
+   "laatst": "2026-11-27 12:48",
+   "volgende": "2026-11-27 13:18"
   },
   "titels": {
    "aan": true,
@@ -2043,7 +2043,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 104,
+    "views": 105,
     "verwerkt": "processed"
    },
    {
@@ -2052,7 +2052,7 @@
     "duur": "2:10:23",
     "privacy": "public",
     "publiceer": "2026-11-17T20:00:19Z",
-    "views": 82,
+    "views": 83,
     "verwerkt": "processed"
    },
    {
@@ -2106,7 +2106,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1350,
+    "views": 1366,
     "verwerkt": "processed"
    }
   ],
@@ -2348,7 +2348,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 600,
+  "geheugen_mb": 603,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2521,8 +2521,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 12:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 13:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4591,7 +4591,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 12:33",
+  "bijgewerkt": "2026-11-27 13:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4614,9 +4614,9 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 155847332,
+    "week": 155661794,
     "per_dag": {
-     "Fri 20-11": 16216026,
+     "Fri 20-11": 16030488,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
