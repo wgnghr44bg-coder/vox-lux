@@ -92,21 +92,21 @@ def pxm(bgn, y):                                           # pixels per meter op
 
 # ---------- tijden ----------
 def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
-I_HOOK, I_TWINTIG = zi("Imagine"), zi("Nine-dollar")
+I_HOOK, I_TWINTIG = zi("What if"), zi("Nine-dollar")
 I_WEEK2, I_SIS, I_WEEK3, I_RESTOCK = zi("Week two"), zi("Dad! Can"), zi("Week three"), zi("If they")
-I_HOND, I_WAAROM, I_FEIT, I_AGENT = zi("Your dog"), zi("Why is he"), zi("Fun fact"), zi("Not again")
-I_KERST, I_ELF, I_FAIL, I_SALE = zi("Christmas"), zi("Wow"), zi("Six months"), zi("Where's")
+I_HOND = I_WAAROM = I_FEIT = I_AGENT = -1          # 27 nov: hond- en feit-scène eruit (short naar ± 40 s, Studio-analyse)
+I_KERST, I_ELF, I_FAIL, I_SALE = zi("Christmas"), zi("Wow"), zi("Month six"), zi("Where's")
 I_LAATST, I_ROOF, I_KASSA, I_SLOT = zi("Then Dad"), zi("A thousand"), zi("Relax"), zi("And it never")
 T_NOOIT = kw(I_HOOK, "never", -0.1); T_90 = kw(I_HOOK, "ninety", -0.1)
 T_9 = kw(I_TWINTIG, "nine", -0.1); T_20 = kw(I_TWINTIG, "twenty", -0.1)
 T_SISIN = Z[I_SIS][0] - 1.3;                            # 26 nov (eigenaar): zus komt aanlopen
-T_BED = kw(I_HOND, "forty", -0.1); T_POLITIE = kw(I_FEIT, "police", -0.1)
+T_BED = T_POLITIE = 1e9
 T_TVK = kw(I_KERST, "another", -0.1); T_ELFDE = kw(I_ELF, "eleventh", -0.1)
 T_BANK = kw(I_FAIL, "bankrupt", -0.1); T_DADIN = Z[I_LAATST][0]; T_PRIJS = kw(I_LAATST, "full", -0.1); T_1000 = kw(I_LAATST, "thousand", -0.1)
 T_CYBER = kw(I_KASSA, "cyber", -0.1)
 def Zs(i): return Z[i][0] - 0.1
 SC = [dict(t=0, naam="winkel", bg="mall-tv"), dict(t=Zs(I_WEEK2), naam="dozen", bg="woonkamer"), dict(t=Zs(I_WEEK3), naam="tent", bg="buiten-nacht"),
-      dict(t=Zs(I_HOND), naam="hond", bg="woonkamer"), dict(t=Zs(I_FEIT), naam="feit", bg="straat-oud"), dict(t=Zs(I_KERST), naam="kerst", bg="kerst"),
+      dict(t=Zs(I_KERST), naam="kerst", bg="kerst"),
       dict(t=Zs(I_FAIL), naam="failliet", bg="failliet"), dict(t=Zs(I_LAATST), naam="laatst", bg="winkeltje")]
 def scene(t): return SC[max(i for i in range(len(SC)) if SC[i]["t"] <= t)]
 PLAATS = {"winkel": ("BLACK FRIDAY", "WEEK 1"), "dozen": ("YOUR HOUSE", "WEEK 2"), "tent": ("THE PARKING LOT", "WEEK 3"),
@@ -116,7 +116,7 @@ def nu_i(t): return max((i for i, z in enumerate(Z) if z[0] - 0.05 <= t <= z[1] 
 
 # ---------- gezicht past bij de zin ----------
 SCHRIK = ("Nine-dollar", "Why is he", "Not again", "A thousand", "Where's", "And it never")
-BLIJ = ("Imagine", "If they", "Relax", "Your dog", "Wow")
+BLIJ = ("What if", "If they", "Relax", "Your dog", "Wow")
 VERDRIET = ("really", "Can you move")
 def _start(i, frase):
     w0 = _norm(frase.split()[0])

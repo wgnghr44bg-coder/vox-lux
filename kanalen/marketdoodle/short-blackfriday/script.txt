@@ -1,18 +1,14 @@
-N|winkel|Imagine Black Friday... but it never ends. Everything is ninety percent off. Every single day.
+N|winkel|What if Black Friday never ended? Everything ninety percent off. Every single day.
 DAD|winkel|Nine-dollar TVs?! I'll take twenty!
-N|dozen|Week two. Their house is now basically a warehouse.
+N|dozen|Week two. Your house is now a warehouse.
 SIS|dozen|Dad! Can you move these stupid boxes? I can't get to the toilet!
-N|tent|Week three. Dad has officially moved into the parking lot.
+N|tent|Week three. Dad has moved into the parking lot.
 DAD|tent|If they restock at six a.m., I'm first!
-N|hond|Your dog now owns forty-seven luxury beds.
-YOU|hond|Why is he sleeping on the floor?
-N|feit|Fun fact: the term Black Friday was made popular by Philadelphia police, to describe the chaos after Thanksgiving.
-AGENT|feit|Not again! I just got here!
-N|kerst|Christmas arrives. Your family gives you another TV.
-YOU|kerst|Wow. I... really needed an eleventh one.
-N|failliet|Six months later, the stores have sold everything at ridiculous prices. One by one, they go bankrupt.
+N|kerst|Christmas. Your family gives you another TV.
+YOU|kerst|Wow. An eleventh one.
+N|failliet|Month six. Everything is sold. One by one, the stores go bankrupt.
 DAD|failliet|Where's the sale?!
 N|laatst|Then Dad finds the last store on Earth. One phone. Full price: a thousand dollars.
-DAD|laatst|A thousand dollars?! That's daylight robbery!
+DAD|laatst|A thousand dollars?! That's robbery!
 KASSA|laatst|Relax, sir. Tomorrow is Cyber Monday.
 N|laatst|And it never ends.
