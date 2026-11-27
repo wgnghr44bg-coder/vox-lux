@@ -163,7 +163,7 @@ ACTIE = {"Mom! Dad! There's": "wijslinks", "Why do I have": "hoofdhanden", "What
          "They don't recognize": "juich", "You're driving a purple": "heupen", "Give me that remote": "wijslinks",
          "I'm an accountant": "armen-open", "Not anymore. Go": "wijslinks", "I have never been": "juich", "Side mission": "wijslinks",
          "Can I skip": "denk", "You can't skip": "heupen", "I hate that": "schouders", "One billion dollars?": "schrik",
-         "And now we live": "armen-open", "Mom, that man": "wijs", "Don't make eye": "nee", "One of one hundred?": "juich",
+         "And now we live": "armen-open", "Mom, that man": "wijslinks", "Don't make eye": "nee", "One of one hundred?": "juich",
          "Not now, Gary": "stamp", "I could get used": "juich", "Can I have some bread": "armen-open", "Sorry, sir": "nee",
          "I delivered a pizza": "armen-open", "What can I get": "armen-open", "It's fine. Nobody": "heupen", "This isn't fun": "schouders",
          "Says the guy": "wijslinks", "If this is a game": "denk", "Not you again": "facepalm", "Guys! When I": "wijs",
@@ -262,21 +262,21 @@ def pijl(img, cx, cy, t, s=1.0, naam="pijl"):            # gele game-pijl die dr
     d.polygon([(cx - w * 0.45, cy - h / 2), (cx - w * 0.1, cy - h / 2), (cx - w * 0.1, cy), (cx - w * 0.45, cy)], fill=(255, 238, 130))
 def sterren(img, cx, y, n, t, knipper=False, naam="ster"):
     if n <= 0 or (knipper and int(t * 6) % 2): return
-    d = ImageDraw.Draw(img); r = 26; x0 = cx - (n - 1) * r * 1.1
+    d = ImageDraw.Draw(img); r = 34; x0 = cx - (n - 1) * r * 1.1
     WACHT.plaats(naam, (x0 - r, y - r, x0 + (n - 1) * r * 2.2 + r, y + r), op="beeld")
     for k in range(n):
         x = x0 + k * r * 2.2
         pts = [(x + (r if j % 2 == 0 else r * 0.45) * math.sin(j * math.pi / 5), y - (r if j % 2 == 0 else r * 0.45) * math.cos(j * math.pi / 5)) for j in range(10)]
         d.polygon(pts, fill=(255, 255, 255), outline=INK); d.line(pts + [pts[0]], fill=INK, width=4)
 def balkje(img, cx, y, tekst, frac, kl=(70, 210, 90), naam="health"):   # health bar boven het hoofd
-    d = ImageDraw.Draw(img); f = font(FB, 26); tw = d.textlength(tekst, font=f); w = 170
-    WACHT.plaats(naam, (cx - w / 2, y - 34, cx + w / 2, y + 22), op="beeld"); SCHERM.append(tekst)
-    gloed(img, cx, y, 120, kl=(140, 255, 160), sterk=0.25); d = ImageDraw.Draw(img)
-    d.text((cx - tw / 2, y - 36), tekst, font=f, fill=(255, 255, 255), stroke_width=4, stroke_fill=INK)
-    d.rounded_rectangle((cx - w / 2, y, cx + w / 2, y + 22), 8, fill=(40, 40, 50), outline=INK, width=3)
-    d.rounded_rectangle((cx - w / 2 + 4, y + 4, cx - w / 2 + 4 + (w - 8) * frac, y + 18), 6, fill=kl)
+    d = ImageDraw.Draw(img); f = font(FB, 38); tw = d.textlength(tekst, font=f); w = 240
+    WACHT.plaats(naam, (cx - w / 2, y - 50, cx + w / 2, y + 30), op="beeld"); SCHERM.append(tekst)
+    gloed(img, cx, y, 150, kl=(140, 255, 160), sterk=0.3); d = ImageDraw.Draw(img)
+    d.text((cx - tw / 2, y - 52), tekst, font=f, fill=(255, 255, 255), stroke_width=5, stroke_fill=INK)
+    d.rounded_rectangle((cx - w / 2, y, cx + w / 2, y + 30), 10, fill=(40, 40, 50), outline=INK, width=4)
+    d.rounded_rectangle((cx - w / 2 + 5, y + 5, cx - w / 2 + 5 + (w - 10) * frac, y + 25), 7, fill=kl)
 def geldteller(img, cx, y, tekst, sch=1.0):
-    f = font(FB, int(52 * sch)); d = ImageDraw.Draw(img); tw = d.textlength(tekst, font=f)
+    f = font(FB, int(72 * sch)); d = ImageDraw.Draw(img); tw = d.textlength(tekst, font=f)
     WACHT.plaats("geldteller", (cx - tw / 2, y - 30, cx + tw / 2, y + 30), op="beeld"); SCHERM.append(tekst)
     gloed(img, cx, y, 110, kl=(120, 255, 150), sterk=0.35); d = ImageDraw.Draw(img)
     d.text((cx - tw / 2, y - 30 * sch), tekst, font=f, fill=(90, 235, 120), stroke_width=5, stroke_fill=INK)
@@ -336,7 +336,7 @@ def tv(img, box, aan, t, regels=(), naam="tv"):
                 frac = min(1, (t % 6) / 4); d.rectangle((sx0 + 16, yy, sx1 - 16, yy + 16), outline=(255, 255, 255), width=2)
                 d.rectangle((sx0 + 18, yy + 2, sx0 + 18 + (sx1 - sx0 - 36) * frac, yy + 14), fill=(90, 220, 110)); yy += 28
 def floppy(img, cx, cy, t):
-    cy += math.sin(t * 2.5) * 10; gloed(img, cx, cy, 150, kl=(120, 200, 255), sterk=0.6); d = ImageDraw.Draw(img); s = 90
+    cy += math.sin(t * 2.5) * 10; gloed(img, cx, cy, 190, kl=(120, 200, 255), sterk=0.6); d = ImageDraw.Draw(img); s = 130
     WACHT.plaats("floppy", (cx - s / 2, cy - s / 2, cx + s / 2, cy + s / 2), op="beeld")
     d.rounded_rectangle((cx - s / 2, cy - s / 2, cx + s / 2, cy + s / 2), 8, fill=(50, 90, 200), outline=INK, width=4)
     d.rectangle((cx - s * 0.28, cy - s / 2, cx + s * 0.28, cy - s * 0.12), fill=(200, 205, 215), outline=INK, width=3)
@@ -385,7 +385,7 @@ def plons(img, cx, cy, f):
 def water(img, hx, hy, t):                                 # tuinslang-straal van de hand naar het gras
     d = ImageDraw.Draw(img)
     for k in range(16):
-        f = ((k / 16) + t * 1.4) % 1; x = hx - f * 260; y = hy - 60 * math.sin(math.pi * f * 0.8) + 180 * f * f
+        f = ((k / 16) + t * 1.4) % 1; x = hx + f * 230; y = hy - 170 * math.sin(math.pi * f) + 60 * f
         d.ellipse((x - 7, y - 7, x + 7, y + 7), fill=(130, 200, 250), outline=(60, 120, 200), width=2)
 def biljetjes(img, hx, hy, eig):
     WACHT.plaats("geld", (hx - 40, hy - 50, hx + 40, hy + 4), op="hand:" + eig, punt=(hx, hy), voor=True)
@@ -397,7 +397,8 @@ def grijs(img, f):
 def sirene(img, cx, top, t):
     d = ImageDraw.Draw(img); aan = int(t * 6) % 2
     gloed(img, cx - 25, top + 8, 60, kl=(255, 60, 60) if aan else (60, 120, 255), sterk=0.7)
-def held(img, item, h, n, k, t, hoek=70, naam=None):      # voorwerp in de rechterhand
+def held(img, item, h, n, k, t, hoek=70, naam=None):      # voorwerp in de rechterhand (alleen als die hand echt vasthoudt)
+    if GEB.get(n) != "vast": return None, None
     hx, hy, S = rhand(n, k[3], k[4], k[5], hoek)
     zet(img, item, h, hx, hy + h * 0.35, op="hand:" + n, punt=(hx, hy), voor=True, naam=naam)
     return hx, hy
@@ -423,14 +424,14 @@ for B in BLOK:
         B["kop"].append((kw(9, "thirty"), "DAY 30: ...", 960, 340, 76, "rood"))
     elif k == "dag1":
         tg = kw(15, "drops"); tp = kw(19, "picks")
-        B["figs"] = [F("buur", 330, geb="vast", houd_vast=True), F("you", 980, gebt=[(kw(12, "hi", -0.2), kw(12, "hi", 1.2), "zwaai")]),
-                     F("dad", 1300, pad=[(Z[21][0], 1300), (Z[21][0] + 1.6, 860)], gebt=[(tg - 0.3, tg + 0.3, ("hoek", -16, 20)), (tp - 0.2, tp + 0.8, ("hoek", -16, 10))]),
+        B["figs"] = [F("buur", 330, geb="vast", houd_vast=True), F("you", 1080, gebt=[(kw(12, "hi", -0.2), kw(12, "hi", 1.2), "zwaai")]),
+                     F("dad", 1300, pad=[(Z[21][0], 1300), (Z[21][0] + 1.6, 900)], gebt=[(tg - 0.3, tg + 0.3, ("hoek", -16, 20)), (tp - 0.2, tp + 0.8, ("hoek", -16, 10))]),
                      F("mom", 1580)]
         B["kauw"] = (tg, tp + 0.5)
         B["ster"] = [(kw(15, "Ding"), 1), (kw(17, "Two"), 2), (kw(19, "blink"), -2), (kw(19, "disappear"), 0)]
         B["politie"] = (kw(17, "police", -0.3), kw(19, "drives", -0.1))
         B["auto"] = Z[21][0]; B["radio"] = (kw(21, "radio", -0.1), Z[24][1] + 0.3)
-        B["kop"].append((kw(14, "four"), "x400", 560, 330, 110, "geel"))
+        B["kop"].append((kw(14, "four"), "x400", 560, 330, 110, "geel", Z[15][0]))
         B["kop"].append((kw(24, "every"), "EVERY CAR. SAME RADIO. FOREVER.", 960, 170, 64, "wit"))
     elif k == "winkel":
         ts = kw(26, "steps")
@@ -445,19 +446,19 @@ for B in BLOK:
         B["slang"] = True; B["grijs"] = kw(31, "gray", -0.2)
     elif k in ("zh1", "zh2"):
         wie = "you" if k == "zh1" else "dad"
-        B["figs"] = [F(wie, 760), F("zuster", 1000, s=1.3, y=815)]
-        B["kop"].append((kw(a, "Minus"), "-$100", 760, 330, 110, "rood"))
+        B["figs"] = [F(wie, 760), F("zuster", 1000, s=1.45, y=830)]
+        B["kop"].append((kw(a, "Minus"), "-$100", 540, 300, 110, "rood"))
         if k == "zh1":
             B["kop"] += [(kw(35, "next"), "RESPAWN #2", 960, 170, 70, "wit"), (kw(35, "after"), "RESPAWN #3", 960, 170, 70, "wit")]
             B["kaart"] = kw(36, "loyalty", -0.1)
         else: B["nat"] = True
     elif k == "garage":
         tin, tdicht, topen = kw(38, "drives"), kw(38, "closes"), kw(39, "opens")
-        B["car"] = dict(pad=[(Z[a][0], 380), (tin - 0.6, 560), (tin + 0.9, 985), (topen + 0.3, 985), (topen + 1.6, 1150)],
+        B["car"] = dict(pad=[(Z[a][0], 380), (tin - 0.6, 560), (tin + 0.9, 985), (topen + 0.3, 985), (topen + 1.6, 1050)],
                         tint=[(topen, 0.78), (kw(42, "orange"), 0.07), (kw(42, "green"), 0.33), (kw(42, "gold"), 0.13)],
                         dicht=(tin + 0.9, topen), ster=(Z[a][0], tdicht))
         B["politie"] = (Z[a][0], kw(39, "police", -0.2))
-        B["figs"] = [F("dad", 1560, zichtbaar=(Z[40][0] - 0.4, 99999)), F("mom", 1780, zichtbaar=(Z[41][0] - 0.6, 99999))]
+        B["figs"] = [F("dad", 1460, zichtbaar=(Z[40][0] - 0.4, 99999)), F("mom", 1690, zichtbaar=(Z[41][0] - 0.6, 99999))]
         B["kop"].append((kw(37, "three"), "+3 MPH", 960, 170, 90, "rood"))
     elif k in ("cheat", "cheat2"):
         B["figs"] = [F("you", 640, emo="blij" if k == "cheat2" else None), F("sis", 1000, geb="vast", houd_vast=True), F("mom", 1420)]
@@ -469,6 +470,9 @@ for B in BLOK:
             B["eendjes"] = kw(45, "raining", -0.2)
         else:
             B["eendjes"] = -99; B["afpak"] = kw(50, "remote", -0.2)
+            for p in B["figs"]:
+                if p["n"] == "mom": p["gebt"] = [(B["afpak"], 99999, "vast")]; p["houd_vast"] = True
+                if p["n"] == "sis": p["gebt"] = [(B["afpak"], 99999, None)]
     elif k == "eenden":
         B["figs"] = [F("buur", 330, emo="blij"), F("you", 1000), F("dad", 1300)]; B["regen"] = Z[a][0] - 0.1
     elif k == "kantoor1":
@@ -498,10 +502,10 @@ for B in BLOK:
         B["bron"] = kw(68, "2013")
     elif k == "strand":
         tj = kw(76, "rents", -0.1)
-        B["figs"] = [F("jogger", 0, s=1.25, y=880, rondje=0), F("jogger2", 0, s=1.25, y=880, rondje=0), F("jogger3", 0, s=1.25, y=880, rondje=0),
-                     F("mom", 760, y=1010), F("sis", 980, y=1010), F("you", 1200, y=1010), F("dad", 540, y=1010, zichtbaar=(-1, tj))]
+        B["figs"] = [F("jogger", 0, s=1.15, y=870, rondje=0), F("jogger2", 0, s=1.15, y=870, rondje=0), F("jogger3", 0, s=1.15, y=870, rondje=0),
+                     F("dad", 1200, s=1.4, y=1040, zichtbaar=(-1, tj)), F("mom", 1380, s=1.4, y=1040), F("sis", 1560, s=1.4, y=1040), F("you", 1740, s=1.4, y=1040)]
         B["jet"] = (tj, kw(76, "crashes", -0.1)); B["grijs"] = kw(76, "gray", -0.2)
-        B["kop"].append((kw(74, "six"), "6 HOURS", 1500, 400, 90, "geel"))
+        B["kop"].append((kw(74, "six"), "6 HOURS", 420, 330, 90, "geel"))
     elif k == "teddy":
         B["figs"] = [F("sis", 1200, pad=[(kw(81, "garden"), 1200), (kw(81, "roof"), 900), (kw(81, "shed"), 560), (kw(81, "Gary's", 0.4), 640)]),
                      F("buur", 1620, pad=[(Z[82][0] - 1.2, 2200), (Z[82][0] - 0.1, 1620)], emo="blij")]
@@ -517,8 +521,8 @@ for B in BLOK:
         B["kop"] += [(kw(84, "free"), "FREE FOOD", 960, 170, 100, "groen"), (kw(88, "respect"), "RESPECT: TOO LOW", 960, 170, 90, "rood")]
     elif k == "fiets":
         B["figs"] = [F("dad", 900, geb="vast", houd_vast=True, gebt=[(Z[92][0], 99999, None)])]
-        B["kop"] += [(kw(91, "Three"), "$312", 960, 150, 100, "groen"), (kw(91, "four"), "-4 HOSPITAL VISITS", 960, 260, 64, "rood"),
-                     (kw(91, "seven"), "-7 PAINT JOBS", 960, 345, 64, "rood"), (kw(91, "eleven"), "$11 LEFT", 960, 150, 100, "groen")]
+        B["kop"] += [(kw(91, "Three"), "$312", 960, 130, 100, "groen"), (kw(91, "four"), "-4 HOSPITAL VISITS", 960, 225, 64, "rood"),
+                     (kw(91, "seven"), "-7 PAINT JOBS", 960, 300, 64, "rood"), (kw(91, "eleven"), "$11 LEFT", 960, 130, 100, "groen")]
         B["fiets"] = kw(93, "bicycle", -0.1); B["ster"] = [(kw(95, "Ding"), 1)]; B["biljet"] = (Z[a][0], Z[92][0])
     elif k == "chaos":
         B["figs"] = [F("you", 820), F("dad", 1120)]; B["chaos"] = True
@@ -542,8 +546,8 @@ for B in BLOK:
         B["figs"] = [F("you", 1000)]
         B["weg"] = dict(pijl=kw(114, "arrow", 0.5), health=kw(114, "health", 0.6), map=kw(114, "map", 0.5))
     elif k == "eind":
-        B["figs"] = [F("you", 480, pad=[(Z[a][0], -150), (Z[a][0] + 1.1, 480)]), F("dad", 820, geb="vast", houd_vast=True), F("mom", 1120), F("sis", 1400),
-                     F("buur", 890, s=1.0, y=560, groen=True, clip=(700, 195, 1080, 430), zichtbaar=(kw(120, "Gary", -0.2), 99999), kijk=0.0)]
+        B["figs"] = [F("you", 480, pad=[(Z[a][0], -150), (Z[a][0] + 1.1, 480)]), F("dad", 820, geb="vast", houd_vast=True, gebt=[(Z[122][0] - 0.1, 99999, "hoofdhanden")]), F("mom", 1120), F("sis", 1400),
+                     F("buur", 890, s=1.0, y=640, groen=True, clip=(700, 195, 1080, 430), zichtbaar=(kw(120, "Gary", -0.2), 99999), kijk=0.0)]
         B["tafel"] = (650, 1620); B["tvaan"] = kw(118, "TV", -0.1); B["zombie"] = kw(118, "zombie", -0.1)
         B["kop"].append((kw(118, "zombie"), "UPDATE: ZOMBIE MODE", 960, 150, 84, "rood"))
 
@@ -564,7 +568,7 @@ TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 
 def joggers_x(n, t):
     o = {"jogger": 0.0, "jogger2": 0.7, "jogger3": 1.4}[n]; u = ((t / 7 + o / 7) % 1); f = 1 - abs(2 * u - 1)
-    return 260 + f * 1400, (1 if u < 0.5 else -1)
+    return 150 + f * 500, (1 if u < 0.5 else -1)
 POLITIE_X = (2300, 1500)
 
 # ---------- frame ----------
@@ -600,7 +604,7 @@ def frame(t):
     if k == "val": zet(img, "tuinslang", 80, 950, 985, op="gras")
     if k == "teddy":
         zet(img, "hondenhok", 230, 430, 905, op="gras")
-        gloed(img, 1700, 560, 120, sterk=0.6); zet(img, "teddy", 95, 1700, 600, op="gras")
+        gloed(img, 1700, 540, 150, sterk=0.6); zet(img, "teddy", 125, 1700, 600, op="gras")
     if k == "strand":
         for n_ in ("jogger", "jogger2", "jogger3"):
             jx, rr = joggers_x(n_, t)
@@ -608,7 +612,7 @@ def frame(t):
                 if p["n"] == n_: p["x"] = jx; p["kijk"] = 0.9 * rr; p["rondje"] = 0.0001
         tj, tc = B["jet"]
         if t >= tj:
-            f = min(1, (t - tj) / max(0.1, tc - tj)); jx = 520 + (1185 - 520) * f if t < tc else 1185
+            f = min(1, (t - tj) / max(0.1, tc - tj)); jx = 760 + (1185 - 760) * f if t < tc else 1185
             zet(img, "jetski", 105, jx, 705, op="zee")
             figs = [p for p in figs if p["n"] != "dad"]
             if t < tc + 0.3: figs.append(F("dad", jx - 10, s=0.62, y=668))
@@ -619,7 +623,7 @@ def frame(t):
             if j == 2: continue
             zet(img, "politieauto", 150 + j * 25, x, y_, op="weg", spiegel=v_ < 0); sirene(img, x, y_ - 150 - j * 25, t + j)
         zet(img, "politieauto", 190, 1650, 905, op="weg"); sirene(img, 1650, 715, t)
-    if k == "team" and B.get("stilauto"): zet(img, "politieauto", 190, 1500, 880, op="weg")
+    if k == "team" and B.get("stilauto"): zet(img, "politieauto", 190, 1760, 880, op="weg")
     if k == "cheat" or k == "cheat2":
         if t >= B["eendjes"]:
             for j in range(6):
@@ -663,7 +667,7 @@ def frame(t):
         if tg <= t < tp and kp("dad"):
             hx0, hy0, _ = rhand("dad", kp("dad")[3], kp("dad")[4], kp("dad")[5], 20); f = min(1, (t - tg) / 0.5)
             x_, y_ = hx0, hy0 + (975 - hy0) * f * f
-            WACHT.plaats("kauwgompapiertje", (x_ - 16, y_ - 10, x_ + 16, y_), op="weg" if f >= 1 else "hand:dad", punt=(hx0, hy0) if f < 1 else None)
+            WACHT.plaats("kauwgompapiertje", (x_ - 16, y_ - 10, x_ + 16, y_), op="weg" if f >= 1 else "aan:lucht")
             ImageDraw.Draw(img).rectangle((x_ - 16, y_ - 10, x_ + 16, y_), fill=(210, 215, 225), outline=INK, width=2)
         n_s, kn = 0, False
         for tt_, n_ in B["ster"]:
@@ -672,8 +676,8 @@ def frame(t):
     if k in ("dag1", "radio2") and B.get("radio"):
         r0, r1 = B["radio"]
         if r0 <= t < r1:
-            ballon(img, 760, 560, "SUPER SUCK 3000!", ps.pop((t - r0) / 0.3), naam="radio")
-            zet(img, "stofzuiger", 150, 1040, 600, op="beeld", naam="stofzuiger")
+            ballon(img, 620, 520, "SUPER SUCK 3000!", ps.pop((t - r0) / 0.3), naam="radio")
+            zet(img, "stofzuiger", 110, 620, 466, op="beeld", naam="stofzuiger")
     if k == "radio2": zet(img, "gezinsauto", 210, 620, 905, op="weg", naam="auto", tint=0.13)
     if k == "winkel":
         if t >= B["melk"] and kp("mom"): held(img, "melk", 90, "mom", kp("mom"), t)
@@ -691,7 +695,7 @@ def frame(t):
         wie = "dad" if t >= B["pizza_naar_dad"] else "boss"
         if kp(wie):
             if wie == "dad": figs_dad = True
-            held(img, "pizzadoos", 70, wie, kp(wie), t)
+            held(img, "pizzadoos", 95, wie, kp(wie), t)
     if k == "timer":
         k0, k1, k2 = B["klok"]
         if t >= k0:
@@ -699,12 +703,12 @@ def frame(t):
             timer(img, 960, 190, sec, rood=sec <= 0)
         tv_ = B["vlieg"]
         if kp("dad"):
-            if t < tv_: held(img, "pizzadoos", 70, "dad", kp("dad"), t)
+            if t < tv_: held(img, "pizzadoos", 95, "dad", kp("dad"), t)
             else:
                 f = min(1, (t - tv_) / 0.9); x0_ = 1180; x = x0_ + 520 * f; y = 820 - 380 * math.sin(math.pi * f) + (990 - 820) * f
                 WACHT.plaats("pizzadoos", (x - 50, y - 60, x + 50, y), op="weg" if f >= 1 else "aan:lucht")
                 s_ = sprite("pizzadoos", 60).rotate(-f * 400, expand=True); img.paste(s_, (int(x - s_.width / 2), int(y - s_.height)), s_)
-    if k == "kantoor2" and t >= B["pizza_dad"] and kp("dad"): held(img, "pizzadoos", 70, "dad", kp("dad"), t)
+    if k == "kantoor2" and t >= B["pizza_dad"] and kp("dad"): held(img, "pizzadoos", 95, "dad", kp("dad"), t)
     if k == "klas" and t >= B["pijl_teach"] and kp("teach"): pijl(img, kp("teach")[0], kp("teach")[1] - 110, t, 0.8, naam="pijl-juf")
     if k == "feit" and kp("dad"):
         hx, hy, S = rhand("dad", kp("dad")[3], kp("dad")[4], kp("dad")[5], -32)
@@ -726,7 +730,7 @@ def frame(t):
     if k == "team":
         if kp("buur"):
             hx, hy, _ = rhand("buur", kp("buur")[3], kp("buur")[4], kp("buur")[5], 70)
-            for j in range(3): zet(img, "pizzadoos", 50, hx, hy + 20 - j * 26, op="hand:buur", punt=(hx, hy), voor=True)
+            for j in range(3): zet(img, "pizzadoos", 70, hx, hy + 20 - j * 26, op="hand:buur" if j == 0 else "aan:pizzadoos", punt=(hx, hy) if j == 0 else None, voor=True)
         if kp("sis"):
             hx, hy, _ = rhand("sis", kp("sis")[3], kp("sis")[4], kp("sis")[5], 70); stopwatch(img, hx, hy, "sis", t * 5)
     if k == "wakker":
@@ -748,8 +752,9 @@ def frame(t):
         if B.get("kaart") is not None: kaart(img, t, B["kaart"])
         if B.get("bron") is not None and t >= B["bron"]:
             d2 = ImageDraw.Draw(img); s_ = "Source: Take-Two Interactive, 2013"; d2.text((40, 905), s_, font=font(FS, 30), fill=(255, 255, 255), stroke_width=4, stroke_fill=(0, 0, 0)); SCHERM.append(s_)
-        for st, s, x, y, m, kl in B["kop"]:
+        for st, s, x, y, m, kl, *eind_ in B["kop"]:
             later = [st2 for st2, s2, x2, y2, *_ in B["kop"] if (x2, y2) == (x, y) and st2 > st]
+            if eind_ and t >= eind_[0]: continue
             if t >= st and not (later and t >= min(later)): kop(img, s, x, y, m, KL[kl], ps.pop((t - st) / 0.3) if st >= 0 else 1.0)
         ondertitel(img, t)
     TW.zie(t, nu, voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
