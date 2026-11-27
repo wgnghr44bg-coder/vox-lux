@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MP3">
+<meta name="theme-color" content="#16131f">
+<title>MP3 maken</title>
+<style>
+:root {
+  --bg: #16131f; --card: #211c2e; --rand: #352d48; --tekst: #f1edf8; --zacht: #a79cbd;
+  --accent: #b77dff; --accent-tekst: #16131f; --goed: #6fd49a; --fout: #ff8a7a;
+  --radius: 14px; --font: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; background: var(--bg); color: var(--tekst); font: 17px/1.45 var(--font); overflow-x: clip; }
+main { max-width: 520px; margin: 0 auto; padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); display: grid; gap: 20px; }
+h1 { font-size: 1.7rem; margin: 8px 0 0; letter-spacing: -0.02em; }
+p { margin: 0; color: var(--zacht); }
+.kaart { background: var(--card); border: 1px solid var(--rand); border-radius: var(--radius); padding: 16px; display: grid; gap: 12px; }
+label { font-size: 0.9rem; color: var(--zacht); }
+.rij { display: flex; gap: 8px; }
+input { flex: 1; min-width: 0; font: inherit; color: var(--tekst); background: var(--bg); border: 1px solid var(--rand); border-radius: 10px; padding: 12px; }
+button, .knop { font: inherit; font-weight: 600; border: 0; border-radius: 10px; padding: 13px 16px; cursor: pointer; text-align: center; text-decoration: none; display: block; }
+.knop-hoofd { background: var(--accent); color: var(--accent-tekst); width: 100%; }
+.knop-tweede { background: var(--rand); color: var(--tekst); }
+button:disabled { opacity: 0.5; }
+button:focus-visible, .knop:focus-visible, input:focus-visible { outline: 3px solid var(--tekst); outline-offset: 2px; }
+#stand { min-height: 1.4em; }
+.goed { color: var(--goed); } .fout { color: var(--fout); }
+ol { margin: 0; padding-left: 20px; color: var(--zacht); display: grid; gap: 4px; font-size: 0.95rem; }
+.lijst { display: grid; gap: 8px; }
+.item { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+.item span { min-width: 0; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: no-preference) { button { transition: opacity 120ms; } }
+</style>
+</head>
+<body>
+<main>
+  <div>
+    <h1>MP3 maken</h1>
+    <p>Plak een TikTok- of YouTube-link. Je krijgt een mp3 voor je iPhone.</p>
+  </div>
+
+  <form class="kaart" id="vorm">
+    <label for="url">Link</label>
+    <div class="rij">
+      <input id="url" type="url" inputmode="url" autocomplete="off" autocapitalize="off" placeholder="https://…" required>
+      <button type="button" class="knop-tweede" id="plak">Plak</button>
+    </div>
+    <button class="knop-hoofd" id="maak">Maak mp3</button>
+    <div id="stand" role="status"></div>
+  </form>
+
+  <section class="kaart" id="klaarBlok" hidden>
+    <strong>Klaar</strong>
+    <div class="lijst" id="lijst"></div>
+  </section>
+
+  <section class="kaart">
+    <strong>Zo komt hij in Bestanden</strong>
+    <ol>
+      <li>Tik op <b>Bewaar</b> en daarna op <b>Download</b>.</li>
+      <li>Open de app <b>Bestanden</b> → <b>Downloads</b>.</li>
+      <li>Houd de mp3 ingedrukt → <b>Verplaats</b> naar een map naar keuze.</li>
+    </ol>
+    <p>Alleen voor eigen video's of muziek die je mag gebruiken. Bestanden blijven 1 uur op de pc.</p>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const stand = (t, c = "") => { $("stand").textContent = t; $("stand").className = c; };
+
+$("plak").addEventListener("click", async () => {
+  try { $("url").value = (await navigator.clipboard.readText()).trim(); }
+  catch { $("url").focus(); stand("Plakken lukt niet automatisch: houd het vak ingedrukt en kies Plak."); }
+});
+
+$("vorm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const url = $("url").value.trim();
+  if (!url) return;
+  $("maak").disabled = true;
+  stand("Bezig… dit duurt meestal 10 tot 60 seconden.");
+  try {
+    const r = await fetch("/maak", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.fout || "Er ging iets mis.");
+    let s;
+    for (;;) {
+      await new Promise(ok => setTimeout(ok, 2000));
+      s = await (await fetch("/stand/" + d.id)).json();
+      if (s.stand !== "bezig") break;
+    }
+    if (s.stand === "fout") throw new Error(s.fout);
+    stand("Klaar: " + s.titel, "goed");
+    const item = document.createElement("div");
+    item.className = "item";
+    const naam = document.createElement("span");
+    naam.textContent = s.titel;
+    const a = document.createElement("a");
+    a.className = "knop knop-hoofd"; a.style.width = "auto";
+    a.href = "/bestand/" + d.id; a.textContent = "Bewaar";
+    item.append(naam, a);
+    $("lijst").prepend(item);
+    $("klaarBlok").hidden = false;
+    $("url").value = "";
+  } catch (err) {
+    stand("Niet gelukt: " + err.message, "fout");
+  } finally {
+    $("maak").disabled = false;
+  }
+});
+</script>
+</body>
+</html>
