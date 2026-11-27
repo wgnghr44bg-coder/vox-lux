@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 05:03",
+ "bijgewerkt": "2026-11-27 05:33",
  "kanalen": {
   "weken": [
    {
@@ -2175,7 +2175,7 @@
    {
     "wat": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
     "map": "blackbeard-1718",
-    "detail": "Beelden maken · 99%",
+    "detail": "Onderwerp & planning",
     "soort": "nu"
    }
   ],
@@ -2393,7 +2393,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 05:03)"
+   "tekst": "draait nu (2026-11-27 05:33)"
   },
   {
    "naam": "Git",
@@ -2413,7 +2413,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 04:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2430,8 +2430,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 05:03",
-   "volgende": "2026-11-27 05:33"
+   "laatst": "2026-11-27 05:33",
+   "volgende": "2026-11-27 06:03"
   },
   "hype": {
    "aan": true,
@@ -2441,17 +2441,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 05:10"
+   "volgende": "2026-11-27 06:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 04:48",
-   "volgende": "2026-11-27 05:18"
+   "laatst": "2026-11-27 05:18",
+   "volgende": "2026-11-27 05:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 03:25",
-   "volgende": "2026-11-27 05:25"
+   "laatst": "2026-11-27 05:25",
+   "volgende": "2026-11-27 07:25"
   }
  },
  "kanaal": {
@@ -2557,7 +2557,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1313,
+    "views": 1301,
     "verwerkt": "processed"
    }
   ],
@@ -2766,19 +2766,19 @@
   "Controles",
   "YouTube upload"
  ],
- "stap": 2,
+ "stap": 0,
  "huidig": {
   "map": "blackbeard-1718",
   "titel": "Life Aboard Blackbeard's Pirate Ship, 1718 | History for Sleep",
   "datum": "2027-08-14",
   "thumb": "thumbs/blackbeard-1718.jpg",
-  "stap": 2,
-  "stapnaam": "Beelden maken",
-  "voortgang": 99,
-  "detail": "84 van 84 beelden",
+  "stap": 0,
+  "stapnaam": "Onderwerp & planning",
+  "voortgang": null,
+  "detail": "",
   "taken": [
    "routine zonder Claude",
-   "beelden maken (ComfyUI)"
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2788,13 +2788,13 @@
    "stap": 0
   },
   {
-   "naam": "beelden maken (ComfyUI)",
-   "stap": 2
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 98,
-  "geheugen_mb": 7002,
+  "bezig_procent": 39,
+  "geheugen_mb": 7906,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2967,8 +2967,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 05:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 04:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 05:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4909,7 +4909,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 03:25",
+  "bijgewerkt": "2026-11-27 05:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -5047,23 +5047,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 05:06",
+  "bijgewerkt": "2026-11-27 05:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 2114893,
-    "week": 89799452,
+    "5uur": 2895542,
+    "week": 90580101,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Fri 27-11": 2114893
+     "Fri 27-11": 2895542
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 39585,
+    "stap_kost": 40018,
     "naam": "hoofd",
     "week_reset": ""
    },
