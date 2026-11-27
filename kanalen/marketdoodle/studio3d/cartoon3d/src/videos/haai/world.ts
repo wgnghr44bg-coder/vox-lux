@@ -10,7 +10,9 @@ import { TONE, CHAR, untone } from "../bridge/shade";
 import { NOINK } from "../bridge/ink";
 import { cardShade, blobMaterial, CARD_K } from "../bridge/cardshade";
 import { drawShark, drawBlob, drawSplinters, drawZzz, drawSchoolSign, drawCrumbs } from "./figures";
-import { mondOp } from "./lipsync";
+import { visOp } from "./lipsync";
+import { oud } from "./oud";
+import { HAAI_PX, MENS_PX } from "./oudmaat";
 import { FPS, shotAt, camAt, sharkAt, KID_IN, KID_OUT, KID_BEACH, T_DEUR, T_BONK, T_NOBODY, T_HAP, T_SLOK, T_IN, T_UIT, T_KEER, T_LAMP, KX, BX, AX, sisAt, bullyAt, DAD_POS, V3, smooth, clamp01 } from "./story";
 
 // ---------------- kaartjes ----------------
@@ -205,11 +207,12 @@ export class World {
       m.castShadow = true; m.receiveShadow = true; R.add(m); this.door.push(m);
     }
     // ---- cast ----
-    this.shark = new Card(R, 1100 * 0.0024, 1000 * 0.0024, 25 * 0.0024);
+    const PXM = 0.0026; // meter per pixel van de oude plaatjes (haai 2 m in 2D -> 2,6 m hier)
+    this.shark = new Card(R, HAAI_PX.w * PXM, HAAI_PX.h * PXM, (HAAI_PX.h - HAAI_PX.voet) * PXM);
     const blobT = cardTex("blob", 600, 200, 1, drawBlob);
     const mkBlob = (w: number) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, w / 3).rotateX(-Math.PI / 2), blobMaterial(blobT)); m.layers.set(NOINK); m.renderOrder = 0.5; R.add(m); return m; };
     this.sharkBlob = mkBlob(2.4);
-    for (let i = 0; i < 5; i++) { const sc = i === 4 ? 0.0021 : i === 0 ? 0.00175 : 0.0016; this.people.push([new Card(R, 600 * sc, 1000 * sc, 25 * sc), mkBlob(0.7)]); }
+    for (let i = 0; i < 5; i++) this.people.push([new Card(R, MENS_PX.w * PXM, MENS_PX.h * PXM, (MENS_PX.h - MENS_PX.voet) * PXM), mkBlob(0.7)]);
     for (let i = 0; i < 3; i++) this.fx.push(new Card(R, 1, 1, 0, false));
     this.buildPlaces(R);
   }
@@ -249,47 +252,44 @@ export class World {
       }
     });
 
-    // ---- haai ----
+    // ---- haai (oude stijl: het haai-plaatje met grijze benen en rode sneakers) ----
     const sh = sharkAt(t, s);
     const right = V(0, 0, 0).setFromMatrixColumn(cam.matrixWorld, 0);
     const mirror = V(...sh.dir).dot(right) < -0.05;
-    const blink = (t % 2.6) > 2.45 && s.id !== 4 && s.id !== 1 && sh.look !== "sleep" ? 1 : 0;
-    const squash = shakeK > 0.3 && t < T_DEUR ? 0.4 : 0;
-    const ph = Math.round(sh.phase * 24) / 24, wq = Math.round(sh.walk * 10) / 10, aq = Math.round(sh.arm * 12) / 12;
-    const cq = Math.round(sh.chomp * 6) / 6, sv = sh.shiver ? Math.round(sh.shiver * 30) % 8 : 0;
-    const close = [2, 3, 4, 12, 18].includes(s.id) ? 2 : 1.3;
-    const sT = cardTex(`shark|${ph}|${wq}|${aq}|${sh.look}|${blink}|${squash}|${close}|${cq}|${sv}`, 1100, 1000, close,
-      (p) => drawShark(p, { phase: ph, walk: wq, arm: aq, look: sh.look, blink, squash, chomp: cq, shiver: sv ? sv / 8 + 0.01 : 0 }));
+    const oog = sh.look === "sleep" ? "slaap" : sh.look === "scared" ? "bang" : "gewoon";
+    const sT = sh.walk > 0.5 ? oud(`haai_loop${Math.round(sh.phase * 16) % 16}_${oog === "slaap" ? "gewoon" : oog}`) : oud(`haai_stil_${oog}`);
     const showShark = !(s.id === 6 && t < T_DEUR - 0.05);
-    this.shark.set(sT, sh.pos, cam.position, mirror);
+    const shx = sh.shiver ? Math.sin(t * 45) * 0.025 : 0;
+    this.shark.set(sT, [sh.pos[0] + shx, sh.pos[1], sh.pos[2]], cam.position, mirror);
+    this.shark.mesh.scale.y = 1 - 0.07 * sh.chomp + (shakeK > 0.3 && t < T_DEUR ? -0.05 : 0);
     this.shark.mesh.visible = showShark;
     this.sharkBlob.position.set(sh.pos[0] + 0.15, 0.05, sh.pos[2]); this.sharkBlob.visible = showShark && sh.pos[1] > -0.05 && s.place !== "bad";
     this.sharkBlob.rotation.y = Math.atan2(cam.position.x - sh.pos[0], cam.position.z - sh.pos[2]);
 
-    // ---- mensen (bodyFront-kaartjes, lipsync op hun eigen zinnen) ----
+    // ---- mensen (oude pop_short-poppetjes, lipsync op hun eigen zinnen) ----
     const blinkOf = (k: number) => ((t + k * 0.7) % 3.1) > 2.95;
-    const person = (c: Card, blob: THREE.Mesh, o: Outfit, key: string, pos: V3, opts: { expr: Expr; facing: -1 | 0 | 1; mode?: "stand" | "stroll"; phase?: number; wave?: number; zinnen?: number[]; k?: number }) => {
-      const m = opts.zinnen ? mondOp(t, opts.zinnen) : null;
-      const ph2 = opts.mode === "stroll" ? Math.round((opts.phase ?? 0) * 16) / 16 : 0, bl = blinkOf(opts.k ?? 0);
-      const tx = cardTex(`${key}|${opts.expr}|${opts.facing}|${bl}|${m}|${ph2}|${opts.wave ?? 0}`, 600, 1000, 1.6, (p) => {
-        LIP.m = m; bodyFront(p, o, { mode: opts.mode ?? "stand", phase: ph2, expr: opts.expr, facing: opts.facing as any, blink: bl, light: -2.1, seed: opts.k ?? 3, wave: opts.wave ?? 0 }); LIP.m = null; });
-      c.set(tx, pos, cam.position, false);
+    const person = (c: Card, blob: THREE.Mesh, naam: string, pos: V3, o: { g?: string; verb?: boolean; loop?: number; zinnen?: number[]; k?: number }) => {
+      const vis = o.zinnen ? visOp(t, o.zinnen) : null, verb = o.verb ? 1 : 0;
+      const key = o.loop !== undefined ? `${naam}_loop${Math.round(o.loop * 16) % 16}_${verb}`
+        : `${naam}_${o.g ?? "none"}_${verb}_${!vis && blinkOf(o.k ?? 0) ? 1 : 0}_${vis ?? "x"}`;
+      c.set(oud(key), pos, cam.position, false);
       blob.position.set(pos[0], 0.05, pos[2]); blob.visible = true;
     };
     for (const [c, b] of this.people) { c.mesh.visible = false; b.visible = false; }
     const [kidC, sisC, b1C, b2C, dadC] = this.people;
-    if (s.id === 5) person(kidC[0], kidC[1], YOU, "kid", KID_IN, { expr: "smile_closed", facing: -1, wave: t > 6.2 && t < 7.0 ? 1 : 0, zinnen: [1] });
-    if (s.id === 6) person(kidC[0], kidC[1], YOU, "kid", KID_OUT, { expr: t > T_DEUR ? "shock" : t > T_BONK[0] ? "nervous" : "neutral", facing: -1 });
+    const zwaai = `zwaai${Math.floor(t * 12) % 4}`;
+    if (s.id === 5) person(kidC[0], kidC[1], "you", KID_IN, { g: t > 6.2 && t < 7.0 ? zwaai : "none", zinnen: [1] });
+    if (s.id === 6) person(kidC[0], kidC[1], "you", KID_OUT, { g: t > T_DEUR ? "schrik" : "none", verb: t > T_BONK[0] });
     if (s.place === "straat") {
-      const walking = t < 16.9;
-      person(sisC[0], sisC[1], SIS, "sis", sisAt(t), { expr: s.id === 9 ? "grin" : "smile", facing: s.id === 9 ? -1 : 1, mode: walking ? "stroll" : "stand", phase: (t / 0.9) % 1, zinnen: [4], k: 5 });
+      if (t < 16.9) person(sisC[0], sisC[1], "sis", sisAt(t), { loop: (t / 0.9) % 1 });
+      else person(sisC[0], sisC[1], "sis", sisAt(t), { g: `juich${Math.floor(t * 8) % 2}`, zinnen: [4], k: 5 });
       [b1C, b2C].forEach((c, i) => {
         const run = t > T_NOBODY + 0.55 + i * 0.12;
-        person(c[0], c[1], BULLIES[i], "bully" + i, bullyAt(i, t), { expr: t > T_NOBODY + 0.2 ? "shock" : "stern", facing: run ? 1 : -1, mode: run ? "stroll" : "stand", phase: (t / 0.45) % 1, k: 7 + i });
+        person(c[0], c[1], i ? "rich" : "friend", bullyAt(i, t), run ? { loop: (t / 0.45) % 1, verb: true } : { verb: t > T_NOBODY + 0.2, k: 7 + i });
       });
     }
-    if (s.place === "keuken" && s.id >= 12) person(dadC[0], dadC[1], DAD, "dad", DAD_POS, { expr: t > T_HAP[0] + 0.1 ? "shock" : "neutral", facing: 1, zinnen: [6], k: 9 });
-    if (s.place === "strand") person(kidC[0], kidC[1], YOU, "kidb", KID_BEACH, { expr: t > T_KEER ? (s.id === 16 ? "nervous" : "shock") : "smile", facing: -1, zinnen: [8] });
+    if (s.place === "keuken" && s.id >= 12) person(dadC[0], dadC[1], "dad", DAD_POS, { g: s.id === 13 ? "armen-open" : t > T_HAP[0] + 0.1 ? "hoofdhanden" : "none", verb: t > T_HAP[0] + 0.1, zinnen: [6], k: 9 });
+    if (s.place === "strand") person(kidC[0], kidC[1], "you", KID_BEACH, { g: s.id === 15 && t > T_KEER ? "schrik" : "none", verb: s.id === 15 && t > T_KEER, zinnen: [8] });
 
     // ---- keuken: koelkast wordt in drie happen opgegeten ----
     const bites = T_HAP.filter((th) => t >= th + 0.06).length;

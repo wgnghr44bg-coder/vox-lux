@@ -28,3 +28,8 @@ export const mondOp = (t: number, zinnen: number[]): string | null => {
   const v = TL.find(([a, b, , z]) => zinnen.includes(z) && t >= a && t < b);
   return v ? MOND[v[2]] : null;
 };
+/** klank-letter (A/E/O/U/M/F/L) voor de oude poppetjes, of null */
+export const visOp = (t: number, zinnen: number[]): string | null => {
+  const v = TL.find(([a, b, , z]) => zinnen.includes(z) && t >= a && t < b);
+  return v ? v[2] : null;
+};

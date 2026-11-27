@@ -1,8 +1,9 @@
 // Haai-proef in de cartoon-3d-short stijl: één three.js-wereld per frame, post-keten van de skill
 // (inkt -> lensblur -> bloom -> NEUTRAL tone map -> grade), plus onze eigen ondertitels (Market Doodle-regel).
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, useCurrentFrame, delayRender, continueRender } from "remotion";
+import { laadOud } from "./oud";
 import { ThreeCanvas } from "@remotion/three";
 import { useThree } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
@@ -83,6 +84,10 @@ const Captions: React.FC<{ t: number }> = ({ t }) => {
 
 export const HaaiShort: React.FC = () => {
   const f = useCurrentFrame();
+  const [klaar, setKlaar] = useState(false);
+  const [h] = useState(() => delayRender("oude figuren"));
+  useEffect(() => { laadOud().then(() => { setKlaar(true); continueRender(h); }); }, [h]);
+  if (!klaar) return null;
   const flash = f >= FLASH_AT && f < FLASH_AT + 4 ? [0.7, 0.5, 0.3, 0.12][f - FLASH_AT] : 0;
   return (
     <AbsoluteFill style={{ background: "#cfe3f2" }}>
