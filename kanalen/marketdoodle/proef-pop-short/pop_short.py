@@ -51,8 +51,21 @@ C = {
 }
 SPREKER = {"DAD": "dad", "SIS": "sis", "TEACH": "teach"}
 
+BEWEGEN = False                                                            # 27 nov (eigenaar: "kun je ook iets maken voor de bewegingen"): renderer zet ps.BEWEGEN = True
+_VEER = {}                                                                 # per poppetje: (t, links, rechts, v_links, v_rechts)
+def _veer(sleutel, t, links, rechts):
+    """Armen veren soepel naar de nieuwe houding (lichte overshoot) i.p.v. in één beeldje te springen."""
+    oud = _VEER.get(sleutel)
+    if oud is None or not (0 < t - oud[0] < 0.25):                         # eerste beeld of een sprong in de tijd: meteen goed
+        _VEER[sleutel] = (t, links, rechts, 0.0, 0.0); return links, rechts
+    dt = t - oud[0]; uit = []; k, c = 170.0, 17.0                          # veer (iets onder kritisch gedempt -> kleine overshoot)
+    for pos, v, doel in ((oud[1], oud[3], links), (oud[2], oud[4], rechts)):
+        for _ in range(4):                                                 # in kleine stapjes, stabiel
+            h = dt / 4; acc = k * (doel - pos) - c * v; v += acc * h; pos += v * h
+        uit.append((pos, v))
+    _VEER[sleutel] = (t, uit[0][0], uit[1][0], uit[0][1], uit[1][1]); return uit[0][0], uit[1][0]
 LIPSYNC = None                                                             # 27 nov (eigenaar: "zet dit er maar vast in"): renderer zet ps.LIPSYNC = Lipsync(woorden)
-def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, verbaasd=False, gebaar=None, boos=False, viseem=None):
+def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, verbaasd=False, gebaar=None, boos=False, viseem=None, sleutel=None, bewegen=None):
     kl = C[naam]; s *= kl.get("groot", 1.0)
     bob = abs(math.sin(loop * math.pi)) * 6 * s if loop is not None else math.sin(t * 2.2 + x) * 1.5 * s
     if gebaar == "stamp": bob = abs(math.sin(t * 14)) * 10 * s
@@ -107,6 +120,10 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     elif gebaar == "armen-open": links, rechts = -75, 75                                                      # 'wat?!' / uitleggen
     elif gebaar == "rennen": links, rechts = -16 - zw * 1.6, 16 + zw * 1.6                                    # armen zwaaien hard (met loop=)
     elif gebaar in ("knik", "nee"): pass                                                                      # alleen het hoofd beweegt
+    beweeg = BEWEGEN if bewegen is None else bewegen
+    if beweeg:                                                                                # 27 nov: levendiger bewegen
+        if gebaar is None and loop is None: links += 3 * math.sin(t * 1.3 + x * 0.01); rechts -= 3 * math.sin(t * 1.3 + x * 0.01 + 0.6)   # ademen
+        if gebaar != "heupen": links, rechts = _veer(sleutel or naam, t, links, rechts)
     na_hoofd = gebaar in ("denk", "facepalm", "hoofdhanden")                               # 24 nov: hand vóór het gezicht -> na het hoofd tekenen
     for kant, h in ((-1, links), (1, rechts)):
         if gebaar == "heupen":                                             # 24 nov: ellebogen naar buiten, handen op de heupen
@@ -126,6 +143,10 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
             continue
         ledemaat(d, x + kant * 44 * s, sch, h, 82 * s, 22 * s, kl["shirt"], (12 * s, HUID))
     hx, hy = x, top - hoofd * 0.82
+    if beweeg:
+        if mond > 0.1 and gebaar not in ("knik", "nee"):                   # wie praat, knikt en beweegt het hoofd een beetje mee
+            hy += math.sin(t * 6.5) * 3.0 * s * min(1.0, mond + 0.3); hx += math.sin(t * 3.1 + 1) * 2.0 * s
+        if loop is not None: hx += (1 if kijk >= 0 else -1) * 5 * s       # lopen: iets naar voren leunen
     if gebaar == "knik": hy += abs(math.sin(t * 7)) * 6 * s                                                   # 24 nov: ja knikken
     kap = kl["kapsel"]; hk = kl["haar"]; lw = int(4 * s * SS)
     if kap == "paard": d.ellipse([P(hx + hoofd * 0.55, hy - 10 * s), P(hx + hoofd * 1.15, hy + 75 * s)], fill=hk, outline=LIJN, width=lw)
