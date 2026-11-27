@@ -44,6 +44,7 @@ def _script_woorden():
         uit += [[i, w, round(t0s[q], 2), round(t1s[q], 2)] for q, w in enumerate(sw)]
     return uit
 SW = _script_woorden()
+from lipsync import Lipsync; ps.LIPSYNC = Lipsync(SW)                  # 27 nov: lip sync vast in elke nieuwe video
 EIND = Z[-1][1] + 0.7                                      # kort: de laatste zin loopt terug naar de eerste (loop)
 AUD, SR = sf.read(HIER / "stem.wav", dtype="float32")
 if AUD.ndim > 1: AUD = AUD.mean(axis=1)

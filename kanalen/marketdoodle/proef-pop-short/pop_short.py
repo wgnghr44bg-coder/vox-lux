@@ -51,6 +51,7 @@ C = {
 }
 SPREKER = {"DAD": "dad", "SIS": "sis", "TEACH": "teach"}
 
+LIPSYNC = None                                                             # 27 nov (eigenaar: "zet dit er maar vast in"): renderer zet ps.LIPSYNC = Lipsync(woorden)
 def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, verbaasd=False, gebaar=None, boos=False, viseem=None):
     kl = C[naam]; s *= kl.get("groot", 1.0)
     bob = abs(math.sin(loop * math.pi)) * 6 * s if loop is not None else math.sin(t * 2.2 + x) * 1.5 * s
@@ -173,14 +174,15 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
         d.line([P(hx - 5 * s + ox, hy + oy - 2 * s), P(hx + 5 * s + ox, hy + oy - 2 * s)], fill=LIJN, width=lw)
     mx, my = hx + ox * 0.6, hy + 32 * s
     if kl.get("baard"): d.chord([P(hx - hoofd + 2 * s, hy - hoofd * 0.2), P(hx + hoofd - 2 * s, hy + hoofd + 14 * s)], 0, 180, fill=kl["haar"], outline=LIJN, width=lw)
+    if viseem is None and LIPSYNC is not None and mond > 0.05: viseem = LIPSYNC.viseem(t)   # wie praat krijgt vanzelf lip sync
     if viseem is not None:                                                 # 27 nov: lip sync, mondvorm per klank (tools/lipsync.py)
         ow = int(3 * s * SS); g = 0.75 + 0.5 * min(1.0, mond)
-        if viseem == "M": d.line([P(mx - 12 * s, my), P(mx + 12 * s, my)], fill=LIJN, width=int(4 * s * SS))
+        if viseem == "M": d.line([P(mx - 14 * s, my), P(mx + 14 * s, my)], fill=LIJN, width=int(5 * s * SS))
         elif viseem == "F":
             d.rounded_rectangle([P(mx - 12 * s, my - 4 * s), P(mx + 12 * s, my + 4 * s)], int(3 * s * SS), fill=MONDK, outline=LIJN, width=ow)
             d.rectangle([P(mx - 8 * s, my - 4 * s), P(mx + 8 * s, my)], fill=(250, 250, 250))
         else:
-            bw, bh = {"A": (12, 19), "E": (15, 8), "O": (9, 13), "U": (6, 7), "L": (11, 11)}[viseem]; bh *= g
+            bw, bh = {"A": (14, 23), "E": (18, 10), "O": (11, 16), "U": (7, 9), "L": (13, 13)}[viseem]; bh *= g        # iets groter: ook op een telefoon zichtbaar
             d.ellipse([P(mx - bw * s, my - bh / 2 * s), P(mx + bw * s, my + bh / 2 * s)], fill=MONDK, outline=LIJN, width=ow)
             if viseem in ("A", "E"): d.chord([P(mx - bw * 0.8 * s, my - bh / 2 * s + 2 * s), P(mx + bw * 0.8 * s, my - bh / 2 * s + 9 * s)], 0, 180, fill=(250, 250, 250))
             if viseem in ("A", "L"): d.chord([P(mx - bw * 0.6 * s, my + bh / 2 * s - 8 * s), P(mx + bw * 0.6 * s, my + bh / 2 * s - 1 * s)], 180, 360, fill=(230, 110, 120))
