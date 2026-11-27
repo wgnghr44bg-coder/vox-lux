@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 21:03",
+ "bijgewerkt": "2026-11-27 21:33",
  "kanalen": {
   "weken": [
    {
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 21:03)"
+   "tekst": "draait nu (2026-11-27 21:33)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 21:03",
-   "volgende": "2026-11-27 21:33"
+   "laatst": "2026-11-27 21:33",
+   "volgende": "2026-11-27 22:03"
   },
   "hype": {
    "aan": true,
@@ -2292,17 +2292,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 21:10"
+   "volgende": "2026-11-27 22:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 20:48",
-   "volgende": "2026-11-27 21:18"
+   "laatst": "2026-11-27 21:18",
+   "volgende": "2026-11-27 21:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 19:25",
-   "volgende": "2026-11-27 21:25"
+   "laatst": "2026-11-27 21:25",
+   "volgende": "2026-11-27 23:25"
   }
  },
  "kanaal": {
@@ -2408,7 +2408,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1382,
+    "views": 1377,
     "verwerkt": "processed"
    }
   ],
@@ -2633,7 +2633,9 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "video renderen (Remotion)",
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2641,11 +2643,19 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "video renderen (Remotion)",
+   "stap": -1
+  },
+  {
+   "naam": "video samenvoegen (ffmpeg)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 643,
+  "bezig_procent": 15,
+  "geheugen_mb": 616,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2818,8 +2828,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 21:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 21:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 21:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4743,7 +4753,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 19:25",
+  "bijgewerkt": "2026-11-27 21:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4881,32 +4891,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 21:04",
+  "bijgewerkt": "2026-11-27 21:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 15928675,
-    "week": 127810674,
+    "5uur": 17893917,
+    "week": 129775916,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 40126115,
+     "Fri 27-11": 42091357,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 64079,
+    "stap_kost": 63920,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 143489766,
+    "week": 142179379,
     "per_dag": {
-     "Fri 20-11": 3858460,
+     "Fri 20-11": 2548073,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
@@ -4920,7 +4930,7 @@
     "5uur_pct": 0,
     "5uur_scripts_over": null,
     "5uur_stappen_over": null,
-    "week_pct": 109,
+    "week_pct": 108,
     "week_scripts_over": null,
     "week_stappen_over": null
    }
