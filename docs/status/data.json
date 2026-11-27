@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 09:03",
+ "bijgewerkt": "2026-11-27 09:33",
  "kanalen": {
   "weken": [
    {
@@ -315,7 +315,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-27 08:00",
+  "bijgewerkt": "2026-11-27 09:21",
   "markt": [
    {
     "naam": "S&P 500",
@@ -403,19 +403,19 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 2.1,
+    "pct": 2.3,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 2.7,
+    "pct": 3.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 4.0,
+    "pct": 4.5,
     "groot": true,
     "grens": 4
    }
@@ -423,15 +423,15 @@
   "onderwerpen": [
    {
     "onderwerp": "Goud",
-    "punten": 10,
+    "punten": 5,
     "bronnen": [
      "koers"
     ],
     "wat": [
-     "+4.0% op één dag"
+     "+4.5% op één dag (geen nieuws erover)"
     ],
     "koppen": [],
-    "groot": true
+    "groot": false
    },
    {
     "onderwerp": "Nvidia",
@@ -457,10 +457,8 @@
     "groot": false
    }
   ],
-  "groot": [
-   "Goud"
-  ],
-  "aantal_koppen": 88
+  "groot": [],
+  "aantal_koppen": 86
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-27 08:10",
@@ -1914,7 +1912,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 09:03)"
+   "tekst": "draait nu (2026-11-27 09:33)"
   },
   {
    "naam": "Git",
@@ -1934,7 +1932,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 09:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1951,8 +1949,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 09:03",
-   "volgende": "2026-11-27 09:33"
+   "laatst": "2026-11-27 09:33",
+   "volgende": "2026-11-27 10:03"
   },
   "hype": {
    "aan": true,
@@ -1962,17 +1960,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 09:10"
+   "volgende": "2026-11-27 10:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 08:48",
-   "volgende": "2026-11-27 09:18"
+   "laatst": "2026-11-27 09:18",
+   "volgende": "2026-11-27 09:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 07:25",
-   "volgende": "2026-11-27 09:25"
+   "laatst": "2026-11-27 09:25",
+   "volgende": "2026-11-27 11:25"
   }
  },
  "kanaal": {
@@ -2078,7 +2076,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1330,
+    "views": 1349,
     "verwerkt": "processed"
    }
   ],
@@ -2298,7 +2296,8 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "stem inspreken (OmniVoice)"
   ],
   "eind": null
  },
@@ -2306,11 +2305,15 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 25,
-  "geheugen_mb": 604,
+  "bezig_procent": 39,
+  "geheugen_mb": 6861,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2483,8 +2486,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 09:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 09:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 09:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4415,7 +4418,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 08:30",
+  "bijgewerkt": "2026-11-27 09:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4553,32 +4556,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 09:03",
+  "bijgewerkt": "2026-11-27 09:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6315268,
-    "week": 93999827,
+    "5uur": 7196757,
+    "week": 95305346,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
+     "Fri 27-11": 7620787,
      "Sat 21-11": 3044501,
-     "Sun 22-11": 4647735,
-     "Fri 27-11": 6315268
+     "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 42580,
+    "stap_kost": 42988,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 162164566,
+    "week": 161681136,
     "per_dag": {
-     "Fri 20-11": 22533259,
+     "Fri 20-11": 22049829,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
@@ -4592,7 +4595,7 @@
     "5uur_pct": 0,
     "5uur_scripts_over": null,
     "5uur_stappen_over": null,
-    "week_pct": 123,
+    "week_pct": 122,
     "week_scripts_over": null,
     "week_stappen_over": null
    }
