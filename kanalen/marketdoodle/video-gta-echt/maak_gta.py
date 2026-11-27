@@ -240,7 +240,7 @@ def teken_figuren(img, figs, t, nu):
         if sp == n and nu is not None:
             g2 = next((g for s_, g in ACTIE.items() if tekst_nu.startswith(s_)), None)
             if g2 and not (geb == "vast" and p.get("houd_vast")): geb = g2
-        if loopt and geb not in ("vast", "telefoon"): geb = "rennen"
+        if (loopt or p.get("rondje")) and geb not in ("vast", "telefoon"): geb = "rennen"
         emo = emotie(t, nu) if (sp == n or n in ("you", "dad", "mom", "sis")) and nu is not None and (sp == n or Z[nu][4] == "N") else None
         if p.get("emo"): emo = p["emo"]
         verb, boos = emo == "schrik", emo == "verdriet"
@@ -264,6 +264,7 @@ def teken_figuren(img, figs, t, nu):
             hoek = p["val"](t)
             if hoek: L = L.rotate(-hoek, resample=Image.BICUBIC, center=(x, p["y"]))
             n = p["n"]
+            if hoek > 20: GEB[n] = "val"
             if hoek > 30: GEZ.pop(n, None)                 # ligt: gezicht ligt niet meer op de plek van het hoofd
         if p.get("clip"):
             m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).rectangle(p["clip"], fill=255)
@@ -343,6 +344,19 @@ def ballon(img, x, y, tekst, sch=1.0, naam="ballon"):
     d.rounded_rectangle((x - w / 2 - 26, y - 44 * sch, x + w / 2 + 26, y + 34 * sch), 26, fill=(255, 255, 255), outline=INK, width=5)
     d.polygon([(x - 30, y + 30 * sch), (x - 70, y + 80 * sch), (x + 5, y + 32 * sch)], fill=(255, 255, 255), outline=INK)
     d.text((x - w / 2, y - 30 * sch), tekst, font=f, fill=INK)
+def radioballon(img, x, y, t, sch=1.0):                    # reclame op de autoradio: radio-icoon + tekst, golfjes uit de auto
+    d = ImageDraw.Draw(img); f = font(FB, int(40 * sch)); tekst = "RADIO: SUPER SUCK 3000!"; w = d.textlength(tekst, font=f) + 70 * sch
+    WACHT.plaats("radio", (x - w / 2 - 26, y - 44 * sch, x + w / 2 + 26, y + 34 * sch), op="beeld"); SCHERM.append(tekst)
+    d.rounded_rectangle((x - w / 2 - 26, y - 44 * sch, x + w / 2 + 26, y + 34 * sch), 26, fill=(255, 255, 255), outline=INK, width=5)
+    d.polygon([(x - 30, y + 30 * sch), (x - 10, y + 95 * sch), (x + 15, y + 32 * sch)], fill=(255, 255, 255), outline=INK)
+    rx = x - w / 2 + 8; ry = y - 22 * sch; rw, rh = 56 * sch, 40 * sch                     # radio-icoontje
+    d.line((rx + rw * 0.7, ry, rx + rw * 0.95, ry - 22 * sch), fill=INK, width=4)
+    d.rounded_rectangle((rx, ry, rx + rw, ry + rh), 8, fill=(220, 70, 60), outline=INK, width=3)
+    d.ellipse((rx + 6 * sch, ry + 8 * sch, rx + 30 * sch, ry + 32 * sch), fill=(60, 60, 70), outline=INK, width=2)
+    for k in range(3): d.line((rx + 36 * sch, ry + (10 + k * 9) * sch, rx + 50 * sch, ry + (10 + k * 9) * sch), fill=(255, 255, 255), width=3)
+    d.text((rx + rw + 14 * sch, y - 28 * sch), tekst, font=f, fill=INK)
+    for k in range(3):                                                                          # geluidsgolfjes boven de auto
+        r = 30 + k * 26 + (t * 60) % 26; d.arc((x - r, y + 150 - r, x + r, y + 150 + r), 200, 340, fill=(255, 255, 255), width=5)
 def cirkel(img, cx, cy, t):                                # gele missiecirkel op de vloer
     gloed(img, cx, cy - 30, 190, sterk=0.5); d = ImageDraw.Draw(img); p = 1 + 0.06 * math.sin(t * 5)
     WACHT.plaats("cirkel", (cx - 150, cy - 40, cx + 150, cy + 40), op="vloer")
@@ -450,6 +464,12 @@ def held(img, item, h, n, k, t, hoek=70, naam=None):      # voorwerp in de recht
 # ---------- per blok: figuren en momenten ----------
 def V(t0, dur, a, b, extra=None):                          # val-hoek: 0 -> b graden in dur seconden vanaf t0
     return lambda t: 0 if t < t0 else min(1, (t - t0) / dur) * b
+def STRUIKEL(*tijden):                                     # even vallen en weer opstaan
+    def f(t):
+        for t0 in tijden:
+            if t0 <= t < t0 + 1.4: u = t - t0; return 70 * (min(1, u / 0.3) if u < 0.9 else max(0, 1 - (u - 0.9) / 0.5))
+        return 0
+    return f
 for B in BLOK:
     k, a = B["key"], B["a"]; B["figs"], B["kop"] = [], []
     dag = DAG.get(k)
@@ -493,7 +513,7 @@ for B in BLOK:
         B["slang"] = True; B["grijs"] = kw(31, "gray", -0.2)
     elif k in ("zh1", "zh2"):
         wie = "you" if k == "zh1" else "dad"
-        B["figs"] = [F(wie, 760), F("zuster", 1000, s=1.45, y=830)]
+        B["figs"] = [F(wie, 760, val=STRUIKEL(kw(35, "trip"), kw(35, "after")) if k == "zh1" else None), F("zuster", 1000, s=1.45, y=830)]
         B["kop"].append((kw(a, "Minus"), "-$100", 540, 300, 110, "rood"))
         if k == "zh1":
             B["kop"] += [(kw(35, "next"), "RESPAWN #2", 960, 170, 70, "wit"), (kw(35, "after"), "RESPAWN #3", 960, 170, 70, "wit")]
@@ -575,7 +595,9 @@ for B in BLOK:
         B["figs"] = [F("you", 820), F("dad", 1120)]; B["chaos"] = True
         B["kop"].append((kw(97, "more"), "MORE POLICE THAN CARS", 960, 170, 84, "rood"))
     elif k == "save1":
-        B["figs"] = [F("you", 640), F("mom", 960, gebt=[(Z[a][0], Z[101][1], "denk")]), F("sis", 1280), F("dad", 1540)]
+        z2 = Z[102]; m_ = (z2[0] + z2[1]) / 2
+        B["figs"] = [F("you", 640, pad=[(z2[0], 640), (m_, 380), (z2[1], 640)]), F("mom", 960, gebt=[(Z[a][0], Z[101][1], "denk")]),
+                     F("sis", 1280, pad=[(z2[0] + 0.3, 1280), (m_ + 0.3, 1120), (z2[1], 1280)]), F("dad", 1540, pad=[(z2[0], 1540), (m_, 1720), (z2[1], 1540)])]
         B["kop"] += [(kw(101, "save"), "SAVE BUTTON?", 960, 170, 90, "geel"), (kw(102, "couch"), "COUCH: NOTHING", 960, 170, 70, "wit"),
                      (kw(102, "fridge"), "FRIDGE: NOTHING", 960, 260, 70, "wit"), (kw(102, "car"), "DAD'S CAR: ...", 960, 350, 70, "wit")]
     elif k == "radio2":
@@ -724,8 +746,7 @@ def frame(t):
     if k in ("radio1", "radio2") and B.get("radio"):
         r0, r1 = B["radio"]
         if r0 <= t < r1:
-            ballon(img, 620, 520, "SUPER SUCK 3000!", ps.pop((t - r0) / 0.3), naam="radio")
-            zet(img, "stofzuiger", 110, 620, 466, op="beeld", naam="stofzuiger")
+            radioballon(img, 620, 520, t, ps.pop((t - r0) / 0.3))
     if k == "winkel":
         if t >= B["melk"] and kp("mom"): held(img, "melk", 90, "mom", kp("mom"), t)
         if Z[29][0] <= t < Z[29][1] + 0.3 and kp("kassa"):

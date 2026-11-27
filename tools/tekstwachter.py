@@ -14,6 +14,11 @@ Kijkt PER ZIN of het beeld past bij wat er gezegd wordt:
                "drives", "driving", "gets in the car" of "drive right past", dan moet er tijdens de zin iemand ÍN een auto zitten
                (gezicht binnen het kader van een voorwerp met 'auto' in de naam) -> anders FOUT. Regel "in:<persoon>@<voorwerp>"
                in de ZIE-regels eist een bepaalde persoon in een bepaald voorwerp (bv. "gets in the car": ["in:dad@auto"]).
+  7. DOEN      (27 nov, eigenaar: "als de persoon iets uitvoert of iets doet moet je dat wel zien op beeld") zegt de zin dat
+               iemand iets doet (runs, walks, trips, falls, holding, carries, searches, presses, reading, waves ...), dan moet
+               iemand in beeld dat gebaar maken (rennen/lopen, val, vast, telefoon, zwaai, hoek = bukken/iets laten vallen,
+               wijs) -> anders FOUT. Lijst: DOEN hieronder; de renderer geeft per figuur zijn gebaar door (gebaren={naam: gebaar})
+               en zet "val" als iemand valt en "rennen" als iemand loopt.
 
 Gebruik in een renderer (naast de scènewachter):
     TW = Tekstwachter(Z, ZIE, lijf=LIJF)                       # Z = zinnen.json [(t0, t1, tekst, scène, rol)], LIJF = rol -> poppetje
@@ -27,6 +32,11 @@ SPIJT = ("could've", "could have", "lose", "lost", "sold", "why", "needed", "nev
 BLIJ = ("congratulations", "fortune", "island", "retiring", "baby go", "deal", "rich!", "we did it", "yes!")
 JUICH = {"juich", "zwaai", "duim", "klap"}
 RIJDEN = ("drives", "driving", "gets in the car", "drive right past")
+DOEN = {"run": {"rennen"}, "runs": {"rennen"}, "running": {"rennen"}, "jogging": {"rennen"}, "walks": {"rennen"}, "walk in": {"rennen"},
+        "steps into": {"rennen"}, "searches": {"rennen"}, "trip": {"val"}, "trips": {"val"}, "fall": {"val"}, "falls": {"val"},
+        "holding": {"vast", "telefoon"}, "holds": {"vast", "telefoon"}, "carries": {"vast"}, "counts": {"vast"}, "presses": {"vast"},
+        "reading": {"telefoon", "vast"}, "say hi": {"zwaai"}, "waves": {"zwaai"}, "picks it up": {"hoek"}, "drops": {"hoek"},
+        "stops the traffic": {"wijs", "wijslinks"}, "points": {"wijs", "wijslinks"}}
 WEE = {"facepalm", "hoofdhanden"}
 
 def jaren(s):
@@ -43,7 +53,7 @@ def _naam_gebaar(g):
 class Tekstwachter:
     def __init__(self, zinnen, regels=None, lijf=None):
         self.Z = zinnen; self.regels = {k.lower(): v for k, v in (regels or {}).items()}; self.lijf = lijf or {}
-        self.per = {i: dict(jaren=set(), spreker_gezien=False, gebaren=[], gezien=set(), teksten=set()) for i in range(len(zinnen))}
+        self.per = {i: dict(jaren=set(), spreker_gezien=False, gebaren=[], gezien=set(), teksten=set(), alle=set()) for i in range(len(zinnen))}
 
     def zie(self, t, nu, voorwerpen=(), teksten=(), koppen=None, gebaren=None, crop=None):
         if nu is None or nu not in self.per: return
@@ -64,6 +74,10 @@ class Tekstwachter:
             if x0 <= hx <= x1 and y0 <= hy <= y1: P["gezien"].add(naam)
             if naam == sp and x0 <= hx <= x1 and y0 <= hy <= y1: P["spreker_gezien"] = True
         if sp and gebaren and sp in gebaren: P["gebaren"].append(_naam_gebaar(gebaren[sp]))
+        for naam, g in (gebaren or {}).items():                                # wat doet iedereen (voor DOEN)
+            if g is None: continue
+            if naam in (koppen or {}) and not (x0 <= koppen[naam][0] <= x1 and y0 <= koppen[naam][1] <= y1): continue
+            P["alle"].add(g[0] if isinstance(g, tuple) else g)
 
     def fouten(self):
         uit = []
@@ -84,6 +98,9 @@ class Tekstwachter:
                 uit.append((t, "gevoel", f'"{tekst}" is blij, maar {z[4]} doet {", ".join(sorted(set(g) & WEE))}'))
             if any(w in laag for w in RIJDEN) and not any(g.startswith("in:") and "auto" in g.split("@")[1] for g in P["gezien"]):
                 uit.append((t, "rijden", f'"{tekst}": er rijdt iemand, maar niemand zit in een auto'))
+            for woord, nodig in DOEN.items():
+                if re.search(r"\b" + re.escape(woord) + r"\b", laag) and not (nodig & P["alle"]):
+                    uit.append((t, "doen", f'zegt "{woord}" maar niemand in beeld doet dat ({" / ".join(sorted(nodig))})'))
             for woord, nodig in self.regels.items():
                 if woord in laag:
                     ok = any((n[6:] in " ".join(P["teksten"])) if n.startswith("tekst:") else (n in P["gezien"]) for n in nodig)
