@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 01:03",
+ "bijgewerkt": "2026-11-27 01:33",
  "kanalen": {
   "weken": [
    {
@@ -2370,7 +2370,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "118 GB vrij"
+   "tekst": "117 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2385,7 +2385,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 01:03)"
+   "tekst": "draait nu (2026-11-27 01:33)"
   },
   {
    "naam": "Git",
@@ -2405,7 +2405,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2422,8 +2422,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 01:03",
-   "volgende": "2026-11-27 01:33"
+   "laatst": "2026-11-27 01:33",
+   "volgende": "2026-11-27 02:03"
   },
   "hype": {
    "aan": true,
@@ -2433,17 +2433,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-27 01:10"
+   "volgende": "2026-11-27 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 00:48",
-   "volgende": "2026-11-27 01:18"
+   "laatst": "2026-11-27 01:18",
+   "volgende": "2026-11-27 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-26 23:25",
-   "volgende": "2026-11-27 01:25"
+   "laatst": "2026-11-27 01:25",
+   "volgende": "2026-11-27 03:25"
   }
  },
  "kanaal": {
@@ -2531,7 +2531,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 145,
+    "views": 147,
     "verwerkt": "processed"
    },
    {
@@ -2549,7 +2549,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1281,
+    "views": 1282,
     "verwerkt": "processed"
    }
   ],
@@ -2969,8 +2969,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 01:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 01:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4911,20 +4911,8 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-26 23:25",
+  "bijgewerkt": "2026-11-27 01:25",
   "titels": [
-   {
-    "map": "babylon-600-vc",
-    "datum": "2026-11-12",
-    "titel": "Life in Ancient Babylon, 600 BC | History for Sleep",
-    "fouten": [],
-    "let_op": [],
-    "voorstel": "",
-    "waarom": "",
-    "youtube": "",
-    "concurrent": [],
-    "bekeken": ""
-   },
    {
     "map": "egypte-toetanchamon",
     "datum": "2026-11-14",
@@ -5061,11 +5049,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 01:04",
+  "bijgewerkt": "2026-11-27 01:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 6539292,
+    "5uur": 5408900,
     "week": 87684559,
     "per_dag": {
      "Tue 24-11": 29948208,
