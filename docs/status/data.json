@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 20:33",
+ "bijgewerkt": "2026-11-27 21:03",
  "kanalen": {
   "weken": [
    {
@@ -168,7 +168,7 @@
         "datum": "2026-11-27",
         "tijd": "21:00",
         "titel": "I Built A Shark That Can Walk... Big Mistake 🦈",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "VozcOnDEOC0"
        }
       ]
@@ -2229,7 +2229,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "115 GB vrij"
+   "tekst": "114 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2244,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 20:33)"
+   "tekst": "draait nu (2026-11-27 21:03)"
   },
   {
    "naam": "Git",
@@ -2264,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2281,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 20:33",
-   "volgende": "2026-11-27 21:03"
+   "laatst": "2026-11-27 21:03",
+   "volgende": "2026-11-27 21:33"
   },
   "hype": {
    "aan": true,
@@ -2296,8 +2296,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 20:18",
-   "volgende": "2026-11-27 20:48"
+   "laatst": "2026-11-27 20:48",
+   "volgende": "2026-11-27 21:18"
   },
   "titels": {
    "aan": true,
@@ -2311,8 +2311,8 @@
   "views_totaal": 3924,
   "video_aantal": 18,
   "week": {
-   "views": 506,
-   "uren": 106,
+   "views": 634,
+   "uren": 138,
    "abonnees": 3
   },
   "vorige_week": {
@@ -2390,7 +2390,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 150,
+    "views": 151,
     "verwerkt": "processed"
    },
    {
@@ -2408,7 +2408,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1377,
+    "views": 1382,
     "verwerkt": "processed"
    }
   ],
@@ -2542,11 +2542,16 @@
     "dag": "2026-11-24",
     "views": 152,
     "abonnees": 0
+   },
+   {
+    "dag": "2026-11-25",
+    "views": 128,
+    "abonnees": 0
    }
   ],
   "maand": {
-   "views": 2109,
-   "uren": 398,
+   "views": 2237,
+   "uren": 430,
    "abonnees": 11
   },
   "vorige_maand": {
@@ -2555,8 +2560,8 @@
    "abonnees": 6
   },
   "jaar": {
-   "views": 4329,
-   "uren": 817,
+   "views": 4457,
+   "uren": 850,
    "abonnees": 23
   },
   "top": [
@@ -2564,8 +2569,8 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 1031,
-    "uren": 233
+    "views": 1140,
+    "uren": 262
    },
    {
     "id": "qFRyJ6twOzY",
@@ -2583,15 +2588,15 @@
    }
   ],
   "partner": {
-   "uren": 817,
+   "uren": 849,
    "uren_doel": 4000,
    "abonnees": 23,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
-   "tempo_uren_per_dag": 14.0,
+   "tempo_uren_per_dag": 15.1,
    "tempo_abonnees_per_dag": 0.39,
-   "datum_uren": "2027-07-13",
+   "datum_uren": "2027-06-24",
    "datum_abonnees": "2033-09-18"
   }
  },
@@ -2640,7 +2645,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 764,
+  "geheugen_mb": 643,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2813,8 +2818,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 20:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 21:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 20:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4876,32 +4881,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 20:34",
+  "bijgewerkt": "2026-11-27 21:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 16502061,
-    "week": 125718041,
+    "5uur": 15928675,
+    "week": 127810674,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 38033482,
+     "Fri 27-11": 40126115,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 64455,
+    "stap_kost": 64079,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 144195225,
+    "week": 143489766,
     "per_dag": {
-     "Fri 20-11": 4563919,
+     "Fri 20-11": 3858460,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
