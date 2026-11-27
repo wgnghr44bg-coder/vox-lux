@@ -22,8 +22,8 @@ dd = ImageDraw.Draw(img)
 S = 2.35 * ps.C["dad"].get("groot", 1); hx, hy, _ = m.rhand("dad", 430, 1180, 2.1, 25)
 pap = Image.new("RGBA", (170, 100), (0, 0, 0, 0)); pd = ImageDraw.Draw(pap)                      # kauwgompapiertje valt uit de hand
 pd.rectangle((4, 4, 166, 96), fill=(215, 220, 230), outline=(40, 35, 40), width=7); pd.line((20, 50, 150, 50), fill=(170, 175, 190), width=6); pap = pap.rotate(-20, expand=True, resample=Image.BICUBIC)
-img.paste(pap, (int(hx + 20), int(hy + 60)), pap)
-for k in range(3): dd.line((hx + 40 + k * 26, hy + 30, hx + 52 + k * 26, hy + 60), fill=(255, 255, 255), width=6)   # valstreepjes
+img.paste(pap, (int(hx + 10), int(hy - 20)), pap)
+for k in range(3): dd.line((hx + 40 + k * 26, hy - 50, hx + 52 + k * 26, hy - 20), fill=(255, 255, 255), width=6)   # valstreepjes
 for k in range(5):                                                                            # 5 grote sterren
     import math as _m; x = hr[0] + (k - 2) * 118; y = hr[1] - 80; r = 56
     pts = [(x + (r if j % 2 == 0 else r * 0.45) * _m.sin(j * _m.pi / 5), y - (r if j % 2 == 0 else r * 0.45) * _m.cos(j * _m.pi / 5)) for j in range(10)]
