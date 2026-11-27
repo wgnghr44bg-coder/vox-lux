@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 11:33",
+ "bijgewerkt": "2026-11-27 12:03",
  "kanalen": {
   "weken": [
    {
@@ -323,7 +323,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-27 09:21",
+  "bijgewerkt": "2026-11-27 12:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -411,19 +411,19 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": 2.3,
+    "pct": 1.8,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 3.0,
+    "pct": 2.3,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 4.5,
+    "pct": 4.8,
     "groot": true,
     "grens": 4
    }
@@ -431,14 +431,39 @@
   "onderwerpen": [
    {
     "onderwerp": "Goud",
-    "punten": 5,
+    "punten": 10,
     "bronnen": [
+     "MarketWatch",
      "koers"
     ],
     "wat": [
-     "+4.5% op één dag (geen nieuws erover)"
+     "+4.8% op één dag"
     ],
-    "koppen": [],
+    "koppen": [
+     {
+      "titel": "Stocks are poised for a Friday jump — right into a $100 billion wave of automated selling, Goldman Sachs warns",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/stocks-are-poised-for-a-friday-jump-right-into-a-100-billion-wave-of-automated-selling-goldman-sachs-warns-aba6440f?mod=mw_rss_topstories"
+     }
+    ],
+    "groot": true
+   },
+   {
+    "onderwerp": "JPMorgan",
+    "punten": 5,
+    "bronnen": [
+     "MarketWatch"
+    ],
+    "wat": [
+     "crash"
+    ],
+    "koppen": [
+     {
+      "titel": "The AI stock crash is mostly over, JPMorgan says — but a worse phase could be coming in 2027",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/the-ai-stock-crash-is-mostly-over-jpmorgan-says-but-a-worse-phase-could-be-coming-in-2027-fa769fbd?mod=mw_rss_topstories"
+     }
+    ],
     "groot": false
    },
    {
@@ -455,18 +480,15 @@
       "titel": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
       "bron": "NYT",
       "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html"
-     },
-     {
-      "titel": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
-      "bron": "NYT",
-      "link": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html"
      }
     ],
     "groot": false
    }
   ],
-  "groot": [],
-  "aantal_koppen": 86
+  "groot": [
+   "Goud"
+  ],
+  "aantal_koppen": 84
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-27 08:10",
@@ -1920,7 +1942,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 11:33)"
+   "tekst": "draait nu (2026-11-27 12:03)"
   },
   {
    "naam": "Git",
@@ -1940,7 +1962,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 11:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 11:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1957,8 +1979,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 11:33",
-   "volgende": "2026-11-27 12:03"
+   "laatst": "2026-11-27 12:03",
+   "volgende": "2026-11-27 12:33"
   },
   "hype": {
    "aan": true,
@@ -1972,8 +1994,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 11:18",
-   "volgende": "2026-11-27 11:48"
+   "laatst": "2026-11-27 11:48",
+   "volgende": "2026-11-27 12:18"
   },
   "titels": {
    "aan": true,
@@ -2021,7 +2043,7 @@
     "duur": "2:06:10",
     "privacy": "public",
     "publiceer": "2026-11-21T20:00:12Z",
-    "views": 104,
+    "views": 105,
     "verwerkt": "processed"
    },
    {
@@ -2066,7 +2088,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 149,
+    "views": 150,
     "verwerkt": "processed"
    },
    {
@@ -2084,7 +2106,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1350,
+    "views": 1363,
     "verwerkt": "processed"
    }
   ],
@@ -2304,9 +2326,7 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "stem inspreken (OmniVoice)",
-   "video samenvoegen (ffmpeg)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -2314,19 +2334,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
-  },
-  {
-   "naam": "video samenvoegen (ffmpeg)",
-   "stap": -1
   }
  ],
  "videokaart": {
-  "bezig_procent": 39,
-  "geheugen_mb": 6923,
+  "bezig_procent": 25,
+  "geheugen_mb": 610,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2499,8 +2511,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 11:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 12:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 11:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4569,32 +4581,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 11:34",
+  "bijgewerkt": "2026-11-27 12:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8833732,
-    "week": 100656756,
+    "5uur": 9367754,
+    "week": 101274786,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 12972197,
+     "Fri 27-11": 13590227,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 45961,
+    "stap_kost": 46483,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 156476175,
+    "week": 155931383,
     "per_dag": {
-     "Fri 20-11": 16844869,
+     "Fri 20-11": 16300077,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
@@ -4608,7 +4620,7 @@
     "5uur_pct": 0,
     "5uur_scripts_over": null,
     "5uur_stappen_over": null,
-    "week_pct": 119,
+    "week_pct": 118,
     "week_scripts_over": null,
     "week_stappen_over": null
    }
