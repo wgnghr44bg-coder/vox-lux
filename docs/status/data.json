@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 08:33",
+ "bijgewerkt": "2026-11-27 09:03",
  "kanalen": {
   "weken": [
    {
@@ -1899,7 +1899,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "113 GB vrij"
+   "tekst": "116 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -1914,7 +1914,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 08:33)"
+   "tekst": "draait nu (2026-11-27 09:03)"
   },
   {
    "naam": "Git",
@@ -1934,7 +1934,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 08:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1951,8 +1951,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 08:33",
-   "volgende": "2026-11-27 09:03"
+   "laatst": "2026-11-27 09:03",
+   "volgende": "2026-11-27 09:33"
   },
   "hype": {
    "aan": true,
@@ -1966,8 +1966,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 08:18",
-   "volgende": "2026-11-27 08:48"
+   "laatst": "2026-11-27 08:48",
+   "volgende": "2026-11-27 09:18"
   },
   "titels": {
    "aan": true,
@@ -2060,7 +2060,7 @@
     "duur": "1:56:34",
     "privacy": "public",
     "publiceer": "2026-11-04T20:00:36Z",
-    "views": 149,
+    "views": 147,
     "verwerkt": "processed"
    },
    {
@@ -2078,7 +2078,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1329,
+    "views": 1330,
     "verwerkt": "processed"
    }
   ],
@@ -2298,8 +2298,7 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude",
-   "stem inspreken (OmniVoice)"
+   "routine zonder Claude"
   ],
   "eind": null
  },
@@ -2307,15 +2306,11 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
-  },
-  {
-   "naam": "stem inspreken (OmniVoice)",
-   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 589,
+  "geheugen_mb": 604,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2402,12 +2397,6 @@
  ],
  "logboek": [
   {
-   "tijd": "2026-11-24 12:02",
-   "tekst": "Market Doodle: cyborg-Short -tP-eeJUYtU ingepland wo 25 nov 19:00 (eigenaar), Pause Time 13EHf4WZdWs verwijderd.",
-   "fout": false,
-   "klaar": false
-  },
-  {
    "tijd": "2026-11-24 14:18",
    "tekst": "sitecontrole: NIET GOED: de keten maakt nog pearl-harbor-1941, maar dat staat niet bij 'daarna' op de site",
    "fout": true,
@@ -2484,12 +2473,18 @@
    "tekst": "ntfy-seintje verstuurd: Grote hype: BlackswanVault - Short + lange video",
    "fout": false,
    "klaar": false
+  },
+  {
+   "tijd": "2026-11-27 08:40",
+   "tekst": "ntfy-seintje verstuurd: Grote hype: Market Doodle",
+   "fout": false,
+   "klaar": false
   }
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 08:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 09:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 08:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4558,32 +4553,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 08:33",
+  "bijgewerkt": "2026-11-27 09:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 5932109,
-    "week": 93616668,
+    "5uur": 6315268,
+    "week": 93999827,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Fri 27-11": 5932109
+     "Fri 27-11": 6315268
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 42014,
+    "stap_kost": 42580,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 162751383,
+    "week": 162164566,
     "per_dag": {
-     "Fri 20-11": 23120077,
+     "Fri 20-11": 22533259,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
