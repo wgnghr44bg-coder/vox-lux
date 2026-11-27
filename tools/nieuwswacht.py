@@ -50,7 +50,10 @@ GEBEURT = [(r"\b(steps? down|resign|ousted|fired|departs?|retire[sd]?|succession
            (r"\b(rate cut|rate hike|raises rates|cuts rates|recession|stagflation)", 3, "rente/recessie"),
            (r"\b(earnings|quarter|revenue|guidance)\b", 1, "cijfers")]
 GROOT = 7          # Short waard; ntfy "Grote hype: BlackswanVault - Short"
-LANG = 10          # 26 nov (eigenaar): Short + lange video waard (veel bronnen tegelijk, of een koerssprong)
+KOERS_WOORD = {"S&P 500": ["s&p", "stock market", "stocks", "wall street"], "Nasdaq": ["nasdaq", "tech stocks"],
+               "Dow Jones": ["dow", "stock market", "wall street"], "Olie": ["oil", "crude", "opec"],
+               "Goud": ["gold", "bullion"], "Bitcoin": ["bitcoin", "crypto"], "Berkshire": ["berkshire", "buffett"]}
+LANG = 10         # 26 nov (eigenaar): Short + lange video waard (veel bronnen tegelijk, of een koerssprong)
 
 
 def koersen():
@@ -117,10 +120,17 @@ def main():
         o["punten"] += 2 * (len(o["bronnen"]) - 1)
         lijst.append({**o, "bronnen": sorted(o["bronnen"]), "wat": sorted(o["wat"]), "groot": o["punten"] >= GROOT})
     lijst.sort(key=lambda o: -o["punten"])
+    # 27 nov: goud +4,4% (Thanksgiving, dunne handel) gaf vals alarm zonder één nieuwskop. Een koerssprong is pas hype als
+    # het nieuws er ook over schrijft: met koppen 10 punten (Short + lang), zonder koppen 5 (alleen op het paneel, geen seintje).
     for m in markt:
         if m["groot"]:
-            lijst.insert(0, {"onderwerp": m["naam"], "punten": 10, "bronnen": ["koers"], "wat": [f"{m['pct']:+.1f}% op één dag"],
-                             "koppen": [], "groot": True})
+            woorden = KOERS_WOORD.get(m["naam"], [m["naam"].lower()])
+            hits = [k for k in kp if any(w in k["titel"].lower() for w in woorden)]
+            pt = 10 if hits else 5
+            lijst.insert(0, {"onderwerp": m["naam"], "punten": pt, "bronnen": sorted({"koers"} | {k["bron"].split()[0] for k in hits}),
+                             "wat": [f"{m['pct']:+.1f}% op één dag" + ("" if hits else " (geen nieuws erover)")],
+                             "koppen": [{"titel": k["titel"], "bron": k["bron"], "link": k["link"]} for k in hits[:4]],
+                             "groot": pt >= GROOT})
     data = {"bijgewerkt": nu.strftime("%Y-%m-%d %H:%M"), "markt": markt, "onderwerpen": lijst[:12],
             "groot": [o["onderwerp"] for o in lijst if o["groot"]], "aantal_koppen": len(kp)}
     UIT.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
