@@ -16,17 +16,17 @@ const browser = await puppeteer.launch({ executablePath: 'C:/Program Files (x86)
   args: ['--use-angle=d3d11', '--enable-gpu', '--ignore-gpu-blocklist', '--enable-webgl', '--no-sandbox'] });
 const page = await browser.newPage();
 page.on('console', m => console.log('[pagina]', m.text())); page.on('pageerror', e => console.log('[FOUT]', e.message));
-await page.setViewport({ width: 270, height: 480 });
+await page.setViewport({ width: 360, height: 640 });
 await page.goto(`http://127.0.0.1:${poort}/jensen/scene.html`);
 await page.waitForFunction('window.klaar === true', { timeout: 60000 });
 const D = JSON.parse(fs.readFileSync(path.join(HIER, 'data.json'), 'utf8'));
 const n = Math.floor(D.EIND * D.FPS);
 const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-c:v', 'png', '-r', String(D.FPS), '-i', '-', '-i', path.join(HIER, 'stem.wav'),
   '-filter_complex', '[0:v]scale=1080:1920:flags=neighbor[v];[1:a]apad,loudnorm=I=-14:TP=-1.5[a]', '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p',
-  '-c:a', 'aac', '-b:a', '160k', '-shortest', path.join(HIER, 'jensen-proef.mp4')], { stdio: ['pipe', 'inherit', 'inherit'] });
+  '-c:a', 'aac', '-b:a', '160k', '-shortest', path.join(HIER, 'jensen-proef-v2.mp4')], { stdio: ['pipe', 'inherit', 'inherit'] });
 for (let i = 0; i < n; i++) {
   const url = await page.evaluate(t => window.render(t), i / D.FPS);
   if (!ff.stdin.write(Buffer.from(url.split(',')[1], 'base64'))) await new Promise(r => ff.stdin.once('drain', r));
 }
 ff.stdin.end(); await new Promise(r => ff.on('close', r));
-await browser.close(); server.close(); console.log('KLAAR jensen-proef.mp4');
+await browser.close(); server.close(); console.log('KLAAR jensen-proef-v2.mp4');
