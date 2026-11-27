@@ -66,7 +66,7 @@ bron = Image.open(MD / "short-haai" / "afbeeldingen" / "haai.png")
 lijf, box = los(bron)
 L = 1000; lijf = lijf.resize((L, int(lijf.height * L / lijf.width)), Image.LANCZOS); hs = lijf.height
 k = L / (box[2] - box[0])
-oog = (810, 174)                                        # oog in het geschaalde haai-plaatje (nagemeten)
+oog = (835, 167)                                        # oog in het geschaalde haai-plaatje (nagemeten)
 m = L / 2.0                                             # px per meter (haai = 2 m, zoals HAAI_L)
 INK = (45, 38, 40)
 been = 0.85 * m; top = 20; voet = int(top + 0.74 * hs + been)
@@ -91,13 +91,15 @@ def haai(loop, oogstand, rechts=True):
     im = im.resize((HW, HH), Image.LANCZOS)
     im.alpha_composite(lijf, (x0, int(t0)))
     d = ImageDraw.Draw(im); ox, oy = x0 + oog[0], t0 + oog[1]; r = 0.045 * L
-    if oogstand == "slaap":
-        kl = im.getpixel((int(ox), int(oy - r * 1.5)))[:3]
-        d.ellipse((ox - r * 1.08, oy - r * 1.08, ox + r * 1.08, oy + r * 1.08), fill=kl)
-        d.arc((ox - r, oy - r * 0.6, ox + r, oy + r * 0.6), 10, 170, fill=INK, width=7)
+    if oogstand == "slaap":                              # ooglid: stukje huid van net achter het oog eroverheen, dan een dichte boog
+        re_ = 0.031 * L; dx = int(2.4 * re_); ox -= 2; oy += 3
+        stuk = im.crop((int(ox - re_ - dx), int(oy - re_), int(ox + re_ - dx), int(oy + re_)))
+        masker = Image.new("L", stuk.size, 0); ImageDraw.Draw(masker).ellipse((0, 0, stuk.size[0] - 1, stuk.size[1] - 1), fill=255)
+        im.paste(stuk, (int(ox - re_), int(oy - re_)), masker); d = ImageDraw.Draw(im)
+        d.arc((ox - re_ * 0.9, oy - re_ * 0.7, ox + re_ * 0.9, oy + re_ * 0.5), 15, 165, fill=INK, width=6)
     elif oogstand == "bang":
-        d.ellipse((ox - r * 1.2, oy - r * 1.2, ox + r * 1.2, oy + r * 1.2), fill=(255, 255, 255), outline=INK, width=6)
-        d.ellipse((ox - r * 0.45, oy - r * 0.45, ox + r * 0.45, oy + r * 0.45), fill=INK)
+        d.ellipse((ox - r * 0.78, oy - r * 0.78, ox + r * 0.78, oy + r * 0.78), fill=(255, 255, 255), outline=INK, width=5)
+        d.ellipse((ox - r * 0.3, oy - r * 0.3, ox + r * 0.3, oy + r * 0.3), fill=INK)
         d.ellipse((ox + r * 2.2, oy - r * 3.6, ox + r * 3.0, oy - r * 2.2), fill=(160, 215, 255), outline=INK, width=4)
     return im
 

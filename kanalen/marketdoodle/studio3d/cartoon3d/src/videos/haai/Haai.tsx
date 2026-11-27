@@ -13,7 +13,7 @@ import { LensBlur } from "../bridge/lensblur";
 import { GradeEffect, GRADES, GRADE_STRENGTH } from "../bridge/grade";
 import { World } from "./world";
 import { TOTAL, FPS, FLASH_AT, DOF, shotAt } from "./story";
-import { WORDS } from "./words";
+import { chunks, CAP } from "./captions";
 
 export const HAAI_FRAMES = TOTAL;
 
@@ -57,24 +57,13 @@ const Inner: React.FC = () => {
 };
 
 // ondertitels: 1-3 woorden tegelijk, groot wit met zwarte rand, het gesproken woord geel (zoals onze shorts)
-const chunks = (() => {
-  const out: { a: number; b: number; w: [string, number, number, number][] }[] = [];
-  let cur: [string, number, number, number][] = [];
-  WORDS.forEach((w, i) => {
-    cur.push(w);
-    const next = WORDS[i + 1];
-    const end = /[.,?!]$/.test(w[0]) || cur.length >= 3 || !next || next[3] !== w[3];
-    if (end) { out.push({ a: cur[0][1], b: next && next[3] === w[3] ? next[1] : w[2] + 0.25, w: cur }); cur = []; }
-  });
-  return out;
-})();
 const Captions: React.FC<{ t: number }> = ({ t }) => {
   const c = chunks.find((k) => t >= k.a - 0.05 && t < k.b);
   if (!c) return null;
   const pop = Math.min(1, (t - c.a + 0.05) / 0.1);
   return (
-    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", top: 1220 }}>
-      <div style={{ transform: `scale(${0.85 + 0.15 * pop})`, textAlign: "center", width: 960, fontFamily: "Arial Black, Arial, sans-serif", fontWeight: 900, fontSize: 96, lineHeight: 1.1, letterSpacing: 1,
+    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", top: CAP.top }}>
+      <div style={{ transform: `scale(${0.85 + 0.15 * pop})`, textAlign: "center", width: 960, fontFamily: "Arial Black, Arial, sans-serif", fontWeight: 900, fontSize: CAP.size, lineHeight: 1.1, letterSpacing: 1,
         WebkitTextStroke: "14px #000", paintOrder: "stroke fill", color: "#fff", textShadow: "0 8px 0 rgba(0,0,0,0.35)" }}>
         {c.w.map(([w, a, b], i) => <span key={i} style={{ color: t >= a && t < b + 0.05 ? "#ffd84a" : "#fff" }}>{w.toUpperCase()}{i < c.w.length - 1 ? " " : ""}</span>)}
       </div>

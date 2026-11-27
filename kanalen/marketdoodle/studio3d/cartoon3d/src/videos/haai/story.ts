@@ -38,7 +38,8 @@ export const SHOTS: Shot[] = [
   { id: 14, a: 772, b: 860, place: "strand" },  // "Day 3. You take it to the beach."
   { id: 15, a: 860, b: 955, place: "strand" },  // "It walks into the sea... and walks right back out."
   { id: 16, a: 955, b: 1027, place: "strand" }, // jij: "Wait. Are you scared of water?"
-  { id: 17, a: 1027, b: 1150, place: "bad" },   // "So now your shark sleeps in your bathtub. With a night light."
+  { id: 17, a: 1027, b: 1104, place: "bad" },   // "So now your shark sleeps in your bathtub."
+  { id: 19, a: 1104, b: 1150, place: "bad" },   // "With a night light." (lampje + klik in beeld)
   { id: 18, a: 1150, b: TOTAL, place: "bad" },  // "And that's why you never build a shark that can walk."
 ];
 export const shotAt = (f: number) => SHOTS.find((s) => f >= s.a && f < s.b) ?? SHOTS[SHOTS.length - 1];
@@ -120,7 +121,7 @@ export const CAMS: Record<number, Key[]> = {
   1: two(0, 77, { pos: [1.2, 1.25, -0.35], look: [0.15, 1.05, -4.5], fov: 54 }, { pos: [0.95, 1.2, -1.0], look: [0.2, 1.05, -4.5], fov: 50 }),
   2: two(77, 110, { pos: [0.3, 0.55, -1.7], look: [-0.25, 0.25, -4.4], fov: 52, roll: 0.03 }, { pos: [0.28, 0.5, -1.95], look: [-0.25, 0.25, -4.4], fov: 50, roll: 0.03 }),
   3: two(110, 143, { pos: [0.45, 1.2, -2.6], look: [0.2, 1.1, -4.4], fov: 38 }, { pos: [0.42, 1.2, -2.85], look: [0.2, 1.1, -4.4], fov: 35 }),
-  4: two(143, 172, { pos: [0.85, 1.7, -2.75], look: [0.72, 1.62, -4.4], fov: 34 }, { pos: [0.83, 1.7, -3.0], look: [0.72, 1.62, -4.4], fov: 30 }),
+  4: two(143, 172, { pos: [0.85, 1.7, -2.75], look: [0.72, 1.3, -4.4], fov: 34 }, { pos: [0.83, 1.7, -3.0], look: [0.72, 1.3, -4.4], fov: 30 }),
   5: two(172, 232, { pos: [-1.3, 1.2, -2.8], look: [2.1, 0.95, -1.6], fov: 44 }, { pos: [-1.0, 1.2, -2.65], look: [2.1, 0.95, -1.6], fov: 42 }),
   6: [{ f: 232, c: { pos: [5.6, 1.55, 9.6], look: [-0.6, 1.3, 0.6], fov: 50 } }, { f: 300, c: { pos: [5.2, 1.5, 9.0], look: [-0.6, 1.3, 0.6], fov: 48 } },
       { f: 370, c: { pos: [4.6, 1.4, 8.6], look: [-0.4, 1.2, 1.6], fov: 47 } }],
@@ -133,8 +134,9 @@ export const CAMS: Record<number, Key[]> = {
   14: two(772, 860, { pos: [BX + 1.2, 1.7, 10.5], look: [BX + 0.2, 1.0, 0.5], fov: 50 }, { pos: [BX + 1.0, 1.6, 9.4], look: [BX + 0.2, 1.0, 0.5], fov: 48 }),
   15: two(860, 955, { pos: [BX + 5.2, 1.35, 4.6], look: [BX - 0.2, 0.7, -0.2], fov: 46 }, { pos: [BX + 4.8, 1.3, 4.3], look: [BX - 0.2, 0.7, -0.2], fov: 44 }),
   16: two(955, 1027, { pos: [BX + 3.6, 1.15, 7.4], look: [BX + 1.1, 0.75, 2.7], fov: 44 }, { pos: [BX + 3.4, 1.15, 7.0], look: [BX + 1.1, 0.75, 2.7], fov: 42 }),
-  17: two(1027, 1150, { pos: [AX + 0.9, 1.55, 2.5], look: [AX, 1.1, -2.4], fov: 52 }, { pos: [AX + 0.8, 1.5, 1.6], look: [AX, 1.1, -2.4], fov: 50 }),
-  18: two(1150, TOTAL, { pos: [AX + 0.85, 1.75, 0.6], look: [AX + 0.6, 1.62, -2.45], fov: 40 }, { pos: [AX + 0.75, 1.75, -0.3], look: [AX + 0.6, 1.62, -2.45], fov: 36 }),
+  17: two(1027, 1104, { pos: [AX + 0.9, 1.55, 2.5], look: [AX, 1.1, -2.4], fov: 52 }, { pos: [AX + 0.8, 1.5, 1.6], look: [AX, 1.1, -2.4], fov: 50 }),
+  19: two(1104, 1150, { pos: [AX + 2.7, 1.0, -0.6], look: [AX + 1.55, 0.6, -3.0], fov: 52 }, { pos: [AX + 2.6, 0.95, -0.9], look: [AX + 1.6, 0.6, -3.0], fov: 50 }),
+  18: two(1150, TOTAL, { pos: [AX + 0.85, 1.75, 0.6], look: [AX + 0.6, 1.25, -2.45], fov: 40 }, { pos: [AX + 0.75, 1.75, -0.3], look: [AX + 0.6, 1.25, -2.45], fov: 36 }),
 };
 // shot 7: meerijdende camera langs de stoep
 const cam7 = (f: number): Cam => { const t = f / FPS, x = streetX(t); return { pos: [x + 0.6, 1.45, 17.6], look: [x + 0.6, 1.0, 10.0], fov: 46 }; };
@@ -148,5 +150,5 @@ export const camAt = (f: number): Cam => {
   return { pos: [c.pos[0], c.pos[1] + dy, c.pos[2]], look: c.look, fov: c.fov, roll: (c.roll ?? 0) + rl };
 };
 // lensblur per shot: cInf (px bij oneindig)
-export const DOF: Record<number, number> = { 1: 9, 2: 12, 3: 16, 4: 16, 5: 12, 6: 7, 7: 8, 8: 8, 9: 12, 10: 8, 11: 8, 12: 12, 13: 12, 14: 7, 15: 8, 16: 11, 17: 9, 18: 13 };
+export const DOF: Record<number, number> = { 1: 9, 2: 12, 3: 16, 4: 16, 5: 12, 6: 7, 7: 8, 8: 8, 9: 12, 10: 8, 11: 8, 12: 12, 13: 12, 14: 7, 15: 8, 16: 11, 17: 9, 18: 13, 19: 10 };
 export const FLASH_AT = 77;
