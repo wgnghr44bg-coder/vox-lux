@@ -92,12 +92,22 @@ SPR = {}
 AUTOINFO = {"gezinsauto": dict(regio=(420, 240, 1000, 345), glas=(0.0, 0.2, 0.35), raam=(600, 298, 95), voor=-1),
             "politieauto": dict(regio=(395, 252, 870, 360), glas=(0.08, 0.45, 0.45), raam=(735, 312, 95), voor=1)}
 RAAM = {}
+def _vul_gaten(a0):
+    """Witte delen binnen de auto (deur van de politieauto, zelfde wit als de achtergrond) dicht houden: de omtrek even dikker
+    maken zodat kleine kiertjes dicht zijn, de achtergrond van buitenaf vullen, en alles wat daar niet bij hoort is auto."""
+    from PIL import ImageFilter
+    dik = a0.filter(ImageFilter.MaxFilter(15)); w, h = dik.size
+    for p_ in ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)):
+        if dik.getpixel(p_) == 0: ImageDraw.floodfill(dik, p_, 128)
+    buiten = dik.point(lambda v: 255 if v == 128 else 0).filter(ImageFilter.MaxFilter(15))
+    return ImageChops.lighter(a0, ImageChops.invert(buiten))
 def sprite(n, hoogte, spiegel=False, tint=None):
     k = (n, int(hoogte), spiegel, tint)
     if k not in SPR:
         bron = Image.open(HIER / "afbeeldingen" / f"{n}.png").convert("RGB"); w0, h0 = bron.size; m0 = bron.copy()
         for p_ in ((0, 0), (w0 - 1, 0), (0, h0 - 1), (w0 - 1, h0 - 1)): ImageDraw.floodfill(m0, p_, (255, 0, 255), thresh=30)
         a0 = Image.eval(ImageChops.difference(m0, Image.new("RGB", m0.size, (255, 0, 255))).convert("L"), lambda v: 255 if v > 8 else 0)
+        a0 = _vul_gaten(a0) if n in AUTOINFO else a0   # 27 nov: witte deur politieauto niet doorzichtig
         bx0, by0, bx1, by1 = a0.getbbox(); im = bron.convert("RGBA"); im.putalpha(a0); im = im.crop((bx0, by0, bx1, by1))
         info = AUTOINFO.get(n)
         if info:
