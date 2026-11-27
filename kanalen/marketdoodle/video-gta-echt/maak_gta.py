@@ -128,7 +128,7 @@ def auto(img, n, h, x, voet, op="weg", spiegel=False, tint=None, bestuurder=None
     if os.environ.get("TEST_ZONDER_BESTUURDER"): bestuurder = None          # alleen om te testen of de controle het ziet
     if bestuurder and left < W and left + s_.width > 0:
         rx, ry, hh, richting = RAAM[(n, int(h), spiegel, tint)]
-        wx, wy = left + rx, top + ry; S = 0.42 * hh / 60; s = S / ps.C[bestuurder].get("groot", 1.0)
+        wx, wy = left + rx, top + ry; S = 0.5 * hh / 60; s = S / ps.C[bestuurder].get("groot", 1.0)
         y = wy - 60 * S + _khoofd(bestuurder) * S
         L = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(L)
         knip = (t + hash(bestuurder) % 7 * 0.4) % 3.4 < 0.13
@@ -213,7 +213,7 @@ ACTIE = {"Mom! Dad! There's": "wijslinks", "Why do I have": "hoofdhanden", "What
          "Says the guy": "wijslinks", "If this is a game": "denk", "Not you again": "facepalm", "Guys! When I": "wijs",
          "So if something": "denk", "Exactly. Nobody": "armen-open", "Teamwork": "juich", "It's over": "juich", "What's zombie": "schrik",
          "Oh no": "hoofdhanden", "No stars. No money": "juich", "Does that mean": "juich", "No. Eat your": "wijs", "It says I have": "schrik"}
-GEZ = {}; GEB = {}; SCHERM = []; CROP = [(0, 0, W, H)]
+GEZ = {}; GEB = {}; SCHERM = []; CROP = [(0, 0, W, H)]; LOOPT = set()
 
 def teken_figuren(img, figs, t, nu):
     """Tekent de figuren; geeft {naam: (hoofd_x, hoofd_y, S, x, y, s)}."""
@@ -254,6 +254,7 @@ def teken_figuren(img, figs, t, nu):
             hx, hy = ps.poppetje(d, n, x, p["y"], p["s"], t, loop=loop, kijk=kijk, mond=luid(t, n), knipper=knip, verbaasd=verb, gebaar=geb, boos=boos)
             koppen[n] = (hx, hy, S, x, p["y"], p["s"])
         GEB[n] = geb; GEZ[n] = (hx, hy + 60 * S, S)
+        if loopt or p.get("rondje"): LOOPT.add(n)
     gewoon = gewoon.resize((W, H), Image.LANCZOS); img.paste(gewoon, (0, 0), gewoon)
     for L, p, x in apart:
         L = L.resize((W, H), Image.LANCZOS)
@@ -644,7 +645,7 @@ POLITIE_X = (2300, 1500)
 GELUIDEN = []; ZOOM_AAN = True; TEKST_AAN = True
 def frame(t):
     B = next(b for b in reversed(BLOK) if b["t"] <= t); k = B["key"]; nu = nu_i(t)
-    img = bg(B["bg"]).copy(); WACHT.begin(B["bg"], t); GEZ.clear(); GEB.clear(); SCHERM.clear(); d = ImageDraw.Draw(img)
+    img = bg(B["bg"]).copy(); WACHT.begin(B["bg"], t); GEZ.clear(); GEB.clear(); SCHERM.clear(); LOOPT.clear(); d = ImageDraw.Draw(img)
     figs = [dict(p) for p in B["figs"]]
     # --- achter de poppetjes ---
     if k == "open": pijl(img, 527, 215, t, 1.25)
@@ -825,7 +826,7 @@ def frame(t):
             if eind_ and t >= eind_[0]: continue
             if t >= st and not (later and t >= min(later)): kop(img, s, x, y, m, KL[kl], ps.pop((t - st) / 0.3) if st >= 0 else 1.0)
         ondertitel(img, t)
-    TW.zie(t, nu, voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren=dict(GEB), crop=CROP[0])
+    TW.zie(t, nu, voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1]) for k_, v in GEZ.items()}, gebaren={n_: ("rennen" if n_ in LOOPT and g_ != "val" else g_) for n_, g_ in GEB.items()}, crop=CROP[0])
     return img
 def telefoontje(img, hx, hy, S, t):
     d = ImageDraw.Draw(img); d.rounded_rectangle((hx - 13 * S, hy - 36 * S, hx + 13 * S, hy + 6 * S), int(5 * S), fill=(30, 30, 36), outline=(10, 10, 12), width=2)
