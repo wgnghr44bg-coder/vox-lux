@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 19:33",
+ "bijgewerkt": "2026-11-27 20:03",
  "kanalen": {
   "weken": [
    {
@@ -339,71 +339,71 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-27 15:45",
+  "bijgewerkt": "2026-11-27 20:00",
   "markt": [
    {
     "naam": "S&P 500",
-    "pct": 0.8,
+    "pct": 1.6,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nasdaq",
-    "pct": 0.9,
+    "pct": 2.3,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Dow Jones",
-    "pct": 0.8,
+    "pct": 1.2,
     "groot": false,
     "grens": 2.5
    },
    {
     "naam": "Nvidia",
-    "pct": -1.1,
+    "pct": 0.8,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Apple",
-    "pct": 0.4,
+    "pct": 0.8,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Microsoft",
-    "pct": 0.9,
-    "groot": false,
-    "grens": 8
-   },
-   {
-    "naam": "Alphabet",
     "pct": 0.6,
     "groot": false,
     "grens": 8
    },
    {
+    "naam": "Alphabet",
+    "pct": 0.7,
+    "groot": false,
+    "grens": 8
+   },
+   {
     "naam": "Amazon",
-    "pct": 2.7,
+    "pct": 4.0,
     "groot": false,
     "grens": 8
    },
    {
     "naam": "Meta",
-    "pct": 2.1,
-    "groot": false,
-    "grens": 8
-   },
-   {
-    "naam": "Tesla",
     "pct": 3.1,
     "groot": false,
     "grens": 8
    },
    {
+    "naam": "Tesla",
+    "pct": 5.2,
+    "groot": false,
+    "grens": 8
+   },
+   {
     "naam": "Broadcom",
-    "pct": 2.6,
+    "pct": 3.8,
     "groot": false,
     "grens": 8
    },
@@ -415,31 +415,31 @@
    },
    {
     "naam": "JPMorgan",
-    "pct": 1.9,
+    "pct": 2.0,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Walmart",
-    "pct": 0.1,
+    "pct": 0.9,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Bitcoin",
-    "pct": -0.5,
+    "pct": -1.1,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": 0.4,
+    "pct": -0.8,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 3.6,
+    "pct": 3.8,
     "groot": false,
     "grens": 4
    }
@@ -452,11 +452,17 @@
      "MarketWatch"
     ],
     "wat": [
-     "crash"
+     "crash",
+     "record"
     ],
     "koppen": [
      {
-      "titel": "Nvidia’s stock has tumbled 27% over one chaotic month. The next big test lies in the week ahead",
+      "titel": "These stocks soared the most during a wild week highlighted by Huang’s return to Nvidia",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/these-stocks-soared-the-most-during-a-wild-week-highlighted-by-huangs-return-to-nvidia-578b3f9a?mod=mw_rss_topstories"
+     },
+     {
+      "titel": "Nvidia’s stock has tumbled 28% over one chaotic month. The next big test lies in the week ahead",
       "bron": "MarketWatch",
       "link": "https://www.marketwatch.com/story/nvidias-stock-has-tumbled-27-over-one-chaotic-month-the-next-big-test-lies-in-the-week-ahead-06449777?mod=mw_rss_topstories"
      }
@@ -501,7 +507,7 @@
    }
   ],
   "groot": [],
-  "aantal_koppen": 85
+  "aantal_koppen": 86
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-27 15:55",
@@ -2238,7 +2244,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 19:33)"
+   "tekst": "draait nu (2026-11-27 20:03)"
   },
   {
    "naam": "Git",
@@ -2258,7 +2264,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2275,8 +2281,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 19:33",
-   "volgende": "2026-11-27 20:03"
+   "laatst": "2026-11-27 20:03",
+   "volgende": "2026-11-27 20:33"
   },
   "hype": {
    "aan": true,
@@ -2290,8 +2296,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 19:18",
-   "volgende": "2026-11-27 19:48"
+   "laatst": "2026-11-27 19:48",
+   "volgende": "2026-11-27 20:18"
   },
   "titels": {
    "aan": true,
@@ -2305,7 +2311,7 @@
   "views_totaal": 3924,
   "video_aantal": 18,
   "week": {
-   "views": 507,
+   "views": 506,
    "uren": 106,
    "abonnees": 3
   },
@@ -2529,7 +2535,7 @@
    },
    {
     "dag": "2026-11-23",
-    "views": 102,
+    "views": 101,
     "abonnees": 2
    },
    {
@@ -2539,17 +2545,17 @@
    }
   ],
   "maand": {
-   "views": 2110,
+   "views": 2109,
    "uren": 398,
    "abonnees": 11
   },
   "vorige_maand": {
-   "views": 1443,
+   "views": 1442,
    "uren": 399,
    "abonnees": 6
   },
   "jaar": {
-   "views": 4331,
+   "views": 4329,
    "uren": 817,
    "abonnees": 23
   },
@@ -2634,7 +2640,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 727,
+  "geheugen_mb": 716,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2807,8 +2813,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 19:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 20:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 19:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4870,23 +4876,23 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 19:34",
+  "bijgewerkt": "2026-11-27 20:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 16865135,
-    "week": 120777491,
+    "5uur": 18532276,
+    "week": 124851953,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 33092932,
+     "Fri 27-11": 37167394,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 61863,
+    "stap_kost": 64369,
     "naam": "hoofd",
     "week_reset": ""
    },
