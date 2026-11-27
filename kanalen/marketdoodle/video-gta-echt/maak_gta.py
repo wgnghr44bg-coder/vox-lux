@@ -213,7 +213,7 @@ ACTIE = {"Mom! Dad! There's": "wijslinks", "Why do I have": "hoofdhanden", "What
          "Says the guy": "wijslinks", "If this is a game": "denk", "Not you again": "facepalm", "Guys! When I": "wijs",
          "So if something": "denk", "Exactly. Nobody": "armen-open", "Teamwork": "juich", "It's over": "juich", "What's zombie": "schrik",
          "Oh no": "hoofdhanden", "No stars. No money": "juich", "Does that mean": "juich", "No. Eat your": "wijs", "It says I have": "schrik"}
-GEZ = {}; GEB = {}; SCHERM = []; CROP = [(0, 0, W, H)]; LOOPT = set()
+GEZ = {}; GEB = {}; SCHERM = []; CROP = [(0, 0, W, H)]; LOOPT = set(); GEZICHTEN = []
 
 def teken_figuren(img, figs, t, nu):
     """Tekent de figuren; geeft {naam: (hoofd_x, hoofd_y, S, x, y, s)}."""
@@ -278,6 +278,10 @@ def kop(img, s, x, y, m, kl, sch):
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
     b = d.textbbox((0, 0), s, font=f, stroke_width=sw); w, h = b[2] - b[0], b[3] - b[1]
     if sch >= 1 and (x - w / 2 < 20 or x + w / 2 > W - 20 or y - h / 2 < 10): LAYOUT.add(f"kop '{s}' valt (deels) buiten beeld")
+    if sch >= 1:
+        for gn, (fx, fy, fr) in GEZICHTEN:                 # 27 nov: grote tekst mag niet over een gezicht vallen
+            ox = max(x - w / 2, min(fx, x + w / 2)); oy = max(y - h / 2, min(fy, y + h / 2))
+            if (ox - fx) ** 2 + (oy - fy) ** 2 < fr ** 2: LAYOUT.add(f"kop '{s}' valt over het gezicht van {gn}")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30)); SCHERM.append(s)
 def ondertitel(img, t):
@@ -814,6 +818,7 @@ def frame(t):
     f = 1 + 0.06 * ps.ease((t - B["t"]) / max(1.0, B["eind"] - B["t"]))
     cw, ch = W / f, H / f; cx0, cy0 = (W - cw) / 2, (H - ch) * 0.45; CROP[0] = (cx0, cy0, cx0 + cw, cy0 + ch)
     if f > 1.001 and ZOOM_AAN: img = img.crop((int(cx0), int(cy0), int(cx0 + cw), int(cy0 + ch))).resize((W, H), Image.BICUBIC)
+    GEZICHTEN[:] = [(k_, ((v[0] - cx0) * f, (v[1] - cy0) * f, 62 * v[2] * f)) for k_, v in GEZ.items()]
     # HUD en koppen na de zoom
     if TEKST_AAN:
         kaartweg = KB["wakker"]["weg"]["map"]

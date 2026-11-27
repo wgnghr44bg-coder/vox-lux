@@ -111,7 +111,7 @@ def emotie(t, nu):
 ACTIE = {I_STAP: "wijslinks", I_SIS: "juich", I_DAD: "hoofdhanden", I_BANG: "armen-open"}
 
 # ---------- tekst ----------
-TEKST_AAN = True; SCHERM = []; GEB = {}; CROP = [None]; LABELS = []; GEZ = {}
+TEKST_AAN = True; SCHERM = []; GEB = {}; CROP = [None]; LABELS = []; GEZ = {}; GEZICHTEN = []
 def kop(img, s, x, y, m, kl, sch):
     SCHERM.append(s)
     f = font(FB, max(8, int(m * sch))); d = ImageDraw.Draw(img); sw = max(4, int(m * sch) // 11)
@@ -121,6 +121,9 @@ def kop(img, s, x, y, m, kl, sch):
     if sch >= 1:
         for ln, (a0, b0, a1, b1) in LABELS:
             if x - w / 2 < a1 and x + w / 2 > a0 and y - h / 2 < b1 and y + h / 2 > b0: LAYOUT.add(f"kop '{s}' valt over naamlabel {ln}")
+        for gn, (fx, fy, fr) in GEZICHTEN:                 # 27 nov: kop over een gezicht (papa bij FRIDGE: GONE)
+            ox = max(x - w / 2, min(fx, x + w / 2)); oy = max(y - h / 2, min(fy, y + h / 2))
+            if (ox - fx) ** 2 + (oy - fy) ** 2 < fr ** 2: LAYOUT.add(f"kop '{s}' valt over het gezicht van {gn}")
     d.text((x - w / 2, y - h / 2 + 5), s, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0))
     d.text((x - w / 2, y - h / 2), s, font=f, fill=kl, stroke_width=sw, stroke_fill=(20, 20, 30))
 def ondertitel(img, t):
@@ -207,24 +210,24 @@ def haai(img, x, voet, bgn, t, loop=None, rechts=True, schud=0.0, op="vloer", be
 def figuren(n, t):
     nu = nu_i(t)
     if n == "garage":
-        y = 1300; return [("you", 860, y, schaal("garage", "you", y), None, -0.9, None)]
+        y = 1300; return [("you", 930, y, schaal("garage", "you", y), None, -0.9, None)]
     if n == "straat":
-        y = 1420; a = ps.ease(min(1, (t - SC[2]["t"]) / 3.0)); x = 230 + 120 * a; loop = (t - SC[2]["t"]) * 2.2 if a < 1 else None
-        return [("sis", x, y, schaal("straat", "sis", y, 0.72), None, 0.9, loop)]
+        y = 1470; a = ps.ease(min(1, (t - SC[2]["t"]) / 3.0)); x = 120 + 90 * a; loop = (t - SC[2]["t"]) * 2.2 if a < 1 else None
+        return [("sis", x, y, schaal("straat", "sis", y, 0.8), None, 0.9, loop)]
     if n == "keuken":
         y = 1480; return [("dad", 170, y, schaal("keuken", "dad", y), None, 0.9, None)] if t >= Z[I_KEUKEN][0] + 1.0 else []
     if n == "strand":
         y = 1640; return [("you", 190, y, schaal("strand", "you", y), None, 0.9, None)]
     return []
 def haai_scene(img, n, t):
-    if n == "garage": return haai(img, 420, 1290, "garage", t, rechts=True)
+    if n == "garage": return haai(img, 330, 1290, "garage", t, rechts=True)
     if n == "oprit":
         if t < T_DEUR: return None
         a = ps.ease(min(1, (t - T_DEUR) / 1.8)); v = 1290 + (1560 - 1290) * a
         return haai(img, 540, v, "oprit", t, loop=(t - T_DEUR) * 2.0 if a < 1 else None, rechts=True, op="oprit")
     if n == "straat":
-        a = ps.ease(min(1, (t - SC[2]["t"]) / 3.0)); x = 620 + 120 * a
-        return haai(img, x, 1400, "straat", t, loop=(t - SC[2]["t"]) * 2.0 if a < 1 else None, op="stoep")
+        a = ps.ease(min(1, (t - SC[2]["t"]) / 3.0)); x = 640 + 90 * a
+        return haai(img, x, 1250, "straat", t, loop=(t - SC[2]["t"]) * 2.0 if a < 1 else None, op="stoep")
     if n == "keuken":
         a = ps.ease(min(1, max(0, t - T_NAAR) / 1.6)); x = 470 + (700 - 470) * a
         loop = (t - T_NAAR) * 2.0 if 0 < a < 1 else None
@@ -242,7 +245,7 @@ def haai_scene(img, n, t):
     if n == "badkamer": return None
 def bad(img, t):                                           # haai ligt in bad, benen omhoog, ogen dicht, nachtlampje
     d = ImageDraw.Draw(img); L = 980; s_ = sprite("haai", L); x0 = 50; top = 610
-    WACHT.plaats("haai", (x0, top, x0 + L, top + s_.height), op="bad")
+    WACHT.plaats("haai", (x0, top, x0 + L, 830), op="bad")
     m = 300; grijs = (120, 130, 145)
     for k_, fx in enumerate((0.42, 0.56)):                 # benen steken omhoog uit het bad
         hx = x0 + L * fx; hy = top + 0.55 * s_.height; vx, vy = hx + (k_ * 2 - 1) * 40, hy - 330
@@ -256,7 +259,7 @@ def bad(img, t):                                           # haai ligt in bad, b
         zx, zy = 820 + k_ * 50, 520 - k_ * 70 - (t * 25) % 30
         d.text((zx, zy), "z", font=font(FB, 54 + k_ * 14), fill=(255, 255, 255), stroke_width=4, stroke_fill=INK)
     if t >= T_LAMP:                                        # nachtlampje in het stopcontact, gloeit
-        lx, ly = 1010, 1230; WACHT.plaats("nachtlampje", (lx - 40, ly - 60, lx + 40, ly + 10), op="vloer")
+        lx, ly = 860, 1330; WACHT.plaats("nachtlampje", (lx - 40, ly - 60, lx + 40, ly + 10), op="vloer")
         gl = Image.new("RGBA", (420, 420), (0, 0, 0, 0)); a = np.zeros((420, 420), np.float32); yy, xx = np.mgrid[0:420, 0:420]
         a = (np.clip(1 - np.sqrt((xx - 210) ** 2 + (yy - 210) ** 2) / 210, 0, 1) ** 2 * 200).astype(np.uint8)
         gl = Image.merge("RGBA", [Image.new("L", (420, 420), c) for c in (255, 220, 120)] + [Image.fromarray(a)]); img.paste(gl, (lx - 210, ly - 230), gl)
@@ -292,7 +295,7 @@ def _doel(t):
         elif nu == I_STAP: cx, cy, zm = 650, 1050, 1.15
     if n == "oprit": cx, cy, zm = 540, 1150, 1.0 + min(0.15, max(0, t - T_DEUR) * 0.08)
     if n == "straat": cx, cy, zm = 520, 1150, 1.05
-    if n == "keuken": cx, cy, zm = 560, 1000, 1.05 if t < T_EET else 1.25
+    if n == "keuken": cx, cy, zm = (560, 1000, 1.05) if t < T_EET else (470, 1050, 1.2)
     if n == "strand": cx, cy, zm = 560, 1250, 1.0 if nu != I_BANG else 1.2
     if n == "badkamer": cx, cy, zm = 540, 900, 1.0 + min(0.2, (t - sc["t"]) * 0.04)
     return cx, cy, zm
@@ -336,6 +339,7 @@ def frame(t):
     if n == "keuken": kruimels(img, t_b)
     img = camera(img, t)
     LABELS.clear(); cx0, cy0, cx1, cy1 = CROP[0]; zm_ = W / (cx1 - cx0)
+    GEZICHTEN[:] = [(k_, ((v[0] - cx0) * zm_, (v[1] + 60 * v[2] - cy0) * zm_, 66 * v[2] * zm_)) for k_, v in GEZ.items()]
     if TEKST_AAN:
         d = ImageDraw.Draw(img)
         for naam, (hx_, top_) in koppen.items():
@@ -344,7 +348,7 @@ def frame(t):
             bw_ = 14 * len(tekst) + 40; LABELS.append((tekst, (X - bw_ / 2, Y - 70, X + bw_ / 2, Y - 20)))
         plaatskaart(img, t_b, sc)
         if n == "straat" and t_b >= T_NOBODY: kop(img, "BULLIES: 0", W / 2, 420, 110, KL["groen"], ps.pop((t_b - T_NOBODY) / 0.3))
-        if n == "keuken" and nu == I_DAD: kop(img, "FRIDGE: GONE", W / 2, 420, 110, (235, 60, 60), ps.pop((t_b - Z[I_DAD][0]) / 0.3))
+        if n == "keuken" and nu == I_DAD: kop(img, "FRIDGE: GONE", W / 2 + 120, 1250, 100, (235, 60, 60), ps.pop((t_b - Z[I_DAD][0]) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1] + 60 * v[2], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1] + 60 * v[2]) for k_, v in GEZ.items()},
