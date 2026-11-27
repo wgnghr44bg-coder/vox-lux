@@ -41,7 +41,7 @@ def frame(t, nieuw):
     ps.LIPSYNC = None
     laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag)
     x0, y0, x1, y1 = box; img = img.crop((int(x0), int(y0), int(x1), int(y1))).resize((W, H), Image.LANCZOS); d = ImageDraw.Draw(img)
-    s_ = "AFTER: FILM CAMERA + MOVEMENT" if nieuw else "BEFORE"; f = ps.font(ps.FB, 56)
+    s_ = "AFTER: FILM CAMERA + LIP SYNC" if nieuw else "BEFORE"; f = ps.font(ps.FB, 56)
     d.text((40, 30), s_, font=f, fill=(255, 214, 64) if nieuw else (255, 255, 255), stroke_width=6, stroke_fill=(20, 20, 30))
     if nu:
         ww = [w for w in WO if w[0] == Z.index(nu)]; f = ps.font(ps.FS, 54); stukken_, cur = [], []

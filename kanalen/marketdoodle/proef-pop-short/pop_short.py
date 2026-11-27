@@ -51,6 +51,7 @@ C = {
 }
 SPREKER = {"DAD": "dad", "SIS": "sis", "TEACH": "teach"}
 
+LEVENDIG = False                                                           # 27 nov: hupje/wiegen/leunen (eigenaar: "zonder levendiger bewegingen") -> standaard UIT
 BEWEGEN = False                                                            # 27 nov (eigenaar: "kun je ook iets maken voor de bewegingen"): renderer zet ps.BEWEGEN = True
 _VEER = {}                                                                 # per poppetje: (t, links, rechts, v_links, v_rechts)
 _WISSEL = {}                                                               # per poppetje: (doel_links, doel_rechts, t_wissel)
@@ -74,7 +75,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     if gebaar == "stamp": bob = abs(math.sin(t * 14)) * 10 * s
     if gebaar == "schouders": bob -= 6 * s
     beweeg = BEWEGEN if bewegen is None else bewegen
-    if beweeg and loop is None:
+    if beweeg and LEVENDIG and loop is None:
         tw = _WISSEL.get(sleutel or naam, (0, 0, -9.0))[2]
         if 0 <= t - tw < 0.35: bob += math.sin(math.pi * (t - tw) / 0.35) * 9 * s      # hupje bij een nieuwe houding (tekenfilm)
         if mond > 0.1: x += math.sin(t * 2.6) * 3.5 * s                                 # wie praat, wiegt een beetje
@@ -152,7 +153,7 @@ def poppetje(d, naam, x, y, s, t, loop=None, kijk=0.0, mond=0.0, knipper=False, 
     hx, hy = x, top - hoofd * 0.82
     if beweeg:
         if mond > 0.1 and gebaar not in ("knik", "nee"):                   # wie praat, knikt en beweegt het hoofd een beetje mee
-            hy += math.sin(t * 6.5) * 4.5 * s * min(1.0, mond + 0.3); hx += math.sin(t * 3.1 + 1) * 2.5 * s + kijk * 4 * s   # knikken + naar de ander leunen
+            hy += math.sin(t * 6.5) * (4.5 if LEVENDIG else 3.0) * s * min(1.0, mond + 0.3); hx += math.sin(t * 3.1 + 1) * 2.0 * s + (kijk * 4 * s if LEVENDIG else 0)   # knikken (+ leunen alleen bij LEVENDIG)
         if loop is not None: hx += (1 if kijk >= 0 else -1) * 5 * s       # lopen: iets naar voren leunen
     if gebaar == "knik": hy += abs(math.sin(t * 7)) * 6 * s                                                   # 24 nov: ja knikken
     kap = kl["kapsel"]; hk = kl["haar"]; lw = int(4 * s * SS)
