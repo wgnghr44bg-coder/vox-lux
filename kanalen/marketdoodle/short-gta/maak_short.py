@@ -242,7 +242,7 @@ def zet(img, n, breed, x, voet, op, naam=None, punt=None, voor=False):
     img.paste(s_, (int(x + dx - s_.width / 2), int(voet + dy - s_.height)), s_)
 
 # ---------- scènes ----------
-Y = 1480
+Y = 1320
 def figuren(n, t):
     s = lambda naam, y=Y, f=0.92: schaal(BGN[n], naam, y, f)
     if n == "straat":
@@ -252,7 +252,7 @@ def figuren(n, t):
             f.append(("dad", 300, Y, s("dad"), geb, 0.6, None))
         return f
     if n == "keuken":
-        a = ps.ease(min(1, max(0, t - T_PUTS) / 1.3)); x = 260 + (700 - 260) * a; loop = (t - T_PUTS) * 2.2 if 0 < a < 1 else None
+        a = ps.ease(min(1, max(0, t - T_PUTS) / 1.3)); x = 260 + (640 - 260) * a; loop = (t - T_PUTS) * 2.2 if 0 < a < 1 else None
         return [("mom", x, Y, s("mom"), "vast" if t < T_FRIDGE else None, 0.9 if t < T_FRIDGE + 0.5 else -0.6, loop)]
     if n == "gary": return [("buur", 560, Y, s("buur"), "zwaai" if Z[I_BUUR][0] <= t < Z[I_BUUR][1] else None, 0.0, None)]
     if n == "slot": return [("buur", 200, Y, s("buur"), None, 0.6, None), ("you", 540, Y, s("you"), None, 0.0, None), ("dad", 880, Y, s("dad"), None, -0.6, None)]
@@ -265,7 +265,7 @@ def _doel(t):
     if n == "straat":
         if t < Z[I_KAUW][0]: cx, cy, zm = 760, 1000, 1.25
         else: cx, cy, zm = 540, 1050, 1.0
-    if n == "keuken": cx, cy, zm = 560, 1000, 1.05
+    if n == "keuken": cx, cy, zm = 600, 960, 1.05
     if n == "gary": cx, cy, zm = 560, 1000, 1.15
     return cx, cy, zm
 CAMTRACK = []
@@ -283,7 +283,7 @@ def camera(img, t):
     return img.crop((int(x0), int(y0), int(x0 + bw), int(y0 + bh))).resize((W, H), Image.LANCZOS)
 
 ZIE = {"real life": ["minimap"], "health bar": ["health"], "gum wrapper": ["kauwgompapiertje"], "one star": ["ster"],
-       "police car": ["in:agent@politieauto"], "milk": ["melk"], "mission complete": ["tekst:MISSION COMPLETE"], "gary": ["buur"],
+       "police car": ["in:agent@politieauto"], "milk": ["melk"], "fridge": ["koelkast"], "mission complete": ["tekst:MISSION COMPLETE"], "gary": ["buur"],
        "four hundred": ["tekst:x400"], "day thirty": ["tekst:DAY 30"]}
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 
@@ -295,8 +295,13 @@ def frame(t):
         a = ps.ease(min(1, (t_b - T_POLITIE) / 1.4)); x = 1500 + (800 - 1500) * a
         auto(img, "politieauto", 300, x, 1080, "stoep", True, "agent", t_b)
     if n == "keuken":
-        if T_MISSIE - 1.0 <= t_b < T_MISSIE + 2.5: cirkel(img, 760, 1490, t_b)
+        if T_MISSIE - 1.0 <= t_b < T_MISSIE + 2.5: cirkel(img, 640, 1330, t_b)
         WACHT.plaats("koelkast", (835, 420, 1060, 955), op="beeld")
+        if t_b >= T_FRIDGE - 0.3:                                                     # koelkast open, melk staat erin
+            d = ImageDraw.Draw(img); d.rectangle((850, 440, 1050, 940), fill=(245, 250, 255), outline=INK, width=6)
+            for yy in (600, 760): d.line((858, yy, 1042, yy), fill=(190, 205, 220), width=6)
+            gloed(img, 950, 560, 120, kl=(255, 255, 230), sterk=0.4)
+            zet(img, "melk", 70, 950, 596, op="aan:koelkast")
     if n == "straat" and t_b < T_DROP: pass
     figs = figuren(n, t_b); koppen = teken(img, figs, t_b, nu)
     if n == "straat" and t_b >= T_DROP and "dad" in koppen:                         # kauwgompapiertje valt uit papa's hand op de stoep
@@ -306,9 +311,9 @@ def frame(t):
         d.rectangle((x_ - 26, y_ - 16, x_ + 26, y_), fill=(210, 215, 225), outline=INK, width=3)
     if n == "keuken" and t_b < T_FRIDGE:                                              # melk in mama's hand
         f_ = figs[0]; hx, hy = rhand("mom", f_[1], f_[2], f_[3], 70)
-        zet(img, "melk", 110, hx, hy + 60, op="hand:mom", punt=(hx, hy), voor=True)
-    if n == "straat" and t_b >= T_HEALTH and "you" in GEZ: balkje(img, GEZ["you"][0], GEZ["you"][1] - 70, "HEALTH 100%", 1.0)
-    if n == "straat" and t_b >= T_DING and "dad" in GEZ: sterren(img, GEZ["dad"][0], GEZ["dad"][1] - 70, 1, t_b)
+        zet(img, "melk", 90, hx, hy + 50, op="hand:mom", punt=(hx, hy), voor=True)
+    if n == "straat" and t_b >= T_HEALTH and "you" in GEZ: balkje(img, GEZ["you"][0], GEZ["you"][1] - 40 * GEZ["you"][2] - 60, "HEALTH 100%", 1.0)
+    if n == "straat" and t_b >= T_DING and "dad" in GEZ: sterren(img, GEZ["dad"][0], GEZ["dad"][1] - 40 * GEZ["dad"][2] - 60, 1, t_b)
     img = camera(img, t)
     LABELS.clear(); cx0, cy0, cx1, cy1 = CROP[0]; zm_ = W / (cx1 - cx0)
     GEZICHTEN[:] = [(k_, ((v[0] - cx0) * zm_, (v[1] + 60 * v[2] - cy0) * zm_, 66 * v[2] * zm_)) for k_, v in GEZ.items() if k_ != "agent"]
@@ -318,13 +323,14 @@ def frame(t):
             tekst, kl = NAAM[naam]; X = (hx_ - cx0) * zm_; Yl = (top_ - cy0) * zm_
             if naam == "you" and n == "straat" and t_b >= T_HEALTH: continue          # health bar staat al boven je hoofd
             if naam == "dad" and n == "straat" and t_b >= T_DING: continue            # ster staat boven papa
+            if naam == "mom" and n == "keuken" and t_b >= T_MISSIE: continue          # MISSION COMPLETE staat boven mama
             ps.W, ps.H = W, H; ps.label(img, tekst, X, Yl - 45, kl, 0.55)
             bw_ = 14 * len(tekst) + 40; LABELS.append((tekst, (X - bw_ / 2, Yl - 70, X + bw_ / 2, Yl - 20)))
-        if n == "keuken" and t_b >= T_MISSIE: kop(img, "MISSION COMPLETE", W / 2, 420, 100, KL["goud"], ps.pop((t_b - T_MISSIE) / 0.3))
-        if n == "keuken" and t_b >= T_MISSIE + 0.6: kop(img, "+50 RESPECT", W / 2, 540, 76, KL["groen"], ps.pop((t_b - T_MISSIE - 0.6) / 0.3))
+        if n == "keuken" and t_b >= T_MISSIE: kop(img, "MISSION COMPLETE", W / 2, 280, 84, KL["goud"], ps.pop((t_b - T_MISSIE) / 0.3))
+        if n == "keuken" and t_b >= T_MISSIE + 0.6: kop(img, "+50 RESPECT", W / 2, 380, 70, KL["groen"], ps.pop((t_b - T_MISSIE - 0.6) / 0.3))
         if n == "gary" and t_b >= T_400: kop(img, "x400", 880, 560, 120, KL["geel"], ps.pop((t_b - T_400) / 0.3))
-        if n == "slot": kop(img, "DAY 1", W / 2, 360, 90, KL["groen"], 1.0)
-        if n == "slot" and t_b >= T_DAG30: kop(img, "DAY 30: ???", W / 2, 480, 110, (235, 60, 60), ps.pop((t_b - T_DAG30) / 0.3))
+        if n == "slot": kop(img, "DAY 1", W / 2, 300, 90, KL["groen"], 1.0)
+        if n == "slot" and t_b >= T_DAG30: kop(img, "DAY 30: ???", W / 2, 420, 110, (235, 60, 60), ps.pop((t_b - T_DAG30) / 0.3))
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1] + 60 * v[2], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1] + 60 * v[2]) for k_, v in GEZ.items()},
