@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-27 13:33",
+ "bijgewerkt": "2026-11-27 14:03",
  "kanalen": {
   "weken": [
    {
@@ -153,7 +153,7 @@
         "datum": "2026-11-27",
         "tijd": "14:00",
         "titel": "What If You Built A Shark That Can Walk? 🦈",
-        "stand": "gepland",
+        "stand": "online",
         "youtube": "Awzd3RcysAE"
        },
        {
@@ -1942,7 +1942,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-27 13:33)"
+   "tekst": "draait nu (2026-11-27 14:03)"
   },
   {
    "naam": "Git",
@@ -1962,7 +1962,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 13:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 13:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -1979,8 +1979,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-27 13:33",
-   "volgende": "2026-11-27 14:03"
+   "laatst": "2026-11-27 14:03",
+   "volgende": "2026-11-27 14:33"
   },
   "hype": {
    "aan": true,
@@ -1994,8 +1994,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-27 13:18",
-   "volgende": "2026-11-27 13:48"
+   "laatst": "2026-11-27 13:48",
+   "volgende": "2026-11-27 14:18"
   },
   "titels": {
    "aan": true,
@@ -2326,7 +2326,9 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "stem inspreken (OmniVoice)",
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2334,11 +2336,19 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
+  },
+  {
+   "naam": "video samenvoegen (ffmpeg)",
+   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 613,
+  "geheugen_mb": 596,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2511,8 +2521,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-27 13:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-27 14:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 13:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4581,32 +4591,32 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-27 13:33",
+  "bijgewerkt": "2026-11-27 14:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 9302978,
-    "week": 102919646,
+    "5uur": 9228419,
+    "week": 103228246,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
-     "Fri 27-11": 15235087,
+     "Fri 27-11": 15543687,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 48777,
+    "stap_kost": 49128,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 155027082,
+    "week": 153832389,
     "per_dag": {
-     "Fri 20-11": 15395776,
+     "Fri 20-11": 14201083,
      "Sat 21-11": 37598835,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
