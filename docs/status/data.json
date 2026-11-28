@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 01:03",
+ "bijgewerkt": "2026-11-28 01:33",
  "kanalen": {
   "weken": [
    {
@@ -2269,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 01:03)"
+   "tekst": "draait nu (2026-11-28 01:33)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2306,8 +2306,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 01:03",
-   "volgende": "2026-11-28 01:33"
+   "laatst": "2026-11-28 01:33",
+   "volgende": "2026-11-28 02:03"
   },
   "hype": {
    "aan": true,
@@ -2317,17 +2317,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-28 01:10"
+   "volgende": "2026-11-28 02:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 00:48",
-   "volgende": "2026-11-28 01:18"
+   "laatst": "2026-11-28 01:18",
+   "volgende": "2026-11-28 01:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-27 23:25",
-   "volgende": "2026-11-28 01:25"
+   "laatst": "2026-11-28 01:25",
+   "volgende": "2026-11-28 03:25"
   }
  },
  "kanaal": {
@@ -2838,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 01:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 00:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 01:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4763,7 +4763,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-27 23:25",
+  "bijgewerkt": "2026-11-28 01:26",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4896,16 +4896,39 @@
      }
     ],
     "bekeken": "2026-11-26"
+   },
+   {
+    "map": "scott-antarctica-1912",
+    "datum": "2027-01-09",
+    "titel": "Captain Scott's Expedition to the South Pole, 1911 | History for Sleep",
+    "fouten": [],
+    "let_op": [],
+    "voorstel": "",
+    "waarom": "",
+    "youtube": "",
+    "concurrent": [
+     {
+      "titel": "Something Incredible Was Hidden Beneath Antarctica (Sleep Special)",
+      "kanaal": "Kaushik Bhattacharjee Extra",
+      "per_dag": 8792
+     },
+     {
+      "titel": "Ghost Stories of the American South | Stories NOT for Sleep",
+      "kanaal": "Bedtime & Historian ",
+      "per_dag": 1180
+     }
+    ],
+    "bekeken": "2026-11-28"
    }
   ],
-  "model": "niet nodig"
+  "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 01:03",
+  "bijgewerkt": "2026-11-28 01:34",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 8605033,
+    "5uur": 7691587,
     "week": 133409629,
     "per_dag": {
      "Tue 24-11": 29948208,
@@ -4924,9 +4947,9 @@
    {
     "account": "account2",
     "5uur": 0,
-    "week": 139631306,
+    "week": 139037594,
     "per_dag": {
-     "Sat 21-11": 37598835,
+     "Sat 21-11": 37005123,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
      "Tue 24-11": 15135487
@@ -4939,7 +4962,7 @@
     "5uur_pct": 0,
     "5uur_scripts_over": null,
     "5uur_stappen_over": null,
-    "week_pct": 106,
+    "week_pct": 105,
     "week_scripts_over": null,
     "week_stappen_over": null
    }
