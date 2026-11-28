@@ -3,21 +3,23 @@ De drie regels uit de Studio-analyse (Shorts bleven steken op ± 1.200 views: 40
   1. HAAK     de eerste zin begint met "What if" en de vraag (tot het eerste ?) is binnen MAX_VRAAG s uitgesproken;
               in het allereerste beeld (t = 0,3 s) staat al iets bijzonders: minstens één voorwerp/grafiek naast de
               achtergrond en de poppetjes (game-HUD, haai, pijl, -90% ...). Een leeg beeld met alleen een poppetje = FOUT.
-  2. LENGTE   35-45 seconden.
+  2. LENGTE   30-38 seconden (28 nov, Studio-vergelijking: shorts verliezen kijkers in de laatste 10 s; was 35-45).
   3. LOOP     de laatste zin moet terugwijzen naar het begin: hij noemt het onderwerp van de vraag opnieuw (een
               kernwoord uit de eerste zin) of eindigt met een vervolg-haak ("never ends", "way worse", "day thirty" ...).
+  4. VRAAG    (28 nov, Studio: bijna geen reacties) in de laatste 3 s staat een keuze-/debatvraag in beeld (tekst met "?"),
+              bv. "WHICH POWER WOULD YOU PICK? 👇". Geef de schermteksten van het eind mee als teksten_eind.
 Gebruik in een Short-renderer (na het tekenen van frame(0.3)):
     from shortregels import controleer
-    fouten = controleer(Z, EIND, voorwerpen_bij_start=[naam for naam, box in WACHT.dit_frame])
+    fouten = controleer(Z, EIND, voorwerpen_bij_start=[naam for naam, box in WACHT.dit_frame], teksten_eind=[...])
     print("SHORTREGELS:", fouten or "alles goed")
 """
 import re
-MAX_VRAAG, MIN_S, MAX_S = 3.2, 35.0, 45.0
+MAX_VRAAG, MIN_S, MAX_S = 3.2, 30.0, 38.0
 STOP = {"what", "if", "you", "your", "the", "a", "an", "was", "were", "is", "are", "that", "can", "could", "and", "there's", "over", "of",
         "to", "in", "on", "it", "every", "single", "day", "never", "ended", "built", "real", "life"}
 VERVOLG = ("never ends", "way worse", "day thirty", "and it never", "that's why", "only day one", "again")
 
-def controleer(Z, eind, voorwerpen_bij_start=(), woorden=None):
+def controleer(Z, eind, voorwerpen_bij_start=(), woorden=None, teksten_eind=None):
     """woorden = [[zin, woord, t0, t1], ...] (scriptwoorden met tijden) -> precieze tijd van het vraagteken."""
     fout = []
     z0 = Z[0][2]
@@ -34,4 +36,5 @@ def controleer(Z, eind, voorwerpen_bij_start=(), woorden=None):
     laatste = Z[-1][2].lower(); kern = {w for w in re.findall(r"[a-z0-9']+", z0.lower()) if w not in STOP and len(w) > 2}
     if not (kern & set(re.findall(r"[a-z0-9']+", laatste)) or any(v in laatste for v in VERVOLG)):
         fout.append(f'LOOP: laatste zin wijst niet terug naar het begin ("{Z[-1][2][:60]}")')
+    if not any("?" in (t or "") for t in (teksten_eind or [])): fout.append("VRAAG: aan het eind staat geen keuzevraag in beeld (bv. WHICH ... WOULD YOU PICK? 👇)")
     return fout

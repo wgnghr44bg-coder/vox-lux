@@ -1,10 +1,10 @@
 # What If Your Family Had Superpowers? — Short (28 nov 2026), 2D pop_short-stijl. Hype: Avengers: Doomsday (final trailer 68M views, film 18 dec).
-# Eigenaar 28 nov: snelle grappen zoals de GTA-short, niet elke keer "Day 1/2/3". Regels: vraag in seconde 1, 35-45 s, loop.
+# Eigenaar 28 nov: snelle grappen zoals de GTA-short, niet elke keer "Day 1/2/3". Regels (28 nov): 30-38 s, loop, keuzevraag in beeld aan het eind.
 N|keuken|What if your family had superpowers? Dad has super strength. He opens a jar of pickles... and rips the fridge door off.
 DAD|keuken|Who makes these jars so weak?!
-N|eetkamer|Mom has super speed. Dinner is ready before you sit down. So are the dishes. And your homework. All wrong, but very fast.
+N|eetkamer|Mom has super speed. Dinner is ready before you sit down. And your homework. All wrong, but very fast.
 MOM|eetkamer|Done! What's next?
-N|woonkamer|Your sister can read minds. Everyone's. Especially yours.
+N|woonkamer|Your sister can read minds. Especially yours.
 SIS|woonkamer|You ate the last cookie. I know.
 N|woonkamer|And your superpower? You're invisible. Nobody notices. Same as before.
 YOU|woonkamer|Hello? Anybody?
