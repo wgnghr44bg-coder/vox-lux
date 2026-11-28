@@ -25,7 +25,7 @@ export const T = {
   dag1: zs(2), boom: kw(2, "it", 6), bank: kw(2, "sofa"), papa: kw(2, "dad"),
   dag2: zs(4), een: kw(4, "one"), dan: kw(4, "then"), tien: kw(4, "ten"),
   dag3: zs(6), schep: kw(6, "it", 7), onto: kw(6, "onto"), buren: kw(6, "neighbor"),
-  oops: zs(7), eve: zs(8), zelf: kw(8, "then"), slot: zs(9),
+  oops: zs(7), eve: zs(8), zelf: kw(8, "then"), slot: zs(9), pop: kw(9, "robot"),
 };
 const F = (t: number) => Math.round(t * FPS);
 
@@ -60,10 +60,11 @@ export const shotAt = (f: number) => SHOTS.find((s) => f >= s.a && f < s.b) ?? S
 
 // ---------------- posities ----------------
 export const KAMER = { tree: [-2.75, 0, -2.45] as V3, sofa: [0.6, 0, -2.75] as V3 };
-export const MOM: V3 = [-1.55, 0, -0.9], DAD: V3 = [0.25, 0, -1.55], SIS: V3 = [1.35, 0, -1.1], YOU: V3 = [-0.55, 0, -0.35];
+export const MOM: V3 = [-0.55, 0, -1.4], MOM6: V3 = [-0.6, 0, -0.3], YOU: V3 = [0.95, 0, -1.0];       // shot 5 en 6 (verticaal beeld is smal: weinig mensen per shot)
 export const DAD_K: V3 = [0.6, 0, -1.9];                  // vader na het versieren: voor de bank
 export const SIS_K: V3 = [KX - 1.1, 0, 0.7];
-export const YOU_T: V3 = [BX - 3.0, 0, 2.6];
+export const YOU_A: V3 = [0.2, 0, -0.4];   // kerstavond (alleen in het slotshot, anders staat hij aan de rand)
+export const YOU_T: V3 = [BX - 1.7, 0, 2.6];
 export const BUUR: V3 = [BX + 7.5, 0, -6.5];              // huis van de buren (midden voorgevel)
 export const ONS: V3 = [BX - 6.5, 0, -6.5];
 
@@ -76,19 +77,19 @@ export const robotAt = (t: number, s: Shot, praat: number): RobotPose => {
     case "kamer": {
       if (s.id <= 4) {
         const u = smooth(t / Math.max(0.1, T.shiny - 0.2));
-        const pos = lerp3([2.4, 0, 0.9], [0.45, 0, 0.35], u);
+        const pos = lerp3([1.5, 0, 1.3], [0.45, 0, 0.35], u);
         if (s.id === 1) return pose({ pos, yaw: lerp(-1.1, -0.15, u), bob: zweef, armR: 0.35 + 0.25 * Math.sin(t * 5), ogen: knipper(t, "gewoon") });
         if (s.id === 2) return pose({ pos: [0.45, 0, 0.35], yaw: -0.15, bob: zweef, ogen: "blij", head: 0.12 });
         if (s.id === 3) { const k = Math.sin(clamp01((t - T.polite) / 0.75) * Math.PI); return pose({ pos: [0.45, 0, 0.35], yaw: -0.15, bow: k, armR: 0.9 * k + 0.25, elbR: 1.4 * k + 0.3, ogen: k > 0.3 ? "dicht" : "gewoon" }); }
         return pose({ pos: [0.45, 0, 0.35], yaw: -0.15, bob: zweef, armL: 1.6 + 1.2 * Math.sin(t * 18), armR: 1.6 + 1.2 * Math.sin(t * 18 + 2), elbL: 0.2, elbR: 0.2, ogen: "hart" });
       }
-      if (s.id === 5) return pose({ pos: [1.45, 0, 0.0], yaw: -0.5, bob: zweef, armR: 2.5 + 0.35 * Math.sin(t * 9), elbR: 0.4, ogen: praat > 0 ? "blij" : "gewoon", praat });
-      if (s.id === 6) return pose({ pos: [-0.9, 0, -0.6], yaw: -0.9, bob: zweef, ogen: knipper(t, "groot"), head: -0.15 });
+      if (s.id === 5) return pose({ pos: [0.3, 0, 0.4], yaw: -0.25, bob: zweef, armR: 2.5 + 0.35 * Math.sin(t * 9), elbR: 0.4, ogen: praat > 0 ? "blij" : "gewoon", praat });
+      if (s.id === 6) return pose({ pos: [-1.75, 0, -1.2], yaw: 0.9, bob: zweef, ogen: knipper(t, "groot"), head: -0.15 });
       // versieren: heen en weer zoeven met lichtjes (boom -> bank -> vader)
-      const doel: V3 = s.id === 7 ? [-1.8, 0, -1.7] : s.id === 8 ? [1.9, 0, -1.6] : [1.1, 0, -1.0];
-      const vorig: V3 = s.id === 7 ? [-0.9, 0, -0.6] : s.id === 8 ? [-1.8, 0, -1.7] : [1.9, 0, -1.6];
+      const doel: V3 = s.id === 7 ? [-1.8, 0, -1.55] : s.id === 8 ? [2.3, 0, -1.4] : [2.2, 0, -1.3];
+      const vorig: V3 = s.id === 7 ? [-1.75, 0, -1.2] : s.id === 8 ? [2.3, 0, -1.4] : [2.2, 0, -1.3];
       const u = smooth((t - s.a / FPS) / 0.35);
-      if (s.id === 10) return pose({ pos: [1.5, 0, -0.85], yaw: -0.9, bob: zweef, ogen: "blij", armL: 0.4, armR: 2.6, elbR: 0.2 });
+      if (s.id === 10) return pose({ pos: [1.9, 0, -0.85], yaw: -0.9, bob: zweef, ogen: "blij", armL: 0.4, armR: 2.6, elbR: 0.2 });
       return pose({ pos: lerp3(vorig, doel, u), yaw: s.id === 7 ? -2.2 : s.id === 8 ? 0.4 : -0.9, bob: zweef, armL: 1.5 + 0.9 * Math.sin(t * 22), armR: 1.5 + 0.9 * Math.sin(t * 22 + 1.5), elbL: 0.3, elbR: 0.3, ogen: "blij" });
     }
     case "keuken": {
@@ -104,11 +105,13 @@ export const robotAt = (t: number, s: Shot, praat: number): RobotPose => {
         const k = (t * 3.2) % 1, zwaai = k < 0.55 ? lerp(0.3, 2.4, smooth(k / 0.55)) : lerp(2.4, 0.3, smooth((k - 0.55) / 0.45));
         return pose({ pos, yaw: 1.25, bob: zweef, armR: zwaai, elbR: 0.5, armL: zwaai * 0.8, elbL: 0.7, schep: true, ogen: "blij" });
       }
-      return pose({ pos, yaw: 0.9, bob: zweef, armR: 0.6, schep: true, ogen: "blij", head: 0.25 });
+      return pose({ pos: [BX - 0.2, 0, 0.0], yaw: 0.9, bob: zweef, armR: 0.6, schep: true, ogen: "blij", head: 0.25 });
     }
     case "avond": {
       const pos: V3 = [-0.6, 0, -0.9];
       if (s.id === 19) return pose({ pos, yaw: 0.2, bob: zweef, armL: 1.5 + 0.9 * Math.sin(t * 24), armR: 1.5 + 0.9 * Math.sin(t * 24 + 2), ogen: "blij" });
+      // slot: bij "robot butler" springt hij met zijn hoofd uit de doos (deksel omhoog) -> terug naar het begin (loop)
+      if (s.id === 21 && t >= T.pop) { const u = smooth((t - T.pop) / 0.35); return pose({ pos: [pos[0], 0.62 * u, pos[2]], yaw: 0.2, armL: 2.6 * u, armR: 2.6 * u, elbL: 0.2, elbR: 0.2, ogen: "blij", head: 0.15 * Math.sin(t * 6) }); }
       return pose({ pos, yaw: 0.2, bob: 0, armL: 0.1, armR: 0.1, ogen: "groot", zicht: t < T.zelf + 0.9 });
     }
   }
@@ -121,33 +124,34 @@ export type Cam = { pos: V3; look: V3; fov: number; roll?: number };
 const K = (a: Cam, b: Cam, u: number): Cam => ({ pos: lerp3(a.pos, b.pos, smooth(u)), look: lerp3(a.look, b.look, smooth(u)), fov: lerp(a.fov, b.fov, smooth(u)) });
 const C = (pos: V3, look: V3, fov = 42): Cam => ({ pos, look, fov });
 const CAMS: Record<number, [Cam, Cam]> = {
-  1: [C([1.9, 1.45, 4.6], [0.2, 1.05, -0.6], 46), C([1.2, 1.35, 3.3], [0.35, 1.1, -0.2], 44)],
-  2: [C([0.2, 1.6, 1.75], [0.42, 1.5, 0.3], 34), C([0.25, 1.58, 1.55], [0.42, 1.5, 0.3], 32)],
-  3: [C([1.3, 1.25, 2.6], [0.45, 0.95, 0.2], 40), C([1.2, 1.25, 2.45], [0.45, 0.95, 0.2], 40)],
+  1: [C([1.6, 1.5, 4.6], [0.6, 1.05, 0.0], 46), C([0.7, 1.4, 3.4], [0.4, 1.1, -0.1], 44)],      // kijkt mee met de robot (camAt)
+  2: [C([0.35, 1.62, 2.3], [0.45, 1.52, 0.35], 46), C([0.38, 1.6, 2.05], [0.45, 1.52, 0.35], 46)],
+  3: [C([0.95, 1.2, 3.4], [0.45, 0.92, 0.35], 46), C([0.9, 1.2, 3.2], [0.45, 0.92, 0.35], 46)],
   4: [C([0.5, 1.2, 2.9], [0.45, 1.05, 0.2], 44), C([0.5, 1.25, 2.6], [0.45, 1.1, 0.2], 42)],
-  5: [C([0.6, 1.35, 3.9], [0.35, 0.95, -0.9], 46), C([0.75, 1.35, 3.55], [0.5, 1.0, -0.8], 44)],
-  6: [C([0.6, 1.5, 2.6], [-1.9, 1.1, -1.8], 46), C([0.3, 1.45, 2.2], [-2.0, 1.15, -1.9], 44)],
-  7: [C([-0.4, 1.5, 1.3], [-2.6, 1.25, -2.4], 46), C([-0.6, 1.5, 1.0], [-2.7, 1.3, -2.45], 44)],
-  8: [C([0.4, 1.35, 1.6], [1.0, 0.75, -2.6], 48), C([0.5, 1.35, 1.35], [1.0, 0.75, -2.6], 46)],
-  9: [C([0.35, 1.3, 1.2], [0.3, 1.05, -1.6], 44), C([0.33, 1.28, 0.95], [0.27, 1.05, -1.6], 42)],
-  10: [C([0.25, 1.15, 0.75], [0.25, 1.1, -1.6], 40), C([0.25, 1.15, 0.55], [0.25, 1.12, -1.6], 38)],
+  5: [C([0.3, 1.35, 3.9], [0.25, 1.05, -0.8], 50), C([0.3, 1.35, 3.6], [0.25, 1.05, -0.8], 50)],
+  6: [C([0.6, 1.5, 3.0], [-1.5, 1.1, -1.7], 50), C([0.45, 1.5, 2.75], [-1.5, 1.1, -1.7], 50)],
+  7: [C([-0.6, 1.5, 1.9], [-2.4, 1.25, -2.2], 46), C([-0.7, 1.5, 1.7], [-2.4, 1.25, -2.2], 46)],
+  8: [C([1.0, 1.35, 1.5], [0.5, 0.8, -2.7], 50), C([1.0, 1.35, 1.3], [0.5, 0.8, -2.7], 50)],
+  9: [C([0.75, 1.35, 1.6], [0.75, 1.0, -1.9], 46), C([0.72, 1.33, 1.35], [0.75, 1.0, -1.9], 46)],
+  10: [C([0.6, 1.15, 0.75], [0.6, 1.1, -1.9], 40), C([0.6, 1.15, 0.55], [0.6, 1.12, -1.9], 40)],
   11: [C([KX - 1.6, 1.6, 2.6], [KX + 0.3, 1.0, -2.2], 46), C([KX - 1.2, 1.55, 2.2], [KX + 0.3, 1.0, -2.2], 44)],
   12: [C([KX + 0.15, 1.45, -0.55], [KX + 0.4, 0.95, -1.2], 38), C([KX + 0.15, 1.4, -0.7], [KX + 0.4, 0.95, -1.2], 36)],
   13: [C([KX - 0.5, 1.7, 3.0], [KX + 0.2, 0.7, -1.8], 52), C([KX - 0.9, 1.9, 3.3], [KX + 0.2, 0.6, -1.6], 54)],
-  14: [C([KX - 1.0, 1.3, 3.0], [KX - 0.9, 0.85, 0.2], 44), C([KX - 1.0, 1.25, 2.7], [KX - 0.95, 0.85, 0.3], 42)],
-  15: [C([BX - 1.8, 1.5, 6.6], [BX - 1.4, 1.0, 0.8], 46), C([BX - 1.8, 1.45, 5.9], [BX - 1.3, 1.0, 0.8], 44)],
-  16: [C([BX - 0.4, 1.4, 4.2], [BX + 1.2, 1.4, -0.5], 50), C([BX - 0.2, 1.4, 3.8], [BX + 1.6, 1.5, -1.0], 50)],
+  14: [C([KX - 1.6, 0.95, 3.2], [KX - 1.15, 0.8, 0.0], 44), C([KX - 1.55, 0.95, 2.95], [KX - 1.15, 0.8, 0.0], 44)],
+  15: [C([BX - 1.3, 1.1, 6.6], [BX - 1.15, 0.95, 1.0], 46), C([BX - 1.3, 1.1, 6.2], [BX - 1.15, 0.95, 1.0], 46)],
+  16: [C([BX - 2.4, 1.5, 4.8], [BX + 1.2, 1.7, -3.0], 50), C([BX - 2.3, 1.5, 4.5], [BX + 1.2, 1.7, -3.0], 50)],
   17: [C([BX + 0.5, 3.0, 11.5], [BX + 5.2, 2.0, -4.5], 48), C([BX + 0.5, 3.4, 12.6], [BX + 5.0, 2.2, -4.5], 50)],
-  18: [C([BX - 3.1, 1.3, 5.6], [BX - 1.2, 1.1, 1.0], 44), C([BX - 3.2, 1.3, 5.2], [BX - 1.4, 1.1, 1.0], 42)],
+  18: [C([BX - 2.6, 1.0, 5.6], [BX + 0.3, 1.25, -2.0], 46), C([BX - 2.6, 1.0, 5.35], [BX + 0.3, 1.25, -2.0], 46)],
   19: [C([0.9, 1.5, 2.6], [-1.0, 0.9, -1.4], 46), C([0.7, 1.45, 2.2], [-1.0, 0.9, -1.4], 44)],
-  20: [C([0.3, 1.3, 1.9], [-0.6, 0.85, -0.9], 42), C([0.25, 1.3, 1.7], [-0.6, 0.85, -0.9], 40)],
-  21: [C([1.4, 1.4, 3.4], [-1.2, 0.85, -1.6], 46), C([0.8, 1.2, 2.2], [-1.1, 0.75, -1.6], 40)],
+  20: [C([0.6, 1.4, 2.8], [-0.6, 0.95, -0.9], 46), C([0.5, 1.38, 2.5], [-0.6, 0.95, -0.9], 46)],
+  21: [C([1.4, 1.4, 3.4], [-0.9, 1.0, -1.3], 46), C([1.0, 1.35, 2.8], [-0.8, 1.05, -1.2], 44)],
 };
 /** korte schok op klappen (seconden) */
 export const KICKS = [T.tien + 0.3, T.onto + 0.5];
 export const camAt = (f: number): Cam => {
   const s = shotAt(f), [a, b] = CAMS[s.id], u = (f - s.a) / Math.max(1, s.b - s.a);
   const c = K(a, b, u), t = f / FPS;
+  if (s.id === 1) { const r = robotAt(t, s, 0).pos; c.look = [r[0] - 0.15, 1.05, r[2] - 0.3]; }
   const kick = KICKS.reduce((acc, k) => acc + Math.max(0, 1 - Math.abs(t - k) / 0.25) * Math.sin(t * 70), 0);
   c.pos = [c.pos[0] + kick * 0.03, c.pos[1] + kick * 0.04, c.pos[2]];
   return c;

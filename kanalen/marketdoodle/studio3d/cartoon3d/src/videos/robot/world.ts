@@ -13,8 +13,9 @@ import { drawBlob } from "../haai/figures";
 import { mondOp } from "./lipsync";
 import { zet, los, KIT } from "./kenney";
 import { Robot } from "./robotbouw";
+import { castAt, SC } from "./cast";
 import {
-  FPS, shotAt, camAt, robotAt, doosAt, T, KX, BX, V3, smooth, clamp01, KAMER, MOM, DAD, SIS, YOU, DAD_K, SIS_K, YOU_T, BUUR, ONS, KICKS,
+  FPS, shotAt, camAt, robotAt, doosAt, T, KX, BX, V3, smooth, clamp01, KAMER, DAD_K, BUUR, ONS, KICKS,
 } from "./story";
 
 // ---------------- kaartjes (zoals de eerste 3D-haai) ----------------
@@ -138,7 +139,7 @@ export class World {
   private koekjes!: THREE.InstancedMesh; private koekPos: { p: V3; r: number; t: number }[] = [];
   private eenKoek!: THREE.Object3D;
   private berg!: THREE.Mesh; private ballen!: THREE.InstancedMesh; private vlokken!: THREE.Points;
-  private cadeaus: THREE.Object3D[] = []; private doos = new THREE.Group();
+  private cadeaus: THREE.Object3D[] = []; private doos = new THREE.Group(); private deksel = new THREE.Group();
   private vuur!: THREE.Mesh; private plafondLamp!: THREE.Mesh;
 
   constructor() {
@@ -173,7 +174,7 @@ export class World {
     // ---- cast ----
     const blobT = cardTex("blob", 600, 200, 1, drawBlob);
     const mkBlob = (w: number) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, w / 3).rotateX(-Math.PI / 2), blobMaterial(blobT)); m.layers.set(NOINK); m.renderOrder = 0.5; R.add(m); return m; };
-    for (let i = 0; i < 4; i++) { const sc = i === 2 ? 0.0021 : i === 3 ? 0.002 : i === 0 ? 0.00175 : 0.0016; this.people.push([new Card(R, 600 * sc, 1000 * sc, 25 * sc), mkBlob(0.7)]); }
+    ["you", "sis", "dad", "mom"].forEach((n) => { const sc = SC[n]; this.people.push([new Card(R, 600 * sc, 1000 * sc, 25 * sc), mkBlob(0.7)]); });
     for (let i = 0; i < 4; i++) this.fx.push(new Card(R, 1, 1, 0, false));
     this.kamer(R); this.keuken(R); this.tuin(R);
   }
@@ -218,13 +219,13 @@ export class World {
     // meubels
     zet(b, "loungeSofaLong", KAMER.sofa[0], 0, KAMER.sofa[2], 0.85);
     zet(b, "pillow", KAMER.sofa[0] - 0.6, 0.45, KAMER.sofa[2] + 0.1, 0.32, 0.2); zet(b, "pillowBlue", KAMER.sofa[0] + 0.7, 0.45, KAMER.sofa[2] + 0.1, 0.32, -0.2);
-    zet(b, "rugRound", 0.4, 0.02, -0.9, 0.03); zet(b, "tableCoffee", 0.5, 0.02, -1.55, 0.42);
+    zet(b, "rugRound", 0.4, 0.02, -0.9, 0.03); zet(b, "tableCoffee", 0.5, 0.02, -2.0, 0.36);
     zet(b, "lampRoundFloor", 2.1, 0, -2.95, 1.7); zet(b, "sideTable", -1.25, 0, -2.95, 0.55); zet(b, "lampSquareTable", -1.25, 0.55, -2.95, 0.5);
     zet(b, "cabinetTelevision", X1 - 0.35, 0, -0.3, 0.55, -Math.PI / 2); zet(b, "televisionModern", X1 - 0.35, 0.55, -0.3, 0.75, -Math.PI / 2);
     zet(b, "speaker", X1 - 0.35, 0, -1.4, 0.95, -Math.PI / 2); zet(b, "speaker", X1 - 0.35, 0, 0.8, 0.95, -Math.PI / 2);
     zet(b, "bookcaseOpen", X1 - 0.3, 0, -2.6, 1.9, -Math.PI / 2); zet(b, "books", X1 - 0.3, 0.95, -2.6, 0.3, -Math.PI / 2); zet(b, "books", X1 - 0.3, 1.42, -2.6, 0.3, -Math.PI / 2); zet(b, "radio", X1 - 0.3, 0.5, -2.6, 0.22, -Math.PI / 2);
-    zet(b, "loungeChair", X1 - 1.2, 0, 1.9, 0.85, -2.2); zet(b, "pottedPlant", 3.3, 0, -3.05, 1.1); zet(b, "plantSmall2", 0.5, 0.44, -1.6, 0.25);
-    zet(b, "candy-cane-red", 0.85, 0.44, -1.45, 0.3, 0.4);
+    zet(b, "loungeChair", X1 - 1.2, 0, 1.9, 0.85, -2.2); zet(b, "pottedPlant", 3.3, 0, -3.05, 1.1); zet(b, "plantSmall2", 0.45, 0.38, -2.0, 0.22);
+    zet(b, "candy-cane-red", 0.8, 0.38, -1.9, 0.26, 0.4);
     // kerstboom: kaal tot de robot hem versiert, dan vol
     this.boomKaal = los("tree", 2.45); this.boomKaal.position.set(...KAMER.tree); R.add(this.boomKaal);
     this.boomVol = los("tree-decorated", 2.45); this.boomVol.position.set(...KAMER.tree); R.add(this.boomVol);
@@ -251,11 +252,13 @@ export class World {
     // cadeaudoos (avond): rood met goud lint en strik, om de robot heen
     const rood = lam("rbPapier", () => ({ map: ctex("rbPapierTex", 256, 256, (g) => { g.fillStyle = "#d1343c"; g.fillRect(0, 0, 256, 256); g.fillStyle = "#f6f1e6";
       for (let y = 16; y < 256; y += 64) for (let x = 16; x < 256; x += 64) { g.beginPath(); g.arc(x + (y % 128 ? 32 : 0), y, 7, 0, 7); g.fill(); } }) })), goud = lam("rbLint", () => ({ color: "#f2c94c" }));
-    const d = new Batch();
-    d.add(boxGeo(V(-0.48, 0, -0.48), V(0.48, 1.0, 0.48)), rood); d.add(boxGeo(V(-0.52, 1.0, -0.52), V(0.52, 1.14, 0.52)), rood);
-    d.add(boxGeo(V(-0.07, 0, 0.481), V(0.07, 1.0, 0.5)), goud); d.add(boxGeo(V(-0.07, 1.0, -0.53), V(0.07, 1.15, 0.53)), goud); d.add(boxGeo(V(-0.53, 1.0, -0.07), V(0.53, 1.15, 0.07)), goud);
-    d.add(new THREE.TorusGeometry(0.17, 0.06, 10, 20).rotateY(0.5).translate(-0.16, 1.27, 0), goud); d.add(new THREE.TorusGeometry(0.17, 0.06, 10, 20).rotateY(-0.5).translate(0.16, 1.27, 0), goud);
-    d.build(this.doos, true); this.doos.traverse((x) => { (x as THREE.Mesh).matrixAutoUpdate = true; }); R.add(this.doos);
+    const d = new Batch(), dl = new Batch();
+    d.add(boxGeo(V(-0.48, 0, -0.48), V(0.48, 1.0, 0.48)), rood); d.add(boxGeo(V(-0.07, 0, 0.481), V(0.07, 1.0, 0.5)), goud);
+    dl.add(boxGeo(V(-0.52, 0, -0.52), V(0.52, 0.14, 0.52)), rood);
+    dl.add(boxGeo(V(-0.07, 0, -0.53), V(0.07, 0.15, 0.53)), goud); dl.add(boxGeo(V(-0.53, 0, -0.07), V(0.53, 0.15, 0.07)), goud);
+    dl.add(new THREE.TorusGeometry(0.17, 0.06, 10, 20).rotateY(0.5).translate(-0.16, 0.27, 0), goud); dl.add(new THREE.TorusGeometry(0.17, 0.06, 10, 20).rotateY(-0.5).translate(0.16, 0.27, 0), goud);
+    d.build(this.doos, true); dl.build(this.deksel, true); this.deksel.position.y = 1.0; this.doos.add(this.deksel);
+    this.doos.traverse((x) => { (x as THREE.Mesh).matrixAutoUpdate = true; }); R.add(this.doos);
     // extra cadeaus voor kerstavond (verschijnen een voor een terwijl de robot inpakt)
     const namen = ["present-a-cube", "present-b-cube", "present-a-rectangle", "present-b-round", "present-a-round", "present-b-rectangle"];
     for (let i = 0; i < 18; i++) { const o = los(namen[i % 6], 0.24 + ((i * 37) % 10) / 40); const ring = Math.floor(i / 6);
@@ -286,7 +289,7 @@ export class World {
     binnen.add(boxGeo(V(x0 + 1.92, 1.55, Z0), V(x0 + 3.28, 1.6, Z0 + 0.12)), kozijn); binnen.add(boxGeo(V(x0 + 1.92, 2.45, Z0), V(x0 + 3.28, 2.52, Z0 + 0.05)), kozijn);
     binnen.add(boxGeo(V(x0 + 2.58, 1.6, Z0), V(x0 + 2.62, 2.45, Z0 + 0.05)), kozijn);
     // tafel met stoelen, kerstkrans, lampjes langs de kastjes
-    zet(b, "table", KX - 1.9, 0, 1.4, 0.78); zet(b, "chairCushion", KX - 2.5, 0, 1.4, 0.95, Math.PI / 2); zet(b, "chairCushion", KX - 1.3, 0, 1.4, 0.95, -Math.PI / 2);
+    zet(b, "table", KX + 2.4, 0, 1.6, 0.78); zet(b, "chairCushion", KX + 1.8, 0, 1.6, 0.95, Math.PI / 2); zet(b, "chairCushion", KX + 3.0, 0, 1.6, 0.95, -Math.PI / 2);
     zet(b, "wreath-decorated", KX + 2.9, 1.9, Z0 + 0.06, 0.55);
     b.build(R, true); binnen.build(R, false);
     for (let i = 0; i < 40; i++) { const u = i / 39; this.lampjes.zet([x0 + u * 6.2, 2.47 - 0.08 * Math.sin(((u * 5) % 1) * Math.PI), Z0 + 0.1], 0); }
@@ -338,7 +341,7 @@ export class World {
     // sneeuwberg op het huis van de buren (groeit), sneeuwballen in de lucht, vallende vlokken
     this.berg = new THREE.Mesh(new THREE.SphereGeometry(1, 40, 24, 0, Math.PI * 2, 0, Math.PI / 2), lam("rbBerg", () => ({ map: rep(sneeuw(), 3, 3) })));
     this.berg.castShadow = true; this.berg.receiveShadow = true; this.berg.position.set(BUUR[0], 0, BUUR[2] - 2.5); R.add(this.berg);
-    this.ballen = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(0.16, 1), lam("rbBal", () => ({ color: "#f6f9fd" })), 60);
+    this.ballen = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(0.16, 1), lam("rbBal", () => ({ color: "#f6f9fd" })), 80);
     this.ballen.count = 0; this.ballen.frustumCulled = false; this.ballen.castShadow = true; R.add(this.ballen);
     const n = 1500, pos = new Float32Array(n * 3);
     let s = 3; const r = () => ((s = (s * 16807) % 2147483647) / 2147483647);
@@ -387,7 +390,12 @@ export class World {
     this.robot.set(rp);
     const dk = s.place === "avond" ? doosAt(t) : 0;
     this.doos.visible = dk > 0;
-    if (dk > 0) { this.doos.position.set(rp.pos[0], 0, rp.pos[2]); const w = 1 + 0.08 * Math.sin(t * 9) * (t > 33.9 ? 1 : 0); this.doos.scale.set(1.0 * w, 1.6 * dk, 1.0 / w); this.doos.rotation.y = 0.2 + (t > 33.9 ? 0.06 * Math.sin(t * 6) : 0); }
+    if (dk > 0) {
+      const wiebel = t > T.slot && t < T.pop ? 1 : 0, w = 1 + 0.07 * Math.sin(t * 9) * wiebel;
+      this.doos.position.set(rp.pos[0], 0, rp.pos[2]); this.doos.scale.set(1.0 * w, 1.6 * dk, 1.0 / w); this.doos.rotation.y = 0.2 + 0.06 * Math.sin(t * 6) * wiebel;
+      const op = t >= T.pop ? smooth((t - T.pop) / 0.3) : 0;            // deksel vliegt omhoog en kantelt als de robot eruit springt
+      this.deksel.position.set(-0.35 * op, 1.0 + 0.9 * op, 0); this.deksel.rotation.z = 0.9 * op;
+    }
 
     // ---- lampjes ----
     const aan = (g: number) => g === 0 ? 1 : g === 1 ? (t >= T.boom + 0.25 ? 1 : 0) : g === 2 ? (t >= T.bank + 0.2 ? 1 : 0) : (t >= T.papa + 0.15 ? 1 : 0);
@@ -417,10 +425,14 @@ export class World {
     const schep = s.place === "tuin" ? clamp01((t - T.schep) / Math.max(0.5, (T.oops + 0.3) - T.schep)) : 0;
     this.berg.scale.set(5.6, 0.2 + 4.6 * smooth(schep * 1.15), 4.6); this.berg.visible = s.place === "tuin";
     let nb = 0;
-    if (s.place === "tuin" && t > T.schep && t < T.oops + 0.4) for (let i = 0; i < 40; i++) {
-      const k = (t * 3.2 + i / 40 * 3) % 1, a: V3 = [rp.pos[0] + 0.9, 1.0, rp.pos[2] + 0.3], z: V3 = [BUUR[0] - 1.5 + (i % 5) * 0.8, 2 + smooth(schep) * 3, BUUR[2] - 1.5 - (i % 3)];
-      if (i / 40 > (t - T.schep) * 1.5) continue;
-      m4.compose(V(a[0] + (z[0] - a[0]) * k, a[1] + (z[1] - a[1]) * k + Math.sin(k * Math.PI) * 3.2, a[2] + (z[2] - a[2]) * k), q.identity(), V(1, 1, 1));
+    // losse sneeuwklonten met elk een eigen ritme, doel verspreid over het buurhuis (eerst leek het een rups)
+    if (s.place === "tuin" && t > T.schep && t < T.oops + 0.4) for (let i = 0; i < 60; i++) {
+      const h1 = (i * 0.618) % 1, h2 = (i * 0.414 + 0.3) % 1, h3 = (i * 0.732 + 0.6) % 1;
+      const dur = 0.9 + 0.5 * h1, k = ((t - T.schep) / dur + h2) % 1;
+      if (t - T.schep < h2 * dur) continue;
+      const a: V3 = [rp.pos[0] + 0.7, 0.6, rp.pos[2] + 0.4], z: V3 = [BUUR[0] - 3.5 + 7 * h1, 1.5 + smooth(schep) * 3 + 1.5 * h3, BUUR[2] - 0.5 - 5 * h3];
+      const sz = 0.5 + 1.1 * h3;
+      m4.compose(V(a[0] + (z[0] - a[0]) * k, a[1] + (z[1] - a[1]) * k + Math.sin(k * Math.PI) * (2.5 + 2 * h2), a[2] + (z[2] - a[2]) * k), q.setFromEuler(e.set(h1 * 6, h2 * 6, 0)), V(sz, sz * 0.8, sz));
       this.ballen.setMatrixAt(nb++, m4);
     }
     this.ballen.count = nb; this.ballen.instanceMatrix.needsUpdate = true;
@@ -428,31 +440,17 @@ export class World {
     for (let i = 0; i < pp.count; i++) { const y0 = (i * 0.6173) % 9; pp.setY(i, 9 - ((9 - y0 + t * 0.6) % 9)); }
     pp.needsUpdate = true; this.vlokken.visible = s.place === "tuin";
 
-    // ---- mensen ----
+    // ---- mensen (cast.ts: zelfde lijst als de controles) ----
     const blinkOf = (k: number) => ((t + k * 0.7) % 3.1) > 2.95;
-    const person = (i: number, o: Outfit, key: string, pos: V3, opts: { expr: Expr; facing: -1 | 0 | 1; wave?: number; zinnen?: number[]; k?: number; hop?: number }) => {
-      const [cd, blob] = this.people[i];
-      const m = opts.zinnen ? mondOp(t, opts.zinnen) : null;
-      const bl = blinkOf(opts.k ?? 0);
-      const tx = cardTex(`${key}|${opts.expr}|${opts.facing}|${bl}|${m}|${opts.wave ?? 0}`, 600, 1000, 1.6, (p) => {
-        LIP.m = m; bodyFront(p, o, { mode: "stand", phase: 0, expr: opts.expr, facing: opts.facing as any, blink: bl, light: -2.1, seed: opts.k ?? 3, wave: opts.wave }); LIP.m = null; });
-      cd.set(tx, [pos[0], pos[1] + (opts.hop ?? 0), pos[2]], cam.position, false);
-      blob.position.set(pos[0], 0.03, pos[2]); blob.visible = true;
-    };
-    for (const [cd, b] of this.people) { cd.mesh.visible = false; b.visible = false; }
-    const wiebel = (k: number) => (Math.round(t * 8 + k) % 2 ? 1 : 0);
-    if (s.place === "kamer" && s.id >= 5) {
-      const na = s.id >= 9;
-      person(0, O_YOU, "you", YOU, { expr: s.id === 5 ? "smile" : na ? "laugh" : "grin", facing: 1, k: 1 });
-      person(1, O_SIS, "sis", SIS, { expr: s.id === 5 ? "smile" : na ? "laugh" : "grin", facing: -1, k: 4 });
-      person(2, O_DAD, "dad", na ? DAD_K : DAD, { expr: na ? "shock" : s.id === 8 ? "nervous" : "smile", facing: na ? 0 : -1, zinnen: [3], k: 7, hop: s.id === 9 ? 0.04 * Math.abs(Math.sin(t * 20)) : 0 });
-      person(3, O_MOM, "mom", MOM, { expr: s.id === 6 ? "smile_closed" : na ? "laugh" : "smile", facing: 1, wave: s.id === 6 ? wiebel(0) : s.id === 5 ? wiebel(1) : undefined, k: 2 });
-    }
-    if (s.place === "keuken" && s.id === 14) person(1, O_SIS, "sisk", SIS_K, { expr: "shock", facing: 1, zinnen: [5], k: 4 });
-    if (s.place === "tuin") person(0, O_YOU, "yout", YOU_T, { expr: s.id === 18 ? "nervous" : s.id === 15 ? "smile" : "shock", facing: 1, zinnen: [7], k: 1, wave: s.id === 15 || s.id === 18 ? wiebel(0) : undefined });
-    if (s.place === "avond") {
-      person(0, O_YOU, "youa", [1.2, 0, -0.2], { expr: s.id === 21 ? "laugh" : "grin", facing: -1, k: 1 });
-      person(1, O_SIS, "sisa", [1.9, 0, -0.75], { expr: s.id === 21 ? "laugh" : "smile", facing: -1, k: 4 });
+    const KLEREN: Record<string, Outfit> = { you: O_YOU, sis: O_SIS, dad: O_DAD, mom: O_MOM };
+    for (const [cd, bl] of this.people) { cd.mesh.visible = false; bl.visible = false; }
+    for (const fg of castAt(t, s)) {
+      const [cd, blob] = this.people[fg.slot];
+      const m = fg.zinnen ? mondOp(t, fg.zinnen) : null, bl = blinkOf(fg.k);
+      const tx = cardTex(`${fg.key}|${fg.expr}|${fg.facing}|${bl}|${m}|${fg.wave ?? "x"}`, 600, 1000, 1.6, (p) => {
+        LIP.m = m; bodyFront(p, KLEREN[fg.naam], { mode: "stand", phase: 0, expr: fg.expr, facing: fg.facing as any, blink: bl, light: -2.1, seed: fg.k, wave: fg.wave }); LIP.m = null; });
+      cd.set(tx, [fg.pos[0], fg.pos[1] + (fg.hop ?? 0), fg.pos[2]], cam.position, false);
+      blob.position.set(fg.pos[0], 0.03, fg.pos[2]); blob.visible = true;
     }
 
     // ---- effecten ----

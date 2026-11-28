@@ -90,9 +90,10 @@ export class Robot {
     };
     arm(this.sL, this.eL, -1); arm(this.sR, this.eR, 1);
     // sneeuwschep (rechterhand) en bakplaat (beide handen)
-    mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.0, 8).rotateX(Math.PI / 2), lam("rbHout", () => ({ color: "#a8724a" })), this.schep, 0, 0, 0.35);
-    mesh(new THREE.BoxGeometry(0.42, 0.03, 0.34), rood, this.schep, 0, -0.05, 0.95);
-    this.schep.position.set(0, -0.34, 0); this.eR.add(this.schep);
+    // steel omlaag uit de hand, blad onderaan schuin naar voren (eerst leek hij op een vlag)
+    mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.0, 8), lam("rbHout", () => ({ color: "#a8724a" })), this.schep, 0, -0.45, 0);
+    const blad = mesh(new THREE.BoxGeometry(0.4, 0.34, 0.03), rood, this.schep, 0, -1.02, 0.1); blad.rotation.x = -0.5;
+    this.schep.position.set(0, -0.32, 0); this.schep.rotation.x = 0.7; this.eR.add(this.schep);
     mesh(new THREE.BoxGeometry(0.62, 0.025, 0.42), grijs, this.blik, 0, 0, 0);
     this.blik.position.set(0, 0.95, 0.5); this.body.add(this.blik);
     this.root.add(this.body); parent.add(this.root);
