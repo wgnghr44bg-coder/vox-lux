@@ -1328,5 +1328,65 @@
    "k": 1.09,
    "_uitleg": "afgeleid 27 nov: horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon uit referentie (werkbank/garagedeur/lantaarn/aanrecht)"
   }
+ },
+ "v-stad": {
+  "vlakken": {
+   "stoep": [
+    180,
+    1080,
+    1180,
+    1920
+   ],
+   "straat": [
+    0,
+    420,
+    1160,
+    1920
+   ]
+  },
+  "muur": [
+   [
+    740,
+    0,
+    1080,
+    1440
+   ]
+  ],
+  "meubels": {},
+  "maat": {
+   "horizon": 1150,
+   "k": 1.09,
+   "_uitleg": "gemeten 28 nov (short-helden): horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; horizon = eind van de straat (verdwijnpunt)"
+  }
+ },
+ "v-gang": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1150,
+    1920
+   ]
+  },
+  "muur": [
+   [
+    160,
+    300,
+    370,
+    1400
+   ],
+   [
+    790,
+    300,
+    920,
+    1600
+   ]
+  ],
+  "meubels": {},
+  "maat": {
+   "horizon": 760,
+   "k": 1.09,
+   "_uitleg": "gemeten 28 nov (short-helden): horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; deur achterin 2,0 m = 475 px -> ooghoogte 1,6 m op y 760"
+  }
  }
 }
