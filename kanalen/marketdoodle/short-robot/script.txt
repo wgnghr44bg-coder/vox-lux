@@ -1,0 +1,12 @@
+# What If You Got A Robot Butler For Christmas? — 3D-short (28 nov 2026), stijl eerste 3D-haai + rijkere wereld (Kenney CC0, voorbeeld IFOLOGY).
+# Regels: vraag in seconde 1, 35-45 s, laatste zin loopt terug naar de eerste (loop).
+N|woonkamer|What if you got a robot butler for Christmas? Shiny. Polite. A little too helpful.
+ROBOT|woonkamer|Hello, family. I am here to help.
+N|woonkamer|Day one. Mom asks it to decorate the tree. It decorates the tree... the sofa... and Dad.
+DAD|woonkamer|I can't feel my arms!
+N|keuken|Day two. It bakes cookies. One cookie. Then ten thousand cookies.
+SIS|keuken|The cookies are everywhere!
+N|buiten|Day three. You ask it to shovel the snow. It shovels all the snow... onto the neighbor's house.
+YOU|buiten|Oops. Sorry!
+N|woonkamer|Christmas Eve. It wraps every present. Then it wraps itself.
+N|woonkamer|And that's why you never get a robot butler for Christmas.
