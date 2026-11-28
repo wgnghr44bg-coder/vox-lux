@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 12:33",
+ "bijgewerkt": "2026-11-28 13:03",
  "kanalen": {
   "weken": [
    {
@@ -2231,7 +2231,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 12:33)"
+   "tekst": "draait nu (2026-11-28 13:03)"
   },
   {
    "naam": "Git",
@@ -2251,7 +2251,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2268,8 +2268,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 12:33",
-   "volgende": "2026-11-28 13:03"
+   "laatst": "2026-11-28 13:03",
+   "volgende": "2026-11-28 13:33"
   },
   "hype": {
    "aan": true,
@@ -2283,8 +2283,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 12:18",
-   "volgende": "2026-11-28 12:48"
+   "laatst": "2026-11-28 12:48",
+   "volgende": "2026-11-28 13:18"
   },
   "titels": {
    "aan": true,
@@ -2395,7 +2395,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1458,
+    "views": 1460,
     "verwerkt": "processed"
    }
   ],
@@ -2615,7 +2615,9 @@
   "voortgang": null,
   "detail": "",
   "taken": [
-   "routine zonder Claude"
+   "routine zonder Claude",
+   "stem inspreken (OmniVoice)",
+   "video samenvoegen (ffmpeg)"
   ],
   "eind": null
  },
@@ -2623,11 +2625,19 @@
   {
    "naam": "routine zonder Claude",
    "stap": 0
+  },
+  {
+   "naam": "stem inspreken (OmniVoice)",
+   "stap": -1
+  },
+  {
+   "naam": "video samenvoegen (ffmpeg)",
+   "stap": -1
   }
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 1478,
+  "geheugen_mb": 1405,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2800,8 +2810,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 12:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 13:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 12:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4896,33 +4906,33 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 12:33",
+  "bijgewerkt": "2026-11-28 13:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 13427568,
-    "week": 148149554,
+    "5uur": 14730926,
+    "week": 149452913,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
      "Thu 26-11": 29124254,
      "Fri 27-11": 45725070,
-     "Sat 28-11": 14739925,
+     "Sat 28-11": 16043284,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 58406,
+    "stap_kost": 58930,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 128700373,
+    "week": 126957039,
     "per_dag": {
-     "Sat 21-11": 26667902,
+     "Sat 21-11": 24924568,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
      "Tue 24-11": 15135487
@@ -4935,7 +4945,7 @@
     "5uur_pct": 0,
     "5uur_scripts_over": null,
     "5uur_stappen_over": null,
-    "week_pct": 97,
+    "week_pct": 96,
     "week_scripts_over": null,
     "week_stappen_over": null
    }
