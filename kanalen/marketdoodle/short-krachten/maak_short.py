@@ -173,7 +173,7 @@ def emotie(t, nu):
     tekst = Z[nu][2]
     if any(tekst.startswith(f_) for f_ in SCHRIK): return "schrik"
     return None
-ACTIE = {I_MOM: "duim", I_SIS: "wijs", I_YOU: "zwaai"}     # papa: armen per moment (papa_armen)
+ACTIE = {I_MOM: "juich", I_SIS: "wijs", I_YOU: "zwaai"}     # papa: armen per moment (papa_armen)
 NAAM["mom"] = ("MOM", (200, 160, 255))
 
 # ---------- handen (zelfde maten als pop_short.poppetje: schouder x±44s, sch = y-175s, arm 82s, hoek 0 = omlaag) ----------
@@ -250,28 +250,28 @@ def keuken_actie(img, t, n):
 TAFEL_Y = 790
 TAFEL = (180, 765, 880, 1160)                              # stuk achtergrond met tafel (vóór jou geplakt = jij zit achter de tafel)
 def mama_x(t):
-    if T_SPEED <= t < T_DINER + 0.3: return 540 + 330 * math.sin((t - T_SPEED) * 13)
-    return 885
+    if T_SPEED <= t < T_DINER + 0.3: return 520 + 310 * math.sin((t - T_SPEED) * 13)
+    return 800                                             # ruimte rechts voor haar duim omhoog ("Done!")
 def jij_eet(t):
     """x, y van jou in de eetkamer (loopt binnen, gaat zitten achter de tafel)"""
     if t < T_DINER: return None
     a = ps.ease(min(1, (t - T_DINER) / 1.0)); x = -80 + (330 + 80) * a
-    y = 1105 + 75 * ps.ease(min(1, max(0, t - T_SIT) / 0.3))
+    y = 1105 + 110 * ps.ease(min(1, max(0, t - T_SIT) / 0.3))          # zakt achter het tafelblad = gaat zitten
     return x, y, (t - T_DINER) * 2.2 if a < 1 else None
 def eten(img, t):
     if t >= T_DINER + 0.3:
         s_ = sprite("diner", 360); img.paste(s_, (int(560 - s_.width / 2), int(TAFEL_Y + 25 - s_.height)), s_)
         WACHT.plaats("diner", (560 - s_.width / 2, TAFEL_Y + 25 - s_.height, 560 + s_.width / 2, TAFEL_Y + 25), op="beeld")
     if t >= T_HUISWERK + 0.2:
-        d = ImageDraw.Draw(img); x0, y0 = 250, TAFEL_Y - 130
-        d.polygon(((x0, y0), (x0 + 190, y0 - 20), (x0 + 210, y0 + 140), (x0 + 20, y0 + 160)), fill=(252, 250, 240), outline=INK)
-        for k_ in range(4): d.line((x0 + 30, y0 + 25 + k_ * 32, x0 + 150, y0 + 15 + k_ * 32), fill=(150, 160, 190), width=5)
+        d = ImageDraw.Draw(img); x0, y0 = 240, TAFEL_Y - 14                  # plat op het tafelblad, vóór je (niet voor je gezicht)
+        d.polygon(((x0 + 20, y0), (x0 + 230, y0), (x0 + 250, y0 + 62), (x0, y0 + 62)), fill=(252, 250, 240), outline=INK)
+        for k_ in range(4): d.line((x0 + 30, y0 + 10 + k_ * 13, x0 + 170, y0 + 10 + k_ * 13), fill=(150, 160, 190), width=4)
         if t >= T_FOUT:
             for k_ in range(4):
-                cx, cy = x0 + 170, y0 + 22 + k_ * 32
-                d.line((cx - 12, cy - 12, cx + 12, cy + 12), fill=(220, 40, 40), width=6); d.line((cx - 12, cy + 12, cx + 12, cy - 12), fill=(220, 40, 40), width=6)
+                cx, cy = x0 + 205, y0 + 11 + k_ * 13
+                d.line((cx - 8, cy - 6, cx + 8, cy + 6), fill=(220, 40, 40), width=5); d.line((cx - 8, cy + 6, cx + 8, cy - 6), fill=(220, 40, 40), width=5)
             STAAT.add("fout")
-        WACHT.plaats("huiswerk", (x0, y0 - 20, x0 + 210, y0 + 160), op="beeld")
+        WACHT.plaats("huiswerk", (x0, y0, x0 + 250, y0 + 62), op="beeld")
 
 # ---------- woonkamer ----------
 def gedachte(img, x, y, t):
@@ -317,7 +317,7 @@ TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 from momentwachter import Momentwachter
 MW = Momentwachter(SW, {"opens a jar": ["deksel-los"], "rips the fridge door off": ["deur-los"], "who makes these jars so weak": ["deur-boven"],
                         "super speed": ["zoef"], "dinner is ready": ["diner"], "sit down": ["zitten"], "your homework": ["huiswerk"], "all wrong": ["fout"],
-                        "done": ["mom:duim"], "read minds": ["gloed"], "especially yours": ["gedachte"], "you ate the last cookie": ["sis:wijs"],
+                        "done": ["mom:juich"], "read minds": ["gloed"], "especially yours": ["gedachte"], "you ate the last cookie": ["sis:wijs"],
                         "you're invisible": ["doorzichtig"], "nobody notices": ["!sis:wijs"], "hello anybody": ["you:zwaai"]})
 EIND_VRAAG = "WHICH POWER WOULD YOU PICK? 👇"
 EINDTEKSTEN = set()
@@ -335,8 +335,12 @@ def frame(t):
     if n == "eetkamer":
         jj = jij_eet(t_b)
         if jj:
-            koppen.update(teken(img, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu))
-            img.paste(bg("eetkamer").crop(TAFEL), (TAFEL[0], TAFEL[1]))                 # tafel vóór jou: je zit erachter
+            # 28 nov (eigenaar: "achter de tafel poppetje is helemaal weg"): niet meer een stuk achtergrond over je heen plakken
+            # (dat wiste je lijf uit), maar alleen je onderlijf wegknippen achter het tafelblad: je zit aan tafel, bovenlijf zichtbaar
+            laag = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            koppen.update(teken(laag, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu))
+            a_ = laag.getchannel("A"); ImageDraw.Draw(a_).rectangle((0, TAFEL_Y + 18, TAFEL[2], H), fill=0); laag.putalpha(a_)
+            img.paste(laag, (0, 0), laag)
             if t_b >= T_SIT + 0.15: STAAT.add("zitten")
         eten(img, t_b)
         mx = mama_x(t_b); ms = schaal("eetkamer", "mom", 1230)
@@ -371,9 +375,9 @@ def frame(t):
         if n == "woonkamer" and T_LEZEN <= t_b < T_ONZ: kop(img, "MIND READER", W / 2, 300, 96, KL["geel"], ps.pop((t_b - T_LEZEN) / 0.25))
         if n == "woonkamer" and T_ONZ <= t_b: kop(img, "INVISIBLE", W / 2, 300, 96, KL["geel"], ps.pop((t_b - T_ONZ) / 0.25))
         if t_b >= EIND - 3.2:
-            p_ = ps.pop((t_b - (EIND - 3.2)) / 0.3); kop(img, "WHICH POWER", W / 2, 1160, 78, (255, 255, 255), p_); kop(img, "WOULD YOU PICK?", W / 2, 1260, 78, (255, 255, 255), p_)
-            EINDTEKSTEN.add(EIND_VRAAG); d = ImageDraw.Draw(img); ax = W / 2; ay = 1330 + 10 * math.sin(t * 8)
-            d.polygon(((ax - 40, ay), (ax + 40, ay), (ax, ay + 55)), fill=KL["geel"], outline=(20, 20, 30))
+            # 28 nov: de losse gele pijl was onduidelijk -> gewoon zeggen waar het antwoord moet: in de reacties
+            p_ = ps.pop((t_b - (EIND - 3.2)) / 0.3); kop(img, "WHICH POWER", W / 2, 1150, 78, (255, 255, 255), p_); kop(img, "WOULD YOU PICK?", W / 2, 1250, 78, (255, 255, 255), p_)
+            kop(img, "TELL ME IN THE COMMENTS", W / 2, 1345, 48, KL["geel"], p_); EINDTEKSTEN.add(EIND_VRAAG)
         if t <= Z[-1][1] + 0.3: ondertitel(img, t)
     WACHT.einde(gezichten={k_: (v[0], v[1] + 60 * v[2], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1] + 60 * v[2]) for k_, v in GEZ.items()},
