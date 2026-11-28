@@ -173,41 +173,96 @@ def emotie(t, nu):
     tekst = Z[nu][2]
     if any(tekst.startswith(f_) for f_ in SCHRIK): return "schrik"
     return None
-ACTIE = {I_DAD: "juich", I_MOM: "duim", I_SIS: "wijs", I_YOU: "zwaai"}
+ACTIE = {I_MOM: "duim", I_SIS: "wijs", I_YOU: "zwaai"}     # papa: armen per moment (papa_armen)
 NAAM["mom"] = ("MOM", (200, 160, 255))
 
-# ---------- keuken: papa, augurkenpot, koelkastdeur ----------
+# ---------- handen (zelfde maten als pop_short.poppetje: schouder x±44s, sch = y-175s, arm 82s, hoek 0 = omlaag) ----------
+def hand(naam, x, y, s, hoek, kant):
+    S = s * ps.C[naam].get("groot", 1.0); sch = y - 175 * S
+    return x + kant * 44 * S + math.sin(math.radians(hoek)) * 82 * S, sch + math.cos(math.radians(hoek)) * 82 * S
+STAAT = set()                                              # wat er NU gebeurt (voor de momentwachter)
+T_SIT = kw(I_MAMA, "sit", -0.15)
+
+# ---------- keuken: papa bij de koelkast, pot open, deur eraf ----------
 KOEL = (835, 420, 1060, 955)                               # koelkast in de keuken-achtergrond (achtergronden.json v-keuken)
-def koelkast_open(img, t):
-    if t < T_RIP + 0.15 and scene(t)["naam"] != "slot": WACHT.plaats("koelkast", KOEL, op="beeld"); return
+PAPA = (690, 1000)
+def papa_s(): return schaal("keuken", "dad", PAPA[1])
+def papa_armen(t, n):
+    """(links, rechts) armhoek van papa per moment"""
+    if n == "slot" or t < T_OPEN: return 13, -13                                       # pot met twee handen vast
+    if t < T_OPEN + 0.25: u = (t - T_OPEN) / 0.25; return 13, -13 - 55 * u           # rechterhand naar het deksel
+    if t < T_RIP - 0.35: return 13, -68 + 55 * min(1, (t - T_OPEN - 0.25) / 0.3)
+    if t < T_RIP + 0.25: u = min(1, (t - (T_RIP - 0.35)) / 0.3); return 13 - 20 * u, -13 + 88 * u   # rechterhand naar de koelkastdeur
+    u = min(1, (t - T_RIP - 0.25) / 0.35); return -7 - 153 * u, 75 + 85 * u          # deur omhoog boven het hoofd
+def koelkast(img, t, n):
+    open_ = n == "keuken" and t >= T_RIP + 0.05
+    if not open_: WACHT.plaats("koelkast", KOEL, op="beeld"); return
     d = ImageDraw.Draw(img); x0, y0, x1, y1 = KOEL
-    d.rectangle((x0 + 12, y0 + 12, x1 - 12, y1 - 12), fill=(235, 245, 248), outline=INK, width=5)       # binnenkant met licht
+    d.rectangle((x0 + 12, y0 + 12, x1 - 12, y1 - 12), fill=(235, 245, 248), outline=INK, width=5)
     for k_ in range(3): d.line((x0 + 20, y0 + 150 + k_ * 130, x1 - 20, y0 + 150 + k_ * 130), fill=(170, 200, 210), width=8)
     for k_, (kx, kl) in enumerate(((x0 + 50, (240, 200, 60)), (x0 + 120, (220, 80, 70)), (x0 + 170, (120, 190, 110)))):
-        d.rounded_rectangle((kx, y0 + 80 + 130 * (k_ % 3), kx + 40, y0 + 145 + 130 * (k_ % 3)), 8, fill=kl, outline=INK, width=3)
+        d.rounded_rectangle((kx, y0 + 80 + 130 * k_, kx + 40, y0 + 145 + 130 * k_), 8, fill=kl, outline=INK, width=3)
     WACHT.plaats("koelkast", KOEL, op="beeld")
-def deur_boven(img, x, y, sch=1.0):                        # de afgerukte koelkastdeur boven papa's hoofd
-    w_, h_ = int(225 * sch), int(535 * sch); laag = Image.new("RGBA", (w_ + 20, h_ + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(laag)
+def deur(img, cx, cy, hoek):
+    w_, h_ = KOEL[2] - KOEL[0], KOEL[3] - KOEL[1]
+    laag = Image.new("RGBA", (w_ + 20, h_ + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(laag)
     d.rounded_rectangle((5, 5, w_, h_), 22, fill=(170, 220, 210), outline=INK, width=6)
     d.line((30, int(h_ * 0.42), w_ - 25, int(h_ * 0.42)), fill=INK, width=5)
-    d.rounded_rectangle((w_ - 45, int(h_ * 0.15), w_ - 30, int(h_ * 0.35)), 6, fill=(120, 130, 145), outline=INK, width=3)
-    laag = laag.rotate(78, expand=True, resample=Image.BICUBIC)
-    img.paste(laag, (int(x - laag.width / 2), int(y - laag.height / 2)), laag)
-    WACHT.plaats("koelkastdeur", (x - laag.width / 2, y - laag.height / 2, x + laag.width / 2, y + laag.height / 2), op="beeld")
-def pot(img, x, y, t):                                      # augurkenpot in papa's hand, deksel vliegt eraf bij "opens"
-    s_ = sprite("augurkpot", 150); img.paste(s_, (int(x - s_.width / 2), int(y - s_.height / 2)), s_)
-    WACHT.plaats("augurkenpot", (x - s_.width / 2, y - s_.height / 2, x + s_.width / 2, y + s_.height / 2), op="beeld")
-    if T_OPEN + 0.2 <= t < T_RIP + 1.5 and scene(t)["naam"] == "keuken":
-        u = t - T_OPEN - 0.2; d = ImageDraw.Draw(img); lx, ly = x + 180 * u, y - s_.height / 2 - 380 * u + 400 * u * u
-        d.ellipse((lx - 55, ly - 18, lx + 55, ly + 18), fill=(190, 195, 205), outline=INK, width=4)
+    d.rounded_rectangle((22, int(h_ * 0.15), 38, int(h_ * 0.35)), 6, fill=(120, 130, 145), outline=INK, width=3)
+    if hoek: laag = laag.rotate(hoek, expand=True, resample=Image.BICUBIC)
+    img.paste(laag, (int(cx - laag.width / 2), int(cy - laag.height / 2)), laag)
+    WACHT.plaats("koelkastdeur", (cx - laag.width / 2, cy - laag.height / 2, cx + laag.width / 2, cy + laag.height / 2), op="beeld")
+def keuken_actie(img, t, n):
+    x, y = PAPA; s = papa_s(); S = s * 1.15; L, R = papa_armen(t, n)
+    hl, hr = hand("dad", x, y, s, L, -1), hand("dad", x, y, s, R, 1)
+    jx, jy = (hl[0] + hr[0]) / 2, (hl[1] + hr[1]) / 2                                  # pot tussen de handen
+    pot_los = n == "keuken" and t >= T_RIP - 0.35
+    if pot_los: jx, jy = x - 95 * S, y - 22 * S                                         # papa zet de pot neer (op de vloer)
+    s_ = sprite("augurkpot", 52 * S); deksel_af = n == "keuken" and t >= T_OPEN + 0.3
+    pot_ = s_.crop((0, int(s_.height * 0.17), s_.width, s_.height)) if deksel_af else s_
+    if not pot_los and n == "keuken" and T_OPEN + 0.25 <= t < T_OPEN + 0.5: jx += math.sin(t * 90) * 4       # trillen bij het openen
+    img.paste(pot_, (int(jx - pot_.width / 2), int(jy + s_.height / 2 - pot_.height)), pot_)
+    WACHT.plaats("augurkenpot", (jx - s_.width / 2, jy - s_.height / 2, jx + s_.width / 2, jy + s_.height / 2), op="beeld")
+    d = ImageDraw.Draw(img)
+    if deksel_af:
+        d.ellipse((jx - s_.width * 0.36, jy - s_.height / 2 + s_.height * 0.15, jx + s_.width * 0.36, jy - s_.height / 2 + s_.height * 0.24), fill=(70, 110, 60), outline=INK, width=3)
+        u = t - T_OPEN - 0.3
+        if u < 1.6:                                        # deksel vliegt eraf + POP!
+            lx, ly = jx + 160 * u, jy - s_.height / 2 - 420 * u + 380 * u * u
+            d.ellipse((lx - 0.4 * s_.width, ly - 14, lx + 0.4 * s_.width, ly + 14), fill=(190, 195, 205), outline=INK, width=4); STAAT.add("deksel-los")
+            if u < 0.5:
+                kop(img, "POP!", jx + 70, jy - s_.height - 30, 70, (255, 255, 255), ps.pop(u / 0.15))
+                for k_ in range(8):
+                    a = k_ / 8 * 6.283; d.line((jx + math.cos(a) * 60, jy - s_.height / 2 + math.sin(a) * 40, jx + math.cos(a) * 110, jy - s_.height / 2 + math.sin(a) * 75), fill=(255, 255, 255), width=6)
+    if n == "keuken" and t >= T_RIP + 0.05:                # deur los: eerst uit de koelkast getrokken, dan boven het hoofd
+        u = min(1, (t - T_RIP - 0.05) / 0.2); v = min(1, max(0, (t - T_RIP - 0.25) / 0.35))
+        kx0 = (KOEL[0] + KOEL[2]) / 2 - 70 * u; ky0 = (KOEL[1] + KOEL[3]) / 2
+        bx, by = x, hand("dad", x, y, s, -160, -1)[1] - (KOEL[2] - KOEL[0]) / 2 + 6
+        deur(img, kx0 + (bx - kx0) * v, ky0 + (by - ky0) * v, 90 * v + 8 * u * (1 - v)); STAAT.add("deur-los")
+        if v >= 1: STAAT.add("deur-boven")
+        if u < 1:                                          # krak
+            for k_ in range(7):
+                a = k_ / 7 * 6.283; cx, cy = KOEL[0] + 10, (KOEL[1] + KOEL[3]) / 2
+                d.line((cx + math.cos(a) * 40, cy + math.sin(a) * 60, cx + math.cos(a) * 120, cy + math.sin(a) * 170), fill=(255, 240, 150), width=8)
+    return L, R
 
-# ---------- eetkamer: mama met supersnelheid ----------
+# ---------- eetkamer: mama zoeft, jij gaat zitten, eten en huiswerk ----------
 TAFEL_Y = 790
+TAFEL = (180, 765, 880, 1160)                              # stuk achtergrond met tafel (vóór jou geplakt = jij zit achter de tafel)
+def mama_x(t):
+    if T_SPEED <= t < T_DINER + 0.3: return 540 + 330 * math.sin((t - T_SPEED) * 13)
+    return 885
+def jij_eet(t):
+    """x, y van jou in de eetkamer (loopt binnen, gaat zitten achter de tafel)"""
+    if t < T_DINER: return None
+    a = ps.ease(min(1, (t - T_DINER) / 1.0)); x = -80 + (330 + 80) * a
+    y = 1105 + 75 * ps.ease(min(1, max(0, t - T_SIT) / 0.3))
+    return x, y, (t - T_DINER) * 2.2 if a < 1 else None
 def eten(img, t):
     if t >= T_DINER + 0.3:
-        s_ = sprite("diner", 380); img.paste(s_, (int(540 - s_.width / 2), int(TAFEL_Y + 25 - s_.height)), s_)
-        WACHT.plaats("diner", (540 - s_.width / 2, TAFEL_Y + 25 - s_.height, 540 + s_.width / 2, TAFEL_Y + 25), op="beeld")
-    if t >= T_HUISWERK + 0.2:                               # huiswerk: blad met rode kruisjes
+        s_ = sprite("diner", 360); img.paste(s_, (int(560 - s_.width / 2), int(TAFEL_Y + 25 - s_.height)), s_)
+        WACHT.plaats("diner", (560 - s_.width / 2, TAFEL_Y + 25 - s_.height, 560 + s_.width / 2, TAFEL_Y + 25), op="beeld")
+    if t >= T_HUISWERK + 0.2:
         d = ImageDraw.Draw(img); x0, y0 = 250, TAFEL_Y - 130
         d.polygon(((x0, y0), (x0 + 190, y0 - 20), (x0 + 210, y0 + 140), (x0 + 20, y0 + 160)), fill=(252, 250, 240), outline=INK)
         for k_ in range(4): d.line((x0 + 30, y0 + 25 + k_ * 32, x0 + 150, y0 + 15 + k_ * 32), fill=(150, 160, 190), width=5)
@@ -215,52 +270,30 @@ def eten(img, t):
             for k_ in range(4):
                 cx, cy = x0 + 170, y0 + 22 + k_ * 32
                 d.line((cx - 12, cy - 12, cx + 12, cy + 12), fill=(220, 40, 40), width=6); d.line((cx - 12, cy + 12, cx + 12, cy - 12), fill=(220, 40, 40), width=6)
+            STAAT.add("fout")
         WACHT.plaats("huiswerk", (x0, y0 - 20, x0 + 210, y0 + 160), op="beeld")
-def snel(img, t):                                           # snelheidsstrepen achter mama
-    if not (T_SPEED <= t < Z[I_MOM][0]): return
-    d = ImageDraw.Draw(img)
-    for k_ in range(7):
-        y = 700 + k_ * 60; x1 = 885 - 120 - (k_ % 3) * 30; x0 = x1 - 260 - ((t * 900 + k_ * 77) % 140)
-        d.line((x0, y, x1, y), fill=(255, 255, 255), width=10); d.line((x0, y + 12, x1 - 40, y + 12), fill=(200, 160, 255), width=6)
 
-# ---------- woonkamer: zus leest gedachten, jij bent onzichtbaar ----------
-def gedachte(img, x, y, t, inhoud):
+# ---------- woonkamer ----------
+def gedachte(img, x, y, t):
     d = ImageDraw.Draw(img)
     for k_, r in enumerate((14, 22)): d.ellipse((x - 40 - k_ * 35 - r, y + 150 - k_ * 50 - r, x - 40 - k_ * 35 + r, y + 150 - k_ * 50 + r), fill=(255, 255, 255), outline=INK, width=4)
     d.ellipse((x - 150, y - 150, x + 150, y + 60), fill=(255, 255, 255), outline=INK, width=6)
-    if inhoud == "koekje":
-        s_ = sprite("koekje", 150); img.paste(s_, (int(x - s_.width / 2), int(y - 45 - s_.height / 2)), s_)
-        WACHT.plaats("koekje", (x - 75, y - 120, x + 75, y + 30), op="beeld")
-def gloed(img, x, y, t):                                    # paarse ringen om het hoofd van de zus (gedachten lezen)
+    s_ = sprite("koekje", 150); img.paste(s_, (int(x - s_.width / 2), int(y - 45 - s_.height / 2)), s_)
+    WACHT.plaats("koekje", (x - 75, y - 120, x + 75, y + 30), op="beeld"); STAAT.add("gedachte")
+def gloed(img, x, y, t):
     d = ImageDraw.Draw(img)
     for k_ in range(3):
         r = 110 + ((t * 120 + k_ * 50) % 150); d.ellipse((x - r, y - r * 0.8, x + r, y + r * 0.8), outline=(190, 120, 255), width=6)
-
-# ---------- figuren ----------
-def figuren(n, t):
-    if n in ("keuken", "slot"):
-        y = 1330; geb = "juich" if t >= T_RIP and n == "keuken" else "vast"
-        return [("dad", 330, y, schaal("keuken", "dad", y), geb, 0.9, None)]
-    if n == "eetkamer":
-        y = 1230; return [("mom", 885, y, schaal("eetkamer", "mom", y), None, -0.6, None)]
-    if n == "woonkamer":
-        figs = [("sis", 300, 1560, schaal("woonkamer", "sis", 1560, 1.0), "wijs" if Z[I_SIS][0] - 0.1 <= t else None, 0.6, None)]
-        figs.append(("you", 780, 1560, schaal("woonkamer", "you", 1560), None, -0.5, None))
-        return figs
-    return []
+    STAAT.add("gloed")
 def onzichtbaar(t): return scene(t)["naam"] == "woonkamer" and t >= T_ONZ
 
 # ---------- camera ----------
 def _doel(t):
     sc = scene(t); n = sc["naam"]
-    cx, cy, zm = 540, 1000, 1.0 + min(0.12, (t - sc["t"]) * 0.03)
-    if n == "keuken":
-        cx, cy, zm = 540, 950, 1.0 + t * 0.02
-        if T_OPEN <= t < T_RIP: cx, cy, zm = 380, 900, 1.5
-        elif T_RIP <= t: cx, cy, zm = 560, 820, 1.1
-    if n == "eetkamer": cx, cy, zm = (600, 1000, 1.15) if t < T_DINER else (560, 850, 1.05)
+    cx, cy, zm = 540, 1000, 1.0
+    if n in ("keuken", "slot"): cx, cy, zm = 780, 760, 1.42 + (min(0.08, t * 0.02) if n == "keuken" else 0)
+    if n == "eetkamer": cx, cy, zm = 560, 900, 1.05
     if n == "woonkamer": cx, cy, zm = (540, 1100, 1.0) if t < T_ONZ else (700, 1150, 1.25)
-    if n == "slot": cx, cy, zm = 540, 950, 1.0
     return cx, cy, zm
 CAMTRACK = []
 def _maak_track():
@@ -268,8 +301,7 @@ def _maak_track():
     for i in range(int((EIND + 1) * FPS)):
         t = i / FPS; dx, dy, dz = _doel(t); n = scene(t)["naam"]
         if n != vorige: cx, cy, zm = dx, dy, dz
-        a = 0.12
-        cx += (dx - cx) * a; cy += (dy - cy) * a; zm += (dz - zm) * a
+        cx += (dx - cx) * 0.12; cy += (dy - cy) * 0.12; zm += (dz - zm) * 0.12
         CAMTRACK.append((cx, cy, zm)); vorige = n
 _maak_track()
 def camera(img, t):
@@ -277,35 +309,54 @@ def camera(img, t):
     x0 = min(max(0, cx - bw / 2), W - bw); y0 = min(max(0, cy - bh / 2), H - bh); CROP[0] = (x0, y0, x0 + bw, y0 + bh)
     return img.crop((int(x0), int(y0), int(x0 + bw), int(y0 + bh))).resize((W, H), Image.LANCZOS)
 
-# tekstwachter: wat genoemd wordt, moet in beeld zijn
+# tekstwachter: wat genoemd wordt, moet in beeld zijn; momentwachter: wat gezegd wordt moet je op dat moment zien gebeuren
 ZIE = {"super strength": ["tekst:SUPER STRENGTH"], "jar of pickles": ["augurkenpot"], "fridge door": ["koelkastdeur"], "these jars": ["augurkenpot"],
        "mom has": ["mom"], "super speed": ["tekst:SUPER SPEED"], "dinner": ["diner"], "homework": ["huiswerk"], "all wrong": ["huiswerk"],
        "your sister": ["sis"], "read minds": ["tekst:MIND READER"], "last cookie": ["koekje"], "invisible": ["tekst:INVISIBLE"]}
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
+from momentwachter import Momentwachter
+MW = Momentwachter(SW, {"opens a jar": ["deksel-los"], "rips the fridge door off": ["deur-los"], "who makes these jars so weak": ["deur-boven"],
+                        "super speed": ["zoef"], "dinner is ready": ["diner"], "sit down": ["zitten"], "your homework": ["huiswerk"], "all wrong": ["fout"],
+                        "done": ["mom:duim"], "read minds": ["gloed"], "especially yours": ["gedachte"], "you ate the last cookie": ["sis:wijs"],
+                        "you're invisible": ["doorzichtig"], "nobody notices": ["!sis:wijs"], "hello anybody": ["you:zwaai"]})
 EIND_VRAAG = "WHICH POWER WOULD YOU PICK? 👇"
 EINDTEKSTEN = set()
 
 def frame(t):
     t_b = min(t, Z[-1][1] + 0.4)
     sc = scene(t_b); n = sc["naam"]; nu = nu_i(t_b); bgn = sc["bg"]
-    img = bg(bgn).copy(); WACHT.begin("v-" + bgn, t_b); GEZ.clear(); GEB.clear(); SCHERM.clear()
-    if n in ("keuken", "slot"): koelkast_open(img, t_b)
-    if n == "eetkamer": eten(img, t_b); snel(img, t_b)
-    figs = figuren(n, t_b)
-    zicht = [f for f in figs if not (f[0] == "you" and onzichtbaar(t_b))]
-    koppen = teken(img, zicht, t_b, nu)
-    if len(zicht) < len(figs):                             # jij: doorzichtig (onzichtbaar), wel in beeld voor de controles
-        laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); kk = teken(laag, [f for f in figs if f[0] == "you"], t_b, nu)
-        a = laag.getchannel("A").point(lambda v: int(v * 0.28)); laag.putalpha(a); img.paste(laag, (0, 0), laag); koppen.update(kk)
-    if n in ("keuken", "slot") and "dad" in GEZ:
-        hx, hy, S_ = GEZ["dad"]
-        if n == "keuken" and t_b >= T_RIP + 0.15:
-            u = min(1, (t_b - T_RIP - 0.15) / 0.3); x = KOEL[0] + 110 + (hx - KOEL[0] - 110) * u; y = 690 + (hy - 95 * S_ - 690) * u
-            deur_boven(img, x, y, 0.75); pot(img, hx + 150 * S_, 1290, t_b)      # de pot staat op de grond (DAD: "these jars")
-        else: pot(img, hx + 8 * S_, hy + 118 * S_, t_b)
+    img = bg(bgn).copy(); WACHT.begin("v-" + bgn, t_b); GEZ.clear(); GEB.clear(); SCHERM.clear(); STAAT.clear()
+    koppen = {}
+    if n in ("keuken", "slot"):
+        koelkast(img, t_b, n)
+        L, R = papa_armen(t_b, n)
+        koppen.update(teken(img, [("dad", PAPA[0], PAPA[1], papa_s(), ("hoek", L, R), 0.9 if t_b >= T_RIP - 0.5 and n == "keuken" else 0.0, None)], t_b, nu))
+        keuken_actie(img, t_b, n)
+    if n == "eetkamer":
+        jj = jij_eet(t_b)
+        if jj:
+            koppen.update(teken(img, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu))
+            img.paste(bg("eetkamer").crop(TAFEL), (TAFEL[0], TAFEL[1]))                 # tafel vóór jou: je zit erachter
+            if t_b >= T_SIT + 0.15: STAAT.add("zitten")
+        eten(img, t_b)
+        mx = mama_x(t_b); ms = schaal("eetkamer", "mom", 1230)
+        if T_SPEED <= t_b < T_DINER + 0.3:                 # wazige kopieën van mama (supersnelheid)
+            for k_, a_ in ((3, 0.2), (2, 0.35), (1, 0.55)):
+                laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); teken(laag, [("mom", mama_x(t_b - 0.03 * k_), 1230, ms, None, 0.0, None)], t_b, nu)
+                laag.putalpha(laag.getchannel("A").point(lambda v, a_=a_: int(v * a_))); img.paste(laag, (0, 0), laag)
+            STAAT.add("zoef")
+        koppen.update(teken(img, [("mom", mx, 1230, ms, None, -0.6, None)], t_b, nu))
     if n == "woonkamer":
-        if "sis" in GEZ and t_b >= T_LEZEN: gloed(img, GEZ["sis"][0], GEZ["sis"][1], t_b)
-        if "you" in GEZ and T_JOUW <= t_b < T_ONZ: gedachte(img, GEZ["you"][0] + 40, GEZ["you"][1] - 330 * GEZ["you"][2], t_b, "koekje")
+        geb_s = "wijs" if Z[I_SIS][0] - 0.1 <= t_b < Z[I_SIS][1] + 0.3 else None
+        kijk_s = -0.9 if t_b >= T_ONZ else 0.6                                             # na "invisible": de zus kijkt de andere kant op
+        koppen.update(teken(img, [("sis", 300, 1560, schaal("woonkamer", "sis", 1560, 1.0), geb_s, kijk_s, None)], t_b, nu))
+        you = ("you", 780, 1560, schaal("woonkamer", "you", 1560), None, -0.5, None)
+        if onzichtbaar(t_b):
+            laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); kk = teken(laag, [you], t_b, nu)
+            laag.putalpha(laag.getchannel("A").point(lambda v: int(v * 0.28))); img.paste(laag, (0, 0), laag); koppen.update(kk); STAAT.add("doorzichtig")
+        else: koppen.update(teken(img, [you], t_b, nu))
+        if "sis" in GEZ and T_LEZEN <= t_b < T_ONZ: gloed(img, GEZ["sis"][0], GEZ["sis"][1], t_b)
+        if "you" in GEZ and T_JOUW <= t_b < T_ONZ: gedachte(img, GEZ["you"][0] + 40, GEZ["you"][1] - 330 * GEZ["you"][2], t_b)
     img = camera(img, t)
     LABELS.clear(); cx0, cy0, cx1, cy1 = CROP[0]; zm_ = W / (cx1 - cx0)
     GEZICHTEN[:] = [(k_, ((v[0] - cx0) * zm_, (v[1] + 60 * v[2] - cy0) * zm_, 66 * v[2] * zm_)) for k_, v in GEZ.items()]
@@ -315,11 +366,11 @@ def frame(t):
             tekst, kl = NAAM[naam]; X = (hx_ - cx0) * zm_; Y = (top_ - cy0) * zm_
             ps.W, ps.H = W, H; ps.label(img, tekst, X, Y - 45, kl, 0.55)
             bw_ = 14 * len(tekst) + 40; LABELS.append((tekst, (X - bw_ / 2, Y - 70, X + bw_ / 2, Y - 20)))
-        if n == "keuken" and T_KRACHT <= t_b < Z[I_DAD][1]: kop(img, "SUPER STRENGTH", W / 2, 1300, 96, KL["geel"], ps.pop((t_b - T_KRACHT) / 0.25))
+        if n == "keuken" and T_KRACHT <= t_b < T_OPEN: kop(img, "SUPER STRENGTH", W / 2, 1300, 96, KL["geel"], ps.pop((t_b - T_KRACHT) / 0.25))
         if n == "eetkamer" and T_SPEED <= t_b: kop(img, "SUPER SPEED", W / 2, 1300, 96, KL["geel"], ps.pop((t_b - T_SPEED) / 0.25))
         if n == "woonkamer" and T_LEZEN <= t_b < T_ONZ: kop(img, "MIND READER", W / 2, 300, 96, KL["geel"], ps.pop((t_b - T_LEZEN) / 0.25))
         if n == "woonkamer" and T_ONZ <= t_b: kop(img, "INVISIBLE", W / 2, 300, 96, KL["geel"], ps.pop((t_b - T_ONZ) / 0.25))
-        if t_b >= EIND - 3.2:                              # keuzevraag voor de reacties (shortregels 4)
+        if t_b >= EIND - 3.2:
             p_ = ps.pop((t_b - (EIND - 3.2)) / 0.3); kop(img, "WHICH POWER", W / 2, 1160, 78, (255, 255, 255), p_); kop(img, "WOULD YOU PICK?", W / 2, 1260, 78, (255, 255, 255), p_)
             EINDTEKSTEN.add(EIND_VRAAG); d = ImageDraw.Draw(img); ax = W / 2; ay = 1330 + 10 * math.sin(t * 8)
             d.polygon(((ax - 40, ay), (ax + 40, ay), (ax, ay + 55)), fill=KL["geel"], outline=(20, 20, 30))
@@ -327,6 +378,7 @@ def frame(t):
     WACHT.einde(gezichten={k_: (v[0], v[1] + 60 * v[2], 60 * v[2]) for k_, v in GEZ.items()})
     TW.zie(t, nu_i(t), voorwerpen=WACHT.dit_frame, teksten=list(SCHERM), koppen={k_: (v[0], v[1] + 60 * v[2]) for k_, v in GEZ.items()},
            gebaren=dict(GEB), crop=CROP[0])
+    MW.zie(t, STAAT | {x[0] for x in WACHT.dit_frame} | {f"{k_}:{g_}" for k_, g_ in GEB.items() if isinstance(g_, str)})
     return img
 
 # ---------- geluid: echte opnames (CC0, ../geluiden) + zelfgemaakt suizen; alleen wat je ziet ----------
@@ -346,9 +398,9 @@ def geluid():
     suis = np.convolve(rng.normal(0, 1, len(x)), np.ones(30) / 30, "same") * np.sin(np.pi * x / x[-1]) * 1.4
     tt = np.arange(int(0.5 * GSR)) / GSR; ting_ = np.sin(2 * np.pi * (900 + 900 * tt) * tt) * np.exp(-tt * 6) * 0.6
     plof = _fade(_laad("plof")); klap = _fade(_laad("deur-dicht")); ting = _fade(_laad("ting")); papier = _fade(_laad("papier")); hap = _fade(_laad("hap"))
-    zet_(T_OPEN + 0.2, "plop", plof, 0.7, "augurkenpot")
+    zet_(T_OPEN + 0.3, "plop", plof, 0.7, "augurkenpot")
     zet_(T_RIP + 0.1, "krak", klap, 1.0, "koelkastdeur")
-    zet_(T_SPEED + 0.1, "suis", suis, 0.6, "mom"); zet_(T_DINER + 0.3, "ting", ting, 0.6, "diner"); zet_(T_HUISWERK + 0.2, "papier", papier, 0.6, "huiswerk")
+    zet_(T_SPEED + 0.1, "suis", suis, 0.6, "mom"); zet_(T_SIT + 0.15, "stoel", plof, 0.3, "you"); zet_(T_DINER + 0.3, "ting", ting, 0.6, "diner"); zet_(T_HUISWERK + 0.2, "papier", papier, 0.6, "huiswerk")
     zet_(T_LEZEN + 0.1, "woeoe", ting_, 0.5, "sis"); zet_(T_ONZ + 0.1, "woeoe", ting_, 0.5, "you")
     uit /= max(1, np.abs(uit).max() / 0.9); sf.write(HIER / "sfx.wav", uit, GSR)
 def geluidcheck():
@@ -362,6 +414,7 @@ if __name__ == "__main__":
     if "--tekst" in sys.argv:
         for i in range(int(EIND * 6)): frame(i / 6)
         print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
+        print("MOMENTWACHTER:", MW.schrijf(HIER / "MOMENTWACHTER.md"), "fouten (zie MOMENTWACHTER.md)")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); print("LAYOUT:", sorted(LAYOUT) or "alles past"); sys.exit()
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.7 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
@@ -381,6 +434,7 @@ if __name__ == "__main__":
     p.stdin.close(); p.wait(); print("LAYOUT:", sorted(LAYOUT) or "alles past")
     print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)")
     print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
+    print("MOMENTWACHTER:", MW.schrijf(HIER / "MOMENTWACHTER.md"), "fouten (zie MOMENTWACHTER.md)")
     blad(HIER / "short-krachten.mp4", Z, HIER / "TEKSTCONTROLE.jpg"); print("TEKSTCONTROLE.jpg: per zin begin/midden/eind (zelf nakijken)")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(HIER / "short-krachten.mp4"), "-vf", "scale=720:1280", "-c:v", "libx264", "-b:v", "1100k",
                     "-c:a", "aac", "-b:a", "128k", str(HIER / "short-krachten-720.mp4")])
