@@ -7,6 +7,7 @@ Een Market Doodle-short mag pas naar de eigenaar of online als ALLE wachters in 
   TEMPOWACHTER.md   stemtempo per zin
   render.log        SHORTREGELS: alles goed, GELUIDCHECK: elk geluid hoort bij iets in beeld, LAYOUT: alles past
   momenten.jpg      beelden op de precieze spreekmomenten (zelf nakijken), TEKSTCONTROLE.jpg
+  SCRIPTCHECK.md    elke zin uit script.txt met wat je ziet + waarom hij klopt, status OK (eigenaar 28 nov: "snap die zin niet")
   luidheid          -15,5 .. -12,5 LUFS, true peak <= -0,9 dB
   python tools/poort.py <map> [video.mp4]   -> "POORT: OPEN" of een lijst met wat er mis is (exit 1)
 """
@@ -26,6 +27,15 @@ def poort(map_, video=None):
         if eis not in log: fout.append(f"render.log: '{eis}' ontbreekt")
     for b in ("momenten.jpg", "TEKSTCONTROLE.jpg"):
         if not (m / b).exists(): fout.append(f"{b} ontbreekt (spreekmomenten / controleblad niet gemaakt)")
+    sc = m / "SCRIPTCHECK.md"; st = m / "script.txt"
+    if not sc.exists(): fout.append("SCRIPTCHECK.md ontbreekt (elke zin uitleggen: wat zie je, waarom klopt hij)")
+    elif st.exists():
+        tekst = sc.read_text(encoding="utf-8")
+        for r in st.read_text(encoding="utf-8").splitlines():
+            if not r.strip() or r.startswith("#") or r.startswith("STILTE"): continue
+            zin = r.split("|", 2)[2].strip(); rij = next((l for l in tekst.splitlines() if l.startswith("| " + zin + " |")), None)
+            if rij is None: fout.append(f"SCRIPTCHECK.md: zin ontbreekt of is anders: {zin[:60]}")
+            elif not rij.rstrip().endswith("| OK |"): fout.append(f"SCRIPTCHECK.md: zin niet OK: {zin[:60]}")
     if video:
         r = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(video), "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True, errors="replace").stderr
         I = re.findall(r"I:\s+(-?[\d.]+) LUFS", r); P = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r)

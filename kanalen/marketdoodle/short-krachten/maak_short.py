@@ -277,6 +277,7 @@ def keuken_actie(img, t, n):
 
 # ---------- eetkamer: mama zoeft, jij gaat zitten, eten en huiswerk ----------
 TAFEL_Y = 790
+TAFEL_TOP = 766                                            # achterrand van het tafelblad (gemeten in eetkamer.png): wie erachter zit, verdwijnt hier
 TAFEL = (180, 765, 880, 1160)                              # stuk achtergrond met tafel (vóór jou geplakt = jij zit achter de tafel)
 def mama_x(t):
     if T_SPEED <= t < T_DINER + 0.3: return 520 + 310 * math.sin((t - T_SPEED) * 13)
@@ -284,8 +285,10 @@ def mama_x(t):
 def jij_eet(t):
     """x, y van jou in de eetkamer (loopt binnen, gaat zitten achter de tafel)"""
     if t < T_DINER: return None
-    a = ps.ease(min(1, (t - T_DINER) / 1.0)); x = -80 + (330 + 80) * a
-    y = 1105 + 110 * ps.ease(min(1, max(0, t - T_SIT) / 0.3))          # zakt achter het tafelblad = gaat zitten
+    a = ps.ease(min(1, (t - T_DINER) / 0.9)); x = -80 + (330 + 80) * a
+    # gaat zitten = klimt op de stoel: zijn buik komt op tafelhoogte, borst en buik boven het tafelblad (eigenaar 28 nov:
+    # "zit nog steeds niet goed aan tafel" -> eerst zag je alleen zijn schouders, alsof hij achter de tafel stond)
+    y = 1105 - 105 * ps.ease(min(1, max(0, t - T_SIT) / 0.3))
     return x, y, (t - T_DINER) * 2.2 if a < 1 else None
 def eten(img, t):
     if t >= T_DINER + 0.3:
@@ -339,15 +342,15 @@ def camera(img, t):
     return img.crop((int(x0), int(y0), int(x0 + bw), int(y0 + bh))).resize((W, H), Image.LANCZOS)
 
 # tekstwachter: wat genoemd wordt, moet in beeld zijn; momentwachter: wat gezegd wordt moet je op dat moment zien gebeuren
-ZIE = {"super strength": ["tekst:SUPER STRENGTH"], "jar of pickles": ["augurkenpot"], "fridge door": ["koelkastdeur"], "these jars": ["augurkenpot"],
+ZIE = {"super strength": ["tekst:SUPER STRENGTH"], "jar of pickles": ["augurkenpot"], "fridge door": ["koelkastdeur"], "fridge doors": ["koelkastdeur"],
        "mom has": ["mom"], "super speed": ["tekst:SUPER SPEED"], "dinner": ["diner"], "homework": ["huiswerk"], "all wrong": ["huiswerk"],
        "your sister": ["sis"], "read minds": ["tekst:MIND READER"], "last cookie": ["koekje"], "invisible": ["tekst:INVISIBLE"]}
 TW = Tekstwachter(Z, ZIE, lijf=LIJF)
 from momentwachter import Momentwachter
-MW = Momentwachter(SW, {"opens a jar": ["deksel-los"], "rips the fridge door off": ["deur-los"], "who makes these jars so weak": ["deur-boven"],
+MW = Momentwachter(SW, {"opens a jar": ["deksel-los"], "rips the fridge door off": ["deur-los"], "who makes these fridge doors so weak": ["deur-boven"],
                         "super speed": ["zoef"], "dinner is ready": ["diner"], "sit down": ["zitten"], "your homework": ["huiswerk"], "all wrong": ["fout"],
                         "done": ["mom:juich"], "read minds": ["gloed"], "especially yours": ["gedachte"], "you ate the last cookie": ["sis:wijs"],
-                        "you're invisible": ["doorzichtig"], "nobody notices": ["!sis:wijs"], "hello anybody": ["you:zwaai"]})
+                        "you are invisible": ["doorzichtig"], "nobody even notices": ["!sis:wijs"], "you are gone": ["doorzichtig"], "sit down": ["zitten", "stoel"], "hello anybody": ["you:zwaai"]})
 EIND_VRAAG = "WHICH POWER WOULD YOU PICK? 👇"
 EINDTEKSTEN = set()
 
@@ -366,10 +369,19 @@ def frame(t):
         if jj:
             # 28 nov (eigenaar: "achter de tafel poppetje is helemaal weg"): niet meer een stuk achtergrond over je heen plakken
             # (dat wiste je lijf uit), maar alleen je onderlijf wegknippen achter het tafelblad: je zit aan tafel, bovenlijf zichtbaar
+            if t_b >= T_SIT:                               # stoel achter je (rugleuning steekt boven je schouders uit): je zit echt
+                d_ = ImageDraw.Draw(img); sx_ = jj[0]; Sj = schaal("eetkamer", "you", 1105); ry0 = jj[1] - 197 * Sj - 45   # rugleuning breder en hoger dan je schouders
+                d_.rounded_rectangle((sx_ - 165, ry0, sx_ + 165, TAFEL_TOP + 5), 20, fill=(150, 95, 55), outline=INK, width=6)
+                d_.rounded_rectangle((sx_ - 135, ry0 + 22, sx_ + 135, ry0 + 70), 12, fill=(178, 118, 72), outline=INK, width=4)
+                WACHT.plaats("stoel", (sx_ - 165, ry0, sx_ + 165, TAFEL_TOP + 5), op="beeld"); STAAT.add("stoel")
             laag = Image.new("RGBA", (W, H), (0, 0, 0, 0))
             koppen.update(teken(laag, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu, registreer=False))
-            a_ = laag.getchannel("A"); ImageDraw.Draw(a_).rectangle((0, TAFEL_Y + 18, TAFEL[2], H), fill=0); laag.putalpha(a_)
+            heel = laag.copy()
+            a_ = laag.getchannel("A"); ImageDraw.Draw(a_).rectangle((0, TAFEL_TOP, TAFEL[2], H), fill=0); laag.putalpha(a_)
             img.paste(laag, (0, 0), laag); FW.figuur("you", laag, *FW_INFO["you"])          # de geknipte laag is wat zichtbaar hoort te zijn
+            # zitcontrole (eigenaar 28 nov: "zit nog steeds niet goed aan tafel"): de BOVENSTE HELFT van je lijf (borst) moet
+            # boven het tafelblad te zien zijn, anders lijkt het een los hoofd achter de tafel
+            (kc, lj, hd) = FW_INFO["you"]; FW.figuur("you (zittend: borst boven tafel)", heel, kc, (lj[0], lj[1], lj[2], lj[1] + (lj[3] - lj[1]) * 0.5), hd)
             if t_b >= T_SIT + 0.15: STAAT.add("zitten")
         eten(img, t_b)
         mx = mama_x(t_b); ms = schaal("eetkamer", "mom", 1230)
