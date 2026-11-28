@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 01:33",
+ "bijgewerkt": "2026-11-28 02:03",
  "kanalen": {
   "weken": [
    {
@@ -2269,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 01:33)"
+   "tekst": "draait nu (2026-11-28 02:03)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 01:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2306,8 +2306,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 01:33",
-   "volgende": "2026-11-28 02:03"
+   "laatst": "2026-11-28 02:03",
+   "volgende": "2026-11-28 02:33"
   },
   "hype": {
    "aan": true,
@@ -2321,8 +2321,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 01:18",
-   "volgende": "2026-11-28 01:48"
+   "laatst": "2026-11-28 01:48",
+   "volgende": "2026-11-28 02:18"
   },
   "titels": {
    "aan": true,
@@ -2433,7 +2433,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1388,
+    "views": 1397,
     "verwerkt": "processed"
    }
   ],
@@ -2589,7 +2589,7 @@
     "id": "_duWLxwIEss",
     "titel": "Life Aboard the Mayflower, 1620 | History for Sleep",
     "duur": "2:03:36",
-    "views": 1100,
+    "views": 1099,
     "uren": 262
    },
    {
@@ -2838,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 01:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 02:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 01:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4924,11 +4924,11 @@
   "model": "gebruikt"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 01:34",
+  "bijgewerkt": "2026-11-28 02:03",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 7691587,
+    "5uur": 5598955,
     "week": 133409629,
     "per_dag": {
      "Tue 24-11": 29948208,
