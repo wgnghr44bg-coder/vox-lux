@@ -1388,5 +1388,43 @@
    "k": 1.09,
    "_uitleg": "gemeten 28 nov (short-helden): horizon = ooghoogte (1,6 m), k = 1,75/1,6 = 1,09; deur achterin 2,0 m = 475 px -> ooghoogte 1,6 m op y 760"
   }
+ },
+ "v-eetkamer": {
+  "vlakken": {
+   "vloer": [
+    0,
+    1080,
+    1140,
+    1920
+   ],
+   "tafel": [
+    200,
+    860,
+    780,
+    800,
+    "tafel"
+   ]
+  },
+  "muur": [
+   [
+    0,
+    0,
+    1080,
+    760
+   ]
+  ],
+  "meubels": {
+   "tafel": [
+    200,
+    780,
+    860,
+    1150
+   ]
+  },
+  "maat": {
+   "horizon": 380,
+   "k": 1.09,
+   "_uitleg": "gemeten 28 nov (short-krachten): tafel 0,75 m = 360 px (blad 780, poot 1140) -> ooghoogte 1,6 m op y 380"
+  }
  }
 }
