@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 05:33",
+ "bijgewerkt": "2026-11-28 06:03",
  "kanalen": {
   "weken": [
    {
@@ -2269,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 05:33)"
+   "tekst": "draait nu (2026-11-28 06:03)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 05:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2302,12 +2302,12 @@
   "scriptgenerator": {
    "aan": false,
    "laatst": "2026-11-09 06:00",
-   "volgende": "2026-11-28 06:00"
+   "volgende": "2026-11-29 06:00"
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 05:33",
-   "volgende": "2026-11-28 06:03"
+   "laatst": "2026-11-28 06:03",
+   "volgende": "2026-11-28 06:33"
   },
   "hype": {
    "aan": true,
@@ -2321,8 +2321,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 05:18",
-   "volgende": "2026-11-28 05:48"
+   "laatst": "2026-11-28 05:48",
+   "volgende": "2026-11-28 06:18"
   },
   "titels": {
    "aan": true,
@@ -2433,7 +2433,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1401,
+    "views": 1418,
     "verwerkt": "processed"
    }
   ],
@@ -2838,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 05:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 06:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 05:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4924,7 +4924,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 05:33",
+  "bijgewerkt": "2026-11-28 06:03",
   "accounts": [
    {
     "account": "hoofd",
@@ -4941,16 +4941,16 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 62524,
+    "stap_kost": 62924,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 136150774,
+    "week": 135750099,
     "per_dag": {
-     "Sat 21-11": 34118302,
+     "Sat 21-11": 33717628,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
      "Tue 24-11": 15135487
