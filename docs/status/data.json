@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 07:03",
+ "bijgewerkt": "2026-11-28 07:33",
  "kanalen": {
   "weken": [
    {
@@ -2254,7 +2254,7 @@
   {
    "naam": "Schijfruimte C:",
    "ok": true,
-   "tekst": "113 GB vrij"
+   "tekst": "114 GB vrij"
   },
   {
    "naam": "Taak 'routine'",
@@ -2269,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 07:03)"
+   "tekst": "draait nu (2026-11-28 07:33)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 06:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2306,8 +2306,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 07:03",
-   "volgende": "2026-11-28 07:33"
+   "laatst": "2026-11-28 07:33",
+   "volgende": "2026-11-28 08:03"
   },
   "hype": {
    "aan": true,
@@ -2317,22 +2317,22 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-28 07:10"
+   "volgende": "2026-11-28 08:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 06:48",
-   "volgende": "2026-11-28 07:18"
+   "laatst": "2026-11-28 07:18",
+   "volgende": "2026-11-28 07:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-28 05:25",
-   "volgende": "2026-11-28 07:25"
+   "laatst": "2026-11-28 07:25",
+   "volgende": "2026-11-28 09:25"
   }
  },
  "kanaal": {
   "naam": "Sleep Archives",
-  "abonnees": 24,
+  "abonnees": 25,
   "views_totaal": 3959,
   "video_aantal": 18,
   "week": {
@@ -2433,7 +2433,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1425,
+    "views": 1429,
     "verwerkt": "processed"
    }
   ],
@@ -2610,14 +2610,14 @@
   "partner": {
    "uren": 849,
    "uren_doel": 4000,
-   "abonnees": 24,
+   "abonnees": 25,
    "abonnees_doel": 1000,
    "eerste_uren": "2026-09-18",
    "valt_eruit_vanaf": "2027-09-18",
    "tempo_uren_per_dag": 14.9,
    "tempo_abonnees_per_dag": 0.39,
    "datum_uren": "2027-06-28",
-   "datum_abonnees": "2033-09-17"
+   "datum_abonnees": "2033-09-14"
   }
  },
  "kpi": {
@@ -2838,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 07:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 06:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 07:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4763,7 +4763,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-28 05:25",
+  "bijgewerkt": "2026-11-28 07:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4924,7 +4924,7 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 07:03",
+  "bijgewerkt": "2026-11-28 07:33",
   "accounts": [
    {
     "account": "hoofd",
@@ -4941,16 +4941,16 @@
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 63242,
+    "stap_kost": 63420,
     "naam": "hoofd",
     "week_reset": ""
    },
    {
     "account": "account2",
     "5uur": 0,
-    "week": 135750099,
+    "week": 135385085,
     "per_dag": {
-     "Sat 21-11": 33717628,
+     "Sat 21-11": 33352614,
      "Sun 22-11": 47155278,
      "Mon 23-11": 39741706,
      "Tue 24-11": 15135487
