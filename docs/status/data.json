@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 03:03",
+ "bijgewerkt": "2026-11-28 03:33",
  "kanalen": {
   "weken": [
    {
@@ -162,20 +162,20 @@
         "tijd": "19:00",
         "titel": "Short: What If (nieuw onderwerp)",
         "stand": "onderwerp kiezen"
-       },
-       {
-        "kanaal": "Market Doodle",
-        "datum": "2026-11-27",
-        "tijd": "21:00",
-        "titel": "I Built A Shark That Can Walk... Big Mistake 🦈",
-        "stand": "online",
-        "youtube": "VozcOnDEOC0"
        }
       ]
      },
      {
       "datum": "2026-11-28",
       "items": [
+       {
+        "kanaal": "Market Doodle",
+        "datum": "2026-11-28",
+        "tijd": "03:09",
+        "titel": "What If You Built A Shark That Can Walk? 🦈 #Shorts",
+        "stand": "online",
+        "youtube": "VQ2RD_kv_ZQ"
+       },
        {
         "kanaal": "BlackswanVault",
         "datum": "2026-11-28",
@@ -2269,7 +2269,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 03:03)"
+   "tekst": "draait nu (2026-11-28 03:33)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2289,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 03:18: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2306,8 +2306,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 03:03",
-   "volgende": "2026-11-28 03:33"
+   "laatst": "2026-11-28 03:33",
+   "volgende": "2026-11-28 04:03"
   },
   "hype": {
    "aan": true,
@@ -2317,17 +2317,17 @@
   "bewaker": {
    "aan": false,
    "laatst": "2026-11-24 13:10",
-   "volgende": "2026-11-28 03:10"
+   "volgende": "2026-11-28 04:10"
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 02:48",
-   "volgende": "2026-11-28 03:18"
+   "laatst": "2026-11-28 03:18",
+   "volgende": "2026-11-28 03:48"
   },
   "titels": {
    "aan": true,
-   "laatst": "2026-11-28 01:25",
-   "volgende": "2026-11-28 03:25"
+   "laatst": "2026-11-28 03:25",
+   "volgende": "2026-11-28 05:25"
   }
  },
  "kanaal": {
@@ -2433,7 +2433,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1401,
+    "views": 1406,
     "verwerkt": "processed"
    }
   ],
@@ -2665,7 +2665,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 602,
+  "geheugen_mb": 803,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2838,8 +2838,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 03:03",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 02:48: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 03:33",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 03:18: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4763,7 +4763,7 @@
   ]
  },
  "titels": {
-  "bijgewerkt": "2026-11-28 01:26",
+  "bijgewerkt": "2026-11-28 03:25",
   "titels": [
    {
     "map": "egypte-toetanchamon",
@@ -4921,15 +4921,15 @@
     "bekeken": "2026-11-28"
    }
   ],
-  "model": "gebruikt"
+  "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 03:03",
+  "bijgewerkt": "2026-11-28 03:33",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1633605,
-    "week": 133670236,
+    "5uur": 1728904,
+    "week": 134721986,
     "per_dag": {
      "Tue 24-11": 29948208,
      "Wed 25-11": 20919861,
@@ -4937,11 +4937,11 @@
      "Fri 27-11": 45725070,
      "Sat 21-11": 3044501,
      "Sun 22-11": 4647735,
-     "Sat 28-11": 260608
+     "Sat 28-11": 1312357
     },
     "script_kost": 0,
     "metingen": 0,
-    "stap_kost": 61726,
+    "stap_kost": 58650,
     "naam": "hoofd",
     "week_reset": ""
    },
