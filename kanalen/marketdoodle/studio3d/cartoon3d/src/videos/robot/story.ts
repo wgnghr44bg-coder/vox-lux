@@ -157,4 +157,4 @@ export const camAt = (f: number): Cam => {
   return c;
 };
 /** scherptediepte per shot (lensblur cInf; groter = waziger achter het onderwerp) */
-export const DOF: Record<number, number> = { 1: 8, 2: 14, 3: 10, 4: 10, 5: 8, 6: 9, 7: 9, 8: 8, 9: 10, 10: 14, 11: 8, 12: 14, 13: 6, 14: 9, 15: 6, 16: 8, 17: 4, 18: 9, 19: 9, 20: 12, 21: 9 };
+export const DOF: Record<number, number> = { 1: 8, 2: 14, 3: 10, 4: 10, 5: 8, 6: 9, 7: 9, 8: 8, 9: 10, 10: 14, 11: 8, 12: 14, 13: 6, 14: 9, 15: 6, 16: 8, 17: 4, 18: 3, 19: 9, 20: 12, 21: 9 };

@@ -334,8 +334,8 @@ export class World {
     [["tree-snow-a", -12, -9, 4.2], ["tree-snow-b", 13, -10, 4.6], ["tree-snow-c", -1.5, -9.5, 3.4], ["tree-snow-a", 3.6, -8.5, 3.0], ["tree-snow-b", -16, 2, 3.8], ["tree-snow-c", 15, 3, 3.6],
       ["tree-snow-a", -9, 12, 4.0], ["tree-snow-b", 9, 14, 4.4]].forEach(([n, x, z, h]) => zet(b, n as string, BX + (x as number), 0, z as number, h as number));
     zet(b, "snowman-hat", BX - 4.6, 0, 1.2, 1.5, 0.5); zet(b, "sled", BX - 3.9, 0, 3.6, 0.35, 0.9); zet(b, "lantern-hanging", BX - 2.4, 0, -2.2, 1.9);
-    for (let i = 0; i < 7; i++) zet(b, "cabin-fence", BX - 9 + i * 1.6, 0, 5.2, 0.8);
-    for (let i = 0; i < 7; i++) zet(b, "cabin-fence", BX + 3 + i * 1.6, 0, 5.2, 0.8);
+    for (let i = 0; i < 7; i++) zet(b, "cabin-fence", BX - 9 + i * 1.6, 0, 8.2, 0.8);
+    for (let i = 0; i < 7; i++) zet(b, "cabin-fence", BX + 3 + i * 1.6, 0, 8.2, 0.8);
     zet(b, "rocks-medium", BX + 2.2, 0, 3.4, 0.4); zet(b, "snow-pile", BX - 2.8, 0, -1.0, 0.35); zet(b, "snow-pile", BX + 1.4, 0, 1.5, 0.4);
     b.build(R, true);
     // sneeuwberg op het huis van de buren (groeit), sneeuwballen in de lucht, vallende vlokken
@@ -458,7 +458,7 @@ export class World {
     const fxAt = (i: number, tex: THREE.Texture, pos: V3, sc: number) => { this.fx[i].set(tex, pos, cam.position); this.fx[i].mesh.scale.set(sc, sc, 1); };
     const knal = (i: number, t0: number, pos: V3, sc: number, kleur = "#fff3b0") => { const u = (t - t0) / 0.5; if (u >= 0 && u < 1) fxAt(i, cardTex(`burst|${kleur}|${Math.round(u * 20)}`, 500, 500, 1.2, (p) => fxBurst(p, Math.round(u * 20) / 20, kleur, 12, 50, 240)), pos, sc); };
     if (s.id === 2) { const u = ((t - T.shiny) / 0.8) % 1; fxAt(0, cardTex(`stars|${Math.round(u * 24)}`, 420, 220, 1.4, (p) => fxStars(p, Math.round(u * 24) / 24)), [rp.pos[0], rp.pos[1] + 1.75, rp.pos[2] + 0.1], 0.75); }
-    if (s.place === "kamer") { knal(0, T.boom + 0.2, [KAMER.tree[0], 1.3, KAMER.tree[2] + 0.5], 2.4); knal(1, T.bank + 0.15, [KAMER.sofa[0], 0.8, KAMER.sofa[2] + 0.4], 2.4); knal(2, T.papa + 0.1, [DAD_K[0], 0.9, DAD_K[2] + 0.3], 2.0); }
+    if (s.place === "kamer") { knal(0, T.boom + 0.2, [KAMER.tree[0], 1.3, KAMER.tree[2] + 0.5], 2.4); knal(1, T.bank + 0.15, [KAMER.sofa[0], 0.8, KAMER.sofa[2] + 0.4], 2.4); knal(2, T.papa + 0.1, [DAD_K[0], 0.55, DAD_K[2] + 0.35], 1.1, "#ffe08a"); }
     if (s.place === "keuken") { const u = (t - T.tien - 0.1) / 1.0; if (u >= 0 && u < 1) fxAt(0, cardTex(`puff|${Math.round(u * 20)}`, 300, 300, 2, (p) => fxPuff(p, Math.round(u * 20) / 20)), [oven[0], 0.5, oven[2] + 0.7], 2.4); }
     if (s.place === "avond") knal(0, T.zelf + 0.85, [rp.pos[0], 1.3, rp.pos[2] + 0.6], 2.2, "#ffe08a");
     return look;
