@@ -301,7 +301,7 @@ def frame(t):
         hx, hy, S_ = GEZ["dad"]
         if n == "keuken" and t_b >= T_RIP + 0.15:
             u = min(1, (t_b - T_RIP - 0.15) / 0.3); x = KOEL[0] + 110 + (hx - KOEL[0] - 110) * u; y = 690 + (hy - 95 * S_ - 690) * u
-            deur_boven(img, x, y, 0.75)
+            deur_boven(img, x, y, 0.75); pot(img, hx + 150 * S_, 1290, t_b)      # de pot staat op de grond (DAD: "these jars")
         else: pot(img, hx + 8 * S_, hy + 118 * S_, t_b)
     if n == "woonkamer":
         if "sis" in GEZ and t_b >= T_LEZEN: gloed(img, GEZ["sis"][0], GEZ["sis"][1], t_b)
