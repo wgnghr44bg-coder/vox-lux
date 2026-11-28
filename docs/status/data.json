@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-28 07:33",
+ "bijgewerkt": "2026-11-28 08:03",
  "kanalen": {
   "weken": [
    {
@@ -339,7 +339,7 @@
   "fouten": []
  },
  "nieuws": {
-  "bijgewerkt": "2026-11-27 20:00",
+  "bijgewerkt": "2026-11-28 08:00",
   "markt": [
    {
     "naam": "S&P 500",
@@ -427,48 +427,24 @@
    },
    {
     "naam": "Bitcoin",
-    "pct": -1.1,
+    "pct": -1.3,
     "groot": false,
     "grens": 10
    },
    {
     "naam": "Olie",
-    "pct": -0.8,
+    "pct": -0.7,
     "groot": false,
     "grens": 7
    },
    {
     "naam": "Goud",
-    "pct": 3.8,
+    "pct": 2.9,
     "groot": false,
     "grens": 4
    }
   ],
   "onderwerpen": [
-   {
-    "onderwerp": "Nvidia",
-    "punten": 5,
-    "bronnen": [
-     "MarketWatch"
-    ],
-    "wat": [
-     "crash",
-     "record"
-    ],
-    "koppen": [
-     {
-      "titel": "These stocks soared the most during a wild week highlighted by Huang’s return to Nvidia",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/these-stocks-soared-the-most-during-a-wild-week-highlighted-by-huangs-return-to-nvidia-578b3f9a?mod=mw_rss_topstories"
-     },
-     {
-      "titel": "Nvidia’s stock has tumbled 28% over one chaotic month. The next big test lies in the week ahead",
-      "bron": "MarketWatch",
-      "link": "https://www.marketwatch.com/story/nvidias-stock-has-tumbled-27-over-one-chaotic-month-the-next-big-test-lies-in-the-week-ahead-06449777?mod=mw_rss_topstories"
-     }
-    ],
-    "groot": false
-   },
    {
     "onderwerp": "Beurs",
     "punten": 4,
@@ -504,10 +480,28 @@
      }
     ],
     "groot": false
+   },
+   {
+    "onderwerp": "Nvidia",
+    "punten": 3,
+    "bronnen": [
+     "MarketWatch"
+    ],
+    "wat": [
+     "record"
+    ],
+    "koppen": [
+     {
+      "titel": "These stocks soared the most during a wild week highlighted by Huang’s return to Nvidia",
+      "bron": "MarketWatch",
+      "link": "https://www.marketwatch.com/story/these-stocks-soared-the-most-during-a-wild-week-highlighted-by-huangs-return-to-nvidia-578b3f9a?mod=mw_rss_topstories"
+     }
+    ],
+    "groot": false
    }
   ],
   "groot": [],
-  "aantal_koppen": 86
+  "aantal_koppen": 60
  },
  "yt_swan": {
   "bijgewerkt": "2026-11-27 15:55",
@@ -2269,7 +2263,7 @@
   {
    "naam": "Taak 'dashboard'",
    "ok": true,
-   "tekst": "draait nu (2026-11-28 07:33)"
+   "tekst": "draait nu (2026-11-28 08:03)"
   },
   {
    "naam": "Git",
@@ -2289,7 +2283,7 @@
   {
    "naam": "Sitecontrole",
    "ok": false,
-   "tekst": "laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen"
+   "tekst": "laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen"
   }
  ],
  "automatisering": false,
@@ -2306,8 +2300,8 @@
   },
   "dashboard": {
    "aan": true,
-   "laatst": "2026-11-28 07:33",
-   "volgende": "2026-11-28 08:03"
+   "laatst": "2026-11-28 08:03",
+   "volgende": "2026-11-28 08:33"
   },
   "hype": {
    "aan": true,
@@ -2321,8 +2315,8 @@
   },
   "sitecontrole": {
    "aan": true,
-   "laatst": "2026-11-28 07:18",
-   "volgende": "2026-11-28 07:48"
+   "laatst": "2026-11-28 07:48",
+   "volgende": "2026-11-28 08:18"
   },
   "titels": {
    "aan": true,
@@ -2433,7 +2427,7 @@
     "duur": "2:03:36",
     "privacy": "public",
     "publiceer": "2026-10-28T00:27:13Z",
-    "views": 1429,
+    "views": 1433,
     "verwerkt": "processed"
    }
   ],
@@ -2665,7 +2659,7 @@
  ],
  "videokaart": {
   "bezig_procent": 25,
-  "geheugen_mb": 819,
+  "geheugen_mb": 823,
   "totaal_mb": 8192
  },
  "programmas": [
@@ -2838,8 +2832,8 @@
  ],
  "fouten": [
   {
-   "tijd": "2026-11-28 07:33",
-   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:18: 1 ding(en) klopt niet, zie meldingen",
+   "tijd": "2026-11-28 08:03",
+   "tekst": "Zelfcontrole: Sitecontrole: laatste ronde 07:48: 1 ding(en) klopt niet, zie meldingen",
    "fout": true
   }
  ],
@@ -4924,11 +4918,11 @@
   "model": "niet nodig"
  },
  "claude": {
-  "bijgewerkt": "2026-11-28 07:33",
+  "bijgewerkt": "2026-11-28 08:04",
   "accounts": [
    {
     "account": "hoofd",
-    "5uur": 1312357,
+    "5uur": 1051750,
     "week": 134721986,
     "per_dag": {
      "Tue 24-11": 29948208,
