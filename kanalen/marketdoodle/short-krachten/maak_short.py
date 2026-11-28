@@ -140,18 +140,38 @@ def plaatskaart(img, t, sc):
 # ---------- poppetjes ----------
 def hoofd(naam, x, y, s, *_):
     S = s * ps.C[naam].get("groot", 1.0); return x, y - 246 * S
-def teken(img, figs, t, nu):                                # figs: (naam, x, y, s, gebaar, kijk, loop)
-    laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag); koppen = {}
+HOEK = {"zwaai": (None, 150), "wijs": (None, 100), "vast": (None, 70), "juich": (-160, 160), "duim": (None, 125), "hoofdhanden": (-172, 172),
+        "wijslinks": (-100, None), "armen-open": (-75, 75), "schrik": (-128, 128), "haar": (None, 165), "denk": (None, -116)}
+LAGEN = {}
+def _handen(naam, x, y, s, geb):
+    """handpunten van een gebaar (voor de figuurwachter: moeten in beeld zijn)"""
+    if geb is None or geb == "rennen": return []
+    if isinstance(geb, tuple): hk = (geb[1], geb[2]); g_ = "hoek"
+    else: hk = HOEK.get(geb, (None, None)); g_ = geb
+    S = s * ps.C[naam].get("groot", 1.0); sch = y - 175 * S; uit = []
+    for kant, h in ((-1, hk[0]), (1, hk[1])):
+        if h is None: continue
+        uit.append((x + kant * 44 * S + math.sin(math.radians(h)) * 82 * S, sch + math.cos(math.radians(h)) * 82 * S, g_))
+    return uit
+def teken(img, figs, t, nu, registreer=True):              # figs: (naam, x, y, s, gebaar, kijk, loop)
+    koppen = {}
     sp = LIJF.get(Z[nu][4]) if nu is not None and Z[nu][4] != "N" else None
     for naam, x, y, s, geb, kijk, loop in figs:
         if sp == naam and nu in ACTIE: geb = ACTIE[nu]
         emo = emotie(t, nu) if (sp is None or naam == sp) else None
+        laag = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); d = ImageDraw.Draw(laag)   # 28 nov: eigen laag per poppetje (figuurwachter)
         hx, hy = ps.poppetje(d, naam, x, y, s, t, loop=loop, kijk=kijk, mond=luid(t, naam), knipper=(t + hash(naam) % 7 * 0.4) % 3.4 < 0.13,
                              verbaasd=emo == "schrik", boos=emo == "verdriet", gebaar=geb if loop is None else "rennen")
+        laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag); LAGEN[naam] = laag
         koppen[naam] = (hx, hy); S = s * ps.C[naam].get("groot", 1)
         GEZ[naam] = (*hoofd(naam, x, y, s), S); GEB[naam] = "rennen" if loop is not None else geb
         WACHT.persoon(naam, y, 306 * S)
-    laag = laag.resize((W, H), Image.LANCZOS); img.paste(laag, (0, 0), laag); return koppen
+        kx, ky = hoofd(naam, x, y, s); lijf = (x - 48 * S, y - 197 * S, x + 48 * S, y - 92 * S)
+        FW_INFO[naam] = ((kx, ky, 60 * S), lijf, _handen(naam, x, y, s, GEB[naam]))
+        if registreer: FW.figuur(naam, laag, *FW_INFO[naam])
+    return koppen
+from figuurwachter import Figuurwachter
+FW = Figuurwachter(); FW_INFO = {}
 
 # ---------- tijden ----------
 def zi(tekst): return next(i for i, z in enumerate(Z) if z[2].startswith(tekst))
@@ -237,8 +257,17 @@ def keuken_actie(img, t, n):
     if n == "keuken" and t >= T_RIP + 0.05:                # deur los: eerst uit de koelkast getrokken, dan boven het hoofd
         u = min(1, (t - T_RIP - 0.05) / 0.2); v = min(1, max(0, (t - T_RIP - 0.25) / 0.35))
         kx0 = (KOEL[0] + KOEL[2]) / 2 - 70 * u; ky0 = (KOEL[1] + KOEL[3]) / 2
-        bx, by = x, hand("dad", x, y, s, -160, -1)[1] - (KOEL[2] - KOEL[0]) / 2 + 6
-        deur(img, kx0 + (bx - kx0) * v, ky0 + (by - ky0) * v, 90 * v + 8 * u * (1 - v)); STAAT.add("deur-los")
+        # 28 nov (figuurwachter: deur lag over papa's hoofd): deur BOVEN het hoofd (onderkant net boven de kruin), eerst omhoog
+        # en dan pas opzij (zo schuift hij niet over zijn gezicht), en papa's armen reiken tot aan de deur
+        onder = y - 318 * S; bx, by = x, onder - (KOEL[2] - KOEL[0]) / 2
+        v1, v2 = min(1, 2 * v), max(0, 2 * v - 1)
+        dx_, dy_ = kx0 + (bx - kx0) * v2, ky0 + (by - ky0) * v1
+        if v >= 0.5:
+            for kant in (-1, 1):                           # lange armen van schouder tot de onderkant van de deur
+                sx, sy = x + kant * 44 * S, y - 175 * S; ex, ey = dx_ + kant * 95 * S, onder + 4
+                d.line((sx, sy, ex, ey), fill=INK, width=int(28 * S)); d.line((sx, sy, ex, ey), fill=(90, 180, 110), width=int(22 * S))
+                d.ellipse((ex - 13 * S, ey - 13 * S, ex + 13 * S, ey + 13 * S), fill=INK); d.ellipse((ex - 10 * S, ey - 10 * S, ex + 10 * S, ey + 10 * S), fill=ps.HUID)
+        deur(img, dx_, dy_, 90 * v + 8 * u * (1 - v)); STAAT.add("deur-los")
         if v >= 1: STAAT.add("deur-boven")
         if u < 1:                                          # krak
             for k_ in range(7):
@@ -325,7 +354,7 @@ EINDTEKSTEN = set()
 def frame(t):
     t_b = min(t, Z[-1][1] + 0.4)
     sc = scene(t_b); n = sc["naam"]; nu = nu_i(t_b); bgn = sc["bg"]
-    img = bg(bgn).copy(); WACHT.begin("v-" + bgn, t_b); GEZ.clear(); GEB.clear(); SCHERM.clear(); STAAT.clear()
+    img = bg(bgn).copy(); WACHT.begin("v-" + bgn, t_b); GEZ.clear(); GEB.clear(); SCHERM.clear(); STAAT.clear(); FW.begin(t); FW_INFO.clear()
     koppen = {}
     if n in ("keuken", "slot"):
         koelkast(img, t_b, n)
@@ -338,15 +367,15 @@ def frame(t):
             # 28 nov (eigenaar: "achter de tafel poppetje is helemaal weg"): niet meer een stuk achtergrond over je heen plakken
             # (dat wiste je lijf uit), maar alleen je onderlijf wegknippen achter het tafelblad: je zit aan tafel, bovenlijf zichtbaar
             laag = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-            koppen.update(teken(laag, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu))
+            koppen.update(teken(laag, [("you", jj[0], jj[1], schaal("eetkamer", "you", 1105), None, 0.6, jj[2])], t_b, nu, registreer=False))
             a_ = laag.getchannel("A"); ImageDraw.Draw(a_).rectangle((0, TAFEL_Y + 18, TAFEL[2], H), fill=0); laag.putalpha(a_)
-            img.paste(laag, (0, 0), laag)
+            img.paste(laag, (0, 0), laag); FW.figuur("you", laag, *FW_INFO["you"])          # de geknipte laag is wat zichtbaar hoort te zijn
             if t_b >= T_SIT + 0.15: STAAT.add("zitten")
         eten(img, t_b)
         mx = mama_x(t_b); ms = schaal("eetkamer", "mom", 1230)
         if T_SPEED <= t_b < T_DINER + 0.3:                 # wazige kopieën van mama (supersnelheid)
             for k_, a_ in ((3, 0.2), (2, 0.35), (1, 0.55)):
-                laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); teken(laag, [("mom", mama_x(t_b - 0.03 * k_), 1230, ms, None, 0.0, None)], t_b, nu)
+                laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); teken(laag, [("mom", mama_x(t_b - 0.03 * k_), 1230, ms, None, 0.0, None)], t_b, nu, registreer=False)
                 laag.putalpha(laag.getchannel("A").point(lambda v, a_=a_: int(v * a_))); img.paste(laag, (0, 0), laag)
             STAAT.add("zoef")
         koppen.update(teken(img, [("mom", mx, 1230, ms, None, -0.6, None)], t_b, nu))
@@ -356,12 +385,14 @@ def frame(t):
         koppen.update(teken(img, [("sis", 300, 1560, schaal("woonkamer", "sis", 1560, 1.0), geb_s, kijk_s, None)], t_b, nu))
         you = ("you", 780, 1560, schaal("woonkamer", "you", 1560), None, -0.5, None)
         if onzichtbaar(t_b):
-            laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); kk = teken(laag, [you], t_b, nu)
+            laag = Image.new("RGBA", (W, H), (0, 0, 0, 0)); kk = teken(laag, [you], t_b, nu, registreer=False)
+            FW.figuur("you", laag, *FW_INFO["you"][:2], handen=FW_INFO["you"][2], verborgen=True)   # bewust doorzichtig; hand wel in beeld
             laag.putalpha(laag.getchannel("A").point(lambda v: int(v * 0.28))); img.paste(laag, (0, 0), laag); koppen.update(kk); STAAT.add("doorzichtig")
         else: koppen.update(teken(img, [you], t_b, nu))
         if "sis" in GEZ and T_LEZEN <= t_b < T_ONZ: gloed(img, GEZ["sis"][0], GEZ["sis"][1], t_b)
         if "you" in GEZ and T_JOUW <= t_b < T_ONZ: gedachte(img, GEZ["you"][0] + 40, GEZ["you"][1] - 330 * GEZ["you"][2], t_b)
-    img = camera(img, t)
+    voor_camera = img
+    img = camera(img, t); FW.einde(voor_camera, CROP[0])
     LABELS.clear(); cx0, cy0, cx1, cy1 = CROP[0]; zm_ = W / (cx1 - cx0)
     GEZICHTEN[:] = [(k_, ((v[0] - cx0) * zm_, (v[1] + 60 * v[2] - cy0) * zm_, 66 * v[2] * zm_)) for k_, v in GEZ.items()]
     if TEKST_AAN:
@@ -419,6 +450,7 @@ if __name__ == "__main__":
         for i in range(int(EIND * 6)): frame(i / 6)
         print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
         print("MOMENTWACHTER:", MW.schrijf(HIER / "MOMENTWACHTER.md"), "fouten (zie MOMENTWACHTER.md)")
+        print("FIGUURWACHTER:", FW.schrijf(HIER / "FIGUURWACHTER.md"), "fouten (zie FIGUURWACHTER.md)")
         print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten"); print("LAYOUT:", sorted(LAYOUT) or "alles past"); sys.exit()
     if "--plaat" in sys.argv:
         ims = [frame(min(EIND - 0.3, z[0] + 0.7 * (z[1] - z[0]))).resize((270, 480)) for z in Z]
@@ -439,6 +471,7 @@ if __name__ == "__main__":
     print("SCENEWACHTER:", WACHT.schrijf(HIER / "SCENEWACHTER.md"), "fouten (zie SCENEWACHTER.md)")
     print("TEKSTWACHTER:", TW.schrijf(HIER / "TEKSTWACHTER.md"), "fouten (zie TEKSTWACHTER.md)")
     print("MOMENTWACHTER:", MW.schrijf(HIER / "MOMENTWACHTER.md"), "fouten (zie MOMENTWACHTER.md)")
+    print("FIGUURWACHTER:", FW.schrijf(HIER / "FIGUURWACHTER.md"), "fouten (zie FIGUURWACHTER.md)")
     blad(HIER / "short-krachten.mp4", Z, HIER / "TEKSTCONTROLE.jpg"); print("TEKSTCONTROLE.jpg: per zin begin/midden/eind (zelf nakijken)")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(HIER / "short-krachten.mp4"), "-vf", "scale=720:1280", "-c:v", "libx264", "-b:v", "1100k",
                     "-c:a", "aac", "-b:a", "128k", str(HIER / "short-krachten-720.mp4")])

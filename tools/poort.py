@@ -2,6 +2,7 @@
 Een Market Doodle-short mag pas naar de eigenaar of online als ALLE wachters in de map op 0 staan en er niets ontbreekt:
   TEKSTWACHTER.md   genoemd = gezien, spreker, gevoel, DOEN
   MOMENTWACHTER.md  wat gezegd wordt gebeurt OP DAT MOMENT in beeld (opens, rips, sits down, nobody notices ...)
+  FIGUURWACHTER.md  poppetjes heel en zichtbaar (geen lijf weg achter een tafel), gebaren/handen binnen beeld
   SCENEWACHTER.md   ondergrond / maat
   TEMPOWACHTER.md   stemtempo per zin
   render.log        SHORTREGELS: alles goed, GELUIDCHECK: elk geluid hoort bij iets in beeld, LAYOUT: alles past
@@ -14,7 +15,7 @@ from pathlib import Path
 
 def poort(map_, video=None):
     m = Path(map_); fout = []
-    for naam in ("TEKSTWACHTER.md", "MOMENTWACHTER.md", "SCENEWACHTER.md", "TEMPOWACHTER.md"):
+    for naam in ("TEKSTWACHTER.md", "MOMENTWACHTER.md", "FIGUURWACHTER.md", "SCENEWACHTER.md", "TEMPOWACHTER.md"):
         p = m / naam
         if not p.exists(): fout.append(f"{naam} ontbreekt (wachter niet gedraaid)"); continue
         r = re.search(r"\*\*(\d+) fout", p.read_text(encoding="utf-8"))
